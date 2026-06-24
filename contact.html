@@ -23,9 +23,14 @@
     .form-input:focus, .form-textarea:focus, .form-select:focus { outline:none; border-color:var(--blue); }
     .form-textarea { resize:vertical; min-height:140px; line-height:1.6; }
     .form-hint { font-size:.8rem; color:var(--muted); margin-top:6px; }
-    .form-submit { display:inline-block; padding:13px 36px; background:var(--blue); color:#fff; border:none; border-radius:4px; font-size:.95rem; font-weight:700; cursor:pointer; transition:opacity .15s; }
+    .form-submit { display:inline-flex; align-items:center; gap:8px; padding:13px 36px; background:var(--blue); color:#fff; border:none; border-radius:4px; font-size:.95rem; font-weight:700; cursor:pointer; transition:opacity .15s; }
     .form-submit:hover { opacity:.85; }
-    .form-note { margin-top:16px; font-size:.82rem; color:var(--muted); line-height:1.6; }
+    .form-submit:disabled { opacity:.5; cursor:not-allowed; }
+    .spinner { width:16px; height:16px; border:2px solid rgba(255,255,255,.4); border-top-color:#fff; border-radius:50%; animation:spin .7s linear infinite; display:none; }
+    @keyframes spin { to { transform:rotate(360deg); } }
+    .alert { padding:20px 24px; border-radius:6px; margin-bottom:24px; font-size:.95rem; line-height:1.6; display:none; }
+    .alert-success { background:#e8f5e9; border-left:3px solid #4caf50; color:#2e7d32; }
+    .alert-error { background:#fdecea; border-left:3px solid #e53935; color:#c62828; }
   </style>
 </head>
 <body>
@@ -54,7 +59,6 @@
     Une question, une erreur à signaler, un sujet que vous aimeriez voir traité — nous lisons tout.
   </p>
 
-  <!-- Onglets -->
   <div class="contact-tabs">
     <button class="contact-tab active" onclick="switchTab('general', this)">Message général</button>
     <button class="contact-tab" onclick="switchTab('erreur', this)">Signaler une erreur</button>
@@ -63,17 +67,27 @@
 
   <!-- Onglet 1 : Message général -->
   <div id="panel-general" class="contact-panel active">
-    <form onsubmit="sendMail('general', event)">
+    <div id="alert-general" class="alert"></div>
+    <form id="form-general" onsubmit="submitForm('general', event)">
+      <input type="hidden" name="access_key" value="d6261129-264c-4d22-a287-b0117a195d22">
+      <input type="hidden" name="subject" value="Message via Factuel">
+      <input type="hidden" name="from_name" value="Factuel Contact">
       <div class="form-group">
         <label class="form-label" for="g-nom">Votre prénom ou pseudo <span style="color:var(--muted);font-weight:400">(optionnel)</span></label>
-        <input class="form-input" type="text" id="g-nom" placeholder="Ex : Marie">
+        <input class="form-input" type="text" id="g-nom" name="name" placeholder="Ex : Marie">
+      </div>
+      <div class="form-group">
+        <label class="form-label" for="g-email">Votre adresse e-mail <span style="color:var(--muted);font-weight:400">(pour recevoir une réponse)</span></label>
+        <input class="form-input" type="email" id="g-email" name="email" placeholder="votre@email.com">
       </div>
       <div class="form-group">
         <label class="form-label" for="g-msg">Votre message *</label>
-        <textarea class="form-textarea" id="g-msg" required placeholder="Écrivez votre message ici…"></textarea>
+        <textarea class="form-textarea" id="g-msg" name="message" required placeholder="Écrivez votre message ici…"></textarea>
       </div>
-      <button class="form-submit" type="submit">Envoyer le message</button>
-      <p class="form-note">Ce formulaire ouvre votre application e-mail avec le message pré-rempli.<br>Vous pouvez relire avant d'envoyer.</p>
+      <button class="form-submit" type="submit" id="btn-general">
+        <span>Envoyer</span>
+        <div class="spinner" id="spin-general"></div>
+      </button>
     </form>
   </div>
 
@@ -82,22 +96,32 @@
     <p style="color:var(--muted);font-size:.9rem;line-height:1.7;margin-bottom:28px">
       Vous avez repéré une erreur factuelle ? Précisez l'article, le passage concerné et la source que vous proposez. Nous répondons sous 48h.
     </p>
-    <form onsubmit="sendMail('erreur', event)">
+    <div id="alert-erreur" class="alert"></div>
+    <form id="form-erreur" onsubmit="submitForm('erreur', event)">
+      <input type="hidden" name="access_key" value="d6261129-264c-4d22-a287-b0117a195d22">
+      <input type="hidden" name="subject" value="Signalement erreur — Factuel">
+      <input type="hidden" name="from_name" value="Factuel Signalement">
+      <div class="form-group">
+        <label class="form-label" for="e-email">Votre adresse e-mail <span style="color:var(--muted);font-weight:400">(pour recevoir une réponse)</span></label>
+        <input class="form-input" type="email" id="e-email" name="email" placeholder="votre@email.com">
+      </div>
       <div class="form-group">
         <label class="form-label" for="e-article">Titre ou URL de l'article *</label>
-        <input class="form-input" type="text" id="e-article" required placeholder="Ex : Canicule et pollution de l'air en France">
+        <input class="form-input" type="text" id="e-article" name="article" required placeholder="Ex : Canicule et pollution de l'air en France">
       </div>
       <div class="form-group">
         <label class="form-label" for="e-passage">Le passage que vous estimez inexact *</label>
-        <textarea class="form-textarea" id="e-passage" required placeholder="Copiez ici le passage concerné…" style="min-height:100px"></textarea>
+        <textarea class="form-textarea" id="e-passage" name="message" required placeholder="Copiez ici le passage concerné…" style="min-height:100px"></textarea>
       </div>
       <div class="form-group">
         <label class="form-label" for="e-source">Source que vous proposez <span style="color:var(--muted);font-weight:400">(optionnel)</span></label>
-        <input class="form-input" type="text" id="e-source" placeholder="Ex : https://www.insee.fr/...">
-        <p class="form-hint">Un lien ou une référence vérifiable aide à traiter votre signalement plus rapidement.</p>
+        <input class="form-input" type="text" id="e-source" name="source" placeholder="Ex : https://www.insee.fr/...">
+        <p class="form-hint">Un lien vérifiable accélère le traitement de votre signalement.</p>
       </div>
-      <button class="form-submit" type="submit">Signaler l'erreur</button>
-      <p class="form-note">Ce formulaire ouvre votre application e-mail avec le signalement pré-rempli.<br>Les corrections confirmées sont publiées sur la <a href="corrections.html" style="color:var(--blue)">page des corrections</a>.</p>
+      <button class="form-submit" type="submit" id="btn-erreur">
+        <span>Signaler l'erreur</span>
+        <div class="spinner" id="spin-erreur"></div>
+      </button>
     </form>
   </div>
 
@@ -106,14 +130,22 @@
     <p style="color:var(--muted);font-size:.9rem;line-height:1.7;margin-bottom:28px">
       Un sujet vous semble important et peu couvert ? Partagez-le avec nous. Nous ne pouvons pas garantir de publication, mais nous lisons toutes les suggestions.
     </p>
-    <form onsubmit="sendMail('sujet', event)">
+    <div id="alert-sujet" class="alert"></div>
+    <form id="form-sujet" onsubmit="submitForm('sujet', event)">
+      <input type="hidden" name="access_key" value="d6261129-264c-4d22-a287-b0117a195d22">
+      <input type="hidden" name="subject" value="Proposition de sujet — Factuel">
+      <input type="hidden" name="from_name" value="Factuel Suggestion">
+      <div class="form-group">
+        <label class="form-label" for="s-email">Votre adresse e-mail <span style="color:var(--muted);font-weight:400">(optionnel)</span></label>
+        <input class="form-input" type="email" id="s-email" name="email" placeholder="votre@email.com">
+      </div>
       <div class="form-group">
         <label class="form-label" for="s-titre">Le sujet en une phrase *</label>
-        <input class="form-input" type="text" id="s-titre" required placeholder="Ex : Impact des microplastiques dans les eaux françaises">
+        <input class="form-input" type="text" id="s-titre" name="name" required placeholder="Ex : Impact des microplastiques dans les eaux françaises">
       </div>
       <div class="form-group">
         <label class="form-label" for="s-cat">Rubrique</label>
-        <select class="form-select" id="s-cat">
+        <select class="form-select" id="s-cat" name="categorie">
           <option value="">— Choisir —</option>
           <option>Société</option>
           <option>Science</option>
@@ -123,11 +155,13 @@
         </select>
       </div>
       <div class="form-group">
-        <label class="form-label" for="s-detail">Pourquoi ce sujet vous semble important ? <span style="color:var(--muted);font-weight:400">(optionnel)</span></label>
-        <textarea class="form-textarea" id="s-detail" placeholder="Contexte, sources que vous connaissez, angle suggéré…" style="min-height:100px"></textarea>
+        <label class="form-label" for="s-detail">Contexte ou sources connues <span style="color:var(--muted);font-weight:400">(optionnel)</span></label>
+        <textarea class="form-textarea" id="s-detail" name="message" placeholder="Contexte, sources que vous connaissez, angle suggéré…" style="min-height:100px"></textarea>
       </div>
-      <button class="form-submit" type="submit">Proposer le sujet</button>
-      <p class="form-note">Ce formulaire ouvre votre application e-mail avec votre proposition pré-remplie.</p>
+      <button class="form-submit" type="submit" id="btn-sujet">
+        <span>Proposer le sujet</span>
+        <div class="spinner" id="spin-sujet"></div>
+      </button>
     </form>
   </div>
 
@@ -162,6 +196,8 @@
 </footer>
 
 <script>
+const ACCESS_KEY = 'd6261129-264c-4d22-a287-b0117a195d22';
+
 function switchTab(id, btn) {
   document.querySelectorAll('.contact-panel').forEach(p => p.classList.remove('active'));
   document.querySelectorAll('.contact-tab').forEach(b => b.classList.remove('active'));
@@ -169,38 +205,55 @@ function switchTab(id, btn) {
   btn.classList.add('active');
 }
 
-// Ouvre l'onglet erreur si on arrive avec #erreur dans l'URL
 if (window.location.hash === '#erreur') {
   document.querySelectorAll('.contact-tab')[1].click();
+} else if (window.location.hash === '#sujet') {
+  document.querySelectorAll('.contact-tab')[2].click();
 }
 
-function sendMail(type, e) {
+function showAlert(id, type, msg) {
+  const el = document.getElementById('alert-' + id);
+  el.className = 'alert alert-' + type;
+  el.textContent = msg;
+  el.style.display = 'block';
+  el.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+}
+
+async function submitForm(id, e) {
   e.preventDefault();
-  const mail = 'Factuelinfo.contact@gmail.com';
-  let subject, body;
+  const form = document.getElementById('form-' + id);
+  const btn = document.getElementById('btn-' + id);
+  const spin = document.getElementById('spin-' + id);
 
-  if (type === 'general') {
-    const nom = document.getElementById('g-nom').value.trim();
-    const msg = document.getElementById('g-msg').value.trim();
-    subject = 'Message Factuel' + (nom ? ' — ' + nom : '');
-    body = msg;
+  btn.disabled = true;
+  spin.style.display = 'block';
+  document.getElementById('alert-' + id).style.display = 'none';
 
-  } else if (type === 'erreur') {
-    const art = document.getElementById('e-article').value.trim();
-    const passage = document.getElementById('e-passage').value.trim();
-    const source = document.getElementById('e-source').value.trim();
-    subject = 'Signalement erreur — ' + art;
-    body = 'Article concerné : ' + art + '\n\nPassage inexact :\n' + passage + (source ? '\n\nSource proposée :\n' + source : '');
+  const data = new FormData(form);
+  // Ajoute la clé d'accès (déjà dans le hidden input, mais on s'assure)
+  data.set('access_key', ACCESS_KEY);
+  // Désactive le honeypot check
+  data.set('botcheck', '');
 
-  } else if (type === 'sujet') {
-    const titre = document.getElementById('s-titre').value.trim();
-    const cat = document.getElementById('s-cat').value;
-    const detail = document.getElementById('s-detail').value.trim();
-    subject = 'Proposition de sujet — ' + titre;
-    body = 'Sujet : ' + titre + (cat ? '\nRubrique : ' + cat : '') + (detail ? '\n\n' + detail : '');
+  try {
+    const res = await fetch('https://api.web3forms.com/submit', {
+      method: 'POST',
+      body: data
+    });
+    const json = await res.json();
+
+    if (json.success) {
+      showAlert(id, 'success', '✓ Message envoyé. Nous vous répondons sous 48h.');
+      form.reset();
+    } else {
+      showAlert(id, 'error', 'Une erreur est survenue. Réessayez ou écrivez directement à Factuelinfo.contact@gmail.com');
+    }
+  } catch {
+    showAlert(id, 'error', 'Impossible d\'envoyer le message. Vérifiez votre connexion et réessayez.');
+  } finally {
+    btn.disabled = false;
+    spin.style.display = 'none';
   }
-
-  window.location.href = 'mailto:' + mail + '?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
 }
 </script>
 </body>
