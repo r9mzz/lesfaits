@@ -802,7 +802,8 @@ def build_search_json(articles: list):
     """Génère data/search.json pour la recherche côté client."""
     results = [
         {"slug": a["slug"], "titre": a["titre"], "categorie": a.get("categorie",""),
-         "date": a.get("date",""), "excerpt": (" ".join(a["resume"]) if isinstance(a.get("resume"), list) else a.get("resume",""))[:180]}
+         "date": a.get("date",""), "excerpt": (" ".join(a["resume"]) if isinstance(a.get("resume"), list) else a.get("resume",""))[:180],
+         "image_keyword": a.get("image_keyword", "")}
         for a in articles
     ]
     (DATA / "search.json").write_text(json.dumps(results, ensure_ascii=False), encoding="utf-8")

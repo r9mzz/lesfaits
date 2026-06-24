@@ -210,7 +210,14 @@ function renderResults(q) {
   const loading = document.getElementById('search-loading');
   if (loading) loading.remove();
 
-  if (q) renderResults(q);
+  if (q) {
+    if (articles.length === 0) {
+      document.getElementById('search-results').innerHTML =
+        '<div class="search-empty"><p style="font-size:1.1rem;font-weight:600;margin-bottom:8px">Résultats indisponibles</p><p>Le fichier de recherche ne s'est pas chargé. Réessayez dans quelques secondes.</p></div>';
+    } else {
+      renderResults(q);
+    }
+  }
   else document.getElementById('search-results').innerHTML = '';
 
   input.addEventListener('input', () => renderResults(input.value.trim()));
