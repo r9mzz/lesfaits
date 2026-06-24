@@ -20,6 +20,9 @@
       <div class="brand__divider"></div>
       <span class="brand__slogan">Juste les faits. Aucun parti pris.</span>
     </a>
+    <div class="header__search">
+      <input type="search" class="header__search-input" placeholder="Rechercher…" autocomplete="off" onkeydown="if(event.key==='Enter'&&this.value.trim())window.location='recherche.html?q='+encodeURIComponent(this.value.trim())"/>
+    </div>
     <nav>
       <a href="categories/societe.html">Société</a>
       <a href="categories/science.html">Science</a>

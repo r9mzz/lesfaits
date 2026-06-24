@@ -524,6 +524,9 @@ def build_article_html(art: dict, date_pub: str) -> str:
     <a href="index.html" class="brand">
       <div class="brand__logotype"><span class="fact">fact</span><span class="uel">uel</span></div>
     </a>
+<div class="header__search">
+      <input type="search" class="header__search-input" placeholder="Rechercher…" autocomplete="off" onkeydown="if(event.key==='Enter'&&this.value.trim())window.location='recherche.html?q='+encodeURIComponent(this.value.trim())"/>
+    </div>
     <nav>
       <a href="categories/societe.html">Société</a>
       <a href="categories/science.html">Science</a>
@@ -656,6 +659,7 @@ def rebuild_index():
     index_path.write_text(html, encoding="utf-8")
     print(f"  ✓ index.html reconstruit ({len(articles)} articles)")
     build_category_pages()
+    build_search_json(articles)
 
 
 def build_index_html(main, side_html, grid_html, list_html):
@@ -677,6 +681,9 @@ def build_index_html(main, side_html, grid_html, list_html):
     <a href="index.html" class="brand">
       <div class="brand__logotype"><span class="fact">fact</span><span class="uel">uel</span></div>
     </a>
+<div class="header__search">
+      <input type="search" class="header__search-input" placeholder="Rechercher…" autocomplete="off" onkeydown="if(event.key==='Enter'&&this.value.trim())window.location='recherche.html?q='+encodeURIComponent(this.value.trim())"/>
+    </div>
     <nav>
       <a href="categories/societe.html">Société</a>
       <a href="categories/science.html">Science</a>
@@ -787,6 +794,17 @@ CAT_LABELS = {
     "societe":       "Société",
 }
 
+def build_search_json(articles: list):
+    """Génère data/search.json pour la recherche côté client."""
+    results = [
+        {"slug": a["slug"], "titre": a["titre"], "categorie": a.get("categorie",""),
+         "date": a.get("date",""), "excerpt": (" ".join(a["resume"]) if isinstance(a.get("resume"), list) else a.get("resume",""))[:180]}
+        for a in articles
+    ]
+    (DATA / "search.json").write_text(json.dumps(results, ensure_ascii=False), encoding="utf-8")
+    print(f"  ✓ search.json mis à jour ({len(results)} articles)")
+
+
 def build_category_pages():
     """Génère categories/[cat].html pour chaque catégorie."""
     articles = load_index()
@@ -853,6 +871,9 @@ def build_category_pages():
     <a href="index.html" class="brand">
       <div class="brand__logotype"><span class="fact">fact</span><span class="uel">uel</span></div>
     </a>
+<div class="header__search">
+      <input type="search" class="header__search-input" placeholder="Rechercher…" autocomplete="off" onkeydown="if(event.key==='Enter'&&this.value.trim())window.location='recherche.html?q='+encodeURIComponent(this.value.trim())"/>
+    </div>
     <nav>
       <a href="categories/societe.html">Société</a>
       <a href="categories/science.html">Science</a>

@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="fr">
 <head>
   <meta charset="UTF-8"/>
@@ -15,6 +15,9 @@
     <a href="index.html" class="brand">
       <div class="brand__logotype"><span class="fact">fact</span><span class="uel">uel</span></div>
     </a>
+    <div class="header__search">
+      <input type="search" class="header__search-input" placeholder="Rechercher…" autocomplete="off" onkeydown="if(event.key==='Enter'&&this.value.trim())window.location='recherche.html?q='+encodeURIComponent(this.value.trim())"/>
+    </div>
     <nav>
       <a href="categories/societe.html">Société</a>
       <a href="categories/science.html">Science</a>
@@ -30,7 +33,7 @@
   <div style="margin-bottom:32px;border-bottom:1px solid var(--rule);padding-bottom:24px">
     <span style="font-size:.8rem;font-weight:700;letter-spacing:.1em;color:var(--muted);text-transform:uppercase">Rubrique</span>
     <h1 style="font-size:2.4rem;font-weight:700;margin:8px 0 4px">Environnement</h1>
-    <p style="color:var(--muted);font-size:.9rem">6 articles</p>
+    <p style="color:var(--muted);font-size:.9rem">7 articles</p>
   </div>
   <nav style="display:flex;gap:24px;margin-bottom:48px;flex-wrap:wrap;font-size:.9rem">
     <a href="categories/science.html" style="">Science</a>
@@ -98,6 +101,16 @@
           <div class="meta" style="margin-top:10px">
             <span class="meta__src">4 sources</span>
             <span class="meta__sep">·</span><span>24 juin 2026, 17h03</span>
+          </div>
+        </div>
+
+        <div class="card3" onclick="window.location='articles/emissions-co2-france-recul-2023.html'"
+             style="cursor:pointer">
+          <span class="cat">ENVIRONNEMENT</span>
+          <h3 class="title-sm">Les émissions de CO₂ en France ont reculé de 5,8 % en 2023 selon les données officielles du CITEPA</h3>
+          <div class="meta" style="margin-top:10px">
+            <span class="meta__src">4 sources</span>
+            <span class="meta__sep">·</span><span>24 juin 2026, 07h00</span>
           </div>
         </div>
   </div>

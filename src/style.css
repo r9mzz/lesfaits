@@ -43,6 +43,12 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 .brand__divider { width: 1px; height: 28px; background: var(--rule); margin: 0 10px; }
 .brand__slogan { font-size: 10.5px; color: var(--muted); font-style: italic; font-weight: 400; }
 
+.header__search { flex: 0 1 220px; position: relative; }
+.header__search-input { width: 100%; padding: 6px 12px 6px 32px; font-size: 12px; border: 1px solid var(--rule); border-radius: 20px; background: var(--light); color: var(--ink); font-family: inherit; transition: border-color .15s, background .15s; }
+.header__search-input:focus { outline: none; border-color: var(--blue); background: var(--white); }
+.header__search::before { content: ''; position: absolute; left: 11px; top: 50%; transform: translateY(-50%); width: 12px; height: 12px; border: 1.5px solid var(--muted); border-radius: 50%; pointer-events: none; }
+.header__search::after { content: ''; position: absolute; left: 21px; top: 50%; transform: translateY(2px) rotate(45deg); width: 5px; height: 1.5px; background: var(--muted); pointer-events: none; }
+
 nav { display: flex; align-items: center; gap: 22px; }
 nav a { font-size: 12px; font-weight: 500; color: var(--ink); opacity: .6; transition: opacity .15s, border-color .15s; white-space: nowrap; padding-bottom: 2px; border-bottom: 2px solid transparent; }
 nav a:hover { opacity: 1; color: var(--blue); }
@@ -164,6 +170,7 @@ nav a.active { opacity: 1; color: var(--blue); border-bottom-color: var(--blue);
 
 /* Corps article */
 .art__h2 { font-family: Georgia,serif; font-size: 18px; font-weight: 700; margin: 36px 0 14px; padding-bottom: 10px; border-bottom: 1px solid var(--rule); }
+.art__resume { font-family: Georgia,serif; font-size: 16px; line-height: 1.9; color: #3a3a38; margin-bottom: 32px; }
 .art p, .art__body p { font-family: Georgia,serif; font-size: 15px; line-height: 1.85; color: #3a3a38; margin-bottom: 16px; }
 
 /* Liste de faits numérotés */

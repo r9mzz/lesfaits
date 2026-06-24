@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="Factuel — Recherche"/>
+  <title>Recherche — Factuel</title>
+  <base href="/factuel/"/>
+  <link rel="stylesheet" href="src/style.css"/>
+  <style>
+    .search-result { border-bottom:1px solid var(--rule); padding:24px 0; cursor:pointer; }
+    .search-result:hover .search-result__titre { color:var(--blue); }
+    .search-result__cat { font-size:9px; font-weight:700; letter-spacing:2px; color:var(--blue); text-transform:uppercase; }
+    .search-result__titre { font-size:1.15rem; font-weight:700; margin:6px 0 8px; line-height:1.3; }
+    .search-result__excerpt { font-size:.9rem; color:var(--muted); line-height:1.65; }
+    .search-result__meta { font-size:.8rem; color:var(--muted); margin-top:8px; }
+    .search-empty { text-align:center; padding:80px 24px; color:var(--muted); }
+    .search-header-bar { position:relative; margin-bottom:40px; }
+    .search-header-bar input { width:100%; padding:14px 20px; font-size:1rem; border:2px solid var(--blue); border-radius:6px; background:var(--white); font-family:inherit; color:var(--ink); }
+    .search-header-bar input:focus { outline:none; }
+    .search-count { font-size:.85rem; color:var(--muted); margin-bottom:24px; }
+  </style>
+</head>
+<body>
+<div id="read-progress"></div>
+<header class="header">
+  <div class="header__inner">
+    <a href="index.html" class="brand">
+      <div class="brand__logotype"><span class="fact">fact</span><span class="uel">uel</span></div>
+    </a>
+    <div class="header__search">
+      <input type="search" class="header__search-input" placeholder="Rechercher…" id="header-search-input" onkeydown="if(event.key==='Enter'&&this.value.trim())window.location='recherche.html?q='+encodeURIComponent(this.value.trim())" autocomplete="off"/>
+    </div>
+    <nav>
+      <a href="categories/societe.html">Société</a>
+      <a href="categories/science.html">Science</a>
+      <a href="categories/economie.html">Économie</a>
+      <a href="categories/tech.html">Tech</a>
+      <a href="categories/environnement.html">Environnement</a>
+      <a href="methode.html" class="nav-cta">Comment on travaille →</a>
+    </nav>
+  </div>
+</header>
+
+<main style="max-width:780px;margin:60px auto;padding:0 24px">
+  <h1 style="font-size:1.6rem;font-weight:700;margin-bottom:24px">Résultats de recherche</h1>
+
+  <div class="search-header-bar">
+    <input type="search" id="search-input" placeholder="Rechercher dans Factuel…" autocomplete="off"/>
+  </div>
+
+  <div class="search-count" id="search-count"></div>
+  <div id="search-results"></div>
+</main>
+
+<footer class="footer">
+  <div class="footer__inner">
+    <div class="footer__brand">
+      <div class="brand__logotype"><span class="fact">fact</span><span class="uel">uel</span></div>
+      <p>Journal numérique français rédigé par IA. Sans publicité. Sans actionnaires.</p>
+    </div>
+    <div class="footer__col"><h4>RUBRIQUES</h4>
+      <a href="categories/societe.html">Société</a>
+      <a href="categories/science.html">Science</a>
+      <a href="categories/economie.html">Économie</a>
+      <a href="categories/tech.html">Tech</a>
+      <a href="categories/environnement.html">Environnement</a>
+    </div>
+    <div class="footer__col"><h4>JOURNAL</h4>
+      <a href="methode.html">Comment on travaille</a>
+      <a href="corrections.html">Corrections publiques</a>
+    </div>
+    <div class="footer__col"><h4>CONTACT</h4>
+      <a href="contact.html">Nous écrire</a>
+      <a href="contact.html#erreur">Signaler une erreur</a>
+    </div>
+  </div>
+  <div class="footer__bottom">
+    <span>© 2026 Factuel — Protocole Factuel v1.1</span>
+    <span>Mentions légales · CGU</span>
+  </div>
+</footer>
+
+<script>
+const CAT_LABELS = {societe:'Société',science:'Science',economie:'Économie',tech:'Tech',environnement:'Environnement'};
+let articles = [];
+
+async function loadArticles() {
+  const res = await fetch('data/search.json');
+  articles = await res.json();
+}
+
+function highlight(text, q) {
+  if (!q) return text;
+  return text.replace(new RegExp('(' + q.replace(/[.*+?^${}()|[\]\\]/g,'\\$&') + ')', 'gi'), '<mark style="background:#fff3cd;padding:0 2px">$1</mark>');
+}
+
+function renderResults(q) {
+  const container = document.getElementById('search-results');
+  const countEl = document.getElementById('search-count');
+  if (!q || q.length < 2) { container.innerHTML = ''; countEl.textContent = ''; return; }
+
+  const ql = q.toLowerCase();
+  const matches = articles.filter(a =>
+    a.titre.toLowerCase().includes(ql) ||
+    (a.excerpt || '').toLowerCase().includes(ql) ||
+    (CAT_LABELS[a.categorie] || '').toLowerCase().includes(ql)
+  );
+
+  countEl.textContent = matches.length === 0 ? '' : `${matches.length} résultat${matches.length > 1 ? 's' : ''} pour « ${q} »`;
+
+  if (matches.length === 0) {
+    container.innerHTML = `<div class="search-empty"><p style="font-size:1.1rem;font-weight:600;margin-bottom:8px">Aucun résultat pour « ${q} »</p><p>Essayez avec d'autres mots-clés.</p></div>`;
+    return;
+  }
+
+  container.innerHTML = matches.map(a => `
+    <div class="search-result" onclick="window.location='articles/${a.slug}.html'">
+      <div class="search-result__cat">${CAT_LABELS[a.categorie] || a.categorie}</div>
+      <div class="search-result__titre">${highlight(a.titre, q)}</div>
+      ${a.excerpt ? `<div class="search-result__excerpt">${highlight(a.excerpt.slice(0,160), q)}…</div>` : ''}
+      <div class="search-result__meta">${a.date}</div>
+    </div>
+  `).join('');
+}
+
+(async () => {
+  await loadArticles();
+  const params = new URLSearchParams(window.location.search);
+  const q = params.get('q') || '';
+  const input = document.getElementById('search-input');
+  const headerInput = document.getElementById('header-search-input');
+  input.value = q;
+  if (headerInput) headerInput.value = q;
+  renderResults(q);
+
+  input.addEventListener('input', () => renderResults(input.value.trim()));
+  input.addEventListener('keydown', e => {
+    if (e.key === 'Escape') { input.value = ''; renderResults(''); }
+  });
+})();
+</script>
+</body>
+</html>
