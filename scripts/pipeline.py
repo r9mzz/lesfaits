@@ -1,4 +1,4 @@
-"""
+﻿"""
 Factuel — Pipeline éditorial IA v2
 ====================================
 Sources RSS reelles → Filtre éditorial → Groq (Llama) → HTML → Site reconstruit
@@ -482,16 +482,16 @@ def build_article_html(art: dict, date_pub: str) -> str:
 <body>
 <header class="header">
   <div class="header__inner">
-    <a href="../index.html" class="brand">
+    <a href="index.html" class="brand">
       <div class="brand__logotype"><span class="fact">fact</span><span class="uel">uel</span></div>
     </a>
     <nav>
-      <a href="../categories/societe.html">Société</a>
-      <a href="../categories/science.html">Science</a>
-      <a href="../categories/economie.html">Économie</a>
-      <a href="../categories/tech.html">Tech</a>
-      <a href="../categories/environnement.html">Environnement</a>
-      <a href="../methode.html" class="nav-cta">Comment on travaille →</a>
+      <a href="categories/societe.html">Société</a>
+      <a href="categories/science.html">Science</a>
+      <a href="categories/economie.html">Économie</a>
+      <a href="categories/tech.html">Tech</a>
+      <a href="categories/environnement.html">Environnement</a>
+      <a href="methode.html" class="nav-cta">Comment on travaille →</a>
     </nav>
   </div>
 </header>
@@ -507,7 +507,7 @@ def build_article_html(art: dict, date_pub: str) -> str:
 </div>
 <main>
 <div class="art">
-  <a class="art__back" href="../index.html">← Retour à l'accueil</a>
+  <a class="art__back" href="index.html">← Retour à l'accueil</a>
   <span class="art__cat">{art['categorie'].upper()}</span>
   <h1 class="art__title">{art['titre']}</h1>
   <div class="art__meta">
@@ -537,14 +537,14 @@ def build_article_html(art: dict, date_pub: str) -> str:
       <p>Journal numérique français rédigé par IA. Sans publicité. Sans actionnaires.</p>
     </div>
     <div class="footer__col"><h4>RUBRIQUES</h4>
-      <a href="../categories/societe.html">Société</a>
-      <a href="../categories/science.html">Science</a>
-      <a href="../categories/economie.html">Économie</a>
-      <a href="../categories/tech.html">Tech</a>
-      <a href="../categories/environnement.html">Environnement</a>
+      <a href="categories/societe.html">Société</a>
+      <a href="categories/science.html">Science</a>
+      <a href="categories/economie.html">Économie</a>
+      <a href="categories/tech.html">Tech</a>
+      <a href="categories/environnement.html">Environnement</a>
     </div>
     <div class="footer__col"><h4>JOURNAL</h4>
-      <a href="../methode.html">Comment on travaille</a>
+      <a href="methode.html">Comment on travaille</a>
       <a href="mailto:Factuelinfo.contact@gmail.com?subject=Correction">Corrections publiques</a>
     </div>
     <div class="footer__col"><h4>CONTACT</h4>
