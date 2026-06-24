@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="Factuel — Notre protocole éditorial. Comment chaque article est produit, sourcé et vérifié."/>
+  <title>Notre méthode — Factuel</title>
+  <base href="/factuel/"/>
+  <link rel="stylesheet" href="src/style.css"/>
+</head>
+<body>
+<div id="read-progress"></div>
+<header class="header">
+  <div class="header__inner">
+    <a href="index.html" class="brand">
+      <div class="brand__logotype"><span class="fact">fact</span><span class="uel">uel</span></div>
+    </a>
+    <nav>
+      <a href="categories/societe.html">Société</a>
+      <a href="categories/science.html">Science</a>
+      <a href="categories/economie.html">Économie</a>
+      <a href="categories/tech.html">Tech</a>
+      <a href="categories/environnement.html">Environnement</a>
+      <a href="methode.html" class="nav-cta" style="background:var(--blue);color:#fff">Comment on travaille →</a>
+    </nav>
+  </div>
+</header>
+
+<main style="max-width:780px;margin:80px auto;padding:0 24px">
+
+  <span style="font-size:.8rem;font-weight:700;letter-spacing:.1em;color:var(--muted);text-transform:uppercase">Protocole Factuel v1.1</span>
+  <h1 style="font-size:2.6rem;font-weight:700;margin:12px 0 8px;line-height:1.2">Comment on travaille</h1>
+  <p style="color:var(--muted);font-size:1.05rem;margin-bottom:48px">
+    Factuel est un journal numérique entièrement rédigé par intelligence artificielle selon un protocole éditorial strict et public.
+    Voici comment chaque article est produit.
+  </p>
+
+  <div style="border-left:3px solid var(--blue);padding-left:24px;margin-bottom:48px">
+    <p style="font-size:1.1rem;font-style:italic;color:var(--ink)">
+      "Juste les faits. Aucun parti pris." — Ce n'est pas un slogan. C'est une contrainte technique inscrite dans le code.
+    </p>
+  </div>
+
+  <h2 style="font-size:1.4rem;font-weight:700;margin-bottom:16px;border-bottom:1px solid var(--rule);padding-bottom:12px">1. Sources RSS institutionnelles</h2>
+  <p style="line-height:1.8;margin-bottom:32px">
+    Le pipeline collecte chaque jour les flux RSS de sources officielles et scientifiques : Le Monde (Science, Économie, Santé), CNRS Actualités, Futura Sciences, Vie Publique, INSEE, Eurostat. Aucun media d'opinion, aucun réseau social.
+  </p>
+
+  <h2 style="font-size:1.4rem;font-weight:700;margin-bottom:16px;border-bottom:1px solid var(--rule);padding-bottom:12px">2. Filtre éditorial automatique (Score v2)</h2>
+  <p style="line-height:1.8;margin-bottom:16px">Chaque article candidat est scoré de 0 à 100 :</p>
+  <ul style="line-height:2;margin-bottom:32px;padding-left:20px">
+    <li><strong>+35</strong> — Source majeure (INSEE, CNRS, INSERM, revue peer-reviewed)</li>
+    <li><strong>+15</strong> — Média de référence (AFP, Reuters, Le Monde)</li>
+    <li><strong>+15</strong> — Mots-clés de confiance (données, rapport, étude, statistique)</li>
+    <li><strong>+15</strong> — Fraîcheur absolue (publié il y a moins de 12h)</li>
+    <li><strong>+20</strong> — Densité (contenu riche ET source qualifiée)</li>
+    <li><strong>−50</strong> — Sujet redondant (même thématique dans les 48h)</li>
+    <li><strong>REJET</strong> — Blacklist (guerre, terrorisme, people, publicité, sondage d'opinion)</li>
+  </ul>
+  <p style="line-height:1.8;margin-bottom:32px">Un quota de 3 articles maximum par catégorie est appliqué par cycle pour garantir la diversité éditoriale.</p>
+
+  <h2 style="font-size:1.4rem;font-weight:700;margin-bottom:16px;border-bottom:1px solid var(--rule);padding-bottom:12px">3. Génération par IA (Llama 3.3 70B)</h2>
+  <p style="line-height:1.8;margin-bottom:32px">
+    Les articles retenus sont envoyés à un modèle de langage (Groq / Llama-3.3-70b) avec un prompt système strict : chaque fait doit être attribué à une institution avec "Selon [institution]", minimum 4 sources identifiées, 700 mots minimum, aucune opinion, aucune conclusion politique. Le modèle ne peut pas spéculer ni interpréter.
+  </p>
+
+  <h2 style="font-size:1.4rem;font-weight:700;margin-bottom:16px;border-bottom:1px solid var(--rule);padding-bottom:12px">4. Validation automatique</h2>
+  <p style="line-height:1.8;margin-bottom:32px">
+    Avant publication, chaque article est validé par le pipeline : minimum 3 sources identifiées, corps de texte supérieur à 600 caractères. Les articles qui ne passent pas la validation sont automatiquement rejetés et non publiés.
+  </p>
+
+  <h2 style="font-size:1.4rem;font-weight:700;margin-bottom:16px;border-bottom:1px solid var(--rule);padding-bottom:12px">5. Publication automatique</h2>
+  <p style="line-height:1.8;margin-bottom:48px">
+    Le pipeline tourne deux fois par jour : <strong>07h00</strong> (10 articles) et <strong>18h30</strong> (5 articles). Aucune intervention humaine dans la sélection ou la rédaction. Le code source complet est disponible sur GitHub.
+  </p>
+
+  <div style="background:var(--light);border-radius:8px;padding:32px;text-align:center;margin-bottom:48px">
+    <h3 style="margin-bottom:8px">Une erreur ? Un fait inexact ?</h3>
+    <p style="color:var(--muted);margin-bottom:20px">Nous prenons les signalements au sérieux. Chaque correction est publiée.</p>
+    <a href="mailto:Factuelinfo.contact@gmail.com?subject=Signalement erreur"
+       style="display:inline-block;padding:10px 24px;background:var(--blue);color:#fff;border-radius:4px;text-decoration:none;font-weight:600">
+      Signaler une erreur
+    </a>
+  </div>
+
+</main>
+
+<footer class="footer">
+  <div class="footer__inner">
+    <div class="footer__brand">
+      <div class="brand__logotype"><span class="fact">fact</span><span class="uel">uel</span></div>
+      <p>Journal numérique français rédigé par IA. Sans publicité. Sans actionnaires.</p>
+    </div>
+    <div class="footer__col"><h4>RUBRIQUES</h4>
+      <a href="categories/societe.html">Société</a>
+      <a href="categories/science.html">Science</a>
+      <a href="categories/economie.html">Économie</a>
+      <a href="categories/tech.html">Tech</a>
+      <a href="categories/environnement.html">Environnement</a>
+    </div>
+    <div class="footer__col"><h4>JOURNAL</h4>
+      <a href="methode.html">Comment on travaille</a>
+      <a href="#">Corrections publiques</a>
+    </div>
+    <div class="footer__col"><h4>CONTACT</h4>
+      <a href="mailto:Factuelinfo.contact@gmail.com">Nous écrire</a>
+      <a href="mailto:Factuelinfo.contact@gmail.com?subject=Signalement erreur">Signaler une erreur</a>
+    </div>
+  </div>
+  <div class="footer__bottom">
+    <span>© 2026 Factuel — Protocole Factuel v1.1</span>
+    <span>Mentions légales · CGU</span>
+  </div>
+</footer>
+</body>
+</html>

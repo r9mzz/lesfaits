@@ -483,8 +483,7 @@ def build_article_html(art: dict, date_pub: str) -> str:
 <header class="header">
   <div class="header__inner">
     <a href="../index.html" class="brand">
-      <div class="brand__logo">F</div>
-      <div><div class="brand__name">Factuel</div><div class="brand__slogan">Juste les faits. Aucun parti pris.</div></div>
+      <div class="brand__logotype"><span class="fact">fact</span><span class="uel">uel</span></div>
     </a>
     <nav>
       <a href="../categories/societe.html">Société</a>
@@ -533,15 +532,14 @@ def build_article_html(art: dict, date_pub: str) -> str:
   <div class="footer__inner">
     <div class="footer__brand">
       <div class="brand" style="margin-bottom:8px">
-        <div class="brand__logo" style="width:32px;height:32px;font-size:18px">F</div>
-        <div class="brand__name" style="font-size:16px">Factuel</div>
+        <div class="brand__logotype"><span class="fact">fact</span><span class="uel">uel</span></div>
       </div>
       <p>Journal numérique français rédigé par IA. Sans publicité. Sans actionnaires.</p>
     </div>
     <div class="footer__col"><h4>RUBRIQUES</h4>
+      <a href="../categories/societe.html">Société</a>
       <a href="../categories/science.html">Science</a>
       <a href="../categories/economie.html">Économie</a>
-      <a href="../categories/societe.html">Société</a>
       <a href="../categories/tech.html">Tech</a>
       <a href="../categories/environnement.html">Environnement</a>
     </div>
@@ -551,7 +549,7 @@ def build_article_html(art: dict, date_pub: str) -> str:
     </div>
     <div class="footer__col"><h4>CONTACT</h4>
       <a href="mailto:Factuelinfo.contact@gmail.com">Nous écrire</a>
-      <a href="#">Corrections publiques</a>
+      <a href="mailto:Factuelinfo.contact@gmail.com?subject=Signalement erreur">Signaler une erreur</a>
     </div>
   </div>
   <div class="footer__bottom">
@@ -644,8 +642,7 @@ def build_index_html(main, side_html, grid_html, list_html, ticker_items):
 <header class="header">
   <div class="header__inner">
     <a href="index.html" class="brand">
-      <div class="brand__logo">F</div>
-      <div><div class="brand__name">Factuel</div><div class="brand__slogan">Juste les faits. Aucun parti pris.</div></div>
+      <div class="brand__logotype"><span class="fact">fact</span><span class="uel">uel</span></div>
     </a>
     <nav>
       <a href="categories/societe.html">Société</a>
@@ -712,8 +709,8 @@ def build_index_html(main, side_html, grid_html, list_html, ticker_items):
     <h2>Factuel est gratuit, sans publicité, sans actionnaires</h2>
     <p>Notre indépendance éditoriale repose sur vos dons. Aucun article derrière un paywall.</p>
     <div class="support__btns">
-      <button class="btn btn--white">Soutenir Factuel</button>
-      <button class="btn btn--outline" onclick="window.location='methode.html'">Notre méthode</button>
+      <a class="btn btn--white" href="mailto:Factuelinfo.contact@gmail.com?subject=Don Factuel">Soutenir Factuel</a>
+      <a class="btn btn--outline" href="methode.html">Notre méthode</a>
     </div>
   </div>
 </div>
@@ -722,15 +719,14 @@ def build_index_html(main, side_html, grid_html, list_html, ticker_items):
   <div class="footer__inner">
     <div class="footer__brand">
       <div class="brand" style="margin-bottom:8px">
-        <div class="brand__logo" style="width:32px;height:32px;font-size:18px">F</div>
-        <div class="brand__name" style="font-size:16px">Factuel</div>
+        <div class="brand__logotype"><span class="fact">fact</span><span class="uel">uel</span></div>
       </div>
       <p>Journal numérique français rédigé par IA selon un protocole éditorial public. Sans publicité. Sans actionnaires.</p>
     </div>
     <div class="footer__col"><h4>RUBRIQUES</h4>
+      <a href="categories/societe.html">Société</a>
       <a href="categories/science.html">Science</a>
       <a href="categories/economie.html">Économie</a>
-      <a href="categories/societe.html">Société</a>
       <a href="categories/tech.html">Tech</a>
       <a href="categories/environnement.html">Environnement</a>
     </div>
@@ -740,7 +736,7 @@ def build_index_html(main, side_html, grid_html, list_html, ticker_items):
     </div>
     <div class="footer__col"><h4>CONTACT</h4>
       <a href="mailto:Factuelinfo.contact@gmail.com">Nous écrire</a>
-      <a href="#">Corrections publiques</a>
+      <a href="mailto:Factuelinfo.contact@gmail.com?subject=Signalement erreur">Signaler une erreur</a>
     </div>
   </div>
   <div class="footer__bottom">
@@ -778,7 +774,8 @@ def build_category_pages():
 
         if arts:
             cards_html = "\n".join(f"""
-        <div class="card3" onclick="window.location='../articles/{a['slug']}.html'" style="cursor:pointer">
+        <div class="card3" onclick="window.location='../articles/{a['slug']}.html'"
+             style="cursor:pointer;flex:0 1 calc(33% - 16px);min-width:260px">
           <span class="cat">{label.upper()}</span>
           <h3 class="title-sm">{a['titre']}</h3>
           <div class="meta" style="margin-top:10px">
@@ -827,8 +824,7 @@ def build_category_pages():
 <header class="header">
   <div class="header__inner">
     <a href="index.html" class="brand">
-      <div class="brand__logo">F</div>
-      <div><div class="brand__name">Factuel</div><div class="brand__slogan">Juste les faits. Aucun parti pris.</div></div>
+      <div class="brand__logotype"><span class="fact">fact</span><span class="uel">uel</span></div>
     </a>
     <nav>
       <a href="categories/societe.html">Société</a>
@@ -850,7 +846,7 @@ def build_category_pages():
   <nav style="display:flex;gap:24px;margin-bottom:48px;flex-wrap:wrap;font-size:.9rem">
     {nav_links}
   </nav>
-  <div class="grid3">
+  <div style="display:flex;flex-wrap:wrap;gap:24px;align-items:start">
     {cards_html}
   </div>
 </main>
@@ -859,15 +855,14 @@ def build_category_pages():
   <div class="footer__inner">
     <div class="footer__brand">
       <div class="brand" style="margin-bottom:8px">
-        <div class="brand__logo" style="width:32px;height:32px;font-size:18px">F</div>
-        <div class="brand__name" style="font-size:16px">Factuel</div>
+        <div class="brand__logotype"><span class="fact">fact</span><span class="uel">uel</span></div>
       </div>
       <p>Journal numérique français rédigé par IA. Sans publicité. Sans actionnaires.</p>
     </div>
     <div class="footer__col"><h4>RUBRIQUES</h4>
+      <a href="categories/societe.html">Société</a>
       <a href="categories/science.html">Science</a>
       <a href="categories/economie.html">Économie</a>
-      <a href="categories/societe.html">Société</a>
       <a href="categories/tech.html">Tech</a>
       <a href="categories/environnement.html">Environnement</a>
     </div>
@@ -877,7 +872,7 @@ def build_category_pages():
     </div>
     <div class="footer__col"><h4>CONTACT</h4>
       <a href="mailto:Factuelinfo.contact@gmail.com">Nous écrire</a>
-      <a href="#">Corrections publiques</a>
+      <a href="mailto:Factuelinfo.contact@gmail.com?subject=Signalement erreur">Signaler une erreur</a>
     </div>
   </div>
   <div class="footer__bottom">
