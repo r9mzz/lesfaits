@@ -43,8 +43,8 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 .brand__divider { width: 1px; height: 28px; background: var(--rule); margin: 0 10px; }
 .brand__slogan { font-size: 10.5px; color: var(--muted); font-style: italic; font-weight: 400; }
 
-.header__search { flex: 0 1 220px; position: relative; }
-.header__search-input { width: 100%; padding: 6px 12px 6px 32px; font-size: 12px; border: 1px solid var(--rule); border-radius: 20px; background: var(--light); color: var(--ink); font-family: inherit; transition: border-color .15s, background .15s; }
+.header__search { flex: 0 1 360px; position: relative; }
+.header__search-input { width: 100%; padding: 7px 14px 7px 34px; font-size: 13px; border: 1px solid var(--rule); border-radius: 20px; background: var(--light); color: var(--ink); font-family: inherit; transition: border-color .15s, background .15s; }
 .header__search-input:focus { outline: none; border-color: var(--blue); background: var(--white); }
 .header__search::before { content: ''; position: absolute; left: 11px; top: 50%; transform: translateY(-50%); width: 12px; height: 12px; border: 1.5px solid var(--muted); border-radius: 50%; pointer-events: none; }
 .header__search::after { content: ''; position: absolute; left: 21px; top: 50%; transform: translateY(2px) rotate(45deg); width: 5px; height: 1.5px; background: var(--muted); pointer-events: none; }
@@ -149,6 +149,7 @@ nav a.active { opacity: 1; color: var(--blue); border-bottom-color: var(--blue);
 .cat-page__title { font-family: Georgia,serif; font-size: 34px; font-weight: 700; letter-spacing: -.5px; }
 
 /* ── PAGE ARTICLE ── */
+.art__hero { display:block; width:100%; max-height:420px; object-fit:cover; border-radius:4px; margin-bottom:28px; background:var(--light); }
 .art { max-width: 740px; margin: 0 auto; padding: 48px 32px 80px; }
 .art__back { font-size: 11px; color: var(--blue); border-bottom: 1px solid var(--blue); display: inline-block; margin-bottom: 32px; }
 .art__cat { font-size: 9px; font-weight: 700; letter-spacing: 2px; color: var(--blue); display: block; margin-bottom: 14px; }

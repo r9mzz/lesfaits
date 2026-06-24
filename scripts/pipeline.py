@@ -380,6 +380,7 @@ Format obligatoire :
 {
   "titre": "Titre factuel informatif, 10 à 15 mots, sans exclamation ni question",
   "slug": "slug-kebab-case-descriptif-max-65-chars",
+  "image_keyword": "3 mots EN ANGLAIS pour illustrer l'article (ex: hospital doctor france)",
   "resume": [
     "Phrase 1 : le fait principal avec chiffres ou acteurs précis (2 lignes min).",
     "Phrase 2 : contexte essentiel, qui/quand/comment (2 lignes min).",
@@ -495,6 +496,8 @@ def build_spectrum_html(positions: dict) -> str:
 
 def build_article_html(art: dict, date_pub: str) -> str:
     resume_txt = " ".join(art["resume"])
+    img_kw = art.get("image_keyword", "").replace(" ", ",")
+    hero_img = f'<img class="art__hero" src="https://source.unsplash.com/featured/1200x500/?{img_kw}" alt="" loading="lazy"/>\n  ' if img_kw else ""
     sources_li = "\n".join(
         f'<li>{s["institution"]} · <em>{s["titre"]}</em> · {s["date"]}'
         + (f' · <a href="{s["url"]}" target="_blank" rel="noopener">Lire la source →</a>' if s.get("url") else "")
@@ -559,7 +562,7 @@ def build_article_html(art: dict, date_pub: str) -> str:
     <span class="meta__sep">·</span><span>Protocole v1.1</span>
   </div>
   <div class="art__rule"></div>
-  <p class="art__resume">{resume_txt}</p>
+  {hero_img}<p class="art__resume">{resume_txt}</p>
   <h2>Les faits</h2><p>{faits}</p>
   <h2>Contexte</h2><p>{contexte}</p>
   <h2>Débats et nuances</h2><p>{nuances}</p>
@@ -966,6 +969,7 @@ def save_to_index(art: dict, date_pub: str):
         "nb_sources":art["nb_sources"],
         "date":      date_pub,
         "resume":    art["resume"],
+        "image_keyword": art.get("image_keyword", ""),
     })
     INDEX_JSON.write_text(json.dumps(index, ensure_ascii=False, indent=2), encoding="utf-8")
 
