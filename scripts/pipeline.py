@@ -497,7 +497,7 @@ def build_article_html(art: dict, date_pub: str) -> str:
     resume_txt = " ".join(art["resume"])
     sources_li = "\n".join(
         f'<li>{s["institution"]} · <em>{s["titre"]}</em> · {s["date"]}'
-        + (f' · <a href="{s["url"]}" target="_blank" rel="noopener">{s["url"]}</a>' if s.get("url") else "")
+        + (f' · <a href="{s["url"]}" target="_blank" rel="noopener">Lire la source →</a>' if s.get("url") else "")
         + "</li>"
         for s in art["sources"]
     )
