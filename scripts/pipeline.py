@@ -814,7 +814,7 @@ def build_category_pages():
 
         if arts:
             cards_html = "\n".join(f"""
-        <div class="card3" onclick="window.location='../articles/{a['slug']}.html'"
+        <div class="card3" onclick="window.location='articles/{a['slug']}.html'"
              style="cursor:pointer">
           <span class="cat">{label.upper()}</span>
           <h3 class="title-sm">{a['titre']}</h3>
