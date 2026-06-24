@@ -559,7 +559,7 @@ def build_article_html(art: dict, date_pub: str) -> str:
     <span class="meta__sep">·</span><span>Protocole v1.1</span>
   </div>
   <div class="art__rule"></div>
-  <div class="art__resume">{resume_txt}</div>
+  <p class="art__resume">{resume_txt}</p>
   <h2>Les faits</h2><p>{faits}</p>
   <h2>Contexte</h2><p>{contexte}</p>
   <h2>Débats et nuances</h2><p>{nuances}</p>
