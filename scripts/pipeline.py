@@ -549,8 +549,9 @@ def build_article_html(art: dict, date_pub: str) -> str:
       <a href="../methode.html">Comment on travaille</a>
       <a href="#">Corrections publiques</a>
     </div>
-    <div class="footer__col"><h4>SOUTENIR</h4>
-      <a href="#">Faire un don</a><a href="#">Contact</a>
+    <div class="footer__col"><h4>CONTACT</h4>
+      <a href="mailto:Factuelinfo.contact@gmail.com">Nous écrire</a>
+      <a href="#">Corrections publiques</a>
     </div>
   </div>
   <div class="footer__bottom">
@@ -736,8 +737,9 @@ def build_index_html(main, side_html, grid_html, list_html, ticker_items):
       <a href="methode.html">Comment on travaille</a>
       <a href="#">Corrections publiques</a>
     </div>
-    <div class="footer__col"><h4>SOUTENIR</h4>
-      <a href="#">Faire un don</a><a href="#">Contact</a>
+    <div class="footer__col"><h4>CONTACT</h4>
+      <a href="mailto:Factuelinfo.contact@gmail.com">Nous écrire</a>
+      <a href="#">Corrections publiques</a>
     </div>
   </div>
   <div class="footer__bottom">
