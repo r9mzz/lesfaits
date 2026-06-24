@@ -51,7 +51,7 @@
   </div>
 </header>
 
-<main style="max-width:820px;margin:60px auto;padding:0 24px">
+<main style="max-width:820px;margin:60px auto;padding:0 24px;min-height:60vh">
   <h1 style="font-size:1.6rem;font-weight:700;margin-bottom:20px">Résultats de recherche</h1>
 
   <div class="search-header-bar">
@@ -110,22 +110,28 @@ let articles = [];
 let currentMatches = [];
 let currentQ = '';
 
-async function loadArticles() {
+async function fetchWithTimeout(url, ms=5000) {
+  const ctrl = new AbortController();
+  const id = setTimeout(() => ctrl.abort(), ms);
   try {
-    // Essayer d'abord avec l'URL absolue, sinon chemin relatif
-    const urls = [BASE + 'data/search.json', '/factuel/data/search.json', 'data/search.json'];
-    for (const url of urls) {
-      try {
-        const res = await fetch(url);
-        if (res.ok) { articles = await res.json(); return; }
-      } catch(_) {}
-    }
-    throw new Error('search.json introuvable');
-  } catch(e) {
-    console.error('search.json:', e);
-    document.getElementById('search-results').innerHTML =
-      `<div class="search-empty" style="color:#c00"><p>Erreur de chargement. Réessayez dans quelques secondes.</p></div>`;
+    const res = await fetch(url, { signal: ctrl.signal });
+    clearTimeout(id);
+    return res;
+  } catch(e) { clearTimeout(id); throw e; }
+}
+
+async function loadArticles() {
+  // URL absolue hardcodée — la plus fiable sur GitHub Pages
+  const urls = ['/factuel/data/search.json', BASE + 'data/search.json'];
+  for (const url of urls) {
+    try {
+      const res = await fetchWithTimeout(url, 6000);
+      if (res.ok) { articles = await res.json(); return; }
+    } catch(e) { console.warn('fetch failed:', url, e.message); }
   }
+  // Toutes les tentatives ont échoué
+  document.getElementById('search-results').innerHTML =
+    `<div class="search-empty"><p style="font-weight:600;margin-bottom:8px">Impossible de charger les résultats.</p><p>Vérifiez votre connexion et actualisez la page.</p></div>`;
 }
 
 function norm(s) { return (s||'').normalize('NFD').replace(/[̀-ͯ]/g,'').toLowerCase(); }
