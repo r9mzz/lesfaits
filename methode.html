@@ -16,13 +16,14 @@
       <div class="brand__logotype"><span class="fact">fact</span><span class="uel">uel</span></div>
     </a>
     <div class="header__search">
-      <input type="search" class="header__search-input" placeholder="Rechercher…" autocomplete="off" onkeydown="if(event.key==='Enter'&&this.value.trim())window.location='recherche.html?q='+encodeURIComponent(this.value.trim())"/>
+      <input type="search" class="header__search-input" placeholder="Rechercher…" autocomplete="off" onkeydown="if(event.key==='Enter'&&this.value.trim())window.location=(document.querySelector('base').href)+'recherche.html?q='+encodeURIComponent(this.value.trim())"/>
     </div>
     <nav>
       <a href="categories/societe.html">Société</a>
       <a href="categories/science.html">Science</a>
       <a href="categories/economie.html">Économie</a>
       <a href="categories/tech.html">Tech</a>
+      <a href="categories/sante.html">Santé</a>
       <a href="categories/environnement.html">Environnement</a>
       <a href="methode.html" class="nav-cta" style="background:var(--blue);color:#fff">Comment on travaille →</a>
     </nav>
@@ -158,6 +159,7 @@
       <a href="categories/science.html">Science</a>
       <a href="categories/economie.html">Économie</a>
       <a href="categories/tech.html">Tech</a>
+      <a href="categories/sante.html">Santé</a>
       <a href="categories/environnement.html">Environnement</a>
     </div>
     <div class="footer__col"><h4>JOURNAL</h4>

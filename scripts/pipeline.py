@@ -532,6 +532,7 @@ def build_article_html(art: dict, date_pub: str) -> str:
       <a href="categories/science.html">Science</a>
       <a href="categories/economie.html">Économie</a>
       <a href="categories/tech.html">Tech</a>
+      <a href="categories/sante.html">Santé</a>
       <a href="categories/environnement.html">Environnement</a>
       <a href="methode.html" class="nav-cta">Comment on travaille →</a>
     </nav>
@@ -584,6 +585,7 @@ def build_article_html(art: dict, date_pub: str) -> str:
       <a href="categories/science.html">Science</a>
       <a href="categories/economie.html">Économie</a>
       <a href="categories/tech.html">Tech</a>
+      <a href="categories/sante.html">Santé</a>
       <a href="categories/environnement.html">Environnement</a>
     </div>
     <div class="footer__col"><h4>JOURNAL</h4>
@@ -689,6 +691,7 @@ def build_index_html(main, side_html, grid_html, list_html):
       <a href="categories/science.html">Science</a>
       <a href="categories/economie.html">Économie</a>
       <a href="categories/tech.html">Tech</a>
+      <a href="categories/sante.html">Santé</a>
       <a href="categories/environnement.html">Environnement</a>
       <a href="methode.html" class="nav-cta">Comment on travaille →</a>
     </nav>
@@ -758,6 +761,7 @@ def build_index_html(main, side_html, grid_html, list_html):
       <a href="categories/science.html">Science</a>
       <a href="categories/economie.html">Économie</a>
       <a href="categories/tech.html">Tech</a>
+      <a href="categories/sante.html">Santé</a>
       <a href="categories/environnement.html">Environnement</a>
     </div>
     <div class="footer__col"><h4>JOURNAL</h4>
@@ -786,6 +790,7 @@ CAT_LABELS = {
     "science":       "Science",
     "economie":      "Économie",
     "tech":          "Tech",
+    "sante":         "Santé",
     "environnement": "Environnement",
     "societe":       "Société",
 }
@@ -875,6 +880,7 @@ def build_category_pages():
       <a href="categories/science.html">Science</a>
       <a href="categories/economie.html">Économie</a>
       <a href="categories/tech.html">Tech</a>
+      <a href="categories/sante.html">Santé</a>
       <a href="categories/environnement.html">Environnement</a>
       <a href="methode.html" class="nav-cta">Comment on travaille →</a>
     </nav>
@@ -908,6 +914,7 @@ def build_category_pages():
       <a href="categories/science.html">Science</a>
       <a href="categories/economie.html">Économie</a>
       <a href="categories/tech.html">Tech</a>
+      <a href="categories/sante.html">Santé</a>
       <a href="categories/environnement.html">Environnement</a>
     </div>
     <div class="footer__col"><h4>JOURNAL</h4>
