@@ -775,7 +775,7 @@ def build_category_pages():
         if arts:
             cards_html = "\n".join(f"""
         <div class="card3" onclick="window.location='../articles/{a['slug']}.html'"
-             style="cursor:pointer;flex:0 1 calc(33% - 16px);min-width:260px">
+             style="cursor:pointer">
           <span class="cat">{label.upper()}</span>
           <h3 class="title-sm">{a['titre']}</h3>
           <div class="meta" style="margin-top:10px">
@@ -796,7 +796,7 @@ def build_category_pages():
             Les premiers articles <strong>{label}</strong> seront publiés lors du prochain cycle éditorial.
             Le pipeline génère de nouveaux contenus chaque matin à 07h00 et chaque soir à 18h30.
           </p>
-          <a href="index.html" style="display:inline-block;padding:10px 24px;background:var(--blue);
+          <a href="/factuel/" style="display:inline-block;padding:10px 24px;background:var(--blue);
              color:#fff;border-radius:4px;text-decoration:none;font-size:.9rem;font-weight:600">
             ← Retour à l'accueil
           </a>
@@ -805,7 +805,7 @@ def build_category_pages():
 
         # Nav rubriques — n'affiche que celles avec du contenu (+ la courante toujours visible)
         nav_links = "\n".join(
-            f'<a href="{c}.html" style="{"font-weight:700;color:var(--blue)" if c == cat else "color:var(--muted)" if c not in cats_actives else ""}">{l}</a>'
+            f'<a href="categories/{c}.html" style="{"font-weight:700;color:var(--blue)" if c == cat else "color:var(--muted)" if c not in cats_actives else ""}">{l}</a>'
             for c, l in CAT_LABELS.items()
         )
 
@@ -846,7 +846,7 @@ def build_category_pages():
   <nav style="display:flex;gap:24px;margin-bottom:48px;flex-wrap:wrap;font-size:.9rem">
     {nav_links}
   </nav>
-  <div style="display:flex;flex-wrap:wrap;gap:24px;align-items:start">
+  <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:24px">
     {cards_html}
   </div>
 </main>
