@@ -47,7 +47,7 @@ nav { display: flex; align-items: center; gap: 22px; }
 nav a { font-size: 12px; font-weight: 500; color: var(--ink); opacity: .6; transition: opacity .15s, border-color .15s; white-space: nowrap; padding-bottom: 2px; border-bottom: 2px solid transparent; }
 nav a:hover { opacity: 1; color: var(--blue); }
 nav a.active { opacity: 1; color: var(--blue); border-bottom-color: var(--blue); }
-.nav-cta { border: 1px solid var(--blue) !important; padding: 5px 13px; font-size: 11px !important; font-weight: 600 !important; opacity: 1 !important; color: var(--blue) !important; transition: background .15s, color .15s !important; border-bottom: none !important; }
+.nav-cta { border: 1px solid var(--blue) !important; border-radius: 4px; padding: 6px 14px; font-size: 11px !important; font-weight: 600 !important; opacity: 1 !important; color: var(--blue) !important; transition: background .15s, color .15s !important; }
 .nav-cta:hover { background: var(--blue) !important; color: #fff !important; }
 
 /* ── TICKER ── */

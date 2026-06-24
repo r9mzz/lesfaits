@@ -386,7 +386,7 @@ Format obligatoire :
     "Phrase 3 : nuance, limite ou débat en cours (2 lignes min)."
   ],
   "corps": {
-    "faits": "MINIMUM 300 mots. Détailler tous les faits vérifiables : chiffres précis, dates, acteurs nommés, données quantitatives, résultats d'études, déclarations exactes avec attribution. Citer chaque donnée avec sa source entre parenthèses. Utiliser plusieurs paragraphes.",
+    "faits": "MINIMUM 300 mots. Détailler tous les faits vérifiables : chiffres précis, dates, acteurs nommés, données quantitatives, résultats d'études, déclarations exactes avec attribution. Attribuer chaque donnée à son institution avec 'Selon [Institution]' ou 'D'après [Institution]'. JAMAIS d'URL dans le texte — les URLs vont uniquement dans le tableau sources. Utiliser plusieurs paragraphes.",
     "contexte": "MINIMUM 200 mots. Historique du sujet, évolutions sur 5-10 ans, comparaisons internationales ou régionales, cadre réglementaire ou scientifique pertinent. Chiffres comparatifs obligatoires.",
     "nuances": "MINIMUM 150 mots. Limites méthodologiques des études citées, points de désaccord entre experts, ce que les données ne permettent pas de conclure, précautions d'interprétation."
   },
@@ -407,7 +407,7 @@ Format obligatoire :
 
 RÈGLES ABSOLUES — toute violation = article rejeté :
 1. MINIMUM 4 sources distinctes et citables. Si tu ne peux pas atteindre 4 sources réelles : réponds uniquement HORS_PERIMETRE
-2. Chaque donnée chiffrée DOIT être attribuée à une source entre parenthèses dans le corps
+2. Chaque donnée chiffrée DOIT être attribuée à son institution dans le corps : écrire "Selon [Institution], ..." — JAMAIS d'URL dans le corps du texte, les URLs sont réservées au tableau sources
 3. Corps total : minimum 700 mots combinés (faits + contexte + nuances)
 4. Résumé : chaque phrase minimum 25 mots, concrète, avec au moins un fait mesurable
 5. Aucun adjectif évaluatif sans source (alarmant, historique, sans précédent, incroyable...)
@@ -651,21 +651,14 @@ def rebuild_index():
     grid_html  = "\n".join(mini_card(a) for a in grid_arts) if grid_arts else ""
     list_html  = "\n".join(list_card(i, a) for i, a in enumerate(list_arts))
 
-    # Ticker items
-    ticker_items = " ".join(
-        f'<span class="ticker__item">{a["categorie"].upper()} — {a["titre"]}</span>'
-        f'<span class="ticker__sep">·</span>'
-        for a in articles[:8]
-    ) * 2  # doublon pour boucle fluide
-
     index_path = ROOT / "index.html"
-    html = build_index_html(main_art, side_html, grid_html, list_html, ticker_items)
+    html = build_index_html(main_art, side_html, grid_html, list_html)
     index_path.write_text(html, encoding="utf-8")
     print(f"  ✓ index.html reconstruit ({len(articles)} articles)")
     build_category_pages()
 
 
-def build_index_html(main, side_html, grid_html, list_html, ticker_items):
+def build_index_html(main, side_html, grid_html, list_html):
     resume = " ".join(main["resume"]) if isinstance(main.get("resume"), list) else main.get("resume", "")
 
     return f"""<!DOCTYPE html>
@@ -694,12 +687,6 @@ def build_index_html(main, side_html, grid_html, list_html, ticker_items):
     </nav>
   </div>
 </header>
-<div class="ticker">
-  <div class="ticker__inner">
-    <span class="ticker__label">EN CONTINU</span>
-    <div class="ticker__items">{ticker_items}</div>
-  </div>
-</div>
 <div class="manifeste">
   <div class="manifeste__inner">
     <div class="manifeste__headline">Rédigé par <span>IA</span>,<br>vérifié par des humains.</div>
