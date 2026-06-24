@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="Factuel — Nous contacter. Posez une question, signalez une erreur ou proposez un sujet."/>
+  <title>Contact — Factuel</title>
+  <base href="/factuel/"/>
+  <link rel="stylesheet" href="src/style.css"/>
+  <style>
+    .contact-tabs { display:flex; gap:0; border-bottom:2px solid var(--rule); margin-bottom:40px; }
+    .contact-tab { padding:12px 24px; font-size:.9rem; font-weight:700; cursor:pointer; border:none; background:none; color:var(--muted); border-bottom:2px solid transparent; margin-bottom:-2px; transition:color .15s, border-color .15s; }
+    .contact-tab.active { color:var(--blue); border-bottom-color:var(--blue); }
+    .contact-panel { display:none; }
+    .contact-panel.active { display:block; }
+    .form-group { margin-bottom:24px; }
+    .form-label { display:block; font-size:.85rem; font-weight:700; margin-bottom:8px; color:var(--ink); }
+    .form-input, .form-textarea, .form-select {
+      width:100%; padding:12px 16px; border:1px solid var(--rule); border-radius:4px;
+      font-family:inherit; font-size:.95rem; color:var(--ink); background:var(--white);
+      box-sizing:border-box; transition:border-color .15s;
+    }
+    .form-input:focus, .form-textarea:focus, .form-select:focus { outline:none; border-color:var(--blue); }
+    .form-textarea { resize:vertical; min-height:140px; line-height:1.6; }
+    .form-hint { font-size:.8rem; color:var(--muted); margin-top:6px; }
+    .form-submit { display:inline-block; padding:13px 36px; background:var(--blue); color:#fff; border:none; border-radius:4px; font-size:.95rem; font-weight:700; cursor:pointer; transition:opacity .15s; }
+    .form-submit:hover { opacity:.85; }
+    .form-note { margin-top:16px; font-size:.82rem; color:var(--muted); line-height:1.6; }
+  </style>
+</head>
+<body>
+<div id="read-progress"></div>
+<header class="header">
+  <div class="header__inner">
+    <a href="index.html" class="brand">
+      <div class="brand__logotype"><span class="fact">fact</span><span class="uel">uel</span></div>
+    </a>
+    <nav>
+      <a href="categories/societe.html">Société</a>
+      <a href="categories/science.html">Science</a>
+      <a href="categories/economie.html">Économie</a>
+      <a href="categories/tech.html">Tech</a>
+      <a href="categories/environnement.html">Environnement</a>
+      <a href="methode.html" class="nav-cta" style="background:var(--blue);color:#fff">Comment on travaille →</a>
+    </nav>
+  </div>
+</header>
+
+<main style="max-width:680px;margin:80px auto;padding:0 24px">
+
+  <span style="font-size:.8rem;font-weight:700;letter-spacing:.1em;color:var(--muted);text-transform:uppercase">Contact</span>
+  <h1 style="font-size:2.2rem;font-weight:700;margin:12px 0 8px;line-height:1.2">Nous écrire</h1>
+  <p style="color:var(--muted);font-size:1rem;margin-bottom:40px;line-height:1.7">
+    Une question, une erreur à signaler, un sujet que vous aimeriez voir traité — nous lisons tout.
+  </p>
+
+  <!-- Onglets -->
+  <div class="contact-tabs">
+    <button class="contact-tab active" onclick="switchTab('general', this)">Message général</button>
+    <button class="contact-tab" onclick="switchTab('erreur', this)">Signaler une erreur</button>
+    <button class="contact-tab" onclick="switchTab('sujet', this)">Proposer un sujet</button>
+  </div>
+
+  <!-- Onglet 1 : Message général -->
+  <div id="panel-general" class="contact-panel active">
+    <form onsubmit="sendMail('general', event)">
+      <div class="form-group">
+        <label class="form-label" for="g-nom">Votre prénom ou pseudo <span style="color:var(--muted);font-weight:400">(optionnel)</span></label>
+        <input class="form-input" type="text" id="g-nom" placeholder="Ex : Marie">
+      </div>
+      <div class="form-group">
+        <label class="form-label" for="g-msg">Votre message *</label>
+        <textarea class="form-textarea" id="g-msg" required placeholder="Écrivez votre message ici…"></textarea>
+      </div>
+      <button class="form-submit" type="submit">Envoyer le message</button>
+      <p class="form-note">Ce formulaire ouvre votre application e-mail avec le message pré-rempli.<br>Vous pouvez relire avant d'envoyer.</p>
+    </form>
+  </div>
+
+  <!-- Onglet 2 : Signaler une erreur -->
+  <div id="panel-erreur" class="contact-panel">
+    <p style="color:var(--muted);font-size:.9rem;line-height:1.7;margin-bottom:28px">
+      Vous avez repéré une erreur factuelle ? Précisez l'article, le passage concerné et la source que vous proposez. Nous répondons sous 48h.
+    </p>
+    <form onsubmit="sendMail('erreur', event)">
+      <div class="form-group">
+        <label class="form-label" for="e-article">Titre ou URL de l'article *</label>
+        <input class="form-input" type="text" id="e-article" required placeholder="Ex : Canicule et pollution de l'air en France">
+      </div>
+      <div class="form-group">
+        <label class="form-label" for="e-passage">Le passage que vous estimez inexact *</label>
+        <textarea class="form-textarea" id="e-passage" required placeholder="Copiez ici le passage concerné…" style="min-height:100px"></textarea>
+      </div>
+      <div class="form-group">
+        <label class="form-label" for="e-source">Source que vous proposez <span style="color:var(--muted);font-weight:400">(optionnel)</span></label>
+        <input class="form-input" type="text" id="e-source" placeholder="Ex : https://www.insee.fr/...">
+        <p class="form-hint">Un lien ou une référence vérifiable aide à traiter votre signalement plus rapidement.</p>
+      </div>
+      <button class="form-submit" type="submit">Signaler l'erreur</button>
+      <p class="form-note">Ce formulaire ouvre votre application e-mail avec le signalement pré-rempli.<br>Les corrections confirmées sont publiées sur la <a href="corrections.html" style="color:var(--blue)">page des corrections</a>.</p>
+    </form>
+  </div>
+
+  <!-- Onglet 3 : Proposer un sujet -->
+  <div id="panel-sujet" class="contact-panel">
+    <p style="color:var(--muted);font-size:.9rem;line-height:1.7;margin-bottom:28px">
+      Un sujet vous semble important et peu couvert ? Partagez-le avec nous. Nous ne pouvons pas garantir de publication, mais nous lisons toutes les suggestions.
+    </p>
+    <form onsubmit="sendMail('sujet', event)">
+      <div class="form-group">
+        <label class="form-label" for="s-titre">Le sujet en une phrase *</label>
+        <input class="form-input" type="text" id="s-titre" required placeholder="Ex : Impact des microplastiques dans les eaux françaises">
+      </div>
+      <div class="form-group">
+        <label class="form-label" for="s-cat">Rubrique</label>
+        <select class="form-select" id="s-cat">
+          <option value="">— Choisir —</option>
+          <option>Société</option>
+          <option>Science</option>
+          <option>Économie</option>
+          <option>Tech</option>
+          <option>Environnement</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label class="form-label" for="s-detail">Pourquoi ce sujet vous semble important ? <span style="color:var(--muted);font-weight:400">(optionnel)</span></label>
+        <textarea class="form-textarea" id="s-detail" placeholder="Contexte, sources que vous connaissez, angle suggéré…" style="min-height:100px"></textarea>
+      </div>
+      <button class="form-submit" type="submit">Proposer le sujet</button>
+      <p class="form-note">Ce formulaire ouvre votre application e-mail avec votre proposition pré-remplie.</p>
+    </form>
+  </div>
+
+</main>
+
+<footer class="footer">
+  <div class="footer__inner">
+    <div class="footer__brand">
+      <div class="brand__logotype"><span class="fact">fact</span><span class="uel">uel</span></div>
+      <p>Journal numérique français rédigé par IA. Sans publicité. Sans actionnaires.</p>
+    </div>
+    <div class="footer__col"><h4>RUBRIQUES</h4>
+      <a href="categories/societe.html">Société</a>
+      <a href="categories/science.html">Science</a>
+      <a href="categories/economie.html">Économie</a>
+      <a href="categories/tech.html">Tech</a>
+      <a href="categories/environnement.html">Environnement</a>
+    </div>
+    <div class="footer__col"><h4>JOURNAL</h4>
+      <a href="methode.html">Comment on travaille</a>
+      <a href="corrections.html">Corrections publiques</a>
+    </div>
+    <div class="footer__col"><h4>CONTACT</h4>
+      <a href="contact.html">Nous écrire</a>
+      <a href="contact.html#erreur">Signaler une erreur</a>
+    </div>
+  </div>
+  <div class="footer__bottom">
+    <span>© 2026 Factuel — Protocole Factuel v1.1</span>
+    <span>Mentions légales · CGU</span>
+  </div>
+</footer>
+
+<script>
+function switchTab(id, btn) {
+  document.querySelectorAll('.contact-panel').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.contact-tab').forEach(b => b.classList.remove('active'));
+  document.getElementById('panel-' + id).classList.add('active');
+  btn.classList.add('active');
+}
+
+// Ouvre l'onglet erreur si on arrive avec #erreur dans l'URL
+if (window.location.hash === '#erreur') {
+  document.querySelectorAll('.contact-tab')[1].click();
+}
+
+function sendMail(type, e) {
+  e.preventDefault();
+  const mail = 'Factuelinfo.contact@gmail.com';
+  let subject, body;
+
+  if (type === 'general') {
+    const nom = document.getElementById('g-nom').value.trim();
+    const msg = document.getElementById('g-msg').value.trim();
+    subject = 'Message Factuel' + (nom ? ' — ' + nom : '');
+    body = msg;
+
+  } else if (type === 'erreur') {
+    const art = document.getElementById('e-article').value.trim();
+    const passage = document.getElementById('e-passage').value.trim();
+    const source = document.getElementById('e-source').value.trim();
+    subject = 'Signalement erreur — ' + art;
+    body = 'Article concerné : ' + art + '\n\nPassage inexact :\n' + passage + (source ? '\n\nSource proposée :\n' + source : '');
+
+  } else if (type === 'sujet') {
+    const titre = document.getElementById('s-titre').value.trim();
+    const cat = document.getElementById('s-cat').value;
+    const detail = document.getElementById('s-detail').value.trim();
+    subject = 'Proposition de sujet — ' + titre;
+    body = 'Sujet : ' + titre + (cat ? '\nRubrique : ' + cat : '') + (detail ? '\n\n' + detail : '');
+  }
+
+  window.location.href = 'mailto:' + mail + '?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
+}
+</script>
+</body>
+</html>

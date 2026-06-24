@@ -588,8 +588,8 @@ def build_article_html(art: dict, date_pub: str) -> str:
       <a href="corrections.html">Corrections publiques</a>
     </div>
     <div class="footer__col"><h4>CONTACT</h4>
-      <a href="mailto:Factuelinfo.contact@gmail.com">Nous écrire</a>
-      <a href="mailto:Factuelinfo.contact@gmail.com?subject=Signalement erreur">Signaler une erreur</a>
+      <a href="contact.html">Nous écrire</a>
+      <a href="contact.html#erreur">Signaler une erreur</a>
     </div>
   </div>
   <div class="footer__bottom">
@@ -775,8 +775,8 @@ def build_index_html(main, side_html, grid_html, list_html, ticker_items):
       <a href="corrections.html">Corrections publiques</a>
     </div>
     <div class="footer__col"><h4>CONTACT</h4>
-      <a href="mailto:Factuelinfo.contact@gmail.com">Nous écrire</a>
-      <a href="mailto:Factuelinfo.contact@gmail.com?subject=Signalement erreur">Signaler une erreur</a>
+      <a href="contact.html">Nous écrire</a>
+      <a href="contact.html#erreur">Signaler une erreur</a>
     </div>
   </div>
   <div class="footer__bottom">
@@ -911,8 +911,8 @@ def build_category_pages():
       <a href="corrections.html">Corrections publiques</a>
     </div>
     <div class="footer__col"><h4>CONTACT</h4>
-      <a href="mailto:Factuelinfo.contact@gmail.com">Nous écrire</a>
-      <a href="mailto:Factuelinfo.contact@gmail.com?subject=Signalement erreur">Signaler une erreur</a>
+      <a href="contact.html">Nous écrire</a>
+      <a href="contact.html#erreur">Signaler une erreur</a>
     </div>
   </div>
   <div class="footer__bottom">
