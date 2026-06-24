@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="Factuel — Journal numérique français rédigé par IA. Juste les faits. Aucun parti pris."/>
+  <title>Factuel — Juste les faits. Aucun parti pris.</title>
+  <link rel="stylesheet" href="src/style.css"/>
+</head>
+<body>
+
+<div id="read-progress"></div>
+
+<header class="header">
+  <div class="header__inner">
+    <a href="index.html" class="brand">
+      <div class="brand__logotype"><span class="fact">fact</span><span class="uel">uel</span></div>
+      <div class="brand__divider"></div>
+      <span class="brand__slogan">Juste les faits. Aucun parti pris.</span>
+    </a>
+    <nav id="main-nav">
+      <a href="index.html" data-page="home">Accueil</a>
+      <a href="categories/societe.html" data-page="societe">Société</a>
+      <a href="categories/science.html" data-page="science">Science</a>
+      <a href="categories/economie.html" data-page="economie">Économie</a>
+      <a href="categories/tech.html" data-page="tech">Tech</a>
+      <a href="categories/environnement.html" data-page="environnement">Environnement</a>
+      <a href="methode.html" class="nav-cta">Notre méthode →</a>
+    </nav>
+  </div>
+</header>
+
+<!-- Ticker EN CONTINU -->
+<div class="ticker">
+  <div class="ticker__inner">
+    <span class="ticker__label"><span class="ticker__dot"></span>EN CONTINU</span>
+    <div class="ticker__items">
+      <span class="ticker__item">ENVIRONNEMENT — CO₂ France : −5,8 % en 2023, données CITEPA</span><span class="ticker__sep">·</span>
+      <span class="ticker__item">ÉCONOMIE — Chômage jeunes 17,4 % au T1 2026 selon l'INSEE</span><span class="ticker__sep">·</span>
+      <span class="ticker__item">TECH — AI Act UE : obligations concrètes pour les entreprises en 2026</span><span class="ticker__sep">·</span>
+      <span class="ticker__item">SOCIÉTÉ — Espérance de vie 82,3 ans en France (INSEE, 2025)</span><span class="ticker__sep">·</span>
+      <span class="ticker__item">ENVIRONNEMENT — CO₂ France : −5,8 % en 2023, données CITEPA</span><span class="ticker__sep">·</span>
+      <span class="ticker__item">ÉCONOMIE — Chômage jeunes 17,4 % au T1 2026 selon l'INSEE</span><span class="ticker__sep">·</span>
+      <span class="ticker__item">TECH — AI Act UE : obligations concrètes pour les entreprises en 2026</span><span class="ticker__sep">·</span>
+      <span class="ticker__item">SOCIÉTÉ — Espérance de vie 82,3 ans en France (INSEE, 2025)</span><span class="ticker__sep">·</span>
+    </div>
+  </div>
+</div>
+
+<!-- Manifeste identité -->
+<div class="manifeste">
+  <div class="manifeste__inner">
+    <div class="manifeste__headline">Rédigé par <span>IA</span>,<br>vérifié par des humains.</div>
+    <div class="manifeste__pillars">
+      <div class="manifeste__pillar">
+        <div class="manifeste__text">
+          <strong>Zéro parti pris</strong>
+          <span>Aucune opinion, aucune ligne politique. Les faits, leurs sources, leurs contradictions.</span>
+        </div>
+      </div>
+      <div class="manifeste__pillar">
+        <div class="manifeste__text">
+          <strong>Méthode publique</strong>
+          <span>Notre protocole éditorial est entièrement accessible. Vous savez comment chaque article est produit.</span>
+        </div>
+      </div>
+      <div class="manifeste__pillar">
+        <div class="manifeste__text">
+          <strong>Sources vérifiées</strong>
+          <span>Minimum 4 sources par article. Institutions officielles, recherche peer-reviewed, experts identifiés.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Contenu principal -->
+<div class="wrap">
+
+  <!-- À LA UNE -->
+  <div class="une">
+    <div class="une__label">À LA UNE</div>
+    <div style="height:2px;background:var(--blue);margin-bottom:1px"></div>
+    <div class="une__grid">
+
+      <!-- Article principal -->
+      <div class="une__main" onclick="window.location='articles/emissions-co2-france-recul-2023.html'">
+        <span class="cat">ENVIRONNEMENT</span>
+        <h2 class="title-xl">Les émissions de CO₂ en France ont reculé de 5,8 % en 2023 selon les données officielles du CITEPA</h2>
+        <p class="excerpt">Selon l'inventaire provisoire publié par le CITEPA en avril 2024, la France a émis 383 millions de tonnes équivalent CO₂ en 2023 — soit une baisse de 5,8 % par rapport aux 407 MtCO₂e de 2022. Cette réduction s'explique principalement par la contraction industrielle et la baisse de la consommation de gaz naturel.</p>
+        <div class="confidence">
+          <span class="confidence__dots confidence__dots--max">●●●●●</span>
+          <span class="confidence__label confidence__label--max">5 sources — Confiance maximale</span>
+        </div>
+        <div class="meta" style="margin-top:12px">
+          <span style="color:var(--green);font-weight:700;font-size:10px">✓ 5 sources vérifiées</span>
+          <span class="meta__sep">·</span><span>24 juin 2026</span>
+          <span class="meta__sep">·</span><span>Protocole v1.1</span>
+        </div>
+        <p class="ai-badge" style="margin-top:12px">Rédigé par IA · Vérifié par l'équipe éditoriale</p>
+      </div>
+
+      <!-- Articles secondaires -->
+      <div class="une__side">
+        <div class="une__side-item" onclick="window.location='articles/chomage-jeunes-17-4-t1-2026.html'">
+          <span class="cat">ÉCONOMIE</span>
+          <h3 class="title-md">Chômage des jeunes à 17,4 % au T1 2026 — l'INSEE publie ses données</h3>
+          <div class="confidence" style="margin-bottom:8px">
+            <span class="confidence__dots confidence__dots--max">●●●●●</span>
+            <span class="confidence__label confidence__label--max">5 sources</span>
+          </div>
+          <div class="meta"><span style="color:var(--green);font-weight:700;font-size:10px">✓ 5 sources vérifiées</span><span class="meta__sep">·</span><span>23 juin 2026</span></div>
+        </div>
+        <div class="une__side-item" onclick="window.location='articles/ai-act-ue-obligations-entreprises-2026.html'">
+          <span class="cat">TECH</span>
+          <h3 class="title-md">AI Act européen : ce qui change concrètement pour les entreprises en 2026</h3>
+          <div class="confidence" style="margin-bottom:8px">
+            <span class="confidence__dots confidence__dots--max">●●●●●</span>
+            <span class="confidence__label confidence__label--max">5 sources</span>
+          </div>
+          <div class="meta"><span style="color:var(--green);font-weight:700;font-size:10px">✓ 5 sources vérifiées</span><span class="meta__sep">·</span><span>22 juin 2026</span></div>
+        </div>
+        <div class="une__side-item" onclick="window.location='articles/esperance-vie-france-82-3-ans-2025.html'">
+          <span class="cat">SOCIÉTÉ</span>
+          <h3 class="title-md">Espérance de vie : 82,3 ans en France en 2025 d'après l'INSEE</h3>
+          <div class="confidence" style="margin-bottom:8px">
+            <span class="confidence__dots confidence__dots--high">●●●●○</span>
+            <span class="confidence__label confidence__label--high">4 sources</span>
+          </div>
+          <div class="meta"><span style="color:var(--green);font-weight:700;font-size:10px">✓ 4 sources vérifiées</span><span class="meta__sep">·</span><span>21 juin 2026</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- DERNIERS ARTICLES -->
+  <div class="section">
+    <div class="section__head">
+      <span class="section__title">DERNIERS ARTICLES</span>
+      <span class="section__more">Voir tout →</span>
+    </div>
+    <div class="section__rule"></div>
+    <div class="grid3">
+
+      <div class="card3" onclick="window.location='articles/emissions-co2-france-recul-2023.html'">
+        <span class="cat">ENVIRONNEMENT</span>
+        <h3 class="title-sm">CO₂ France : −5,8 % en 2023 selon le CITEPA</h3>
+        <div class="confidence" style="margin:8px 0">
+          <span class="confidence__dots confidence__dots--max">●●●●●</span>
+          <span class="confidence__label confidence__label--max">5 sources — Confiance maximale</span>
+        </div>
+        <div class="meta"><span style="color:var(--green);font-size:10px;font-weight:700">✓ 5 sources vérifiées</span><span class="meta__sep">·</span><span>24 juin 2026</span></div>
+      </div>
+
+      <div class="card3" onclick="window.location='articles/chomage-jeunes-17-4-t1-2026.html'">
+        <span class="cat">ÉCONOMIE</span>
+        <h3 class="title-sm">Chômage des jeunes français : 17,4 % au premier trimestre 2026</h3>
+        <div class="confidence" style="margin:8px 0">
+          <span class="confidence__dots confidence__dots--max">●●●●●</span>
+          <span class="confidence__label confidence__label--max">5 sources — Confiance maximale</span>
+        </div>
+        <div class="meta"><span style="color:var(--green);font-size:10px;font-weight:700">✓ 5 sources vérifiées</span><span class="meta__sep">·</span><span>23 juin 2026</span></div>
+      </div>
+
+      <div class="card3" onclick="window.location='articles/ai-act-ue-obligations-entreprises-2026.html'">
+        <span class="cat">TECH</span>
+        <h3 class="title-sm">AI Act UE : nouvelles obligations pour les entreprises utilisant l'IA</h3>
+        <div class="confidence" style="margin:8px 0">
+          <span class="confidence__dots confidence__dots--max">●●●●●</span>
+          <span class="confidence__label confidence__label--max">5 sources — Confiance maximale</span>
+        </div>
+        <div class="meta"><span style="color:var(--green);font-size:10px;font-weight:700">✓ 5 sources vérifiées</span><span class="meta__sep">·</span><span>22 juin 2026</span></div>
+      </div>
+
+      <div class="card3" onclick="window.location='articles/esperance-vie-france-82-3-ans-2025.html'">
+        <span class="cat">SOCIÉTÉ</span>
+        <h3 class="title-sm">Espérance de vie en France : 82,3 ans en 2025, l'écart hommes-femmes persiste</h3>
+        <div class="confidence" style="margin:8px 0">
+          <span class="confidence__dots confidence__dots--high">●●●●○</span>
+          <span class="confidence__label confidence__label--high">4 sources — Confiance élevée</span>
+        </div>
+        <div class="meta"><span style="color:var(--green);font-size:10px;font-weight:700">✓ 4 sources vérifiées</span><span class="meta__sep">·</span><span>21 juin 2026</span></div>
+      </div>
+
+      <!-- Articles pipeline (≥4 sources) -->
+      <div class="card3" onclick="window.location='articles/canicule-sante-publique-france.html'">
+        <span class="cat">SOCIÉTÉ</span>
+        <h3 class="title-sm">Canicule et santé publique : hausse des passages aux urgences hospitalières</h3>
+        <div class="confidence" style="margin:8px 0">
+          <span class="confidence__dots confidence__dots--max">●●●●●</span>
+          <span class="confidence__label confidence__label--max">8 sources — Confiance maximale</span>
+        </div>
+        <div class="meta"><span style="color:var(--green);font-size:10px;font-weight:700">✓ 8 sources vérifiées</span><span class="meta__sep">·</span><span>24 juin 2026</span></div>
+      </div>
+
+      <div class="card3" onclick="window.location='articles/vaccin-covid-19-immunotherapie-cancer.html'">
+        <span class="cat">SCIENCE</span>
+        <h3 class="title-sm">Vaccin Covid-19 et immunothérapie : amélioration légère de la survie des patients cancéreux</h3>
+        <div class="confidence" style="margin:8px 0">
+          <span class="confidence__dots confidence__dots--high">●●●●○</span>
+          <span class="confidence__label confidence__label--high">4 sources — Confiance élevée</span>
+        </div>
+        <div class="meta"><span style="color:var(--green);font-size:10px;font-weight:700">✓ 4 sources vérifiées</span><span class="meta__sep">·</span><span>24 juin 2026</span></div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- LES PLUS RÉCENTS liste numérotée -->
+  <div class="list-section" style="padding-top:40px">
+    <div class="section__head" style="margin-bottom:16px">
+      <span class="section__title">LES PLUS RÉCENTS</span>
+    </div>
+    <div class="section__rule"></div>
+    <div class="list-grid">
+
+      <div class="list-item" onclick="window.location='articles/emissions-co2-france-recul-2023.html'">
+        <span class="list-item__num">01</span>
+        <div>
+          <span class="cat">ENVIRONNEMENT</span>
+          <h3 class="title-sm">Émissions CO₂ France : −5,8 % en 2023 selon le CITEPA</h3>
+          <div class="confidence" style="margin:6px 0 4px">
+            <span class="confidence__dots confidence__dots--max" style="font-size:11px">●●●●●</span>
+            <span class="confidence__label confidence__label--max">5 sources</span>
+          </div>
+          <div class="meta"><span style="color:var(--muted);font-size:10px">24 juin 2026</span></div>
+        </div>
+      </div>
+
+      <div class="list-item" onclick="window.location='articles/chomage-jeunes-17-4-t1-2026.html'">
+        <span class="list-item__num">02</span>
+        <div>
+          <span class="cat">ÉCONOMIE</span>
+          <h3 class="title-sm">Chômage jeunes : 17,4 % au T1 2026 (INSEE)</h3>
+          <div class="confidence" style="margin:6px 0 4px">
+            <span class="confidence__dots confidence__dots--max" style="font-size:11px">●●●●●</span>
+            <span class="confidence__label confidence__label--max">5 sources</span>
+          </div>
+          <div class="meta"><span style="color:var(--muted);font-size:10px">23 juin 2026</span></div>
+        </div>
+      </div>
+
+      <div class="list-item" onclick="window.location='articles/ai-act-ue-obligations-entreprises-2026.html'">
+        <span class="list-item__num">03</span>
+        <div>
+          <span class="cat">TECH</span>
+          <h3 class="title-sm">AI Act UE : obligations entreprises 2026</h3>
+          <div class="confidence" style="margin:6px 0 4px">
+            <span class="confidence__dots confidence__dots--max" style="font-size:11px">●●●●●</span>
+            <span class="confidence__label confidence__label--max">5 sources</span>
+          </div>
+          <div class="meta"><span style="color:var(--muted);font-size:10px">22 juin 2026</span></div>
+        </div>
+      </div>
+
+      <div class="list-item" onclick="window.location='articles/esperance-vie-france-82-3-ans-2025.html'">
+        <span class="list-item__num">04</span>
+        <div>
+          <span class="cat">SOCIÉTÉ</span>
+          <h3 class="title-sm">Espérance de vie France : 82,3 ans en 2025</h3>
+          <div class="confidence" style="margin:6px 0 4px">
+            <span class="confidence__dots confidence__dots--high" style="font-size:11px">●●●●○</span>
+            <span class="confidence__label confidence__label--high">4 sources</span>
+          </div>
+          <div class="meta"><span style="color:var(--muted);font-size:10px">21 juin 2026</span></div>
+        </div>
+      </div>
+
+      <div class="list-item" onclick="window.location='articles/canicule-sante-publique-france.html'">
+        <span class="list-item__num">05</span>
+        <div>
+          <span class="cat">SOCIÉTÉ</span>
+          <h3 class="title-sm">Canicule : hausse des urgences hospitalières en France</h3>
+          <div class="confidence" style="margin:6px 0 4px">
+            <span class="confidence__dots confidence__dots--max" style="font-size:11px">●●●●●</span>
+            <span class="confidence__label confidence__label--max">8 sources</span>
+          </div>
+          <div class="meta"><span style="color:var(--muted);font-size:10px">24 juin 2026</span></div>
+        </div>
+      </div>
+
+      <div class="list-item" onclick="window.location='articles/vaccin-covid-19-immunotherapie-cancer.html'">
+        <span class="list-item__num">06</span>
+        <div>
+          <span class="cat">SCIENCE</span>
+          <h3 class="title-sm">Covid-19 et cancer : le vaccin améliore légèrement la survie</h3>
+          <div class="confidence" style="margin:6px 0 4px">
+            <span class="confidence__dots confidence__dots--high" style="font-size:11px">●●●●○</span>
+            <span class="confidence__label confidence__label--high">4 sources</span>
+          </div>
+          <div class="meta"><span style="color:var(--muted);font-size:10px">24 juin 2026</span></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</div><!-- /.wrap -->
+
+<!-- Bloc soutien -->
+<div class="support">
+  <div class="support__inner">
+    <h2>Factuel est gratuit, sans publicité, sans actionnaires</h2>
+    <p>Notre indépendance éditoriale repose uniquement sur vos dons. Aucun article derrière un paywall, jamais.</p>
+    <div class="support__btns">
+      <button class="btn btn--white">Soutenir Factuel</button>
+      <button class="btn btn--outline" onclick="window.location='methode.html'">Notre méthode →</button>
+    </div>
+  </div>
+</div>
+
+<footer class="footer">
+  <div class="footer__inner">
+    <div class="footer__brand">
+      <a href="index.html" class="brand" style="margin-bottom:10px">
+        <div class="brand__logotype"><span class="fact">fact</span><span class="uel">uel</span></div>
+      </a>
+      <p>Journal numérique français rédigé par IA selon un protocole éditorial public. Zéro publicité. Zéro actionnaire.</p>
+    </div>
+    <div class="footer__col">
+      <h4>RUBRIQUES</h4>
+      <a href="categories/science.html">Science</a>
+      <a href="categories/economie.html">Économie</a>
+      <a href="categories/societe.html">Société</a>
+      <a href="categories/tech.html">Tech</a>
+      <a href="categories/environnement.html">Environnement</a>
+    </div>
+    <div class="footer__col">
+      <h4>JOURNAL</h4>
+      <a href="methode.html">Comment on travaille</a>
+      <a href="#">Corrections publiques</a>
+      <a href="#">À propos</a>
+    </div>
+    <div class="footer__col">
+      <h4>CONTACT</h4>
+      <a href="#">Faire un don</a>
+      <a href="#">Nous écrire</a>
+      <a href="#">Signaler une erreur</a>
+    </div>
+  </div>
+  <div class="footer__bottom">
+    <span>© 2026 Factuel — Protocole v1.1</span>
+    <span>Mentions légales · CGU · Données personnelles</span>
+  </div>
+</footer>
+
+<!-- Bouton retour haut -->
+<button id="back-top" title="Retour en haut">
+  <svg viewBox="0 0 24 24"><polyline points="18 15 12 9 6 15"></polyline></svg>
+</button>
+
+<script>
+// ── Active nav ──
+(function() {
+  const path = window.location.pathname.split('/').pop() || 'index.html';
+  document.querySelectorAll('#main-nav a[data-page]').forEach(a => {
+    const href = a.getAttribute('href').split('/').pop();
+    if (href === path || (path === '' && href === 'index.html')) {
+      a.classList.add('active');
+    }
+  });
+})();
+
+// ── Back to top ──
+const btn = document.getElementById('back-top');
+window.addEventListener('scroll', () => {
+  btn.classList.toggle('visible', window.scrollY > 300);
+});
+btn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+// ── Progress bar (page article seulement) ──
+const bar = document.getElementById('read-progress');
+if (bar && document.querySelector('.art')) {
+  window.addEventListener('scroll', () => {
+    const el = document.querySelector('.art');
+    const rect = el.getBoundingClientRect();
+    const total = el.offsetHeight - window.innerHeight;
+    const scrolled = Math.max(0, -rect.top);
+    bar.style.width = Math.min(100, (scrolled / total) * 100) + '%';
+  });
+}
+</script>
+
+</body>
+</html>

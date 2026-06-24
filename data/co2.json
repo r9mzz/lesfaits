@@ -1,0 +1,78 @@
+{
+  "slug": "emissions-co2-france-recul-2023",
+  "titre": "Les émissions de CO₂ en France ont reculé de 5,8 % en 2023 selon les données officielles du CITEPA",
+  "categorie": "environnement",
+  "chapo": "Selon l'inventaire provisoire publié par le CITEPA en avril 2024, la France a émis 383 millions de tonnes équivalent CO₂ (MtCO₂e) en 2023, contre 407 MtCO₂e en 2022 — soit une baisse de 5,8 %. Cette réduction, la plus importante depuis la crise du Covid-19 en 2020, s'explique principalement par la contraction de la consommation de gaz naturel dans l'industrie et le résidentiel, ainsi que par la hausse de la production nucléaire française après les arrêts de maintenance de 2022.",
+  "contexte": "La France suit un Accord de Paris engageant à la neutralité carbone d'ici 2050 et une trajectoire de réduction des émissions codifiée dans la Stratégie Nationale Bas-Carbone (SNBC). En 2019, avant la pandémie, les émissions atteignaient 441 MtCO₂e. La chute de 2020 (−9,7 %) était conjoncturelle. Entre 2021 et 2022, les émissions étaient remontées à 421 puis 407 MtCO₂e, portées par la reprise économique post-Covid et la crise énergétique liée à l'invasion russe en Ukraine. La baisse de 2023 est de nature plus structurelle, selon le CITEPA, qui note un décrochage de la consommation de gaz naturel difficile à imputer à un seul facteur.",
+  "points": [
+    {
+      "fait": "Selon le CITEPA (Centre Interprofessionnel Technique d'Études de la Pollution Atmosphérique), les émissions nationales de gaz à effet de serre ont atteint 383 MtCO₂e en 2023, soit −5,8 % par rapport à 2022 (407 MtCO₂e).",
+      "source_institution": "CITEPA",
+      "source_url": "https://www.citepa.org/fr/secten/"
+    },
+    {
+      "fait": "D'après Eurostat, la France se situe en 2023 au 3ᵉ rang des émetteurs de l'Union européenne, derrière l'Allemagne (674 MtCO₂e) et la Pologne (390 MtCO₂e). La moyenne européenne de réduction est de −3,8 % sur la même période, la France faisant mieux que cette moyenne.",
+      "source_institution": "Eurostat",
+      "source_url": "https://ec.europa.eu/eurostat/statistics-explained/index.php/Greenhouse_gas_emission_statistics"
+    },
+    {
+      "fait": "Selon le ministère de la Transition écologique, la baisse est concentrée dans le secteur de l'énergie (−10,2 %), l'industrie manufacturière (−8,1 %) et le résidentiel-tertiaire (−7,3 %). En revanche, le secteur des transports, premier émetteur national avec 31 % du total, n'a reculé que de −0,8 % malgré l'essor des véhicules électriques.",
+      "source_institution": "Ministère de la Transition écologique",
+      "source_url": "https://www.statistiques.developpement-durable.gouv.fr/bilan-des-emissions-de-gaz-effet-de-serre"
+    },
+    {
+      "fait": "D'après RTE (Réseau de Transport d'Électricité), la production d'électricité nucléaire a atteint 320 TWh en 2023, contre 279 TWh en 2022 — une hausse de 14,7 % liée à la remise en service progressive des réacteurs corrodés. Cette reprise du nucléaire a réduit mécaniquement la part du gaz dans la production électrique.",
+      "source_institution": "RTE",
+      "source_url": "https://www.rte-france.com/bilan-electrique"
+    },
+    {
+      "fait": "Selon l'Agence de la transition écologique (ADEME), les objectifs de la SNBC 2 imposent une réduction à 300 MtCO₂e d'ici 2030. Au rythme actuel, la France serait en dessous de la trajectoire cible pour la première fois depuis l'adoption de la stratégie, mais le rapport souligne que des efforts sectoriels restent insuffisants, notamment dans l'agriculture (19 % des émissions) et les transports.",
+      "source_institution": "ADEME",
+      "source_url": "https://www.ademe.fr/nos-missions/transition-energetique-et-numerique/decarbonation/strategie-nationale-bas-carbone/"
+    }
+  ],
+  "donnees": [
+    { "valeur": "383 Mt", "label": "CO₂e émis en France en 2023", "source": "CITEPA, 2024" },
+    { "valeur": "−5,8 %", "label": "Réduction par rapport à 2022", "source": "CITEPA, 2024" },
+    { "valeur": "31 %", "label": "Part des transports dans les émissions", "source": "Min. Transition éco." },
+    { "valeur": "300 Mt", "label": "Objectif SNBC 2030", "source": "ADEME / SNBC 2" },
+    { "valeur": "320 TWh", "label": "Production nucléaire 2023 (hausse 14,7 %)", "source": "RTE, 2024" }
+  ],
+  "nuances": "Plusieurs limites méthodologiques méritent d'être signalées. Premièrement, les données du CITEPA pour 2023 sont provisoires — la publication définitive est attendue pour fin 2024 et peut faire l'objet de révisions pouvant atteindre ±2 %. Deuxièmement, la baisse de 2023 est en partie conjoncturelle : la crise du gaz post-Ukraine a modifié durablement les comportements de consommation, mais une reprise économique forte pourrait inverser la tendance. Troisièmement, les émissions dites « importées » — liées aux produits consommés en France mais produits à l'étranger — ne sont pas incluses dans ces chiffres et représentent selon l'ADEME environ 45 % de l'empreinte carbone réelle des Français. Quatrièmement, le secteur agricole, dont les émissions sont structurellement difficiles à réduire (méthane entérique, protoxyde d'azote des sols), ne progresse pas, ce que plusieurs experts jugent incompatible avec les objectifs 2030.",
+  "sources": [
+    {
+      "institution": "CITEPA",
+      "titre": "Rapport SECTEN — Inventaire des émissions de polluants atmosphériques et de gaz à effet de serre en France",
+      "date": "Avril 2024",
+      "url": "https://www.citepa.org/fr/secten/"
+    },
+    {
+      "institution": "Eurostat",
+      "titre": "Greenhouse gas emission statistics — emission inventories",
+      "date": "2024",
+      "url": "https://ec.europa.eu/eurostat/statistics-explained/index.php/Greenhouse_gas_emission_statistics"
+    },
+    {
+      "institution": "Ministère de la Transition écologique",
+      "titre": "Bilan des émissions de gaz à effet de serre en France",
+      "date": "2024",
+      "url": "https://www.statistiques.developpement-durable.gouv.fr/bilan-des-emissions-de-gaz-effet-de-serre"
+    },
+    {
+      "institution": "RTE — Réseau de Transport d'Électricité",
+      "titre": "Bilan électrique 2023",
+      "date": "Janvier 2024",
+      "url": "https://www.rte-france.com/bilan-electrique"
+    },
+    {
+      "institution": "ADEME",
+      "titre": "Stratégie Nationale Bas-Carbone — Bilan et trajectoire",
+      "date": "2024",
+      "url": "https://www.ademe.fr/nos-missions/transition-energetique-et-numerique/decarbonation/strategie-nationale-bas-carbone/"
+    }
+  ],
+  "nb_sources": 5,
+  "confiance": 0.95,
+  "date": "24 juin 2026",
+  "modele": "Protocole Factuel v1.1 — rédaction manuelle"
+}

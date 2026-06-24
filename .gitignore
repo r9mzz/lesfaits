@@ -1,0 +1,26 @@
+# Secrets — ne jamais commiter
+.env
+*.env
+
+# Cache Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.Python
+
+# Environnements virtuels
+venv/
+.venv/
+env/
+
+# État local du scheduler (régénéré automatiquement)
+data/scheduler_state.json
+data/scheduler.log
+
+# Publié IDs (régénéré sur le serveur)
+data/published.json
+
+# OS
+.DS_Store
+Thumbs.db
