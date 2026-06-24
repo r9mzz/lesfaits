@@ -69,7 +69,9 @@
       </select>
     </div>
   </div>
-  <div id="search-results"></div>
+  <div id="search-results">
+    <div id="search-loading" style="text-align:center;padding:60px 0;color:var(--muted);font-size:.9rem">Chargement…</div>
+  </div>
 </main>
 
 <footer class="footer">
@@ -110,10 +112,20 @@ let currentQ = '';
 
 async function loadArticles() {
   try {
-    const res = await fetch(BASE + 'data/search.json');
-    if (!res.ok) throw new Error(res.status);
-    articles = await res.json();
-  } catch(e) { console.error('search.json:', e); }
+    // Essayer d'abord avec l'URL absolue, sinon chemin relatif
+    const urls = [BASE + 'data/search.json', '/factuel/data/search.json', 'data/search.json'];
+    for (const url of urls) {
+      try {
+        const res = await fetch(url);
+        if (res.ok) { articles = await res.json(); return; }
+      } catch(_) {}
+    }
+    throw new Error('search.json introuvable');
+  } catch(e) {
+    console.error('search.json:', e);
+    document.getElementById('search-results').innerHTML =
+      `<div class="search-empty" style="color:#c00"><p>Erreur de chargement. Réessayez dans quelques secondes.</p></div>`;
+  }
 }
 
 function norm(s) { return (s||'').normalize('NFD').replace(/[̀-ͯ]/g,'').toLowerCase(); }
@@ -186,15 +198,34 @@ function renderResults(q) {
 }
 
 (async () => {
-  await loadArticles();
-  const q = new URLSearchParams(window.location.search).get('q') || '';
+  // Lire le terme AVANT le fetch pour pré-remplir l'input immédiatement
+  const q = decodeURIComponent(new URLSearchParams(window.location.search).get('q') || '');
   const input = document.getElementById('search-input');
   const hInput = document.getElementById('header-search-input');
-  input.value = q;
-  if (hInput) hInput.value = q;
-  renderResults(q);
+  if (q) { input.value = q; if (hInput) hInput.value = q; }
+
+  await loadArticles();
+
+  // Effacer le spinner "Chargement..." si on n'a pas eu d'erreur
+  const loading = document.getElementById('search-loading');
+  if (loading) loading.remove();
+
+  if (q) renderResults(q);
+  else document.getElementById('search-results').innerHTML = '';
+
   input.addEventListener('input', () => renderResults(input.value.trim()));
   input.addEventListener('keydown', e => { if(e.key==='Escape'){input.value='';renderResults('');} });
+  // Aussi depuis la barre du header
+  if (hInput) {
+    hInput.addEventListener('keydown', e => {
+      if (e.key === 'Enter' && hInput.value.trim()) {
+        const newQ = encodeURIComponent(hInput.value.trim());
+        window.history.pushState({}, '', '?q=' + newQ);
+        input.value = hInput.value.trim();
+        renderResults(hInput.value.trim());
+      }
+    });
+  }
 })();
 </script>
 </body>
