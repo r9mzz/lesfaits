@@ -770,6 +770,9 @@ def build_category_pages():
     cats_dir = ROOT / "categories"
     cats_dir.mkdir(exist_ok=True)
 
+    # Catégories avec articles suffisants pour la nav (seuil : 1 article minimum)
+    cats_actives = {c for c, l in CAT_LABELS.items() if any(a.get("categorie") == c for a in articles)}
+
     for cat, label in CAT_LABELS.items():
         arts = [a for a in articles if a.get("categorie") == cat]
 
@@ -783,11 +786,29 @@ def build_category_pages():
             <span class="meta__sep">·</span><span>{a['date']}</span>
           </div>
         </div>""" for a in arts)
+            count_txt = f'{len(arts)} article{"s" if len(arts) > 1 else ""}'
         else:
-            cards_html = '<p style="color:var(--muted);padding:40px 0">Aucun article dans cette rubrique pour l\'instant.</p>'
+            # Page vide : état élégant avec prochaine publication
+            cards_html = f"""
+        <div style="grid-column:1/-1;text-align:center;padding:80px 24px">
+          <div style="font-size:3rem;margin-bottom:24px;opacity:.3">◎</div>
+          <h2 style="font-size:1.3rem;font-weight:600;margin-bottom:12px;color:var(--ink)">
+            Rubrique en cours d'alimentation
+          </h2>
+          <p style="color:var(--muted);max-width:420px;margin:0 auto 32px;line-height:1.7">
+            Les premiers articles <strong>{label}</strong> seront publiés lors du prochain cycle éditorial.
+            Le pipeline génère de nouveaux contenus chaque matin à 07h00 et chaque soir à 18h30.
+          </p>
+          <a href="index.html" style="display:inline-block;padding:10px 24px;background:var(--blue);
+             color:#fff;border-radius:4px;text-decoration:none;font-size:.9rem;font-weight:600">
+            ← Retour à l'accueil
+          </a>
+        </div>"""
+            count_txt = "Bientôt disponible"
 
+        # Nav rubriques — n'affiche que celles avec du contenu (+ la courante toujours visible)
         nav_links = "\n".join(
-            f'<a href="{c}.html"{"style=\"font-weight:700;color:var(--blue)\"" if c == cat else ""}>{l}</a>'
+            f'<a href="{c}.html" style="{"font-weight:700;color:var(--blue)" if c == cat else "color:var(--muted)" if c not in cats_actives else ""}">{l}</a>'
             for c, l in CAT_LABELS.items()
         )
 
@@ -821,11 +842,12 @@ def build_category_pages():
 </header>
 
 <main style="max-width:1200px;margin:60px auto;padding:0 24px">
-  <div style="margin-bottom:40px">
-    <h1 style="font-size:2.2rem;font-weight:700;margin-bottom:8px">{label}</h1>
-    <p style="color:var(--muted)">{len(arts)} article{"s" if len(arts) > 1 else ""} dans cette rubrique</p>
+  <div style="margin-bottom:32px;border-bottom:1px solid var(--rule);padding-bottom:24px">
+    <span style="font-size:.8rem;font-weight:700;letter-spacing:.1em;color:var(--muted);text-transform:uppercase">Rubrique</span>
+    <h1 style="font-size:2.4rem;font-weight:700;margin:8px 0 4px">{label}</h1>
+    <p style="color:var(--muted);font-size:.9rem">{count_txt}</p>
   </div>
-  <nav style="display:flex;gap:16px;margin-bottom:48px;flex-wrap:wrap">
+  <nav style="display:flex;gap:24px;margin-bottom:48px;flex-wrap:wrap;font-size:.9rem">
     {nav_links}
   </nav>
   <div class="grid3">
