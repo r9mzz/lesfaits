@@ -476,7 +476,8 @@ def build_article_html(art: dict, date_pub: str) -> str:
   <meta property="og:description" content="{resume_txt[:155]}"/>
   <meta property="og:type" content="article"/>
   <title>{art['titre']} — Factuel</title>
-  <link rel="stylesheet" href="../src/style.css"/>
+  <base href="/factuel/"/>
+  <link rel="stylesheet" href="src/style.css"/>
 </head>
 <body>
 <header class="header">
@@ -634,6 +635,7 @@ def build_index_html(main, side_html, grid_html, list_html, ticker_items):
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <meta name="description" content="Factuel — Journal numérique français rédigé par IA. Juste les faits. Aucun parti pris."/>
   <title>Factuel — Juste les faits. Aucun parti pris.</title>
+  <base href="/factuel/"/>
   <link rel="stylesheet" href="src/style.css"/>
 </head>
 <body>
