@@ -394,7 +394,15 @@ Format obligatoire :
     {"institution": "Nom exact institution", "titre": "Titre exact publication ou rapport", "date": "Date précise", "url": "URL complète ou DOI"}
   ],
   "categorie": "science|economie|societe|tech|environnement",
-  "nb_sources": 4
+  "nb_sources": 4,
+  "positions": {
+    "label_gauche": "Ex: Pour / Favorable / Consensus",
+    "label_droite": "Ex: Contre / Critique / En débat",
+    "acteurs": [
+      {"nom": "Acteur ou institution 1", "detail": "Courte description de sa position (max 12 mots)", "position": 20},
+      {"nom": "Acteur ou institution 2", "detail": "Courte description de sa position (max 12 mots)", "position": 75}
+    ]
+  }
 }
 
 RÈGLES ABSOLUES — toute violation = article rejeté :
@@ -406,7 +414,8 @@ RÈGLES ABSOLUES — toute violation = article rejeté :
 6. Aucune opinion. Aucun parti pris. Structure : "Selon X, ... / D'après Y, ..."
 7. Titre : 10-15 mots, informatif, factuel — il doit résumer l'essentiel de l'article
 8. Sources : institutions officielles (INSEE, CNRS, INSERM, Eurostat, OMS, gouvernement), journaux de référence, publications peer-reviewed
-9. Slug en français kebab-case, descriptif, max 65 caractères"""
+9. Slug en français kebab-case, descriptif, max 65 caractères
+10. positions : identifier 2 à 4 acteurs RÉELS cités dans l'article avec leur position sur le sujet. position = 0 (totalement favorable/consensuel) à 100 (totalement critique/opposé). label_gauche et label_droite doivent décrire les deux extrêmes du débat spécifique à cet article (ex: "Pour la mesure" / "Contre la mesure")"""
 
 
 def generate(content: str, category_hint: str, extra_sources: list[dict] | None = None) -> dict:
@@ -453,6 +462,36 @@ def generate(content: str, category_hint: str, extra_sources: list[dict] | None 
 # ══════════════════════════════════════════════════════════════════════════════
 # GÉNÉRATION HTML ARTICLE
 # ══════════════════════════════════════════════════════════════════════════════
+
+def build_spectrum_html(positions: dict) -> str:
+    """Génère le bloc HTML spectrum à partir des données positions du LLM."""
+    if not positions or not positions.get("acteurs"):
+        return ""
+    acteurs = positions["acteurs"]
+    label_g = positions.get("label_gauche", "Favorable")
+    label_d = positions.get("label_droite", "Critique")
+    COLORS = ["#4a90d9", "#e57373", "#66bb6a", "#ffa726", "#ab47bc"]
+    markers = "\n".join(
+        f'<div class="spectrum__marker" style="left:{a["position"]}%">'
+        f'<span class="spectrum__marker-dot" style="background:{COLORS[i % len(COLORS)]}"></span>'
+        f'</div>'
+        for i, a in enumerate(acteurs)
+    )
+    legend_items = "\n".join(
+        f'<div class="spectrum__legend-item">'
+        f'<span class="spectrum__legend-dot" style="background:{COLORS[i % len(COLORS)]}"></span>'
+        f'<span class="spectrum__legend-name">{a["nom"]}</span>'
+        f'<span class="spectrum__legend-sub">{a.get("detail","")}</span>'
+        f'</div>'
+        for i, a in enumerate(acteurs)
+    )
+    return f"""<div class="spectrum">
+  <div class="spectrum__title">POSITIONS DES ACTEURS</div>
+  <div class="spectrum__labels"><span>{label_g}</span><span>{label_d}</span></div>
+  <div class="spectrum__track">{markers}</div>
+  <div class="spectrum__legend">{legend_items}</div>
+</div>"""
+
 
 def build_article_html(art: dict, date_pub: str) -> str:
     resume_txt = " ".join(art["resume"])
@@ -520,6 +559,7 @@ def build_article_html(art: dict, date_pub: str) -> str:
   <h2>Les faits</h2><p>{faits}</p>
   <h2>Contexte</h2><p>{contexte}</p>
   <h2>Débats et nuances</h2><p>{nuances}</p>
+  {build_spectrum_html(art.get("positions", {}))}
   <div class="sources">
     <h3>SOURCES</h3>
     <ol>{sources_li}</ol>
