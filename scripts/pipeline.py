@@ -624,6 +624,7 @@ def rebuild_index():
     html = build_index_html(main_art, side_html, grid_html, list_html, ticker_items)
     index_path.write_text(html, encoding="utf-8")
     print(f"  ✓ index.html reconstruit ({len(articles)} articles)")
+    build_category_pages()
 
 
 def build_index_html(main, side_html, grid_html, list_html, ticker_items):
@@ -749,6 +750,125 @@ def build_index_html(main, side_html, grid_html, list_html, ticker_items):
 </footer>
 </body>
 </html>"""
+
+
+# ══════════════════════════════════════════════════════════════════════════════
+# PAGES CATÉGORIES
+# ══════════════════════════════════════════════════════════════════════════════
+
+CAT_LABELS = {
+    "science":       "Science",
+    "economie":      "Économie",
+    "tech":          "Tech",
+    "environnement": "Environnement",
+    "societe":       "Société",
+}
+
+def build_category_pages():
+    """Génère categories/[cat].html pour chaque catégorie."""
+    articles = load_index()
+    cats_dir = ROOT / "categories"
+    cats_dir.mkdir(exist_ok=True)
+
+    for cat, label in CAT_LABELS.items():
+        arts = [a for a in articles if a.get("categorie") == cat]
+
+        if arts:
+            cards_html = "\n".join(f"""
+        <div class="card3" onclick="window.location='../articles/{a['slug']}.html'" style="cursor:pointer">
+          <span class="cat">{label.upper()}</span>
+          <h3 class="title-sm">{a['titre']}</h3>
+          <div class="meta" style="margin-top:10px">
+            <span class="meta__src">{a['nb_sources']} sources</span>
+            <span class="meta__sep">·</span><span>{a['date']}</span>
+          </div>
+        </div>""" for a in arts)
+        else:
+            cards_html = '<p style="color:var(--muted);padding:40px 0">Aucun article dans cette rubrique pour l\'instant.</p>'
+
+        nav_links = "\n".join(
+            f'<a href="{c}.html"{"style=\"font-weight:700;color:var(--blue)\"" if c == cat else ""}>{l}</a>'
+            for c, l in CAT_LABELS.items()
+        )
+
+        html = f"""<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="Factuel — Rubrique {label}. Juste les faits. Aucun parti pris."/>
+  <title>{label} — Factuel</title>
+  <base href="/factuel/"/>
+  <link rel="stylesheet" href="src/style.css"/>
+</head>
+<body>
+<div id="read-progress"></div>
+<header class="header">
+  <div class="header__inner">
+    <a href="index.html" class="brand">
+      <div class="brand__logo">F</div>
+      <div><div class="brand__name">Factuel</div><div class="brand__slogan">Juste les faits. Aucun parti pris.</div></div>
+    </a>
+    <nav>
+      <a href="categories/societe.html">Société</a>
+      <a href="categories/science.html">Science</a>
+      <a href="categories/economie.html">Économie</a>
+      <a href="categories/tech.html">Tech</a>
+      <a href="categories/environnement.html">Environnement</a>
+      <a href="methode.html" class="nav-cta">Comment on travaille →</a>
+    </nav>
+  </div>
+</header>
+
+<main style="max-width:1200px;margin:60px auto;padding:0 24px">
+  <div style="margin-bottom:40px">
+    <h1 style="font-size:2.2rem;font-weight:700;margin-bottom:8px">{label}</h1>
+    <p style="color:var(--muted)">{len(arts)} article{"s" if len(arts) > 1 else ""} dans cette rubrique</p>
+  </div>
+  <nav style="display:flex;gap:16px;margin-bottom:48px;flex-wrap:wrap">
+    {nav_links}
+  </nav>
+  <div class="grid3">
+    {cards_html}
+  </div>
+</main>
+
+<footer class="footer">
+  <div class="footer__inner">
+    <div class="footer__brand">
+      <div class="brand" style="margin-bottom:8px">
+        <div class="brand__logo" style="width:32px;height:32px;font-size:18px">F</div>
+        <div class="brand__name" style="font-size:16px">Factuel</div>
+      </div>
+      <p>Journal numérique français rédigé par IA. Sans publicité. Sans actionnaires.</p>
+    </div>
+    <div class="footer__col"><h4>RUBRIQUES</h4>
+      <a href="categories/science.html">Science</a>
+      <a href="categories/economie.html">Économie</a>
+      <a href="categories/societe.html">Société</a>
+      <a href="categories/tech.html">Tech</a>
+      <a href="categories/environnement.html">Environnement</a>
+    </div>
+    <div class="footer__col"><h4>JOURNAL</h4>
+      <a href="methode.html">Comment on travaille</a>
+      <a href="#">Corrections publiques</a>
+    </div>
+    <div class="footer__col"><h4>CONTACT</h4>
+      <a href="mailto:Factuelinfo.contact@gmail.com">Nous écrire</a>
+      <a href="#">Corrections publiques</a>
+    </div>
+  </div>
+  <div class="footer__bottom">
+    <span>© {datetime.now().year} Factuel — Protocole Factuel v1.1</span>
+    <span>Mentions légales · CGU</span>
+  </div>
+</footer>
+</body>
+</html>"""
+
+        (cats_dir / f"{cat}.html").write_text(html, encoding="utf-8")
+
+    print(f"  ✓ {len(CAT_LABELS)} pages catégories générées dans categories/")
 
 
 # ══════════════════════════════════════════════════════════════════════════════
