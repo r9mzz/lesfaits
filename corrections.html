@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="Factuel — Corrections publiques. Chaque erreur signalée et corrigée est publiée ici de manière transparente."/>
+  <title>Corrections publiques — Factuel</title>
+  <base href="/factuel/"/>
+  <link rel="stylesheet" href="src/style.css"/>
+</head>
+<body>
+<div id="read-progress"></div>
+<header class="header">
+  <div class="header__inner">
+    <a href="index.html" class="brand">
+      <div class="brand__logotype"><span class="fact">fact</span><span class="uel">uel</span></div>
+    </a>
+    <nav>
+      <a href="categories/societe.html">Société</a>
+      <a href="categories/science.html">Science</a>
+      <a href="categories/economie.html">Économie</a>
+      <a href="categories/tech.html">Tech</a>
+      <a href="categories/environnement.html">Environnement</a>
+      <a href="methode.html" class="nav-cta" style="background:var(--blue);color:#fff">Comment on travaille →</a>
+    </nav>
+  </div>
+</header>
+
+<main style="max-width:780px;margin:80px auto;padding:0 24px">
+
+  <span style="font-size:.8rem;font-weight:700;letter-spacing:.1em;color:var(--muted);text-transform:uppercase">Transparence</span>
+  <h1 style="font-size:2.4rem;font-weight:700;margin:12px 0 8px;line-height:1.2">Corrections publiques</h1>
+  <p style="color:var(--muted);font-size:1.05rem;margin-bottom:48px;line-height:1.7">
+    Chaque erreur factuelle signalée et confirmée est corrigée dans l'article concerné et consignée ici.
+    La correction est permanente et publique — nous ne supprimons pas les signalements, nous les assumons.
+  </p>
+
+  <div style="border-left:3px solid var(--blue);padding-left:24px;margin-bottom:56px">
+    <p style="font-size:1rem;color:var(--ink);line-height:1.7;margin:0">
+      Notre engagement : toute erreur factuelle signalée reçoit une réponse sous 48h.
+      Si l'erreur est confirmée, la correction est publiée ici avec la date, l'article concerné et la nature de l'erreur.
+    </p>
+  </div>
+
+  <!-- Journal des corrections -->
+  <h2 style="font-size:1.3rem;font-weight:700;margin-bottom:24px;border-bottom:1px solid var(--rule);padding-bottom:12px">
+    Journal des corrections
+  </h2>
+
+  <div style="background:var(--light);border-radius:8px;padding:40px;text-align:center;margin-bottom:64px;color:var(--muted)">
+    <div style="font-size:2rem;margin-bottom:12px">✓</div>
+    <p style="font-weight:600;margin-bottom:8px;color:var(--ink)">Aucune correction enregistrée à ce jour</p>
+    <p style="font-size:.9rem;margin:0">Factuel est en ligne depuis juin 2026. Ce journal sera mis à jour à chaque correction publiée.</p>
+  </div>
+
+  <!-- Comment signaler -->
+  <h2 style="font-size:1.3rem;font-weight:700;margin-bottom:24px;border-bottom:1px solid var(--rule);padding-bottom:12px">
+    Signaler une erreur
+  </h2>
+
+  <p style="line-height:1.8;color:var(--muted);margin-bottom:32px">
+    Si vous pensez avoir identifié une erreur factuelle dans un article — chiffre inexact, attribution incorrecte, information dépassée — écrivez-nous en précisant :
+  </p>
+  <ul style="line-height:2.2;padding-left:20px;color:var(--muted);margin-bottom:40px">
+    <li>Le titre ou l'URL de l'article concerné</li>
+    <li>Le passage que vous estimez erroné</li>
+    <li>La source que vous proposez en remplacement</li>
+  </ul>
+
+  <div style="background:var(--white);border:1px solid var(--rule);border-radius:8px;padding:36px;text-align:center;margin-bottom:48px">
+    <h3 style="font-size:1.1rem;font-weight:700;margin-bottom:8px">Nous contacter</h3>
+    <p style="color:var(--muted);margin-bottom:24px;font-size:.95rem">
+      Réponse garantie sous 48h ouvrées pour tout signalement circonstancié.
+    </p>
+    <a href="mailto:Factuelinfo.contact@gmail.com?subject=Correction — [titre de l'article]"
+       style="display:inline-block;padding:12px 32px;background:var(--blue);color:#fff;border-radius:4px;text-decoration:none;font-weight:600;font-size:.95rem">
+      Signaler une erreur →
+    </a>
+  </div>
+
+  <!-- Notre engagement -->
+  <h2 style="font-size:1.3rem;font-weight:700;margin-bottom:24px;border-bottom:1px solid var(--rule);padding-bottom:12px">
+    Notre politique de correction
+  </h2>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-bottom:64px">
+    <div style="padding:20px;background:var(--white);border:1px solid var(--rule);border-radius:6px">
+      <div style="font-weight:700;margin-bottom:6px;font-size:.9rem">Ce que nous corrigeons</div>
+      <p style="font-size:.85rem;color:var(--muted);line-height:1.7;margin:0">Erreurs factuelles, chiffres incorrects, attributions erronées, informations périmées ayant changé depuis la publication.</p>
+    </div>
+    <div style="padding:20px;background:var(--white);border:1px solid var(--rule);border-radius:6px">
+      <div style="font-weight:700;margin-bottom:6px;font-size:.9rem">Ce que nous ne corrigeons pas</div>
+      <p style="font-size:.85rem;color:var(--muted);line-height:1.7;margin:0">Les désaccords d'opinion, les nuances de formulation, les sujets où plusieurs interprétations des faits sont légitimes.</p>
+    </div>
+    <div style="padding:20px;background:var(--white);border:1px solid var(--rule);border-radius:6px">
+      <div style="font-weight:700;margin-bottom:6px;font-size:.9rem">Traçabilité</div>
+      <p style="font-size:.85rem;color:var(--muted);line-height:1.7;margin:0">Chaque correction est datée, liée à l'article original et conservée définitivement dans ce journal.</p>
+    </div>
+    <div style="padding:20px;background:var(--white);border:1px solid var(--rule);border-radius:6px">
+      <div style="font-weight:700;margin-bottom:6px;font-size:.9rem">Délai</div>
+      <p style="font-size:.85rem;color:var(--muted);line-height:1.7;margin:0">Réponse sous 48h, correction publiée dans les 72h si l'erreur est confirmée.</p>
+    </div>
+  </div>
+
+</main>
+
+<footer class="footer">
+  <div class="footer__inner">
+    <div class="footer__brand">
+      <div class="brand__logotype"><span class="fact">fact</span><span class="uel">uel</span></div>
+      <p>Journal numérique français rédigé par IA. Sans publicité. Sans actionnaires.</p>
+    </div>
+    <div class="footer__col"><h4>RUBRIQUES</h4>
+      <a href="categories/societe.html">Société</a>
+      <a href="categories/science.html">Science</a>
+      <a href="categories/economie.html">Économie</a>
+      <a href="categories/tech.html">Tech</a>
+      <a href="categories/environnement.html">Environnement</a>
+    </div>
+    <div class="footer__col"><h4>JOURNAL</h4>
+      <a href="methode.html">Comment on travaille</a>
+      <a href="corrections.html">Corrections publiques</a>
+    </div>
+    <div class="footer__col"><h4>CONTACT</h4>
+      <a href="mailto:Factuelinfo.contact@gmail.com">Nous écrire</a>
+      <a href="mailto:Factuelinfo.contact@gmail.com?subject=Signalement erreur">Signaler une erreur</a>
+    </div>
+  </div>
+  <div class="footer__bottom">
+    <span>© 2026 Factuel — Protocole Factuel v1.1</span>
+    <span>Mentions légales · CGU</span>
+  </div>
+</footer>
+</body>
+</html>

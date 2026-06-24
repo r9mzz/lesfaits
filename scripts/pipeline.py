@@ -585,7 +585,7 @@ def build_article_html(art: dict, date_pub: str) -> str:
     </div>
     <div class="footer__col"><h4>JOURNAL</h4>
       <a href="methode.html">Comment on travaille</a>
-      <a href="mailto:Factuelinfo.contact@gmail.com?subject=Correction">Corrections publiques</a>
+      <a href="corrections.html">Corrections publiques</a>
     </div>
     <div class="footer__col"><h4>CONTACT</h4>
       <a href="mailto:Factuelinfo.contact@gmail.com">Nous écrire</a>
@@ -772,7 +772,7 @@ def build_index_html(main, side_html, grid_html, list_html, ticker_items):
     </div>
     <div class="footer__col"><h4>JOURNAL</h4>
       <a href="methode.html">Comment on travaille</a>
-      <a href="mailto:Factuelinfo.contact@gmail.com?subject=Correction">Corrections publiques</a>
+      <a href="corrections.html">Corrections publiques</a>
     </div>
     <div class="footer__col"><h4>CONTACT</h4>
       <a href="mailto:Factuelinfo.contact@gmail.com">Nous écrire</a>
@@ -908,7 +908,7 @@ def build_category_pages():
     </div>
     <div class="footer__col"><h4>JOURNAL</h4>
       <a href="methode.html">Comment on travaille</a>
-      <a href="mailto:Factuelinfo.contact@gmail.com?subject=Correction">Corrections publiques</a>
+      <a href="corrections.html">Corrections publiques</a>
     </div>
     <div class="footer__col"><h4>CONTACT</h4>
       <a href="mailto:Factuelinfo.contact@gmail.com">Nous écrire</a>
