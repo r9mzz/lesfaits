@@ -647,8 +647,8 @@ def rebuild_index():
 
     main_art  = articles[0]
     side_arts = articles[1:4]
-    grid_arts = articles[4:10] if len(articles) > 4 else articles[:3]
-    list_arts = articles[:6]
+    grid_arts = articles[4:10] if len(articles) > 4 else []
+    list_arts = articles[10:16] if len(articles) > 10 else []  # section masquée si < 11 articles
 
     side_html  = "\n".join(side_card(a) for a in side_arts) if side_arts else ""
     grid_html  = "\n".join(mini_card(a) for a in grid_arts) if grid_arts else ""
@@ -731,11 +731,7 @@ def build_index_html(main, side_html, grid_html, list_html):
     <div class="grid3">{grid_html}</div>
   </div>
 
-  <div class="list-section" style="padding-top:40px">
-    <div class="section__head" style="margin-bottom:16px"><span class="section__title">LES PLUS RÉCENTS</span></div>
-    <div class="section__rule"></div>
-    <div class="list-grid">{list_html}</div>
-  </div>
+  {'<div class="list-section" style="padding-top:40px"><div class="section__head" style="margin-bottom:16px"><span class="section__title">À LIRE AUSSI</span></div><div class="section__rule"></div><div class="list-grid">' + list_html + '</div></div>' if list_html else ''}
 </div>
 
 <div class="support">
