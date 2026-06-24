@@ -84,13 +84,21 @@
 </footer>
 
 <script>
-const CAT_LABELS = {societe:'Société',science:'Science',economie:'Économie',tech:'Tech',environnement:'Environnement'};
+const CAT_LABELS = {societe:'Société',science:'Science',economie:'Économie',tech:'Tech',sante:'Santé',environnement:'Environnement'};
 let articles = [];
 
 async function loadArticles() {
-  const res = await fetch('data/search.json');
-  articles = await res.json();
+  try {
+    const base = document.querySelector('base')?.href || '/factuel/';
+    const res = await fetch(base + 'data/search.json');
+    if (!res.ok) throw new Error(res.status);
+    articles = await res.json();
+  } catch(e) {
+    console.error('search.json fetch failed:', e);
+  }
 }
+
+function norm(s) { return (s||'').normalize('NFD').replace(/[̀-ͯ]/g,'').toLowerCase(); }
 
 function highlight(text, q) {
   if (!q) return text;
@@ -102,11 +110,11 @@ function renderResults(q) {
   const countEl = document.getElementById('search-count');
   if (!q || q.length < 2) { container.innerHTML = ''; countEl.textContent = ''; return; }
 
-  const ql = q.toLowerCase();
+  const ql = norm(q);
   const matches = articles.filter(a =>
-    a.titre.toLowerCase().includes(ql) ||
-    (a.excerpt || '').toLowerCase().includes(ql) ||
-    (CAT_LABELS[a.categorie] || '').toLowerCase().includes(ql)
+    norm(a.titre).includes(ql) ||
+    norm(a.excerpt).includes(ql) ||
+    norm(CAT_LABELS[a.categorie] || a.categorie).includes(ql)
   );
 
   countEl.textContent = matches.length === 0 ? '' : `${matches.length} résultat${matches.length > 1 ? 's' : ''} pour « ${q} »`;
@@ -116,8 +124,9 @@ function renderResults(q) {
     return;
   }
 
+  const base = document.querySelector('base')?.href || '/factuel/';
   container.innerHTML = matches.map(a => `
-    <div class="search-result" onclick="window.location='articles/${a.slug}.html'">
+    <div class="search-result" onclick="window.location='${base}articles/${a.slug}.html'">
       <div class="search-result__cat">${CAT_LABELS[a.categorie] || a.categorie}</div>
       <div class="search-result__titre">${highlight(a.titre, q)}</div>
       ${a.excerpt ? `<div class="search-result__excerpt">${highlight(a.excerpt.slice(0,160), q)}…</div>` : ''}
