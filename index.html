@@ -15,7 +15,7 @@
       <div class="brand__logotype"><span class="fact">fact</span><span class="uel">uel</span></div>
     </a>
 <div class="header__search">
-      <input type="search" class="header__search-input" placeholder="Rechercher…" autocomplete="off" onkeydown="if(event.key==='Enter'&&this.value.trim())window.location='recherche.html?q='+encodeURIComponent(this.value.trim())"/>
+      <input type="search" class="header__search-input" placeholder="Rechercher…" autocomplete="off" onkeydown="if(event.key==='Enter'&&this.value.trim())window.location=(document.querySelector('base').href)+'recherche.html?q='+encodeURIComponent(this.value.trim())"/>
     </div>
     <nav>
       <a href="categories/societe.html">Société</a>
@@ -45,8 +45,8 @@
     <div class="une__grid">
       <div class="une__main" onclick="window.location='articles/remorqueur-spatial-europe-mars.html'" style="cursor:pointer">
         <span class="cat">SCIENCE</span>
-        <h2 class="title-xl">L'Europe prépare un remorqueur spatial pour Mars</h2>
-        <p class="excerpt">L'Agence spatiale européenne (ESA) développe actuellement le projet LightShip, un remorqueur spatial destiné à acheminer du matériel vers Mars à moindre coût et de façon régulière, selon l'ESA. L'objectif principal de ce projet est de faciliter l'exploration de la planète rouge et de poser les bases d'un réseau logistique et technique, comme indiqué par l'ESA. Le projet LightShip devra permettre des recherches scientifiques approfondies sur Mars et ouvrir la voie à de futures missions habitées, d'après les déclarations de l'ESA.</p>
+        <h2 class="title-xl">L'Europe prÃ©pare un remorqueur spatial pour Mars</h2>
+        <p class="excerpt">L'Agence spatiale europÃ©enne (ESA) dÃ©veloppe actuellement le projet LightShip, un remorqueur spatial destinÃ© Ã  acheminer du matÃ©riel vers Mars Ã  moindre coÃ»t et de faÃ§on rÃ©guliÃ¨re, selon l'ESA. L'objectif principal de ce projet est de faciliter l'exploration de la planÃ¨te rouge et de poser les bases d'un rÃ©seau logistique et technique, comme indiquÃ© par l'ESA. Le projet LightShip devra permettre des recherches scientifiques approfondies sur Mars et ouvrir la voie Ã  de futures missions habitÃ©es, d'aprÃ¨s les dÃ©clarations de l'ESA.</p>
         <div class="meta">
           <span class="meta__src">4 sources</span>
           <span class="meta__sep">·</span><span>25 juin 2026, 08h23</span>
@@ -57,13 +57,13 @@
       </div>
       <div class="une__side"><div class="une__side-item" onclick="window.location='articles/securite-donnees-deplacement.html'">
           <span class="cat">ENVIRONNEMENT</span>
-          <h3 class="title-md">Sécurité des données en déplacement : les enjeux et les solutions</h3>
+          <h3 class="title-md">SÃ©curitÃ© des donnÃ©es en dÃ©placement : les enjeux et les solutions</h3>
           <div class="meta"><span class="meta__src">4 sources</span>
           <span class="meta__sep">·</span><span>25 juin 2026, 08h23</span></div>
         </div>
 <div class="une__side-item" onclick="window.location='articles/minoens-civilisation-oubilee-inspiration-minotaure.html'">
           <span class="cat">ENVIRONNEMENT</span>
-          <h3 class="title-md">Les Minoens, une civilisation oubliée qui a inspiré le mythe du Minotaure</h3>
+          <h3 class="title-md">Les Minoens, une civilisation oubliÃ©e qui a inspirÃ© le mythe du Minotaure</h3>
           <div class="meta"><span class="meta__src">4 sources</span>
           <span class="meta__sep">·</span><span>25 juin 2026, 08h23</span></div>
         </div>
@@ -81,7 +81,7 @@
     <div class="section__rule"></div>
     <div class="grid3"><div class="card3" onclick="window.location='articles/secheresse-estivale-france-changement-climatique.html'" style="cursor:pointer">
           <span class="cat">ENVIRONNEMENT</span>
-          <h3 class="title-sm">Sécheresse estivale en France, conséquences du changement climatique</h3>
+          <h3 class="title-sm">SÃ©cheresse estivale en France, consÃ©quences du changement climatique</h3>
           <div class="meta" style="margin-top:10px">
             <span class="meta__src">4 sources</span>
             <span class="meta__sep">·</span><span>25 juin 2026, 08h23</span>
@@ -89,7 +89,7 @@
         </div>
 <div class="card3" onclick="window.location='articles/loi-contre-ultrafast-fashion-adoptee.html'" style="cursor:pointer">
           <span class="cat">SOCIETE</span>
-          <h3 class="title-sm">L'Assemblée nationale adopte la proposition de loi contre l'ultrafast-fashion</h3>
+          <h3 class="title-sm">L'AssemblÃ©e nationale adopte la proposition de loi contre l'ultrafast-fashion</h3>
           <div class="meta" style="margin-top:10px">
             <span class="meta__src">4 sources</span>
             <span class="meta__sep">·</span><span>24 juin 2026, 18h16</span>
@@ -97,7 +97,7 @@
         </div>
 <div class="card3" onclick="window.location='articles/nasa-lance-mission-sauvetage-telescope-swift.html'" style="cursor:pointer">
           <span class="cat">SCIENCE</span>
-          <h3 class="title-sm">La NASA lance une mission de sauvetage pour le télescope spatial Swift</h3>
+          <h3 class="title-sm">La NASA lance une mission de sauvetage pour le tÃ©lescope spatial Swift</h3>
           <div class="meta" style="margin-top:10px">
             <span class="meta__src">4 sources</span>
             <span class="meta__sep">·</span><span>24 juin 2026, 18h16</span>
@@ -113,7 +113,7 @@
         </div>
 <div class="card3" onclick="window.location='articles/knds-mise-en-bourse-equilibre-franco-allemand.html'" style="cursor:pointer">
           <span class="cat">SOCIETE</span>
-          <h3 class="title-sm">KNDS mise en Bourse avec équilibre stratégique franco-allemand</h3>
+          <h3 class="title-sm">KNDS mise en Bourse avec Ã©quilibre stratÃ©gique franco-allemand</h3>
           <div class="meta" style="margin-top:10px">
             <span class="meta__src">6 sources</span>
             <span class="meta__sep">·</span><span>24 juin 2026, 17h03</span>
@@ -121,7 +121,7 @@
         </div>
 <div class="card3" onclick="window.location='articles/agriculture-defis-climatiques-extremes.html'" style="cursor:pointer">
           <span class="cat">ENVIRONNEMENT</span>
-          <h3 class="title-sm">L'agriculture face aux défis climatiques extrêmes</h3>
+          <h3 class="title-sm">L'agriculture face aux dÃ©fis climatiques extrÃªmes</h3>
           <div class="meta" style="margin-top:10px">
             <span class="meta__src">4 sources</span>
             <span class="meta__sep">·</span><span>24 juin 2026, 17h03</span>
@@ -129,57 +129,57 @@
         </div></div>
   </div>
 
-  <div class="list-section" style="padding-top:40px"><div class="section__head" style="margin-bottom:16px"><span class="section__title">À LIRE AUSSI</span></div><div class="section__rule"></div><div class="list-grid"><div class="list-item" onclick="window.location='articles/contrôle-aérien-france-en-crise.html'" style="cursor:pointer">
+  <div class="list-section" style="padding-top:40px"><div class="section__head" style="margin-bottom:16px"><span class="section__title">À LIRE AUSSI</span></div><div class="section__rule"></div><div class="list-grid"><div class="list-item" onclick="window.location='articles/contrÃ´le-aÃ©rien-france-en-crise.html'" style="cursor:pointer">
           <span class="list-item__num">01</span>
           <div><span class="cat">SOCIETE</span>
-          <h3 class="title-sm">Contrôle aérien français en crise, coûts élevés pour les compagnies</h3>
+          <h3 class="title-sm">ContrÃ´le aÃ©rien franÃ§ais en crise, coÃ»ts Ã©levÃ©s pour les compagnies</h3>
           <div class="meta" style="margin-top:6px">
             <span class="meta__src">4 sources</span>
             <span class="meta__sep">·</span><span>24 juin 2026, 17h03</span>
           </div></div>
         </div>
-<div class="list-item" onclick="window.location='articles/canicule-pollution-air-france.html'" style="cursor:pointer">
-          <span class="list-item__num">02</span>
-          <div><span class="cat">SOCIETE</span>
-          <h3 class="title-sm">Canicule et pollution de l'air en France</h3>
-          <div class="meta" style="margin-top:6px">
-            <span class="meta__src">6 sources</span>
-            <span class="meta__sep">·</span><span>24 juin 2026, 17h03</span>
-          </div></div>
-        </div>
 <div class="list-item" onclick="window.location='articles/premier-cas-ebola-france.html'" style="cursor:pointer">
-          <span class="list-item__num">03</span>
+          <span class="list-item__num">02</span>
           <div><span class="cat">SANTE</span>
-          <h3 class="title-sm">Premier cas d'Ebola diagnostiqué en France, un médecin de retour de RDC</h3>
+          <h3 class="title-sm">Premier cas d'Ebola diagnostiquÃ© en France, un mÃ©decin de retour de RDC</h3>
           <div class="meta" style="margin-top:6px">
             <span class="meta__src">5 sources</span>
             <span class="meta__sep">·</span><span>24 juin 2026, 17h03</span>
           </div></div>
         </div>
 <div class="list-item" onclick="window.location='articles/sante-environnementale-defis-savoirs.html'" style="cursor:pointer">
-          <span class="list-item__num">04</span>
+          <span class="list-item__num">03</span>
           <div><span class="cat">SANTE</span>
-          <h3 class="title-sm">Santé environnementale : les défis du partage des savoirs</h3>
-          <div class="meta" style="margin-top:6px">
-            <span class="meta__src">4 sources</span>
-            <span class="meta__sep">·</span><span>24 juin 2026, 17h03</span>
-          </div></div>
-        </div>
-<div class="list-item" onclick="window.location='articles/canicule-et-sommeil-les-risques-pour-la-sante.html'" style="cursor:pointer">
-          <span class="list-item__num">05</span>
-          <div><span class="cat">SANTE</span>
-          <h3 class="title-sm">Canicule et sommeil : les risques pour la santé</h3>
+          <h3 class="title-sm">SantÃ© environnementale : les dÃ©fis du partage des savoirs</h3>
           <div class="meta" style="margin-top:6px">
             <span class="meta__src">4 sources</span>
             <span class="meta__sep">·</span><span>24 juin 2026, 17h03</span>
           </div></div>
         </div>
 <div class="list-item" onclick="window.location='articles/canicule-sante-publique-france.html'" style="cursor:pointer">
-          <span class="list-item__num">06</span>
+          <span class="list-item__num">04</span>
           <div><span class="cat">SANTE</span>
-          <h3 class="title-sm">Canicule et santé publique en France</h3>
+          <h3 class="title-sm">Canicule et santÃ© publique en France</h3>
           <div class="meta" style="margin-top:6px">
             <span class="meta__src">8 sources</span>
+            <span class="meta__sep">·</span><span>24 juin 2026, 17h03</span>
+          </div></div>
+        </div>
+<div class="list-item" onclick="window.location='articles/forets-et-canicules-enjeu-politique.html'" style="cursor:pointer">
+          <span class="list-item__num">05</span>
+          <div><span class="cat">ENVIRONNEMENT</span>
+          <h3 class="title-sm">ForÃªts et canicules, un lien Ã©troit Ã  prendre en compte</h3>
+          <div class="meta" style="margin-top:6px">
+            <span class="meta__src">4 sources</span>
+            <span class="meta__sep">·</span><span>24 juin 2026, 17h03</span>
+          </div></div>
+        </div>
+<div class="list-item" onclick="window.location='articles/theorie-evolution-darwin.html'" style="cursor:pointer">
+          <span class="list-item__num">06</span>
+          <div><span class="cat">SOCIETE</span>
+          <h3 class="title-sm">La thÃ©orie de l'Ã©volution de Charles Darwin Ã©volue</h3>
+          <div class="meta" style="margin-top:6px">
+            <span class="meta__src">4 sources</span>
             <span class="meta__sep">·</span><span>24 juin 2026, 17h03</span>
           </div></div>
         </div></div></div>

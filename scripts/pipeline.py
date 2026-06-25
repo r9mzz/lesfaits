@@ -1024,7 +1024,7 @@ def save_to_index(art: dict, date_pub: str):
 # ORCHESTRATION
 # ══════════════════════════════════════════════════════════════════════════════
 
-def generer_article(item: dict, dry_run: bool, published: set, new_pub: set, date_pub: str) -> bool:
+def generer_article(item: dict, dry_run: bool, published: set, new_pub: set, date_pub: str, published_topics: set | None = None) -> bool:
     """Génère et publie un article. Retourne True si succès."""
     if item["id"] in published:
         return False
@@ -1128,7 +1128,9 @@ def run(dry_run=False, text_input=None, nb_max=10):
         # ── Étape 4 : générer les articles sélectionnés ──
         print(f"\n[GÉNÉRATION]")
         for item in selection:
-            generer_article(item, dry_run, published, new_pub, date_pub)
+            if generer_article(item, dry_run, published, new_pub, date_pub, published_topics):
+                # Ajouter le titre généré à published_topics pour éviter les doublons dans la même session
+                published_topics.add(item.get("title", ""))
             time.sleep(1)
 
     if new_pub and not dry_run:
