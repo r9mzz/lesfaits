@@ -520,14 +520,32 @@ def generate(content: str, category_hint: str, extra_sources: list[dict] | None 
     )
 
     raw = response.choices[0].message.content.strip()
-    raw = re.sub(r"^```(?:json)?\s*", "", raw, flags=re.MULTILINE)
-    raw = re.sub(r"\s*```\s*$", "", raw, flags=re.MULTILINE)
-    raw = raw.strip()
 
-    if raw.startswith("HORS_PERIMETRE"):
-        raise ValueError(raw)
+    if "HORS_PERIMETRE" in raw[:60]:
+        raise ValueError(raw[:80])
 
-    art = json.loads(raw)
+    # Extraire le JSON robustement (le modèle peut ajouter du texte avant/après)
+    def _extract_json(text):
+        m = re.search(r'```(?:json)?\s*(\{.*?\})\s*```', text, re.DOTALL)
+        if m:
+            candidate = re.sub(r',\s*([\}\]])', r'\1', m.group(1))
+            return json.loads(candidate)
+        start = text.find('{')
+        if start == -1:
+            raise ValueError("Pas de JSON dans la réponse")
+        candidate = re.sub(r',\s*([\}\]])', r'\1', text[start:])
+        try:
+            return json.loads(candidate)
+        except json.JSONDecodeError:
+            for i in range(len(candidate) - 1, 0, -1):
+                if candidate[i] == '}':
+                    try:
+                        return json.loads(candidate[:i + 1])
+                    except Exception:
+                        continue
+            raise ValueError("JSON non réparable")
+
+    art = _extract_json(raw)
 
     # Supprimer toute source dont l'URL n'est pas dans la liste réelle
     from urllib.parse import urlparse
@@ -585,26 +603,56 @@ def _slug_ascii(s: str) -> str:
 
 
 def _download_hero(keyword: str, slug: str, dest: str) -> None:
-    """Cherche sur Openverse (Creative Commons, sans clé) puis fallback picsum."""
+    """Cherche sur Wikimedia Commons (pertinent, libre de droits) puis Openverse, puis picsum."""
+    import urllib.parse
     os.makedirs(os.path.dirname(dest), exist_ok=True)
-    hdrs = {"User-Agent": "Factuel/1.0 (factuelinfo.contact@gmail.com)"}
-    # 1. Openverse — images CC pertinentes par mot-clé
+    hdrs = {"User-Agent": "LesFaits/1.1 (lesfaits.contact@gmail.com)"}
+
+    # 1. Wikimedia Commons — images thématiques libres, bien indexées par sujet
     try:
-        import urllib.parse
-        q = urllib.parse.urlencode({"q": keyword, "page_size": "5"})
+        params = urllib.parse.urlencode({
+            "action": "query", "format": "json", "generator": "search",
+            "gsrnamespace": "6", "gsrsearch": keyword, "gsrlimit": "10",
+            "prop": "imageinfo", "iiprop": "url|size|mime", "iiurlwidth": "1200"
+        })
+        r = requests.get(f"https://commons.wikimedia.org/w/api.php?{params}", timeout=10, headers=hdrs)
+        pages = r.json().get("query", {}).get("pages", {}).values()
+        for page in pages:
+            ii = page.get("imageinfo", [{}])[0]
+            mime = ii.get("mime", "")
+            if mime not in ("image/jpeg", "image/png", "image/webp"):
+                continue
+            img_url = ii.get("thumburl") or ii.get("url", "")
+            if not img_url:
+                continue
+            width = ii.get("thumbwidth") or ii.get("width", 0)
+            height = ii.get("thumbheight") or ii.get("height", 0)
+            # Exclure images trop petites ou trop étroites (ex: bannières, logos)
+            if width < 600 or height < 300:
+                continue
+            img_r = requests.get(img_url, timeout=15, headers=hdrs)
+            if img_r.status_code == 200 and len(img_r.content) > 20_000:
+                open(dest, "wb").write(img_r.content)
+                return
+    except Exception:
+        pass
+
+    # 2. Openverse — images CC
+    try:
+        q = urllib.parse.urlencode({"q": keyword, "page_size": "8", "license_type": "commercial,modification"})
         ov = requests.get(f"https://api.openverse.org/v1/images/?{q}", timeout=10, headers=hdrs)
-        results = ov.json().get("results", [])
-        for item in results:
+        for item in ov.json().get("results", []):
             img_url = item.get("url", "")
             if not img_url.lower().endswith((".jpg", ".jpeg", ".png", ".webp")):
                 continue
             r = requests.get(img_url, timeout=15, headers=hdrs)
-            if r.status_code == 200 and len(r.content) > 10_000:
+            if r.status_code == 200 and len(r.content) > 20_000:
                 open(dest, "wb").write(r.content)
                 return
     except Exception:
         pass
-    # 2. Fallback picsum
+
+    # 3. Fallback picsum (neutre)
     safe = _slug_ascii(slug)
     try:
         r = requests.get(f"https://picsum.photos/seed/{safe}/1200/500", timeout=15, headers=hdrs)
