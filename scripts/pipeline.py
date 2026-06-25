@@ -552,9 +552,15 @@ def build_article_html(art: dict, date_pub: str) -> str:
         _download_hero(art.get("image_keyword", safe_slug), slug, local_img_path)
     hero_src = local_img_path if os.path.exists(local_img_path) else ""
     hero_img = f'<img class="art__hero" src="{hero_src}" alt="" loading="eager"/>\n  ' if hero_src else ""
+    def _source_link(s):
+        if s.get("url"):
+            return f' · <a href="{s["url"]}" target="_blank" rel="noopener">Lire la source →</a>'
+        q = requests.utils.quote(f'{s["institution"]} {s["titre"]}')
+        return f' · <a href="https://duckduckgo.com/?q={q}" target="_blank" rel="noopener">Rechercher la source →</a>'
+
     sources_li = "\n".join(
         f'<li>{s["institution"]} · <em>{s["titre"]}</em> · {s["date"]}'
-        + (f' · <a href="{s["url"]}" target="_blank" rel="noopener">Lire la source →</a>' if s.get("url") else "")
+        + _source_link(s)
         + "</li>"
         for s in art["sources"]
     )
