@@ -1145,7 +1145,14 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("--dry-run", action="store_true")
     parser.add_argument("--text", type=str, help="Texte source libre")
+    parser.add_argument("--rebuild", action="store_true", help="Reconstruire index+catégories sans générer d'articles")
     args = parser.parse_args()
+
+    if args.rebuild:
+        rebuild_index()
+        build_category_pages()
+        print("Rebuild terminé.")
+        exit(0)
 
     if not GROQ_KEY:
         print("ERREUR : GROQ_API_KEY manquant dans .env")
