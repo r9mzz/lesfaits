@@ -553,8 +553,13 @@ def build_article_html(art: dict, date_pub: str) -> str:
     hero_src = local_img_path if os.path.exists(local_img_path) else ""
     hero_img = f'<img class="art__hero" src="{hero_src}" alt="" loading="eager"/>\n  ' if hero_src else ""
     def _source_link(s):
-        if s.get("url"):
-            return f' · <a href="{s["url"]}" target="_blank" rel="noopener">Lire la source →</a>'
+        from urllib.parse import urlparse
+        url = s.get("url") or ""
+        # URL valide = présente ET pointe vers une page précise (pas juste homepage)
+        path = urlparse(url).path.rstrip("/") if url else ""
+        has_specific_url = url and len(path) > 3
+        if has_specific_url:
+            return f' · <a href="{url}" target="_blank" rel="noopener">Lire la source →</a>'
         q = requests.utils.quote(f'{s["institution"]} {s["titre"]}')
         return f' · <a href="https://duckduckgo.com/?q={q}" target="_blank" rel="noopener">Rechercher la source →</a>'
 
