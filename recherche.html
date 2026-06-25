@@ -163,7 +163,8 @@ function renderCards(matches, q) {
   const container = document.getElementById('search-results');
   container.innerHTML = matches.map(a => {
     const imgKw = (a.image_keyword||'').replace(/\s+/g,',');
-    const imgSrc = imgKw ? `https://loremflickr.com/280/180/${imgKw}` : '';
+    const lock = a.slug ? (a.slug.split('').reduce((s,c)=>s+c.charCodeAt(0),0)%9999)+1 : 1;
+    const imgSrc = imgKw ? `https://loremflickr.com/280/180/${imgKw}?lock=${lock}` : '';
     return `<div class="search-result" onclick="window.location='${BASE}articles/${a.slug}.html'">
       ${imgSrc ? `<img class="search-result__img" src="${imgSrc}" alt="" loading="lazy"/>` : ''}
       <div class="search-result__body">
