@@ -1,5 +1,5 @@
 """
-Factuel — Serveur local minimal
+Les Faits — Serveur local minimal
 ================================
 Usage :
     python server.py              # port 8080 par défaut

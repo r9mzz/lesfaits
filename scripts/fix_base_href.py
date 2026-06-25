@@ -1,11 +1,11 @@
-"""Ajoute <base href="/factuel/"> dans tous les HTML du site."""
+"""Ajoute <base href="/lesfaits/"> dans tous les HTML du site."""
 import sys
 from pathlib import Path
 
 sys.stdout.reconfigure(encoding="utf-8")
 
 ROOT     = Path(__file__).parent.parent
-BASE_TAG = '<base href="/factuel/"/>'
+BASE_TAG = '<base href="/lesfaits/"/>'
 
 def fix(path: Path, old_css: str, new_css: str) -> bool:
     text = path.read_text(encoding="utf-8")

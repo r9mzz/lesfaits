@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <meta name="description" content="Factuel — Nous contacter. Posez une question, signalez une erreur ou proposez un sujet."/>
-  <title>Contact — Factuel</title>
-  <base href="/factuel/"/>
+  <meta name="description" content="Les Faits — Nous contacter. Posez une question, signalez une erreur ou proposez un sujet."/>
+  <title>Contact — Les Faits</title>
+  <base href="/lesfaits/"/>
   <link rel="stylesheet" href="src/style.css"/>
   <style>
     .contact-tabs { display:flex; gap:0; border-bottom:2px solid var(--rule); margin-bottom:40px; }
@@ -38,7 +38,7 @@
 <header class="header">
   <div class="header__inner">
     <a href="index.html" class="brand">
-      <div class="brand__logotype"><span class="fact">fact</span><span class="uel">uel</span></div>
+      <div class="brand__logotype"><span class="fact">les</span><span class="uel">faits</span></div>
     </a>
     <div class="header__search">
       <input type="search" class="header__search-input" placeholder="Rechercher…" autocomplete="off" onkeydown="if(event.key==='Enter'&&this.value.trim())window.location=(document.querySelector('base').href)+'recherche.html?q='+encodeURIComponent(this.value.trim())"/>
@@ -74,8 +74,8 @@
     <div id="alert-general" class="alert"></div>
     <form id="form-general" onsubmit="submitForm('general', event)">
       <input type="hidden" name="access_key" value="d6261129-264c-4d22-a287-b0117a195d22">
-      <input type="hidden" name="subject" value="Message via Factuel">
-      <input type="hidden" name="from_name" value="Factuel Contact">
+      <input type="hidden" name="subject" value="Message via Les Faits">
+      <input type="hidden" name="from_name" value="Les Faits Contact">
       <div class="form-group">
         <label class="form-label" for="g-nom">Votre prénom ou pseudo <span style="color:var(--muted);font-weight:400">(optionnel)</span></label>
         <input class="form-input" type="text" id="g-nom" name="name" placeholder="Ex : Marie">
@@ -103,8 +103,8 @@
     <div id="alert-erreur" class="alert"></div>
     <form id="form-erreur" onsubmit="submitForm('erreur', event)">
       <input type="hidden" name="access_key" value="d6261129-264c-4d22-a287-b0117a195d22">
-      <input type="hidden" name="subject" value="Signalement erreur — Factuel">
-      <input type="hidden" name="from_name" value="Factuel Signalement">
+      <input type="hidden" name="subject" value="Signalement erreur — Les Faits">
+      <input type="hidden" name="from_name" value="Les Faits Signalement">
       <div class="form-group">
         <label class="form-label" for="e-email">Votre adresse e-mail <span style="color:var(--muted);font-weight:400">(pour recevoir une réponse)</span></label>
         <input class="form-input" type="email" id="e-email" name="email" placeholder="votre@email.com">
@@ -137,8 +137,8 @@
     <div id="alert-sujet" class="alert"></div>
     <form id="form-sujet" onsubmit="submitForm('sujet', event)">
       <input type="hidden" name="access_key" value="d6261129-264c-4d22-a287-b0117a195d22">
-      <input type="hidden" name="subject" value="Proposition de sujet — Factuel">
-      <input type="hidden" name="from_name" value="Factuel Suggestion">
+      <input type="hidden" name="subject" value="Proposition de sujet — Les Faits">
+      <input type="hidden" name="from_name" value="Les Faits Suggestion">
       <div class="form-group">
         <label class="form-label" for="s-email">Votre adresse e-mail <span style="color:var(--muted);font-weight:400">(optionnel)</span></label>
         <input class="form-input" type="email" id="s-email" name="email" placeholder="votre@email.com">
@@ -174,7 +174,7 @@
 <footer class="footer">
   <div class="footer__inner">
     <div class="footer__brand">
-      <div class="brand__logotype"><span class="fact">fact</span><span class="uel">uel</span></div>
+      <div class="brand__logotype"><span class="fact">les</span><span class="uel">faits</span></div>
       <p>Journal numérique français rédigé par IA. Sans publicité. Sans actionnaires.</p>
     </div>
     <div class="footer__col"><h4>RUBRIQUES</h4>
@@ -195,7 +195,7 @@
     </div>
   </div>
   <div class="footer__bottom">
-    <span>© 2026 Factuel — Protocole Factuel v1.1</span>
+    <span>© 2026 Les Faits — Protocole Les Faits v1.1</span>
     <span>Mentions légales · CGU</span>
   </div>
 </footer>

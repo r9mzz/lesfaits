@@ -1,5 +1,5 @@
 ﻿"""
-Factuel — Pipeline éditorial IA v2
+Les Faits — Pipeline éditorial IA v2
 ====================================
 Sources RSS reelles → Filtre éditorial → Groq (Llama) → HTML → Site reconstruit
 
@@ -371,7 +371,7 @@ def selectionner_meilleurs(
 # GÉNÉRATION VIA GROQ
 # ══════════════════════════════════════════════════════════════════════════════
 
-SYSTEM_PROMPT = """Tu es l'IA rédactrice de Factuel, journal numérique français indépendant.
+SYSTEM_PROMPT = """Tu es l'IA rédactrice de Les Faits, journal numérique français indépendant.
 Ligne éditoriale absolue : "Juste les faits. Aucun parti pris."
 
 RÉPONDS UNIQUEMENT EN JSON VALIDE, sans texte avant ou après, sans bloc ```json.
@@ -433,7 +433,7 @@ def generate(content: str, category_hint: str, extra_sources: list[dict] | None 
         f"Catégorie probable : {category_hint}\n\n"
         f"CONTENU SOURCE PRINCIPAL :\n{content[:7000]}"
         f"{sources_block}\n\n"
-        f"Rédige un article Factuel complet, dense et sourcé. "
+        f"Rédige un article Les Faits complet, dense et sourcé. "
         f"Corps minimum 700 mots. Minimum 4 sources citables."
     )
 
@@ -555,18 +555,18 @@ def build_article_html(art: dict, date_pub: str) -> str:
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <meta name="description" content="{resume_txt[:155]}"/>
-  <meta property="og:title" content="{art['titre']} — Factuel"/>
+  <meta property="og:title" content="{art['titre']} — Les Faits"/>
   <meta property="og:description" content="{resume_txt[:155]}"/>
   <meta property="og:type" content="article"/>
-  <title>{art['titre']} — Factuel</title>
-  <base href="/factuel/"/>
+  <title>{art['titre']} — Les Faits</title>
+  <base href="/lesfaits/"/>
   <link rel="stylesheet" href="src/style.css"/>
 </head>
 <body>
 <header class="header">
   <div class="header__inner">
     <a href="index.html" class="brand">
-      <div class="brand__logotype"><span class="fact">fact</span><span class="uel">uel</span></div>
+      <div class="brand__logotype"><span class="fact">les</span><span class="uel">faits</span></div>
     </a>
 <div class="header__search">
       <input type="search" class="header__search-input" placeholder="Rechercher…" autocomplete="off" onkeydown="if(event.key==='Enter'&&this.value.trim())window.location=(document.querySelector('base').href)+'recherche.html?q='+encodeURIComponent(this.value.trim())"/>
@@ -616,7 +616,7 @@ def build_article_html(art: dict, date_pub: str) -> str:
     <h3>SOURCES</h3>
     <ol>{sources_li}</ol>
   </div>
-  <p class="art__badge">Rédigé par IA · Protocole Factuel v1.1 · {date_pub}</p>
+  <p class="art__badge">Rédigé par IA · Protocole Les Faits v1.1 · {date_pub}</p>
   <a class="contest-btn" href="contact.html#erreur">Contester un fait</a>
 </div>
 </main>
@@ -624,7 +624,7 @@ def build_article_html(art: dict, date_pub: str) -> str:
   <div class="footer__inner">
     <div class="footer__brand">
       <div class="brand" style="margin-bottom:8px">
-        <div class="brand__logotype"><span class="fact">fact</span><span class="uel">uel</span></div>
+        <div class="brand__logotype"><span class="fact">les</span><span class="uel">faits</span></div>
       </div>
       <p>Journal numérique français rédigé par IA. Sans publicité. Sans actionnaires.</p>
     </div>
@@ -646,7 +646,7 @@ def build_article_html(art: dict, date_pub: str) -> str:
     </div>
   </div>
   <div class="footer__bottom">
-    <span>© {datetime.now().year} Factuel — Protocole v1.1</span>
+    <span>© {datetime.now().year} Les Faits — Protocole v1.1</span>
     <span>Mentions légales · CGU</span>
   </div>
 </footer>
@@ -720,16 +720,16 @@ def build_index_html(main, side_html, grid_html, list_html):
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <meta name="description" content="Factuel — Journal numérique français rédigé par IA. Juste les faits. Aucun parti pris."/>
-  <title>Factuel — Juste les faits. Aucun parti pris.</title>
-  <base href="/factuel/"/>
+  <meta name="description" content="Les Faits — Journal numérique français rédigé par IA. Juste les faits. Aucun parti pris."/>
+  <title>Les Faits — Juste les faits. Aucun parti pris.</title>
+  <base href="/lesfaits/"/>
   <link rel="stylesheet" href="src/style.css"/>
 </head>
 <body>
 <header class="header">
   <div class="header__inner">
     <a href="index.html" class="brand">
-      <div class="brand__logotype"><span class="fact">fact</span><span class="uel">uel</span></div>
+      <div class="brand__logotype"><span class="fact">les</span><span class="uel">faits</span></div>
     </a>
 <div class="header__search">
       <input type="search" class="header__search-input" placeholder="Rechercher…" autocomplete="off" onkeydown="if(event.key==='Enter'&&this.value.trim())window.location=(document.querySelector('base').href)+'recherche.html?q='+encodeURIComponent(this.value.trim())"/>
@@ -770,7 +770,7 @@ def build_index_html(main, side_html, grid_html, list_html):
           <span class="meta__sep">·</span><span>Protocole v1.1</span>
           <span class="meta__push"></span>
         </div>
-        <p class="ai-badge">Rédigé par IA · Protocole Factuel v1.1</p>
+        <p class="ai-badge">Rédigé par IA · Protocole Les Faits v1.1</p>
       </div>
       <div class="une__side">{side_html}</div>
     </div>
@@ -787,10 +787,10 @@ def build_index_html(main, side_html, grid_html, list_html):
 
 <div class="support">
   <div class="support__inner">
-    <h2>Factuel est gratuit, sans publicité, sans actionnaires</h2>
+    <h2>Les Faits est gratuit, sans publicité, sans actionnaires</h2>
     <p>Notre indépendance éditoriale repose sur vos dons. Aucun article derrière un paywall.</p>
     <div class="support__btns">
-      <a class="btn btn--white" href="mailto:Factuelinfo.contact@gmail.com?subject=Don Factuel">Soutenir Factuel</a>
+      <a class="btn btn--white" href="mailto:Factuelinfo.contact@gmail.com?subject=Don Les Faits">Soutenir Les Faits</a>
       <a class="btn btn--outline" href="methode.html">Notre méthode</a>
     </div>
   </div>
@@ -800,7 +800,7 @@ def build_index_html(main, side_html, grid_html, list_html):
   <div class="footer__inner">
     <div class="footer__brand">
       <div class="brand" style="margin-bottom:8px">
-        <div class="brand__logotype"><span class="fact">fact</span><span class="uel">uel</span></div>
+        <div class="brand__logotype"><span class="fact">les</span><span class="uel">faits</span></div>
       </div>
       <p>Journal numérique français rédigé par IA selon un protocole éditorial public. Sans publicité. Sans actionnaires.</p>
     </div>
@@ -822,7 +822,7 @@ def build_index_html(main, side_html, grid_html, list_html):
     </div>
   </div>
   <div class="footer__bottom">
-    <span>© {datetime.now().year} Factuel — Protocole Factuel v1.1</span>
+    <span>© {datetime.now().year} Les Faits — Protocole Les Faits v1.1</span>
     <span>Mentions légales · CGU</span>
   </div>
 </footer>
@@ -891,7 +891,7 @@ def build_category_pages():
             Les premiers articles <strong>{label}</strong> seront publiés lors du prochain cycle éditorial.
             Le pipeline génère de nouveaux contenus chaque matin à 07h00 et chaque soir à 18h30.
           </p>
-          <a href="/factuel/" style="display:inline-block;padding:10px 24px;background:var(--blue);
+          <a href="/lesfaits/" style="display:inline-block;padding:10px 24px;background:var(--blue);
              color:#fff;border-radius:4px;text-decoration:none;font-size:.9rem;font-weight:600">
             ← Retour à l'accueil
           </a>
@@ -909,9 +909,9 @@ def build_category_pages():
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <meta name="description" content="Factuel — Rubrique {label}. Juste les faits. Aucun parti pris."/>
-  <title>{label} — Factuel</title>
-  <base href="/factuel/"/>
+  <meta name="description" content="Les Faits — Rubrique {label}. Juste les faits. Aucun parti pris."/>
+  <title>{label} — Les Faits</title>
+  <base href="/lesfaits/"/>
   <link rel="stylesheet" href="src/style.css"/>
 </head>
 <body>
@@ -919,7 +919,7 @@ def build_category_pages():
 <header class="header">
   <div class="header__inner">
     <a href="index.html" class="brand">
-      <div class="brand__logotype"><span class="fact">fact</span><span class="uel">uel</span></div>
+      <div class="brand__logotype"><span class="fact">les</span><span class="uel">faits</span></div>
     </a>
 <div class="header__search">
       <input type="search" class="header__search-input" placeholder="Rechercher…" autocomplete="off" onkeydown="if(event.key==='Enter'&&this.value.trim())window.location=(document.querySelector('base').href)+'recherche.html?q='+encodeURIComponent(this.value.trim())"/>
@@ -954,7 +954,7 @@ def build_category_pages():
   <div class="footer__inner">
     <div class="footer__brand">
       <div class="brand" style="margin-bottom:8px">
-        <div class="brand__logotype"><span class="fact">fact</span><span class="uel">uel</span></div>
+        <div class="brand__logotype"><span class="fact">les</span><span class="uel">faits</span></div>
       </div>
       <p>Journal numérique français rédigé par IA. Sans publicité. Sans actionnaires.</p>
     </div>
@@ -976,7 +976,7 @@ def build_category_pages():
     </div>
   </div>
   <div class="footer__bottom">
-    <span>© {datetime.now().year} Factuel — Protocole Factuel v1.1</span>
+    <span>© {datetime.now().year} Les Faits — Protocole Les Faits v1.1</span>
     <span>Mentions légales · CGU</span>
   </div>
 </footer>

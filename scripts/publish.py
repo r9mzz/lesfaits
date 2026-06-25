@@ -1,5 +1,5 @@
 """
-Factuel — Script d'automatisation éditoriale
+Les Faits — Script d'automatisation éditoriale
 Protocole v1.1
 
 Usage:
@@ -149,7 +149,7 @@ def render_markdown(article: dict, date_pub: str) -> str:
 
 ---
 
-*Rédigé par IA · Protocole Factuel v1.1 · {date_pub}*
+*Rédigé par IA · Protocole Les Faits v1.1 · {date_pub}*
 *Catégorie : {categorie} · Sources vérifiées : {nb_sources}*
 """
 
@@ -226,7 +226,7 @@ def push_to_ghost(article: dict, markdown_content: str) -> dict:
 # ── CLI ────────────────────────────────────────────────────────────────────────
 
 def main():
-    parser = argparse.ArgumentParser(description="Factuel — Pipeline éditorial IA")
+    parser = argparse.ArgumentParser(description="Les Faits — Pipeline éditorial IA")
     group  = parser.add_mutually_exclusive_group(required=True)
     group.add_argument("--input",  help="Chemin vers un fichier texte source")
     group.add_argument("--url",    help="URL d'une page source")

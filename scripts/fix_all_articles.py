@@ -9,12 +9,12 @@ FIXES = [
     # Logo cassé
     (
         '<div class="brand__logo">F</div>\n      <div><div class="brand__name">Factuel</div><div class="brand__slogan">Juste les faits. Aucun parti pris.</div></div>',
-        '<div class="brand__logotype"><span class="fact">fact</span><span class="uel">uel</span></div>'
+        '<div class="brand__logotype"><span class="fact">les</span><span class="uel">faits</span></div>'
     ),
     # Footer brand logo
     (
         '<div class="brand__logo" style="width:32px;height:32px;font-size:18px">F</div>\n        <div class="brand__name" style="font-size:16px">Factuel</div>',
-        '<div class="brand__logotype"><span class="fact">fact</span><span class="uel">uel</span></div>'
+        '<div class="brand__logotype"><span class="fact">les</span><span class="uel">faits</span></div>'
     ),
     # Footer CONTACT doublon
     (

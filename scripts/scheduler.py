@@ -1,5 +1,5 @@
 """
-Factuel — Scheduler éditorial
+Les Faits — Scheduler éditorial
 ===============================
 Publie automatiquement 10 articles le matin + 5 le soir.
 
@@ -162,7 +162,7 @@ def boucle(dry_run: bool = False):
 
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser(description="Factuel — Scheduler éditorial automatique")
+    parser = argparse.ArgumentParser(description="Les Faits — Scheduler éditorial automatique")
     parser.add_argument("--now",     choices=["matin", "soir"], help="Forcer un créneau immédiatement")
     parser.add_argument("--dry-run", action="store_true",       help="Simuler sans générer")
     parser.add_argument("--statut",  action="store_true",       help="Afficher le statut et quitter")

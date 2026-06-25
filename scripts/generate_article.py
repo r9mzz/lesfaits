@@ -1,5 +1,5 @@
 """
-Factuel — Générateur d'articles v2
+Les Faits — Générateur d'articles v2
 ====================================
 Usage :
     python generate_article.py --sujet "chômage jeunes France 2026" --nb-sources 5
@@ -45,7 +45,7 @@ ACCEPTED_DOMAINS = [
 # PROMPT SYSTÈME
 # ══════════════════════════════════════════════════════════════════════════════
 
-SYSTEM_PROMPT = """Tu es rédacteur en chef de Factuel, média français de référence.
+SYSTEM_PROMPT = """Tu es rédacteur en chef de Les Faits, média français de référence.
 Ligne éditoriale absolue : "Juste les faits. Aucun parti pris."
 
 RÉPONDS UNIQUEMENT EN JSON VALIDE, sans texte avant ou après, sans bloc ```json.
@@ -167,7 +167,7 @@ def generate(sujet: str, nb_sources_cibles: int = 5) -> dict:
         f"Sujet : {sujet}\n"
         f"Cible : {nb_sources_cibles} sources minimum\n"
         f"{sources_block}\n\n"
-        f"Rédige l'article Factuel complet selon le format JSON. "
+        f"Rédige l'article Les Faits complet selon le format JSON. "
         f"Minimum 5 faits numérotés, 4 sources officielles, 450 mots."
     )
 
@@ -298,9 +298,9 @@ def build_html(art: dict) -> str:
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <meta name="description" content="{chapo[:155]}"/>
-  <meta property="og:title" content="{titre} — Factuel"/>
+  <meta property="og:title" content="{titre} — Les Faits"/>
   <meta property="og:type" content="article"/>
-  <title>{titre} — Factuel</title>
+  <title>{titre} — Les Faits</title>
   <link rel="stylesheet" href="../src/style.css"/>
 </head>
 <body>
@@ -309,7 +309,7 @@ def build_html(art: dict) -> str:
 <header class="header">
   <div class="header__inner">
     <a href="../index.html" class="brand">
-      <div class="brand__logotype"><span class="fact">fact</span><span class="uel">uel</span></div>
+      <div class="brand__logotype"><span class="fact">les</span><span class="uel">faits</span></div>
       <div class="brand__divider"></div>
       <span class="brand__slogan">Juste les faits. Aucun parti pris.</span>
     </a>
@@ -372,7 +372,7 @@ def build_html(art: dict) -> str:
 
   <!-- Timestamp IA -->
   <p class="art__ia-stamp">
-    Généré par IA ({modele}) · {date} · Protocole Factuel v1.1 · Revu par l'équipe éditoriale
+    Généré par IA ({modele}) · {date} · Protocole Les Faits v1.1 · Revu par l'équipe éditoriale
   </p>
 
   <a class="contest-btn" href="contact.html#erreur">
@@ -385,7 +385,7 @@ def build_html(art: dict) -> str:
   <div class="footer__inner">
     <div class="footer__brand">
       <a href="../index.html" class="brand" style="margin-bottom:10px">
-        <div class="brand__logotype"><span class="fact">fact</span><span class="uel">uel</span></div>
+        <div class="brand__logotype"><span class="fact">les</span><span class="uel">faits</span></div>
       </a>
       <p>Journal numérique français rédigé par IA selon un protocole éditorial public.</p>
     </div>
@@ -406,7 +406,7 @@ def build_html(art: dict) -> str:
     </div>
   </div>
   <div class="footer__bottom">
-    <span>© 2026 Factuel — Protocole v1.1</span>
+    <span>© 2026 Les Faits — Protocole v1.1</span>
     <span>Mentions légales · CGU</span>
   </div>
 </footer>
@@ -480,7 +480,7 @@ def save(art: dict, dry_run: bool = False) -> None:
 # ══════════════════════════════════════════════════════════════════════════════
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser(description="Génère un article Factuel")
+    parser = argparse.ArgumentParser(description="Génère un article Les Faits")
     parser.add_argument("--sujet", required=True, help="Sujet de l'article")
     parser.add_argument("--nb-sources", type=int, default=5)
     parser.add_argument("--dry-run", action="store_true")
