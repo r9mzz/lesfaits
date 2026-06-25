@@ -1,4 +1,4 @@
-﻿"""
+"""
 Les Faits — Pipeline éditorial IA v2
 ====================================
 Sources RSS reelles → Filtre éditorial → Groq (Llama) → HTML → Site reconstruit
@@ -662,6 +662,38 @@ def _download_hero(keyword: str, slug: str, dest: str) -> None:
         pass
 
 
+# Burger menu HTML — défini hors f-string pour éviter les conflits avec les accolades Python
+_NAV_LINKS = (
+    '<a href="categories/societe.html">Société</a>\n'
+    '<a href="categories/science.html">Science</a>\n'
+    '<a href="categories/economie.html">Économie</a>\n'
+    '<a href="categories/tech.html">Tech</a>\n'
+    '<a href="categories/sante.html">Santé</a>\n'
+    '<a href="categories/environnement.html">Environnement</a>\n'
+    '<a href="methode.html" class="nav-cta">Comment on travaille →</a>'
+)
+_BURGER_JS = (
+    "function toggleMenu(){"
+    "var b=document.getElementById('burger'),"
+    "m=document.getElementById('nav-mobile'),"
+    "o=document.getElementById('nav-overlay');"
+    "b.classList.toggle('open');m.classList.toggle('open');o.classList.toggle('open');}"
+    "\nfunction closeMenu(){"
+    "document.getElementById('burger').classList.remove('open');"
+    "document.getElementById('nav-mobile').classList.remove('open');"
+    "document.getElementById('nav-overlay').classList.remove('open');}"
+)
+BURGER_HTML = (
+    '<div class="nav-overlay" id="nav-overlay" onclick="closeMenu()"></div>\n'
+    '<nav class="nav-mobile" id="nav-mobile">\n'
+    + _NAV_LINKS + '\n</nav>\n'
+    '<script>\n' + _BURGER_JS + '\n</script>'
+)
+BURGER_BTN = (
+    '<button class="burger" id="burger" aria-label="Menu" onclick="toggleMenu()">'
+    '<span></span><span></span><span></span></button>'
+)
+
 def build_article_html(art: dict, date_pub: str) -> str:
     resume_txt = " ".join(art["resume"])
     slug           = art.get("slug", "")
@@ -711,6 +743,7 @@ def build_article_html(art: dict, date_pub: str) -> str:
   <link rel="stylesheet" href="src/style.css"/>
 </head>
 <body>
+{BURGER_HTML}
 <header class="header">
   <div class="header__inner">
     <a href="index.html" class="brand">
@@ -728,6 +761,7 @@ def build_article_html(art: dict, date_pub: str) -> str:
       <a href="categories/environnement.html">Environnement</a>
       <a href="methode.html" class="nav-cta">Comment on travaille →</a>
     </nav>
+    {BURGER_BTN}
   </div>
 </header>
 <div class="manifeste">
@@ -868,6 +902,7 @@ def build_index_html(main, side_html, grid_html, list_html):
   <link rel="stylesheet" href="src/style.css"/>
 </head>
 <body>
+{BURGER_HTML}
 <header class="header">
   <div class="header__inner">
     <a href="index.html" class="brand">
@@ -885,6 +920,7 @@ def build_index_html(main, side_html, grid_html, list_html):
       <a href="categories/environnement.html">Environnement</a>
       <a href="methode.html" class="nav-cta">Comment on travaille →</a>
     </nav>
+    {BURGER_BTN}
   </div>
 </header>
 <div class="manifeste">
@@ -1075,6 +1111,7 @@ def build_category_pages():
       <a href="categories/environnement.html">Environnement</a>
       <a href="methode.html" class="nav-cta">Comment on travaille →</a>
     </nav>
+    {BURGER_BTN}
   </div>
 </header>
 
