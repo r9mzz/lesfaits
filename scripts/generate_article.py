@@ -157,18 +157,21 @@ def generate(sujet: str, nb_sources_cibles: int = 5) -> dict:
     # Chercher des sources en amont
     print("  Recherche de sources...")
     sources_web = duckduckgo_search(sujet + " données statistiques rapport officiel", 8)
+    real_urls = set()
     sources_block = ""
     if sources_web:
-        sources_block = "\n\nSources trouvées (à intégrer) :\n"
+        sources_block = "\n\nSources trouvées — utilise ces URLs UNIQUEMENT dans le champ url des sources. N'invente aucune autre URL :\n"
         for s in sources_web:
             sources_block += f"- {s['title']} | {s['url']}\n  {s['snippet'][:150]}\n"
+            real_urls.add(s["url"])
 
     user_msg = (
         f"Sujet : {sujet}\n"
         f"Cible : {nb_sources_cibles} sources minimum\n"
         f"{sources_block}\n\n"
         f"Rédige l'article Les Faits complet selon le format JSON. "
-        f"Minimum 5 faits numérotés, 4 sources officielles, 450 mots."
+        f"Minimum 5 faits numérotés, 4 sources officielles, 450 mots. "
+        f"RAPPEL : dans url des sources, utilise UNIQUEMENT les URLs listées ci-dessus — null si pas d'URL fournie."
     )
 
     response = client.chat.completions.create(
@@ -189,6 +192,14 @@ def generate(sujet: str, nb_sources_cibles: int = 5) -> dict:
         raise ValueError("Sujet hors périmètre éditorial : sources officielles insuffisantes")
 
     art = json.loads(raw)
+
+    # Supprimer les URLs inventées : garder uniquement celles réellement fournies
+    if real_urls and "sources" in art:
+        for src in art["sources"]:
+            url = src.get("url") or ""
+            if url and url not in real_urls:
+                src["url"] = None
+
     art["modele"] = "llama-3.3-70b-versatile"
     art.setdefault("date", datetime.now().strftime("%d %B %Y"))
 

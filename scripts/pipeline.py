@@ -392,7 +392,7 @@ Format obligatoire :
     "nuances": "MINIMUM 150 mots. Limites méthodologiques des études citées, points de désaccord entre experts, ce que les données ne permettent pas de conclure, précautions d'interprétation."
   },
   "sources": [
-    {"institution": "Nom exact institution", "titre": "Titre exact publication ou rapport", "date": "Date précise", "url": "URL complète ou DOI"}
+    {"institution": "Nom exact institution", "titre": "Titre exact publication ou rapport", "date": "Date précise", "url": "URL FOURNIE DANS LES SOURCES SUPPLÉMENTAIRES UNIQUEMENT — si aucune URL n'a été fournie pour cette institution, mets null"}
   ],
   "categorie": "science|economie|societe|tech|environnement",
   "nb_sources": 4,
@@ -422,19 +422,23 @@ RÈGLES ABSOLUES — toute violation = article rejeté :
 def generate(content: str, category_hint: str, extra_sources: list[dict] | None = None) -> dict:
     client = Groq(api_key=GROQ_KEY)
 
-    # Enrichir le prompt avec les sources DuckDuckGo
+    # Construire la liste des URLs réelles fournies
+    real_urls = set()
     sources_block = ""
     if extra_sources:
-        sources_block = "\n\nSOURCES SUPPLÉMENTAIRES TROUVÉES (intègre-les dans l'article) :\n"
+        sources_block = "\n\nSOURCES SUPPLÉMENTAIRES TROUVÉES — utilise ces URLs UNIQUEMENT dans le champ url des sources. N'invente aucune autre URL.\n"
         for s in extra_sources:
             sources_block += f"- {s['title']} | URL: {s['url']}\n  Extrait: {s['snippet'][:200]}\n"
+            real_urls.add(s["url"])
 
     user_msg = (
         f"Catégorie probable : {category_hint}\n\n"
         f"CONTENU SOURCE PRINCIPAL :\n{content[:7000]}"
         f"{sources_block}\n\n"
         f"Rédige un article Les Faits complet, dense et sourcé. "
-        f"Corps minimum 700 mots. Minimum 4 sources citables."
+        f"Corps minimum 700 mots. Minimum 4 sources citables. "
+        f"RAPPEL : dans le champ url des sources, utilise UNIQUEMENT les URLs listées ci-dessus. "
+        f"Pour toute institution sans URL fournie, mets null dans le champ url."
     )
 
     response = client.chat.completions.create(
@@ -457,7 +461,16 @@ def generate(content: str, category_hint: str, extra_sources: list[dict] | None 
     if raw.startswith("HORS_PERIMETRE"):
         raise ValueError(raw)
 
-    return json.loads(raw)
+    art = json.loads(raw)
+
+    # Supprimer les URLs inventées : garder uniquement les URLs réellement fournies
+    if real_urls and "sources" in art:
+        for src in art["sources"]:
+            url = src.get("url") or ""
+            if url and url not in real_urls:
+                src["url"] = None
+
+    return art
 
 
 # ══════════════════════════════════════════════════════════════════════════════
