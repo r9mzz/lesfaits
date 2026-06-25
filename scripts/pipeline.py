@@ -136,18 +136,21 @@ def duckduckgo_search(query: str, max_results: int = 8) -> list[dict]:
     return results[:max_results]
 
 
-def pubmed_search(query_en: str, max_results: int = 4) -> list[dict]:
-    """Recherche PubMed via NCBI E-utilities — URLs garanties réelles."""
+def pubmed_search(query_en: str, max_results: int = 4, min_year: int = 2022) -> list[dict]:
+    """Recherche PubMed — uniquement articles récents (>= min_year), URLs garanties réelles."""
     try:
         r = requests.get(
             "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi",
-            params={"db": "pubmed", "term": query_en, "retmax": max_results + 2,
-                    "retmode": "json", "sort": "relevance"},
+            params={"db": "pubmed", "term": query_en, "retmax": max_results + 4,
+                    "retmode": "json", "sort": "relevance",
+                    "datetype": "pdat", "mindate": str(min_year), "maxdate": "3000"},
             headers=HEADERS, timeout=10
         )
         ids = r.json()["esearchresult"]["idlist"]
         results = []
-        for pmid in ids[:max_results]:
+        for pmid in ids:
+            if len(results) >= max_results:
+                break
             s = requests.get(
                 "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esummary.fcgi",
                 params={"db": "pubmed", "id": pmid, "retmode": "json"},
@@ -155,11 +158,12 @@ def pubmed_search(query_en: str, max_results: int = 4) -> list[dict]:
             )
             d = s.json()["result"].get(pmid, {})
             title = d.get("title", "")
-            if title:
+            year = int(d.get("pubdate", "0")[:4] or 0)
+            if title and year >= min_year:
                 results.append({
                     "title":   title[:100],
                     "url":     f"https://pubmed.ncbi.nlm.nih.gov/{pmid}/",
-                    "snippet": f"{d.get('fulljournalname','')} {d.get('pubdate','')[:4]}",
+                    "snippet": f"{d.get('fulljournalname','')} ({year})",
                 })
             time.sleep(0.35)
         return results
