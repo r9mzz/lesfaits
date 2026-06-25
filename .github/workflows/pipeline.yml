@@ -42,6 +42,7 @@ jobs:
         env:
           GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
           PYTHONIOENCODING: utf-8
+          TZ: Europe/Paris
         run: |
           if [ "${{ inputs.dry_run }}" = "true" ]; then
             python scripts/pipeline.py --dry-run
@@ -51,6 +52,8 @@ jobs:
 
       # ── 4. Commit + Push des fichiers générés ────────────────────────────
       - name: Commit les articles générés
+        env:
+          TZ: Europe/Paris
         run: |
           git config user.name  "Factuel Bot"
           git config user.email "bot@factuel.fr"

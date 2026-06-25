@@ -528,7 +528,7 @@ def build_article_html(art: dict, date_pub: str) -> str:
       <div class="brand__logotype"><span class="fact">fact</span><span class="uel">uel</span></div>
     </a>
 <div class="header__search">
-      <input type="search" class="header__search-input" placeholder="Rechercher…" autocomplete="off" onkeydown="if(event.key==='Enter'&&this.value.trim())window.location='recherche.html?q='+encodeURIComponent(this.value.trim())"/>
+      <input type="search" class="header__search-input" placeholder="Rechercher…" autocomplete="off" onkeydown="if(event.key==='Enter'&&this.value.trim())window.location=(document.querySelector('base').href)+'recherche.html?q='+encodeURIComponent(this.value.trim())"/>
     </div>
     <nav>
       <a href="categories/societe.html">Société</a>
@@ -687,7 +687,7 @@ def build_index_html(main, side_html, grid_html, list_html):
       <div class="brand__logotype"><span class="fact">fact</span><span class="uel">uel</span></div>
     </a>
 <div class="header__search">
-      <input type="search" class="header__search-input" placeholder="Rechercher…" autocomplete="off" onkeydown="if(event.key==='Enter'&&this.value.trim())window.location='recherche.html?q='+encodeURIComponent(this.value.trim())"/>
+      <input type="search" class="header__search-input" placeholder="Rechercher…" autocomplete="off" onkeydown="if(event.key==='Enter'&&this.value.trim())window.location=(document.querySelector('base').href)+'recherche.html?q='+encodeURIComponent(this.value.trim())"/>
     </div>
     <nav>
       <a href="categories/societe.html">Société</a>
@@ -877,7 +877,7 @@ def build_category_pages():
       <div class="brand__logotype"><span class="fact">fact</span><span class="uel">uel</span></div>
     </a>
 <div class="header__search">
-      <input type="search" class="header__search-input" placeholder="Rechercher…" autocomplete="off" onkeydown="if(event.key==='Enter'&&this.value.trim())window.location='recherche.html?q='+encodeURIComponent(this.value.trim())"/>
+      <input type="search" class="header__search-input" placeholder="Rechercher…" autocomplete="off" onkeydown="if(event.key==='Enter'&&this.value.trim())window.location=(document.querySelector('base').href)+'recherche.html?q='+encodeURIComponent(this.value.trim())"/>
     </div>
     <nav>
       <a href="categories/societe.html">Société</a>
