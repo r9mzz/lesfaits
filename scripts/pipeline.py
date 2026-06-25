@@ -90,29 +90,50 @@ def fetch_full_content(url: str) -> str:
         return ""
 
 
-def duckduckgo_search(query: str, max_results: int = 5) -> list[dict]:
-    """Recherche DuckDuckGo sans clé API pour trouver des sources corroborantes."""
-    try:
-        url = "https://html.duckduckgo.com/html/"
-        data = {"q": query + " site:.fr OR site:.gouv.fr OR site:.europa.eu OR site:.who.int"}
-        r = requests.post(url, data=data, headers=HEADERS, timeout=12)
-        soup = BeautifulSoup(r.text, "html.parser")
+def duckduckgo_search(query: str, max_results: int = 8) -> list[dict]:
+    """Recherche DuckDuckGo — retourne uniquement des URLs pointant vers des articles précis."""
+    from urllib.parse import urlparse
 
-        results = []
-        for result in soup.select(".result")[:max_results]:
-            title_el = result.select_one(".result__title")
-            url_el   = result.select_one(".result__url")
-            snippet  = result.select_one(".result__snippet")
+    def _search(q: str) -> list[dict]:
+        try:
+            url = "https://html.duckduckgo.com/html/"
+            r = requests.post(url, data={"q": q}, headers=HEADERS, timeout=12)
+            soup = BeautifulSoup(r.text, "html.parser")
+            out = []
+            for result in soup.select(".result")[:15]:
+                t = result.select_one(".result__title")
+                u = result.select_one(".result__url")
+                s = result.select_one(".result__snippet")
+                if t and u:
+                    raw_url = "https://" + u.get_text(strip=True).strip()
+                    path = urlparse(raw_url).path.rstrip("/")
+                    if len(path) > 5:  # exclure les homepages
+                        out.append({
+                            "title":   t.get_text(strip=True),
+                            "url":     raw_url,
+                            "snippet": s.get_text(strip=True) if s else "",
+                        })
+            return out
+        except Exception:
+            return []
 
-            if title_el and url_el:
-                results.append({
-                    "title":   title_el.get_text(strip=True),
-                    "url":     "https://" + url_el.get_text(strip=True).strip(),
-                    "snippet": snippet.get_text(strip=True) if snippet else "",
-                })
-        return results
-    except Exception:
-        return []
+    seen = set()
+    results = []
+
+    # 3 requêtes complémentaires pour maximiser les vraies sources
+    for q in [
+        query,
+        query + " rapport statistiques données",
+        query + " site:gouv.fr OR site:inserm.fr OR site:insee.fr OR site:who.int OR site:europa.eu",
+    ]:
+        for r in _search(q):
+            if r["url"] not in seen:
+                seen.add(r["url"])
+                results.append(r)
+        if len(results) >= max_results:
+            break
+
+    return results[:max_results]
 
 
 def fetch_rss(source: dict) -> list[dict]:
@@ -1076,9 +1097,16 @@ def generer_article(item: dict, dry_run: bool, published: set, new_pub: set, dat
     content = full_content if len(full_content) > 500 else item["content"]
 
     # Recherche de sources corroborantes
-    extra = duckduckgo_search(item["title"] + " " + cat, max_results=5)
+    extra = duckduckgo_search(item["title"] + " " + cat, max_results=8)
 
-    print(f"  → Génération : {item['title'][:55]} [score {item.get('_score', '?')}]")
+    # Bloquer si moins de 3 sources réelles trouvées AVANT même de générer
+    from urllib.parse import urlparse as _up
+    specific_sources = [s for s in extra if len(_up(s["url"]).path.rstrip("/")) > 5]
+    if len(specific_sources) < 3:
+        print(f"  [REJET] Seulement {len(specific_sources)} source(s) réelle(s) trouvée(s) — minimum 3 requis")
+        return False
+
+    print(f"  → Génération : {item['title'][:55]} [{len(specific_sources)} sources réelles]")
 
     if dry_run:
         print(f"     (dry-run)")
@@ -1088,8 +1116,8 @@ def generer_article(item: dict, dry_run: bool, published: set, new_pub: set, dat
         art         = generate(content, cat, extra_sources=extra, rss_url=item.get("url"))
         total_chars = sum(len(art["corps"].get(k, "")) for k in ["faits", "contexte", "nuances"])
 
-        if len(art.get("sources", [])) < 1:
-            print(f"     [REJET] {len(art.get('sources',[]))} source(s) — min 3")
+        if len(art.get("sources", [])) < 3:
+            print(f"     [REJET] Seulement {len(art.get('sources',[]))} source(s) après vérification — min 3")
             return False
         if total_chars < 600:
             print(f"     [REJET] Corps trop court ({total_chars} chars)")
