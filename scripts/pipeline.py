@@ -500,13 +500,31 @@ def _slug_ascii(s: str) -> str:
     return "".join(c for c in s if unicodedata.category(c) != "Mn")
 
 
-def _download_hero(slug: str, dest: str) -> None:
+def _download_hero(keyword: str, slug: str, dest: str) -> None:
+    """Cherche sur Openverse (Creative Commons, sans clé) puis fallback picsum."""
     os.makedirs(os.path.dirname(dest), exist_ok=True)
-    safe = _slug_ascii(slug)
-    url = f"https://picsum.photos/seed/{safe}/1200/500"
+    hdrs = {"User-Agent": "Factuel/1.0 (factuelinfo.contact@gmail.com)"}
+    # 1. Openverse — images CC pertinentes par mot-clé
     try:
-        r = requests.get(url, timeout=15, headers={"User-Agent": "Mozilla/5.0"})
-        if r.status_code == 200 and len(r.content) > 1000:
+        import urllib.parse
+        q = urllib.parse.urlencode({"q": keyword, "page_size": "5"})
+        ov = requests.get(f"https://api.openverse.org/v1/images/?{q}", timeout=10, headers=hdrs)
+        results = ov.json().get("results", [])
+        for item in results:
+            img_url = item.get("url", "")
+            if not img_url.lower().endswith((".jpg", ".jpeg", ".png", ".webp")):
+                continue
+            r = requests.get(img_url, timeout=15, headers=hdrs)
+            if r.status_code == 200 and len(r.content) > 10_000:
+                open(dest, "wb").write(r.content)
+                return
+    except Exception:
+        pass
+    # 2. Fallback picsum
+    safe = _slug_ascii(slug)
+    try:
+        r = requests.get(f"https://picsum.photos/seed/{safe}/1200/500", timeout=15, headers=hdrs)
+        if r.status_code == 200:
             open(dest, "wb").write(r.content)
     except Exception:
         pass
@@ -518,7 +536,7 @@ def build_article_html(art: dict, date_pub: str) -> str:
     safe_slug      = _slug_ascii(slug)
     local_img_path = f"assets/images/{safe_slug}.jpg"
     if not os.path.exists(local_img_path):
-        _download_hero(slug, local_img_path)
+        _download_hero(art.get("image_keyword", safe_slug), slug, local_img_path)
     hero_src = local_img_path if os.path.exists(local_img_path) else ""
     hero_img = f'<img class="art__hero" src="{hero_src}" alt="" loading="eager"/>\n  ' if hero_src else ""
     sources_li = "\n".join(
