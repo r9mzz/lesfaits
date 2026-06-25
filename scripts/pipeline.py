@@ -380,7 +380,7 @@ Format obligatoire :
 {
   "titre": "Titre factuel informatif, 10 à 15 mots, sans exclamation ni question",
   "slug": "slug-kebab-case-descriptif-max-65-chars",
-  "image_keyword": "3 mots EN ANGLAIS pour illustrer l'article (ex: hospital doctor france)",
+  "image_keyword": "3 mots EN ANGLAIS — paysage, bâtiment ou objet UNIQUEMENT, jamais de visages ni personnes (ex: 'wheat field france', 'hospital building', 'solar panels europe')",
   "resume": [
     "Phrase 1 : le fait principal avec chiffres ou acteurs précis (2 lignes min).",
     "Phrase 2 : contexte essentiel, qui/quand/comment (2 lignes min).",
