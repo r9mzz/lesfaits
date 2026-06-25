@@ -497,7 +497,7 @@ def build_spectrum_html(positions: dict) -> str:
 def build_article_html(art: dict, date_pub: str) -> str:
     resume_txt = " ".join(art["resume"])
     img_kw = art.get("image_keyword", "").replace(" ", ",")
-    hero_img = f'<img class="art__hero" src="https://source.unsplash.com/featured/1200x500/?{img_kw}" alt="" loading="lazy"/>\n  ' if img_kw else ""
+    hero_img = f'<img class="art__hero" src="https://loremflickr.com/1200/500/{img_kw}" alt="" loading="lazy"/>\n  ' if img_kw else ""
     sources_li = "\n".join(
         f'<li>{s["institution"]} · <em>{s["titre"]}</em> · {s["date"]}'
         + (f' · <a href="{s["url"]}" target="_blank" rel="noopener">Lire la source →</a>' if s.get("url") else "")

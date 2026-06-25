@@ -143,11 +143,12 @@ function highlight(text, q) {
 }
 
 function parseDate(dateStr) {
-  // "24 juin 2026, 17h03" → timestamp
+  // "24 juin 2026, 17h03" → timestamp avec heure
   const MOIS = {janvier:0,février:1,mars:2,avril:3,mai:4,juin:5,juillet:6,août:7,septembre:8,octobre:9,novembre:10,décembre:11};
-  const m = dateStr.match(/(\d+)\s+(\w+)\s+(\d+)/);
+  const m = dateStr.match(/(\d+)\s+([\wéûôùàâêîèä]+)\s+(\d+)(?:.*?(\d+)h(\d+))?/i);
   if (!m) return 0;
-  return new Date(+m[3], MOIS[m[2].toLowerCase()]||0, +m[1]).getTime();
+  const h = m[4] ? +m[4] : 0, mn = m[5] ? +m[5] : 0;
+  return new Date(+m[3], MOIS[m[2].toLowerCase()]||0, +m[1], h, mn).getTime();
 }
 
 function applySort() {
@@ -162,7 +163,7 @@ function renderCards(matches, q) {
   const container = document.getElementById('search-results');
   container.innerHTML = matches.map(a => {
     const imgKw = (a.image_keyword||'').replace(/\s+/g,',');
-    const imgSrc = imgKw ? `https://source.unsplash.com/featured/280x180/?${imgKw}` : '';
+    const imgSrc = imgKw ? `https://loremflickr.com/280/180/${imgKw}` : '';
     return `<div class="search-result" onclick="window.location='${BASE}articles/${a.slug}.html'">
       ${imgSrc ? `<img class="search-result__img" src="${imgSrc}" alt="" loading="lazy"/>` : ''}
       <div class="search-result__body">
