@@ -419,26 +419,38 @@ RÈGLES ABSOLUES — toute violation = article rejeté :
 10. positions : identifier 2 à 4 acteurs RÉELS cités dans l'article avec leur position sur le sujet. position = 0 (totalement favorable/consensuel) à 100 (totalement critique/opposé). label_gauche et label_droite doivent décrire les deux extrêmes du débat spécifique à cet article (ex: "Pour la mesure" / "Contre la mesure")"""
 
 
-def generate(content: str, category_hint: str, extra_sources: list[dict] | None = None) -> dict:
+def generate(content: str, category_hint: str, extra_sources: list[dict] | None = None,
+             rss_url: str | None = None) -> dict:
     client = Groq(api_key=GROQ_KEY)
 
-    # Construire la liste des URLs réelles fournies
-    real_urls = set()
-    sources_block = ""
+    # Construire la liste des URLs réelles disponibles (DuckDuckGo + flux RSS)
+    real_sources: list[dict] = []
+    if rss_url:
+        real_sources.append({"title": "Source RSS originale", "url": rss_url, "snippet": ""})
     if extra_sources:
-        sources_block = "\n\nSOURCES SUPPLÉMENTAIRES TROUVÉES — utilise ces URLs UNIQUEMENT dans le champ url des sources. N'invente aucune autre URL.\n"
-        for s in extra_sources:
-            sources_block += f"- {s['title']} | URL: {s['url']}\n  Extrait: {s['snippet'][:200]}\n"
-            real_urls.add(s["url"])
+        real_sources.extend(extra_sources)
+
+    real_urls = {s["url"] for s in real_sources}
+
+    sources_block = ""
+    if real_sources:
+        sources_block = "\n\nSOURCES DISPONIBLES (SEULES SOURCES AUTORISÉES) :\n"
+        for s in real_sources:
+            sources_block += f"- {s['title']} | URL: {s['url']}\n"
+            if s.get("snippet"):
+                sources_block += f"  Extrait: {s['snippet'][:200]}\n"
 
     user_msg = (
         f"Catégorie probable : {category_hint}\n\n"
         f"CONTENU SOURCE PRINCIPAL :\n{content[:7000]}"
         f"{sources_block}\n\n"
         f"Rédige un article Les Faits complet, dense et sourcé. "
-        f"Corps minimum 700 mots. Minimum 4 sources citables. "
-        f"RAPPEL : dans le champ url des sources, utilise UNIQUEMENT les URLs listées ci-dessus. "
-        f"Pour toute institution sans URL fournie, mets null dans le champ url."
+        f"Corps minimum 700 mots. "
+        f"RÈGLE ABSOLUE SUR LES SOURCES : le champ 'sources' ne doit contenir QUE des entrées "
+        f"dont l'URL figure dans la liste SOURCES DISPONIBLES ci-dessus. "
+        f"N'invente AUCUNE source, AUCUNE URL. Si une institution n'a pas d'URL dans la liste, "
+        f"ne l'inclus pas dans le tableau sources. "
+        f"Le nombre de sources réelles prime sur le minimum — mieux vaut 2 sources réelles que 4 inventées."
     )
 
     response = client.chat.completions.create(
@@ -452,8 +464,6 @@ def generate(content: str, category_hint: str, extra_sources: list[dict] | None 
     )
 
     raw = response.choices[0].message.content.strip()
-
-    # Nettoyer blocs markdown si présents
     raw = re.sub(r"^```(?:json)?\s*", "", raw, flags=re.MULTILINE)
     raw = re.sub(r"\s*```\s*$", "", raw, flags=re.MULTILINE)
     raw = raw.strip()
@@ -463,12 +473,17 @@ def generate(content: str, category_hint: str, extra_sources: list[dict] | None 
 
     art = json.loads(raw)
 
-    # Supprimer les URLs inventées : garder uniquement les URLs réellement fournies
-    if real_urls and "sources" in art:
+    # Supprimer toute source dont l'URL n'est pas dans la liste réelle
+    from urllib.parse import urlparse
+    if "sources" in art:
+        verified = []
         for src in art["sources"]:
             url = src.get("url") or ""
-            if url and url not in real_urls:
-                src["url"] = None
+            path = urlparse(url).path.rstrip("/") if url else ""
+            if url in real_urls and len(path) > 3:
+                verified.append(src)
+        art["sources"] = verified
+        art["nb_sources"] = len(verified)
 
     return art
 
@@ -555,20 +570,25 @@ def build_article_html(art: dict, date_pub: str) -> str:
     def _source_link(s):
         from urllib.parse import urlparse
         url = s.get("url") or ""
-        # URL valide = présente ET pointe vers une page précise (pas juste homepage)
         path = urlparse(url).path.rstrip("/") if url else ""
-        has_specific_url = url and len(path) > 3
-        if has_specific_url:
+        if url and len(path) > 3:
             return f' · <a href="{url}" target="_blank" rel="noopener">Lire la source →</a>'
-        q = requests.utils.quote(f'{s["institution"]} {s["titre"]}')
-        return f' · <a href="https://duckduckgo.com/?q={q}" target="_blank" rel="noopener">Rechercher la source →</a>'
+        return ""  # Pas d'URL réelle = pas de lien
 
-    sources_li = "\n".join(
-        f'<li>{s["institution"]} · <em>{s["titre"]}</em> · {s["date"]}'
-        + _source_link(s)
-        + "</li>"
-        for s in art["sources"]
-    )
+    verified_sources = [s for s in art["sources"] if s.get("url") and len(urlparse(s["url"]).path.rstrip("/")) > 3]
+
+    if verified_sources:
+        sources_li = "\n".join(
+            f'<li>{s["institution"]} · <em>{s["titre"]}</em> · {s["date"]}'
+            + _source_link(s)
+            + "</li>"
+            for s in verified_sources
+        )
+        sources_html = f'<div class="sources">\n    <h3>SOURCES</h3>\n    <ol>{sources_li}</ol>\n  </div>'
+    else:
+        sources_html = '<div class="sources sources--unverified"><p style="color:#999;font-style:italic;font-size:.85rem;margin:0">Cet article a été rédigé par IA à partir de flux d\'actualités. Les sources citées dans le texte n\'ont pas pu être vérifiées avec une URL directe.</p></div>'
+
+    nb_src = len(verified_sources)
     faits    = art["corps"]["faits"].replace("\n", "</p><p>")
     contexte = art["corps"]["contexte"].replace("\n", "</p><p>")
     nuances  = art["corps"]["nuances"].replace("\n", "</p><p>")
@@ -622,24 +642,18 @@ def build_article_html(art: dict, date_pub: str) -> str:
   <span class="art__cat">{art['categorie'].upper()}</span>
   <h1 class="art__title">{art['titre']}</h1>
   <div class="art__meta">
+    {f'<span style="color:var(--blue);font-weight:600">{nb_src} source{"s" if nb_src > 1 else ""}</span><span class="meta__sep">·</span>' if nb_src > 0 else ''}
     <span class="meta__sep">{date_pub}</span>
     <span class="meta__sep">·</span><span>Protocole v1.1</span>
   </div>
-  <div class="art__verify">
-    <span class="art__verify-item">✓ {art['nb_sources']} sources vérifiées</span>
-    <span class="art__verify-item">✓ Sources concordantes</span>
-    <span class="art__verify-item">✓ Protocole éditorial v1.1</span>
-  </div>
+  {f'<div class="art__verify"><span class="art__verify-item">✓ {nb_src} source{"s" if nb_src > 1 else ""} vérifiée{"s" if nb_src > 1 else ""}</span><span class="art__verify-item">✓ Protocole éditorial v1.1</span></div>' if nb_src > 0 else ''}
   <div class="art__rule"></div>
   {hero_img}<p class="art__resume">{resume_txt}</p>
   <h2>Les faits</h2><p>{faits}</p>
   <h2>Contexte</h2><p>{contexte}</p>
   <h2>Débats et nuances</h2><p>{nuances}</p>
   {build_spectrum_html(art.get("positions", {}))}
-  <div class="sources">
-    <h3>SOURCES</h3>
-    <ol>{sources_li}</ol>
-  </div>
+  {sources_html}
   <p class="art__badge">Rédigé par IA · Protocole Les Faits v1.1 · {date_pub}</p>
   <a class="contest-btn" href="contact.html#erreur">Contester un fait</a>
 </div>
@@ -1071,10 +1085,10 @@ def generer_article(item: dict, dry_run: bool, published: set, new_pub: set, dat
         return False
 
     try:
-        art         = generate(content, cat, extra_sources=extra)
+        art         = generate(content, cat, extra_sources=extra, rss_url=item.get("url"))
         total_chars = sum(len(art["corps"].get(k, "")) for k in ["faits", "contexte", "nuances"])
 
-        if len(art.get("sources", [])) < 3:
+        if len(art.get("sources", [])) < 1:
             print(f"     [REJET] {len(art.get('sources',[]))} source(s) — min 3")
             return False
         if total_chars < 600:
