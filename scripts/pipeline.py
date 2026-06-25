@@ -136,6 +136,37 @@ def duckduckgo_search(query: str, max_results: int = 8) -> list[dict]:
     return results[:max_results]
 
 
+def pubmed_search(query_en: str, max_results: int = 4) -> list[dict]:
+    """Recherche PubMed via NCBI E-utilities — URLs garanties réelles."""
+    try:
+        r = requests.get(
+            "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi",
+            params={"db": "pubmed", "term": query_en, "retmax": max_results + 2,
+                    "retmode": "json", "sort": "relevance"},
+            headers=HEADERS, timeout=10
+        )
+        ids = r.json()["esearchresult"]["idlist"]
+        results = []
+        for pmid in ids[:max_results]:
+            s = requests.get(
+                "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esummary.fcgi",
+                params={"db": "pubmed", "id": pmid, "retmode": "json"},
+                headers=HEADERS, timeout=10
+            )
+            d = s.json()["result"].get(pmid, {})
+            title = d.get("title", "")
+            if title:
+                results.append({
+                    "title":   title[:100],
+                    "url":     f"https://pubmed.ncbi.nlm.nih.gov/{pmid}/",
+                    "snippet": f"{d.get('fulljournalname','')} {d.get('pubdate','')[:4]}",
+                })
+            time.sleep(0.35)
+        return results
+    except Exception:
+        return []
+
+
 def fetch_rss(source: dict) -> list[dict]:
     """Parse un flux RSS et retourne les items avec leur contenu texte."""
     try:
@@ -1096,14 +1127,21 @@ def generer_article(item: dict, dry_run: bool, published: set, new_pub: set, dat
         full_content = fetch_full_content(item["url"])
     content = full_content if len(full_content) > 500 else item["content"]
 
-    # Recherche de sources corroborantes
+    # Recherche de sources corroborantes : DuckDuckGo + PubMed
     extra = duckduckgo_search(item["title"] + " " + cat, max_results=8)
+    pubmed = pubmed_search(item["title"], max_results=4)
+    # Fusionner sans doublons
+    seen_urls = {s["url"] for s in extra}
+    for p in pubmed:
+        if p["url"] not in seen_urls:
+            extra.append(p)
+            seen_urls.add(p["url"])
 
     # Bloquer si moins de 3 sources réelles trouvées AVANT même de générer
     from urllib.parse import urlparse as _up
     specific_sources = [s for s in extra if len(_up(s["url"]).path.rstrip("/")) > 5]
     if len(specific_sources) < 3:
-        print(f"  [REJET] Seulement {len(specific_sources)} source(s) réelle(s) trouvée(s) — minimum 3 requis")
+        print(f"  [REJET] Seulement {len(specific_sources)} source(s) — minimum 3 requis (DDG+PubMed)")
         return False
 
     print(f"  → Génération : {item['title'][:55]} [{len(specific_sources)} sources réelles]")
