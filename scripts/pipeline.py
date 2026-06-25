@@ -718,13 +718,27 @@ BURGER_BTN = (
     '<span></span><span></span><span></span></button>'
 )
 
+def _sanitize_image_keyword(kw: str, fallback: str = "") -> str:
+    """Fix 2 — keyword propre : sans accents, sans virgules, max 5 mots anglais."""
+    import unicodedata
+    kw = unicodedata.normalize("NFD", kw)
+    kw = "".join(c for c in kw if unicodedata.category(c) != "Mn")
+    kw = kw.replace(",", " ").replace(";", " ")
+    kw = re.sub(r"\s+", " ", kw).strip()
+    words = kw.split()[:5]
+    result = " ".join(words)
+    # Si le résultat est vide ou trop court après nettoyage, utiliser le fallback
+    return result if len(result) > 3 else (fallback or "france news")
+
+
 def build_article_html(art: dict, date_pub: str) -> str:
     resume_txt = " ".join(art["resume"])
     slug           = art.get("slug", "")
     safe_slug      = _slug_ascii(slug)
     local_img_path = f"assets/images/{safe_slug}.jpg"
     if not os.path.exists(local_img_path):
-        _download_hero(art.get("image_keyword", safe_slug), slug, local_img_path)
+        kw = _sanitize_image_keyword(art.get("image_keyword", ""), fallback=safe_slug)
+        _download_hero(kw, slug, local_img_path)
     hero_src = local_img_path if os.path.exists(local_img_path) else ""
     hero_img = f'<img class="art__hero" src="{hero_src}" alt="" loading="eager"/>\n  ' if hero_src else ""
     def _source_link(s):
@@ -1276,10 +1290,27 @@ def generer_article(item: dict, dry_run: bool, published: set, new_pub: set, dat
             return False
 
         html = build_article_html(art, date_pub)
+
+        # Fix 1 — sync nb_sources avec les vrais <li> rendus dans le HTML
+        sources_block = re.search(r'<div class="sources">.*?</div>', html, re.DOTALL)
+        real_nb = len(re.findall(r'<li>', sources_block.group())) if sources_block else 0
+        if real_nb != art.get("nb_sources", 0):
+            # Patcher le HTML inline pour que le chiffre affiché soit juste
+            html = re.sub(
+                rf'\b{art["nb_sources"]}\s+sources?\s+vérifi',
+                f'{real_nb} sources vérifi', html
+            )
+            html = re.sub(
+                rf'<span[^>]*>\s*{art["nb_sources"]}\s+sources?\s*</span>',
+                f'<span style="color:var(--blue);font-weight:600">{real_nb} sources</span>',
+                html
+            )
+            art["nb_sources"] = real_nb
+
         (ARTICLES / f"{art['slug']}.html").write_text(html, encoding="utf-8")
         save_to_index(art, date_pub)
         new_pub.add(item["id"])
-        print(f"     ✓ {art['slug']}.html ({len(art.get('sources',[]))} src, {total_chars} chars)")
+        print(f"     ✓ {art['slug']}.html ({art['nb_sources']} src, {total_chars} chars)")
         return True
 
     except ValueError as e:
