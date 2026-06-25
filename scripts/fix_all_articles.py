@@ -18,8 +18,8 @@ FIXES = [
     ),
     # Footer CONTACT doublon
     (
-        '<div class="footer__col"><h4>CONTACT</h4>\n      <a href="mailto:Factuelinfo.contact@gmail.com">Nous \xe9crire</a>\n      <a href="#">Corrections publiques</a>\n    </div>',
-        '<div class="footer__col"><h4>CONTACT</h4>\n      <a href="mailto:Factuelinfo.contact@gmail.com">Nous \xe9crire</a>\n      <a href="mailto:Factuelinfo.contact@gmail.com?subject=Signalement erreur">Signaler une erreur</a>\n    </div>'
+        '<div class="footer__col"><h4>CONTACT</h4>\n      <a href="mailto:lesfaits.contact@gmail.com">Nous \xe9crire</a>\n      <a href="#">Corrections publiques</a>\n    </div>',
+        '<div class="footer__col"><h4>CONTACT</h4>\n      <a href="mailto:lesfaits.contact@gmail.com">Nous \xe9crire</a>\n      <a href="mailto:lesfaits.contact@gmail.com?subject=Signalement erreur">Signaler une erreur</a>\n    </div>'
     ),
     # Ordre rubriques footer articles
     (
@@ -29,7 +29,7 @@ FIXES = [
     # Contester un fait sans lien → avec mailto
     (
         '<a class="contest-btn" href="#">Contester un fait</a>',
-        '<a class="contest-btn" href="mailto:Factuelinfo.contact@gmail.com?subject=Contestation">Contester un fait</a>'
+        '<a class="contest-btn" href="mailto:lesfaits.contact@gmail.com?subject=Contestation">Contester un fait</a>'
     ),
 ]
 

@@ -7,7 +7,7 @@ sys.stdout.reconfigure(encoding="utf-8")
 ROOT = Path(__file__).parent.parent
 
 OLD1 = 'SOUTENIR</h4>\n      <a href="#">Faire un don</a><a href="#">Contact</a>'
-NEW1 = 'CONTACT</h4>\n      <a href="mailto:Factuelinfo.contact@gmail.com">Nous écrire</a>\n      <a href="#">Corrections publiques</a>'
+NEW1 = 'CONTACT</h4>\n      <a href="mailto:lesfaits.contact@gmail.com">Nous écrire</a>\n      <a href="#">Corrections publiques</a>'
 
 n = 0
 files = list((ROOT / "articles").glob("*.html")) + [ROOT / "index.html"]
