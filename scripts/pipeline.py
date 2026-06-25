@@ -617,7 +617,7 @@ def build_article_html(art: dict, date_pub: str) -> str:
     <ol>{sources_li}</ol>
   </div>
   <p class="art__badge">Rédigé par IA · Protocole Factuel v1.1 · {date_pub}</p>
-  <a class="contest-btn" href="mailto:contestation@factuel.media?subject={art['titre']}">Contester un fait</a>
+  <a class="contest-btn" href="contact.html#erreur">Contester un fait</a>
 </div>
 </main>
 <footer class="footer">

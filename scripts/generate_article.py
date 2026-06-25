@@ -375,7 +375,7 @@ def build_html(art: dict) -> str:
     Généré par IA ({modele}) · {date} · Protocole Factuel v1.1 · Revu par l'équipe éditoriale
   </p>
 
-  <a class="contest-btn" href="mailto:contestation@factuel.media?subject=Contestation : {titre}">
+  <a class="contest-btn" href="contact.html#erreur">
     Contester un fait →
   </a>
 </div>
