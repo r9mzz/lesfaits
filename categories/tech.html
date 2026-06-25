@@ -9,6 +9,20 @@
   <link rel="stylesheet" href="src/style.css"/>
 </head>
 <body>
+<div class="nav-overlay" id="nav-overlay" onclick="closeMenu()"></div>
+<nav class="nav-mobile" id="nav-mobile">
+<a href="categories/societe.html">Société</a>
+<a href="categories/science.html">Science</a>
+<a href="categories/economie.html">Économie</a>
+<a href="categories/tech.html">Tech</a>
+<a href="categories/sante.html">Santé</a>
+<a href="categories/environnement.html">Environnement</a>
+<a href="methode.html" class="nav-cta">Comment on travaille →</a>
+</nav>
+<script>
+function toggleMenu(){var b=document.getElementById('burger'),m=document.getElementById('nav-mobile'),o=document.getElementById('nav-overlay');b.classList.toggle('open');m.classList.toggle('open');o.classList.toggle('open');}
+function closeMenu(){document.getElementById('burger').classList.remove('open');document.getElementById('nav-mobile').classList.remove('open');document.getElementById('nav-overlay').classList.remove('open');}
+</script>
 <div id="read-progress"></div>
 <header class="header">
   <div class="header__inner">
@@ -38,7 +52,7 @@
     <p style="color:var(--muted);font-size:.9rem">Bientôt disponible</p>
   </div>
   <nav style="display:flex;gap:24px;margin-bottom:48px;flex-wrap:wrap;font-size:.9rem">
-    <a href="categories/science.html" style="color:var(--muted)">Science</a>
+    <a href="categories/science.html" style="">Science</a>
 <a href="categories/economie.html" style="color:var(--muted)">Économie</a>
 <a href="categories/tech.html" style="font-weight:700;color:var(--blue)">Tech</a>
 <a href="categories/sante.html" style="">Santé</a>

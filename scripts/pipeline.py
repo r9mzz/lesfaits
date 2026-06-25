@@ -1093,6 +1093,7 @@ def build_category_pages():
   <link rel="stylesheet" href="src/style.css"/>
 </head>
 <body>
+{BURGER_HTML}
 <div id="read-progress"></div>
 <header class="header">
   <div class="header__inner">

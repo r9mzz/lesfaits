@@ -9,6 +9,20 @@
   <link rel="stylesheet" href="src/style.css"/>
 </head>
 <body>
+<div class="nav-overlay" id="nav-overlay" onclick="closeMenu()"></div>
+<nav class="nav-mobile" id="nav-mobile">
+<a href="categories/societe.html">Société</a>
+<a href="categories/science.html">Science</a>
+<a href="categories/economie.html">Économie</a>
+<a href="categories/tech.html">Tech</a>
+<a href="categories/sante.html">Santé</a>
+<a href="categories/environnement.html">Environnement</a>
+<a href="methode.html" class="nav-cta">Comment on travaille →</a>
+</nav>
+<script>
+function toggleMenu(){var b=document.getElementById('burger'),m=document.getElementById('nav-mobile'),o=document.getElementById('nav-overlay');b.classList.toggle('open');m.classList.toggle('open');o.classList.toggle('open');}
+function closeMenu(){document.getElementById('burger').classList.remove('open');document.getElementById('nav-mobile').classList.remove('open');document.getElementById('nav-overlay').classList.remove('open');}
+</script>
 <div id="read-progress"></div>
 <header class="header">
   <div class="header__inner">
@@ -35,10 +49,10 @@
   <div style="margin-bottom:32px;border-bottom:1px solid var(--rule);padding-bottom:24px">
     <span style="font-size:.8rem;font-weight:700;letter-spacing:.1em;color:var(--muted);text-transform:uppercase">Rubrique</span>
     <h1 style="font-size:2.4rem;font-weight:700;margin:8px 0 4px">Société</h1>
-    <p style="color:var(--muted);font-size:.9rem">1 article</p>
+    <p style="color:var(--muted);font-size:.9rem">2 articles</p>
   </div>
   <nav style="display:flex;gap:24px;margin-bottom:48px;flex-wrap:wrap;font-size:.9rem">
-    <a href="categories/science.html" style="color:var(--muted)">Science</a>
+    <a href="categories/science.html" style="">Science</a>
 <a href="categories/economie.html" style="color:var(--muted)">Économie</a>
 <a href="categories/tech.html" style="color:var(--muted)">Tech</a>
 <a href="categories/sante.html" style="">Santé</a>
@@ -54,6 +68,16 @@
           <div class="meta" style="margin-top:10px">
             <span class="meta__src">4 sources</span>
             <span class="meta__sep">·</span><span>25 juin 2026, 08h23</span>
+          </div>
+        </div>
+
+        <div class="card3" onclick="window.location='articles/controle-aerien-france-en-crise.html'"
+             style="cursor:pointer">
+          <span class="cat">SOCIÉTÉ</span>
+          <h3 class="title-sm">Contrôle aérien : la France en crise</h3>
+          <div class="meta" style="margin-top:10px">
+            <span class="meta__src">5 sources</span>
+            <span class="meta__sep">·</span><span>25 juin 2026, 21h51</span>
           </div>
         </div>
   </div>
