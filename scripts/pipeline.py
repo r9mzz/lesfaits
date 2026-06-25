@@ -608,15 +608,34 @@ def _download_hero(keyword: str, slug: str, dest: str) -> None:
     os.makedirs(os.path.dirname(dest), exist_ok=True)
     hdrs = {"User-Agent": "LesFaits/1.1 (lesfaits.contact@gmail.com)"}
 
+    # Noms de fichier suspects : cartes, drapeaux, logos, diagrammes, blasons
+    _BAD_FILENAME = (
+        "map", "flag", "logo", "icon", "diagram", "chart", "graph", "coat",
+        "blason", "carte", "drapeau", "schema", "plan_", "seal_", "emblem",
+        "stamp", "badge", "symbol", "sign_", "portrait_", "headshot",
+    )
+
+    def _is_bad_image(url: str, w: int, h: int) -> bool:
+        fname = url.rsplit("/", 1)[-1].lower()
+        if any(bad in fname for bad in _BAD_FILENAME):
+            return True
+        # Ratio très carré ou très haut → logo/portrait/icône
+        if w > 0 and h > 0 and (h / w > 1.4 or w / h < 0.5):
+            return True
+        return False
+
     # 1. Wikimedia Commons — images thématiques libres, bien indexées par sujet
     try:
         params = urllib.parse.urlencode({
             "action": "query", "format": "json", "generator": "search",
-            "gsrnamespace": "6", "gsrsearch": keyword, "gsrlimit": "10",
+            "gsrnamespace": "6", "gsrsearch": keyword, "gsrlimit": "20",
             "prop": "imageinfo", "iiprop": "url|size|mime", "iiurlwidth": "1200"
         })
         r = requests.get(f"https://commons.wikimedia.org/w/api.php?{params}", timeout=10, headers=hdrs)
-        pages = r.json().get("query", {}).get("pages", {}).values()
+        pages = sorted(
+            r.json().get("query", {}).get("pages", {}).values(),
+            key=lambda p: -(p.get("imageinfo", [{}])[0].get("width", 0))
+        )
         for page in pages:
             ii = page.get("imageinfo", [{}])[0]
             mime = ii.get("mime", "")
@@ -627,8 +646,9 @@ def _download_hero(keyword: str, slug: str, dest: str) -> None:
                 continue
             width = ii.get("thumbwidth") or ii.get("width", 0)
             height = ii.get("thumbheight") or ii.get("height", 0)
-            # Exclure images trop petites ou trop étroites (ex: bannières, logos)
             if width < 600 or height < 300:
+                continue
+            if _is_bad_image(img_url, width, height):
                 continue
             img_r = requests.get(img_url, timeout=15, headers=hdrs)
             if img_r.status_code == 200 and len(img_r.content) > 20_000:
@@ -639,11 +659,15 @@ def _download_hero(keyword: str, slug: str, dest: str) -> None:
 
     # 2. Openverse — images CC
     try:
-        q = urllib.parse.urlencode({"q": keyword, "page_size": "8", "license_type": "commercial,modification"})
+        q = urllib.parse.urlencode({"q": keyword, "page_size": "10", "license_type": "commercial,modification"})
         ov = requests.get(f"https://api.openverse.org/v1/images/?{q}", timeout=10, headers=hdrs)
         for item in ov.json().get("results", []):
             img_url = item.get("url", "")
             if not img_url.lower().endswith((".jpg", ".jpeg", ".png", ".webp")):
+                continue
+            w = item.get("width", 0) or 0
+            h = item.get("height", 0) or 0
+            if _is_bad_image(img_url, w, h):
                 continue
             r = requests.get(img_url, timeout=15, headers=hdrs)
             if r.status_code == 200 and len(r.content) > 20_000:
