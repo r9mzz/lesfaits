@@ -34,11 +34,11 @@
   <div style="margin-bottom:32px;border-bottom:1px solid var(--rule);padding-bottom:24px">
     <span style="font-size:.8rem;font-weight:700;letter-spacing:.1em;color:var(--muted);text-transform:uppercase">Rubrique</span>
     <h1 style="font-size:2.4rem;font-weight:700;margin:8px 0 4px">Tech</h1>
-    <p style="color:var(--muted);font-size:.9rem">Bientôt disponible</p>
+    <p style="color:var(--muted);font-size:.9rem">1 article</p>
   </div>
   <nav style="display:flex;gap:24px;margin-bottom:48px;flex-wrap:wrap;font-size:.9rem">
     <a href="categories/science.html" style="">Science</a>
-<a href="categories/economie.html" style="">Économie</a>
+<a href="categories/economie.html" style="color:var(--muted)">Économie</a>
 <a href="categories/tech.html" style="font-weight:700;color:var(--blue)">Tech</a>
 <a href="categories/sante.html" style="">Santé</a>
 <a href="categories/environnement.html" style="">Environnement</a>
@@ -46,19 +46,14 @@
   </nav>
   <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:24px">
     
-        <div style="grid-column:1/-1;text-align:center;padding:80px 24px">
-          <div style="font-size:3rem;margin-bottom:24px;opacity:.3">◎</div>
-          <h2 style="font-size:1.3rem;font-weight:600;margin-bottom:12px;color:var(--ink)">
-            Rubrique en cours d'alimentation
-          </h2>
-          <p style="color:var(--muted);max-width:420px;margin:0 auto 32px;line-height:1.7">
-            Les premiers articles <strong>Tech</strong> seront publiés lors du prochain cycle éditorial.
-            Le pipeline génère de nouveaux contenus chaque matin à 07h00 et chaque soir à 18h30.
-          </p>
-          <a href="/factuel/" style="display:inline-block;padding:10px 24px;background:var(--blue);
-             color:#fff;border-radius:4px;text-decoration:none;font-size:.9rem;font-weight:600">
-            ← Retour à l'accueil
-          </a>
+        <div class="card3" onclick="window.location='articles/securite-donnees-deplacement.html'"
+             style="cursor:pointer">
+          <span class="cat">TECH</span>
+          <h3 class="title-sm">Sécurité des données en déplacement : les enjeux et les solutions</h3>
+          <div class="meta" style="margin-top:10px">
+            <span class="meta__src">4 sources</span>
+            <span class="meta__sep">·</span><span>25 juin 2026, 08h23</span>
+          </div>
         </div>
   </div>
 </main>

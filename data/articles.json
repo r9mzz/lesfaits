@@ -1,18 +1,5 @@
 [
   {
-    "slug": "ia-dans-le-secteur-de-la-sante",
-    "titre": "L'intelligence artificielle dans le secteur de la santé",
-    "categorie": "economie",
-    "nb_sources": 4,
-    "date": "25 juin 2026, 14h20",
-    "resume": [
-      "Selon des enseignants de la chaire IA en santé de la Fondation Université Paris-Cité, l'intelligence artificielle pourrait améliorer l'efficacité du système de santé, mais il faudrait humaniser l'interface entre les professionnels de santé et les machines. Les auteurs plaident pour la mise en place d'opérateurs chargés des interfaces d'intelligence artificielle, qui pourraient être financés grâce aux économies liées à l'usage de l'IA.",
-      "D'après une étude de l'Organisation mondiale de la santé (OMS), l'utilisation de l'IA dans le secteur de la santé pourrait permettre d'économiser jusqu'à 10% des coûts de santé dans les pays développés. Cependant, il est important de prendre en compte les risques et les limites de l'IA, tels que la perte de données sensibles ou la dépendance excessive aux machines.",
-      "Selon un rapport de la Commission européenne, l'IA pourrait également avoir un impact sur l'emploi dans le secteur de la santé, en particulier pour les professions qui impliquent des tâches répétitives ou des décisions basées sur des données. Cependant, il est possible de créer de nouveaux emplois dans le domaine de l'IA, tels que des opérateurs chargés des interfaces d'IA ou des développeurs de logiciels de santé."
-    ],
-    "image_keyword": "healthcare artificial intelligence"
-  },
-  {
     "slug": "remorqueur-spatial-europe-mars",
     "titre": "L'Europe prépare un remorqueur spatial pour Mars",
     "categorie": "science",
@@ -28,7 +15,7 @@
   {
     "slug": "securite-donnees-deplacement",
     "titre": "Sécurité des données en déplacement : les enjeux et les solutions",
-    "categorie": "environnement",
+    "categorie": "tech",
     "nb_sources": 4,
     "date": "25 juin 2026, 08h23",
     "resume": [
@@ -41,7 +28,7 @@
   {
     "slug": "minoens-civilisation-oubilee-inspiration-minotaure",
     "titre": "Les Minoens, une civilisation oubliée qui a inspiré le mythe du Minotaure",
-    "categorie": "environnement",
+    "categorie": "science",
     "nb_sources": 4,
     "date": "25 juin 2026, 08h23",
     "resume": [
@@ -54,7 +41,7 @@
   {
     "slug": "chantal-delsol-droite-antimoderne",
     "titre": "Chantal Delsol et la droite antimoderne",
-    "categorie": "science",
+    "categorie": "societe",
     "nb_sources": 4,
     "date": "25 juin 2026, 08h23",
     "resume": [
@@ -156,19 +143,6 @@
     "image_keyword": "airport air traffic control plane"
   },
   {
-    "slug": "canicule-pollution-air-france",
-    "titre": "Canicule et pollution de l'air en France",
-    "categorie": "societe",
-    "nb_sources": 6,
-    "date": "24 juin 2026, 17h03",
-    "resume": [
-      "La vague de chaleur actuelle en France a entraîné des pics de pollution à l'ozone sur la majorité du territoire, avec des conséquences sur la santé respiratoire de nombreuses personnes, selon les données de l'Institut national de l'environnement industriel et des risques (INERIS) et de l'Agence nationale de sécurité sanitaire de l'alimentation, de l'environnement et du travail (ANSES)",
-      "Les pollens et l'ozone sont des facteurs aggravants des problèmes respiratoires, notamment pour les personnes souffrant d'asthme ou de maladies respiratoires chroniques, comme le souligne l'Organisation mondiale de la santé (OMS) dans son rapport sur la qualité de l'air et la santé",
-      "La combinaison de la chaleur, de l'ozone et des pollens peut avoir des effets néfastes sur la santé, notamment en termes de morbidité et de mortalité, selon les études menées par l'Institut national de la santé et de la recherche médicale (INSERM) et l'Institut de veille sanitaire (InVS)"
-    ],
-    "image_keyword": "heatwave summer smog city"
-  },
-  {
     "slug": "premier-cas-ebola-france",
     "titre": "Premier cas d'Ebola diagnostiqué en France, un médecin de retour de RDC",
     "categorie": "sante",
@@ -208,22 +182,9 @@
     "image_keyword": "heatwave hospital emergency"
   },
   {
-    "slug": "canicule-france-vigilance-rouge",
-    "titre": "Canicule en France, 72 départements en vigilance rouge",
-    "categorie": "environnement",
-    "nb_sources": 4,
-    "date": "24 juin 2026, 17h03",
-    "resume": [
-      "La canicule en France a conduit à la mise en vigilance rouge de 72 départements par Météo-France, avec des températures attendues jusqu'à 40 degrés Celsius dans certaines régions, selon les prévisions de Météo-France (Météo-France, 2023).",
-      "Les départements concernés sont principalement situés dans le nord-est et le centre de la France, avec des régions comme la Marne, la Meuse, les Ardennes, la Haute-Marne, la Meurthe-et-Moselle, la Haute-Saône, la Moselle, les Vosges, le Haut-Rhin, le Bas-Rhin, le Territoire de Belfort, le Jura, le Doubs et la Loire, qui sont placés en vigilance rouge, selon le ministère de l'Intérieur (Ministère de l'Intérieur, 2023).",
-      "La canicule a des impacts significatifs sur la santé, notamment pour les personnes âgées, les enfants et les personnes souffrant de maladies chroniques, avec des risques de déshydratation, de coup de chaleur et d'aggravation des problèmes de santé existants, selon l'Institut national de la santé et de la recherche médicale (INSERM, 2020)."
-    ],
-    "image_keyword": "heatwave thermometer weather"
-  },
-  {
     "slug": "theorie-evolution-darwin",
     "titre": "La théorie de l'évolution de Charles Darwin évolue",
-    "categorie": "societe",
+    "categorie": "science",
     "nb_sources": 4,
     "date": "24 juin 2026, 17h03",
     "resume": [
