@@ -494,11 +494,32 @@ def build_spectrum_html(positions: dict) -> str:
 </div>"""
 
 
+def _download_hero(img_kw: str, lock: int, dest: str, slug: str) -> None:
+    os.makedirs(os.path.dirname(dest), exist_ok=True)
+    urls = [
+        f"https://loremflickr.com/1200/500/{img_kw}?lock={lock}",
+        f"https://picsum.photos/seed/{slug}/1200/500",
+    ]
+    for url in urls:
+        try:
+            r = requests.get(url, timeout=15, headers={"User-Agent": "Mozilla/5.0"})
+            if r.status_code == 200 and len(r.content) > 1000:
+                open(dest, "wb").write(r.content)
+                return
+        except Exception:
+            pass
+
+
 def build_article_html(art: dict, date_pub: str) -> str:
     resume_txt = " ".join(art["resume"])
     img_kw = art.get("image_keyword", "").replace(" ", ",")
-    lock = sum(ord(c) for c in art.get("slug", img_kw)) % 9999 + 1
-    hero_img = f'<img class="art__hero" src="https://loremflickr.com/1200/500/{img_kw}?lock={lock}" alt="" loading="lazy"/>\n  ' if img_kw else ""
+    slug   = art.get("slug", "")
+    lock   = sum(ord(c) for c in slug) % 9999 + 1
+    local_img_path = f"assets/images/{slug}.jpg"
+    if img_kw and not os.path.exists(local_img_path):
+        _download_hero(img_kw, lock, local_img_path, slug)
+    hero_src  = local_img_path if os.path.exists(local_img_path) else ""
+    hero_img  = f'<img class="art__hero" src="{hero_src}" alt="" loading="eager"/>\n  ' if hero_src else ""
     sources_li = "\n".join(
         f'<li>{s["institution"]} · <em>{s["titre"]}</em> · {s["date"]}'
         + (f' · <a href="{s["url"]}" target="_blank" rel="noopener">Lire la source →</a>' if s.get("url") else "")
