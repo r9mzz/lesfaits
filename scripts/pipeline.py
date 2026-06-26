@@ -13,6 +13,7 @@ import os, re, json, time, hashlib, argparse, sys
 from datetime import datetime
 from pathlib import Path
 from xml.etree import ElementTree as ET
+from urllib.parse import urlparse
 
 from groq import Groq
 import requests
@@ -92,8 +93,6 @@ def fetch_full_content(url: str) -> str:
 
 def duckduckgo_search(query: str, max_results: int = 8) -> list[dict]:
     """Recherche DuckDuckGo — retourne uniquement des URLs pointant vers des articles précis."""
-    from urllib.parse import urlparse
-
     def _search(q: str) -> list[dict]:
         try:
             url = "https://html.duckduckgo.com/html/"
@@ -548,7 +547,6 @@ def generate(content: str, category_hint: str, extra_sources: list[dict] | None 
     art = _extract_json(raw)
 
     # Supprimer toute source dont l'URL n'est pas dans la liste réelle
-    from urllib.parse import urlparse
     if "sources" in art:
         verified = []
         for src in art["sources"]:
@@ -1399,8 +1397,7 @@ def generer_article(item: dict, dry_run: bool, published: set, new_pub: set, dat
             seen_urls.add(p["url"])
 
     # Bloquer si moins de 3 sources réelles trouvées AVANT même de générer
-    from urllib.parse import urlparse as _up
-    specific_sources = [s for s in extra if len(_up(s["url"]).path.rstrip("/")) > 5]
+    specific_sources = [s for s in extra if len(urlparse(s["url"]).path.rstrip("/")) > 5]
     if len(specific_sources) < 3:
         print(f"  [REJET] Seulement {len(specific_sources)} source(s) — minimum 3 requis (DDG+PubMed)")
         return False
