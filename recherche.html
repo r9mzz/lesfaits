@@ -27,6 +27,8 @@
     .search-sort { font-size:.82rem; color:var(--muted); display:flex; align-items:center; gap:8px; }
     .search-sort select { font-size:.82rem; border:1px solid var(--rule); border-radius:4px; padding:4px 8px; background:var(--white); color:var(--ink); cursor:pointer; }
     .search-sort select:focus { outline:none; border-color:var(--blue); }
+    .search-mark { background:#fff3cd; padding:0 2px; border-radius:2px; color:inherit; }
+    [data-theme="dark"] .search-mark { background:#4a3a00; color:var(--ink); }
   </style>
 </head>
 <body>
@@ -167,7 +169,7 @@ function norm(s) { return (s||'').normalize('NFD').replace(/[̀-ͯ]/g,'').toLowe
 function highlight(text, q) {
   if (!q) return text;
   const safe = q.replace(/[.*+?^${}()|[\]\\]/g,'\\$&');
-  return text.replace(new RegExp('('+safe+')', 'gi'), '<mark style="background:#fff3cd;padding:0 2px">$1</mark>');
+  return text.replace(new RegExp('('+safe+')', 'gi'), '<mark class="search-mark">$1</mark>');
 }
 
 function parseDate(dateStr) {
