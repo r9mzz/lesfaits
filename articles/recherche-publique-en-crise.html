@@ -2,6 +2,9 @@
 <html lang="fr" data-theme="">
 <head>
   <meta charset="UTF-8"/>
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://plausible.io; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; connect-src 'self' https://plausible.io https://api.web3forms.com; base-uri 'self'; form-action 'self' https://api.web3forms.com;">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <meta name="description" content="Les universités et les organismes de recherche voient leur trésorerie se dégrader, avec une situation inquiétante pour l'avenir, selon le journaliste David"/>
   <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large"/>
@@ -18,10 +21,15 @@
   <script>
 (function(){var s=localStorage.getItem('theme'),d=s==='dark'||(s===null&&window.matchMedia('(prefers-color-scheme:dark)').matches);document.documentElement.setAttribute('data-theme',d?'dark':'light');})();
 </script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","headline":"La recherche publique en crise financière et politique","description":"Les universités et les organismes de recherche voient leur trésorerie se dégrader, avec une situation inquiétante pour l'avenir, selon le journaliste David Larousserie. Malgré les","datePublished":"2026-06-26T12:07:00+02:00","dateModified":"2026-06-26T12:07:00+02:00","articleSection":"Science","inLanguage":"fr","isAccessibleForFree":true,"image":{"@type":"ImageObject","url":"https://r9mzz.github.io/lesfaits/assets/images/recherche-publique-en-crise.jpg","width":1200,"height":630},"author":{"@type":"Organization","name":"Les Faits"},"publisher":{"@type":"Organization","name":"Les Faits","@id":"https://r9mzz.github.io/lesfaits/#org","logo":{"@type":"ImageObject","url":"https://r9mzz.github.io/lesfaits/assets/images/og-default.jpg"}},"mainEntityOfPage":{"@type":"WebPage","@id":"https://r9mzz.github.io/lesfaits/articles/recherche-publique-en-crise.html"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Accueil","item":"https://r9mzz.github.io/lesfaits/"},{"@type":"ListItem","position":2,"name":"Science","item":"https://r9mzz.github.io/lesfaits/categories/science.html"},{"@type":"ListItem","position":3,"name":"La recherche publique en crise financière et politique"}]}</script>
+<link rel="icon" type="image/svg+xml" href="/lesfaits/favicon.svg">
+<link rel="manifest" href="/lesfaits/manifest.json">
+<script defer data-domain="r9mzz.github.io/lesfaits" src="https://plausible.io/js/script.js"></script>
 </head>
 <body>
 <div class="nav-overlay" id="nav-overlay" onclick="closeMenu()"></div>
-<nav class="nav-mobile" id="nav-mobile">
+<nav class="nav-mobile" id="nav-mobile" aria-label="Menu mobile">
 <a href="categories/societe.html">Société</a>
 <a href="categories/science.html">Science</a>
 <a href="categories/economie.html">Économie</a>
@@ -42,9 +50,9 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeMenu();
       <div class="brand__logotype"><span class="fact">les</span><span class="uel">faits</span></div>
     </a>
     <div class="header__search">
-      <input type="search" class="header__search-input" placeholder="Rechercher…" autocomplete="off" onkeydown="if(event.key==='Enter'&&this.value.trim())window.location=(document.querySelector('base').href)+'recherche.html?q='+encodeURIComponent(this.value.trim())"/>
+      <input type="search" class="header__search-input" aria-label="Rechercher un article" id="search-input" placeholder="Rechercher…" autocomplete="off" onkeydown="if(event.key==='Enter'&&this.value.trim())window.location=(document.querySelector('base').href)+'recherche.html?q='+encodeURIComponent(this.value.trim())"/>
     </div>
-    <nav>
+    <nav aria-label="Navigation principale">
       <a href="categories/societe.html">Société</a>
       <a href="categories/science.html">Science</a>
       <a href="categories/economie.html">Économie</a>
@@ -57,6 +65,8 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeMenu();
     <button class="burger" id="burger" aria-label="Menu" onclick="toggleMenu()"><span></span><span></span><span></span></button>
   </div>
 </header>
+<nav aria-label="Fil d'Ariane" class="breadcrumb"><ol><li><a href="../index.html">Accueil</a></li><li><a href="../categories/science.html">Science</a></li><li aria-current="page">La recherche publique en crise financière et politique</li></ol></nav>
+
 <div id="read-progress"></div>
 <main>
 <div class="art">
@@ -71,7 +81,7 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeMenu();
   </div>
   <div class="art__verify"><span class="art__verify-item">✓ 4 sources vérifiées</span><span class="art__verify-item">✓ Sources concordantes</span><span class="art__verify-item">✓ Protocole éditorial v1.1</span></div>
   <div class="art__rule"></div>
-  <figure style="margin-bottom:28px"><img class="art__hero" src="assets/images/recherche-publique-en-crise.jpg" alt="" loading="eager" fetchpriority="high" style="aspect-ratio:16/9;object-fit:cover"/></figure>
+  <figure style="margin-bottom:28px"><img class="art__hero" src="assets/images/recherche-publique-en-crise.jpg" alt="Illustration : La recherche publique en crise financière et politique" loading="eager" fetchpriority="high" style="aspect-ratio:16/9;object-fit:cover"/></figure>
   <p class="art__resume">Les universités et les organismes de recherche voient leur trésorerie se dégrader, avec une situation inquiétante pour l'avenir, selon le journaliste David Larousserie. Malgré les discours officiels faisant de la recherche une priorité, de plus en plus de décisions politiques font fi de l'état des connaissances scientifiques, révèlant une crise de confiance entre la science et la politique. Les débats révèlent une inquiétude croissante face à la réduction des financements et à la dégradation des institutions scientifiques, impactant la santé publique et l'environnement.</p>
   <h2 class="art__h2">Les faits</h2><p>Selon le journaliste David Larousserie, les universités et les organismes de recherche voient leur trésorerie se dégrader, avec une situation inquiétante pour l'avenir. D'après le rapport de l'Observatoire des produits d'épargne financière, une nouvelle publication au service de la transparence et de l'éducation financière des ménages, le financement de la recherche publique est en crise. Selon l'article de Le Monde, le financement de la recherche publique stagne depuis deux décennies, avec une trajectoire de la loi de programmation 2020 qui n'a pas été tenue, et le projet de budget 2026 qui aggrave la situation. D'après l'étude de l'Institut des politiques publiques (IPP), l'investissement réel pour la recherche et l'enseignement supérieur serait d'environ 10 % plus bas. Selon l'enquête menée auprès de 2 200 chercheurs, une « insatisfaction » « quasi-unanime » concernant le système de financement de la recherche publique en France, avec moins de 15 % de chercheurs satisfaits. D'après l'article de 20 Minutes, les scientifiques alertent sur le fait que le financement de la recherche est « à bout de souffle ». Selon le site Le Connecteur, la crise de confiance entre la science et la politique est en jeu, avec des brevets privés, des budgets amputés et des scandales éthiques.</p>
   <h2 class="art__h2">Contexte</h2><p>La crise de la recherche publique en France est un phénomène qui s'inscrit dans un contexte plus large de réduction des financements publics pour la recherche et l'enseignement supérieur. Selon l'article de Le Monde, le financement de la recherche publique stagne depuis deux décennies, avec une trajectoire de la loi de programmation 2020 qui n'a pas été tenue. D'après l'étude de l'Institut des politiques publiques (IPP), l'investissement réel pour la recherche et l'enseignement supérieur serait d'environ 10 % plus bas. Cette situation est inquiétante pour l'avenir de la recherche publique en France, car elle risque de mettre en péril la capacité du pays à innover et à répondre aux défis sociétaux. Selon l'enquête menée auprès de 2 200 chercheurs, une « insatisfaction » « quasi-unanime » concernant le système de financement de la recherche publique en France, avec moins de 15 % de chercheurs satisfaits. Cette crise de confiance entre la science et la politique est en jeu, avec des brevets privés, des budgets amputés et des scandales éthiques.</p>
@@ -94,12 +104,13 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeMenu();
   <button class="fav-btn" id="fav-btn" aria-pressed="false">♡ Favoris</button>
 </div>
 <script>if(navigator.share)document.getElementById('native-share').style.display='inline-flex';</script>
-  <section class="sources" aria-label="Sources"><h3>SOURCES</h3><ol><li><cite>Le Monde</cite> · <em>Financière et politique, la double fragilisation de la recherche publique</em> · 2026-06-26 · <a href="https://www.lemonde.fr/idees/article/2026/06/26/financiere-et-politique-la-double-fragilisation-de-la-recherche-publique_6715717_3232.html" target="_blank" rel="noopener noreferrer external" aria-label="Le Monde (ouvre dans un nouvel onglet)">Lire la source →</a></li>
+  <div class="art__tags" aria-label="Mots-clés"><span class="art__tag">recherche</span><span class="art__tag">université</span><span class="art__tag">financement</span><span class="art__tag">science</span><span class="art__tag">budget</span></div>
+<section class="sources" aria-label="Sources"><h3>SOURCES</h3><ol><li><cite>Le Monde</cite> · <em>Financière et politique, la double fragilisation de la recherche publique</em> · 2026-06-26 · <a href="https://www.lemonde.fr/idees/article/2026/06/26/financiere-et-politique-la-double-fragilisation-de-la-recherche-publique_6715717_3232.html" target="_blank" rel="noopener noreferrer external" aria-label="Le Monde (ouvre dans un nouvel onglet)">Lire la source →</a></li>
 <li><cite>20 Minutes</cite> · <em>Le financement de la recherche est « à bout de souffle »</em> · 2025-09-16 · <a href="https://www.20minutes.fr/economie/4173478-20250916-financement-recherche-bout-souffle-alertent-scientifiques" target="_blank" rel="noopener noreferrer external" aria-label="20 Minutes (ouvre dans un nouvel onglet)">Lire la source →</a></li>
 <li><cite>Le Connecteur</cite> · <em>Crise de confiance science : politique, finance et éthique en jeu</em> · None · <a href="https://leconnecteur.org/actualites/crise-de-confiance-science/" target="_blank" rel="noopener noreferrer external" aria-label="Le Connecteur (ouvre dans un nouvel onglet)">Lire la source →</a></li>
 <li><cite>Parlons-politique</cite> · <em>Budget 2026: désinvestissement de la recherche</em> · None · <a href="https://www.parlons-politique.fr/actualite-nationale/budget-2026-face-au-desinvestissement-dans-la-recherche-le-rapport-du-college-alerte-sur-un-double-manque-a-gagner-sanitaire-et-economique_5308/" target="_blank" rel="noopener noreferrer external" aria-label="Parlons-politique (ouvre dans un nouvel onglet)">Lire la source →</a></li></ol></section>
-  <div class="art__related"><div class="art__related-title">À LIRE AUSSI</div><div class="art__related-grid"><div class="art__related-card" onclick="window.location='articles/nasa-lance-mission-sauvetage-telescope-swift.html'"><span class="cat">SCIENCE</span><div class="title-sm">La NASA lance mission sauvetage pour le télescope Swift</div><div style="font-size:10px;color:var(--muted);margin-top:6px">25 juin 2026, 21h51</div></div>
-<div class="art__related-card" onclick="window.location='articles/theorie-evolution-darwin.html'"><span class="cat">SCIENCE</span><div class="title-sm">La Théorie de l'Évolution de Darwin</div><div style="font-size:10px;color:var(--muted);margin-top:6px">25 juin 2026, 21h51</div></div></div></div>
+  <div class="art__related"><div class="art__related-title">À LIRE AUSSI</div><div class="art__related-grid"><a class="art__related-card" href="articles/nasa-lance-mission-sauvetage-telescope-swift.html"><span class="cat">SCIENCE</span><div class="title-sm">La NASA lance mission sauvetage pour le télescope Swift</div><div style="font-size:10px;color:var(--muted);margin-top:6px">25 juin 2026, 21h51</div></a>
+<a class="art__related-card" href="articles/theorie-evolution-darwin.html"><span class="cat">SCIENCE</span><div class="title-sm">La Théorie de l'Évolution de Darwin</div><div style="font-size:10px;color:var(--muted);margin-top:6px">25 juin 2026, 21h51</div></a></div></div>
   <p class="art__badge">Rédigé par IA · Protocole Les Faits v1.1 · 26 juin 2026, 12h07</p>
   <a class="contest-btn" href="contact.html?article=recherche-publique-en-crise#erreur">Signaler une erreur sur cet article</a>
 </div>
@@ -192,5 +203,8 @@ function copyLink(){
   });
 })();
 </script>
+<script>document.addEventListener('keydown',function(e){if(e.key==='/'&&!['INPUT','TEXTAREA','SELECT'].includes(document.activeElement.tagName)){e.preventDefault();var s=document.getElementById('search-input');if(s){s.focus();s.select();}}});</script>
+<button id="back-top" aria-label="Retour en haut de page" title="Retour en haut"><svg viewBox="0 0 24 24" width="16" height="16" stroke="#fff" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"></polyline></svg></button>
+<script>(function(){var b=document.getElementById('back-top');if(!b)return;window.addEventListener('scroll',function(){b.classList.toggle('visible',window.scrollY>400)},{passive:true});b.addEventListener('click',function(){window.scrollTo({top:0,behavior:'smooth'})})})();</script>
 </body>
 </html>

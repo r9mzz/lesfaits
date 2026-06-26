@@ -2,6 +2,9 @@
 <html lang="fr" data-theme="">
 <head>
 <meta charset="utf-8"/>
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://plausible.io; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; connect-src 'self' https://plausible.io https://api.web3forms.com; base-uri 'self'; form-action 'self' https://api.web3forms.com;">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <meta content="Le Forum Santé Environnement 2024 a mis en avant l'importance de la santé environnementale Le colloque « Santé-environnement : comprendre, prévenir, agir »" name="description"/>
 <meta content="Défis de la santé environnementale et des savoirs — Les Faits" property="og:title"/>
@@ -13,10 +16,22 @@
 <script>
 (function(){var s=localStorage.getItem('theme'),d=s==='dark'||(s===null&&window.matchMedia('(prefers-color-scheme:dark)').matches);document.documentElement.setAttribute('data-theme',d?'dark':'light');})();
 </script>
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large"/>
+<meta property="og:url" content="https://r9mzz.github.io/lesfaits/articles/sante-environnementale-defis-savoirs.html"/>
+<meta property="og:image" content="https://r9mzz.github.io/lesfaits/assets/images/sante-environnementale-defis-savoirs.jpg"/>
+<meta property="og:image:width" content="1200"/><meta property="og:image:height" content="630"/><meta property="og:image:type" content="image/jpeg"/>
+<meta property="article:section" content="sante"/>
+<meta property="article:published_time" content="2026-06-25T21:55:00+02:00"/>
+<link rel="alternate" type="application/rss+xml" title="Les Faits — RSS" href="/lesfaits/feed.xml"/>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","headline":"Défis de la santé environnementale et des savoirs","description":"Le Forum Santé Environnement 2024 a mis en avant l'importance de la santé environnementale Le colloque « Santé-environnement : comprendre, prévenir, agir » 2026 abordera les défis","datePublished":"2026-06-25T21:55:00+02:00","dateModified":"2026-06-25T21:55:00+02:00","articleSection":"Santé","inLanguage":"fr","isAccessibleForFree":true,"image":{"@type":"ImageObject","url":"https://r9mzz.github.io/lesfaits/assets/images/sante-environnementale-defis-savoirs.jpg","width":1200,"height":630},"author":{"@type":"Organization","name":"Les Faits"},"publisher":{"@type":"Organization","name":"Les Faits","@id":"https://r9mzz.github.io/lesfaits/#org","logo":{"@type":"ImageObject","url":"https://r9mzz.github.io/lesfaits/assets/images/og-default.jpg"}},"mainEntityOfPage":{"@type":"WebPage","@id":"https://r9mzz.github.io/lesfaits/articles/sante-environnementale-defis-savoirs.html"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Accueil","item":"https://r9mzz.github.io/lesfaits/"},{"@type":"ListItem","position":2,"name":"Santé","item":"https://r9mzz.github.io/lesfaits/categories/sante.html"},{"@type":"ListItem","position":3,"name":"Défis de la santé environnementale et des savoirs"}]}</script>
+<link rel="icon" type="image/svg+xml" href="/lesfaits/favicon.svg">
+<link rel="manifest" href="/lesfaits/manifest.json">
+<script defer data-domain="r9mzz.github.io/lesfaits" src="https://plausible.io/js/script.js"></script>
 </head>
 <body>
 <div class="nav-overlay" id="nav-overlay" onclick="closeMenu()"></div>
-<nav class="nav-mobile" id="nav-mobile">
+<nav class="nav-mobile" id="nav-mobile" aria-label="Menu mobile">
   <a href="categories/societe.html">Société</a>
   <a href="categories/science.html">Science</a>
   <a href="categories/economie.html">Économie</a>
@@ -28,6 +43,8 @@
 <script>
 function toggleMenu(){var b=document.getElementById('burger'),m=document.getElementById('nav-mobile'),o=document.getElementById('nav-overlay');b.classList.toggle('open');m.classList.toggle('open');o.classList.toggle('open');}
 function closeMenu(){document.getElementById('burger').classList.remove('open');document.getElementById('nav-mobile').classList.remove('open');document.getElementById('nav-overlay').classList.remove('open');}
+document.querySelectorAll('.nav-mobile a').forEach(function(a){a.addEventListener('click',closeMenu);});
+document.addEventListener('keydown',function(e){if(e.key==='Escape')closeMenu();});
 </script>
 <header class="header">
 <div class="header__inner">
@@ -35,9 +52,9 @@ function closeMenu(){document.getElementById('burger').classList.remove('open');
 <div class="brand__logotype"><span class="fact">les</span><span class="uel">faits</span></div>
 </a>
 <div class="header__search">
-<input autocomplete="off" class="header__search-input" onkeydown="if(event.key==='Enter'&amp;&amp;this.value.trim())window.location=(document.querySelector('base').href)+'recherche.html?q='+encodeURIComponent(this.value.trim())" placeholder="Rechercher…" type="search"/>
+<input autocomplete="off" class="header__search-input" aria-label="Rechercher un article" id="search-input" onkeydown="if(event.key==='Enter'&amp;&amp;this.value.trim())window.location=(document.querySelector('base').href)+'recherche.html?q='+encodeURIComponent(this.value.trim())" placeholder="Rechercher…" type="search"/>
 </div>
-<nav>
+<nav aria-label="Navigation principale">
 <a href="categories/societe.html">Société</a>
 <a href="categories/science.html">Science</a>
 <a href="categories/economie.html">Économie</a>
@@ -50,16 +67,8 @@ function closeMenu(){document.getElementById('burger').classList.remove('open');
     <button class="burger" id="burger" aria-label="Menu" onclick="toggleMenu()"><span></span><span></span><span></span></button>
 </div>
 </header>
-<div class="manifeste">
-<div class="manifeste__inner">
-<div class="manifeste__headline">Rédigé par <span>IA</span>,<br/>vérifié par des humains.</div>
-<div class="manifeste__pillars">
-<div class="manifeste__pillar"><div class="manifeste__text"><strong>Zéro parti pris</strong><span>Aucune opinion. Les faits bruts, leurs sources, leurs contradictions.</span></div></div>
-<div class="manifeste__pillar"><div class="manifeste__text"><strong>Méthode publique</strong><span>Notre protocole éditorial est entièrement accessible.</span></div></div>
-<div class="manifeste__pillar"><div class="manifeste__text"><strong>Sources vérifiées</strong><span>Minimum 3 sources par article. Institutions officielles, peer-reviewed.</span></div></div>
-</div>
-</div>
-</div>
+<nav aria-label="Fil d'Ariane" class="breadcrumb"><ol><li><a href="../index.html">Accueil</a></li><li><a href="../categories/sante.html">Santé</a></li><li aria-current="page">Défis de la santé environnementale et des savoirs</li></ol></nav>
+<div id="read-progress"></div>
 <main>
 <div class="art">
 <a class="art__back" href="index.html">← Retour à l'accueil</a>
@@ -67,7 +76,7 @@ function closeMenu(){document.getElementById('burger').classList.remove('open');
 <h1 class="art__title">Défis de la santé environnementale et des savoirs</h1>
 <div class="art__meta">
 <span style="color:var(--blue);font-weight:600">4 sources</span>
-<span class="meta__sep">·</span><span>25 juin 2026, 08h23</span>
+<span class="meta__sep">·</span><span>25 juin 2026, 21h55</span>
 <span class="meta__sep" aria-hidden="true">·</span><span class="art__reading-time">Lecture : 4 min</span>
 </div>
 <div class="art__rule"></div>
@@ -76,26 +85,30 @@ function closeMenu(){document.getElementById('burger').classList.remove('open');
 <span class="art__verify-item">✓ Sources concordantes</span>
 <span class="art__verify-item">✓ Protocole éditorial v1.1</span>
 </div>
-<img alt="" class="art__hero" loading="lazy" src="assets/images/sante-environnementale-defis-savoirs.jpg"/>
+<img alt="Illustration : Défis de la santé environnementale et des savoirs" class="art__hero" loading="lazy" src="assets/images/sante-environnementale-defis-savoirs.jpg"/>
 <p class="art__resume">Le Forum Santé Environnement 2024 a mis en avant l'importance de la santé environnementale Le colloque « Santé-environnement : comprendre, prévenir, agir » 2026 abordera les défis de la santé environnementale Le lancement du catalogue de formations en santé environnementale 2025-2026 offre des opportunités de formation La santé environnementale nécessite une expertise partagée</p>
 <h2>Les faits</h2><p>La santé environnementale est un domaine en constante évolution, nécessitant une approche multidisciplinaire pour comprendre les impacts de l'environnement sur la santé humaine. Le Forum Santé Environnement 2024 a mis en avant l'importance de la santé environnementale et les défis qui la caractérisent. Le colloque « Santé-environnement : comprendre, prévenir, agir » 2026 abordera les défis de la santé environnementale, notamment la pollution de l'air, de l'eau et du sol. Le lancement du catalogue de formations en santé environnementale 2025-2026 offre des opportunités de formation pour les professionnels de la santé et de l'environnement. La santé environnementale nécessite une expertise partagée entre les professionnels de la santé, de l'environnement et de la recherche pour comprendre les impacts de l'environnement sur la santé humaine et développer des stratégies de prévention et de protection.</p>
 <h2>Contexte</h2><p>La santé environnementale est un domaine qui a gagné en importance ces dernières années, en raison de la croissance de la population mondiale et de l'urbanisation. Les impacts de l'environnement sur la santé humaine sont nombreux et variés, notamment la pollution de l'air, de l'eau et du sol, les changements climatiques et la perte de biodiversité. Le Forum Santé Environnement 2024 a mis en avant l'importance de la santé environnementale et les défis qui la caractérisent. Le colloque « Santé-environnement : comprendre, prévenir, agir » 2026 abordera les défis de la santé environnementale, notamment la pollution de l'air, de l'eau et du sol. Le lancement du catalogue de formations en santé environnementale 2025-2026 offre des opportunités de formation pour les professionnels de la santé et de l'environnement. La santé environnementale nécessite une expertise partagée entre les professionnels de la santé, de l'environnement et de la recherche pour comprendre les impacts de l'environnement sur la santé humaine et développer des stratégies de prévention et de protection.</p>
 <h2>Débats et nuances</h2><p>La santé environnementale est un domaine complexe qui nécessite une approche multidisciplinaire pour comprendre les impacts de l'environnement sur la santé humaine. Le Forum Santé Environnement 2024 a mis en avant l'importance de la santé environnementale et les défis qui la caractérisent. Le colloque « Santé-environnement : comprendre, prévenir, agir » 2026 abordera les défis de la santé environnementale, notamment la pollution de l'air, de l'eau et du sol. Le lancement du catalogue de formations en santé environnementale 2025-2026 offre des opportunités de formation pour les professionnels de la santé et de l'environnement. La santé environnementale nécessite une expertise partagée entre les professionnels de la santé, de l'environnement et de la recherche pour comprendre les impacts de l'environnement sur la santé humaine et développer des stratégies de prévention et de protection.</p>
-<div class="spectrum">
-<div class="spectrum__title">POSITIONS DES ACTEURS</div>
-<div class="spectrum__labels"><span>Pour la liberté d'expression</span><span>Contre la droite antimoderne</span></div>
-<div class="spectrum__track"><div class="spectrum__marker" style="left:60%"><span class="spectrum__marker-dot" style="background:#4a90d9"></span></div>
-<div class="spectrum__marker" style="left:80%"><span class="spectrum__marker-dot" style="background:#e57373"></span></div>
-<div class="spectrum__marker" style="left:20%"><span class="spectrum__marker-dot" style="background:#66bb6a"></span></div></div>
-<div class="spectrum__legend"><div class="spectrum__legend-item"><span class="spectrum__legend-dot" style="background:#4a90d9"></span><span class="spectrum__legend-name">Chantal Delsol</span><span class="spectrum__legend-sub">Philosophe et membre de l'Académie des sciences morales et politiques</span></div>
-<div class="spectrum__legend-item"><span class="spectrum__legend-dot" style="background:#e57373"></span><span class="spectrum__legend-name">Peter Thiel</span><span class="spectrum__legend-sub">Milliardaire et fondateur de PayPal</span></div>
-<div class="spectrum__legend-item"><span class="spectrum__legend-dot" style="background:#66bb6a"></span><span class="spectrum__legend-name">Organisation mondiale de la santé (OMS)</span><span class="spectrum__legend-sub">Institution internationale de santé publique</span></div></div>
+<div class="art__tags" aria-label="Mots-clés"><span class="art__tag">santé</span><span class="art__tag">environnement</span><span class="art__tag">colloque</span><span class="art__tag">prévention</span><span class="art__tag">savoirs</span></div>
+<div class="art__share">
+  <span class="art__share-label">Partager</span>
+  <button class="share-btn share-btn--native" onclick="shareArticle()" style="display:none" id="native-share">↗ Partager</button>
+  <a class="share-btn" href="https://twitter.com/intent/tweet?url=https://r9mzz.github.io/lesfaits/articles/sante-environnementale-defis-savoirs.html&text=D%C3%A9fis%20de%20la%20sant%C3%A9%20environnementale%20et%20des%20savoirs" target="_blank" rel="noopener noreferrer external">𝕏 Twitter</a>
+  <a class="share-btn" href="https://www.linkedin.com/sharing/share-offsite/?url=https://r9mzz.github.io/lesfaits/articles/sante-environnementale-defis-savoirs.html" target="_blank" rel="noopener noreferrer external">in LinkedIn</a>
+  <a class="share-btn" href="https://api.whatsapp.com/send?text=D%C3%A9fis%20de%20la%20sant%C3%A9%20environnementale%20et%20des%20savoirs%20https%3A//r9mzz.github.io/lesfaits/articles/sante-environnementale-defis-savoirs.html" target="_blank" rel="noopener noreferrer external">WhatsApp</a>
+  <button class="share-btn" onclick="copyLink()" id="copy-btn">Copier le lien</button>
+  <button class="fav-btn" id="fav-btn" aria-pressed="false">♡ Favoris</button>
 </div>
+<script>if(navigator.share)document.getElementById('native-share').style.display='inline-flex';</script>
 <div class="sources"><h3>SOURCES</h3><ol><li><strong>Institut de l'énergie et des mines d'Albi</strong> · <em>Forum Santé Environnement 2024</em> · 2024 · <a href="https://www.ile-de-france.prse.fr/forum-sante-environnement-2024-retour-sur-a264.html" rel="noopener" target="_blank">Lire la source →</a></li><li><strong>Institut national de l'environnement industriel et des risques</strong> · <em>Colloque « Santé-environnement : comprendre, prévenir, agir » 2026</em> · 2026 · <a href="https://www.inee.cnrs.fr/fr/evenement/colloque-sante-environnement-comprendre-prevenir-agir-2026" rel="noopener" target="_blank">Lire la source →</a></li><li><strong>Réseau Environnement Santé</strong> · <em>Lancement du catalogue de formations en santé environnementale 2025-2026</em> · 2025 · <a href="https://www.reseau-environnement-sante.fr/🎓lancement-du-catalogue-de-formations-en-sante-environnementale-2025-2026/" rel="noopener" target="_blank">Lire la source →</a></li><li><strong>Institut de veille sanitaire</strong> · <em>La santé environnementale s'ouvre à l'expertise partagée</em> · 2023 · <a href="https://invs.santepubliquefrance.fr/pollution-et-sante/air/article/la-sante-environnementale-souvre-a-lexpertise-partagee" rel="noopener" target="_blank">Lire la source →</a></li></ol></div>
 <p class="art__badge">Rédigé par IA · Protocole Les Faits v1.1 · 25 juin 2026, 21h55</p>
-<a class="contest-btn" href="contact.html#erreur">Contester un fait</a>
+<a class="contest-btn" href="../contact.html?article=sante-environnementale-defis-savoirs#erreur">Signaler une erreur sur cet article</a>
 </div>
 </main>
+<div class="art__related"><div class="art__related-title">À LIRE AUSSI</div><div class="art__related-grid"><a class="art__related-card" href="premier-cas-ebola-france.html"><span class="cat">SANTÉ</span><div class="title-sm">Premier cas Ebola détecté en France</div><div style="font-size:10px;color:var(--muted);margin-top:6px">25 juin 2026, 21h56</div></a>
+<a class="art__related-card" href="subvention-ars-planning-familial-gironde-2026.html"><span class="cat">SANTÉ</span><div class="title-sm">Subvention Ars Planning Familial Gironde 2026</div><div style="font-size:10px;color:var(--muted);margin-top:6px">25 juin 2026, 21h55</div></a>
+</div></div>
 <footer class="footer" role="contentinfo" aria-label="Pied de page">
   <div class="footer__inner">
     <div class="footer__brand">
@@ -145,5 +158,45 @@ function closeMenu(){document.getElementById('burger').classList.remove('open');
   });
 })();
 </script>
+<script>document.addEventListener('keydown',function(e){if(e.key==='/'&&!['INPUT','TEXTAREA','SELECT'].includes(document.activeElement.tagName)){e.preventDefault();var s=document.getElementById('search-input');if(s){s.focus();s.select();}}});</script>
+<script>
+function shareArticle(){
+  if(navigator.share){
+    navigator.share({title:'Défis de la santé environnementale et des savoirs',url:'https://r9mzz.github.io/lesfaits/articles/sante-environnementale-defis-savoirs.html'}).catch(function(){});
+  }
+}
+function copyLink(){
+  navigator.clipboard.writeText('https://r9mzz.github.io/lesfaits/articles/sante-environnementale-defis-savoirs.html').then(function(){
+    var btn=document.getElementById('copy-btn');
+    btn.textContent='✓ Copié !';setTimeout(function(){btn.textContent='Copier le lien';},2000);
+  });
+}
+(function(){
+  var bar=document.getElementById('read-progress');
+  if(!bar)return;
+  window.addEventListener('scroll',function(){
+    var h=document.documentElement,b=document.body;
+    var st=h.scrollTop||b.scrollTop;
+    var sh=(h.scrollHeight||b.scrollHeight)-h.clientHeight;
+    bar.style.width=sh>0?(st/sh*100)+'%':'0%';
+  },{passive:true});
+})();
+(function(){
+  var btn=document.getElementById('fav-btn');
+  if(!btn)return;
+  var favs=JSON.parse(localStorage.getItem('lesfaits_favs')||'[]');
+  var slug='sante-environnementale-defis-savoirs';
+  if(favs.indexOf(slug)>-1){btn.classList.add('active');btn.setAttribute('aria-pressed','true');btn.textContent='♥ Favori';}
+  btn.addEventListener('click',function(){
+    var f=JSON.parse(localStorage.getItem('lesfaits_favs')||'[]');
+    var idx=f.indexOf(slug);
+    if(idx>-1){f.splice(idx,1);btn.classList.remove('active');btn.setAttribute('aria-pressed','false');btn.textContent='♡ Favoris';}
+    else{f.push(slug);btn.classList.add('active');btn.setAttribute('aria-pressed','true');btn.textContent='♥ Favori';}
+    localStorage.setItem('lesfaits_favs',JSON.stringify(f));
+  });
+})();
+</script>
+<button id="back-top" aria-label="Retour en haut de page" title="Retour en haut"><svg viewBox="0 0 24 24" width="16" height="16" stroke="#fff" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"></polyline></svg></button>
+<script>(function(){var b=document.getElementById('back-top');if(!b)return;window.addEventListener('scroll',function(){b.classList.toggle('visible',window.scrollY>400)},{passive:true});b.addEventListener('click',function(){window.scrollTo({top:0,behavior:'smooth'})})})();</script>
 </body>
 </html>

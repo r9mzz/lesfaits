@@ -455,3 +455,7 @@ nav a.active { opacity: 1; color: var(--blue); border-bottom-color: var(--blue);
   #back-top { bottom: 16px; right: 16px; }
   .archive-item__img { flex: 0 0 80px; height: 54px; }
 }
+
+a.card3,a.une__main,a.une__side-item,a.list-item,a.art__related-card{text-decoration:none;color:inherit;display:block}
+.breadcrumb{padding:10px 0 0;font-size:12px;color:var(--muted)}.breadcrumb ol{list-style:none;display:flex;flex-wrap:wrap;padding:0;margin:0}.breadcrumb li{display:flex;align-items:center}.breadcrumb li+li::before{content:"›";margin:0 6px;color:var(--rule)}.breadcrumb a{color:var(--muted);text-decoration:none}.breadcrumb a:hover{text-decoration:underline}.breadcrumb li[aria-current]{color:var(--ink);font-weight:500}
+.art__tags{display:flex;flex-wrap:wrap;gap:8px;margin:24px 0}.art__tag{background:var(--light);border:1px solid var(--rule);border-radius:20px;padding:4px 14px;font-size:11px;font-weight:500;color:var(--muted)}

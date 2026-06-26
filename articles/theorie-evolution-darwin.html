@@ -2,6 +2,9 @@
 <html lang="fr" data-theme="">
 <head>
 <meta charset="utf-8"/>
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://plausible.io; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; connect-src 'self' https://plausible.io https://api.web3forms.com; base-uri 'self'; form-action 'self' https://api.web3forms.com;">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <meta content="La théorie de l'évolution de Darwin explique l'origine des espèces par un mécanisme de changements La génétique mendélienne a fourni un cadre pour comprend" name="description"/>
 <meta content="La Théorie de l'Évolution de Darwin — Les Faits" property="og:title"/>
@@ -13,10 +16,22 @@
 <script>
 (function(){var s=localStorage.getItem('theme'),d=s==='dark'||(s===null&&window.matchMedia('(prefers-color-scheme:dark)').matches);document.documentElement.setAttribute('data-theme',d?'dark':'light');})();
 </script>
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large"/>
+<meta property="og:url" content="https://r9mzz.github.io/lesfaits/articles/theorie-evolution-darwin.html"/>
+<meta property="og:image" content="https://r9mzz.github.io/lesfaits/assets/images/theorie-evolution-darwin.jpg"/>
+<meta property="og:image:width" content="1200"/><meta property="og:image:height" content="630"/><meta property="og:image:type" content="image/jpeg"/>
+<meta property="article:section" content="science"/>
+<meta property="article:published_time" content="2026-06-25T21:51:00+02:00"/>
+<link rel="alternate" type="application/rss+xml" title="Les Faits — RSS" href="/lesfaits/feed.xml"/>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","headline":"La Théorie de l'Évolution de Darwin","description":"La théorie de l'évolution de Darwin explique l'origine des espèces par un mécanisme de changements La génétique mendélienne a fourni un cadre pour comprendre l'hérédité, complétant","datePublished":"2026-06-25T21:51:00+02:00","dateModified":"2026-06-25T21:51:00+02:00","articleSection":"Science","inLanguage":"fr","isAccessibleForFree":true,"image":{"@type":"ImageObject","url":"https://r9mzz.github.io/lesfaits/assets/images/theorie-evolution-darwin.jpg","width":1200,"height":630},"author":{"@type":"Organization","name":"Les Faits"},"publisher":{"@type":"Organization","name":"Les Faits","@id":"https://r9mzz.github.io/lesfaits/#org","logo":{"@type":"ImageObject","url":"https://r9mzz.github.io/lesfaits/assets/images/og-default.jpg"}},"mainEntityOfPage":{"@type":"WebPage","@id":"https://r9mzz.github.io/lesfaits/articles/theorie-evolution-darwin.html"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Accueil","item":"https://r9mzz.github.io/lesfaits/"},{"@type":"ListItem","position":2,"name":"Science","item":"https://r9mzz.github.io/lesfaits/categories/science.html"},{"@type":"ListItem","position":3,"name":"La Théorie de l'Évolution de Darwin"}]}</script>
+<link rel="icon" type="image/svg+xml" href="/lesfaits/favicon.svg">
+<link rel="manifest" href="/lesfaits/manifest.json">
+<script defer data-domain="r9mzz.github.io/lesfaits" src="https://plausible.io/js/script.js"></script>
 </head>
 <body>
 <div class="nav-overlay" id="nav-overlay" onclick="closeMenu()"></div>
-<nav class="nav-mobile" id="nav-mobile">
+<nav class="nav-mobile" id="nav-mobile" aria-label="Menu mobile">
   <a href="categories/societe.html">Société</a>
   <a href="categories/science.html">Science</a>
   <a href="categories/economie.html">Économie</a>
@@ -28,6 +43,8 @@
 <script>
 function toggleMenu(){var b=document.getElementById('burger'),m=document.getElementById('nav-mobile'),o=document.getElementById('nav-overlay');b.classList.toggle('open');m.classList.toggle('open');o.classList.toggle('open');}
 function closeMenu(){document.getElementById('burger').classList.remove('open');document.getElementById('nav-mobile').classList.remove('open');document.getElementById('nav-overlay').classList.remove('open');}
+document.querySelectorAll('.nav-mobile a').forEach(function(a){a.addEventListener('click',closeMenu);});
+document.addEventListener('keydown',function(e){if(e.key==='Escape')closeMenu();});
 </script>
 <header class="header">
 <div class="header__inner">
@@ -35,9 +52,9 @@ function closeMenu(){document.getElementById('burger').classList.remove('open');
 <div class="brand__logotype"><span class="fact">les</span><span class="uel">faits</span></div>
 </a>
 <div class="header__search">
-<input autocomplete="off" class="header__search-input" onkeydown="if(event.key==='Enter'&amp;&amp;this.value.trim())window.location=(document.querySelector('base').href)+'recherche.html?q='+encodeURIComponent(this.value.trim())" placeholder="Rechercher…" type="search"/>
+<input autocomplete="off" class="header__search-input" aria-label="Rechercher un article" id="search-input" onkeydown="if(event.key==='Enter'&amp;&amp;this.value.trim())window.location=(document.querySelector('base').href)+'recherche.html?q='+encodeURIComponent(this.value.trim())" placeholder="Rechercher…" type="search"/>
 </div>
-<nav>
+<nav aria-label="Navigation principale">
 <a href="categories/societe.html">Société</a>
 <a href="categories/science.html">Science</a>
 <a href="categories/economie.html">Économie</a>
@@ -50,16 +67,8 @@ function closeMenu(){document.getElementById('burger').classList.remove('open');
     <button class="burger" id="burger" aria-label="Menu" onclick="toggleMenu()"><span></span><span></span><span></span></button>
 </div>
 </header>
-<div class="manifeste">
-<div class="manifeste__inner">
-<div class="manifeste__headline">Rédigé par <span>IA</span>,<br/>vérifié par des humains.</div>
-<div class="manifeste__pillars">
-<div class="manifeste__pillar"><div class="manifeste__text"><strong>Zéro parti pris</strong><span>Aucune opinion. Les faits bruts, leurs sources, leurs contradictions.</span></div></div>
-<div class="manifeste__pillar"><div class="manifeste__text"><strong>Méthode publique</strong><span>Notre protocole éditorial est entièrement accessible.</span></div></div>
-<div class="manifeste__pillar"><div class="manifeste__text"><strong>Sources vérifiées</strong><span>Minimum 3 sources par article. Institutions officielles, peer-reviewed.</span></div></div>
-</div>
-</div>
-</div>
+<nav aria-label="Fil d'Ariane" class="breadcrumb"><ol><li><a href="../index.html">Accueil</a></li><li><a href="../categories/science.html">Science</a></li><li aria-current="page">La Théorie de l'Évolution de Darwin</li></ol></nav>
+<div id="read-progress"></div>
 <main>
 <div class="art">
 <a class="art__back" href="index.html">← Retour à l'accueil</a>
@@ -67,7 +76,7 @@ function closeMenu(){document.getElementById('burger').classList.remove('open');
 <h1 class="art__title">La Théorie de l'Évolution de Darwin</h1>
 <div class="art__meta">
 <span style="color:var(--blue);font-weight:600">5 sources</span>
-<span class="meta__sep">·</span><span>25 juin 2026, 08h23</span>
+<span class="meta__sep">·</span><span>25 juin 2026, 21h51</span>
 <span class="meta__sep" aria-hidden="true">·</span><span class="art__reading-time">Lecture : 3 min</span>
 </div>
 <div class="art__rule"></div>
@@ -76,26 +85,30 @@ function closeMenu(){document.getElementById('burger').classList.remove('open');
 <span class="art__verify-item">✓ Sources concordantes</span>
 <span class="art__verify-item">✓ Protocole éditorial v1.1</span>
 </div>
-<img alt="" class="art__hero" loading="lazy" src="assets/images/theorie-evolution-darwin.jpg"/>
+<img alt="Illustration : La Théorie de l'Évolution de Darwin" class="art__hero" loading="lazy" src="assets/images/theorie-evolution-darwin.jpg"/>
 <p class="art__resume">La théorie de l'évolution de Darwin explique l'origine des espèces par un mécanisme de changements La génétique mendélienne a fourni un cadre pour comprendre l'hérédité, complétant la théorie de Darwin La théorie de l'évolution est un concept fondamental en biologie</p>
-<h2>Les faits</h2><p>250+ mots Selon [1], Charles Darwin a développé la théorie de l'évolution dans son ouvrage L'Origine des espèces en 1859. Il explique que les espèces évoluent au fil du temps en réponse à des changements environnementaux et en compétition avec d'autres espèces. La sélection naturelle est le mécanisme clé de cette évolution. Selon [2], la théorie de l'évolution est un concept fondamental en biologie qui a été confirmé par de nombreuses preuves scientifiques. La génétique mendélienne a fourni un cadre pour comprendre l'hérédité, complétant la théorie de Darwin. Selon [3], la théorie de l'évolution est un concept complexe qui a évolué au fil du temps. Les différences entre les conceptions de Darwin et celles de ses contemporains sont importantes. Selon [4], la théorie de l'évolution est un concept qui a des implications importantes pour la compréhension de la vie sur Terre.</p>
-<h2>Contexte</h2><p>150+ mots La théorie de l'évolution de Darwin a été développée dans le contexte de la révolution scientifique du XIXe siècle. Les découvertes de Charles Lyell sur la géologie et les travaux de Jean-Baptiste Lamarck sur l'évolution des espèces ont influencé la pensée de Darwin. La théorie de l'évolution a été confirmée par de nombreuses preuves scientifiques, notamment les découvertes de la génétique mendélienne. La théorie de l'évolution est un concept qui a des implications importantes pour la compréhension de la vie sur Terre.</p>
-<h2>Débats et nuances</h2><p>100+ mots La théorie de l'évolution de Darwin est un concept complexe qui a évolué au fil du temps. Les différences entre les conceptions de Darwin et celles de ses contemporains sont importantes. La théorie de l'évolution est un concept qui a des implications importantes pour la compréhension de la vie sur Terre. La sélection naturelle est le mécanisme clé de cette évolution. La génétique mendélienne a fourni un cadre pour comprendre l'hérédité, complétant la théorie de Darwin.</p>
-<div class="spectrum">
-<div class="spectrum__title">POSITIONS DES ACTEURS</div>
-<div class="spectrum__labels"><span>Pour la liberté d'expression</span><span>Contre la droite antimoderne</span></div>
-<div class="spectrum__track"><div class="spectrum__marker" style="left:60%"><span class="spectrum__marker-dot" style="background:#4a90d9"></span></div>
-<div class="spectrum__marker" style="left:80%"><span class="spectrum__marker-dot" style="background:#e57373"></span></div>
-<div class="spectrum__marker" style="left:20%"><span class="spectrum__marker-dot" style="background:#66bb6a"></span></div></div>
-<div class="spectrum__legend"><div class="spectrum__legend-item"><span class="spectrum__legend-dot" style="background:#4a90d9"></span><span class="spectrum__legend-name">Chantal Delsol</span><span class="spectrum__legend-sub">Philosophe et membre de l'Académie des sciences morales et politiques</span></div>
-<div class="spectrum__legend-item"><span class="spectrum__legend-dot" style="background:#e57373"></span><span class="spectrum__legend-name">Peter Thiel</span><span class="spectrum__legend-sub">Milliardaire et fondateur de PayPal</span></div>
-<div class="spectrum__legend-item"><span class="spectrum__legend-dot" style="background:#66bb6a"></span><span class="spectrum__legend-name">Organisation mondiale de la santé (OMS)</span><span class="spectrum__legend-sub">Institution internationale de santé publique</span></div></div>
+<h2>Les faits</h2><p>Selon Geo.fr, Charles Darwin a développé la théorie de l'évolution dans son ouvrage L'Origine des espèces en 1859. Il explique que les espèces évoluent au fil du temps en réponse à des changements environnementaux et en compétition avec d'autres espèces. La sélection naturelle est le mécanisme clé de cette évolution. Selon Sciences et Avenir, la théorie de l'évolution est un concept fondamental en biologie qui a été confirmé par de nombreuses preuves scientifiques. La génétique mendélienne a fourni un cadre pour comprendre l'hérédité, complétant la théorie de Darwin. Selon Wikipédia, la théorie de l'évolution est un concept complexe qui a évolué au fil du temps. Les différences entre les conceptions de Darwin et celles de ses contemporains sont importantes. Selon BEM-UNIV, la théorie de l'évolution est un concept qui a des implications importantes pour la compréhension de la vie sur Terre.</p>
+<h2>Contexte</h2><p>La théorie de l'évolution de Darwin a été développée dans le contexte de la révolution scientifique du XIXe siècle. Les découvertes de Charles Lyell sur la géologie et les travaux de Jean-Baptiste Lamarck sur l'évolution des espèces ont influencé la pensée de Darwin. La théorie de l'évolution a été confirmée par de nombreuses preuves scientifiques, notamment les découvertes de la génétique mendélienne. La théorie de l'évolution est un concept qui a des implications importantes pour la compréhension de la vie sur Terre.</p>
+<h2>Débats et nuances</h2><p>La théorie de l'évolution de Darwin est un concept complexe qui a évolué au fil du temps. Les différences entre les conceptions de Darwin et celles de ses contemporains sont importantes. La théorie de l'évolution est un concept qui a des implications importantes pour la compréhension de la vie sur Terre. La sélection naturelle est le mécanisme clé de cette évolution. La génétique mendélienne a fourni un cadre pour comprendre l'hérédité, complétant la théorie de Darwin.</p>
+<div class="art__tags" aria-label="Mots-clés"><span class="art__tag">Darwin</span><span class="art__tag">évolution</span><span class="art__tag">biologie</span><span class="art__tag">sélection naturelle</span><span class="art__tag">génétique</span></div>
+<div class="art__share">
+  <span class="art__share-label">Partager</span>
+  <button class="share-btn share-btn--native" onclick="shareArticle()" style="display:none" id="native-share">↗ Partager</button>
+  <a class="share-btn" href="https://twitter.com/intent/tweet?url=https://r9mzz.github.io/lesfaits/articles/theorie-evolution-darwin.html&text=La%20Th%C3%A9orie%20de%20l%27%C3%89volution%20de%20Darwin" target="_blank" rel="noopener noreferrer external">𝕏 Twitter</a>
+  <a class="share-btn" href="https://www.linkedin.com/sharing/share-offsite/?url=https://r9mzz.github.io/lesfaits/articles/theorie-evolution-darwin.html" target="_blank" rel="noopener noreferrer external">in LinkedIn</a>
+  <a class="share-btn" href="https://api.whatsapp.com/send?text=La%20Th%C3%A9orie%20de%20l%27%C3%89volution%20de%20Darwin%20https%3A//r9mzz.github.io/lesfaits/articles/theorie-evolution-darwin.html" target="_blank" rel="noopener noreferrer external">WhatsApp</a>
+  <button class="share-btn" onclick="copyLink()" id="copy-btn">Copier le lien</button>
+  <button class="fav-btn" id="fav-btn" aria-pressed="false">♡ Favoris</button>
 </div>
+<script>if(navigator.share)document.getElementById('native-share').style.display='inline-flex';</script>
 <div class="sources"><h3>SOURCES</h3><ol><li><strong>Geo.fr</strong> · <em>Charles Darwin : qu'est-ce que la théorie de l'évolution ?</em> · 2023 · <a href="https://www.geo.fr/histoire/charles-darwin-quest-ce-que-la-theorie-de-levolution-208353" rel="noopener" target="_blank">Lire la source →</a></li><li><strong>Sciences et Avenir</strong> · <em>Théorie de l'évolution : actu, infos et vidéos</em> · 2023 · <a href="https://www.sciencesetavenir.fr/tag_theme/theorie-de-l-evolution_37696/" rel="noopener" target="_blank">Lire la source →</a></li><li><strong>Wikipédia</strong> · <em>Darwinisme</em> · 2023 · <a href="https://fr.wikipedia.org/wiki/Darwinisme" rel="noopener" target="_blank">Lire la source →</a></li><li><strong>BEM-UNIV</strong> · <em>Les sciences de l'évolution - Biologie de l'évolution et médecine</em> · 2023 · <a href="https://bem-univ.fr/rapprocher-les-sciences-de-l-evolution-la-medecine-et-la-sante-publique-457-html" rel="noopener" target="_blank">Lire la source →</a></li><li><strong>Planet-Vie</strong> · <em>Vers un remaniement de la théorie de l'évolution</em> · 2023 · <a href="https://planet-vie.ens.fr/thematiques/evolution/mecanismes-theories-et-concepts-de-l-evolution/vers-un-remaniement-de-la" rel="noopener" target="_blank">Lire la source →</a></li></ol></div>
 <p class="art__badge">Rédigé par IA · Protocole Les Faits v1.1 · 25 juin 2026, 21h51</p>
-<a class="contest-btn" href="contact.html#erreur">Contester un fait</a>
+<a class="contest-btn" href="../contact.html?article=theorie-evolution-darwin#erreur">Signaler une erreur sur cet article</a>
 </div>
 </main>
+<div class="art__related"><div class="art__related-title">À LIRE AUSSI</div><div class="art__related-grid"><a class="art__related-card" href="recherche-publique-en-crise.html"><span class="cat">SCIENCE</span><div class="title-sm">La recherche publique en crise financière et politique</div><div style="font-size:10px;color:var(--muted);margin-top:6px">26 juin 2026, 12h07</div></a>
+<a class="art__related-card" href="nasa-lance-mission-sauvetage-telescope-swift.html"><span class="cat">SCIENCE</span><div class="title-sm">La NASA lance mission sauvetage pour le télescope Swift</div><div style="font-size:10px;color:var(--muted);margin-top:6px">25 juin 2026, 21h51</div></a>
+</div></div>
 <footer class="footer" role="contentinfo" aria-label="Pied de page">
   <div class="footer__inner">
     <div class="footer__brand">
@@ -145,5 +158,45 @@ function closeMenu(){document.getElementById('burger').classList.remove('open');
   });
 })();
 </script>
+<script>document.addEventListener('keydown',function(e){if(e.key==='/'&&!['INPUT','TEXTAREA','SELECT'].includes(document.activeElement.tagName)){e.preventDefault();var s=document.getElementById('search-input');if(s){s.focus();s.select();}}});</script>
+<script>
+function shareArticle(){
+  if(navigator.share){
+    navigator.share({title:'La Théorie de l\'Évolution de Darwin',url:'https://r9mzz.github.io/lesfaits/articles/theorie-evolution-darwin.html'}).catch(function(){});
+  }
+}
+function copyLink(){
+  navigator.clipboard.writeText('https://r9mzz.github.io/lesfaits/articles/theorie-evolution-darwin.html').then(function(){
+    var btn=document.getElementById('copy-btn');
+    btn.textContent='✓ Copié !';setTimeout(function(){btn.textContent='Copier le lien';},2000);
+  });
+}
+(function(){
+  var bar=document.getElementById('read-progress');
+  if(!bar)return;
+  window.addEventListener('scroll',function(){
+    var h=document.documentElement,b=document.body;
+    var st=h.scrollTop||b.scrollTop;
+    var sh=(h.scrollHeight||b.scrollHeight)-h.clientHeight;
+    bar.style.width=sh>0?(st/sh*100)+'%':'0%';
+  },{passive:true});
+})();
+(function(){
+  var btn=document.getElementById('fav-btn');
+  if(!btn)return;
+  var favs=JSON.parse(localStorage.getItem('lesfaits_favs')||'[]');
+  var slug='theorie-evolution-darwin';
+  if(favs.indexOf(slug)>-1){btn.classList.add('active');btn.setAttribute('aria-pressed','true');btn.textContent='♥ Favori';}
+  btn.addEventListener('click',function(){
+    var f=JSON.parse(localStorage.getItem('lesfaits_favs')||'[]');
+    var idx=f.indexOf(slug);
+    if(idx>-1){f.splice(idx,1);btn.classList.remove('active');btn.setAttribute('aria-pressed','false');btn.textContent='♡ Favoris';}
+    else{f.push(slug);btn.classList.add('active');btn.setAttribute('aria-pressed','true');btn.textContent='♥ Favori';}
+    localStorage.setItem('lesfaits_favs',JSON.stringify(f));
+  });
+})();
+</script>
+<button id="back-top" aria-label="Retour en haut de page" title="Retour en haut"><svg viewBox="0 0 24 24" width="16" height="16" stroke="#fff" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"></polyline></svg></button>
+<script>(function(){var b=document.getElementById('back-top');if(!b)return;window.addEventListener('scroll',function(){b.classList.toggle('visible',window.scrollY>400)},{passive:true});b.addEventListener('click',function(){window.scrollTo({top:0,behavior:'smooth'})})})();</script>
 </body>
 </html>

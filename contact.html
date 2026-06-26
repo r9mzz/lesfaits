@@ -2,6 +2,9 @@
 <html lang="fr" data-theme="">
 <head>
   <meta charset="UTF-8"/>
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://plausible.io; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; connect-src 'self' https://plausible.io https://api.web3forms.com; base-uri 'self'; form-action 'self' https://api.web3forms.com;">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <meta name="description" content="Les Faits — Nous contacter. Posez une question, signalez une erreur ou proposez un sujet."/>
   <title>Contact — Les Faits</title>
@@ -34,13 +37,16 @@
     [data-theme="dark"] .alert-success { background:#0d2b14; color:#6fcf7a; }
     [data-theme="dark"] .alert-error { background:#2b0d0d; color:#f08080; }
   </style>
+<link rel="icon" type="image/svg+xml" href="/lesfaits/favicon.svg">
+<link rel="manifest" href="/lesfaits/manifest.json">
+<script defer data-domain="r9mzz.github.io/lesfaits" src="https://plausible.io/js/script.js"></script>
 </head>
 <body>
 <script>
 (function(){var s=localStorage.getItem('theme');var d=s==='dark'||(s===null&&window.matchMedia('(prefers-color-scheme:dark)').matches);document.documentElement.setAttribute('data-theme',d?'dark':'light');})();
 </script>
 <div class="nav-overlay" id="nav-overlay" onclick="closeMenu()"></div>
-<nav class="nav-mobile" id="nav-mobile">
+<nav class="nav-mobile" id="nav-mobile" aria-label="Menu mobile">
 <a href="categories/societe.html">Société</a>
 <a href="categories/science.html">Science</a>
 <a href="categories/economie.html">Économie</a>
@@ -61,9 +67,9 @@ function closeMenu(){document.getElementById('burger').classList.remove('open');
       <div class="brand__logotype"><span class="fact">les</span><span class="uel">faits</span></div>
     </a>
     <div class="header__search">
-      <input type="search" class="header__search-input" placeholder="Rechercher…" autocomplete="off" onkeydown="if(event.key==='Enter'&&this.value.trim())window.location=(document.querySelector('base').href)+'recherche.html?q='+encodeURIComponent(this.value.trim())"/>
+      <input type="search" class="header__search-input" aria-label="Rechercher un article" id="search-input" placeholder="Rechercher…" autocomplete="off" onkeydown="if(event.key==='Enter'&&this.value.trim())window.location=(document.querySelector('base').href)+'recherche.html?q='+encodeURIComponent(this.value.trim())"/>
     </div>
-    <nav>
+    <nav aria-label="Navigation principale">
       <a href="categories/societe.html">Société</a>
       <a href="categories/science.html">Science</a>
       <a href="categories/economie.html">Économie</a>
@@ -100,6 +106,7 @@ function closeMenu(){document.getElementById('burger').classList.remove('open');
       <input type="hidden" name="access_key" value="d6261129-264c-4d22-a287-b0117a195d22">
       <input type="hidden" name="subject" value="Message via Les Faits">
       <input type="hidden" name="from_name" value="Les Faits Contact">
+      <input type="checkbox" name="botcheck" style="display:none !important" tabindex="-1" autocomplete="off">
       <div class="form-group">
         <label class="form-label" for="g-nom">Votre prénom ou pseudo <span style="color:var(--muted);font-weight:400">(optionnel)</span></label>
         <input class="form-input" type="text" id="g-nom" name="name" placeholder="Ex : Marie">
@@ -129,6 +136,7 @@ function closeMenu(){document.getElementById('burger').classList.remove('open');
       <input type="hidden" name="access_key" value="d6261129-264c-4d22-a287-b0117a195d22">
       <input type="hidden" name="subject" value="Signalement erreur — Les Faits">
       <input type="hidden" name="from_name" value="Les Faits Signalement">
+      <input type="checkbox" name="botcheck" style="display:none !important" tabindex="-1" autocomplete="off">
       <div class="form-group">
         <label class="form-label" for="e-email">Votre adresse e-mail <span style="color:var(--muted);font-weight:400">(pour recevoir une réponse)</span></label>
         <input class="form-input" type="email" id="e-email" name="email" placeholder="votre@email.com">
@@ -163,6 +171,7 @@ function closeMenu(){document.getElementById('burger').classList.remove('open');
       <input type="hidden" name="access_key" value="d6261129-264c-4d22-a287-b0117a195d22">
       <input type="hidden" name="subject" value="Proposition de sujet — Les Faits">
       <input type="hidden" name="from_name" value="Les Faits Suggestion">
+      <input type="checkbox" name="botcheck" style="display:none !important" tabindex="-1" autocomplete="off">
       <div class="form-group">
         <label class="form-label" for="s-email">Votre adresse e-mail <span style="color:var(--muted);font-weight:400">(optionnel)</span></label>
         <input class="form-input" type="email" id="s-email" name="email" placeholder="votre@email.com">
@@ -269,8 +278,6 @@ async function submitForm(id, e) {
   const data = new FormData(form);
   // Ajoute la clé d'accès (déjà dans le hidden input, mais on s'assure)
   data.set('access_key', ACCESS_KEY);
-  // Désactive le honeypot check
-  data.set('botcheck', '');
 
   try {
     const res = await fetch('https://api.web3forms.com/submit', {
@@ -308,5 +315,6 @@ async function submitForm(id, e) {
   });
 })();
 </script>
+<script>document.addEventListener('keydown',function(e){if(e.key==='/'&&!['INPUT','TEXTAREA','SELECT'].includes(document.activeElement.tagName)){e.preventDefault();var s=document.getElementById('search-input');if(s){s.focus();s.select();}}});</script>
 </body>
 </html>

@@ -2,12 +2,21 @@
 <html lang="fr" data-theme="">
 <head>
   <meta charset="UTF-8"/>
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://plausible.io; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; connect-src 'self' https://plausible.io https://api.web3forms.com; base-uri 'self'; form-action 'self' https://api.web3forms.com;">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <meta name="description" content="Les Faits — Journal numérique français rédigé par IA. Juste les faits. Aucun parti pris."/>
   <meta property="og:title" content="Les Faits — Juste les faits. Aucun parti pris."/>
   <meta property="og:description" content="Journal numérique français rédigé par IA. Sans publicité. Sans actionnaires."/>
   <meta property="og:type" content="website"/>
   <meta property="og:url" content="https://r9mzz.github.io/lesfaits/"/>
+<meta property="og:image" content="https://r9mzz.github.io/lesfaits/assets/images/og-default.jpg"/>
+<meta property="og:image:width" content="1200"/><meta property="og:image:height" content="630"/>
+<meta property="og:site_name" content="Les Faits"/>
+<meta property="og:locale" content="fr_FR"/>
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+<meta name="theme-color" content="#6C85BD">
   <link rel="alternate" type="application/rss+xml" title="Les Faits — RSS" href="/lesfaits/feed.xml"/>
   <title>Les Faits — Juste les faits. Aucun parti pris.</title>
   <base href="/lesfaits/"/>
@@ -15,10 +24,14 @@
   <script>
 (function(){var s=localStorage.getItem('theme'),d=s==='dark'||(s===null&&window.matchMedia('(prefers-color-scheme:dark)').matches);document.documentElement.setAttribute('data-theme',d?'dark':'light');})();
 </script>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://r9mzz.github.io/lesfaits/#org","name":"Les Faits","url":"https://r9mzz.github.io/lesfaits/","logo":{"@type":"ImageObject","url":"https://r9mzz.github.io/lesfaits/assets/images/og-default.jpg"},"foundingDate":"2026","description":"Journal numérique français rédigé par IA. Sans publicité. Sans actionnaires.","inLanguage":"fr"},{"@type":"WebSite","@id":"https://r9mzz.github.io/lesfaits/#site","name":"Les Faits","url":"https://r9mzz.github.io/lesfaits/","publisher":{"@id":"https://r9mzz.github.io/lesfaits/#org"},"inLanguage":"fr","potentialAction":{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"https://r9mzz.github.io/lesfaits/recherche.html?q={search_term_string}"},"query-input":"required name=search_term_string"}}]}</script>
+<link rel="icon" type="image/svg+xml" href="/lesfaits/favicon.svg">
+<link rel="manifest" href="/lesfaits/manifest.json">
+<script defer data-domain="r9mzz.github.io/lesfaits" src="https://plausible.io/js/script.js"></script>
 </head>
 <body>
 <div class="nav-overlay" id="nav-overlay" onclick="closeMenu()"></div>
-<nav class="nav-mobile" id="nav-mobile">
+<nav class="nav-mobile" id="nav-mobile" aria-label="Menu mobile">
 <a href="categories/societe.html">Société</a>
 <a href="categories/science.html">Science</a>
 <a href="categories/economie.html">Économie</a>
@@ -39,9 +52,9 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeMenu();
       <div class="brand__logotype"><span class="fact">les</span><span class="uel">faits</span></div>
     </a>
     <div class="header__search">
-      <input type="search" class="header__search-input" placeholder="Rechercher…" autocomplete="off" onkeydown="if(event.key==='Enter'&&this.value.trim())window.location=(document.querySelector('base').href)+'recherche.html?q='+encodeURIComponent(this.value.trim())"/>
+      <input type="search" class="header__search-input" aria-label="Rechercher un article" id="search-input" placeholder="Rechercher…" autocomplete="off" onkeydown="if(event.key==='Enter'&&this.value.trim())window.location=(document.querySelector('base').href)+'recherche.html?q='+encodeURIComponent(this.value.trim())"/>
     </div>
-    <nav>
+    <nav aria-label="Navigation principale">
       <a href="categories/societe.html">Société</a>
       <a href="categories/science.html">Science</a>
       <a href="categories/economie.html">Économie</a>
@@ -54,6 +67,8 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeMenu();
     <button class="burger" id="burger" aria-label="Menu" onclick="toggleMenu()"><span></span><span></span><span></span></button>
   </div>
 </header>
+<div class="ticker"><div class="ticker__inner"><div class="ticker__label"><span class="ticker__dot"></span>EN DIRECT</div><div class="ticker__items"><a class="ticker__item" href="articles/recherche-publique-en-crise.html">La recherche publique en crise</a><a class="ticker__item" href="articles/secheresse-estivale-france-changement-climatique.html">Sécheresse estivale en France</a><a class="ticker__item" href="articles/chantal-delsol-droite-antimoderne.html">Chantal Delsol et la droite antimoderne</a><a class="ticker__item" href="articles/agriculture-defis-climatiques-extremes.html">L'agriculture face aux défis climatiques</a><a class="ticker__item" href="articles/nasa-lance-mission-sauvetage-telescope-swift.html">La NASA sauve le télescope Swift</a><a class="ticker__item" href="articles/recherche-publique-en-crise.html">La recherche publique en crise</a><a class="ticker__item" href="articles/secheresse-estivale-france-changement-climatique.html">Sécheresse estivale en France</a></div></div></div>
+
 <div class="manifeste">
   <div class="manifeste__inner">
     <div class="manifeste__headline">Rédigé par <span>IA</span>,<br>vérifié par des humains.</div>
@@ -69,7 +84,7 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeMenu();
     <div class="une__label">À LA UNE</div>
     <div style="height:2px;background:var(--blue);margin-bottom:1px"></div>
     <div class="une__grid">
-      <div class="une__main" onclick="window.location='articles/recherche-publique-en-crise.html'" style="cursor:pointer">
+      <a class="une__main" href="articles/recherche-publique-en-crise.html">
         <span class="cat">SCIENCE</span>
         <h2 class="title-xl">La recherche publique en crise financière et politique</h2>
         <p class="excerpt">Les universités et les organismes de recherche voient leur trésorerie se dégrader, avec une situation inquiétante pour l'avenir, selon le journaliste David Larousserie. Malgré les discours officiels faisant de la recherche une priorité, de plus en plus de décisions politiques font fi de l'état des connaissances scientifiques, révèlant une crise de confiance entre la science et la politique. Les débats révèlent une inquiétude croissante face à la réduction des financements et à la dégradation des institutions scientifiques, impactant la santé publique et l'environnement.</p>
@@ -80,82 +95,82 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeMenu();
           <span class="meta__push"></span>
         </div>
         <p class="ai-badge">Rédigé par IA · Protocole Les Faits v1.1</p>
-      </div>
-      <div class="une__side"><div class="une__side-item" onclick="window.location='articles/chantal-delsol-droite-antimoderne.html'">
+      </a>
+      <div class="une__side"><a class="une__side-item" href="articles/chantal-delsol-droite-antimoderne.html">
           <span class="cat">SOCIETE</span>
           <h3 class="title-md">Chantal Delsol et la droite antimoderne</h3>
           <div class="meta"><span class="meta__src">3 sources</span>
           <span class="meta__sep">·</span><span>25 juin 2026, 08h23</span></div>
-        </div>
-<div class="une__side-item" onclick="window.location='articles/agriculture-defis-climatiques-extremes.html'">
+        </a>
+<a class="une__side-item" href="articles/agriculture-defis-climatiques-extremes.html">
           <span class="cat">ENVIRONNEMENT</span>
           <h3 class="title-md">L'agriculture face aux défis climatiques extrêmes</h3>
           <div class="meta"><span class="meta__src">5 sources</span>
           <span class="meta__sep">·</span><span>24 juin 2026, 17h03</span></div>
-        </div>
-<div class="une__side-item" onclick="window.location='articles/secheresse-estivale-france-changement-climatique.html'">
+        </a>
+<a class="une__side-item" href="articles/secheresse-estivale-france-changement-climatique.html">
           <span class="cat">ENVIRONNEMENT</span>
           <h3 class="title-md">Sécheresse estivale en France : les conséquences du changement climatique</h3>
           <div class="meta"><span class="meta__src">5 sources</span>
           <span class="meta__sep">·</span><span>25 juin 2026, 21h50</span></div>
-        </div></div>
+        </a></div>
     </div>
   </div>
 
   <div class="section">
     <div class="section__head"><span class="section__title">DERNIERS ARTICLES</span></div>
     <div class="section__rule"></div>
-    <div class="grid3"><div class="card3" onclick="window.location='articles/sante-environnementale-impact-humain.html'" style="cursor:pointer">
+    <div class="grid3"><a class="card3" href="articles/sante-environnementale-impact-humain.html">
           <span class="cat">SANTE</span>
           <h3 class="title-sm">Santé Environnementale : L'Impact Humain sur la Planète</h3>
           <div class="meta" style="margin-top:10px">
             <span class="meta__src">5 sources</span>
             <span class="meta__sep">·</span><span>25 juin 2026, 21h50</span>
           </div>
-        </div>
-<div class="card3" onclick="window.location='articles/nasa-lance-mission-sauvetage-telescope-swift.html'" style="cursor:pointer">
+        </a>
+<a class="card3" href="articles/nasa-lance-mission-sauvetage-telescope-swift.html">
           <span class="cat">SCIENCE</span>
           <h3 class="title-sm">La NASA lance mission sauvetage pour le télescope Swift</h3>
           <div class="meta" style="margin-top:10px">
             <span class="meta__src">5 sources</span>
             <span class="meta__sep">·</span><span>25 juin 2026, 21h51</span>
           </div>
-        </div>
-<div class="card3" onclick="window.location='articles/controle-aerien-france-en-crise.html'" style="cursor:pointer">
+        </a>
+<a class="card3" href="articles/controle-aerien-france-en-crise.html">
           <span class="cat">SOCIETE</span>
           <h3 class="title-sm">Contrôle aérien : la France en crise</h3>
           <div class="meta" style="margin-top:10px">
             <span class="meta__src">5 sources</span>
             <span class="meta__sep">·</span><span>25 juin 2026, 21h51</span>
           </div>
-        </div>
-<div class="card3" onclick="window.location='articles/canicule-sante-publique-france.html'" style="cursor:pointer">
+        </a>
+<a class="card3" href="articles/canicule-sante-publique-france.html">
           <span class="cat">SANTE</span>
           <h3 class="title-sm">Canicule : Situation sanitaire en France</h3>
           <div class="meta" style="margin-top:10px">
             <span class="meta__src">5 sources</span>
             <span class="meta__sep">·</span><span>25 juin 2026, 21h51</span>
           </div>
-        </div>
-<div class="card3" onclick="window.location='articles/theorie-evolution-darwin.html'" style="cursor:pointer">
+        </a>
+<a class="card3" href="articles/theorie-evolution-darwin.html">
           <span class="cat">SCIENCE</span>
           <h3 class="title-sm">La Théorie de l'Évolution de Darwin</h3>
           <div class="meta" style="margin-top:10px">
             <span class="meta__src">5 sources</span>
             <span class="meta__sep">·</span><span>25 juin 2026, 21h51</span>
           </div>
-        </div>
-<div class="card3" onclick="window.location='articles/emissions-co2-france-recul-2023.html'" style="cursor:pointer">
+        </a>
+<a class="card3" href="articles/emissions-co2-france-recul-2023.html">
           <span class="cat">ENVIRONNEMENT</span>
           <h3 class="title-sm">Émissions de CO2 en France : un recul de 5,8% en 2023</h3>
           <div class="meta" style="margin-top:10px">
             <span class="meta__src">3 sources</span>
             <span class="meta__sep">·</span><span>25 juin 2026, 21h51</span>
           </div>
-        </div></div>
+        </a></div>
   </div>
 
-  <div class="list-section" style="padding-top:40px"><div class="section__head" style="margin-bottom:16px"><span class="section__title">À LIRE AUSSI</span></div><div class="section__rule"></div><div class="list-grid"><div class="list-item" onclick="window.location='articles/loi-contre-ultrafast-fashion-adoptee.html'" style="cursor:pointer">
+  <div class="list-section" style="padding-top:40px"><div class="section__head" style="margin-bottom:16px"><span class="section__title">À LIRE AUSSI</span></div><div class="section__rule"></div><div class="list-grid"><a class="list-item" href="articles/loi-contre-ultrafast-fashion-adoptee.html">
           <span class="list-item__num">01</span>
           <div><span class="cat">ENVIRONNEMENT</span>
           <h3 class="title-sm">Loi contre l'ultra fast fashion adoptée</h3>
@@ -163,8 +178,8 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeMenu();
             <span class="meta__src">5 sources</span>
             <span class="meta__sep">·</span><span>25 juin 2026, 21h55</span>
           </div></div>
-        </div>
-<div class="list-item" onclick="window.location='articles/subvention-ars-planning-familial-gironde-2026.html'" style="cursor:pointer">
+        </a>
+<a class="list-item" href="articles/subvention-ars-planning-familial-gironde-2026.html">
           <span class="list-item__num">02</span>
           <div><span class="cat">SANTE</span>
           <h3 class="title-sm">Subvention Ars Planning Familial Gironde 2026</h3>
@@ -172,8 +187,8 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeMenu();
             <span class="meta__src">4 sources</span>
             <span class="meta__sep">·</span><span>25 juin 2026, 21h55</span>
           </div></div>
-        </div>
-<div class="list-item" onclick="window.location='articles/sante-environnementale-defis-savoirs.html'" style="cursor:pointer">
+        </a>
+<a class="list-item" href="articles/sante-environnementale-defis-savoirs.html">
           <span class="list-item__num">03</span>
           <div><span class="cat">SANTE</span>
           <h3 class="title-sm">Défis de la santé environnementale et des savoirs</h3>
@@ -181,8 +196,8 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeMenu();
             <span class="meta__src">4 sources</span>
             <span class="meta__sep">·</span><span>25 juin 2026, 21h55</span>
           </div></div>
-        </div>
-<div class="list-item" onclick="window.location='articles/ia-dans-la-sante.html'" style="cursor:pointer">
+        </a>
+<a class="list-item" href="articles/ia-dans-la-sante.html">
           <span class="list-item__num">04</span>
           <div><span class="cat">SANTE</span>
           <h3 class="title-sm">L'intelligence artificielle dans la santé</h3>
@@ -190,8 +205,8 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeMenu();
             <span class="meta__src">5 sources</span>
             <span class="meta__sep">·</span><span>25 juin 2026, 21h55</span>
           </div></div>
-        </div>
-<div class="list-item" onclick="window.location='articles/premier-cas-ebola-france.html'" style="cursor:pointer">
+        </a>
+<a class="list-item" href="articles/premier-cas-ebola-france.html">
           <span class="list-item__num">05</span>
           <div><span class="cat">SANTE</span>
           <h3 class="title-sm">Premier cas Ebola détecté en France</h3>
@@ -199,7 +214,7 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeMenu();
             <span class="meta__src">4 sources</span>
             <span class="meta__sep">·</span><span>25 juin 2026, 21h56</span>
           </div></div>
-        </div></div></div>
+        </a></div></div>
 </div>
 
 <div class="support">
@@ -262,5 +277,8 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeMenu();
   });
 })();
 </script>
+<script>document.addEventListener('keydown',function(e){if(e.key==='/'&&!['INPUT','TEXTAREA','SELECT'].includes(document.activeElement.tagName)){e.preventDefault();var s=document.getElementById('search-input');if(s){s.focus();s.select();}}});</script>
+<button id="back-top" aria-label="Retour en haut de page" title="Retour en haut"><svg viewBox="0 0 24 24" width="16" height="16" stroke="#fff" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"></polyline></svg></button>
+<script>(function(){var b=document.getElementById('back-top');if(!b)return;window.addEventListener('scroll',function(){b.classList.toggle('visible',window.scrollY>400)},{passive:true});b.addEventListener('click',function(){window.scrollTo({top:0,behavior:'smooth'})})})();</script>
 </body>
 </html>
