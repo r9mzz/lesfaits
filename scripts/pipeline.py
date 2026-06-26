@@ -32,7 +32,8 @@ INDEX_JSON= DATA / "articles.json"
 ARTICLES.mkdir(exist_ok=True)
 DATA.mkdir(exist_ok=True)
 
-GROQ_KEY = os.getenv("GROQ_API_KEY", "")
+GROQ_KEY  = os.getenv("GROQ_API_KEY", "")
+GROQ_KEY2 = os.getenv("GROQ_API_KEY_2", "")
 
 # ══════════════════════════════════════════════════════════════════════════════
 # SOURCES RSS — retournent du texte propre, pas de JavaScript
@@ -474,9 +475,20 @@ RÈGLES ABSOLUES — toute violation = article rejeté :
 10. positions : identifier 2 à 4 acteurs RÉELS cités dans l'article avec leur position sur le sujet. position = 0 (totalement favorable/consensuel) à 100 (totalement critique/opposé). label_gauche et label_droite doivent décrire les deux extrêmes du débat spécifique à cet article (ex: "Pour la mesure" / "Contre la mesure")"""
 
 
+def _groq_call(api_key: str, messages: list, max_tokens: int = 4500) -> str:
+    """Appelle Groq avec la clé donnée. Lève une exception en cas d'erreur."""
+    client = Groq(api_key=api_key)
+    response = client.chat.completions.create(
+        model="llama-3.3-70b-versatile",
+        max_tokens=max_tokens,
+        temperature=0.1,
+        messages=messages,
+    )
+    return response.choices[0].message.content.strip()
+
+
 def generate(content: str, category_hint: str, extra_sources: list[dict] | None = None,
              rss_url: str | None = None) -> dict:
-    client = Groq(api_key=GROQ_KEY)
 
     # Construire la liste des URLs réelles disponibles (DuckDuckGo + flux RSS)
     real_sources: list[dict] = []
@@ -508,17 +520,29 @@ def generate(content: str, category_hint: str, extra_sources: list[dict] | None 
         f"Le nombre de sources réelles prime sur le minimum — mieux vaut 2 sources réelles que 4 inventées."
     )
 
-    response = client.chat.completions.create(
-        model="llama-3.3-70b-versatile",
-        max_tokens=4500,
-        temperature=0.1,
-        messages=[
-            {"role": "system", "content": SYSTEM_PROMPT},
-            {"role": "user",   "content": user_msg},
-        ],
-    )
+    messages = [
+        {"role": "system", "content": SYSTEM_PROMPT},
+        {"role": "user",   "content": user_msg},
+    ]
 
-    raw = response.choices[0].message.content.strip()
+    raw = None
+    keys_to_try = [(GROQ_KEY, "clé 1"), (GROQ_KEY2, "clé 2")] if GROQ_KEY2 else [(GROQ_KEY, "clé 1")]
+    for key, label in keys_to_try:
+        if not key:
+            continue
+        try:
+            raw = _groq_call(key, messages)
+            break
+        except Exception as e:
+            err = str(e)
+            if "429" in err or "rate_limit" in err.lower():
+                print(f"     [GROQ] Rate limit sur {label} — {'bascule sur clé 2' if label == 'clé 1' and GROQ_KEY2 else 'quota épuisé'}")
+                if label == "clé 2" or not GROQ_KEY2:
+                    raise
+            else:
+                raise
+    if raw is None:
+        raise RuntimeError("Aucune clé Groq disponible")
 
     if "HORS_PERIMETRE" in raw[:60]:
         raise ValueError(raw[:80])
@@ -1542,7 +1566,9 @@ if __name__ == "__main__":
         exit(0)
 
     if not GROQ_KEY:
-        print("ERREUR : GROQ_API_KEY manquant dans .env")
+        print("ERREUR : GROQ_API_KEY manquant dans .env / secrets GitHub")
         exit(1)
+    if GROQ_KEY2:
+        print("[INFO] Clé Groq de secours (GROQ_API_KEY_2) détectée — bascule automatique si rate limit")
 
     run(dry_run=args.dry_run, text_input=args.text)
