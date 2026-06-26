@@ -1425,7 +1425,7 @@ def generer_article(item: dict, dry_run: bool, published: set, new_pub: set, dat
         html = build_article_html(art, date_pub)
 
         # Fix 1 — sync nb_sources avec les vrais <li> rendus dans le HTML
-        sources_block = re.search(r'<div class="sources">.*?</div>', html, re.DOTALL)
+        sources_block = re.search(r'<(?:div|section) class="sources[^"]*".*?</(?:div|section)>', html, re.DOTALL)
         real_nb = len(re.findall(r'<li>', sources_block.group())) if sources_block else 0
         if real_nb != art.get("nb_sources", 0):
             # Patcher le HTML inline pour que le chiffre affiché soit juste
@@ -1451,7 +1451,15 @@ def generer_article(item: dict, dry_run: bool, published: set, new_pub: set, dat
     except json.JSONDecodeError:
         print(f"     [ERREUR JSON] Réponse Groq non parseable")
     except Exception as e:
-        print(f"     [ERREUR] {e}")
+        err = str(e)
+        if "401" in err or "invalid_api_key" in err.lower() or "authentication" in err.lower():
+            print(f"     [ERREUR GROQ] Clé API invalide ou expirée — vérifier GROQ_API_KEY dans les secrets GitHub")
+        elif "429" in err or "rate_limit" in err.lower():
+            print(f"     [ERREUR GROQ] Rate limit atteint — quota journalier/mensuel Groq épuisé")
+        elif "model" in err.lower() and ("not found" in err.lower() or "deprecated" in err.lower()):
+            print(f"     [ERREUR GROQ] Modèle llama-3.3-70b-versatile indisponible : {err}")
+        else:
+            print(f"     [ERREUR] {type(e).__name__}: {err}")
     return False
 
 
