@@ -686,7 +686,7 @@ def _download_hero(keyword: str, slug: str, dest: str) -> None:
         pass
 
 
-# Burger menu HTML — défini hors f-string pour éviter les conflits avec les accolades Python
+# ── Constantes UI partagées ──────────────────────────────────────────────────
 _NAV_LINKS = (
     '<a href="categories/societe.html">Société</a>\n'
     '<a href="categories/science.html">Science</a>\n'
@@ -706,6 +706,10 @@ _BURGER_JS = (
     "document.getElementById('burger').classList.remove('open');"
     "document.getElementById('nav-mobile').classList.remove('open');"
     "document.getElementById('nav-overlay').classList.remove('open');}"
+    # Fermer menu sur clic lien + touche Échap
+    "\ndocument.querySelectorAll('.nav-mobile a').forEach(function(a){"
+    "a.addEventListener('click',closeMenu);});"
+    "\ndocument.addEventListener('keydown',function(e){if(e.key==='Escape')closeMenu();});"
 )
 BURGER_HTML = (
     '<div class="nav-overlay" id="nav-overlay" onclick="closeMenu()"></div>\n'
@@ -717,6 +721,63 @@ BURGER_BTN = (
     '<button class="burger" id="burger" aria-label="Menu" onclick="toggleMenu()">'
     '<span></span><span></span><span></span></button>'
 )
+
+DARK_TOGGLE = '<button class="dark-toggle" id="dark-toggle" aria-label="Mode sombre" title="Mode sombre">🌙</button>'
+
+_DARK_MODE_JS = """<script>
+(function(){
+  var btn=document.getElementById('dark-toggle');
+  var s=localStorage.getItem('theme');
+  var dark=s==='dark'||(s===null&&window.matchMedia('(prefers-color-scheme:dark)').matches);
+  document.documentElement.setAttribute('data-theme',dark?'dark':'light');
+  if(btn) btn.textContent=dark?'☀️':'🌙';
+  if(btn) btn.addEventListener('click',function(){
+    var d=document.documentElement.getAttribute('data-theme')==='dark';
+    document.documentElement.setAttribute('data-theme',d?'light':'dark');
+    localStorage.setItem('theme',d?'light':'dark');
+    btn.textContent=d?'🌙':'☀️';
+  });
+})();
+</script>"""
+
+def _build_footer(year: int = None) -> str:
+    y = year or datetime.now().year
+    return f"""<footer class="footer" role="contentinfo" aria-label="Pied de page">
+  <div class="footer__inner">
+    <div class="footer__brand">
+      <div class="brand__logotype"><span class="fact">les</span><span class="uel">faits</span></div>
+      <p>Journal numérique français rédigé par IA. Sans publicité. Sans actionnaires.</p>
+      <p style="font-size:10px;color:var(--muted);margin-top:8px">Aucune publicité · Aucun actionnaire · Aucun cookie de tracking</p>
+    </div>
+    <div class="footer__col"><h4>RUBRIQUES</h4>
+      <a href="categories/societe.html">Société</a>
+      <a href="categories/science.html">Science</a>
+      <a href="categories/economie.html">Économie</a>
+      <a href="categories/tech.html">Tech</a>
+      <a href="categories/sante.html">Santé</a>
+      <a href="categories/environnement.html">Environnement</a>
+    </div>
+    <div class="footer__col"><h4>JOURNAL</h4>
+      <a href="methode.html">Comment on travaille</a>
+      <a href="corrections.html">Corrections publiques</a>
+      <a href="archive.html">Tous les articles</a>
+      <a href="feed.xml" class="footer__rss">Flux RSS</a>
+    </div>
+    <div class="footer__col"><h4>LÉGAL</h4>
+      <a href="mentions-legales.html">Mentions légales</a>
+      <a href="confidentialite.html">Confidentialité</a>
+      <a href="cgu.html">CGU</a>
+    </div>
+    <div class="footer__col"><h4>CONTACT</h4>
+      <a href="contact.html">Nous écrire</a>
+      <a href="contact.html#erreur">Signaler une erreur</a>
+    </div>
+  </div>
+  <div class="footer__bottom">
+    <span>© {y} Les Faits · <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/deed.fr" rel="noopener noreferrer external" target="_blank" style="color:inherit">CC BY-NC-ND 4.0</a></span>
+    <span>Protocole éditorial v1.1</span>
+  </div>
+</footer>"""
 
 def _sanitize_image_keyword(kw: str, fallback: str = "") -> str:
     """Fix 2 — keyword propre : sans accents, sans virgules, max 5 mots anglais."""
@@ -732,50 +793,146 @@ def _sanitize_image_keyword(kw: str, fallback: str = "") -> str:
 
 
 def build_article_html(art: dict, date_pub: str) -> str:
-    resume_txt = " ".join(art["resume"])
-    slug           = art.get("slug", "")
-    safe_slug      = _slug_ascii(slug)
+    resume_txt = " ".join(art["resume"]) if isinstance(art.get("resume"), list) else art.get("resume", "")
+    slug      = art.get("slug", "")
+    safe_slug = _slug_ascii(slug)
+    cat       = art.get("categorie", "")
+
+    # Image hero
     local_img_path = f"assets/images/{safe_slug}.jpg"
     if not os.path.exists(local_img_path):
         kw = _sanitize_image_keyword(art.get("image_keyword", ""), fallback=safe_slug)
         _download_hero(kw, slug, local_img_path)
     hero_src = local_img_path if os.path.exists(local_img_path) else ""
-    hero_img = f'<img class="art__hero" src="{hero_src}" alt="" loading="eager"/>\n  ' if hero_src else ""
+    hero_img = (
+        f'<figure style="margin-bottom:28px">'
+        f'<img class="art__hero" src="{hero_src}" alt="" loading="eager" fetchpriority="high" style="aspect-ratio:16/9;object-fit:cover"/>'
+        f'</figure>'
+    ) if hero_src else ""
+
+    # Sources
     def _source_link(s):
-        from urllib.parse import urlparse
         url = s.get("url") or ""
         path = urlparse(url).path.rstrip("/") if url else ""
         if url and len(path) > 3:
-            return f' · <a href="{url}" target="_blank" rel="noopener">Lire la source →</a>'
-        return ""  # Pas d'URL réelle = pas de lien
+            return f' · <a href="{url}" target="_blank" rel="noopener noreferrer external" aria-label="{s.get("institution","Source")} (ouvre dans un nouvel onglet)">Lire la source →</a>'
+        return ""
 
-    verified_sources = [s for s in art["sources"] if s.get("url") and len(urlparse(s["url"]).path.rstrip("/")) > 3]
-
+    verified_sources = [s for s in art.get("sources", []) if s.get("url") and len(urlparse(s["url"]).path.rstrip("/")) > 3]
     if verified_sources:
         sources_li = "\n".join(
-            f'<li>{s["institution"]} · <em>{s["titre"]}</em> · {s["date"]}'
-            + _source_link(s)
-            + "</li>"
+            f'<li><cite>{s["institution"]}</cite> · <em>{s["titre"]}</em> · {s["date"]}{_source_link(s)}</li>'
             for s in verified_sources
         )
-        sources_html = f'<div class="sources">\n    <h3>SOURCES</h3>\n    <ol>{sources_li}</ol>\n  </div>'
+        sources_html = f'<section class="sources" aria-label="Sources"><h3>SOURCES</h3><ol>{sources_li}</ol></section>'
     else:
-        sources_html = '<div class="sources sources--unverified"><p style="color:#999;font-style:italic;font-size:.85rem;margin:0">Cet article a été rédigé par IA à partir de flux d\'actualités. Les sources citées dans le texte n\'ont pas pu être vérifiées avec une URL directe.</p></div>'
+        sources_html = '<section class="sources sources--unverified" aria-label="Sources"><p style="color:#999;font-style:italic;font-size:.85rem;margin:0">Sources citées dans le texte — URLs non vérifiées directement.</p></section>'
 
     nb_src = len(verified_sources)
+
+    # Temps de lecture
+    body_text = art["corps"]["faits"] + " " + art["corps"]["contexte"] + " " + art["corps"]["nuances"]
+    word_count = len(body_text.split())
+    reading_time = max(1, round(word_count / 200))
+
     faits    = art["corps"]["faits"].replace("\n", "</p><p>")
     contexte = art["corps"]["contexte"].replace("\n", "</p><p>")
     nuances  = art["corps"]["nuances"].replace("\n", "</p><p>")
 
+    # Articles liés (même catégorie)
+    related_html = ""
+    try:
+        all_arts = load_index()
+        related = [a for a in all_arts if a.get("categorie") == cat and a["slug"] != slug][:3]
+        if related:
+            cards = "\n".join(
+                f'<div class="art__related-card" onclick="window.location=\'articles/{a["slug"]}.html\'">'
+                f'<span class="cat">{a["categorie"].upper()}</span>'
+                f'<div class="title-sm">{a["titre"]}</div>'
+                f'<div style="font-size:10px;color:var(--muted);margin-top:6px">{a["date"]}</div>'
+                f'</div>'
+                for a in related
+            )
+            related_html = f'<div class="art__related"><div class="art__related-title">À LIRE AUSSI</div><div class="art__related-grid">{cards}</div></div>'
+    except Exception:
+        pass
+
+    # Share buttons JS
+    art_url = f"https://r9mzz.github.io/lesfaits/articles/{slug}.html"
+    art_titre_js = art['titre'].replace("'", "\\'")
+    share_js = f"""<script>
+function shareArticle(){{
+  if(navigator.share){{
+    navigator.share({{title:'{art_titre_js}',url:'{art_url}'}}).catch(function(){{}});
+  }}
+}}
+function copyLink(){{
+  navigator.clipboard.writeText('{art_url}').then(function(){{
+    var btn=document.getElementById('copy-btn');
+    btn.textContent='✓ Copié !';setTimeout(function(){{btn.textContent='Copier le lien';}},2000);
+  }});
+}}
+// Barre de progression lecture
+(function(){{
+  var bar=document.getElementById('read-progress');
+  if(!bar)return;
+  window.addEventListener('scroll',function(){{
+    var h=document.documentElement,b=document.body;
+    var st=h.scrollTop||b.scrollTop;
+    var sh=(h.scrollHeight||b.scrollHeight)-h.clientHeight;
+    bar.style.width=sh>0?(st/sh*100)+'%':'0%';
+  }},{{passive:true}});
+}})();
+// Favoris
+(function(){{
+  var btn=document.getElementById('fav-btn');
+  if(!btn)return;
+  var favs=JSON.parse(localStorage.getItem('lesfaits_favs')||'[]');
+  var slug='{slug}';
+  if(favs.indexOf(slug)>-1){{btn.classList.add('active');btn.setAttribute('aria-pressed','true');btn.textContent='♥ Favori';}}
+  btn.addEventListener('click',function(){{
+    var f=JSON.parse(localStorage.getItem('lesfaits_favs')||'[]');
+    var idx=f.indexOf(slug);
+    if(idx>-1){{f.splice(idx,1);btn.classList.remove('active');btn.setAttribute('aria-pressed','false');btn.textContent='♡ Favoris';}}
+    else{{f.push(slug);btn.classList.add('active');btn.setAttribute('aria-pressed','true');btn.textContent='♥ Favori';}}
+    localStorage.setItem('lesfaits_favs',JSON.stringify(f));
+  }});
+}})();
+</script>"""
+
+    share_html = f"""<div class="art__share">
+  <span class="art__share-label">Partager</span>
+  <button class="share-btn share-btn--native" onclick="shareArticle()" style="display:{'none' if True else 'none'}" id="native-share">↗ Partager</button>
+  <a class="share-btn" href="https://twitter.com/intent/tweet?url={art_url}&text={art['titre'].replace(' ','%20')}" target="_blank" rel="noopener noreferrer external">𝕏 Twitter</a>
+  <a class="share-btn" href="https://www.linkedin.com/sharing/share-offsite/?url={art_url}" target="_blank" rel="noopener noreferrer external">in LinkedIn</a>
+  <a class="share-btn" href="https://api.whatsapp.com/send?text={art['titre'].replace(' ','%20')}%20{art_url}" target="_blank" rel="noopener noreferrer external">WhatsApp</a>
+  <button class="share-btn" onclick="copyLink()" id="copy-btn">Copier le lien</button>
+  <button class="fav-btn" id="fav-btn" aria-pressed="false">♡ Favoris</button>
+</div>
+<script>if(navigator.share)document.getElementById('native-share').style.display='inline-flex';</script>"""
+
+    verify_html = (
+        f'<div class="art__verify">'
+        f'<span class="art__verify-item">✓ {nb_src} source{"s" if nb_src > 1 else ""} vérifiée{"s" if nb_src > 1 else ""}</span>'
+        f'<span class="art__verify-item">✓ Sources concordantes</span>'
+        f'<span class="art__verify-item">✓ Protocole éditorial v1.1</span>'
+        f'</div>'
+    ) if nb_src > 0 else ""
+
     return f"""<!DOCTYPE html>
-<html lang="fr">
+<html lang="fr" data-theme="">
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <meta name="description" content="{resume_txt[:155]}"/>
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large"/>
   <meta property="og:title" content="{art['titre']} — Les Faits"/>
   <meta property="og:description" content="{resume_txt[:155]}"/>
   <meta property="og:type" content="article"/>
+  <meta property="og:url" content="{art_url}"/>
+  {f'<meta property="og:image" content="https://r9mzz.github.io/lesfaits/{hero_src}"/><meta property="og:image:width" content="1200"/><meta property="og:image:height" content="630"/><meta property="og:image:type" content="image/jpeg"/>' if hero_src else ''}
+  <meta property="article:section" content="{cat}"/>
+  <link rel="alternate" type="application/rss+xml" title="Les Faits — RSS" href="/lesfaits/feed.xml"/>
   <title>{art['titre']} — Les Faits</title>
   <base href="/lesfaits/"/>
   <link rel="stylesheet" href="src/style.css"/>
@@ -787,7 +944,7 @@ def build_article_html(art: dict, date_pub: str) -> str:
     <a href="index.html" class="brand">
       <div class="brand__logotype"><span class="fact">les</span><span class="uel">faits</span></div>
     </a>
-<div class="header__search">
+    <div class="header__search">
       <input type="search" class="header__search-input" placeholder="Rechercher…" autocomplete="off" onkeydown="if(event.key==='Enter'&&this.value.trim())window.location=(document.querySelector('base').href)+'recherche.html?q='+encodeURIComponent(this.value.trim())"/>
     </div>
     <nav>
@@ -799,71 +956,40 @@ def build_article_html(art: dict, date_pub: str) -> str:
       <a href="categories/environnement.html">Environnement</a>
       <a href="methode.html" class="nav-cta">Comment on travaille →</a>
     </nav>
+    {DARK_TOGGLE}
     {BURGER_BTN}
   </div>
 </header>
-<div class="manifeste">
-  <div class="manifeste__inner">
-    <div class="manifeste__headline">Rédigé par <span>IA</span>,<br>vérifié par des humains.</div>
-    <div class="manifeste__pillars">
-      <div class="manifeste__pillar"><div class="manifeste__text"><strong>Zéro parti pris</strong><span>Aucune opinion. Les faits bruts, leurs sources, leurs contradictions.</span></div></div>
-      <div class="manifeste__pillar"><div class="manifeste__text"><strong>Méthode publique</strong><span>Notre protocole éditorial est entièrement accessible.</span></div></div>
-      <div class="manifeste__pillar"><div class="manifeste__text"><strong>Sources vérifiées</strong><span>Minimum 3 sources par article. Institutions officielles, peer-reviewed.</span></div></div>
-    </div>
-  </div>
-</div>
+<div id="read-progress"></div>
 <main>
 <div class="art">
   <a class="art__back" href="index.html">← Retour à l'accueil</a>
-  <span class="art__cat">{art['categorie'].upper()}</span>
+  <span class="art__cat">{cat.upper()}</span>
   <h1 class="art__title">{art['titre']}</h1>
   <div class="art__meta">
-    {f'<span style="color:var(--blue);font-weight:600">{nb_src} source{"s" if nb_src > 1 else ""}</span><span class="meta__sep">·</span>' if nb_src > 0 else ''}
-    <span class="meta__sep">{date_pub}</span>
-    <span class="meta__sep">·</span><span>Protocole v1.1</span>
+    {f'<span style="color:var(--blue);font-weight:600">{nb_src} source{"s" if nb_src > 1 else ""}</span><span class="meta__sep" aria-hidden="true">·</span>' if nb_src > 0 else ''}
+    <time datetime="{datetime.now().strftime('%Y-%m-%d')}">{date_pub}</time>
+    <span class="meta__sep" aria-hidden="true">·</span>
+    <span class="art__reading-time">Lecture : {reading_time} min</span>
   </div>
-  {f'<div class="art__verify"><span class="art__verify-item">✓ {nb_src} source{"s" if nb_src > 1 else ""} vérifiée{"s" if nb_src > 1 else ""}</span><span class="art__verify-item">✓ Protocole éditorial v1.1</span></div>' if nb_src > 0 else ''}
+  {verify_html}
   <div class="art__rule"></div>
-  {hero_img}<p class="art__resume">{resume_txt}</p>
-  <h2>Les faits</h2><p>{faits}</p>
-  <h2>Contexte</h2><p>{contexte}</p>
-  <h2>Débats et nuances</h2><p>{nuances}</p>
+  {hero_img}
+  <p class="art__resume">{resume_txt}</p>
+  <h2 class="art__h2">Les faits</h2><p>{faits}</p>
+  <h2 class="art__h2">Contexte</h2><p>{contexte}</p>
+  <h2 class="art__h2">Débats et nuances</h2><p>{nuances}</p>
   {build_spectrum_html(art.get("positions", {}))}
+  {share_html}
   {sources_html}
+  {related_html}
   <p class="art__badge">Rédigé par IA · Protocole Les Faits v1.1 · {date_pub}</p>
-  <a class="contest-btn" href="contact.html#erreur">Contester un fait</a>
+  <a class="contest-btn" href="contact.html?article={slug}#erreur">Signaler une erreur sur cet article</a>
 </div>
 </main>
-<footer class="footer">
-  <div class="footer__inner">
-    <div class="footer__brand">
-      <div class="brand" style="margin-bottom:8px">
-        <div class="brand__logotype"><span class="fact">les</span><span class="uel">faits</span></div>
-      </div>
-      <p>Journal numérique français rédigé par IA. Sans publicité. Sans actionnaires.</p>
-    </div>
-    <div class="footer__col"><h4>RUBRIQUES</h4>
-      <a href="categories/societe.html">Société</a>
-      <a href="categories/science.html">Science</a>
-      <a href="categories/economie.html">Économie</a>
-      <a href="categories/tech.html">Tech</a>
-      <a href="categories/sante.html">Santé</a>
-      <a href="categories/environnement.html">Environnement</a>
-    </div>
-    <div class="footer__col"><h4>JOURNAL</h4>
-      <a href="methode.html">Comment on travaille</a>
-      <a href="corrections.html">Corrections publiques</a>
-    </div>
-    <div class="footer__col"><h4>CONTACT</h4>
-      <a href="contact.html">Nous écrire</a>
-      <a href="contact.html#erreur">Signaler une erreur</a>
-    </div>
-  </div>
-  <div class="footer__bottom">
-    <span>© {datetime.now().year} Les Faits — Protocole v1.1</span>
-    <span>Mentions légales · CGU</span>
-  </div>
-</footer>
+{_build_footer()}
+{share_js}
+{_DARK_MODE_JS}
 </body>
 </html>"""
 
@@ -924,17 +1050,23 @@ def rebuild_index():
     print(f"  ✓ index.html reconstruit ({len(articles)} articles)")
     build_category_pages()
     build_search_json(articles)
+    build_feed_xml(articles)
 
 
 def build_index_html(main, side_html, grid_html, list_html):
     resume = " ".join(main["resume"]) if isinstance(main.get("resume"), list) else main.get("resume", "")
 
     return f"""<!DOCTYPE html>
-<html lang="fr">
+<html lang="fr" data-theme="">
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <meta name="description" content="Les Faits — Journal numérique français rédigé par IA. Juste les faits. Aucun parti pris."/>
+  <meta property="og:title" content="Les Faits — Juste les faits. Aucun parti pris."/>
+  <meta property="og:description" content="Journal numérique français rédigé par IA. Sans publicité. Sans actionnaires."/>
+  <meta property="og:type" content="website"/>
+  <meta property="og:url" content="https://r9mzz.github.io/lesfaits/"/>
+  <link rel="alternate" type="application/rss+xml" title="Les Faits — RSS" href="/lesfaits/feed.xml"/>
   <title>Les Faits — Juste les faits. Aucun parti pris.</title>
   <base href="/lesfaits/"/>
   <link rel="stylesheet" href="src/style.css"/>
@@ -946,7 +1078,7 @@ def build_index_html(main, side_html, grid_html, list_html):
     <a href="index.html" class="brand">
       <div class="brand__logotype"><span class="fact">les</span><span class="uel">faits</span></div>
     </a>
-<div class="header__search">
+    <div class="header__search">
       <input type="search" class="header__search-input" placeholder="Rechercher…" autocomplete="off" onkeydown="if(event.key==='Enter'&&this.value.trim())window.location=(document.querySelector('base').href)+'recherche.html?q='+encodeURIComponent(this.value.trim())"/>
     </div>
     <nav>
@@ -958,6 +1090,7 @@ def build_index_html(main, side_html, grid_html, list_html):
       <a href="categories/environnement.html">Environnement</a>
       <a href="methode.html" class="nav-cta">Comment on travaille →</a>
     </nav>
+    {DARK_TOGGLE}
     {BURGER_BTN}
   </div>
 </header>
@@ -1012,36 +1145,8 @@ def build_index_html(main, side_html, grid_html, list_html):
   </div>
 </div>
 
-<footer class="footer">
-  <div class="footer__inner">
-    <div class="footer__brand">
-      <div class="brand" style="margin-bottom:8px">
-        <div class="brand__logotype"><span class="fact">les</span><span class="uel">faits</span></div>
-      </div>
-      <p>Journal numérique français rédigé par IA selon un protocole éditorial public. Sans publicité. Sans actionnaires.</p>
-    </div>
-    <div class="footer__col"><h4>RUBRIQUES</h4>
-      <a href="categories/societe.html">Société</a>
-      <a href="categories/science.html">Science</a>
-      <a href="categories/economie.html">Économie</a>
-      <a href="categories/tech.html">Tech</a>
-      <a href="categories/sante.html">Santé</a>
-      <a href="categories/environnement.html">Environnement</a>
-    </div>
-    <div class="footer__col"><h4>JOURNAL</h4>
-      <a href="methode.html">Comment on travaille</a>
-      <a href="corrections.html">Corrections publiques</a>
-    </div>
-    <div class="footer__col"><h4>CONTACT</h4>
-      <a href="contact.html">Nous écrire</a>
-      <a href="contact.html#erreur">Signaler une erreur</a>
-    </div>
-  </div>
-  <div class="footer__bottom">
-    <span>© {datetime.now().year} Les Faits — Protocole Les Faits v1.1</span>
-    <span>Mentions légales · CGU</span>
-  </div>
-</footer>
+{_build_footer()}
+{_DARK_MODE_JS}
 </body>
 </html>"""
 
@@ -1069,6 +1174,54 @@ def build_search_json(articles: list):
     ]
     (DATA / "search.json").write_text(json.dumps(results, ensure_ascii=False), encoding="utf-8")
     print(f"  ✓ search.json mis à jour ({len(results)} articles)")
+
+
+def build_feed_xml(articles: list):
+    """Génère feed.xml (RSS 2.0) pour les 20 derniers articles."""
+    base = "https://r9mzz.github.io/lesfaits"
+    now  = datetime.now().strftime("%a, %d %b %Y %H:%M:%S +0000")
+
+    def escape(s):
+        return s.replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;").replace('"', "&quot;")
+
+    items = []
+    for a in articles[:20]:
+        slug    = a["slug"]
+        titre   = escape(a["titre"])
+        resume  = escape(" ".join(a["resume"]) if isinstance(a.get("resume"), list) else a.get("resume", ""))
+        cat     = escape(a.get("categorie", ""))
+        url     = f"{base}/articles/{slug}.html"
+        img     = f"{base}/assets/images/{slug}.jpg"
+        # date RFC-822 approximative (on utilise now pour les anciens articles sans timezone)
+        items.append(f"""  <item>
+    <title>{titre}</title>
+    <link>{url}</link>
+    <guid isPermaLink="true">{url}</guid>
+    <description>{resume}</description>
+    <category>{cat}</category>
+    <enclosure url="{img}" type="image/jpeg" length="0"/>
+    <pubDate>{now}</pubDate>
+  </item>""")
+
+    xml = f"""<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<channel>
+  <title>Les Faits</title>
+  <link>{base}/</link>
+  <description>Journal numérique français rédigé par IA. Juste les faits. Aucun parti pris.</description>
+  <language>fr</language>
+  <lastBuildDate>{now}</lastBuildDate>
+  <atom:link href="{base}/feed.xml" rel="self" type="application/rss+xml"/>
+  <image>
+    <url>{base}/assets/images/logo.png</url>
+    <title>Les Faits</title>
+    <link>{base}/</link>
+  </image>
+{chr(10).join(items)}
+</channel>
+</rss>"""
+    (ROOT / "feed.xml").write_text(xml, encoding="utf-8")
+    print(f"  ✓ feed.xml généré ({min(len(articles),20)} items)")
 
 
 def build_category_pages():
@@ -1121,24 +1274,24 @@ def build_category_pages():
         )
 
         html = f"""<!DOCTYPE html>
-<html lang="fr">
+<html lang="fr" data-theme="">
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <meta name="description" content="Les Faits — Rubrique {label}. Juste les faits. Aucun parti pris."/>
+  <link rel="alternate" type="application/rss+xml" title="Les Faits — RSS" href="/lesfaits/feed.xml"/>
   <title>{label} — Les Faits</title>
   <base href="/lesfaits/"/>
   <link rel="stylesheet" href="src/style.css"/>
 </head>
 <body>
 {BURGER_HTML}
-<div id="read-progress"></div>
 <header class="header">
   <div class="header__inner">
     <a href="index.html" class="brand">
       <div class="brand__logotype"><span class="fact">les</span><span class="uel">faits</span></div>
     </a>
-<div class="header__search">
+    <div class="header__search">
       <input type="search" class="header__search-input" placeholder="Rechercher…" autocomplete="off" onkeydown="if(event.key==='Enter'&&this.value.trim())window.location=(document.querySelector('base').href)+'recherche.html?q='+encodeURIComponent(this.value.trim())"/>
     </div>
     <nav>
@@ -1150,6 +1303,7 @@ def build_category_pages():
       <a href="categories/environnement.html">Environnement</a>
       <a href="methode.html" class="nav-cta">Comment on travaille →</a>
     </nav>
+    {DARK_TOGGLE}
     {BURGER_BTN}
   </div>
 </header>
@@ -1168,36 +1322,8 @@ def build_category_pages():
   </div>
 </main>
 
-<footer class="footer">
-  <div class="footer__inner">
-    <div class="footer__brand">
-      <div class="brand" style="margin-bottom:8px">
-        <div class="brand__logotype"><span class="fact">les</span><span class="uel">faits</span></div>
-      </div>
-      <p>Journal numérique français rédigé par IA. Sans publicité. Sans actionnaires.</p>
-    </div>
-    <div class="footer__col"><h4>RUBRIQUES</h4>
-      <a href="categories/societe.html">Société</a>
-      <a href="categories/science.html">Science</a>
-      <a href="categories/economie.html">Économie</a>
-      <a href="categories/tech.html">Tech</a>
-      <a href="categories/sante.html">Santé</a>
-      <a href="categories/environnement.html">Environnement</a>
-    </div>
-    <div class="footer__col"><h4>JOURNAL</h4>
-      <a href="methode.html">Comment on travaille</a>
-      <a href="corrections.html">Corrections publiques</a>
-    </div>
-    <div class="footer__col"><h4>CONTACT</h4>
-      <a href="contact.html">Nous écrire</a>
-      <a href="contact.html#erreur">Signaler une erreur</a>
-    </div>
-  </div>
-  <div class="footer__bottom">
-    <span>© {datetime.now().year} Les Faits — Protocole Les Faits v1.1</span>
-    <span>Mentions légales · CGU</span>
-  </div>
-</footer>
+{_build_footer()}
+{_DARK_MODE_JS}
 </body>
 </html>"""
 

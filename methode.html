@@ -1,5 +1,5 @@
 ﻿<!DOCTYPE html>
-<html lang="fr">
+<html lang="fr" data-theme="">
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -9,6 +9,9 @@
   <link rel="stylesheet" href="src/style.css"/>
 </head>
 <body>
+<script>
+(function(){var s=localStorage.getItem('theme');var d=s==='dark'||(s===null&&window.matchMedia('(prefers-color-scheme:dark)').matches);document.documentElement.setAttribute('data-theme',d?'dark':'light');})();
+</script>
 <div class="nav-overlay" id="nav-overlay" onclick="closeMenu()"></div>
 <nav class="nav-mobile" id="nav-mobile">
 <a href="categories/societe.html">Société</a>
@@ -45,6 +48,7 @@ function closeMenu(){document.getElementById('burger').classList.remove('open');
     <button class="burger" id="burger" aria-label="Menu" onclick="toggleMenu()">
       <span></span><span></span><span></span>
     </button>
+    <button class="dark-toggle" id="dark-toggle" aria-label="Mode sombre" title="Mode sombre">🌙</button>
   </div>
 </header>
 
@@ -166,11 +170,12 @@ function closeMenu(){document.getElementById('burger').classList.remove('open');
 
 </main>
 
-<footer class="footer">
+<footer class="footer" role="contentinfo" aria-label="Pied de page">
   <div class="footer__inner">
     <div class="footer__brand">
       <div class="brand__logotype"><span class="fact">les</span><span class="uel">faits</span></div>
       <p>Journal numérique français rédigé par IA. Sans publicité. Sans actionnaires.</p>
+      <p style="font-size:10px;color:var(--muted);margin-top:8px">Aucune publicité · Aucun actionnaire · Aucun cookie de tracking</p>
     </div>
     <div class="footer__col"><h4>RUBRIQUES</h4>
       <a href="categories/societe.html">Société</a>
@@ -183,6 +188,13 @@ function closeMenu(){document.getElementById('burger').classList.remove('open');
     <div class="footer__col"><h4>JOURNAL</h4>
       <a href="methode.html">Comment on travaille</a>
       <a href="corrections.html">Corrections publiques</a>
+      <a href="archive.html">Tous les articles</a>
+      <a href="feed.xml" class="footer__rss">Flux RSS</a>
+    </div>
+    <div class="footer__col"><h4>LÉGAL</h4>
+      <a href="mentions-legales.html">Mentions légales</a>
+      <a href="confidentialite.html">Confidentialité</a>
+      <a href="cgu.html">CGU</a>
     </div>
     <div class="footer__col"><h4>CONTACT</h4>
       <a href="contact.html">Nous écrire</a>
@@ -190,9 +202,24 @@ function closeMenu(){document.getElementById('burger').classList.remove('open');
     </div>
   </div>
   <div class="footer__bottom">
-    <span>© 2026 Les Faits — Protocole Les Faits v1.1</span>
-    <span>Mentions légales · CGU</span>
+    <span>© 2026 Les Faits · <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/deed.fr" rel="noopener noreferrer external" target="_blank" style="color:inherit">CC BY-NC-ND 4.0</a></span>
+    <span>Protocole éditorial v1.1</span>
   </div>
 </footer>
+<script>
+(function(){
+  var btn=document.getElementById('dark-toggle');
+  var s=localStorage.getItem('theme');
+  var dark=s==='dark'||(s===null&&window.matchMedia('(prefers-color-scheme:dark)').matches);
+  document.documentElement.setAttribute('data-theme',dark?'dark':'light');
+  if(btn)btn.textContent=dark?'☀️':'🌙';
+  if(btn)btn.addEventListener('click',function(){
+    var d=document.documentElement.getAttribute('data-theme')==='dark';
+    document.documentElement.setAttribute('data-theme',d?'light':'dark');
+    localStorage.setItem('theme',d?'light':'dark');
+    btn.textContent=d?'🌙':'☀️';
+  });
+})();
+</script>
 </body>
 </html>

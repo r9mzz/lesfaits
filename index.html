@@ -1,9 +1,14 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="fr" data-theme="">
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <meta name="description" content="Les Faits — Journal numérique français rédigé par IA. Juste les faits. Aucun parti pris."/>
+  <meta property="og:title" content="Les Faits — Juste les faits. Aucun parti pris."/>
+  <meta property="og:description" content="Journal numérique français rédigé par IA. Sans publicité. Sans actionnaires."/>
+  <meta property="og:type" content="website"/>
+  <meta property="og:url" content="https://r9mzz.github.io/lesfaits/"/>
+  <link rel="alternate" type="application/rss+xml" title="Les Faits — RSS" href="/lesfaits/feed.xml"/>
   <title>Les Faits — Juste les faits. Aucun parti pris.</title>
   <base href="/lesfaits/"/>
   <link rel="stylesheet" href="src/style.css"/>
@@ -22,13 +27,15 @@
 <script>
 function toggleMenu(){var b=document.getElementById('burger'),m=document.getElementById('nav-mobile'),o=document.getElementById('nav-overlay');b.classList.toggle('open');m.classList.toggle('open');o.classList.toggle('open');}
 function closeMenu(){document.getElementById('burger').classList.remove('open');document.getElementById('nav-mobile').classList.remove('open');document.getElementById('nav-overlay').classList.remove('open');}
+document.querySelectorAll('.nav-mobile a').forEach(function(a){a.addEventListener('click',closeMenu);});
+document.addEventListener('keydown',function(e){if(e.key==='Escape')closeMenu();});
 </script>
 <header class="header">
   <div class="header__inner">
     <a href="index.html" class="brand">
       <div class="brand__logotype"><span class="fact">les</span><span class="uel">faits</span></div>
     </a>
-<div class="header__search">
+    <div class="header__search">
       <input type="search" class="header__search-input" placeholder="Rechercher…" autocomplete="off" onkeydown="if(event.key==='Enter'&&this.value.trim())window.location=(document.querySelector('base').href)+'recherche.html?q='+encodeURIComponent(this.value.trim())"/>
     </div>
     <nav>
@@ -40,6 +47,7 @@ function closeMenu(){document.getElementById('burger').classList.remove('open');
       <a href="categories/environnement.html">Environnement</a>
       <a href="methode.html" class="nav-cta">Comment on travaille →</a>
     </nav>
+    <button class="dark-toggle" id="dark-toggle" aria-label="Mode sombre" title="Mode sombre">🌙</button>
     <button class="burger" id="burger" aria-label="Menu" onclick="toggleMenu()"><span></span><span></span><span></span></button>
   </div>
 </header>
@@ -193,13 +201,12 @@ function closeMenu(){document.getElementById('burger').classList.remove('open');
   </div>
 </div>
 
-<footer class="footer">
+<footer class="footer" role="contentinfo" aria-label="Pied de page">
   <div class="footer__inner">
     <div class="footer__brand">
-      <div class="brand" style="margin-bottom:8px">
-        <div class="brand__logotype"><span class="fact">les</span><span class="uel">faits</span></div>
-      </div>
-      <p>Journal numérique français rédigé par IA selon un protocole éditorial public. Sans publicité. Sans actionnaires.</p>
+      <div class="brand__logotype"><span class="fact">les</span><span class="uel">faits</span></div>
+      <p>Journal numérique français rédigé par IA. Sans publicité. Sans actionnaires.</p>
+      <p style="font-size:10px;color:var(--muted);margin-top:8px">Aucune publicité · Aucun actionnaire · Aucun cookie de tracking</p>
     </div>
     <div class="footer__col"><h4>RUBRIQUES</h4>
       <a href="categories/societe.html">Société</a>
@@ -212,6 +219,13 @@ function closeMenu(){document.getElementById('burger').classList.remove('open');
     <div class="footer__col"><h4>JOURNAL</h4>
       <a href="methode.html">Comment on travaille</a>
       <a href="corrections.html">Corrections publiques</a>
+      <a href="archive.html">Tous les articles</a>
+      <a href="feed.xml" class="footer__rss">Flux RSS</a>
+    </div>
+    <div class="footer__col"><h4>LÉGAL</h4>
+      <a href="mentions-legales.html">Mentions légales</a>
+      <a href="confidentialite.html">Confidentialité</a>
+      <a href="cgu.html">CGU</a>
     </div>
     <div class="footer__col"><h4>CONTACT</h4>
       <a href="contact.html">Nous écrire</a>
@@ -219,9 +233,24 @@ function closeMenu(){document.getElementById('burger').classList.remove('open');
     </div>
   </div>
   <div class="footer__bottom">
-    <span>© 2026 Les Faits — Protocole Les Faits v1.1</span>
-    <span>Mentions légales · CGU</span>
+    <span>© 2026 Les Faits · <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/deed.fr" rel="noopener noreferrer external" target="_blank" style="color:inherit">CC BY-NC-ND 4.0</a></span>
+    <span>Protocole éditorial v1.1</span>
   </div>
 </footer>
+<script>
+(function(){
+  var btn=document.getElementById('dark-toggle');
+  var s=localStorage.getItem('theme');
+  var dark=s==='dark'||(s===null&&window.matchMedia('(prefers-color-scheme:dark)').matches);
+  document.documentElement.setAttribute('data-theme',dark?'dark':'light');
+  if(btn) btn.textContent=dark?'☀️':'🌙';
+  if(btn) btn.addEventListener('click',function(){
+    var d=document.documentElement.getAttribute('data-theme')==='dark';
+    document.documentElement.setAttribute('data-theme',d?'light':'dark');
+    localStorage.setItem('theme',d?'light':'dark');
+    btn.textContent=d?'🌙':'☀️';
+  });
+})();
+</script>
 </body>
 </html>

@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="fr" data-theme="">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="Tous les articles — Les Faits. Archives complètes, filtrables par rubrique."/>
+  <title>Archives — Les Faits</title>
+  <base href="/lesfaits/"/>
+  <link rel="alternate" type="application/rss+xml" title="Les Faits — RSS" href="/lesfaits/feed.xml"/>
+  <link rel="stylesheet" href="src/style.css"/>
+</head>
+<body>
+<script>
+(function(){var s=localStorage.getItem('theme');var d=s==='dark'||(s===null&&window.matchMedia('(prefers-color-scheme:dark)').matches);document.documentElement.setAttribute('data-theme',d?'dark':'light');})();
+</script>
+<header class="header">
+  <div class="header__inner">
+    <a href="index.html" class="brand">
+      <div class="brand__logotype"><span class="fact">les</span><span class="uel">faits</span></div>
+    </a>
+    <div class="header__search">
+      <input type="search" class="header__search-input" placeholder="Rechercher…" autocomplete="off" onkeydown="if(event.key==='Enter'&&this.value.trim())window.location=(document.querySelector('base').href)+'recherche.html?q='+encodeURIComponent(this.value.trim())"/>
+    </div>
+    <nav>
+      <a href="categories/societe.html">Société</a>
+      <a href="categories/science.html">Science</a>
+      <a href="categories/economie.html">Économie</a>
+      <a href="categories/tech.html">Tech</a>
+      <a href="categories/sante.html">Santé</a>
+      <a href="categories/environnement.html">Environnement</a>
+      <a href="methode.html" class="nav-cta">Comment on travaille →</a>
+    </nav>
+    <button class="dark-toggle" id="dark-toggle" aria-label="Mode sombre" title="Mode sombre">🌙</button>
+  </div>
+</header>
+
+<main>
+<div class="archive-list">
+  <div style="margin-bottom:32px;border-bottom:1px solid var(--rule);padding-bottom:20px">
+    <span style="font-size:.75rem;font-weight:700;letter-spacing:.12em;color:var(--muted);text-transform:uppercase">Index</span>
+    <h1 style="font-family:Georgia,serif;font-size:2rem;font-weight:700;margin:8px 0 4px">Tous les articles</h1>
+    <p style="color:var(--muted);font-size:.85rem" id="archive-count">Chargement…</p>
+  </div>
+
+  <div class="archive-filters" id="archive-filters" role="group" aria-label="Filtrer par rubrique">
+    <button class="filter-btn active" data-cat="" onclick="filterCat(this,'')">Tous</button>
+    <button class="filter-btn" data-cat="societe" onclick="filterCat(this,'societe')">Société</button>
+    <button class="filter-btn" data-cat="science" onclick="filterCat(this,'science')">Science</button>
+    <button class="filter-btn" data-cat="economie" onclick="filterCat(this,'economie')">Économie</button>
+    <button class="filter-btn" data-cat="tech" onclick="filterCat(this,'tech')">Tech</button>
+    <button class="filter-btn" data-cat="sante" onclick="filterCat(this,'sante')">Santé</button>
+    <button class="filter-btn" data-cat="environnement" onclick="filterCat(this,'environnement')">Environnement</button>
+  </div>
+
+  <div id="archive-grid" aria-live="polite">
+    <div style="text-align:center;padding:60px 0;color:var(--muted)">Chargement des articles…</div>
+  </div>
+</div>
+</main>
+
+<footer class="footer" role="contentinfo">
+  <div class="footer__inner">
+    <div class="footer__brand">
+      <div class="brand__logotype"><span class="fact">les</span><span class="uel">faits</span></div>
+      <p>Journal numérique français rédigé par IA. Sans publicité. Sans actionnaires.</p>
+    </div>
+    <div class="footer__col"><h4>RUBRIQUES</h4>
+      <a href="categories/societe.html">Société</a><a href="categories/science.html">Science</a>
+      <a href="categories/economie.html">Économie</a><a href="categories/tech.html">Tech</a>
+      <a href="categories/sante.html">Santé</a><a href="categories/environnement.html">Environnement</a>
+    </div>
+    <div class="footer__col"><h4>JOURNAL</h4>
+      <a href="methode.html">Comment on travaille</a><a href="corrections.html">Corrections publiques</a>
+      <a href="archive.html" aria-current="page">Tous les articles</a>
+      <a href="feed.xml" class="footer__rss">Flux RSS</a>
+    </div>
+    <div class="footer__col"><h4>LÉGAL</h4>
+      <a href="mentions-legales.html">Mentions légales</a>
+      <a href="confidentialite.html">Confidentialité</a>
+      <a href="cgu.html">CGU</a>
+    </div>
+    <div class="footer__col"><h4>CONTACT</h4>
+      <a href="contact.html">Nous écrire</a><a href="contact.html#erreur">Signaler une erreur</a>
+    </div>
+  </div>
+  <div class="footer__bottom">
+    <span>© 2026 Les Faits · <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/deed.fr" rel="noopener noreferrer external" target="_blank" style="color:inherit">CC BY-NC-ND 4.0</a></span>
+    <span>Protocole éditorial v1.1</span>
+  </div>
+</footer>
+
+<script>
+var CAT_LABELS = {
+  societe:'Société', science:'Science', economie:'Économie',
+  tech:'Tech', sante:'Santé', environnement:'Environnement'
+};
+
+var allArticles = [];
+var activeCat = '';
+
+function filterCat(btn, cat) {
+  activeCat = cat;
+  document.querySelectorAll('.filter-btn').forEach(function(b){ b.classList.remove('active'); });
+  btn.classList.add('active');
+  renderArticles();
+}
+
+function renderArticles() {
+  var filtered = activeCat
+    ? allArticles.filter(function(a){ return a.categorie === activeCat; })
+    : allArticles;
+
+  var count = document.getElementById('archive-count');
+  if (count) count.textContent = filtered.length + ' article' + (filtered.length > 1 ? 's' : '');
+
+  var grid = document.getElementById('archive-grid');
+  if (!filtered.length) {
+    grid.innerHTML = '<div style="text-align:center;padding:60px 0;color:var(--muted)">Aucun article dans cette rubrique.</div>';
+    return;
+  }
+
+  grid.innerHTML = filtered.map(function(a) {
+    var imgSrc = 'assets/images/' + a.slug + '.jpg';
+    var catLabel = CAT_LABELS[a.categorie] || a.categorie;
+    return '<div class="archive-item" onclick="window.location=\'articles/' + a.slug + '.html\'" role="link" tabindex="0" onkeydown="if(event.key===\'Enter\'||event.key===\' \')window.location=\'articles/' + a.slug + '.html\'">'
+      + '<img class="archive-item__img" src="' + imgSrc + '" alt="" loading="lazy" onerror="this.style.display=\'none\'">'
+      + '<div class="archive-item__body">'
+      + '<div class="archive-item__cat">' + catLabel + '</div>'
+      + '<div class="archive-item__title">' + a.titre + '</div>'
+      + '<div class="archive-item__meta">' + a.date + (a.excerpt ? ' · ' + a.excerpt.substring(0, 90) + '…' : '') + '</div>'
+      + '</div></div>';
+  }).join('');
+}
+
+fetch('data/search.json')
+  .then(function(r){ return r.json(); })
+  .then(function(data){
+    allArticles = data;
+    renderArticles();
+  })
+  .catch(function(){
+    document.getElementById('archive-grid').innerHTML =
+      '<div style="text-align:center;padding:60px 0;color:var(--muted)">Impossible de charger les articles.</div>';
+  });
+
+// Dark mode
+(function(){
+  var btn=document.getElementById('dark-toggle');
+  var s=localStorage.getItem('theme');
+  var dark=s==='dark'||(s===null&&window.matchMedia('(prefers-color-scheme:dark)').matches);
+  document.documentElement.setAttribute('data-theme',dark?'dark':'light');
+  if(btn)btn.textContent=dark?'☀️':'🌙';
+  if(btn)btn.addEventListener('click',function(){
+    var d=document.documentElement.getAttribute('data-theme')==='dark';
+    document.documentElement.setAttribute('data-theme',d?'light':'dark');
+    localStorage.setItem('theme',d?'light':'dark');
+    btn.textContent=d?'🌙':'☀️';
+  });
+})();
+</script>
+</body>
+</html>
