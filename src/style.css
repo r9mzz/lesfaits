@@ -19,7 +19,7 @@
   --trans:  .15s ease;
 }
 
-/* ── DARK MODE ── */
+/* ── DARK MODE ── uniquement via data-theme, géré par JS (pas de media query CSS) */
 [data-theme="dark"] {
   --blue:   #8AABDF;
   --ink:    #F0EDE4;
@@ -29,26 +29,8 @@
   --muted:  #848280;
   --light:  #282826;
   --shadow: 0 1px 3px rgba(0,0,0,.4);
-}
-[data-theme="dark"] body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-}
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) {
-    --blue:   #8AABDF;
-    --ink:    #F0EDE4;
-    --sand:   #171715;
-    --white:  #222220;
-    --rule:   #383836;
-    --muted:  #848280;
-    --light:  #282826;
-    --shadow: 0 1px 3px rgba(0,0,0,.4);
-  }
-  :root:not([data-theme="light"]) body {
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-  }
 }
 
 /* ── REDUCED MOTION ── */
