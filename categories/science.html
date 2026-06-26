@@ -2,9 +2,6 @@
 <html lang="fr" data-theme="">
 <head>
   <meta charset="UTF-8"/>
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://plausible.io; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; connect-src 'self' https://plausible.io https://api.web3forms.com; base-uri 'self'; form-action 'self' https://api.web3forms.com;">
-<meta name="referrer" content="strict-origin-when-cross-origin">
-
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <meta name="description" content="Les Faits — Rubrique Science. Juste les faits. Aucun parti pris."/>
   <link rel="alternate" type="application/rss+xml" title="Les Faits — RSS" href="/lesfaits/feed.xml"/>
@@ -14,13 +11,10 @@
   <script>
 (function(){var s=localStorage.getItem('theme'),d=s==='dark'||(s===null&&window.matchMedia('(prefers-color-scheme:dark)').matches);document.documentElement.setAttribute('data-theme',d?'dark':'light');})();
 </script>
-<link rel="icon" type="image/svg+xml" href="/lesfaits/favicon.svg">
-<link rel="manifest" href="/lesfaits/manifest.json">
-<script defer data-domain="r9mzz.github.io/lesfaits" src="https://plausible.io/js/script.js"></script>
 </head>
 <body>
 <div class="nav-overlay" id="nav-overlay" onclick="closeMenu()"></div>
-<nav class="nav-mobile" id="nav-mobile" aria-label="Menu mobile">
+<nav class="nav-mobile" id="nav-mobile">
 <a href="categories/societe.html">Société</a>
 <a href="categories/science.html">Science</a>
 <a href="categories/economie.html">Économie</a>
@@ -41,9 +35,9 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeMenu();
       <div class="brand__logotype"><span class="fact">les</span><span class="uel">faits</span></div>
     </a>
     <div class="header__search">
-      <input type="search" class="header__search-input" aria-label="Rechercher un article" id="search-input" placeholder="Rechercher…" autocomplete="off" onkeydown="if(event.key==='Enter'&&this.value.trim())window.location=(document.querySelector('base').href)+'recherche.html?q='+encodeURIComponent(this.value.trim())"/>
+      <input type="search" class="header__search-input" placeholder="Rechercher…" autocomplete="off" onkeydown="if(event.key==='Enter'&&this.value.trim())window.location=(document.querySelector('base').href)+'recherche.html?q='+encodeURIComponent(this.value.trim())"/>
     </div>
-    <nav aria-label="Navigation principale">
+    <nav>
       <a href="categories/societe.html">Société</a>
       <a href="categories/science.html">Science</a>
       <a href="categories/economie.html">Économie</a>
@@ -61,7 +55,7 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeMenu();
   <div style="margin-bottom:32px;border-bottom:1px solid var(--rule);padding-bottom:24px">
     <span style="font-size:.8rem;font-weight:700;letter-spacing:.1em;color:var(--muted);text-transform:uppercase">Rubrique</span>
     <h1 style="font-size:2.4rem;font-weight:700;margin:8px 0 4px">Science</h1>
-    <p style="color:var(--muted);font-size:.9rem">3 articles</p>
+    <p style="color:var(--muted);font-size:.9rem">4 articles</p>
   </div>
   <nav style="display:flex;gap:24px;margin-bottom:48px;flex-wrap:wrap;font-size:.9rem">
     <a href="categories/science.html" style="font-weight:700;color:var(--blue)">Science</a>
@@ -73,32 +67,45 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeMenu();
   </nav>
   <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:24px">
     
-        <a class="card3" href="articles/recherche-publique-en-crise.html">
+        <div class="card3" onclick="window.location='articles/arreter-de-fumer-reduit-les-risques-de-demence.html'"
+             style="cursor:pointer">
+          <span class="cat">SCIENCE</span>
+          <h3 class="title-sm">Arrêter de fumer réduit les risques de démence même tard dans la vie</h3>
+          <div class="meta" style="margin-top:10px">
+            <span class="meta__src">4 sources</span>
+            <span class="meta__sep">·</span><span>26 juin 2026, 19h42</span>
+          </div>
+        </div>
+
+        <div class="card3" onclick="window.location='articles/recherche-publique-en-crise.html'"
+             style="cursor:pointer">
           <span class="cat">SCIENCE</span>
           <h3 class="title-sm">La recherche publique en crise financière et politique</h3>
           <div class="meta" style="margin-top:10px">
             <span class="meta__src">4 sources</span>
             <span class="meta__sep">·</span><span>26 juin 2026, 12h07</span>
           </div>
-        </a>
+        </div>
 
-        <a class="card3" href="articles/nasa-lance-mission-sauvetage-telescope-swift.html">
+        <div class="card3" onclick="window.location='articles/nasa-lance-mission-sauvetage-telescope-swift.html'"
+             style="cursor:pointer">
           <span class="cat">SCIENCE</span>
           <h3 class="title-sm">La NASA lance mission sauvetage pour le télescope Swift</h3>
           <div class="meta" style="margin-top:10px">
             <span class="meta__src">5 sources</span>
             <span class="meta__sep">·</span><span>25 juin 2026, 21h51</span>
           </div>
-        </a>
+        </div>
 
-        <a class="card3" href="articles/theorie-evolution-darwin.html">
+        <div class="card3" onclick="window.location='articles/theorie-evolution-darwin.html'"
+             style="cursor:pointer">
           <span class="cat">SCIENCE</span>
           <h3 class="title-sm">La Théorie de l'Évolution de Darwin</h3>
           <div class="meta" style="margin-top:10px">
             <span class="meta__src">5 sources</span>
             <span class="meta__sep">·</span><span>25 juin 2026, 21h51</span>
           </div>
-        </a>
+        </div>
   </div>
 </main>
 
@@ -151,6 +158,5 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeMenu();
   });
 })();
 </script>
-<script>document.addEventListener('keydown',function(e){if(e.key==='/'&&!['INPUT','TEXTAREA','SELECT'].includes(document.activeElement.tagName)){e.preventDefault();var s=document.getElementById('search-input');if(s){s.focus();s.select();}}});</script>
 </body>
 </html>
