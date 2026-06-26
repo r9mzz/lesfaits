@@ -58,7 +58,7 @@ jobs:
           git config user.name  "Factuel Bot"
           git config user.email "bot@factuel.fr"
 
-          git add articles/ data/ index.html categories/ assets/
+          git add articles/ data/ index.html categories/ assets/ feed.xml sitemap.xml
           git diff --cached --quiet && echo "Aucun nouvel article." && exit 0
 
           NB=$(git diff --cached --name-only | grep "^articles/" | wc -l)
