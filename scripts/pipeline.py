@@ -724,12 +724,16 @@ BURGER_BTN = (
 
 DARK_TOGGLE = '<button class="dark-toggle" id="dark-toggle" aria-label="Mode sombre" title="Mode sombre">🌙</button>'
 
+# Script injecté dans <head> pour éviter le flash (FOUC)
+_DARK_INIT_HEAD = """<script>
+(function(){var s=localStorage.getItem('theme'),d=s==='dark'||(s===null&&window.matchMedia('(prefers-color-scheme:dark)').matches);document.documentElement.setAttribute('data-theme',d?'dark':'light');})();
+</script>"""
+
+# Script complet injecté avant </body> (bouton + toggle)
 _DARK_MODE_JS = """<script>
 (function(){
   var btn=document.getElementById('dark-toggle');
-  var s=localStorage.getItem('theme');
-  var dark=s==='dark'||(s===null&&window.matchMedia('(prefers-color-scheme:dark)').matches);
-  document.documentElement.setAttribute('data-theme',dark?'dark':'light');
+  var dark=document.documentElement.getAttribute('data-theme')==='dark';
   if(btn) btn.textContent=dark?'☀️':'🌙';
   if(btn) btn.addEventListener('click',function(){
     var d=document.documentElement.getAttribute('data-theme')==='dark';
@@ -936,6 +940,7 @@ function copyLink(){{
   <title>{art['titre']} — Les Faits</title>
   <base href="/lesfaits/"/>
   <link rel="stylesheet" href="src/style.css"/>
+  {_DARK_INIT_HEAD}
 </head>
 <body>
 {BURGER_HTML}
@@ -1070,6 +1075,7 @@ def build_index_html(main, side_html, grid_html, list_html):
   <title>Les Faits — Juste les faits. Aucun parti pris.</title>
   <base href="/lesfaits/"/>
   <link rel="stylesheet" href="src/style.css"/>
+  {_DARK_INIT_HEAD}
 </head>
 <body>
 {BURGER_HTML}
@@ -1283,6 +1289,7 @@ def build_category_pages():
   <title>{label} — Les Faits</title>
   <base href="/lesfaits/"/>
   <link rel="stylesheet" href="src/style.css"/>
+  {_DARK_INIT_HEAD}
 </head>
 <body>
 {BURGER_HTML}

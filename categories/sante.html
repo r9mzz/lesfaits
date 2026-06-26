@@ -8,6 +8,9 @@
   <title>Santé — Les Faits</title>
   <base href="/lesfaits/"/>
   <link rel="stylesheet" href="src/style.css"/>
+  <script>
+(function(){var s=localStorage.getItem('theme'),d=s==='dark'||(s===null&&window.matchMedia('(prefers-color-scheme:dark)').matches);document.documentElement.setAttribute('data-theme',d?'dark':'light');})();
+</script>
 </head>
 <body>
 <div class="nav-overlay" id="nav-overlay" onclick="closeMenu()"></div>
@@ -165,9 +168,7 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeMenu();
 <script>
 (function(){
   var btn=document.getElementById('dark-toggle');
-  var s=localStorage.getItem('theme');
-  var dark=s==='dark'||(s===null&&window.matchMedia('(prefers-color-scheme:dark)').matches);
-  document.documentElement.setAttribute('data-theme',dark?'dark':'light');
+  var dark=document.documentElement.getAttribute('data-theme')==='dark';
   if(btn) btn.textContent=dark?'☀️':'🌙';
   if(btn) btn.addEventListener('click',function(){
     var d=document.documentElement.getAttribute('data-theme')==='dark';
