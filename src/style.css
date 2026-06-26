@@ -118,7 +118,7 @@ nav a.active { opacity: 1; color: var(--blue); border-bottom-color: var(--blue);
 .title-xl { font-family: Georgia,serif; font-size: 28px; font-weight: 700; line-height: 1.25; margin-bottom: 16px; letter-spacing: -0.5px; }
 .title-md { font-family: Georgia,serif; font-size: 18px; font-weight: 700; line-height: 1.25; margin-bottom: 12px; letter-spacing: -0.5px; }
 .title-sm { font-family: Georgia,serif; font-size: 15px; font-weight: 700; line-height: 1.28; margin-bottom: 10px; letter-spacing: -0.3px; }
-.excerpt { font-family: Georgia,serif; font-size: 13.5px; line-height: 1.7; color: #4a4a48; margin-bottom: 20px; }
+.excerpt { font-family: Georgia,serif; font-size: 13.5px; line-height: 1.7; color: var(--ink); margin-bottom: 20px; }
 .meta { font-size: 10px; color: var(--muted); display: flex; align-items: center; gap: 7px; flex-wrap: wrap; }
 .meta__sep { color: var(--rule); }
 .meta__push { flex: 1; }
@@ -208,15 +208,15 @@ nav a.active { opacity: 1; color: var(--blue); border-bottom-color: var(--blue);
 
 /* Corps article */
 .art__h2 { font-family: Georgia,serif; font-size: 18px; font-weight: 700; margin: 36px 0 14px; padding-bottom: 10px; border-bottom: 1px solid var(--rule); }
-.art__resume { font-family: Georgia,serif; font-size: 16px; line-height: 1.9; color: #3a3a38; margin-bottom: 32px; }
-.art p, .art__body p { font-family: Georgia,serif; font-size: 15px; line-height: 1.85; color: #3a3a38; margin-bottom: 16px; }
+.art__resume { font-family: Georgia,serif; font-size: 16px; line-height: 1.9; color: var(--ink); margin-bottom: 32px; }
+.art p, .art__body p { font-family: Georgia,serif; font-size: 15px; line-height: 1.85; color: var(--ink); margin-bottom: 16px; }
 
 /* Liste de faits numérotés */
 .art__facts { list-style: none; display: flex; flex-direction: column; gap: 10px; margin-bottom: 32px; }
 .art__fact { background: var(--white); border: 1px solid var(--rule); padding: 14px 16px; display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; transition: border-color .15s; }
 .art__fact:hover { border-color: var(--blue); }
 .art__fact-num { font-family: Georgia,serif; font-size: 22px; font-weight: 700; color: var(--rule); line-height: 1; flex-shrink: 0; width: 24px; }
-.art__fact-text { font-family: Georgia,serif; font-size: 13.5px; line-height: 1.65; flex: 1; color: #3a3a38; }
+.art__fact-text { font-family: Georgia,serif; font-size: 13.5px; line-height: 1.65; flex: 1; color: var(--ink); }
 .art__fact-src { font-size: 9.5px; font-weight: 700; color: var(--blue); border: 1px solid var(--blue); padding: 3px 9px; white-space: nowrap; flex-shrink: 0; text-transform: uppercase; letter-spacing: .5px; transition: .15s; }
 .art__fact-src:hover { background: var(--blue); color: #fff; }
 
@@ -264,15 +264,15 @@ nav a.active { opacity: 1; color: var(--blue); border-bottom-color: var(--blue);
 
 /* ── PAGE MÉTHODE ── */
 .methode { max-width: 800px; margin: 0 auto; padding: 52px 32px 80px; }
-.methode__intro { font-family: Georgia,serif; font-size: 17px; line-height: 1.75; color: #3a3a38; margin-bottom: 48px; border-left: 3px solid var(--blue); padding-left: 20px; }
+.methode__intro { font-family: Georgia,serif; font-size: 17px; line-height: 1.75; color: var(--ink); margin-bottom: 48px; border-left: 3px solid var(--blue); padding-left: 20px; }
 .methode h1 { font-family: Georgia,serif; font-size: 34px; font-weight: 700; margin-bottom: 20px; letter-spacing: -.5px; }
 .methode h2 { font-family: Georgia,serif; font-size: 20px; font-weight: 700; margin: 44px 0 14px; padding-top: 44px; border-top: 1px solid var(--rule); }
 .methode h2:first-of-type { border-top: none; padding-top: 0; margin-top: 0; }
-.methode p, .methode li { font-family: Georgia,serif; font-size: 15px; line-height: 1.8; color: #3a3a38; margin-bottom: 12px; }
+.methode p, .methode li { font-family: Georgia,serif; font-size: 15px; line-height: 1.8; color: var(--ink); margin-bottom: 12px; }
 .methode ul { padding-left: 20px; margin-bottom: 16px; }
 .rule-block { background: var(--white); border-left: 3px solid var(--blue); padding: 18px 22px; margin: 20px 0; box-shadow: var(--shadow); }
 .rule-block strong { font-size: 9px; font-weight: 700; letter-spacing: 2px; color: var(--blue); display: block; margin-bottom: 8px; }
-.rule-block p { font-size: 13px; margin: 0; color: #3a3a38; }
+.rule-block p { font-size: 13px; margin: 0; color: var(--ink); }
 .version-badge { display: inline-block; border: 1px solid var(--blue); padding: 4px 12px; font-size: 10px; font-weight: 600; color: var(--blue); margin-bottom: 28px; }
 
 /* ── DARK MODE TOGGLE ── */
@@ -350,7 +350,7 @@ nav a.active { opacity: 1; color: var(--blue); border-bottom-color: var(--blue);
 .legal .legal__date { font-size: 11px; color: var(--muted); margin-bottom: 32px; display: block; }
 .legal h2 { font-size: 15px; font-weight: 700; margin: 32px 0 10px; padding-top: 24px; border-top: 1px solid var(--rule); }
 .legal h2:first-of-type { border-top: none; padding-top: 0; }
-.legal p, .legal li { font-size: 14px; line-height: 1.8; color: #3a3a38; margin-bottom: 10px; }
+.legal p, .legal li { font-size: 14px; line-height: 1.8; color: var(--ink); margin-bottom: 10px; }
 [data-theme="dark"] .legal p, [data-theme="dark"] .legal li { color: var(--muted); }
 .legal ul { padding-left: 20px; margin-bottom: 12px; }
 .legal a { color: var(--blue); border-bottom: 1px solid transparent; transition: border-color var(--trans); }
