@@ -16,7 +16,7 @@
   <base href="/lesfaits/"/>
   <link rel="stylesheet" href="src/style.css"/>
   <script>
-(function(){var s=localStorage.getItem('theme'),d=s==='dark'||(s===null&&window.matchMedia('(prefers-color-scheme:dark)').matches);document.documentElement.setAttribute('data-theme',d?'dark':'light');})();
+(function(){var s=localStorage.getItem('theme');document.documentElement.setAttribute('data-theme',s==='dark'?'dark':'light');})();
 </script>
 </head>
 <body>
@@ -76,14 +76,6 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeMenu();
   <h2 class="art__h2">Les faits</h2><p>Selon une étude menée par l'University College de Londres, arrêter de fumer, même tard dans la vie, réduit les risques de démence et retarde le déclin cognitif. Les chercheurs ont analysé les données de plus de 9 400 fumeurs et ont constaté que ceux qui arrêtent de fumer voient leur risque de démence reculer, jusqu'à rejoindre celui des personnes n'ayant jamais touché à une cigarette. D'après l'étude, les anciens fumeurs qui arrêtent de fumer à un âge moyen réduisent leur déclin cognitif en comparaison avec ceux qui poursuivent leur tabagisme. Selon The Lancet, le déclin de la mémoire est ralenti chez les ex-fumeurs, comparé à ceux qui ne renoncent pas au tabagisme. Une autre étude a révélé que fumer plus d'un paquet par jour augmente de 40 % le risque de développer Alzheimer, mais que l'arrêt du tabac ralentit le déclin cognitif, même après 50 ans. Les chercheurs soulignent que ces résultats sont importants, car ils montrent que l'arrêt du tabagisme peut avoir un impact positif sur la santé cognitive, même à un âge avancé.</p>
   <h2 class="art__h2">Contexte</h2><p>Le tabagisme est responsable de plus de 7 millions de décès chaque année dans le monde et augmente le risque de démence. Les études ont montré que le tabagisme peut nuire à la santé cognitive et que l'arrêt du tabac peut réduire le déclin cognitif. Les chercheurs estiment que les résultats de ces études pourraient avoir des implications importantes pour la prévention et le traitement de la démence. Selon les données de l'Organisation mondiale de la santé (OMS), le tabagisme est la principale cause de décès évitables dans le monde. Les études ont également montré que l'arrêt du tabagisme peut réduire le risque de maladies cardiovasculaires, de cancers et de autres problèmes de santé. Les gouvernements et les organisations de santé publique ont mis en place des programmes pour aider les fumeurs à arrêter de fumer et pour prévenir le tabagisme chez les jeunes.</p>
   <h2 class="art__h2">Débats et nuances</h2><p>Il est important de noter que les résultats de ces études ne signifient pas que l'arrêt du tabagisme est facile ou que les fumeurs peuvent simplement arrêter de fumer sans aide. Les chercheurs soulignent que l'arrêt du tabagisme nécessite souvent une approche multidisciplinaire, incluant des conseils, des médicaments et un soutien social. De plus, les études ont montré que les fumeurs qui arrêtent de fumer peuvent encore être exposés à des risques pour leur santé, tels que des problèmes respiratoires et cardiovasculaires. Les chercheurs estiment que les résultats de ces études pourraient avoir des implications importantes pour la prévention et le traitement de la démence, mais qu'il est important de poursuivre les recherches pour mieux comprendre les effets de l'arrêt du tabagisme sur la santé cognitive.</p>
-  <div class="spectrum">
-  <div class="spectrum__title">POSITIONS DES ACTEURS</div>
-  <div class="spectrum__labels"><span>Pour l'arrêt du tabagisme</span><span>Contre l'arrêt du tabagisme</span></div>
-  <div class="spectrum__track"><div class="spectrum__marker" style="left:80%"><span class="spectrum__marker-dot" style="background:#4a90d9"></span></div>
-<div class="spectrum__marker" style="left:90%"><span class="spectrum__marker-dot" style="background:#e57373"></span></div></div>
-  <div class="spectrum__legend"><div class="spectrum__legend-item"><span class="spectrum__legend-dot" style="background:#4a90d9"></span><span class="spectrum__legend-name">University College de Londres</span><span class="spectrum__legend-sub">Étude sur les effets de l'arrêt du tabagisme</span></div>
-<div class="spectrum__legend-item"><span class="spectrum__legend-dot" style="background:#e57373"></span><span class="spectrum__legend-name">Organisation mondiale de la santé</span><span class="spectrum__legend-sub">Recommandations pour l'arrêt du tabagisme</span></div></div>
-</div>
   <div class="art__share">
   <span class="art__share-label">Partager</span>
   <button class="share-btn share-btn--native" onclick="shareArticle()" style="display:none" id="native-share">↗ Partager</button>

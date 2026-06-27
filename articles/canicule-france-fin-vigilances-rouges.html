@@ -16,7 +16,7 @@
   <base href="/lesfaits/"/>
   <link rel="stylesheet" href="src/style.css"/>
   <script>
-(function(){var s=localStorage.getItem('theme'),d=s==='dark'||(s===null&&window.matchMedia('(prefers-color-scheme:dark)').matches);document.documentElement.setAttribute('data-theme',d?'dark':'light');})();
+(function(){var s=localStorage.getItem('theme');document.documentElement.setAttribute('data-theme',s==='dark'?'dark':'light');})();
 </script>
 </head>
 <body>
@@ -76,14 +76,6 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeMenu();
   <h2 class="art__h2">Les faits</h2><p>Selon Météo-France, la canicule a touché une grande partie de la France, avec des températures extrêmes atteignant jusqu'à 40°C dans certains départements. D'après le site de Météo-France, 37 départements étaient encore en vigilance rouge samedi matin, principalement dans les régions du centre, de l'est et du nord-est du pays, ainsi que dans la région parisienne. Selon France 24, Météo-France a annoncé une fin des vigilances rouges pour dimanche soir, à 22 heures, après 13 rétrogradations de vigilance depuis samedi matin. D'après Le Monde, la canicule a commencé à reculer, mais des orages sont attendus samedi, notamment dans les régions du Centre-Val-de-Loire et des Hauts-de-France. Selon France Info, la canicule se déplace vers le nord-est et le mercure pourrait encore atteindre entre 40 et 42°C dans les départements en rouge.</p>
   <h2 class="art__h2">Contexte</h2><p>La canicule est un phénomène météorologique qui se produit lorsque les températures sont anormalement élevées pendant une période prolongée. Selon l'Organisation météorologique mondiale (OMM), la canicule est l'un des phénomènes météorologiques les plus meurtriers au monde. En France, la canicule est un phénomène récurrent, avec des épisodes de chaleur extrême qui se produisent régulièrement pendant l'été. D'après l'Institut national de la santé et de la recherche médicale (INSERM), la canicule peut avoir des conséquences graves sur la santé, notamment pour les personnes âgées, les enfants et les personnes souffrant de maladies chroniques. Selon le ministère de la Santé, la canicule peut également avoir des conséquences économiques importantes, notamment dans les secteurs de l'agriculture et de la production d'énergie.</p>
   <h2 class="art__h2">Débats et nuances</h2><p>Il est important de noter que la canicule est un phénomène complexe qui dépend de nombreux facteurs, notamment les conditions météorologiques, la topographie et l'urbanisation. Selon Météo-France, la canicule peut être influencée par des facteurs tels que la température de la mer et les courants aériens. D'après l'OMM, la canicule peut également être influencée par les changements climatiques, qui peuvent entraîner une augmentation des températures moyennes et des épisodes de chaleur extrême. Il est donc important de prendre des mesures pour prévenir et atténuer les effets de la canicule, notamment en améliorant la prévision météorologique et en mettant en place des plans d'urgence pour protéger les populations vulnérables.</p>
-  <div class="spectrum">
-  <div class="spectrum__title">POSITIONS DES ACTEURS</div>
-  <div class="spectrum__labels"><span>Pour la prévention des canicules</span><span>Contre les mesures de prévention</span></div>
-  <div class="spectrum__track"><div class="spectrum__marker" style="left:20%"><span class="spectrum__marker-dot" style="background:#4a90d9"></span></div>
-<div class="spectrum__marker" style="left:75%"><span class="spectrum__marker-dot" style="background:#e57373"></span></div></div>
-  <div class="spectrum__legend"><div class="spectrum__legend-item"><span class="spectrum__legend-dot" style="background:#4a90d9"></span><span class="spectrum__legend-name">Météo-France</span><span class="spectrum__legend-sub">Prévision météorologique</span></div>
-<div class="spectrum__legend-item"><span class="spectrum__legend-dot" style="background:#e57373"></span><span class="spectrum__legend-name">Ministère de la Santé</span><span class="spectrum__legend-sub">Mesures de prévention</span></div></div>
-</div>
   <div class="art__share">
   <span class="art__share-label">Partager</span>
   <button class="share-btn share-btn--native" onclick="shareArticle()" style="display:none" id="native-share">↗ Partager</button>

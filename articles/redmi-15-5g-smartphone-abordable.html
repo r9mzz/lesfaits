@@ -16,7 +16,7 @@
   <base href="/lesfaits/"/>
   <link rel="stylesheet" href="src/style.css"/>
   <script>
-(function(){var s=localStorage.getItem('theme'),d=s==='dark'||(s===null&&window.matchMedia('(prefers-color-scheme:dark)').matches);document.documentElement.setAttribute('data-theme',d?'dark':'light');})();
+(function(){var s=localStorage.getItem('theme');document.documentElement.setAttribute('data-theme',s==='dark'?'dark':'light');})();
 </script>
 </head>
 <body>
@@ -76,14 +76,6 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeMenu();
   <h2 class="art__h2">Les faits</h2><p>Selon les spécifications techniques fournies par Xiaomi France, le Redmi 15 5G est équipé d'un écran de 6,9 pouces avec un taux de rafraîchissement de 144 Hz, ce qui en fait un choix attractif pour les utilisateurs qui recherchent une expérience visuelle fluide. D'après les tests réalisés par les sites spécialisés tels que Les Mobiles et Notebookcheck, le Redmi 15 5G offre une autonomie record grâce à sa batterie de 7000 mAh. Selon les tests de Frandroid, le Redmi 15 5G est capable de tenir plus de deux jours avec une utilisation intensive. Le processeur Qualcomm Snapdragon 6s Gen 3 équipant ce modèle est conçu pour offrir une réactivité convaincante pour les usages quotidiens, sans atteindre les sommets des processeurs haut de gamme, selon les informations fournies par Qualcomm.</p>
   <h2 class="art__h2">Contexte</h2><p>Le marché des smartphones abordables est en constante évolution, avec des marques telles que Xiaomi qui proposent des modèles de plus en plus performants à des prix de plus en plus compétitifs. Selon les données de marché fournies par les sites spécialisés, le Redmi 15 5G est l'un des meilleurs choix pour les consommateurs qui recherchent un smartphone abordable avec des caractéristiques techniques de haut niveau. D'après les comparatifs réalisés par les sites tels que Idealo, le Redmi 15 5G est actuellement l'un des meilleurs smartphones 5G disponibles à moins de 150 €. Les tests réalisés par les sites spécialisés tels que Unite4buy et Nomade Urbain ont également mis en évidence les qualités de ce modèle, notamment en termes d'autonomie et de performances.</p>
   <h2 class="art__h2">Débats et nuances</h2><p>Il est important de noter que le Redmi 15 5G n'est pas sans limites. Selon les tests réalisés par les sites spécialisés, le modèle peut présenter des limitations en termes de performances graphiques, notamment pour les jeux les plus exigeants. D'après les commentaires des utilisateurs, le Redmi 15 5G peut également présenter des problèmes de compatibilité avec certaines applications. Cependant, ces limites sont relativement mineures par rapport aux avantages offerts par ce modèle, notamment en termes d'autonomie et de performances générales.</p>
-  <div class="spectrum">
-  <div class="spectrum__title">POSITIONS DES ACTEURS</div>
-  <div class="spectrum__labels"><span>Pour le Redmi 15 5G</span><span>Contre le Redmi 15 5G</span></div>
-  <div class="spectrum__track"><div class="spectrum__marker" style="left:80%"><span class="spectrum__marker-dot" style="background:#4a90d9"></span></div>
-<div class="spectrum__marker" style="left:60%"><span class="spectrum__marker-dot" style="background:#e57373"></span></div></div>
-  <div class="spectrum__legend"><div class="spectrum__legend-item"><span class="spectrum__legend-dot" style="background:#4a90d9"></span><span class="spectrum__legend-name">Xiaomi</span><span class="spectrum__legend-sub">Fabricant du Redmi 15 5G</span></div>
-<div class="spectrum__legend-item"><span class="spectrum__legend-dot" style="background:#e57373"></span><span class="spectrum__legend-name">Futura Sciences</span><span class="spectrum__legend-sub">Site d'information sur les technologies</span></div></div>
-</div>
   <div class="art__share">
   <span class="art__share-label">Partager</span>
   <button class="share-btn share-btn--native" onclick="shareArticle()" style="display:none" id="native-share">↗ Partager</button>

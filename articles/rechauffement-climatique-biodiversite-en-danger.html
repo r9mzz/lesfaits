@@ -16,7 +16,7 @@
   <base href="/lesfaits/"/>
   <link rel="stylesheet" href="src/style.css"/>
   <script>
-(function(){var s=localStorage.getItem('theme'),d=s==='dark'||(s===null&&window.matchMedia('(prefers-color-scheme:dark)').matches);document.documentElement.setAttribute('data-theme',d?'dark':'light');})();
+(function(){var s=localStorage.getItem('theme');document.documentElement.setAttribute('data-theme',s==='dark'?'dark':'light');})();
 </script>
 </head>
 <body>
@@ -76,14 +76,6 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeMenu();
   <h2 class="art__h2">Les faits</h2><p>Selon des chercheurs, le réchauffement climatique met la biodiversité en danger, avec des conséquences dévastatrices sur les populations animales. D'après une étude publiée sur le site de Futura Sciences, les chercheurs ont découvert un mécanisme secret qui menace l'extinction massive des espèces animales. Selon cette étude, la montée des températures peut avoir un effet dévastateur sur les populations animales, avec des conséquences considérables sur la biodiversité mondiale. D'après le site de MSN, la menace d'extinction liée au changement climatique va doubler le nombre d'espèces menacées. Selon le site de Nature, la recherche souligne l'urgence de fixer des objectifs de réduction des émissions pour prévenir les conséquences dévastatrices du réchauffement climatique. D'après le site de Le Monde, au niveau de réchauffement actuel (environ + 1,3 °C par rapport à l'ère préindustrielle), 1,6 % des espèces pourraient disparaître du fait de la crise climatique.</p>
   <h2 class="art__h2">Contexte</h2><p>Le réchauffement climatique est un phénomène qui a des conséquences considérables sur la biodiversité mondiale. Selon des études, la montée des températures peut avoir des effets dévastateurs sur les populations animales, avec des conséquences considérables sur la biodiversité. Les réserves naturelles sont également en alerte, avec un déclin des populations d'insectes qui révèle une crise silencieuse et menace la biodiversité. D'après le site de Science et Vie, la chaleur extrême provoque des morts massives et accélère l'effondrement de nombreuses espèces à l'échelle mondiale. Selon le site de Camer News, les chercheurs ont découvert un mécanisme secret qui menace l'extinction massive des espèces animales.</p>
   <h2 class="art__h2">Débats et nuances</h2><p>Il est important de noter que les conséquences du réchauffement climatique sur la biodiversité sont complexes et multifacettes. Selon des études, la menace d'extinction liée au changement climatique est considérable, mais il est également important de prendre en compte les autres facteurs qui influencent la biodiversité, tels que la déforestation, la pollution et la surexploitation des ressources naturelles. D'après le site de Futura Sciences, les chercheurs soulignent l'importance de prendre des mesures pour prévenir les conséquences dévastatrices du réchauffement climatique, notamment en réduisant les émissions de gaz à effet de serre et en protégeant les réserves naturelles.</p>
-  <div class="spectrum">
-  <div class="spectrum__title">POSITIONS DES ACTEURS</div>
-  <div class="spectrum__labels"><span>Pour la protection de la biodiversité</span><span>Contre la protection de la biodiversité</span></div>
-  <div class="spectrum__track"><div class="spectrum__marker" style="left:20%"><span class="spectrum__marker-dot" style="background:#4a90d9"></span></div>
-<div class="spectrum__marker" style="left:75%"><span class="spectrum__marker-dot" style="background:#e57373"></span></div></div>
-  <div class="spectrum__legend"><div class="spectrum__legend-item"><span class="spectrum__legend-dot" style="background:#4a90d9"></span><span class="spectrum__legend-name">Futura Sciences</span><span class="spectrum__legend-sub">Site d'information scientifique</span></div>
-<div class="spectrum__legend-item"><span class="spectrum__legend-dot" style="background:#e57373"></span><span class="spectrum__legend-name">Le Monde</span><span class="spectrum__legend-sub">Journal français</span></div></div>
-</div>
   <div class="art__share">
   <span class="art__share-label">Partager</span>
   <button class="share-btn share-btn--native" onclick="shareArticle()" style="display:none" id="native-share">↗ Partager</button>

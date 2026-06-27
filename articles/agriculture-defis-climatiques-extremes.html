@@ -15,7 +15,7 @@
 <base href="/lesfaits/"/>
 <link href="src/style.css" rel="stylesheet"/>
 <script>
-(function(){var s=localStorage.getItem('theme'),d=s==='dark'||(s===null&&window.matchMedia('(prefers-color-scheme:dark)').matches);document.documentElement.setAttribute('data-theme',d?'dark':'light');})();
+(function(){var s=localStorage.getItem('theme');document.documentElement.setAttribute('data-theme',s==='dark'?'dark':'light');})();
 </script>
 <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large"/>
 <meta property="og:url" content="https://r9mzz.github.io/lesfaits/articles/agriculture-defis-climatiques-extremes.html"/>
@@ -91,16 +91,6 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeMenu();
 <h2>Les faits</h2><p>Selon le rapport n° 516 (2024-2025) du Sénat, l'agriculture est la première victime des déséquilibres naturels. Selon l'INRAE, les impacts du changement climatique sur l'agriculture sont déjà visibles, avec des conséquences sur les récoltes et la santé des animaux. Selon Geo.fr, la pire récolte de blé en 40 ans a été enregistrée en 2024, et les maladies animales ont connu une flambée redoutable. Selon la Chambre d'agriculture France, les agriculteurs doivent s'adapter aux nouvelles conditions climatiques tout en luttant contre le dérèglement climatique. Selon Paysans.fr, la sécheresse, la canicule et le vent forment un cocktail dangereux qui menace les récoltes et fragilise les agriculteurs.</p>
 <h2>Contexte</h2><p>Le changement climatique a des impacts importants sur l'agriculture, selon l'INRAE. Les scientifiques ont étudié les conséquences du réchauffement climatique sur les récoltes et la santé des animaux. Selon le Sénat, le modèle agricole actuel conduit au dépassement de certaines limites planétaires. La Chambre d'agriculture France souligne l'importance de l'adaptation aux nouvelles conditions climatiques pour les agriculteurs.</p>
 <h2>Débats et nuances</h2><p>Il est difficile de prédire avec certitude les conséquences du changement climatique sur l'agriculture, selon les sources. Les impacts peuvent varier en fonction des régions et des types de cultures. Selon l'INRAE, il est important de prendre en compte les connaissances actuelles pour proposer des solutions pragmatiques et adaptées. Cependant, les sources ne permettent pas de conclure sur les mesures les plus efficaces pour lutter contre le dérèglement climatique dans le secteur agricole.</p>
-<div class="spectrum">
-<div class="spectrum__title">POSITIONS DES ACTEURS</div>
-<div class="spectrum__labels"><span>Pour l'adaptation agricole</span><span>Contre la mesure / Critique</span></div>
-<div class="spectrum__track"><div class="spectrum__marker" style="left:20%"><span class="spectrum__marker-dot" style="background:#4a90d9"></span></div>
-<div class="spectrum__marker" style="left:20%"><span class="spectrum__marker-dot" style="background:#e57373"></span></div>
-<div class="spectrum__marker" style="left:0%"><span class="spectrum__marker-dot" style="background:#66bb6a"></span></div></div>
-<div class="spectrum__legend"><div class="spectrum__legend-item"><span class="spectrum__legend-dot" style="background:#4a90d9"></span><span class="spectrum__legend-name">David Renaudeau</span><span class="spectrum__legend-sub">Favorable adaptation</span></div>
-<div class="spectrum__legend-item"><span class="spectrum__legend-dot" style="background:#e57373"></span><span class="spectrum__legend-name">Inaki Garcia de Cortazar-Atauri</span><span class="spectrum__legend-sub">Favorable innovation</span></div>
-<div class="spectrum__legend-item"><span class="spectrum__legend-dot" style="background:#66bb6a"></span><span class="spectrum__legend-name">GIEC</span><span class="spectrum__legend-sub">Alerte climatique</span></div></div>
-</div>
 <div class="art__tags" aria-label="Mots-clés"><span class="art__tag">agriculture</span><span class="art__tag">climat</span><span class="art__tag">INRAE</span><span class="art__tag">sécheresse</span><span class="art__tag">récoltes</span></div>
 <div class="art__share">
   <span class="art__share-label">Partager</span>
@@ -117,8 +107,8 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeMenu();
 <a class="contest-btn" href="../contact.html?article=agriculture-defis-climatiques-extremes#erreur">Signaler une erreur sur cet article</a>
 </div>
 </main>
-<div class="art__related"><div class="art__related-title">À LIRE AUSSI</div><div class="art__related-grid"><a class="art__related-card" href="loi-contre-ultrafast-fashion-adoptee.html"><span class="cat">ENVIRONNEMENT</span><div class="title-sm">Loi contre l'ultra fast fashion adoptée</div><div style="font-size:10px;color:var(--muted);margin-top:6px">25 juin 2026, 21h55</div></a>
-<a class="art__related-card" href="emissions-co2-france-recul-2023.html"><span class="cat">ENVIRONNEMENT</span><div class="title-sm">Émissions de CO2 en France : un recul de 5,8% en 2023</div><div style="font-size:10px;color:var(--muted);margin-top:6px">25 juin 2026, 21h51</div></a>
+<div class="art__related"><div class="art__related-title">À LIRE AUSSI</div><div class="art__related-grid"><a class="art__related-card" href="articles/loi-contre-ultrafast-fashion-adoptee.html"><span class="cat">ENVIRONNEMENT</span><div class="title-sm">Loi contre l'ultra fast fashion adoptée</div><div style="font-size:10px;color:var(--muted);margin-top:6px">25 juin 2026, 21h55</div></a>
+<a class="art__related-card" href="articles/emissions-co2-france-recul-2023.html"><span class="cat">ENVIRONNEMENT</span><div class="title-sm">Émissions de CO2 en France : un recul de 5,8% en 2023</div><div style="font-size:10px;color:var(--muted);margin-top:6px">25 juin 2026, 21h51</div></a>
 </div></div>
 <footer class="footer" role="contentinfo" aria-label="Pied de page">
   <div class="footer__inner">

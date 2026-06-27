@@ -16,7 +16,7 @@
   <base href="/lesfaits/"/>
   <link rel="stylesheet" href="src/style.css"/>
   <script>
-(function(){var s=localStorage.getItem('theme'),d=s==='dark'||(s===null&&window.matchMedia('(prefers-color-scheme:dark)').matches);document.documentElement.setAttribute('data-theme',d?'dark':'light');})();
+(function(){var s=localStorage.getItem('theme');document.documentElement.setAttribute('data-theme',s==='dark'?'dark':'light');})();
 </script>
 </head>
 <body>
@@ -76,16 +76,6 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeMenu();
   <h2 class="art__h2">Les faits</h2><p>Selon le site de Futura Sciences, l'Espagne a connu l'été le plus chaud jamais enregistré en 2025, battant tous les records de température à ce jour dans son histoire nationale. D'après Euronews, le pays a mis en place un réseau national d'abris climatiques pour aider la population à se protéger lors des fortes vagues de chaleur. Selon France 24, l'Espagne multiplie les dispositifs pour aider sa population à s'adapter à la canicule, notamment en instaurant des journées de repos pour les travailleurs. D'après Geo.fr, le Premier ministre espagnol Pedro Sánchez a annoncé la mise en place d'un réseau national d'abris climatiques pour aider la population à se protéger lors des fortes vagues de chaleur. Selon Le Figaro, l'Espagne est en première ligne du dérèglement climatique en Europe, avec des épisodes de canicule plus longs en été et des cas de pluies torrentielles à l'automne. D'après Le Monde, la durée, l'ampleur et l'intensité des épisodes de canicule ne cessent d'augmenter en Espagne, ce qui nécessite des mesures concrètes pour protéger la population, notamment les personnes vulnérables.</p>
   <h2 class="art__h2">Contexte</h2><p>Le changement climatique est un phénomène mondial qui affecte de plus en plus de pays, notamment l'Espagne. Selon l'Aemet, la température moyenne en Espagne a augmenté de 1,5°C depuis les années 1960, ce qui est supérieur à la moyenne mondiale. D'après l'OMS, les canicules sont responsables de milliers de morts chaque année dans le monde, notamment parmi les personnes âgées et les personnes souffrant de maladies chroniques. Selon l'UE, l'Espagne est l'un des pays les plus exposés aux canicules en Europe, avec des températures qui peuvent atteindre 45°C en été. D'après la Commission européenne, les canicules peuvent avoir des impacts économiques importants, notamment sur l'agriculture et la santé publique.</p>
   <h2 class="art__h2">Débats et nuances</h2><p>Il est important de noter que les refuges climatiques ne sont pas une solution miracle pour lutter contre les canicules. Selon certains experts, il est nécessaire de prendre des mesures plus globales pour lutter contre le changement climatique, notamment en réduisant les émissions de gaz à effet de serre. D'après d'autres experts, les refuges climatiques peuvent être efficaces pour protéger les personnes vulnérables, mais il est nécessaire de les rendre accessibles à tous, notamment dans les zones rurales. Selon certains critiques, les refuges climatiques peuvent être coûteux à mettre en place et à maintenir, ce qui peut être un obstacle pour les communes qui ont des ressources limitées.</p>
-  <div class="spectrum">
-  <div class="spectrum__title">POSITIONS DES ACTEURS</div>
-  <div class="spectrum__labels"><span>Pour les refuges climatiques</span><span>Contre les refuges climatiques</span></div>
-  <div class="spectrum__track"><div class="spectrum__marker" style="left:80%"><span class="spectrum__marker-dot" style="background:#4a90d9"></span></div>
-<div class="spectrum__marker" style="left:90%"><span class="spectrum__marker-dot" style="background:#e57373"></span></div>
-<div class="spectrum__marker" style="left:70%"><span class="spectrum__marker-dot" style="background:#66bb6a"></span></div></div>
-  <div class="spectrum__legend"><div class="spectrum__legend-item"><span class="spectrum__legend-dot" style="background:#4a90d9"></span><span class="spectrum__legend-name">Pedro Sánchez</span><span class="spectrum__legend-sub">Premier ministre espagnol</span></div>
-<div class="spectrum__legend-item"><span class="spectrum__legend-dot" style="background:#e57373"></span><span class="spectrum__legend-name">Aemet</span><span class="spectrum__legend-sub">Agence météorologique espagnole</span></div>
-<div class="spectrum__legend-item"><span class="spectrum__legend-dot" style="background:#66bb6a"></span><span class="spectrum__legend-name">Commission européenne</span><span class="spectrum__legend-sub">Institution européenne</span></div></div>
-</div>
   <div class="art__share">
   <span class="art__share-label">Partager</span>
   <button class="share-btn share-btn--native" onclick="shareArticle()" style="display:none" id="native-share">↗ Partager</button>

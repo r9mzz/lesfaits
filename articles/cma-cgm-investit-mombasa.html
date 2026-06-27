@@ -16,7 +16,7 @@
   <base href="/lesfaits/"/>
   <link rel="stylesheet" href="src/style.css"/>
   <script>
-(function(){var s=localStorage.getItem('theme'),d=s==='dark'||(s===null&&window.matchMedia('(prefers-color-scheme:dark)').matches);document.documentElement.setAttribute('data-theme',d?'dark':'light');})();
+(function(){var s=localStorage.getItem('theme');document.documentElement.setAttribute('data-theme',s==='dark'?'dark':'light');})();
 </script>
 </head>
 <body>
@@ -76,16 +76,6 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeMenu();
   <h2 class="art__h2">Les faits</h2><p>Selon le journal Le Monde, CMA CGM a proposé de construire un nouveau terminal et des installations logistiques sur le « hub » portuaire kényan, saturé mais qui constitue un accès convoité vers une région enclavée en forte croissance. D'après l'article, ce projet s'inscrit dans une offensive plus large de CMA CGM en Afrique, où l'entreprise marseillaise a déjà inauguré un pôle à Abidjan, en Côte d'Ivoire. Selon Afrik, l'accord a été signé en présence des présidents Emmanuel Macron et William Ruto, et vise à moderniser et à développer le port de Mombasa, qui est un accès convoité vers une région enclavée en forte croissance. D'après Construction Review Online, le montant de l'investissement est de 700 millions d'euros, et le projet devrait créer des emplois et stimuler l'économie locale. Selon Breakbulk News, l'accord a été signé dans le cadre du sommet Africa Forward, qui a eu lieu à Nairobi, et qui vise à promouvoir les échanges commerciaux et les investissements entre l'Afrique et la France.</p>
   <h2 class="art__h2">Contexte</h2><p>Le port de Mombasa est l'un des plus importants de la région, et il joue un rôle crucial dans le commerce international. Selon le journal Le Monde, le port est saturé, mais il constitue un accès convoité vers une région enclavée en forte croissance. D'après l'article, la région est en pleine croissance, et le port de Mombasa est un point de passage clé pour les marchandises qui transitent par la région. Selon Afrik, l'accord entre CMA CGM et le gouvernement kényan vise à moderniser et à développer le port, et à améliorer les infrastructures logistiques. D'après Construction Review Online, le projet devrait créer des emplois et stimuler l'économie locale, et il devrait également améliorer la compétitivité du port de Mombasa par rapport aux autres ports de la région.</p>
   <h2 class="art__h2">Débats et nuances</h2><p>Selon le journal Le Monde, l'accord entre CMA CGM et le gouvernement kényan a été signé dans un contexte de concurrence accrue entre les ports de la région. D'après l'article, le port de Mombasa doit faire face à la concurrence de ports tels que celui de Dar es Salaam, en Tanzanie, et celui de Djibouti. Selon Afrik, l'accord a été critiqué par certains qui estiment que le montant de l'investissement est trop élevé, et que le projet pourrait avoir des impacts négatifs sur l'environnement et les communautés locales. D'après Construction Review Online, le projet devrait être réalisé de manière à minimiser les impacts négatifs, et à maximiser les bénéfices pour les communautés locales.</p>
-  <div class="spectrum">
-  <div class="spectrum__title">POSITIONS DES ACTEURS</div>
-  <div class="spectrum__labels"><span>Pour l'investissement</span><span>Contre l'investissement</span></div>
-  <div class="spectrum__track"><div class="spectrum__marker" style="left:80%"><span class="spectrum__marker-dot" style="background:#4a90d9"></span></div>
-<div class="spectrum__marker" style="left:70%"><span class="spectrum__marker-dot" style="background:#e57373"></span></div>
-<div class="spectrum__marker" style="left:90%"><span class="spectrum__marker-dot" style="background:#66bb6a"></span></div></div>
-  <div class="spectrum__legend"><div class="spectrum__legend-item"><span class="spectrum__legend-dot" style="background:#4a90d9"></span><span class="spectrum__legend-name">CMA CGM</span><span class="spectrum__legend-sub">Groupe marseillais de transport maritime</span></div>
-<div class="spectrum__legend-item"><span class="spectrum__legend-dot" style="background:#e57373"></span><span class="spectrum__legend-name">Gouvernement kényan</span><span class="spectrum__legend-sub">Partenaire de l'accord</span></div>
-<div class="spectrum__legend-item"><span class="spectrum__legend-dot" style="background:#66bb6a"></span><span class="spectrum__legend-name">Président Emmanuel Macron</span><span class="spectrum__legend-sub">Initiateur du sommet Africa Forward</span></div></div>
-</div>
   <div class="art__share">
   <span class="art__share-label">Partager</span>
   <button class="share-btn share-btn--native" onclick="shareArticle()" style="display:none" id="native-share">↗ Partager</button>

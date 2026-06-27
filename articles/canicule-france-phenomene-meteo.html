@@ -16,7 +16,7 @@
   <base href="/lesfaits/"/>
   <link rel="stylesheet" href="src/style.css"/>
   <script>
-(function(){var s=localStorage.getItem('theme'),d=s==='dark'||(s===null&&window.matchMedia('(prefers-color-scheme:dark)').matches);document.documentElement.setAttribute('data-theme',d?'dark':'light');})();
+(function(){var s=localStorage.getItem('theme');document.documentElement.setAttribute('data-theme',s==='dark'?'dark':'light');})();
 </script>
 </head>
 <body>
@@ -76,14 +76,6 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeMenu();
   <h2 class="art__h2">Les faits</h2><p>Selon les données de Météo-France, la température à Paris a atteint 42,6 °C le 24 juin 2026, battant ainsi le record absolu de chaleur précédent, qui datait de 1947. D'après les informations de l'Institut national de la santé et de la recherche médicale (INSERM), les canicules sont responsables de plusieurs milliers de morts chaque année en France. Selon l'Organisation météorologique mondiale (OMM), les canicules sont de plus en plus fréquentes et intenses dans le monde entier, notamment en raison du réchauffement climatique. D'après les données de l'Agence européenne pour l'environnement (AEE), les températures moyennes en Europe ont augmenté de 1,7 °C depuis le début du XXe siècle, ce qui est supérieur à la moyenne mondiale. Selon les experts, les canicules ont des conséquences importantes pour la santé publique, notamment pour les personnes âgées, les enfants et les personnes souffrant de maladies chroniques. Les canicules peuvent également avoir des impacts importants sur l'environnement, notamment sur les écosystèmes et la biodiversité.</p>
   <h2 class="art__h2">Contexte</h2><p>La canicule est un phénomène météorologique qui se produit lorsque les températures sont anormalement élevées pendant une période prolongée. Les canicules sont souvent liées à des anticyclones, qui sont des zones de haute pression qui peuvent persister pendant plusieurs jours ou semaines. Les anticyclones peuvent provoquer une augmentation des températures en empêchant les nuages de se former et en faisant descendre l'air chaud vers le sol. Les canicules peuvent également être influencées par la topographie et la proximité de la mer. En France, les canicules sont plus fréquentes dans les régions du sud, notamment dans la vallée du Rhône et en Provence. Les canicules peuvent avoir des conséquences importantes pour l'économie, notamment pour l'agriculture et la production d'énergie. Selon les données de l'Institut national de la statistique et des études économiques (INSEE), les canicules peuvent entraîner des pertes importantes pour l'agriculture, notamment pour les cultures de céréales et de fruits.</p>
   <h2 class="art__h2">Débats et nuances</h2><p>Les canicules sont des phénomènes complexes qui peuvent être influencés par de nombreux facteurs, notamment les conditions météorologiques, la topographie et le réchauffement climatique. Les conséquences des canicules peuvent varier en fonction de la région, de la population et de l'économie. Il est important de prendre des mesures pour atténuer les effets des canicules, notamment en améliorant la prévention et la préparation, en renforçant les systèmes de santé et en promouvant des pratiques agricoles et énergétiques durables. Selon les experts, il est essentiel de prendre en compte les canicules dans les plans de développement et de gestion des risques, notamment pour les régions les plus vulnérables.</p>
-  <div class="spectrum">
-  <div class="spectrum__title">POSITIONS DES ACTEURS</div>
-  <div class="spectrum__labels"><span>Pour une meilleure prévention des canicules</span><span>Contre les mesures de réduction des émissions de gaz à effet de serre</span></div>
-  <div class="spectrum__track"><div class="spectrum__marker" style="left:20%"><span class="spectrum__marker-dot" style="background:#4a90d9"></span></div>
-<div class="spectrum__marker" style="left:75%"><span class="spectrum__marker-dot" style="background:#e57373"></span></div></div>
-  <div class="spectrum__legend"><div class="spectrum__legend-item"><span class="spectrum__legend-dot" style="background:#4a90d9"></span><span class="spectrum__legend-name">Météo-France</span><span class="spectrum__legend-sub">Prévision météorologique</span></div>
-<div class="spectrum__legend-item"><span class="spectrum__legend-dot" style="background:#e57373"></span><span class="spectrum__legend-name">INSERM</span><span class="spectrum__legend-sub">Recherche sur les effets de la canicule sur la santé</span></div></div>
-</div>
   <div class="art__share">
   <span class="art__share-label">Partager</span>
   <button class="share-btn share-btn--native" onclick="shareArticle()" style="display:none" id="native-share">↗ Partager</button>
