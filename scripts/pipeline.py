@@ -32,8 +32,9 @@ INDEX_JSON= DATA / "articles.json"
 ARTICLES.mkdir(exist_ok=True)
 DATA.mkdir(exist_ok=True)
 
-GROQ_KEY  = os.getenv("GROQ_API_KEY", "")
-GROQ_KEY2 = os.getenv("GROQ_API_KEY_2", "")
+GROQ_KEY       = os.getenv("GROQ_API_KEY", "")
+GROQ_KEY2      = os.getenv("GROQ_API_KEY_2", "")
+UNSPLASH_KEY   = os.getenv("UNSPLASH_ACCESS_KEY", "")
 
 # ══════════════════════════════════════════════════════════════════════════════
 # SOURCES RSS — retournent du texte propre, pas de JavaScript
@@ -625,10 +626,94 @@ def _slug_ascii(s: str) -> str:
     return "".join(c for c in s if unicodedata.category(c) != "Mn")
 
 
+def _generate_fallback_image(title: str, category: str, slug: str, dest: str) -> None:
+    """Génère une infographie typographique 1200x630 avec Pillow."""
+    try:
+        from PIL import Image, ImageDraw, ImageFont
+    except ImportError:
+        return
+
+    CAT_COLORS = {
+        "societe": "#1a1a2e", "science": "#0f3460", "economie": "#1b262c",
+        "tech": "#16213e", "sante": "#1a2f1a", "environnement": "#1a2f1a",
+    }
+    bg_color   = CAT_COLORS.get(category.lower(), "#111111")
+    blue       = "#2563eb"
+    W, H       = 1200, 630
+
+    img  = Image.new("RGB", (W, H), bg_color)
+    draw = ImageDraw.Draw(img)
+
+    # Bande colorée en haut
+    draw.rectangle([(0, 0), (W, 40)], fill=blue)
+
+    # Polices — essaie DejaVuSans (toujours dispo dans Pillow)
+    def _font(size, bold=False):
+        try:
+            name = "DejaVuSans-Bold.ttf" if bold else "DejaVuSans.ttf"
+            return ImageFont.truetype(name, size)
+        except Exception:
+            return ImageFont.load_default()
+
+    font_logo  = _font(26, bold=True)
+    font_cat   = _font(15)
+    font_title = _font(42, bold=True)
+    font_sub   = _font(14)
+
+    # Logo
+    draw.text((32, 8), "lesfaits", font=font_logo, fill="white")
+
+    # Catégorie
+    cat_label = {"societe":"SOCIÉTÉ","science":"SCIENCE","economie":"ÉCONOMIE",
+                 "tech":"TECH","sante":"SANTÉ","environnement":"ENVIRONNEMENT"}.get(category.lower(), category.upper())
+    draw.text((32, 70), cat_label, font=font_cat, fill=blue)
+
+    # Titre avec wrap manuel
+    max_w = W - 80
+    words  = title.split()
+    lines  = []
+    current = ""
+    for word in words:
+        test = (current + " " + word).strip()
+        bbox = draw.textbbox((0, 0), test, font=font_title)
+        if bbox[2] - bbox[0] > max_w and current:
+            lines.append(current)
+            current = word
+        else:
+            current = test
+    if current:
+        lines.append(current)
+
+    if len(lines) > 2:
+        lines = lines[:2]
+        lines[1] = lines[1][:40].rstrip() + "…"
+
+    y_title = 120
+    for line in lines:
+        draw.text((32, y_title), line, font=font_title, fill="white")
+        bbox = draw.textbbox((0, 0), line, font=font_title)
+        y_title += (bbox[3] - bbox[1]) + 12
+
+    # Ligne horizontale
+    draw.rectangle([(32, 520), (W - 32, 522)], fill=blue)
+
+    # Textes bas
+    from datetime import date as _date
+    today = _date.today()
+    MOIS_FR = ["","janvier","février","mars","avril","mai","juin","juillet","août","septembre","octobre","novembre","décembre"]
+    date_str = f"{today.day} {MOIS_FR[today.month]} {today.year}"
+    draw.text((32, 540), "Rédigé par IA · Les Faits", font=font_sub, fill="#888888")
+    bbox_date = draw.textbbox((0, 0), date_str, font=font_sub)
+    draw.text((W - 32 - (bbox_date[2] - bbox_date[0]), 540), date_str, font=font_sub, fill="#888888")
+
+    os.makedirs(os.path.dirname(dest) or ".", exist_ok=True)
+    img.save(dest, "JPEG", quality=90)
+
+
 def _download_hero(keyword: str, slug: str, dest: str) -> None:
-    """Cherche sur Wikimedia Commons (pertinent, libre de droits) puis Openverse, puis picsum."""
+    """Cherche image : Unsplash → Wikimedia Commons → Openverse → fallback Pillow."""
     import urllib.parse
-    os.makedirs(os.path.dirname(dest), exist_ok=True)
+    os.makedirs(os.path.dirname(dest) or ".", exist_ok=True)
     hdrs = {"User-Agent": "LesFaits/1.1 (lesfaits.contact@gmail.com)"}
 
     # Noms de fichier suspects : cartes, drapeaux, logos, diagrammes, blasons
@@ -646,6 +731,31 @@ def _download_hero(keyword: str, slug: str, dest: str) -> None:
         if w > 0 and h > 0 and (h / w > 1.4 or w / h < 0.5):
             return True
         return False
+
+    # 0. Unsplash — haute qualité, priorité 1 si clé disponible
+    if UNSPLASH_KEY:
+        try:
+            stopwords = {"le","la","les","de","du","en","un","une","et","pour","sur","par","au","aux","ce","qui","que","dans","est","son","ses","leur","leurs","avec","plus"}
+            kw_clean = " ".join(w for w in keyword.lower().split() if w not in stopwords)[:60]
+            r = requests.get(
+                "https://api.unsplash.com/search/photos",
+                params={"query": kw_clean, "orientation": "landscape", "per_page": 5},
+                headers={"Authorization": f"Client-ID {UNSPLASH_KEY}"},
+                timeout=10
+            )
+            if r.status_code == 429:
+                pass  # rate limit → continue vers Wikimedia
+            elif r.status_code == 200:
+                for photo in r.json().get("results", []):
+                    if photo.get("width", 0) >= 1200:
+                        img_url = photo["urls"]["regular"]
+                        photographer = photo.get("user", {}).get("name", "Unsplash")
+                        img_r = requests.get(img_url, timeout=15, headers=hdrs)
+                        if img_r.status_code == 200 and len(img_r.content) > 20_000:
+                            open(dest, "wb").write(img_r.content)
+                            return  # succès Unsplash
+        except Exception:
+            pass
 
     # 1. Wikimedia Commons — images thématiques libres, bien indexées par sujet
     try:
@@ -699,14 +809,8 @@ def _download_hero(keyword: str, slug: str, dest: str) -> None:
     except Exception:
         pass
 
-    # 3. Fallback picsum (neutre)
-    safe = _slug_ascii(slug)
-    try:
-        r = requests.get(f"https://picsum.photos/seed/{safe}/1200/500", timeout=15, headers=hdrs)
-        if r.status_code == 200:
-            open(dest, "wb").write(r.content)
-    except Exception:
-        pass
+    # 3. Fallback Pillow — infographie typographique
+    _generate_fallback_image(keyword, slug.split("-")[0] if slug else "societe", slug, dest)
 
 
 # ── Constantes UI partagées ──────────────────────────────────────────────────

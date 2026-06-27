@@ -174,7 +174,9 @@ nav a.active { opacity: 1; color: var(--blue); border-bottom-color: var(--blue);
 .cat-page__title { font-family: Georgia,serif; font-size: 34px; font-weight: 700; letter-spacing: -.5px; }
 
 /* ── PAGE ARTICLE ── */
-.art__hero { display:block; width:100%; max-height:420px; object-fit:cover; border-radius:4px; margin-bottom:28px; background:var(--light); }
+.art__hero { display:block; width:100%; aspect-ratio:1200/630; object-fit:cover; border-radius:4px; margin-bottom:28px; background:var(--light); }
+.article__hero { width:100%; margin:0 0 2rem 0; border-radius:4px; overflow:hidden; aspect-ratio:1200/630; }
+.article__hero img { width:100%; height:100%; object-fit:cover; display:block; }
 .art { max-width: 740px; margin: 0 auto; padding: 48px 32px 80px; }
 .art__back { font-size: 11px; color: var(--blue); border-bottom: 1px solid var(--blue); display: inline-block; margin-bottom: 32px; }
 .art__cat { font-size: 9px; font-weight: 700; letter-spacing: 2px; color: var(--blue); display: block; margin-bottom: 14px; }
