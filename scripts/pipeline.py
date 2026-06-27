@@ -721,11 +721,149 @@ def _generate_fallback_image(title: str, category: str, slug: str, dest: str) ->
     img.save(dest, "JPEG", quality=90)
 
 
-def _download_hero(keyword: str, slug: str, dest: str) -> None:
-    """Cherche image : Wikimedia Commons → Openverse → fallback Pillow."""
+# ── Classification des sources ───────────────────────────────────────────────
+
+_SOURCE_DOMAINS = {
+    "government": [
+        ".gouv.fr", ".gov", ".europa.eu", "elysee.fr", "assemblee-nationale.fr",
+        "senat.fr", "gouvernement.fr", "who.int", "un.org", "conseil-etat.fr",
+        "vie-publique.fr", "legifrance.gouv.fr",
+    ],
+    "institutional": [
+        "wikipedia.org", "wikimedia.org", "commons.wikimedia.org",
+        "insee.fr", "banque-france.fr", "has-sante.fr", "anses.fr",
+        "meteofrance.fr", "ined.fr", "cnrs.fr", "inserm.fr",
+        "nasa.gov", "esa.int", "cern.ch", "pasteur.fr",
+    ],
+    "press_agency": ["reuters.com", "afp.com", "apnews.com"],
+    "media": [
+        "lemonde.fr", "lefigaro.fr", "leparisien.fr", "liberation.fr",
+        "bbc.com", "theguardian.com", "nytimes.com", "francetvinfo.fr",
+        "franceinfo.fr", "rtl.fr", "bfmtv.com", "20minutes.fr",
+        "lepoint.fr", "lexpress.fr", "nouvelobs.com", "mediapart.fr",
+    ],
+}
+
+
+def classify_source(url: str) -> str:
+    """Retourne le type de source : government / institutional / press_agency / media / other."""
+    if not url:
+        return "other"
+    try:
+        host = urlparse(url).hostname or ""
+    except Exception:
+        return "other"
+    # Vérification dans l'ordre : press/media/institutional avant government
+    # pour que les domaines spécifiques priment sur les wildcards TLD (.gov, .gouv.fr)
+    priority = ["press_agency", "media", "institutional", "government"]
+    for stype in priority:
+        domains = _SOURCE_DOMAINS.get(stype, [])
+        if any(host == d.lstrip(".") or host.endswith(d) for d in domains):
+            return stype
+    return "other"
+
+
+def _extract_image_from_source(url: str, source_type: str, dest: str) -> bool:
+    """
+    Tente d'extraire une image depuis une source gouvernementale ou institutionnelle.
+    Retourne True si une image a été téléchargée avec succès.
+    """
+    hdrs = {"User-Agent": "LesFaits/1.1 (lesfaits.contact@gmail.com)"}
+
+    # Wikipedia → API REST propre, pas de scraping HTML
+    if "wikipedia.org" in url:
+        try:
+            parsed = urlparse(url)
+            lang = parsed.hostname.split(".")[0]  # "fr" ou "en"
+            title = parsed.path.rstrip("/").rsplit("/", 1)[-1]
+            api = f"https://{lang}.wikipedia.org/api/rest_v1/page/summary/{title}"
+            r = requests.get(api, timeout=10, headers=hdrs)
+            if r.status_code == 200:
+                data = r.json()
+                img_url = (data.get("originalimage") or data.get("thumbnail") or {}).get("source", "")
+                if img_url:
+                    ir = requests.get(img_url, timeout=15, headers=hdrs)
+                    if ir.status_code == 200 and len(ir.content) > 50_000:
+                        open(dest, "wb").write(ir.content)
+                        print(f"  [SOURCE] Image Wikipedia : {url}")
+                        return True
+        except Exception:
+            pass
+        return False
+
+    # Gouvernement / institutionnel → scraping og:image
+    if source_type in ("government", "institutional"):
+        try:
+            r = requests.get(url, timeout=12, headers=hdrs)
+            if r.status_code != 200:
+                return False
+            soup = BeautifulSoup(r.text, "html.parser")
+
+            img_url = ""
+
+            # 1. og:image — priorité maximale
+            og = soup.find("meta", property="og:image")
+            if og:
+                img_url = og.get("content", "")
+
+            # 2. Première <img> dans <article> ou <main> de largeur ≥ 600
+            if not img_url:
+                for container in soup.select("article, main, [role='main']"):
+                    for img in container.find_all("img"):
+                        src = img.get("src", "")
+                        try:
+                            w = int(img.get("width", 0))
+                        except (ValueError, TypeError):
+                            w = 0
+                        if src and w >= 600:
+                            img_url = src
+                            break
+                    if img_url:
+                        break
+
+            # 3. Première <figure> img
+            if not img_url:
+                fig = soup.select_one("figure img")
+                if fig:
+                    img_url = fig.get("src", "")
+
+            if not img_url:
+                return False
+
+            # URL relative → absolue
+            if img_url.startswith("//"):
+                img_url = "https:" + img_url
+            elif img_url.startswith("/"):
+                p = urlparse(url)
+                img_url = f"{p.scheme}://{p.hostname}{img_url}"
+
+            ir = requests.get(img_url, timeout=15, headers=hdrs)
+            if ir.status_code == 200 and len(ir.content) > 50_000:
+                open(dest, "wb").write(ir.content)
+                print(f"  [SOURCE] Image {source_type} : {urlparse(url).hostname}")
+                return True
+        except Exception:
+            pass
+
+    return False
+
+
+def _download_hero(keyword: str, slug: str, dest: str, sources: list | None = None) -> None:
+    """Cherche image : sources article → Wikimedia Commons → Openverse → fallback Pillow."""
     import urllib.parse
     os.makedirs(os.path.dirname(dest) or ".", exist_ok=True)
     hdrs = {"User-Agent": "LesFaits/1.1 (lesfaits.contact@gmail.com)"}
+
+    # 0. Sources de l'article — gouvernement / institutionnel / Wikipedia
+    for src in (sources or []):
+        url = src.get("url") or "" if isinstance(src, dict) else str(src)
+        if not url:
+            continue
+        stype = classify_source(url)
+        if stype in ("press_agency", "media"):
+            continue  # droits non libres
+        if _extract_image_from_source(url, stype, dest):
+            return
 
     # Noms de fichier suspects : cartes, drapeaux, logos, diagrammes, blasons
     _BAD_FILENAME = (
@@ -925,7 +1063,7 @@ def build_article_html(art: dict, date_pub: str) -> str:
     local_img_path = f"assets/images/{safe_slug}.jpg"
     if not os.path.exists(local_img_path):
         kw = _sanitize_image_keyword(art.get("image_keyword", ""), fallback=safe_slug)
-        _download_hero(kw, slug, local_img_path)
+        _download_hero(kw, slug, local_img_path, sources=art.get("sources", []))
     hero_src = local_img_path if os.path.exists(local_img_path) else ""
     hero_img = (
         f'<figure style="margin-bottom:28px">'
