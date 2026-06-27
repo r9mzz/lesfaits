@@ -34,6 +34,8 @@ DATA.mkdir(exist_ok=True)
 
 GROQ_KEY       = os.getenv("GROQ_API_KEY", "")
 GROQ_KEY2      = os.getenv("GROQ_API_KEY_2", "")
+PEXELS_KEY     = os.getenv("PEXELS_API_KEY", "")
+PIXABAY_KEY    = os.getenv("PIXABAY_API_KEY", "")
 
 # ══════════════════════════════════════════════════════════════════════════════
 # SOURCES RSS — retournent du texte propre, pas de JavaScript
@@ -848,92 +850,200 @@ def _extract_image_from_source(url: str, source_type: str, dest: str) -> bool:
     return False
 
 
-def _download_hero(keyword: str, slug: str, dest: str, sources: list | None = None) -> None:
-    """Cherche image : sources article → Wikimedia Commons → Openverse → fallback Pillow."""
+def extract_visual_keywords(title: str, summary: str, category: str) -> str:
+    """
+    Utilise Groq (llama-3.3-70b) pour extraire 3 mots-clés visuels en anglais.
+    Retourne une chaîne de mots séparés par des espaces, ex: "heat wave france summer"
+    Fallback sur le titre nettoyé si Groq indisponible.
+    """
+    key = GROQ_KEY or GROQ_KEY2
+    if not key:
+        # Fallback sans IA : nettoyer le titre
+        stopwords = {"le","la","les","de","du","en","un","une","et","pour","sur","par",
+                     "au","aux","ce","qui","que","dans","est","son","ses","leur","leurs"}
+        words = [w for w in title.lower().split() if w not in stopwords][:4]
+        return " ".join(words)
+    try:
+        messages = [{
+            "role": "user",
+            "content": (
+                f"Article: {title}\n"
+                f"Summary: {summary[:200]}\n"
+                f"Category: {category}\n\n"
+                "Extract 3-4 English keywords to search for a relevant stock photo illustration. "
+                "Prefer concrete visual subjects (place, object, event, scene). "
+                "Avoid abstract concepts. "
+                "Reply with ONLY the keywords separated by spaces, nothing else."
+            )
+        }]
+        result = _groq_call(key, messages, max_tokens=30)
+        # Nettoyer la réponse (parfois entre guillemets ou avec ponctuation)
+        clean = re.sub(r'[^\w\s]', '', result).strip().lower()
+        return clean[:80] if clean else title
+    except Exception:
+        return title
+
+
+def _download_hero(
+    keyword: str,
+    slug: str,
+    dest: str,
+    sources: list | None = None,
+    title: str = "",
+    summary: str = "",
+    category: str = "societe",
+) -> tuple[str, str]:
+    """
+    Cherche une image hero dans l'ordre de priorité :
+    0. Sources de l'article (gov/institutionnel/Wikipedia)
+    1. Wikimedia Commons
+    2. Openverse
+    3. Pexels
+    4. Pixabay
+    5. Pillow fallback
+
+    Retourne (source_type, credit) ex: ("wikimedia", "Wikimedia Commons")
+    """
     import urllib.parse
     os.makedirs(os.path.dirname(dest) or ".", exist_ok=True)
     hdrs = {"User-Agent": "LesFaits/1.1 (lesfaits.contact@gmail.com)"}
 
-    # 0. Sources de l'article — gouvernement / institutionnel / Wikipedia
+    # Noms de fichier suspects
+    _BAD = (
+        "map", "flag", "logo", "icon", "diagram", "chart", "graph", "coat",
+        "blason", "carte", "drapeau", "schema", "plan_", "seal_", "emblem",
+        "stamp", "badge", "symbol", "sign_", "portrait_", "headshot",
+    )
+
+    def _is_bad(url: str, w: int, h: int) -> bool:
+        fname = url.rsplit("/", 1)[-1].lower()
+        if any(b in fname for b in _BAD):
+            return True
+        if w > 0 and h > 0 and (h / w > 1.4 or w / h < 0.5):
+            return True
+        return False
+
+    def _save(data: bytes, source_type: str, credit: str) -> tuple[str, str]:
+        open(dest, "wb").write(data)
+        host = urlparse(dest).hostname or slug
+        print(f"  [OK] {slug} → {credit} ({source_type})")
+        return source_type, credit
+
+    # ── 0. Sources de l'article ──────────────────────────────────────────────
     for src in (sources or []):
         url = src.get("url") or "" if isinstance(src, dict) else str(src)
         if not url:
             continue
         stype = classify_source(url)
         if stype in ("press_agency", "media"):
-            continue  # droits non libres
+            print(f"  [SKIP] {urlparse(url).hostname} — droits non libres")
+            continue
         if _extract_image_from_source(url, stype, dest):
-            return
+            host = urlparse(url).hostname or url
+            return stype, host
 
-    # Noms de fichier suspects : cartes, drapeaux, logos, diagrammes, blasons
-    _BAD_FILENAME = (
-        "map", "flag", "logo", "icon", "diagram", "chart", "graph", "coat",
-        "blason", "carte", "drapeau", "schema", "plan_", "seal_", "emblem",
-        "stamp", "badge", "symbol", "sign_", "portrait_", "headshot",
-    )
+    # Mots-clés visuels en anglais via IA
+    vis_kw = extract_visual_keywords(title or keyword, summary, category)
 
-    def _is_bad_image(url: str, w: int, h: int) -> bool:
-        fname = url.rsplit("/", 1)[-1].lower()
-        if any(bad in fname for bad in _BAD_FILENAME):
-            return True
-        if w > 0 and h > 0 and (h / w > 1.4 or w / h < 0.5):
-            return True
-        return False
-
-    # 1. Wikimedia Commons — images thématiques libres, bien indexées par sujet
+    # ── 1. Wikimedia Commons ─────────────────────────────────────────────────
     try:
         params = urllib.parse.urlencode({
             "action": "query", "format": "json", "generator": "search",
-            "gsrnamespace": "6", "gsrsearch": keyword, "gsrlimit": "20",
+            "gsrnamespace": "6", "gsrsearch": vis_kw, "gsrlimit": "20",
             "prop": "imageinfo", "iiprop": "url|size|mime", "iiurlwidth": "1200"
         })
-        r = requests.get(f"https://commons.wikimedia.org/w/api.php?{params}", timeout=10, headers=hdrs)
+        r = requests.get(f"https://commons.wikimedia.org/w/api.php?{params}", timeout=5, headers=hdrs)
         pages = sorted(
             r.json().get("query", {}).get("pages", {}).values(),
             key=lambda p: -(p.get("imageinfo", [{}])[0].get("width", 0))
         )
         for page in pages:
             ii = page.get("imageinfo", [{}])[0]
-            mime = ii.get("mime", "")
-            if mime not in ("image/jpeg", "image/png", "image/webp"):
+            if ii.get("mime", "") not in ("image/jpeg", "image/png", "image/webp"):
                 continue
             img_url = ii.get("thumburl") or ii.get("url", "")
             if not img_url:
                 continue
-            width = ii.get("thumbwidth") or ii.get("width", 0)
-            height = ii.get("thumbheight") or ii.get("height", 0)
-            if width < 600 or height < 300:
+            w = ii.get("thumbwidth") or ii.get("width", 0)
+            h = ii.get("thumbheight") or ii.get("height", 0)
+            if w < 600 or h < 300 or _is_bad(img_url, w, h):
                 continue
-            if _is_bad_image(img_url, width, height):
-                continue
-            img_r = requests.get(img_url, timeout=15, headers=hdrs)
-            if img_r.status_code == 200 and len(img_r.content) > 20_000:
-                open(dest, "wb").write(img_r.content)
-                return
+            ir = requests.get(img_url, timeout=5, headers=hdrs)
+            if ir.status_code == 200 and len(ir.content) > 20_000:
+                return _save(ir.content, "wikimedia", "Wikimedia Commons")
     except Exception:
         pass
 
-    # 2. Openverse — images CC
+    # ── 2. Openverse ─────────────────────────────────────────────────────────
     try:
-        q = urllib.parse.urlencode({"q": keyword, "page_size": "10", "license_type": "commercial,modification"})
-        ov = requests.get(f"https://api.openverse.org/v1/images/?{q}", timeout=10, headers=hdrs)
+        q = urllib.parse.urlencode({"q": vis_kw, "page_size": "10",
+                                     "license_type": "commercial,modification"})
+        ov = requests.get(f"https://api.openverse.org/v1/images/?{q}", timeout=5, headers=hdrs)
         for item in ov.json().get("results", []):
             img_url = item.get("url", "")
             if not img_url.lower().endswith((".jpg", ".jpeg", ".png", ".webp")):
                 continue
             w = item.get("width", 0) or 0
             h = item.get("height", 0) or 0
-            if _is_bad_image(img_url, w, h):
+            if _is_bad(img_url, w, h):
                 continue
-            r = requests.get(img_url, timeout=15, headers=hdrs)
-            if r.status_code == 200 and len(r.content) > 20_000:
-                open(dest, "wb").write(r.content)
-                return
+            ir = requests.get(img_url, timeout=5, headers=hdrs)
+            if ir.status_code == 200 and len(ir.content) > 20_000:
+                creator = item.get("creator", "Openverse")
+                return _save(ir.content, "openverse", f"Openverse / {creator}")
     except Exception:
         pass
 
-    # 3. Fallback Pillow — infographie typographique
-    _generate_fallback_image(keyword, slug.split("-")[0] if slug else "societe", slug, dest)
+    # ── 3. Pexels (CGU : usage automatisé autorisé) ───────────────────────────
+    if PEXELS_KEY:
+        try:
+            r = requests.get(
+                "https://api.pexels.com/v1/search",
+                params={"query": vis_kw, "orientation": "landscape",
+                        "per_page": 5, "size": "large"},
+                headers={"Authorization": PEXELS_KEY},
+                timeout=5,
+            )
+            if r.status_code == 200:
+                for photo in r.json().get("photos", []):
+                    img_url = photo.get("src", {}).get("large2x", "")
+                    if not img_url:
+                        continue
+                    ir = requests.get(img_url, timeout=5, headers=hdrs)
+                    if ir.status_code == 200 and len(ir.content) > 20_000:
+                        photographer = photo.get("photographer", "Pexels")
+                        return _save(ir.content, "pexels", f"Pexels / {photographer}")
+        except Exception:
+            pass
+
+    # ── 4. Pixabay (CGU : usage automatisé autorisé) ─────────────────────────
+    if PIXABAY_KEY:
+        try:
+            r = requests.get(
+                "https://pixabay.com/api/",
+                params={
+                    "key": PIXABAY_KEY, "q": vis_kw,
+                    "image_type": "photo", "orientation": "horizontal",
+                    "min_width": 1200, "per_page": 5, "safesearch": "true",
+                },
+                timeout=5,
+            )
+            if r.status_code == 200:
+                for hit in r.json().get("hits", []):
+                    img_url = hit.get("largeImageURL", "")
+                    if not img_url:
+                        continue
+                    ir = requests.get(img_url, timeout=5, headers=hdrs)
+                    if ir.status_code == 200 and len(ir.content) > 20_000:
+                        user = hit.get("user", "Pixabay")
+                        return _save(ir.content, "pixabay", f"Pixabay / {user}")
+        except Exception:
+            pass
+
+    # ── 5. Fallback Pillow ────────────────────────────────────────────────────
+    print(f"  [FALLBACK] {slug} → infographie Pillow")
+    _generate_fallback_image(title or keyword, category, slug, dest)
+    return "pillow", "Les Faits"
 
 
 # ── Constantes UI partagées ──────────────────────────────────────────────────
@@ -1061,13 +1171,21 @@ def build_article_html(art: dict, date_pub: str) -> str:
 
     # Image hero
     local_img_path = f"assets/images/{safe_slug}.jpg"
+    img_source_type, img_credit = "pillow", "Les Faits"
     if not os.path.exists(local_img_path):
         kw = _sanitize_image_keyword(art.get("image_keyword", ""), fallback=safe_slug)
-        _download_hero(kw, slug, local_img_path, sources=art.get("sources", []))
+        img_source_type, img_credit = _download_hero(
+            kw, slug, local_img_path,
+            sources=art.get("sources", []),
+            title=art.get("titre", ""),
+            summary=" ".join(art.get("resume", [])) if isinstance(art.get("resume"), list) else art.get("resume", ""),
+            category=cat,
+        )
     hero_src = local_img_path if os.path.exists(local_img_path) else ""
     hero_img = (
-        f'<figure style="margin-bottom:28px">'
-        f'<img class="art__hero" src="{hero_src}" alt="" loading="eager" fetchpriority="high" style="aspect-ratio:16/9;object-fit:cover"/>'
+        f'<!-- Image source: {img_credit} | Type: {img_source_type} -->\n'
+        f'<figure class="article__hero" data-img-source="{img_source_type}" data-img-credit="{img_credit}" style="margin-bottom:28px">'
+        f'<img class="art__hero" src="{hero_src}" alt="Illustration : {art["titre"]}" loading="eager" fetchpriority="high" style="aspect-ratio:16/9;object-fit:cover"/>'
         f'</figure>'
     ) if hero_src else ""
 
