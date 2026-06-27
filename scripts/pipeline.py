@@ -453,6 +453,7 @@ Format obligatoire :
   "categorie": "science|economie|societe|tech|environnement",
   "nb_sources": 4,
   "positions": {
+    "verifie": true,
     "label_gauche": "Ex: Pour / Favorable / Consensus",
     "label_droite": "Ex: Contre / Critique / En débat",
     "acteurs": [
@@ -472,7 +473,7 @@ RÈGLES ABSOLUES — toute violation = article rejeté :
 7. Titre : 10-15 mots, informatif, factuel — il doit résumer l'essentiel de l'article
 8. Sources : institutions officielles (INSEE, CNRS, INSERM, Eurostat, OMS, gouvernement), journaux de référence, publications peer-reviewed
 9. Slug en français kebab-case, descriptif, max 65 caractères
-10. positions : identifier 2 à 4 acteurs RÉELS cités dans l'article avec leur position sur le sujet. position = 0 (totalement favorable/consensuel) à 100 (totalement critique/opposé). label_gauche et label_droite doivent décrire les deux extrêmes du débat spécifique à cet article (ex: "Pour la mesure" / "Contre la mesure")"""
+10. positions : si et SEULEMENT SI l'article contient des prises de position explicites et vérifiables de 2 à 4 acteurs RÉELS (déclarations citées, votes enregistrés, communiqués officiels présents dans les sources), renseigne ce bloc avec verifie=true. Sinon, mets verifie=false et laisse acteurs vide []. Ne jamais inventer ou déduire une position — uniquement ce qui est explicitement attesté dans les sources. position = 0 (totalement favorable/consensuel) à 100 (totalement critique/opposé)."""
 
 
 def _groq_call(api_key: str, messages: list, max_tokens: int = 4500) -> str:
@@ -589,8 +590,8 @@ def generate(content: str, category_hint: str, extra_sources: list[dict] | None 
 # ══════════════════════════════════════════════════════════════════════════════
 
 def build_spectrum_html(positions: dict) -> str:
-    """Génère le bloc HTML spectrum à partir des données positions du LLM."""
-    if not positions or not positions.get("acteurs"):
+    """Génère le bloc HTML spectrum — uniquement si verifie=true et acteurs présents."""
+    if not positions or not positions.get("verifie") or not positions.get("acteurs"):
         return ""
     acteurs = positions["acteurs"]
     label_g = positions.get("label_gauche", "Favorable")
