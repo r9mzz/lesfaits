@@ -619,6 +619,18 @@ def build_spectrum_html(positions: dict) -> str:
 </div>"""
 
 
+def _typo_fr(text: str) -> str:
+    """Normalise la typographie française : apostrophes, guillemets, ellipses."""
+    import re
+    # Apostrophe droite → typographique (entre deux caractères non-espaces)
+    text = re.sub(r"(?<=[^\s])'(?=[^\s])", "’", text)
+    # Guillemets droits " ... " → « ... » avec espaces insécables
+    text = re.sub(r'"([^"]+)"', r"« \1 »", text)
+    # Trois points → ellipse
+    text = text.replace("...", "…")
+    return text
+
+
 def _slug_ascii(s: str) -> str:
     import unicodedata
     s = unicodedata.normalize("NFD", s)
@@ -901,6 +913,13 @@ def build_article_html(art: dict, date_pub: str) -> str:
     slug      = art.get("slug", "")
     safe_slug = _slug_ascii(slug)
     cat       = art.get("categorie", "")
+
+    # Normalisation typographique française sur tous les champs texte
+    art["titre"]              = _typo_fr(art.get("titre", ""))
+    resume_txt                = _typo_fr(resume_txt)
+    art["corps"]["faits"]     = _typo_fr(art["corps"].get("faits", ""))
+    art["corps"]["contexte"]  = _typo_fr(art["corps"].get("contexte", ""))
+    art["corps"]["nuances"]   = _typo_fr(art["corps"].get("nuances", ""))
 
     # Image hero
     local_img_path = f"assets/images/{safe_slug}.jpg"
