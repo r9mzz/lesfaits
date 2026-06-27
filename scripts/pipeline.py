@@ -965,7 +965,11 @@ function copyLink(){{
   <meta name="twitter:description" content="{resume_txt[:155]}"/>
   <meta name="twitter:image" content="{f'https://r9mzz.github.io/lesfaits/{hero_src}' if hero_src else 'https://r9mzz.github.io/lesfaits/assets/images/og-default.jpg'}"/>
   <link rel="alternate" type="application/rss+xml" title="Les Faits — RSS" href="/lesfaits/feed.xml"/>
+  <link rel="icon" type="image/svg+xml" href="/lesfaits/favicon.svg"/>
+  <link rel="manifest" href="/lesfaits/manifest.json"/>
   <title>{art['titre']} — Les Faits</title>
+  <script type="application/ld+json">{{"@context":"https://schema.org","@type":"NewsArticle","headline":"{art['titre'].replace('"', '&quot;')}","description":"{resume_txt[:155].replace('"', '&quot;')}","datePublished":"{date_pub.strftime('%Y-%m-%dT%H:%M:%S+02:00')}","dateModified":"{date_pub.strftime('%Y-%m-%dT%H:%M:%S+02:00')}","articleSection":"{cat}","inLanguage":"fr","isAccessibleForFree":true,"image":{{"@type":"ImageObject","url":"https://r9mzz.github.io/lesfaits/{hero_src}","width":1200,"height":630}},"author":{{"@type":"Organization","name":"Les Faits"}},"publisher":{{"@type":"Organization","name":"Les Faits","@id":"https://r9mzz.github.io/lesfaits/#org","logo":{{"@type":"ImageObject","url":"https://r9mzz.github.io/lesfaits/assets/images/og-default.jpg"}}}},"mainEntityOfPage":{{"@type":"WebPage","@id":"{art_url}"}}}}</script>
+  <script type="application/ld+json">{{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{{"@type":"ListItem","position":1,"name":"Accueil","item":"https://r9mzz.github.io/lesfaits/"}},{{"@type":"ListItem","position":2,"name":"{CAT_LABELS.get(cat, cat)}","item":"https://r9mzz.github.io/lesfaits/categories/{cat}.html"}},{{"@type":"ListItem","position":3,"name":"{art['titre'].replace('"', '&quot;')}"}}]}}</script>
   <base href="/lesfaits/"/>
   <link rel="stylesheet" href="src/style.css"/>
   {_DARK_INIT_HEAD}
@@ -1247,7 +1251,7 @@ def build_feed_xml(articles: list):
   <lastBuildDate>{now}</lastBuildDate>
   <atom:link href="{base}/feed.xml" rel="self" type="application/rss+xml"/>
   <image>
-    <url>{base}/assets/images/logo.png</url>
+    <url>{base}/assets/images/og-default.jpg</url>
     <title>Les Faits</title>
     <link>{base}/</link>
   </image>
