@@ -959,6 +959,11 @@ function copyLink(){{
   <meta property="og:url" content="{art_url}"/>
   {f'<meta property="og:image" content="https://r9mzz.github.io/lesfaits/{hero_src}"/><meta property="og:image:width" content="1200"/><meta property="og:image:height" content="630"/><meta property="og:image:type" content="image/jpeg"/>' if hero_src else ''}
   <meta property="article:section" content="{cat}"/>
+  <link rel="canonical" href="{art_url}"/>
+  <meta name="twitter:card" content="summary_large_image"/>
+  <meta name="twitter:title" content="{art['titre']} — Les Faits"/>
+  <meta name="twitter:description" content="{resume_txt[:155]}"/>
+  <meta name="twitter:image" content="{f'https://r9mzz.github.io/lesfaits/{hero_src}' if hero_src else 'https://r9mzz.github.io/lesfaits/assets/images/og-default.jpg'}"/>
   <link rel="alternate" type="application/rss+xml" title="Les Faits — RSS" href="/lesfaits/feed.xml"/>
   <title>{art['titre']} — Les Faits</title>
   <base href="/lesfaits/"/>
