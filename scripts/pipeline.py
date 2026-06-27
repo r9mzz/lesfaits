@@ -34,7 +34,6 @@ DATA.mkdir(exist_ok=True)
 
 GROQ_KEY       = os.getenv("GROQ_API_KEY", "")
 GROQ_KEY2      = os.getenv("GROQ_API_KEY_2", "")
-UNSPLASH_KEY   = os.getenv("UNSPLASH_ACCESS_KEY", "")
 
 # ══════════════════════════════════════════════════════════════════════════════
 # SOURCES RSS — retournent du texte propre, pas de JavaScript
@@ -711,7 +710,7 @@ def _generate_fallback_image(title: str, category: str, slug: str, dest: str) ->
 
 
 def _download_hero(keyword: str, slug: str, dest: str) -> None:
-    """Cherche image : Unsplash → Wikimedia Commons → Openverse → fallback Pillow."""
+    """Cherche image : Wikimedia Commons → Openverse → fallback Pillow."""
     import urllib.parse
     os.makedirs(os.path.dirname(dest) or ".", exist_ok=True)
     hdrs = {"User-Agent": "LesFaits/1.1 (lesfaits.contact@gmail.com)"}
@@ -727,35 +726,9 @@ def _download_hero(keyword: str, slug: str, dest: str) -> None:
         fname = url.rsplit("/", 1)[-1].lower()
         if any(bad in fname for bad in _BAD_FILENAME):
             return True
-        # Ratio très carré ou très haut → logo/portrait/icône
         if w > 0 and h > 0 and (h / w > 1.4 or w / h < 0.5):
             return True
         return False
-
-    # 0. Unsplash — haute qualité, priorité 1 si clé disponible
-    if UNSPLASH_KEY:
-        try:
-            stopwords = {"le","la","les","de","du","en","un","une","et","pour","sur","par","au","aux","ce","qui","que","dans","est","son","ses","leur","leurs","avec","plus"}
-            kw_clean = " ".join(w for w in keyword.lower().split() if w not in stopwords)[:60]
-            r = requests.get(
-                "https://api.unsplash.com/search/photos",
-                params={"query": kw_clean, "orientation": "landscape", "per_page": 5},
-                headers={"Authorization": f"Client-ID {UNSPLASH_KEY}"},
-                timeout=10
-            )
-            if r.status_code == 429:
-                pass  # rate limit → continue vers Wikimedia
-            elif r.status_code == 200:
-                for photo in r.json().get("results", []):
-                    if photo.get("width", 0) >= 1200:
-                        img_url = photo["urls"]["regular"]
-                        photographer = photo.get("user", {}).get("name", "Unsplash")
-                        img_r = requests.get(img_url, timeout=15, headers=hdrs)
-                        if img_r.status_code == 200 and len(img_r.content) > 20_000:
-                            open(dest, "wb").write(img_r.content)
-                            return  # succès Unsplash
-        except Exception:
-            pass
 
     # 1. Wikimedia Commons — images thématiques libres, bien indexées par sujet
     try:
