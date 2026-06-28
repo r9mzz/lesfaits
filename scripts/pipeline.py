@@ -1243,11 +1243,11 @@ def build_article_html(art: dict, date_pub: str) -> str:
         related = [a for a in all_arts if a.get("categorie") == cat and a["slug"] != slug][:3]
         if related:
             cards = "\n".join(
-                f'<div class="art__related-card" onclick="window.location=\'articles/{a["slug"]}.html\'">'
+                f'<a class="art__related-card" href="articles/{a["slug"]}.html">'
                 f'<span class="cat">{a["categorie"].upper()}</span>'
                 f'<div class="title-sm">{a["titre"]}</div>'
                 f'<div style="font-size:10px;color:var(--muted);margin-top:6px">{a["date"]}</div>'
-                f'</div>'
+                f'</a>'
                 for a in related
             )
             related_html = f'<div class="art__related"><div class="art__related-title">À LIRE AUSSI</div><div class="art__related-grid">{cards}</div></div>'
@@ -1414,26 +1414,25 @@ def rebuild_index():
 
     # Génération des cards "side" (articles 1-3)
     def side_card(a):
-        return f"""<div class="une__side-item" onclick="window.location='articles/{a['slug']}.html'">
+        return f"""<a class="une__side-item" href="articles/{a['slug']}.html">
           <span class="cat">{a['categorie'].upper()}</span>
           <h3 class="title-md">{a['titre']}</h3>
           <div class="meta"><span class="meta__src">{a['nb_sources']} sources</span>
           <span class="meta__sep">·</span><span>{a['date']}</span></div>
-        </div>"""
+        </a>"""
 
-    # Génération grille science (articles récents par catégorie)
     def mini_card(a):
-        return f"""<div class="card3" onclick="window.location='articles/{a['slug']}.html'" style="cursor:pointer">
+        return f"""<a class="card3" href="articles/{a['slug']}.html">
           <span class="cat">{a['categorie'].upper()}</span>
           <h3 class="title-sm">{a['titre']}</h3>
           <div class="meta" style="margin-top:10px">
             <span class="meta__src">{a['nb_sources']} sources</span>
             <span class="meta__sep">·</span><span>{a['date']}</span>
           </div>
-        </div>"""
+        </a>"""
 
     def list_card(i, a):
-        return f"""<div class="list-item" onclick="window.location='articles/{a['slug']}.html'" style="cursor:pointer">
+        return f"""<a class="list-item" href="articles/{a['slug']}.html">
           <span class="list-item__num">0{i+1}</span>
           <div><span class="cat">{a['categorie'].upper()}</span>
           <h3 class="title-sm">{a['titre']}</h3>
@@ -1441,7 +1440,7 @@ def rebuild_index():
             <span class="meta__src">{a['nb_sources']} sources</span>
             <span class="meta__sep">·</span><span>{a['date']}</span>
           </div></div>
-        </div>"""
+        </a>"""
 
     main_art  = articles[0]
     side_arts = articles[1:4]
@@ -1519,7 +1518,7 @@ def build_index_html(main, side_html, grid_html, list_html):
     <div class="une__label">À LA UNE</div>
     <div style="height:2px;background:var(--blue);margin-bottom:1px"></div>
     <div class="une__grid">
-      <div class="une__main" onclick="window.location='articles/{main['slug']}.html'" style="cursor:pointer">
+      <a class="une__main" href="articles/{main['slug']}.html">
         <span class="cat">{main['categorie'].upper()}</span>
         <h2 class="title-xl">{main['titre']}</h2>
         <p class="excerpt">{resume}</p>
@@ -1530,7 +1529,7 @@ def build_index_html(main, side_html, grid_html, list_html):
           <span class="meta__push"></span>
         </div>
         <p class="ai-badge">Rédigé par IA · Protocole Les Faits v1.1</p>
-      </div>
+      </a>
       <div class="une__side">{side_html}</div>
     </div>
   </div>
@@ -1649,15 +1648,14 @@ def build_category_pages():
 
         if arts:
             cards_html = "\n".join(f"""
-        <div class="card3" onclick="window.location='articles/{a['slug']}.html'"
-             style="cursor:pointer">
+        <a class="card3" href="articles/{a['slug']}.html">
           <span class="cat">{label.upper()}</span>
           <h3 class="title-sm">{a['titre']}</h3>
           <div class="meta" style="margin-top:10px">
             <span class="meta__src">{a['nb_sources']} sources</span>
             <span class="meta__sep">·</span><span>{a['date']}</span>
           </div>
-        </div>""" for a in arts)
+        </a>""" for a in arts)
             count_txt = f'{len(arts)} article{"s" if len(arts) > 1 else ""}'
         else:
             # Page vide : état élégant avec prochaine publication
