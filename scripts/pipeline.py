@@ -1087,6 +1087,9 @@ _DARK_INIT_HEAD = """<script>
 (function(){var s=localStorage.getItem('theme'),d=s==='dark'||(s===null&&window.matchMedia('(prefers-color-scheme:dark)').matches);document.documentElement.setAttribute('data-theme',d?'dark':'light');})();
 </script>"""
 
+# Analytics Umami
+_ANALYTICS_JS = '<script defer src="https://cloud.umami.is/script.js" data-website-id="8d68a78f-97ae-4c95-a955-5d3df758f7e2"></script>'
+
 # Script complet injecté avant </body> (bouton + toggle)
 _DARK_MODE_JS = """<script>
 (function(){
@@ -1377,6 +1380,7 @@ function copyLink(){{
 {_build_footer()}
 {share_js}
 {_DARK_MODE_JS}
+{_ANALYTICS_JS}
 </body>
 </html>"""
 
@@ -1535,6 +1539,7 @@ def build_index_html(main, side_html, grid_html, list_html):
 
 {_build_footer()}
 {_DARK_MODE_JS}
+{_ANALYTICS_JS}
 </body>
 </html>"""
 
@@ -1713,6 +1718,7 @@ def build_category_pages():
 
 {_build_footer()}
 {_DARK_MODE_JS}
+{_ANALYTICS_JS}
 </body>
 </html>"""
 
