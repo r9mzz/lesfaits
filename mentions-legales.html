@@ -2,39 +2,42 @@
 <html lang="fr" data-theme="">
 <head>
   <meta charset="UTF-8"/>
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://plausible.io; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; connect-src 'self' https://plausible.io https://api.web3forms.com; base-uri 'self'; form-action 'self' https://api.web3forms.com;">
-<meta name="referrer" content="strict-origin-when-cross-origin">
-
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <meta name="description" content="Mentions légales — Les Faits"/>
-  <meta name="robots" content="noindex, follow"/>
-  <meta property="og:title" content="Mentions légales — Les Faits"/>
-  <meta property="og:description" content="Mentions légales — Les Faits"/>
-  <meta property="og:type" content="website"/>
-  <meta property="og:url" content="https://r9mzz.github.io/lesfaits/mentions-legales.html"/>
-  <meta property="og:image" content="https://r9mzz.github.io/lesfaits/assets/images/og-default.jpg"/>
-  <meta name="twitter:card" content="summary_large_image"/>
-  <meta name="twitter:title" content="Mentions légales — Les Faits"/>
-  <meta name="twitter:description" content="Mentions légales — Les Faits"/>
-  <meta name="twitter:image" content="https://r9mzz.github.io/lesfaits/assets/images/og-default.jpg"/>
-  <link rel="canonical" href="https://r9mzz.github.io/lesfaits/mentions-legales.html"/>
+  <meta name="description" content="Mentions légales de Les Faits — journal numérique français rédigé par IA."/>
+  <meta name="robots" content="noindex"/>
   <title>Mentions légales — Les Faits</title>
   <base href="/lesfaits/"/>
   <link rel="stylesheet" href="src/style.css"/>
-<link rel="icon" type="image/svg+xml" href="/lesfaits/favicon.svg">
-<link rel="manifest" href="/lesfaits/manifest.json">
-<script defer data-domain="r9mzz.github.io/lesfaits" src="https://plausible.io/js/script.js"></script>
+  <script>
+(function(){var s=localStorage.getItem('theme'),d=s==='dark'||(s===null&&window.matchMedia('(prefers-color-scheme:dark)').matches);document.documentElement.setAttribute('data-theme',d?'dark':'light');})();
+</script>
 </head>
 <body>
+<div class="nav-overlay" id="nav-overlay" onclick="closeMenu()"></div>
+<nav class="nav-mobile" id="nav-mobile">
+<a href="categories/societe.html">Société</a>
+<a href="categories/science.html">Science</a>
+<a href="categories/economie.html">Économie</a>
+<a href="categories/tech.html">Tech</a>
+<a href="categories/sante.html">Santé</a>
+<a href="categories/environnement.html">Environnement</a>
+<a href="methode.html" class="nav-cta">Comment on travaille →</a>
+</nav>
 <script>
-(function(){var s=localStorage.getItem('theme');var d=s==='dark'||(s===null&&window.matchMedia('(prefers-color-scheme:dark)').matches);document.documentElement.setAttribute('data-theme',d?'dark':'light');})();
+function toggleMenu(){var b=document.getElementById('burger'),m=document.getElementById('nav-mobile'),o=document.getElementById('nav-overlay');b.classList.toggle('open');m.classList.toggle('open');o.classList.toggle('open');}
+function closeMenu(){document.getElementById('burger').classList.remove('open');document.getElementById('nav-mobile').classList.remove('open');document.getElementById('nav-overlay').classList.remove('open');}
+document.querySelectorAll('.nav-mobile a').forEach(function(a){a.addEventListener('click',closeMenu);});
+document.addEventListener('keydown',function(e){if(e.key==='Escape')closeMenu();});
 </script>
 <header class="header">
   <div class="header__inner">
     <a href="index.html" class="brand">
       <div class="brand__logotype"><span class="fact">les</span><span class="uel">faits</span></div>
     </a>
-    <nav aria-label="Navigation principale">
+    <div class="header__search">
+      <input type="search" class="header__search-input" placeholder="Rechercher…" autocomplete="off" onkeydown="if(event.key==='Enter'&&this.value.trim())window.location=(document.querySelector('base').href)+'recherche.html?q='+encodeURIComponent(this.value.trim())"/>
+    </div>
+    <nav>
       <a href="categories/societe.html">Société</a>
       <a href="categories/science.html">Science</a>
       <a href="categories/economie.html">Économie</a>
@@ -44,47 +47,74 @@
       <a href="methode.html" class="nav-cta">Comment on travaille →</a>
     </nav>
     <button class="dark-toggle" id="dark-toggle" aria-label="Mode sombre" title="Mode sombre">🌙</button>
+    <button class="burger" id="burger" aria-label="Menu" onclick="toggleMenu()"><span></span><span></span><span></span></button>
   </div>
 </header>
 
-<main>
-<div class="legal">
-  <h1>Mentions légales</h1>
-  <span class="legal__date">Dernière mise à jour : 26 juin 2026</span>
+<main class="wrap" style="max-width:760px;margin:60px auto;padding:0 20px 80px">
 
-  <h2>Éditeur du site</h2>
-  <p>Le site <strong>Les Faits</strong> (accessible à l'adresse <em>https://r9mzz.github.io/lesfaits/</em>) est un journal numérique indépendant, exploité à titre non lucratif par son auteur.</p>
-  <p>Responsable de publication : disponible sur demande via <a href="contact.html">le formulaire de contact</a>.</p>
-  <p>Contact : <a href="mailto:lesfaits.contact@gmail.com">lesfaits.contact@gmail.com</a></p>
+  <nav aria-label="Fil d'Ariane" style="font-size:13px;color:var(--muted);margin-bottom:32px">
+    <a href="index.html" style="color:var(--muted)">Accueil</a>
+    <span style="margin:0 6px">›</span>
+    <span>Mentions légales</span>
+  </nav>
 
-  <h2>Hébergement</h2>
-  <p>Le site est hébergé par <strong>GitHub, Inc.</strong> (GitHub Pages), 88 Colin P Kelly Jr St, San Francisco, CA 94107, États-Unis.<br>
-  Site : <a href="https://pages.github.com" rel="noopener noreferrer external" target="_blank">pages.github.com</a></p>
+  <h1 style="font-family:var(--font-serif,Georgia,serif);font-size:2rem;margin-bottom:8px">Mentions légales</h1>
+  <p style="color:var(--muted);font-size:13px;margin-bottom:48px">Conformément à la loi n° 2004-575 du 21 juin 2004 pour la confiance dans l'économie numérique (LCEN)</p>
 
-  <h2>Propriété intellectuelle</h2>
-  <p>Les articles publiés sur Les Faits sont mis à disposition sous licence <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/deed.fr" rel="noopener noreferrer external" target="_blank">Creative Commons BY-NC-ND 4.0</a>.</p>
-  <p>Vous êtes libre de partager les articles à condition de :</p>
-  <ul>
-    <li>Citer la source (Les Faits) et un lien vers l'article ;</li>
-    <li>Ne pas en faire un usage commercial ;</li>
-    <li>Ne pas modifier le contenu.</li>
-  </ul>
-  <p>Les images utilisées proviennent de Wikimedia Commons (licence libre) ou de générateurs d'images neutres. Chaque image est réutilisable selon sa propre licence.</p>
+  <section style="margin-bottom:40px">
+    <h2 style="font-size:1rem;font-weight:700;text-transform:uppercase;letter-spacing:.05em;border-bottom:2px solid var(--blue);padding-bottom:8px;margin-bottom:20px">Éditeur</h2>
+    <p>Le site <strong>Les Faits</strong> est une publication personnelle à but non commercial.</p>
+    <p style="margin-top:12px"><strong>Responsable de la publication :</strong> disponible sur demande via le <a href="contact.html">formulaire de contact</a>.</p>
+    <p style="margin-top:12px"><strong>Contact :</strong> <a href="contact.html">lesfaits.fr/contact</a></p>
+  </section>
 
-  <h2>Contenu généré par intelligence artificielle</h2>
-  <p>Les articles de Les Faits sont rédigés automatiquement par un modèle de langage (IA), selon un <a href="methode.html">protocole éditorial public</a>. Chaque article indique clairement son origine IA. Les sources citées sont vérifiées avant publication.</p>
-  <p>Les Faits décline toute responsabilité pour d'éventuelles inexactitudes résiduelles. Toute erreur peut être <a href="contact.html?article=#erreur">signalée via le formulaire de corrections</a>.</p>
+  <section style="margin-bottom:40px">
+    <h2 style="font-size:1rem;font-weight:700;text-transform:uppercase;letter-spacing:.05em;border-bottom:2px solid var(--blue);padding-bottom:8px;margin-bottom:20px">Hébergement</h2>
+    <p><strong>GitHub Pages</strong> — service d'hébergement statique de GitHub, Inc.</p>
+    <p style="margin-top:8px;color:var(--muted);font-size:14px">GitHub, Inc. · 88 Colin P Kelly Jr St · San Francisco, CA 94107 · États-Unis<br>
+    <a href="https://docs.github.com/fr/pages" rel="noopener noreferrer external" target="_blank">docs.github.com/fr/pages</a></p>
+  </section>
 
-  <h2>Cookies et données personnelles</h2>
-  <p>Les Faits ne dépose aucun cookie publicitaire ou de traçage. Seules des préférences locales (thème sombre, favoris) sont stockées dans le <em>localStorage</em> de votre navigateur, sur votre seul appareil. Aucune donnée n'est transmise à des tiers.</p>
-  <p>Voir notre <a href="confidentialite.html">politique de confidentialité</a> pour plus de détails.</p>
+  <section style="margin-bottom:40px">
+    <h2 style="font-size:1rem;font-weight:700;text-transform:uppercase;letter-spacing:.05em;border-bottom:2px solid var(--blue);padding-bottom:8px;margin-bottom:20px">Nature du contenu</h2>
+    <p>Les articles publiés sur <em>Les Faits</em> sont <strong>générés automatiquement par intelligence artificielle</strong> (modèle Llama 3.3 via l'API Groq) à partir de dépêches et articles de presse accessibles publiquement.</p>
+    <p style="margin-top:12px">Chaque article est produit selon un protocole éditorial documenté :</p>
+    <ul style="margin-top:8px;padding-left:24px;line-height:1.9">
+      <li>Minimum 3 sources vérifiées par article</li>
+      <li>Aucune opinion ni prise de position éditoriale</li>
+      <li>Sources citées et accessibles en bas de chaque article</li>
+      <li>Corrections publiques tracées</li>
+    </ul>
+    <p style="margin-top:16px"><strong>Les Faits n'est pas un organe de presse reconnu</strong> au sens de la loi du 29 juillet 1881. Il ne bénéficie d'aucun statut de presse et ne se substitue pas à un journaliste professionnel.</p>
+    <p style="margin-top:12px">En cas d'erreur ou d'inexactitude, utilisez le lien <a href="contact.html#erreur">Signaler une erreur</a> disponible en bas de chaque article.</p>
+  </section>
 
-  <h2>Droit applicable et juridiction</h2>
-  <p>Le présent site est soumis au droit français. En cas de litige, les tribunaux français seront seuls compétents.</p>
+  <section style="margin-bottom:40px">
+    <h2 style="font-size:1rem;font-weight:700;text-transform:uppercase;letter-spacing:.05em;border-bottom:2px solid var(--blue);padding-bottom:8px;margin-bottom:20px">Propriété intellectuelle</h2>
+    <p>Le contenu éditorial de ce site est publié sous licence <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/deed.fr" rel="noopener noreferrer external" target="_blank"><strong>Creative Commons BY-NC-ND 4.0</strong></a> :</p>
+    <ul style="margin-top:8px;padding-left:24px;line-height:1.9">
+      <li><strong>BY</strong> — Attribution obligatoire (« Les Faits »)</li>
+      <li><strong>NC</strong> — Usage non commercial uniquement</li>
+      <li><strong>ND</strong> — Pas de modification ni d'œuvre dérivée</li>
+    </ul>
+    <p style="margin-top:12px">Les images illustrant les articles proviennent de sources libres de droits (Wikimedia Commons, Openverse) ou sont générées à la volée. Les crédits sont indiqués dans chaque article.</p>
+  </section>
 
-  <h2>Crédits techniques</h2>
-  <p>Pipeline éditorial développé en Python · Modèle IA : Llama 3.3 70B via Groq API · Hébergement : GitHub Pages · Aucun framework JS externe.</p>
-</div>
+  <section style="margin-bottom:40px">
+    <h2 style="font-size:1rem;font-weight:700;text-transform:uppercase;letter-spacing:.05em;border-bottom:2px solid var(--blue);padding-bottom:8px;margin-bottom:20px">Données personnelles &amp; cookies</h2>
+    <p>Ce site <strong>ne dépose aucun cookie de tracking</strong> et ne collecte aucune donnée personnelle identifiable.</p>
+    <p style="margin-top:12px">Aucun outil de mesure d'audience tiers n'est intégré à ce jour. Si une solution d'analyse respectueuse de la vie privée est ajoutée à l'avenir, elle sera mentionnée ici et dans la <a href="confidentialite.html">politique de confidentialité</a>.</p>
+  </section>
+
+  <section style="margin-bottom:40px">
+    <h2 style="font-size:1rem;font-weight:700;text-transform:uppercase;letter-spacing:.05em;border-bottom:2px solid var(--blue);padding-bottom:8px;margin-bottom:20px">Liens hypertextes</h2>
+    <p>Les Faits peut contenir des liens vers des sites tiers. Ces liens sont fournis à titre informatif ; nous n'assumons aucune responsabilité quant au contenu des sites externes.</p>
+    <p style="margin-top:12px">Tout site souhaitant créer un lien vers <em>Les Faits</em> est libre de le faire sans autorisation préalable, sous réserve que le lien ne soit pas trompeur sur la nature du site.</p>
+  </section>
+
+  <p style="font-size:12px;color:var(--muted);margin-top:48px;border-top:1px solid var(--border);padding-top:20px">Dernière mise à jour : juin 2026</p>
+
 </main>
 
 <footer class="footer" role="contentinfo" aria-label="Pied de page">
@@ -92,6 +122,7 @@
     <div class="footer__brand">
       <div class="brand__logotype"><span class="fact">les</span><span class="uel">faits</span></div>
       <p>Journal numérique français rédigé par IA. Sans publicité. Sans actionnaires.</p>
+      <p style="font-size:10px;color:var(--muted);margin-top:8px">Aucune publicité · Aucun actionnaire · Aucun cookie de tracking</p>
     </div>
     <div class="footer__col"><h4>RUBRIQUES</h4>
       <a href="categories/societe.html">Société</a>
@@ -108,7 +139,7 @@
       <a href="feed.xml" class="footer__rss">Flux RSS</a>
     </div>
     <div class="footer__col"><h4>LÉGAL</h4>
-      <a href="mentions-legales.html" aria-current="page">Mentions légales</a>
+      <a href="mentions-legales.html">Mentions légales</a>
       <a href="confidentialite.html">Confidentialité</a>
       <a href="cgu.html">CGU</a>
     </div>
@@ -124,20 +155,12 @@
 </footer>
 
 <script>
-(function(){
-  var btn=document.getElementById('dark-toggle');
-  var s=localStorage.getItem('theme');
-  var dark=s==='dark'||(s===null&&window.matchMedia('(prefers-color-scheme:dark)').matches);
-  document.documentElement.setAttribute('data-theme',dark?'dark':'light');
-  if(btn) btn.textContent=dark?'☀️':'🌙';
-  if(btn) btn.addEventListener('click',function(){
-    var d=document.documentElement.getAttribute('data-theme')==='dark';
-    document.documentElement.setAttribute('data-theme',d?'light':'dark');
-    localStorage.setItem('theme',d?'light':'dark');
-    btn.textContent=d?'🌙':'☀️';
-  });
-})();
+const dt = document.getElementById('dark-toggle');
+if(dt) dt.addEventListener('click',function(){
+  const d = document.documentElement.getAttribute('data-theme')==='dark';
+  document.documentElement.setAttribute('data-theme', d?'light':'dark');
+  localStorage.setItem('theme', d?'light':'dark');
+});
 </script>
-<script>document.addEventListener('keydown',function(e){if(e.key==='/'&&!['INPUT','TEXTAREA','SELECT'].includes(document.activeElement.tagName)){e.preventDefault();var s=document.getElementById('search-input');if(s){s.focus();s.select();}}});</script>
 </body>
 </html>
