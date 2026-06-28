@@ -242,6 +242,17 @@ BLACKLIST = [
     # Spam / hors-sujet éditorial
     "hostinger", "holafly", "esim illimitée",
     "votre pelouse", "jardin connecté",
+    # Formats chroniques / lifestyle sans valeur informationnelle
+    "de la semaine", "photo de la semaine", "plante de la semaine",
+    "recette de", "le guide pour", "nos conseils pour",
+    "top 10", "top 5", "sélection ", "notre sélection",
+    "le goût musical", "les carnets de",
+]
+
+# Patterns de titres à faible valeur éditoriale (malus fort)
+_TITRE_MALUS = [
+    "guide ", "comment ", "pourquoi ", "où ", "quand ",
+    "nos astuces", "tout savoir", "on vous explique",
 ]
 
 # Sources majeures : institutions officielles et revues peer-reviewed
@@ -354,6 +365,12 @@ def score_editorial(item: dict, source_name: str, published_topics: set) -> tupl
     if len(item["content"]) > 1000 and (is_majeure or any(s in src for s in SOURCES_MEDIAS)):
         score += 20
         reasons.append(f"+20 densité ({len(item['content'])} chars, source qualifiée)")
+
+    # ── PÉNALITÉ FORMAT CHRONIQUE / LIFESTYLE ───────────────────────────────
+    title_lower = item["title"].lower()
+    if any(p in title_lower for p in _TITRE_MALUS):
+        score -= 20
+        reasons.append("-20 titre format guide/conseil")
 
     # ── PÉNALITÉ RÉCURRENCE ──────────────────────────────────────────────────
     # Comparer les mots significatifs du titre avec les topics déjà publiés
@@ -1440,6 +1457,7 @@ def rebuild_index():
     index_path.write_text(html, encoding="utf-8")
     print(f"  ✓ index.html reconstruit ({len(articles)} articles)")
     build_category_pages()
+    build_archive_page()
     build_search_json(articles)
     build_feed_xml(articles)
 
@@ -1743,6 +1761,136 @@ def load_published() -> set:
 
 def save_published(ids: set):
     PUBLISHED.write_text(json.dumps(list(ids), ensure_ascii=False), encoding="utf-8")
+
+
+def build_archive_page():
+    """Génère archive.html — liste complète des articles groupés par mois."""
+    articles = load_index()
+    if not articles:
+        return
+
+    CAT_LABELS = {
+        "science": "Science", "economie": "Économie", "tech": "Tech",
+        "sante": "Santé", "environnement": "Environnement", "societe": "Société",
+    }
+
+    # Grouper par mois (clé : "juin 2026")
+    from collections import defaultdict
+    par_mois = defaultdict(list)
+    for a in articles:
+        parts = a.get("date", "").split()
+        key = f"{parts[1]} {parts[2].rstrip(',')}" if len(parts) >= 3 else "Inconnu"
+        par_mois[key].append(a)
+
+    # Ordre chronologique inverse des mois
+    def _mois_sort(k):
+        MOIS = ["janvier","février","mars","avril","mai","juin",
+                "juillet","août","septembre","octobre","novembre","décembre"]
+        parts = k.split()
+        try:
+            return int(parts[1]) * 100 + (MOIS.index(parts[0]) + 1)
+        except Exception:
+            return 0
+
+    mois_tries = sorted(par_mois.keys(), key=_mois_sort, reverse=True)
+
+    sections = ""
+    for mois in mois_tries:
+        arts = par_mois[mois]
+        rows = ""
+        for a in arts:
+            cat = a.get("categorie", "societe")
+            label = CAT_LABELS.get(cat, cat.capitalize())
+            resume = a.get("resume", "")
+            if isinstance(resume, list):
+                resume = resume[0] if resume else ""
+            rows += f"""
+    <article style="display:grid;grid-template-columns:80px 1fr;gap:12px 20px;padding:16px 0;border-bottom:1px solid var(--border);align-items:start">
+      <div>
+        <span style="display:inline-block;background:var(--blue);color:#fff;font-size:10px;font-weight:700;letter-spacing:.06em;padding:2px 7px;border-radius:3px;text-transform:uppercase">{label}</span>
+      </div>
+      <div>
+        <a href="articles/{a['slug']}.html" style="font-weight:600;color:var(--ink);text-decoration:none;line-height:1.4;font-size:1rem">{a['titre']}</a>
+        <p style="margin:4px 0 0;font-size:.85rem;color:var(--muted);line-height:1.5">{resume[:120]}{'…' if len(resume)>120 else ''}</p>
+        <span style="font-size:.75rem;color:var(--muted);margin-top:4px;display:block">{a.get('date','').split(',')[0]} · {a.get('nb_sources',0)} sources</span>
+      </div>
+    </article>"""
+
+        sections += f"""
+  <section style="margin-bottom:48px">
+    <h2 style="font-size:.75rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);border-bottom:2px solid var(--blue);padding-bottom:8px;margin-bottom:0">{mois.capitalize()} · {len(arts)} article{"s" if len(arts)>1 else ""}</h2>
+    {rows}
+  </section>"""
+
+    html = f"""<!DOCTYPE html>
+<html lang="fr" data-theme="">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="Tous les articles publiés par Les Faits — journal numérique français rédigé par IA."/>
+  <meta name="robots" content="noindex"/>
+  <title>Tous les articles — Les Faits</title>
+  <base href="/lesfaits/"/>
+  <link rel="stylesheet" href="src/style.css"/>
+  <script>(function(){{var s=localStorage.getItem('theme'),d=s==='dark'||(s===null&&window.matchMedia('(prefers-color-scheme:dark)').matches);document.documentElement.setAttribute('data-theme',d?'dark':'light');}})();</script>
+</head>
+<body>
+<div class="nav-overlay" id="nav-overlay" onclick="closeMenu()"></div>
+<nav class="nav-mobile" id="nav-mobile">
+<a href="categories/societe.html">Société</a>
+<a href="categories/science.html">Science</a>
+<a href="categories/economie.html">Économie</a>
+<a href="categories/tech.html">Tech</a>
+<a href="categories/sante.html">Santé</a>
+<a href="categories/environnement.html">Environnement</a>
+<a href="methode.html" class="nav-cta">Comment on travaille →</a>
+</nav>
+<script>
+function toggleMenu(){{var b=document.getElementById('burger'),m=document.getElementById('nav-mobile'),o=document.getElementById('nav-overlay');b.classList.toggle('open');m.classList.toggle('open');o.classList.toggle('open');}}
+function closeMenu(){{document.getElementById('burger').classList.remove('open');document.getElementById('nav-mobile').classList.remove('open');document.getElementById('nav-overlay').classList.remove('open');}}
+document.querySelectorAll('.nav-mobile a').forEach(function(a){{a.addEventListener('click',closeMenu);}});
+document.addEventListener('keydown',function(e){{if(e.key==='Escape')closeMenu();}});
+</script>
+<header class="header">
+  <div class="header__inner">
+    <a href="index.html" class="brand"><div class="brand__logotype"><span class="fact">les</span><span class="uel">faits</span></div></a>
+    <div class="header__search">
+      <input type="search" class="header__search-input" placeholder="Rechercher…" autocomplete="off" onkeydown="if(event.key==='Enter'&&this.value.trim())window.location=(document.querySelector('base').href)+'recherche.html?q='+encodeURIComponent(this.value.trim())"/>
+    </div>
+    <nav>
+      <a href="categories/societe.html">Société</a>
+      <a href="categories/science.html">Science</a>
+      <a href="categories/economie.html">Économie</a>
+      <a href="categories/tech.html">Tech</a>
+      <a href="categories/sante.html">Santé</a>
+      <a href="categories/environnement.html">Environnement</a>
+      <a href="methode.html" class="nav-cta">Comment on travaille →</a>
+    </nav>
+    <button class="dark-toggle" id="dark-toggle" aria-label="Mode sombre" title="Mode sombre">🌙</button>
+    <button class="burger" id="burger" aria-label="Menu" onclick="toggleMenu()"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<main class="wrap" style="max-width:860px;margin:48px auto;padding:0 20px 80px">
+  <nav aria-label="Fil d'Ariane" style="font-size:13px;color:var(--muted);margin-bottom:32px">
+    <a href="index.html" style="color:var(--muted)">Accueil</a>
+    <span style="margin:0 6px">›</span>
+    <span>Tous les articles</span>
+  </nav>
+  <h1 style="font-family:var(--font-serif,Georgia,serif);font-size:2rem;margin-bottom:4px">Tous les articles</h1>
+  <p style="color:var(--muted);font-size:14px;margin-bottom:48px">{len(articles)} articles publiés</p>
+  {sections}
+</main>
+
+{_build_footer()}
+{_DARK_MODE_JS}
+{_ANALYTICS_JS}
+</body>
+</html>"""
+
+    ROOT = Path(__file__).parent.parent
+    (ROOT / "archive.html").write_text(html, encoding="utf-8")
+    print(f"  ✓ archive.html mis à jour ({len(articles)} articles)")
 
 def save_to_index(art: dict, date_pub: str):
     index = load_index()

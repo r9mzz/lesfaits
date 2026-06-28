@@ -2,42 +2,38 @@
 <html lang="fr" data-theme="">
 <head>
   <meta charset="UTF-8"/>
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://plausible.io; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; connect-src 'self' https://plausible.io https://api.web3forms.com; base-uri 'self'; form-action 'self' https://api.web3forms.com;">
-<meta name="referrer" content="strict-origin-when-cross-origin">
-
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <meta name="description" content="Tous les articles — Les Faits. Archives complètes, filtrables par rubrique."/>
-  <title>Archives — Les Faits</title>
+  <meta name="description" content="Tous les articles publiés par Les Faits — journal numérique français rédigé par IA."/>
+  <meta name="robots" content="noindex"/>
+  <title>Tous les articles — Les Faits</title>
   <base href="/lesfaits/"/>
-  <meta property="og:title" content="Archives — Les Faits"/>
-  <meta property="og:description" content="Tous les articles — Les Faits. Archives complètes, filtrables par rubrique."/>
-  <meta property="og:type" content="website"/>
-  <meta property="og:url" content="https://r9mzz.github.io/lesfaits/archive.html"/>
-  <meta property="og:image" content="https://r9mzz.github.io/lesfaits/assets/images/og-default.jpg"/>
-  <meta name="twitter:card" content="summary_large_image"/>
-  <meta name="twitter:title" content="Archives — Les Faits"/>
-  <meta name="twitter:description" content="Tous les articles — Les Faits. Archives complètes, filtrables par rubrique."/>
-  <meta name="twitter:image" content="https://r9mzz.github.io/lesfaits/assets/images/og-default.jpg"/>
-  <link rel="canonical" href="https://r9mzz.github.io/lesfaits/archive.html"/>
-  <link rel="alternate" type="application/rss+xml" title="Les Faits — RSS" href="/lesfaits/feed.xml"/>
   <link rel="stylesheet" href="src/style.css"/>
-<link rel="icon" type="image/svg+xml" href="/lesfaits/favicon.svg">
-<link rel="manifest" href="/lesfaits/manifest.json">
-<script defer data-domain="r9mzz.github.io/lesfaits" src="https://plausible.io/js/script.js"></script>
+  <script>(function(){var s=localStorage.getItem('theme'),d=s==='dark'||(s===null&&window.matchMedia('(prefers-color-scheme:dark)').matches);document.documentElement.setAttribute('data-theme',d?'dark':'light');})();</script>
 </head>
 <body>
+<div class="nav-overlay" id="nav-overlay" onclick="closeMenu()"></div>
+<nav class="nav-mobile" id="nav-mobile">
+<a href="categories/societe.html">Société</a>
+<a href="categories/science.html">Science</a>
+<a href="categories/economie.html">Économie</a>
+<a href="categories/tech.html">Tech</a>
+<a href="categories/sante.html">Santé</a>
+<a href="categories/environnement.html">Environnement</a>
+<a href="methode.html" class="nav-cta">Comment on travaille →</a>
+</nav>
 <script>
-(function(){var s=localStorage.getItem('theme');var d=s==='dark'||(s===null&&window.matchMedia('(prefers-color-scheme:dark)').matches);document.documentElement.setAttribute('data-theme',d?'dark':'light');})();
+function toggleMenu(){var b=document.getElementById('burger'),m=document.getElementById('nav-mobile'),o=document.getElementById('nav-overlay');b.classList.toggle('open');m.classList.toggle('open');o.classList.toggle('open');}
+function closeMenu(){document.getElementById('burger').classList.remove('open');document.getElementById('nav-mobile').classList.remove('open');document.getElementById('nav-overlay').classList.remove('open');}
+document.querySelectorAll('.nav-mobile a').forEach(function(a){a.addEventListener('click',closeMenu);});
+document.addEventListener('keydown',function(e){if(e.key==='Escape')closeMenu();});
 </script>
 <header class="header">
   <div class="header__inner">
-    <a href="index.html" class="brand">
-      <div class="brand__logotype"><span class="fact">les</span><span class="uel">faits</span></div>
-    </a>
+    <a href="index.html" class="brand"><div class="brand__logotype"><span class="fact">les</span><span class="uel">faits</span></div></a>
     <div class="header__search">
-      <input type="search" class="header__search-input" aria-label="Rechercher un article" id="search-input" placeholder="Rechercher…" autocomplete="off" onkeydown="if(event.key==='Enter'&&this.value.trim())window.location=(document.querySelector('base').href)+'recherche.html?q='+encodeURIComponent(this.value.trim())"/>
+      <input type="search" class="header__search-input" placeholder="Rechercher…" autocomplete="off" onkeydown="if(event.key==='Enter'&&this.value.trim())window.location=(document.querySelector('base').href)+'recherche.html?q='+encodeURIComponent(this.value.trim())"/>
     </div>
-    <nav aria-label="Navigation principale">
+    <nav>
       <a href="categories/societe.html">Société</a>
       <a href="categories/science.html">Science</a>
       <a href="categories/economie.html">Économie</a>
@@ -47,47 +43,284 @@
       <a href="methode.html" class="nav-cta">Comment on travaille →</a>
     </nav>
     <button class="dark-toggle" id="dark-toggle" aria-label="Mode sombre" title="Mode sombre">🌙</button>
+    <button class="burger" id="burger" aria-label="Menu" onclick="toggleMenu()"><span></span><span></span><span></span></button>
   </div>
 </header>
 
-<main>
-<div class="archive-list">
-  <div style="margin-bottom:32px;border-bottom:1px solid var(--rule);padding-bottom:20px">
-    <span style="font-size:.75rem;font-weight:700;letter-spacing:.12em;color:var(--muted);text-transform:uppercase">Index</span>
-    <h1 style="font-family:Georgia,serif;font-size:2rem;font-weight:700;margin:8px 0 4px">Tous les articles</h1>
-    <p style="color:var(--muted);font-size:.85rem" id="archive-count">Chargement…</p>
-  </div>
-
-  <div class="archive-filters" id="archive-filters" role="group" aria-label="Filtrer par rubrique">
-    <button class="filter-btn active" data-cat="" onclick="filterCat(this,'')">Tous</button>
-    <button class="filter-btn" data-cat="societe" onclick="filterCat(this,'societe')">Société</button>
-    <button class="filter-btn" data-cat="science" onclick="filterCat(this,'science')">Science</button>
-    <button class="filter-btn" data-cat="economie" onclick="filterCat(this,'economie')">Économie</button>
-    <button class="filter-btn" data-cat="tech" onclick="filterCat(this,'tech')">Tech</button>
-    <button class="filter-btn" data-cat="sante" onclick="filterCat(this,'sante')">Santé</button>
-    <button class="filter-btn" data-cat="environnement" onclick="filterCat(this,'environnement')">Environnement</button>
-  </div>
-
-  <div id="archive-grid" aria-live="polite">
-    <div style="text-align:center;padding:60px 0;color:var(--muted)">Chargement des articles…</div>
-  </div>
-</div>
+<main class="wrap" style="max-width:860px;margin:48px auto;padding:0 20px 80px">
+  <nav aria-label="Fil d'Ariane" style="font-size:13px;color:var(--muted);margin-bottom:32px">
+    <a href="index.html" style="color:var(--muted)">Accueil</a>
+    <span style="margin:0 6px">›</span>
+    <span>Tous les articles</span>
+  </nav>
+  <h1 style="font-family:var(--font-serif,Georgia,serif);font-size:2rem;margin-bottom:4px">Tous les articles</h1>
+  <p style="color:var(--muted);font-size:14px;margin-bottom:48px">24 articles publiés</p>
+  
+  <section style="margin-bottom:48px">
+    <h2 style="font-size:.75rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);border-bottom:2px solid var(--blue);padding-bottom:8px;margin-bottom:0">Juin 2026 · 24 articles</h2>
+    
+    <article style="display:grid;grid-template-columns:80px 1fr;gap:12px 20px;padding:16px 0;border-bottom:1px solid var(--border);align-items:start">
+      <div>
+        <span style="display:inline-block;background:var(--blue);color:#fff;font-size:10px;font-weight:700;letter-spacing:.06em;padding:2px 7px;border-radius:3px;text-transform:uppercase">Environnement</span>
+      </div>
+      <div>
+        <a href="articles/refuges-climatiques-espagne-canicules.html" style="font-weight:600;color:var(--ink);text-decoration:none;line-height:1.4;font-size:1rem">L'Espagne met en place des refuges climatiques pour lutter contre les canicules</a>
+        <p style="margin:4px 0 0;font-size:.85rem;color:var(--muted);line-height:1.5">L'Espagne a déployé un réseau national d'abris climatiques pour aider la population à se protéger des fortes vagues de c…</p>
+        <span style="font-size:.75rem;color:var(--muted);margin-top:4px;display:block">27 juin 2026 · 4 sources</span>
+      </div>
+    </article>
+    <article style="display:grid;grid-template-columns:80px 1fr;gap:12px 20px;padding:16px 0;border-bottom:1px solid var(--border);align-items:start">
+      <div>
+        <span style="display:inline-block;background:var(--blue);color:#fff;font-size:10px;font-weight:700;letter-spacing:.06em;padding:2px 7px;border-radius:3px;text-transform:uppercase">Environnement</span>
+      </div>
+      <div>
+        <a href="articles/rechauffement-climatique-biodiversite-en-danger.html" style="font-weight:600;color:var(--ink);text-decoration:none;line-height:1.4;font-size:1rem">Réchauffement climatique et biodiversité en danger</a>
+        <p style="margin:4px 0 0;font-size:.85rem;color:var(--muted);line-height:1.5">Le réchauffement climatique met la biodiversité en danger, avec des conséquences dévastatrices sur les populations anima…</p>
+        <span style="font-size:.75rem;color:var(--muted);margin-top:4px;display:block">27 juin 2026 · 4 sources</span>
+      </div>
+    </article>
+    <article style="display:grid;grid-template-columns:80px 1fr;gap:12px 20px;padding:16px 0;border-bottom:1px solid var(--border);align-items:start">
+      <div>
+        <span style="display:inline-block;background:var(--blue);color:#fff;font-size:10px;font-weight:700;letter-spacing:.06em;padding:2px 7px;border-radius:3px;text-transform:uppercase">Tech</span>
+      </div>
+      <div>
+        <a href="articles/openai-reporte-introduction-bourse-2027.html" style="font-weight:600;color:var(--ink);text-decoration:none;line-height:1.4;font-size:1rem">OpenAI reporte son introduction en Bourse à 2027</a>
+        <p style="margin:4px 0 0;font-size:.85rem;color:var(--muted);line-height:1.5">Selon le New York Times, OpenAI a repoussé son introduction en Bourse à 2027, en raison de la volatilité de SpaceX et de…</p>
+        <span style="font-size:.75rem;color:var(--muted);margin-top:4px;display:block">27 juin 2026 · 4 sources</span>
+      </div>
+    </article>
+    <article style="display:grid;grid-template-columns:80px 1fr;gap:12px 20px;padding:16px 0;border-bottom:1px solid var(--border);align-items:start">
+      <div>
+        <span style="display:inline-block;background:var(--blue);color:#fff;font-size:10px;font-weight:700;letter-spacing:.06em;padding:2px 7px;border-radius:3px;text-transform:uppercase">Économie</span>
+      </div>
+      <div>
+        <a href="articles/cma-cgm-investit-mombasa.html" style="font-weight:600;color:var(--ink);text-decoration:none;line-height:1.4;font-size:1rem">CMA CGM investit 700 millions de dollars à Mombasa</a>
+        <p style="margin:4px 0 0;font-size:.85rem;color:var(--muted);line-height:1.5">Le géant français du transport maritime CMA CGM a annoncé un investissement de 700 millions de dollars pour construire u…</p>
+        <span style="font-size:.75rem;color:var(--muted);margin-top:4px;display:block">27 juin 2026 · 4 sources</span>
+      </div>
+    </article>
+    <article style="display:grid;grid-template-columns:80px 1fr;gap:12px 20px;padding:16px 0;border-bottom:1px solid var(--border);align-items:start">
+      <div>
+        <span style="display:inline-block;background:var(--blue);color:#fff;font-size:10px;font-weight:700;letter-spacing:.06em;padding:2px 7px;border-radius:3px;text-transform:uppercase">Environnement</span>
+      </div>
+      <div>
+        <a href="articles/canicule-france-fin-vigilances-rouges.html" style="font-weight:600;color:var(--ink);text-decoration:none;line-height:1.4;font-size:1rem">Canicule en France : fin des vigilances rouges prévue pour dimanche</a>
+        <p style="margin:4px 0 0;font-size:.85rem;color:var(--muted);line-height:1.5">Selon Météo-France, la fin des vigilances rouges est prévue pour dimanche à 22 heures, avec 37 départements encore conce…</p>
+        <span style="font-size:.75rem;color:var(--muted);margin-top:4px;display:block">27 juin 2026 · 4 sources</span>
+      </div>
+    </article>
+    <article style="display:grid;grid-template-columns:80px 1fr;gap:12px 20px;padding:16px 0;border-bottom:1px solid var(--border);align-items:start">
+      <div>
+        <span style="display:inline-block;background:var(--blue);color:#fff;font-size:10px;font-weight:700;letter-spacing:.06em;padding:2px 7px;border-radius:3px;text-transform:uppercase">Société</span>
+      </div>
+      <div>
+        <a href="articles/canicule-france-phenomene-meteo.html" style="font-weight:600;color:var(--ink);text-decoration:none;line-height:1.4;font-size:1rem">La canicule en France, un phénomène de plus en plus fréquent</a>
+        <p style="margin:4px 0 0;font-size:.85rem;color:var(--muted);line-height:1.5">La France a connu sa journée la plus chaude jamais enregistrée, avec des températures supérieures à 40 °C dans plusieurs…</p>
+        <span style="font-size:.75rem;color:var(--muted);margin-top:4px;display:block">26 juin 2026 · 4 sources</span>
+      </div>
+    </article>
+    <article style="display:grid;grid-template-columns:80px 1fr;gap:12px 20px;padding:16px 0;border-bottom:1px solid var(--border);align-items:start">
+      <div>
+        <span style="display:inline-block;background:var(--blue);color:#fff;font-size:10px;font-weight:700;letter-spacing:.06em;padding:2px 7px;border-radius:3px;text-transform:uppercase">Société</span>
+      </div>
+      <div>
+        <a href="articles/redmi-15-5g-smartphone-abordable.html" style="font-weight:600;color:var(--ink);text-decoration:none;line-height:1.4;font-size:1rem">Redmi 15 5G : un smartphone abordable avec écran 144 Hz et batterie 7000 mAh</a>
+        <p style="margin:4px 0 0;font-size:.85rem;color:var(--muted);line-height:1.5">Le Redmi 15 5G est un smartphone abordable proposé par Xiaomi, équipé d'un écran de 6,9 pouces avec un taux de rafraîchi…</p>
+        <span style="font-size:.75rem;color:var(--muted);margin-top:4px;display:block">26 juin 2026 · 4 sources</span>
+      </div>
+    </article>
+    <article style="display:grid;grid-template-columns:80px 1fr;gap:12px 20px;padding:16px 0;border-bottom:1px solid var(--border);align-items:start">
+      <div>
+        <span style="display:inline-block;background:var(--blue);color:#fff;font-size:10px;font-weight:700;letter-spacing:.06em;padding:2px 7px;border-radius:3px;text-transform:uppercase">Environnement</span>
+      </div>
+      <div>
+        <a href="articles/temperature-ressentie-indice-complexe.html" style="font-weight:600;color:var(--ink);text-decoration:none;line-height:1.4;font-size:1rem">La température ressentie, un indice complexe</a>
+        <p style="margin:4px 0 0;font-size:.85rem;color:var(--muted);line-height:1.5">La température ressentie est un indice qui prend en compte les interactions entre le corps humain et les conditions mété…</p>
+        <span style="font-size:.75rem;color:var(--muted);margin-top:4px;display:block">26 juin 2026 · 4 sources</span>
+      </div>
+    </article>
+    <article style="display:grid;grid-template-columns:80px 1fr;gap:12px 20px;padding:16px 0;border-bottom:1px solid var(--border);align-items:start">
+      <div>
+        <span style="display:inline-block;background:var(--blue);color:#fff;font-size:10px;font-weight:700;letter-spacing:.06em;padding:2px 7px;border-radius:3px;text-transform:uppercase">Science</span>
+      </div>
+      <div>
+        <a href="articles/arreter-de-fumer-reduit-les-risques-de-demence.html" style="font-weight:600;color:var(--ink);text-decoration:none;line-height:1.4;font-size:1rem">Arrêter de fumer réduit les risques de démence même tard dans la vie</a>
+        <p style="margin:4px 0 0;font-size:.85rem;color:var(--muted);line-height:1.5">Selon une étude récente, arrêter de fumer, même tard dans la vie, réduit les risques de démence et retarde le déclin cog…</p>
+        <span style="font-size:.75rem;color:var(--muted);margin-top:4px;display:block">26 juin 2026 · 4 sources</span>
+      </div>
+    </article>
+    <article style="display:grid;grid-template-columns:80px 1fr;gap:12px 20px;padding:16px 0;border-bottom:1px solid var(--border);align-items:start">
+      <div>
+        <span style="display:inline-block;background:var(--blue);color:#fff;font-size:10px;font-weight:700;letter-spacing:.06em;padding:2px 7px;border-radius:3px;text-transform:uppercase">Science</span>
+      </div>
+      <div>
+        <a href="articles/recherche-publique-en-crise.html" style="font-weight:600;color:var(--ink);text-decoration:none;line-height:1.4;font-size:1rem">La recherche publique en crise financière et politique</a>
+        <p style="margin:4px 0 0;font-size:.85rem;color:var(--muted);line-height:1.5">Les universités et les organismes de recherche voient leur trésorerie se dégrader, avec une situation inquiétante pour l…</p>
+        <span style="font-size:.75rem;color:var(--muted);margin-top:4px;display:block">26 juin 2026 · 4 sources</span>
+      </div>
+    </article>
+    <article style="display:grid;grid-template-columns:80px 1fr;gap:12px 20px;padding:16px 0;border-bottom:1px solid var(--border);align-items:start">
+      <div>
+        <span style="display:inline-block;background:var(--blue);color:#fff;font-size:10px;font-weight:700;letter-spacing:.06em;padding:2px 7px;border-radius:3px;text-transform:uppercase">Société</span>
+      </div>
+      <div>
+        <a href="articles/chantal-delsol-droite-antimoderne.html" style="font-weight:600;color:var(--ink);text-decoration:none;line-height:1.4;font-size:1rem">Chantal Delsol et la droite antimoderne</a>
+        <p style="margin:4px 0 0;font-size:.85rem;color:var(--muted);line-height:1.5">Chantal Delsol, philosophe et membre de l'Académie des sciences morales et politiques, a suscité la controverse en invit…</p>
+        <span style="font-size:.75rem;color:var(--muted);margin-top:4px;display:block">25 juin 2026 · 3 sources</span>
+      </div>
+    </article>
+    <article style="display:grid;grid-template-columns:80px 1fr;gap:12px 20px;padding:16px 0;border-bottom:1px solid var(--border);align-items:start">
+      <div>
+        <span style="display:inline-block;background:var(--blue);color:#fff;font-size:10px;font-weight:700;letter-spacing:.06em;padding:2px 7px;border-radius:3px;text-transform:uppercase">Environnement</span>
+      </div>
+      <div>
+        <a href="articles/agriculture-defis-climatiques-extremes.html" style="font-weight:600;color:var(--ink);text-decoration:none;line-height:1.4;font-size:1rem">L'agriculture face aux défis climatiques extrêmes</a>
+        <p style="margin:4px 0 0;font-size:.85rem;color:var(--muted);line-height:1.5">Selon David Renaudeau et Inaki Garcia de Cortazar-Atauri, chercheurs à l'Inrae, l'alternance d'événements climatiques ex…</p>
+        <span style="font-size:.75rem;color:var(--muted);margin-top:4px;display:block">24 juin 2026 · 5 sources</span>
+      </div>
+    </article>
+    <article style="display:grid;grid-template-columns:80px 1fr;gap:12px 20px;padding:16px 0;border-bottom:1px solid var(--border);align-items:start">
+      <div>
+        <span style="display:inline-block;background:var(--blue);color:#fff;font-size:10px;font-weight:700;letter-spacing:.06em;padding:2px 7px;border-radius:3px;text-transform:uppercase">Environnement</span>
+      </div>
+      <div>
+        <a href="articles/secheresse-estivale-france-changement-climatique.html" style="font-weight:600;color:var(--ink);text-decoration:none;line-height:1.4;font-size:1rem">Sécheresse estivale en France : les conséquences du changement climatique</a>
+        <p style="margin:4px 0 0;font-size:.85rem;color:var(--muted);line-height:1.5">La France réchauffe 1,7 fois plus vite que la moyenne mondiale, selon les projections du GIEC</p>
+        <span style="font-size:.75rem;color:var(--muted);margin-top:4px;display:block">25 juin 2026 · 5 sources</span>
+      </div>
+    </article>
+    <article style="display:grid;grid-template-columns:80px 1fr;gap:12px 20px;padding:16px 0;border-bottom:1px solid var(--border);align-items:start">
+      <div>
+        <span style="display:inline-block;background:var(--blue);color:#fff;font-size:10px;font-weight:700;letter-spacing:.06em;padding:2px 7px;border-radius:3px;text-transform:uppercase">Santé</span>
+      </div>
+      <div>
+        <a href="articles/sante-environnementale-impact-humain.html" style="font-weight:600;color:var(--ink);text-decoration:none;line-height:1.4;font-size:1rem">Santé Environnementale : L'Impact Humain sur la Planète</a>
+        <p style="margin:4px 0 0;font-size:.85rem;color:var(--muted);line-height:1.5">La santé environnementale est un enjeu central pour la planète et les humains</p>
+        <span style="font-size:.75rem;color:var(--muted);margin-top:4px;display:block">25 juin 2026 · 5 sources</span>
+      </div>
+    </article>
+    <article style="display:grid;grid-template-columns:80px 1fr;gap:12px 20px;padding:16px 0;border-bottom:1px solid var(--border);align-items:start">
+      <div>
+        <span style="display:inline-block;background:var(--blue);color:#fff;font-size:10px;font-weight:700;letter-spacing:.06em;padding:2px 7px;border-radius:3px;text-transform:uppercase">Science</span>
+      </div>
+      <div>
+        <a href="articles/nasa-lance-mission-sauvetage-telescope-swift.html" style="font-weight:600;color:var(--ink);text-decoration:none;line-height:1.4;font-size:1rem">La NASA lance mission sauvetage pour le télescope Swift</a>
+        <p style="margin:4px 0 0;font-size:.85rem;color:var(--muted);line-height:1.5">La NASA a confié une mission de sauvetage audacieuse à Katalyst Space pour intercepter et récupérer le télescope Swift</p>
+        <span style="font-size:.75rem;color:var(--muted);margin-top:4px;display:block">25 juin 2026 · 5 sources</span>
+      </div>
+    </article>
+    <article style="display:grid;grid-template-columns:80px 1fr;gap:12px 20px;padding:16px 0;border-bottom:1px solid var(--border);align-items:start">
+      <div>
+        <span style="display:inline-block;background:var(--blue);color:#fff;font-size:10px;font-weight:700;letter-spacing:.06em;padding:2px 7px;border-radius:3px;text-transform:uppercase">Société</span>
+      </div>
+      <div>
+        <a href="articles/controle-aerien-france-en-crise.html" style="font-weight:600;color:var(--ink);text-decoration:none;line-height:1.4;font-size:1rem">Contrôle aérien : la France en crise</a>
+        <p style="margin:4px 0 0;font-size:.85rem;color:var(--muted);line-height:1.5">840 millions d'euros pour payer l'immobilisme de l'État</p>
+        <span style="font-size:.75rem;color:var(--muted);margin-top:4px;display:block">25 juin 2026 · 5 sources</span>
+      </div>
+    </article>
+    <article style="display:grid;grid-template-columns:80px 1fr;gap:12px 20px;padding:16px 0;border-bottom:1px solid var(--border);align-items:start">
+      <div>
+        <span style="display:inline-block;background:var(--blue);color:#fff;font-size:10px;font-weight:700;letter-spacing:.06em;padding:2px 7px;border-radius:3px;text-transform:uppercase">Santé</span>
+      </div>
+      <div>
+        <a href="articles/canicule-sante-publique-france.html" style="font-weight:600;color:var(--ink);text-decoration:none;line-height:1.4;font-size:1rem">Canicule : Situation sanitaire en France</a>
+        <p style="margin:4px 0 0;font-size:.85rem;color:var(--muted);line-height:1.5">Un épisode de canicule intense touche la France hexagonale depuis le 16 juin</p>
+        <span style="font-size:.75rem;color:var(--muted);margin-top:4px;display:block">25 juin 2026 · 5 sources</span>
+      </div>
+    </article>
+    <article style="display:grid;grid-template-columns:80px 1fr;gap:12px 20px;padding:16px 0;border-bottom:1px solid var(--border);align-items:start">
+      <div>
+        <span style="display:inline-block;background:var(--blue);color:#fff;font-size:10px;font-weight:700;letter-spacing:.06em;padding:2px 7px;border-radius:3px;text-transform:uppercase">Science</span>
+      </div>
+      <div>
+        <a href="articles/theorie-evolution-darwin.html" style="font-weight:600;color:var(--ink);text-decoration:none;line-height:1.4;font-size:1rem">La Théorie de l'Évolution de Darwin</a>
+        <p style="margin:4px 0 0;font-size:.85rem;color:var(--muted);line-height:1.5">La théorie de l'évolution de Darwin explique l'origine des espèces par un mécanisme de changements</p>
+        <span style="font-size:.75rem;color:var(--muted);margin-top:4px;display:block">25 juin 2026 · 5 sources</span>
+      </div>
+    </article>
+    <article style="display:grid;grid-template-columns:80px 1fr;gap:12px 20px;padding:16px 0;border-bottom:1px solid var(--border);align-items:start">
+      <div>
+        <span style="display:inline-block;background:var(--blue);color:#fff;font-size:10px;font-weight:700;letter-spacing:.06em;padding:2px 7px;border-radius:3px;text-transform:uppercase">Environnement</span>
+      </div>
+      <div>
+        <a href="articles/emissions-co2-france-recul-2023.html" style="font-weight:600;color:var(--ink);text-decoration:none;line-height:1.4;font-size:1rem">Émissions de CO2 en France : un recul de 5,8% en 2023</a>
+        <p style="margin:4px 0 0;font-size:.85rem;color:var(--muted);line-height:1.5">Les émissions de gaz à effet de serre en France ont diminué de 5,8% en 2023</p>
+        <span style="font-size:.75rem;color:var(--muted);margin-top:4px;display:block">25 juin 2026 · 3 sources</span>
+      </div>
+    </article>
+    <article style="display:grid;grid-template-columns:80px 1fr;gap:12px 20px;padding:16px 0;border-bottom:1px solid var(--border);align-items:start">
+      <div>
+        <span style="display:inline-block;background:var(--blue);color:#fff;font-size:10px;font-weight:700;letter-spacing:.06em;padding:2px 7px;border-radius:3px;text-transform:uppercase">Environnement</span>
+      </div>
+      <div>
+        <a href="articles/loi-contre-ultrafast-fashion-adoptee.html" style="font-weight:600;color:var(--ink);text-decoration:none;line-height:1.4;font-size:1rem">Loi contre l'ultra fast fashion adoptée</a>
+        <p style="margin:4px 0 0;font-size:.85rem;color:var(--muted);line-height:1.5">L'Assemblée nationale a adopté un texte ciblant l'ultra fast fashion</p>
+        <span style="font-size:.75rem;color:var(--muted);margin-top:4px;display:block">25 juin 2026 · 5 sources</span>
+      </div>
+    </article>
+    <article style="display:grid;grid-template-columns:80px 1fr;gap:12px 20px;padding:16px 0;border-bottom:1px solid var(--border);align-items:start">
+      <div>
+        <span style="display:inline-block;background:var(--blue);color:#fff;font-size:10px;font-weight:700;letter-spacing:.06em;padding:2px 7px;border-radius:3px;text-transform:uppercase">Santé</span>
+      </div>
+      <div>
+        <a href="articles/subvention-ars-planning-familial-gironde-2026.html" style="font-weight:600;color:var(--ink);text-decoration:none;line-height:1.4;font-size:1rem">Subvention Ars Planning Familial Gironde 2026</a>
+        <p style="margin:4px 0 0;font-size:.85rem;color:var(--muted);line-height:1.5">La subvention de l'ARS est maintenue pour 2026</p>
+        <span style="font-size:.75rem;color:var(--muted);margin-top:4px;display:block">25 juin 2026 · 4 sources</span>
+      </div>
+    </article>
+    <article style="display:grid;grid-template-columns:80px 1fr;gap:12px 20px;padding:16px 0;border-bottom:1px solid var(--border);align-items:start">
+      <div>
+        <span style="display:inline-block;background:var(--blue);color:#fff;font-size:10px;font-weight:700;letter-spacing:.06em;padding:2px 7px;border-radius:3px;text-transform:uppercase">Santé</span>
+      </div>
+      <div>
+        <a href="articles/sante-environnementale-defis-savoirs.html" style="font-weight:600;color:var(--ink);text-decoration:none;line-height:1.4;font-size:1rem">Défis de la santé environnementale et des savoirs</a>
+        <p style="margin:4px 0 0;font-size:.85rem;color:var(--muted);line-height:1.5">Le Forum Santé Environnement 2024 a mis en avant l'importance de la santé environnementale</p>
+        <span style="font-size:.75rem;color:var(--muted);margin-top:4px;display:block">25 juin 2026 · 4 sources</span>
+      </div>
+    </article>
+    <article style="display:grid;grid-template-columns:80px 1fr;gap:12px 20px;padding:16px 0;border-bottom:1px solid var(--border);align-items:start">
+      <div>
+        <span style="display:inline-block;background:var(--blue);color:#fff;font-size:10px;font-weight:700;letter-spacing:.06em;padding:2px 7px;border-radius:3px;text-transform:uppercase">Santé</span>
+      </div>
+      <div>
+        <a href="articles/ia-dans-la-sante.html" style="font-weight:600;color:var(--ink);text-decoration:none;line-height:1.4;font-size:1rem">L'intelligence artificielle dans la santé</a>
+        <p style="margin:4px 0 0;font-size:.85rem;color:var(--muted);line-height:1.5">L'intelligence artificielle (IA) est de plus en plus utilisée dans le domaine de la santé pour améliorer la prise en cha…</p>
+        <span style="font-size:.75rem;color:var(--muted);margin-top:4px;display:block">25 juin 2026 · 5 sources</span>
+      </div>
+    </article>
+    <article style="display:grid;grid-template-columns:80px 1fr;gap:12px 20px;padding:16px 0;border-bottom:1px solid var(--border);align-items:start">
+      <div>
+        <span style="display:inline-block;background:var(--blue);color:#fff;font-size:10px;font-weight:700;letter-spacing:.06em;padding:2px 7px;border-radius:3px;text-transform:uppercase">Santé</span>
+      </div>
+      <div>
+        <a href="articles/premier-cas-ebola-france.html" style="font-weight:600;color:var(--ink);text-decoration:none;line-height:1.4;font-size:1rem">Premier cas Ebola détecté en France</a>
+        <p style="margin:4px 0 0;font-size:.85rem;color:var(--muted);line-height:1.5">Un médecin de retour de République démocratique du Congo est atteint du virus Ebola en France.</p>
+        <span style="font-size:.75rem;color:var(--muted);margin-top:4px;display:block">25 juin 2026 · 4 sources</span>
+      </div>
+    </article>
+  </section>
 </main>
 
-<footer class="footer" role="contentinfo">
+<footer class="footer" role="contentinfo" aria-label="Pied de page">
   <div class="footer__inner">
     <div class="footer__brand">
       <div class="brand__logotype"><span class="fact">les</span><span class="uel">faits</span></div>
       <p>Journal numérique français rédigé par IA. Sans publicité. Sans actionnaires.</p>
+      <p style="font-size:10px;color:var(--muted);margin-top:8px">Aucune publicité · Aucun actionnaire · Aucun cookie de tracking</p>
     </div>
     <div class="footer__col"><h4>RUBRIQUES</h4>
-      <a href="categories/societe.html">Société</a><a href="categories/science.html">Science</a>
-      <a href="categories/economie.html">Économie</a><a href="categories/tech.html">Tech</a>
-      <a href="categories/sante.html">Santé</a><a href="categories/environnement.html">Environnement</a>
+      <a href="categories/societe.html">Société</a>
+      <a href="categories/science.html">Science</a>
+      <a href="categories/economie.html">Économie</a>
+      <a href="categories/tech.html">Tech</a>
+      <a href="categories/sante.html">Santé</a>
+      <a href="categories/environnement.html">Environnement</a>
     </div>
     <div class="footer__col"><h4>JOURNAL</h4>
-      <a href="methode.html">Comment on travaille</a><a href="corrections.html">Corrections publiques</a>
-      <a href="archive.html" aria-current="page">Tous les articles</a>
+      <a href="methode.html">Comment on travaille</a>
+      <a href="corrections.html">Corrections publiques</a>
+      <a href="archive.html">Tous les articles</a>
       <a href="feed.xml" class="footer__rss">Flux RSS</a>
     </div>
     <div class="footer__col"><h4>LÉGAL</h4>
@@ -96,7 +329,8 @@
       <a href="cgu.html">CGU</a>
     </div>
     <div class="footer__col"><h4>CONTACT</h4>
-      <a href="contact.html">Nous écrire</a><a href="contact.html#erreur">Signaler une erreur</a>
+      <a href="contact.html">Nous écrire</a>
+      <a href="contact.html#erreur">Signaler une erreur</a>
     </div>
   </div>
   <div class="footer__bottom">
@@ -104,69 +338,12 @@
     <span>Protocole éditorial v1.1</span>
   </div>
 </footer>
-
 <script>
-var CAT_LABELS = {
-  societe:'Société', science:'Science', economie:'Économie',
-  tech:'Tech', sante:'Santé', environnement:'Environnement'
-};
-
-var allArticles = [];
-var activeCat = '';
-
-function filterCat(btn, cat) {
-  activeCat = cat;
-  document.querySelectorAll('.filter-btn').forEach(function(b){ b.classList.remove('active'); });
-  btn.classList.add('active');
-  renderArticles();
-}
-
-function renderArticles() {
-  var filtered = activeCat
-    ? allArticles.filter(function(a){ return a.categorie === activeCat; })
-    : allArticles;
-
-  var count = document.getElementById('archive-count');
-  if (count) count.textContent = filtered.length + ' article' + (filtered.length > 1 ? 's' : '');
-
-  var grid = document.getElementById('archive-grid');
-  if (!filtered.length) {
-    grid.innerHTML = '<div style="text-align:center;padding:60px 0;color:var(--muted)">Aucun article dans cette rubrique.</div>';
-    return;
-  }
-
-  grid.innerHTML = filtered.map(function(a) {
-    var imgSrc = 'assets/images/' + a.slug + '.jpg';
-    var catLabel = CAT_LABELS[a.categorie] || a.categorie;
-    return '<div class="archive-item" onclick="window.location=\'articles/' + a.slug + '.html\'" role="link" tabindex="0" onkeydown="if(event.key===\'Enter\'||event.key===\' \')window.location=\'articles/' + a.slug + '.html\'">'
-      + '<img class="archive-item__img" src="' + imgSrc + '" alt="" loading="lazy" onerror="this.style.display=\'none\'">'
-      + '<div class="archive-item__body">'
-      + '<div class="archive-item__cat">' + catLabel + '</div>'
-      + '<div class="archive-item__title">' + a.titre + '</div>'
-      + '<div class="archive-item__meta">' + a.date + (a.excerpt ? ' · ' + a.excerpt.substring(0, 90) + '…' : '') + '</div>'
-      + '</div></div>';
-  }).join('');
-}
-
-fetch('data/search.json')
-  .then(function(r){ return r.json(); })
-  .then(function(data){
-    allArticles = data;
-    renderArticles();
-  })
-  .catch(function(){
-    document.getElementById('archive-grid').innerHTML =
-      '<div style="text-align:center;padding:60px 0;color:var(--muted)">Impossible de charger les articles.</div>';
-  });
-
-// Dark mode
 (function(){
   var btn=document.getElementById('dark-toggle');
-  var s=localStorage.getItem('theme');
-  var dark=s==='dark'||(s===null&&window.matchMedia('(prefers-color-scheme:dark)').matches);
-  document.documentElement.setAttribute('data-theme',dark?'dark':'light');
-  if(btn)btn.textContent=dark?'☀️':'🌙';
-  if(btn)btn.addEventListener('click',function(){
+  var dark=document.documentElement.getAttribute('data-theme')==='dark';
+  if(btn) btn.textContent=dark?'☀️':'🌙';
+  if(btn) btn.addEventListener('click',function(){
     var d=document.documentElement.getAttribute('data-theme')==='dark';
     document.documentElement.setAttribute('data-theme',d?'light':'dark');
     localStorage.setItem('theme',d?'light':'dark');
@@ -174,6 +351,6 @@ fetch('data/search.json')
   });
 })();
 </script>
-<script>document.addEventListener('keydown',function(e){if(e.key==='/'&&!['INPUT','TEXTAREA','SELECT'].includes(document.activeElement.tagName)){e.preventDefault();var s=document.getElementById('search-input');if(s){s.focus();s.select();}}});</script>
+<script defer src="https://cloud.umami.is/script.js" data-website-id="8d68a78f-97ae-4c95-a955-5d3df758f7e2"></script>
 </body>
 </html>
