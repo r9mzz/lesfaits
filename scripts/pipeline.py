@@ -95,53 +95,14 @@ def fetch_full_content(url: str) -> str:
 
 
 def duckduckgo_search(query: str, max_results: int = 8) -> list[dict]:
-    """Recherche DuckDuckGo — POST avec fallback GET, retry sur erreur réseau."""
-
-    def _parse_results(html: str) -> list[dict]:
-        soup = BeautifulSoup(html, "html.parser")
-        out = []
-        for result in soup.select(".result")[:15]:
-            t = result.select_one(".result__title")
-            u = result.select_one(".result__url")
-            s = result.select_one(".result__snippet")
-            if not (t and u):
-                continue
-            raw_url = u.get_text(strip=True).strip()
-            if not raw_url.startswith("http"):
-                raw_url = "https://" + raw_url
-            if len(urlparse(raw_url).path.rstrip("/")) > 5:
-                out.append({
-                    "title":   t.get_text(strip=True),
-                    "url":     raw_url,
-                    "snippet": s.get_text(strip=True) if s else "",
-                })
-        return out
-
-    def _search(q: str) -> list[dict]:
-        ddg_url = "https://html.duckduckgo.com/html/"
-        # Essai 1 : POST (standard)
-        for attempt in range(2):
-            try:
-                r = requests.post(ddg_url, data={"q": q}, headers=HEADERS, timeout=15)
-                if r.status_code == 200 and ".result" in r.text:
-                    return _parse_results(r.text)
-                # DDG renvoie parfois un 200 vide (rate-limit silencieux) → attendre
-                time.sleep(3 + attempt * 4)
-            except Exception:
-                time.sleep(3)
-        # Essai 2 : GET comme navigateur (contourne certains blocks)
+    """Recherche DuckDuckGo via la librairie duckduckgo-search (endpoint API, pas scraping HTML)."""
+    try:
+        from ddgs import DDGS
+    except ImportError:
         try:
-            r = requests.get(
-                ddg_url,
-                params={"q": q, "kl": "fr-fr"},
-                headers={**HEADERS, "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8"},
-                timeout=15,
-            )
-            if r.status_code == 200:
-                return _parse_results(r.text)
-        except Exception:
-            pass
-        return []
+            from duckduckgo_search import DDGS
+        except ImportError:
+            return []
 
     seen = set()
     results = []
@@ -149,14 +110,26 @@ def duckduckgo_search(query: str, max_results: int = 8) -> list[dict]:
     queries = [
         query,
         query + " rapport statistiques données officielles",
-        query + " site:gouv.fr OR site:inserm.fr OR site:insee.fr OR site:who.int OR site:europa.eu",
+        query + " site:gouv.fr OR site:inserm.fr OR site:insee.fr OR site:who.int",
     ]
+
     for q in queries:
-        time.sleep(2)  # délai entre requêtes pour éviter le rate-limit
-        for r in _search(q):
-            if r["url"] not in seen:
-                seen.add(r["url"])
-                results.append(r)
+        try:
+            with DDGS() as ddgs:
+                for r in ddgs.text(q, max_results=10, region="fr-fr"):
+                    url = r.get("href", "")
+                    if not url or url in seen:
+                        continue
+                    if len(urlparse(url).path.rstrip("/")) <= 5:
+                        continue
+                    seen.add(url)
+                    results.append({
+                        "title":   r.get("title", ""),
+                        "url":     url,
+                        "snippet": r.get("body", ""),
+                    })
+        except Exception:
+            pass
         if len(results) >= max_results:
             break
 
@@ -1868,8 +1841,10 @@ def generer_article(item: dict, dry_run: bool, published: set, new_pub: set, dat
         elif "model" in err.lower() and ("not found" in err.lower() or "deprecated" in err.lower()):
             print(f"     [ERREUR GROQ] Modèle llama-3.3-70b-versatile indisponible : {err}")
         else:
+            import traceback as _tb2
+            tb_str = _tb2.format_exc()
             print(f"     [ERREUR] {type(e).__name__}: {err}")
-            _tb.print_exc()
+            print(tb_str)
     return False
 
 
