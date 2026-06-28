@@ -210,7 +210,7 @@ function renderCards(matches, q) {
   container.innerHTML = matches.map(a => {
     const imgKw = (a.image_keyword||'').replace(/\s+/g,',');
     const imgSrc = a.slug ? `assets/images/${a.slug}.jpg` : '';
-    return `<div class="search-result" onclick="window.location='${BASE}articles/${a.slug}.html'">
+    return `<a class="search-result" href="${BASE}articles/${a.slug}.html">
       ${imgSrc ? `<img class="search-result__img" src="${imgSrc}" alt="" loading="lazy"/>` : ''}
       <div class="search-result__body">
         <div class="search-result__cat">${CAT_LABELS[a.categorie] || a.categorie}</div>
@@ -218,7 +218,7 @@ function renderCards(matches, q) {
         ${a.excerpt ? `<div class="search-result__excerpt">${highlight(a.excerpt.slice(0,150), q)}…</div>` : ''}
         <div class="search-result__meta">${a.date}</div>
       </div>
-    </div>`;
+    </a>`;
   }).join('');
 }
 

@@ -42,20 +42,30 @@ PIXABAY_KEY    = os.getenv("PIXABAY_API_KEY", "")
 # ══════════════════════════════════════════════════════════════════════════════
 
 RSS_SOURCES = [
-    # Science / environnement / santé
+    # Le Monde — rubriques thématiques
     {"name": "Le Monde Science",     "url": "https://www.lemonde.fr/sciences/rss_full.xml"},
     {"name": "Le Monde Planète",     "url": "https://www.lemonde.fr/planete/rss_full.xml"},
     {"name": "Le Monde Santé",       "url": "https://www.lemonde.fr/sante/rss_full.xml"},
-    # Économie / société
     {"name": "Le Monde Economie",    "url": "https://www.lemonde.fr/economie/rss_full.xml"},
     {"name": "Le Monde Société",     "url": "https://www.lemonde.fr/societe/rss_full.xml"},
-    # Tech
     {"name": "Le Monde Pixel",       "url": "https://www.lemonde.fr/pixels/rss_full.xml"},
+    # Libération
+    {"name": "Libération",           "url": "https://www.liberation.fr/arc/outboundfeeds/rss/?outputType=xml"},
+    # France Info
+    {"name": "France Info",          "url": "https://www.francetvinfo.fr/titres.rss"},
+    # Sciences et Avenir
+    {"name": "Sciences et Avenir",   "url": "https://www.sciencesetavenir.fr/rss.xml"},
+    # Le Figaro
+    {"name": "Le Figaro Société",    "url": "https://www.lefigaro.fr/rss/figaro_societe.xml"},
     # Institutions françaises
     {"name": "Vie Publique",         "url": "https://www.vie-publique.fr/rss.xml"},
     # Science internationale
     {"name": "Futura Sciences",      "url": "https://www.futura-sciences.com/rss/actualites.xml"},
     {"name": "CNRS Actualités",      "url": "https://lejournal.cnrs.fr/rss"},
+    # Santé publique
+    {"name": "INSERM Actualités",    "url": "https://www.inserm.fr/feed/"},
+    # Environnement
+    {"name": "Reporterre",           "url": "https://reporterre.net/spip.php?page=backend"},
 ]
 
 HEADERS = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"}
