@@ -95,39 +95,64 @@ def fetch_full_content(url: str) -> str:
 
 
 def duckduckgo_search(query: str, max_results: int = 8) -> list[dict]:
-    """Recherche DuckDuckGo — retourne uniquement des URLs pointant vers des articles précis."""
+    """Recherche DuckDuckGo — POST avec fallback GET, retry sur erreur réseau."""
+
+    def _parse_results(html: str) -> list[dict]:
+        soup = BeautifulSoup(html, "html.parser")
+        out = []
+        for result in soup.select(".result")[:15]:
+            t = result.select_one(".result__title")
+            u = result.select_one(".result__url")
+            s = result.select_one(".result__snippet")
+            if not (t and u):
+                continue
+            raw_url = u.get_text(strip=True).strip()
+            if not raw_url.startswith("http"):
+                raw_url = "https://" + raw_url
+            if len(urlparse(raw_url).path.rstrip("/")) > 5:
+                out.append({
+                    "title":   t.get_text(strip=True),
+                    "url":     raw_url,
+                    "snippet": s.get_text(strip=True) if s else "",
+                })
+        return out
+
     def _search(q: str) -> list[dict]:
+        ddg_url = "https://html.duckduckgo.com/html/"
+        # Essai 1 : POST (standard)
+        for attempt in range(2):
+            try:
+                r = requests.post(ddg_url, data={"q": q}, headers=HEADERS, timeout=15)
+                if r.status_code == 200 and ".result" in r.text:
+                    return _parse_results(r.text)
+                # DDG renvoie parfois un 200 vide (rate-limit silencieux) → attendre
+                time.sleep(3 + attempt * 4)
+            except Exception:
+                time.sleep(3)
+        # Essai 2 : GET comme navigateur (contourne certains blocks)
         try:
-            url = "https://html.duckduckgo.com/html/"
-            r = requests.post(url, data={"q": q}, headers=HEADERS, timeout=12)
-            soup = BeautifulSoup(r.text, "html.parser")
-            out = []
-            for result in soup.select(".result")[:15]:
-                t = result.select_one(".result__title")
-                u = result.select_one(".result__url")
-                s = result.select_one(".result__snippet")
-                if t and u:
-                    raw_url = "https://" + u.get_text(strip=True).strip()
-                    path = urlparse(raw_url).path.rstrip("/")
-                    if len(path) > 5:  # exclure les homepages
-                        out.append({
-                            "title":   t.get_text(strip=True),
-                            "url":     raw_url,
-                            "snippet": s.get_text(strip=True) if s else "",
-                        })
-            return out
+            r = requests.get(
+                ddg_url,
+                params={"q": q, "kl": "fr-fr"},
+                headers={**HEADERS, "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8"},
+                timeout=15,
+            )
+            if r.status_code == 200:
+                return _parse_results(r.text)
         except Exception:
-            return []
+            pass
+        return []
 
     seen = set()
     results = []
 
-    # 3 requêtes complémentaires pour maximiser les vraies sources
-    for q in [
+    queries = [
         query,
-        query + " rapport statistiques données",
+        query + " rapport statistiques données officielles",
         query + " site:gouv.fr OR site:inserm.fr OR site:insee.fr OR site:who.int OR site:europa.eu",
-    ]:
+    ]
+    for q in queries:
+        time.sleep(2)  # délai entre requêtes pour éviter le rate-limit
         for r in _search(q):
             if r["url"] not in seen:
                 seen.add(r["url"])
@@ -1782,15 +1807,10 @@ def generer_article(item: dict, dry_run: bool, published: set, new_pub: set, dat
             extra.append(p)
             seen_urls.add(p["url"])
 
-    # Inclure l'URL source RSS comme source valide
-    if item.get("url") and len(urlparse(item["url"]).path.rstrip("/")) > 5:
-        rss_src = {"title": item.get("title", "Source RSS"), "url": item["url"], "snippet": ""}
-        if rss_src["url"] not in {s["url"] for s in extra}:
-            extra.insert(0, rss_src)
-
+    # Bloquer si moins de 3 sources réelles trouvées AVANT même de générer
     specific_sources = [s for s in extra if len(urlparse(s["url"]).path.rstrip("/")) > 5]
-    if len(specific_sources) < 1:
-        print(f"  [REJET] Aucune source trouvée (DDG indisponible et pas d'URL RSS)")
+    if len(specific_sources) < 3:
+        print(f"  [REJET] Seulement {len(specific_sources)} source(s) — minimum 3 requis (DDG+PubMed)")
         return False
 
     print(f"  → Génération : {item['title'][:55]} [{len(specific_sources)} sources réelles]")
