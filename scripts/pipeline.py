@@ -1782,10 +1782,15 @@ def generer_article(item: dict, dry_run: bool, published: set, new_pub: set, dat
             extra.append(p)
             seen_urls.add(p["url"])
 
-    # Bloquer si moins de 3 sources réelles trouvées AVANT même de générer
+    # Inclure l'URL source RSS comme source valide
+    if item.get("url") and len(urlparse(item["url"]).path.rstrip("/")) > 5:
+        rss_src = {"title": item.get("title", "Source RSS"), "url": item["url"], "snippet": ""}
+        if rss_src["url"] not in {s["url"] for s in extra}:
+            extra.insert(0, rss_src)
+
     specific_sources = [s for s in extra if len(urlparse(s["url"]).path.rstrip("/")) > 5]
-    if len(specific_sources) < 3:
-        print(f"  [REJET] Seulement {len(specific_sources)} source(s) — minimum 3 requis (DDG+PubMed)")
+    if len(specific_sources) < 1:
+        print(f"  [REJET] Aucune source trouvée (DDG indisponible et pas d'URL RSS)")
         return False
 
     print(f"  → Génération : {item['title'][:55]} [{len(specific_sources)} sources réelles]")
@@ -1834,6 +1839,7 @@ def generer_article(item: dict, dry_run: bool, published: set, new_pub: set, dat
     except json.JSONDecodeError:
         print(f"     [ERREUR JSON] Réponse Groq non parseable")
     except Exception as e:
+        import traceback as _tb
         err = str(e)
         if "401" in err or "invalid_api_key" in err.lower() or "authentication" in err.lower():
             print(f"     [ERREUR GROQ] Clé API invalide ou expirée — vérifier GROQ_API_KEY dans les secrets GitHub")
@@ -1843,6 +1849,7 @@ def generer_article(item: dict, dry_run: bool, published: set, new_pub: set, dat
             print(f"     [ERREUR GROQ] Modèle llama-3.3-70b-versatile indisponible : {err}")
         else:
             print(f"     [ERREUR] {type(e).__name__}: {err}")
+            _tb.print_exc()
     return False
 
 
