@@ -1,4 +1,4 @@
-"""
+﻿"""
 Les Faits — Pipeline éditorial IA v2
 ====================================
 Sources RSS reelles → Filtre éditorial → Groq (Llama) → HTML → Site reconstruit
@@ -1079,6 +1079,7 @@ _NAV_LINKS = (
     '<a href="categories/tech.html">Tech</a>\n'
     '<a href="categories/sante.html">Santé</a>\n'
     '<a href="categories/environnement.html">Environnement</a>\n'
+    '<a href="archive.html">Tous les articles</a>\n'
     '<a href="methode.html" class="nav-cta">Comment on travaille →</a>'
 )
 _BURGER_JS = (
@@ -1371,6 +1372,7 @@ function copyLink(){{
       <a href="categories/tech.html">Tech</a>
       <a href="categories/sante.html">Santé</a>
       <a href="categories/environnement.html">Environnement</a>
+      <a href="archive.html">Tous les articles</a>
       <a href="methode.html" class="nav-cta">Comment on travaille →</a>
     </nav>
     {DARK_TOGGLE}
@@ -1507,6 +1509,7 @@ def build_index_html(main, side_html, grid_html, list_html):
       <a href="categories/tech.html">Tech</a>
       <a href="categories/sante.html">Santé</a>
       <a href="categories/environnement.html">Environnement</a>
+      <a href="archive.html">Tous les articles</a>
       <a href="methode.html" class="nav-cta">Comment on travaille →</a>
     </nav>
     {DARK_TOGGLE}
@@ -1721,6 +1724,7 @@ def build_category_pages():
       <a href="categories/tech.html">Tech</a>
       <a href="categories/sante.html">Santé</a>
       <a href="categories/environnement.html">Environnement</a>
+      <a href="archive.html">Tous les articles</a>
       <a href="methode.html" class="nav-cta">Comment on travaille →</a>
     </nav>
     {DARK_TOGGLE}
@@ -1872,6 +1876,7 @@ document.addEventListener('keydown',function(e){{if(e.key==='Escape')closeMenu()
       <a href="categories/tech.html">Tech</a>
       <a href="categories/sante.html">Santé</a>
       <a href="categories/environnement.html">Environnement</a>
+      <a href="archive.html">Tous les articles</a>
       <a href="methode.html" class="nav-cta">Comment on travaille →</a>
     </nav>
     <button class="dark-toggle" id="dark-toggle" aria-label="Mode sombre" title="Mode sombre">🌙</button>
@@ -2104,3 +2109,4 @@ if __name__ == "__main__":
         print("[INFO] Clé Groq de secours (GROQ_API_KEY_2) détectée — bascule automatique si rate limit")
 
     run(dry_run=args.dry_run, text_input=args.text)
+
