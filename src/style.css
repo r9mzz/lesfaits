@@ -437,7 +437,7 @@ nav a.active { opacity: 1; color: var(--blue); border-bottom-color: var(--blue);
   .brand__divider, .brand__slogan { display: none; }
   nav { display: none; }
   .burger { display: flex; }
-  .dark-toggle { font-size: 16px; padding: 4px 8px; }
+  .dark-toggle { font-size: 18px; padding: 10px 14px; min-width: 44px; min-height: 44px; }
   .wrap { padding: 0 16px; }
   .une__grid { grid-template-columns: 1fr; }
   .une__main { padding: 20px; }
