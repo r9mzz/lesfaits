@@ -21,7 +21,7 @@ jobs:
       contents: write
 
     steps:
-      # ── 1. Récupérer le code ──────────────────────────────────────────────
+      # ── 1. Récupérer le code (repo privé) ────────────────────────────────
       - name: Checkout
         uses: actions/checkout@v4
         with:
@@ -51,17 +51,41 @@ jobs:
             python scripts/pipeline.py
           fi
 
-      # ── 4. Commit + Push des fichiers générés ────────────────────────────
-      - name: Commit les articles générés
+      # ── 4. Push des fichiers générés vers le repo public ─────────────────
+      - name: Déployer vers lesfaits-site
         env:
+          SITE_DEPLOY_TOKEN: ${{ secrets.SITE_DEPLOY_TOKEN }}
           TZ: Europe/Paris
         run: |
+          # Cloner le repo public
+          git clone https://x-access-token:${SITE_DEPLOY_TOKEN}@github.com/r9mzz/lesfaits-site.git /tmp/site
+
+          # Copier les fichiers générés
+          cp -r articles/            /tmp/site/
+          cp -r categories/          /tmp/site/
+          cp -r assets/              /tmp/site/
+          cp -r data/                /tmp/site/
+          cp    index.html           /tmp/site/
+          cp    archive.html         /tmp/site/
+          cp    feed.xml             /tmp/site/
+          cp    sitemap.xml          /tmp/site/
+          cp    robots.txt           /tmp/site/ 2>/dev/null || true
+          cp    manifest.json        /tmp/site/ 2>/dev/null || true
+          cp    recherche.html       /tmp/site/
+          cp    mentions-legales.html /tmp/site/
+          cp    confidentialite.html  /tmp/site/ 2>/dev/null || true
+          cp    cgu.html              /tmp/site/ 2>/dev/null || true
+          cp    contact.html          /tmp/site/ 2>/dev/null || true
+          cp    methode.html          /tmp/site/ 2>/dev/null || true
+          cp    corrections.html      /tmp/site/ 2>/dev/null || true
+          cp -r src/                  /tmp/site/ 2>/dev/null || true
+
+          cd /tmp/site
           git config user.name  "Factuel Bot"
           git config user.email "bot@factuel.fr"
 
-          git pull --rebase origin main
-          git add articles/ data/ index.html categories/ assets/ feed.xml sitemap.xml
-          git diff --cached --quiet && echo "Aucun nouvel article." && exit 0
+          git add -A
+          git diff --cached --quiet && echo "Aucun changement à déployer." && exit 0
 
           NB=$(git diff --cached --name-only | grep "^articles/" | wc -l)
           CRENEAU=$([ $(date +%H) -lt 12 ] && echo "matin" || echo "soir")
