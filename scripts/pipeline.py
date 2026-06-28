@@ -1812,17 +1812,17 @@ def build_archive_page():
             resume = a.get("resume", "")
             if isinstance(resume, list):
                 resume = resume[0] if resume else ""
+            img_src = f"assets/images/{a['slug']}.jpg"
             rows += f"""
-    <article style="display:grid;grid-template-columns:80px 1fr;gap:12px 20px;padding:16px 0;border-bottom:1px solid var(--border);align-items:start">
+    <a href="articles/{a['slug']}.html" style="display:grid;grid-template-columns:80px 1fr;gap:12px 20px;padding:16px 0;border-bottom:1px solid var(--border);align-items:start;text-decoration:none;color:inherit">
+      <img src="{img_src}" alt="" style="width:80px;height:54px;object-fit:cover;border-radius:4px;background:var(--light)" loading="lazy" onerror="this.style.display='none'"/>
       <div>
-        <span style="display:inline-block;background:var(--blue);color:#fff;font-size:10px;font-weight:700;letter-spacing:.06em;padding:2px 7px;border-radius:3px;text-transform:uppercase">{label}</span>
-      </div>
-      <div>
-        <a href="articles/{a['slug']}.html" style="font-weight:600;color:var(--ink);text-decoration:none;line-height:1.4;font-size:1rem">{a['titre']}</a>
+        <span style="display:inline-block;background:var(--blue);color:#fff;font-size:10px;font-weight:700;letter-spacing:.06em;padding:2px 7px;border-radius:3px;text-transform:uppercase;margin-bottom:4px">{label}</span>
+        <div style="font-weight:600;color:var(--ink);line-height:1.4;font-size:1rem">{a['titre']}</div>
         <p style="margin:4px 0 0;font-size:.85rem;color:var(--muted);line-height:1.5">{resume[:120]}{'…' if len(resume)>120 else ''}</p>
         <span style="font-size:.75rem;color:var(--muted);margin-top:4px;display:block">{a.get('date','').split(',')[0]} · {a.get('nb_sources',0)} sources</span>
       </div>
-    </article>"""
+    </a>"""
 
         sections += f"""
   <section style="margin-bottom:48px">
