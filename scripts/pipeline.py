@@ -1803,7 +1803,13 @@ def generer_article(item: dict, dry_run: bool, published: set, new_pub: set, dat
             print(f"     [REJET] Corps trop court ({total_chars} chars)")
             return False
 
-        html = build_article_html(art, date_pub)
+        try:
+            html = build_article_html(art, date_pub)
+        except Exception as _html_err:
+            import traceback as _tb3
+            print(f"     [DEBUG strftime] TRACEBACK COMPLET:")
+            print(_tb3.format_exc())
+            raise
 
         # Fix 1 — sync nb_sources avec les vrais <li> rendus dans le HTML
         sources_block = re.search(r'<(?:div|section) class="sources[^"]*".*?</(?:div|section)>', html, re.DOTALL)

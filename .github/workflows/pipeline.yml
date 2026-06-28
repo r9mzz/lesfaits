@@ -59,11 +59,11 @@ jobs:
           git config user.name  "Factuel Bot"
           git config user.email "bot@factuel.fr"
 
+          git pull --rebase origin main
           git add articles/ data/ index.html categories/ assets/ feed.xml sitemap.xml
           git diff --cached --quiet && echo "Aucun nouvel article." && exit 0
 
           NB=$(git diff --cached --name-only | grep "^articles/" | wc -l)
           CRENEAU=$([ $(date +%H) -lt 12 ] && echo "matin" || echo "soir")
           git commit -m "✦ ${NB} article(s) — créneau ${CRENEAU} — $(date +'%d/%m/%Y %H:%M')"
-          git pull --rebase origin main
           git push
