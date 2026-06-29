@@ -1,0 +1,59 @@
+name: Factuel — Déploiement site
+
+on:
+  schedule:
+    # Matin : déploiement à 05h00 UTC = 07h00 Paris
+    - cron: "0 5 * * *"
+    # Soir : déploiement à 16h00 UTC = 18h00 Paris
+    - cron: "0 16 * * *"
+  workflow_dispatch: {}
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - name: Déployer vers lesfaits-site
+        env:
+          SITE_DEPLOY_TOKEN: ${{ secrets.SITE_DEPLOY_TOKEN }}
+          TZ: Europe/Paris
+        run: |
+          git clone https://x-access-token:${SITE_DEPLOY_TOKEN}@github.com/r9mzz/lesfaits-site.git /tmp/site
+
+          cp -r articles/             /tmp/site/
+          cp -r categories/           /tmp/site/
+          cp -r assets/               /tmp/site/
+          cp -r data/                 /tmp/site/
+          cp    index.html            /tmp/site/
+          cp    archive.html          /tmp/site/
+          cp    feed.xml              /tmp/site/
+          cp    sitemap.xml           /tmp/site/
+          cp    robots.txt            /tmp/site/ 2>/dev/null || true
+          cp    manifest.json         /tmp/site/ 2>/dev/null || true
+          cp    recherche.html        /tmp/site/
+          cp    mentions-legales.html /tmp/site/
+          cp    confidentialite.html  /tmp/site/ 2>/dev/null || true
+          cp    cgu.html              /tmp/site/ 2>/dev/null || true
+          cp    contact.html          /tmp/site/ 2>/dev/null || true
+          cp    methode.html          /tmp/site/ 2>/dev/null || true
+          cp    corrections.html      /tmp/site/ 2>/dev/null || true
+          cp -r src/                  /tmp/site/ 2>/dev/null || true
+
+          cd /tmp/site
+          git config user.name  "Factuel Bot"
+          git config user.email "bot@factuel.fr"
+
+          git add -A
+          git diff --cached --quiet && echo "Aucun changement à déployer." && exit 0
+
+          NB=$(git diff --cached --name-only | grep "^articles/" | wc -l)
+          CRENEAU=$([ $(date +%H) -lt 12 ] && echo "07h00" || echo "18h00")
+          git commit -m "✦ ${NB} article(s) publiés — ${CRENEAU} — $(date +'%d/%m/%Y')"
+          git push
