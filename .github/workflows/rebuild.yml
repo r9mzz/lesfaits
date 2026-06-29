@@ -1,0 +1,162 @@
+name: Factuel — Rebuild site
+
+on:
+  workflow_dispatch: {}
+
+jobs:
+  rebuild:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+
+      - name: Installer les dépendances
+        run: pip install -r requirements.txt
+
+      - name: Cloner lesfaits-site pour récupérer les données
+        env:
+          SITE_DEPLOY_TOKEN: ${{ secrets.SITE_DEPLOY_TOKEN }}
+        run: |
+          git clone https://x-access-token:${SITE_DEPLOY_TOKEN}@github.com/r9mzz/lesfaits-site.git /tmp/site
+          # Copier articles + assets + data dans le repo courant pour le rebuild
+          cp -r /tmp/site/articles/  ./
+          cp -r /tmp/site/assets/    ./
+          cp -r /tmp/site/data/      ./
+
+      - name: Régénérer les mauvaises images avec Pexels
+        env:
+          PEXELS_API_KEY: ${{ secrets.PEXELS_API_KEY }}
+          PYTHONIOENCODING: utf-8
+        run: |
+          python3 - << 'PYEOF'
+          import os, json, requests, time
+
+          PEXELS_KEY = os.getenv("PEXELS_API_KEY", "")
+          if not PEXELS_KEY:
+              print("Pas de PEXELS_API_KEY — skip regen images")
+              exit(0)
+
+          with open("data/search.json", encoding="utf-8") as f:
+              articles = {a["slug"]: a for a in json.load(f)}
+
+          img_dir = "assets/images"
+          targets = [fn[:-4] for fn in os.listdir(img_dir)
+                     if fn.endswith(".jpg") and os.path.getsize(os.path.join(img_dir, fn)) < 110_000]
+
+          print(f"{len(targets)} images à régénérer avec Pexels")
+          for slug in targets:
+              art = articles.get(slug, {})
+              kw = art.get("image_keyword") or art.get("titre", slug.replace("-", " "))
+              try:
+                  r = requests.get(
+                      "https://api.pexels.com/v1/search",
+                      params={"query": kw, "orientation": "landscape", "per_page": 3, "size": "large"},
+                      headers={"Authorization": PEXELS_KEY},
+                      timeout=8,
+                  )
+                  if r.status_code == 200:
+                      for photo in r.json().get("photos", []):
+                          img_url = photo.get("src", {}).get("large2x") or photo.get("src", {}).get("large", "")
+                          if not img_url:
+                              continue
+                          ir = requests.get(img_url, timeout=10)
+                          if ir.status_code == 200 and len(ir.content) > 30_000:
+                              with open(os.path.join(img_dir, f"{slug}.jpg"), "wb") as f2:
+                                  f2.write(ir.content)
+                              print(f"  OK {slug[:45]} {len(ir.content)//1024}KB")
+                              break
+                  time.sleep(0.5)
+              except Exception as e:
+                  print(f"  ERR {slug}: {e}")
+          PYEOF
+
+      - name: Rebuild index + catégories + archive
+        env:
+          GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
+          PYTHONIOENCODING: utf-8
+          TZ: Europe/Paris
+        run: python scripts/pipeline.py --rebuild
+
+      - name: Patcher les sections À lire aussi dans les articles existants
+        env:
+          PYTHONIOENCODING: utf-8
+        run: |
+          python3 - << 'PYEOF'
+          import json, re, os
+
+          with open("data/search.json", encoding="utf-8") as f:
+              all_arts = json.load(f)
+          arts_by_slug = {a["slug"]: a for a in all_arts}
+
+          articles_dir = "articles"
+          patched = 0
+          for fn in os.listdir(articles_dir):
+              if not fn.endswith(".html"):
+                  continue
+              slug = fn[:-5]
+              art = arts_by_slug.get(slug)
+              if not art:
+                  continue
+              cat = art.get("categorie", "")
+              related = [a for a in all_arts if a.get("categorie") == cat and a["slug"] != slug][:3]
+              if not related:
+                  continue
+
+              cards = "\n".join(
+                  f'<a class="art__related-card" href="articles/{a["slug"]}.html">'
+                  f'<img src="assets/images/{a["slug"]}.jpg" alt="" loading="lazy" style="width:calc(100% + 32px);margin:-14px -16px 12px;height:110px;object-fit:cover;display:block;border-radius:var(--radius) var(--radius) 0 0">'
+                  f'<span class="cat">{a["categorie"].upper()}</span>'
+                  f'<div class="title-sm">{a["titre"]}</div>'
+                  f'<div style="font-size:10px;color:var(--muted);margin-top:6px">{a["date"]}</div>'
+                  f'</a>'
+                  for a in related
+              )
+              new_related = f'<div class="art__related"><div class="art__related-title">À LIRE AUSSI</div><div class="art__related-grid">{cards}</div></div>'
+
+              path = os.path.join(articles_dir, fn)
+              html = open(path, encoding="utf-8").read()
+              new_html = re.sub(
+                  r'<div class="art__related">.*?</div>\s*</div>',
+                  new_related,
+                  html, flags=re.DOTALL
+              )
+              if new_html != html:
+                  open(path, "w", encoding="utf-8").write(new_html)
+                  patched += 1
+
+          print(f"{patched} articles patchés (à lire aussi)")
+          PYEOF
+
+      - name: Déployer vers lesfaits-site
+        env:
+          SITE_DEPLOY_TOKEN: ${{ secrets.SITE_DEPLOY_TOKEN }}
+          TZ: Europe/Paris
+        run: |
+          cp -r articles/   /tmp/site/
+          cp -r assets/     /tmp/site/
+          cp -r categories/ /tmp/site/
+          cp -r data/       /tmp/site/
+          cp    index.html  /tmp/site/
+          cp    archive.html /tmp/site/
+          cp    feed.xml    /tmp/site/
+          cp    sitemap.xml /tmp/site/
+          cp -r src/        /tmp/site/
+
+          cd /tmp/site
+          git config user.name  "Factuel Bot"
+          git config user.email "bot@factuel.fr"
+          git add -A
+          git diff --cached --quiet && echo "Aucun changement." && exit 0
+          git commit -m "rebuild: cards avec images + à lire aussi patchés + images Pexels"
+          git push
