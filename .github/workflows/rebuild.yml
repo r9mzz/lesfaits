@@ -46,19 +46,10 @@ jobs:
           targets = [fn[:-4] for fn in os.listdir(img_dir)
                      if fn.endswith(".jpg") and os.path.getsize(os.path.join(img_dir, fn)) < 110_000]
 
-          # Force-régénère les doublons connus avec un keyword alternatif
-          FORCE_REGEN = {
-              "immunotherapie-allergenique-sublinguale": "immunotherapy sublingual drops medical",
-          }
-          for slug, kw_override in FORCE_REGEN.items():
-              if slug not in targets:
-                  targets.append(slug)
-                  articles.setdefault(slug, {})["_kw_override"] = kw_override
-
           print(f"{len(targets)} images à régénérer")
           for slug in targets:
               art = articles.get(slug, {})
-              kw = art.pop("_kw_override", None) or art.get("image_keyword") or art.get("titre", slug.replace("-", " "))
+              kw = art.get("image_keyword") or art.get("titre", slug.replace("-", " "))
               print(f"  {slug[:50]}", end=" ", flush=True)
               try:
                   r = requests.get(
