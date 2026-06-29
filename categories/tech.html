@@ -4,9 +4,9 @@
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <meta name="description" content="Les Faits — Rubrique Tech. Juste les faits. Aucun parti pris."/>
-  <link rel="alternate" type="application/rss+xml" title="Les Faits — RSS" href="/lesfaits/feed.xml"/>
+  <link rel="alternate" type="application/rss+xml" title="Les Faits — RSS" href="/lesfaits-site/feed.xml"/>
   <title>Tech — Les Faits</title>
-  <base href="/lesfaits/"/>
+  <base href="/lesfaits-site/"/>
   <link rel="stylesheet" href="src/style.css"/>
   <script>
 (function(){var s=localStorage.getItem('theme'),d=s==='dark'||(s===null&&window.matchMedia('(prefers-color-scheme:dark)').matches);document.documentElement.setAttribute('data-theme',d?'dark':'light');})();
@@ -21,6 +21,7 @@
 <a href="categories/tech.html">Tech</a>
 <a href="categories/sante.html">Santé</a>
 <a href="categories/environnement.html">Environnement</a>
+<a href="archive.html">Tous les articles</a>
 <a href="methode.html" class="nav-cta">Comment on travaille →</a>
 </nav>
 <script>
@@ -44,6 +45,7 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeMenu();
       <a href="categories/tech.html">Tech</a>
       <a href="categories/sante.html">Santé</a>
       <a href="categories/environnement.html">Environnement</a>
+      <a href="archive.html">Tous les articles</a>
       <a href="methode.html" class="nav-cta">Comment on travaille →</a>
     </nav>
     <button class="dark-toggle" id="dark-toggle" aria-label="Mode sombre" title="Mode sombre">🌙</button>
@@ -55,7 +57,7 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeMenu();
   <div style="margin-bottom:32px;border-bottom:1px solid var(--rule);padding-bottom:24px">
     <span style="font-size:.8rem;font-weight:700;letter-spacing:.1em;color:var(--muted);text-transform:uppercase">Rubrique</span>
     <h1 style="font-size:2.4rem;font-weight:700;margin:8px 0 4px">Tech</h1>
-    <p style="color:var(--muted);font-size:.9rem">1 article</p>
+    <p style="color:var(--muted);font-size:.9rem">2 articles</p>
   </div>
   <nav style="display:flex;gap:24px;margin-bottom:48px;flex-wrap:wrap;font-size:.9rem">
     <a href="categories/science.html" style="">Science</a>
@@ -67,12 +69,27 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeMenu();
   </nav>
   <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:24px">
     
+        <a class="card3" href="articles/frugalia-reduit-consommation-energetique-ia.html">
+          <img class="card3__img" src="assets/images/frugalia-reduit-consommation-energetique-ia.jpg" alt="Frugalia réduit consommation énergétique des modèles d’intelligence artificielle" loading="lazy">
+          <div class="card3__body">
+            <span class="cat">TECH</span>
+            <h3 class="title-sm">Frugalia réduit consommation énergétique des modèles d’intelligence artificielle</h3>
+            <div class="meta" style="margin-top:10px">
+              <span class="meta__src">4 sources</span>
+              <span class="meta__sep">·</span><span>29 juin 2026, 18h00</span>
+            </div>
+          </div>
+        </a>
+
         <a class="card3" href="articles/openai-reporte-introduction-bourse-2027.html">
-          <span class="cat">TECH</span>
-          <h3 class="title-sm">OpenAI reporte son introduction en Bourse à 2027</h3>
-          <div class="meta" style="margin-top:10px">
-            <span class="meta__src">4 sources</span>
-            <span class="meta__sep">·</span><span>27 juin 2026, 09h36</span>
+          <img class="card3__img" src="assets/images/openai-reporte-introduction-bourse-2027.jpg" alt="OpenAI reporte son introduction en Bourse à 2027" loading="lazy">
+          <div class="card3__body">
+            <span class="cat">TECH</span>
+            <h3 class="title-sm">OpenAI reporte son introduction en Bourse à 2027</h3>
+            <div class="meta" style="margin-top:10px">
+              <span class="meta__src">4 sources</span>
+              <span class="meta__sep">·</span><span>27 juin 2026, 09h36</span>
+            </div>
           </div>
         </a>
   </div>
