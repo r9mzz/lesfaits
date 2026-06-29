@@ -44,18 +44,6 @@ for fn in os.listdir("articles"):
 print(f"{patched_related} articles patchés (à lire aussi)")
 
 # ── Disclaimer IA, newsletter, back-to-top, couleurs catégorie ─────────────────
-NEWSLETTER = (
-    '<div class="newsletter-block">'
-    '<div class="newsletter-block__title">La semaine en faits</div>'
-    '<div class="newsletter-block__sub">Chaque dimanche. Aucune opinion. Aucun parti pris.</div>'
-    '<form class="newsletter-form" onsubmit="handleNL(event)">'
-    '<input type="email" placeholder="votre@email.com" required autocomplete="email"/>'
-    "<button type=\"submit\">S'abonner</button>"
-    '</form>'
-    '<div class="newsletter-block__legal">Aucune publicité. Désinscription en un clic.</div>'
-    '</div>'
-)
-
 BTT = (
     '<button class="back-to-top" id="btt" aria-label="Retour en haut" title="Retour en haut">↑</button>\n'
     '<script>\n'
@@ -97,22 +85,15 @@ for fn in os.listdir("articles"):
         html = old_disclaimer_pattern.sub('<p class="art__resume">', html)
         changed = True
 
-    # 2b. Disclaimer IA en fin d'article (avant art__badge)
-    if 'art__disclaimer' not in html:
-        disclaimer = (
-            '<div class="art__disclaimer">'
-            '⚠️ <strong>Généré par IA</strong> — Cet article a été entièrement rédigé par un modèle de langage '
-            '(Llama 3.3 via Groq) selon le <a href="methode.html">Protocole Les Faits v1.1</a>. '
-            'Il peut contenir des erreurs ou approximations involontaires. '
-            'Vérifiez les informations auprès des sources citées ci-dessus avant toute utilisation.'
-            '</div>'
-        )
-        html = html.replace('<p class="art__badge">', disclaimer + '\n  <p class="art__badge">', 1)
-        changed = True
+    # 2b. Mettre à jour le badge avec "Généré par IA" si l'ancien texte est présent
+    html = html.replace(
+        '<p class="art__badge">Rédigé par IA ·',
+        '<p class="art__badge">Généré par IA ·'
+    )
 
-    # 3. Newsletter avant les articles liés
-    if 'newsletter-block' not in html and '<div class="art__related">' in html:
-        html = html.replace('<div class="art__related">', NEWSLETTER + '\n  <div class="art__related">', 1)
+    # 3. Supprimer les blocs newsletter injectés précédemment
+    html = re.sub(r'<div class="newsletter-block">.*?</div>\s*\n?\s*', '', html, flags=re.DOTALL)
+    if html != open(path, encoding="utf-8").read():
         changed = True
 
     # 4. Back-to-top avant </body>

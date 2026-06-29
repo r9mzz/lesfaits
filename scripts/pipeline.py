@@ -1370,20 +1370,8 @@ function copyLink(){{
   {build_spectrum_html(art.get("positions", {}))}
   {share_html}
   {sources_html}
-  <div class="newsletter-block">
-    <div class="newsletter-block__title">La semaine en faits</div>
-    <div class="newsletter-block__sub">Chaque dimanche. Aucune opinion. Aucun parti pris.</div>
-    <form class="newsletter-form" onsubmit="handleNL(event)">
-      <input type="email" placeholder="votre@email.com" required autocomplete="email"/>
-      <button type="submit">S'abonner</button>
-    </form>
-    <div class="newsletter-block__legal">Aucune publicité. Désinscription en un clic.</div>
-  </div>
   {related_html}
-  <div class="art__disclaimer">
-    ⚠️ <strong>Généré par IA</strong> — Cet article a été entièrement rédigé par un modèle de langage (Llama 3.3 via Groq) selon le <a href="methode.html">Protocole Les Faits v1.1</a>. Il peut contenir des erreurs ou approximations involontaires. Vérifiez les informations auprès des sources citées ci-dessus avant toute utilisation.
-  </div>
-  <p class="art__badge">Rédigé par IA · Protocole Les Faits v1.1 · {date_pub}</p>
+  <p class="art__badge">Généré par IA · Protocole Les Faits v1.1 · {date_pub}</p>
   <a class="contest-btn" href="contact.html?article={slug}#erreur">Signaler une erreur sur cet article</a>
 </div>
 </main>
@@ -1397,12 +1385,6 @@ function copyLink(){{
     btn.classList.toggle('visible',window.scrollY>300);
   }},{{passive:true}});
   btn.addEventListener('click',function(){{window.scrollTo({{top:0,behavior:'smooth'}});}});
-  function handleNL(e){{
-    e.preventDefault();
-    var em=e.target.querySelector('input[type="email"]').value;
-    e.target.innerHTML='<p style="color:var(--blue);font-weight:600">✓ Merci ! Vous recevrez votre première newsletter dimanche.</p>';
-  }}
-  window.handleNL=handleNL;
 }})();
 </script>
 {_DARK_MODE_JS}
@@ -1556,28 +1538,7 @@ def build_index_html(main, side_html, grid_html, list_html):
   {'<div class="list-section" style="padding-top:40px"><div class="section__head" style="margin-bottom:16px"><span class="section__title">À LIRE AUSSI</span></div><div class="section__rule"></div><div class="list-grid">' + list_html + '</div></div>' if list_html else ''}
 </div>
 
-<div style="max-width:1140px;margin:0 auto;padding:0 32px">
-  <div class="newsletter-block">
-    <div class="newsletter-block__title">La semaine en faits</div>
-    <div class="newsletter-block__sub">Chaque dimanche. Aucune opinion. Aucun parti pris.</div>
-    <form class="newsletter-form" onsubmit="handleNL(event)">
-      <input type="email" placeholder="votre@email.com" required autocomplete="email"/>
-      <button type="submit">S'abonner</button>
-    </form>
-    <div class="newsletter-block__legal">Aucune publicité. Désinscription en un clic.</div>
-  </div>
-</div>
-
 {_build_footer()}
-<script>
-(function(){{
-  function handleNL(e){{
-    e.preventDefault();
-    e.target.innerHTML='<p style="color:var(--blue);font-weight:600">✓ Merci ! Vous recevrez votre première newsletter dimanche.</p>';
-  }}
-  window.handleNL=handleNL;
-}})();
-</script>
 {_DARK_MODE_JS}
 {_ANALYTICS_JS}
 </body>
