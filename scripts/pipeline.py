@@ -1363,9 +1363,6 @@ function copyLink(){{
   {verify_html}
   <div class="art__rule"></div>
   {hero_img}
-  <div class="art__disclaimer">
-    ℹ️ Cet article a été rédigé par intelligence artificielle selon le <a href="methode.html">Protocole Les Faits v1.1</a>. Des erreurs peuvent subsister malgré les vérifications. <a href="contact.html?article={slug}#erreur">Signaler une erreur →</a>
-  </div>
   <p class="art__resume">{resume_txt}</p>
   <h2 class="art__h2">Les faits</h2><p>{faits}</p>
   <h2 class="art__h2">Contexte</h2><p>{contexte}</p>
@@ -1383,6 +1380,9 @@ function copyLink(){{
     <div class="newsletter-block__legal">Aucune publicité. Désinscription en un clic.</div>
   </div>
   {related_html}
+  <div class="art__disclaimer">
+    ⚠️ <strong>Généré par IA</strong> — Cet article a été entièrement rédigé par un modèle de langage (Llama 3.3 via Groq) selon le <a href="methode.html">Protocole Les Faits v1.1</a>. Il peut contenir des erreurs ou approximations involontaires. Vérifiez les informations auprès des sources citées ci-dessus avant toute utilisation.
+  </div>
   <p class="art__badge">Rédigé par IA · Protocole Les Faits v1.1 · {date_pub}</p>
   <a class="contest-btn" href="contact.html?article={slug}#erreur">Signaler une erreur sur cet article</a>
 </div>

@@ -88,17 +88,26 @@ for fn in os.listdir("articles"):
         )
         changed = True
 
-    # 2. Disclaimer IA avant le résumé
+    # 2a. Supprimer l'ancien disclaimer mal placé (avant art__resume)
+    old_disclaimer_pattern = re.compile(
+        r'<div class="art__disclaimer">.*?</div>\s*\n?\s*<p class="art__resume">',
+        re.DOTALL
+    )
+    if old_disclaimer_pattern.search(html):
+        html = old_disclaimer_pattern.sub('<p class="art__resume">', html)
+        changed = True
+
+    # 2b. Disclaimer IA en fin d'article (avant art__badge)
     if 'art__disclaimer' not in html:
         disclaimer = (
-            f'<div class="art__disclaimer">'
-            f'ℹ️ Cet article a été rédigé par intelligence artificielle '
-            f'selon le <a href="methode.html">Protocole Les Faits v1.1</a>. '
-            f'Des erreurs peuvent subsister. '
-            f'<a href="contact.html?article={slug}#erreur">Signaler une erreur →</a>'
-            f'</div>'
+            '<div class="art__disclaimer">'
+            '⚠️ <strong>Généré par IA</strong> — Cet article a été entièrement rédigé par un modèle de langage '
+            '(Llama 3.3 via Groq) selon le <a href="methode.html">Protocole Les Faits v1.1</a>. '
+            'Il peut contenir des erreurs ou approximations involontaires. '
+            'Vérifiez les informations auprès des sources citées ci-dessus avant toute utilisation.'
+            '</div>'
         )
-        html = html.replace('<p class="art__resume">', disclaimer + '\n  <p class="art__resume">', 1)
+        html = html.replace('<p class="art__badge">', disclaimer + '\n  <p class="art__badge">', 1)
         changed = True
 
     # 3. Newsletter avant les articles liés
