@@ -1065,10 +1065,13 @@ def _download_hero(
         except Exception:
             pass
 
-    # ── 5. Fallback Pillow ────────────────────────────────────────────────────
-    print(f"  [FALLBACK] {slug} → infographie Pillow")
-    _generate_fallback_image(title or keyword, category, slug, dest)
-    return "pillow", "Les Faits"
+    # ── 5. Fallback : copier og-default.jpg ──────────────────────────────────
+    print(f"  [FALLBACK] {slug} → og-default.jpg")
+    default_src = ROOT / "assets" / "images" / "og-default.jpg"
+    if default_src.exists():
+        import shutil
+        shutil.copy2(default_src, dest)
+    return "default", "Les Faits"
 
 
 # ── Constantes UI partagées ──────────────────────────────────────────────────
@@ -2027,7 +2030,9 @@ def run(dry_run=False, text_input=None, nb_max=10):
     MOIS = ["janvier","février","mars","avril","mai","juin",
             "juillet","août","septembre","octobre","novembre","décembre"]
     now      = datetime.now()
-    date_pub = f"{now.day} {MOIS[now.month-1]} {now.year}, {now.strftime('%Hh%M')}"
+    # Utiliser l'heure du créneau prévu plutôt que l'heure réelle du runner
+    slot_heure = "07h00" if now.hour < 12 else "18h30"
+    date_pub = f"{now.day} {MOIS[now.month-1]} {now.year}, {slot_heure}"
 
     if text_input:
         item = {
