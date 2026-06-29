@@ -1395,11 +1395,14 @@ def rebuild_index():
 
     def mini_card(a):
         return f"""<a class="card3" href="articles/{a['slug']}.html">
-          <span class="cat">{a['categorie'].upper()}</span>
-          <h3 class="title-sm">{a['titre']}</h3>
-          <div class="meta" style="margin-top:10px">
-            <span class="meta__src">{a['nb_sources']} sources</span>
-            <span class="meta__sep">·</span><span>{a['date']}</span>
+          <img class="card3__img" src="assets/images/{a['slug']}.jpg" alt="{a['titre']}" loading="lazy">
+          <div class="card3__body">
+            <span class="cat">{a['categorie'].upper()}</span>
+            <h3 class="title-sm">{a['titre']}</h3>
+            <div class="meta" style="margin-top:10px">
+              <span class="meta__src">{a['nb_sources']} sources</span>
+              <span class="meta__sep">·</span><span>{a['date']}</span>
+            </div>
           </div>
         </a>"""
 
