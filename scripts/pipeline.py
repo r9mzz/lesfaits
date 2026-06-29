@@ -384,11 +384,11 @@ def score_editorial(item: dict, source_name: str, published_topics: set) -> tupl
 
     # ── PÉNALITÉ RÉCURRENCE ──────────────────────────────────────────────────
     # Comparer les mots significatifs du titre avec les topics déjà publiés
-    title_words = set(w for w in item["title"].lower().split() if len(w) > 4)
+    title_words = set(w for w in item["title"].lower().split() if len(w) > 5)
     for topic in published_topics:
-        topic_words = set(w for w in topic.lower().split() if len(w) > 4)
+        topic_words = set(w for w in topic.lower().split() if len(w) > 5)
         overlap = len(title_words & topic_words)
-        if overlap >= 2:
+        if overlap >= 1:
             score -= 50
             reasons.append(f"-50 sujet redondant (overlap: {overlap} mots avec '{topic[:40]}')")
             break
@@ -909,6 +909,10 @@ def extract_visual_keywords(title: str, summary: str, category: str) -> str:
         return title
 
 
+# Photos Pexels déjà utilisées dans ce run (évite les doublons visuels)
+_USED_PEXELS_IDS: set[int] = set()
+
+
 def _download_hero(
     keyword: str,
     slug: str,
@@ -1011,11 +1015,15 @@ def _download_hero(
             )
             if r.status_code == 200:
                 for photo in r.json().get("photos", []):
+                    photo_id = photo.get("id", 0)
+                    if photo_id in _USED_PEXELS_IDS:
+                        continue
                     img_url = photo.get("src", {}).get("large2x", "")
                     if not img_url:
                         continue
                     ir = requests.get(img_url, timeout=5, headers=hdrs)
                     if ir.status_code == 200 and len(ir.content) > 20_000:
+                        _USED_PEXELS_IDS.add(photo_id)
                         photographer = photo.get("photographer", "Pexels")
                         return _save(ir.content, "pexels", f"Pexels / {photographer}")
         except Exception:
