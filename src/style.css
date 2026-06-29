@@ -147,8 +147,10 @@ nav a.active { opacity: 1; color: var(--blue); border-bottom-color: var(--blue);
 .section__rule { height: 1px; background: var(--rule); margin-bottom: 20px; }
 
 .grid3 { display: grid; grid-template-columns: repeat(3,1fr); gap: 1px; background: var(--rule); }
-.card3 { background: var(--white); padding: 22px 24px 20px; cursor: pointer; transition: background .15s; }
+.card3 { background: var(--white); cursor: pointer; transition: background .15s; overflow: hidden; display: flex; flex-direction: column; }
 .card3:hover { background: var(--light); }
+.card3__img { width: 100%; height: 160px; object-fit: cover; display: block; flex-shrink: 0; }
+.card3__body { padding: 16px 20px 18px; flex: 1; }
 
 .list-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--rule); }
 .list-item { background: var(--white); padding: 18px 24px; display: grid; grid-template-columns: 36px 1fr; gap: 16px; align-items: start; cursor: pointer; transition: background .15s; }

@@ -36,6 +36,7 @@ GROQ_KEY       = os.getenv("GROQ_API_KEY", "")
 GROQ_KEY2      = os.getenv("GROQ_API_KEY_2", "")
 PEXELS_KEY     = os.getenv("PEXELS_API_KEY", "")
 PIXABAY_KEY    = os.getenv("PIXABAY_API_KEY", "")
+UNSPLASH_KEY   = os.getenv("UNSPLASH_ACCESS_KEY", "")
 
 # ══════════════════════════════════════════════════════════════════════════════
 # SOURCES RSS — retournent du texte propre, pas de JavaScript
@@ -1065,20 +1066,24 @@ def _download_hero(
         except Exception:
             pass
 
-    # ── 5. Génération IA via Pollinations.ai (gratuit, sans clé) ─────────────
-    try:
-        import urllib.parse
-        prompt = urllib.parse.quote(
-            f"professional editorial news photo, {title or keyword}, "
-            "photojournalism style, high quality, no text, no watermark"
-        )
-        url = f"https://image.pollinations.ai/prompt/{prompt}?width=1200&height=630&nologo=true&model=flux"
-        print(f"  [IA IMAGE] {slug} → Pollinations.ai")
-        r = requests.get(url, timeout=60)
-        if r.status_code == 200 and len(r.content) > 10_000:
-            return _save(r.content, "pollinations", "Pollinations AI")
-    except Exception as e:
-        print(f"  [IA IMAGE] échec Pollinations: {e}")
+    # ── 5. Unsplash (clé gratuite, 50 req/h) ─────────────────────────────────
+    if UNSPLASH_KEY:
+        try:
+            r = requests.get(
+                "https://api.unsplash.com/photos/random",
+                params={"query": vis_kw, "orientation": "landscape", "client_id": UNSPLASH_KEY},
+                timeout=8,
+            )
+            if r.status_code == 200:
+                data = r.json()
+                img_url = data.get("urls", {}).get("regular", "")
+                if img_url:
+                    ir = requests.get(img_url, timeout=10)
+                    if ir.status_code == 200 and len(ir.content) > 20_000:
+                        credit = f"Unsplash / {data.get('user', {}).get('name', 'Unsplash')}"
+                        return _save(ir.content, "unsplash", credit)
+        except Exception:
+            pass
 
     # ── 6. Fallback ultime : og-default.jpg ──────────────────────────────────
     print(f"  [FALLBACK] {slug} → og-default.jpg")
@@ -1273,6 +1278,7 @@ def build_article_html(art: dict, date_pub: str) -> str:
         if related:
             cards = "\n".join(
                 f'<a class="art__related-card" href="articles/{a["slug"]}.html">'
+                f'<img src="assets/images/{a["slug"]}.jpg" alt="{a["titre"]}" loading="lazy" style="width:calc(100% + 32px);margin:-14px -16px 12px;height:110px;object-fit:cover;display:block;border-radius:var(--radius) var(--radius) 0 0">'
                 f'<span class="cat">{a["categorie"].upper()}</span>'
                 f'<div class="title-sm">{a["titre"]}</div>'
                 f'<div style="font-size:10px;color:var(--muted);margin-top:6px">{a["date"]}</div>'
@@ -1680,11 +1686,14 @@ def build_category_pages():
         if arts:
             cards_html = "\n".join(f"""
         <a class="card3" href="articles/{a['slug']}.html">
-          <span class="cat">{label.upper()}</span>
-          <h3 class="title-sm">{a['titre']}</h3>
-          <div class="meta" style="margin-top:10px">
-            <span class="meta__src">{a['nb_sources']} sources</span>
-            <span class="meta__sep">·</span><span>{a['date']}</span>
+          <img class="card3__img" src="assets/images/{a['slug']}.jpg" alt="{a['titre']}" loading="lazy">
+          <div class="card3__body">
+            <span class="cat">{label.upper()}</span>
+            <h3 class="title-sm">{a['titre']}</h3>
+            <div class="meta" style="margin-top:10px">
+              <span class="meta__src">{a['nb_sources']} sources</span>
+              <span class="meta__sep">·</span><span>{a['date']}</span>
+            </div>
           </div>
         </a>""" for a in arts)
             count_txt = f'{len(arts)} article{"s" if len(arts) > 1 else ""}'
