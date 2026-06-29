@@ -1065,7 +1065,22 @@ def _download_hero(
         except Exception:
             pass
 
-    # ── 5. Fallback : copier og-default.jpg ──────────────────────────────────
+    # ── 5. Génération IA via Pollinations.ai (gratuit, sans clé) ─────────────
+    try:
+        import urllib.parse
+        prompt = urllib.parse.quote(
+            f"professional editorial news photo, {title or keyword}, "
+            "photojournalism style, high quality, no text, no watermark"
+        )
+        url = f"https://image.pollinations.ai/prompt/{prompt}?width=1200&height=630&nologo=true&model=flux"
+        print(f"  [IA IMAGE] {slug} → Pollinations.ai")
+        r = requests.get(url, timeout=60)
+        if r.status_code == 200 and len(r.content) > 10_000:
+            return _save(r.content, "pollinations", "Pollinations AI")
+    except Exception as e:
+        print(f"  [IA IMAGE] échec Pollinations: {e}")
+
+    # ── 6. Fallback ultime : og-default.jpg ──────────────────────────────────
     print(f"  [FALLBACK] {slug} → og-default.jpg")
     default_src = ROOT / "assets" / "images" / "og-default.jpg"
     if default_src.exists():
@@ -2031,7 +2046,7 @@ def run(dry_run=False, text_input=None, nb_max=10):
             "juillet","août","septembre","octobre","novembre","décembre"]
     now      = datetime.now()
     # Utiliser l'heure du créneau prévu plutôt que l'heure réelle du runner
-    slot_heure = "07h00" if now.hour < 12 else "18h30"
+    slot_heure = "07h00" if now.hour < 12 else "18h00"
     date_pub = f"{now.day} {MOIS[now.month-1]} {now.year}, {slot_heure}"
 
     if text_input:

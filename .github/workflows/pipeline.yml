@@ -2,10 +2,10 @@ name: Factuel — Pipeline éditorial
 
 on:
   schedule:
-    # Matin : 07h00 heure de Paris (UTC+2 en été = 05h00 UTC)
-    - cron: "0 5 * * *"
-    # Soir : 18h30 heure de Paris (UTC+2 en été = 16h30 UTC)
-    - cron: "30 16 * * *"
+    # Matin : génération à 02h00 UTC (04h00 Paris), publication affichée 07h00
+    - cron: "0 2 * * *"
+    # Soir : génération à 11h00 UTC (13h00 Paris), publication affichée 18h00
+    - cron: "0 11 * * *"
   workflow_dispatch:
     inputs:
       dry_run:
