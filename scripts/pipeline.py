@@ -427,33 +427,6 @@ def filtrer_et_classer(
     )
 
 
-def _probe_pexels(vis_kw: str) -> tuple[bytes, str] | None:
-    """Cherche une photo Pexels. Retourne (bytes, credit) ou None."""
-    if not PEXELS_KEY:
-        return None
-    try:
-        import urllib.parse
-        r = requests.get(
-            "https://api.pexels.com/v1/search",
-            params={"query": vis_kw, "orientation": "landscape", "per_page": 3, "size": "large"},
-            headers={"Authorization": PEXELS_KEY},
-            timeout=6,
-        )
-        if r.status_code != 200:
-            return None
-        for photo in r.json().get("photos", []):
-            img_url = photo.get("src", {}).get("large2x") or photo.get("src", {}).get("large", "")
-            if not img_url:
-                continue
-            ir = requests.get(img_url, timeout=8)
-            if ir.status_code == 200 and len(ir.content) > 30_000:
-                credit = f"Pexels / {photo.get('photographer', 'Pexels')}"
-                return ir.content, credit
-    except Exception:
-        pass
-    return None
-
-
 def selectionner_meilleurs(
     candidats: list[dict],
     nb_max: int = 10,
@@ -461,30 +434,16 @@ def selectionner_meilleurs(
 ) -> list[dict]:
     """
     Sélectionne les nb_max meilleurs articles en respectant le quota par catégorie.
-    Si PEXELS_KEY est disponible, pré-filtre les candidats par disponibilité d'image
-    et met en cache les bytes d'image dans item['_img_bytes'] / item['_img_credit'].
     """
-    prefiltre = bool(PEXELS_KEY)
-    selection  = []
-    compteur   = {}
-    pool       = candidats[:min(len(candidats), nb_max * 3)]  # sonder au max 3× plus de candidats
+    selection = []
+    compteur  = {}
 
-    for item in pool:
+    for item in candidats:
         if len(selection) >= nb_max:
             break
         cat = item.get("_cat", "societe")
         if compteur.get(cat, 0) >= quota_cat:
             continue
-
-        if prefiltre:
-            vis_kw = extract_visual_keywords(item["title"], item.get("content", ""), cat)
-            result = _probe_pexels(vis_kw)
-            if result is None:
-                print(f"  [SKIP IMAGE] {item['title'][:50]} — aucune photo Pexels")
-                continue
-            item["_img_bytes"], item["_img_credit"] = result
-            item["_img_vis_kw"] = vis_kw
-
         selection.append(item)
         compteur[cat] = compteur.get(cat, 0) + 1
 
@@ -1040,27 +999,7 @@ def _download_hero(
     except Exception:
         pass
 
-    # ── 2. Openverse ─────────────────────────────────────────────────────────
-    try:
-        q = urllib.parse.urlencode({"q": vis_kw, "page_size": "10",
-                                     "license_type": "commercial,modification"})
-        ov = requests.get(f"https://api.openverse.org/v1/images/?{q}", timeout=5, headers=hdrs)
-        for item in ov.json().get("results", []):
-            img_url = item.get("url", "")
-            if not img_url.lower().endswith((".jpg", ".jpeg", ".png", ".webp")):
-                continue
-            w = item.get("width", 0) or 0
-            h = item.get("height", 0) or 0
-            if _is_bad(img_url, w, h):
-                continue
-            ir = requests.get(img_url, timeout=5, headers=hdrs)
-            if ir.status_code == 200 and len(ir.content) > 20_000:
-                creator = item.get("creator", "Openverse")
-                return _save(ir.content, "openverse", f"Openverse / {creator}")
-    except Exception:
-        pass
-
-    # ── 3. Pexels (CGU : usage automatisé autorisé) ───────────────────────────
+    # ── 2. Pexels — fallback si Wikimedia ne trouve rien ─────────────────────
     if PEXELS_KEY:
         try:
             r = requests.get(
@@ -1082,43 +1021,7 @@ def _download_hero(
         except Exception:
             pass
 
-    # ── 4. Pixabay (CGU : usage automatisé autorisé) ─────────────────────────
-    if PIXABAY_KEY:
-        try:
-            r = requests.get(
-                "https://pixabay.com/api/",
-                params={
-                    "key": PIXABAY_KEY, "q": vis_kw,
-                    "image_type": "photo", "orientation": "horizontal",
-                    "min_width": 1200, "per_page": 5, "safesearch": "true",
-                },
-                timeout=5,
-            )
-            if r.status_code == 200:
-                for hit in r.json().get("hits", []):
-                    img_url = hit.get("largeImageURL", "")
-                    if not img_url:
-                        continue
-                    ir = requests.get(img_url, timeout=5, headers=hdrs)
-                    if ir.status_code == 200 and len(ir.content) > 20_000:
-                        user = hit.get("user", "Pixabay")
-                        return _save(ir.content, "pixabay", f"Pixabay / {user}")
-        except Exception:
-            pass
-
-    # ── 5. Unsplash Source (sans clé, redirect vers photo aléatoire) ──────────
-    try:
-        kw_url = urllib.parse.quote(vis_kw)
-        r = requests.get(
-            f"https://source.unsplash.com/1200x630/?{kw_url}",
-            timeout=15, allow_redirects=True,
-        )
-        if r.status_code == 200 and len(r.content) > 20_000:
-            return _save(r.content, "unsplash", "Unsplash")
-    except Exception:
-        pass
-
-    # ── 6. Fallback ultime : og-default.jpg ──────────────────────────────────
+    # ── 3. Fallback ultime : og-default.jpg ──────────────────────────────────
     print(f"  [FALLBACK] {slug} → og-default.jpg")
     default_src = ROOT / "assets" / "images" / "og-default.jpg"
     if default_src.exists():
@@ -2029,15 +1932,6 @@ def generer_article(item: dict, dry_run: bool, published: set, new_pub: set, dat
         if total_chars < 600:
             print(f"     [REJET] Corps trop court ({total_chars} chars)")
             return False
-
-        # Écrire l'image pré-fetchée (pré-filtre Pexels) avant build_article_html
-        if item.get("_img_bytes"):
-            safe_slug_pre = _slug_ascii(art.get("slug", ""))
-            img_path_pre = f"assets/images/{safe_slug_pre}.jpg"
-            os.makedirs("assets/images", exist_ok=True)
-            with open(img_path_pre, "wb") as _f:
-                _f.write(item["_img_bytes"])
-            print(f"  [IMAGE] {safe_slug_pre} ← {item.get('_img_credit', 'Pexels')}")
 
         try:
             html = build_article_html(art, date_pub)
