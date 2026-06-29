@@ -427,6 +427,33 @@ def filtrer_et_classer(
     )
 
 
+def _probe_pexels(vis_kw: str) -> tuple[bytes, str] | None:
+    """Cherche une photo Pexels. Retourne (bytes, credit) ou None."""
+    if not PEXELS_KEY:
+        return None
+    try:
+        import urllib.parse
+        r = requests.get(
+            "https://api.pexels.com/v1/search",
+            params={"query": vis_kw, "orientation": "landscape", "per_page": 3, "size": "large"},
+            headers={"Authorization": PEXELS_KEY},
+            timeout=6,
+        )
+        if r.status_code != 200:
+            return None
+        for photo in r.json().get("photos", []):
+            img_url = photo.get("src", {}).get("large2x") or photo.get("src", {}).get("large", "")
+            if not img_url:
+                continue
+            ir = requests.get(img_url, timeout=8)
+            if ir.status_code == 200 and len(ir.content) > 30_000:
+                credit = f"Pexels / {photo.get('photographer', 'Pexels')}"
+                return ir.content, credit
+    except Exception:
+        pass
+    return None
+
+
 def selectionner_meilleurs(
     candidats: list[dict],
     nb_max: int = 10,
@@ -434,16 +461,30 @@ def selectionner_meilleurs(
 ) -> list[dict]:
     """
     Sélectionne les nb_max meilleurs articles en respectant le quota par catégorie.
+    Si PEXELS_KEY est disponible, pré-filtre les candidats par disponibilité d'image
+    et met en cache les bytes d'image dans item['_img_bytes'] / item['_img_credit'].
     """
+    prefiltre = bool(PEXELS_KEY)
     selection  = []
     compteur   = {}
+    pool       = candidats[:min(len(candidats), nb_max * 3)]  # sonder au max 3× plus de candidats
 
-    for item in candidats:
+    for item in pool:
         if len(selection) >= nb_max:
             break
         cat = item.get("_cat", "societe")
         if compteur.get(cat, 0) >= quota_cat:
             continue
+
+        if prefiltre:
+            vis_kw = extract_visual_keywords(item["title"], item.get("content", ""), cat)
+            result = _probe_pexels(vis_kw)
+            if result is None:
+                print(f"  [SKIP IMAGE] {item['title'][:50]} — aucune photo Pexels")
+                continue
+            item["_img_bytes"], item["_img_credit"] = result
+            item["_img_vis_kw"] = vis_kw
+
         selection.append(item)
         compteur[cat] = compteur.get(cat, 0) + 1
 
@@ -1988,6 +2029,15 @@ def generer_article(item: dict, dry_run: bool, published: set, new_pub: set, dat
         if total_chars < 600:
             print(f"     [REJET] Corps trop court ({total_chars} chars)")
             return False
+
+        # Écrire l'image pré-fetchée (pré-filtre Pexels) avant build_article_html
+        if item.get("_img_bytes"):
+            safe_slug_pre = _slug_ascii(art.get("slug", ""))
+            img_path_pre = f"assets/images/{safe_slug_pre}.jpg"
+            os.makedirs("assets/images", exist_ok=True)
+            with open(img_path_pre, "wb") as _f:
+                _f.write(item["_img_bytes"])
+            print(f"  [IMAGE] {safe_slug_pre} ← {item.get('_img_credit', 'Pexels')}")
 
         try:
             html = build_article_html(art, date_pub)
