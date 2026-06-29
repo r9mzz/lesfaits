@@ -15,7 +15,7 @@ jobs:
       contents: read
 
     steps:
-      - name: Checkout
+      - name: Checkout (repo privé — contient tous les articles)
         uses: actions/checkout@v4
         with:
           fetch-depth: 1
@@ -28,16 +28,6 @@ jobs:
 
       - name: Installer les dépendances
         run: pip install -r requirements.txt
-
-      - name: Cloner lesfaits-site
-        env:
-          SITE_DEPLOY_TOKEN: ${{ secrets.SITE_DEPLOY_TOKEN }}
-        run: |
-          git clone https://x-access-token:${SITE_DEPLOY_TOKEN}@github.com/r9mzz/lesfaits-site.git /tmp/site
-          # Récupérer articles + assets + data déjà publiés
-          cp -r /tmp/site/articles/ ./
-          cp -r /tmp/site/assets/   ./
-          cp -r /tmp/site/data/     ./
 
       - name: Rebuild index + catégories + archive
         env:
@@ -92,11 +82,13 @@ jobs:
           print(f"{patched} articles patchés (à lire aussi)")
           PYEOF
 
-      - name: Copier tout vers lesfaits-site et pousser
+      - name: Déployer vers lesfaits-site
         env:
           SITE_DEPLOY_TOKEN: ${{ secrets.SITE_DEPLOY_TOKEN }}
           TZ: Europe/Paris
         run: |
+          git clone https://x-access-token:${SITE_DEPLOY_TOKEN}@github.com/r9mzz/lesfaits-site.git /tmp/site
+
           cp -r articles/             /tmp/site/
           cp -r categories/           /tmp/site/
           cp -r assets/               /tmp/site/
