@@ -1223,7 +1223,7 @@ def build_article_html(art: dict, date_pub: str) -> str:
             cards = "\n".join(
                 f'<a class="art__related-card" href="articles/{a["slug"]}.html">'
                 f'<img src="assets/images/{a["slug"]}.jpg" alt="{a["titre"]}" loading="lazy" style="width:calc(100% + 32px);margin:-14px -16px 12px;height:110px;object-fit:cover;display:block;border-radius:var(--radius) var(--radius) 0 0">'
-                f'<span class="cat">{a["categorie"].upper()}</span>'
+                f'<span class="cat cat--{a["categorie"]}">{a["categorie"].upper()}</span>'
                 f'<div class="title-sm">{a["titre"]}</div>'
                 f'<div style="font-size:10px;color:var(--muted);margin-top:6px">{a["date"]}</div>'
                 f'</a>'
@@ -1301,7 +1301,8 @@ function copyLink(){{
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <meta name="description" content="{resume_txt[:155]}"/>
-  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large"/>
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1"/>
+  <meta name="author" content="Les Faits — IA éditoriale"/>
   <meta property="og:title" content="{art['titre']} — Les Faits"/>
   <meta property="og:description" content="{resume_txt[:155]}"/>
   <meta property="og:type" content="article"/>
@@ -1351,7 +1352,7 @@ function copyLink(){{
 <main>
 <div class="art">
   <a class="art__back" href="index.html">← Retour à l'accueil</a>
-  <span class="art__cat">{cat.upper()}</span>
+  <span class="art__cat cat--{cat}">{cat.upper()}</span>
   <h1 class="art__title">{art['titre']}</h1>
   <div class="art__meta">
     {f'<span style="color:var(--blue);font-weight:600">{nb_src} source{"s" if nb_src > 1 else ""}</span><span class="meta__sep" aria-hidden="true">·</span>' if nb_src > 0 else ''}
@@ -1362,6 +1363,9 @@ function copyLink(){{
   {verify_html}
   <div class="art__rule"></div>
   {hero_img}
+  <div class="art__disclaimer">
+    ℹ️ Cet article a été rédigé par intelligence artificielle selon le <a href="methode.html">Protocole Les Faits v1.1</a>. Des erreurs peuvent subsister malgré les vérifications. <a href="contact.html?article={slug}#erreur">Signaler une erreur →</a>
+  </div>
   <p class="art__resume">{resume_txt}</p>
   <h2 class="art__h2">Les faits</h2><p>{faits}</p>
   <h2 class="art__h2">Contexte</h2><p>{contexte}</p>
@@ -1369,13 +1373,38 @@ function copyLink(){{
   {build_spectrum_html(art.get("positions", {}))}
   {share_html}
   {sources_html}
+  <div class="newsletter-block">
+    <div class="newsletter-block__title">La semaine en faits</div>
+    <div class="newsletter-block__sub">Chaque dimanche. Aucune opinion. Aucun parti pris.</div>
+    <form class="newsletter-form" onsubmit="handleNL(event)">
+      <input type="email" placeholder="votre@email.com" required autocomplete="email"/>
+      <button type="submit">S'abonner</button>
+    </form>
+    <div class="newsletter-block__legal">Aucune publicité. Désinscription en un clic.</div>
+  </div>
   {related_html}
   <p class="art__badge">Rédigé par IA · Protocole Les Faits v1.1 · {date_pub}</p>
   <a class="contest-btn" href="contact.html?article={slug}#erreur">Signaler une erreur sur cet article</a>
 </div>
 </main>
+<button class="back-to-top" id="btt" aria-label="Retour en haut" title="Retour en haut">↑</button>
 {_build_footer()}
 {share_js}
+<script>
+(function(){{
+  var btn=document.getElementById('btt');
+  window.addEventListener('scroll',function(){{
+    btn.classList.toggle('visible',window.scrollY>300);
+  }},{{passive:true}});
+  btn.addEventListener('click',function(){{window.scrollTo({{top:0,behavior:'smooth'}});}});
+  function handleNL(e){{
+    e.preventDefault();
+    var em=e.target.querySelector('input[type="email"]').value;
+    e.target.innerHTML='<p style="color:var(--blue);font-weight:600">✓ Merci ! Vous recevrez votre première newsletter dimanche.</p>';
+  }}
+  window.handleNL=handleNL;
+}})();
+</script>
 {_DARK_MODE_JS}
 {_ANALYTICS_JS}
 </body>
@@ -1395,7 +1424,7 @@ def rebuild_index():
     # Génération des cards "side" (articles 1-3)
     def side_card(a):
         return f"""<a class="une__side-item" href="articles/{a['slug']}.html">
-          <span class="cat">{a['categorie'].upper()}</span>
+          <span class="cat cat--{a['categorie']}">{a['categorie'].upper()}</span>
           <h3 class="title-md">{a['titre']}</h3>
           <div class="meta"><span class="meta__src">{a['nb_sources']} sources</span>
           <span class="meta__sep">·</span><span>{a['date']}</span></div>
@@ -1405,7 +1434,7 @@ def rebuild_index():
         return f"""<a class="card3" href="articles/{a['slug']}.html">
           <img class="card3__img" src="assets/images/{a['slug']}.jpg" alt="{a['titre']}" loading="lazy">
           <div class="card3__body">
-            <span class="cat">{a['categorie'].upper()}</span>
+            <span class="cat cat--{a['categorie']}">{a['categorie'].upper()}</span>
             <h3 class="title-sm">{a['titre']}</h3>
             <div class="meta" style="margin-top:10px">
               <span class="meta__src">{a['nb_sources']} sources</span>
@@ -1417,7 +1446,7 @@ def rebuild_index():
     def list_card(i, a):
         return f"""<a class="list-item" href="articles/{a['slug']}.html">
           <span class="list-item__num">0{i+1}</span>
-          <div><span class="cat">{a['categorie'].upper()}</span>
+          <div><span class="cat cat--{a['categorie']}">{a['categorie'].upper()}</span>
           <h3 class="title-sm">{a['titre']}</h3>
           <div class="meta" style="margin-top:6px">
             <span class="meta__src">{a['nb_sources']} sources</span>
@@ -1503,7 +1532,7 @@ def build_index_html(main, side_html, grid_html, list_html):
     <div style="height:2px;background:var(--blue);margin-bottom:1px"></div>
     <div class="une__grid">
       <a class="une__main" href="articles/{main['slug']}.html">
-        <span class="cat">{main['categorie'].upper()}</span>
+        <span class="cat cat--{main['categorie']}">{main['categorie'].upper()}</span>
         <h2 class="title-xl">{main['titre']}</h2>
         <p class="excerpt">{resume}</p>
         <div class="meta">
@@ -1527,18 +1556,28 @@ def build_index_html(main, side_html, grid_html, list_html):
   {'<div class="list-section" style="padding-top:40px"><div class="section__head" style="margin-bottom:16px"><span class="section__title">À LIRE AUSSI</span></div><div class="section__rule"></div><div class="list-grid">' + list_html + '</div></div>' if list_html else ''}
 </div>
 
-<div class="support">
-  <div class="support__inner">
-    <h2>Les Faits est gratuit, sans publicité, sans actionnaires</h2>
-    <p>Notre indépendance éditoriale repose sur vos dons. Aucun article derrière un paywall.</p>
-    <div class="support__btns">
-      <a class="btn btn--white" href="https://www.paypal.com/donate?hosted_button_id=LESFAITS" rel="noopener noreferrer external" target="_blank">Soutenir Les Faits</a>
-      <a class="btn btn--outline" href="methode.html">Notre méthode</a>
-    </div>
+<div style="max-width:1140px;margin:0 auto;padding:0 32px">
+  <div class="newsletter-block">
+    <div class="newsletter-block__title">La semaine en faits</div>
+    <div class="newsletter-block__sub">Chaque dimanche. Aucune opinion. Aucun parti pris.</div>
+    <form class="newsletter-form" onsubmit="handleNL(event)">
+      <input type="email" placeholder="votre@email.com" required autocomplete="email"/>
+      <button type="submit">S'abonner</button>
+    </form>
+    <div class="newsletter-block__legal">Aucune publicité. Désinscription en un clic.</div>
   </div>
 </div>
 
 {_build_footer()}
+<script>
+(function(){{
+  function handleNL(e){{
+    e.preventDefault();
+    e.target.innerHTML='<p style="color:var(--blue);font-weight:600">✓ Merci ! Vous recevrez votre première newsletter dimanche.</p>';
+  }}
+  window.handleNL=handleNL;
+}})();
+</script>
 {_DARK_MODE_JS}
 {_ANALYTICS_JS}
 </body>
@@ -1635,7 +1674,7 @@ def build_category_pages():
         <a class="card3" href="articles/{a['slug']}.html">
           <img class="card3__img" src="assets/images/{a['slug']}.jpg" alt="{a['titre']}" loading="lazy">
           <div class="card3__body">
-            <span class="cat">{label.upper()}</span>
+            <span class="cat cat--{cat}">{label.upper()}</span>
             <h3 class="title-sm">{a['titre']}</h3>
             <div class="meta" style="margin-top:10px">
               <span class="meta__src">{a['nb_sources']} sources</span>
