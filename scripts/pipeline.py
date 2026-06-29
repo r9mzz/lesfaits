@@ -36,7 +36,6 @@ GROQ_KEY       = os.getenv("GROQ_API_KEY", "")
 GROQ_KEY2      = os.getenv("GROQ_API_KEY_2", "")
 PEXELS_KEY     = os.getenv("PEXELS_API_KEY", "")
 PIXABAY_KEY    = os.getenv("PIXABAY_API_KEY", "")
-UNSPLASH_KEY   = os.getenv("UNSPLASH_ACCESS_KEY", "")
 
 # ══════════════════════════════════════════════════════════════════════════════
 # SOURCES RSS — retournent du texte propre, pas de JavaScript
@@ -1066,24 +1065,17 @@ def _download_hero(
         except Exception:
             pass
 
-    # ── 5. Unsplash (clé gratuite, 50 req/h) ─────────────────────────────────
-    if UNSPLASH_KEY:
-        try:
-            r = requests.get(
-                "https://api.unsplash.com/photos/random",
-                params={"query": vis_kw, "orientation": "landscape", "client_id": UNSPLASH_KEY},
-                timeout=8,
-            )
-            if r.status_code == 200:
-                data = r.json()
-                img_url = data.get("urls", {}).get("regular", "")
-                if img_url:
-                    ir = requests.get(img_url, timeout=10)
-                    if ir.status_code == 200 and len(ir.content) > 20_000:
-                        credit = f"Unsplash / {data.get('user', {}).get('name', 'Unsplash')}"
-                        return _save(ir.content, "unsplash", credit)
-        except Exception:
-            pass
+    # ── 5. Unsplash Source (sans clé, redirect vers photo aléatoire) ──────────
+    try:
+        kw_url = urllib.parse.quote(vis_kw)
+        r = requests.get(
+            f"https://source.unsplash.com/1200x630/?{kw_url}",
+            timeout=15, allow_redirects=True,
+        )
+        if r.status_code == 200 and len(r.content) > 20_000:
+            return _save(r.content, "unsplash", "Unsplash")
+    except Exception:
+        pass
 
     # ── 6. Fallback ultime : og-default.jpg ──────────────────────────────────
     print(f"  [FALLBACK] {slug} → og-default.jpg")
