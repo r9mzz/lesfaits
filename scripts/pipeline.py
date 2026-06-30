@@ -388,9 +388,13 @@ def score_editorial(item: dict, source_name: str, published_topics: set) -> tupl
     for topic in published_topics:
         topic_words = set(w for w in topic.lower().split() if len(w) > 5)
         overlap = len(title_words & topic_words)
-        if overlap >= 1:
-            score -= 50
-            reasons.append(f"-50 sujet redondant (overlap: {overlap} mots avec '{topic[:40]}')")
+        if overlap >= 2:
+            score -= 500  # rejet quasi-certain : même sujet avec 2 mots clés communs
+            reasons.append(f"-500 sujet très redondant (overlap: {overlap} mots avec '{topic[:40]}')")
+            break
+        elif overlap == 1:
+            score -= 60
+            reasons.append(f"-60 sujet proche (1 mot commun avec '{topic[:40]}')")
             break
 
     return score, reasons
@@ -911,6 +915,20 @@ def extract_visual_keywords(title: str, summary: str, category: str) -> str:
 
 # Photos Pexels déjà utilisées dans ce run (évite les doublons visuels)
 _USED_PEXELS_IDS: set[int] = set()
+# URLs Wikimedia déjà utilisées (cross-run : chargées depuis search.json au démarrage)
+_USED_WIKIMEDIA_URLS: set[str] = set()
+
+
+def _init_used_images():
+    """Charge les image_url des articles existants pour éviter les doublons cross-run."""
+    try:
+        arts = load_index()
+        for a in arts:
+            url = a.get("image_url", "")
+            if url and "wikimedia" in url:
+                _USED_WIKIMEDIA_URLS.add(url)
+    except Exception:
+        pass
 
 
 def _download_hero(
@@ -997,8 +1015,11 @@ def _download_hero(
             h = ii.get("thumbheight") or ii.get("height", 0)
             if w < 600 or h < 300 or _is_bad(img_url, w, h):
                 continue
+            if img_url in _USED_WIKIMEDIA_URLS:
+                continue
             ir = requests.get(img_url, timeout=5, headers=hdrs)
             if ir.status_code == 200 and len(ir.content) > 20_000:
+                _USED_WIKIMEDIA_URLS.add(img_url)
                 return _save(ir.content, "wikimedia", "Wikimedia Commons")
     except Exception:
         pass
@@ -2077,6 +2098,8 @@ if __name__ == "__main__":
         build_category_pages()
         print("Rebuild terminé.")
         exit(0)
+
+    _init_used_images()
 
     if not GROQ_KEY:
         print("ERREUR : GROQ_API_KEY manquant dans .env / secrets GitHub")
