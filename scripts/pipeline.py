@@ -1501,28 +1501,37 @@ def rebuild_index():
         </a>"""
 
     def _pick_diverse(pool: list, n: int, exclude_slugs: set) -> list:
-        """Sélectionne n articles en garantissant 1 par catégorie, puis complète par récence."""
-        cats = ["societe", "science", "economie", "tech", "sante", "environnement"]
-        chosen, seen_cats, seen_slugs = [], set(), set(exclude_slugs)
-        # 1er passage : 1 article par catégorie (le plus récent disponible)
-        for cat in cats:
-            for a in pool:
-                if a["slug"] in seen_slugs or a.get("categorie") != cat:
-                    continue
-                chosen.append(a)
-                seen_cats.add(cat)
-                seen_slugs.add(a["slug"])
-                break
-            if len(chosen) >= n:
-                break
-        # 2ème passage : compléter par récence si on n'a pas assez
-        for a in pool:
-            if len(chosen) >= n:
-                break
-            if a["slug"] not in seen_slugs:
-                chosen.append(a)
-                seen_slugs.add(a["slug"])
-        return chosen[:n]
+        """Prend les n articles les plus récents, puis diversifie si possible."""
+        avail = [a for a in pool if a["slug"] not in exclude_slugs]
+        # Sélection de base : les n plus récents
+        chosen = avail[:n]
+        if len(chosen) < 2:
+            return chosen
+        # Thèmes présents vs manquants
+        all_cats = {"societe", "science", "economie", "tech", "sante", "environnement"}
+        present = {a["categorie"] for a in chosen}
+        missing = all_cats - present
+        for cat in missing:
+            # Trouver le plus récent article de ce thème hors sélection
+            candidate = next((a for a in avail if a["categorie"] == cat and a not in chosen), None)
+            if candidate is None:
+                continue  # aucun article pour ce thème → on ne force rien
+            # Trouver le doublon le plus ancien dans chosen (thème déjà représenté 2+ fois)
+            cat_counts = {}
+            for a in chosen:
+                cat_counts[a["categorie"]] = cat_counts.get(a["categorie"], 0) + 1
+            # Chercher un article à remplacer : thème sur-représenté, le moins récent
+            to_replace = None
+            for a in reversed(chosen):  # reversed = du plus ancien au plus récent
+                if cat_counts.get(a["categorie"], 0) > 1:
+                    to_replace = a
+                    break
+            if to_replace:
+                idx = chosen.index(to_replace)
+                chosen[idx] = candidate
+                # Mettre à jour le compte
+                cat_counts[to_replace["categorie"]] -= 1
+        return chosen
 
     main_art  = articles[0]
     used      = {main_art["slug"]}
