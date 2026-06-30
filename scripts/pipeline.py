@@ -1278,11 +1278,22 @@ def build_article_html(art: dict, date_pub: str) -> str:
     contexte = art["corps"]["contexte"].replace("\n", "</p><p>")
     nuances  = art["corps"]["nuances"].replace("\n", "</p><p>")
 
-    # Articles liés (même catégorie)
+    # Articles liés — 1 par catégorie différente de l'article courant
     related_html = ""
     try:
         all_arts = load_index()
-        related = [a for a in all_arts if a.get("categorie") == cat and a["slug"] != slug][:3]
+        other = [a for a in all_arts if a.get("categorie") != cat and a["slug"] != slug]
+        seen_cats: set = set()
+        related: list = []
+        for a in other:
+            if a["categorie"] not in seen_cats:
+                related.append(a)
+                seen_cats.add(a["categorie"])
+            if len(related) == 3:
+                break
+        if len(related) < 3:
+            same = [a for a in all_arts if a.get("categorie") == cat and a["slug"] != slug]
+            related += same[:3 - len(related)]
         if related:
             cards = "\n".join(
                 f'<a class="art__related-card" href="articles/{a["slug"]}.html">'
@@ -1461,6 +1472,72 @@ function copyLink(){{
 # RECONSTRUCTION INDEX.HTML
 # ══════════════════════════════════════════════════════════════════════════════
 
+def rebuild_articles_related(articles: list):
+    """Met à jour le bloc 'À lire aussi' de chaque article avec des thèmes croisés."""
+    arts_by_slug = {a["slug"]: a for a in articles}
+    updated = 0
+    for art in articles:
+        slug = art["slug"]
+        cat  = art.get("categorie", "")
+        path = ROOT / "articles" / f"{slug}.html"
+        if not path.exists():
+            continue
+        # Sélectionner 3 articles de catégories différentes
+        other = [a for a in articles if a.get("categorie") != cat and a["slug"] != slug]
+        seen_cats: set = set()
+        related: list = []
+        for a in other:
+            if a["categorie"] not in seen_cats:
+                related.append(a)
+                seen_cats.add(a["categorie"])
+            if len(related) == 3:
+                break
+        if len(related) < 3:
+            same = [a for a in articles if a.get("categorie") == cat and a["slug"] != slug]
+            related += same[:3 - len(related)]
+        if not related:
+            continue
+        cards = "".join(
+            f'<a class="art__related-card" href="articles/{a["slug"]}.html">'
+            f'<img src="assets/images/{a["slug"]}.jpg" alt="" width="400" height="110" loading="lazy" style="width:calc(100% + 32px);margin:-14px -16px 12px;height:110px;object-fit:cover;display:block;border-radius:var(--radius) var(--radius) 0 0">'
+            f'<span class="cat cat--{a["categorie"]}">{a["categorie"].upper()}</span>'
+            f'<div class="title-sm">{a["titre"]}</div>'
+            f'<div style="font-size:10px;color:var(--muted);margin-top:6px">{a["date"]}</div>'
+            f'</a>'
+            for a in related
+        )
+        new_block = (
+            f'<div class="art__related">'
+            f'<div class="art__related-title">À LIRE AUSSI</div>'
+            f'<div class="art__related-grid">{cards}</div>'
+            f'</div>'
+        )
+        html = path.read_text(encoding="utf-8")
+        # Remplacement robuste par comptage des divs imbriqués
+        marker = '<div class="art__related">'
+        start = html.find(marker)
+        if start < 0:
+            continue
+        depth, i, end = 0, start, -1
+        while i < len(html):
+            if html[i:i+4] == '<div':
+                depth += 1; i += 4
+            elif html[i:i+6] == '</div>':
+                depth -= 1
+                if depth == 0:
+                    end = i + 6; break
+                i += 6
+            else:
+                i += 1
+        if end < 0:
+            continue
+        new_html = html[:start] + new_block + html[end:]
+        if new_html != html:
+            path.write_text(new_html, encoding="utf-8")
+            updated += 1
+    print(f"  ✓ {updated} articles mis à jour (À lire aussi cross-catégorie)")
+
+
 def rebuild_index():
     """Relit articles.json et reconstruit la section À LA UNE de index.html."""
     articles = load_index()
@@ -1557,6 +1634,7 @@ def rebuild_index():
     build_search_json(articles)
     build_feed_xml(articles)
     build_sitemap(articles)
+    rebuild_articles_related(articles)
 
 
 def build_index_html(main, side_html, grid_html, list_html):

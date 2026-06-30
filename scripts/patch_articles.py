@@ -52,7 +52,28 @@ for fn in os.listdir("articles"):
     )
     path = f"articles/{fn}"
     html = open(path, encoding="utf-8").read()
-    new_html = re.sub(r'<div class="art__related">.*?</div></div>', new_block, html, flags=re.DOTALL)
+    # Remplacement robuste : comptage des divs imbriqués pour trouver la fin du bloc
+    marker = '<div class="art__related">'
+    start = html.find(marker)
+    if start < 0:
+        continue
+    depth, i = 0, start
+    end = -1
+    while i < len(html):
+        if html[i:i+4] == '<div':
+            depth += 1
+            i += 4
+        elif html[i:i+6] == '</div>':
+            depth -= 1
+            if depth == 0:
+                end = i + 6
+                break
+            i += 6
+        else:
+            i += 1
+    if end < 0:
+        continue
+    new_html = html[:start] + new_block + html[end:]
     if new_html != html:
         open(path, "w", encoding="utf-8").write(new_html)
         patched_related += 1
