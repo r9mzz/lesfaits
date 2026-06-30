@@ -364,7 +364,7 @@ nav a.active { opacity: 1; color: var(--blue); border-bottom-color: var(--blue);
 /* ── COULEURS PAR CATÉGORIE ── */
 .cat--societe      { color: #78716c !important; }
 .cat--environnement{ color: #22c55e !important; }
-.cat--sante        { color: #38bdf8 !important; }
+.cat--sante        { color: #f43f5e !important; }
 .cat--economie     { color: #f97316 !important; }
 .cat--tech         { color: #a855f7 !important; }
 .cat--science      { color: #06b6d4 !important; }

@@ -1618,8 +1618,8 @@ def rebuild_index():
     # Grille "Derniers articles" : 6 articles, 1 par catégorie
     grid_arts = _pick_diverse(articles, 6, used)
     used.update(a["slug"] for a in grid_arts)
-    # Liste : 6 suivants par récence
-    list_arts = [a for a in articles if a["slug"] not in used][:6]
+    # Liste "À lire aussi" : 6 articles diversifiés par catégorie
+    list_arts = _pick_diverse(articles, 6, used)
 
     side_html  = "\n".join(side_card(a) for a in side_arts) if side_arts else ""
     grid_html  = "\n".join(mini_card(a) for a in grid_arts) if grid_arts else ""
