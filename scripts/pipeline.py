@@ -915,20 +915,29 @@ def extract_visual_keywords(title: str, summary: str, category: str) -> str:
 
 # Photos Pexels déjà utilisées dans ce run (évite les doublons visuels)
 _USED_PEXELS_IDS: set[int] = set()
-# URLs Wikimedia déjà utilisées (cross-run : chargées depuis search.json au démarrage)
+# URLs Wikimedia déjà utilisées dans ce run
 _USED_WIKIMEDIA_URLS: set[str] = set()
+# Hash MD5 de toutes les images existantes — comparaison par contenu, cross-run
+_USED_IMAGE_HASHES: set[str] = set()
+
+
+def _img_hash(data: bytes) -> str:
+    import hashlib
+    return hashlib.md5(data).hexdigest()
 
 
 def _init_used_images():
-    """Charge les image_url des articles existants pour éviter les doublons cross-run."""
-    try:
-        arts = load_index()
-        for a in arts:
-            url = a.get("image_url", "")
-            if url and "wikimedia" in url:
-                _USED_WIKIMEDIA_URLS.add(url)
-    except Exception:
-        pass
+    """Charge le hash MD5 de toutes les images existantes pour bloquer les doublons."""
+    import hashlib
+    img_dir = ROOT / "assets" / "images"
+    if not img_dir.exists():
+        return
+    for f in img_dir.glob("*.jpg"):
+        try:
+            _USED_IMAGE_HASHES.add(hashlib.md5(f.read_bytes()).hexdigest())
+        except Exception:
+            pass
+    print(f"  [images] {len(_USED_IMAGE_HASHES)} hashes chargés (anti-doublon)")
 
 
 def _download_hero(
@@ -970,9 +979,13 @@ def _download_hero(
             return True
         return False
 
-    def _save(data: bytes, source_type: str, credit: str) -> tuple[str, str]:
+    def _save(data: bytes, source_type: str, credit: str) -> tuple[str, str] | None:
+        h = _img_hash(data)
+        if h in _USED_IMAGE_HASHES:
+            print(f"  [SKIP-DUP] {slug} → image identique déjà utilisée ({source_type})")
+            return None
         open(dest, "wb").write(data)
-        host = urlparse(dest).hostname or slug
+        _USED_IMAGE_HASHES.add(h)
         print(f"  [OK] {slug} → {credit} ({source_type})")
         return source_type, credit
 
@@ -986,6 +999,12 @@ def _download_hero(
             print(f"  [SKIP] {urlparse(url).hostname} — droits non libres")
             continue
         if _extract_image_from_source(url, stype, dest):
+            h = _img_hash(open(dest, "rb").read())
+            if h in _USED_IMAGE_HASHES:
+                os.remove(dest)
+                print(f"  [SKIP-DUP] {slug} → image source identique à une existante")
+                continue
+            _USED_IMAGE_HASHES.add(h)
             host = urlparse(url).hostname or url
             return stype, host
 
@@ -1019,8 +1038,10 @@ def _download_hero(
                 continue
             ir = requests.get(img_url, timeout=5, headers=hdrs)
             if ir.status_code == 200 and len(ir.content) > 20_000:
-                _USED_WIKIMEDIA_URLS.add(img_url)
-                return _save(ir.content, "wikimedia", "Wikimedia Commons")
+                result = _save(ir.content, "wikimedia", "Wikimedia Commons")
+                if result:
+                    _USED_WIKIMEDIA_URLS.add(img_url)
+                    return result
     except Exception:
         pass
 
@@ -1044,9 +1065,11 @@ def _download_hero(
                         continue
                     ir = requests.get(img_url, timeout=5, headers=hdrs)
                     if ir.status_code == 200 and len(ir.content) > 20_000:
-                        _USED_PEXELS_IDS.add(photo_id)
                         photographer = photo.get("photographer", "Pexels")
-                        return _save(ir.content, "pexels", f"Pexels / {photographer}")
+                        result = _save(ir.content, "pexels", f"Pexels / {photographer}")
+                        if result:
+                            _USED_PEXELS_IDS.add(photo_id)
+                            return result
         except Exception:
             pass
 
