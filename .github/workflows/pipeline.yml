@@ -2,10 +2,14 @@ name: Factuel — Génération articles
 
 on:
   schedule:
-    # Matin : génération à 02h00 UTC (04h00 Paris) — 5h avant publication
-    - cron: "0 2 * * *"
-    # Soir : génération à 11h00 UTC (13h00 Paris) — 5h avant publication
-    - cron: "0 11 * * *"
+    # Matin 04h00 Paris — été (CEST UTC+2) : avril–octobre
+    - cron: "0 2 * 4-10 *"
+    # Matin 04h00 Paris — hiver (CET UTC+1) : novembre–mars
+    - cron: "0 3 * 11-12,1-3 *"
+    # Soir 13h00 Paris — été (CEST UTC+2) : avril–octobre
+    - cron: "0 11 * 4-10 *"
+    # Soir 13h00 Paris — hiver (CET UTC+1) : novembre–mars
+    - cron: "0 12 * 11-12,1-3 *"
   workflow_dispatch:
     inputs:
       dry_run:
