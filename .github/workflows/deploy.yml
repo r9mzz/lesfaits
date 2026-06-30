@@ -48,6 +48,11 @@ jobs:
         run: |
           git clone https://x-access-token:${SITE_DEPLOY_TOKEN}@github.com/r9mzz/lesfaits-site.git /tmp/site
 
+          # Supprimer les articles retirés de la source
+          for f in /tmp/site/articles/*.html; do
+            [ -f "$f" ] && slug=$(basename "$f") && [ ! -f "articles/$slug" ] && rm "$f" && echo "Supprimé: $slug"
+          done
+
           cp -r articles/             /tmp/site/
           cp -r categories/           /tmp/site/
           cp -r assets/               /tmp/site/
