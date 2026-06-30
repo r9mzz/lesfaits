@@ -49,9 +49,12 @@ jobs:
           git clone https://x-access-token:${SITE_DEPLOY_TOKEN}@github.com/r9mzz/lesfaits-site.git /tmp/site
 
           # Supprimer les articles retirés de la source
+          PRIVATE_ARTICLES="${GITHUB_WORKSPACE}/articles"
+          shopt -s nullglob
           for f in /tmp/site/articles/*.html; do
-            [ -f "$f" ] && slug=$(basename "$f") && [ ! -f "articles/$slug" ] && rm "$f" && echo "Supprimé: $slug"
+            slug=$(basename "$f") && [ ! -f "${PRIVATE_ARTICLES}/${slug}" ] && rm "$f" && echo "Supprimé: $slug"
           done
+          shopt -u nullglob
 
           cp -r articles/             /tmp/site/
           cp -r categories/           /tmp/site/

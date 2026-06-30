@@ -932,7 +932,7 @@ def _init_used_images():
     img_dir = ROOT / "assets" / "images"
     if not img_dir.exists():
         return
-    for f in img_dir.glob("*.jpg"):
+    for f in [*img_dir.glob("*.jpg"), *img_dir.glob("*.png"), *img_dir.glob("*.webp")]:
         try:
             _USED_IMAGE_HASHES.add(hashlib.md5(f.read_bytes()).hexdigest())
         except Exception:
@@ -984,7 +984,8 @@ def _download_hero(
         if h in _USED_IMAGE_HASHES:
             print(f"  [SKIP-DUP] {slug} → image identique déjà utilisée ({source_type})")
             return None
-        open(dest, "wb").write(data)
+        with open(dest, "wb") as _f:
+            _f.write(data)
         _USED_IMAGE_HASHES.add(h)
         print(f"  [OK] {slug} → {credit} ({source_type})")
         return source_type, credit
@@ -999,7 +1000,8 @@ def _download_hero(
             print(f"  [SKIP] {urlparse(url).hostname} — droits non libres")
             continue
         if _extract_image_from_source(url, stype, dest):
-            h = _img_hash(open(dest, "rb").read())
+            with open(dest, "rb") as _f:
+                h = _img_hash(_f.read())
             if h in _USED_IMAGE_HASHES:
                 os.remove(dest)
                 print(f"  [SKIP-DUP] {slug} → image source identique à une existante")
