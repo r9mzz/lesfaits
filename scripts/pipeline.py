@@ -32,6 +32,9 @@ INDEX_JSON= DATA / "articles.json"
 ARTICLES.mkdir(exist_ok=True)
 DATA.mkdir(exist_ok=True)
 
+# ── URL de base du site public ─────────────────────────────────────────────────
+BASE_URL = "https://r9mzz.github.io/lesfaits-site"
+
 GROQ_KEY       = os.getenv("GROQ_API_KEY", "")
 GROQ_KEY2      = os.getenv("GROQ_API_KEY_2", "")
 PEXELS_KEY     = os.getenv("PEXELS_API_KEY", "")
@@ -1211,6 +1214,21 @@ def build_article_html(art: dict, date_pub: str) -> str:
     art["corps"]["contexte"]  = _typo_fr(art["corps"].get("contexte", ""))
     art["corps"]["nuances"]   = _typo_fr(art["corps"].get("nuances", ""))
 
+    # Description SEO : coupe à la dernière phrase complète ≤ 155 chars
+    def _seo_desc(text: str, limit: int = 155) -> str:
+        if len(text) <= limit:
+            return text
+        chunk = text[:limit]
+        # Couper à la dernière fin de phrase
+        for sep in (". ", "! ", "? "):
+            idx = chunk.rfind(sep)
+            if idx > 60:
+                return chunk[:idx + 1]
+        # Fallback : couper au dernier espace
+        idx = chunk.rfind(" ")
+        return (chunk[:idx] + "…") if idx > 60 else chunk[:limit]
+    desc_seo = _seo_desc(resume_txt)
+
     # Image hero
     local_img_path = f"assets/images/{safe_slug}.jpg"
     img_source_type, img_credit = "pillow", "Les Faits"
@@ -1280,7 +1298,7 @@ def build_article_html(art: dict, date_pub: str) -> str:
         pass
 
     # Share buttons JS
-    art_url = f"https://r9mzz.github.io/lesfaits-site/articles/{slug}.html"
+    art_url = f"{BASE_URL}/articles/{slug}.html"
     art_titre_js = art['titre'].replace("'", "\\'")
     share_js = f"""<script>
 function shareArticle(){{
@@ -1346,26 +1364,26 @@ function copyLink(){{
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <meta name="description" content="{resume_txt[:155]}"/>
+  <meta name="description" content="{desc_seo}"/>
   <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1"/>
   <meta name="author" content="Les Faits — IA éditoriale"/>
   <meta property="og:title" content="{art['titre']} — Les Faits"/>
-  <meta property="og:description" content="{resume_txt[:155]}"/>
+  <meta property="og:description" content="{desc_seo}"/>
   <meta property="og:type" content="article"/>
   <meta property="og:url" content="{art_url}"/>
-  {f'<meta property="og:image" content="https://r9mzz.github.io/lesfaits-site/{hero_src}"/><meta property="og:image:width" content="1200"/><meta property="og:image:height" content="630"/><meta property="og:image:type" content="image/jpeg"/>' if hero_src else ''}
+  {f'<meta property="og:image" content="{BASE_URL}/{hero_src}"/><meta property="og:image:width" content="1200"/><meta property="og:image:height" content="630"/><meta property="og:image:type" content="image/jpeg"/>' if hero_src else ''}
   <meta property="article:section" content="{cat}"/>
   <link rel="canonical" href="{art_url}"/>
   <meta name="twitter:card" content="summary_large_image"/>
   <meta name="twitter:title" content="{art['titre']} — Les Faits"/>
-  <meta name="twitter:description" content="{resume_txt[:155]}"/>
-  <meta name="twitter:image" content="{f'https://r9mzz.github.io/lesfaits-site/{hero_src}' if hero_src else 'https://r9mzz.github.io/lesfaits-site/assets/images/og-default.jpg'}"/>
+  <meta name="twitter:description" content="{desc_seo}"/>
+  <meta name="twitter:image" content="{f'{BASE_URL}/{hero_src}' if hero_src else f'{BASE_URL}/assets/images/og-default.jpg'}"/>
   <link rel="alternate" type="application/rss+xml" title="Les Faits — RSS" href="/lesfaits-site/feed.xml"/>
   <link rel="icon" type="image/svg+xml" href="/lesfaits-site/favicon.svg"/>
   <link rel="manifest" href="/lesfaits-site/manifest.json"/>
   <title>{art['titre']} — Les Faits</title>
-  <script type="application/ld+json">{{"@context":"https://schema.org","@type":"NewsArticle","headline":"{art['titre'].replace('"', '&quot;')}","description":"{resume_txt[:155].replace('"', '&quot;')}","datePublished":"{datetime.now().strftime('%Y-%m-%dT%H:%M:%S+02:00')}","dateModified":"{datetime.now().strftime('%Y-%m-%dT%H:%M:%S+02:00')}","articleSection":"{cat}","inLanguage":"fr","isAccessibleForFree":true,"image":{{"@type":"ImageObject","url":"https://r9mzz.github.io/lesfaits-site/{hero_src}","width":1200,"height":630}},"author":{{"@type":"Organization","name":"Les Faits"}},"publisher":{{"@type":"Organization","name":"Les Faits","@id":"https://r9mzz.github.io/lesfaits-site/#org","logo":{{"@type":"ImageObject","url":"https://r9mzz.github.io/lesfaits-site/assets/images/og-default.jpg"}}}},"mainEntityOfPage":{{"@type":"WebPage","@id":"{art_url}"}}}}</script>
-  <script type="application/ld+json">{{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{{"@type":"ListItem","position":1,"name":"Accueil","item":"https://r9mzz.github.io/lesfaits-site/"}},{{"@type":"ListItem","position":2,"name":"{CAT_LABELS.get(cat, cat)}","item":"https://r9mzz.github.io/lesfaits-site/categories/{cat}.html"}},{{"@type":"ListItem","position":3,"name":"{art['titre'].replace('"', '&quot;')}"}}]}}</script>
+  <script type="application/ld+json">{{"@context":"https://schema.org","@type":"NewsArticle","headline":"{art['titre'].replace('"', '&quot;')}","description":"{desc_seo.replace('"', '&quot;')}","datePublished":"{datetime.now().strftime('%Y-%m-%dT%H:%M:%S+02:00')}","dateModified":"{datetime.now().strftime('%Y-%m-%dT%H:%M:%S+02:00')}","articleSection":"{cat}","inLanguage":"fr","isAccessibleForFree":true,"image":{{"@type":"ImageObject","url":"{BASE_URL}/{hero_src}","width":1200,"height":630}},"author":{{"@type":"Organization","name":"Les Faits"}},"publisher":{{"@type":"Organization","name":"Les Faits","@id":"{BASE_URL}/#org","logo":{{"@type":"ImageObject","url":"{BASE_URL}/assets/images/og-default.jpg"}}}},"mainEntityOfPage":{{"@type":"WebPage","@id":"{art_url}"}}}}</script>
+  <script type="application/ld+json">{{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{{"@type":"ListItem","position":1,"name":"Accueil","item":"{BASE_URL}/"}},{{"@type":"ListItem","position":2,"name":"{CAT_LABELS.get(cat, cat)}","item":"{BASE_URL}/categories/{cat}.html"}},{{"@type":"ListItem","position":3,"name":"{art['titre'].replace('"', '&quot;')}"}}]}}</script>
   <base href="/lesfaits-site/"/>
   <link rel="stylesheet" href="src/style.css"/>
   {_DARK_INIT_HEAD}
@@ -1499,6 +1517,7 @@ def rebuild_index():
     build_archive_page()
     build_search_json(articles)
     build_feed_xml(articles)
+    build_sitemap(articles)
 
 
 def build_index_html(main, side_html, grid_html, list_html):
@@ -1616,9 +1635,46 @@ def build_search_json(articles: list):
     print(f"  ✓ search.json mis à jour ({len(results)} articles)")
 
 
+def build_sitemap(articles: list):
+    """Génère sitemap.xml dynamique avec tous les articles."""
+    today = datetime.now().strftime("%Y-%m-%d")
+    static_urls = [
+        (f"{BASE_URL}/", "1.0", "daily"),
+        (f"{BASE_URL}/archive.html", "0.8", "daily"),
+        (f"{BASE_URL}/methode.html", "0.6", "monthly"),
+        (f"{BASE_URL}/mentions-legales.html", "0.3", "yearly"),
+        (f"{BASE_URL}/cgu.html", "0.3", "yearly"),
+        (f"{BASE_URL}/contact.html", "0.4", "monthly"),
+    ]
+    for cat in ("societe", "science", "economie", "tech", "sante", "environnement"):
+        static_urls.append((f"{BASE_URL}/categories/{cat}.html", "0.7", "daily"))
+
+    urls = "\n".join(
+        f"  <url><loc>{loc}</loc><lastmod>{today}</lastmod><changefreq>{freq}</changefreq><priority>{prio}</priority></url>"
+        for loc, prio, freq in static_urls
+    )
+    art_urls = "\n".join(
+        f"  <url><loc>{BASE_URL}/articles/{a['slug']}.html</loc><lastmod>{today}</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>"
+        for a in articles
+    )
+    xml = f"""<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:news="http://www.google.com/schemas/sitemap-news/0.9">
+{urls}
+{art_urls}
+</urlset>"""
+    (ROOT / "sitemap.xml").write_text(xml, encoding="utf-8")
+    # Mettre à jour robots.txt
+    (ROOT / "robots.txt").write_text(
+        f"User-agent: *\nAllow: /\n\nSitemap: {BASE_URL}/sitemap.xml\n",
+        encoding="utf-8"
+    )
+    print(f"  ✓ sitemap.xml généré ({len(articles)} articles) + robots.txt")
+
+
 def build_feed_xml(articles: list):
     """Génère feed.xml (RSS 2.0) pour les 20 derniers articles."""
-    base = "https://r9mzz.github.io/lesfaits"
+    base = BASE_URL
     now  = datetime.now().strftime("%a, %d %b %Y %H:%M:%S +0000")
 
     def escape(s):
