@@ -33,7 +33,7 @@ ARTICLES.mkdir(exist_ok=True)
 DATA.mkdir(exist_ok=True)
 
 # ── URL de base du site public ─────────────────────────────────────────────────
-BASE_URL = "https://r9mzz.github.io/lesfaits-site"
+BASE_URL = "https://lesfaits.info"
 
 GROQ_KEY       = os.getenv("GROQ_API_KEY", "")
 GROQ_KEY2      = os.getenv("GROQ_API_KEY_2", "")
@@ -1389,13 +1389,13 @@ function copyLink(){{
   <meta name="twitter:title" content="{art['titre']} — Les Faits"/>
   <meta name="twitter:description" content="{desc_seo}"/>
   <meta name="twitter:image" content="{f'{BASE_URL}/{hero_src}' if hero_src else f'{BASE_URL}/assets/images/og-default.jpg'}"/>
-  <link rel="alternate" type="application/rss+xml" title="Les Faits — RSS" href="/lesfaits-site/feed.xml"/>
-  <link rel="icon" type="image/svg+xml" href="/lesfaits-site/favicon.svg"/>
-  <link rel="manifest" href="/lesfaits-site/manifest.json"/>
+  <link rel="alternate" type="application/rss+xml" title="Les Faits — RSS" href="/feed.xml"/>
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg"/>
+  <link rel="manifest" href="/manifest.json"/>
   <title>{art['titre']} — Les Faits</title>
   <script type="application/ld+json">{{"@context":"https://schema.org","@type":"NewsArticle","headline":"{art['titre'].replace('"', '&quot;')}","description":"{desc_seo.replace('"', '&quot;')}","datePublished":"{datetime.now().strftime('%Y-%m-%dT%H:%M:%S+02:00')}","dateModified":"{datetime.now().strftime('%Y-%m-%dT%H:%M:%S+02:00')}","articleSection":"{cat}","inLanguage":"fr","isAccessibleForFree":true,"image":{{"@type":"ImageObject","url":"{BASE_URL}/{hero_src}","width":1200,"height":630}},"author":{{"@type":"Organization","name":"Les Faits"}},"publisher":{{"@type":"Organization","name":"Les Faits","@id":"{BASE_URL}/#org","logo":{{"@type":"ImageObject","url":"{BASE_URL}/assets/images/og-default.jpg"}}}},"mainEntityOfPage":{{"@type":"WebPage","@id":"{art_url}"}}}}</script>
   <script type="application/ld+json">{{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{{"@type":"ListItem","position":1,"name":"Accueil","item":"{BASE_URL}/"}},{{"@type":"ListItem","position":2,"name":"{CAT_LABELS.get(cat, cat)}","item":"{BASE_URL}/categories/{cat}.html"}},{{"@type":"ListItem","position":3,"name":"{art['titre'].replace('"', '&quot;')}"}}]}}</script>
-  <base href="/lesfaits-site/"/>
+  <base href="/"/>
   <link rel="stylesheet" href="src/style.css"/>
   {_DARK_INIT_HEAD}
 </head>
@@ -1649,10 +1649,10 @@ def build_index_html(main, side_html, grid_html, list_html):
   <meta property="og:title" content="Les Faits — Juste les faits. Aucun parti pris."/>
   <meta property="og:description" content="Journal numérique français rédigé par IA. Sans publicité. Sans actionnaires."/>
   <meta property="og:type" content="website"/>
-  <meta property="og:url" content="https://r9mzz.github.io/lesfaits-site/"/>
-  <link rel="alternate" type="application/rss+xml" title="Les Faits — RSS" href="/lesfaits-site/feed.xml"/>
+  <meta property="og:url" content="https://lesfaits.info/"/>
+  <link rel="alternate" type="application/rss+xml" title="Les Faits — RSS" href="/feed.xml"/>
   <title>Les Faits — Juste les faits. Aucun parti pris.</title>
-  <base href="/lesfaits-site/"/>
+  <base href="/"/>
   <link rel="stylesheet" href="src/style.css"/>
   {_DARK_INIT_HEAD}
 </head>
@@ -1875,7 +1875,7 @@ def build_category_pages():
             Les premiers articles <strong>{label}</strong> seront publiés lors du prochain cycle éditorial.
             Le pipeline génère de nouveaux contenus chaque matin à 07h00 et chaque soir à 18h30.
           </p>
-          <a href="/lesfaits-site/" style="display:inline-block;padding:10px 24px;background:var(--blue);
+          <a href="/" style="display:inline-block;padding:10px 24px;background:var(--blue);
              color:#fff;border-radius:4px;text-decoration:none;font-size:.9rem;font-weight:600">
             ← Retour à l'accueil
           </a>
@@ -1894,9 +1894,9 @@ def build_category_pages():
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <meta name="description" content="Les Faits — Rubrique {label}. Juste les faits. Aucun parti pris."/>
-  <link rel="alternate" type="application/rss+xml" title="Les Faits — RSS" href="/lesfaits-site/feed.xml"/>
+  <link rel="alternate" type="application/rss+xml" title="Les Faits — RSS" href="/feed.xml"/>
   <title>{label} — Les Faits</title>
-  <base href="/lesfaits-site/"/>
+  <base href="/"/>
   <link rel="stylesheet" href="src/style.css"/>
   {_DARK_INIT_HEAD}
 </head>
@@ -2035,7 +2035,7 @@ def build_archive_page():
   <meta name="description" content="Tous les articles publiés par Les Faits — journal numérique français rédigé par IA."/>
   <meta name="robots" content="noindex"/>
   <title>Tous les articles — Les Faits</title>
-  <base href="/lesfaits-site/"/>
+  <base href="/"/>
   <link rel="stylesheet" href="src/style.css"/>
   <script>(function(){{var s=localStorage.getItem('theme'),d=s==='dark'||(s===null&&window.matchMedia('(prefers-color-scheme:dark)').matches);document.documentElement.setAttribute('data-theme',d?'dark':'light');}})();</script>
 </head>
