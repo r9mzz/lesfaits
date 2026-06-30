@@ -97,15 +97,11 @@ nav a.active { opacity: 1; color: var(--blue); border-bottom-color: var(--blue);
 .manifeste__inner { max-width: 1140px; margin: 0 auto; display: flex; align-items: flex-start; gap: 40px; }
 .manifeste__headline { font-family: Georgia,serif; font-size: 18px; font-weight: 700; color: var(--ink); flex-shrink: 0; white-space: nowrap; }
 .manifeste__headline span { color: var(--blue); }
-.manifeste__sub { font-size: 11px; color: var(--muted); line-height: 1.5; margin: 4px 0 0; max-width: 280px; flex-shrink: 0; }
-.manifeste__sub strong { color: var(--ink); }
 .manifeste__pillars { display: flex; flex: 1; }
 .manifeste__pillar { display: flex; align-items: flex-start; gap: 10px; flex: 1; padding: 0 24px; border-left: 1px solid var(--rule); }
 .manifeste__pillar:first-child { border-left: 2px solid var(--blue); }
 .manifeste__text strong { display: block; font-size: 11px; font-weight: 700; color: var(--ink); margin-bottom: 2px; }
 .manifeste__text span { font-size: 11px; color: var(--muted); line-height: 1.4; }
-.manifeste__cta { display: inline-block; margin-top: 10px; font-size: 10px; font-weight: 700; color: var(--blue); letter-spacing: .04em; text-decoration: none; }
-.manifeste__cta:hover { text-decoration: underline; }
 
 /* ── TYPOGRAPHIE COMMUNE ── */
 .cat { font-size: 9px; font-weight: 700; letter-spacing: 2px; color: var(--blue); display: block; margin-bottom: 10px; }
@@ -510,7 +506,6 @@ nav a.active { opacity: 1; color: var(--blue); border-bottom-color: var(--blue);
   .grid3 { grid-template-columns: 1fr; }
   .list-grid { grid-template-columns: 1fr; }
   .manifeste__inner { flex-direction: column; gap: 16px; }
-  .manifeste__sub { max-width: 100%; }
   .manifeste__pillars { flex-direction: column; gap: 0; }
   .manifeste__pillar { padding: 14px 0; border-left: none; border-top: 1px solid var(--rule); }
   .manifeste__pillar:first-child { border-left: none; border-top: none; border-left: 2px solid var(--blue); padding-left: 14px; }
