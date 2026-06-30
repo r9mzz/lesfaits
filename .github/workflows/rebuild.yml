@@ -44,8 +44,10 @@ jobs:
 
           img_dir = "assets/images"
           FORCE_REGEN = {
-              "desensibilisation-sublinguale-allergies-respiratoires": "allergy sublingual drops tongue",
-              "immunotherapie-allergenique-sublinguale": "immunotherapy injection allergy clinic",
+              "desensibilisation-sublinguale-allergies-respiratoires": "sublingual allergy drops medical",
+              "immunotherapie-allergenique-sublinguale": "allergy injection syringe doctor",
+              "chine-aimant-fusion-nucleaire": "tokamak fusion reactor magnetic coil",
+              "recherche-publique-en-crise": "empty university lab budget cuts",
           }
 
           targets = list(FORCE_REGEN.keys()) + [fn[:-4] for fn in os.listdir(img_dir)
