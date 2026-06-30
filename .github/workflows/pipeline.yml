@@ -41,7 +41,17 @@ jobs:
       - name: Installer les dépendances
         run: pip install -r requirements.txt
 
-      # ── 3. Générer les articles ───────────────────────────────────────────
+      # ── 3. Récupérer les images existantes pour le dédup MD5 ────────────
+      - name: Récupérer les images depuis lesfaits-site
+        env:
+          SITE_DEPLOY_TOKEN: ${{ secrets.SITE_DEPLOY_TOKEN }}
+        run: |
+          git clone --depth=1 https://x-access-token:${SITE_DEPLOY_TOKEN}@github.com/r9mzz/lesfaits-site.git /tmp/site
+          mkdir -p assets/images
+          cp /tmp/site/assets/images/*.jpg assets/images/ 2>/dev/null || true
+          echo "$(ls assets/images/*.jpg 2>/dev/null | wc -l) images chargées pour dédup"
+
+      # ── 4. Générer les articles ───────────────────────────────────────────
       - name: Générer les articles
         env:
           GROQ_API_KEY:     ${{ secrets.GROQ_API_KEY }}
