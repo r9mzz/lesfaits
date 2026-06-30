@@ -5,16 +5,16 @@
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 :root {
   --blue:   #6C85BD;
-  --ink:    #2C2C2A;
-  --sand:   #F1EFE8;
-  --white:  #FFFFFF;
-  --rule:   #D5D1C8;
-  --muted:  #888480;
+  --ink:    #3A3835;
+  --sand:   #ECEAE3;
+  --white:  #F5F3EE;
+  --rule:   #D0CCC3;
+  --muted:  #8C8880;
   --green:  #00C896;
   --orange: #E8894A;
   --red:    #C94B4B;
-  --light:  #F8F7F3;
-  --shadow: 0 1px 3px rgba(44,44,42,.08);
+  --light:  #E8E6DF;
+  --shadow: 0 1px 3px rgba(44,44,42,.07);
   --radius: 4px;
   --trans:  .15s ease;
 }
