@@ -43,13 +43,19 @@ jobs:
               articles = {a["slug"]: a for a in json.load(f)}
 
           img_dir = "assets/images"
-          targets = [fn[:-4] for fn in os.listdir(img_dir)
-                     if fn.endswith(".jpg") and os.path.getsize(os.path.join(img_dir, fn)) < 110_000]
+          FORCE_REGEN = {
+              "desensibilisation-sublinguale-allergies-respiratoires": "allergy sublingual drops tongue",
+              "immunotherapie-allergenique-sublinguale": "immunotherapy injection allergy clinic",
+          }
+
+          targets = list(FORCE_REGEN.keys()) + [fn[:-4] for fn in os.listdir(img_dir)
+                     if fn.endswith(".jpg") and os.path.getsize(os.path.join(img_dir, fn)) < 110_000
+                     and fn[:-4] not in FORCE_REGEN]
 
           print(f"{len(targets)} images à régénérer")
           for slug in targets:
               art = articles.get(slug, {})
-              kw = art.get("image_keyword") or art.get("titre", slug.replace("-", " "))
+              kw = FORCE_REGEN.get(slug) or art.get("image_keyword") or art.get("titre", slug.replace("-", " "))
               print(f"  {slug[:50]}", end=" ", flush=True)
               try:
                   r = requests.get(
