@@ -79,30 +79,18 @@ def pexels_search(query: str, exclude_hashes: set[str]) -> bytes | None:
     return None
 
 
-def make_query(slug: str, art: dict) -> str:
-    """Construit un mot-clé plus précis en combinant titre + catégorie."""
-    titre = art.get("titre", slug.replace("-", " "))
-    cat = art.get("categorie", "")
-    kw = art.get("image_keyword", "")
-    # Prendre les 4 premiers mots du titre + catégorie comme contexte
-    words = [w for w in titre.replace(":", "").replace("«", "").replace("»", "").split() if len(w) > 3][:4]
-    base = " ".join(words)
-    if cat and cat not in base.lower():
-        base = f"{cat} {base}"
-    return base
-
-
 for slug in sorted(targets):
     art = arts.get(slug, {})
-    query = make_query(slug, art)
+    # Priorité : image_keyword (anglais, déjà optimisé) → slug en anglais approché
+    query = art.get("image_keyword") or slug.replace("-", " ")
     print(f"  {slug[:55]:<55} kw='{query[:40]}'", end=" ", flush=True)
 
     data = pexels_search(query, used_hashes)
 
     if data is None:
-        # Fallback : mot-clé encore plus générique (juste titre)
-        fallback = art.get("titre", slug.replace("-", " "))
-        data = pexels_search(fallback, used_hashes)
+        # Fallback : keyword plus court (2 premiers mots)
+        short = " ".join(query.split()[:2])
+        data = pexels_search(short, used_hashes)
 
     if data:
         path = os.path.join(IMG_DIR, f"{slug}.jpg")
