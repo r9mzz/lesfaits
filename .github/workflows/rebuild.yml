@@ -30,53 +30,11 @@ jobs:
           cp -r /tmp/site/assets/ ./
           cp -r /tmp/site/data/   ./
 
-      - name: Régénérer les mauvaises images avec Pexels
+      - name: Régénérer les images dupliquées ou trop petites
         env:
           PEXELS_API_KEY: ${{ secrets.PEXELS_API_KEY }}
           PYTHONIOENCODING: utf-8
-        run: |
-          python3 - << 'PYEOF'
-          import os, json, requests, time
-
-          KEY = os.getenv("PEXELS_API_KEY", "")
-          with open("data/search.json", encoding="utf-8") as f:
-              articles = {a["slug"]: a for a in json.load(f)}
-
-          img_dir = "assets/images"
-          FORCE_REGEN = {
-              "desensibilisation-sublinguale-allergies-respiratoires": "sublingual allergy drops medical",
-              "immunotherapie-allergenique-sublinguale": "allergy injection syringe doctor",
-              "chine-aimant-fusion-nucleaire": "tokamak fusion reactor magnetic coil",
-              "recherche-publique-en-crise": "empty university lab budget cuts",
-          }
-
-          targets = list(FORCE_REGEN.keys()) + [fn[:-4] for fn in os.listdir(img_dir)
-                     if fn.endswith(".jpg") and os.path.getsize(os.path.join(img_dir, fn)) < 110_000
-                     and fn[:-4] not in FORCE_REGEN]
-
-          print(f"{len(targets)} images à régénérer")
-          for slug in targets:
-              art = articles.get(slug, {})
-              kw = FORCE_REGEN.get(slug) or art.get("image_keyword") or art.get("titre", slug.replace("-", " "))
-              print(f"  {slug[:50]}", end=" ", flush=True)
-              try:
-                  r = requests.get(
-                      "https://api.pexels.com/v1/search",
-                      params={"query": kw, "orientation": "landscape", "per_page": 3, "size": "large"},
-                      headers={"Authorization": KEY},
-                      timeout=8,
-                  )
-                  for photo in r.json().get("photos", []):
-                      url = photo.get("src", {}).get("large2x") or photo.get("src", {}).get("large", "")
-                      ir = requests.get(url, timeout=10)
-                      if ir.status_code == 200 and len(ir.content) > 30_000:
-                          open(f"{img_dir}/{slug}.jpg", "wb").write(ir.content)
-                          print(f"OK {len(ir.content)//1024}KB")
-                          break
-                  time.sleep(0.5)
-              except Exception as e:
-                  print(f"ERR {e}")
-          PYEOF
+        run: python scripts/fix_images.py
 
       - name: Pousser les images vers lesfaits-site
         env:
