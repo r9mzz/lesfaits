@@ -18,7 +18,19 @@ for fn in os.listdir("articles"):
     if not art:
         continue
     cat = art.get("categorie", "")
-    related = [a for a in all_arts if a.get("categorie") == cat and a["slug"] != slug][:3]
+    # 1 article par catégorie différente, puis compléter par même catégorie
+    other_cats = [a for a in all_arts if a.get("categorie") != cat and a["slug"] != slug]
+    same_cat   = [a for a in all_arts if a.get("categorie") == cat  and a["slug"] != slug]
+    seen_cats: set = set()
+    related: list = []
+    for a in other_cats:
+        if a["categorie"] not in seen_cats:
+            related.append(a)
+            seen_cats.add(a["categorie"])
+        if len(related) == 3:
+            break
+    if len(related) < 3:
+        related += same_cat[:3 - len(related)]
     if not related:
         continue
 

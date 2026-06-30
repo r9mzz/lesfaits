@@ -1500,10 +1500,40 @@ def rebuild_index():
           </div></div>
         </a>"""
 
+    def _pick_diverse(pool: list, n: int, exclude_slugs: set) -> list:
+        """Sélectionne n articles en garantissant 1 par catégorie, puis complète par récence."""
+        cats = ["societe", "science", "economie", "tech", "sante", "environnement"]
+        chosen, seen_cats, seen_slugs = [], set(), set(exclude_slugs)
+        # 1er passage : 1 article par catégorie (le plus récent disponible)
+        for cat in cats:
+            for a in pool:
+                if a["slug"] in seen_slugs or a.get("categorie") != cat:
+                    continue
+                chosen.append(a)
+                seen_cats.add(cat)
+                seen_slugs.add(a["slug"])
+                break
+            if len(chosen) >= n:
+                break
+        # 2ème passage : compléter par récence si on n'a pas assez
+        for a in pool:
+            if len(chosen) >= n:
+                break
+            if a["slug"] not in seen_slugs:
+                chosen.append(a)
+                seen_slugs.add(a["slug"])
+        return chosen[:n]
+
     main_art  = articles[0]
-    side_arts = articles[1:4]
-    grid_arts = articles[4:10] if len(articles) > 4 else []
-    list_arts = articles[10:16] if len(articles) > 10 else []  # section masquée si < 11 articles
+    used      = {main_art["slug"]}
+    # Side : 3 articles diversifiés (catégories différentes du main et entre eux)
+    side_arts = _pick_diverse(articles[1:], 3, used)
+    used.update(a["slug"] for a in side_arts)
+    # Grille "Derniers articles" : 6 articles, 1 par catégorie
+    grid_arts = _pick_diverse(articles, 6, used)
+    used.update(a["slug"] for a in grid_arts)
+    # Liste : 6 suivants par récence
+    list_arts = [a for a in articles if a["slug"] not in used][:6]
 
     side_html  = "\n".join(side_card(a) for a in side_arts) if side_arts else ""
     grid_html  = "\n".join(mini_card(a) for a in grid_arts) if grid_arts else ""
