@@ -8,6 +8,8 @@
   <title>Santé — Les Faits</title>
   <base href="/"/>
   <link rel="stylesheet" href="src/style.css"/>
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg"/>
+  <link rel="manifest" href="/manifest.json"/>
   <script>
 (function(){var s=localStorage.getItem('theme'),d=s==='dark'||(s===null&&window.matchMedia('(prefers-color-scheme:dark)').matches);document.documentElement.setAttribute('data-theme',d?'dark':'light');})();
 </script>
@@ -57,7 +59,7 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeMenu();
   <div style="margin-bottom:32px;border-bottom:1px solid var(--rule);padding-bottom:24px">
     <span style="font-size:.8rem;font-weight:700;letter-spacing:.1em;color:var(--muted);text-transform:uppercase">Rubrique</span>
     <h1 style="font-size:2.4rem;font-weight:700;margin:8px 0 4px">Santé</h1>
-    <p style="color:var(--muted);font-size:.9rem">7 articles</p>
+    <p style="color:var(--muted);font-size:.9rem">8 articles</p>
   </div>
   <nav style="display:flex;gap:24px;margin-bottom:48px;flex-wrap:wrap;font-size:.9rem">
     <a href="categories/science.html" style="">Science</a>
@@ -77,6 +79,18 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeMenu();
             <div class="meta" style="margin-top:10px">
               <span class="meta__src">4 sources</span>
               <span class="meta__sep">·</span><span>1 juillet 2026, 18h00</span>
+            </div>
+          </div>
+        </a>
+
+        <a class="card3" href="articles/demence-senile-alzheimer-differences.html">
+          <img class="card3__img" src="assets/images/demence-senile-alzheimer-differences.jpg" alt="Démence sénile et Alzheimer, comprendre les différences" loading="lazy">
+          <div class="card3__body">
+            <span class="cat cat--sante">SANTÉ</span>
+            <h3 class="title-sm">Démence sénile et Alzheimer, comprendre les différences</h3>
+            <div class="meta" style="margin-top:10px">
+              <span class="meta__src">4 sources</span>
+              <span class="meta__sep">·</span><span>29 juin 2026, 18h00</span>
             </div>
           </div>
         </a>

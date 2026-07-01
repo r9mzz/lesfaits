@@ -1134,6 +1134,27 @@ _DARK_INIT_HEAD = """<script>
 # Analytics Umami
 _ANALYTICS_JS = '<script defer src="https://cloud.umami.is/script.js" data-website-id="8d68a78f-97ae-4c95-a955-5d3df758f7e2"></script>'
 
+# Favicon + manifest — doivent être présents dans TOUS les templates de page
+FAVICON_LINKS = (
+    '<link rel="icon" type="image/svg+xml" href="/favicon.svg"/>\n'
+    '  <link rel="manifest" href="/manifest.json"/>'
+)
+
+# Icône de marque affichée dans le header à côté du logotype "lesfaits"
+BRAND_ICON = (
+    '<svg class="brand__icon" width="26" height="26" viewBox="0 0 200 200" '
+    'aria-hidden="true" focusable="false">'
+    '<rect width="200" height="200" rx="28" fill="#141416"/>'
+    '<circle cx="100" cy="100" r="72" fill="none" stroke="#6C85BD" stroke-width="4"/>'
+    '<circle cx="28" cy="100" r="7" fill="#6C85BD"/>'
+    '<circle cx="172" cy="100" r="7" fill="#6C85BD"/>'
+    '<text x="84" y="132" font-family="Georgia,\'Times New Roman\',serif" font-size="92" '
+    'font-weight="700" fill="#F1EFE8" text-anchor="middle">l</text>'
+    '<text x="128" y="132" font-family="Georgia,\'Times New Roman\',serif" font-size="92" '
+    'font-weight="700" fill="#6C85BD" text-anchor="middle">f</text>'
+    '</svg>'
+)
+
 # Script complet injecté avant </body> (bouton + toggle)
 _DARK_MODE_JS = """<script>
 (function(){
@@ -1546,11 +1567,14 @@ def rebuild_index():
 
     # Génération des cards "side" (articles 1-3)
     def side_card(a):
-        return f"""<a class="une__side-item" href="articles/{a['slug']}.html">
+        return f"""<a class="une__side-item" href="articles/{a['slug']}.html" style="display:grid;grid-template-columns:64px 1fr;gap:14px;align-items:center">
+          <img src="assets/images/{a['slug']}.jpg" alt="{a['titre']}" loading="lazy" style="width:64px;height:64px;object-fit:cover;border-radius:4px;display:block">
+          <div>
           <span class="cat cat--{a['categorie']}">{a['categorie'].upper()}</span>
           <h3 class="title-md">{a['titre']}</h3>
           <div class="meta"><span class="meta__src">{a['nb_sources']} sources</span>
           <span class="meta__sep">·</span><span>{a['date']}</span></div>
+          </div>
         </a>"""
 
     def mini_card(a):
@@ -1577,12 +1601,18 @@ def rebuild_index():
           </div></div>
         </a>"""
 
-    def _pick_diverse(pool: list, n: int, exclude_slugs: set) -> list:
-        """Prend les n articles les plus récents, puis diversifie si possible."""
+    def _pick_diverse(pool: list, n: int, exclude_slugs: set, force_diversity: bool = True) -> list:
+        """Prend les n articles les plus récents, puis diversifie si possible.
+
+        Si force_diversity=False (ex: grille "Derniers articles"), on ne sacrifie
+        jamais la fraîcheur pour la diversité — mieux vaut montrer les n articles
+        les plus récents, même si un thème est sur-représenté, que de remplacer un
+        article récent par un plus ancien juste pour varier les catégories.
+        """
         avail = [a for a in pool if a["slug"] not in exclude_slugs]
         # Sélection de base : les n plus récents
         chosen = avail[:n]
-        if len(chosen) < 2:
+        if not force_diversity or len(chosen) < 2:
             return chosen
         # Thèmes présents vs manquants
         all_cats = {"societe", "science", "economie", "tech", "sante", "environnement"}
@@ -1615,8 +1645,8 @@ def rebuild_index():
     # Side : 3 articles diversifiés (catégories différentes du main et entre eux)
     side_arts = _pick_diverse(articles[1:], 3, used)
     used.update(a["slug"] for a in side_arts)
-    # Grille "Derniers articles" : 6 articles, 1 par catégorie
-    grid_arts = _pick_diverse(articles, 6, used)
+    # Grille "Derniers articles" : les 6 plus récents, sans sacrifier la fraîcheur pour la diversité
+    grid_arts = _pick_diverse(articles, 6, used, force_diversity=False)
     used.update(a["slug"] for a in grid_arts)
     # Liste "À lire aussi" : 6 articles diversifiés par catégorie
     list_arts = _pick_diverse(articles, 6, used)
@@ -1654,6 +1684,7 @@ def build_index_html(main, side_html, grid_html, list_html):
   <title>Les Faits — Juste les faits. Aucun parti pris.</title>
   <base href="/"/>
   <link rel="stylesheet" href="src/style.css"/>
+  {FAVICON_LINKS}
   {_DARK_INIT_HEAD}
 </head>
 <body>
@@ -1661,7 +1692,7 @@ def build_index_html(main, side_html, grid_html, list_html):
 <header class="header">
   <div class="header__inner">
     <a href="index.html" class="brand">
-      <div class="brand__logotype"><span class="fact">les</span><span class="uel">faits</span></div>
+      {BRAND_ICON}<div class="brand__logotype"><span class="fact">les</span><span class="uel">faits</span></div>
     </a>
     <div class="header__search">
       <input type="search" class="header__search-input" placeholder="Rechercher…" autocomplete="off" onkeydown="if(event.key==='Enter'&&this.value.trim())window.location=(document.querySelector('base').href)+'recherche.html?q='+encodeURIComponent(this.value.trim())"/>
@@ -1696,6 +1727,7 @@ def build_index_html(main, side_html, grid_html, list_html):
     <div style="height:2px;background:var(--blue);margin-bottom:1px"></div>
     <div class="une__grid">
       <a class="une__main" href="articles/{main['slug']}.html">
+        <img src="assets/images/{main['slug']}.jpg" alt="{main['titre']}" loading="eager" style="width:calc(100% + 72px);margin:-32px -36px 20px;height:240px;object-fit:cover;display:block">
         <span class="cat cat--{main['categorie']}">{main['categorie'].upper()}</span>
         <h2 class="title-xl">{main['titre']}</h2>
         <p class="excerpt">{resume}</p>
@@ -1898,6 +1930,7 @@ def build_category_pages():
   <title>{label} — Les Faits</title>
   <base href="/"/>
   <link rel="stylesheet" href="src/style.css"/>
+  {FAVICON_LINKS}
   {_DARK_INIT_HEAD}
 </head>
 <body>
@@ -1905,7 +1938,7 @@ def build_category_pages():
 <header class="header">
   <div class="header__inner">
     <a href="index.html" class="brand">
-      <div class="brand__logotype"><span class="fact">les</span><span class="uel">faits</span></div>
+      {BRAND_ICON}<div class="brand__logotype"><span class="fact">les</span><span class="uel">faits</span></div>
     </a>
     <div class="header__search">
       <input type="search" class="header__search-input" placeholder="Rechercher…" autocomplete="off" onkeydown="if(event.key==='Enter'&&this.value.trim())window.location=(document.querySelector('base').href)+'recherche.html?q='+encodeURIComponent(this.value.trim())"/>
@@ -2037,6 +2070,7 @@ def build_archive_page():
   <title>Tous les articles — Les Faits</title>
   <base href="/"/>
   <link rel="stylesheet" href="src/style.css"/>
+  {FAVICON_LINKS}
   <script>(function(){{var s=localStorage.getItem('theme'),d=s==='dark'||(s===null&&window.matchMedia('(prefers-color-scheme:dark)').matches);document.documentElement.setAttribute('data-theme',d?'dark':'light');}})();</script>
 </head>
 <body>
@@ -2058,7 +2092,7 @@ document.addEventListener('keydown',function(e){{if(e.key==='Escape')closeMenu()
 </script>
 <header class="header">
   <div class="header__inner">
-    <a href="index.html" class="brand"><div class="brand__logotype"><span class="fact">les</span><span class="uel">faits</span></div></a>
+    <a href="index.html" class="brand">{BRAND_ICON}<div class="brand__logotype"><span class="fact">les</span><span class="uel">faits</span></div></a>
     <div class="header__search">
       <input type="search" class="header__search-input" placeholder="Rechercher…" autocomplete="off" onkeydown="if(event.key==='Enter'&&this.value.trim())window.location=(document.querySelector('base').href)+'recherche.html?q='+encodeURIComponent(this.value.trim())"/>
     </div>

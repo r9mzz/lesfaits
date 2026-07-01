@@ -12,6 +12,8 @@
   <title>Les Faits — Juste les faits. Aucun parti pris.</title>
   <base href="/"/>
   <link rel="stylesheet" href="src/style.css"/>
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg"/>
+  <link rel="manifest" href="/manifest.json"/>
   <script>
 (function(){var s=localStorage.getItem('theme'),d=s==='dark'||(s===null&&window.matchMedia('(prefers-color-scheme:dark)').matches);document.documentElement.setAttribute('data-theme',d?'dark':'light');})();
 </script>
@@ -72,6 +74,7 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeMenu();
     <div style="height:2px;background:var(--blue);margin-bottom:1px"></div>
     <div class="une__grid">
       <a class="une__main" href="articles/climatiseurs-portables-fortes-chaleurs.html">
+        <img src="assets/images/climatiseurs-portables-fortes-chaleurs.jpg" alt="Climatiseurs portables pour les fortes chaleurs" loading="eager" style="width:calc(100% + 72px);margin:-32px -36px 20px;height:240px;object-fit:cover;display:block">
         <span class="cat cat--environnement">ENVIRONNEMENT</span>
         <h2 class="title-xl">Climatiseurs portables pour les fortes chaleurs</h2>
         <p class="excerpt">Les climatiseurs portables sont de plus en plus populaires pour faire face aux fortes chaleurs, avec des modèles comme le Juppro disponible à partir de 110,99 € chez Cdiscount. Ces appareils offrent une solution pratique pour rafraîchir les petites pièces sans investir dans une climatisation classique, avec des fonctionnalités comme la turbine à flux transversal et la télécommande. Cependant, il est important de considérer les limites de ces appareils, notamment leur efficacité dans les pièces mal isolées ou très exposées au soleil, et de choisir un modèle adapté à ses besoins.</p>
@@ -83,23 +86,32 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeMenu();
         </div>
         <p class="ai-badge">Rédigé par IA · Protocole Les Faits v1.1</p>
       </a>
-      <div class="une__side"><a class="une__side-item" href="articles/france-dette-publique-insoutenable.html">
+      <div class="une__side"><a class="une__side-item" href="articles/france-dette-publique-insoutenable.html" style="display:grid;grid-template-columns:64px 1fr;gap:14px;align-items:center">
+          <img src="assets/images/france-dette-publique-insoutenable.jpg" alt="La France face à une dette publique non soutenable selon Jean Peyrelevade" loading="lazy" style="width:64px;height:64px;object-fit:cover;border-radius:4px;display:block">
+          <div>
           <span class="cat cat--economie">ECONOMIE</span>
           <h3 class="title-md">La France face à une dette publique non soutenable selon Jean Peyrelevade</h3>
           <div class="meta"><span class="meta__src">4 sources</span>
           <span class="meta__sep">·</span><span>1 juillet 2026, 18h00</span></div>
+          </div>
         </a>
-<a class="une__side-item" href="articles/climat-changement-scientifiques-alertent.html">
+<a class="une__side-item" href="articles/climat-changement-scientifiques-alertent.html" style="display:grid;grid-template-columns:64px 1fr;gap:14px;align-items:center">
+          <img src="assets/images/climat-changement-scientifiques-alertent.jpg" alt="Le climat de nos parents n’existe plus selon 26 scientifiques" loading="lazy" style="width:64px;height:64px;object-fit:cover;border-radius:4px;display:block">
+          <div>
           <span class="cat cat--science">SCIENCE</span>
           <h3 class="title-md">Le climat de nos parents n’existe plus selon 26 scientifiques</h3>
           <div class="meta"><span class="meta__src">4 sources</span>
           <span class="meta__sep">·</span><span>1 juillet 2026, 18h00</span></div>
+          </div>
         </a>
-<a class="une__side-item" href="articles/washington-reautorise-ia-anthropic.html">
+<a class="une__side-item" href="articles/washington-reautorise-ia-anthropic.html" style="display:grid;grid-template-columns:64px 1fr;gap:14px;align-items:center">
+          <img src="assets/images/washington-reautorise-ia-anthropic.jpg" alt="Washington rétablit les IA d’Anthropic sous surveillance" loading="lazy" style="width:64px;height:64px;object-fit:cover;border-radius:4px;display:block">
+          <div>
           <span class="cat cat--tech">TECH</span>
           <h3 class="title-md">Washington rétablit les IA d’Anthropic sous surveillance</h3>
           <div class="meta"><span class="meta__src">3 sources</span>
           <span class="meta__sep">·</span><span>1 juillet 2026, 18h00</span></div>
+          </div>
         </a></div>
     </div>
   </div>
@@ -118,14 +130,14 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeMenu();
             </div>
           </div>
         </a>
-<a class="card3" href="articles/nouvelles-addictions-sante.html">
-          <img class="card3__img" src="assets/images/nouvelles-addictions-sante.jpg" alt="Les nouvelles addictions et leur impact sur la santé" loading="lazy">
+<a class="card3" href="articles/canicule-france-hausse-deces-morts-animaux.html">
+          <img class="card3__img" src="assets/images/canicule-france-hausse-deces-morts-animaux.jpg" alt="Canicule en France : Hausse des décès et des morts d’animaux domestiques" loading="lazy">
           <div class="card3__body">
-            <span class="cat cat--science">SCIENCE</span>
-            <h3 class="title-sm">Les nouvelles addictions et leur impact sur la santé</h3>
+            <span class="cat cat--societe">SOCIETE</span>
+            <h3 class="title-sm">Canicule en France : Hausse des décès et des morts d’animaux domestiques</h3>
             <div class="meta" style="margin-top:10px">
               <span class="meta__src">4 sources</span>
-              <span class="meta__sep">·</span><span>1 juillet 2026, 07h00</span>
+              <span class="meta__sep">·</span><span>1 juillet 2026, 18h00</span>
             </div>
           </div>
         </a>
@@ -162,52 +174,52 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeMenu();
             </div>
           </div>
         </a>
-<a class="card3" href="articles/withings-degage-ses-premiers-benefices.html">
-          <img class="card3__img" src="assets/images/withings-degage-ses-premiers-benefices.jpg" alt="Withings dégage ses premiers bénéfices après dix-huit ans" loading="lazy">
+<a class="card3" href="articles/legami-nouveaux-accessoires-vacances.html">
+          <img class="card3__img" src="assets/images/legami-nouveaux-accessoires-vacances.jpg" alt="Legami présente de nouveaux accessoires pour les vacances" loading="lazy">
           <div class="card3__body">
-            <span class="cat cat--tech">TECH</span>
-            <h3 class="title-sm">Withings dégage ses premiers bénéfices après dix-huit ans</h3>
+            <span class="cat cat--environnement">ENVIRONNEMENT</span>
+            <h3 class="title-sm">Legami présente de nouveaux accessoires pour les vacances</h3>
             <div class="meta" style="margin-top:10px">
-              <span class="meta__src">4 sources</span>
-              <span class="meta__sep">·</span><span>30 juin 2026, 18h00</span>
+              <span class="meta__src">3 sources</span>
+              <span class="meta__sep">·</span><span>1 juillet 2026, 07h00</span>
             </div>
           </div>
         </a></div>
   </div>
 
-  <div class="list-section" style="padding-top:40px"><div class="section__head" style="margin-bottom:16px"><span class="section__title">À LIRE AUSSI</span></div><div class="section__rule"></div><div class="list-grid"><a class="list-item" href="articles/canicule-france-hausse-deces-morts-animaux.html">
+  <div class="list-section" style="padding-top:40px"><div class="section__head" style="margin-bottom:16px"><span class="section__title">À LIRE AUSSI</span></div><div class="section__rule"></div><div class="list-grid"><a class="list-item" href="articles/droit-a-l-aide-a-mourir-approuve.html">
           <span class="list-item__num">01</span>
           <div><span class="cat cat--societe">SOCIETE</span>
-          <h3 class="title-sm">Canicule en France : Hausse des décès et des morts d’animaux domestiques</h3>
+          <h3 class="title-sm">Droit à l’aide à mourir approuvé pour la troisième fois par les députés</h3>
           <div class="meta" style="margin-top:6px">
             <span class="meta__src">4 sources</span>
-            <span class="meta__sep">·</span><span>1 juillet 2026, 18h00</span>
-          </div></div>
-        </a>
-<a class="list-item" href="articles/legami-nouveaux-accessoires-vacances.html">
-          <span class="list-item__num">02</span>
-          <div><span class="cat cat--environnement">ENVIRONNEMENT</span>
-          <h3 class="title-sm">Legami présente de nouveaux accessoires pour les vacances</h3>
-          <div class="meta" style="margin-top:6px">
-            <span class="meta__src">3 sources</span>
             <span class="meta__sep">·</span><span>1 juillet 2026, 07h00</span>
           </div></div>
         </a>
-<a class="list-item" href="articles/sante-environnementale-impact-humain.html">
-          <span class="list-item__num">03</span>
-          <div><span class="cat cat--sante">SANTE</span>
-          <h3 class="title-sm">Santé Environnementale : L'Impact Humain sur la Planète</h3>
+<a class="list-item" href="articles/senat-vote-retour-acetamipride-loi-urgence-agricole.html">
+          <span class="list-item__num">02</span>
+          <div><span class="cat cat--environnement">ENVIRONNEMENT</span>
+          <h3 class="title-sm">Le Sénat vote le retour de l’acétamipride dans la loi d’urgence agricole</h3>
           <div class="meta" style="margin-top:6px">
-            <span class="meta__src">5 sources</span>
-            <span class="meta__sep">·</span><span>25 juin 2026, 21h50</span>
+            <span class="meta__src">4 sources</span>
+            <span class="meta__sep">·</span><span>1 juillet 2026, 07h00</span>
           </div></div>
         </a>
-<a class="list-item" href="articles/zuckerberg-devoile-atlas-proteines.html">
+<a class="list-item" href="articles/demence-senile-alzheimer-differences.html">
+          <span class="list-item__num">03</span>
+          <div><span class="cat cat--sante">SANTE</span>
+          <h3 class="title-sm">Démence sénile et Alzheimer, comprendre les différences</h3>
+          <div class="meta" style="margin-top:6px">
+            <span class="meta__src">4 sources</span>
+            <span class="meta__sep">·</span><span>29 juin 2026, 18h00</span>
+          </div></div>
+        </a>
+<a class="list-item" href="articles/nouvelles-addictions-sante.html">
           <span class="list-item__num">04</span>
           <div><span class="cat cat--science">SCIENCE</span>
-          <h3 class="title-sm">Zuckerberg dévoile un atlas d’un milliard de protéines</h3>
+          <h3 class="title-sm">Les nouvelles addictions et leur impact sur la santé</h3>
           <div class="meta" style="margin-top:6px">
-            <span class="meta__src">3 sources</span>
+            <span class="meta__src">4 sources</span>
             <span class="meta__sep">·</span><span>1 juillet 2026, 07h00</span>
           </div></div>
         </a>
@@ -220,10 +232,10 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeMenu();
             <span class="meta__sep">·</span><span>27 juin 2026, 09h36</span>
           </div></div>
         </a>
-<a class="list-item" href="articles/apple-accelere-mises-a-jour-securite-ia.html">
+<a class="list-item" href="articles/withings-degage-ses-premiers-benefices.html">
           <span class="list-item__num">06</span>
           <div><span class="cat cat--tech">TECH</span>
-          <h3 class="title-sm">Apple accélère ses mises à jour de sécurité face à la menace IA</h3>
+          <h3 class="title-sm">Withings dégage ses premiers bénéfices après dix-huit ans</h3>
           <div class="meta" style="margin-top:6px">
             <span class="meta__src">4 sources</span>
             <span class="meta__sep">·</span><span>30 juin 2026, 18h00</span>
