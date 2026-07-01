@@ -70,6 +70,7 @@ jobs:
           cp    sitemap.xml           /tmp/site/
           cp    robots.txt            /tmp/site/ 2>/dev/null || true
           cp    manifest.json         /tmp/site/ 2>/dev/null || true
+          cp    favicon.svg           /tmp/site/ 2>/dev/null || true
           cp    recherche.html        /tmp/site/
           cp    mentions-legales.html /tmp/site/
           cp    confidentialite.html  /tmp/site/ 2>/dev/null || true
