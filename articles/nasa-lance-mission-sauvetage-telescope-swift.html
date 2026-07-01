@@ -41,6 +41,7 @@
   <a href="categories/tech.html">Tech</a>
   <a href="categories/sante.html">Santé</a>
   <a href="categories/environnement.html">Environnement</a>
+  <a href="archive.html">Tous les articles</a>
   <a href="methode.html" class="nav-cta">Comment on travaille →</a>
 </nav>
 <script>
@@ -52,7 +53,7 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeMenu();
 <header class="header">
 <div class="header__inner">
 <a class="brand" href="index.html">
-<div class="brand__logotype"><span class="fact">les</span><span class="uel">faits</span></div>
+<svg class="brand__icon" width="26" height="26" viewBox="0 0 200 200" aria-hidden="true" focusable="false"><rect width="200" height="200" rx="28" fill="#141416"/><circle cx="100" cy="100" r="72" fill="none" stroke="#6C85BD" stroke-width="4"/><circle cx="28" cy="100" r="7" fill="#6C85BD"/><circle cx="172" cy="100" r="7" fill="#6C85BD"/><text x="84" y="132" font-family="Georgia,'Times New Roman',serif" font-size="92" font-weight="700" fill="#F1EFE8" text-anchor="middle">l</text><text x="128" y="132" font-family="Georgia,'Times New Roman',serif" font-size="92" font-weight="700" fill="#6C85BD" text-anchor="middle">f</text></svg><div class="brand__logotype"><span class="fact">les</span><span class="uel">faits</span></div>
 </a>
 <div class="header__search">
 <input autocomplete="off" class="header__search-input" aria-label="Rechercher un article" id="search-input" onkeydown="if(event.key==='Enter'&amp;&amp;this.value.trim())window.location=(document.querySelector('base').href)+'recherche.html?q='+encodeURIComponent(this.value.trim())" placeholder="Rechercher…" type="search"/>
@@ -64,6 +65,7 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeMenu();
 <a href="categories/tech.html">Tech</a>
 <a href="categories/sante.html">Santé</a>
 <a href="categories/environnement.html">Environnement</a>
+<a href="archive.html">Tous les articles</a>
 <a class="nav-cta" href="methode.html">Comment on travaille →</a>
 </nav>
 <button class="dark-toggle" id="dark-toggle" aria-label="Mode sombre" title="Mode sombre">🌙</button>
@@ -90,9 +92,9 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeMenu();
 </div>
 <img alt="Illustration : La NASA lance mission sauvetage pour le télescope Swift" class="art__hero" loading="lazy" src="assets/images/nasa-lance-mission-sauvetage-telescope-swift.jpg"/>
 <p class="art__resume">La NASA a confié une mission de sauvetage audacieuse à Katalyst Space pour intercepter et récupérer le télescope Swift Une mission privée inédite s’apprête à décoller pour tenter de sauver le télescope Swift avant qu’il ne soit trop tard La NASA tente un sauvetage inédit pour éviter la perte du télescope Swift grâce à une technologie de capture orbitale</p>
-<h2>Les faits</h2><p>La NASA a lancé une mission de sauvetage critique pour le télescope Swift, qui est en train de tomber dangereusement vers la Terre. Le télescope, qui a 20 ans, est condamné à retomber dans l’atmosphère si la mission de sauvetage échoue. La NASA a confié la mission à Katalyst Space, une start-up qui a développé une technologie de capture orbitale pour intercepter et récupérer le télescope. La mission est une première pour la NASA, qui n’a jamais tenté de sauver un satellite en perdition de cette manière. Le télescope Swift a été lancé en 2004 et a été utilisé pour étudier les explosions de supernovae et les éruptions de rayons gamma. Si la mission de sauvetage réussit, le télescope pourra continuer à fonctionner et à fournir des données précieuses aux scientifiques.</p>
-<h2>Contexte</h2><p>Le télescope Swift a été lancé en 2004 pour étudier les explosions de supernovae et les éruptions de rayons gamma. Il a été utilisé pour étudier de nombreux phénomènes astrophysiques, notamment les explosions de supernovae et les éruptions de rayons gamma. Le télescope a également été utilisé pour étudier les objets célestes tels que les étoiles et les galaxies. La perte du télescope Swift aurait des conséquences importantes pour la communauté scientifique, car il est l’un des télescopes les plus importants pour l’étude de l’univers.</p>
-<h2>Débats et nuances</h2><p>La mission de sauvetage du télescope Swift est une première pour la NASA, qui n’a jamais tenté de sauver un satellite en perdition de cette manière. La technologie de capture orbitale développée par Katalyst Space est une innovation importante qui pourrait être utilisée pour sauver d’autres satellites en perdition. La réussite de la mission de sauvetage du télescope Swift dépendra de la précision et de la rapidité de la technologie de capture orbitale. Si la mission réussit, il pourrait être possible de sauver d’autres satellites en perdition de cette manière.</p>
+<h2 class="art__h2">Les faits</h2><p>La NASA a lancé une mission de sauvetage critique pour le télescope Swift, qui est en train de tomber dangereusement vers la Terre. Le télescope, qui a 20 ans, est condamné à retomber dans l’atmosphère si la mission de sauvetage échoue. La NASA a confié la mission à Katalyst Space, une start-up qui a développé une technologie de capture orbitale pour intercepter et récupérer le télescope. La mission est une première pour la NASA, qui n’a jamais tenté de sauver un satellite en perdition de cette manière. Le télescope Swift a été lancé en 2004 et a été utilisé pour étudier les explosions de supernovae et les éruptions de rayons gamma. Si la mission de sauvetage réussit, le télescope pourra continuer à fonctionner et à fournir des données précieuses aux scientifiques.</p>
+<h2 class="art__h2">Contexte</h2><p>Le télescope Swift a été lancé en 2004 pour étudier les explosions de supernovae et les éruptions de rayons gamma. Il a été utilisé pour étudier de nombreux phénomènes astrophysiques, notamment les explosions de supernovae et les éruptions de rayons gamma. Le télescope a également été utilisé pour étudier les objets célestes tels que les étoiles et les galaxies. La perte du télescope Swift aurait des conséquences importantes pour la communauté scientifique, car il est l’un des télescopes les plus importants pour l’étude de l’univers.</p>
+<h2 class="art__h2">Débats et nuances</h2><p>La mission de sauvetage du télescope Swift est une première pour la NASA, qui n’a jamais tenté de sauver un satellite en perdition de cette manière. La technologie de capture orbitale développée par Katalyst Space est une innovation importante qui pourrait être utilisée pour sauver d’autres satellites en perdition. La réussite de la mission de sauvetage du télescope Swift dépendra de la précision et de la rapidité de la technologie de capture orbitale. Si la mission réussit, il pourrait être possible de sauver d’autres satellites en perdition de cette manière.</p>
 <div class="art__tags" aria-label="Mots-clés"><span class="art__tag">NASA</span><span class="art__tag">espace</span><span class="art__tag">télescope</span><span class="art__tag">Swift</span><span class="art__tag">satellite</span></div>
 <div class="art__share">
   <span class="art__share-label">Partager</span>

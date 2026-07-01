@@ -41,6 +41,7 @@
   <a href="categories/tech.html">Tech</a>
   <a href="categories/sante.html">Santé</a>
   <a href="categories/environnement.html">Environnement</a>
+  <a href="archive.html">Tous les articles</a>
   <a href="methode.html" class="nav-cta">Comment on travaille →</a>
 </nav>
 <script>
@@ -52,7 +53,7 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeMenu();
 <header class="header">
 <div class="header__inner">
 <a class="brand" href="index.html">
-<div class="brand__logotype"><span class="fact">les</span><span class="uel">faits</span></div>
+<svg class="brand__icon" width="26" height="26" viewBox="0 0 200 200" aria-hidden="true" focusable="false"><rect width="200" height="200" rx="28" fill="#141416"/><circle cx="100" cy="100" r="72" fill="none" stroke="#6C85BD" stroke-width="4"/><circle cx="28" cy="100" r="7" fill="#6C85BD"/><circle cx="172" cy="100" r="7" fill="#6C85BD"/><text x="84" y="132" font-family="Georgia,'Times New Roman',serif" font-size="92" font-weight="700" fill="#F1EFE8" text-anchor="middle">l</text><text x="128" y="132" font-family="Georgia,'Times New Roman',serif" font-size="92" font-weight="700" fill="#6C85BD" text-anchor="middle">f</text></svg><div class="brand__logotype"><span class="fact">les</span><span class="uel">faits</span></div>
 </a>
 <div class="header__search">
 <input autocomplete="off" class="header__search-input" aria-label="Rechercher un article" id="search-input" onkeydown="if(event.key==='Enter'&amp;&amp;this.value.trim())window.location=(document.querySelector('base').href)+'recherche.html?q='+encodeURIComponent(this.value.trim())" placeholder="Rechercher…" type="search"/>
@@ -64,6 +65,7 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeMenu();
 <a href="categories/tech.html">Tech</a>
 <a href="categories/sante.html">Santé</a>
 <a href="categories/environnement.html">Environnement</a>
+<a href="archive.html">Tous les articles</a>
 <a class="nav-cta" href="methode.html">Comment on travaille →</a>
 </nav>
 <button class="dark-toggle" id="dark-toggle" aria-label="Mode sombre" title="Mode sombre">🌙</button>
@@ -90,9 +92,9 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeMenu();
 </div>
 <img alt="Illustration : Sécheresse estivale en France : les conséquences du changement climatique" class="art__hero" loading="lazy" src="assets/images/secheresse-estivale-france-changement-climatique.jpg"/>
 <p class="art__resume">La France réchauffe 1,7 fois plus vite que la moyenne mondiale, selon les projections du GIEC Les conséquences du changement climatique en France sont meurtrières, avec 5 722 personnes mortes en 2025 à cause des fortes chaleurs La sécheresse estivale est devenue classique dans le climat actuel, avec des territoires toujours plus nombreux touchés</p>
-<h2>Les faits</h2><p><span>Selon les sources, la France a connu une intensification de la sécheresse estivale en 2025, avec des conséquences meurtrières. En effet, 5 722 personnes sont mortes en France à cause des fortes chaleurs, selon Oxfam France. La sécheresse a concerné la France de mai à août, principalement sur le nord, le centre et le sud-ouest de l’Hexagone, selon Météo France. Le changement climatique accélère la sécheresse en France, qui gagne des territoires toujours plus nombreux, selon le gouvernement français. Les projections du GIEC confirment que la France réchauffe 1,7 fois plus vite que la moyenne mondiale.</span></p>
-<h2>Contexte</h2><p><span>Le changement climatique a des conséquences importantes sur l’environnement et la santé humaine en France. Les années 2023-2024 et 2025 ont été marquées par des événements climatiques extrêmes, tels que des canicules et des sécheresses. La France est considérée comme l’un des pays les plus vulnérables au changement climatique en Europe, en raison de sa géographie et de son climat. Les autorités françaises ont mis en place des mesures pour lutter contre le changement climatique, mais les efforts doivent être poursuivis pour réduire les émissions de gaz à effet de serre et atténuer les conséquences du réchauffement climatique.</span></p>
-<h2>Débats et nuances</h2><p><span>Il est important de noter que le changement climatique est un phénomène complexe et multifacette, qui nécessite une approche globale et coordonnée. Les conséquences du changement climatique en France sont multiples et variées, allant de la sécheresse à la canicule, en passant par les inondations et les tempêtes. Les mesures pour lutter contre le changement climatique doivent prendre en compte ces différentes facettes et impliquer tous les acteurs de la société, du gouvernement aux citoyens.</span></p>
+<h2 class="art__h2">Les faits</h2><p><span>Selon les sources, la France a connu une intensification de la sécheresse estivale en 2025, avec des conséquences meurtrières. En effet, 5 722 personnes sont mortes en France à cause des fortes chaleurs, selon Oxfam France. La sécheresse a concerné la France de mai à août, principalement sur le nord, le centre et le sud-ouest de l’Hexagone, selon Météo France. Le changement climatique accélère la sécheresse en France, qui gagne des territoires toujours plus nombreux, selon le gouvernement français. Les projections du GIEC confirment que la France réchauffe 1,7 fois plus vite que la moyenne mondiale.</span></p>
+<h2 class="art__h2">Contexte</h2><p><span>Le changement climatique a des conséquences importantes sur l’environnement et la santé humaine en France. Les années 2023-2024 et 2025 ont été marquées par des événements climatiques extrêmes, tels que des canicules et des sécheresses. La France est considérée comme l’un des pays les plus vulnérables au changement climatique en Europe, en raison de sa géographie et de son climat. Les autorités françaises ont mis en place des mesures pour lutter contre le changement climatique, mais les efforts doivent être poursuivis pour réduire les émissions de gaz à effet de serre et atténuer les conséquences du réchauffement climatique.</span></p>
+<h2 class="art__h2">Débats et nuances</h2><p><span>Il est important de noter que le changement climatique est un phénomène complexe et multifacette, qui nécessite une approche globale et coordonnée. Les conséquences du changement climatique en France sont multiples et variées, allant de la sécheresse à la canicule, en passant par les inondations et les tempêtes. Les mesures pour lutter contre le changement climatique doivent prendre en compte ces différentes facettes et impliquer tous les acteurs de la société, du gouvernement aux citoyens.</span></p>
 <div class="art__tags" aria-label="Mots-clés"><span class="art__tag">sécheresse</span><span class="art__tag">climat</span><span class="art__tag">GIEC</span><span class="art__tag">France</span><span class="art__tag">canicule</span></div>
 <div class="art__share">
   <span class="art__share-label">Partager</span>

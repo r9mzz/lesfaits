@@ -41,6 +41,7 @@
   <a href="categories/tech.html">Tech</a>
   <a href="categories/sante.html">Santé</a>
   <a href="categories/environnement.html">Environnement</a>
+  <a href="archive.html">Tous les articles</a>
   <a href="methode.html" class="nav-cta">Comment on travaille →</a>
 </nav>
 <script>
@@ -52,7 +53,7 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeMenu();
 <header class="header">
 <div class="header__inner">
 <a class="brand" href="index.html">
-<div class="brand__logotype"><span class="fact">les</span><span class="uel">faits</span></div>
+<svg class="brand__icon" width="26" height="26" viewBox="0 0 200 200" aria-hidden="true" focusable="false"><rect width="200" height="200" rx="28" fill="#141416"/><circle cx="100" cy="100" r="72" fill="none" stroke="#6C85BD" stroke-width="4"/><circle cx="28" cy="100" r="7" fill="#6C85BD"/><circle cx="172" cy="100" r="7" fill="#6C85BD"/><text x="84" y="132" font-family="Georgia,'Times New Roman',serif" font-size="92" font-weight="700" fill="#F1EFE8" text-anchor="middle">l</text><text x="128" y="132" font-family="Georgia,'Times New Roman',serif" font-size="92" font-weight="700" fill="#6C85BD" text-anchor="middle">f</text></svg><div class="brand__logotype"><span class="fact">les</span><span class="uel">faits</span></div>
 </a>
 <div class="header__search">
 <input autocomplete="off" class="header__search-input" aria-label="Rechercher un article" id="search-input" onkeydown="if(event.key==='Enter'&amp;&amp;this.value.trim())window.location=(document.querySelector('base').href)+'recherche.html?q='+encodeURIComponent(this.value.trim())" placeholder="Rechercher…" type="search"/>
@@ -64,6 +65,7 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeMenu();
 <a href="categories/tech.html">Tech</a>
 <a href="categories/sante.html">Santé</a>
 <a href="categories/environnement.html">Environnement</a>
+<a href="archive.html">Tous les articles</a>
 <a class="nav-cta" href="methode.html">Comment on travaille →</a>
 </nav>
 <button class="dark-toggle" id="dark-toggle" aria-label="Mode sombre" title="Mode sombre">🌙</button>
@@ -90,9 +92,9 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeMenu();
 </div>
 <img alt="Illustration : La Théorie de l’Évolution de Darwin" class="art__hero" loading="lazy" src="assets/images/theorie-evolution-darwin.jpg"/>
 <p class="art__resume">La théorie de l’évolution de Darwin explique l’origine des espèces par un mécanisme de changements La génétique mendélienne a fourni un cadre pour comprendre l’hérédité, complétant la théorie de Darwin La théorie de l’évolution est un concept fondamental en biologie</p>
-<h2>Les faits</h2><p>Selon Geo.fr, Charles Darwin a développé la théorie de l’évolution dans son ouvrage L’Origine des espèces en 1859. Il explique que les espèces évoluent au fil du temps en réponse à des changements environnementaux et en compétition avec d’autres espèces. La sélection naturelle est le mécanisme clé de cette évolution. Selon Sciences et Avenir, la théorie de l’évolution est un concept fondamental en biologie qui a été confirmé par de nombreuses preuves scientifiques. La génétique mendélienne a fourni un cadre pour comprendre l’hérédité, complétant la théorie de Darwin. Selon Wikipédia, la théorie de l’évolution est un concept complexe qui a évolué au fil du temps. Les différences entre les conceptions de Darwin et celles de ses contemporains sont importantes. Selon BEM-UNIV, la théorie de l’évolution est un concept qui a des implications importantes pour la compréhension de la vie sur Terre.</p>
-<h2>Contexte</h2><p>La théorie de l’évolution de Darwin a été développée dans le contexte de la révolution scientifique du XIXe siècle. Les découvertes de Charles Lyell sur la géologie et les travaux de Jean-Baptiste Lamarck sur l’évolution des espèces ont influencé la pensée de Darwin. La théorie de l’évolution a été confirmée par de nombreuses preuves scientifiques, notamment les découvertes de la génétique mendélienne. La théorie de l’évolution est un concept qui a des implications importantes pour la compréhension de la vie sur Terre.</p>
-<h2>Débats et nuances</h2><p>La théorie de l’évolution de Darwin est un concept complexe qui a évolué au fil du temps. Les différences entre les conceptions de Darwin et celles de ses contemporains sont importantes. La théorie de l’évolution est un concept qui a des implications importantes pour la compréhension de la vie sur Terre. La sélection naturelle est le mécanisme clé de cette évolution. La génétique mendélienne a fourni un cadre pour comprendre l’hérédité, complétant la théorie de Darwin.</p>
+<h2 class="art__h2">Les faits</h2><p>Selon Geo.fr, Charles Darwin a développé la théorie de l’évolution dans son ouvrage L’Origine des espèces en 1859. Il explique que les espèces évoluent au fil du temps en réponse à des changements environnementaux et en compétition avec d’autres espèces. La sélection naturelle est le mécanisme clé de cette évolution. Selon Sciences et Avenir, la théorie de l’évolution est un concept fondamental en biologie qui a été confirmé par de nombreuses preuves scientifiques. La génétique mendélienne a fourni un cadre pour comprendre l’hérédité, complétant la théorie de Darwin. Selon Wikipédia, la théorie de l’évolution est un concept complexe qui a évolué au fil du temps. Les différences entre les conceptions de Darwin et celles de ses contemporains sont importantes. Selon BEM-UNIV, la théorie de l’évolution est un concept qui a des implications importantes pour la compréhension de la vie sur Terre.</p>
+<h2 class="art__h2">Contexte</h2><p>La théorie de l’évolution de Darwin a été développée dans le contexte de la révolution scientifique du XIXe siècle. Les découvertes de Charles Lyell sur la géologie et les travaux de Jean-Baptiste Lamarck sur l’évolution des espèces ont influencé la pensée de Darwin. La théorie de l’évolution a été confirmée par de nombreuses preuves scientifiques, notamment les découvertes de la génétique mendélienne. La théorie de l’évolution est un concept qui a des implications importantes pour la compréhension de la vie sur Terre.</p>
+<h2 class="art__h2">Débats et nuances</h2><p>La théorie de l’évolution de Darwin est un concept complexe qui a évolué au fil du temps. Les différences entre les conceptions de Darwin et celles de ses contemporains sont importantes. La théorie de l’évolution est un concept qui a des implications importantes pour la compréhension de la vie sur Terre. La sélection naturelle est le mécanisme clé de cette évolution. La génétique mendélienne a fourni un cadre pour comprendre l’hérédité, complétant la théorie de Darwin.</p>
 <div class="art__tags" aria-label="Mots-clés"><span class="art__tag">Darwin</span><span class="art__tag">évolution</span><span class="art__tag">biologie</span><span class="art__tag">sélection naturelle</span><span class="art__tag">génétique</span></div>
 <div class="art__share">
   <span class="art__share-label">Partager</span>

@@ -62,6 +62,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 
 /* Logotype typographique — plus d'icône */
 .brand { display: flex; align-items: center; gap: 6px; flex-shrink: 0; text-decoration: none; }
+.brand__icon { display: block; flex-shrink: 0; border-radius: 6px; }
 .brand__logotype { font-family: Georgia, serif; font-size: 24px; line-height: 1; letter-spacing: -1px; }
 .brand__logotype .fact { font-weight: 700; color: var(--ink); }
 .brand__logotype .uel  { font-weight: 300; color: var(--blue); }

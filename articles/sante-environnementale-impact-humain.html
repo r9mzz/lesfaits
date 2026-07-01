@@ -41,6 +41,7 @@
   <a href="categories/tech.html">Tech</a>
   <a href="categories/sante.html">Santé</a>
   <a href="categories/environnement.html">Environnement</a>
+  <a href="archive.html">Tous les articles</a>
   <a href="methode.html" class="nav-cta">Comment on travaille →</a>
 </nav>
 <script>
@@ -52,7 +53,7 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeMenu();
 <header class="header">
 <div class="header__inner">
 <a class="brand" href="index.html">
-<div class="brand__logotype"><span class="fact">les</span><span class="uel">faits</span></div>
+<svg class="brand__icon" width="26" height="26" viewBox="0 0 200 200" aria-hidden="true" focusable="false"><rect width="200" height="200" rx="28" fill="#141416"/><circle cx="100" cy="100" r="72" fill="none" stroke="#6C85BD" stroke-width="4"/><circle cx="28" cy="100" r="7" fill="#6C85BD"/><circle cx="172" cy="100" r="7" fill="#6C85BD"/><text x="84" y="132" font-family="Georgia,'Times New Roman',serif" font-size="92" font-weight="700" fill="#F1EFE8" text-anchor="middle">l</text><text x="128" y="132" font-family="Georgia,'Times New Roman',serif" font-size="92" font-weight="700" fill="#6C85BD" text-anchor="middle">f</text></svg><div class="brand__logotype"><span class="fact">les</span><span class="uel">faits</span></div>
 </a>
 <div class="header__search">
 <input autocomplete="off" class="header__search-input" aria-label="Rechercher un article" id="search-input" onkeydown="if(event.key==='Enter'&amp;&amp;this.value.trim())window.location=(document.querySelector('base').href)+'recherche.html?q='+encodeURIComponent(this.value.trim())" placeholder="Rechercher…" type="search"/>
@@ -64,6 +65,7 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeMenu();
 <a href="categories/tech.html">Tech</a>
 <a href="categories/sante.html">Santé</a>
 <a href="categories/environnement.html">Environnement</a>
+<a href="archive.html">Tous les articles</a>
 <a class="nav-cta" href="methode.html">Comment on travaille →</a>
 </nav>
 <button class="dark-toggle" id="dark-toggle" aria-label="Mode sombre" title="Mode sombre">🌙</button>
@@ -90,9 +92,9 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeMenu();
 </div>
 <img alt="Illustration : Santé Environnementale : L’Impact Humain sur la Planète" class="art__hero" loading="lazy" src="assets/images/sante-environnementale-impact-humain.jpg"/>
 <p class="art__resume">La santé environnementale est un enjeu central pour la planète et les humains Le réchauffement climatique a des effets graves sur la santé humaine Il est essentiel de concilier la santé humaine et la santé de la planète</p>
-<h2>Les faits</h2><p><span>Selon l’Organisation Mondiale de la Santé (OMS), les incendies de forêt, les vagues de chaleur, les inondations et d’autres crises interconnectées s’intensifient en 2025, ce qui a des conséquences graves sur la santé humaine. Une étude annuelle de référence publiée dans la revue The Lancet montre que le réchauffement climatique nuit gravement à la santé. Le Plan national santé environnement vise à concilier la santé humaine et la santé de la planète, en lien avec les politiques publiques de gestion durable de l’eau et de préservation et de restauration de la nature.</span></p>
-<h2>Contexte</h2><p><span>La santé environnementale est un enjeu qui concerne tous les aspects de la vie, de la qualité de l’air et de l’eau à la préservation de la biodiversité. Les politiques publiques de santé environnementale visent à protéger la santé humaine et l’environnement, en prenant en compte les interconnections entre les deux. Le rapport de l’ONU sur l’avenir de l’environnement mondial souligne l’importance d’investir dans la santé planétaire pour assurer un avenir durable.</span></p>
-<h2>Débats et nuances</h2><p><span>Il est important de noter que la santé environnementale est un enjeu complexe qui nécessite une approche transversale et multisectorielle. Les solutions pour améliorer la santé environnementale doivent prendre en compte les spécificités locales et les besoins des communautés. La sensibilisation et l’éducation sont également essentielles pour promouvoir des comportements plus durables et respectueux de l’environnement.</span></p>
+<h2 class="art__h2">Les faits</h2><p><span>Selon l’Organisation Mondiale de la Santé (OMS), les incendies de forêt, les vagues de chaleur, les inondations et d’autres crises interconnectées s’intensifient en 2025, ce qui a des conséquences graves sur la santé humaine. Une étude annuelle de référence publiée dans la revue The Lancet montre que le réchauffement climatique nuit gravement à la santé. Le Plan national santé environnement vise à concilier la santé humaine et la santé de la planète, en lien avec les politiques publiques de gestion durable de l’eau et de préservation et de restauration de la nature.</span></p>
+<h2 class="art__h2">Contexte</h2><p><span>La santé environnementale est un enjeu qui concerne tous les aspects de la vie, de la qualité de l’air et de l’eau à la préservation de la biodiversité. Les politiques publiques de santé environnementale visent à protéger la santé humaine et l’environnement, en prenant en compte les interconnections entre les deux. Le rapport de l’ONU sur l’avenir de l’environnement mondial souligne l’importance d’investir dans la santé planétaire pour assurer un avenir durable.</span></p>
+<h2 class="art__h2">Débats et nuances</h2><p><span>Il est important de noter que la santé environnementale est un enjeu complexe qui nécessite une approche transversale et multisectorielle. Les solutions pour améliorer la santé environnementale doivent prendre en compte les spécificités locales et les besoins des communautés. La sensibilisation et l’éducation sont également essentielles pour promouvoir des comportements plus durables et respectueux de l’environnement.</span></p>
 <div class="art__tags" aria-label="Mots-clés"><span class="art__tag">santé</span><span class="art__tag">environnement</span><span class="art__tag">climat</span><span class="art__tag">OMS</span><span class="art__tag">pollution</span></div>
 <div class="art__share">
   <span class="art__share-label">Partager</span>
