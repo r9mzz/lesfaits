@@ -2,14 +2,19 @@ name: Factuel — Génération articles
 
 on:
   schedule:
-    # Matin 04h00 Paris — été (CEST UTC+2) : avril–octobre
-    - cron: "0 2 * 4-10 *"
-    # Matin 04h00 Paris — hiver (CET UTC+1) : novembre–mars
-    - cron: "0 3 * 11-12,1-3 *"
-    # Soir 13h00 Paris — été (CEST UTC+2) : avril–octobre
-    - cron: "0 11 * 4-10 *"
-    # Soir 13h00 Paris — hiver (CET UTC+1) : novembre–mars
-    - cron: "0 12 * 11-12,1-3 *"
+    # NOTE : les crons GitHub sur runners partagés sont régulièrement retardés
+    # de 1 à 4h (surtout à la minute 0, la plus chargée). On planifie donc la
+    # génération TRÈS en avance sur le déploiement (07h/18h Paris) pour que le
+    # lot soit toujours prêt même avec un gros retard, et sur une minute non
+    # ronde pour réduire l'attente en file.
+    # Matin ~01h35 Paris — été (CEST UTC+2) : avril–octobre
+    - cron: "35 23 * 4-10 *"
+    # Matin ~01h35 Paris — hiver (CET UTC+1) : novembre–mars
+    - cron: "35 0 * 11-12,1-3 *"
+    # Soir ~10h35 Paris — été (CEST UTC+2) : avril–octobre
+    - cron: "35 8 * 4-10 *"
+    # Soir ~10h35 Paris — hiver (CET UTC+1) : novembre–mars
+    - cron: "35 9 * 11-12,1-3 *"
   workflow_dispatch:
     inputs:
       dry_run:

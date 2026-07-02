@@ -21,14 +21,23 @@ sont la source de vérité pour ces valeurs.
 
 ## Pipeline de publication (deux étages)
 
-1. **`pipeline.yml`** (cron 04h/13h Paris) — génère les brouillons via Groq,
-   commit dans ce dépôt privé uniquement (pas de publication).
-2. **`deploy.yml`** (cron 07h/18h Paris) — reconstruit index/archives/catégories
+1. **`pipeline.yml`** (cron ~01h35/~10h35 Paris) — génère les brouillons via
+   Groq, commit dans ce dépôt privé uniquement (pas de publication).
+2. **`deploy.yml`** (cron ~07h/~18h Paris) — reconstruit index/archives/catégories
    (`pipeline.py --rebuild`), patch les articles (`patch_articles.py`), puis
    copie tout vers `lesfaits-site` en un seul commit. C'est pour ça que
    plusieurs articles générés à des heures différentes affichent le même
    horodatage "07h00"/"18h00" — c'est l'heure de publication du lot, pas de
    génération individuelle.
+
+**Limite connue** : les crons GitHub Actions ne sont pas garantis à l'heure —
+retards de 1 à 4h fréquents, voire créneaux entièrement sautés (constaté le
+02/07/2026 sur le deploy de 07h). Les horaires ci-dessus sont donc des cibles
+avec une marge intégrée : la génération part très en avance pour être toujours
+prête, le déploiement vise 10 min avant l'heure de publication. Si un créneau
+saute, relancer `deploy.yml` à la main (onglet Actions → Run workflow). Pour
+une exactitude stricte, il faudrait un déclencheur externe (ex. cron-job.org →
+`workflow_dispatch` via l'API GitHub avec un token).
 
 Après toute correction manuelle du contenu déployé (`lesfaits-site`), pensez à
 répercuter le même correctif ici — sinon le prochain déploiement planifié

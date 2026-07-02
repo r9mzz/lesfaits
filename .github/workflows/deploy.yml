@@ -2,14 +2,19 @@ name: Factuel — Déploiement site
 
 on:
   schedule:
-    # Matin 07h00 Paris — été (CEST UTC+2) : avril–octobre
-    - cron: "0 5 * 4-10 *"
-    # Matin 07h00 Paris — hiver (CET UTC+1) : novembre–mars
-    - cron: "0 6 * 11-12,1-3 *"
-    # Soir 18h00 Paris — été (CEST UTC+2) : avril–octobre
-    - cron: "0 16 * 4-10 *"
-    # Soir 18h00 Paris — hiver (CET UTC+1) : novembre–mars
-    - cron: "0 17 * 11-12,1-3 *"
+    # NOTE : les crons GitHub sont fréquemment retardés de 1 à 4h (le 02/07 le
+    # créneau de 05h00 UTC n'a jamais été exécuté ; la veille il est parti avec
+    # 3h50 de retard). On planifie donc 10 min avant l'heure cible sur une
+    # minute non ronde : au mieux la publication part à 06h50/17h50 Paris, avec
+    # le retard habituel elle reste proche de 07h/18h au lieu de 10h+.
+    # Matin ~07h00 Paris — été (CEST UTC+2) : avril–octobre
+    - cron: "50 4 * 4-10 *"
+    # Matin ~07h00 Paris — hiver (CET UTC+1) : novembre–mars
+    - cron: "50 5 * 11-12,1-3 *"
+    # Soir ~18h00 Paris — été (CEST UTC+2) : avril–octobre
+    - cron: "50 15 * 4-10 *"
+    # Soir ~18h00 Paris — hiver (CET UTC+1) : novembre–mars
+    - cron: "50 16 * 11-12,1-3 *"
   workflow_dispatch: {}
 
 jobs:
