@@ -20,6 +20,9 @@ import requests
 from bs4 import BeautifulSoup
 from dotenv import load_dotenv
 
+# Vérification éditoriale 3 passes (Anthropic) — inactive sans ANTHROPIC_API_KEY
+from verification import verifier_article, ANTHROPIC_KEY as _ANTHROPIC_KEY
+
 load_dotenv()
 sys.stdout.reconfigure(encoding="utf-8")
 
@@ -2143,6 +2146,9 @@ def save_to_index(art: dict, date_pub: str):
         "date":      date_pub,
         "resume":    art["resume"],
         "image_keyword": art.get("image_keyword", ""),
+        # Suivi fiabilité : conforme_du_premier_coup / corrige_automatiquement /
+        # non_verifie / erreur_verification (jamais a_corriger_manuellement ici)
+        "statut_verification": art.get("statut_verification", "non_verifie"),
     })
     INDEX_JSON.write_text(json.dumps(index, ensure_ascii=False, indent=2), encoding="utf-8")
 
@@ -2196,6 +2202,17 @@ def generer_article(item: dict, dry_run: bool, published: set, new_pub: set, dat
         if total_chars < 600:
             print(f"     [REJET] Corps trop court ({total_chars} chars)")
             return False
+
+        # ── Passes 2/3 : fact-check + correction automatique (Anthropic) ──
+        art, statut_verif = verifier_article(art)
+        if statut_verif == "a_corriger_manuellement":
+            print(f"     [MODÉRATION] Non conforme après correction — mis en file, PAS publié")
+            return False
+        art["statut_verification"] = statut_verif
+
+        # Le badge public reflète le nombre de sources réellement citées
+        # APRÈS correction, jamais le nombre fourni en entrée
+        art["nb_sources"] = len(art.get("sources", []))
 
         try:
             html = build_article_html(art, date_pub)

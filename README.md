@@ -43,10 +43,31 @@ Après toute correction manuelle du contenu déployé (`lesfaits-site`), pensez 
 répercuter le même correctif ici — sinon le prochain déploiement planifié
 l'efface silencieusement.
 
-## Statut du pipeline IA
+## Vérification éditoriale (3 passes)
 
-Génération actuelle : Groq (`llama-3.3-70b-versatile`). Un pipeline de
-vérification en 3 passes (génération → détection de sources non vérifiées →
-correction automatique) via l'API Anthropic est prévu mais **en attente d'une
-clé `ANTHROPIC_API_KEY`** à ajouter comme secret GitHub Actions avant
-implémentation.
+Génération : Groq (`llama-3.3-70b-versatile`). Par-dessus, un pipeline de
+vérification en 3 passes est **implémenté** dans `scripts/verification.py`
+(modèle `claude-sonnet-4-6`) et branché dans `pipeline.py` :
+
+1. génération (Groq) → 2. détection par un fact-checker indépendant →
+3. correction automatique, puis détection rejouée.
+
+Statuts tracés par article (`statut_verification` dans `articles.json` +
+`data/verification_log.json`) : `conforme_du_premier_coup`,
+`corrige_automatiquement`, `a_corriger_manuellement` (jamais publié — file
+`data/moderation_queue.json`), `non_verifie` (clé absente),
+`erreur_verification`. Le badge « N sources vérifiées » est recalculé après
+correction, jamais depuis le nombre de sources fournies en entrée.
+
+**Activation** : ajouter le secret `ANTHROPIC_API_KEY` au dépôt (Actions →
+secrets). Sans clé, le pipeline fonctionne comme avant (statut `non_verifie`).
+Aucune clé n'est codée en dur.
+
+## Audit rétroactif
+
+`python scripts/audit_articles.py` → `rapport-audit.md` : pour chaque article
+publié, compare les attributions « Selon X / D'après X » du texte à la liste
+officielle de sources, détecte les formules vagues, vérifie le compteur du
+badge et les liens internes. Fait aussi tourner la passe 2 Claude si
+`ANTHROPIC_API_KEY` est présent. Le script ne corrige rien — la décision de
+corriger/réécrire/supprimer chaque article reste humaine.
