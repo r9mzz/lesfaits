@@ -77,8 +77,31 @@ RSS_SOURCES = [
 HEADERS = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"}
 
 
+# Éditeurs de presse protégés par les droits voisins (art. L218-1 CPI) :
+# on ne scrape JAMAIS leur contenu intégral — seul le titre + la description
+# courte du flux RSS public sont utilisés comme matière première.
+_PRESSE_PROTEGEE = (
+    "lemonde.fr", "liberation.fr", "lefigaro.fr", "leparisien.fr",
+    "francetvinfo.fr", "franceinfo.fr", "sciencesetavenir.fr",
+    "futura-sciences.com", "reporterre.net", "lepoint.fr", "lexpress.fr",
+    "nouvelobs.com", "20minutes.fr", "bfmtv.com", "nicematin.com",
+    "ouest-france.fr", "sudouest.fr", "lavoixdunord.fr", "letelegramme.fr",
+)
+
+
+def _est_presse_protegee(url: str) -> bool:
+    try:
+        host = (urlparse(url).hostname or "").lower()
+    except Exception:
+        return False
+    return any(host == d or host.endswith("." + d) for d in _PRESSE_PROTEGEE)
+
+
 def fetch_full_content(url: str) -> str:
-    """Scrape le contenu complet d'un article depuis son URL."""
+    """Scrape le contenu complet d'un article depuis son URL.
+    Refuse les éditeurs de presse protégés (droits voisins)."""
+    if _est_presse_protegee(url):
+        return ""
     try:
         r = requests.get(url, headers=HEADERS, timeout=15)
         r.raise_for_status()
@@ -221,11 +244,15 @@ def fetch_rss(source: dict) -> list[dict]:
             if not title or not link:
                 continue
 
+            # Droits voisins : pour la presse protégée, on se limite à un court
+            # extrait (titre + début de description), jamais le texte intégral
+            # même s'il figure dans le flux (content:encoded).
+            max_len = 1200 if _est_presse_protegee(link) else 6000
             items.append({
                 "id":          hashlib.md5(link.encode()).hexdigest()[:14],
                 "title":       title,
                 "url":         link,
-                "content":     (title + " " + content_clean)[:6000],
+                "content":     (title + " " + content_clean)[:max_len],
                 "source_name": source["name"],
                 "date":        pub_date,
             })
@@ -270,6 +297,15 @@ _TITRE_MALUS = [
     "guide ", "comment ", "pourquoi ", "où ", "quand ",
     "nos astuces", "tout savoir", "on vous explique",
 ]
+
+# Contenu commercial déguisé en article : prix précis + enseigne de vente
+_COMMERCE_RE = re.compile(
+    r"(?:à partir de|dès|seulement|au prix de)\s*\d+[.,]?\d*\s*€"
+    r"|\d+[.,]\d{2}\s*€\s*(?:chez|sur)\b"
+    r"|chez\s+(?:cdiscount|amazon|aliexpress|rakuten|darty|boulanger|leclerc|carrefour)"
+    r"|(?:cdiscount|aliexpress|rakuten)\b",
+    re.IGNORECASE,
+)
 
 # Sources majeures : institutions officielles et revues peer-reviewed
 SOURCES_MAJEURES = [
@@ -342,6 +378,10 @@ def score_editorial(item: dict, source_name: str, published_topics: set) -> tupl
     for kw in BLACKLIST:
         if kw in text:
             return -1, [f"Blacklist : '{kw}'"]
+
+    # Contenu commercial déguisé : prix + enseigne = article promotionnel
+    if _COMMERCE_RE.search(text[:800]):
+        return -1, ["Contenu commercial (prix/enseigne détectés)"]
 
     if len(item["content"]) < 300:
         return -1, [f"Contenu trop court : {len(item['content'])} chars (min 300)"]
@@ -513,6 +553,103 @@ RÈGLES ABSOLUES — toute violation = article rejeté :
 10. positions : si et SEULEMENT SI l'article contient des prises de position explicites et vérifiables de 2 à 4 acteurs RÉELS (déclarations citées, votes enregistrés, communiqués officiels présents dans les sources), renseigne ce bloc avec verifie=true. Sinon, mets verifie=false et laisse acteurs vide []. Ne jamais inventer ou déduire une position — uniquement ce qui est explicitement attesté dans les sources. position = 0 (totalement favorable/consensuel) à 100 (totalement critique/opposé)."""
 
 
+# ══════════════════════════════════════════════════════════════════════════════
+# GARDE-FOUS DÉTERMINISTES (sans LLM) — attributions fantômes & santé
+# ══════════════════════════════════════════════════════════════════════════════
+
+_ATTRIB_RE = re.compile(r"(?:Selon|D['’]après)\s+([^,;.]{2,70})[,;.]")
+_ATTRIB_VAGUE = (
+    "les experts", "des experts", "certains experts", "les sources",
+    "des études", "les études", "certaines études", "les chercheurs",
+    "des chercheurs", "les spécialistes", "les scientifiques",
+    "les observateurs", "les analystes", "les données disponibles",
+    "les informations disponibles",
+)
+# Renvois génériques à un document décrit dans le texte — tolérés
+_ATTRIB_GENERIQUE = (
+    "le décret", "la loi", "le rapport", "l'étude", "l’étude", "l'enquête",
+    "l’enquête", "le communiqué", "les résultats", "le texte", "la tribune",
+    "le projet de loi", "le vote", "les données de l'étude", "les données de l’étude",
+)
+
+
+def _norm_attrib(s: str) -> str:
+    import unicodedata
+    s = unicodedata.normalize("NFD", s)
+    s = "".join(c for c in s if unicodedata.category(c) != "Mn").lower().strip()
+    s = re.sub(r"^(le |la |les |l'|un |une |des |du |de la |de |d')+", "", s)
+    return re.sub(r"[^a-z0-9 ]", " ", s).strip()
+
+
+def attributions_fantomes(art: dict) -> list[str]:
+    """Attributions « Selon X / D'après X » du corps qui ne correspondent à
+    aucune source de la liste officielle, + formules vagues interdites."""
+    corps = art.get("corps", {}) or {}
+    texte = " ".join([
+        " ".join(art.get("resume", []) if isinstance(art.get("resume"), list) else [art.get("resume", "") or ""]),
+        corps.get("faits", ""), corps.get("contexte", ""), corps.get("nuances", ""),
+    ])
+    norm_sources = [_norm_attrib(s.get("institution", "")) for s in art.get("sources", [])]
+    norm_sources = [ns for ns in norm_sources if ns]
+
+    violations = []
+    for m in _ATTRIB_RE.finditer(texte):
+        target = m.group(1).strip()
+        tl = target.lower()
+        if any(v in tl for v in _ATTRIB_VAGUE):
+            violations.append(target)
+            continue
+        if any(tl.startswith(g) for g in _ATTRIB_GENERIQUE):
+            continue
+        tn = _norm_attrib(target)
+        if not tn:
+            continue
+        mots_t = {w for w in tn.split() if len(w) > 3}
+        ok = any(
+            tn in ns or ns in tn or (mots_t & {w for w in ns.split() if len(w) > 3})
+            for ns in norm_sources
+        )
+        if not ok:
+            violations.append(target)
+
+    # dédoublonner en conservant l'ordre
+    vus, out = set(), []
+    for v in violations:
+        k = _norm_attrib(v)
+        if k not in vus:
+            vus.add(k)
+            out.append(v)
+    return out
+
+
+_SANTE_SENSIBLE_RE = re.compile(
+    r"ebola|épidémie|epidemie|pandémie|pandemie|virus|vaccin|méningite|"
+    r"choléra|cholera|variole|rougeole|grippe aviaire|h5n1|listeria|"
+    r"salmonell|botulisme|rage\b|tuberculose|alerte sanitaire|rappel de produit",
+    re.IGNORECASE,
+)
+_SOURCES_SANTE_OFFICIELLES = (
+    "inserm", "oms", "organisation mondiale de la santé", "santé publique france",
+    "sante publique france", "ministère de la santé", "ministere de la sante",
+    "has", "haute autorité de santé", "anses", "ansm", "institut pasteur",
+    "pasteur", "ars", "ecdc", "who", "pubmed", "agence régionale de santé",
+)
+
+
+def sujet_sante_sans_source_officielle(art: dict) -> bool:
+    """True si l'article touche un sujet sanitaire sensible (épidémies,
+    vaccins, alertes) SANS aucune source institutionnelle de santé —
+    dans ce cas il part en modération humaine, jamais en publication auto."""
+    texte = (art.get("titre", "") + " " + json.dumps(art.get("corps", {}), ensure_ascii=False)).lower()
+    if not _SANTE_SENSIBLE_RE.search(texte):
+        return False
+    for s in art.get("sources", []):
+        blob = ((s.get("institution") or "") + " " + (s.get("url") or "")).lower()
+        if any(off in blob for off in _SOURCES_SANTE_OFFICIELLES) or ".gouv.fr" in blob:
+            return False
+    return True
+
+
 def _groq_call(api_key: str, messages: list, max_tokens: int = 4500) -> str:
     """Appelle Groq avec la clé donnée. Lève une exception en cas d'erreur."""
     client = Groq(api_key=api_key)
@@ -526,7 +663,7 @@ def _groq_call(api_key: str, messages: list, max_tokens: int = 4500) -> str:
 
 
 def generate(content: str, category_hint: str, extra_sources: list[dict] | None = None,
-             rss_url: str | None = None) -> dict:
+             rss_url: str | None = None, retry_feedback: list[str] | None = None) -> dict:
 
     # Construire la liste des URLs réelles disponibles (DuckDuckGo + flux RSS)
     real_sources: list[dict] = []
@@ -555,8 +692,20 @@ def generate(content: str, category_hint: str, extra_sources: list[dict] | None 
         f"dont l'URL figure dans la liste SOURCES DISPONIBLES ci-dessus. "
         f"N'invente AUCUNE source, AUCUNE URL. Si une institution n'a pas d'URL dans la liste, "
         f"ne l'inclus pas dans le tableau sources. "
-        f"Le nombre de sources réelles prime sur le minimum — mieux vaut 2 sources réelles que 4 inventées."
+        f"Le nombre de sources réelles prime sur le minimum — mieux vaut 2 sources réelles que 4 inventées. "
+        f"RÈGLE ABSOLUE SUR LES ATTRIBUTIONS DANS LE TEXTE : chaque « Selon X » ou « D'après X » "
+        f"du corps de l'article doit désigner une institution présente dans SOURCES DISPONIBLES "
+        f"(même nom). N'attribue JAMAIS une information à un média, expert ou institution "
+        f"absent de cette liste. Jamais de « selon les experts » ou « des études montrent »."
     )
+
+    if retry_feedback:
+        user_msg += (
+            "\n\nCORRECTION OBLIGATOIRE — ta précédente réponse attribuait des informations à des "
+            "sources ABSENTES de la liste autorisée : « " + " » ; « ".join(retry_feedback[:8]) + " ». "
+            "Réécris l'article en n'attribuant chaque affirmation QU'AUX sources de la liste "
+            "SOURCES DISPONIBLES (reprends leur nom exact), ou supprime les affirmations concernées."
+        )
 
     messages = [
         {"role": "system", "content": SYSTEM_PROMPT},
@@ -2193,7 +2342,35 @@ def generer_article(item: dict, dry_run: bool, published: set, new_pub: set, dat
         return False
 
     try:
-        art         = generate(content, cat, extra_sources=extra, rss_url=item.get("url"))
+        art = generate(content, cat, extra_sources=extra, rss_url=item.get("url"))
+
+        # ── Garde-fou 1 : attributions fantômes (déterministe, une relance) ──
+        fantomes = attributions_fantomes(art)
+        if fantomes:
+            print(f"     [GARDE] {len(fantomes)} attribution(s) hors sources — relance avec correction…")
+            art = generate(content, cat, extra_sources=extra, rss_url=item.get("url"),
+                           retry_feedback=fantomes)
+            fantomes = attributions_fantomes(art)
+            if fantomes:
+                from verification import enqueue_moderation
+                enqueue_moderation(art, {"conforme": False, "problemes": [
+                    {"type": "source_inventee", "section": "corps", "phrase_exacte": f,
+                     "explication": "attribution absente de la liste officielle de sources"}
+                    for f in fantomes]}, {})
+                print(f"     [MODÉRATION] Attributions toujours hors sources après relance "
+                      f"({', '.join(fantomes[:3])}…) — NON publié")
+                return False
+
+        # ── Garde-fou 2 : sujet sanitaire sensible sans source officielle ──
+        if sujet_sante_sans_source_officielle(art):
+            from verification import enqueue_moderation
+            enqueue_moderation(art, {"conforme": False, "problemes": [
+                {"type": "sante_sans_source_officielle", "section": "sources",
+                 "explication": "sujet sanitaire sensible (épidémie/vaccin/alerte) sans aucune "
+                                "source institutionnelle de santé (INSERM, OMS, SPF, .gouv.fr…)"}]}, {})
+            print(f"     [MODÉRATION] Sujet santé sensible sans source officielle — NON publié")
+            return False
+
         total_chars = sum(len(art["corps"].get(k, "")) for k in ["faits", "contexte", "nuances"])
 
         if len(art.get("sources", [])) < 3:
