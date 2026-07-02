@@ -94,4 +94,12 @@ jobs:
           NB=$(git diff --cached --name-only | grep "^articles/" | wc -l)
           CRENEAU=$([ $(date +%H) -lt 12 ] && echo "matin" || echo "soir")
           git commit -m "✦ draft ${NB} article(s) — créneau ${CRENEAU} — $(date +'%d/%m/%Y %H:%M')"
-          git push
+          PUSHED=0
+          for i in 1 2 3 4 5; do
+            if git push; then PUSHED=1; break; fi
+            echo "Push rejeté (tentative $i) — rebase et nouvel essai..."
+            git fetch origin main
+            git rebase origin/main || { echo "Rebase impossible, abandon (commit conservé localement)."; git rebase --abort; break; }
+            sleep 5
+          done
+          [ "$PUSHED" = "1" ] || { echo "::error::Push impossible après plusieurs tentatives."; exit 1; }
