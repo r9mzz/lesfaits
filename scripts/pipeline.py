@@ -526,13 +526,13 @@ Format obligatoire :
   "slug": "slug-kebab-case-descriptif-max-65-chars",
   "image_keyword": "3 mots EN ANGLAIS — paysage, bâtiment ou objet UNIQUEMENT, jamais de visages ni personnes (ex: 'wheat field france', 'hospital building', 'solar panels europe')",
   "resume": [
-    "Phrase 1 : le fait principal avec chiffres ou acteurs précis (2 lignes min).",
-    "Phrase 2 : contexte essentiel, qui/quand/comment (2 lignes min).",
+    "Phrase 1 : le fait principal avec chiffres ou acteurs précis, REFORMULÉ avec un vocabulaire et une syntaxe DIFFÉRENTS de ceux utilisés dans 'faits' — jamais la même phrase ni les mêmes tournures (2 lignes min).",
+    "Phrase 2 : contexte essentiel, qui/quand/comment, avec des mots différents de la section 'contexte' (2 lignes min).",
     "Phrase 3 : nuance, limite ou débat en cours (2 lignes min)."
   ],
   "corps": {
-    "faits": "MINIMUM 300 mots. NE PAS répéter le résumé — commencer directement par des faits NOUVEAUX ou plus détaillés non mentionnés dans le résumé. Détailler tous les faits vérifiables : chiffres précis, dates, acteurs nommés, données quantitatives, résultats d'études, déclarations exactes avec attribution. Attribuer chaque donnée à son institution avec 'Selon [Institution]' ou 'D'après [Institution]'. JAMAIS d'URL dans le texte — les URLs vont uniquement dans le tableau sources. Utiliser plusieurs paragraphes.",
-    "contexte": "MINIMUM 200 mots. Historique du sujet, évolutions sur 5-10 ans, comparaisons internationales ou régionales, cadre réglementaire ou scientifique pertinent. Chiffres comparatifs obligatoires.",
+    "faits": "MINIMUM 300 mots. UNIQUEMENT l'actualité immédiate et ses données du jour : chiffres précis, dates, acteurs nommés, données quantitatives, résultats d'études récents, déclarations exactes avec attribution. NE JAMAIS inclure d'historique, d'évolution sur plusieurs années ni de comparaisons internationales — cela va exclusivement dans 'contexte'. NE PAS répéter le résumé mot pour mot ni avec les mêmes tournures — commencer directement par des faits NOUVEAUX ou plus détaillés non mentionnés dans le résumé. Attribuer chaque donnée à son institution avec 'Selon [Institution]' ou 'D'après [Institution]'. JAMAIS d'URL dans le texte — les URLs vont uniquement dans le tableau sources. Utiliser plusieurs paragraphes.",
+    "contexte": "MINIMUM 200 mots. UNIQUEMENT de l'historique et de la mise en perspective : évolutions sur 5-10 ans, comparaisons internationales ou régionales, cadre réglementaire ou scientifique. NE JAMAIS reprendre les faits déjà énoncés dans 'faits' — les mettre en perspective, pas les répéter. Chiffres comparatifs obligatoires.",
     "nuances": "MINIMUM 150 mots. Limites méthodologiques des études citées, points de désaccord entre experts, ce que les données ne permettent pas de conclure, précautions d'interprétation."
   },
   "sources": [
@@ -561,7 +561,9 @@ RÈGLES ABSOLUES — toute violation = article rejeté :
 7. Titre : 10-15 mots, informatif, factuel — il doit résumer l'essentiel de l'article
 8. Sources : institutions officielles (INSEE, CNRS, INSERM, Eurostat, OMS, gouvernement), journaux de référence, publications peer-reviewed
 9. Slug en français kebab-case, descriptif, max 65 caractères
-10. positions : si et SEULEMENT SI l'article contient des prises de position explicites et vérifiables de 2 à 4 acteurs RÉELS (déclarations citées, votes enregistrés, communiqués officiels présents dans les sources), renseigne ce bloc avec verifie=true. Sinon, mets verifie=false et laisse acteurs vide []. Ne jamais inventer ou déduire une position — uniquement ce qui est explicitement attesté dans les sources. position = 0 (totalement favorable/consensuel) à 100 (totalement critique/opposé)."""
+10. positions : si et SEULEMENT SI l'article contient des prises de position explicites et vérifiables de 2 à 4 acteurs RÉELS (déclarations citées, votes enregistrés, communiqués officiels présents dans les sources), renseigne ce bloc avec verifie=true. Sinon, mets verifie=false et laisse acteurs vide []. Ne jamais inventer ou déduire une position — uniquement ce qui est explicitement attesté dans les sources. position = 0 (totalement favorable/consensuel) à 100 (totalement critique/opposé).
+11. Le résumé ('resume') et le corps ('faits') ne doivent JAMAIS contenir de phrases identiques ou quasi identiques (mêmes mots, même structure) : le résumé est une synthèse reformulée, pas un copier-coller déguisé du corps.
+12. Séparation stricte des registres : 'faits' = actualité immédiate uniquement (le fait du jour). 'contexte' = historique, évolution passée, comparaisons uniquement. Ne jamais mettre du contexte historique dans 'faits', ni redire les faits du jour dans 'contexte'."""
 
 
 # ══════════════════════════════════════════════════════════════════════════════
@@ -633,6 +635,29 @@ def attributions_fantomes(art: dict) -> list[str]:
     return out
 
 
+def resume_repete_corps(art: dict) -> list[str]:
+    """Détecte les phrases du résumé quasi identiques (périphrase) aux premières
+    phrases du corps 'faits' — signe que le résumé n'a pas été reformulé."""
+    import difflib
+    resume = art.get("resume", [])
+    if isinstance(resume, str):
+        resume = [resume]
+    faits = (art.get("corps", {}) or {}).get("faits", "") or ""
+    faits_phrases = [p.strip() for p in re.split(r"(?<=[.!?])\s+", faits) if len(p.strip()) > 20][:6]
+
+    violations = []
+    for r in resume:
+        r = (r or "").strip()
+        if len(r) < 20:
+            continue
+        for f in faits_phrases:
+            ratio = difflib.SequenceMatcher(None, r.lower(), f.lower()).ratio()
+            if ratio > 0.55:
+                violations.append(r[:90])
+                break
+    return violations
+
+
 _SANTE_SENSIBLE_RE = re.compile(
     r"ebola|épidémie|epidemie|pandémie|pandemie|virus|vaccin|méningite|"
     r"choléra|cholera|variole|rougeole|grippe aviaire|h5n1|listeria|"
@@ -674,7 +699,8 @@ def _groq_call(api_key: str, messages: list, max_tokens: int = 4500) -> str:
 
 
 def generate(content: str, category_hint: str, extra_sources: list[dict] | None = None,
-             rss_url: str | None = None, retry_feedback: list[str] | None = None) -> dict:
+             rss_url: str | None = None, retry_feedback: list[str] | None = None,
+             repetition_feedback: list[str] | None = None) -> dict:
 
     # Construire la liste des URLs réelles disponibles (DuckDuckGo + flux RSS)
     real_sources: list[dict] = []
@@ -716,6 +742,15 @@ def generate(content: str, category_hint: str, extra_sources: list[dict] | None 
             "sources ABSENTES de la liste autorisée : « " + " » ; « ".join(retry_feedback[:8]) + " ». "
             "Réécris l'article en n'attribuant chaque affirmation QU'AUX sources de la liste "
             "SOURCES DISPONIBLES (reprends leur nom exact), ou supprime les affirmations concernées."
+        )
+
+    if repetition_feedback:
+        user_msg += (
+            "\n\nCORRECTION OBLIGATOIRE — dans ta précédente réponse, ces phrases du résumé "
+            "étaient une quasi-répétition du corps 'faits' au lieu d'une reformulation : « "
+            + " » ; « ".join(repetition_feedback[:5]) + " ». "
+            "Réécris le champ 'resume' avec un vocabulaire et une syntaxe entièrement différents "
+            "de ceux du corps — une synthèse, jamais un copier-coller déguisé."
         )
 
     messages = [
@@ -2389,6 +2424,17 @@ def generer_article(item: dict, dry_run: bool, published: set, new_pub: set, dat
                 print(f"     [MODÉRATION] Attributions toujours hors sources après relance "
                       f"({', '.join(fantomes[:3])}…) — NON publié")
                 return False
+
+        # ── Garde-fou 3 : résumé qui paraphrase le corps (déterministe, une
+        # relance ; non bloquant — c'est un défaut de style, pas de conformité) ──
+        repetitions = resume_repete_corps(art)
+        if repetitions:
+            print(f"     [GARDE] {len(repetitions)} phrase(s) du résumé quasi identiques au corps — relance…")
+            art = generate(content, cat, extra_sources=extra, rss_url=item.get("url"),
+                           repetition_feedback=repetitions)
+            repetitions = resume_repete_corps(art)
+            if repetitions:
+                print(f"     [AVERTISSEMENT] Résumé toujours proche du corps après relance — publié quand même")
 
         # ── Garde-fou 2 : sujet sanitaire sensible sans source officielle ──
         if sujet_sante_sans_source_officielle(art):
