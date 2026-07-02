@@ -55,6 +55,9 @@ jobs:
           SITE_DEPLOY_TOKEN: ${{ secrets.SITE_DEPLOY_TOKEN }}
           TZ: Europe/Paris
         run: |
+          # Fichier consommé par l'étape "Publier sur X" (vide si rien de neuf)
+          : > "${GITHUB_WORKSPACE}/new_articles.txt"
+
           git clone https://x-access-token:${SITE_DEPLOY_TOKEN}@github.com/r9mzz/lesfaits-site.git /tmp/site
 
           # Supprimer les articles retirés de la source
@@ -94,4 +97,19 @@ jobs:
           NB=$(git diff --cached --name-only | grep "^articles/" | wc -l)
           CRENEAU=$([ $(date +%H) -lt 12 ] && echo "07h00" || echo "18h00")
           git commit -m "✦ ${NB} article(s) publiés — ${CRENEAU} — $(date +'%d/%m/%Y')"
+
+          # Slugs des articles AJOUTÉS par ce déploiement → pour la publication X
+          git diff --name-only --diff-filter=A HEAD~1 HEAD -- articles/ \
+            | sed 's|^articles/||; s|\.html$||' > "${GITHUB_WORKSPACE}/new_articles.txt" || true
+
           git push
+
+      - name: Publier les nouveaux articles sur X
+        # Inactif tant que les secrets X_* ne sont pas configurés
+        env:
+          X_API_KEY:             ${{ secrets.X_API_KEY }}
+          X_API_SECRET:          ${{ secrets.X_API_SECRET }}
+          X_ACCESS_TOKEN:        ${{ secrets.X_ACCESS_TOKEN }}
+          X_ACCESS_TOKEN_SECRET: ${{ secrets.X_ACCESS_TOKEN_SECRET }}
+          PYTHONIOENCODING: utf-8
+        run: python scripts/post_to_x.py "${GITHUB_WORKSPACE}/new_articles.txt"
