@@ -9,7 +9,7 @@
   --sand:   #ECEAE3;
   --white:  #F5F3EE;
   --rule:   #D0CCC3;
-  --muted:  #8C8880;
+  --muted:  #696660; /* WCAG AA (4.5:1+) sur --sand/--white/--light, était #8C8880 (~2.9:1) */
   --green:  #00C896;
   --orange: #E8894A;
   --red:    #C94B4B;
@@ -26,7 +26,7 @@
   --sand:   #171715;
   --white:  #222220;
   --rule:   #383836;
-  --muted:  #848280;
+  --muted:  #8A8887; /* WCAG AA (4.5:1+) sur --sand/--white sombres, était #848280 (~4.2:1 sur --white) */
   --light:  #282826;
   --shadow: 0 1px 3px rgba(0,0,0,.4);
   -webkit-font-smoothing: antialiased;
@@ -45,6 +45,14 @@ html { font-size: 16px; scroll-behavior: smooth; }
 body { font-family: system-ui,-apple-system,'Segoe UI',sans-serif; background: var(--sand); color: var(--ink); line-height: 1.5; }
 a { color: inherit; text-decoration: none; }
 button { font-family: inherit; cursor: pointer; border: none; background: none; }
+
+/* ── FOCUS CLAVIER ── visible uniquement au clavier (:focus-visible), jamais au clic souris */
+a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible,
+textarea:focus-visible, [tabindex]:focus-visible {
+  outline: 2.5px solid var(--blue);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
 
 .wrap { max-width: 1140px; margin: 0 auto; padding: 0 32px; }
 

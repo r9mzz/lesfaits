@@ -14,6 +14,7 @@ from datetime import datetime
 from pathlib import Path
 from xml.etree import ElementTree as ET
 from urllib.parse import urlparse
+import urllib.parse
 
 from groq import Groq
 import requests
@@ -22,6 +23,16 @@ from dotenv import load_dotenv
 
 # Vérification éditoriale 3 passes (Anthropic) — inactive sans ANTHROPIC_API_KEY
 from verification import verifier_article, ANTHROPIC_KEY as _ANTHROPIC_KEY
+from html import escape as _esc
+
+def _esc_json(s: str) -> str:
+    """Échappement sûr pour insertion dans un bloc <script type=application/ld+json>."""
+    return json.dumps(s or "")[1:-1].replace("</", "<\\/")
+
+def _esc_js(s: str) -> str:
+    """Échappement sûr pour insertion dans une chaîne JS entre apostrophes."""
+    return (s or "").replace("\\", "\\\\").replace("'", "\\'").replace("</", "<\\/")
+
 
 load_dotenv()
 sys.stdout.reconfigure(encoding="utf-8")
@@ -792,8 +803,8 @@ def build_spectrum_html(positions: dict) -> str:
     legend_items = "\n".join(
         f'<div class="spectrum__legend-item">'
         f'<span class="spectrum__legend-dot" style="background:{COLORS[i % len(COLORS)]}"></span>'
-        f'<span class="spectrum__legend-name">{a["nom"]}</span>'
-        f'<span class="spectrum__legend-sub">{a.get("detail","")}</span>'
+        f'<span class="spectrum__legend-name">{_esc(a["nom"])}</span>'
+        f'<span class="spectrum__legend-sub">{_esc(a.get("detail",""))}</span>'
         f'</div>'
         for i, a in enumerate(acteurs)
     )
@@ -1292,6 +1303,20 @@ FAVICON_LINKS = (
     '  <link rel="manifest" href="/manifest.json"/>'
 )
 
+# CSP — GitHub Pages ne permet pas d'en-têtes HTTP custom, donc balise meta.
+# 'unsafe-inline' requis (dark-mode toggle, burger menu, styles inline dans
+# les gabarits) mais bloque toute source de script/style externe non listée.
+CSP_META = (
+    '<meta http-equiv="Content-Security-Policy" content="default-src \'self\'; '
+    'script-src \'self\' \'unsafe-inline\' https://cloud.umami.is; '
+    'style-src \'self\' \'unsafe-inline\'; '
+    'img-src \'self\' data: https:; '
+    'connect-src \'self\' https://cloud.umami.is https://api.web3forms.com; '
+    'base-uri \'self\'; '
+    'form-action \'self\' https://api.web3forms.com; '
+    'frame-ancestors \'none\';"/>'
+)
+
 # Icône de marque affichée dans le header à côté du logotype "lesfaits"
 BRAND_ICON = (
     '<svg class="brand__icon" width="26" height="26" viewBox="0 0 200 200" '
@@ -1418,7 +1443,7 @@ def build_article_html(art: dict, date_pub: str) -> str:
     hero_img = (
         f'<!-- Image source: {img_credit} | Type: {img_source_type} -->\n'
         f'<figure class="article__hero" data-img-source="{img_source_type}" data-img-credit="{img_credit}" style="margin-bottom:28px">'
-        f'<img class="art__hero" src="{hero_src}" alt="Illustration : {art["titre"]}" loading="eager" fetchpriority="high" style="aspect-ratio:16/9;object-fit:cover"/>'
+        f'<img class="art__hero" src="{hero_src}" alt="Illustration : {_esc(art["titre"])}" loading="eager" fetchpriority="high" style="aspect-ratio:16/9;object-fit:cover"/>'
         f'</figure>'
     ) if hero_src else ""
 
@@ -1427,13 +1452,13 @@ def build_article_html(art: dict, date_pub: str) -> str:
         url = s.get("url") or ""
         path = urlparse(url).path.rstrip("/") if url else ""
         if url and len(path) > 3:
-            return f' · <a href="{url}" target="_blank" rel="noopener noreferrer external" aria-label="{s.get("institution","Source")} (ouvre dans un nouvel onglet)">Lire la source →</a>'
+            return f' · <a href="{_esc(url)}" target="_blank" rel="noopener noreferrer external" aria-label="{_esc(s.get("institution","Source"))} (ouvre dans un nouvel onglet)">Lire la source →</a>'
         return ""
 
     verified_sources = [s for s in art.get("sources", []) if s.get("url") and len(urlparse(s["url"]).path.rstrip("/")) > 3]
     if verified_sources:
         sources_li = "\n".join(
-            f'<li><cite>{s["institution"]}</cite> · <em>{s["titre"]}</em> · {s["date"]}{_source_link(s)}</li>'
+            f'<li><cite>{_esc(s["institution"])}</cite> · <em>{_esc(s["titre"])}</em> · {_esc(str(s["date"]))}{_source_link(s)}</li>'
             for s in verified_sources
         )
         sources_html = f'<section class="sources" aria-label="Sources"><h3>SOURCES</h3><ol>{sources_li}</ol></section>'
@@ -1447,9 +1472,9 @@ def build_article_html(art: dict, date_pub: str) -> str:
     word_count = len(body_text.split())
     reading_time = max(1, round(word_count / 200))
 
-    faits    = art["corps"]["faits"].replace("\n", "</p><p>")
-    contexte = art["corps"]["contexte"].replace("\n", "</p><p>")
-    nuances  = art["corps"]["nuances"].replace("\n", "</p><p>")
+    faits    = _esc(art["corps"]["faits"]).replace("\n", "</p><p>")
+    contexte = _esc(art["corps"]["contexte"]).replace("\n", "</p><p>")
+    nuances  = _esc(art["corps"]["nuances"]).replace("\n", "</p><p>")
 
     # Articles liés — 1 par catégorie différente de l'article courant
     related_html = ""
@@ -1483,7 +1508,7 @@ def build_article_html(art: dict, date_pub: str) -> str:
 
     # Share buttons JS
     art_url = f"{BASE_URL}/articles/{slug}.html"
-    art_titre_js = art['titre'].replace("'", "\\'")
+    art_titre_js = _esc_js(art['titre'])
     share_js = f"""<script>
 function shareArticle(){{
   if(navigator.share){{
@@ -1527,9 +1552,9 @@ function copyLink(){{
     share_html = f"""<div class="art__share">
   <span class="art__share-label">Partager</span>
   <button class="share-btn share-btn--native" onclick="shareArticle()" style="display:{'none' if True else 'none'}" id="native-share">↗ Partager</button>
-  <a class="share-btn" href="https://twitter.com/intent/tweet?url={art_url}&text={art['titre'].replace(' ','%20')}" target="_blank" rel="noopener noreferrer external">𝕏 Twitter</a>
+  <a class="share-btn" href="https://twitter.com/intent/tweet?url={art_url}&text={urllib.parse.quote(art['titre'])}" target="_blank" rel="noopener noreferrer external">𝕏 Twitter</a>
   <a class="share-btn" href="https://www.linkedin.com/sharing/share-offsite/?url={art_url}" target="_blank" rel="noopener noreferrer external">in LinkedIn</a>
-  <a class="share-btn" href="https://api.whatsapp.com/send?text={art['titre'].replace(' ','%20')}%20{art_url}" target="_blank" rel="noopener noreferrer external">WhatsApp</a>
+  <a class="share-btn" href="https://api.whatsapp.com/send?text={urllib.parse.quote(art['titre'])}%20{art_url}" target="_blank" rel="noopener noreferrer external">WhatsApp</a>
   <button class="share-btn" onclick="copyLink()" id="copy-btn">Copier le lien</button>
   <button class="fav-btn" id="fav-btn" aria-pressed="false">♡ Favoris</button>
 </div>
@@ -1547,27 +1572,28 @@ function copyLink(){{
 <html lang="fr" data-theme="">
 <head>
   <meta charset="UTF-8"/>
+  {CSP_META}
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <meta name="description" content="{desc_seo}"/>
+  <meta name="description" content="{_esc(desc_seo)}"/>
   <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1"/>
   <meta name="author" content="Les Faits — IA éditoriale"/>
-  <meta property="og:title" content="{art['titre']} — Les Faits"/>
-  <meta property="og:description" content="{desc_seo}"/>
+  <meta property="og:title" content="{_esc(art['titre'])} — Les Faits"/>
+  <meta property="og:description" content="{_esc(desc_seo)}"/>
   <meta property="og:type" content="article"/>
   <meta property="og:url" content="{art_url}"/>
   {f'<meta property="og:image" content="{BASE_URL}/{hero_src}"/><meta property="og:image:width" content="1200"/><meta property="og:image:height" content="630"/><meta property="og:image:type" content="image/jpeg"/>' if hero_src else ''}
   <meta property="article:section" content="{cat}"/>
   <link rel="canonical" href="{art_url}"/>
   <meta name="twitter:card" content="summary_large_image"/>
-  <meta name="twitter:title" content="{art['titre']} — Les Faits"/>
-  <meta name="twitter:description" content="{desc_seo}"/>
+  <meta name="twitter:title" content="{_esc(art['titre'])} — Les Faits"/>
+  <meta name="twitter:description" content="{_esc(desc_seo)}"/>
   <meta name="twitter:image" content="{f'{BASE_URL}/{hero_src}' if hero_src else f'{BASE_URL}/assets/images/og-default.jpg'}"/>
   <link rel="alternate" type="application/rss+xml" title="Les Faits — RSS" href="/feed.xml"/>
   <link rel="icon" type="image/svg+xml" href="/favicon.svg"/>
   <link rel="manifest" href="/manifest.json"/>
-  <title>{art['titre']} — Les Faits</title>
-  <script type="application/ld+json">{{"@context":"https://schema.org","@type":"NewsArticle","headline":"{art['titre'].replace('"', '&quot;')}","description":"{desc_seo.replace('"', '&quot;')}","datePublished":"{datetime.now().strftime('%Y-%m-%dT%H:%M:%S+02:00')}","dateModified":"{datetime.now().strftime('%Y-%m-%dT%H:%M:%S+02:00')}","articleSection":"{cat}","inLanguage":"fr","isAccessibleForFree":true,"image":{{"@type":"ImageObject","url":"{BASE_URL}/{hero_src}","width":1200,"height":630}},"author":{{"@type":"Organization","name":"Les Faits"}},"publisher":{{"@type":"Organization","name":"Les Faits","@id":"{BASE_URL}/#org","logo":{{"@type":"ImageObject","url":"{BASE_URL}/assets/images/og-default.jpg"}}}},"mainEntityOfPage":{{"@type":"WebPage","@id":"{art_url}"}}}}</script>
-  <script type="application/ld+json">{{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{{"@type":"ListItem","position":1,"name":"Accueil","item":"{BASE_URL}/"}},{{"@type":"ListItem","position":2,"name":"{CAT_LABELS.get(cat, cat)}","item":"{BASE_URL}/categories/{cat}.html"}},{{"@type":"ListItem","position":3,"name":"{art['titre'].replace('"', '&quot;')}"}}]}}</script>
+  <title>{_esc(art['titre'])} — Les Faits</title>
+  <script type="application/ld+json">{{"@context":"https://schema.org","@type":"NewsArticle","headline":"{_esc_json(art['titre'])}","description":"{_esc_json(desc_seo)}","datePublished":"{datetime.now().strftime('%Y-%m-%dT%H:%M:%S+02:00')}","dateModified":"{datetime.now().strftime('%Y-%m-%dT%H:%M:%S+02:00')}","articleSection":"{cat}","inLanguage":"fr","isAccessibleForFree":true,"image":{{"@type":"ImageObject","url":"{BASE_URL}/{hero_src}","width":1200,"height":630}},"author":{{"@type":"Organization","name":"Les Faits"}},"publisher":{{"@type":"Organization","name":"Les Faits","@id":"{BASE_URL}/#org","logo":{{"@type":"ImageObject","url":"{BASE_URL}/assets/images/og-default.jpg"}}}},"mainEntityOfPage":{{"@type":"WebPage","@id":"{art_url}"}}}}</script>
+  <script type="application/ld+json">{{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{{"@type":"ListItem","position":1,"name":"Accueil","item":"{BASE_URL}/"}},{{"@type":"ListItem","position":2,"name":"{CAT_LABELS.get(cat, cat)}","item":"{BASE_URL}/categories/{cat}.html"}},{{"@type":"ListItem","position":3,"name":"{_esc_json(art['titre'])}"}}]}}</script>
   <base href="/"/>
   <link rel="stylesheet" href="src/style.css"/>
   {_DARK_INIT_HEAD}
@@ -1601,7 +1627,7 @@ function copyLink(){{
 <div class="art">
   <a class="art__back" href="index.html">← Retour à l'accueil</a>
   <span class="art__cat cat--{cat}">{cat.upper()}</span>
-  <h1 class="art__title">{art['titre']}</h1>
+  <h1 class="art__title">{_esc(art['titre'])}</h1>
   <div class="art__meta">
     {f'<span style="color:var(--blue);font-weight:600">{nb_src} source{"s" if nb_src > 1 else ""}</span><span class="meta__sep" aria-hidden="true">·</span>' if nb_src > 0 else ''}
     <time datetime="{datetime.now().strftime('%Y-%m-%d')}">{date_pub}</time>
@@ -1611,7 +1637,7 @@ function copyLink(){{
   {verify_html}
   <div class="art__rule"></div>
   {hero_img}
-  <p class="art__resume">{resume_txt}</p>
+  <p class="art__resume">{_esc(resume_txt)}</p>
   <h2 class="art__h2">Les faits</h2><p>{faits}</p>
   <h2 class="art__h2">Contexte</h2><p>{contexte}</p>
   <h2 class="art__h2">Débats et nuances</h2><p>{nuances}</p>
@@ -1672,9 +1698,9 @@ def rebuild_articles_related(articles: list):
             continue
         cards = "".join(
             f'<a class="art__related-card" href="articles/{a["slug"]}.html">'
-            f'<img src="assets/images/{a["slug"]}.jpg" alt="" width="400" height="110" loading="lazy" style="width:calc(100% + 32px);margin:-14px -16px 12px;height:110px;object-fit:cover;display:block;border-radius:var(--radius) var(--radius) 0 0">'
+            f'<img src="assets/images/{a["slug"]}.jpg" alt="{_esc(a["titre"])}" width="400" height="110" loading="lazy" style="width:calc(100% + 32px);margin:-14px -16px 12px;height:110px;object-fit:cover;display:block;border-radius:var(--radius) var(--radius) 0 0">'
             f'<span class="cat cat--{a["categorie"]}">{a["categorie"].upper()}</span>'
-            f'<div class="title-sm">{a["titre"]}</div>'
+            f'<div class="title-sm">{_esc(a["titre"])}</div>'
             f'<div style="font-size:10px;color:var(--muted);margin-top:6px">{a["date"]}</div>'
             f'</a>'
             for a in related
@@ -1720,10 +1746,10 @@ def rebuild_index():
     # Génération des cards "side" (articles 1-3)
     def side_card(a):
         return f"""<a class="une__side-item" href="articles/{a['slug']}.html" style="display:grid;grid-template-columns:64px 1fr;gap:14px;align-items:center">
-          <img src="assets/images/{a['slug']}.jpg" alt="{a['titre']}" loading="lazy" style="width:64px;height:64px;object-fit:cover;border-radius:4px;display:block">
+          <img src="assets/images/{a['slug']}.jpg" alt="{_esc(a['titre'])}" loading="lazy" style="width:64px;height:64px;object-fit:cover;border-radius:4px;display:block">
           <div>
           <span class="cat cat--{a['categorie']}">{a['categorie'].upper()}</span>
-          <h3 class="title-md">{a['titre']}</h3>
+          <h3 class="title-md">{_esc(a['titre'])}</h3>
           <div class="meta"><span class="meta__src">{a['nb_sources']} sources</span>
           <span class="meta__sep">·</span><span>{a['date']}</span></div>
           </div>
@@ -1731,10 +1757,10 @@ def rebuild_index():
 
     def mini_card(a):
         return f"""<a class="card3" href="articles/{a['slug']}.html">
-          <img class="card3__img" src="assets/images/{a['slug']}.jpg" alt="{a['titre']}" loading="lazy">
+          <img class="card3__img" src="assets/images/{a['slug']}.jpg" alt="{_esc(a['titre'])}" loading="lazy">
           <div class="card3__body">
             <span class="cat cat--{a['categorie']}">{a['categorie'].upper()}</span>
-            <h3 class="title-sm">{a['titre']}</h3>
+            <h3 class="title-sm">{_esc(a['titre'])}</h3>
             <div class="meta" style="margin-top:10px">
               <span class="meta__src">{a['nb_sources']} sources</span>
               <span class="meta__sep">·</span><span>{a['date']}</span>
@@ -1746,7 +1772,7 @@ def rebuild_index():
         return f"""<a class="list-item" href="articles/{a['slug']}.html">
           <span class="list-item__num">0{i+1}</span>
           <div><span class="cat cat--{a['categorie']}">{a['categorie'].upper()}</span>
-          <h3 class="title-sm">{a['titre']}</h3>
+          <h3 class="title-sm">{_esc(a['titre'])}</h3>
           <div class="meta" style="margin-top:6px">
             <span class="meta__src">{a['nb_sources']} sources</span>
             <span class="meta__sep">·</span><span>{a['date']}</span>
@@ -1826,6 +1852,7 @@ def build_index_html(main, side_html, grid_html, list_html):
 <html lang="fr" data-theme="">
 <head>
   <meta charset="UTF-8"/>
+  {CSP_META}
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <meta name="description" content="Les Faits — Journal numérique français rédigé par IA. Juste les faits. Aucun parti pris."/>
   <meta property="og:title" content="Les Faits — Juste les faits. Aucun parti pris."/>
@@ -2036,10 +2063,10 @@ def build_category_pages():
         if arts:
             cards_html = "\n".join(f"""
         <a class="card3" href="articles/{a['slug']}.html">
-          <img class="card3__img" src="assets/images/{a['slug']}.jpg" alt="{a['titre']}" loading="lazy">
+          <img class="card3__img" src="assets/images/{a['slug']}.jpg" alt="{_esc(a['titre'])}" loading="lazy">
           <div class="card3__body">
             <span class="cat cat--{cat}">{label.upper()}</span>
-            <h3 class="title-sm">{a['titre']}</h3>
+            <h3 class="title-sm">{_esc(a['titre'])}</h3>
             <div class="meta" style="margin-top:10px">
               <span class="meta__src">{a['nb_sources']} sources</span>
               <span class="meta__sep">·</span><span>{a['date']}</span>
@@ -2076,6 +2103,7 @@ def build_category_pages():
 <html lang="fr" data-theme="">
 <head>
   <meta charset="UTF-8"/>
+  {CSP_META}
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <meta name="description" content="Les Faits — Rubrique {label}. Juste les faits. Aucun parti pris."/>
   <link rel="alternate" type="application/rss+xml" title="Les Faits — RSS" href="/feed.xml"/>
@@ -2197,11 +2225,11 @@ def build_archive_page():
             img_src = f"assets/images/{a['slug']}.jpg"
             rows += f"""
     <a href="articles/{a['slug']}.html" style="display:grid;grid-template-columns:80px 1fr;gap:12px 20px;padding:16px 0;border-bottom:1px solid var(--border);align-items:start;text-decoration:none;color:inherit">
-      <img src="{img_src}" alt="" style="width:80px;height:54px;object-fit:cover;border-radius:4px;background:var(--light)" loading="lazy" onerror="this.style.display='none'"/>
+      <img src="{img_src}" alt="{_esc(a['titre'])}" style="width:80px;height:54px;object-fit:cover;border-radius:4px;background:var(--light)" loading="lazy" onerror="this.style.display='none'"/>
       <div>
         <span class="cat cat--{cat}" style="display:inline-block;font-size:10px;font-weight:700;letter-spacing:.06em;margin-bottom:4px">{label.upper()}</span>
-        <div style="font-weight:600;color:var(--ink);line-height:1.4;font-size:1rem">{a['titre']}</div>
-        <p style="margin:4px 0 0;font-size:.85rem;color:var(--muted);line-height:1.5">{resume[:120]}{'…' if len(resume)>120 else ''}</p>
+        <div style="font-weight:600;color:var(--ink);line-height:1.4;font-size:1rem">{_esc(a['titre'])}</div>
+        <p style="margin:4px 0 0;font-size:.85rem;color:var(--muted);line-height:1.5">{_esc(resume[:120])}{'…' if len(resume)>120 else ''}</p>
         <span style="font-size:.75rem;color:var(--muted);margin-top:4px;display:block">{a.get('date','').split(',')[0]} · {a.get('nb_sources',0)} sources</span>
       </div>
     </a>"""
@@ -2216,6 +2244,7 @@ def build_archive_page():
 <html lang="fr" data-theme="">
 <head>
   <meta charset="UTF-8"/>
+  {CSP_META}
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <meta name="description" content="Tous les articles publiés par Les Faits — journal numérique français rédigé par IA."/>
   <meta name="robots" content="noindex"/>

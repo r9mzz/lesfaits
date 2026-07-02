@@ -23,9 +23,17 @@ on:
         default: "false"
         type: boolean
 
+# Empêche deux exécutions simultanées (cron + déclenchement manuel qui se
+# chevauchent) de pousser des commits concurrents sur le même dépôt — mises
+# en file plutôt qu'annulées pour ne jamais couper une génération en cours.
+concurrency:
+  group: factuel-pipeline
+  cancel-in-progress: false
+
 jobs:
   pipeline:
     runs-on: ubuntu-latest
+    timeout-minutes: 20
     permissions:
       contents: write
 

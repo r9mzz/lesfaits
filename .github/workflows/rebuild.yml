@@ -3,9 +3,16 @@ name: Factuel — Rebuild site
 on:
   workflow_dispatch: {}
 
+# Partage le même groupe que le déploiement : rebuild et deploy poussent
+# tous les deux vers lesfaits-site, ne jamais les laisser tourner en parallèle.
+concurrency:
+  group: factuel-deploy
+  cancel-in-progress: false
+
 jobs:
   rebuild:
     runs-on: ubuntu-latest
+    timeout-minutes: 15
     permissions:
       contents: write
 

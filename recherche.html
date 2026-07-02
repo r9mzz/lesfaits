@@ -2,6 +2,7 @@
 <html lang="fr" data-theme="">
 <head>
   <meta charset="UTF-8"/>
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cloud.umami.is; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; connect-src 'self' https://cloud.umami.is https://api.web3forms.com; base-uri 'self'; form-action 'self' https://api.web3forms.com; frame-ancestors 'none';"/>
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <meta name="description" content="Les Faits — Recherche"/>
@@ -211,7 +212,7 @@ function renderCards(matches, q) {
     const imgKw = (a.image_keyword||'').replace(/\s+/g,',');
     const imgSrc = a.slug ? `assets/images/${a.slug}.jpg` : '';
     return `<a class="search-result" href="${BASE}articles/${a.slug}.html">
-      ${imgSrc ? `<img class="search-result__img" src="${imgSrc}" alt="" loading="lazy"/>` : ''}
+      ${imgSrc ? `<img class="search-result__img" src="${imgSrc}" alt="${a.titre.replace(/"/g,'&quot;')}" loading="lazy"/>` : ''}
       <div class="search-result__body">
         <div class="search-result__cat">${CAT_LABELS[a.categorie] || a.categorie}</div>
         <div class="search-result__titre">${highlight(a.titre, q)}</div>

@@ -17,9 +17,17 @@ on:
     - cron: "50 16 * 11-12,1-3 *"
   workflow_dispatch: {}
 
+# Deux déploiements simultanés pourraient pousser des commits concurrents ou
+# des suppressions d'articles incohérentes sur lesfaits-site — en file, pas
+# annulés, pour ne jamais interrompre un déploiement déjà en cours.
+concurrency:
+  group: factuel-deploy
+  cancel-in-progress: false
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    timeout-minutes: 10
     permissions:
       contents: read
 
