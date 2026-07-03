@@ -17,7 +17,7 @@ import verification
 from verification import verifier_article, ANTHROPIC_KEY
 
 # ── Plafond de budget — coupe net, pas juste un compteur décoratif ─────────
-MAX_APPELS = 60  # ~3 $ estimé à 0,05 $/appel — À AJUSTER avant de lancer
+MAX_APPELS = 50  # ~2,50 $ estimé à 0,05 $/appel — validé par l'utilisateur
 _appels_effectues = 0
 _budget_atteint = False
 
