@@ -18,7 +18,10 @@ def load_sources(slug):
     soup = BeautifulSoup(html, "lxml")
     sources = []
     for li in soup.select(".sources li"):
-        inst = li.find("strong").get_text(strip=True) if li.find("strong") else ""
+        # Deux formats HTML coexistent dans le corpus : <strong> (récent) et
+        # <cite> (plus ancien) pour le nom de l'institution.
+        inst_el = li.find("strong") or li.find("cite")
+        inst = inst_el.get_text(strip=True) if inst_el else ""
         titre_src = li.find("em").get_text(strip=True) if li.find("em") else ""
         a = li.find("a")
         url = a["href"] if a else ""

@@ -50,7 +50,7 @@ BLOC 1 — FACTUEL (zéro tolérance) :
 BLOC 2 — SOURCING (100% vérifiable) :
 - source_inventee : tout nom de média, expert, institution, étude cité dans le texte qui n'apparaît pas dans les sources autorisées
 - formule_vague : "selon les experts", "des études montrent", "selon les sources", "il est établi" sans référence précise à une source de la liste
-- source_non_editoriale : une source non-journalistique/non-institutionnelle (ex : un outil de traduction, un dictionnaire) citée comme autorité factuelle
+- source_non_editoriale : une source non-journalistique/non-institutionnelle (ex : un outil de traduction, un dictionnaire) citée comme autorité factuelle. EXCEPTION explicite : une fiche constructeur/fabricant listée dans les sources autorisées EST une source valable pour des caractéristiques factuelles et mesurables de son propre produit (taille d'écran, capacité de batterie, modèle de processeur, prix affiché) — personne ne connaît mieux ces specs que le fabricant lui-même. Elle redevient un problème UNIQUEMENT si elle sert de caution à un jugement de valeur ou un comparatif ("meilleur choix", "excellent rapport qualité-prix", "recommandé") — ça reste du discours marketing, pas une source neutre, même attribué explicitement au fabricant.
 - source_derivee_comptee_comme_primaire : plusieurs sources listées qui ne font que recopier la même dépêche/communiqué sans apporter d'info distincte, comptées comme des sources indépendantes alors qu'elles ne le sont pas
 - compteur_incoherent : le champ "nb_sources" ne correspond pas au nombre réel de sources distinctes effectivement utilisées (sources fantômes comptées, ou sources utilisées mais non comptées) — c'est une question d'intégrité du sourcing, pas de style
 
