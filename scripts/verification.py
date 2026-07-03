@@ -300,26 +300,39 @@ def verifier_article(art: dict) -> tuple[dict, str]:
 
     print(f"     [VERIF] {n_pb} problème(s) détecté(s) — correction automatique…")
 
-    try:
-        art_corrige = corriger(art, rapport)
-        rapport_final = detecter(art_corrige)
-    except Exception as e:
-        print(f"     [VERIF] Erreur API correction ({e}) — mis en file de modération")
-        enqueue_moderation(art, rapport, {"erreur": str(e)})
-        _log(slug, "a_corriger_manuellement", {"etape": "correction", "erreur": str(e)})
-        return art, "a_corriger_manuellement"
+    # Jusqu'à 3 tentatives de correction : avec 15-25 problèmes simultanés,
+    # une seule passe converge rarement vers la conformité totale. Chaque
+    # tentative repart du rapport de la précédente (les problèmes restants).
+    art_courant = art
+    rapport_courant = rapport
+    MAX_TENTATIVES = 3
+    for tentative in range(1, MAX_TENTATIVES + 1):
+        try:
+            art_corrige = corriger(art_courant, rapport_courant)
+            rapport_final = detecter(art_corrige)
+        except Exception as e:
+            print(f"     [VERIF] Erreur API correction (tentative {tentative}) ({e}) — mis en file de modération")
+            enqueue_moderation(art, rapport, {"erreur": str(e)})
+            _log(slug, "a_corriger_manuellement", {"etape": "correction", "tentative": tentative, "erreur": str(e)})
+            return art, "a_corriger_manuellement"
 
-    if rapport_final.get("conforme"):
-        _log(slug, "corrige_automatiquement", {
-            "problemes_initiaux": n_pb,
-            "rapport_initial": rapport,
-        })
-        return art_corrige, "corrige_automatiquement"
+        if rapport_final.get("conforme"):
+            _log(slug, "corrige_automatiquement", {
+                "problemes_initiaux": n_pb,
+                "tentatives": tentative,
+                "rapport_initial": rapport,
+            })
+            return art_corrige, "corrige_automatiquement"
 
-    # Toujours non conforme après correction → jamais publié automatiquement
-    enqueue_moderation(art_corrige, rapport, rapport_final)
+        n_restants = len(rapport_final.get("problemes", []))
+        print(f"     [VERIF] tentative {tentative}/{MAX_TENTATIVES} : {n_restants} problème(s) restant(s)")
+        art_courant, rapport_courant = art_corrige, rapport_final
+
+    # Toujours non conforme après MAX_TENTATIVES corrections → jamais publié automatiquement
+    enqueue_moderation(art_courant, rapport, rapport_courant)
     _log(slug, "a_corriger_manuellement", {
         "problemes_initiaux": n_pb,
-        "problemes_restants": len(rapport_final.get("problemes", [])),
+        "tentatives": MAX_TENTATIVES,
+        "problemes_restants": len(rapport_courant.get("problemes", [])),
     })
-    return art_corrige, "a_corriger_manuellement"
+    return art_courant, "a_corriger_manuellement"

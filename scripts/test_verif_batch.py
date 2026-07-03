@@ -1,14 +1,12 @@
-"""Test diagnostic : affiche le rapport JSON COMPLET (bloc/type/phrase/
-explication) de la passe de détection sur un petit échantillon, sans
-réécrire aucun fichier. Objectif : comprendre pourquoi des articles neutres
-récoltent autant de signalements, et vérifier si le bloc 5 se déclenche
-correctement sur un cas légal réel."""
-import json, sys
+"""Test final : appelle verifier_article() (multi-tentatives) sur 2 articles
+et affiche le résultat concret — statut + texte corrigé final, pas juste des
+statistiques. SANS réécrire les fichiers publiés."""
+import sys
 from pathlib import Path
 from bs4 import BeautifulSoup
 
 sys.path.insert(0, str(Path(__file__).parent))
-from verification import detecter, ANTHROPIC_KEY
+from verification import verifier_article, ANTHROPIC_KEY
 
 SLUGS = [
     "violences-enfants-france-insuffisante",
@@ -54,11 +52,9 @@ for slug in SLUGS:
     print("\n" + "=" * 100, flush=True)
     print(f">>> {slug}", flush=True)
     print("=" * 100, flush=True)
-    rapport = detecter(art)
-    print(f"conforme : {rapport.get('conforme')}", flush=True)
-    problemes = rapport.get("problemes", [])
-    print(f"nb problèmes : {len(problemes)}", flush=True)
-    for i, p in enumerate(problemes, 1):
-        print(f"\n  [{i}] bloc={p.get('bloc')} type={p.get('type')} section={p.get('section')}", flush=True)
-        print(f"      phrase : {p.get('phrase_exacte','')[:200]}", flush=True)
-        print(f"      explication : {p.get('explication','')}", flush=True)
+    art_final, statut = verifier_article(art)
+    print(f"\nSTATUT FINAL : {statut}", flush=True)
+    print(f"\n--- RÉSUMÉ ---\n{art_final.get('resume','')}", flush=True)
+    for section in ("faits", "contexte", "nuances"):
+        print(f"\n--- {section.upper()} ---\n{art_final['corps'].get(section,'')}", flush=True)
+    print(f"\nnb_sources final : {art_final.get('nb_sources')}", flush=True)
