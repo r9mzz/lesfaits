@@ -68,17 +68,19 @@ ARTICLE :
 SOURCES AUTORISÉES :
 {SOURCES}"""
 
-PROMPT_CORRECTION = """Tu es un correcteur pour Les Faits. Voici un article et un rapport précis de ses défauts. Ta mission : produire une version corrigée qui règle CHAQUE problème listé, sans en introduire de nouveaux.
+PROMPT_CORRECTION = """Tu es un correcteur pour Les Faits. Voici un article et un rapport précis de ses défauts. Ta mission : produire une version corrigée qui règle CHAQUE problème listé, sans en introduire de nouveaux — et qui reste un article dense et substantiel, PAS un résumé squelettique.
 
 RÈGLES DE CORRECTION :
 - Pour une "source_inventee" : supprime la phrase ou le passage concerné, SAUF si l'information peut être reformulée en te basant uniquement sur les sources autorisées — dans ce cas, réécris-la en l'attribuant correctement.
 - Pour une "formule_vague" : soit tu la relies à une source précise de la liste, soit tu la supprimes.
-- Pour une "redondance" : supprime la répétition dans la section où elle est en trop (garde-la seulement dans "faits").
-- Pour un "jugement_de_valeur" : reformule en langage neutre et factuel.
+- Pour une "redondance" : NE SUPPRIME PAS SIMPLEMENT LA PHRASE. Remplace-la par un fait DISTINCT tiré des mêmes sources autorisées, encore inutilisé dans l'article — un chiffre précis, une date, un autre acteur cité, une méthodologie, une réaction, une comparaison historique ou géographique, une conséquence concrète. Les sources contiennent presque toujours plus de matière que ce qui a été extrait au premier passage ; relis-les intégralement pour trouver cet angle neuf. Supprimer purement et simplement n'est acceptable QUE si tu as vérifié qu'aucun fait distinct exploitable ne reste dans les sources.
+- Pour un "jugement_de_valeur" : reformule en langage neutre et factuel, sans réduire la longueur.
 - Pour une "extrapolation" : supprime, sauf si tu peux l'attribuer explicitement à une source qui l'exprime.
 - Pour un "compteur_incoherent" : recompte et corrige le champ "nb_sources" pour qu'il reflète exactement la réalité du texte corrigé.
 
-Ne modifie AUCUNE partie de l'article qui n'est pas mentionnée dans le rapport de problèmes. Ne raccourcis pas arbitrairement, ne réécris pas le style, corrige uniquement ce qui est signalé.
+Objectif de longueur : chaque section corrigée (faits/contexte/nuances) doit rester proche de sa longueur originale (± 15 %), sauf si les sources sont réellement épuisées de tout fait distinct. Un article de presse a plusieurs paragraphes par section, pas une phrase unique — la richesse vient de la variété des faits cités, jamais de leur répétition.
+
+Ne modifie AUCUNE partie de l'article qui n'est pas mentionnée dans le rapport de problèmes. Ne réécris pas le style au-delà de ce qui est nécessaire pour corriger les problèmes signalés.
 
 Réponds avec le même format JSON que l'article original, entièrement corrigé, sans texte hors JSON.
 
