@@ -99,6 +99,7 @@ jobs:
           cp    contact.html          /tmp/site/ 2>/dev/null || true
           cp    methode.html          /tmp/site/ 2>/dev/null || true
           cp    corrections.html      /tmp/site/ 2>/dev/null || true
+          cp    404.html             /tmp/site/ 2>/dev/null || true
           cp -r src/                  /tmp/site/ 2>/dev/null || true
 
           cd /tmp/site
