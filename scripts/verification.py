@@ -263,6 +263,24 @@ def _problemes_bloquants(problemes: list) -> list:
     return [p for p in problemes if p.get("bloc") in (1, 2, 5)]
 
 
+def _perte_substance(art_original: dict, art_corrige: dict) -> tuple[bool, str | None, int, int]:
+    """Détecte une correction qui coupe au lieu de réécrire — risque identifié
+    dès le tout premier test (article agriculture : "Contexte" passé de 4
+    phrases à 1 seule après correction, faute de matière neuve dans les
+    sources). Ne coûte aucun appel API : simple comptage de mots avant/après.
+    Retourne (perte_detectee, section, mots_avant, mots_apres)."""
+    SEUIL_RATIO = 0.5   # perte de plus de 50% des mots de la section
+    PLANCHER_MOTS = 15  # en dessous, une section devient une coquille vide
+    for section in ("faits", "contexte", "nuances"):
+        avant = len((art_original.get("corps", {}).get(section) or "").split())
+        apres = len((art_corrige.get("corps", {}).get(section) or "").split())
+        if avant < 20:
+            continue  # section déjà courte à l'origine, pas de risque de "coupe"
+        if apres < avant * (1 - SEUIL_RATIO) or apres < PLANCHER_MOTS:
+            return True, section, avant, apres
+    return False, None, 0, 0
+
+
 def enqueue_moderation(art: dict, rapport_initial: dict, rapport_final: dict):
     """File d'attente des articles à valider manuellement — jamais publiés."""
     _append_json(MODERATION_QUEUE, {
@@ -366,6 +384,23 @@ def verifier_article(art: dict) -> tuple[dict, str]:
             print(f"     [MODÉRATION] sujet sensible détecté (tentative {tentative}) — relecture humaine obligatoire ({raison})")
             enqueue_moderation(art_corrige, rapport, rapport_final)
             _log(slug, "a_corriger_manuellement", {"tentative": tentative, "sujet_sensible": True, "raison": raison})
+            return art_corrige, "a_corriger_manuellement"
+
+        # Garde-fou "perte de substance" : la correction a coupé une section
+        # au lieu de la réécrire avec un fait neuf (faute de matière dans les
+        # sources). Ne bloque jamais en douce — force toujours la modération,
+        # quel que soit l'état des blocs 1-5, car publier une section vidée
+        # de son contenu casse la promesse de densité même si le texte
+        # restant est par ailleurs 100% conforme.
+        perte, section_touchee, mots_avant, mots_apres = _perte_substance(art, art_corrige)
+        if perte:
+            print(f"     [MODÉRATION] perte de substance détectée (tentative {tentative}) : "
+                  f"section '{section_touchee}' {mots_avant}→{mots_apres} mots — mis en file")
+            enqueue_moderation(art_corrige, rapport, rapport_final)
+            _log(slug, "a_corriger_manuellement", {
+                "tentative": tentative, "perte_substance": True,
+                "section": section_touchee, "mots_avant": mots_avant, "mots_apres": mots_apres,
+            })
             return art_corrige, "a_corriger_manuellement"
 
         if rapport_final.get("conforme") or not bloquants:
