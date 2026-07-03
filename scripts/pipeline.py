@@ -569,7 +569,8 @@ RÈGLES ABSOLUES — toute violation = article rejeté :
 10. positions : si et SEULEMENT SI l'article contient des prises de position explicites et vérifiables de 2 à 4 acteurs RÉELS (déclarations citées, votes enregistrés, communiqués officiels présents dans les sources), renseigne ce bloc avec verifie=true. Sinon, mets verifie=false et laisse acteurs vide []. Ne jamais inventer ou déduire une position — uniquement ce qui est explicitement attesté dans les sources. position = 0 (totalement favorable/consensuel) à 100 (totalement critique/opposé).
 11. Le résumé ('resume') et le corps ('faits') ne doivent JAMAIS contenir de phrases identiques ou quasi identiques (mêmes mots, même structure) : le résumé est une synthèse reformulée, pas un copier-coller déguisé du corps.
 12. Séparation stricte des registres : 'faits' = actualité immédiate uniquement (le fait du jour). 'contexte' = historique, évolution passée, comparaisons uniquement. Ne jamais mettre du contexte historique dans 'faits', ni redire les faits du jour dans 'contexte'.
-13. Chaque source citée dans le texte doit apporter un élément NOUVEAU (chiffre, angle, nuance). Ne JAMAIS répéter la même information sous plusieurs attributions successives (« Selon X… D'après Y… Selon Z… » disant la même chose = interdit). Maximum 3 attributions « Selon X » par section ; si plusieurs médias rapportent la même dépêche, cite-la UNE fois avec la source la plus autorisée."""
+13. Chaque source citée dans le texte doit apporter un élément NOUVEAU (chiffre, angle, nuance). Ne JAMAIS répéter la même information sous plusieurs attributions successives (« Selon X… D'après Y… Selon Z… » disant la même chose = interdit). Maximum 3 attributions « Selon X » par section ; si plusieurs médias rapportent la même dépêche, cite-la UNE fois avec la source la plus autorisée.
+14. ACTUALITÉ UNIQUEMENT : le sujet doit reposer sur un événement daté des dernières 48 heures (étude publiée, décision officielle, annonce, vote, incident). Un sujet intemporel ou encyclopédique sans événement déclencheur récent (ex: « la théorie de l'évolution », « le coucou, un oiseau stratège ») = réponds HORS_PERIMETRE."""
 
 
 # ══════════════════════════════════════════════════════════════════════════════
@@ -1404,12 +1405,12 @@ _DARK_MODE_JS = """<script>
 (function(){
   var btn=document.getElementById('dark-toggle');
   var dark=document.documentElement.getAttribute('data-theme')==='dark';
-  if(btn) btn.textContent=dark?'☀️':'🌙';
+  if(btn){btn.textContent=dark?'☀️':'🌙';btn.setAttribute('aria-label',dark?'Passer en mode clair':'Passer en mode sombre');}
   if(btn) btn.addEventListener('click',function(){
     var d=document.documentElement.getAttribute('data-theme')==='dark';
     document.documentElement.setAttribute('data-theme',d?'light':'dark');
     localStorage.setItem('theme',d?'light':'dark');
-    btn.textContent=d?'🌙':'☀️';
+    btn.textContent=d?'🌙':'☀️';btn.setAttribute('aria-label',d?'Passer en mode sombre':'Passer en mode clair');
   });
 })();
 </script>"""
@@ -1568,7 +1569,7 @@ def build_article_html(art: dict, date_pub: str) -> str:
             cards = "\n".join(
                 f'<a class="art__related-card" href="articles/{a["slug"]}.html">'
                 f'<img src="assets/images/{a["slug"]}.jpg" alt="{a["titre"]}" loading="lazy" style="width:calc(100% + 32px);margin:-14px -16px 12px;height:110px;object-fit:cover;display:block;border-radius:var(--radius) var(--radius) 0 0">'
-                f'<span class="cat cat--{a["categorie"]}">{a["categorie"].upper()}</span>'
+                f'<span class="cat cat--{a["categorie"]}">{_cat_up(a["categorie"])}</span>'
                 f'<div class="title-sm">{a["titre"]}</div>'
                 f'<div style="font-size:10px;color:var(--muted);margin-top:6px">{a["date"]}</div>'
                 f'</a>'
@@ -1698,7 +1699,7 @@ function copyLink(){{
 <main>
 <div class="art">
   <a class="art__back" href="index.html">← Retour à l'accueil</a>
-  <span class="art__cat cat--{cat}">{cat.upper()}</span>
+  <span class="art__cat cat--{cat}">{_cat_up(cat)}</span>
   <h1 class="art__title">{_esc(art['titre'])}</h1>
   <div class="art__meta">
     {f'<span style="color:var(--blue);font-weight:600">{nb_src} source{"s" if nb_src > 1 else ""}</span><span class="meta__sep" aria-hidden="true">·</span>' if nb_src > 0 else ''}
@@ -1771,7 +1772,7 @@ def rebuild_articles_related(articles: list):
         cards = "".join(
             f'<a class="art__related-card" href="articles/{a["slug"]}.html">'
             f'<img src="assets/images/{a["slug"]}.jpg" alt="{_esc(a["titre"])}" width="400" height="110" loading="lazy" style="width:calc(100% + 32px);margin:-14px -16px 12px;height:110px;object-fit:cover;display:block;border-radius:var(--radius) var(--radius) 0 0">'
-            f'<span class="cat cat--{a["categorie"]}">{a["categorie"].upper()}</span>'
+            f'<span class="cat cat--{a["categorie"]}">{_cat_up(a["categorie"])}</span>'
             f'<div class="title-sm">{_esc(a["titre"])}</div>'
             f'<div style="font-size:10px;color:var(--muted);margin-top:6px">{a["date"]}</div>'
             f'</a>'
@@ -1820,7 +1821,7 @@ def rebuild_index():
         return f"""<a class="une__side-item" href="articles/{a['slug']}.html" style="display:grid;grid-template-columns:64px 1fr;gap:14px;align-items:center">
           <img src="assets/images/{a['slug']}.jpg" alt="{_esc(a['titre'])}" loading="lazy" style="width:64px;height:64px;object-fit:cover;border-radius:4px;display:block">
           <div>
-          <span class="cat cat--{a['categorie']}">{a['categorie'].upper()}</span>
+          <span class="cat cat--{a['categorie']}">{_cat_up(a['categorie'])}</span>
           <h3 class="title-md">{_esc(a['titre'])}</h3>
           <div class="meta"><span class="meta__src">{a['nb_sources']} sources</span>
           <span class="meta__sep">·</span><span>{a['date']}</span></div>
@@ -1831,7 +1832,7 @@ def rebuild_index():
         return f"""<a class="card3" href="articles/{a['slug']}.html">
           <img class="card3__img" src="assets/images/{a['slug']}.jpg" alt="{_esc(a['titre'])}" loading="lazy">
           <div class="card3__body">
-            <span class="cat cat--{a['categorie']}">{a['categorie'].upper()}</span>
+            <span class="cat cat--{a['categorie']}">{_cat_up(a['categorie'])}</span>
             <h3 class="title-sm">{_esc(a['titre'])}</h3>
             <div class="meta" style="margin-top:10px">
               <span class="meta__src">{a['nb_sources']} sources</span>
@@ -1843,7 +1844,7 @@ def rebuild_index():
     def list_card(i, a):
         return f"""<a class="list-item" href="articles/{a['slug']}.html">
           <span class="list-item__num">0{i+1}</span>
-          <div><span class="cat cat--{a['categorie']}">{a['categorie'].upper()}</span>
+          <div><span class="cat cat--{a['categorie']}">{_cat_up(a['categorie'])}</span>
           <h3 class="title-sm">{_esc(a['titre'])}</h3>
           <div class="meta" style="margin-top:6px">
             <span class="meta__src">{a['nb_sources']} sources</span>
@@ -1979,7 +1980,7 @@ def build_index_html(main, side_html, grid_html, list_html):
     <div class="une__grid">
       <a class="une__main" href="articles/{main['slug']}.html">
         <img src="assets/images/{main['slug']}.jpg" alt="{main['titre']}" loading="eager" style="width:calc(100% + 72px);margin:-32px -36px 20px;height:240px;object-fit:cover;display:block">
-        <span class="cat cat--{main['categorie']}">{main['categorie'].upper()}</span>
+        <span class="cat cat--{main['categorie']}">{_cat_up(main['categorie'])}</span>
         <h2 class="title-xl">{main['titre']}</h2>
         <p class="excerpt">{resume}</p>
         <div class="meta">
@@ -2022,6 +2023,13 @@ CAT_LABELS = {
     "environnement": "Environnement",
     "societe":       "Société",
 }
+
+# Affichage MAJUSCULES avec accents (les slugs n'en ont pas : SOCIETE ≠ SOCIÉTÉ)
+CAT_UPPER = {c: l.upper() for c, l in CAT_LABELS.items()}
+
+
+def _cat_up(c: str) -> str:
+    return CAT_UPPER.get(c, c.upper())
 
 def build_search_json(articles: list):
     """Génère data/search.json pour la recherche côté client."""
@@ -2296,7 +2304,7 @@ def build_archive_page():
                 resume = resume[0] if resume else ""
             img_src = f"assets/images/{a['slug']}.jpg"
             rows += f"""
-    <a href="articles/{a['slug']}.html" style="display:grid;grid-template-columns:80px 1fr;gap:12px 20px;padding:16px 0;border-bottom:1px solid var(--border);align-items:start;text-decoration:none;color:inherit">
+    <a class="archive-row" href="articles/{a['slug']}.html" style="display:grid;grid-template-columns:80px 1fr;gap:12px 20px;padding:16px 0;border-bottom:1px solid var(--border);align-items:start;text-decoration:none;color:inherit">
       <img src="{img_src}" alt="{_esc(a['titre'])}" style="width:80px;height:54px;object-fit:cover;border-radius:4px;background:var(--light)" loading="lazy" onerror="this.style.display='none'"/>
       <div>
         <span class="cat cat--{cat}" style="display:inline-block;font-size:10px;font-weight:700;letter-spacing:.06em;margin-bottom:4px">{label.upper()}</span>
@@ -2380,6 +2388,26 @@ document.addEventListener('keydown',function(e){{if(e.key==='Escape')closeMenu()
   <h1 style="font-family:var(--font-serif,Georgia,serif);font-size:2rem;margin-bottom:4px">Tous les articles</h1>
   <p style="color:var(--muted);font-size:14px;margin-bottom:48px">{len(articles)} articles publiés</p>
   {sections}
+  <div style="text-align:center;margin-top:8px">
+    <button id="archive-more" type="button" style="display:none;padding:12px 32px;background:var(--blue);color:#fff;border:none;border-radius:4px;font-weight:600;font-size:.95rem;cursor:pointer">Voir plus d'articles</button>
+  </div>
+  <script>
+  (function(){{
+    var PAGE=40, rows=Array.prototype.slice.call(document.querySelectorAll('.archive-row')), shown=PAGE;
+    var btn=document.getElementById('archive-more');
+    function apply(){{
+      rows.forEach(function(r,i){{r.style.display=i<shown?'grid':'none';}});
+      document.querySelectorAll('main section').forEach(function(s){{
+        var srows=s.querySelectorAll('.archive-row'),vis=false;
+        for(var k=0;k<srows.length;k++){{if(srows[k].style.display!=='none'){{vis=true;break;}}}}
+        s.style.display=vis?'':'none';
+      }});
+      btn.style.display=shown<rows.length?'inline-block':'none';
+      if(shown<rows.length)btn.textContent='Voir plus d'articles ('+(rows.length-shown)+' restants)';
+    }}
+    if(rows.length>PAGE){{btn.addEventListener('click',function(){{shown+=PAGE;apply();}});apply();}}
+  }})();
+  </script>
 </main>
 
 {_build_footer()}

@@ -193,7 +193,7 @@ function copyLink(){
     var d=document.documentElement.getAttribute('data-theme')==='dark';
     document.documentElement.setAttribute('data-theme',d?'light':'dark');
     localStorage.setItem('theme',d?'light':'dark');
-    btn.textContent=d?'🌙':'☀️';
+    btn.textContent=d?'🌙':'☀️';btn.setAttribute('aria-label',d?'Passer en mode sombre':'Passer en mode clair');
   });
 })();
 </script>
