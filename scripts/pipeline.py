@@ -2060,7 +2060,10 @@ def build_sitemap(articles: list):
         (f"{BASE_URL}/methode.html", "0.6", "monthly"),
         (f"{BASE_URL}/mentions-legales.html", "0.3", "yearly"),
         (f"{BASE_URL}/cgu.html", "0.3", "yearly"),
+        (f"{BASE_URL}/confidentialite.html", "0.3", "yearly"),
         (f"{BASE_URL}/contact.html", "0.4", "monthly"),
+        (f"{BASE_URL}/corrections.html", "0.4", "weekly"),
+        (f"{BASE_URL}/recherche.html", "0.3", "monthly"),
     ]
     for cat in ("societe", "science", "economie", "tech", "sante", "environnement"):
         static_urls.append((f"{BASE_URL}/categories/{cat}.html", "0.7", "daily"))
