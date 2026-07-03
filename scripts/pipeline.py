@@ -2577,10 +2577,16 @@ def generer_article(item: dict, dry_run: bool, published: set, new_pub: set, dat
             extra.append(p)
             seen_urls.add(p["url"])
 
-    # Bloquer si moins de 3 sources réelles trouvées AVANT même de générer
+    # Bloquer si moins de 5 sources réelles trouvées AVANT même de générer.
+    # Seuil relevé de 3 à 5 : avec seulement 3-4 sources, le correcteur (passe 3
+    # du fact-checker Anthropic) manque de matière pour remplacer une redondance
+    # par un fait distinct sans inventer de cadrage — ce qui déclenchait de
+    # nouveaux signalements (jugement de valeur, cadrage emprunté) à chaque
+    # tentative de correction. Plus de sources en amont = marge réelle pour
+    # une correction qui enrichit au lieu d'éditorialiser.
     specific_sources = [s for s in extra if len(urlparse(s["url"]).path.rstrip("/")) > 5]
-    if len(specific_sources) < 3:
-        print(f"  [REJET] Seulement {len(specific_sources)} source(s) — minimum 3 requis (DDG+PubMed)")
+    if len(specific_sources) < 5:
+        print(f"  [REJET] Seulement {len(specific_sources)} source(s) — minimum 5 requis (DDG+PubMed)")
         return False
 
     print(f"  → Génération : {item['title'][:55]} [{len(specific_sources)} sources réelles]")

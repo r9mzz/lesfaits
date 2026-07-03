@@ -243,6 +243,16 @@ def _log(slug: str, statut: str, detail: dict | None = None):
     })
 
 
+def _problemes_bloquants(problemes: list) -> list:
+    """Blocs 1 (factuel), 2 (sourcing), 5 (légal) : zéro-tolérance, jamais
+    négociable — c'est la promesse envers le lecteur. Blocs 3/4 (style,
+    cadrage, richesse rédactionnelle) sont perfectibles à l'infini par
+    nature (un détecteur exhaustif trouve toujours une formulation à
+    améliorer) ; leur présence résiduelle ne doit pas bloquer indéfiniment
+    la publication tant que rien de bloquant ne subsiste."""
+    return [p for p in problemes if p.get("bloc") in (1, 2, 5)]
+
+
 def enqueue_moderation(art: dict, rapport_initial: dict, rapport_final: dict):
     """File d'attente des articles à valider manuellement — jamais publiés."""
     _append_json(MODERATION_QUEUE, {
@@ -316,23 +326,43 @@ def verifier_article(art: dict) -> tuple[dict, str]:
             _log(slug, "a_corriger_manuellement", {"etape": "correction", "tentative": tentative, "erreur": str(e)})
             return art, "a_corriger_manuellement"
 
-        if rapport_final.get("conforme"):
+        problemes = rapport_final.get("problemes", [])
+        bloquants = _problemes_bloquants(problemes)
+
+        # Sécurité : si la correction a (anormalement) fait apparaître un
+        # problème légal, on ne publie jamais automatiquement, quel que soit
+        # le reste — cette règle prime sur tout.
+        bloc5_apparus = [p for p in problemes if p.get("bloc") == 5]
+        if bloc5_apparus:
+            print(f"     [MODÉRATION] problème légal apparu pendant la correction — mis en file")
+            enqueue_moderation(art_corrige, rapport, rapport_final)
+            _log(slug, "a_corriger_manuellement", {"problemes_initiaux": n_pb, "tentative": tentative, "bloc5": True})
+            return art_corrige, "a_corriger_manuellement"
+
+        if rapport_final.get("conforme") or not bloquants:
+            residuel = len(problemes)
             _log(slug, "corrige_automatiquement", {
                 "problemes_initiaux": n_pb,
                 "tentatives": tentative,
+                "problemes_residuels_style": residuel,
                 "rapport_initial": rapport,
             })
+            if residuel:
+                print(f"     [VERIF] {residuel} défaut(s) de style résiduel(s) (bloc 3/4), aucun bloquant — publié")
             return art_corrige, "corrige_automatiquement"
 
-        n_restants = len(rapport_final.get("problemes", []))
-        print(f"     [VERIF] tentative {tentative}/{MAX_TENTATIVES} : {n_restants} problème(s) restant(s)")
+        n_restants = len(problemes)
+        print(f"     [VERIF] tentative {tentative}/{MAX_TENTATIVES} : {n_restants} problème(s) restant(s) "
+              f"dont {len(bloquants)} bloquant(s)")
         art_courant, rapport_courant = art_corrige, rapport_final
 
-    # Toujours non conforme après MAX_TENTATIVES corrections → jamais publié automatiquement
+    # Toujours des problèmes bloquants (factuel/sourcing/légal) après
+    # MAX_TENTATIVES corrections → jamais publié automatiquement
     enqueue_moderation(art_courant, rapport, rapport_courant)
     _log(slug, "a_corriger_manuellement", {
         "problemes_initiaux": n_pb,
         "tentatives": MAX_TENTATIVES,
         "problemes_restants": len(rapport_courant.get("problemes", [])),
+        "bloquants_restants": len(_problemes_bloquants(rapport_courant.get("problemes", []))),
     })
     return art_courant, "a_corriger_manuellement"
