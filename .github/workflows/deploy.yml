@@ -58,6 +58,11 @@ jobs:
           PYTHONIOENCODING: utf-8
         run: python scripts/patch_articles.py
 
+      - name: Test non-régression SEO (bloque le déploiement en cas d'échec)
+        env:
+          PYTHONIOENCODING: utf-8
+        run: python scripts/check_seo.py
+
       - name: Déployer vers lesfaits-site
         env:
           SITE_DEPLOY_TOKEN: ${{ secrets.SITE_DEPLOY_TOKEN }}

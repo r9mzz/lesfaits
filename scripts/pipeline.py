@@ -444,10 +444,15 @@ def score_editorial(item: dict, source_name: str, published_topics: set) -> tupl
     title_words = set(w for w in item["title"].lower().split() if len(w) > 5)
     for topic in published_topics:
         topic_words = set(w for w in topic.lower().split() if len(w) > 5)
-        overlap = len(title_words & topic_words)
-        if overlap >= 2:
-            score -= 500  # rejet quasi-certain : même sujet avec 2 mots clés communs
-            reasons.append(f"-500 sujet très redondant (overlap: {overlap} mots avec '{topic[:40]}')")
+        shared = title_words & topic_words
+        overlap = len(shared)
+        # Un seul mot commun suffit au rejet s'il est long donc très spécifique
+        # (ex: "eutrophisation", "guanabara", "immunothérapie", "sublinguale") —
+        # c'est le cas de tous les doublons passés au travers de l'ancien seuil.
+        rare_match = overlap == 1 and max(len(w) for w in shared) >= 9
+        if overlap >= 2 or rare_match:
+            score -= 500  # rejet quasi-certain : même sujet déjà publié
+            reasons.append(f"-500 sujet très redondant (overlap: {overlap}, mots: {sorted(shared)[:3]} avec '{topic[:40]}')")
             break
         elif overlap == 1:
             score -= 60
@@ -563,7 +568,8 @@ RÈGLES ABSOLUES — toute violation = article rejeté :
 9. Slug en français kebab-case, descriptif, max 65 caractères
 10. positions : si et SEULEMENT SI l'article contient des prises de position explicites et vérifiables de 2 à 4 acteurs RÉELS (déclarations citées, votes enregistrés, communiqués officiels présents dans les sources), renseigne ce bloc avec verifie=true. Sinon, mets verifie=false et laisse acteurs vide []. Ne jamais inventer ou déduire une position — uniquement ce qui est explicitement attesté dans les sources. position = 0 (totalement favorable/consensuel) à 100 (totalement critique/opposé).
 11. Le résumé ('resume') et le corps ('faits') ne doivent JAMAIS contenir de phrases identiques ou quasi identiques (mêmes mots, même structure) : le résumé est une synthèse reformulée, pas un copier-coller déguisé du corps.
-12. Séparation stricte des registres : 'faits' = actualité immédiate uniquement (le fait du jour). 'contexte' = historique, évolution passée, comparaisons uniquement. Ne jamais mettre du contexte historique dans 'faits', ni redire les faits du jour dans 'contexte'."""
+12. Séparation stricte des registres : 'faits' = actualité immédiate uniquement (le fait du jour). 'contexte' = historique, évolution passée, comparaisons uniquement. Ne jamais mettre du contexte historique dans 'faits', ni redire les faits du jour dans 'contexte'.
+13. Chaque source citée dans le texte doit apporter un élément NOUVEAU (chiffre, angle, nuance). Ne JAMAIS répéter la même information sous plusieurs attributions successives (« Selon X… D'après Y… Selon Z… » disant la même chose = interdit). Maximum 3 attributions « Selon X » par section ; si plusieurs médias rapportent la même dépêche, cite-la UNE fois avec la source la plus autorisée."""
 
 
 # ══════════════════════════════════════════════════════════════════════════════
@@ -655,6 +661,32 @@ def resume_repete_corps(art: dict) -> list[str]:
             if ratio > 0.55:
                 violations.append(r[:90])
                 break
+    return violations
+
+
+_ATTRIB_PREFIX_RE = re.compile(r"^(?:Selon|D['’]après)\s+[^,]{2,50},\s*", re.IGNORECASE)
+
+
+def faits_repetitifs(art: dict) -> list[str]:
+    """Détecte, dans une même section du corps, des phrases qui répètent la même
+    information sous des attributions différentes (« Selon X… D'après Y… » qui
+    disent la même chose). Compare les phrases APRÈS retrait du préfixe
+    d'attribution — c'est le contenu qui compte, pas la source citée."""
+    import difflib
+    violations = []
+    corps = art.get("corps", {}) or {}
+    for section in ("faits", "contexte", "nuances"):
+        texte = corps.get(section, "") or ""
+        phrases = [p.strip() for p in re.split(r"(?<=[.!?])\s+", texte) if len(p.strip()) > 40]
+        # Corps de phrase sans le préfixe d'attribution
+        noyaux = [(_ATTRIB_PREFIX_RE.sub("", p), p) for p in phrases]
+        for i in range(len(noyaux)):
+            for j in range(i + 1, len(noyaux)):
+                ratio = difflib.SequenceMatcher(None, noyaux[i][0].lower(), noyaux[j][0].lower()).ratio()
+                if ratio > 0.62:
+                    violations.append(f"[{section}] « {noyaux[i][1][:70]}… » ≈ « {noyaux[j][1][:70]}… »")
+        if len(violations) >= 4:
+            break
     return violations
 
 
@@ -1491,9 +1523,14 @@ def build_article_html(art: dict, date_pub: str) -> str:
         return ""
 
     verified_sources = [s for s in art.get("sources", []) if s.get("url") and len(urlparse(s["url"]).path.rstrip("/")) > 3]
+    def _source_date(s):
+        # Masquer le champ date quand il est absent (évite d'afficher "None")
+        d = s.get("date")
+        return f' · {_esc(str(d))}' if d and str(d).strip().lower() not in ("none", "null", "") else ""
+
     if verified_sources:
         sources_li = "\n".join(
-            f'<li><cite>{_esc(s["institution"])}</cite> · <em>{_esc(s["titre"])}</em> · {_esc(str(s["date"]))}{_source_link(s)}</li>'
+            f'<li><cite>{_esc(s["institution"])}</cite> · <em>{_esc(s["titre"])}</em>{_source_date(s)}{_source_link(s)}</li>'
             for s in verified_sources
         )
         sources_html = f'<section class="sources" aria-label="Sources"><h3>SOURCES</h3><ol>{sources_li}</ol></section>'
@@ -2282,7 +2319,14 @@ def build_archive_page():
   {CSP_META}
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <meta name="description" content="Tous les articles publiés par Les Faits — journal numérique français rédigé par IA."/>
-  <meta name="robots" content="noindex"/>
+  <meta property="og:title" content="Tous les articles — Les Faits"/>
+  <meta property="og:description" content="Tous les articles publiés par Les Faits — journal numérique français rédigé par IA."/>
+  <meta property="og:type" content="website"/>
+  <meta property="og:url" content="https://lesfaits.info/archive.html"/>
+  <meta property="og:image" content="https://lesfaits.info/assets/images/og-default.jpg"/>
+  <meta name="twitter:card" content="summary_large_image"/>
+  <meta name="twitter:image" content="https://lesfaits.info/assets/images/og-default.jpg"/>
+  <link rel="canonical" href="https://lesfaits.info/archive.html"/>
   <title>Tous les articles — Les Faits</title>
   <base href="/"/>
   <link rel="stylesheet" href="src/style.css"/>
@@ -2436,6 +2480,17 @@ def generer_article(item: dict, dry_run: bool, published: set, new_pub: set, dat
             if repetitions:
                 print(f"     [AVERTISSEMENT] Résumé toujours proche du corps après relance — publié quand même")
 
+        # ── Garde-fou 4 : répétition intra-article (même info sous plusieurs
+        # attributions ; déterministe, une relance ; non bloquant) ──
+        intra = faits_repetitifs(art)
+        if intra:
+            print(f"     [GARDE] {len(intra)} répétition(s) intra-article détectée(s) — relance…")
+            art = generate(content, cat, extra_sources=extra, rss_url=item.get("url"),
+                           repetition_feedback=intra)
+            intra = faits_repetitifs(art)
+            if intra:
+                print(f"     [AVERTISSEMENT] Répétitions intra-article persistantes après relance — publié quand même")
+
         # ── Garde-fou 2 : sujet sanitaire sensible sans source officielle ──
         if sujet_sante_sans_source_officielle(art):
             from verification import enqueue_moderation
@@ -2543,7 +2598,8 @@ def run(dry_run=False, text_input=None, nb_max=10):
     else:
         # ── Étape 1 : collecter tous les candidats de toutes les sources ──
         print("\n[COLLECTE RSS]")
-        published_topics = {a.get("titre", "") for a in load_index()[:30]}
+        # Fenêtre anti-doublon : ~14 jours d'articles (10/jour max × 14)
+        published_topics = {a.get("titre", "") for a in load_index()[:140]}
         tous_candidats   = []
 
         for src in RSS_SOURCES:
