@@ -144,6 +144,22 @@ for fn in os.listdir("articles"):
         html = html.replace('</body>', BTT + '\n</body>', 1)
         changed = True
 
+    # 7. Lien "Favoris" dans la nav (ajouté après coup — absent des articles
+    # déjà publiés avant l'introduction de favoris.html)
+    if 'favoris.html' not in html:
+        html, n1 = re.subn(
+            r'(<a href="archive\.html">Tous les articles</a>)',
+            r'<a href="favoris.html">Favoris</a>\n\1',
+            html
+        )
+        if n1:
+            changed = True
+
+    # 8. Retirer les cœurs ♡/♥ du bouton favori (redondant avec le libellé)
+    if '♡ Favoris' in html or '♥ Favori' in html:
+        html = html.replace('♡ Favoris', 'Favoris').replace('♥ Favori', 'Favori')
+        changed = True
+
     if changed:
         open(path, "w", encoding="utf-8").write(html)
         patched2 += 1

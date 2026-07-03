@@ -38,6 +38,7 @@
 <a href="categories/tech.html">Tech</a>
 <a href="categories/sante.html">Santé</a>
 <a href="categories/environnement.html">Environnement</a>
+<a href="favoris.html">Favoris</a>
 <a href="archive.html">Tous les articles</a>
 <a href="methode.html" class="nav-cta">Comment on travaille →</a>
 </nav>
@@ -62,7 +63,8 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeMenu();
       <a href="categories/tech.html">Tech</a>
       <a href="categories/sante.html">Santé</a>
       <a href="categories/environnement.html">Environnement</a>
-      <a href="archive.html">Tous les articles</a>
+      <a href="favoris.html">Favoris</a>
+<a href="archive.html">Tous les articles</a>
       <a href="methode.html" class="nav-cta">Comment on travaille →</a>
     </nav>
     <button class="dark-toggle" id="dark-toggle" aria-label="Mode sombre" title="Mode sombre">🌙</button>
@@ -96,7 +98,7 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeMenu();
   <a class="share-btn" href="https://www.linkedin.com/sharing/share-offsite/?url=https://lesfaits.info/articles/loi-urgence-agricole-acetamipride.html" target="_blank" rel="noopener noreferrer external">in LinkedIn</a>
   <a class="share-btn" href="https://api.whatsapp.com/send?text=Loi%20d’urgence%20agricole%20:%20le%20Sénat%20rouvre%20le%20débat%20sur%20l’acétamipride%20https://lesfaits.info/articles/loi-urgence-agricole-acetamipride.html" target="_blank" rel="noopener noreferrer external">WhatsApp</a>
   <button class="share-btn" onclick="copyLink()" id="copy-btn">Copier le lien</button>
-  <button class="fav-btn" id="fav-btn" aria-pressed="false">♡ Favoris</button>
+  <button class="fav-btn" id="fav-btn" aria-pressed="false">Favoris</button>
 </div>
 <script>if(navigator.share)document.getElementById('native-share').style.display='inline-flex';</script>
   <section class="sources" aria-label="Sources"><h3>SOURCES</h3><ol><li><cite>Le Monde</cite> · <em>Loi d’urgence agricole : les sénateurs rouvrent le dossier inflammable de l’acétamipride et préparent un débat agité</em> · 2026-06-29 · <a href="https://www.lemonde.fr/planete/article/2026/06/29/loi-d-urgence-agricole-les-senateurs-rouvrent-le-dossier-inflammable-de-l-acetamipride-et-preparent-un-debat-agite_6716832_3244.html" target="_blank" rel="noopener noreferrer external" aria-label="Le Monde (ouvre dans un nouvel onglet)">Lire la source →</a></li>
@@ -128,7 +130,8 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeMenu();
     <div class="footer__col"><h4>JOURNAL</h4>
       <a href="methode.html">Comment on travaille</a>
       <a href="corrections.html">Corrections publiques</a>
-      <a href="archive.html">Tous les articles</a>
+      <a href="favoris.html">Favoris</a>
+<a href="archive.html">Tous les articles</a>
       <a href="feed.xml" class="footer__rss">Flux RSS</a>
     </div>
     <div class="footer__col"><h4>LÉGAL</h4>
@@ -175,12 +178,12 @@ function copyLink(){
   if(!btn)return;
   var favs=JSON.parse(localStorage.getItem('lesfaits_favs')||'[]');
   var slug='loi-urgence-agricole-acetamipride';
-  if(favs.indexOf(slug)>-1){btn.classList.add('active');btn.setAttribute('aria-pressed','true');btn.textContent='♥ Favori';}
+  if(favs.indexOf(slug)>-1){btn.classList.add('active');btn.setAttribute('aria-pressed','true');btn.textContent='Favori';}
   btn.addEventListener('click',function(){
     var f=JSON.parse(localStorage.getItem('lesfaits_favs')||'[]');
     var idx=f.indexOf(slug);
-    if(idx>-1){f.splice(idx,1);btn.classList.remove('active');btn.setAttribute('aria-pressed','false');btn.textContent='♡ Favoris';}
-    else{f.push(slug);btn.classList.add('active');btn.setAttribute('aria-pressed','true');btn.textContent='♥ Favori';}
+    if(idx>-1){f.splice(idx,1);btn.classList.remove('active');btn.setAttribute('aria-pressed','false');btn.textContent='Favoris';}
+    else{f.push(slug);btn.classList.add('active');btn.setAttribute('aria-pressed','true');btn.textContent='Favori';}
     localStorage.setItem('lesfaits_favs',JSON.stringify(f));
   });
 })();

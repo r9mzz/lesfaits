@@ -38,6 +38,7 @@
 <a href="categories/tech.html">Tech</a>
 <a href="categories/sante.html">Santé</a>
 <a href="categories/environnement.html">Environnement</a>
+<a href="favoris.html">Favoris</a>
 <a href="archive.html">Tous les articles</a>
 <a href="methode.html" class="nav-cta">Comment on travaille →</a>
 </nav>
@@ -62,7 +63,8 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeMenu();
       <a href="categories/tech.html">Tech</a>
       <a href="categories/sante.html">Santé</a>
       <a href="categories/environnement.html">Environnement</a>
-      <a href="archive.html">Tous les articles</a>
+      <a href="favoris.html">Favoris</a>
+<a href="archive.html">Tous les articles</a>
       <a href="methode.html" class="nav-cta">Comment on travaille →</a>
     </nav>
     <button class="dark-toggle" id="dark-toggle" aria-label="Mode sombre" title="Mode sombre">🌙</button>
@@ -97,7 +99,7 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeMenu();
   <a class="share-btn" href="https://www.linkedin.com/sharing/share-offsite/?url=https://lesfaits.info/articles/spiruline-super-aliment-nutritionnel.html" target="_blank" rel="noopener noreferrer external">in LinkedIn</a>
   <a class="share-btn" href="https://api.whatsapp.com/send?text=La%20spiruline,%20un%20super-aliment%20aux%20vertus%20nutritionnelles%20https://lesfaits.info/articles/spiruline-super-aliment-nutritionnel.html" target="_blank" rel="noopener noreferrer external">WhatsApp</a>
   <button class="share-btn" onclick="copyLink()" id="copy-btn">Copier le lien</button>
-  <button class="fav-btn" id="fav-btn" aria-pressed="false">♡ Favoris</button>
+  <button class="fav-btn" id="fav-btn" aria-pressed="false">Favoris</button>
 </div>
 <script>if(navigator.share)document.getElementById('native-share').style.display='inline-flex';</script>
   <section class="sources" aria-label="Sources"><h3>SOURCES</h3><ol><li><cite>Futura</cite> · <em>Les coulisses de la spiruline « bien-être » : une réalité encore trop floue</em> · 29 juin 2026 · <a href="https://www.futura-sciences.com/sante/actualites/complement-alimentaire-coulisses-spiruline-bien-etre-realite-encore-trop-floue-135294/#xtor%3DRSS-8" target="_blank" rel="noopener noreferrer external" aria-label="Futura (ouvre dans un nouvel onglet)">Lire la source →</a></li>
@@ -129,7 +131,8 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeMenu();
     <div class="footer__col"><h4>JOURNAL</h4>
       <a href="methode.html">Comment on travaille</a>
       <a href="corrections.html">Corrections publiques</a>
-      <a href="archive.html">Tous les articles</a>
+      <a href="favoris.html">Favoris</a>
+<a href="archive.html">Tous les articles</a>
       <a href="feed.xml" class="footer__rss">Flux RSS</a>
     </div>
     <div class="footer__col"><h4>LÉGAL</h4>
@@ -176,12 +179,12 @@ function copyLink(){
   if(!btn)return;
   var favs=JSON.parse(localStorage.getItem('lesfaits_favs')||'[]');
   var slug='spiruline-super-aliment-nutritionnel';
-  if(favs.indexOf(slug)>-1){btn.classList.add('active');btn.setAttribute('aria-pressed','true');btn.textContent='♥ Favori';}
+  if(favs.indexOf(slug)>-1){btn.classList.add('active');btn.setAttribute('aria-pressed','true');btn.textContent='Favori';}
   btn.addEventListener('click',function(){
     var f=JSON.parse(localStorage.getItem('lesfaits_favs')||'[]');
     var idx=f.indexOf(slug);
-    if(idx>-1){f.splice(idx,1);btn.classList.remove('active');btn.setAttribute('aria-pressed','false');btn.textContent='♡ Favoris';}
-    else{f.push(slug);btn.classList.add('active');btn.setAttribute('aria-pressed','true');btn.textContent='♥ Favori';}
+    if(idx>-1){f.splice(idx,1);btn.classList.remove('active');btn.setAttribute('aria-pressed','false');btn.textContent='Favoris';}
+    else{f.push(slug);btn.classList.add('active');btn.setAttribute('aria-pressed','true');btn.textContent='Favori';}
     localStorage.setItem('lesfaits_favs',JSON.stringify(f));
   });
 })();

@@ -1612,12 +1612,12 @@ function copyLink(){{
   if(!btn)return;
   var favs=JSON.parse(localStorage.getItem('lesfaits_favs')||'[]');
   var slug='{slug}';
-  if(favs.indexOf(slug)>-1){{btn.classList.add('active');btn.setAttribute('aria-pressed','true');btn.textContent='♥ Favori';}}
+  if(favs.indexOf(slug)>-1){{btn.classList.add('active');btn.setAttribute('aria-pressed','true');btn.textContent='Favori';}}
   btn.addEventListener('click',function(){{
     var f=JSON.parse(localStorage.getItem('lesfaits_favs')||'[]');
     var idx=f.indexOf(slug);
-    if(idx>-1){{f.splice(idx,1);btn.classList.remove('active');btn.setAttribute('aria-pressed','false');btn.textContent='♡ Favoris';}}
-    else{{f.push(slug);btn.classList.add('active');btn.setAttribute('aria-pressed','true');btn.textContent='♥ Favori';}}
+    if(idx>-1){{f.splice(idx,1);btn.classList.remove('active');btn.setAttribute('aria-pressed','false');btn.textContent='Favoris';}}
+    else{{f.push(slug);btn.classList.add('active');btn.setAttribute('aria-pressed','true');btn.textContent='Favori';}}
     localStorage.setItem('lesfaits_favs',JSON.stringify(f));
   }});
 }})();
@@ -1630,7 +1630,7 @@ function copyLink(){{
   <a class="share-btn" href="https://www.linkedin.com/sharing/share-offsite/?url={art_url}" target="_blank" rel="noopener noreferrer external">in LinkedIn</a>
   <a class="share-btn" href="https://api.whatsapp.com/send?text={urllib.parse.quote(art['titre'])}%20{art_url}" target="_blank" rel="noopener noreferrer external">WhatsApp</a>
   <button class="share-btn" onclick="copyLink()" id="copy-btn">Copier le lien</button>
-  <button class="fav-btn" id="fav-btn" aria-pressed="false">♡ Favoris</button>
+  <button class="fav-btn" id="fav-btn" aria-pressed="false">Favoris</button>
 </div>
 <script>if(navigator.share)document.getElementById('native-share').style.display='inline-flex';</script>"""
 
@@ -2358,22 +2358,7 @@ def build_archive_page():
   <script>(function(){{var s=localStorage.getItem('theme'),d=s==='dark'||(s===null&&window.matchMedia('(prefers-color-scheme:dark)').matches);document.documentElement.setAttribute('data-theme',d?'dark':'light');}})();</script>
 </head>
 <body>
-<div class="nav-overlay" id="nav-overlay" onclick="closeMenu()"></div>
-<nav class="nav-mobile" id="nav-mobile">
-<a href="categories/societe.html">Société</a>
-<a href="categories/science.html">Science</a>
-<a href="categories/economie.html">Économie</a>
-<a href="categories/tech.html">Tech</a>
-<a href="categories/sante.html">Santé</a>
-<a href="categories/environnement.html">Environnement</a>
-<a href="methode.html" class="nav-cta">Comment on travaille →</a>
-</nav>
-<script>
-function toggleMenu(){{var b=document.getElementById('burger'),m=document.getElementById('nav-mobile'),o=document.getElementById('nav-overlay');b.classList.toggle('open');m.classList.toggle('open');o.classList.toggle('open');}}
-function closeMenu(){{document.getElementById('burger').classList.remove('open');document.getElementById('nav-mobile').classList.remove('open');document.getElementById('nav-overlay').classList.remove('open');}}
-document.querySelectorAll('.nav-mobile a').forEach(function(a){{a.addEventListener('click',closeMenu);}});
-document.addEventListener('keydown',function(e){{if(e.key==='Escape')closeMenu();}});
-</script>
+{BURGER_HTML}
 <header class="header">
   <div class="header__inner">
     <a href="index.html" class="brand">{BRAND_ICON}<div class="brand__logotype"><span class="fact">les</span><span class="uel">faits</span></div></a>
@@ -2499,7 +2484,7 @@ def build_favoris_page():
   <div id="favoris-list"></div>
   <div id="favoris-empty" style="display:none;text-align:center;padding:48px 0;color:var(--muted)">
     <p style="font-size:1rem;margin-bottom:8px">Vous n'avez encore aucun favori.</p>
-    <p style="font-size:.9rem">Cliquez sur ♡ Favoris en bas d'un article pour l'ajouter ici — vos favoris sont enregistrés dans ce navigateur.</p>
+    <p style="font-size:.9rem">Cliquez sur Favoris en bas d'un article pour l'ajouter ici — vos favoris sont enregistrés dans ce navigateur.</p>
   </div>
 </main>
 

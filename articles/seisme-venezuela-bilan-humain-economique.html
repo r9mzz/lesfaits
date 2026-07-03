@@ -38,6 +38,7 @@
 <a href="categories/tech.html">Tech</a>
 <a href="categories/sante.html">Santé</a>
 <a href="categories/environnement.html">Environnement</a>
+<a href="favoris.html">Favoris</a>
 <a href="archive.html">Tous les articles</a>
 <a href="methode.html" class="nav-cta">Comment on travaille →</a>
 </nav>
@@ -62,7 +63,8 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeMenu();
       <a href="categories/tech.html">Tech</a>
       <a href="categories/sante.html">Santé</a>
       <a href="categories/environnement.html">Environnement</a>
-      <a href="archive.html">Tous les articles</a>
+      <a href="favoris.html">Favoris</a>
+<a href="archive.html">Tous les articles</a>
       <a href="methode.html" class="nav-cta">Comment on travaille →</a>
     </nav>
     <button class="dark-toggle" id="dark-toggle" aria-label="Mode sombre" title="Mode sombre">🌙</button>
@@ -97,14 +99,16 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeMenu();
   <a class="share-btn" href="https://www.linkedin.com/sharing/share-offsite/?url=https://lesfaits.info/articles/seisme-venezuela-bilan-humain-economique.html" target="_blank" rel="noopener noreferrer external">in LinkedIn</a>
   <a class="share-btn" href="https://api.whatsapp.com/send?text=Double%20séisme%20au%20Venezuela%20:%20bilan%20humain%20et%20économique%20https://lesfaits.info/articles/seisme-venezuela-bilan-humain-economique.html" target="_blank" rel="noopener noreferrer external">WhatsApp</a>
   <button class="share-btn" onclick="copyLink()" id="copy-btn">Copier le lien</button>
-  <button class="fav-btn" id="fav-btn" aria-pressed="false">♡ Favoris</button>
+  <button class="fav-btn" id="fav-btn" aria-pressed="false">Favoris</button>
 </div>
 <script>if(navigator.share)document.getElementById('native-share').style.display='inline-flex';</script>
   <section class="sources" aria-label="Sources"><h3>SOURCES</h3><ol><li><cite>France Info</cite> · <em>Double séisme au Venezuela : le bilan passe à 1 450 morts, 189 immeubles se sont entièrement effondrés</em> · 29/06/2026 · <a href="https://www.franceinfo.fr/environnement/catastrophes-naturelles/nombre-de-morts-immeubles-touches-pays-mobilises-quatre-chiffres-pour-mesurer-l-ampleur-des-deux-seismes-qui-ont-devaste-le-venezuela_8085215.html#xtor=RSS-3-[lestitres]" target="_blank" rel="noopener noreferrer external" aria-label="France Info (ouvre dans un nouvel onglet)">Lire la source →</a></li>
 <li><cite>Ouest-France</cite> · <em>Double séisme au Venezuela : le bilan passe à 1 450 morts, 189 immeubles se sont entièrement effondrés</em> · 29/06/2026 · <a href="https://www.ouest-france.fr/monde/venezuela/double-seisme-au-venezuela-le-bilan-passe-a-1-450-morts-189-immeubles-se-sont-entierement-effondres-a988cc3c-731d-11f1-82f2-8f02834cc235" target="_blank" rel="noopener noreferrer external" aria-label="Ouest-France (ouvre dans un nouvel onglet)">Lire la source →</a></li>
 <li><cite>La Presse</cite> · <em>Double séisme au Venezuela : le bilan monte à 1430 morts</em> · 27/06/2026 · <a href="https://www.lapresse.ca/international/amerique-latine/2026-06-27/double-seisme-au-venezuela/le-bilan-monte-a-1430-morts.php" target="_blank" rel="noopener noreferrer external" aria-label="La Presse (ouvre dans un nouvel onglet)">Lire la source →</a></li>
 <li><cite>Le Monde</cite> · <em>Au Venezuela, des recherches toujours actives alors que le bilan du séisme s’alourdit à 1 450 morts</em> · 28/06/2026 · <a href="https://www.lemonde.fr/planete/article/2026/06/28/seisme-au-venezuela-le-bilan-s-alourdit-a-1-450-morts_6716592_3244.html" target="_blank" rel="noopener noreferrer external" aria-label="Le Monde (ouvre dans un nouvel onglet)">Lire la source →</a></li></ol></section>
-  <div class="art__related"><div class="art__related-title">À LIRE AUSSI</div><div class="art__related-grid"><a class="art__related-card" href="articles/openai-participation-gouvernement-americain.html"><img src="assets/images/openai-participation-gouvernement-americain.jpg" alt="OpenAI propose une participation minoritaire au gouvernement américain" width="400" height="110" loading="lazy" style="width:calc(100% + 32px);margin:-14px -16px 12px;height:110px;object-fit:cover;display:block;border-radius:var(--radius) var(--radius) 0 0"><span class="cat cat--tech">TECH</span><div class="title-sm">OpenAI propose une participation minoritaire au gouvernement américain</div><div style="font-size:10px;color:var(--muted);margin-top:6px">3 juillet 2026, 18h00</div></a><a class="art__related-card" href="articles/accident-jean-pierre-raffarin-paris.html"><img src="assets/images/accident-jean-pierre-raffarin-paris.jpg" alt="Accident de Jean-Pierre Raffarin à Paris" width="400" height="110" loading="lazy" style="width:calc(100% + 32px);margin:-14px -16px 12px;height:110px;object-fit:cover;display:block;border-radius:var(--radius) var(--radius) 0 0"><span class="cat cat--societe">SOCIÉTÉ</span><div class="title-sm">Accident de Jean-Pierre Raffarin à Paris</div><div style="font-size:10px;color:var(--muted);margin-top:6px">3 juillet 2026, 18h00</div></a><a class="art__related-card" href="articles/mousses-champignons-symbiose-inattendue.html"><img src="assets/images/mousses-champignons-symbiose-inattendue.jpg" alt="Découverte d’une symbiose inattendue entre mousses et champignons" width="400" height="110" loading="lazy" style="width:calc(100% + 32px);margin:-14px -16px 12px;height:110px;object-fit:cover;display:block;border-radius:var(--radius) var(--radius) 0 0"><span class="cat cat--science">SCIENCE</span><div class="title-sm">Découverte d’une symbiose inattendue entre mousses et champignons</div><div style="font-size:10px;color:var(--muted);margin-top:6px">3 juillet 2026, 18h00</div></a></div></div>
+  <div class="art__related"><div class="art__related-title">À LIRE AUSSI</div><div class="art__related-grid"><a class="art__related-card" href="articles/openai-participation-gouvernement-americain.html"><img src="assets/images/openai-participation-gouvernement-americain.jpg" alt="" width="400" height="110" loading="lazy" style="width:calc(100% + 32px);margin:-14px -16px 12px;height:110px;object-fit:cover;display:block;border-radius:var(--radius) var(--radius) 0 0"><span class="cat cat--tech">TECH</span><div class="title-sm">OpenAI propose une participation minoritaire au gouvernement américain</div><div style="font-size:10px;color:var(--muted);margin-top:6px">3 juillet 2026, 18h00</div></a>
+<a class="art__related-card" href="articles/accident-jean-pierre-raffarin-paris.html"><img src="assets/images/accident-jean-pierre-raffarin-paris.jpg" alt="" width="400" height="110" loading="lazy" style="width:calc(100% + 32px);margin:-14px -16px 12px;height:110px;object-fit:cover;display:block;border-radius:var(--radius) var(--radius) 0 0"><span class="cat cat--societe">SOCIETE</span><div class="title-sm">Accident de Jean-Pierre Raffarin à Paris</div><div style="font-size:10px;color:var(--muted);margin-top:6px">3 juillet 2026, 18h00</div></a>
+<a class="art__related-card" href="articles/mousses-champignons-symbiose-inattendue.html"><img src="assets/images/mousses-champignons-symbiose-inattendue.jpg" alt="" width="400" height="110" loading="lazy" style="width:calc(100% + 32px);margin:-14px -16px 12px;height:110px;object-fit:cover;display:block;border-radius:var(--radius) var(--radius) 0 0"><span class="cat cat--science">SCIENCE</span><div class="title-sm">Découverte d’une symbiose inattendue entre mousses et champignons</div><div style="font-size:10px;color:var(--muted);margin-top:6px">3 juillet 2026, 18h00</div></a></div></div>
   <p class="art__badge">Généré par IA · Protocole Les Faits v1.1 · 29 juin 2026, 18h00</p>
   <a class="contest-btn" href="contact.html?article=seisme-venezuela-bilan-humain-economique#erreur">Signaler une erreur sur cet article</a>
 </div>
@@ -127,7 +131,8 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeMenu();
     <div class="footer__col"><h4>JOURNAL</h4>
       <a href="methode.html">Comment on travaille</a>
       <a href="corrections.html">Corrections publiques</a>
-      <a href="archive.html">Tous les articles</a>
+      <a href="favoris.html">Favoris</a>
+<a href="archive.html">Tous les articles</a>
       <a href="feed.xml" class="footer__rss">Flux RSS</a>
     </div>
     <div class="footer__col"><h4>LÉGAL</h4>
@@ -174,12 +179,12 @@ function copyLink(){
   if(!btn)return;
   var favs=JSON.parse(localStorage.getItem('lesfaits_favs')||'[]');
   var slug='seisme-venezuela-bilan-humain-economique';
-  if(favs.indexOf(slug)>-1){btn.classList.add('active');btn.setAttribute('aria-pressed','true');btn.textContent='♥ Favori';}
+  if(favs.indexOf(slug)>-1){btn.classList.add('active');btn.setAttribute('aria-pressed','true');btn.textContent='Favori';}
   btn.addEventListener('click',function(){
     var f=JSON.parse(localStorage.getItem('lesfaits_favs')||'[]');
     var idx=f.indexOf(slug);
-    if(idx>-1){f.splice(idx,1);btn.classList.remove('active');btn.setAttribute('aria-pressed','false');btn.textContent='♡ Favoris';}
-    else{f.push(slug);btn.classList.add('active');btn.setAttribute('aria-pressed','true');btn.textContent='♥ Favori';}
+    if(idx>-1){f.splice(idx,1);btn.classList.remove('active');btn.setAttribute('aria-pressed','false');btn.textContent='Favoris';}
+    else{f.push(slug);btn.classList.add('active');btn.setAttribute('aria-pressed','true');btn.textContent='Favori';}
     localStorage.setItem('lesfaits_favs',JSON.stringify(f));
   });
 })();

@@ -38,6 +38,7 @@
 <a href="categories/tech.html">Tech</a>
 <a href="categories/sante.html">Santé</a>
 <a href="categories/environnement.html">Environnement</a>
+<a href="favoris.html">Favoris</a>
 <a href="archive.html">Tous les articles</a>
 <a href="methode.html" class="nav-cta">Comment on travaille →</a>
 </nav>
@@ -62,7 +63,8 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeMenu();
       <a href="categories/tech.html">Tech</a>
       <a href="categories/sante.html">Santé</a>
       <a href="categories/environnement.html">Environnement</a>
-      <a href="archive.html">Tous les articles</a>
+      <a href="favoris.html">Favoris</a>
+<a href="archive.html">Tous les articles</a>
       <a href="methode.html" class="nav-cta">Comment on travaille →</a>
     </nav>
     <button class="dark-toggle" id="dark-toggle" aria-label="Mode sombre" title="Mode sombre">🌙</button>
@@ -97,14 +99,16 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeMenu();
   <a class="share-btn" href="https://www.linkedin.com/sharing/share-offsite/?url=https://lesfaits.info/articles/regime-alimentaire-anti-inflammatoire-demence.html" target="_blank" rel="noopener noreferrer external">in LinkedIn</a>
   <a class="share-btn" href="https://api.whatsapp.com/send?text=Régime%20alimentaire%20anti-inflammatoire%20réduit%20le%20risque%20de%20démence%20https://lesfaits.info/articles/regime-alimentaire-anti-inflammatoire-demence.html" target="_blank" rel="noopener noreferrer external">WhatsApp</a>
   <button class="share-btn" onclick="copyLink()" id="copy-btn">Copier le lien</button>
-  <button class="fav-btn" id="fav-btn" aria-pressed="false">♡ Favoris</button>
+  <button class="fav-btn" id="fav-btn" aria-pressed="false">Favoris</button>
 </div>
 <script>if(navigator.share)document.getElementById('native-share').style.display='inline-flex';</script>
   <section class="sources" aria-label="Sources"><h3>SOURCES</h3><ol><li><cite>JAMA Network Open</cite> · <em>Régime alimentaire anti-inflammatoire et risque de démence</em> · 2024 · <a href="https://www.futura-sciences.com/sante/actualites/maladie-alzheimer-alzheimer-ce-regime-alimentaire-pourrait-reduire-risque-demence-jusqua-29-revele-grande-etude-15-ans-135742/#xtor%3DRSS-8" target="_blank" rel="noopener noreferrer external" aria-label="JAMA Network Open (ouvre dans un nouvel onglet)">Lire la source →</a></li>
 <li><cite>Science.org</cite> · <em>Fromages gras et risque de démence</em> · 2018 · <a href="https://www.science.org/doi/10.1126/sciadv.aat2340" target="_blank" rel="noopener noreferrer external" aria-label="Science.org (ouvre dans un nouvel onglet)">Lire la source →</a></li>
 <li><cite>TF1</cite> · <em>Fromages gras et santé cognitive</em> · 2022 · <a href="https://www.tf1info.fr/sante/etude-scientifique-fromages-manger-du-brie-ou-du-gouda-diminuerait-un-peu-les-risques-de-demence-mais-2414504.html" target="_blank" rel="noopener noreferrer external" aria-label="TF1 (ouvre dans un nouvel onglet)">Lire la source →</a></li>
 <li><cite>Senior Actu</cite> · <em>Démence : manger du fromage gras réduirait le risque de 16%</em> · 2022 · <a href="https://www.senioractu.com/Demence-manger-du-fromage-gras-reduirait-le-risque-de-16--selon-une-etude_a26882.html" target="_blank" rel="noopener noreferrer external" aria-label="Senior Actu (ouvre dans un nouvel onglet)">Lire la source →</a></li></ol></section>
-  <div class="art__related"><div class="art__related-title">À LIRE AUSSI</div><div class="art__related-grid"><a class="art__related-card" href="articles/openai-participation-gouvernement-americain.html"><img src="assets/images/openai-participation-gouvernement-americain.jpg" alt="OpenAI propose une participation minoritaire au gouvernement américain" width="400" height="110" loading="lazy" style="width:calc(100% + 32px);margin:-14px -16px 12px;height:110px;object-fit:cover;display:block;border-radius:var(--radius) var(--radius) 0 0"><span class="cat cat--tech">TECH</span><div class="title-sm">OpenAI propose une participation minoritaire au gouvernement américain</div><div style="font-size:10px;color:var(--muted);margin-top:6px">3 juillet 2026, 18h00</div></a><a class="art__related-card" href="articles/accident-jean-pierre-raffarin-paris.html"><img src="assets/images/accident-jean-pierre-raffarin-paris.jpg" alt="Accident de Jean-Pierre Raffarin à Paris" width="400" height="110" loading="lazy" style="width:calc(100% + 32px);margin:-14px -16px 12px;height:110px;object-fit:cover;display:block;border-radius:var(--radius) var(--radius) 0 0"><span class="cat cat--societe">SOCIÉTÉ</span><div class="title-sm">Accident de Jean-Pierre Raffarin à Paris</div><div style="font-size:10px;color:var(--muted);margin-top:6px">3 juillet 2026, 18h00</div></a><a class="art__related-card" href="articles/reformes-economiques-allemagne-merz.html"><img src="assets/images/reformes-economiques-allemagne-merz.jpg" alt="Allemagne : le chancelier Friedrich Merz annonce des réformes économiques" width="400" height="110" loading="lazy" style="width:calc(100% + 32px);margin:-14px -16px 12px;height:110px;object-fit:cover;display:block;border-radius:var(--radius) var(--radius) 0 0"><span class="cat cat--economie">ÉCONOMIE</span><div class="title-sm">Allemagne : le chancelier Friedrich Merz annonce des réformes économiques</div><div style="font-size:10px;color:var(--muted);margin-top:6px">2 juillet 2026, 18h00</div></a></div></div>
+  <div class="art__related"><div class="art__related-title">À LIRE AUSSI</div><div class="art__related-grid"><a class="art__related-card" href="articles/openai-participation-gouvernement-americain.html"><img src="assets/images/openai-participation-gouvernement-americain.jpg" alt="" width="400" height="110" loading="lazy" style="width:calc(100% + 32px);margin:-14px -16px 12px;height:110px;object-fit:cover;display:block;border-radius:var(--radius) var(--radius) 0 0"><span class="cat cat--tech">TECH</span><div class="title-sm">OpenAI propose une participation minoritaire au gouvernement américain</div><div style="font-size:10px;color:var(--muted);margin-top:6px">3 juillet 2026, 18h00</div></a>
+<a class="art__related-card" href="articles/accident-jean-pierre-raffarin-paris.html"><img src="assets/images/accident-jean-pierre-raffarin-paris.jpg" alt="" width="400" height="110" loading="lazy" style="width:calc(100% + 32px);margin:-14px -16px 12px;height:110px;object-fit:cover;display:block;border-radius:var(--radius) var(--radius) 0 0"><span class="cat cat--societe">SOCIETE</span><div class="title-sm">Accident de Jean-Pierre Raffarin à Paris</div><div style="font-size:10px;color:var(--muted);margin-top:6px">3 juillet 2026, 18h00</div></a>
+<a class="art__related-card" href="articles/reformes-economiques-allemagne-merz.html"><img src="assets/images/reformes-economiques-allemagne-merz.jpg" alt="" width="400" height="110" loading="lazy" style="width:calc(100% + 32px);margin:-14px -16px 12px;height:110px;object-fit:cover;display:block;border-radius:var(--radius) var(--radius) 0 0"><span class="cat cat--economie">ECONOMIE</span><div class="title-sm">Allemagne : le chancelier Friedrich Merz annonce des réformes économiques</div><div style="font-size:10px;color:var(--muted);margin-top:6px">2 juillet 2026, 18h00</div></a></div></div>
   <p class="art__badge">Généré par IA · Protocole Les Faits v1.1 · 29 juin 2026, 18h00</p>
   <a class="contest-btn" href="contact.html?article=regime-alimentaire-anti-inflammatoire-demence#erreur">Signaler une erreur sur cet article</a>
 </div>
@@ -127,7 +131,8 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeMenu();
     <div class="footer__col"><h4>JOURNAL</h4>
       <a href="methode.html">Comment on travaille</a>
       <a href="corrections.html">Corrections publiques</a>
-      <a href="archive.html">Tous les articles</a>
+      <a href="favoris.html">Favoris</a>
+<a href="archive.html">Tous les articles</a>
       <a href="feed.xml" class="footer__rss">Flux RSS</a>
     </div>
     <div class="footer__col"><h4>LÉGAL</h4>
@@ -174,12 +179,12 @@ function copyLink(){
   if(!btn)return;
   var favs=JSON.parse(localStorage.getItem('lesfaits_favs')||'[]');
   var slug='regime-alimentaire-anti-inflammatoire-demence';
-  if(favs.indexOf(slug)>-1){btn.classList.add('active');btn.setAttribute('aria-pressed','true');btn.textContent='♥ Favori';}
+  if(favs.indexOf(slug)>-1){btn.classList.add('active');btn.setAttribute('aria-pressed','true');btn.textContent='Favori';}
   btn.addEventListener('click',function(){
     var f=JSON.parse(localStorage.getItem('lesfaits_favs')||'[]');
     var idx=f.indexOf(slug);
-    if(idx>-1){f.splice(idx,1);btn.classList.remove('active');btn.setAttribute('aria-pressed','false');btn.textContent='♡ Favoris';}
-    else{f.push(slug);btn.classList.add('active');btn.setAttribute('aria-pressed','true');btn.textContent='♥ Favori';}
+    if(idx>-1){f.splice(idx,1);btn.classList.remove('active');btn.setAttribute('aria-pressed','false');btn.textContent='Favoris';}
+    else{f.push(slug);btn.classList.add('active');btn.setAttribute('aria-pressed','true');btn.textContent='Favori';}
     localStorage.setItem('lesfaits_favs',JSON.stringify(f));
   });
 })();

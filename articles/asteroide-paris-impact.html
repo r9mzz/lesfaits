@@ -39,6 +39,7 @@
 <a href="categories/tech.html">Tech</a>
 <a href="categories/sante.html">Santé</a>
 <a href="categories/environnement.html">Environnement</a>
+<a href="favoris.html">Favoris</a>
 <a href="archive.html">Tous les articles</a>
 <a href="methode.html" class="nav-cta">Comment on travaille →</a>
 </nav>
@@ -63,7 +64,8 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeMenu();
       <a href="categories/tech.html">Tech</a>
       <a href="categories/sante.html">Santé</a>
       <a href="categories/environnement.html">Environnement</a>
-      <a href="archive.html">Tous les articles</a>
+      <a href="favoris.html">Favoris</a>
+<a href="archive.html">Tous les articles</a>
       <a href="methode.html" class="nav-cta">Comment on travaille →</a>
     </nav>
     <button class="dark-toggle" id="dark-toggle" aria-label="Mode sombre" title="Mode sombre">🌙</button>
@@ -98,14 +100,16 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeMenu();
   <a class="share-btn" href="https://www.linkedin.com/sharing/share-offsite/?url=https://lesfaits.info/articles/asteroide-paris-impact.html" target="_blank" rel="noopener noreferrer external">in LinkedIn</a>
   <a class="share-btn" href="https://api.whatsapp.com/send?text=Impact%20d’un%20astéroïde%20sur%20Paris%20:%20conséquences%20et%20probabilités%20https://lesfaits.info/articles/asteroide-paris-impact.html" target="_blank" rel="noopener noreferrer external">WhatsApp</a>
   <button class="share-btn" onclick="copyLink()" id="copy-btn">Copier le lien</button>
-  <button class="fav-btn" id="fav-btn" aria-pressed="false">♡ Favoris</button>
+  <button class="fav-btn" id="fav-btn" aria-pressed="false">Favoris</button>
 </div>
 <script>if(navigator.share)document.getElementById('native-share').style.display='inline-flex';</script>
   <section class="sources" aria-label="Sources"><h3>SOURCES</h3><ol><li><cite>Futura Sciences</cite> · <em>Que se passerait-il si un astéroïde tombait sur Paris ?</em> · 2023 · <a href="https://www.futura-sciences.com/sciences/actualites/asteroides-passerait-il-si-asteroide-tombait-paris-135773/#xtor%3DRSS-8" target="_blank" rel="noopener noreferrer external" aria-label="Futura Sciences (ouvre dans un nouvel onglet)">Lire la source →</a></li>
 <li><cite>Numerama</cite> · <em>Que se passerait-il si un astéroïde de 500 mètres tombait sur Paris ?</em> · 2022 · <a href="https://www.numerama.com/sciences/1206378-vous-pouvez-simuler-limpact-dun-asteroide-nimporte-ou-sur-terre.html" target="_blank" rel="noopener noreferrer external" aria-label="Numerama (ouvre dans un nouvel onglet)">Lire la source →</a></li>
 <li><cite>Le Figaro</cite> · <em>Et si un astéroïde tombait sur Paris? Les scénarios catastrophes</em> · 2017 · <a href="https://www.lefigaro.fr/sciences/2017/06/30/01008-20170630ARTFIG00405-et-si-un-asteroide-tombait-sur-paris-les-scenarios-catastrophes.php" target="_blank" rel="noopener noreferrer external" aria-label="Le Figaro (ouvre dans un nouvel onglet)">Lire la source →</a></li>
 <li><cite>Planet.fr</cite> · <em>Astronomie : que se passerait-il si un astéroïde tombait sur la terre ?</em> · 2024 · <a href="https://www.planet.fr/environnement-astronomie-que-se-passerait-il-si-un-asteroide-tombait-sur-la-terre.2740590.1474.html" target="_blank" rel="noopener noreferrer external" aria-label="Planet.fr (ouvre dans un nouvel onglet)">Lire la source →</a></li></ol></section>
-  <div class="art__related"><div class="art__related-title">À LIRE AUSSI</div><div class="art__related-grid"><a class="art__related-card" href="articles/openai-participation-gouvernement-americain.html"><img src="assets/images/openai-participation-gouvernement-americain.jpg" alt="OpenAI propose une participation minoritaire au gouvernement américain" width="400" height="110" loading="lazy" style="width:calc(100% + 32px);margin:-14px -16px 12px;height:110px;object-fit:cover;display:block;border-radius:var(--radius) var(--radius) 0 0"><span class="cat cat--tech">TECH</span><div class="title-sm">OpenAI propose une participation minoritaire au gouvernement américain</div><div style="font-size:10px;color:var(--muted);margin-top:6px">3 juillet 2026, 18h00</div></a><a class="art__related-card" href="articles/accident-jean-pierre-raffarin-paris.html"><img src="assets/images/accident-jean-pierre-raffarin-paris.jpg" alt="Accident de Jean-Pierre Raffarin à Paris" width="400" height="110" loading="lazy" style="width:calc(100% + 32px);margin:-14px -16px 12px;height:110px;object-fit:cover;display:block;border-radius:var(--radius) var(--radius) 0 0"><span class="cat cat--societe">SOCIÉTÉ</span><div class="title-sm">Accident de Jean-Pierre Raffarin à Paris</div><div style="font-size:10px;color:var(--muted);margin-top:6px">3 juillet 2026, 18h00</div></a><a class="art__related-card" href="articles/reformes-economiques-allemagne-merz.html"><img src="assets/images/reformes-economiques-allemagne-merz.jpg" alt="Allemagne : le chancelier Friedrich Merz annonce des réformes économiques" width="400" height="110" loading="lazy" style="width:calc(100% + 32px);margin:-14px -16px 12px;height:110px;object-fit:cover;display:block;border-radius:var(--radius) var(--radius) 0 0"><span class="cat cat--economie">ÉCONOMIE</span><div class="title-sm">Allemagne : le chancelier Friedrich Merz annonce des réformes économiques</div><div style="font-size:10px;color:var(--muted);margin-top:6px">2 juillet 2026, 18h00</div></a></div></div>
+  <div class="art__related"><div class="art__related-title">À LIRE AUSSI</div><div class="art__related-grid"><a class="art__related-card" href="articles/openai-participation-gouvernement-americain.html"><img src="assets/images/openai-participation-gouvernement-americain.jpg" alt="" width="400" height="110" loading="lazy" style="width:calc(100% + 32px);margin:-14px -16px 12px;height:110px;object-fit:cover;display:block;border-radius:var(--radius) var(--radius) 0 0"><span class="cat cat--tech">TECH</span><div class="title-sm">OpenAI propose une participation minoritaire au gouvernement américain</div><div style="font-size:10px;color:var(--muted);margin-top:6px">3 juillet 2026, 18h00</div></a>
+<a class="art__related-card" href="articles/accident-jean-pierre-raffarin-paris.html"><img src="assets/images/accident-jean-pierre-raffarin-paris.jpg" alt="" width="400" height="110" loading="lazy" style="width:calc(100% + 32px);margin:-14px -16px 12px;height:110px;object-fit:cover;display:block;border-radius:var(--radius) var(--radius) 0 0"><span class="cat cat--societe">SOCIETE</span><div class="title-sm">Accident de Jean-Pierre Raffarin à Paris</div><div style="font-size:10px;color:var(--muted);margin-top:6px">3 juillet 2026, 18h00</div></a>
+<a class="art__related-card" href="articles/reformes-economiques-allemagne-merz.html"><img src="assets/images/reformes-economiques-allemagne-merz.jpg" alt="" width="400" height="110" loading="lazy" style="width:calc(100% + 32px);margin:-14px -16px 12px;height:110px;object-fit:cover;display:block;border-radius:var(--radius) var(--radius) 0 0"><span class="cat cat--economie">ECONOMIE</span><div class="title-sm">Allemagne : le chancelier Friedrich Merz annonce des réformes économiques</div><div style="font-size:10px;color:var(--muted);margin-top:6px">2 juillet 2026, 18h00</div></a></div></div>
   <p class="art__badge">Généré par IA · Protocole Les Faits v1.1 · 30 juin 2026, 18h00</p>
   <a class="contest-btn" href="contact.html?article=asteroide-paris-impact#erreur">Signaler une erreur sur cet article</a>
 </div>
@@ -129,7 +133,8 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeMenu();
     <div class="footer__col"><h4>JOURNAL</h4>
       <a href="methode.html">Comment on travaille</a>
       <a href="corrections.html">Corrections publiques</a>
-      <a href="archive.html">Tous les articles</a>
+      <a href="favoris.html">Favoris</a>
+<a href="archive.html">Tous les articles</a>
       <a href="feed.xml" class="footer__rss">Flux RSS</a>
     </div>
     <div class="footer__col"><h4>LÉGAL</h4>
@@ -176,12 +181,12 @@ function copyLink(){
   if(!btn)return;
   var favs=JSON.parse(localStorage.getItem('lesfaits_favs')||'[]');
   var slug='asteroide-paris-impact';
-  if(favs.indexOf(slug)>-1){btn.classList.add('active');btn.setAttribute('aria-pressed','true');btn.textContent='♥ Favori';}
+  if(favs.indexOf(slug)>-1){btn.classList.add('active');btn.setAttribute('aria-pressed','true');btn.textContent='Favori';}
   btn.addEventListener('click',function(){
     var f=JSON.parse(localStorage.getItem('lesfaits_favs')||'[]');
     var idx=f.indexOf(slug);
-    if(idx>-1){f.splice(idx,1);btn.classList.remove('active');btn.setAttribute('aria-pressed','false');btn.textContent='♡ Favoris';}
-    else{f.push(slug);btn.classList.add('active');btn.setAttribute('aria-pressed','true');btn.textContent='♥ Favori';}
+    if(idx>-1){f.splice(idx,1);btn.classList.remove('active');btn.setAttribute('aria-pressed','false');btn.textContent='Favoris';}
+    else{f.push(slug);btn.classList.add('active');btn.setAttribute('aria-pressed','true');btn.textContent='Favori';}
     localStorage.setItem('lesfaits_favs',JSON.stringify(f));
   });
 })();

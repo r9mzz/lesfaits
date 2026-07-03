@@ -39,6 +39,7 @@
 <a href="categories/tech.html">Tech</a>
 <a href="categories/sante.html">Santé</a>
 <a href="categories/environnement.html">Environnement</a>
+<a href="favoris.html">Favoris</a>
 <a href="archive.html">Tous les articles</a>
 <a href="methode.html" class="nav-cta">Comment on travaille →</a>
 </nav>
@@ -63,7 +64,8 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeMenu();
       <a href="categories/tech.html">Tech</a>
       <a href="categories/sante.html">Santé</a>
       <a href="categories/environnement.html">Environnement</a>
-      <a href="archive.html">Tous les articles</a>
+      <a href="favoris.html">Favoris</a>
+<a href="archive.html">Tous les articles</a>
       <a href="methode.html" class="nav-cta">Comment on travaille →</a>
     </nav>
     <button class="dark-toggle" id="dark-toggle" aria-label="Mode sombre" title="Mode sombre">🌙</button>
@@ -97,14 +99,16 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeMenu();
   <a class="share-btn" href="https://www.linkedin.com/sharing/share-offsite/?url=https://lesfaits.info/articles/corruption-narcotrafic-france.html" target="_blank" rel="noopener noreferrer external">in LinkedIn</a>
   <a class="share-btn" href="https://api.whatsapp.com/send?text=Corruption%20liée%20au%20narcotrafic%20en%20France%20https://lesfaits.info/articles/corruption-narcotrafic-france.html" target="_blank" rel="noopener noreferrer external">WhatsApp</a>
   <button class="share-btn" onclick="copyLink()" id="copy-btn">Copier le lien</button>
-  <button class="fav-btn" id="fav-btn" aria-pressed="false">♡ Favoris</button>
+  <button class="fav-btn" id="fav-btn" aria-pressed="false">Favoris</button>
 </div>
 <script>if(navigator.share)document.getElementById('native-share').style.display='inline-flex';</script>
   <section class="sources" aria-label="Sources"><h3>SOURCES</h3><ol><li><cite>Agence française anticorruption</cite> · <em>Rapport d'activité 2023</em> · 2023 · <a href="https://www.agence-francaise-anticorruption.gouv.fr/files/files/RA_2023_AFA_Web.pdf" target="_blank" rel="noopener noreferrer external" aria-label="Agence française anticorruption (ouvre dans un nouvel onglet)">Lire la source →</a></li>
 <li><cite>Radio France</cite> · <em>Il m'a proposé 1 000 euros, j’ai accepté</em> · 02/07/2026 · <a href="https://www.franceinfo.fr/enquetes-franceinfo/il-m-a-propose-1-000-euros-j-ai-accepte-enquete-sur-la-corruption-liee-au-narcotrafic_8088902.html#xtor=RSS-3-[lestitres]" target="_blank" rel="noopener noreferrer external" aria-label="Radio France (ouvre dans un nouvel onglet)">Lire la source →</a></li>
 <li><cite>Gendarmerie nationale</cite> · <em>La lutte contre la corruption interne, une priorité pour la Gendarmerie nationale</em> · 09/12/2025 · <a href="https://www.gendarmerie.interieur.gouv.fr/gendinfo/temoignages/la-lutte-contre-la-corruption-interne-une-priorite-pour-la-gendarmerie-nationale" target="_blank" rel="noopener noreferrer external" aria-label="Gendarmerie nationale (ouvre dans un nouvel onglet)">Lire la source →</a></li>
 <li><cite>Ministère de la justice</cite> · <em>Ouverture du colloque « corruption et criminalité organisée »</em> · 02/12/2024 · <a href="https://www.justice.gouv.fr/actualites/espace-presse/ouverture-du-colloque-corruption-criminalite-organisee-organise-lafa-lenm-centre" target="_blank" rel="noopener noreferrer external" aria-label="Ministère de la justice (ouvre dans un nouvel onglet)">Lire la source →</a></li></ol></section>
-  <div class="art__related"><div class="art__related-title">À LIRE AUSSI</div><div class="art__related-grid"><a class="art__related-card" href="articles/openai-participation-gouvernement-americain.html"><img src="assets/images/openai-participation-gouvernement-americain.jpg" alt="OpenAI propose une participation minoritaire au gouvernement américain" width="400" height="110" loading="lazy" style="width:calc(100% + 32px);margin:-14px -16px 12px;height:110px;object-fit:cover;display:block;border-radius:var(--radius) var(--radius) 0 0"><span class="cat cat--tech">TECH</span><div class="title-sm">OpenAI propose une participation minoritaire au gouvernement américain</div><div style="font-size:10px;color:var(--muted);margin-top:6px">3 juillet 2026, 18h00</div></a><a class="art__related-card" href="articles/mousses-champignons-symbiose-inattendue.html"><img src="assets/images/mousses-champignons-symbiose-inattendue.jpg" alt="Découverte d’une symbiose inattendue entre mousses et champignons" width="400" height="110" loading="lazy" style="width:calc(100% + 32px);margin:-14px -16px 12px;height:110px;object-fit:cover;display:block;border-radius:var(--radius) var(--radius) 0 0"><span class="cat cat--science">SCIENCE</span><div class="title-sm">Découverte d’une symbiose inattendue entre mousses et champignons</div><div style="font-size:10px;color:var(--muted);margin-top:6px">3 juillet 2026, 18h00</div></a><a class="art__related-card" href="articles/reformes-economiques-allemagne-merz.html"><img src="assets/images/reformes-economiques-allemagne-merz.jpg" alt="Allemagne : le chancelier Friedrich Merz annonce des réformes économiques" width="400" height="110" loading="lazy" style="width:calc(100% + 32px);margin:-14px -16px 12px;height:110px;object-fit:cover;display:block;border-radius:var(--radius) var(--radius) 0 0"><span class="cat cat--economie">ÉCONOMIE</span><div class="title-sm">Allemagne : le chancelier Friedrich Merz annonce des réformes économiques</div><div style="font-size:10px;color:var(--muted);margin-top:6px">2 juillet 2026, 18h00</div></a></div></div>
+  <div class="art__related"><div class="art__related-title">À LIRE AUSSI</div><div class="art__related-grid"><a class="art__related-card" href="articles/openai-participation-gouvernement-americain.html"><img src="assets/images/openai-participation-gouvernement-americain.jpg" alt="" width="400" height="110" loading="lazy" style="width:calc(100% + 32px);margin:-14px -16px 12px;height:110px;object-fit:cover;display:block;border-radius:var(--radius) var(--radius) 0 0"><span class="cat cat--tech">TECH</span><div class="title-sm">OpenAI propose une participation minoritaire au gouvernement américain</div><div style="font-size:10px;color:var(--muted);margin-top:6px">3 juillet 2026, 18h00</div></a>
+<a class="art__related-card" href="articles/mousses-champignons-symbiose-inattendue.html"><img src="assets/images/mousses-champignons-symbiose-inattendue.jpg" alt="" width="400" height="110" loading="lazy" style="width:calc(100% + 32px);margin:-14px -16px 12px;height:110px;object-fit:cover;display:block;border-radius:var(--radius) var(--radius) 0 0"><span class="cat cat--science">SCIENCE</span><div class="title-sm">Découverte d’une symbiose inattendue entre mousses et champignons</div><div style="font-size:10px;color:var(--muted);margin-top:6px">3 juillet 2026, 18h00</div></a>
+<a class="art__related-card" href="articles/reformes-economiques-allemagne-merz.html"><img src="assets/images/reformes-economiques-allemagne-merz.jpg" alt="" width="400" height="110" loading="lazy" style="width:calc(100% + 32px);margin:-14px -16px 12px;height:110px;object-fit:cover;display:block;border-radius:var(--radius) var(--radius) 0 0"><span class="cat cat--economie">ECONOMIE</span><div class="title-sm">Allemagne : le chancelier Friedrich Merz annonce des réformes économiques</div><div style="font-size:10px;color:var(--muted);margin-top:6px">2 juillet 2026, 18h00</div></a></div></div>
   <p class="art__badge">Généré par IA · Protocole Les Faits v1.1 · 2 juillet 2026, 07h00</p>
   <a class="contest-btn" href="contact.html?article=corruption-narcotrafic-france#erreur">Signaler une erreur sur cet article</a>
 </div>
@@ -128,7 +132,8 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeMenu();
     <div class="footer__col"><h4>JOURNAL</h4>
       <a href="methode.html">Comment on travaille</a>
       <a href="corrections.html">Corrections publiques</a>
-      <a href="archive.html">Tous les articles</a>
+      <a href="favoris.html">Favoris</a>
+<a href="archive.html">Tous les articles</a>
       <a href="feed.xml" class="footer__rss">Flux RSS</a>
     </div>
     <div class="footer__col"><h4>LÉGAL</h4>
@@ -175,12 +180,12 @@ function copyLink(){
   if(!btn)return;
   var favs=JSON.parse(localStorage.getItem('lesfaits_favs')||'[]');
   var slug='corruption-narcotrafic-france';
-  if(favs.indexOf(slug)>-1){btn.classList.add('active');btn.setAttribute('aria-pressed','true');btn.textContent='♥ Favori';}
+  if(favs.indexOf(slug)>-1){btn.classList.add('active');btn.setAttribute('aria-pressed','true');btn.textContent='Favori';}
   btn.addEventListener('click',function(){
     var f=JSON.parse(localStorage.getItem('lesfaits_favs')||'[]');
     var idx=f.indexOf(slug);
-    if(idx>-1){f.splice(idx,1);btn.classList.remove('active');btn.setAttribute('aria-pressed','false');btn.textContent='♡ Favoris';}
-    else{f.push(slug);btn.classList.add('active');btn.setAttribute('aria-pressed','true');btn.textContent='♥ Favori';}
+    if(idx>-1){f.splice(idx,1);btn.classList.remove('active');btn.setAttribute('aria-pressed','false');btn.textContent='Favoris';}
+    else{f.push(slug);btn.classList.add('active');btn.setAttribute('aria-pressed','true');btn.textContent='Favori';}
     localStorage.setItem('lesfaits_favs',JSON.stringify(f));
   });
 })();
