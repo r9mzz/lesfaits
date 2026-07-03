@@ -1326,8 +1326,8 @@ _NAV_LINKS = (
     '<a href="categories/tech.html">Tech</a>\n'
     '<a href="categories/sante.html">Santé</a>\n'
     '<a href="categories/environnement.html">Environnement</a>\n'
-    '<a href="archive.html">Tous les articles</a>\n'
     '<a href="favoris.html">♡ Favoris</a>\n'
+    '<a href="archive.html">Tous les articles</a>\n'
     '<a href="methode.html" class="nav-cta">Comment on travaille →</a>'
 )
 _BURGER_JS = (
@@ -1689,8 +1689,8 @@ function copyLink(){{
       <a href="categories/tech.html">Tech</a>
       <a href="categories/sante.html">Santé</a>
       <a href="categories/environnement.html">Environnement</a>
-      <a href="archive.html">Tous les articles</a>
       <a href="favoris.html">♡ Favoris</a>
+      <a href="archive.html">Tous les articles</a>
       <a href="methode.html" class="nav-cta">Comment on travaille →</a>
     </nav>
     {DARK_TOGGLE}
@@ -1967,8 +1967,8 @@ def build_index_html(main, side_html, grid_html, list_html):
       <a href="categories/tech.html">Tech</a>
       <a href="categories/sante.html">Santé</a>
       <a href="categories/environnement.html">Environnement</a>
-      <a href="archive.html">Tous les articles</a>
       <a href="favoris.html">♡ Favoris</a>
+      <a href="archive.html">Tous les articles</a>
       <a href="methode.html" class="nav-cta">Comment on travaille →</a>
     </nav>
     {DARK_TOGGLE}
@@ -2225,8 +2225,8 @@ def build_category_pages():
       <a href="categories/tech.html">Tech</a>
       <a href="categories/sante.html">Santé</a>
       <a href="categories/environnement.html">Environnement</a>
-      <a href="archive.html">Tous les articles</a>
       <a href="favoris.html">♡ Favoris</a>
+      <a href="archive.html">Tous les articles</a>
       <a href="methode.html" class="nav-cta">Comment on travaille →</a>
     </nav>
     {DARK_TOGGLE}
@@ -2387,8 +2387,8 @@ document.addEventListener('keydown',function(e){{if(e.key==='Escape')closeMenu()
       <a href="categories/tech.html">Tech</a>
       <a href="categories/sante.html">Santé</a>
       <a href="categories/environnement.html">Environnement</a>
-      <a href="archive.html">Tous les articles</a>
       <a href="favoris.html">♡ Favoris</a>
+      <a href="archive.html">Tous les articles</a>
       <a href="methode.html" class="nav-cta">Comment on travaille →</a>
     </nav>
     <button class="dark-toggle" id="dark-toggle" aria-label="Mode sombre" title="Mode sombre">🌙</button>
@@ -2479,8 +2479,8 @@ def build_favoris_page():
       <a href="categories/tech.html">Tech</a>
       <a href="categories/sante.html">Santé</a>
       <a href="categories/environnement.html">Environnement</a>
-      <a href="archive.html">Tous les articles</a>
       <a href="favoris.html">♡ Favoris</a>
+      <a href="archive.html">Tous les articles</a>
       <a href="methode.html" class="nav-cta">Comment on travaille →</a>
     </nav>
     {DARK_TOGGLE}
