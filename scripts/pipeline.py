@@ -1709,6 +1709,7 @@ function copyLink(){{
     <span class="meta__sep" aria-hidden="true">·</span>
     <span class="art__reading-time">Lecture : {reading_time} min</span>
   </div>
+  <div class="art__ai-badge" role="note">🤖 Contenu rédigé par intelligence artificielle — <a href="methode.html" style="color:inherit;text-decoration:underline">notre méthode</a></div>
   {verify_html}
   <div class="art__rule"></div>
   {hero_img}

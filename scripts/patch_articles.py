@@ -160,6 +160,19 @@ for fn in os.listdir("articles"):
         html = html.replace('♡ Favoris', 'Favoris').replace('♥ Favori', 'Favori')
         changed = True
 
+    # 9. Badge de divulgation IA visible (AI Act art. 50) — le badge existant
+    # en pied de page (9px, couleur atténuée) ne suffit pas : la réglementation
+    # exclut explicitement les mentions cachées/noyées. Ajout d'un badge visible
+    # juste sous le méta (date/lecture), en haut de l'article.
+    if 'art__ai-badge' not in html:
+        html, n2 = re.subn(
+            r'(<span class="art__reading-time">Lecture[^<]*</span>\s*</div>)',
+            r'\1\n  <div class="art__ai-badge" role="note">🤖 Contenu rédigé par intelligence artificielle — <a href="methode.html" style="color:inherit;text-decoration:underline">notre méthode</a></div>',
+            html
+        )
+        if n2:
+            changed = True
+
     if changed:
         open(path, "w", encoding="utf-8").write(html)
         patched2 += 1

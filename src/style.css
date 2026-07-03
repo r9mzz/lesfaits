@@ -262,6 +262,10 @@ nav a.active { opacity: 1; color: var(--blue); border-bottom-color: var(--blue);
 .art__ia-stamp { font-size: 9px; color: var(--muted); font-style: italic; margin-top: 28px; padding-top: 16px; border-top: 1px solid var(--rule); }
 
 .art__badge { font-size: 9px; color: var(--rule); margin-top: 20px; }
+
+/* Divulgation IA — AI Act art. 50 : doit être visible sur la page elle-même,
+   pas seulement en pied de page ou sur /methode.html */
+.art__ai-badge { display: inline-block; font-size: 13px; font-weight: 600; color: var(--ink); background: var(--light); border: 1px solid var(--border); border-radius: 4px; padding: 6px 12px; margin: 12px 0; }
 .contest-btn { display: inline-block; border: 1px solid var(--rule); padding: 8px 16px; font-size: 11px; color: var(--muted); margin-top: 16px; transition: .15s; cursor: pointer; }
 .contest-btn:hover { border-color: var(--blue); color: var(--blue); }
 
