@@ -161,7 +161,33 @@ def _extract_json(text: str) -> dict:
     start = text.find("{")
     if start == -1:
         raise ValueError("Pas de JSON dans la réponse")
-    return json.loads(text[start:])
+    # Compte les accolades pour isoler l'objet JSON complet — texte[start:] seul
+    # échoue si la réponse contient du texte après le JSON, ou si le modèle a
+    # coupé la réponse en plein milieu (max_tokens atteint).
+    depth, end = 0, -1
+    in_str, escape = False, False
+    for i, ch in enumerate(text[start:], start):
+        if escape:
+            escape = False
+            continue
+        if ch == "\\" and in_str:
+            escape = True
+            continue
+        if ch == '"':
+            in_str = not in_str
+            continue
+        if in_str:
+            continue
+        if ch == "{":
+            depth += 1
+        elif ch == "}":
+            depth -= 1
+            if depth == 0:
+                end = i + 1
+                break
+    if end == -1:
+        raise ValueError("JSON tronqué ou incomplet dans la réponse (max_tokens atteint ?)")
+    return json.loads(text[start:end])
 
 
 def _sources_block(art: dict) -> str:
@@ -185,7 +211,7 @@ def corriger(art: dict, rapport: dict) -> dict:
               .replace("{ARTICLE_JSON}", json.dumps(art, ensure_ascii=False))
               .replace("{RAPPORT}", json.dumps(rapport, ensure_ascii=False))
               .replace("{SOURCES}", _sources_block(art)))
-    corrige = _extract_json(_anthropic_call(prompt, max_tokens=8000))
+    corrige = _extract_json(_anthropic_call(prompt, max_tokens=16000))
     # Champs techniques jamais modifiables par le correcteur
     for k in ("slug", "categorie", "image_keyword"):
         if k in art:

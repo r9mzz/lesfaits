@@ -1,27 +1,18 @@
-"""Test batch : fait passer un échantillon d'articles publiés dans
-verifier_article() (passes 2+3 Anthropic) et affiche la distribution des
-statuts, SANS réécrire aucun fichier. Échantillon choisi pour stresser :
-doublon/quasi-doublon, candidats bloc 5 (légal), et cas neutres (faux positifs)."""
-import sys
+"""Test diagnostic : affiche le rapport JSON COMPLET (bloc/type/phrase/
+explication) de la passe de détection sur un petit échantillon, sans
+réécrire aucun fichier. Objectif : comprendre pourquoi des articles neutres
+récoltent autant de signalements, et vérifier si le bloc 5 se déclenche
+correctement sur un cas légal réel."""
+import json, sys
 from pathlib import Path
 from bs4 import BeautifulSoup
 
 sys.path.insert(0, str(Path(__file__).parent))
-from verification import verifier_article, ANTHROPIC_KEY
+from verification import detecter, ANTHROPIC_KEY
 
 SLUGS = [
-    "sante-environnementale-impact-humain",
-    "sante-environnementale-defis-savoirs",
-    "adn-revolutionne-enquetes-criminelles",
     "violences-enfants-france-insuffisante",
-    "accident-jean-pierre-raffarin-paris",
-    "mousses-champignons-symbiose-inattendue",
     "redmi-15-5g-smartphone-abordable",
-    "knds-reporte-entree-bourse-volatilite-marche",
-    "spiruline-super-aliment-nutritionnel",
-    "le-coucou-un-oiseau-strategique",
-    "canicule-france-hausse-deces-morts-animaux",
-    "canicule-sante-publique-france",
 ]
 
 ROOT = Path(__file__).parent.parent
@@ -56,30 +47,18 @@ def load_article(slug):
     }
 
 
-print(f"Clé Anthropic présente : {bool(ANTHROPIC_KEY)}")
-print(f"Échantillon : {len(SLUGS)} articles")
-print("=" * 100)
+print(f"Clé Anthropic présente : {bool(ANTHROPIC_KEY)}", flush=True)
 
-resultats = []
 for slug in SLUGS:
-    try:
-        art = load_article(slug)
-    except Exception as e:
-        print(f"[ERREUR CHARGEMENT] {slug} : {e}")
-        continue
-    print(f"\n>>> {slug}")
-    art_final, statut = verifier_article(art)
-    resultats.append((slug, statut))
-    print(f"    STATUT : {statut}")
-
-print("\n" + "=" * 100)
-print("RÉPARTITION DES STATUTS")
-print("=" * 100)
-from collections import Counter
-c = Counter(s for _, s in resultats)
-for statut, n in c.most_common():
-    print(f"  {statut} : {n}/{len(resultats)}")
-
-print("\nDÉTAIL PAR ARTICLE :")
-for slug, statut in resultats:
-    print(f"  {slug:55s} -> {statut}")
+    art = load_article(slug)
+    print("\n" + "=" * 100, flush=True)
+    print(f">>> {slug}", flush=True)
+    print("=" * 100, flush=True)
+    rapport = detecter(art)
+    print(f"conforme : {rapport.get('conforme')}", flush=True)
+    problemes = rapport.get("problemes", [])
+    print(f"nb problèmes : {len(problemes)}", flush=True)
+    for i, p in enumerate(problemes, 1):
+        print(f"\n  [{i}] bloc={p.get('bloc')} type={p.get('type')} section={p.get('section')}", flush=True)
+        print(f"      phrase : {p.get('phrase_exacte','')[:200]}", flush=True)
+        print(f"      explication : {p.get('explication','')}", flush=True)
