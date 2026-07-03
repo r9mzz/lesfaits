@@ -52,6 +52,7 @@ BLOC 2 — SOURCING (100% vérifiable) :
 - formule_vague : "selon les experts", "des études montrent", "selon les sources", "il est établi" sans référence précise à une source de la liste
 - source_non_editoriale : une source non-journalistique/non-institutionnelle (ex : un outil de traduction, un dictionnaire) citée comme autorité factuelle
 - source_derivee_comptee_comme_primaire : plusieurs sources listées qui ne font que recopier la même dépêche/communiqué sans apporter d'info distincte, comptées comme des sources indépendantes alors qu'elles ne le sont pas
+- compteur_incoherent : le champ "nb_sources" ne correspond pas au nombre réel de sources distinctes effectivement utilisées (sources fantômes comptées, ou sources utilisées mais non comptées) — c'est une question d'intégrité du sourcing, pas de style
 
 BLOC 3 — ORIGINALITÉ (zéro plagiat déguisé) :
 - paraphrase_structurelle : une phrase reprend la structure et l'essentiel du vocabulaire d'une source sans guillemets (changer un adverbe n'est pas une reformulation)
@@ -64,7 +65,6 @@ BLOC 4 — RÉDACTION (zéro remplissage) :
 - faux_debat : "positions des acteurs" ou "nuances" présente un désaccord qui n'est pas réel/symétrique (ex : appliqué à une sanction, une décision de justice, un acte institutionnel unilatéral qui n'a qu'un seul camp)
 - jugement_de_valeur : tout adjectif, adverbe ou tournure qui trahit une opinion plutôt qu'un fait neutre
 - extrapolation : toute anticipation de conséquence future non explicitement sourcée
-- compteur_incoherent : le champ "nb_sources" ne correspond pas au nombre réel de sources distinctes effectivement utilisées
 
 BLOC 5 — LÉGAL (toujours grave, jamais corrigeable automatiquement) :
 - presomption_innocence : une personne appelée "coupable"/"l'assassin"/"le violeur" avant condamnation définitive, au lieu de "mis en examen", "soupçonné", "présumé", "poursuivi pour"
@@ -74,9 +74,16 @@ BLOC 5 — LÉGAL (toujours grave, jamais corrigeable automatiquement) :
 
 Pour CHAQUE problème trouvé, cite la phrase exacte concernée (mot pour mot, copiée depuis l'article) et précise dans quelle section elle se trouve.
 
+INDÉPENDAMMENT des blocs ci-dessus, évalue aussi si le SUJET lui-même exige une relecture humaine avant publication, quel que soit le nombre de problèmes trouvés — un article peut être parfaitement conforme sur les blocs 1-5 et rester un mauvais candidat à la publication 100% automatique si son sujet le justifie. Indique "sujet_sensible": true si l'article :
+- implique un mineur (victime ou mis en cause) d'une manière ou d'une autre, même sans l'identifier nommément
+- porte sur une affaire judiciaire ou pénale en cours (non définitivement jugée)
+- contient une critique ou une affirmation négative visant nommément une personne identifiée (responsable politique, particulier, entreprise dirigée par une personne nommée)
+
 Réponds en JSON strict, sans texte hors JSON :
 {
   "conforme": true/false,
+  "sujet_sensible": true/false,
+  "sujet_sensible_raison": "explication courte si true, sinon chaîne vide",
   "problemes": [
     {
       "bloc": 1-5,
@@ -288,6 +295,18 @@ def verifier_article(art: dict) -> tuple[dict, str]:
         _log(slug, "erreur_verification", {"etape": "detection", "erreur": str(e)})
         return art, "erreur_verification"
 
+    # Garde-fou indépendant du score : un sujet sensible (mineur impliqué,
+    # affaire judiciaire en cours, personne nommée négativement) part toujours
+    # en relecture humaine, même si l'article est par ailleurs 100% conforme
+    # sur les blocs 1-5. "Propre selon le détecteur" et "sans risque
+    # réputationnel à publier seul" ne sont pas la même chose sur ces sujets.
+    if rapport.get("sujet_sensible"):
+        raison = rapport.get("sujet_sensible_raison", "")
+        print(f"     [MODÉRATION] sujet sensible détecté — relecture humaine obligatoire ({raison})")
+        enqueue_moderation(art, rapport, {})
+        _log(slug, "a_corriger_manuellement", {"sujet_sensible": True, "raison": raison})
+        return art, "a_corriger_manuellement"
+
     if rapport.get("conforme"):
         _log(slug, "conforme_du_premier_coup")
         return art, "conforme_du_premier_coup"
@@ -337,6 +356,13 @@ def verifier_article(art: dict) -> tuple[dict, str]:
             print(f"     [MODÉRATION] problème légal apparu pendant la correction — mis en file")
             enqueue_moderation(art_corrige, rapport, rapport_final)
             _log(slug, "a_corriger_manuellement", {"problemes_initiaux": n_pb, "tentative": tentative, "bloc5": True})
+            return art_corrige, "a_corriger_manuellement"
+
+        if rapport_final.get("sujet_sensible"):
+            raison = rapport_final.get("sujet_sensible_raison", "")
+            print(f"     [MODÉRATION] sujet sensible détecté (tentative {tentative}) — relecture humaine obligatoire ({raison})")
+            enqueue_moderation(art_corrige, rapport, rapport_final)
+            _log(slug, "a_corriger_manuellement", {"tentative": tentative, "sujet_sensible": True, "raison": raison})
             return art_corrige, "a_corriger_manuellement"
 
         if rapport_final.get("conforme") or not bloquants:
