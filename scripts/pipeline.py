@@ -1327,6 +1327,7 @@ _NAV_LINKS = (
     '<a href="categories/sante.html">Santé</a>\n'
     '<a href="categories/environnement.html">Environnement</a>\n'
     '<a href="archive.html">Tous les articles</a>\n'
+    '<a href="favoris.html">♡ Favoris</a>\n'
     '<a href="methode.html" class="nav-cta">Comment on travaille →</a>'
 )
 _BURGER_JS = (
@@ -1689,6 +1690,7 @@ function copyLink(){{
       <a href="categories/sante.html">Santé</a>
       <a href="categories/environnement.html">Environnement</a>
       <a href="archive.html">Tous les articles</a>
+      <a href="favoris.html">♡ Favoris</a>
       <a href="methode.html" class="nav-cta">Comment on travaille →</a>
     </nav>
     {DARK_TOGGLE}
@@ -1912,6 +1914,7 @@ def rebuild_index():
     print(f"  ✓ index.html reconstruit ({len(articles)} articles)")
     build_category_pages()
     build_archive_page()
+    build_favoris_page()
     build_search_json(articles)
     build_feed_xml(articles)
     build_sitemap(articles)
@@ -1965,6 +1968,7 @@ def build_index_html(main, side_html, grid_html, list_html):
       <a href="categories/sante.html">Santé</a>
       <a href="categories/environnement.html">Environnement</a>
       <a href="archive.html">Tous les articles</a>
+      <a href="favoris.html">♡ Favoris</a>
       <a href="methode.html" class="nav-cta">Comment on travaille →</a>
     </nav>
     {DARK_TOGGLE}
@@ -2222,6 +2226,7 @@ def build_category_pages():
       <a href="categories/sante.html">Santé</a>
       <a href="categories/environnement.html">Environnement</a>
       <a href="archive.html">Tous les articles</a>
+      <a href="favoris.html">♡ Favoris</a>
       <a href="methode.html" class="nav-cta">Comment on travaille →</a>
     </nav>
     {DARK_TOGGLE}
@@ -2383,6 +2388,7 @@ document.addEventListener('keydown',function(e){{if(e.key==='Escape')closeMenu()
       <a href="categories/sante.html">Santé</a>
       <a href="categories/environnement.html">Environnement</a>
       <a href="archive.html">Tous les articles</a>
+      <a href="favoris.html">♡ Favoris</a>
       <a href="methode.html" class="nav-cta">Comment on travaille →</a>
     </nav>
     <button class="dark-toggle" id="dark-toggle" aria-label="Mode sombre" title="Mode sombre">🌙</button>
@@ -2430,6 +2436,115 @@ document.addEventListener('keydown',function(e){{if(e.key==='Escape')closeMenu()
     ROOT = Path(__file__).parent.parent
     (ROOT / "archive.html").write_text(html, encoding="utf-8")
     print(f"  ✓ archive.html mis à jour ({len(articles)} articles)")
+
+def build_favoris_page():
+    """Génère favoris.html — les favoris étant stockés en localStorage (par
+    navigateur, sans compte utilisateur), la page ne peut pas être pré-rendue
+    côté serveur : elle charge data/articles.json et filtre côté client."""
+    CAT_UPPER_JS = json.dumps(CAT_UPPER, ensure_ascii=False)
+    html = f"""<!DOCTYPE html>
+<html lang="fr" data-theme="">
+<head>
+  <meta charset="UTF-8"/>
+  {CSP_META}
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="Vos articles favoris sur Les Faits — sauvegardés localement dans votre navigateur."/>
+  <meta name="robots" content="noindex,follow"/>
+  <meta property="og:title" content="Mes favoris — Les Faits"/>
+  <meta property="og:description" content="Vos articles favoris sur Les Faits."/>
+  <meta property="og:type" content="website"/>
+  <meta property="og:url" content="https://lesfaits.info/favoris.html"/>
+  <meta property="og:image" content="https://lesfaits.info/assets/images/og-default.jpg"/>
+  <meta name="twitter:card" content="summary_large_image"/>
+  <meta name="twitter:image" content="https://lesfaits.info/assets/images/og-default.jpg"/>
+  <link rel="canonical" href="https://lesfaits.info/favoris.html"/>
+  <title>Mes favoris — Les Faits</title>
+  <base href="/"/>
+  <link rel="stylesheet" href="src/style.css"/>
+  {FAVICON_LINKS}
+  {_DARK_INIT_HEAD}
+</head>
+<body>
+{BURGER_HTML}
+<header class="header">
+  <div class="header__inner">
+    <a href="index.html" class="brand">{BRAND_ICON}<div class="brand__logotype"><span class="fact">les</span><span class="uel">faits</span></div></a>
+    <div class="header__search">
+      <input type="search" class="header__search-input" placeholder="Rechercher…" autocomplete="off" onkeydown="if(event.key==='Enter'&&this.value.trim())window.location=(document.querySelector('base').href)+'recherche.html?q='+encodeURIComponent(this.value.trim())"/>
+    </div>
+    <nav>
+      <a href="categories/societe.html">Société</a>
+      <a href="categories/science.html">Science</a>
+      <a href="categories/economie.html">Économie</a>
+      <a href="categories/tech.html">Tech</a>
+      <a href="categories/sante.html">Santé</a>
+      <a href="categories/environnement.html">Environnement</a>
+      <a href="archive.html">Tous les articles</a>
+      <a href="favoris.html">♡ Favoris</a>
+      <a href="methode.html" class="nav-cta">Comment on travaille →</a>
+    </nav>
+    {DARK_TOGGLE}
+    {BURGER_BTN}
+  </div>
+</header>
+
+<main class="wrap" style="max-width:860px;margin:48px auto;padding:0 20px 80px">
+  <nav aria-label="Fil d'Ariane" style="font-size:13px;color:var(--muted);margin-bottom:32px">
+    <a href="index.html" style="color:var(--muted)">Accueil</a>
+    <span style="margin:0 6px">›</span>
+    <span>Mes favoris</span>
+  </nav>
+  <h1 style="font-family:var(--font-serif,Georgia,serif);font-size:2rem;margin-bottom:4px">Mes favoris</h1>
+  <p id="favoris-count" style="color:var(--muted);font-size:14px;margin-bottom:48px">Chargement…</p>
+  <div id="favoris-list"></div>
+  <div id="favoris-empty" style="display:none;text-align:center;padding:48px 0;color:var(--muted)">
+    <p style="font-size:1rem;margin-bottom:8px">Vous n'avez encore aucun favori.</p>
+    <p style="font-size:.9rem">Cliquez sur ♡ Favoris en bas d'un article pour l'ajouter ici — vos favoris sont enregistrés dans ce navigateur.</p>
+  </div>
+</main>
+
+{_build_footer()}
+{_DARK_MODE_JS}
+{_ANALYTICS_JS}
+<script>
+(function(){{
+  var favs = JSON.parse(localStorage.getItem('lesfaits_favs')||'[]');
+  var countEl = document.getElementById('favoris-count');
+  var listEl = document.getElementById('favoris-list');
+  var emptyEl = document.getElementById('favoris-empty');
+  if(!favs.length){{
+    countEl.textContent = '0 article enregistré';
+    emptyEl.style.display = 'block';
+    return;
+  }}
+  fetch('data/articles.json').then(function(r){{return r.json();}}).then(function(articles){{
+    var bySlug = {{}};
+    articles.forEach(function(a){{bySlug[a.slug]=a;}});
+    var found = favs.map(function(s){{return bySlug[s];}}).filter(Boolean);
+    countEl.textContent = found.length + ' article' + (found.length>1?'s':'') + ' enregistré' + (found.length>1?'s':'');
+    if(!found.length){{emptyEl.style.display='block';return;}}
+    listEl.innerHTML = found.map(function(a){{
+      var resume = Array.isArray(a.resume) ? (a.resume[0]||'') : (a.resume||'');
+      var img = 'assets/images/'+a.slug+'.jpg';
+      return '<a class="archive-row" href="articles/'+a.slug+'.html" style="display:grid;grid-template-columns:80px 1fr;gap:12px 20px;padding:16px 0;border-bottom:1px solid var(--border);align-items:start;text-decoration:none;color:inherit">'
+        +'<img src="'+img+'" alt="" style="width:80px;height:54px;object-fit:cover;border-radius:4px;background:var(--light)" loading="lazy" onerror="this.style.display=\\'none\\'"/>'
+        +'<div><span class="cat cat--'+a.categorie+'" style="display:inline-block;font-size:10px;font-weight:700;letter-spacing:.06em;margin-bottom:4px">'+_cat_up_js(a.categorie)+'</span>'
+        +'<div style="font-weight:600;color:var(--ink);line-height:1.4;font-size:1rem">'+escapeHtml(a.titre)+'</div>'
+        +'<p style="margin:4px 0 0;font-size:.85rem;color:var(--muted);line-height:1.5">'+escapeHtml(resume.slice(0,120))+(resume.length>120?'…':'')+'</p>'
+        +'<span style="font-size:.75rem;color:var(--muted);margin-top:4px;display:block">'+(a.date||'').split(',')[0]+' · '+(a.nb_sources||0)+' sources</span>'
+        +'</div></a>';
+    }}).join('');
+  }});
+  function escapeHtml(s){{return String(s).replace(/[&<>"']/g,function(c){{return {{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}}[c];}});}}
+  function _cat_up_js(c){{var m={CAT_UPPER_JS};return (m[c]||c).toUpperCase();}}
+}})();
+</script>
+</body>
+</html>"""
+    ROOT = Path(__file__).parent.parent
+    (ROOT / "favoris.html").write_text(html, encoding="utf-8")
+    print("  ✓ favoris.html généré")
+
 
 def save_to_index(art: dict, date_pub: str):
     index = load_index()

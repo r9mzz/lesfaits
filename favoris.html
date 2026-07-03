@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="fr" data-theme="">
+<head>
+  <meta charset="UTF-8"/>
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cloud.umami.is; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; connect-src 'self' https://cloud.umami.is https://api.web3forms.com; base-uri 'self'; form-action 'self' https://api.web3forms.com; frame-ancestors 'none';"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="Vos articles favoris sur Les Faits — sauvegardés localement dans votre navigateur."/>
+  <meta name="robots" content="noindex,follow"/>
+  <meta property="og:title" content="Mes favoris — Les Faits"/>
+  <meta property="og:description" content="Vos articles favoris sur Les Faits."/>
+  <meta property="og:type" content="website"/>
+  <meta property="og:url" content="https://lesfaits.info/favoris.html"/>
+  <meta property="og:image" content="https://lesfaits.info/assets/images/og-default.jpg"/>
+  <meta name="twitter:card" content="summary_large_image"/>
+  <meta name="twitter:image" content="https://lesfaits.info/assets/images/og-default.jpg"/>
+  <link rel="canonical" href="https://lesfaits.info/favoris.html"/>
+  <title>Mes favoris — Les Faits</title>
+  <base href="/"/>
+  <link rel="stylesheet" href="src/style.css"/>
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg"/>
+  <link rel="manifest" href="/manifest.json"/>
+  <script>
+(function(){var s=localStorage.getItem('theme'),d=s==='dark'||(s===null&&window.matchMedia('(prefers-color-scheme:dark)').matches);document.documentElement.setAttribute('data-theme',d?'dark':'light');})();
+</script>
+</head>
+<body>
+<div class="nav-overlay" id="nav-overlay" onclick="closeMenu()"></div>
+<nav class="nav-mobile" id="nav-mobile">
+<a href="categories/societe.html">Société</a>
+<a href="categories/science.html">Science</a>
+<a href="categories/economie.html">Économie</a>
+<a href="categories/tech.html">Tech</a>
+<a href="categories/sante.html">Santé</a>
+<a href="categories/environnement.html">Environnement</a>
+<a href="archive.html">Tous les articles</a>
+<a href="favoris.html">♡ Favoris</a>
+<a href="methode.html" class="nav-cta">Comment on travaille →</a>
+</nav>
+<script>
+function toggleMenu(){var b=document.getElementById('burger'),m=document.getElementById('nav-mobile'),o=document.getElementById('nav-overlay');b.classList.toggle('open');m.classList.toggle('open');o.classList.toggle('open');}
+function closeMenu(){document.getElementById('burger').classList.remove('open');document.getElementById('nav-mobile').classList.remove('open');document.getElementById('nav-overlay').classList.remove('open');}
+document.querySelectorAll('.nav-mobile a').forEach(function(a){a.addEventListener('click',closeMenu);});
+document.addEventListener('keydown',function(e){if(e.key==='Escape')closeMenu();});
+</script>
+<header class="header">
+  <div class="header__inner">
+    <a href="index.html" class="brand"><svg class="brand__icon" width="26" height="26" viewBox="0 0 200 200" aria-hidden="true" focusable="false"><rect width="200" height="200" rx="28" fill="#141416"/><circle cx="100" cy="100" r="72" fill="none" stroke="#6C85BD" stroke-width="4"/><circle cx="28" cy="100" r="7" fill="#6C85BD"/><circle cx="172" cy="100" r="7" fill="#6C85BD"/><text x="84" y="132" font-family="Georgia,'Times New Roman',serif" font-size="92" font-weight="700" fill="#F1EFE8" text-anchor="middle">l</text><text x="128" y="132" font-family="Georgia,'Times New Roman',serif" font-size="92" font-weight="700" fill="#6C85BD" text-anchor="middle">f</text></svg><div class="brand__logotype"><span class="fact">les</span><span class="uel">faits</span></div></a>
+    <div class="header__search">
+      <input type="search" class="header__search-input" placeholder="Rechercher…" autocomplete="off" onkeydown="if(event.key==='Enter'&&this.value.trim())window.location=(document.querySelector('base').href)+'recherche.html?q='+encodeURIComponent(this.value.trim())"/>
+    </div>
+    <nav>
+      <a href="categories/societe.html">Société</a>
+      <a href="categories/science.html">Science</a>
+      <a href="categories/economie.html">Économie</a>
+      <a href="categories/tech.html">Tech</a>
+      <a href="categories/sante.html">Santé</a>
+      <a href="categories/environnement.html">Environnement</a>
+      <a href="archive.html">Tous les articles</a>
+      <a href="favoris.html">♡ Favoris</a>
+      <a href="methode.html" class="nav-cta">Comment on travaille →</a>
+    </nav>
+    <button class="dark-toggle" id="dark-toggle" aria-label="Mode sombre" title="Mode sombre">🌙</button>
+    <button class="burger" id="burger" aria-label="Menu" onclick="toggleMenu()"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<main class="wrap" style="max-width:860px;margin:48px auto;padding:0 20px 80px">
+  <nav aria-label="Fil d'Ariane" style="font-size:13px;color:var(--muted);margin-bottom:32px">
+    <a href="index.html" style="color:var(--muted)">Accueil</a>
+    <span style="margin:0 6px">›</span>
+    <span>Mes favoris</span>
+  </nav>
+  <h1 style="font-family:var(--font-serif,Georgia,serif);font-size:2rem;margin-bottom:4px">Mes favoris</h1>
+  <p id="favoris-count" style="color:var(--muted);font-size:14px;margin-bottom:48px">Chargement…</p>
+  <div id="favoris-list"></div>
+  <div id="favoris-empty" style="display:none;text-align:center;padding:48px 0;color:var(--muted)">
+    <p style="font-size:1rem;margin-bottom:8px">Vous n'avez encore aucun favori.</p>
+    <p style="font-size:.9rem">Cliquez sur ♡ Favoris en bas d'un article pour l'ajouter ici — vos favoris sont enregistrés dans ce navigateur.</p>
+  </div>
+</main>
+
+<footer class="footer" role="contentinfo" aria-label="Pied de page">
+  <div class="footer__inner">
+    <div class="footer__brand">
+      <div class="brand__logotype"><span class="fact">les</span><span class="uel">faits</span></div>
+      <p>Journal numérique français rédigé par IA. Sans publicité. Sans actionnaires.</p>
+      <p style="font-size:10px;color:var(--muted);margin-top:8px">Aucune publicité · Aucun actionnaire · Aucun cookie de tracking</p>
+    </div>
+    <div class="footer__col"><h4>RUBRIQUES</h4>
+      <a href="categories/societe.html">Société</a>
+      <a href="categories/science.html">Science</a>
+      <a href="categories/economie.html">Économie</a>
+      <a href="categories/tech.html">Tech</a>
+      <a href="categories/sante.html">Santé</a>
+      <a href="categories/environnement.html">Environnement</a>
+    </div>
+    <div class="footer__col"><h4>JOURNAL</h4>
+      <a href="methode.html">Comment on travaille</a>
+      <a href="corrections.html">Corrections publiques</a>
+      <a href="archive.html">Tous les articles</a>
+      <a href="feed.xml" class="footer__rss">Flux RSS</a>
+    </div>
+    <div class="footer__col"><h4>LÉGAL</h4>
+      <a href="mentions-legales.html">Mentions légales</a>
+      <a href="confidentialite.html">Confidentialité</a>
+      <a href="cgu.html">CGU</a>
+    </div>
+    <div class="footer__col"><h4>CONTACT</h4>
+      <a href="contact.html">Nous écrire</a>
+      <a href="contact.html#erreur">Signaler une erreur</a>
+    </div>
+  </div>
+  <div class="footer__bottom">
+    <span>© 2026 Les Faits · <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/deed.fr" rel="noopener noreferrer external" target="_blank" style="color:inherit">CC BY-NC-ND 4.0</a></span>
+    <span>Protocole éditorial v1.1</span>
+  </div>
+</footer>
+<script>
+(function(){
+  var btn=document.getElementById('dark-toggle');
+  var dark=document.documentElement.getAttribute('data-theme')==='dark';
+  if(btn){btn.textContent=dark?'☀️':'🌙';btn.setAttribute('aria-label',dark?'Passer en mode clair':'Passer en mode sombre');}
+  if(btn) btn.addEventListener('click',function(){
+    var d=document.documentElement.getAttribute('data-theme')==='dark';
+    document.documentElement.setAttribute('data-theme',d?'light':'dark');
+    localStorage.setItem('theme',d?'light':'dark');
+    btn.textContent=d?'🌙':'☀️';btn.setAttribute('aria-label',d?'Passer en mode sombre':'Passer en mode clair');
+  });
+})();
+</script>
+<script defer src="https://cloud.umami.is/script.js" data-website-id="8d68a78f-97ae-4c95-a955-5d3df758f7e2"></script>
+<script>
+(function(){
+  var favs = JSON.parse(localStorage.getItem('lesfaits_favs')||'[]');
+  var countEl = document.getElementById('favoris-count');
+  var listEl = document.getElementById('favoris-list');
+  var emptyEl = document.getElementById('favoris-empty');
+  if(!favs.length){
+    countEl.textContent = '0 article enregistré';
+    emptyEl.style.display = 'block';
+    return;
+  }
+  fetch('data/articles.json').then(function(r){return r.json();}).then(function(articles){
+    var bySlug = {};
+    articles.forEach(function(a){bySlug[a.slug]=a;});
+    var found = favs.map(function(s){return bySlug[s];}).filter(Boolean);
+    countEl.textContent = found.length + ' article' + (found.length>1?'s':'') + ' enregistré' + (found.length>1?'s':'');
+    if(!found.length){emptyEl.style.display='block';return;}
+    listEl.innerHTML = found.map(function(a){
+      var resume = Array.isArray(a.resume) ? (a.resume[0]||'') : (a.resume||'');
+      var img = 'assets/images/'+a.slug+'.jpg';
+      return '<a class="archive-row" href="articles/'+a.slug+'.html" style="display:grid;grid-template-columns:80px 1fr;gap:12px 20px;padding:16px 0;border-bottom:1px solid var(--border);align-items:start;text-decoration:none;color:inherit">'
+        +'<img src="'+img+'" alt="" style="width:80px;height:54px;object-fit:cover;border-radius:4px;background:var(--light)" loading="lazy" onerror="this.style.display=\'none\'"/>'
+        +'<div><span class="cat cat--'+a.categorie+'" style="display:inline-block;font-size:10px;font-weight:700;letter-spacing:.06em;margin-bottom:4px">'+_cat_up_js(a.categorie)+'</span>'
+        +'<div style="font-weight:600;color:var(--ink);line-height:1.4;font-size:1rem">'+escapeHtml(a.titre)+'</div>'
+        +'<p style="margin:4px 0 0;font-size:.85rem;color:var(--muted);line-height:1.5">'+escapeHtml(resume.slice(0,120))+(resume.length>120?'…':'')+'</p>'
+        +'<span style="font-size:.75rem;color:var(--muted);margin-top:4px;display:block">'+(a.date||'').split(',')[0]+' · '+(a.nb_sources||0)+' sources</span>'
+        +'</div></a>';
+    }).join('');
+  });
+  function escapeHtml(s){return String(s).replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];});}
+  function _cat_up_js(c){var m={"science": "SCIENCE", "economie": "ÉCONOMIE", "tech": "TECH", "sante": "SANTÉ", "environnement": "ENVIRONNEMENT", "societe": "SOCIÉTÉ"};return (m[c]||c).toUpperCase();}
+})();
+</script>
+</body>
+</html>
