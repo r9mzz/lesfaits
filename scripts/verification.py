@@ -212,7 +212,7 @@ def detecter(art: dict) -> dict:
     prompt = (PROMPT_DETECTION
               .replace("{ARTICLE_JSON}", json.dumps(art, ensure_ascii=False))
               .replace("{SOURCES}", _sources_block(art)))
-    return _extract_json(_anthropic_call(prompt, max_tokens=4000))
+    return _extract_json(_anthropic_call(prompt, max_tokens=8000))
 
 
 def corriger(art: dict, rapport: dict) -> dict:

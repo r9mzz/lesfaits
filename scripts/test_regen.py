@@ -73,10 +73,8 @@ verification.enqueue_moderation = lambda *a, **k: None
 verification._log = lambda *a, **k: None
 
 SLUGS = [
-    # 3 catégories différentes pour valider que le fix fantômes tient large
-    "vague-de-chaleur-historique-mediterranee",   # environnement — sources météo/institutionnel
-    "ver-informatique-ia-attaque-experimentale",  # tech — sources cyber, potentiellement anglophones
-    "demence-senile-alzheimer-differences",       # santé — Inserm/PubMed attendus
+    # Ciblé : confirmer que detecter() ne tronque plus après max_tokens 4000→8000
+    "vague-de-chaleur-historique-mediterranee",
 ]
 
 
