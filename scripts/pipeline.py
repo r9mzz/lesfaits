@@ -205,17 +205,18 @@ _MEDIA_NOMS: dict[str, str] = {
 }
 
 
-def _media_name_from_url(url: str) -> str:
+def _media_name_from_url(url: str, title_hint: str = "") -> str:
     """Retourne le nom lisible du média depuis son URL.
-    Priorité : table _MEDIA_NOMS → fallback hostname nettoyé.
-    Le fallback remonte au domaine racine (2 derniers segments) pour les
-    sous-domaines génériques, remplace les tirets par des espaces, et met
-    en majuscules les acronymes de ≤4 caractères."""
+    Priorité :
+      1. Table _MEDIA_NOMS (lookup exact ou domaine racine)
+      2. Suffixe extrait du titre DDG (pattern "Titre — Nom du Média")
+      3. Fallback hostname nettoyé (stem, tirets→espaces, acronymes ≤3 car.)
+    """
     try:
         host = (urlparse(url).hostname or "").lower().removeprefix("www.")
     except Exception:
         return ""
-    # Lookup direct
+    # 1. Lookup direct
     if host in _MEDIA_NOMS:
         return _MEDIA_NOMS[host]
     # Lookup sur le domaine racine (ex. fr.euronews.com → euronews.com)
@@ -224,7 +225,15 @@ def _media_name_from_url(url: str) -> str:
         root = ".".join(parts[-2:])
         if root in _MEDIA_NOMS:
             return _MEDIA_NOMS[root]
-    # Fallback : stem du domaine racine, tirets→espaces, capitalize
+    # 2. Extraction depuis le titre DDG ("Titre de l'article — Nom du Média")
+    if title_hint:
+        for sep in (" — ", " | ", " – ", " - "):
+            if sep in title_hint:
+                suffix = title_hint.rsplit(sep, 1)[-1].strip()
+                # Valide si court, sans point (pas une URL) et sans "..."
+                if 2 < len(suffix) < 45 and "." not in suffix and "..." not in suffix:
+                    return suffix
+    # 3. Fallback : stem du domaine racine, tirets→espaces, capitalize
     stem = parts[-2] if len(parts) >= 2 else host
     words = stem.replace("-", " ").split()
     name = " ".join(w.upper() if len(w) <= 3 else w.capitalize() for w in words)
@@ -961,7 +970,8 @@ def generate(content: str, category_hint: str, extra_sources: list[dict] | None 
 
     # Supprimer toute source dont l'URL n'est pas dans la liste réelle,
     # et écraser le nom avec celui de la source authoritative (évite les mismatches nom↔URL).
-    real_title_by_url = {s["url"]: _media_name_from_url(s["url"]) for s in real_sources}
+    real_title_by_url = {s["url"]: _media_name_from_url(s["url"], s.get("title", ""))
+                        for s in real_sources}
     if "sources" in art:
         verified = []
         for src in art["sources"]:
