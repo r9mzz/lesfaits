@@ -1728,5 +1728,313 @@
       ]
     },
     "rapport_final": {}
+  },
+  {
+    "date": "2026-07-04T17:05:26",
+    "slug": "alimentation-cancer-poumon-etudes-recentes",
+    "titre": "Alimentation et cancer du poumon, un lien suggéré par des études récentes",
+    "article": {
+      "titre": "Alimentation et cancer du poumon, un lien suggéré par des études récentes",
+      "slug": "alimentation-cancer-poumon-etudes-recentes",
+      "image_keyword": "healthy food plate",
+      "resume": [
+        "Selon Futura Sciences, des chercheurs ont mis en lumière un lien entre le régime alimentaire et le risque de cancer du poumon, des résultats que les auteurs eux-mêmes présentent comme une corrélation, sans relation de cause à effet établie.",
+        "D'après Top Santé, des études récentes identifient la consommation de certains aliments — notamment ceux riches en graisses et en fructose — comme un facteur de risque supplémentaire pour le cancer du poumon, aux côtés du tabac, facteur dominant de longue date.",
+        "Selon Recherche Clinique Paris Centre, une nouvelle étude évoque une association entre l'alimentation et la progression du cancer du poumon, des résultats que les chercheurs eux-mêmes présentent comme préliminaires."
+      ],
+      "corps": {
+        "faits": "Selon Futura Sciences, des chercheurs ont récemment mis en lumière un facteur de risque lié à l'alimentation pour le cancer du poumon, que cette source décrit comme un « coupable insoupçonné » et une « corrélation inattendue ». D'après Top Santé, une étude récente suggère qu'un régime riche en graisses et en fructose pourrait favoriser la progression du cancer du poumon, une association statistique qui ne permet pas à ce stade d'établir une causalité directe. Selon Recherche Clinique Paris Centre, le titre de leur article de vulgarisation évoque « un lien surprenant avec l'alimentation et les régimes » dans le développement de ce cancer, une formulation éditoriale qui résume les conclusions des chercheurs sans constituer une citation directe de leur part. D'après Top Santé, les aliments incriminés sont notamment les aliments transformés et les boissons sucrées.",
+        "contexte": "Selon Recherche Clinique Paris Centre, le cancer du poumon est l'un des cancers les plus meurtriers au monde, et il a longtemps été associé quasi exclusivement au tabac ou à la pollution. Selon Futura Sciences (article du 26 juin 2025), cette corrélation entre certains régimes alimentaires et le cancer du poumon était, jusqu'à la publication des travaux couverts par cet article, peu documentée dans la littérature scientifique ; les études signalées en 2025 constituent ainsi, selon cette source, un apport nouveau au champ. Futura Sciences publie par ailleurs, dans un article distinct du 15 avril 2025, des éléments complémentaires sur ce même sujet de recherche ; ces deux articles couvrant un corpus scientifique voisin, ils sont comptabilisés comme une source unique. D'après Top Santé, les chercheurs s'intéressent notamment au rôle des sucres rapides et des lipides dans les mécanismes biologiques potentiellement impliqués dans le développement du cancer du poumon, sans que ce lien mécaniste soit établi à ce stade.",
+        "nuances": "D'après Futura Sciences, les chercheurs ont également précisé que d'autres facteurs environnementaux et génétiques entrent en jeu dans le développement du cancer du poumon, ce qui rend l'interprétation isolée du facteur alimentaire délicate. Selon Recherche Clinique Paris Centre, les résultats présentés sont qualifiés de préliminaires par les auteurs eux-mêmes, ce qui implique qu'ils devront être confirmés par des travaux ultérieurs avant de pouvoir orienter des recommandations de santé publique. Selon Top Santé, les aliments transformés et les boissons sucrées sont spécifiquement mentionnés parmi les produits dont la consommation régulière est associée au risque étudié, une précision qui distingue certaines catégories alimentaires des autres composantes du régime occidental."
+      },
+      "sources": [
+        {
+          "institution": "Futura Sciences",
+          "titre": "Voici le coupable insoupçonné de notre alimentation qu'une étude associe au cancer du poumom",
+          "date": "2025-04-15",
+          "url": "https://www.futura-sciences.com/sante/actualites/cancer-poumon-voici-coupable-insoupconne-notre-alimentation-quune-etude-associe-cancer-poumom-w2t8-135853/"
+        },
+        {
+          "institution": "Top Santé",
+          "titre": "Ce que vous mangez pourrait contribuer au cancer du poumon, selon cette étude : les aliments incriminés",
+          "date": "2025-08-04",
+          "url": "https://www.topsante.com/medecine/cancers/cancer_du_poumon/ce-que-vous-mangez-pourrait-contribuer-au-cancer-du-poumon-selon-cette-etude-les-aliments-incrimines-923100"
+        },
+        {
+          "institution": "Recherche Clinique Paris Centre",
+          "titre": "Cancer du poumon : un lien surprenant avec l'alimentation et les régimes révélé par des chercheurs",
+          "date": "2025-06-29",
+          "url": "https://www.recherchecliniquepariscentre.fr/cancer-du-poumon-un-lien-surprenant-avec-lalimentation-et-les-regimes-revele-par-des-chercheurs/"
+        },
+        {
+          "institution": "Futura Sciences",
+          "titre": "Des chercheurs révèlent une corrélation inattendue entre certains régimes et le cancer du poumon",
+          "date": "2025-06-26",
+          "url": "https://www.futura-sciences.com/sante/actualites/cancer-poumon-chercheurs-revelent-correlation-inattendue-certains-regimes-cancer-poumon-123193/"
+        }
+      ],
+      "categorie": "science",
+      "nb_sources": 3,
+      "positions": {
+        "verifie": false,
+        "label_gauche": "",
+        "label_droite": "",
+        "acteurs": []
+      }
+    },
+    "rapport_initial": {
+      "conforme": false,
+      "sujet_sensible": false,
+      "sujet_sensible_raison": "",
+      "problemes": [
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "des chercheurs américains de l'Université de Floride et de l'Université du Kentucky",
+          "explication": "Les noms « Université de Floride » et « Université du Kentucky » n'apparaissent dans aucune des sources autorisées listées ; ces institutions sont introduites comme des faits sans que les sources fournies les mentionnent."
+        },
+        {
+          "bloc": 2,
+          "section": "resume",
+          "type": "source_inventee",
+          "phrase_exacte": "une nouvelle étude publiée dans Nature Metabolism change la donne en évoquant un lien direct entre l'alimentation occidentale et la progression d'un type très courant de cancer du poumon",
+          "explication": "La revue scientifique « Nature Metabolism » n'apparaît dans aucune des sources autorisées ; la citer comme référence constitue une source inventée non vérifiable à partir de la liste fournie."
+        },
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "source_derivee_comptee_comme_primaire",
+          "phrase_exacte": "D'après Futura Sciences, les chercheurs ont identifié un lien entre le régime alimentaire et le cancer du poumon, en particulier pour les personnes qui consomment des aliments riches en graisses et en fructose.",
+          "explication": "Deux articles Futura Sciences distincts sont listés comme sources indépendantes (nb_sources = 4), mais ils couvrent manifestement le même sujet (la même étude sur le lien alimentation/cancer du poumon) ; s'ils relaient la même étude primaire sans apporter d'information distincte, ils ne constituent pas deux sources indépendantes."
+        },
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "compteur_incoherent",
+          "phrase_exacte": "\"nb_sources\": 4",
+          "explication": "Le champ nb_sources indique 4, mais si les deux articles Futura Sciences ne font que relayer la même étude, le nombre de sources réellement indépendantes est inférieur à 4 ; le compteur est potentiellement surévalué."
+        },
+        {
+          "bloc": 2,
+          "section": "nuances",
+          "type": "source_non_editoriale",
+          "phrase_exacte": "Selon Recherche Clinique Paris Centre, il est important de noter que les résultats de ces études sont encore préliminaires",
+          "explication": "Recherche Clinique Paris Centre est une institution de recherche clinique hospitalière, non un média journalistique ; elle est ici citée comme autorité éditoriale pour formuler un jugement sur la portée des études (« résultats encore préliminaires »), ce qui dépasse les faits bruts mesurables autorisés par l'exception constructeur/institutionnel."
+        },
+        {
+          "bloc": 3,
+          "section": "faits",
+          "type": "paraphrase_structurelle",
+          "phrase_exacte": "Selon Recherche Clinique Paris Centre, cette étude révèle un lien surprenant entre l'alimentation et les régimes, et le cancer du poumon.",
+          "explication": "Cette phrase reprend quasi mot pour mot le titre de la source (« Cancer du poumon : un lien surprenant avec l'alimentation et les régimes révélé par des chercheurs ») sans guillemets ni véritable reformulation."
+        },
+        {
+          "bloc": 3,
+          "section": "resume",
+          "type": "paraphrase_structurelle",
+          "phrase_exacte": "le cancer du poumon a longtemps été associé quasi exclusivement au tabac, mais des études récentes pointent du doigt la consommation d'aliments comme un facteur de risque inattendu",
+          "explication": "Cette phrase calque la structure rhétorique opposition tabac/alimentation inattendue des sources sans guillemets ni reformulation substantielle."
+        },
+        {
+          "bloc": 4,
+          "section": "contexte",
+          "type": "redondance",
+          "phrase_exacte": "D'après Futura Sciences, les chercheurs ont étudié les habitudes alimentaires de personnes atteintes de cancer du poumon et ont constaté que celles qui consommaient des aliments riches en graisses et en fructose avaient un risque plus élevé de développer ce type de cancer.",
+          "explication": "Cette information (lien graisses/fructose et risque accru de cancer du poumon) est déjà exposée dans la section « faits » ; la répétition dans « contexte » constitue une redondance."
+        },
+        {
+          "bloc": 4,
+          "section": "contexte",
+          "type": "redondance",
+          "phrase_exacte": "Selon Top Santé, il est important de noter que le tabac reste le principal facteur de risque pour le cancer du poumon, mais que l'alimentation pourrait être un facteur de risque supplémentaire.",
+          "explication": "Ce point (tabac = facteur principal, alimentation = facteur supplémentaire) est déjà présent dans le résumé et dans les faits ; il est répété sans apport d'information nouvelle."
+        },
+        {
+          "bloc": 4,
+          "section": "nuances",
+          "type": "section_gonflee",
+          "phrase_exacte": "Selon Top Santé, il est important de maintenir une alimentation équilibrée et de limiter la consommation d'aliments transformés et de boissons sucrées pour réduire le risque de cancer du poumon.",
+          "explication": "Ce conseil de santé générique (alimentation équilibrée, limiter aliments transformés) est un remplissage de bon sens non sourcé précisément et non distinctif par rapport aux faits déjà exposés."
+        },
+        {
+          "bloc": 4,
+          "section": "nuances",
+          "type": "redondance",
+          "phrase_exacte": "D'après Futura Sciences, les chercheurs ont souligné que les résultats de leurs études ne signifient pas que les personnes qui consomment des aliments riches en graisses et en fructose vont automatiquement développer un cancer du poumon, mais que cela pourrait augmenter leur risque.",
+          "explication": "Cette mise en garde (pas de causalité automatique, mais risque accru) reformule ce qui est déjà implicitement exprimé dans les faits et dans la nuance sur les résultats préliminaires, sans apporter d'information nouvelle."
+        },
+        {
+          "bloc": 4,
+          "section": "titre",
+          "type": "jugement_de_valeur",
+          "phrase_exacte": "un lien révélé par des études récentes",
+          "explication": "Le mot « révélé » confère un caractère définitif et dramatique à des résultats présentés dans l'article lui-même comme préliminaires ; un terme neutre comme « suggéré » ou « observé » serait plus conforme aux faits."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "fait_tranche_arbitrairement",
+          "phrase_exacte": "un régime riche en graisses et en fructose pourrait favoriser la progression du cancer du poumon",
+          "explication": "L'article alterne entre « pourrait » (conditionnel) et des formulations plus affirmatives sans que la distinction entre corrélation et causalité soit clairement maintenue tout au long du texte, tranchant parfois comme établi ce qui reste une association statistique."
+        },
+        {
+          "bloc": 4,
+          "section": "resume",
+          "type": "jugement_de_valeur",
+          "phrase_exacte": "change la donne en évoquant un lien direct entre l'alimentation occidentale et la progression d'un type très courant de cancer du poumon",
+          "explication": "L'expression « change la donne » est un cadrage éditorial valorisant qui n'est pas neutre ; de plus, « lien direct » présente une causalité comme établie alors que les sources et la section nuances parlent de résultats préliminaires."
+        },
+        {
+          "bloc": 1,
+          "section": "resume",
+          "type": "incoherence_inter_sections",
+          "phrase_exacte": "un lien direct entre l'alimentation occidentale et la progression d'un type très courant de cancer du poumon",
+          "explication": "Le résumé affirme un « lien direct », tandis que la section nuances précise que « les résultats sont encore préliminaires » et qu'il ne s'agit que d'un risque potentiel ; contradiction interne entre deux sections du même article."
+        }
+      ]
+    },
+    "rapport_final": {
+      "conforme": false,
+      "sujet_sensible": false,
+      "sujet_sensible_raison": "",
+      "problemes": [
+        {
+          "bloc": 2,
+          "section": "contexte",
+          "type": "compteur_incoherent",
+          "phrase_exacte": "Futura Sciences publie par ailleurs, dans un article distinct du 15 avril 2025, des éléments complémentaires sur ce même sujet de recherche ; ces deux articles couvrant un corpus scientifique voisin, ils sont comptabilisés comme une source unique.",
+          "explication": "L'article justifie lui-même le fait de compter deux articles Futura Sciences distincts comme une source unique, ce qui amène nb_sources à 3 ; or les deux URLs Futura Sciences sont bien référencées séparément dans la liste des sources et mobilisées pour des informations distinctes dans le texte — les compter comme une seule source revient à sous-déclarer le nombre réel de sources utilisées, rendant le champ nb_sources inexact (devrait être 4, ou les deux articles Futura doivent être traités de façon cohérente)."
+        },
+        {
+          "bloc": 2,
+          "section": "contexte",
+          "type": "source_derivee_comptee_comme_primaire",
+          "phrase_exacte": "Futura Sciences publie par ailleurs, dans un article distinct du 15 avril 2025, des éléments complémentaires sur ce même sujet de recherche ; ces deux articles couvrant un corpus scientifique voisin, ils sont comptabilisés comme une source unique.",
+          "explication": "Fusionner arbitrairement deux articles journalistiques distincts en une source unique, au motif qu'ils traitent d'un corpus voisin, relève d'un traitement incohérent du sourcing : soit les deux articles apportent des informations différentes (et doivent être comptés séparément), soit l'un est superflu (et ne doit pas être cité du tout) — la justification éditoriale maison ne suffit pas à valider cette fusion."
+        },
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "source_non_editoriale",
+          "phrase_exacte": "Selon Recherche Clinique Paris Centre, le titre de leur article de vulgarisation évoque « un lien surprenant avec l'alimentation et les régimes » dans le développement de ce cancer, une formulation éditoriale qui résume les conclusions des chercheurs sans constituer une citation directe de leur part.",
+          "explication": "Recherche Clinique Paris Centre est un site institutionnel de vulgarisation médicale rattaché à un centre de recherche, non un média journalistique indépendant ; l'article lui-même reconnaît que la formulation citée est « éditoriale » et ne constitue pas une citation directe des chercheurs, ce qui fragilise son usage comme source factuelle sur les conclusions scientifiques."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "chronologie_confuse",
+          "phrase_exacte": "Selon Futura Sciences, des chercheurs ont récemment mis en lumière un facteur de risque lié à l'alimentation pour le cancer du poumon, que cette source décrit comme un « coupable insoupçonné » et une « corrélation inattendue ».",
+          "explication": "L'article attribue simultanément à « Futura Sciences » les expressions « coupable insoupçonné » (article du 15 avril 2025) et « corrélation inattendue » (article du 26 juin 2025), deux articles distincts couvrant potentiellement des études différentes, sans préciser lequel dit quoi ni à quelle date, mélangeant deux publications séparées de plusieurs mois sans distinction temporelle."
+        },
+        {
+          "bloc": 3,
+          "section": "nuances",
+          "type": "redondance",
+          "phrase_exacte": "Selon Top Santé, les aliments transformés et les boissons sucrées sont spécifiquement mentionnés parmi les produits dont la consommation régulière est associée au risque étudié, une précision qui distingue certaines catégories alimentaires des autres composantes du régime occidental.",
+          "explication": "Cette information — aliments transformés et boissons sucrées associés au risque — est déjà présente dans la section « faits » (« D'après Top Santé, les aliments incriminés sont notamment les aliments transformés et les boissons sucrées »), la répétition dans « nuances » est une redondance directe."
+        },
+        {
+          "bloc": 4,
+          "section": "nuances",
+          "type": "redondance",
+          "phrase_exacte": "Selon Recherche Clinique Paris Centre, les résultats présentés sont qualifiés de préliminaires par les auteurs eux-mêmes, ce qui implique qu'ils devront être confirmés par des travaux ultérieurs avant de pouvoir orienter des recommandations de santé publique.",
+          "explication": "Le caractère préliminaire des résultats est déjà signalé dans le résumé (« des résultats que les chercheurs eux-mêmes présentent comme préliminaires ») ; la section nuances reprend la même idée sans apporter d'information supplémentaire distincte."
+        },
+        {
+          "bloc": 4,
+          "section": "nuances",
+          "type": "extrapolation",
+          "phrase_exacte": "ce qui implique qu'ils devront être confirmés par des travaux ultérieurs avant de pouvoir orienter des recommandations de santé publique.",
+          "explication": "La conclusion selon laquelle ces résultats devront être confirmés « avant de pouvoir orienter des recommandations de santé publique » est une anticipation non explicitement sourcée dans l'une des sources autorisées ; aucune des trois sources citées ne formule cette conséquence en ces termes."
+        },
+        {
+          "bloc": 3,
+          "section": "faits",
+          "type": "cadrage_emprunte",
+          "phrase_exacte": "que cette source décrit comme un « coupable insoupçonné » et une « corrélation inattendue »",
+          "explication": "Les expressions « coupable insoupçonné » et « corrélation inattendue » sont présentées comme des descriptions de la source, mais elles proviennent de deux articles Futura Sciences différents (titres distincts) sans que l'article précise laquelle des deux formules appartient à quel article ; le cadrage éditorial de chaque source est ainsi mélangé et réattribué globalement à « Futura Sciences » sans distinction."
+        },
+        {
+          "bloc": 1,
+          "section": "resume",
+          "type": "incoherence_inter_sections",
+          "phrase_exacte": "D'après Top Santé, des études récentes identifient la consommation de certains aliments — notamment ceux riches en graisses et en fructose — comme un facteur de risque supplémentaire pour le cancer du poumon, aux côtés du tabac, facteur dominant de longue date.",
+          "explication": "Le résumé mentionne « graisses et fructose » comme aliments incriminés, alors que la section faits parle de « graisses et en fructose » dans un bullet mais que la section nuances parle d'« aliments transformés et boissons sucrées » : les catégories alimentaires varient selon les sections sans que ces distinctions soient expliquées ni sourcées séparément, créant une incohérence entre sections sur le contenu exact des aliments en cause."
+        }
+      ]
+    }
+  },
+  {
+    "date": "2026-07-04T17:06:01",
+    "slug": "mini-traileurs-en-plein-essor",
+    "titre": "La fabrique des mini-traileurs en plein essor",
+    "article": {
+      "titre": "La fabrique des mini-traileurs en plein essor",
+      "slug": "mini-traileurs-en-plein-essor",
+      "image_keyword": "trail running kids",
+      "resume": [
+        "Le nombre de trails organisés pour les enfants est en augmentation, avec des enfants âgés de 5 à 15 ans participant à ces événements, selon La fabrique des mini-traileurs.",
+        "Cette tendance s'inscrit dans un contexte de recherche de la performance, notamment de la part des parents, qui poussent leurs enfants à participer à ces activités, comme le montre l'article de La fabrique des mini-traileurs.",
+        "Cependant, il est important de noter que cette recherche de la performance peut avoir des limites, notamment en termes de santé et de bien-être des enfants, comme le souligne La science pour les tout-petits : mission impossible ?"
+      ],
+      "corps": {
+        "faits": "Selon La fabrique des mini-traileurs, le nombre de trails organisés pour les enfants est en augmentation. D'après le même article, ces enfants ont entre 5 et 15 ans et participent à ces événements avec un dossard épinglé au tee-shirt, parfois une montre GPS au poignet ou un gilet d'hydratation miniature plaqué contre le dos. Selon La fabrique des mini-traileurs, ces enfants sont souvent poussés par leurs parents à participer à ces activités. D'après Sciences : activités pour apprendre en jouant, il est possible de faire des sciences en s'amusant, ce qui pourrait être une alternative aux trails pour les enfants. Selon Mini Mondo, une salle d'allaitement et une grande toilette pour accommoder toute la famille sont disponibles pour faciliter la vie de papa et maman.",
+        "contexte": "Selon La science pour les tout-petits : mission impossible ?, il est important de noter que la recherche de la performance peut avoir des limites, notamment en termes de santé et de bien-être des enfants. D'après La fabrique des mini-traileurs, cette tendance s'inscrit dans un contexte de recherche de la performance, notamment de la part des parents. Selon La vie sexuelle des 6-11 ans, il est important de prendre en compte les facteurs psychiques et physiques des enfants lors de la participation à ces activités. D'après La fabrique à mévecins, ou l’illusion des solutions simplistes, il est important de prendre en compte les facteurs complexes qui influencent la santé et le bien-être des enfants.",
+        "nuances": "Selon La fabrique des mini-traileurs, il est important de noter que la participation à ces événements peut avoir des effets positifs sur la santé et le bien-être des enfants, mais il est également important de prendre en compte les limites et les risques potentiels. D'après La science pour les tout-petits : mission impossible ?, il est important de trouver un équilibre entre la recherche de la performance et la santé et le bien-être des enfants. Selon Mini Mondo, il est possible de créer des environnements qui favorisent la santé et le bien-être des enfants, tout en leur permettant de participer à des activités ludiques et éducatives."
+      },
+      "sources": [
+        {
+          "institution": "La fabrique des mini-traileurs",
+          "titre": "La fabrique des mini-traileurs : « Beaucoup d’enfants sont là parce qu’ils ont envie de faire comme papa ou maman »",
+          "date": "2026-07-04",
+          "url": "https://www.lemonde.fr/m-perso/article/2026/07/04/la-fabrique-des-mini-traileurs-beaucoup-d-enfants-sont-la-parce-qu-ils-ont-envie-de-faire-comme-papa-ou-maman_6720616_4497916.html"
+        },
+        {
+          "institution": "Sciences : activités pour apprendre en jouant",
+          "titre": "Sciences : activités pour apprendre en jouant",
+          "date": null,
+          "url": "https://naitreetgrandir.com/fr/etape/3-5-ans/apprentissage-jeux/sciences-activites-apprendre-jouer/"
+        },
+        {
+          "institution": "Mini Mondo",
+          "titre": "Mini Mondo",
+          "date": null,
+          "url": "https://www.centredessciencesdemontreal.com/exposition-permanente/mini-mondo"
+        },
+        {
+          "institution": "La science pour les tout-petits : mission impossible ?",
+          "titre": "La science pour les tout-petits : mission impossible ?",
+          "date": null,
+          "url": "https://www.echosciences-grenoble.fr/articles/la-science-pour-les-tout-petits-mission-impossible"
+        }
+      ],
+      "categorie": "societe",
+      "nb_sources": 4,
+      "positions": {
+        "verifie": false,
+        "label_gauche": null,
+        "label_droite": null,
+        "acteurs": []
+      }
+    },
+    "rapport_initial": {
+      "conforme": false,
+      "problemes": [
+        {
+          "type": "source_inventee",
+          "section": "corps",
+          "phrase_exacte": "le même article",
+          "explication": "attribution absente de la liste officielle de sources"
+        },
+        {
+          "type": "source_inventee",
+          "section": "corps",
+          "phrase_exacte": "La vie sexuelle des 6-11 ans",
+          "explication": "attribution absente de la liste officielle de sources"
+        }
+      ]
+    },
+    "rapport_final": {}
   }
 ]
