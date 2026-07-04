@@ -235,6 +235,10 @@ def _media_name_from_url(url: str, title_hint: str = "") -> str:
                     return suffix
     # 3. Fallback : stem du domaine racine, tirets→espaces, capitalize
     stem = parts[-2] if len(parts) >= 2 else host
+    # Rejeter les TLDs purs (com, fr, net, org…) qui donnent des noms absurdes
+    _TLDS = {"com", "fr", "net", "org", "info", "be", "ch", "eu", "gov", "edu", "io"}
+    if stem in _TLDS:
+        return host  # retourner le hostname complet en dernier recours
     words = stem.replace("-", " ").split()
     name = " ".join(w.upper() if len(w) <= 3 else w.capitalize() for w in words)
     return name or host
@@ -757,8 +761,11 @@ def attributions_fantomes(art: dict) -> list[str]:
         if not tn:
             continue
         mots_t = {w for w in tn.split() if len(w) > 3}
+        tn_ns = tn.replace(" ", "")
         ok = any(
-            tn in ns or ns in tn or (mots_t & {w for w in ns.split() if len(w) > 3})
+            tn in ns or ns in tn
+            or tn_ns == ns.replace(" ", "")   # ex. "franceinfo" == "france info"
+            or (mots_t & {w for w in ns.split() if len(w) > 3})
             for ns in norm_sources
         )
         if not ok:
