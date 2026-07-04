@@ -73,9 +73,10 @@ verification.enqueue_moderation = lambda *a, **k: None
 verification._log = lambda *a, **k: None
 
 SLUGS = [
-    # Ciblé sur le cas le plus informatif : 6/8 sources scrapées, fantômes persistants
-    # → on veut voir les noms exacts des fantômes et les sources validées
-    "openai-reporte-introduction-bourse-2027",
+    # 3 catégories différentes pour valider que le fix fantômes tient large
+    "vague-de-chaleur-historique-mediterranee",   # environnement — sources météo/institutionnel
+    "ver-informatique-ia-attaque-experimentale",  # tech — sources cyber, potentiellement anglophones
+    "demence-senile-alzheimer-differences",       # santé — Inserm/PubMed attendus
 ]
 
 
