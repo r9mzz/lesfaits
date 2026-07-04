@@ -73,9 +73,9 @@ verification.enqueue_moderation = lambda *a, **k: None
 verification._log = lambda *a, **k: None
 
 SLUGS = [
-    "exoplanete-proche-terre-conditions-vie",
+    # Ciblé sur le cas le plus informatif : 6/8 sources scrapées, fantômes persistants
+    # → on veut voir les noms exacts des fantômes et les sources validées
     "openai-reporte-introduction-bourse-2027",
-    "loi-urgence-agricole-acetamipride",
 ]
 
 
@@ -117,10 +117,18 @@ def regenerer(slug):
             break
 
     art = pipeline.generate(content, cat, extra_sources=extra, rss_url=None)
+    # Log des sources validées (après filtre URL + écrasement institution)
+    src_validees = [s.get("institution", "?") for s in art.get("sources", [])]
+    print(f"    sources validées pass-1 : {src_validees}", flush=True)
     fant = pipeline.attributions_fantomes(art)
     if fant:
+        print(f"    fantômes pass-1 : {fant}", flush=True)
         art = pipeline.generate(content, cat, extra_sources=extra, rss_url=None, retry_feedback=fant)
-        if pipeline.attributions_fantomes(art):
+        src_validees2 = [s.get("institution", "?") for s in art.get("sources", [])]
+        print(f"    sources validées pass-2 : {src_validees2}", flush=True)
+        fant2 = pipeline.attributions_fantomes(art)
+        if fant2:
+            print(f"    fantômes pass-2 (persistants) : {fant2}", flush=True)
             print(f"    STATUT: moderation  (fantômes persistants)", flush=True)
             return "moderation"
     if pipeline.resume_repete_corps(art):
