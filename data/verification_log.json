@@ -1,0 +1,30 @@
+[
+  {
+    "slug": "beatbot-robot-piscine-en-promotion",
+    "statut": "a_corriger_manuellement",
+    "date": "2026-07-04T03:17:48",
+    "problemes_initiaux": 15,
+    "tentatives": 3,
+    "problemes_restants": 12,
+    "bloquants_restants": 3
+  },
+  {
+    "slug": "medecine-personnalisee-intelligence-artificielle",
+    "statut": "a_corriger_manuellement",
+    "date": "2026-07-04T03:21:12",
+    "problemes_initiaux": 17,
+    "tentatives": 3,
+    "problemes_restants": 8,
+    "bloquants_restants": 2
+  },
+  {
+    "slug": "nouvelles-addictions-sante-publique",
+    "statut": "a_corriger_manuellement",
+    "date": "2026-07-04T03:25:05",
+    "tentative": 3,
+    "perte_substance": true,
+    "section": "faits",
+    "mots_avant": 149,
+    "mots_apres": 37
+  }
+]
