@@ -16,6 +16,11 @@ jobs:
           python-version: "3.11"
           cache: pip
       - run: pip install -r requirements.txt
+      - name: Dry-run scraping (étape 5 — zéro génération, zéro coût)
+        env:
+          PYTHONIOENCODING: utf-8
+          PYTHONUNBUFFERED: "1"
+        run: python -u scripts/test_scraping_dry.py
       - name: Test régénération sur 3 articles pile B
         env:
           GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}

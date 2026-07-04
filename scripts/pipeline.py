@@ -2582,6 +2582,14 @@ def generer_article(item: dict, dry_run: bool, published: set, new_pub: set, dat
             extra.append(p)
             seen_urls.add(p["url"])
 
+    # Enrichissement : remplacer les snippets DDG (~200 car.) par le contenu
+    # complet scrapé pour les sources non protégées par droits voisins.
+    for src in extra:
+        if not _est_presse_protegee(src["url"]):
+            full = fetch_full_content(src["url"])
+            if len(full) > 500:
+                src["snippet"] = full[:8000]
+
     # Bloquer si moins de 5 sources réelles trouvées AVANT même de générer.
     # Seuil relevé de 3 à 5 : avec seulement 3-4 sources, le correcteur (passe 3
     # du fact-checker Anthropic) manque de matière pour remplacer une redondance
