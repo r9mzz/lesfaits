@@ -109,6 +109,128 @@ def _est_presse_protegee(url: str) -> bool:
     return any(host == d or host.endswith("." + d) for d in _PRESSE_PROTEGEE)
 
 
+# Domaines exclus des sources citables pour raison éditoriale (pas légale) :
+# réseaux sociaux (pas de source originale vérifiable) et agrégateurs purs
+# (MSN, Orange Actu, Google News republlient sans être la source primaire).
+_SOURCES_EXCLUES = (
+    "linkedin.com", "facebook.com", "twitter.com", "x.com",
+    "instagram.com", "reddit.com", "youtube.com", "tiktok.com", "threads.net",
+    "msn.com", "actu.orange.fr", "news.google.com", "flipboard.com",
+)
+
+
+def _est_source_exclue(url: str) -> bool:
+    try:
+        host = (urlparse(url).hostname or "").lower()
+    except Exception:
+        return False
+    return any(host == d or host.endswith("." + d) for d in _SOURCES_EXCLUES)
+
+
+# Table hostname→nom lisible pour le bloc SOURCES affiché aux lecteurs.
+# Couvre les ~50 domaines les plus fréquents du corpus ; fallback sur le
+# hostname nettoyé pour tout le reste.
+_MEDIA_NOMS: dict[str, str] = {
+    # Presse nationale française
+    "lemonde.fr":            "Le Monde",
+    "lefigaro.fr":           "Le Figaro",
+    "leparisien.fr":         "Le Parisien",
+    "liberation.fr":         "Libération",
+    "lepoint.fr":            "Le Point",
+    "lexpress.fr":           "L'Express",
+    "nouvelobs.com":         "Le Nouvel Obs",
+    "la-croix.com":          "La Croix",
+    "mediapart.fr":          "Mediapart",
+    "lopinion.fr":           "L'Opinion",
+    "lesechos.fr":           "Les Échos",
+    "ledevoir.com":          "Le Devoir",
+    # Presse régionale / gratuits
+    "20minutes.fr":          "20 Minutes",
+    "ouest-france.fr":       "Ouest-France",
+    "sudouest.fr":           "Sud Ouest",
+    "lavoixdunord.fr":       "La Voix du Nord",
+    "letelegramme.fr":       "Le Télégramme",
+    "nicematin.com":         "Nice-Matin",
+    "actu.fr":               "Actu.fr",
+    # TV / Radio
+    "franceinfo.fr":         "France Info",
+    "francetvinfo.fr":       "France TV Info",
+    "france24.com":          "France 24",
+    "bfmtv.com":             "BFM TV",
+    "rtl.fr":                "RTL",
+    "rfi.fr":                "RFI",
+    "rtbf.be":               "RTBF",
+    "rts.ch":                "RTS",
+    "tf1info.fr":            "TF1 Info",
+    # Presse internationale
+    "ft.com":                "Financial Times",
+    "bbc.com":               "BBC",
+    "bbc.co.uk":             "BBC",
+    "theguardian.com":       "The Guardian",
+    "nytimes.com":           "New York Times",
+    "reuters.com":           "Reuters",
+    "afp.com":               "AFP",
+    "apnews.com":            "AP News",
+    "euronews.com":          "Euronews",
+    # Science / Tech
+    "futura-sciences.com":   "Futura Sciences",
+    "sciencesetavenir.fr":   "Sciences et Avenir",
+    "science-et-vie.com":    "Science et Vie",
+    "numerama.com":          "Numerama",
+    "lesnumeriques.com":     "Les Numériques",
+    "generation-nt.com":     "Generation NT",
+    "techno-science.net":    "Techno-Science",
+    "trustmyscience.com":    "Trust My Science",
+    "maxisciences.com":      "Maxisciences",
+    "notebookcheck.biz":     "NotebookCheck",
+    "futurism.com":          "Futurism",
+    "nationalgeographic.fr": "National Geographic",
+    "geo.fr":                "Géo",
+    # Institutionnel / référence
+    "wikipedia.org":         "Wikipédia",
+    "wikimedia.org":         "Wikimedia",
+    "inserm.fr":             "Inserm",
+    "cnrs.fr":               "CNRS",
+    "vie-publique.fr":       "Vie Publique",
+    "sante.gouv.fr":         "Ministère de la Santé",
+    "pubmed.ncbi.nlm.nih.gov": "PubMed",
+    # Santé / Conso
+    "doctissimo.fr":         "Doctissimo",
+    "topsante.com":          "Top Santé",
+    # Finance / Éco
+    "boursorama.com":        "Boursorama",
+    "jeanmarcmorandini.com": "JM Morandini",
+    "zdnet.fr":              "ZDNet",
+    "reporterre.net":        "Reporterre",
+}
+
+
+def _media_name_from_url(url: str) -> str:
+    """Retourne le nom lisible du média depuis son URL.
+    Priorité : table _MEDIA_NOMS → fallback hostname nettoyé.
+    Le fallback remonte au domaine racine (2 derniers segments) pour les
+    sous-domaines génériques, remplace les tirets par des espaces, et met
+    en majuscules les acronymes de ≤4 caractères."""
+    try:
+        host = (urlparse(url).hostname or "").lower().removeprefix("www.")
+    except Exception:
+        return ""
+    # Lookup direct
+    if host in _MEDIA_NOMS:
+        return _MEDIA_NOMS[host]
+    # Lookup sur le domaine racine (ex. fr.euronews.com → euronews.com)
+    parts = host.split(".")
+    if len(parts) >= 2:
+        root = ".".join(parts[-2:])
+        if root in _MEDIA_NOMS:
+            return _MEDIA_NOMS[root]
+    # Fallback : stem du domaine racine, tirets→espaces, capitalize
+    stem = parts[-2] if len(parts) >= 2 else host
+    words = stem.replace("-", " ").split()
+    name = " ".join(w.upper() if len(w) <= 3 else w.capitalize() for w in words)
+    return name or host
+
+
 def fetch_full_content(url: str) -> str:
     """Scrape le contenu complet d'un article depuis son URL.
     Refuse les éditeurs de presse protégés (droits voisins)."""
@@ -839,7 +961,7 @@ def generate(content: str, category_hint: str, extra_sources: list[dict] | None 
 
     # Supprimer toute source dont l'URL n'est pas dans la liste réelle,
     # et écraser le nom avec celui de la source authoritative (évite les mismatches nom↔URL).
-    real_title_by_url = {s["url"]: s["title"] for s in real_sources}
+    real_title_by_url = {s["url"]: _media_name_from_url(s["url"]) for s in real_sources}
     if "sources" in art:
         verified = []
         for src in art["sources"]:
@@ -2597,7 +2719,9 @@ def generer_article(item: dict, dry_run: bool, published: set, new_pub: set, dat
     # nouveaux signalements (jugement de valeur, cadrage emprunté) à chaque
     # tentative de correction. Plus de sources en amont = marge réelle pour
     # une correction qui enrichit au lieu d'éditorialiser.
-    specific_sources = [s for s in extra if len(urlparse(s["url"]).path.rstrip("/")) > 5]
+    specific_sources = [s for s in extra
+                        if len(urlparse(s["url"]).path.rstrip("/")) > 5
+                        and not _est_source_exclue(s["url"])]
     if len(specific_sources) < 5:
         print(f"  [REJET] Seulement {len(specific_sources)} source(s) — minimum 5 requis (DDG+PubMed)")
         return False
