@@ -97,6 +97,7 @@ _PRESSE_PROTEGEE = (
     "futura-sciences.com", "reporterre.net", "lepoint.fr", "lexpress.fr",
     "nouvelobs.com", "20minutes.fr", "bfmtv.com", "nicematin.com",
     "ouest-france.fr", "sudouest.fr", "lavoixdunord.fr", "letelegramme.fr",
+    "ft.com",
 )
 
 
@@ -836,13 +837,17 @@ def generate(content: str, category_hint: str, extra_sources: list[dict] | None 
 
     art = _extract_json(raw)
 
-    # Supprimer toute source dont l'URL n'est pas dans la liste réelle
+    # Supprimer toute source dont l'URL n'est pas dans la liste réelle,
+    # et écraser le nom avec celui de la source authoritative (évite les mismatches nom↔URL).
+    real_title_by_url = {s["url"]: s["title"] for s in real_sources}
     if "sources" in art:
         verified = []
         for src in art["sources"]:
             url = src.get("url") or ""
             path = urlparse(url).path.rstrip("/") if url else ""
             if url in real_urls and len(path) > 3:
+                src = dict(src)
+                src["institution"] = real_title_by_url.get(url, src.get("institution", ""))
                 verified.append(src)
         art["sources"] = verified
         art["nb_sources"] = len(verified)
