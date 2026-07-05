@@ -6,14 +6,14 @@
 :root {
   --blue:   #6C85BD;
   --ink:    #3A3835;
-  --sand:   #ECEAE3;
-  --white:  #F5F3EE;
+  --sand:   #F0EDE6;
+  --white:  #FAF9F6;
   --rule:   #D0CCC3;
   --muted:  #696660; /* WCAG AA (4.5:1+) sur --sand/--white/--light, était #8C8880 (~2.9:1) */
   --green:  #00C896;
   --orange: #E8894A;
   --red:    #C94B4B;
-  --light:  #E8E6DF;
+  --light:  #EAE8E1;
   --shadow: 0 1px 3px rgba(44,44,42,.07);
   --shadow-card: 0 1px 2px rgba(44,44,42,.04), 0 4px 16px rgba(44,44,42,.06);
   --shadow-card-hover: 0 2px 6px rgba(44,44,42,.06), 0 12px 32px rgba(44,44,42,.10);
