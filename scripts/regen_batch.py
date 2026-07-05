@@ -12,12 +12,22 @@ Coupe-circuit : plafond dur de MAX_ANTHROPIC appels partagés entre génération
 et vérification. Lève BudgetAtteint dès dépassement — résultats partiels
 sauvegardés avant d'arrêter.
 """
-import sys, json, csv, math, re, time
+import sys, json, csv, math, re, time, os
 from pathlib import Path
 from urllib.parse import urlparse
 from datetime import datetime
 from collections import defaultdict
 import unicodedata
+
+# Sous Windows, lire ANTHROPIC_API_KEY depuis le registre user si absente du process
+if not os.environ.get("ANTHROPIC_API_KEY"):
+    try:
+        import winreg
+        with winreg.OpenKey(winreg.HKEY_CURRENT_USER, "Environment") as _k:
+            _val, _ = winreg.QueryValueEx(_k, "ANTHROPIC_API_KEY")
+            os.environ["ANTHROPIC_API_KEY"] = _val
+    except Exception:
+        pass
 
 ROOT = Path(__file__).parent.parent
 sys.path.insert(0, str(ROOT / "scripts"))
@@ -35,6 +45,10 @@ EXCLURE = {
     "controle-aerien-france-en-crise",          # faux positif doublon
     "ia-dechiffre-papyrus-antiques",            # faux positif identifié
 }
+
+# Si non-vide, bypasse la sélection CSV et traite exactement ces slugs.
+# Utile pour relancer un sous-ensemble (ex. uniquement les HORS_PERIMETRE).
+FORCER_SLUGS: list[str] = []
 
 # ── Compteur d'appels ────────────────────────────────────────────────────────
 _n_gen   = 0
@@ -111,7 +125,11 @@ def _norm_cat(cat: str) -> str:
 
 def selectionner_slugs() -> list[dict]:
     """Lit triage_corpus.csv, filtre pile B hors exclusions, sélectionne
-    MAX_ARTICLES articles avec quota par catégorie et tri date décroissante."""
+    MAX_ARTICLES articles avec quota par catégorie et tri date décroissante.
+    Si FORCER_SLUGS est défini, retourne directement ces slugs (dans l'ordre)."""
+    if FORCER_SLUGS:
+        return [{"slug": s, "pile": "B", "categorie": "", "date": ""} for s in FORCER_SLUGS]
+
     csv_path = ROOT / "triage_corpus.csv"
     if not csv_path.exists():
         raise FileNotFoundError(f"triage_corpus.csv introuvable ({csv_path})")
@@ -195,14 +213,29 @@ def traiter(row: dict) -> dict:
         for s in extra
     ]
 
-    # 3. Contenu de base (première source non-protégée avec contenu)
+    # 3. Contenu de base : première source scrapée pertinente (≥2 mots-clés du titre)
+    #    Wikipedia est exclu du rôle de contenu principal (trop générique pour ancrer
+    #    une actualité datée) — il peut rester dans extra_sources comme source secondaire.
+    _mots_titre = {w for w in re.findall(r"[a-zà-ÿ]+", titre.lower()) if len(w) >= 5}
     content = titre
     for s in specific:
+        try:
+            host = (urlparse(s["url"]).hostname or "").lower()
+        except Exception:
+            host = ""
+        if "wikipedia.org" in host:
+            continue
         fc = pipeline.fetch_full_content(s["url"])
-        if len(fc) > 500:
+        if len(fc) < 500:
+            continue
+        fc_lower = fc.lower()
+        if sum(1 for w in _mots_titre if w in fc_lower) >= 2:
             content = fc
             print(f"    contenu base : {s['url'][:65]} ({len(fc)} car.)", flush=True)
             break
+    else:
+        if content == titre:
+            print(f"    contenu base : titre seul (aucune source pertinente)", flush=True)
 
     # 4. Génération pass-1
     art = pipeline.generate(content, cat, extra_sources=extra, rss_url=None)
