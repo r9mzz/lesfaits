@@ -60,5 +60,34 @@
     "tentatives": 3,
     "problemes_restants": 10,
     "bloquants_restants": 5
+  },
+  {
+    "slug": "petits-enfants-atout-cerveau-grands-parents",
+    "statut": "a_corriger_manuellement",
+    "date": "2026-07-05T12:46:37",
+    "tentative": 3,
+    "perte_substance": true,
+    "section": "faits",
+    "mots_avant": 155,
+    "mots_apres": 57
+  },
+  {
+    "slug": "kill-bill-whole-bloody-affair-sort-cinema",
+    "statut": "a_corriger_manuellement",
+    "date": "2026-07-05T12:50:37",
+    "problemes_initiaux": 17,
+    "tentatives": 3,
+    "problemes_restants": 15,
+    "bloquants_restants": 8
+  },
+  {
+    "slug": "plantes-chirurgie-esthetique-innovation",
+    "statut": "a_corriger_manuellement",
+    "date": "2026-07-05T12:54:16",
+    "tentative": 2,
+    "perte_substance": true,
+    "section": "faits",
+    "mots_avant": 139,
+    "mots_apres": 48
   }
 ]
