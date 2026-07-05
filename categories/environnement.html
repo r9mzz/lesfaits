@@ -1,10 +1,10 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="fr" data-theme="">
 <head>
   <meta charset="UTF-8"/>
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cloud.umami.is; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; connect-src 'self' https://cloud.umami.is https://api.web3forms.com; base-uri 'self'; form-action 'self' https://api.web3forms.com; frame-ancestors 'none';"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <meta name="description" content="Les Faits — Rubrique Environnement. Actualité synthétisée par IA, avec sources citées et corrections publiques."/>
+  <meta name="description" content="Les Faits — Rubrique Environnement. Juste les faits. Aucun parti pris."/>
   <link rel="alternate" type="application/rss+xml" title="Les Faits — RSS" href="/feed.xml"/>
   <title>Environnement — Les Faits</title>
   <base href="/"/>
@@ -16,7 +16,16 @@
   <link rel="shortcut icon" href="/favicon.ico"/>
   <link rel="manifest" href="/manifest.json"/>
   <script>
-(function(){var s=localStorage.getItem('theme'),d=s==='dark'||(s===null&&window.matchMedia('(prefers-color-scheme:dark)').matches);document.documentElement.setAttribute('data-theme',d?'dark':'light');})();
+(function(){var s=localStorage.getItem('theme'),d=s==='dark'||(s===null&&window.matchMedia('(prefers-color-scheme:dark)').matches);document.documentElement.setAttribute('data-theme',d?'dark':'light');
+  // Header scroll shadow
+  var hdr=document.querySelector('.header');
+  if(hdr) window.addEventListener('scroll',function(){hdr.classList.toggle('scrolled',window.scrollY>40);},{passive:true});
+  // Scroll fade-in cartes catégorie
+  if('IntersectionObserver' in window){
+    var obs=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('is-visible');obs.unobserve(e.target);}});},{threshold:.12,rootMargin:'0px 0px -40px 0px'});
+    document.querySelectorAll('.card3,.list-item,.archive-item').forEach(function(el){el.classList.add('js-reveal');obs.observe(el);});
+  }
+})();
 </script>
 </head>
 <body>
@@ -28,7 +37,6 @@
 <a href="categories/tech.html">Tech</a>
 <a href="categories/sante.html">Santé</a>
 <a href="categories/environnement.html">Environnement</a>
-<a href="favoris.html">Favoris</a>
 <a href="archive.html">Tous les articles</a>
 <a href="methode.html" class="nav-cta">Comment on travaille →</a>
 </nav>
@@ -53,7 +61,6 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeMenu();
       <a href="categories/tech.html">Tech</a>
       <a href="categories/sante.html">Santé</a>
       <a href="categories/environnement.html">Environnement</a>
-      <a href="favoris.html">Favoris</a>
       <a href="archive.html">Tous les articles</a>
       <a href="methode.html" class="nav-cta">Comment on travaille →</a>
     </nav>
@@ -66,7 +73,7 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeMenu();
   <div style="margin-bottom:32px;border-bottom:1px solid var(--rule);padding-bottom:24px">
     <span style="font-size:.8rem;font-weight:700;letter-spacing:.1em;color:var(--muted);text-transform:uppercase">Rubrique</span>
     <h1 style="font-size:2.4rem;font-weight:700;margin:8px 0 4px">Environnement</h1>
-    <p style="color:var(--muted);font-size:.9rem">17 articles</p>
+    <p style="color:var(--muted);font-size:.9rem">24 articles</p>
   </div>
   <nav style="display:flex;gap:24px;margin-bottom:48px;flex-wrap:wrap;font-size:.9rem">
     <a href="categories/science.html" style="">Science</a>
@@ -78,6 +85,30 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeMenu();
   </nav>
   <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:24px">
     
+        <a class="card3" href="articles/eutrophisation-baie-guanabara-rio.html">
+          <img class="card3__img" src="assets/images/eutrophisation-baie-guanabara-rio.jpg" alt="Eutrophisation de la baie de Guanabara à Rio de Janeiro" loading="lazy">
+          <div class="card3__body">
+            <span class="cat cat--environnement">ENVIRONNEMENT</span>
+            <h3 class="title-sm">Eutrophisation de la baie de Guanabara à Rio de Janeiro</h3>
+            <div class="meta" style="margin-top:10px">
+              <span class="meta__src">3 sources</span>
+              <span class="meta__sep">·</span><span>2 juillet 2026, 18h00</span>
+            </div>
+          </div>
+        </a>
+
+        <a class="card3" href="articles/t-rex-exceptionnel-presentation-new-york.html">
+          <img class="card3__img" src="assets/images/t-rex-exceptionnel-presentation-new-york.jpg" alt="Présentation à New York d’un T-Rex exceptionnel avant sa vente aux enchères" loading="lazy">
+          <div class="card3__body">
+            <span class="cat cat--environnement">ENVIRONNEMENT</span>
+            <h3 class="title-sm">Présentation à New York d’un T-Rex exceptionnel avant sa vente aux enchères</h3>
+            <div class="meta" style="margin-top:10px">
+              <span class="meta__src">3 sources</span>
+              <span class="meta__sep">·</span><span>2 juillet 2026, 18h00</span>
+            </div>
+          </div>
+        </a>
+
         <a class="card3" href="articles/danemark-priorite-services-essentiels.html">
           <img class="card3__img" src="assets/images/danemark-priorite-services-essentiels.jpg" alt="Danemark priorise services essentiels sur centres de données" loading="lazy">
           <div class="card3__body">
@@ -98,6 +129,18 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeMenu();
             <div class="meta" style="margin-top:10px">
               <span class="meta__src">4 sources</span>
               <span class="meta__sep">·</span><span>2 juillet 2026, 07h00</span>
+            </div>
+          </div>
+        </a>
+
+        <a class="card3" href="articles/climatiseurs-portables-fortes-chaleurs.html">
+          <img class="card3__img" src="assets/images/climatiseurs-portables-fortes-chaleurs.jpg" alt="Climatiseurs portables pour les fortes chaleurs" loading="lazy">
+          <div class="card3__body">
+            <span class="cat cat--environnement">ENVIRONNEMENT</span>
+            <h3 class="title-sm">Climatiseurs portables pour les fortes chaleurs</h3>
+            <div class="meta" style="margin-top:10px">
+              <span class="meta__src">3 sources</span>
+              <span class="meta__sep">·</span><span>1 juillet 2026, 18h00</span>
             </div>
           </div>
         </a>
@@ -138,6 +181,18 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeMenu();
           </div>
         </a>
 
+        <a class="card3" href="articles/hantavirus-terre-de-feu-argentine.html">
+          <img class="card3__img" src="assets/images/hantavirus-terre-de-feu-argentine.jpg" alt="Découverte d’un variant d’hantavirus en Terre de Feu" loading="lazy">
+          <div class="card3__body">
+            <span class="cat cat--environnement">ENVIRONNEMENT</span>
+            <h3 class="title-sm">Découverte d’un variant d’hantavirus en Terre de Feu</h3>
+            <div class="meta" style="margin-top:10px">
+              <span class="meta__src">3 sources</span>
+              <span class="meta__sep">·</span><span>30 juin 2026, 18h00</span>
+            </div>
+          </div>
+        </a>
+
         <a class="card3" href="articles/tension-ressource-eau-france.html">
           <img class="card3__img" src="assets/images/tension-ressource-eau-france.jpg" alt="La ministre de la Transition écologique alerte sur la tension sur la ressource en eau" loading="lazy">
           <div class="card3__body">
@@ -145,6 +200,30 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeMenu();
             <h3 class="title-sm">La ministre de la Transition écologique alerte sur la tension sur la ressource en eau</h3>
             <div class="meta" style="margin-top:10px">
               <span class="meta__src">4 sources</span>
+              <span class="meta__sep">·</span><span>30 juin 2026, 07h00</span>
+            </div>
+          </div>
+        </a>
+
+        <a class="card3" href="articles/eutrophisation-rio-de-janeiro.html">
+          <img class="card3__img" src="assets/images/eutrophisation-rio-de-janeiro.jpg" alt="Eutrophisation à Rio de Janeiro : la baie de Guanabara en danger" loading="lazy">
+          <div class="card3__body">
+            <span class="cat cat--environnement">ENVIRONNEMENT</span>
+            <h3 class="title-sm">Eutrophisation à Rio de Janeiro : la baie de Guanabara en danger</h3>
+            <div class="meta" style="margin-top:10px">
+              <span class="meta__src">4 sources</span>
+              <span class="meta__sep">·</span><span>30 juin 2026, 07h00</span>
+            </div>
+          </div>
+        </a>
+
+        <a class="card3" href="articles/parapluie-energetique-innovant.html">
+          <img class="card3__img" src="assets/images/parapluie-energetique-innovant.jpg" alt="Parapluie énergétique innovant produit de l’électricité" loading="lazy">
+          <div class="card3__body">
+            <span class="cat cat--environnement">ENVIRONNEMENT</span>
+            <h3 class="title-sm">Parapluie énergétique innovant produit de l’électricité</h3>
+            <div class="meta" style="margin-top:10px">
+              <span class="meta__src">3 sources</span>
               <span class="meta__sep">·</span><span>30 juin 2026, 07h00</span>
             </div>
           </div>
@@ -169,6 +248,18 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeMenu();
             <h3 class="title-sm">La tache froide de l’Atlantique et ses effets sur les canicules</h3>
             <div class="meta" style="margin-top:10px">
               <span class="meta__src">4 sources</span>
+              <span class="meta__sep">·</span><span>29 juin 2026, 18h00</span>
+            </div>
+          </div>
+        </a>
+
+        <a class="card3" href="articles/redevance-pfas-industries-polluantes.html">
+          <img class="card3__img" src="assets/images/redevance-pfas-industries-polluantes.jpg" alt="Industries polluantes paieront redevance pour PFAS à partir de septembre" loading="lazy">
+          <div class="card3__body">
+            <span class="cat cat--environnement">ENVIRONNEMENT</span>
+            <h3 class="title-sm">Industries polluantes paieront redevance pour PFAS à partir de septembre</h3>
+            <div class="meta" style="margin-top:10px">
+              <span class="meta__src">3 sources</span>
               <span class="meta__sep">·</span><span>29 juin 2026, 18h00</span>
             </div>
           </div>
@@ -324,13 +415,22 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeMenu();
 (function(){
   var btn=document.getElementById('dark-toggle');
   var dark=document.documentElement.getAttribute('data-theme')==='dark';
-  if(btn){btn.textContent=dark?'☀️':'🌙';btn.setAttribute('aria-label',dark?'Passer en mode clair':'Passer en mode sombre');}
+  if(btn) btn.textContent=dark?'☀️':'🌙';
   if(btn) btn.addEventListener('click',function(){
     var d=document.documentElement.getAttribute('data-theme')==='dark';
     document.documentElement.setAttribute('data-theme',d?'light':'dark');
     localStorage.setItem('theme',d?'light':'dark');
     btn.textContent=d?'🌙':'☀️';btn.setAttribute('aria-label',d?'Passer en mode sombre':'Passer en mode clair');
   });
+
+  // Header scroll shadow
+  var hdr=document.querySelector('.header');
+  if(hdr) window.addEventListener('scroll',function(){hdr.classList.toggle('scrolled',window.scrollY>40);},{passive:true});
+  // Scroll fade-in cartes catégorie
+  if('IntersectionObserver' in window){
+    var obs=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('is-visible');obs.unobserve(e.target);}});},{threshold:.12,rootMargin:'0px 0px -40px 0px'});
+    document.querySelectorAll('.card3,.list-item,.archive-item').forEach(function(el){el.classList.add('js-reveal');obs.observe(el);});
+  }
 })();
 </script>
 <script defer src="https://cloud.umami.is/script.js" data-website-id="8d68a78f-97ae-4c95-a955-5d3df758f7e2"></script>
