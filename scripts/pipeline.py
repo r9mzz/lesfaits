@@ -2832,12 +2832,17 @@ def generer_article(item: dict, dry_run: bool, published: set, new_pub: set, dat
     try:
         art = generate(content, cat, extra_sources=extra, rss_url=item.get("url"))
 
+        # Compteur de relances Groq pour cet article — sert de circuit-breaker
+        # (voir rejet précoce plus bas).
+        nb_garde_retries = 0
+
         # ── Garde-fou 1 : attributions fantômes (déterministe, une relance) ──
         fantomes = attributions_fantomes(art)
         if fantomes:
             print(f"     [GARDE] {len(fantomes)} attribution(s) hors sources — relance avec correction…")
             art = generate(content, cat, extra_sources=extra, rss_url=item.get("url"),
                            retry_feedback=fantomes)
+            nb_garde_retries += 1
             fantomes = attributions_fantomes(art)
             if fantomes:
                 print(f"     [REJET QUALITÉ] Attributions toujours hors sources après relance "
@@ -2851,6 +2856,7 @@ def generer_article(item: dict, dry_run: bool, published: set, new_pub: set, dat
             print(f"     [GARDE] {len(repetitions)} phrase(s) du résumé quasi identiques au corps — relance…")
             art = generate(content, cat, extra_sources=extra, rss_url=item.get("url"),
                            repetition_feedback=repetitions)
+            nb_garde_retries += 1
             repetitions = resume_repete_corps(art)
             if repetitions:
                 print(f"     [AVERTISSEMENT] Résumé toujours proche du corps après relance — publié quand même")
@@ -2862,9 +2868,22 @@ def generer_article(item: dict, dry_run: bool, published: set, new_pub: set, dat
             print(f"     [GARDE] {len(intra)} répétition(s) intra-article détectée(s) — relance…")
             art = generate(content, cat, extra_sources=extra, rss_url=item.get("url"),
                            repetition_feedback=intra)
+            nb_garde_retries += 1
             intra = faits_repetitifs(art)
             if intra:
                 print(f"     [AVERTISSEMENT] Répétitions intra-article persistantes après relance — publié quand même")
+
+        # ── Circuit-breaker budget : rejet précoce si ≥ 2 relances de garde-fou ──
+        # Un article qui a déclenché 2+ relances Groq est fragile structurellement
+        # (mauvais sourcing ou génération instable). Continuer avec les 5 appels
+        # Anthropic de vérification sur un tel article gaspille le quota du créneau
+        # au détriment des sujets suivants — surtout si le 1er sujet est mal sourcé
+        # par hasard et que les 9 suivants sont valides. Rejet propre = budget
+        # équitablement réparti entre tous les sujets sélectionnés.
+        if nb_garde_retries >= 2:
+            print(f"     [REJET PRÉCOCE] {nb_garde_retries} relances garde-fou — article fragile, "
+                  f"quota Anthropic préservé pour les sujets suivants")
+            return False
 
         # ── Garde-fou 2a : check déterministe avant appels LLM coûteux ──────
         rejete, raison_det = _est_rejete_sensible_deterministe(art)

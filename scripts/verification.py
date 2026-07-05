@@ -351,12 +351,14 @@ def verifier_article(art: dict) -> tuple[dict, str]:
 
     print(f"     [VERIF] {n_pb} problème(s) détecté(s) — correction automatique…")
 
-    # Jusqu'à 3 tentatives de correction : avec 15-25 problèmes simultanés,
-    # une seule passe converge rarement vers la conformité totale. Chaque
-    # tentative repart du rapport de la précédente (les problèmes restants).
+    # Jusqu'à 2 tentatives de correction : 3 passes consommaient trop de quota
+    # Anthropic sur des articles qui ne convergeaient pas (5 bloquants en
+    # tentative 1 → 11 en tentative 2 → rejet de toute façon). Si l'article
+    # a toujours des bloquants après 2 corrections, une 3ème ne change rien
+    # et brûle le budget qui devrait servir aux sujets suivants.
     art_courant = art
     rapport_courant = rapport
-    MAX_TENTATIVES = 3
+    MAX_TENTATIVES = 2
     for tentative in range(1, MAX_TENTATIVES + 1):
         try:
             art_corrige = corriger(art_courant, rapport_courant)
