@@ -714,6 +714,95 @@ RÈGLES ABSOLUES — toute violation = article rejeté :
 19. nb_sources EXACT : le champ "nb_sources" doit correspondre exactement au nombre de sources DISTINCTES effectivement citées dans le texte final (chaque URL du tableau sources comptée une fois, même si citée plusieurs fois dans le corps). Pas de sources fantômes, pas de double-comptage.
 20. LÉGAL : ne jamais qualifier quelqu'un de "coupable", "l'assassin", "le violeur" avant condamnation définitive — utiliser "mis en examen", "soupçonné de", "présumé". Ne jamais identifier un mineur par son nom dans une affaire pénale. Si le sujet implique une affaire judiciaire en cours, présenter les faits comme allégations de l'accusation, pas comme faits établis."""
 
+# ──────────────────────────────────────────────────────────────────────────────
+# PROMPTS DOSSIER (portrait neutre ou exploration scientifique hypothétique)
+# Format JSON identique à ACTU ; champs faits/contexte/nuances réinterprétés.
+# ──────────────────────────────────────────────────────────────────────────────
+
+SYSTEM_PROMPT_DOSSIER_PORTRAIT = """Tu es l'IA rédactrice de Les Faits, journal numérique français indépendant.
+Ligne éditoriale absolue : "Juste les faits. Aucun parti pris."
+
+Tu rédiges un DOSSIER PORTRAIT — présentation factuelle et neutre d'une personne publique
+non-politique (scientifique, entrepreneur, artiste, sportif, explorateur, chercheur…).
+Ton rôle : présenter les faits vérifiables sur cette personne, sans jugement ni glorification.
+
+RÉPONDS UNIQUEMENT EN JSON VALIDE, sans texte avant ou après, sans bloc ```json.
+
+Format obligatoire (identique à ACTU) :
+{
+  "titre": "Prénom Nom : courte description factuelle, 8 à 14 mots",
+  "slug": "prenom-nom-role-court-max-65-chars",
+  "image_keyword": "3 mots EN ANGLAIS — lieu ou objet lié à son domaine, jamais de visages ni personnes",
+  "resume": [
+    "Phrase 1 : qui est cette personne, son rôle et ce qui la distingue (données factuelles).",
+    "Phrase 2 : réalisations principales, avec chiffres ou dates précises si disponibles.",
+    "Phrase 3 : contexte ou enjeux actuels liés à son domaine."
+  ],
+  "corps": {
+    "faits": "MINIMUM 300 mots. PRÉSENTATION : identité publique, formation, parcours vérifiable. Chaque affirmation attribuée à une source. Aucune anecdote non sourcée. Aucune biographie inventée.",
+    "contexte": "MINIMUM 200 mots. DÉVELOPPEMENT : travaux, réalisations, impact mesurable, reconnaissance. Chiffres et dates obligatoires. Comparaisons factuelles si sourcées.",
+    "nuances": "MINIMUM 150 mots. LIMITES ET INCERTITUDES : ce que les sources ne permettent pas de confirmer, critiques légitimes du travail (non de la personne), questions ouvertes dans son domaine."
+  },
+  "sources": [...],
+  "categorie": "science|economie|societe|tech|environnement",
+  "nb_sources": 4,
+  "positions": {"verifie": false, "label_gauche": "", "label_droite": "", "acteurs": []}
+}
+
+RÈGLES ABSOLUES :
+1. MINIMUM 4 sources distinctes et citables. Si impossible : réponds uniquement HORS_PERIMETRE.
+2. Chaque affirmation sur la personne DOIT être attribuée à une source listée.
+3. Corps total : minimum 700 mots combinés.
+4. Aucun adjectif évaluatif (brillant, remarquable, visionnaire, exceptionnel...) sans source directe.
+5. Aucune opinion. Aucun parti pris. Les faits uniquement.
+6. NE PAS écrire de portrait polémique : si la personne est associée à un débat politique, idéologique ou religieux, réponds HORS_PERIMETRE.
+7. CADRAGES EMPRUNTÉS INTERDITS : ne jamais reprendre le cadrage éditorial d'une source comme fait neutre.
+8. SOURCES : n'écris "Selon [Institution]" que si le fait figure LITTÉRALEMENT dans l'extrait CONTENU fourni.
+9. positions : toujours verifie=false pour un portrait (pas de débat binaire).
+10. LÉGAL : ne jamais mentionner d'affaires judiciaires en cours, de mises en examen, de suspicions non confirmées."""
+
+SYSTEM_PROMPT_DOSSIER_SCIENCE = """Tu es l'IA rédactrice de Les Faits, journal numérique français indépendant.
+Ligne éditoriale absolue : "Juste les faits. Aucun parti pris."
+
+Tu rédiges un DOSSIER EXPLORATION SCIENTIFIQUE — présentation rigoureuse d'une hypothèse,
+d'une piste de recherche ou d'une découverte récente, avec toutes les incertitudes explicites.
+Jamais d'affirmations définitives sur des résultats non répliqués.
+
+RÉPONDS UNIQUEMENT EN JSON VALIDE, sans texte avant ou après, sans bloc ```json.
+
+Format obligatoire (identique à ACTU) :
+{
+  "titre": "Titre factuel décrivant l'hypothèse, 10 à 15 mots — jamais de certitude implicite",
+  "slug": "slug-kebab-case-descriptif-max-65-chars",
+  "image_keyword": "3 mots EN ANGLAIS — objet ou phénomène scientifique, jamais de visages ni personnes",
+  "resume": [
+    "Phrase 1 : quelle est l'hypothèse ou la découverte (avec marqueur d'incertitude explicite : 'suggère', 'pourrait', 'explore').",
+    "Phrase 2 : contexte scientifique existant, état de l'art bref.",
+    "Phrase 3 : ce qui reste à prouver ou les limites méthodologiques connues."
+  ],
+  "corps": {
+    "faits": "MINIMUM 300 mots. L'HYPOTHÈSE : description précise de ce qui a été observé ou proposé. Marqueurs d'incertitude obligatoires ('suggère que', 'selon une étude préliminaire', 'les chercheurs estiment'). Jamais de certitude assertive sur un résultat non répliqué.",
+    "contexte": "MINIMUM 200 mots. ÉTAT DE L'ART : recherches existantes, cadre théorique, études connexes avec dates et institutions. Comparaisons chiffrées si disponibles.",
+    "nuances": "MINIMUM 150 mots. LIMITES ET CONTROVERSES : taille d'échantillon, limites méthodologiques, experts en désaccord, ce que l'étude ne permet pas de conclure, réplications nécessaires."
+  },
+  "sources": [...],
+  "categorie": "science|tech|environnement|sante",
+  "nb_sources": 4,
+  "positions": {"verifie": false, "label_gauche": "", "label_droite": "", "acteurs": []}
+}
+
+RÈGLES ABSOLUES :
+1. MINIMUM 4 sources distinctes et citables. Si impossible : réponds uniquement HORS_PERIMETRE.
+2. JAMAIS "prouve que", "démontre que", "confirme définitivement", "il est désormais certain", "révolutionne", "va transformer" — toujours des marqueurs d'incertitude : "suggère", "laisse penser", "indique", "selon une étude préliminaire".
+3. Corps total : minimum 700 mots combinés.
+4. Chaque fait attribué à son institution avec "Selon [Institution]", uniquement si présent dans les extraits CONTENU.
+5. Aucun adjectif évaluatif sans source.
+6. PAS D'EXTRAPOLATION : n'écris jamais de conséquence future non sourcée.
+7. SOURCES : n'écris "Selon [Institution]" que si le fait figure LITTÉRALEMENT dans l'extrait CONTENU fourni.
+8. nb_sources EXACT : compte uniquement les sources distinctes réellement citées dans le texte.
+9. LÉGAL : aucun nom de chercheur présenté comme fraudeur ou incompétent sans source directe.
+10. Si les sources ne fournissent pas assez de faits précis pour 700 mots sans inventer : réponds HORS_PERIMETRE."""
+
 
 # ══════════════════════════════════════════════════════════════════════════════
 # GARDE-FOUS DÉTERMINISTES (sans LLM) — attributions fantômes & santé
@@ -911,6 +1000,138 @@ _SOURCES_SANTE_OFFICIELLES = (
 )
 
 
+# ══════════════════════════════════════════════════════════════════════════════
+# CLASSIFICATION DOSSIER (déterministe — zéro LLM pour cette décision)
+# Appliquée sur le titre + snippet RSS, avant tout appel Groq.
+# ══════════════════════════════════════════════════════════════════════════════
+
+# Signaux de portrait dans le titre
+_PORTRAIT_TITRE_RE = re.compile(
+    r"\bportrait\b|\binterview\b|\brendez-vous\b|\brencontre avec\b|"
+    r"\bparcours de\b|\bbiograph\b|\bqui est\b|\bprofil de\b",
+    re.IGNORECASE,
+)
+# Prénom (≥3 chars) espace Nom + virgule — structure typique de portrait
+# "Anne Chopinet," "François Petit," "Jean-Luc Mélenchon,"
+# {2,} sur la partie minuscule exclut "Le", "La", "Du" (articles 2 chars)
+_NOM_VIRGULE_RE = re.compile(
+    r"[A-ZÀ-ÜÉÈÊËÎÏÔÙÛÇÆŒ][a-zà-üéèêëîïôùûçæœ\-]{2,}"
+    r"(?:-[A-ZÀ-ÜÉÈÊËÎÏÔÙÛÇÆŒ][a-zà-üéèêëîïôùûçæœ]+)?"
+    r"\s+"
+    r"[A-ZÀ-ÜÉÈÊËÎÏÔÙÛÇÆŒ][a-zà-üéèêëîïôùûçæœ\-]+,",
+    re.UNICODE,
+)
+
+# Signaux hypothétiques scientifiques (titre ou snippet)
+_SCIENCE_HYPO_RE = re.compile(
+    r"\bet si\b|\bpourrait\b|\bpermettrait\b|\bvers une?\b|\bpiste\b|"
+    r"\bhypothèse\b|\bexplore\b|\bdécouvert[e]?s?\b|\bchercheurs?\b|"
+    r"\bnouvelle étude\b|\bnouvelle espèce\b|\bsuggère\b|\bindiqu[e]\b|"
+    r"\bà l'étude\b|\ben cours d'étude\b|\bune piste\b|\bon pourrait\b",
+    re.IGNORECASE,
+)
+
+# Liste A — rôles politiques/religieux → portrait automatiquement REJETÉ
+_LISTE_A_RE = re.compile(
+    r"\b(?:ministr[e]?s?|député[e]?s?|sénateur|sénatrice|"
+    r"maire|maires|président[e]? de (?:parti|région|conseil|groupe)|"
+    r"eurodéputé[e]?s?|candidat[e]?s?|tête de liste|"
+    r"porte-parole (?:du|de la|des) (?:gouvernement|parti|groupe)|"
+    r"syndicaliste|secrétaire général[e]? (?:de |du |d'une )?(?:syndicat|cgt|cfdt|fo\b|cftc|unsa)|"
+    r"imam|prêtre|évêque|pasteur|rabbin|cardinal|archevêque|diacre|mufti|"
+    r"militant[e]?s? (?:politique|du|de la|pour le|contre le))\b",
+    re.IGNORECASE,
+)
+
+# Liste B — sujets clivants → portrait ou article REJETÉ si présent
+_LISTE_B_RE = re.compile(
+    r"\b(?:immigration clandestine|sans-papiers|migrants? irréguliers?|"
+    r"islamisme|islamophobie|laïcité (?:menacée|bafouée|en crise)|"
+    r"avortement|ivg\b|interruption volontaire de grossesse|"
+    r"euthanasie|suicide assisté|fin de vie (?:légalis|dépénalis)|"
+    r"pma\b|gpa\b|gestation pour autrui|procréation médicalement assistée|"
+    r"transgenre|identité de genre|théorie du genre|"
+    r"wokisme|cancel culture|décoloniali|"
+    r"extrême[- ]droite|extrême[- ]gauche|"
+    r"rassemblement national\b|front national\b|\brn\b|\bfn\b(?! [a-z])|"
+    r"la france insoumise|\blfi\b|"
+    r"milite (?:pour|contre)|militer (?:pour|contre)|"
+    r"manifestation contre (?:le|la|les|l')|grève générale)\b",
+    re.IGNORECASE,
+)
+
+# Formulations assertives interdites dans un dossier science (garde-fou post-génération)
+_ASSERTIF_SCIENCE_RE = re.compile(
+    r"\bprouve(?: définitivement)? que\b|"
+    r"\bdémontre définitivement\b|"
+    r"\bconfirme définitivement\b|"
+    r"\bil est désormais certain\b|"
+    r"\bva révolutionner\b|va transformer (?:notre|le|la|les)\b|"
+    r"\bchangera tout\b|"
+    r"\b(?:révolution[ne]|boulevers)[ae]r[a]?\b(?=.*(?:médecine|science|technologie|domaine))",
+    re.IGNORECASE,
+)
+
+# Lifestyle/listicle : rejeté dès le filtre éditorial, mais détection explicite
+# pour log clair dans classifier_type_article
+_LISTICLE_RE = re.compile(
+    r"^\d+\s+(?:façons?|conseils?|astuces?|raisons?|idées?)|"
+    r"\btop \d+\b|\bguide (?:complet|ultime|pour)\b|"
+    r"\btout savoir sur\b|\bce qu'il faut savoir\b|"
+    r"\bsommaire de\b|\bà retenir de\b|\ben bref\b",
+    re.IGNORECASE,
+)
+
+
+def classifier_type_article(title: str, snippet: str) -> str:
+    """Classifie un article AVANT génération (déterministe, zéro LLM).
+
+    Retourne :
+      "actu"             → pipeline ACTU standard
+      "dossier_portrait" → portrait neutre d'une personne non-politique
+      "dossier_science"  → exploration scientifique hypothétique
+      "rejete"           → listicle, lifestyle, portrait polémique
+    """
+    texte = (title + " " + snippet).lower()
+    texte_raw = title + " " + snippet  # pour les regexes sensibles à la casse
+
+    # Rejet listicle/lifestyle immédiat
+    if _LISTICLE_RE.search(title):
+        return "rejete"
+
+    # Détection portrait (titre en priorité)
+    is_portrait = (
+        _PORTRAIT_TITRE_RE.search(title)
+        or _NOM_VIRGULE_RE.search(title)
+    )
+    if is_portrait:
+        # Vérifier Liste A : rôle exclu → rejet
+        if _LISTE_A_RE.search(texte_raw):
+            return "rejete"
+        # Vérifier Liste B : sujet clivant dans titre+snippet → rejet
+        if _LISTE_B_RE.search(texte_raw):
+            return "rejete"
+        return "dossier_portrait"
+
+    # Détection science hypothétique (titre + début snippet)
+    if _SCIENCE_HYPO_RE.search(title) or _SCIENCE_HYPO_RE.search(snippet[:500]):
+        # Liste B s'applique aussi ici
+        if _LISTE_B_RE.search(texte_raw):
+            return "rejete"
+        return "dossier_science"
+
+    return "actu"
+
+
+def _select_prompt(article_type: str) -> str:
+    """Retourne le SYSTEM_PROMPT adapté au type d'article."""
+    if article_type == "dossier_portrait":
+        return SYSTEM_PROMPT_DOSSIER_PORTRAIT
+    if article_type == "dossier_science":
+        return SYSTEM_PROMPT_DOSSIER_SCIENCE
+    return SYSTEM_PROMPT
+
+
 def sujet_sante_sans_source_officielle(art: dict) -> bool:
     """True si l'article touche un sujet sanitaire sensible (épidémies,
     vaccins, alertes) SANS aucune source institutionnelle de santé —
@@ -939,7 +1160,8 @@ def _groq_call(api_key: str, messages: list, max_tokens: int = 4500) -> str:
 
 def generate(content: str, category_hint: str, extra_sources: list[dict] | None = None,
              rss_url: str | None = None, retry_feedback: list[str] | None = None,
-             repetition_feedback: list[str] | None = None) -> dict:
+             repetition_feedback: list[str] | None = None,
+             article_type: str = "actu") -> dict:
 
     # Construire la liste des URLs réelles disponibles (DuckDuckGo + flux RSS)
     real_sources: list[dict] = []
@@ -999,7 +1221,7 @@ def generate(content: str, category_hint: str, extra_sources: list[dict] | None 
         )
 
     messages = [
-        {"role": "system", "content": SYSTEM_PROMPT},
+        {"role": "system", "content": _select_prompt(article_type)},
         {"role": "user",   "content": user_msg},
     ]
 
@@ -2788,6 +3010,12 @@ def generer_article(item: dict, dry_run: bool, published: set, new_pub: set, dat
 
     cat = item.get("_cat") or detect_category(item["title"] + " " + item["content"])
 
+    # Classification déterministe ACTU / DOSSIER / REJETE (avant tout appel Groq)
+    article_type = classifier_type_article(item["title"], item.get("content", ""))
+    if article_type == "rejete":
+        print(f"  [REJET DOSSIER] Listicle, lifestyle ou portrait polémique détecté : {item['title'][:55]}")
+        return False
+
     # Scraping du contenu complet
     full_content = ""
     if item.get("url"):
@@ -2826,14 +3054,17 @@ def generer_article(item: dict, dry_run: bool, published: set, new_pub: set, dat
         print(f"  [REJET] Seulement {len(specific_sources)} source(s) — minimum 5 requis (DDG+PubMed)")
         return False
 
-    print(f"  → Génération : {item['title'][:55]} [{len(specific_sources)} sources réelles]")
+    type_label = {"actu": "ACTU", "dossier_portrait": "DOSSIER/portrait",
+                  "dossier_science": "DOSSIER/science"}.get(article_type, article_type)
+    print(f"  → Génération [{type_label}] : {item['title'][:50]} [{len(specific_sources)} sources réelles]")
 
     if dry_run:
         print(f"     (dry-run)")
         return False
 
     try:
-        art = generate(content, cat, extra_sources=extra, rss_url=item.get("url"))
+        art = generate(content, cat, extra_sources=extra, rss_url=item.get("url"),
+                       article_type=article_type)
 
         # Compteur de relances Groq pour cet article — sert de circuit-breaker
         # (voir rejet précoce plus bas).
@@ -2844,7 +3075,7 @@ def generer_article(item: dict, dry_run: bool, published: set, new_pub: set, dat
         if fantomes:
             print(f"     [GARDE] {len(fantomes)} attribution(s) hors sources — relance avec correction…")
             art = generate(content, cat, extra_sources=extra, rss_url=item.get("url"),
-                           retry_feedback=fantomes)
+                           retry_feedback=fantomes, article_type=article_type)
             nb_garde_retries += 1
             fantomes = attributions_fantomes(art)
             if fantomes:
@@ -2858,7 +3089,7 @@ def generer_article(item: dict, dry_run: bool, published: set, new_pub: set, dat
         if repetitions:
             print(f"     [GARDE] {len(repetitions)} phrase(s) du résumé quasi identiques au corps — relance…")
             art = generate(content, cat, extra_sources=extra, rss_url=item.get("url"),
-                           repetition_feedback=repetitions)
+                           repetition_feedback=repetitions, article_type=article_type)
             nb_garde_retries += 1
             repetitions = resume_repete_corps(art)
             if repetitions:
@@ -2870,11 +3101,29 @@ def generer_article(item: dict, dry_run: bool, published: set, new_pub: set, dat
         if intra:
             print(f"     [GARDE] {len(intra)} répétition(s) intra-article détectée(s) — relance…")
             art = generate(content, cat, extra_sources=extra, rss_url=item.get("url"),
-                           repetition_feedback=intra)
+                           repetition_feedback=intra, article_type=article_type)
             nb_garde_retries += 1
             intra = faits_repetitifs(art)
             if intra:
                 print(f"     [AVERTISSEMENT] Répétitions intra-article persistantes après relance — publié quand même")
+
+        # ── Garde-fou Dossier Science : formulations assertives interdites ─────
+        if article_type == "dossier_science":
+            corps_texte = " ".join(art.get("corps", {}).values())
+            assertif = _ASSERTIF_SCIENCE_RE.search(corps_texte)
+            if assertif:
+                print(f"     [REJET DOSSIER] Formulation assertive dans dossier science : "
+                      f"'{assertif.group()[:60]}' — rejet définitif")
+                return False
+
+        # ── Garde-fou Dossier Portrait : Liste B dans le texte généré ─────────
+        if article_type == "dossier_portrait":
+            corps_texte = " ".join(art.get("corps", {}).values())
+            liste_b = _LISTE_B_RE.search(corps_texte)
+            if liste_b:
+                print(f"     [REJET DOSSIER] Sujet clivant (Liste B) dans portrait généré : "
+                      f"'{liste_b.group()[:60]}' — rejet définitif")
+                return False
 
         # ── Circuit-breaker budget : rejet précoce si ≥ 2 relances de garde-fou ──
         # Un article qui a déclenché 2+ relances Groq est fragile structurellement
@@ -3014,12 +3263,18 @@ def run(dry_run=False, text_input=None, nb_max=10):
 
         # ── Étape 2 : afficher le classement ──
         tous_candidats.sort(key=lambda x: x["_score"], reverse=True)
-        print(f"{'─'*70}")
-        print(f"  {'SCORE':>5}  {'CATÉGORIE':<12}  TITRE")
-        print(f"{'─'*70}")
+        # Classifier les candidats avant affichage (sans Groq, purement déterministe)
+        for c in tous_candidats:
+            c["_type"] = classifier_type_article(c["title"], c.get("content", ""))
+
+        print(f"{'─'*78}")
+        print(f"  {'SCORE':>5}  {'TYPE':<18}  {'CATÉGORIE':<12}  TITRE")
+        print(f"{'─'*78}")
         for c in tous_candidats[:20]:
-            print(f"  {c['_score']:>5}  {c.get('_cat','?'):<12}  {c['title'][:45]}")
-        print(f"{'─'*70}")
+            t = {"actu": "ACTU", "dossier_portrait": "DOSSIER/portrait",
+                 "dossier_science": "DOSSIER/science", "rejete": "REJETÉ"}.get(c["_type"], c["_type"])
+            print(f"  {c['_score']:>5}  {t:<18}  {c.get('_cat','?'):<12}  {c['title'][:40]}")
+        print(f"{'─'*78}")
 
         # ── Étape 3 : sélection par quota catégorie ──
         selection = selectionner_meilleurs(tous_candidats, nb_max=nb_max)
