@@ -110,5 +110,14 @@
     "tentatives": 3,
     "problemes_restants": 10,
     "bloquants_restants": 5
+  },
+  {
+    "slug": "petits-enfants-atout-sante-cognitive",
+    "statut": "rejete_qualite",
+    "date": "2026-07-05T16:51:50",
+    "problemes_initiaux": 21,
+    "tentatives": 3,
+    "problemes_restants": 10,
+    "bloquants_restants": 5
   }
 ]
