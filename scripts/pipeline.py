@@ -702,10 +702,12 @@ RÈGLES ABSOLUES — toute violation = article rejeté :
 7. Titre : 10-15 mots, informatif, factuel — il doit résumer l'essentiel de l'article
 8. Sources préférées : institutions officielles (INSEE, CNRS, INSERM, Eurostat, OMS, gouvernement), journaux de référence, publications peer-reviewed — MAIS uniquement si leur URL figure dans SOURCES DISPONIBLES. RÈGLE D'ATTRIBUTION : n'écris "Selon [Institution]" que si le fait attribué figure LITTÉRALEMENT dans l'extrait CONTENU fourni pour cette institution. Ne pas inventer, ne pas extrapoler depuis la mémoire d'entraînement. Si une institution que tu connais n'est pas dans la liste SOURCES DISPONIBLES, ne la cite JAMAIS dans le texte.
 9. Slug en français kebab-case, descriptif, max 65 caractères
-10. positions : si et SEULEMENT SI l'article contient des prises de position explicites et vérifiables de 2 à 4 acteurs RÉELS (déclarations citées, votes enregistrés, communiqués officiels présents dans les sources), renseigne ce bloc avec verifie=true. Sinon, mets verifie=false et laisse acteurs vide []. Ne jamais inventer ou déduire une position — uniquement ce qui est explicitement attesté dans les sources. position = 0 (totalement favorable/consensuel) à 100 (totalement critique/opposé).
+10. positions : génère ce bloc UNIQUEMENT si le sujet contient un véritable désaccord entre deux parties identifiables qui contestent ou défendent activement une même décision ou proposition — chacune avec une position EXPLICITEMENT attestée dans les sources (déclaration citée, vote enregistré, communiqué officiel). Critère opérationnel : deux camps avec des positions opposées ET défendables toutes les deux. INTERDIT si : acte institutionnel unilatéral sans opposition tracée (sanction disciplinaire, excommunication, condamnation judiciaire, décision administrative), décision technique, bilan statistique, découverte scientifique. Dans tous ces cas : verifie=false, acteurs=[]. Ne jamais inventer ou déduire une position. position = 0 (totalement favorable/consensuel) à 100 (totalement critique/opposé).
 11. Le résumé ('resume') et le corps ('faits') ne doivent JAMAIS contenir de phrases identiques ou quasi identiques (mêmes mots, même structure) : le résumé est une synthèse reformulée, pas un copier-coller déguisé du corps.
 12. Séparation stricte des registres : 'faits' = actualité immédiate uniquement (le fait du jour). 'contexte' = historique, évolution passée, comparaisons uniquement. Ne jamais mettre du contexte historique dans 'faits', ni redire les faits du jour dans 'contexte'.
-13. Chaque source citée dans le texte doit apporter un élément NOUVEAU (chiffre, angle, nuance). Ne JAMAIS répéter la même information sous plusieurs attributions successives (« Selon X… D'après Y… Selon Z… » disant la même chose = interdit). Maximum 3 attributions « Selon X » par section ; si plusieurs médias rapportent la même dépêche, cite-la UNE fois avec la source la plus autorisée.
+13. Chaque source citée dans le texte doit apporter un élément NOUVEAU (chiffre, angle, nuance). Ne JAMAIS répéter la même information sous plusieurs attributions successives. Maximum 3 attributions « Selon X » par section. RÈGLE DE SYNTHÈSE : quand plusieurs sources rapportent le même fait de façon identique ou quasi identique, les fusionner en UNE SEULE phrase de synthèse avec attribution groupée en fin de phrase. N'utiliser des attributions séparées que si les sources apportent des informations DIFFÉRENTES.
+    MAUVAIS (interdit) : « Selon Le Monde, le Vatican a excommunié six évêques. D'après Radio Lac, le Vatican a confirmé l'excommunication de ces six évêques. Selon France 24, le Vatican a confirmé l'excommunication de six évêques. »
+    BON (attendu) : « Le Vatican a confirmé l'excommunication de six évêques de la Fraternité Saint-Pie X, actant le schisme de ce mouvement avec Rome (Le Monde, France 24, Radio Lac). »
 14. ACTUALITÉ UNIQUEMENT : le sujet doit reposer sur un événement daté des dernières 48 heures (étude publiée, décision officielle, annonce, vote, incident). Un sujet intemporel ou encyclopédique sans événement déclencheur récent (ex: « la théorie de l'évolution », « le coucou, un oiseau stratège ») = réponds HORS_PERIMETRE.
 15. CADRAGES EMPRUNTÉS INTERDITS : ne jamais reprendre mot pour mot un jugement de valeur ou un cadrage éditorial présent dans une source (ex : "crise sans précédent", "modèle à bout de souffle", "tournant historique") comme s'il s'agissait d'un fait neutre. Si un tel cadrage est pertinent, l'attribuer explicitement : « Selon [Source], il s'agit d'une crise sans précédent. » Ne jamais présenter l'angle éditorial d'une source comme l'angle factuel de l'article.
 16. PAS D'EXTRAPOLATION NON SOURCÉE : n'écris jamais de projection ou de conséquence future ("cette mesure pourrait entraîner", "cela risque de", "on pourrait s'attendre à") sauf si une source listée formule explicitement cette projection. Si la conséquence n'est pas dans les extraits CONTENU, ne la mentionne pas.
@@ -1013,11 +1015,13 @@ _PORTRAIT_TITRE_RE = re.compile(
 )
 # Prénom (≥3 chars) espace Nom + virgule — structure typique de portrait
 # "Anne Chopinet," "François Petit," "Jean-Luc Mélenchon,"
-# {2,} sur la partie minuscule exclut "Le", "La", "Du" (articles 2 chars)
+# "Marine Le Pen," "Charles de Gaulle," "Simone de Beauvoir,"
+# {2,} sur le prénom exclut "Le", "La", "Du" en début de titre (2 chars)
 _NOM_VIRGULE_RE = re.compile(
     r"[A-ZÀ-ÜÉÈÊËÎÏÔÙÛÇÆŒ][a-zà-üéèêëîïôùûçæœ\-]{2,}"
     r"(?:-[A-ZÀ-ÜÉÈÊËÎÏÔÙÛÇÆŒ][a-zà-üéèêëîïôùûçæœ]+)?"
     r"\s+"
+    r"(?:[Dd][eu]\s+|[Ll][ae]\s+|[Dd]es\s+|[Dd][‘’]\s*)?"
     r"[A-ZÀ-ÜÉÈÊËÎÏÔÙÛÇÆŒ][a-zà-üéèêëîïôùûçæœ\-]+,",
     re.UNICODE,
 )
@@ -3158,7 +3162,7 @@ def generer_article(item: dict, dry_run: bool, published: set, new_pub: set, dat
             return False
 
         # ── Passes 2/3 : fact-check + correction automatique (Anthropic) ──
-        art, statut_verif = verifier_article(art)
+        art, statut_verif = verifier_article(art, article_type=article_type)
         if statut_verif in ("rejete_sensible", "rejete_qualite"):
             # Messages déjà affichés dans verifier_article
             return False

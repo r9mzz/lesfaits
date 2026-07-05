@@ -3,22 +3,21 @@ Analyse un run pipeline.yml et le verification_log.json du même jour.
 Usage : python scripts/analyser_run.py [RUN_ID]
         Si RUN_ID absent, prend le dernier run pipeline.yml.
 
-Sorties :
-  - Tokens Groq consommés estimés (via nombre d'appels × taille moyenne)
-  - Résumé par article : statut, bloquants par bloc
-  - Comparaison bloc 2 (sourcing) vs autres blocs
-  - Verdict : fix sourcing a-t-il réduit le bloc 2 ?
+Sorties (séparées ACTU / DOSSIER) :
+  - Tokens Groq consommés estimés par type
+  - Statuts Anthropic séparés : ACTU vs DOSSIER
+  - Moyenne bloquants par type (pour isoler quel changement pose problème)
+  - Verdict fix sourcing (ACTU uniquement — métrique de référence)
 """
 import sys, json, re, subprocess
-from collections import Counter, defaultdict
+from collections import Counter
 from datetime import date
 from pathlib import Path
 
 ROOT = Path(__file__).parent.parent
 VERIF_LOG = ROOT / "data" / "verification_log.json"
 
-BLOCS = {1: "FACTUEL", 2: "SOURCING", 3: "ORIGINALITÉ", 4: "RÉDACTION", 5: "LÉGAL"}
-SEUIL_BLOC2_AVANT = 9   # médiane observée avant le fix (runs 04-05/07)
+SEUIL_BLOC2_AVANT = 9   # médiane observée avant le fix sourcing (runs 04-05/07)
 
 
 # ── 1. Récupérer les logs GitHub Actions ─────────────────────────────────────
@@ -48,7 +47,15 @@ def fetch_log(run_id: str) -> str:
 # ── 2. Parser les logs pour les événements pipeline ───────────────────────────
 
 def parse_pipeline_log(log: str) -> dict:
-    """Extrait les métriques clés du log du run."""
+    """Extrait les métriques clés du log du run.
+
+    Format des lignes depuis la mise à jour Format Dossier :
+      → Génération [ACTU] : titre [N sources réelles]
+      → Génération [DOSSIER/portrait] : titre [N sources réelles]
+      → Génération [DOSSIER/science] : titre [N sources réelles]
+    Ancien format (sans type) encore possible pour les runs d'avant :
+      → Génération : titre [N sources réelles]
+    """
     results = {
         "articles_tentes": [],
         "garde_retries": 0,
@@ -56,19 +63,32 @@ def parse_pipeline_log(log: str) -> dict:
         "quota_epuise": False,
         "articles_publies": 0,
         "hors_perimetre": 0,
-        "erreurs_groq": 0,
     }
 
     for line in log.splitlines():
         line = re.sub(r"^.*?\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}\.\d+Z ", "", line)
 
-        m = re.search(r"→ Génération\s*:\s*(.+?)\s*\[(\d+) sources réelles\]", line)
+        # Nouveau format avec type
+        m = re.search(r"→ Génération \[([^\]]+)\]\s*:\s*(.+?)\s*\[(\d+) sources réelles\]", line)
         if m:
             results["articles_tentes"].append({
-                "titre": m.group(1).strip(),
-                "sources": int(m.group(2)),
+                "type":   m.group(1).strip(),   # "ACTU" | "DOSSIER/portrait" | "DOSSIER/science"
+                "titre":  m.group(2).strip(),
+                "sources": int(m.group(3)),
                 "gardes": 0,
             })
+            continue
+
+        # Ancien format sans type (runs antérieurs au Format Dossier)
+        m2 = re.search(r"→ Génération\s*:\s*(.+?)\s*\[(\d+) sources réelles\]", line)
+        if m2:
+            results["articles_tentes"].append({
+                "type":   "actu",   # type par défaut pour les anciens runs
+                "titre":  m2.group(1).strip(),
+                "sources": int(m2.group(2)),
+                "gardes": 0,
+            })
+            continue
 
         if "[GARDE]" in line and results["articles_tentes"]:
             results["garde_retries"] += 1
@@ -79,15 +99,16 @@ def parse_pipeline_log(log: str) -> dict:
 
         if "quota journalier" in line.lower() or "quota épuisé" in line.lower():
             results["quota_epuise"] = True
-            results["erreurs_groq"] += 1
 
-        if "[REJET PRÉCOCE]" in line:
-            if results["articles_tentes"]:
-                results["articles_tentes"][-1]["rejet_precoce"] = True
+        if "[REJET PRÉCOCE]" in line and results["articles_tentes"]:
+            results["articles_tentes"][-1]["rejet_precoce"] = True
 
-        m2 = re.search(r"Terminé — (\d+) article\(s\) publié", line)
-        if m2:
-            results["articles_publies"] = int(m2.group(1))
+        if "[REJET DOSSIER]" in line and results["articles_tentes"]:
+            results["articles_tentes"][-1]["rejet_dossier"] = True
+
+        m3 = re.search(r"Terminé — (\d+) article\(s\) publié", line)
+        if m3:
+            results["articles_publies"] = int(m3.group(1))
 
         if "HORS_PERIMETRE" in line:
             results["hors_perimetre"] += 1
@@ -105,89 +126,136 @@ def load_verif_today() -> list:
     return [e for e in entries if e.get("date", "").startswith(today)]
 
 
+def _split_by_type(verif: list) -> tuple[list, list]:
+    """Sépare les entrées verif en (actu, dossier).
+    Utilise le champ article_type si présent (runs après Format Dossier).
+    Fallback : tout en actu si le champ est absent.
+    """
+    actu, dossier = [], []
+    for e in verif:
+        t = e.get("article_type", "actu")
+        if t.startswith("dossier"):
+            dossier.append(e)
+        else:
+            actu.append(e)
+    return actu, dossier
+
+
 # ── 4. Affichage ──────────────────────────────────────────────────────────────
 
+def _bloc_verif(label: str, entries: list):
+    """Affiche les stats de vérification pour un groupe d'articles."""
+    if not entries:
+        print(f"  Aucune entrée.")
+        return
+
+    statuts = Counter(e.get("statut") for e in entries)
+    publies = statuts.get("conforme_du_premier_coup", 0) + statuts.get("corrige_automatiquement", 0)
+    total = len(entries)
+    taux = f"{publies}/{total}" if total else "—"
+
+    print(f"  Taux publication          : {taux}")
+    print(f"    conforme_du_premier_coup : {statuts.get('conforme_du_premier_coup', 0)}")
+    print(f"    corrige_automatiquement  : {statuts.get('corrige_automatiquement', 0)}")
+    print(f"    rejete_qualite           : {statuts.get('rejete_qualite', 0)}")
+    print(f"    rejete_sensible          : {statuts.get('rejete_sensible', 0)}")
+
+    bloquants = [e.get("bloquants_restants") for e in entries
+                 if isinstance(e.get("bloquants_restants"), int)]
+    if bloquants:
+        moy = sum(bloquants) / len(bloquants)
+        print(f"  Moy. bloquants restants   : {moy:.1f}  (seuil avant fix : {SEUIL_BLOC2_AVANT})")
+
+    print(f"\n  Détail par article :")
+    for e in entries:
+        slug = e.get("slug", "?")[:38]
+        s = e.get("statut", "?")
+        init = e.get("problemes_initiaux", "?")
+        bloc = e.get("bloquants_restants", "?")
+        print(f"    {slug:<38} | init={str(init):<3} bloquants={str(bloc):<3} | {s}")
+
+
 def afficher(run_id: str, pipeline: dict, verif: list):
-    sep = "=" * 68
+    sep = "=" * 72
     print(f"\n{sep}")
     print(f"ANALYSE RUN {run_id} — {date.today()}")
     print(sep)
 
-    # ── Groq ──
+    # ── Groq : répartition par type ──
     print("\n── GROQ ──")
-    nb_tentes = len(pipeline["articles_tentes"])
-    print(f"  Articles tentés       : {nb_tentes}")
-    print(f"  Retries garde-fous    : {pipeline['garde_retries']}")
-    print(f"  Rate limits (appels)  : {pipeline['groq_rate_limits']}")
-    print(f"  Quota épuisé          : {'OUI ⚠' if pipeline['quota_epuise'] else 'non'}")
-    print(f"  Articles publiés      : {pipeline['articles_publies']}")
+    tentes = pipeline["articles_tentes"]
+    actu_log   = [a for a in tentes if a["type"] in ("ACTU", "actu")]
+    dossier_log = [a for a in tentes if a["type"] not in ("ACTU", "actu")]
 
-    # Estimation tokens : input ~4k tokens/appel (avec fix), output ~4.5k = ~8.5k/appel
-    # Nombre d'appels = tentatives + gardes
+    nb_tentes = len(tentes)
+    print(f"  Total articles tentés  : {nb_tentes}  (ACTU={len(actu_log)}, DOSSIER={len(dossier_log)})")
+    print(f"  Retries garde-fous     : {pipeline['garde_retries']}")
+    print(f"  Rate limits (appels)   : {pipeline['groq_rate_limits']}")
+    print(f"  Quota épuisé           : {'OUI ⚠' if pipeline['quota_epuise'] else 'non'}")
+    print(f"  Articles publiés       : {pipeline['articles_publies']}")
+
     nb_appels = nb_tentes + pipeline["garde_retries"]
     tokens_estimes = nb_appels * 8500
-    print(f"  Appels Groq estimés   : {nb_appels}")
-    print(f"  Tokens Groq estimés   : ~{tokens_estimes:,}  (hypothèse 8.5k/appel avec nouveau prompt)")
+    print(f"  Appels Groq estimés    : {nb_appels}  (~{tokens_estimes:,} tokens)")
 
-    for i, art in enumerate(pipeline["articles_tentes"], 1):
-        rejet = " [REJET PRÉCOCE]" if art.get("rejet_precoce") else ""
-        print(f"    {i}. {art['titre'][:50]:<50} gardes={art['gardes']}{rejet}")
+    print(f"\n  Détail par article :")
+    for i, art in enumerate(tentes, 1):
+        flags = ""
+        if art.get("rejet_precoce"):  flags += " [REJET PRÉCOCE]"
+        if art.get("rejet_dossier"):  flags += " [REJET DOSSIER]"
+        print(f"    {i}. [{art['type']:<18}] {art['titre'][:42]:<42} gardes={art['gardes']}{flags}")
 
-    # ── Vérification Anthropic ──
-    print(f"\n── VÉRIFICATION ANTHROPIC ({len(verif)} entrées aujourd'hui) ──")
+    # ── Vérification Anthropic — séparée ACTU / DOSSIER ──
+    has_type_field = any("article_type" in e for e in verif)
+    verif_actu, verif_dossier = _split_by_type(verif)
 
     if not verif:
+        print(f"\n── VÉRIFICATION ANTHROPIC (0 entrées aujourd'hui) ──")
         print("  Aucune entrée dans verification_log.json pour aujourd'hui.")
-        print("  (Soit 0 article n'a atteint la vérification, soit le log n'est pas à jour.)")
+        print("  (0 article n'a atteint la vérification, ou log non encore à jour.)")
     else:
-        statuts = Counter(e.get("statut") for e in verif)
-        print(f"  conforme_du_premier_coup : {statuts.get('conforme_du_premier_coup', 0)}")
-        print(f"  corrige_automatiquement  : {statuts.get('corrige_automatiquement', 0)}")
-        print(f"  rejete_qualite           : {statuts.get('rejete_qualite', 0)}")
-        print(f"  rejete_sensible          : {statuts.get('rejete_sensible', 0)}")
+        if not has_type_field:
+            print(f"\n── VÉRIFICATION ANTHROPIC ({len(verif)} entrées — champ article_type absent) ──")
+            print("  Runs antérieurs au Format Dossier — séparation ACTU/DOSSIER indisponible.")
+            print("  Toutes les entrées affichées comme ACTU par défaut.")
+        else:
+            print(f"\n── VÉRIFICATION ANTHROPIC — ACTU ({len(verif_actu)} entrées) ──")
 
-        # Bloc 2 (sourcing) — métrique principale du fix
-        bloc2_par_article = []
-        bloquants_par_article = []
-        print("\n  Détail par article :")
-        for e in verif:
-            slug = e.get("slug", "?")[:40]
-            statut = e.get("statut", "?")
-            pb_init = e.get("problemes_initiaux", "?")
-            bloquants = e.get("bloquants_restants", "?")
-            # Les blocs ne sont pas stockés par type dans le log actuel —
-            # on ne peut sortir que les totaux
-            print(f"    {slug:<40} | init={pb_init:<3} bloquants={bloquants:<3} | {statut}")
-            if isinstance(bloquants, int):
-                bloquants_par_article.append(bloquants)
+        _bloc_verif("ACTU", verif_actu)
 
-        if bloquants_par_article:
-            moy = sum(bloquants_par_article) / len(bloquants_par_article)
-            print(f"\n  Moyenne bloquants restants : {moy:.1f}")
+        if has_type_field and verif_dossier:
+            print(f"\n── VÉRIFICATION ANTHROPIC — DOSSIER ({len(verif_dossier)} entrées) ──")
+            print("  (Premier run avec Format Dossier — aucune donnée de référence)")
+            _bloc_verif("DOSSIER", verif_dossier)
 
-        # Note : les types de blocs (bloc 2 vs autres) ne sont pas journalisés dans
-        # verification_log.json — pour l'analyse fine par bloc il faut relancer
-        # test_articles_03juillet.py ou ajouter le détail bloc dans _log().
-        print()
-        print("  ⚠ Le détail par bloc (bloc 2 sourcing vs autres) n'est pas dans le log.")
-        print("  Pour le mesurer : relancer test_articles_03juillet.py sur les articles du run.")
+        if has_type_field and not verif_dossier:
+            print(f"\n── DOSSIER : 0 article vérifié aujourd'hui ──")
+            print("  (Aucun candidat DOSSIER n'a passé la vérification, ou aucun trouvé)")
 
-    # ── Verdict ──
-    print(f"\n── VERDICT FIX SOURCING ──")
-    if not verif:
-        print("  Pas de données de vérification disponibles — le run n'a peut-être")
-        print("  pas atteint la phase de vérification (quota épuisé avant ?)")
+    # ── Verdict fix sourcing (ACTU uniquement) ──
+    print(f"\n── VERDICT FIX SOURCING (ACTU) ──")
+    if not verif_actu:
+        print("  Pas de données ACTU — le run n'a peut-être pas atteint la vérification.")
     else:
-        publies = statuts.get("conforme_du_premier_coup", 0) + statuts.get("corrige_automatiquement", 0)
+        statuts_actu = Counter(e.get("statut") for e in verif_actu)
+        publies = statuts_actu.get("conforme_du_premier_coup", 0) + statuts_actu.get("corrige_automatiquement", 0)
+        bloquants = [e.get("bloquants_restants") for e in verif_actu
+                     if isinstance(e.get("bloquants_restants"), int)]
         if publies > 0:
-            print(f"  ✓ {publies} article(s) publié(s) — fix sourcing probablement efficace.")
-        elif bloquants_par_article and sum(bloquants_par_article) / len(bloquants_par_article) < SEUIL_BLOC2_AVANT:
-            moy = sum(bloquants_par_article) / len(bloquants_par_article)
-            print(f"  ~ Taux de publication encore 0% mais moyenne bloquants {moy:.1f} < seuil {SEUIL_BLOC2_AVANT}")
-            print(f"    → Amélioration partielle : le fix a réduit les bloquants, d'autres blocs")
-            print(f"      (rédaction, redondance) restent à traiter séparément.")
+            print(f"  ✓ {publies} article(s) ACTU publié(s) — fix sourcing efficace.")
+        elif bloquants and sum(bloquants) / len(bloquants) < SEUIL_BLOC2_AVANT:
+            moy = sum(bloquants) / len(bloquants)
+            print(f"  ~ 0 publié mais bloquants moy. {moy:.1f} < seuil {SEUIL_BLOC2_AVANT}")
+            print(f"    → Amélioration partielle : fix sourcing a réduit les bloquants,")
+            print(f"      d'autres blocs (rédaction, redondance) restent à traiter.")
         else:
             print(f"  ✗ Pas d'amélioration mesurable — vérifier les logs détaillés.")
+
+    if verif_dossier:
+        print(f"\n── VERDICT DOSSIER ──")
+        statuts_d = Counter(e.get("statut") for e in verif_dossier)
+        pub_d = statuts_d.get("conforme_du_premier_coup", 0) + statuts_d.get("corrige_automatiquement", 0)
+        print(f"  {pub_d}/{len(verif_dossier)} articles DOSSIER publiés (pas de référence historique).")
 
     print(f"\n{sep}\n")
 

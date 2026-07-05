@@ -301,13 +301,16 @@ def enqueue_moderation(art: dict, rapport_initial: dict, rapport_final: dict):
 # ORCHESTRATION — la fonction appelée par pipeline.py
 # ══════════════════════════════════════════════════════════════════════════════
 
-def verifier_article(art: dict) -> tuple[dict, str]:
+def verifier_article(art: dict, article_type: str = "actu") -> tuple[dict, str]:
     """
     Applique les passes 2 (détection) et 3 (correction) sur un article généré.
     Retourne (article_final, statut).
     rejete_sensible / rejete_qualite → JAMAIS publié, rejet définitif, log seul.
+    article_type : "actu" | "dossier_portrait" | "dossier_science" — tracé dans le log
+    pour permettre l'analyse séparée ACTU vs DOSSIER après le run.
     """
     slug = art.get("slug", "?")
+    _type_detail = {"article_type": article_type}
 
     if not ANTHROPIC_KEY:
         # Pas de clé → comportement historique, tracé comme non vérifié
@@ -317,7 +320,7 @@ def verifier_article(art: dict) -> tuple[dict, str]:
         rapport = detecter(art)
     except Exception as e:
         print(f"     [VERIF] Erreur API détection ({e}) — publié sans vérification")
-        _log(slug, "erreur_verification", {"etape": "detection", "erreur": str(e)})
+        _log(slug, "erreur_verification", {"etape": "detection", "erreur": str(e), **_type_detail})
         return art, "erreur_verification"
 
     # Garde-fou indépendant du score : un sujet sensible (mineur impliqué,
@@ -328,11 +331,11 @@ def verifier_article(art: dict) -> tuple[dict, str]:
     if rapport.get("sujet_sensible"):
         raison = rapport.get("sujet_sensible_raison", "")
         print(f"     [REJET] sujet sensible détecté — rejet définitif ({raison})")
-        _log(slug, "rejete_sensible", {"sujet_sensible": True, "raison": raison})
+        _log(slug, "rejete_sensible", {"sujet_sensible": True, "raison": raison, **_type_detail})
         return art, "rejete_sensible"
 
     if rapport.get("conforme"):
-        _log(slug, "conforme_du_premier_coup")
+        _log(slug, "conforme_du_premier_coup", _type_detail)
         return art, "conforme_du_premier_coup"
 
     n_pb = len(rapport.get("problemes", []))
@@ -346,6 +349,7 @@ def verifier_article(art: dict) -> tuple[dict, str]:
         _log(slug, "rejete_sensible", {
             "problemes_initiaux": n_pb,
             "bloc5": [p.get("type") for p in problemes_bloc5],
+            **_type_detail,
         })
         return art, "rejete_sensible"
 
@@ -365,7 +369,7 @@ def verifier_article(art: dict) -> tuple[dict, str]:
             rapport_final = detecter(art_corrige)
         except Exception as e:
             print(f"     [REJET QUALITÉ] Erreur API correction (tentative {tentative}) ({e}) — rejet")
-            _log(slug, "rejete_qualite", {"etape": "correction", "tentative": tentative, "erreur": str(e)})
+            _log(slug, "rejete_qualite", {"etape": "correction", "tentative": tentative, "erreur": str(e), **_type_detail})
             return art, "rejete_qualite"
 
         problemes = rapport_final.get("problemes", [])
@@ -377,13 +381,13 @@ def verifier_article(art: dict) -> tuple[dict, str]:
         bloc5_apparus = [p for p in problemes if p.get("bloc") == 5]
         if bloc5_apparus:
             print(f"     [REJET] problème légal apparu pendant la correction — rejet définitif")
-            _log(slug, "rejete_sensible", {"problemes_initiaux": n_pb, "tentative": tentative, "bloc5": True})
+            _log(slug, "rejete_sensible", {"problemes_initiaux": n_pb, "tentative": tentative, "bloc5": True, **_type_detail})
             return art_corrige, "rejete_sensible"
 
         if rapport_final.get("sujet_sensible"):
             raison = rapport_final.get("sujet_sensible_raison", "")
             print(f"     [REJET] sujet sensible (tentative {tentative}) — rejet définitif ({raison})")
-            _log(slug, "rejete_sensible", {"tentative": tentative, "sujet_sensible": True, "raison": raison})
+            _log(slug, "rejete_sensible", {"tentative": tentative, "sujet_sensible": True, "raison": raison, **_type_detail})
             return art_corrige, "rejete_sensible"
 
         # Garde-fou "perte de substance" : la correction a coupé une section
@@ -399,6 +403,7 @@ def verifier_article(art: dict) -> tuple[dict, str]:
             _log(slug, "rejete_qualite", {
                 "tentative": tentative, "perte_substance": True,
                 "section": section_touchee, "mots_avant": mots_avant, "mots_apres": mots_apres,
+                **_type_detail,
             })
             return art_corrige, "rejete_qualite"
 
@@ -409,6 +414,7 @@ def verifier_article(art: dict) -> tuple[dict, str]:
                 "tentatives": tentative,
                 "problemes_residuels_style": residuel,
                 "rapport_initial": rapport,
+                **_type_detail,
             })
             if residuel:
                 print(f"     [VERIF] {residuel} défaut(s) de style résiduel(s) (bloc 3/4), aucun bloquant — publié")
@@ -427,5 +433,6 @@ def verifier_article(art: dict) -> tuple[dict, str]:
         "tentatives": MAX_TENTATIVES,
         "problemes_restants": len(rapport_courant.get("problemes", [])),
         "bloquants_restants": len(bloquants_restants),
+        **_type_detail,
     })
     return art_courant, "rejete_qualite"
