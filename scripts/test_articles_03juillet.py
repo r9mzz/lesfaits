@@ -100,14 +100,22 @@ def run_detecter_on_commit(art: dict, commit: str | None = None) -> dict:
         mod = importlib.util.module_from_spec(spec)
         spec.loader.exec_module(mod)
         detect_fn = mod.detecter
-        bloquants_fn = mod._problemes_bloquants
+        # Les vieilles versions n'ont pas forcément _problemes_bloquants
+        bloquants_fn = getattr(mod, "_problemes_bloquants", None)
     else:
-        from verification import detecter as detect_fn, _problemes_bloquants as bloquants_fn
+        from verification import detecter as detect_fn
+        bloquants_fn = None
+
+    # Définition inline si absente dans la version testée
+    def _bloquants(problemes):
+        if bloquants_fn:
+            return bloquants_fn(problemes)
+        return [p for p in problemes if p.get("bloc") in (1, 2, 5)]
 
     try:
         rapport = detect_fn(art)
         problemes = rapport.get("problemes", [])
-        bloquants = bloquants_fn(problemes)
+        bloquants = _bloquants(problemes)
         return {
             "conforme": rapport.get("conforme", False),
             "sujet_sensible": rapport.get("sujet_sensible", False),
