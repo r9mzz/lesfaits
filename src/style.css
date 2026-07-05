@@ -437,7 +437,8 @@ nav a.active { opacity: 1; color: var(--blue); border-bottom-color: var(--blue);
 .cat--economie     { color: #f97316 !important; }
 .cat--tech         { color: #a855f7 !important; }
 .cat--science      { color: #06b6d4 !important; }
-.cat--societe, .cat--environnement, .cat--sante, .cat--economie, .cat--tech, .cat--science {
+.cat--sport        { color: #3b82f6 !important; }
+.cat--societe, .cat--environnement, .cat--sante, .cat--economie, .cat--tech, .cat--science, .cat--sport {
   background: color-mix(in srgb, currentColor 12%, transparent) !important;
 }
 

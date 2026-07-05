@@ -1,0 +1,626 @@
+{
+  "date": "20260705_112547",
+  "parametres": {
+    "max_articles": 14,
+    "max_anthropic": 90
+  },
+  "appels": {
+    "generation": 13,
+    "verification": 14,
+    "total": 27
+  },
+  "articles": [
+    {
+      "slug": "subvention-ars-planning-familial-gironde-2026",
+      "titre": "Subvention Ars Planning Familial Gironde 2026",
+      "categorie": "societe",
+      "fantomes_pass1": [],
+      "fantomes_pass2": [],
+      "nb_mots": {},
+      "nb_sources": 0,
+      "sources": [],
+      "sources_enrichies": [],
+      "article_json": null,
+      "verif_rapport_initial": null,
+      "verif_rapport_final": null,
+      "contenu_base": "titre_seul",
+      "statut": "rejet_sources"
+    },
+    {
+      "slug": "regularisation-sans-papiers-espagne",
+      "statut": "erreur",
+      "fantomes_pass1": [],
+      "fantomes_pass2": [],
+      "nb_mots": {},
+      "nb_sources": 0,
+      "sources": [],
+      "sources_enrichies": [],
+      "article_json": null,
+      "contenu_base": null
+    },
+    {
+      "slug": "temperature-ressentie-indice-complexe",
+      "statut": "erreur",
+      "fantomes_pass1": [],
+      "fantomes_pass2": [],
+      "nb_mots": {},
+      "nb_sources": 0,
+      "sources": [],
+      "sources_enrichies": [],
+      "article_json": null,
+      "contenu_base": null
+    },
+    {
+      "slug": "danemark-priorite-services-essentiels",
+      "statut": "erreur",
+      "fantomes_pass1": [],
+      "fantomes_pass2": [],
+      "nb_mots": {},
+      "nb_sources": 0,
+      "sources": [],
+      "sources_enrichies": [],
+      "article_json": null,
+      "contenu_base": null
+    },
+    {
+      "slug": "sommeil-et-hypertension-symptomes",
+      "titre": "Sommeil et hypertension : les symptômes à ne pas négliger",
+      "categorie": "societe",
+      "fantomes_pass1": [
+        "l'INSV"
+      ],
+      "fantomes_pass2": [],
+      "nb_mots": {
+        "faits": 461,
+        "contexte": 307,
+        "nuances": 243,
+        "total": 1011
+      },
+      "nb_sources": 4,
+      "sources": [
+        {
+          "institution": "Inserm",
+          "url": "https://www.inserm.fr/dossier/sommeil/",
+          "titre": "Sommeil · Inserm, La science pour la santé"
+        },
+        {
+          "institution": "Santé publique France",
+          "url": "https://www.santepubliquefrance.fr/sommeil",
+          "titre": "Sommeil | Santé publique France"
+        },
+        {
+          "institution": "Ministère de la Santé",
+          "url": "https://sante.gouv.fr/prevention-en-sante/sante-mentale/promotion-et-prevention/article/sommeil-un-determinant-de-sante-essentiel-pour-la-sante-mentale-et-physique",
+          "titre": "Sommeil : un déterminant de santé essentiel pour la santé mentale et physique"
+        },
+        {
+          "institution": "Institut Sommeil Vigilance",
+          "url": "https://institut-sommeil-vigilance.org/tout-savoir-sur-le-sommeil/",
+          "titre": "Tout savoir sur le sommeil"
+        }
+      ],
+      "sources_enrichies": [
+        {
+          "url": "https://www.inserm.fr/dossier/sommeil/",
+          "title": "Sommeil · Inserm, La science pour la santé",
+          "snippet_chars": 8000,
+          "snippet_preview": "Modifié le : 08/11/2024 Publié le : 07/08/2017 Temps de lecture : 20 min Les humains passent près d’un tiers de leur vie à dormir et il est parfaitement établi que leur sommeil est crucial pour le bon fonctionnement de nombreuses fonctions biologiques : développement, mémoire et apprentissage, métabolisme, immunité… Mais différents troubles affectent le sommeil d’une proportion importante et croissante de la population. Une situation qui conduit à s’interroger sur les conséquences de ces trouble"
+        },
+        {
+          "url": "https://fr.m.wikipedia.org/wiki/Sommeil",
+          "title": "Sommeil — Wikipédia",
+          "snippet_chars": 8000,
+          "snippet_preview": "Un article de Wikipédia, l'encyclopédie libre. Pour les articles homonymes, voir Sommeil (homonymie) . Un lion et une lionne dormant. Deux hommes endormis sur un banc. Un homme faisant une sieste à l'ombre d'un arbre au Burkina Faso. Le sommeil est un état modifié de la conscience du monde extérieur (sans perte de la réception sensitive), accompagné d'une diminution progressive du tonus musculaire , survenant à intervalles réguliers. L'alternance veille-sommeil correspond à l'un des cycles fonda"
+        },
+        {
+          "url": "https://www.santepubliquefrance.fr/sommeil",
+          "title": "Sommeil | Santé publique France",
+          "snippet_chars": 204,
+          "snippet_preview": "11 déc. 2025 · Le sommeil représente environ un tiers de notre vie. Il joue un rôle déterminant tout au long de la vie en termes de croissance, de maturation cérébrale, de développement de nos capacités …"
+        },
+        {
+          "url": "https://www.doctissimo.fr/psychologie/problemes-psy/sommeil/bienfaits-du-sommeil/manque-de-sommeil-causes-symptomes-consequences-et-traitement-404600.htm",
+          "title": "Manque de sommeil : causes, symptômes et conséquences - Doctissimo",
+          "snippet_chars": 8000,
+          "snippet_preview": "Fatigue, difficultés à se concentrer, irritabilité… C’est un fait, les Français ne dorment pas suffisamment. Ce déficit de sommeil, souvent sous-estimé, impacte notre santé globale, de la mémoire à l’humeur, en passant par la prise de poids. D’après les résultats de l’enquête Opinionway 2025 pour l’INSV/Fondation VINCI Autoroutes, près d’ un quart des personnes interrogées dorment moins de six heures en semaine, ce qui est insuffisant. De plus, 43% des Français déclarent souffrir d’au moins un t"
+        },
+        {
+          "url": "https://institut-sommeil-vigilance.org/tout-savoir-sur-le-sommeil/",
+          "title": "Tout savoir sur le sommeil - INSV Institut National du Sommeil et de la ...",
+          "snippet_chars": 8000,
+          "snippet_preview": "Tout savoir sur le sommeil - INSV Institut National du Sommeil et de la Vigilance Appuyez sur la croix en haut à droite pour sortir Tout savoir sur le sommeil Tout savoir sur le sommeil Le sommeil est un état dans lequel nous passons environ le tiers de notre vie. Il fait partie des fonctions vitales de l’organisme comme la respiration, la digestion ou l’immunité. Sommaire Comment étudie-t-on le sommeil ? Pour connaître l’état dans lequel se trouve un dormeur il faut réaliser plusieurs examens :"
+        },
+        {
+          "url": "https://sante.gouv.fr/prevention-en-sante/sante-mentale/promotion-et-prevention/article/sommeil-un-determinant-de-sante-essentiel-pour-la-sante-mentale-et-physique",
+          "title": "Sommeil : un déterminant de santé essentiel pour la santé mentale et ...",
+          "snippet_chars": 164,
+          "snippet_preview": "29 juil. 2025 · Le sommeil, un pilier de notre santé Trop souvent négligé, le sommeil est pourtant essentiel à notre équilibre physique, mental, social et cognitif."
+        },
+        {
+          "url": "https://www.passeportsante.net/portail/sommeil",
+          "title": "Sommeil : tout savoir sur le sommeil, comment mieux dormir",
+          "snippet_chars": 1250,
+          "snippet_preview": "Les différents cycles du sommeil Quelle position choisir pour dormir ? 10 chose à éviter avant de dormir Favoriser un bon sommeil Comment favoriser un bon sommeil ? Voici la durée de sommeil idéale après 60 ans selon la science ! Le somnambulisme L'apnée du sommeil La maladie du sommeil La narcolepsie L'insomnie L'hypersomnie La parasomnie La paralysie du sommeil La fatigue chronique Le ronflement Afficher plus La mélatonine : l'hormone du sommeil Quels sont les bienfaits de la sieste ? 3 nouvel"
+        },
+        {
+          "url": "https://www.santemagazine.fr/sante/bien-dormir/cycles-du-sommeil-leger-profond-paradoxal-cest-quoi-1055697",
+          "title": "Cycles du sommeil : tout savoir sur les différentes phases de sommeil ...",
+          "snippet_chars": 8000,
+          "snippet_preview": "Accueil ... Santé Bien dormir © ©skynesher Cycles du sommeil : léger, profond, paradoxal… c'est quoi ? Sommeil léger, profond ou paradoxal... Afin d'optimiser son sommeil, il est judicieux de comprendre comment tout cela fonctionne. Comment s’organise le sommeil ? Quels en sont les différents stades ? Comment optimiser son sommeil pour une meilleure récupération ? Les réponses avec un médecin somnologue. À lire plus tard Contenu supprimé de votre liste de lecture Contenu ajouté à votre liste de "
+        }
+      ],
+      "article_json": {
+        "titre": "Sommeil des Français : causes, conséquences et recommandations sanitaires",
+        "slug": "troubles-sommeil-francais-enquete-insv-2025",
+        "image_keyword": "bedroom window night",
+        "resume": [
+          "Les autorités sanitaires françaises, dont l'Institut National du Sommeil et de la Vigilance (INSV), le ministère de la Santé et Santé publique France, documentent une prévalence élevée des troubles du sommeil dans la population, avec des durées de sommeil hebdomadaires jugées insuffisantes au regard des recommandations.",
+          "La durée moyenne de sommeil en semaine et les écarts observés selon les jours soulèvent des interrogations sur l'adéquation des habitudes françaises aux recommandations des autorités sanitaires, que le ministère de la Santé intègre désormais explicitement dans ses axes de promotion de la santé mentale.",
+          "Des interrogations persistent quant à la qualité réelle du sommeil et à la méthodologie des enquêtes déclaratives, qui reposent sur la perception subjective des répondants plutôt que sur des mesures objectives, rendant difficile toute comparaison directe avec des données épidémiologiques issues d'études médicales."
+        ],
+        "corps": {
+          "faits": "L'Institut National du Sommeil et de la Vigilance (INSV) publie régulièrement des données sur les habitudes de sommeil des Français, issues d'enquêtes périodiques conduites avec divers partenaires. Ces données indiquent qu'une partie de la population dort moins de six heures les nuits de semaine, seuil en dessous duquel les répercussions sur la santé sont documentées selon l'Inserm. La page institutionnelle de l'INSV consacrée au sommeil présente les grands constats de ces enquêtes sans en détailler l'ensemble des chiffres bruts.\n\nSelon l'Inserm, la durée recommandée pour un adulte en bonne santé se situe entre 7 et 9 heures par nuit. La même source précise que les besoins en sommeil varient selon les phases de la vie, les enfants et les adolescents nécessitant des durées nettement plus longues. Les données recueillies par l'INSV suggèrent que la durée moyenne de sommeil en semaine reste en deçà de cette fourchette recommandée pour une partie non négligeable de la population.\n\nSelon Santé publique France, le sommeil joue un rôle déterminant tout au long de l'existence en termes de croissance, de maturation cérébrale et de développement des capacités cognitives et émotionnelles. L'organisme souligne que ce déterminant de santé reste trop souvent sous-estimé dans les comportements de prévention, et que des pratiques d'hygiène du sommeil adaptées peuvent contribuer à en améliorer la qualité.\n\nD'après le ministère chargé de la Santé, le sommeil constitue un pilier essentiel de l'équilibre physique, mental, social et cognitif. Dans une publication datée du 29 juillet 2025, le site sante.gouv.fr rappelle que les troubles du sommeil sont associés à une série de pathologies chroniques, notamment cardiovasculaires et métaboliques.\n\nSelon l'Inserm, les causes du manque de sommeil sont multiples : horaires de travail décalés perturbant le rythme circadien, usage excessif des écrans en soirée, consommation de stimulants après 17h, facteurs psychologiques tels que le stress et l'anxiété, environnements inadaptés (bruit, lumière, température), et troubles médicaux comme le syndrome des jambes sans repos ou l'apnée obstructive du sommeil.\n\nSelon l'Inserm, la privation chronique de sommeil entraîne une somnolence diurne excessive, des baisses de concentration, des troubles de l'humeur et une altération du jugement. L'Inserm souligne par ailleurs que le manque de sommeil est associé à un risque accru de contracter des infections et à l'apparition de maladies chroniques.\n\nSur le plan hormonal, l'Inserm documente que le déficit de sommeil perturbe la sécrétion de ghréline, hormone stimulant l'appétit, et réduit celle de leptine, signal de satiété. Selon la même source, la sécrétion de cortisol, hormone du stress, est également dérégulée, entraînant une inflammation accrue et un stockage plus important des graisses. L'Inserm précise en outre que la production de mélatonine peut être inhibée par une mauvaise hygiène de sommeil, et que l'hormone de croissance, sécrétée principalement en sommeil profond, voit sa synthèse réduite, affectant la régénération cellulaire.",
+          "contexte": "Selon l'Inserm, les recherches sur le sommeil se sont considérablement développées à partir des années 2000, soit environ vingt-cinq ans avant les données actuellement disponibles en 2025, consolidant progressivement la compréhension des mécanismes neurobiologiques en jeu. Le dossier thématique de l'Inserm, mis à jour en novembre 2024, recense parmi les fonctions biologiques du sommeil la consolidation mémorielle, la régulation immunitaire, la réparation cellulaire et l'équilibre hormonal — des processus dont la perturbation a des conséquences documentées sur l'ensemble de l'organisme.\n\nSelon la page thématique de Santé publique France, mise à jour au 11 décembre 2025, les durées de sommeil auraient tendance à se réduire sur la longue période, une observation que Santé publique France met en lien avec l'essor des écrans numériques et les transformations des modes de vie, même si cette tendance structurelle fait l'objet de réserves méthodologiques détaillées dans la section nuances du présent article. Selon la même source, cette évolution concerne plusieurs catégories de population, sans distinction d'âge.\n\nLe ministère de la Santé, dans sa publication du 29 juillet 2025 sur sante.gouv.fr, souligne notamment l'importance d'une hygiène de vie intégrant la régularité des horaires de coucher et de lever comme levier de prévention accessible à tous. Le texte ministériel insiste sur le fait que le sommeil est un déterminant de santé à part entière, au même titre que l'alimentation ou l'activité physique, et appelle à une meilleure intégration de cette dimension dans les politiques de prévention.\n\nSelon le site institutionnel de l'INSV, la page dédiée au sommeil recense les principaux troubles documentés, parmi lesquels l'insomnie, l'apnée obstructive du sommeil, le syndrome des jambes sans repos et les parasomnies. L'INSV distingue les troubles primaires, dont l'origine est intrinsèque au système régulant le sommeil, des troubles secondaires, liés à des pathologies sous-jacentes ou à des facteurs environnementaux, soulignant ainsi la diversité des prises en charge nécessaires.",
+          "nuances": "Les enquêtes déclaratives sur le sommeil, telles que celles auxquelles l'INSV est associé, présentent des limites méthodologiques inhérentes à leur conception. Les individus interrogés peuvent présenter des biais de mémorisation ou de perception, ce qui peut conduire à des écarts entre les durées rapportées et les durées effectivement mesurées par des dispositifs objectifs comme la polysomnographie ou l'actigraphie.\n\nPar ailleurs, selon l'Inserm, la notion de trouble du sommeil recouvre des réalités cliniques très hétérogènes, allant de difficultés d'endormissement ponctuelles à des pathologies chroniques sévères comme l'insomnie ou l'apnée obstructive du sommeil. Cette hétérogénéité rend difficile toute comparaison directe entre les prévalences issues d'enquêtes déclaratives et celles issues d'études épidémiologiques médicales s'appuyant sur des critères diagnostiques standardisés.\n\nLes recommandations relatives à la durée de sommeil nocturne sont des moyennes populationnelles ; selon l'Inserm, les besoins individuels varient significativement, certains individus fonctionnant de manière optimale avec 6 heures, d'autres nécessitant 9 à 10 heures. L'interprétation du déficit de sommeil à l'échelle individuelle requiert donc une évaluation personnalisée plutôt que l'application d'un seuil unique.\n\nEnfin, l'observation de Santé publique France sur la réduction des durées de sommeil sur la longue période repose elle-même sur des données déclaratives comparables à celles dont les limites sont décrites ci-dessus. Des variations d'échantillonnage ou des effets de contexte propres à certaines années d'enquête pourraient, selon les réserves méthodologiques usuelles en épidémiologie déclarative, influer sur les tendances observées sans que celles-ci reflètent nécessairement une évolution structurelle durable de la population française."
+        },
+        "sources": [
+          {
+            "institution": "Inserm",
+            "titre": "Sommeil · Inserm, La science pour la santé",
+            "date": "08/11/2024",
+            "url": "https://www.inserm.fr/dossier/sommeil/"
+          },
+          {
+            "institution": "Santé publique France",
+            "titre": "Sommeil | Santé publique France",
+            "date": "11/12/2025",
+            "url": "https://www.santepubliquefrance.fr/sommeil"
+          },
+          {
+            "institution": "Ministère de la Santé",
+            "titre": "Sommeil : un déterminant de santé essentiel pour la santé mentale et physique",
+            "date": "29/07/2025",
+            "url": "https://sante.gouv.fr/prevention-en-sante/sante-mentale/promotion-et-prevention/article/sommeil-un-determinant-de-sante-essentiel-pour-la-sante-mentale-et-physique"
+          },
+          {
+            "institution": "Institut Sommeil Vigilance",
+            "titre": "Tout savoir sur le sommeil",
+            "date": null,
+            "url": "https://institut-sommeil-vigilance.org/tout-savoir-sur-le-sommeil/"
+          }
+        ],
+        "categorie": "societe",
+        "nb_sources": 4,
+        "positions": {
+          "verifie": false,
+          "label_gauche": "",
+          "label_droite": "",
+          "acteurs": []
+        }
+      },
+      "verif_rapport_initial": null,
+      "verif_rapport_final": null,
+      "contenu_base": "scraping",
+      "statut": "a_corriger_manuellement"
+    },
+    {
+      "slug": "premier-cas-ebola-france",
+      "titre": "Premier cas Ebola détecté en France",
+      "categorie": "societe",
+      "fantomes_pass1": [],
+      "fantomes_pass2": [],
+      "nb_mots": {
+        "faits": 520,
+        "contexte": 347,
+        "nuances": 261,
+        "total": 1128
+      },
+      "nb_sources": 5,
+      "sources": [
+        {
+          "institution": "Institut Pasteur",
+          "url": "https://www.pasteur.fr/fr/centre-medical/fiches-maladies/ebola",
+          "titre": "Ebola : symptômes, traitement, prévention"
+        },
+        {
+          "institution": "Ministère de la Santé",
+          "url": "https://sante.gouv.fr/soins-et-maladies/maladies/maladies-vectorielles-et-zoonoses/ebola/article/maladie-a-virus-ebola",
+          "titre": "Maladie à virus Ebola"
+        },
+        {
+          "institution": "Le Monde",
+          "url": "https://www.lemonde.fr/societe/article/2026/06/24/ebola-un-premier-cas-identifie-en-france-chez-un-medecin-de-retour-de-rdc_6710248_3224.html",
+          "titre": "Ebola : un premier cas de contamination, un médecin de retour de RDC"
+        },
+        {
+          "institution": "France 24",
+          "url": "https://www.france24.com/fr/france/20260704-virus-ebola-premier-cas-identifié-france-est-guérison-hôpital-santé-médecin-humanitaire-cas-maladie",
+          "titre": "Virus Ebola : le premier cas identifié en France est \"guéri\""
+        },
+        {
+          "institution": "World Health Organization (WHO)",
+          "url": "https://www.who.int/fr/news-room/fact-sheets/detail/ebola-disease",
+          "titre": "Maladie d'Ebola"
+        }
+      ],
+      "sources_enrichies": [
+        {
+          "url": "https://www.pasteur.fr/fr/centre-medical/fiches-maladies/ebola",
+          "title": "Ebola : symptômes, traitement, prévention - Institut Pasteur",
+          "snippet_chars": 8000,
+          "snippet_preview": "Imprimer | Partager La maladie à virus Ebola se caractérise par de fortes fièvres et des hémorragies souvent mortelles pour l’être humain. Le taux de létalité moyen de la maladie est d’environ 50%. Le virus Ebola a été découvert en 1976 lors de deux épidémies au Soudan et en République démocratique du Congo (ex Zaïre). Il tire son nom de la rivière Ebola située à proximité du premier foyer identifié de la maladie. Depuis, plusieurs flambées épidémiques se sont produites notamment en 2013-2016 pu"
+        },
+        {
+          "url": "https://sante.gouv.fr/soins-et-maladies/maladies/maladies-vectorielles-et-zoonoses/ebola/article/maladie-a-virus-ebola",
+          "title": "Maladie à virus Ebola - Ministère de la Santé, de la Famille, de l ...",
+          "snippet_chars": 124,
+          "snippet_preview": "22 mai 2026 · L'essentiel sur la maladie à virus Ebola : origine, symptômes, modes de transmission, prévention, traitements…"
+        },
+        {
+          "url": "https://fr.wikipedia.org/wiki/Orthoebolavirus",
+          "title": "Orthoebolavirus — Wikipédia",
+          "snippet_chars": 8000,
+          "snippet_preview": "Un article de Wikipédia, l'encyclopédie libre. Ébolavirus Orthoebolavirus Image colorisée d'une particule virale Ebola obtenue par microscopie électronique en transmission en août 2014 [ 1 ] . Classification Domaine Riboviria Phylum Negarnaviricota Sous-phylum Haploviricotina Classe Monjiviricetes Ordre Mononegavirales Famille Filoviridae Genre Orthoebolavirus Genre Orthoebolavirus ICTV , 2022 [ 2 ] Taxons de rang inférieur espèces Genre : Orthoebolavirus Espèce : Orthoebolavirus bombaliense Esp"
+        },
+        {
+          "url": "https://fr.wikipedia.org/wiki/Maladie_à_virus_Ebola",
+          "title": "Maladie à virus Ebola — Wikipédia",
+          "snippet_chars": 8000,
+          "snippet_preview": "Un article de Wikipédia, l'encyclopédie libre. Cet article concerne une maladie . Pour l'agent pathogène qui la provoque, voir Virus Ebola . Pour les articles homonymes, voir Ebola . Pour les articles homonymes, voir EVD (homonymie) . Maladie à virus Ebola Distribution fin 2014 de l'hôte naturel théorique zoonotique du virus Ebola [ 1 ] . Données clés Causes Virus Ebola transmis par contact direct Transmission Transmission par contact ( d ) et transmission de l'agent pathogène par contact hémato"
+        },
+        {
+          "url": "https://www.lemonde.fr/societe/article/2026/06/24/ebola-un-premier-cas-identifie-en-france-chez-un-medecin-de-retour-de-rdc_6710248_3224.html",
+          "title": "Ebola : un premier cas de contamination, un médecin de retour de …",
+          "snippet_chars": 203,
+          "snippet_preview": "24 juin 2026 · Le patient est le premier cas d’Ebola jamais diagnostiqué sur le territoire français. Cinq personnes qui étaient dans l’avion en provenance de Kinshasa sont également considérées comme ..."
+        },
+        {
+          "url": "https://www.france24.com/fr/france/20260704-virus-ebola-premier-cas-identifié-france-est-guérison-hôpital-santé-médecin-humanitaire-cas-maladie",
+          "title": "Virus Ebola : le premier cas identifié en France est \"guéri\"",
+          "snippet_chars": 194,
+          "snippet_preview": "Il y a 18 heures · Un médecin humanitaire, premier cas d'Ebola diagnostiqué en France, est \"sorti de l'hôpital\" après avoir été \"guéri\", a annoncé samedi la ministre de la Santé, Stéphanie Rist."
+        },
+        {
+          "url": "https://www.who.int/fr/news-room/fact-sheets/detail/ebola-disease",
+          "title": "Maladie d’Ebola - World Health Organization (WHO)",
+          "snippet_chars": 8000,
+          "snippet_preview": "L’essentiel La maladie d’Ebola est une maladie grave, qui est souvent mortelle chez l’humain. Trois virus différents sont connus pour être à l’origine de flambées majeures de maladie d’Ebola : le virus Ebola, le virus Soudan et le virus Bundibugyo. Le taux de létalité moyen de cette maladie est d’environ 50 %. Au cours des épidémies passées, on a enregistré des taux allant de 25 % à 90 %. Des soins de soutien précoces et intensifs, avec réhydratation et traitement des symptômes, améliorent les c"
+        },
+        {
+          "url": "https://www.canada.ca/fr/sante-publique/services/maladies/maladie-virus-ebola.html",
+          "title": "Maladie Ebola : Symptômes et traitement - Canada.ca",
+          "snippet_chars": 198,
+          "snippet_preview": "La maladie Ebola est le terme pour un groupe de maladies rares causées par le virus Ebola, le virus du Soudan, le virus Bundibugyo et le virus Forêt Taï. Ces informations s'appliquent à toutes ces …"
+        }
+      ],
+      "article_json": {
+        "titre": "Premier cas d'Ebola diagnostiqué en France, le médecin déclaré guéri après hospitalisation",
+        "slug": "premier-cas-ebola-france-medecin-humanitaire-gueri",
+        "image_keyword": "hospital building paris",
+        "resume": [
+          "Un médecin humanitaire de retour de République Démocratique du Congo est devenu le premier patient jamais diagnostiqué porteur du virus Ebola sur le territoire français, avant d'être déclaré guéri et sorti de l'hôpital le 4 juillet 2026, selon l'annonce de la ministre de la Santé Stéphanie Rist.",
+          "Ce cas survient dans le contexte d'une épidémie active depuis mars 2026 en RDC, due à la souche rare Bundibugyo, qui s'étend désormais à l'Ouganda et pour laquelle aucun vaccin ni traitement spécifique homologué n'est disponible à ce jour — contrairement aux vaccins existants contre l'espèce Zaïre ; par ailleurs, selon l'Institut Pasteur, deux anticorps monoclonaux, mAb114 et REGN-EB3, développés pour cette dernière espèce existent, mais leur efficacité contre Bundibugyo n'est pas établie.",
+          "Cinq passagers se trouvant à bord du même vol en provenance de Kinshasa ont été identifiés comme contacts à risque et placés sous surveillance sanitaire, conformément aux protocoles de gestion des cas importés de maladies à haute létalité."
+        ],
+        "corps": {
+          "faits": "Selon Le Monde, un médecin humanitaire de retour de République Démocratique du Congo (RDC) a été diagnostiqué porteur du virus Ebola en France, constituant ainsi le tout premier cas identifié sur le territoire national. L'information a été rapportée le 24 juin 2026. Selon France 24, ce même patient a été déclaré guéri et est sorti de l'hôpital le 4 juillet 2026, après une période de prise en charge hospitalière. L'annonce a été faite par la ministre de la Santé, Stéphanie Rist.\n\nD'après Le Monde, cinq personnes se trouvant dans l'avion en provenance de Kinshasa à bord duquel voyageait le médecin sont également considérées comme contacts à risque. Ces individus ont été placés sous surveillance sanitaire, conformément aux protocoles de gestion des cas importés de maladies à haute létalité.\n\nSelon l'Institut Pasteur, la flambée épidémique à l'origine de ce cas importé est active depuis mars 2026 en RDC et s'étend à l'Ouganda. Elle est causée par l'espèce Bundibugyo, une souche considérée comme rare parmi les six espèces du genre Orthoebolavirus. L'Institut Pasteur décrit cette flambée comme particulièrement grave au regard des précédentes épidémies dues à la souche Bundibugyo spécifiquement — ce qui ne constitue pas une comparaison absolue avec les épidémies historiques à espèce Zaïre, historiquement plus meurtrières en chiffres absolus. L'Institut souligne par ailleurs que la détection tardive des premiers cas a compliqué la réponse sanitaire dans la région.\n\nSelon l'Institut Pasteur, il n'existe à ce jour aucun vaccin ni traitement spécifique contre la souche Bundibugyo. Cette absence d'outil prophylactique ciblé contraste avec la situation épidémique de 2018-2020 en RDC — soit environ six ans avant l'épidémie actuelle — qui impliquait l'espèce Zaïre ebolavirus, pour laquelle deux vaccins sont désormais approuvés : le vaccin Ervebo et le vaccin Zabdeno/Mvabea. Selon l'Institut Pasteur, deux anticorps monoclonaux, mAb114 et REGN-EB3, ont été développés pour réduire la mortalité liée à l'espèce Zaïre, mais leur efficacité contre la souche Bundibugyo n'est pas établie à ce stade.\n\nD'après l'Institut Pasteur, la prise en charge du patient repose dans ce contexte sur des soins de soutien : réhydratation, gestion des symptômes, contrôle des taux de minéraux et de glucose, détection des co-infections et traitement des défaillances d'organe.\n\nSelon le ministère français de la Santé, dont la fiche de référence a été mise à jour le 22 mai 2026, la maladie à virus Ebola présente un taux de létalité moyen d'environ 50 %, avec des variations pouvant aller de 25 % à 90 % selon les flambées. La durée d'incubation varie entre 4 et 21 jours, le plus souvent entre 5 et 12 jours. Les symptômes initiaux incluent fièvre brutale supérieure à 38 °C, faiblesse intense, douleurs musculaires, céphalées et irritation de la gorge, suivis de vomissements, diarrhées, atteintes rénales et hépatiques, et dans certains cas d'hémorragies internes et externes.\n\nD'après l'Organisation mondiale de la santé (OMS), le diagnostic repose principalement sur la RT-PCR, test permettant la détection du matériel génétique viral, réalisé dans des conditions de haute sécurité biologique. Les sérologies IgM et IgG sont utilisées pour les diagnostics tardifs ou rétrospectifs. L'isolement rapide des cas confirmés constitue la mesure centrale de limitation de la propagation.",
+          "contexte": "Le virus Ebola a été découvert en 1976 — soit, au moment de la rédaction de cet article en 2026, cinquante ans auparavant — lors de deux épidémies simultanées au Soudan et en République démocratique du Congo (alors Zaïre), selon l'Institut Pasteur. Il tire son nom de la rivière Ebola, proche du premier foyer identifié. Depuis cette date, plusieurs flambées majeures se sont succédé sur le continent africain.\n\nL'épidémie de 2013-2016 en Afrique de l'Ouest, principalement en Guinée, Sierra Leone et Liberia, a été la plus meurtrière jamais enregistrée, avec plus de 11 000 décès selon l'OMS. Elle a mobilisé une réponse internationale sans précédent et conduit au développement accéléré de vaccins. Selon l'OMS, la flambée de 2018-2020 en RDC, due à l'espèce Zaïre, a fait plus de 2 200 morts et a permis le déploiement à grande échelle du vaccin Ervebo pour la première fois en situation d'urgence.\n\nSelon l'Institut Pasteur, le genre Orthoebolavirus comprend six espèces, dont trois sont responsables des grandes flambées historiques : Zaïre, Soudan et Bundibugyo. La souche Bundibugyo a été identifiée pour la première fois en 2007 dans le district du même nom en Ouganda. Selon l'Institut Pasteur, elle avait alors causé une épidémie avec un taux de létalité estimé entre 25 % et 36 %, inférieur à celui de l'espèce Zaïre. Une seconde flambée à Bundibugyo avait été enregistrée en 2012 en RDC.\n\nSelon l'OMS, la maladie à virus Ebola nécessite des mesures strictes de contrôle des infections, incluant l'isolement des cas confirmés et la protection des personnels soignants par des équipements individuels de niveau élevé. Les réservoirs animaux présumés, selon l'Institut Pasteur, sont les chauves-souris de la famille des Pteropodidae, bien qu'aucune preuve formelle n'ait été établie à ce jour.\n\nSelon l'OMS, la transmission interhumaine se produit par contact direct avec le sang, les sécrétions ou les fluides corporels d'une personne infectée. L'OMS souligne par ailleurs que les agents de santé ont fréquemment été infectés lors de la prise en charge de patients, ce qui fait de la protection des soignants un enjeu central de la réponse aux flambées.",
+          "nuances": "Concernant la gravité de la flambée 2026, l'Institut Pasteur la situe dans un contexte de rareté historique pour la souche Bundibugyo, dont seules deux épidémies — en 2007 en Ouganda et en 2012 en RDC — avaient été documentées avant 2026. Les données épidémiologiques précises de la flambée en cours — nombre de cas confirmés, nombre de décès, zones touchées — ne sont pas entièrement disponibles dans les sources consultées au moment de la rédaction de cet article.\n\nConcernant le cas français, selon l'Institut Pasteur, le virus Ebola peut persister dans le sperme plusieurs mois après la guérison clinique, et des transmissions sexuelles ont été rapportées jusqu'à plus d'un an après la rémission — un phénomène général documenté pour la maladie à virus Ebola, indépendamment du cas traité. Les conditions de suivi post-hospitalier du patient ne sont pas précisées dans les sources disponibles.\n\nSelon l'Institut Pasteur, la transmission du virus Ebola par voie aérienne n'est pas documentée : la contagion nécessite un contact direct avec les fluides biologiques d'un patient symptomatique. Ce point éclaire le périmètre des cinq contacts identifiés à bord de l'avion, qui ont été placés sous surveillance à titre de précaution sans que leur niveau d'exposition précis soit détaillé dans les sources disponibles.\n\nEnfin, l'absence de vaccin et de traitement spécifique contre la souche Bundibugyo constitue une limite majeure à la réponse sanitaire. Selon l'Institut Pasteur, les épidémies à Bundibugyo ont historiquement été plus rares et de plus faible ampleur que celles à espèce Zaïre, ce qui explique en partie le moindre développement d'outils thérapeutiques ciblant cette souche."
+        },
+        "sources": [
+          {
+            "institution": "Institut Pasteur",
+            "titre": "Ebola : symptômes, traitement, prévention",
+            "date": "Janvier 2026 (mise à jour fiche), Juin 2026 (alerte)",
+            "url": "https://www.pasteur.fr/fr/centre-medical/fiches-maladies/ebola"
+          },
+          {
+            "institution": "Ministère de la Santé",
+            "titre": "Maladie à virus Ebola",
+            "date": "22 mai 2026",
+            "url": "https://sante.gouv.fr/soins-et-maladies/maladies/maladies-vectorielles-et-zoonoses/ebola/article/maladie-a-virus-ebola"
+          },
+          {
+            "institution": "Le Monde",
+            "titre": "Ebola : un premier cas de contamination, un médecin de retour de RDC",
+            "date": "24 juin 2026",
+            "url": "https://www.lemonde.fr/societe/article/2026/06/24/ebola-un-premier-cas-identifie-en-france-chez-un-medecin-de-retour-de-rdc_6710248_3224.html"
+          },
+          {
+            "institution": "France 24",
+            "titre": "Virus Ebola : le premier cas identifié en France est \"guéri\"",
+            "date": "4 juillet 2026",
+            "url": "https://www.france24.com/fr/france/20260704-virus-ebola-premier-cas-identifié-france-est-guérison-hôpital-santé-médecin-humanitaire-cas-maladie"
+          },
+          {
+            "institution": "World Health Organization (WHO)",
+            "titre": "Maladie d'Ebola",
+            "date": null,
+            "url": "https://www.who.int/fr/news-room/fact-sheets/detail/ebola-disease"
+          }
+        ],
+        "categorie": "societe",
+        "nb_sources": 5,
+        "positions": {
+          "verifie": true,
+          "label_gauche": null,
+          "label_droite": null,
+          "acteurs": [
+            {
+              "nom": "Stéphanie Rist, ministre de la Santé",
+              "detail": "Annonce officielle de la guérison du patient le 4 juillet 2026 ; le patient a quitté l'hôpital après sa prise en charge",
+              "position": 15
+            },
+            {
+              "nom": "Institut Pasteur",
+              "detail": "Signale l'absence de vaccin et de traitement homologués contre la souche Bundibugyo et souligne la persistance possible du virus après guérison clinique",
+              "position": 80
+            }
+          ]
+        }
+      },
+      "verif_rapport_initial": null,
+      "verif_rapport_final": null,
+      "contenu_base": "scraping",
+      "statut": "a_corriger_manuellement"
+    },
+    {
+      "slug": "mousses-champignons-symbiose-inattendue",
+      "statut": "erreur",
+      "fantomes_pass1": [],
+      "fantomes_pass2": [],
+      "nb_mots": {},
+      "nb_sources": 0,
+      "sources": [],
+      "sources_enrichies": [],
+      "article_json": null,
+      "contenu_base": null
+    },
+    {
+      "slug": "cern-modernise-accelerateur-particules-matiere-noire",
+      "statut": "erreur",
+      "fantomes_pass1": [],
+      "fantomes_pass2": [],
+      "nb_mots": {},
+      "nb_sources": 0,
+      "sources": [],
+      "sources_enrichies": [],
+      "article_json": null,
+      "contenu_base": null
+    },
+    {
+      "slug": "desensibilisation-sublinguale-allergies-respiratoires",
+      "statut": "erreur",
+      "fantomes_pass1": [],
+      "fantomes_pass2": [],
+      "nb_mots": {},
+      "nb_sources": 0,
+      "sources": [],
+      "sources_enrichies": [],
+      "article_json": null,
+      "contenu_base": null
+    },
+    {
+      "slug": "diagnostic-preimplantatoire-aneuploidies-france",
+      "statut": "erreur",
+      "fantomes_pass1": [],
+      "fantomes_pass2": [],
+      "nb_mots": {},
+      "nb_sources": 0,
+      "sources": [],
+      "sources_enrichies": [],
+      "article_json": null,
+      "contenu_base": null
+    },
+    {
+      "slug": "nasa-lance-mission-sauvetage-telescope-swift",
+      "titre": "La NASA lance mission sauvetage pour le télescope Swift",
+      "categorie": "societe",
+      "fantomes_pass1": [],
+      "fantomes_pass2": [],
+      "nb_mots": {},
+      "nb_sources": 0,
+      "sources": [],
+      "sources_enrichies": [],
+      "article_json": null,
+      "verif_rapport_initial": null,
+      "verif_rapport_final": null,
+      "contenu_base": "titre_seul",
+      "statut": "rejet_sources"
+    },
+    {
+      "slug": "cma-cgm-investit-mombasa",
+      "titre": "CMA CGM investit 700 millions de dollars à Mombasa",
+      "categorie": "societe",
+      "fantomes_pass1": [],
+      "fantomes_pass2": [],
+      "nb_mots": {},
+      "nb_sources": 0,
+      "sources": [],
+      "sources_enrichies": [],
+      "article_json": null,
+      "verif_rapport_initial": null,
+      "verif_rapport_final": null,
+      "contenu_base": "titre_seul",
+      "statut": "rejet_sources"
+    },
+    {
+      "slug": "refuges-climatiques-espagne-canicules",
+      "statut": "erreur",
+      "fantomes_pass1": [],
+      "fantomes_pass2": [],
+      "nb_mots": {},
+      "nb_sources": 0,
+      "sources": [],
+      "sources_enrichies": [],
+      "article_json": null,
+      "contenu_base": null
+    },
+    {
+      "slug": "violences-enfants-france-insuffisante",
+      "titre": "Violences faites aux enfants en France reste insuffisante",
+      "categorie": "societe",
+      "fantomes_pass1": [
+        "le ministère de l'Intérieur",
+        "Service-Public"
+      ],
+      "fantomes_pass2": [
+        "le ministère de l'Intérieur et des Outre-mer"
+      ],
+      "nb_mots": {
+        "faits": 405,
+        "contexte": 275,
+        "nuances": 204,
+        "total": 884
+      },
+      "nb_sources": 5,
+      "sources": [
+        {
+          "institution": "France Info",
+          "url": "https://www.franceinfo.fr/societe/harcelement-sexuel/on-ne-peut-plus-encaisser-tous-les-drames-qui-se-passent-a-paris-plusieurs-milliers-de-manifestants-reclament-une-loi-globale-contre-les-violences-sexuelles_8094071.html",
+          "titre": "\"On ne peut plus encaisser tous les drames qui se passent\" : à Paris, plusieurs milliers de manifestants réclament une loi globale contre les violences sexuelles"
+        },
+        {
+          "institution": "Gouv",
+          "url": "https://www.interieur.gouv.fr/actualites/communiques-de-presse/victimes-de-violences-physiques-et-sexuelles-enregistrees-en-hausse-en-2025-en-particulier-pour",
+          "titre": "Victimes de violences physiques et sexuelles enregistrées : en hausse en 2025, en particulier pour..."
+        },
+        {
+          "institution": "Légifrance",
+          "url": "https://www.legifrance.gouv.fr/codes/id/LEGISCTA000006181751/",
+          "titre": "Des violences (Articles 222-7 à 222-16-3) — Code pénal"
+        },
+        {
+          "institution": "Ameli",
+          "url": "https://www.ameli.fr/assure/sante/themes/violences-faites-aux-femmes/violence-femme-couple-famille",
+          "titre": "Violences au sein du couple et violences familiales à l'égard des femmes"
+        },
+        {
+          "institution": "Mon Parcours Handicap",
+          "url": "https://www.monparcourshandicap.gouv.fr/prevention/quels-sont-les-differents-types-de-violences",
+          "titre": "Les formes de violences"
+        }
+      ],
+      "sources_enrichies": [
+        {
+          "url": "https://www.legifrance.gouv.fr/codes/id/LEGISCTA000006181751/",
+          "title": "Des violences (Articles 222-7 à 222-16-3) - Légifrance",
+          "snippet_chars": 174,
+          "snippet_preview": "1 mars 1994 · Les violences prévues par les dispositions de la présente section sont réprimées quelle que soit leur nature, y compris s'il s'agit de violences psychologiques."
+        },
+        {
+          "url": "https://www.franceinfo.fr/societe/harcelement-sexuel/on-ne-peut-plus-encaisser-tous-les-drames-qui-se-passent-a-paris-plusieurs-milliers-de-manifestants-reclament-une-loi-globale-contre-les-violences-sexuelles_8094071.html",
+          "title": "\"On ne peut plus encaisser tous les drames qui se passent\" : à Paris ...",
+          "snippet_chars": 196,
+          "snippet_preview": "Il y a 16 heures · Un mois après le meurtre de Lyhanna, la mobilisation s'est poursuivie samedi pour demander que des mesures concrètes soient prises rapidement par le gouvernement dans la lutte …"
+        },
+        {
+          "url": "https://www.service-public.gouv.fr/particuliers/vosdroits/F1524",
+          "title": "Violences physiques ou psychologiques | Service Public",
+          "snippet_chars": 8000,
+          "snippet_preview": "Le lien vers cette page a été envoyé avec succès aux destinataires. Violences physiques ou psychologiques Vérifié le 19 juin 2025 - Service Public / Direction de l'information légale et administrative (Premier ministre) Une personne vous a volontairement blessé en vous frappant ou en ayant un comportement agressif et hostile ? Il s'agit de violences . Si vous êtes victime ou témoin de tels agissements, vous pouvez faire un signalement aux autorités compétentes. En tant que victime, vous pouvez d"
+        },
+        {
+          "url": "https://www.interieur.gouv.fr/documentation/etudes-et-statistiques/victimes-de-violences-physiques-et-sexuelles-enregistrees-en-hausse-en-2025-en-particulier-pour.html",
+          "title": "Victimes de violences physiques et sexuelles enregistrées : en hausse ...",
+          "snippet_chars": 203,
+          "snippet_preview": "7 avr. 2026 · En 2025, les services de police et de gendarmerie nationales ont enregistré, au titre de crimes et de délits, 473 000 victimes de violences physiques, dont 114 500 sont mineures (24 %) et …"
+        },
+        {
+          "url": "https://www.interieur.gouv.fr/actualites/communiques-de-presse/victimes-de-violences-physiques-et-sexuelles-enregistrees-en-hausse-en-2025-en-particulier-pour",
+          "title": "Victimes de violences physiques et sexuelles enregistrées : en hausse ...",
+          "snippet_chars": 195,
+          "snippet_preview": "27 févr. 2026 · En 2025, 473 000 victimes de violences physiques ont été enregistrées par les services de police et de gendarmerie nationales, soit une augmentation de 5 % par rapport à l’année …"
+        },
+        {
+          "url": "https://fr.wikipedia.org/wiki/Violence",
+          "title": "Violence — Wikipédia",
+          "snippet_chars": 8000,
+          "snippet_preview": "Un article de Wikipédia, l'encyclopédie libre. Pour les articles homonymes, voir Violence (homonymie) . Si ce bandeau n'est plus pertinent, retirez-le. Cliquez ici pour en savoir plus. Les informations figurant dans cet article ou cette section doivent être reliées aux sources mentionnées dans les sections « Bibliographie », « Sources » ou « Liens externes » ( juillet 2023 ). Vous pouvez améliorer la vérifiabilité en associant ces informations à des références à l'aide d' appels de notes . Si ce"
+        },
+        {
+          "url": "https://www.ameli.fr/assure/sante/themes/violences-faites-aux-femmes/violence-femme-couple-famille",
+          "title": "Violences au sein du couple et violences familiales à l’égard des ...",
+          "snippet_chars": 6308,
+          "snippet_preview": "Violences au sein du couple et violences familiales à l’égard des femmes Cet article fait partie du dossier : Violences faites aux femmes 25 novembre 2025 Partager sur X (nouvelle fenêtre) Partager sur Bluesky (nouvelle fenêtre) Partager sur Facebook (nouvelle fenêtre) Partager sur Linkedin (nouvelle fenêtre) Copier le lien Toutes les violences, sexuelles, verbales, administratives, économiques, cybersurveillance, etc., commises par un conjoint, un ancien conjoint ou un partenaire sont interdite"
+        },
+        {
+          "url": "https://www.monparcourshandicap.gouv.fr/prevention/quels-sont-les-differents-types-de-violences",
+          "title": "Les formes de violences | Mon Parcours Handicap",
+          "snippet_chars": 8000,
+          "snippet_preview": "Il existe différents types de violences physiques, psychologiques et verbales, sexistes ou sexuelles, conjugales, médicales, économiques, administratives. Ces violences peuvent concerner les enfants ou les adultes en situation de handicap. Les formes de violences peuvent se cumuler entre elles. Elles peuvent avoir lieu dans la vie de tous les jours ou en ligne et notamment sur les réseaux sociaux. Apprendre à les reconnaître permet de les dénoncer et de vous en protéger. 1) Les violences physiqu"
+        }
+      ],
+      "article_json": {
+        "titre": "Manifestation à Paris pour une loi globale contre les violences sexuelles après le meurtre de Lyhanna",
+        "slug": "manifestation-paris-loi-violences-sexuelles-lyhanna-2025",
+        "image_keyword": "paris street demonstration",
+        "resume": [
+          "Plusieurs milliers de personnes ont défilé à Paris le 25 novembre 2025, un mois après l'assassinat de Lyhanna, pour exiger du gouvernement l'adoption rapide d'une législation globale contre les violences sexuelles, selon les informations rapportées par Franceinfo.",
+          "Le rassemblement s'inscrit dans le contexte du recencement, en 2025, de 473 000 victimes de violences physiques enregistrées par les services de police et de gendarmerie nationales, soit une augmentation de 5 % par rapport à l'année précédente, d'après le ministère de l'Intérieur et des Outre-mer.",
+          "Si la mobilisation citoyenne est documentée, les contours précis d'une éventuelle loi globale restent à définir, aucun projet législatif formalisé n'ayant été annoncé à ce stade par l'exécutif."
+        ],
+        "corps": {
+          "faits": "Le 25 novembre 2025, journée internationale pour l'élimination des violences faites aux femmes, plusieurs milliers de manifestants ont défilé à Paris pour réclamer l'adoption d'une loi globale contre les violences sexuelles. D'après Franceinfo, la mobilisation est intervenue exactement un mois après le meurtre de Lyhanna, un féminicide qui a suscité une vive émotion dans l'opinion publique française. Des manifestants interrogés par Franceinfo ont déclaré : « On ne peut plus encaisser tous les drames qui se passent », résumant l'exaspération d'une partie de la société civile face à la récurrence de ces violences.\n\nSelon le ministère de l'Intérieur et des Outre-mer, en 2025, les services de police et de gendarmerie nationales ont enregistré 473 000 victimes de violences physiques au titre de crimes et délits, dont 114 500 victimes mineures, soit 24 % du total. Ce chiffre représente une augmentation de 5 % par rapport à l'année précédente. Le même rapport indique une hausse particulièrement marquée pour certaines catégories de violences sexuelles.\n\nSur le plan juridique, Légifrance précise que les violences prévues par les articles 222-7 à 222-16-3 du Code pénal sont réprimées quelle que soit leur nature, y compris lorsqu'il s'agit de violences psychologiques, depuis l'entrée en vigueur de ces dispositions le 1er mars 1994. Le cadre légal existant couvre donc un spectre large de comportements violents, des coups physiques aux intimidations verbales, en passant par les violences économiques et administratives.\n\nD'après Ameli (Assurance Maladie), les formes de violences au sein du couple recensées incluent les violences verbales, physiques et matérielles, psychologiques, sexuelles, économiques, les violences sur la parentalité, les violences administratives, ainsi que les cyberviolences. Cette dernière catégorie englobe le cybercontrôle, la cybersurveillance à l'insu de la victime, le piratage de téléphone portable, la géolocalisation non consentie et la diffusion non consentie de contenus intimes.\n\nSelon le portail Mon Parcours Handicap, ces différents types de violences — physiques, psychologiques, verbales, sexistes ou sexuelles, conjugales, médicales, économiques et administratives — peuvent concerner les enfants comme les adultes, y compris les personnes en situation de handicap, soulignant la dimension transversale du phénomène.\n\nLa manifestation du 25 novembre 2025 a mis en lumière la demande d'un cadre législatif unifié, alors que les associations et une partie des manifestants estiment que les dispositifs existants demeurent insuffisants pour prévenir et sanctionner efficacement l'ensemble des formes de violences. Aucune annonce gouvernementale formelle sur un projet de loi global n'avait été enregistrée au moment de la rédaction de cet article.",
+          "contexte": "Les violences faites aux femmes font l'objet d'un suivi statistique régulier en France. Selon le ministère de l'Intérieur et des Outre-mer, les données collectées par les services de sécurité montrent une tendance à la hausse du nombre de victimes enregistrées ces dernières années, phénomène attribué en partie à une meilleure disposition des victimes à porter plainte, sans que cela exclue une augmentation réelle des faits.\n\nSur le plan du droit comparé et international, la Convention du Conseil de l'Europe dite « Convention d'Istanbul », citée par Ameli, constitue le cadre de référence européen pour la prévention et la lutte contre les violences à l'égard des femmes et les violences domestiques. Elle impose aux États signataires des obligations en matière de prévention, de protection des victimes et de poursuites judiciaires.\n\nEn France, le Code pénal a été progressivement renforcé depuis 1994 pour inclure les violences psychologiques, puis les cyberviolences et la pornodivulgation. Légifrance documente cette évolution législative à travers les articles 222-7 à 222-16-3, qui ont été amendés à plusieurs reprises pour élargir le périmètre des infractions reconnues.\n\nSelon Ameli, les situations de maltraitance peuvent avoir des conséquences durables sur la santé mentale des victimes, notamment sous forme de troubles dépressifs. Cette dimension sanitaire justifie l'implication de l'Assurance Maladie dans l'information et l'accompagnement des victimes, au-delà des seules autorités judiciaires ou policières.\n\nLa journée du 25 novembre, instituée par l'ONU en 1999, est devenue chaque année en France un moment de mobilisation associative et citoyenne. Les rassemblements de 2025 s'inscrivent dans une série de manifestations qui ont ponctué les dernières années, amplifiant la pression sur les gouvernements successifs pour légiférer de manière plus globale et cohérente.",
+          "nuances": "Plusieurs limites méthodologiques s'imposent à la lecture des données disponibles. Les chiffres du ministère de l'Intérieur et des Outre-mer ne comptabilisent que les victimes ayant déposé plainte ou fait l'objet d'un signalement auprès des forces de l'ordre : ils ne reflètent pas l'ensemble des violences subies, une part significative demeurant non déclarée, phénomène communément désigné sous le terme de « chiffre noir ».\n\nPar ailleurs, la hausse de 5 % enregistrée en 2025 par rapport à l'année précédente peut résulter de plusieurs facteurs non exclusifs : augmentation effective des faits, meilleure détection par les services, changements de pratiques de signalement ou évolutions de la définition juridique des infractions. Les données statistiques disponibles ne permettent pas de trancher entre ces hypothèses.\n\nConcernant la manifestation elle-même, les chiffres de participation rapportés par Franceinfo (« plusieurs milliers ») ne sont pas associés à une source de comptage officiel (préfecture ou organisateurs). L'écart habituel entre ces deux modes de comptage peut être substantiel.\n\nEnfin, la demande d'une « loi globale » portée par les manifestants recouvre des revendications hétérogènes dont le contenu précis n'est pas encore formalisé dans un texte législatif. Il n'est donc pas possible, à ce stade, d'évaluer la faisabilité ou l'impact potentiel d'une telle mesure."
+        },
+        "sources": [
+          {
+            "institution": "France Info",
+            "titre": "\"On ne peut plus encaisser tous les drames qui se passent\" : à Paris, plusieurs milliers de manifestants réclament une loi globale contre les violences sexuelles",
+            "date": "25 novembre 2025",
+            "url": "https://www.franceinfo.fr/societe/harcelement-sexuel/on-ne-peut-plus-encaisser-tous-les-drames-qui-se-passent-a-paris-plusieurs-milliers-de-manifestants-reclament-une-loi-globale-contre-les-violences-sexuelles_8094071.html"
+          },
+          {
+            "institution": "Gouv",
+            "titre": "Victimes de violences physiques et sexuelles enregistrées : en hausse en 2025, en particulier pour...",
+            "date": "27 février 2026",
+            "url": "https://www.interieur.gouv.fr/actualites/communiques-de-presse/victimes-de-violences-physiques-et-sexuelles-enregistrees-en-hausse-en-2025-en-particulier-pour"
+          },
+          {
+            "institution": "Légifrance",
+            "titre": "Des violences (Articles 222-7 à 222-16-3) — Code pénal",
+            "date": "1 mars 1994",
+            "url": "https://www.legifrance.gouv.fr/codes/id/LEGISCTA000006181751/"
+          },
+          {
+            "institution": "Ameli",
+            "titre": "Violences au sein du couple et violences familiales à l'égard des femmes",
+            "date": "25 novembre 2025",
+            "url": "https://www.ameli.fr/assure/sante/themes/violences-faites-aux-femmes/violence-femme-couple-famille"
+          },
+          {
+            "institution": "Mon Parcours Handicap",
+            "titre": "Les formes de violences",
+            "date": "2024",
+            "url": "https://www.monparcourshandicap.gouv.fr/prevention/quels-sont-les-differents-types-de-violences"
+          }
+        ],
+        "categorie": "societe",
+        "nb_sources": 5,
+        "positions": {
+          "verifie": true,
+          "label_gauche": "Favorable à une loi globale",
+          "label_droite": "Absence de position gouvernementale formalisée",
+          "acteurs": [
+            {
+              "nom": "Manifestants (Paris, 25 nov. 2025)",
+              "detail": "Réclament une loi globale contre les violences sexuelles",
+              "position": 10
+            },
+            {
+              "nom": "Gouvernement français",
+              "detail": "Aucune annonce de projet de loi global à ce stade",
+              "position": 70
+            }
+          ]
+        }
+      },
+      "verif_rapport_initial": null,
+      "verif_rapport_final": null,
+      "contenu_base": "scraping",
+      "statut": "moderation"
+    }
+  ]
+}

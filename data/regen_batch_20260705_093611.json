@@ -1,0 +1,340 @@
+{
+  "date": "20260705_093611",
+  "parametres": {
+    "max_articles": 15,
+    "max_anthropic": 90
+  },
+  "appels": {
+    "generation": 12,
+    "verification": 0,
+    "total": 12
+  },
+  "articles": [
+    {
+      "slug": "nasa-lance-mission-sauvetage-telescope-swift",
+      "titre": "La NASA lance mission sauvetage pour le télescope Swift",
+      "categorie": "societe",
+      "fantomes_pass1": [],
+      "fantomes_pass2": [],
+      "nb_mots": {},
+      "nb_sources": 0,
+      "sources": [],
+      "sources_enrichies": [],
+      "article_json": null,
+      "statut": "rejet_sources"
+    },
+    {
+      "slug": "secheresse-estivale-france-changement-climatique",
+      "titre": "Sécheresse estivale en France : les conséquences du changement climatique",
+      "categorie": "environnement",
+      "fantomes_pass1": [
+        "Service Public",
+        "le tableau de bord de sécheresse publié par Le Télégramme"
+      ],
+      "fantomes_pass2": [
+        "les informations publiées sur service-public",
+        "les données disponibles sur info-secheresse"
+      ],
+      "nb_mots": {
+        "faits": 414,
+        "contexte": 283,
+        "nuances": 197,
+        "total": 894
+      },
+      "nb_sources": 6,
+      "sources": [
+        {
+          "institution": "Gouv",
+          "url": "https://www.service-public.gouv.fr/particuliers/actualites/A18382",
+          "titre": "Êtes-vous concerné par des restrictions d'eau ?"
+        },
+        {
+          "institution": "VigiEau",
+          "url": "https://vigieau.gouv.fr/carte/",
+          "titre": "Carte des restrictions - VigiEau"
+        },
+        {
+          "institution": "France 24",
+          "url": "https://www.france24.com/fr/planète/20260704-après-canicules-et-malgré-hiver-pluvieux-sécheresse-s-installe-france-eau-changement-climatique",
+          "titre": "Après les canicules et malgré l'hiver pluvieux, la sécheresse s'installe en France"
+        },
+        {
+          "institution": "TF1 Info",
+          "url": "https://www.tf1info.fr/environnement-ecologie/secheresse-en-france-comment-savoir-si-votre-commune-subit-des-restrictions-d-eau-2450646.html",
+          "titre": "Sécheresse en France : comment savoir si votre commune subit des restrictions d'eau"
+        },
+        {
+          "institution": "Le Monde",
+          "url": "https://www.lemonde.fr/les-decodeurs/article/2026/06/24/secheresse-etes-vous-concerne-par-des-restrictions-d-eau_6183749_4355771.html",
+          "titre": "Sécheresse : êtes-vous concerné par des restrictions d'eau ?"
+        },
+        {
+          "institution": "Info Sécheresse",
+          "url": "https://info-secheresse.fr/nappes-phreatiques/france",
+          "titre": "Nappes phréatiques en France Métropolitaine"
+        }
+      ],
+      "sources_enrichies": [
+        {
+          "url": "https://www.service-public.gouv.fr/particuliers/actualites/A18382",
+          "title": "Êtes-vous concerné par des restrictions d’eau ?",
+          "snippet_chars": 4691,
+          "snippet_preview": "Ajouter à mes alertes Focus Partager la page Facebook X Linkedin Courriel Copier le lien Lien copié Fermer Ce sujet vous intéresse ? Recevez un courriel dès qu'un article est publié par la rédaction sur : Ajouter à mes alertes Fermer Ce sujet a été ajouté à vos alertes Vous recevrez un courriel dès qu'un article est publié par la rédaction sur : . Vous pouvez à tout moment supprimer votre abonnement dans mon compte > mes alertes . . Canicule Êtes-vous concerné par des restrictions d’eau ? Publié"
+        },
+        {
+          "url": "https://www.letelegramme.fr/tableaux-de-bord/secheresse/",
+          "title": "Quel état de sécheresse près de chez vous ? La situation en temps réel ...",
+          "snippet_chars": 196,
+          "snippet_preview": "Il y a 1 jour · Restrictions d'eau, alerte sécheresse... Suivez l'état de la sécheresse chaque jour sur ce tableau de bord synthétisant les derniers bilans actualisés au niveau national et breton."
+        },
+        {
+          "url": "https://vigieau.gouv.fr/carte/",
+          "title": "Carte des restrictions - VigiEau",
+          "snippet_chars": 137,
+          "snippet_preview": "Il y a 1 jour · Avec vigieau.gouv.fr, restez informés sur la situation locale de la sécheresse et adoptez les gestes les plus appropriés."
+        },
+        {
+          "url": "https://www.tf1info.fr/environnement-ecologie/secheresse-en-france-comment-savoir-si-votre-commune-subit-des-restrictions-d-eau-2450646.html",
+          "title": "Sécheresse en France : comment savoir si votre commune subit des ...",
+          "snippet_chars": 2638,
+          "snippet_preview": "Après les fortes chaleurs de mai et de juin, la situation sur le front de la sécheresse en France inquiète. Plus de 90 départements sont en situation de vigilance et 27 sont en crise. Avec des restrictions en vigueur pour tenter de préserver la précieuse ressource. Suivez la couverture complète Canicule, vagues de chaleur, sécheresse, incendies... Un été 2026 de tous les dangers en France Ajoutez TF1info à vos sources sur Google Va-t-on revivre la crise de 2022 ? Cette année-là, en juillet, frap"
+        },
+        {
+          "url": "https://fr.m.wikipedia.org/wiki/Sécheresse",
+          "title": "Sécheresse — Wikipédia",
+          "snippet_chars": 8000,
+          "snippet_preview": "Un article de Wikipédia, l'encyclopédie libre. Pour les articles homonymes, voir Sécheresse (homonymie) . Sol asséché à Toulon : les fentes ou craquelures de dessication apparaissent. Polygones de dessication dans le désert de Sonora . Navire échoué sur l'ancien rivage de la mer d'Aral , Kazakhstan , 2003, processus de désertification dû au détournement en amont de l'eau des fleuves pour l' irrigation agricole. Fumée des feux et envol de millions de tonnes de poussières et aérosols issus des sol"
+        },
+        {
+          "url": "https://info-secheresse.fr/nappes-phreatiques/france",
+          "title": "Départements - Nappes phréatiques | Info Sécheresse",
+          "snippet_chars": 8000,
+          "snippet_preview": "Nappes phréatiques en France Métropolitaine  Nappes phréatiques  Cours d'eau  Pluviométrie   Température  Nappes phréatiques 5 juillet 2026 Nombre de départements - Nombre de stations d’observations - Sources des données État des départements Répartition de l'état des nappes phréatiques par département État des stations d’observation Répartition de l'état des stations d'observation sur tous les départements Légende Pas de données depuis + de 14 jours Niveau très bas Niveau bas Niveau modér"
+        },
+        {
+          "url": "https://www.lemonde.fr/les-decodeurs/article/2026/06/24/secheresse-etes-vous-concerne-par-des-restrictions-d-eau_6183749_4355771.html",
+          "title": "Sécheresse : êtes-vous concerné par des restrictions d’eau ?",
+          "snippet_chars": 177,
+          "snippet_preview": "24 juin 2026 · Zones dans lesquelles s’appliquent des arrêtés pris par les préfectures dans le cadre de la sécheresse. Survolez la carte et la légende pour afficher les détails."
+        },
+        {
+          "url": "https://www.france24.com/fr/planète/20260704-après-canicules-et-malgré-hiver-pluvieux-sécheresse-s-installe-france-eau-changement-climatique",
+          "title": "Après les canicules et malgré l'hiver pluvieux, la sécheresse s ...",
+          "snippet_chars": 209,
+          "snippet_preview": "Il y a 20 heures · Alors que l'été ne fait que commencer, la quasi-totalité des départements français est désormais en vigilance \"sécheresse\". En cause, un déficit de pluies au printemps, les canicules qui ..."
+        }
+      ],
+      "article_json": {
+        "titre": "La sécheresse s'installe en France avec près de la totalité des départements en vigilance",
+        "slug": "secheresse-france-2026-departements-vigilance-restrictions-eau",
+        "image_keyword": "dry cracked earth france",
+        "resume": [
+          "Alors que l'été 2026 débute, un déficit pluviométrique printanier et des épisodes de canicule répétés ont placé la quasi-totalité des départements français en situation de vigilance sécheresse, tandis que 27 d'entre eux se trouvent en état de crise, niveau le plus élevé du dispositif réglementaire.",
+          "La plateforme gouvernementale VigiEau, déployée depuis 2023 et développée notamment par Météo-France, permet aux habitants de consulter en temps réel les restrictions préfectorales en vigueur sur leur commune, selon leur adresse ou leur géolocalisation, et de s'abonner à des alertes par courriel.",
+          "L'efficacité réelle du dispositif de vigilance et son application sur le terrain suscitent des interrogations, notamment quant à la capacité des particuliers et des professionnels à adapter leurs usages dans un contexte où les restrictions varient fortement d'un département à l'autre et restent méconnues d'une large partie de la population."
+        ],
+        "corps": {
+          "faits": "D'après France 24, alors que l'été ne fait que commencer, la quasi-totalité des départements français est désormais placée en situation de vigilance sécheresse au début du mois de juillet 2026. Cette dégradation rapide de la situation est attribuée à un déficit de précipitations au printemps et aux vagues de chaleur qui se sont succédé depuis le mois de mai.\n\nSelon TF1 Info, plus de 90 départements sont en situation de vigilance et 27 se trouvent en état de crise, soit le niveau le plus grave du dispositif officiel. À ce stade, l'eau ne peut être prélevée que pour des usages prioritaires : alimentation en eau potable, santé, sécurité civile. Les prélèvements à des fins agricoles sont interdits totalement ou partiellement, de même que de nombreux usages domestiques.\n\nD'après la plateforme gouvernementale VigiEau, dont la carte est actualisée quotidiennement, les arrêtés préfectoraux de restriction couvrent un nombre croissant de zones en France métropolitaine. La plateforme recense quatre niveaux de gravité : vigilance, alerte, alerte renforcée et crise. Chaque niveau correspond à des interdictions spécifiques et graduées.\n\nSelon les informations publiées sur service-public.gouv.fr, le niveau « alerte » impose des restrictions sur l'arrosage des jardins, le remplissage et la vidange des piscines privées, le lavage des véhicules ainsi que l'irrigation agricole. Le niveau « alerte renforcée » interdit toute activité ayant des conséquences directes pour les milieux aquatiques et durcit les restrictions précédentes. Au niveau « crise », les interdictions concernent également les espaces publics.\n\nToujours selon service-public.gouv.fr, les particuliers qui ne respectent pas les restrictions d'eau s'exposent à une amende pouvant atteindre 1 500 euros, portée à 3 000 euros en cas de récidive. Ces sanctions s'appliquent aussi bien aux usages domestiques qu'aux activités professionnelles concernées par les arrêtés préfectoraux.\n\nLa plateforme VigiEau, accessible via vigieau.gouv.fr, a été mise en place en 2023 et conçue notamment par les équipes de Météo-France. Elle permet à tout usager de connaître les restrictions en vigueur sur sa commune en saisissant son adresse, en autorisant sa géolocalisation, ou en cliquant directement sur une carte interactive. Un système d'abonnement par courriel permet de recevoir une notification dès que les mesures évoluent sur le territoire concerné.\n\nSelon Le Monde, des zones de restriction sont actives dans un grand nombre de préfectures depuis fin juin 2026, les arrêtés préfectoraux étant régulièrement mis à jour en fonction de l'évolution des niveaux des nappes et des cours d'eau. Ces arrêtés sont également transmis aux maires de chaque commune concernée pour affichage informatif en mairie.",
+          "contexte": "La France a connu plusieurs épisodes de sécheresse majeurs au cours de la dernière décennie. L'été 2022 avait marqué un tournant : selon les données alors disponibles, c'était la sécheresse la plus intense enregistrée depuis le début des mesures systématiques, affectant simultanément les nappes phréatiques, les cours d'eau et les sols sur l'ensemble du territoire métropolitain.\n\nD'après France 24, l'hiver 2025-2026 avait pourtant été relativement pluvieux, ce qui aurait pu laisser espérer une recharge suffisante des nappes. Cependant, le déficit de précipitations au printemps 2026 a annulé une partie de ce bénéfice, combiné à des températures anormalement élevées dès le mois de mai.\n\nSelon les données disponibles sur info-secheresse.fr, la situation des nappes phréatiques en France métropolitaine est suivie via un réseau de stations d'observation réparties dans l'ensemble des départements, permettant un suivi en temps quasi réel de l'état des réservoirs souterrains. Cette surveillance s'est intensifiée depuis les épisodes de 2019 et 2022.\n\nLe dispositif réglementaire de gestion de la sécheresse repose sur des arrêtés préfectoraux, outil juridique dont l'activation dépend d'indicateurs définis au niveau national mais appliqués localement. Ce cadre existe depuis plusieurs décennies mais a été progressivement renforcé à la suite des sécheresses successives. La plateforme VigiEau, lancée en 2023, constitue la première tentative de centralisation numérique et publique de ces informations à l'échelle nationale, en regroupant en un seul outil les arrêtés jusqu'alors dispersés sur les sites des services de l'État de chaque département.\n\nÀ l'échelle européenne, la France n'est pas isolée dans cette dynamique : plusieurs pays du bassin méditerranéen et d'Europe centrale ont également enregistré des déficits hydriques significatifs au cours des dernières années, dans un contexte de hausse des températures moyennes documentée par les organismes climatiques internationaux.",
+          "nuances": "Les données actuellement disponibles sur la sécheresse 2026 présentent plusieurs limites méthodologiques. D'une part, les chiffres relatifs au nombre de départements en état de crise ou de vigilance évoluent quotidiennement en fonction des arrêtés préfectoraux et des relevés hydrologiques : toute donnée ponctuelle ne reflète qu'un instantané d'une situation en mouvement rapide.\n\nPar ailleurs, le fait qu'un département soit classé en « vigilance » ne signifie pas que l'ensemble de son territoire est soumis aux mêmes contraintes : les arrêtés s'appliquent souvent à des zones hydrographiques spécifiques au sein d'un même département, ce qui rend les comparaisons inter-départementales partiellement trompeuses.\n\nLa plateforme VigiEau, bien qu'officiellement reconnue, reste un outil d'information dont l'efficacité dépend directement de son taux d'utilisation par la population. Aucune donnée sur le nombre d'usagers actifs ou sur le taux de respect effectif des restrictions n'est disponible dans les sources consultées.\n\nEnfin, le lien de causalité entre les épisodes de canicule et le déficit hydrique observé en 2026 est cohérent avec les modèles climatiques, mais les sources disponibles ne permettent pas de quantifier précisément la part respective des températures, du déficit pluviométrique printanier et de l'usage humain de l'eau dans la gravité de l'épisode actuel."
+        },
+        "sources": [
+          {
+            "institution": "Gouv",
+            "titre": "Êtes-vous concerné par des restrictions d'eau ?",
+            "date": "1 juillet 2025, mise à jour 30 juin 2026",
+            "url": "https://www.service-public.gouv.fr/particuliers/actualites/A18382"
+          },
+          {
+            "institution": "VigiEau",
+            "titre": "Carte des restrictions - VigiEau",
+            "date": "5 juillet 2026",
+            "url": "https://vigieau.gouv.fr/carte/"
+          },
+          {
+            "institution": "France 24",
+            "titre": "Après les canicules et malgré l'hiver pluvieux, la sécheresse s'installe en France",
+            "date": "4 juillet 2026",
+            "url": "https://www.france24.com/fr/planète/20260704-après-canicules-et-malgré-hiver-pluvieux-sécheresse-s-installe-france-eau-changement-climatique"
+          },
+          {
+            "institution": "TF1 Info",
+            "titre": "Sécheresse en France : comment savoir si votre commune subit des restrictions d'eau",
+            "date": "2026",
+            "url": "https://www.tf1info.fr/environnement-ecologie/secheresse-en-france-comment-savoir-si-votre-commune-subit-des-restrictions-d-eau-2450646.html"
+          },
+          {
+            "institution": "Le Monde",
+            "titre": "Sécheresse : êtes-vous concerné par des restrictions d'eau ?",
+            "date": "24 juin 2026",
+            "url": "https://www.lemonde.fr/les-decodeurs/article/2026/06/24/secheresse-etes-vous-concerne-par-des-restrictions-d-eau_6183749_4355771.html"
+          },
+          {
+            "institution": "Info Sécheresse",
+            "titre": "Nappes phréatiques en France Métropolitaine",
+            "date": "5 juillet 2026",
+            "url": "https://info-secheresse.fr/nappes-phreatiques/france"
+          }
+        ],
+        "categorie": "environnement",
+        "nb_sources": 6,
+        "positions": {
+          "verifie": false,
+          "label_gauche": "",
+          "label_droite": "",
+          "acteurs": []
+        }
+      },
+      "statut": "moderation"
+    },
+    {
+      "slug": "emissions-co2-france-recul-2023",
+      "statut": "erreur",
+      "fantomes_pass1": [],
+      "fantomes_pass2": [],
+      "nb_mots": {},
+      "nb_sources": 0,
+      "sources": [],
+      "sources_enrichies": [],
+      "article_json": null
+    },
+    {
+      "slug": "cma-cgm-investit-mombasa",
+      "titre": "CMA CGM investit 700 millions de dollars à Mombasa",
+      "categorie": "societe",
+      "fantomes_pass1": [],
+      "fantomes_pass2": [],
+      "nb_mots": {},
+      "nb_sources": 0,
+      "sources": [],
+      "sources_enrichies": [],
+      "article_json": null,
+      "statut": "rejet_sources"
+    },
+    {
+      "slug": "reformes-economiques-allemagne-merz",
+      "statut": "erreur",
+      "fantomes_pass1": [],
+      "fantomes_pass2": [],
+      "nb_mots": {},
+      "nb_sources": 0,
+      "sources": [],
+      "sources_enrichies": [],
+      "article_json": null
+    },
+    {
+      "slug": "france-dette-publique-insoutenable",
+      "statut": "erreur",
+      "fantomes_pass1": [],
+      "fantomes_pass2": [],
+      "nb_mots": {},
+      "nb_sources": 0,
+      "sources": [],
+      "sources_enrichies": [],
+      "article_json": null
+    },
+    {
+      "slug": "tension-ressource-eau-france",
+      "statut": "erreur",
+      "fantomes_pass1": [],
+      "fantomes_pass2": [],
+      "nb_mots": {},
+      "nb_sources": 0,
+      "sources": [],
+      "sources_enrichies": [],
+      "article_json": null
+    },
+    {
+      "slug": "seisme-venezuela-bilan-humain-economique",
+      "statut": "erreur",
+      "fantomes_pass1": [],
+      "fantomes_pass2": [],
+      "nb_mots": {},
+      "nb_sources": 0,
+      "sources": [],
+      "sources_enrichies": [],
+      "article_json": null
+    },
+    {
+      "slug": "le-coucou-un-oiseau-strategique",
+      "statut": "erreur",
+      "fantomes_pass1": [],
+      "fantomes_pass2": [],
+      "nb_mots": {},
+      "nb_sources": 0,
+      "sources": [],
+      "sources_enrichies": [],
+      "article_json": null
+    },
+    {
+      "slug": "demence-senile-alzheimer-differences",
+      "statut": "erreur",
+      "fantomes_pass1": [],
+      "fantomes_pass2": [],
+      "nb_mots": {},
+      "nb_sources": 0,
+      "sources": [],
+      "sources_enrichies": [],
+      "article_json": null
+    },
+    {
+      "slug": "sommeil-et-hypertension-symptomes",
+      "statut": "erreur",
+      "fantomes_pass1": [],
+      "fantomes_pass2": [],
+      "nb_mots": {},
+      "nb_sources": 0,
+      "sources": [],
+      "sources_enrichies": [],
+      "article_json": null
+    },
+    {
+      "slug": "premier-cas-ebola-france",
+      "titre": "Premier cas Ebola détecté en France",
+      "categorie": "societe",
+      "fantomes_pass1": [],
+      "fantomes_pass2": [],
+      "nb_mots": {},
+      "nb_sources": 0,
+      "sources": [],
+      "sources_enrichies": [],
+      "article_json": null,
+      "statut": "rejet_sources"
+    },
+    {
+      "slug": "asteroide-paris-impact",
+      "titre": "Impact d’un astéroïde sur Paris : conséquences et probabilités",
+      "categorie": "societe",
+      "fantomes_pass1": [],
+      "fantomes_pass2": [],
+      "nb_mots": {},
+      "nb_sources": 0,
+      "sources": [],
+      "sources_enrichies": [],
+      "article_json": null,
+      "statut": "rejet_sources"
+    },
+    {
+      "slug": "congres-international-des-mathematiciens-2026",
+      "statut": "erreur",
+      "fantomes_pass1": [],
+      "fantomes_pass2": [],
+      "nb_mots": {},
+      "nb_sources": 0,
+      "sources": [],
+      "sources_enrichies": [],
+      "article_json": null
+    },
+    {
+      "slug": "deux-planetes-geantes-moins-denses-que-barbe-a-papa",
+      "statut": "erreur",
+      "fantomes_pass1": [],
+      "fantomes_pass2": [],
+      "nb_mots": {},
+      "nb_sources": 0,
+      "sources": [],
+      "sources_enrichies": [],
+      "article_json": null
+    }
+  ]
+}

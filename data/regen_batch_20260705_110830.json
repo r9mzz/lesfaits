@@ -1,0 +1,471 @@
+{
+  "date": "20260705_110830",
+  "parametres": {
+    "max_articles": 14,
+    "max_anthropic": 90
+  },
+  "appels": {
+    "generation": 14,
+    "verification": 1,
+    "total": 15
+  },
+  "articles": [
+    {
+      "slug": "subvention-ars-planning-familial-gironde-2026",
+      "statut": "erreur",
+      "fantomes_pass1": [],
+      "fantomes_pass2": [],
+      "nb_mots": {},
+      "nb_sources": 0,
+      "sources": [],
+      "sources_enrichies": [],
+      "article_json": null
+    },
+    {
+      "slug": "regularisation-sans-papiers-espagne",
+      "statut": "erreur",
+      "fantomes_pass1": [],
+      "fantomes_pass2": [],
+      "nb_mots": {},
+      "nb_sources": 0,
+      "sources": [],
+      "sources_enrichies": [],
+      "article_json": null
+    },
+    {
+      "slug": "temperature-ressentie-indice-complexe",
+      "statut": "erreur",
+      "fantomes_pass1": [],
+      "fantomes_pass2": [],
+      "nb_mots": {},
+      "nb_sources": 0,
+      "sources": [],
+      "sources_enrichies": [],
+      "article_json": null
+    },
+    {
+      "slug": "danemark-priorite-services-essentiels",
+      "statut": "erreur",
+      "fantomes_pass1": [],
+      "fantomes_pass2": [],
+      "nb_mots": {},
+      "nb_sources": 0,
+      "sources": [],
+      "sources_enrichies": [],
+      "article_json": null
+    },
+    {
+      "slug": "sommeil-et-hypertension-symptomes",
+      "statut": "erreur",
+      "fantomes_pass1": [],
+      "fantomes_pass2": [],
+      "nb_mots": {},
+      "nb_sources": 0,
+      "sources": [],
+      "sources_enrichies": [],
+      "article_json": null
+    },
+    {
+      "slug": "premier-cas-ebola-france",
+      "titre": "Premier cas Ebola détecté en France",
+      "categorie": "societe",
+      "fantomes_pass1": [
+        "l'OMS"
+      ],
+      "fantomes_pass2": [],
+      "nb_mots": {
+        "faits": 379,
+        "contexte": 295,
+        "nuances": 212,
+        "total": 886
+      },
+      "nb_sources": 5,
+      "sources": [
+        {
+          "institution": "Institut Pasteur",
+          "url": "https://www.pasteur.fr/fr/centre-medical/fiches-maladies/ebola",
+          "titre": "Ebola : symptômes, traitement, prévention"
+        },
+        {
+          "institution": "France 24",
+          "url": "https://www.france24.com/fr/france/20260704-virus-ebola-premier-cas-identifié-france-est-guérison-hôpital-santé-médecin-humanitaire-cas-maladie",
+          "titre": "Virus Ebola : le premier cas identifié en France est \"guéri\""
+        },
+        {
+          "institution": "Le Monde",
+          "url": "https://www.lemonde.fr/societe/article/2026/06/24/ebola-un-premier-cas-identifie-en-france-chez-un-medecin-de-retour-de-rdc_6710248_3224.html",
+          "titre": "Ebola : un premier cas de contamination, un médecin de retour de RDC"
+        },
+        {
+          "institution": "France Info",
+          "url": "https://www.franceinfo.fr/sante/maladie/ebola/carte-pays-touches-ou-menaces-ou-en-est-l-epidemie-d-ebola-qui-se-propage-rapidement-en-afrique-selon-l-organisation-mondiale-de-la-sante_8024966.html",
+          "titre": "Carte : Pays touchés ou menacés — Où en est l'épidémie d'Ebola qui se propage rapidement en Afrique selon l'Organisation mondiale de la santé"
+        },
+        {
+          "institution": "Ministère de la Santé",
+          "url": "https://sante.gouv.fr/soins-et-maladies/maladies/maladies-vectorielles-et-zoonoses/ebola/article/maladie-a-virus-ebola",
+          "titre": "Maladie à virus Ebola"
+        }
+      ],
+      "sources_enrichies": [
+        {
+          "url": "https://www.pasteur.fr/fr/centre-medical/fiches-maladies/ebola",
+          "title": "Ebola : symptômes, traitement, prévention - Institut Pasteur",
+          "snippet_chars": 8000,
+          "snippet_preview": "Imprimer | Partager La maladie à virus Ebola se caractérise par de fortes fièvres et des hémorragies souvent mortelles pour l’être humain. Le taux de létalité moyen de la maladie est d’environ 50%. Le virus Ebola a été découvert en 1976 lors de deux épidémies au Soudan et en République démocratique du Congo (ex Zaïre). Il tire son nom de la rivière Ebola située à proximité du premier foyer identifié de la maladie. Depuis, plusieurs flambées épidémiques se sont produites notamment en 2013-2016 pu"
+        },
+        {
+          "url": "https://sante.gouv.fr/soins-et-maladies/maladies/maladies-vectorielles-et-zoonoses/ebola/article/maladie-a-virus-ebola",
+          "title": "Maladie à virus Ebola - Ministère de la Santé, de la Famille, de l ...",
+          "snippet_chars": 124,
+          "snippet_preview": "22 mai 2026 · L'essentiel sur la maladie à virus Ebola : origine, symptômes, modes de transmission, prévention, traitements…"
+        },
+        {
+          "url": "https://fr.wikipedia.org/wiki/Orthoebolavirus",
+          "title": "Orthoebolavirus — Wikipédia",
+          "snippet_chars": 8000,
+          "snippet_preview": "Un article de Wikipédia, l'encyclopédie libre. Ébolavirus Orthoebolavirus Image colorisée d'une particule virale Ebola obtenue par microscopie électronique en transmission en août 2014 [ 1 ] . Classification Domaine Riboviria Phylum Negarnaviricota Sous-phylum Haploviricotina Classe Monjiviricetes Ordre Mononegavirales Famille Filoviridae Genre Orthoebolavirus Genre Orthoebolavirus ICTV , 2022 [ 2 ] Taxons de rang inférieur espèces Genre : Orthoebolavirus Espèce : Orthoebolavirus bombaliense Esp"
+        },
+        {
+          "url": "https://www.france24.com/fr/france/20260704-virus-ebola-premier-cas-identifié-france-est-guérison-hôpital-santé-médecin-humanitaire-cas-maladie",
+          "title": "Virus Ebola : le premier cas identifié en France est \"guéri\"",
+          "snippet_chars": 194,
+          "snippet_preview": "Il y a 17 heures · Un médecin humanitaire, premier cas d'Ebola diagnostiqué en France, est \"sorti de l'hôpital\" après avoir été \"guéri\", a annoncé samedi la ministre de la Santé, Stéphanie Rist."
+        },
+        {
+          "url": "https://www.lemonde.fr/societe/article/2026/06/24/ebola-un-premier-cas-identifie-en-france-chez-un-medecin-de-retour-de-rdc_6710248_3224.html",
+          "title": "Ebola : un premier cas de contamination, un médecin de retour de RDC ...",
+          "snippet_chars": 203,
+          "snippet_preview": "24 juin 2026 · Le patient est le premier cas d’Ebola jamais diagnostiqué sur le territoire français. Cinq personnes qui étaient dans l’avion en provenance de Kinshasa sont également considérées comme ..."
+        },
+        {
+          "url": "https://fr.m.wikipedia.org/wiki/Maladie_à_virus_Ebola",
+          "title": "Maladie à virus Ebola — Wikipédia",
+          "snippet_chars": 8000,
+          "snippet_preview": "Un article de Wikipédia, l'encyclopédie libre. Cet article concerne une maladie . Pour l'agent pathogène qui la provoque, voir Virus Ebola . Pour les articles homonymes, voir Ebola . Pour les articles homonymes, voir EVD (homonymie) . Maladie à virus Ebola Distribution fin 2014 de l'hôte naturel théorique zoonotique du virus Ebola [ 1 ] . Données clés Causes Virus Ebola transmis par contact direct Transmission Transmission par contact ( d ) et transmission de l'agent pathogène par contact hémato"
+        },
+        {
+          "url": "https://www.who.int/fr/news-room/fact-sheets/detail/ebola-disease",
+          "title": "Maladie d’Ebola - World Health Organization (WHO)",
+          "snippet_chars": 8000,
+          "snippet_preview": "L’essentiel La maladie d’Ebola est une maladie grave, qui est souvent mortelle chez l’humain. Trois virus différents sont connus pour être à l’origine de flambées majeures de maladie d’Ebola : le virus Ebola, le virus Soudan et le virus Bundibugyo. Le taux de létalité moyen de cette maladie est d’environ 50 %. Au cours des épidémies passées, on a enregistré des taux allant de 25 % à 90 %. Des soins de soutien précoces et intensifs, avec réhydratation et traitement des symptômes, améliorent les c"
+        },
+        {
+          "url": "https://www.franceinfo.fr/sante/maladie/ebola/carte-pays-touches-ou-menaces-ou-en-est-l-epidemie-d-ebola-qui-se-propage-rapidement-en-afrique-selon-l-organisation-mondiale-de-la-sante_8024966.html",
+          "title": ": Carte Pays touchés ou menacés... Où en est l'épidémie d'Ebola qui se ...",
+          "snippet_chars": 206,
+          "snippet_preview": "24 mai 2026 · L'épidémie d'Ebola continue de s'étendre en Afrique. Avec 204 morts sur 867 cas suspects, la République démocratique du Congo (RDC) reste de loin l'épicentre de la flambée actuelle, selon un …"
+        }
+      ],
+      "article_json": {
+        "titre": "Premier cas d'Ebola guéri en France, épidémie Bundibugyo active en RDC depuis mars 2026",
+        "slug": "premier-cas-ebola-france-gueri-epidemie-bundibugyo-rdc-2026",
+        "image_keyword": "hospital building france",
+        "resume": [
+          "Un médecin humanitaire, premier patient jamais diagnostiqué porteur du virus Ebola sur le sol français, a quitté l'hôpital après guérison confirmée, selon l'annonce faite le 4 juillet 2026 par la ministre de la Santé Stéphanie Rist, alors que l'épidémie de la souche Bundibugyo sévit en République démocratique du Congo depuis mars 2026.",
+          "Le praticien avait été identifié comme premier cas le 24 juin 2026 à son retour de Kinshasa, entraînant le suivi de cinq passagers qui se trouvaient dans le même avion en provenance de la RDC, dans un contexte où la flambée en cours comptait déjà 867 cas suspects et 204 morts sur l'épicentre congolais au 24 mai 2026.",
+          "La souche Bundibugyo impliquée dans cette épidémie ne dispose d'aucun vaccin ni traitement spécifique approuvé à ce jour, ce qui distingue cette flambée des précédentes crises dominées par l'espèce Zaïre contre laquelle deux vaccins sont disponibles, rendant la comparaison avec les épisodes de 2013-2020 méthodologiquement limitée."
+        ],
+        "corps": {
+          "faits": "Selon France 24, la ministre de la Santé Stéphanie Rist a annoncé le 4 juillet 2026 que le médecin humanitaire hospitalisé en France était « sorti de l'hôpital » après avoir été « guéri » du virus Ebola. Ce patient représentait le premier cas d'Ebola jamais diagnostiqué sur le territoire français.\n\nD'après Le Monde, ce médecin avait été identifié le 24 juin 2026 comme porteur du virus à son retour de la République démocratique du Congo (RDC). À la suite de cette détection, cinq personnes présentes dans l'avion en provenance de Kinshasa avaient été placées sous surveillance sanitaire.\n\nSelon Franceinfo, au 24 mai 2026, la RDC demeurait l'épicentre de la flambée en cours avec 867 cas suspects recensés et 204 décès enregistrés. L'épidémie, décrite par l'Organisation mondiale de la santé comme se propageant rapidement en Afrique, s'étend également à l'Ouganda.\n\nSelon l'Institut Pasteur, cette flambée est causée par l'espèce rare Bundibugyo ebolavirus (Orthoebolavirus bundibugyoense), active depuis mars 2026 en RDC. L'Institut Pasteur qualifie cette flambée de « l'une des plus graves de l'histoire » et souligne que la détection tardive des premiers cas complique la réponse sanitaire sur le terrain. Aucun vaccin ni traitement spécifique n'existe à ce jour contre cette souche particulière.\n\nToujours selon l'Institut Pasteur, le taux de létalité moyen de la maladie à virus Ebola est estimé à environ 50 %, avec des variations allant de 25 % à 90 % selon les flambées récentes. Le diagnostic repose principalement sur la RT-PCR, réalisée dans des conditions de haute sécurité biologique, qui permet de détecter le matériel génétique du virus. Les sérologies IgM et IgG sont utilisées pour les diagnostics tardifs ou rétrospectifs.\n\nConcernant la prise en charge thérapeutique, l'Institut Pasteur précise que deux anticorps monoclonaux — mAb114 et REGN-EB3 — peuvent être utilisés pour réduire la mortalité dans les cas liés à l'espèce Zaïre, à condition d'être administrés le plus précocement possible après le diagnostic. Ces molécules ne sont cependant pas validées contre la souche Bundibugyo.\n\nLe Ministère de la Santé français, dans sa mise à jour du 22 mai 2026, a rappelé les modalités de prévention et de transmission applicables à l'ensemble des espèces virales Ebola, notamment les risques liés aux rites funéraires, aux contacts avec des liquides biologiques et à la viande de brousse.",
+          "contexte": "Selon l'Institut Pasteur, le virus Ebola a été découvert en 1976 lors de deux épidémies simultanées au Soudan et en République démocratique du Congo (alors Zaïre), tirant son nom de la rivière Ebola proche du premier foyer identifié. Depuis, plusieurs flambées majeures se sont succédé, notamment la crise de 2013-2016 en Afrique de l'Ouest — la plus meurtrière jamais enregistrée — puis les épidémies de 2018-2020 en RDC, principalement causées par l'espèce Zaïre.\n\nD'après l'Institut Pasteur, le genre Orthoebolavirus comprend six espèces, dont trois sont responsables de flambées épidémiques historiques : l'espèce Zaïre (la plus fréquente et la plus documentée), l'espèce Soudan et l'espèce Bundibugyo. Cette dernière avait été identifiée pour la première fois lors d'une épidémie en Ouganda en 2007-2008, puis lors d'une flambée en RDC en 2012, avec des bilans relativement limités comparés aux crises Zaïre.\n\nSelon l'Institut Pasteur, deux vaccins préventifs — Ervebo et la combinaison Zabdeno/Mvabea — ont été approuvés contre l'espèce Zaïre à la suite des épidémies de 2013-2020. Ces avancées ne couvrent cependant pas la souche Bundibugyo, ce qui place la flambée 2026 dans une situation épidémiologique distincte des crises précédentes où des outils de prévention vaccinale étaient disponibles pour les soignants et les populations à haut risque.\n\nLa RDC est historiquement le pays le plus touché par les épidémies d'Ebola, ayant connu plus d'une dizaine de flambées depuis 1976. L'extension à l'Ouganda dans le cadre de la crise 2026 reproduit un schéma déjà observé lors des épidémies précédentes en raison de la perméabilité des frontières et des flux de populations dans la région des Grands Lacs africains. La détection d'un cas importé en France en juin 2026 illustre la capacité des épidémies africaines à atteindre l'Europe via les voyages internationaux, un risque documenté depuis la crise de 2014-2016.",
+          "nuances": "Plusieurs limites méthodologiques s'imposent dans l'interprétation des données disponibles. Le chiffre de 867 cas suspects cité par Franceinfo au 24 mai 2026 inclut des cas suspects non encore confirmés biologiquement, ce qui signifie que le bilan réel — confirmé par RT-PCR — pourrait différer sensiblement de ce total.\n\nSelon l'Institut Pasteur, le taux de létalité de 50 % constitue une moyenne historique intégrant des flambées très hétérogènes (de 25 % à 90 %), liées à des espèces virales différentes, à des contextes de soins variables et à des délais de prise en charge distincts. Ce chiffre ne peut être appliqué mécaniquement à la flambée Bundibugyo 2026.\n\nPar ailleurs, les données sur les réservoirs animaux restent incertaines : l'Institut Pasteur précise qu'aucune preuve formelle n'établit définitivement les chauves-souris Pteropodidae comme hôtes réservoirs des virus Ebola. Cette incertitude limite la capacité à cibler des mesures de prévention à la source.\n\nEnfin, la qualification de cette flambée comme « l'une des plus graves de l'histoire » par l'Institut Pasteur mérite d'être contextualisée : elle repose sur une évaluation en cours, dans un contexte où la détection tardive des premiers cas complique l'estimation précise de l'étendue réelle de l'épidémie. Les comparaisons avec les crises précédentes restent donc provisoires tant que le bilan final n'est pas établi."
+        },
+        "sources": [
+          {
+            "institution": "Institut Pasteur",
+            "titre": "Ebola : symptômes, traitement, prévention",
+            "date": "Janvier 2026 (mise à jour fiche) / Juin 2026 (alerte)",
+            "url": "https://www.pasteur.fr/fr/centre-medical/fiches-maladies/ebola"
+          },
+          {
+            "institution": "France 24",
+            "titre": "Virus Ebola : le premier cas identifié en France est \"guéri\"",
+            "date": "4 juillet 2026",
+            "url": "https://www.france24.com/fr/france/20260704-virus-ebola-premier-cas-identifié-france-est-guérison-hôpital-santé-médecin-humanitaire-cas-maladie"
+          },
+          {
+            "institution": "Le Monde",
+            "titre": "Ebola : un premier cas de contamination, un médecin de retour de RDC",
+            "date": "24 juin 2026",
+            "url": "https://www.lemonde.fr/societe/article/2026/06/24/ebola-un-premier-cas-identifie-en-france-chez-un-medecin-de-retour-de-rdc_6710248_3224.html"
+          },
+          {
+            "institution": "France Info",
+            "titre": "Carte : Pays touchés ou menacés — Où en est l'épidémie d'Ebola qui se propage rapidement en Afrique selon l'Organisation mondiale de la santé",
+            "date": "24 mai 2026",
+            "url": "https://www.franceinfo.fr/sante/maladie/ebola/carte-pays-touches-ou-menaces-ou-en-est-l-epidemie-d-ebola-qui-se-propage-rapidement-en-afrique-selon-l-organisation-mondiale-de-la-sante_8024966.html"
+          },
+          {
+            "institution": "Ministère de la Santé",
+            "titre": "Maladie à virus Ebola",
+            "date": "22 mai 2026",
+            "url": "https://sante.gouv.fr/soins-et-maladies/maladies/maladies-vectorielles-et-zoonoses/ebola/article/maladie-a-virus-ebola"
+          }
+        ],
+        "categorie": "societe",
+        "nb_sources": 5,
+        "positions": {
+          "verifie": true,
+          "label_gauche": "Guérison confirmée / Situation maîtrisée en France",
+          "label_droite": "Risque élevé / Épidémie non contrôlée en RDC",
+          "acteurs": [
+            {
+              "nom": "Stéphanie Rist, ministre de la Santé",
+              "detail": "Annonce officielle de la guérison du premier cas français",
+              "position": 15
+            },
+            {
+              "nom": "Institut Pasteur",
+              "detail": "Qualifie la flambée Bundibugyo de l'une des plus graves de l'histoire",
+              "position": 80
+            }
+          ]
+        }
+      },
+      "verif_rapport_initial": null,
+      "verif_rapport_final": null,
+      "statut": "a_corriger_manuellement"
+    },
+    {
+      "slug": "mousses-champignons-symbiose-inattendue",
+      "statut": "erreur",
+      "fantomes_pass1": [],
+      "fantomes_pass2": [],
+      "nb_mots": {},
+      "nb_sources": 0,
+      "sources": [],
+      "sources_enrichies": [],
+      "article_json": null
+    },
+    {
+      "slug": "cern-modernise-accelerateur-particules-matiere-noire",
+      "statut": "erreur",
+      "fantomes_pass1": [],
+      "fantomes_pass2": [],
+      "nb_mots": {},
+      "nb_sources": 0,
+      "sources": [],
+      "sources_enrichies": [],
+      "article_json": null
+    },
+    {
+      "slug": "desensibilisation-sublinguale-allergies-respiratoires",
+      "statut": "erreur",
+      "fantomes_pass1": [],
+      "fantomes_pass2": [],
+      "nb_mots": {},
+      "nb_sources": 0,
+      "sources": [],
+      "sources_enrichies": [],
+      "article_json": null
+    },
+    {
+      "slug": "diagnostic-preimplantatoire-aneuploidies-france",
+      "statut": "erreur",
+      "fantomes_pass1": [],
+      "fantomes_pass2": [],
+      "nb_mots": {},
+      "nb_sources": 0,
+      "sources": [],
+      "sources_enrichies": [],
+      "article_json": null
+    },
+    {
+      "slug": "nasa-lance-mission-sauvetage-telescope-swift",
+      "titre": "La NASA lance mission sauvetage pour le télescope Swift",
+      "categorie": "societe",
+      "fantomes_pass1": [],
+      "fantomes_pass2": [],
+      "nb_mots": {},
+      "nb_sources": 0,
+      "sources": [],
+      "sources_enrichies": [],
+      "article_json": null,
+      "verif_rapport_initial": null,
+      "verif_rapport_final": null,
+      "statut": "rejet_sources"
+    },
+    {
+      "slug": "cma-cgm-investit-mombasa",
+      "titre": "CMA CGM investit 700 millions de dollars à Mombasa",
+      "categorie": "societe",
+      "fantomes_pass1": [],
+      "fantomes_pass2": [],
+      "nb_mots": {},
+      "nb_sources": 0,
+      "sources": [],
+      "sources_enrichies": [],
+      "article_json": null,
+      "verif_rapport_initial": null,
+      "verif_rapport_final": null,
+      "statut": "rejet_sources"
+    },
+    {
+      "slug": "refuges-climatiques-espagne-canicules",
+      "statut": "erreur",
+      "fantomes_pass1": [],
+      "fantomes_pass2": [],
+      "nb_mots": {},
+      "nb_sources": 0,
+      "sources": [],
+      "sources_enrichies": [],
+      "article_json": null
+    },
+    {
+      "slug": "violences-enfants-france-insuffisante",
+      "titre": "Violences faites aux enfants en France reste insuffisante",
+      "categorie": "societe",
+      "fantomes_pass1": [
+        "ce ministère",
+        "le portail Mon Parcours Handicap",
+        "Service-Public"
+      ],
+      "fantomes_pass2": [
+        "le ministère de l'Intérieur et des Outre-mer"
+      ],
+      "nb_mots": {
+        "faits": 374,
+        "contexte": 274,
+        "nuances": 181,
+        "total": 829
+      },
+      "nb_sources": 4,
+      "sources": [
+        {
+          "institution": "Gouv",
+          "url": "https://www.interieur.gouv.fr/actualites/communiques-de-presse/victimes-de-violences-physiques-et-sexuelles-enregistrees-en-hausse-en-2025-en-particulier-pour",
+          "titre": "Victimes de violences physiques et sexuelles enregistrées : en hausse en 2025, en particulier pour... (communiqué de presse)"
+        },
+        {
+          "institution": "Ameli",
+          "url": "https://www.ameli.fr/assure/sante/themes/violences-faites-aux-femmes/violence-femme-couple-famille",
+          "titre": "Violences au sein du couple et violences familiales à l'égard des femmes"
+        },
+        {
+          "institution": "Légifrance",
+          "url": "https://www.legifrance.gouv.fr/codes/id/LEGISCTA000006181751/",
+          "titre": "Des violences (Articles 222-7 à 222-16-3)"
+        },
+        {
+          "institution": "France Info",
+          "url": "https://www.franceinfo.fr/societe/harcelement-sexuel/on-ne-peut-plus-encaisser-tous-les-drames-qui-se-passent-a-paris-plusieurs-milliers-de-manifestants-reclament-une-loi-globale-contre-les-violences-sexuelles_8094071.html",
+          "titre": "\"On ne peut plus encaisser tous les drames qui se passent\" : à Paris, plusieurs milliers de manifestants réclament une loi globale contre les violences sexuelles"
+        }
+      ],
+      "sources_enrichies": [
+        {
+          "url": "https://www.legifrance.gouv.fr/codes/id/LEGISCTA000006181751/",
+          "title": "Des violences (Articles 222-7 à 222-16-3) - Légifrance",
+          "snippet_chars": 174,
+          "snippet_preview": "1 mars 1994 · Les violences prévues par les dispositions de la présente section sont réprimées quelle que soit leur nature, y compris s'il s'agit de violences psychologiques."
+        },
+        {
+          "url": "https://www.franceinfo.fr/societe/harcelement-sexuel/on-ne-peut-plus-encaisser-tous-les-drames-qui-se-passent-a-paris-plusieurs-milliers-de-manifestants-reclament-une-loi-globale-contre-les-violences-sexuelles_8094071.html",
+          "title": "\"On ne peut plus encaisser tous les drames qui se passent\" : à Paris ...",
+          "snippet_chars": 196,
+          "snippet_preview": "Il y a 16 heures · Un mois après le meurtre de Lyhanna, la mobilisation s'est poursuivie samedi pour demander que des mesures concrètes soient prises rapidement par le gouvernement dans la lutte …"
+        },
+        {
+          "url": "https://www.service-public.gouv.fr/particuliers/vosdroits/F1524",
+          "title": "Violences physiques ou psychologiques | Service Public",
+          "snippet_chars": 8000,
+          "snippet_preview": "Le lien vers cette page a été envoyé avec succès aux destinataires. Violences physiques ou psychologiques Vérifié le 19 juin 2025 - Service Public / Direction de l'information légale et administrative (Premier ministre) Une personne vous a volontairement blessé en vous frappant ou en ayant un comportement agressif et hostile ? Il s'agit de violences . Si vous êtes victime ou témoin de tels agissements, vous pouvez faire un signalement aux autorités compétentes. En tant que victime, vous pouvez d"
+        },
+        {
+          "url": "https://www.interieur.gouv.fr/documentation/etudes-et-statistiques/victimes-de-violences-physiques-et-sexuelles-enregistrees-en-hausse-en-2025-en-particulier-pour.html",
+          "title": "Victimes de violences physiques et sexuelles enregistrées : en hausse ...",
+          "snippet_chars": 203,
+          "snippet_preview": "7 avr. 2026 · En 2025, les services de police et de gendarmerie nationales ont enregistré, au titre de crimes et de délits, 473 000 victimes de violences physiques, dont 114 500 sont mineures (24 %) et …"
+        },
+        {
+          "url": "https://www.interieur.gouv.fr/actualites/communiques-de-presse/victimes-de-violences-physiques-et-sexuelles-enregistrees-en-hausse-en-2025-en-particulier-pour",
+          "title": "Victimes de violences physiques et sexuelles enregistrées : en hausse ...",
+          "snippet_chars": 195,
+          "snippet_preview": "27 févr. 2026 · En 2025, 473 000 victimes de violences physiques ont été enregistrées par les services de police et de gendarmerie nationales, soit une augmentation de 5 % par rapport à l’année …"
+        },
+        {
+          "url": "https://fr.wikipedia.org/wiki/Violence",
+          "title": "Violence — Wikipédia",
+          "snippet_chars": 8000,
+          "snippet_preview": "Un article de Wikipédia, l'encyclopédie libre. Pour les articles homonymes, voir Violence (homonymie) . Si ce bandeau n'est plus pertinent, retirez-le. Cliquez ici pour en savoir plus. Les informations figurant dans cet article ou cette section doivent être reliées aux sources mentionnées dans les sections « Bibliographie », « Sources » ou « Liens externes » ( juillet 2023 ). Vous pouvez améliorer la vérifiabilité en associant ces informations à des références à l'aide d' appels de notes . Si ce"
+        },
+        {
+          "url": "https://www.ameli.fr/assure/sante/themes/violences-faites-aux-femmes/violence-femme-couple-famille",
+          "title": "Violences au sein du couple et violences familiales à l’égard des ...",
+          "snippet_chars": 6308,
+          "snippet_preview": "Violences au sein du couple et violences familiales à l’égard des femmes Cet article fait partie du dossier : Violences faites aux femmes 25 novembre 2025 Partager sur X (nouvelle fenêtre) Partager sur Bluesky (nouvelle fenêtre) Partager sur Facebook (nouvelle fenêtre) Partager sur Linkedin (nouvelle fenêtre) Copier le lien Toutes les violences, sexuelles, verbales, administratives, économiques, cybersurveillance, etc., commises par un conjoint, un ancien conjoint ou un partenaire sont interdite"
+        },
+        {
+          "url": "https://www.monparcourshandicap.gouv.fr/prevention/quels-sont-les-differents-types-de-violences",
+          "title": "Les formes de violences | Mon Parcours Handicap",
+          "snippet_chars": 8000,
+          "snippet_preview": "Il existe différents types de violences physiques, psychologiques et verbales, sexistes ou sexuelles, conjugales, médicales, économiques, administratives. Ces violences peuvent concerner les enfants ou les adultes en situation de handicap. Les formes de violences peuvent se cumuler entre elles. Elles peuvent avoir lieu dans la vie de tous les jours ou en ligne et notamment sur les réseaux sociaux. Apprendre à les reconnaître permet de les dénoncer et de vous en protéger. 1) Les violences physiqu"
+        }
+      ],
+      "article_json": {
+        "titre": "En 2025, 473 000 victimes de violences physiques enregistrées en France, en hausse de 5 %",
+        "slug": "violences-physiques-france-2025-hausse-statistiques",
+        "image_keyword": "protest march paris",
+        "resume": [
+          "Les services de police et de gendarmerie nationales ont recensé 473 000 victimes de violences physiques sur l'ensemble de l'année 2025, un chiffre en progression de 5 % par rapport à l'année précédente, parmi lesquelles 114 500 étaient mineures, soit 24 % du total, selon le ministère de l'Intérieur et des Outre-mer.",
+          "Ces données ont été rendues publiques en février 2026 dans un communiqué du ministère de l'Intérieur, dans un contexte de mobilisation citoyenne à Paris où plusieurs milliers de manifestants réclamaient samedi 22 novembre 2025 l'adoption d'une loi globale contre les violences sexuelles, un mois après le meurtre de Lyhanna.",
+          "Si la hausse des chiffres enregistrés peut refléter une progression des violences réelles, elle peut également traduire une meilleure propension des victimes à déposer plainte, ce que les statistiques administratives seules ne permettent pas de distinguer avec certitude."
+        ],
+        "corps": {
+          "faits": "Selon le ministère de l'Intérieur et des Outre-mer, 473 000 victimes de violences physiques ont été enregistrées par les services de police et de gendarmerie nationales en 2025, soit une augmentation de 5 % par rapport à l'année précédente. Parmi ces victimes, 114 500 sont mineures, représentant 24 % de l'ensemble des personnes recensées. Ces chiffres portent exclusivement sur les crimes et délits constatés par les forces de l'ordre et ne couvrent donc pas l'ensemble des violences subies sur le territoire national.\n\nLe même rapport du ministère de l'Intérieur et des Outre-mer fait état d'une hausse particulièrement marquée pour certaines catégories de victimes, notamment les femmes et les mineurs. Les violences sexuelles enregistrées connaissent également une progression, selon ce même communiqué de presse publié le 27 février 2026.\n\nCes publications statistiques interviennent dans un contexte de forte mobilisation sociale. D'après France Info, plusieurs milliers de manifestants se sont rassemblés à Paris pour réclamer une loi globale contre les violences sexuelles, un mois après le meurtre de Lyhanna. Des manifestants ont déclaré : « On ne peut plus encaisser tous les drames qui se passent », exprimant une demande de mesures concrètes et rapides de la part du gouvernement.\n\nSelon Ameli (Assurance Maladie), les violences au sein du couple regroupent plusieurs types distincts : violences verbales (injures, menaces), physiques et matérielles (coups, étranglement, séquestration), psychologiques (intimidations, isolement forcé), sexuelles (viols, agressions, pornodivulgation), économiques (contrôle des dépenses, interdiction de travailler), sur la parentalité (enlèvements, actions judiciaires répétées) et administratives (confiscation de documents d'identité ou de diplômes). Ces formes de violence peuvent concerner des couples qui ne cohabitent pas, y compris de très jeunes partenaires.\n\nAmeli précise également que les cyberviolences constituent désormais une catégorie à part entière : cybersurveillance à l'insu de la victime, piratage de téléphone ou de comptes en ligne, géolocalisation non consentie, ainsi que la mise en ligne sans autorisation de contenus intimes. Ces pratiques s'exercent dans le prolongement des violences conjugales physiques ou psychologiques.\n\nSelon Légifrance, les violences prévues par les articles 222-7 à 222-16-3 du Code pénal sont réprimées quelle que soit leur nature, y compris s'il s'agit de violences psychologiques. Cette disposition est en vigueur depuis le 1er mars 1994 et a été élargie progressivement au fil des réformes législatives.",
+          "contexte": "Depuis plusieurs années, les statistiques relatives aux violences physiques et sexuelles enregistrées par les forces de l'ordre connaissent une tendance à la hausse en France. Selon le ministère de l'Intérieur et des Outre-mer, une publication antérieure — l'Info rapide n°32 de février 2024 — faisait déjà état d'une progression des victimes de violences physiques ou sexuelles enregistrées en 2023. La hausse constatée en 2025 s'inscrit donc dans une dynamique pluriannuelle.\n\nSur le plan législatif, la France s'est dotée progressivement d'un arsenal juridique plus complet. Selon Légifrance, les violences psychologiques sont pénalement sanctionnées depuis 1994 dans le cadre du Code pénal. Des lois ultérieures ont étendu ces dispositions aux violences économiques et aux cyberviolences. La France est par ailleurs signataire de la Convention du Conseil de l'Europe dite « Convention d'Istanbul », qui impose aux États membres d'adopter des mesures de prévention, de protection et de poursuites pénales en matière de violences faites aux femmes.\n\nAmeli rappelle que les violences intrafamiliales englobent non seulement les violences conjugales mais aussi celles exercées sur les ascendants, descendants ou autres membres du cercle familial, ainsi que les actes qualifiés d'incestueux lorsqu'ils sont commis par un ascendant, un frère ou une sœur, un oncle, une tante, un neveu ou une nièce.\n\nÀ l'échelle internationale, selon l'Organisation mondiale de la santé, les mutilations sexuelles féminines constituent une autre forme de violence dont la lutte est intégrée aux politiques globales de santé publique. En France, la mobilisation associative et institutionnelle autour du 25 novembre — Journée internationale pour l'élimination de la violence à l'égard des femmes — s'intensifie chaque année, comme l'illustre la manifestation parisienne rapportée par France Info en 2025.",
+          "nuances": "Les statistiques publiées par le ministère de l'Intérieur et des Outre-mer reposent exclusivement sur les victimes enregistrées par les services de police et de gendarmerie. Elles ne couvrent pas les violences non déclarées, dont l'ampleur reste structurellement sous-estimée. Une hausse des chiffres enregistrés peut ainsi refléter soit une augmentation effective des faits de violence, soit une meilleure disposition des victimes à porter plainte — notamment grâce aux campagnes de sensibilisation —, soit une combinaison des deux phénomènes. Les données statistiques disponibles ne permettent pas de trancher entre ces hypothèses.\n\nPar ailleurs, les catégories utilisées dans les statistiques administratives (violences physiques, violences sexuelles) ne recoupent pas nécessairement l'ensemble des formes de violence décrites par Ameli, telles que les violences économiques, administratives ou psychologiques, qui sont plus difficiles à quantifier et à caractériser juridiquement.\n\nEnfin, la tenue d'une manifestation à Paris et les déclarations de manifestants relayées par France Info constituent des expressions de demandes politiques et sociales, non des données épidémiologiques ou judiciaires. Elles signalent une pression sociale sur le gouvernement mais ne préjugent pas des orientations législatives qui seront effectivement adoptées."
+        },
+        "sources": [
+          {
+            "institution": "Gouv",
+            "titre": "Victimes de violences physiques et sexuelles enregistrées : en hausse en 2025, en particulier pour... (communiqué de presse)",
+            "date": "27 février 2026",
+            "url": "https://www.interieur.gouv.fr/actualites/communiques-de-presse/victimes-de-violences-physiques-et-sexuelles-enregistrees-en-hausse-en-2025-en-particulier-pour"
+          },
+          {
+            "institution": "Ameli",
+            "titre": "Violences au sein du couple et violences familiales à l'égard des femmes",
+            "date": "25 novembre 2025",
+            "url": "https://www.ameli.fr/assure/sante/themes/violences-faites-aux-femmes/violence-femme-couple-famille"
+          },
+          {
+            "institution": "Légifrance",
+            "titre": "Des violences (Articles 222-7 à 222-16-3)",
+            "date": "1 mars 1994",
+            "url": "https://www.legifrance.gouv.fr/codes/id/LEGISCTA000006181751/"
+          },
+          {
+            "institution": "France Info",
+            "titre": "\"On ne peut plus encaisser tous les drames qui se passent\" : à Paris, plusieurs milliers de manifestants réclament une loi globale contre les violences sexuelles",
+            "date": "22 novembre 2025",
+            "url": "https://www.franceinfo.fr/societe/harcelement-sexuel/on-ne-peut-plus-encaisser-tous-les-drames-qui-se-passent-a-paris-plusieurs-milliers-de-manifestants-reclament-une-loi-globale-contre-les-violences-sexuelles_8094071.html"
+          }
+        ],
+        "categorie": "societe",
+        "nb_sources": 4,
+        "positions": {
+          "verifie": true,
+          "label_gauche": "Favorable à une loi globale / Mobilisation",
+          "label_droite": "Attente de mesures gouvernementales concrètes",
+          "acteurs": [
+            {
+              "nom": "Manifestants à Paris (France Info)",
+              "detail": "Réclament une loi globale contre les violences sexuelles",
+              "position": 15
+            },
+            {
+              "nom": "Gouvernement français",
+              "detail": "Interpellé mais sans annonce législative à ce stade",
+              "position": 65
+            }
+          ]
+        }
+      },
+      "verif_rapport_initial": null,
+      "verif_rapport_final": null,
+      "statut": "moderation"
+    }
+  ]
+}

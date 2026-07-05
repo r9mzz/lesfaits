@@ -486,6 +486,7 @@ CATEGORIES_MAP = {
     "tech":          ["technologie", "numérique", "intelligence artificielle", "ia ", "cyber", "algorithme", "données", "logiciel"],
     "environnement": ["climat", "environnement", "énergie", "co2", "carbone", "biodiversité", "eau", "pollution", "forêt"],
     "societe":       ["société", "démographie", "population", "logement", "pauvreté", "inégalité", "santé", "éducation", "justice"],
+    "sport":         ["sport", "football", "rugby", "tennis", "cyclisme", "athlétisme", "jeux olympiques", "jo ", "tournoi", "championnat", "ligue", "transfert", "équipe nationale", "compétition sportive"],
 }
 
 # Quota max par catégorie dans un cycle de génération
@@ -1531,6 +1532,7 @@ _NAV_LINKS = (
     '<a href="categories/tech.html">Tech</a>\n'
     '<a href="categories/sante.html">Santé</a>\n'
     '<a href="categories/environnement.html">Environnement</a>\n'
+    '<a href="categories/sport.html">Sport</a>\n'
     '<a href="favoris.html">Favoris</a>\n'
     '<a href="archive.html">Tous les articles</a>\n'
     '<a href="methode.html" class="nav-cta">Comment on travaille →</a>'
@@ -1641,6 +1643,7 @@ def _build_footer(year: int = None) -> str:
       <a href="categories/tech.html">Tech</a>
       <a href="categories/sante.html">Santé</a>
       <a href="categories/environnement.html">Environnement</a>
+      <a href="categories/sport.html">Sport</a>
     </div>
     <div class="footer__col"><h4>JOURNAL</h4>
       <a href="methode.html">Comment on travaille</a>
@@ -1902,6 +1905,7 @@ function copyLink(){{
       <a href="categories/tech.html">Tech</a>
       <a href="categories/sante.html">Santé</a>
       <a href="categories/environnement.html">Environnement</a>
+      <a href="categories/sport.html">Sport</a>
       <a href="favoris.html">Favoris</a>
       <a href="archive.html">Tous les articles</a>
       <a href="methode.html" class="nav-cta">Comment on travaille →</a>
@@ -2183,6 +2187,7 @@ def build_index_html(main, side_html, grid_html, list_html):
       <a href="categories/tech.html">Tech</a>
       <a href="categories/sante.html">Santé</a>
       <a href="categories/environnement.html">Environnement</a>
+      <a href="categories/sport.html">Sport</a>
       <a href="favoris.html">Favoris</a>
       <a href="archive.html">Tous les articles</a>
       <a href="methode.html" class="nav-cta">Comment on travaille →</a>
@@ -2250,6 +2255,7 @@ CAT_LABELS = {
     "sante":         "Santé",
     "environnement": "Environnement",
     "societe":       "Société",
+    "sport":         "Sport",
 }
 
 # Affichage MAJUSCULES avec accents (les slugs n'en ont pas : SOCIETE ≠ SOCIÉTÉ)
@@ -2441,6 +2447,7 @@ def build_category_pages():
       <a href="categories/tech.html">Tech</a>
       <a href="categories/sante.html">Santé</a>
       <a href="categories/environnement.html">Environnement</a>
+      <a href="categories/sport.html">Sport</a>
       <a href="favoris.html">Favoris</a>
       <a href="archive.html">Tous les articles</a>
       <a href="methode.html" class="nav-cta">Comment on travaille →</a>
@@ -2588,6 +2595,7 @@ def build_archive_page():
       <a href="categories/tech.html">Tech</a>
       <a href="categories/sante.html">Santé</a>
       <a href="categories/environnement.html">Environnement</a>
+      <a href="categories/sport.html">Sport</a>
       <a href="favoris.html">Favoris</a>
       <a href="archive.html">Tous les articles</a>
       <a href="methode.html" class="nav-cta">Comment on travaille →</a>
@@ -2680,6 +2688,7 @@ def build_favoris_page():
       <a href="categories/tech.html">Tech</a>
       <a href="categories/sante.html">Santé</a>
       <a href="categories/environnement.html">Environnement</a>
+      <a href="categories/sport.html">Sport</a>
       <a href="favoris.html">Favoris</a>
       <a href="archive.html">Tous les articles</a>
       <a href="methode.html" class="nav-cta">Comment on travaille →</a>

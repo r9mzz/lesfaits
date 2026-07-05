@@ -1,0 +1,250 @@
+{
+  "date": "20260705_100234",
+  "parametres": {
+    "max_articles": 10,
+    "max_anthropic": 65
+  },
+  "appels": {
+    "generation": 11,
+    "verification": 7,
+    "total": 18
+  },
+  "articles": [
+    {
+      "slug": "emissions-co2-france-recul-2023",
+      "statut": "erreur",
+      "fantomes_pass1": [],
+      "fantomes_pass2": [],
+      "nb_mots": {},
+      "nb_sources": 0,
+      "sources": [],
+      "sources_enrichies": [],
+      "article_json": null
+    },
+    {
+      "slug": "reformes-economiques-allemagne-merz",
+      "statut": "erreur",
+      "fantomes_pass1": [],
+      "fantomes_pass2": [],
+      "nb_mots": {},
+      "nb_sources": 0,
+      "sources": [],
+      "sources_enrichies": [],
+      "article_json": null
+    },
+    {
+      "slug": "france-dette-publique-insoutenable",
+      "statut": "erreur",
+      "fantomes_pass1": [],
+      "fantomes_pass2": [],
+      "nb_mots": {},
+      "nb_sources": 0,
+      "sources": [],
+      "sources_enrichies": [],
+      "article_json": null
+    },
+    {
+      "slug": "tension-ressource-eau-france",
+      "statut": "erreur",
+      "fantomes_pass1": [],
+      "fantomes_pass2": [],
+      "nb_mots": {},
+      "nb_sources": 0,
+      "sources": [],
+      "sources_enrichies": [],
+      "article_json": null
+    },
+    {
+      "slug": "seisme-venezuela-bilan-humain-economique",
+      "statut": "erreur",
+      "fantomes_pass1": [],
+      "fantomes_pass2": [],
+      "nb_mots": {},
+      "nb_sources": 0,
+      "sources": [],
+      "sources_enrichies": [],
+      "article_json": null
+    },
+    {
+      "slug": "le-coucou-un-oiseau-strategique",
+      "statut": "erreur",
+      "fantomes_pass1": [],
+      "fantomes_pass2": [],
+      "nb_mots": {},
+      "nb_sources": 0,
+      "sources": [],
+      "sources_enrichies": [],
+      "article_json": null
+    },
+    {
+      "slug": "demence-senile-alzheimer-differences",
+      "statut": "erreur",
+      "fantomes_pass1": [],
+      "fantomes_pass2": [],
+      "nb_mots": {},
+      "nb_sources": 0,
+      "sources": [],
+      "sources_enrichies": [],
+      "article_json": null
+    },
+    {
+      "slug": "sommeil-et-hypertension-symptomes",
+      "titre": "Sommeil et hypertension : les symptômes à ne pas négliger",
+      "categorie": "societe",
+      "fantomes_pass1": [
+        "cette même enquête"
+      ],
+      "fantomes_pass2": [],
+      "nb_mots": {
+        "faits": 496,
+        "contexte": 176,
+        "nuances": 192,
+        "total": 864
+      },
+      "nb_sources": 4,
+      "sources": [
+        {
+          "institution": "INSV Institut National du Sommeil et de …",
+          "url": "https://institut-sommeil-vigilance.org/tout-savoir-sur-le-sommeil/",
+          "titre": "Tout savoir sur le sommeil"
+        },
+        {
+          "institution": "Inserm",
+          "url": "https://www.inserm.fr/dossier/sommeil/",
+          "titre": "Sommeil · Inserm, La science pour la santé"
+        },
+        {
+          "institution": "Santé publique France",
+          "url": "https://www.santepubliquefrance.fr/sommeil",
+          "titre": "Sommeil"
+        },
+        {
+          "institution": "Ministère de la Santé",
+          "url": "https://sante.gouv.fr/prevention-en-sante/sante-mentale/promotion-et-prevention/article/sommeil-un-determinant-de-sante-essentiel-pour-la-sante-mentale-et-physique",
+          "titre": "Sommeil : un déterminant de santé essentiel pour la santé mentale et physique"
+        }
+      ],
+      "sources_enrichies": [
+        {
+          "url": "https://www.inserm.fr/dossier/sommeil/",
+          "title": "Sommeil · Inserm, La science pour la santé",
+          "snippet_chars": 8000,
+          "snippet_preview": "Modifié le : 08/11/2024 Publié le : 07/08/2017 Temps de lecture : 20 min Les humains passent près d’un tiers de leur vie à dormir et il est parfaitement établi que leur sommeil est crucial pour le bon fonctionnement de nombreuses fonctions biologiques : développement, mémoire et apprentissage, métabolisme, immunité… Mais différents troubles affectent le sommeil d’une proportion importante et croissante de la population. Une situation qui conduit à s’interroger sur les conséquences de ces trouble"
+        },
+        {
+          "url": "https://fr.m.wikipedia.org/wiki/Sommeil",
+          "title": "Sommeil — Wikipédia",
+          "snippet_chars": 8000,
+          "snippet_preview": "Un article de Wikipédia, l'encyclopédie libre. Pour les articles homonymes, voir Sommeil (homonymie) . Un lion et une lionne dormant. Deux hommes endormis sur un banc. Un homme faisant une sieste à l'ombre d'un arbre au Burkina Faso. Le sommeil est un état modifié de la conscience du monde extérieur (sans perte de la réception sensitive), accompagné d'une diminution progressive du tonus musculaire , survenant à intervalles réguliers. L'alternance veille-sommeil correspond à l'un des cycles fonda"
+        },
+        {
+          "url": "https://www.santepubliquefrance.fr/sommeil",
+          "title": "Sommeil | Santé publique France",
+          "snippet_chars": 204,
+          "snippet_preview": "11 déc. 2025 · Le sommeil représente environ un tiers de notre vie. Il joue un rôle déterminant tout au long de la vie en termes de croissance, de maturation cérébrale, de développement de nos capacités …"
+        },
+        {
+          "url": "https://www.doctissimo.fr/psychologie/problemes-psy/sommeil/bienfaits-du-sommeil/manque-de-sommeil-causes-symptomes-consequences-et-traitement-404600.htm",
+          "title": "Manque de sommeil : causes, symptômes et conséquences - Doctissimo",
+          "snippet_chars": 8000,
+          "snippet_preview": "Fatigue, difficultés à se concentrer, irritabilité… C’est un fait, les Français ne dorment pas suffisamment. Ce déficit de sommeil, souvent sous-estimé, impacte notre santé globale, de la mémoire à l’humeur, en passant par la prise de poids. D’après les résultats de l’enquête Opinionway 2025 pour l’INSV/Fondation VINCI Autoroutes, près d’ un quart des personnes interrogées dorment moins de six heures en semaine, ce qui est insuffisant. De plus, 43% des Français déclarent souffrir d’au moins un t"
+        },
+        {
+          "url": "https://institut-sommeil-vigilance.org/tout-savoir-sur-le-sommeil/",
+          "title": "Tout savoir sur le sommeil - INSV Institut National du Sommeil et de …",
+          "snippet_chars": 8000,
+          "snippet_preview": "Tout savoir sur le sommeil - INSV Institut National du Sommeil et de la Vigilance Appuyez sur la croix en haut à droite pour sortir Tout savoir sur le sommeil Tout savoir sur le sommeil Le sommeil est un état dans lequel nous passons environ le tiers de notre vie. Il fait partie des fonctions vitales de l’organisme comme la respiration, la digestion ou l’immunité. Sommaire Comment étudie-t-on le sommeil ? Pour connaître l’état dans lequel se trouve un dormeur il faut réaliser plusieurs examens :"
+        },
+        {
+          "url": "https://sante.gouv.fr/prevention-en-sante/sante-mentale/promotion-et-prevention/article/sommeil-un-determinant-de-sante-essentiel-pour-la-sante-mentale-et-physique",
+          "title": "Sommeil : un déterminant de santé essentiel pour la santé mentale et ...",
+          "snippet_chars": 164,
+          "snippet_preview": "29 juil. 2025 · Le sommeil, un pilier de notre santé Trop souvent négligé, le sommeil est pourtant essentiel à notre équilibre physique, mental, social et cognitif."
+        },
+        {
+          "url": "https://www.passeportsante.net/portail/sommeil",
+          "title": "Sommeil : tout savoir sur le sommeil, comment mieux dormir",
+          "snippet_chars": 1250,
+          "snippet_preview": "Les différents cycles du sommeil Quelle position choisir pour dormir ? 10 chose à éviter avant de dormir Favoriser un bon sommeil Comment favoriser un bon sommeil ? Voici la durée de sommeil idéale après 60 ans selon la science ! Le somnambulisme L'apnée du sommeil La maladie du sommeil La narcolepsie L'insomnie L'hypersomnie La parasomnie La paralysie du sommeil La fatigue chronique Le ronflement Afficher plus La mélatonine : l'hormone du sommeil Quels sont les bienfaits de la sieste ? 3 nouvel"
+        },
+        {
+          "url": "https://www.santemagazine.fr/sante/bien-dormir/cycles-du-sommeil-leger-profond-paradoxal-cest-quoi-1055697",
+          "title": "Cycles du sommeil : tout savoir sur les différentes phases de sommeil ...",
+          "snippet_chars": 8000,
+          "snippet_preview": "Accueil ... Santé Bien dormir © ©skynesher Cycles du sommeil : léger, profond, paradoxal… c'est quoi ? Sommeil léger, profond ou paradoxal... Afin d'optimiser son sommeil, il est judicieux de comprendre comment tout cela fonctionne. Comment s’organise le sommeil ? Quels en sont les différents stades ? Comment optimiser son sommeil pour une meilleure récupération ? Les réponses avec un médecin somnologue. À lire plus tard Contenu supprimé de votre liste de lecture Contenu ajouté à votre liste de "
+        }
+      ],
+      "article_json": {
+        "titre": "Troubles du sommeil : 43 % des Français déclarent en souffrir, selon les données de l'INSV",
+        "slug": "enquete-2025-francais-troubles-sommeil-deficit",
+        "image_keyword": "bedroom interior night",
+        "resume": [
+          "Selon les données publiées par l'INSV, 24 % des Français dorment moins de six heures en semaine, tandis que 43 % de la population interrogée signalent au moins un trouble du sommeil affectant leur quotidien.",
+          "Selon l'INSV, le manque de sommeil est associé à des effets documentés sur la santé physique et mentale, allant des troubles cardiovasculaires aux risques psychiatriques. Le Ministère de la Santé qualifie le sommeil de déterminant de santé essentiel pour la santé mentale et physique."
+        ],
+        "corps": {
+          "faits": "Selon l'INSV (Institut National du Sommeil et de la Vigilance), 43 % des Français déclarent souffrir d'au moins un trouble du sommeil — un chiffre que l'INSV présente comme indicatif sans que la méthodologie complète de recueil soit détaillée dans la page de dossier thématique servant de source. De même, selon l'INSV, 24 % des personnes interrogées dorment moins de six heures par nuit en semaine, seuil en deçà duquel l'Institut documente des effets négatifs sur la santé, bien que ces données précises ne soient pas issues d'une enquête méthodologiquement détaillée dans la source disponible. Selon l'INSV, la durée moyenne de sommeil en semaine atteint 7 heures 04 minutes — chiffre issu du même dossier thématique dont la méthodologie de recueil n'est pas intégralement précisée. Durant les congés, cette durée progresserait à 7 heures 38 minutes, toujours selon l'INSV.\n\nD'après l'Institut National du Sommeil et de la Vigilance, la privation chronique de sommeil entraîne une somnolence diurne excessive, une baisse de la concentration, des troubles de l'humeur ainsi qu'une altération du jugement.\n\nSelon l'Inserm, le sommeil joue un rôle physiologique essentiel et son insuffisance a des conséquences organiques documentées. Les conséquences incluent des troubles cardiovasculaires, une hypertension artérielle, un risque accru d'AVC, de diabète de type 2 et de prise de poids. D'après l'INSV, le manque de sommeil est également associé à une réduction de l'espérance de vie en bonne santé.\n\nD'après l'Institut National du Sommeil et de la Vigilance, la carence en sommeil perturbe la sécrétion hormonale : selon l'INSV, la ghréline, hormone stimulant l'appétit, augmente tandis que la leptine, signal de satiété, diminue. Ce déséquilibre oriente les individus vers des aliments riches en sucres et en graisses. La sécrétion de cortisol, hormone du stress, est également dérégulée, entraînant une vulnérabilité accrue au stress, une augmentation de l'inflammation et un stockage majoré des graisses. Selon l'Inserm, la sensibilité à l'insuline peut également se trouver altérée par un sommeil chroniquement insuffisant, indépendamment des effets déjà associés à la prise de poids.\n\nSelon Santé publique France, le sommeil joue un rôle déterminant tout au long de la vie en termes de croissance, de maturation cérébrale et de développement des capacités cognitives. La production de mélatonine, hormone régulatrice du cycle veille-sommeil, peut être inhibée par une mauvaise hygiène de sommeil. L'hormone de croissance, sécrétée principalement en phase de sommeil profond, est cruciale pour la régénération cellulaire et la réparation des tissus. Selon Santé publique France, une privation prolongée peut également affecter la production des hormones sexuelles — testostérone et œstrogènes.\n\nSur le plan psychiatrique, selon Santé publique France, un mauvais sommeil fragilise l'équilibre psychique et peut favoriser l'apparition de troubles dépressifs. L'insomnie constitue l'un des critères diagnostiques de la dépression. Un état dépressif altère à son tour la qualité du sommeil, créant un enchaînement réciproque documenté : les troubles du sommeil figurent parmi les derniers symptômes à disparaître lors d'une prise en charge dépressive, et parmi les premiers à réapparaître en cas de rechute, selon Santé publique France.",
+          "contexte": "Selon l'Inserm, les humains consacrent environ un tiers de leur vie au sommeil. L'Inserm décrit le sommeil comme structuré en cycles successifs d'environ 90 minutes, composés de phases de sommeil léger, profond et paradoxal, chacune remplissant des fonctions distinctes de récupération neuronale, de consolidation mémorielle et de régulation hormonale.\n\nLe Ministère de la Santé qualifie le sommeil de « déterminant de santé essentiel pour la santé mentale et physique », selon l'intitulé même de sa publication institutionnelle consacrée au sujet.\n\nL'Inserm note que les connaissances scientifiques sur le sommeil ont considérablement progressé ces dernières décennies, notamment concernant le rôle du sommeil profond dans la consolidation mémorielle et la régulation métabolique.\n\nSelon l'Inserm, le sommeil paradoxal joue en particulier un rôle dans le traitement émotionnel et la plasticité synaptique, deux dimensions dont la compréhension a été renouvelée par les avancées de la neuroimagerie. Selon Santé publique France, les enfants et les adolescents constituent des populations pour lesquelles les besoins en sommeil sont particulièrement élevés, le sommeil conditionnant leur développement cérébral et leur équilibre hormonal à long terme.",
+          "nuances": "Plusieurs limites méthodologiques doivent être signalées concernant les données issues de l'INSV. En tant qu'enquête déclarative, elle repose sur la perception subjective des répondants concernant leur durée et qualité de sommeil, sans mesure objective par polysomnographie ou actigraphie. Les biais de mémorisation et de désirabilité sociale peuvent influer sur les réponses.\n\nPar ailleurs, les seuils recommandés font l'objet de débats dans la communauté scientifique. Selon l'Inserm, les besoins en sommeil varient d'un individu à l'autre en fonction de l'âge et du profil personnel. Certains individus dits « petits dormeurs » fonctionnent de manière optimale avec 5 heures 30 à 6 heures par nuit, sans que cela constitue un déficit pathologique. L'application d'un seuil universel comme indicateur de déficit de sommeil reste donc discutée.\n\nDe même, les associations statistiques entre manque de sommeil et pathologies (obésité, diabète, maladies cardiovasculaires) documentées dans la littérature ne permettent pas d'établir systématiquement un lien de causalité direct : d'autres facteurs confondants — alimentation, sédentarité, facteurs socio-économiques — coexistent fréquemment. Enfin, les données françaises ne permettent pas de distinguer les troubles du sommeil primaires des insomnies secondaires à d'autres pathologies, ce qui limite l'interprétation des chiffres de prévalence."
+        },
+        "sources": [
+          {
+            "institution": "INSV Institut National du Sommeil et de …",
+            "titre": "Tout savoir sur le sommeil",
+            "date": "2025",
+            "url": "https://institut-sommeil-vigilance.org/tout-savoir-sur-le-sommeil/"
+          },
+          {
+            "institution": "Inserm",
+            "titre": "Sommeil · Inserm, La science pour la santé",
+            "date": "08/11/2024",
+            "url": "https://www.inserm.fr/dossier/sommeil/"
+          },
+          {
+            "institution": "Santé publique France",
+            "titre": "Sommeil",
+            "date": "11 déc. 2025",
+            "url": "https://www.santepubliquefrance.fr/sommeil"
+          },
+          {
+            "institution": "Ministère de la Santé",
+            "titre": "Sommeil : un déterminant de santé essentiel pour la santé mentale et physique",
+            "date": "29 juil. 2025",
+            "url": "https://sante.gouv.fr/prevention-en-sante/sante-mentale/promotion-et-prevention/article/sommeil-un-determinant-de-sante-essentiel-pour-la-sante-mentale-et-physique"
+          }
+        ],
+        "categorie": "societe",
+        "nb_sources": 4,
+        "positions": {
+          "verifie": false,
+          "label_gauche": "",
+          "label_droite": "",
+          "acteurs": []
+        }
+      },
+      "statut": "a_corriger_manuellement"
+    },
+    {
+      "slug": "congres-international-des-mathematiciens-2026",
+      "statut": "erreur",
+      "fantomes_pass1": [],
+      "fantomes_pass2": [],
+      "nb_mots": {},
+      "nb_sources": 0,
+      "sources": [],
+      "sources_enrichies": [],
+      "article_json": null
+    },
+    {
+      "slug": "deux-planetes-geantes-moins-denses-que-barbe-a-papa",
+      "statut": "erreur",
+      "fantomes_pass1": [],
+      "fantomes_pass2": [],
+      "nb_mots": {},
+      "nb_sources": 0,
+      "sources": [],
+      "sources_enrichies": [],
+      "article_json": null
+    }
+  ]
+}

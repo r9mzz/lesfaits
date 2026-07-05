@@ -1,0 +1,55 @@
+{
+  "titre_rss": "Ebola France premier cas medecin guerison juillet 2026 OMS point situation",
+  "url_rss": "",
+  "source_rss": "Manuel",
+  "score_editorial": 50,
+  "categorie": "societe",
+  "ts": "2026-07-05T12:12:35.734705",
+  "statut": "a_corriger_manuellement",
+  "nb_sources_ddg": 8,
+  "nb_sources_finales": 5,
+  "fantomes": [],
+  "problemes_verif": [],
+  "article_resume": {
+    "titre": "Le premier cas d'Ebola diagnostiqué en France déclaré guéri après hospitalisation",
+    "slug": "premier-cas-ebola-france-guerison-medecin-humanitaire-2026",
+    "nb_sources": 5,
+    "sources": [
+      {
+        "institution": "France 24",
+        "titre": "Virus Ebola : le premier cas identifié en France est \"guéri\"",
+        "date": "4 juillet 2026",
+        "url": "https://www.france24.com/fr/france/20260704-virus-ebola-premier-cas-identifié-france-est-guérison-hôpital-santé-médecin-humanitaire-cas-maladie"
+      },
+      {
+        "institution": "Le Monde",
+        "titre": "Ebola : un premier cas de contamination, un médecin de retour…",
+        "date": "24 juin 2026",
+        "url": "https://www.lemonde.fr/societe/article/2026/06/24/ebola-un-premier-cas-identifie-en-france-chez-un-medecin-de-retour-de-rdc_6710248_3224.html"
+      },
+      {
+        "institution": "Institut Pasteur",
+        "titre": "Ebola : symptômes, traitement, prévention",
+        "date": null,
+        "url": "https://www.pasteur.fr/fr/centre-medical/fiches-maladies/ebola"
+      },
+      {
+        "institution": "Ministère de la Santé",
+        "titre": "Maladie à virus Ebola",
+        "date": "22 mai 2026",
+        "url": "https://sante.gouv.fr/soins-et-maladies/maladies/maladies-vectorielles-et-zoonoses/ebola/article/maladie-a-virus-ebola"
+      },
+      {
+        "institution": "World Health Organization (WHO)",
+        "titre": "Maladie d'Ebola",
+        "date": null,
+        "url": "https://www.who.int/fr/news-room/fact-sheets/detail/ebola-disease"
+      }
+    ],
+    "corps_chars": {
+      "faits": 1867,
+      "contexte": 1835,
+      "nuances": 1727
+    }
+  }
+}

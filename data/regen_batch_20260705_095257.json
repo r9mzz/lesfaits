@@ -1,0 +1,126 @@
+{
+  "date": "20260705_095257",
+  "parametres": {
+    "max_articles": 10,
+    "max_anthropic": 65
+  },
+  "appels": {
+    "generation": 9,
+    "verification": 0,
+    "total": 9
+  },
+  "articles": [
+    {
+      "slug": "emissions-co2-france-recul-2023",
+      "statut": "erreur",
+      "fantomes_pass1": [],
+      "fantomes_pass2": [],
+      "nb_mots": {},
+      "nb_sources": 0,
+      "sources": [],
+      "sources_enrichies": [],
+      "article_json": null
+    },
+    {
+      "slug": "reformes-economiques-allemagne-merz",
+      "statut": "erreur",
+      "fantomes_pass1": [],
+      "fantomes_pass2": [],
+      "nb_mots": {},
+      "nb_sources": 0,
+      "sources": [],
+      "sources_enrichies": [],
+      "article_json": null
+    },
+    {
+      "slug": "france-dette-publique-insoutenable",
+      "statut": "erreur",
+      "fantomes_pass1": [],
+      "fantomes_pass2": [],
+      "nb_mots": {},
+      "nb_sources": 0,
+      "sources": [],
+      "sources_enrichies": [],
+      "article_json": null
+    },
+    {
+      "slug": "tension-ressource-eau-france",
+      "titre": "La ministre de la Transition écologique alerte sur la tension sur la ressource en eau",
+      "categorie": "environnement",
+      "fantomes_pass1": [],
+      "fantomes_pass2": [],
+      "nb_mots": {},
+      "nb_sources": 0,
+      "sources": [],
+      "sources_enrichies": [],
+      "article_json": null,
+      "statut": "rejet_sources"
+    },
+    {
+      "slug": "seisme-venezuela-bilan-humain-economique",
+      "statut": "erreur",
+      "fantomes_pass1": [],
+      "fantomes_pass2": [],
+      "nb_mots": {},
+      "nb_sources": 0,
+      "sources": [],
+      "sources_enrichies": [],
+      "article_json": null
+    },
+    {
+      "slug": "le-coucou-un-oiseau-strategique",
+      "statut": "erreur",
+      "fantomes_pass1": [],
+      "fantomes_pass2": [],
+      "nb_mots": {},
+      "nb_sources": 0,
+      "sources": [],
+      "sources_enrichies": [],
+      "article_json": null
+    },
+    {
+      "slug": "demence-senile-alzheimer-differences",
+      "statut": "erreur",
+      "fantomes_pass1": [],
+      "fantomes_pass2": [],
+      "nb_mots": {},
+      "nb_sources": 0,
+      "sources": [],
+      "sources_enrichies": [],
+      "article_json": null
+    },
+    {
+      "slug": "sommeil-et-hypertension-symptomes",
+      "statut": "erreur",
+      "fantomes_pass1": [],
+      "fantomes_pass2": [],
+      "nb_mots": {},
+      "nb_sources": 0,
+      "sources": [],
+      "sources_enrichies": [],
+      "article_json": null
+    },
+    {
+      "slug": "congres-international-des-mathematiciens-2026",
+      "statut": "erreur",
+      "fantomes_pass1": [],
+      "fantomes_pass2": [],
+      "nb_mots": {},
+      "nb_sources": 0,
+      "sources": [],
+      "sources_enrichies": [],
+      "article_json": null
+    },
+    {
+      "slug": "deux-planetes-geantes-moins-denses-que-barbe-a-papa",
+      "statut": "erreur",
+      "fantomes_pass1": [],
+      "fantomes_pass2": [],
+      "nb_mots": {},
+      "nb_sources": 0,
+      "sources": [],
+      "sources_enrichies": [],
+      "article_json": null
+    }
+  ]
+}
