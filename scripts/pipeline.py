@@ -2039,15 +2039,17 @@ def rebuild_index():
         return chosen
 
     main_art  = articles[0]
-    used      = {main_art["slug"]}
+    used_une  = {main_art["slug"]}
     # Side : 3 articles diversifiés (catégories différentes du main et entre eux)
-    side_arts = _pick_diverse(articles[1:], 3, used)
-    used.update(a["slug"] for a in side_arts)
-    # Grille "Derniers articles" : les 6 plus récents, sans sacrifier la fraîcheur pour la diversité
-    grid_arts = _pick_diverse(articles, 6, used, force_diversity=False)
-    used.update(a["slug"] for a in grid_arts)
-    # Liste "À lire aussi" : 6 articles diversifiés par catégorie
-    list_arts = _pick_diverse(articles, 6, used)
+    side_arts = _pick_diverse(articles[1:], 3, used_une)
+    used_une.update(a["slug"] for a in side_arts)
+    # Grille "Derniers articles" : les 6 plus récents du JSON, hero exclu seulement
+    # (les side_arts peuvent réapparaître en mini-carte — format différent, pas de confusion)
+    used_grid = {main_art["slug"]}
+    grid_arts = _pick_diverse(articles, 6, used_grid, force_diversity=False)
+    used_grid.update(a["slug"] for a in grid_arts)
+    # Liste "À lire aussi" : 6 articles diversifiés, excluant la grille (pas la une)
+    list_arts = _pick_diverse(articles, 6, used_grid)
 
     side_html  = "\n".join(side_card(a) for a in side_arts) if side_arts else ""
     grid_html  = "\n".join(mini_card(a) for a in grid_arts) if grid_arts else ""
