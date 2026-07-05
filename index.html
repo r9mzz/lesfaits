@@ -1,24 +1,24 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="fr" data-theme="">
 <head>
   <meta charset="UTF-8"/>
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cloud.umami.is; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; connect-src 'self' https://cloud.umami.is https://api.web3forms.com; base-uri 'self'; form-action 'self' https://api.web3forms.com; frame-ancestors 'none';"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <meta name="description" content="Les Faits — Journal numérique français rédigé par IA. Juste les faits. Aucun parti pris."/>
-  <meta property="og:title" content="Les Faits — Juste les faits. Aucun parti pris."/>
-  <meta property="og:description" content="Journal numérique français rédigé par IA. Sans publicité. Sans actionnaires."/>
+  <meta name="description" content="Les Faits — Actualité synthétisée par IA, avec sources citées, méthode transparente et corrections publiques."/>
+  <meta property="og:title" content="Les Faits — L'actualité résumée par IA, avec sources citées."/>
+  <meta property="og:description" content="Synthèse d'actualité assistée par IA. Sources citées. Sans publicité. Corrections publiques."/>
   <meta property="og:type" content="website"/>
   <meta property="og:url" content="https://lesfaits.info/"/>
   <meta property="og:image" content="https://lesfaits.info/assets/images/og-default.jpg"/>
   <meta property="og:image:width" content="1200"/>
   <meta property="og:image:height" content="630"/>
   <meta name="twitter:card" content="summary_large_image"/>
-  <meta name="twitter:title" content="Les Faits — Juste les faits. Aucun parti pris."/>
-  <meta name="twitter:description" content="Journal numérique français rédigé par IA. Sans publicité. Sans actionnaires."/>
+  <meta name="twitter:title" content="Les Faits — L'actualité résumée par IA, avec sources citées."/>
+  <meta name="twitter:description" content="Synthèse d'actualité assistée par IA. Sources citées. Sans publicité. Corrections publiques."/>
   <meta name="twitter:image" content="https://lesfaits.info/assets/images/og-default.jpg"/>
   <link rel="canonical" href="https://lesfaits.info/"/>
   <link rel="alternate" type="application/rss+xml" title="Les Faits — RSS" href="/feed.xml"/>
-  <title>Les Faits — Juste les faits. Aucun parti pris.</title>
+  <title>Les Faits — L'actualité résumée par IA, avec sources citées.</title>
   <base href="/"/>
   <link rel="stylesheet" href="src/style.css"/>
   <link rel="icon" type="image/svg+xml" href="/favicon.svg"/>
@@ -28,16 +28,7 @@
   <link rel="shortcut icon" href="/favicon.ico"/>
   <link rel="manifest" href="/manifest.json"/>
   <script>
-(function(){var s=localStorage.getItem('theme'),d=s==='dark'||(s===null&&window.matchMedia('(prefers-color-scheme:dark)').matches);document.documentElement.setAttribute('data-theme',d?'dark':'light');
-  // Header scroll shadow
-  var hdr=document.querySelector('.header');
-  if(hdr) window.addEventListener('scroll',function(){hdr.classList.toggle('scrolled',window.scrollY>40);},{passive:true});
-  // Scroll fade-in cartes catégorie
-  if('IntersectionObserver' in window){
-    var obs=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('is-visible');obs.unobserve(e.target);}});},{threshold:.12,rootMargin:'0px 0px -40px 0px'});
-    document.querySelectorAll('.card3,.list-item,.archive-item').forEach(function(el){el.classList.add('js-reveal');obs.observe(el);});
-  }
-})();
+(function(){var s=localStorage.getItem('theme'),d=s==='dark'||(s===null&&window.matchMedia('(prefers-color-scheme:dark)').matches);document.documentElement.setAttribute('data-theme',d?'dark':'light');})();
 </script>
 </head>
 <body>
@@ -49,6 +40,7 @@
 <a href="categories/tech.html">Tech</a>
 <a href="categories/sante.html">Santé</a>
 <a href="categories/environnement.html">Environnement</a>
+<a href="favoris.html">Favoris</a>
 <a href="archive.html">Tous les articles</a>
 <a href="methode.html" class="nav-cta">Comment on travaille →</a>
 </nav>
@@ -73,6 +65,7 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeMenu();
       <a href="categories/tech.html">Tech</a>
       <a href="categories/sante.html">Santé</a>
       <a href="categories/environnement.html">Environnement</a>
+      <a href="favoris.html">Favoris</a>
       <a href="archive.html">Tous les articles</a>
       <a href="methode.html" class="nav-cta">Comment on travaille →</a>
     </nav>
@@ -82,11 +75,11 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeMenu();
 </header>
 <div class="manifeste">
   <div class="manifeste__inner">
-    <div class="manifeste__headline">100&nbsp;% IA.<br><span>0&nbsp;% parti pris.</span></div>
+    <div class="manifeste__headline">Rédigé par IA.<br><span>Sources citées. Corrections publiques.</span></div>
     <div class="manifeste__pillars">
-      <div class="manifeste__pillar"><div class="manifeste__text"><strong>Rédigé par IA, sans filtre humain</strong><span>Aucun journaliste ne rédige ni n'oriente le contenu. L'IA applique le même protocole pour chaque sujet, sans exception.</span></div></div>
-      <div class="manifeste__pillar"><div class="manifeste__text"><strong>Zéro influence</strong><span>Pas d'actionnaires, pas de publicité, pas de ligne politique. Les faits bruts, leurs sources, leurs contradictions.</span></div></div>
-      <div class="manifeste__pillar"><div class="manifeste__text"><strong>Méthode publique</strong><span>Protocole éditorial ouvert. Minimum 3 sources par article. Corrections publiques et tracées.</span></div></div>
+      <div class="manifeste__pillar"><div class="manifeste__text"><strong>Sources citées</strong><span>Chaque article renvoie vers les sources utilisées afin que le lecteur puisse vérifier par lui-même.</span></div></div>
+      <div class="manifeste__pillar"><div class="manifeste__text"><strong>Sans publicité ni actionnaires</strong><span>Pas de publicité, pas d'actionnaires, pas de ligne politique. Financé uniquement par les lecteurs.</span></div></div>
+      <div class="manifeste__pillar"><div class="manifeste__text"><strong>Méthode transparente</strong><span>Protocole éditorial ouvert. Minimum 3 sources par article. Corrections publiques et tracées.</span></div></div>
     </div>
   </div>
 </div>
@@ -111,7 +104,7 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeMenu();
       <div class="une__side"><a class="une__side-item" href="articles/accident-jean-pierre-raffarin-paris.html" style="display:grid;grid-template-columns:64px 1fr;gap:14px;align-items:center">
           <img src="assets/images/accident-jean-pierre-raffarin-paris.jpg" alt="Accident de Jean-Pierre Raffarin à Paris" loading="lazy" style="width:64px;height:64px;object-fit:cover;border-radius:4px;display:block">
           <div>
-          <span class="cat cat--societe">SOCIETE</span>
+          <span class="cat cat--societe">SOCIÉTÉ</span>
           <h3 class="title-md">Accident de Jean-Pierre Raffarin à Paris</h3>
           <div class="meta"><span class="meta__src">4 sources</span>
           <span class="meta__sep">·</span><span>3 juillet 2026, 18h00</span></div>
@@ -126,13 +119,13 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeMenu();
           <span class="meta__sep">·</span><span>3 juillet 2026, 18h00</span></div>
           </div>
         </a>
-<a class="une__side-item" href="articles/sommeil-et-hypertension-symptomes.html" style="display:grid;grid-template-columns:64px 1fr;gap:14px;align-items:center">
-          <img src="assets/images/sommeil-et-hypertension-symptomes.jpg" alt="Sommeil et hypertension : les symptômes à ne pas négliger" loading="lazy" style="width:64px;height:64px;object-fit:cover;border-radius:4px;display:block">
+<a class="une__side-item" href="articles/fin-jeux-sur-disque-xbox-playstation.html" style="display:grid;grid-template-columns:64px 1fr;gap:14px;align-items:center">
+          <img src="assets/images/fin-jeux-sur-disque-xbox-playstation.jpg" alt="Fin des jeux sur disque pour Xbox et PlayStation" loading="lazy" style="width:64px;height:64px;object-fit:cover;border-radius:4px;display:block">
           <div>
-          <span class="cat cat--sante">SANTE</span>
-          <h3 class="title-md">Sommeil et hypertension : les symptômes à ne pas négliger</h3>
+          <span class="cat cat--tech">TECH</span>
+          <h3 class="title-md">Fin des jeux sur disque pour Xbox et PlayStation</h3>
           <div class="meta"><span class="meta__src">4 sources</span>
-          <span class="meta__sep">·</span><span>1 juillet 2026, 18h00</span></div>
+          <span class="meta__sep">·</span><span>2 juillet 2026, 18h00</span></div>
           </div>
         </a></div>
     </div>
@@ -144,7 +137,7 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeMenu();
     <div class="grid3"><a class="card3" href="articles/exoplanete-proche-terre-conditions-vie.html">
           <img class="card3__img" src="assets/images/exoplanete-proche-terre-conditions-vie.jpg" alt="Découverte d’une exoplanète proche de la Terre avec conditions propices à la vie" loading="lazy">
           <div class="card3__body">
-            <span class="cat cat--societe">SOCIETE</span>
+            <span class="cat cat--societe">SOCIÉTÉ</span>
             <h3 class="title-sm">Découverte d’une exoplanète proche de la Terre avec conditions propices à la vie</h3>
             <div class="meta" style="margin-top:10px">
               <span class="meta__src">4 sources</span>
@@ -152,21 +145,10 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeMenu();
             </div>
           </div>
         </a>
-<a class="card3" href="articles/fin-jeux-sur-disque-xbox-playstation.html">
-          <img class="card3__img" src="assets/images/fin-jeux-sur-disque-xbox-playstation.jpg" alt="Fin des jeux sur disque pour Xbox et PlayStation" loading="lazy">
-          <div class="card3__body">
-            <span class="cat cat--tech">TECH</span>
-            <h3 class="title-sm">Fin des jeux sur disque pour Xbox et PlayStation</h3>
-            <div class="meta" style="margin-top:10px">
-              <span class="meta__src">4 sources</span>
-              <span class="meta__sep">·</span><span>2 juillet 2026, 18h00</span>
-            </div>
-          </div>
-        </a>
 <a class="card3" href="articles/dell-16-nouvelle-generation-perd-350-euros.html">
           <img class="card3__img" src="assets/images/dell-16-nouvelle-generation-perd-350-euros.jpg" alt="Dell 16 nouvelle génération perd 350 euros avec Core Ultra 5" loading="lazy">
           <div class="card3__body">
-            <span class="cat cat--societe">SOCIETE</span>
+            <span class="cat cat--societe">SOCIÉTÉ</span>
             <h3 class="title-sm">Dell 16 nouvelle génération perd 350 euros avec Core Ultra 5</h3>
             <div class="meta" style="margin-top:10px">
               <span class="meta__src">4 sources</span>
@@ -206,38 +188,40 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeMenu();
               <span class="meta__sep">·</span><span>2 juillet 2026, 18h00</span>
             </div>
           </div>
+        </a>
+<a class="card3" href="articles/vatican-sanctionne-schisme-fraternite-saint-pie-x.html">
+          <img class="card3__img" src="assets/images/vatican-sanctionne-schisme-fraternite-saint-pie-x.jpg" alt="Le Vatican sanctionne le schisme de la Fraternité Saint-Pie X" loading="lazy">
+          <div class="card3__body">
+            <span class="cat cat--societe">SOCIÉTÉ</span>
+            <h3 class="title-sm">Le Vatican sanctionne le schisme de la Fraternité Saint-Pie X</h3>
+            <div class="meta" style="margin-top:10px">
+              <span class="meta__src">4 sources</span>
+              <span class="meta__sep">·</span><span>2 juillet 2026, 18h00</span>
+            </div>
+          </div>
         </a></div>
   </div>
 
-  <div class="list-section" style="padding-top:40px"><div class="section__head" style="margin-bottom:16px"><span class="section__title">À LIRE AUSSI</span></div><div class="section__rule"></div><div class="list-grid"><a class="list-item" href="articles/vatican-sanctionne-schisme-fraternite-saint-pie-x.html">
+  <div class="list-section" style="padding-top:40px"><div class="section__head" style="margin-bottom:16px"><span class="section__title">À LIRE AUSSI</span></div><div class="section__rule"></div><div class="list-grid"><a class="list-item" href="articles/reformes-economiques-allemagne-merz.html">
           <span class="list-item__num">01</span>
-          <div><span class="cat cat--societe">SOCIETE</span>
-          <h3 class="title-sm">Le Vatican sanctionne le schisme de la Fraternité Saint-Pie X</h3>
-          <div class="meta" style="margin-top:6px">
-            <span class="meta__src">4 sources</span>
-            <span class="meta__sep">·</span><span>2 juillet 2026, 18h00</span>
-          </div></div>
-        </a>
-<a class="list-item" href="articles/reformes-economiques-allemagne-merz.html">
-          <span class="list-item__num">02</span>
-          <div><span class="cat cat--economie">ECONOMIE</span>
+          <div><span class="cat cat--economie">ÉCONOMIE</span>
           <h3 class="title-sm">Allemagne : le chancelier Friedrich Merz annonce des réformes économiques</h3>
           <div class="meta" style="margin-top:6px">
             <span class="meta__src">4 sources</span>
             <span class="meta__sep">·</span><span>2 juillet 2026, 18h00</span>
           </div></div>
         </a>
-<a class="list-item" href="articles/demence-senile-alzheimer-differences.html">
-          <span class="list-item__num">03</span>
-          <div><span class="cat cat--sante">SANTE</span>
-          <h3 class="title-sm">Démence sénile et Alzheimer, comprendre les différences</h3>
+<a class="list-item" href="articles/transport-aerien-crise-detroit-ormuz.html">
+          <span class="list-item__num">02</span>
+          <div><span class="cat cat--societe">SOCIÉTÉ</span>
+          <h3 class="title-sm">Transport aérien affecté par la crise du détroit d’Ormuz</h3>
           <div class="meta" style="margin-top:6px">
             <span class="meta__src">4 sources</span>
-            <span class="meta__sep">·</span><span>29 juin 2026, 18h00</span>
+            <span class="meta__sep">·</span><span>2 juillet 2026, 18h00</span>
           </div></div>
         </a>
 <a class="list-item" href="articles/marc-bloch-historien-majeur-xxe-siecle.html">
-          <span class="list-item__num">04</span>
+          <span class="list-item__num">03</span>
           <div><span class="cat cat--science">SCIENCE</span>
           <h3 class="title-sm">Marc Bloch, un historien majeur du XXe siècle</h3>
           <div class="meta" style="margin-top:6px">
@@ -245,21 +229,30 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeMenu();
             <span class="meta__sep">·</span><span>2 juillet 2026, 18h00</span>
           </div></div>
         </a>
-<a class="list-item" href="articles/eutrophisation-baie-guanabara-rio.html">
-          <span class="list-item__num">05</span>
-          <div><span class="cat cat--environnement">ENVIRONNEMENT</span>
-          <h3 class="title-sm">Eutrophisation de la baie de Guanabara à Rio de Janeiro</h3>
-          <div class="meta" style="margin-top:6px">
-            <span class="meta__src">3 sources</span>
-            <span class="meta__sep">·</span><span>2 juillet 2026, 18h00</span>
-          </div></div>
-        </a>
 <a class="list-item" href="articles/ver-informatique-ia-attaque-experimentale.html">
-          <span class="list-item__num">06</span>
+          <span class="list-item__num">04</span>
           <div><span class="cat cat--tech">TECH</span>
           <h3 class="title-sm">Première attaque expérimentale d’un ver informatique mû par l’IA</h3>
           <div class="meta" style="margin-top:6px">
             <span class="meta__src">4 sources</span>
+            <span class="meta__sep">·</span><span>2 juillet 2026, 18h00</span>
+          </div></div>
+        </a>
+<a class="list-item" href="articles/sommeil-et-hypertension-symptomes.html">
+          <span class="list-item__num">05</span>
+          <div><span class="cat cat--sante">SANTÉ</span>
+          <h3 class="title-sm">Sommeil et hypertension : les symptômes à ne pas négliger</h3>
+          <div class="meta" style="margin-top:6px">
+            <span class="meta__src">4 sources</span>
+            <span class="meta__sep">·</span><span>1 juillet 2026, 18h00</span>
+          </div></div>
+        </a>
+<a class="list-item" href="articles/danemark-priorite-services-essentiels.html">
+          <span class="list-item__num">06</span>
+          <div><span class="cat cat--environnement">ENVIRONNEMENT</span>
+          <h3 class="title-sm">Danemark priorise services essentiels sur centres de données</h3>
+          <div class="meta" style="margin-top:6px">
+            <span class="meta__src">3 sources</span>
             <span class="meta__sep">·</span><span>2 juillet 2026, 18h00</span>
           </div></div>
         </a></div></div>
@@ -305,22 +298,13 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeMenu();
 (function(){
   var btn=document.getElementById('dark-toggle');
   var dark=document.documentElement.getAttribute('data-theme')==='dark';
-  if(btn) btn.textContent=dark?'☀️':'🌙';
+  if(btn){btn.textContent=dark?'☀️':'🌙';btn.setAttribute('aria-label',dark?'Passer en mode clair':'Passer en mode sombre');}
   if(btn) btn.addEventListener('click',function(){
     var d=document.documentElement.getAttribute('data-theme')==='dark';
     document.documentElement.setAttribute('data-theme',d?'light':'dark');
     localStorage.setItem('theme',d?'light':'dark');
-    btn.textContent=d?'🌙':'☀️';
+    btn.textContent=d?'🌙':'☀️';btn.setAttribute('aria-label',d?'Passer en mode sombre':'Passer en mode clair');
   });
-
-  // Header scroll shadow
-  var hdr=document.querySelector('.header');
-  if(hdr) window.addEventListener('scroll',function(){hdr.classList.toggle('scrolled',window.scrollY>40);},{passive:true});
-  // Scroll fade-in cartes catégorie
-  if('IntersectionObserver' in window){
-    var obs=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('is-visible');obs.unobserve(e.target);}});},{threshold:.12,rootMargin:'0px 0px -40px 0px'});
-    document.querySelectorAll('.card3,.list-item,.archive-item').forEach(function(el){el.classList.add('js-reveal');obs.observe(el);});
-  }
 })();
 </script>
 <script defer src="https://cloud.umami.is/script.js" data-website-id="8d68a78f-97ae-4c95-a955-5d3df758f7e2"></script>

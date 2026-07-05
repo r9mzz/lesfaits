@@ -2146,21 +2146,21 @@ def build_index_html(main, side_html, grid_html, list_html):
   <meta charset="UTF-8"/>
   {CSP_META}
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <meta name="description" content="Les Faits — Journal numérique français rédigé par IA. Juste les faits. Aucun parti pris."/>
-  <meta property="og:title" content="Les Faits — Juste les faits. Aucun parti pris."/>
-  <meta property="og:description" content="Journal numérique français rédigé par IA. Sans publicité. Sans actionnaires."/>
+  <meta name="description" content="Les Faits — Actualité synthétisée par IA, avec sources citées, méthode transparente et corrections publiques."/>
+  <meta property="og:title" content="Les Faits — L'actualité résumée par IA, avec sources citées."/>
+  <meta property="og:description" content="Synthèse d'actualité assistée par IA. Sources citées. Sans publicité. Corrections publiques."/>
   <meta property="og:type" content="website"/>
   <meta property="og:url" content="https://lesfaits.info/"/>
   <meta property="og:image" content="https://lesfaits.info/assets/images/og-default.jpg"/>
   <meta property="og:image:width" content="1200"/>
   <meta property="og:image:height" content="630"/>
   <meta name="twitter:card" content="summary_large_image"/>
-  <meta name="twitter:title" content="Les Faits — Juste les faits. Aucun parti pris."/>
-  <meta name="twitter:description" content="Journal numérique français rédigé par IA. Sans publicité. Sans actionnaires."/>
+  <meta name="twitter:title" content="Les Faits — L'actualité résumée par IA, avec sources citées."/>
+  <meta name="twitter:description" content="Synthèse d'actualité assistée par IA. Sources citées. Sans publicité. Corrections publiques."/>
   <meta name="twitter:image" content="https://lesfaits.info/assets/images/og-default.jpg"/>
   <link rel="canonical" href="https://lesfaits.info/"/>
   <link rel="alternate" type="application/rss+xml" title="Les Faits — RSS" href="/feed.xml"/>
-  <title>Les Faits — Juste les faits. Aucun parti pris.</title>
+  <title>Les Faits — L'actualité résumée par IA, avec sources citées.</title>
   <base href="/"/>
   <link rel="stylesheet" href="src/style.css"/>
   {FAVICON_LINKS}
@@ -2193,11 +2193,11 @@ def build_index_html(main, side_html, grid_html, list_html):
 </header>
 <div class="manifeste">
   <div class="manifeste__inner">
-    <div class="manifeste__headline">100&nbsp;% IA.<br><span>0&nbsp;% parti pris.</span></div>
+    <div class="manifeste__headline">Rédigé par IA.<br><span>Sources citées. Corrections publiques.</span></div>
     <div class="manifeste__pillars">
-      <div class="manifeste__pillar"><div class="manifeste__text"><strong>Rédigé par IA, sans filtre humain</strong><span>Aucun journaliste ne rédige ni n'oriente le contenu. L'IA applique le même protocole pour chaque sujet, sans exception.</span></div></div>
-      <div class="manifeste__pillar"><div class="manifeste__text"><strong>Zéro influence</strong><span>Pas d'actionnaires, pas de publicité, pas de ligne politique. Les faits bruts, leurs sources, leurs contradictions.</span></div></div>
-      <div class="manifeste__pillar"><div class="manifeste__text"><strong>Méthode publique</strong><span>Protocole éditorial ouvert. Minimum 3 sources par article. Corrections publiques et tracées.</span></div></div>
+      <div class="manifeste__pillar"><div class="manifeste__text"><strong>Sources citées</strong><span>Chaque article renvoie vers les sources utilisées afin que le lecteur puisse vérifier par lui-même.</span></div></div>
+      <div class="manifeste__pillar"><div class="manifeste__text"><strong>Sans publicité ni actionnaires</strong><span>Pas de publicité, pas d'actionnaires, pas de ligne politique. Financé uniquement par les lecteurs.</span></div></div>
+      <div class="manifeste__pillar"><div class="manifeste__text"><strong>Méthode transparente</strong><span>Protocole éditorial ouvert. Minimum 3 sources par article. Corrections publiques et tracées.</span></div></div>
     </div>
   </div>
 </div>
@@ -2343,7 +2343,7 @@ def build_feed_xml(articles: list):
 <channel>
   <title>Les Faits</title>
   <link>{base}/</link>
-  <description>Journal numérique français rédigé par IA. Juste les faits. Aucun parti pris.</description>
+  <description>Synthèse d'actualité assistée par IA, avec sources citées et corrections publiques.</description>
   <language>fr</language>
   <lastBuildDate>{now}</lastBuildDate>
   <atom:link href="{base}/feed.xml" rel="self" type="application/rss+xml"/>
@@ -2416,7 +2416,7 @@ def build_category_pages():
   <meta charset="UTF-8"/>
   {CSP_META}
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <meta name="description" content="Les Faits — Rubrique {label}. Juste les faits. Aucun parti pris."/>
+  <meta name="description" content="Les Faits — Rubrique {label}. Actualité synthétisée par IA, avec sources citées et corrections publiques."/>
   <link rel="alternate" type="application/rss+xml" title="Les Faits — RSS" href="/feed.xml"/>
   <title>{label} — Les Faits</title>
   <base href="/"/>
