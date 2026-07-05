@@ -15,7 +15,13 @@ on:
     - cron: "50 15 * 4-10 *"
     # Soir ~18h00 Paris — hiver (CET UTC+1) : novembre–mars
     - cron: "50 16 * 11-12,1-3 *"
-  workflow_dispatch: {}
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: 'Dry-run — affiche les sujets sélectionnés sans générer ni déployer'
+        required: false
+        default: 'false'
+        type: boolean
 
 # Deux déploiements simultanés pourraient pousser des commits concurrents ou
 # des suppressions d'articles incohérentes sur lesfaits-site — en file, pas
@@ -52,19 +58,27 @@ jobs:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
           PYTHONIOENCODING: utf-8
           TZ: Europe/Paris
-        run: python scripts/pipeline.py --rebuild
+        run: |
+          if [ "${{ github.event.inputs.dry_run }}" = "true" ]; then
+            python scripts/pipeline.py --dry-run
+          else
+            python scripts/pipeline.py --rebuild
+          fi
 
       - name: Patcher les articles (à lire aussi + disclaimer + newsletter + back-to-top)
+        if: ${{ github.event.inputs.dry_run != 'true' }}
         env:
           PYTHONIOENCODING: utf-8
         run: python scripts/patch_articles.py
 
       - name: Test non-régression SEO (bloque le déploiement en cas d'échec)
+        if: ${{ github.event.inputs.dry_run != 'true' }}
         env:
           PYTHONIOENCODING: utf-8
         run: python scripts/check_seo.py
 
       - name: Déployer vers lesfaits-site
+        if: ${{ github.event.inputs.dry_run != 'true' }}
         env:
           SITE_DEPLOY_TOKEN: ${{ secrets.SITE_DEPLOY_TOKEN }}
           TZ: Europe/Paris
@@ -121,6 +135,7 @@ jobs:
           git push
 
       - name: Publier les nouveaux articles sur X
+        if: ${{ github.event.inputs.dry_run != 'true' }}
         # Inactif tant que les secrets X_* ne sont pas configurés
         env:
           X_API_KEY:             ${{ secrets.X_API_KEY }}
