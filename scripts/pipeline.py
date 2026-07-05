@@ -700,7 +700,7 @@ RÈGLES ABSOLUES — toute violation = article rejeté :
 5. Aucun adjectif évaluatif sans source (alarmant, historique, sans précédent, incroyable...)
 6. Aucune opinion. Aucun parti pris. Structure : "Selon X, ... / D'après Y, ..."
 7. Titre : 10-15 mots, informatif, factuel — il doit résumer l'essentiel de l'article
-8. Sources : institutions officielles (INSEE, CNRS, INSERM, Eurostat, OMS, gouvernement), journaux de référence, publications peer-reviewed
+8. Sources préférées : institutions officielles (INSEE, CNRS, INSERM, Eurostat, OMS, gouvernement), journaux de référence, publications peer-reviewed — MAIS uniquement si leur URL figure dans SOURCES DISPONIBLES. PIÈGE FRÉQUENT : une fiche institutionnelle générale (fiche maladie OMS, page CNRS, rapport annuel INSEE) couvre uniquement les informations intemporelles qu'elle contient — jamais les données datées ou spécifiques à l'événement du jour, même si cette institution est compétente sur ce sujet. Pour chaque attribution "Selon [Institution]", vérifie que l'information spécifique se trouve dans l'URL listée pour cette institution, pas juste dans une publication générale de cette institution.
 9. Slug en français kebab-case, descriptif, max 65 caractères
 10. positions : si et SEULEMENT SI l'article contient des prises de position explicites et vérifiables de 2 à 4 acteurs RÉELS (déclarations citées, votes enregistrés, communiqués officiels présents dans les sources), renseigne ce bloc avec verifie=true. Sinon, mets verifie=false et laisse acteurs vide []. Ne jamais inventer ou déduire une position — uniquement ce qui est explicitement attesté dans les sources. position = 0 (totalement favorable/consensuel) à 100 (totalement critique/opposé).
 11. Le résumé ('resume') et le corps ('faits') ne doivent JAMAIS contenir de phrases identiques ou quasi identiques (mêmes mots, même structure) : le résumé est une synthèse reformulée, pas un copier-coller déguisé du corps.
@@ -828,6 +828,67 @@ def faits_repetitifs(art: dict) -> list[str]:
         if len(violations) >= 4:
             break
     return violations
+
+
+# ══════════════════════════════════════════════════════════════════════════════
+# DÉTECTION DÉTERMINISTE DE SUJETS À REJETER (avant appel LLM)
+# Critères codés en dur — ne dépendent pas du jugement du modèle.
+# Complémentaires au flag sujet_sensible du fact-checker (belt-and-suspenders).
+# ══════════════════════════════════════════════════════════════════════════════
+
+# Situation sanitaire ou sécuritaire activement en cours
+_SITUATION_ACTIVE_RE = re.compile(
+    r"\b(?:en cours|en isolement|toujours hospitalis|reste hospitalis|"
+    r"encore en soins intensifs|contacts? (?:identifi[ée]s?|suivis?|surveill[ée]s?) non encore test|"
+    r"bilan (?:non encore|pas encore) (?:connu|[ée]tabli|d[ée]finitif)|"
+    r"situation (?:non encore|toujours) (?:r[ée]solu|[ée]tablie?|clos)|"
+    r"enqu[eê]te (?:en cours|ouverte|judiciaire)|information judiciaire|"
+    r"garde [àa] vue|port[ée]e? disparu|personne recherch[ée]|"
+    r"cas suspects? en attente|zone de confinement|cordon sanitaire)\b",
+    re.IGNORECASE,
+)
+
+# Domaine sensible par nature (santé épidémique active, sécurité, judiciaire)
+_DOMAINE_SENSIBLE_RE = re.compile(
+    r"\b(?:ebola|marburg|lassa|h5n1|grippe aviaire|variole|rougeole|"
+    r"m[ée]ningite|choléra|cholera|botulisme|listeria|"
+    r"terrorisme|attentat|prise d.otage|enlèvement|"
+    r"mis en examen|garde [àa] vue|perquisition|mandat d.arr[eê]t)\b",
+    re.IGNORECASE,
+)
+
+# Mineur impliqué
+_MINEUR_RE = re.compile(
+    r"\b(?:mineur|enfant (?:victime|concern|impliqu|d[ée]c[ée]d|bless)|"
+    r"adolescent (?:victim|mis en|concern|d[ée]c[ée]d)|"
+    r"(?:coll[ée]gien|lyc[ée]en|[ée]l[èe]ve)[^.]{0,30}(?:victim|bless|tu[ée]|agress))\b",
+    re.IGNORECASE,
+)
+
+
+def _est_rejete_sensible_deterministe(art: dict) -> tuple[bool, str]:
+    """Détection déterministe (sans LLM) des articles à rejeter définitivement.
+    Retourne (True, raison) si l'article doit être rejeté, (False, '') sinon.
+    Appelé AVANT verifier_article pour éviter des appels API inutiles."""
+    corps = art.get("corps", {}) or {}
+    texte = " ".join([
+        art.get("titre", ""),
+        " ".join(art.get("resume", []) if isinstance(art.get("resume"), list) else []),
+        corps.get("faits", ""), corps.get("contexte", ""), corps.get("nuances", ""),
+    ])
+
+    if _MINEUR_RE.search(texte):
+        return True, "mineur impliqué détecté"
+
+    domaine = _DOMAINE_SENSIBLE_RE.search(texte)
+    actif   = _SITUATION_ACTIVE_RE.search(texte)
+    if domaine and actif:
+        return True, (
+            f"domaine sensible ({domaine.group()!r}) + "
+            f"situation active ({actif.group()!r})"
+        )
+
+    return False, ""
 
 
 _SANTE_SENSIBLE_RE = re.compile(
@@ -2762,13 +2823,8 @@ def generer_article(item: dict, dry_run: bool, published: set, new_pub: set, dat
                            retry_feedback=fantomes)
             fantomes = attributions_fantomes(art)
             if fantomes:
-                from verification import enqueue_moderation
-                enqueue_moderation(art, {"conforme": False, "problemes": [
-                    {"type": "source_inventee", "section": "corps", "phrase_exacte": f,
-                     "explication": "attribution absente de la liste officielle de sources"}
-                    for f in fantomes]}, {})
-                print(f"     [MODÉRATION] Attributions toujours hors sources après relance "
-                      f"({', '.join(fantomes[:3])}…) — NON publié")
+                print(f"     [REJET QUALITÉ] Attributions toujours hors sources après relance "
+                      f"({', '.join(fantomes[:3])}…) — rejet définitif")
                 return False
 
         # ── Garde-fou 3 : résumé qui paraphrase le corps (déterministe, une
@@ -2793,14 +2849,15 @@ def generer_article(item: dict, dry_run: bool, published: set, new_pub: set, dat
             if intra:
                 print(f"     [AVERTISSEMENT] Répétitions intra-article persistantes après relance — publié quand même")
 
-        # ── Garde-fou 2 : sujet sanitaire sensible sans source officielle ──
+        # ── Garde-fou 2a : check déterministe avant appels LLM coûteux ──────
+        rejete, raison_det = _est_rejete_sensible_deterministe(art)
+        if rejete:
+            print(f"     [REJET SENSIBLE] {raison_det} — rejet définitif (déterministe)")
+            return False
+
+        # ── Garde-fou 2b : sujet sanitaire sensible sans source officielle ──
         if sujet_sante_sans_source_officielle(art):
-            from verification import enqueue_moderation
-            enqueue_moderation(art, {"conforme": False, "problemes": [
-                {"type": "sante_sans_source_officielle", "section": "sources",
-                 "explication": "sujet sanitaire sensible (épidémie/vaccin/alerte) sans aucune "
-                                "source institutionnelle de santé (INSERM, OMS, SPF, .gouv.fr…)"}]}, {})
-            print(f"     [MODÉRATION] Sujet santé sensible sans source officielle — NON publié")
+            print(f"     [REJET SENSIBLE] Sujet santé sensible sans source officielle — rejet définitif")
             return False
 
         total_chars = sum(len(art["corps"].get(k, "")) for k in ["faits", "contexte", "nuances"])
@@ -2814,8 +2871,8 @@ def generer_article(item: dict, dry_run: bool, published: set, new_pub: set, dat
 
         # ── Passes 2/3 : fact-check + correction automatique (Anthropic) ──
         art, statut_verif = verifier_article(art)
-        if statut_verif == "a_corriger_manuellement":
-            print(f"     [MODÉRATION] Non conforme après correction — mis en file, PAS publié")
+        if statut_verif in ("rejete_sensible", "rejete_qualite"):
+            # Messages déjà affichés dans verifier_article
             return False
         art["statut_verification"] = statut_verif
 

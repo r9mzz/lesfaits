@@ -8,7 +8,11 @@ Passe 3 : correction (uniquement si non conforme), puis passe 2 rejouée
 Statuts possibles :
   conforme_du_premier_coup  → publié tel quel
   corrige_automatiquement   → publié corrigé (original + rapport journalisés)
-  a_corriger_manuellement   → JAMAIS publié : mis en file data/moderation_queue.json
+  rejete_sensible           → JAMAIS publié, log seul : sujet sensible (épidémie active,
+                              affaire en cours, mineur, citation nominative sensible) ou
+                              problème légal (bloc 5) — rejet définitif, aucune retry
+  rejete_qualite            → JAMAIS publié, log seul : trop de problèmes bloquants après
+                              MAX_TENTATIVES corrections, ou perte de substance détectée
   non_verifie               → ANTHROPIC_API_KEY absent (comportement historique)
   erreur_verification       → l'API a échoué, publié tel quel + journalisé
 
@@ -300,8 +304,8 @@ def enqueue_moderation(art: dict, rapport_initial: dict, rapport_final: dict):
 def verifier_article(art: dict) -> tuple[dict, str]:
     """
     Applique les passes 2 (détection) et 3 (correction) sur un article généré.
-    Retourne (article_final, statut). Si statut == "a_corriger_manuellement",
-    l'article a déjà été mis en file de modération et NE DOIT PAS être publié.
+    Retourne (article_final, statut).
+    rejete_sensible / rejete_qualite → JAMAIS publié, rejet définitif, log seul.
     """
     slug = art.get("slug", "?")
 
@@ -323,10 +327,9 @@ def verifier_article(art: dict) -> tuple[dict, str]:
     # réputationnel à publier seul" ne sont pas la même chose sur ces sujets.
     if rapport.get("sujet_sensible"):
         raison = rapport.get("sujet_sensible_raison", "")
-        print(f"     [MODÉRATION] sujet sensible détecté — relecture humaine obligatoire ({raison})")
-        enqueue_moderation(art, rapport, {})
-        _log(slug, "a_corriger_manuellement", {"sujet_sensible": True, "raison": raison})
-        return art, "a_corriger_manuellement"
+        print(f"     [REJET] sujet sensible détecté — rejet définitif ({raison})")
+        _log(slug, "rejete_sensible", {"sujet_sensible": True, "raison": raison})
+        return art, "rejete_sensible"
 
     if rapport.get("conforme"):
         _log(slug, "conforme_du_premier_coup")
@@ -339,14 +342,12 @@ def verifier_article(art: dict) -> tuple[dict, str]:
     # pas par un patch de texte, ils exigent une décision éditoriale humaine.
     problemes_bloc5 = [p for p in rapport.get("problemes", []) if p.get("bloc") == 5]
     if problemes_bloc5:
-        print(f"     [MODÉRATION] {len(problemes_bloc5)} problème(s) légal(aux) (bloc 5) — "
-              f"jamais de correction automatique, mis en file")
-        enqueue_moderation(art, rapport, {})
-        _log(slug, "a_corriger_manuellement", {
+        print(f"     [REJET] {len(problemes_bloc5)} problème(s) légal(aux) (bloc 5) — rejet définitif")
+        _log(slug, "rejete_sensible", {
             "problemes_initiaux": n_pb,
             "bloc5": [p.get("type") for p in problemes_bloc5],
         })
-        return art, "a_corriger_manuellement"
+        return art, "rejete_sensible"
 
     print(f"     [VERIF] {n_pb} problème(s) détecté(s) — correction automatique…")
 
@@ -361,10 +362,9 @@ def verifier_article(art: dict) -> tuple[dict, str]:
             art_corrige = corriger(art_courant, rapport_courant)
             rapport_final = detecter(art_corrige)
         except Exception as e:
-            print(f"     [VERIF] Erreur API correction (tentative {tentative}) ({e}) — mis en file de modération")
-            enqueue_moderation(art, rapport, {"erreur": str(e)})
-            _log(slug, "a_corriger_manuellement", {"etape": "correction", "tentative": tentative, "erreur": str(e)})
-            return art, "a_corriger_manuellement"
+            print(f"     [REJET QUALITÉ] Erreur API correction (tentative {tentative}) ({e}) — rejet")
+            _log(slug, "rejete_qualite", {"etape": "correction", "tentative": tentative, "erreur": str(e)})
+            return art, "rejete_qualite"
 
         problemes = rapport_final.get("problemes", [])
         bloquants = _problemes_bloquants(problemes)
@@ -374,17 +374,15 @@ def verifier_article(art: dict) -> tuple[dict, str]:
         # le reste — cette règle prime sur tout.
         bloc5_apparus = [p for p in problemes if p.get("bloc") == 5]
         if bloc5_apparus:
-            print(f"     [MODÉRATION] problème légal apparu pendant la correction — mis en file")
-            enqueue_moderation(art_corrige, rapport, rapport_final)
-            _log(slug, "a_corriger_manuellement", {"problemes_initiaux": n_pb, "tentative": tentative, "bloc5": True})
-            return art_corrige, "a_corriger_manuellement"
+            print(f"     [REJET] problème légal apparu pendant la correction — rejet définitif")
+            _log(slug, "rejete_sensible", {"problemes_initiaux": n_pb, "tentative": tentative, "bloc5": True})
+            return art_corrige, "rejete_sensible"
 
         if rapport_final.get("sujet_sensible"):
             raison = rapport_final.get("sujet_sensible_raison", "")
-            print(f"     [MODÉRATION] sujet sensible détecté (tentative {tentative}) — relecture humaine obligatoire ({raison})")
-            enqueue_moderation(art_corrige, rapport, rapport_final)
-            _log(slug, "a_corriger_manuellement", {"tentative": tentative, "sujet_sensible": True, "raison": raison})
-            return art_corrige, "a_corriger_manuellement"
+            print(f"     [REJET] sujet sensible (tentative {tentative}) — rejet définitif ({raison})")
+            _log(slug, "rejete_sensible", {"tentative": tentative, "sujet_sensible": True, "raison": raison})
+            return art_corrige, "rejete_sensible"
 
         # Garde-fou "perte de substance" : la correction a coupé une section
         # au lieu de la réécrire avec un fait neuf (faute de matière dans les
@@ -394,14 +392,13 @@ def verifier_article(art: dict) -> tuple[dict, str]:
         # restant est par ailleurs 100% conforme.
         perte, section_touchee, mots_avant, mots_apres = _perte_substance(art, art_corrige)
         if perte:
-            print(f"     [MODÉRATION] perte de substance détectée (tentative {tentative}) : "
-                  f"section '{section_touchee}' {mots_avant}→{mots_apres} mots — mis en file")
-            enqueue_moderation(art_corrige, rapport, rapport_final)
-            _log(slug, "a_corriger_manuellement", {
+            print(f"     [REJET QUALITÉ] perte de substance (tentative {tentative}) : "
+                  f"section '{section_touchee}' {mots_avant}→{mots_apres} mots")
+            _log(slug, "rejete_qualite", {
                 "tentative": tentative, "perte_substance": True,
                 "section": section_touchee, "mots_avant": mots_avant, "mots_apres": mots_apres,
             })
-            return art_corrige, "a_corriger_manuellement"
+            return art_corrige, "rejete_qualite"
 
         if rapport_final.get("conforme") or not bloquants:
             residuel = len(problemes)
@@ -420,13 +417,13 @@ def verifier_article(art: dict) -> tuple[dict, str]:
               f"dont {len(bloquants)} bloquant(s)")
         art_courant, rapport_courant = art_corrige, rapport_final
 
-    # Toujours des problèmes bloquants (factuel/sourcing/légal) après
-    # MAX_TENTATIVES corrections → jamais publié automatiquement
-    enqueue_moderation(art_courant, rapport, rapport_courant)
-    _log(slug, "a_corriger_manuellement", {
+    # Toujours des problèmes bloquants (factuel/sourcing) après MAX_TENTATIVES
+    bloquants_restants = _problemes_bloquants(rapport_courant.get("problemes", []))
+    print(f"     [REJET QUALITÉ] {len(bloquants_restants)} bloquant(s) après {MAX_TENTATIVES} passes")
+    _log(slug, "rejete_qualite", {
         "problemes_initiaux": n_pb,
         "tentatives": MAX_TENTATIVES,
         "problemes_restants": len(rapport_courant.get("problemes", [])),
-        "bloquants_restants": len(_problemes_bloquants(rapport_courant.get("problemes", []))),
+        "bloquants_restants": len(bloquants_restants),
     })
-    return art_courant, "a_corriger_manuellement"
+    return art_courant, "rejete_qualite"
