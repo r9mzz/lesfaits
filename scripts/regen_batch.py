@@ -50,6 +50,49 @@ EXCLURE = {
 # Utile pour relancer un sous-ensemble (ex. uniquement les HORS_PERIMETRE).
 FORCER_SLUGS: list[str] = []
 
+_ANNEE_COURANTE = str(datetime.now().year)
+
+# Mots vides français à écarter lors de la construction des requêtes DDG
+_STOP_FR = {
+    "les", "des", "une", "dans", "pour", "avec", "sans", "sur", "par",
+    "que", "qui", "est", "aux", "ont", "pas", "mais", "leur", "cette",
+    "tout", "bien", "comme", "aussi", "peut", "meme", "dont", "etre",
+    "sont", "ainsi", "donc", "alors", "quand", "quel", "quelle",
+    "premier", "premiere", "nouveau", "nouvelle", "grand", "grande",
+    "symptomes", "negliger", "signe", "causes", "risques", "comment",
+    "pourquoi", "lance", "place", "entre", "contre", "depuis", "selon",
+    "reste", "moins", "plus", "tres", "vers", "apres", "avant",
+}
+
+
+def _extraire_cles(titre: str) -> list[str]:
+    """Extrait 4-5 termes clés d'un titre (entités nommées > mots communs).
+    Acronymes (≥2 car. tout en maj.) conservés même courts."""
+    mots = re.findall(r"[A-ZÀ-Ÿa-zà-ÿ]+", titre)
+
+    def _garder(m: str) -> bool:
+        if m.isupper() and len(m) >= 2:          # acronyme: CMA, LHC, CERN, ARS
+            return True
+        norm = unicodedata.normalize("NFD", m.lower())
+        norm = "".join(c for c in norm if unicodedata.category(c) != "Mn")
+        return len(m) >= 4 and norm not in _STOP_FR
+
+    cles = [m for m in mots if _garder(m)]
+    entites = [m for m in cles if m[0].isupper() and (m.isupper() or m[1:].islower())]
+    communs = [m for m in cles if m not in entites]
+    top = (entites + communs)[:5]
+    return top if top else [titre[:40]]
+
+
+def _requetes_ddg(titre: str) -> list[str]:
+    """Deux niveaux : termes clés + année → termes clés seuls (fallback)."""
+    cles = _extraire_cles(titre)
+    base = " ".join(cles)
+    return [
+        base + " " + _ANNEE_COURANTE,   # niveau 1 : ciblé + ancré dans le temps
+        base,                            # niveau 2 : fallback sans contrainte d'année
+    ]
+
 # ── Compteur d'appels ────────────────────────────────────────────────────────
 _n_gen   = 0
 _n_verif = 0
@@ -227,10 +270,18 @@ def traiter(row: dict) -> dict:
                     "fantomes_pass1": [], "fantomes_pass2": [],
                     "nb_mots": {}, "nb_sources": 0, "sources": [],
                     "sources_enrichies": [], "article_json": None,
-                    "verif_rapport_initial": None, "verif_rapport_final": None}
+                    "verif_rapport_initial": None, "verif_rapport_final": None,
+                    "contenu_base": "titre_seul"}
 
     # 1. Recherche de sources
-    extra  = pipeline.duckduckgo_search(titre + " " + cat, max_results=8)
+    _req_ddg = _requetes_ddg(titre)
+    extra = pipeline.duckduckgo_search(_req_ddg[0], max_results=8)
+    if len(extra) < 3:
+        extra2 = pipeline.duckduckgo_search(_req_ddg[1], max_results=8)
+        seen_urls = {s["url"] for s in extra}
+        for s in extra2:
+            if s["url"] not in seen_urls:
+                extra.append(s); seen_urls.add(s["url"])
     pubmed = pipeline.pubmed_search(titre, max_results=4)
     seen   = {s["url"] for s in extra}
     for p in pubmed:
@@ -280,11 +331,32 @@ def traiter(row: dict) -> dict:
         fc_lower = fc.lower()
         if sum(1 for w in _mots_titre if w in fc_lower) >= 2:
             content = fc
+            result["contenu_base"] = "scraping"
             print(f"    contenu base : {s['url'][:65]} ({len(fc)} car.)", flush=True)
             break
-    else:
-        if content == titre:
-            print(f"    contenu base : titre seul (aucune source pertinente)", flush=True)
+
+    # Fallback : si aucune source scrapée n'est utilisable, concaténer les snippets DDG.
+    # Condition : TOUTES les sources scrapées ont échoué (content == titre).
+    # Le filtre 2 mots-clés filtre les snippets hors-sujet (ex. DDG garbage).
+    if content == titre:
+        snippets_pertinents = []
+        for s in specific:
+            body = s.get("snippet", "")
+            if len(body) > 50:
+                snippets_pertinents.append(body)
+        if snippets_pertinents:
+            combined = " ".join(snippets_pertinents)
+            combined_lower = combined.lower()
+            if sum(1 for w in _mots_titre if w in combined_lower) >= 2:
+                content = combined
+                result["contenu_base"] = "snippets_ddg"
+                print(f"    contenu base : snippets DDG ({len(snippets_pertinents)} sources,"
+                      f" {len(combined)} car.) [scraping 403/vide]", flush=True)
+            else:
+                print(f"    contenu base : titre seul (snippets DDG hors-sujet —"
+                      f" {len(snippets_pertinents)} snippets, aucun pertinent)", flush=True)
+        else:
+            print(f"    contenu base : titre seul (aucune source ni snippet)", flush=True)
 
     # 4. Génération pass-1
     art = pipeline.generate(content, cat, extra_sources=extra, rss_url=None)
@@ -379,7 +451,7 @@ def sauvegarder(results: list[dict], ts: str):
     with open(csv_path, "w", newline="", encoding="utf-8") as fh:
         w = csv.writer(fh)
         w.writerow(["slug", "statut", "categorie", "nb_mots_total",
-                    "nb_sources", "nb_fantomes_p1", "nb_fantomes_p2"])
+                    "nb_sources", "nb_fantomes_p1", "nb_fantomes_p2", "contenu_base"])
         for r in results:
             w.writerow([
                 r["slug"], r.get("statut", ""), r.get("categorie", ""),
@@ -387,6 +459,7 @@ def sauvegarder(results: list[dict], ts: str):
                 r.get("nb_sources", 0),
                 len(r.get("fantomes_pass1", [])),
                 len(r.get("fantomes_pass2", [])),
+                r.get("contenu_base", ""),
             ])
     print(f"  Rapport CSV  : {csv_path.name}", flush=True)
 
@@ -415,7 +488,8 @@ def main():
             results.append({"slug": row["slug"], "statut": "budget_atteint",
                             "fantomes_pass1": [], "fantomes_pass2": [],
                             "nb_mots": {}, "nb_sources": 0, "sources": [],
-                            "sources_enrichies": [], "article_json": None})
+                            "sources_enrichies": [], "article_json": None,
+                            "contenu_base": None})
             break
         except Exception as e:
             import traceback
@@ -423,7 +497,8 @@ def main():
             results.append({"slug": row["slug"], "statut": "erreur",
                             "fantomes_pass1": [], "fantomes_pass2": [],
                             "nb_mots": {}, "nb_sources": 0, "sources": [],
-                            "sources_enrichies": [], "article_json": None})
+                            "sources_enrichies": [], "article_json": None,
+                            "contenu_base": None})
 
     # Résumé console
     print(f"\n{'='*90}\nRÉSUMÉ\n{'='*90}", flush=True)
