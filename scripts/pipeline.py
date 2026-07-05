@@ -701,7 +701,7 @@ RÈGLES ABSOLUES — toute violation = article rejeté :
 5. Aucun adjectif évaluatif sans source (alarmant, historique, sans précédent, incroyable...)
 6. Aucune opinion. Aucun parti pris. Structure : "Selon X, ... / D'après Y, ..."
 7. Titre : 10-15 mots, informatif, factuel — il doit résumer l'essentiel de l'article
-8. Sources préférées : institutions officielles (INSEE, CNRS, INSERM, Eurostat, OMS, gouvernement), journaux de référence, publications peer-reviewed — MAIS uniquement si leur URL figure dans SOURCES DISPONIBLES. PIÈGE FRÉQUENT : une fiche institutionnelle générale (fiche maladie OMS, page CNRS, rapport annuel INSEE) couvre uniquement les informations intemporelles qu'elle contient — jamais les données datées ou spécifiques à l'événement du jour, même si cette institution est compétente sur ce sujet. Pour chaque attribution "Selon [Institution]", vérifie que l'information spécifique se trouve dans l'URL listée pour cette institution, pas juste dans une publication générale de cette institution.
+8. Sources préférées : institutions officielles (INSEE, CNRS, INSERM, Eurostat, OMS, gouvernement), journaux de référence, publications peer-reviewed — MAIS uniquement si leur URL figure dans SOURCES DISPONIBLES. RÈGLE D'ATTRIBUTION : n'écris "Selon [Institution]" que si le fait attribué figure LITTÉRALEMENT dans l'extrait CONTENU fourni pour cette institution. Ne pas inventer, ne pas extrapoler depuis la mémoire d'entraînement. Si une institution que tu connais n'est pas dans la liste SOURCES DISPONIBLES, ne la cite JAMAIS dans le texte.
 9. Slug en français kebab-case, descriptif, max 65 caractères
 10. positions : si et SEULEMENT SI l'article contient des prises de position explicites et vérifiables de 2 à 4 acteurs RÉELS (déclarations citées, votes enregistrés, communiqués officiels présents dans les sources), renseigne ce bloc avec verifie=true. Sinon, mets verifie=false et laisse acteurs vide []. Ne jamais inventer ou déduire une position — uniquement ce qui est explicitement attesté dans les sources. position = 0 (totalement favorable/consensuel) à 100 (totalement critique/opposé).
 11. Le résumé ('resume') et le corps ('faits') ne doivent JAMAIS contenir de phrases identiques ou quasi identiques (mêmes mots, même structure) : le résumé est une synthèse reformulée, pas un copier-coller déguisé du corps.
@@ -945,29 +945,35 @@ def generate(content: str, category_hint: str, extra_sources: list[dict] | None 
 
     real_urls = {s["url"] for s in real_sources}
 
+    # Construire le bloc sources avec suffisamment de contenu pour que le modèle
+    # puisse attribuer des faits réels sans inventer. 200 chars = un titre, pas
+    # une source citeable. 1500 chars = plusieurs phrases exploitables.
     sources_block = ""
     if real_sources:
-        sources_block = "\n\nSOURCES DISPONIBLES (SEULES SOURCES AUTORISÉES) :\n"
-        for s in real_sources:
-            sources_block += f"- {s['title']} | URL: {s['url']}\n"
-            if s.get("snippet"):
-                sources_block += f"  Extrait: {s['snippet'][:200]}\n"
+        sources_block = "\n\nSOURCES DISPONIBLES — CONTENU RÉEL À CITER :\n"
+        sources_block += "(N'attribue dans le texte QUE des faits présents dans ces extraits.)\n\n"
+        for i, s in enumerate(real_sources, 1):
+            snippet = s.get("snippet") or ""
+            sources_block += f"SOURCE {i} : {s['title']} | URL: {s['url']}\n"
+            if snippet:
+                # 1500 chars ≈ 3-4 paragraphes — suffisant pour citer des faits précis
+                sources_block += f"CONTENU :\n{snippet[:1500]}\n\n"
+            else:
+                sources_block += "(pas de contenu disponible pour cette source)\n\n"
 
     user_msg = (
         f"Catégorie probable : {category_hint}\n\n"
         f"CONTENU SOURCE PRINCIPAL :\n{content[:7000]}"
-        f"{sources_block}\n\n"
-        f"Rédige un article Les Faits complet, dense et sourcé. "
-        f"Corps minimum 700 mots. "
-        f"RÈGLE ABSOLUE SUR LES SOURCES : le champ 'sources' ne doit contenir QUE des entrées "
-        f"dont l'URL figure dans la liste SOURCES DISPONIBLES ci-dessus. "
-        f"N'invente AUCUNE source, AUCUNE URL. Si une institution n'a pas d'URL dans la liste, "
-        f"ne l'inclus pas dans le tableau sources. "
-        f"Le nombre de sources réelles prime sur le minimum — mieux vaut 2 sources réelles que 4 inventées. "
-        f"RÈGLE ABSOLUE SUR LES ATTRIBUTIONS DANS LE TEXTE : chaque « Selon X » ou « D'après X » "
-        f"du corps de l'article doit désigner une institution présente dans SOURCES DISPONIBLES "
-        f"(même nom). N'attribue JAMAIS une information à un média, expert ou institution "
-        f"absent de cette liste. Jamais de « selon les experts » ou « des études montrent »."
+        f"{sources_block}"
+        f"RÈGLES D'ATTRIBUTION STRICTES :\n"
+        f"1. Le champ 'sources' ne doit contenir QUE des entrées dont l'URL figure dans les SOURCES ci-dessus.\n"
+        f"2. Chaque « Selon X » ou « D'après X » du corps DOIT désigner une source listée ci-dessus (nom exact).\n"
+        f"3. N'attribue un fait à une source QUE si ce fait est explicitement présent dans son extrait CONTENU.\n"
+        f"   Si une information n'est dans aucun extrait, présente-la sans attribution ou omets-la.\n"
+        f"4. JAMAIS « selon les experts », « des études montrent », « les scientifiques estiment » sans source précise.\n"
+        f"5. Si les extraits disponibles ne fournissent pas assez de faits précis pour 700 mots sans inventer, "
+        f"réponds uniquement HORS_PERIMETRE.\n"
+        f"Rédige maintenant l'article complet."
     )
 
     if retry_feedback:
