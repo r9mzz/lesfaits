@@ -109,9 +109,57 @@ def _verif_compte(*a, **k):
 
 verification._anthropic_call = _verif_compte
 
-# Neutraliser les écritures de verification.py (pas de publication)
-verification.enqueue_moderation = lambda *a, **k: None
-verification._log = lambda *a, **k: None
+# ── Guard mtime — publication impossible ─────────────────────────────────────
+# On enregistre les mtimes de TOUS les fichiers qui constitueraient une
+# publication au démarrage, et on hard-fail à la fin si l'un d'eux a changé.
+# Garantie structurelle : indépendante des patchs runtime, résiste aux
+# renommages de fonctions dans verification.py.
+
+_ARTICLES_DIR  = ROOT / "articles"
+_ARTICLES_JSON = ROOT / "data" / "articles.json"
+
+def _mtime(p: Path) -> float:
+    try:
+        return p.stat().st_mtime
+    except FileNotFoundError:
+        return 0.0
+
+_MTIME_START = {
+    "articles/":         _mtime(_ARTICLES_DIR),
+    "data/articles.json": _mtime(_ARTICLES_JSON),
+}
+
+def _verifier_garde_publication():
+    """Lève RuntimeError si articles/ ou data/articles.json ont été modifiés."""
+    changed = []
+    for label, mtime_start in _MTIME_START.items():
+        path = _ARTICLES_DIR if label == "articles/" else _ARTICLES_JSON
+        if _mtime(path) != mtime_start:
+            changed.append(label)
+    if changed:
+        raise RuntimeError(
+            f"[GARDE] PUBLICATION DÉTECTÉE — fichiers modifiés : {changed}\n"
+            f"Le script a écrit dans un chemin de publication. ARRÊT IMMÉDIAT."
+        )
+
+# ── Capture des rapports de vérification ─────────────────────────────────────
+# Wrap detecter pour conserver le rapport initial par slug (premier appel),
+# et le rapport final (dernier appel). Permet de persister les problèmes
+# détectés dans le JSON de sortie sans modifier verification.py.
+
+_rapports_initiaux: dict[str, dict] = {}
+_rapports_finaux:   dict[str, dict] = {}
+_detecter_orig = verification.detecter
+
+def _detecter_capture(art: dict, *a, **k):
+    result = _detecter_orig(art, *a, **k)
+    slug = art.get("slug", "?")
+    if slug not in _rapports_initiaux:
+        _rapports_initiaux[slug] = result   # premier appel = détection initiale
+    _rapports_finaux[slug] = result         # dernier appel = état final
+    return result
+
+verification.detecter = _detecter_capture
 
 
 # ── Sélection des slugs ──────────────────────────────────────────────────────
@@ -178,7 +226,8 @@ def traiter(row: dict) -> dict:
     result: dict = {"slug": slug, "titre": titre, "categorie": cat,
                     "fantomes_pass1": [], "fantomes_pass2": [],
                     "nb_mots": {}, "nb_sources": 0, "sources": [],
-                    "sources_enrichies": [], "article_json": None}
+                    "sources_enrichies": [], "article_json": None,
+                    "verif_rapport_initial": None, "verif_rapport_final": None}
 
     # 1. Recherche de sources
     extra  = pipeline.duckduckgo_search(titre + " " + cat, max_results=8)
@@ -277,8 +326,10 @@ def traiter(row: dict) -> dict:
 
     # 7. Vérification fact-checker
     art_final, statut = verification.verifier_article(art)
-    result["statut"]     = statut
+    result["statut"]       = statut
     result["article_json"] = art_final
+    result["verif_rapport_initial"] = _rapports_initiaux.get(slug)
+    result["verif_rapport_final"]   = _rapports_finaux.get(slug)
     _enrich_result(result, art_final)
 
     corps = art_final.get("corps", {}) or {}
@@ -388,6 +439,12 @@ def main():
     print(f"Coût estimé (~0,05 $/appel) : ~{_total()*0.05:.2f} $", flush=True)
 
     sauvegarder(results, ts)
+
+    # ── Guard publication — vérification finale ───────────────────────────────
+    # Hard-fail si articles/ ou data/articles.json ont été modifiés pendant le run.
+    # Ne peut pas être contourné par un renommage de fonction dans verification.py.
+    _verifier_garde_publication()
+    print("\n[GARDE] OK — articles/ et data/articles.json inchangés. Rien publié.", flush=True)
 
 
 if __name__ == "__main__":
