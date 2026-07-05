@@ -1574,6 +1574,10 @@ _ANALYTICS_JS = '<script defer src="https://cloud.umami.is/script.js" data-websi
 # Favicon + manifest — doivent être présents dans TOUS les templates de page
 FAVICON_LINKS = (
     '<link rel="icon" type="image/svg+xml" href="/favicon.svg"/>\n'
+    '  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png"/>\n'
+    '  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"/>\n'
+    '  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"/>\n'
+    '  <link rel="shortcut icon" href="/favicon.ico"/>\n'
     '  <link rel="manifest" href="/manifest.json"/>'
 )
 
@@ -1869,6 +1873,10 @@ function copyLink(){{
   <meta name="twitter:image" content="{f'{BASE_URL}/{hero_src}' if hero_src else f'{BASE_URL}/assets/images/og-default.jpg'}"/>
   <link rel="alternate" type="application/rss+xml" title="Les Faits — RSS" href="/feed.xml"/>
   <link rel="icon" type="image/svg+xml" href="/favicon.svg"/>
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png"/>
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"/>
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"/>
+  <link rel="shortcut icon" href="/favicon.ico"/>
   <link rel="manifest" href="/manifest.json"/>
   <title>{_esc(art['titre'])} — Les Faits</title>
   <script type="application/ld+json">{{"@context":"https://schema.org","@type":"NewsArticle","headline":"{_esc_json(art['titre'])}","description":"{_esc_json(desc_seo)}","datePublished":"{datetime.now().strftime('%Y-%m-%dT%H:%M:%S+02:00')}","dateModified":"{datetime.now().strftime('%Y-%m-%dT%H:%M:%S+02:00')}","articleSection":"{cat}","inLanguage":"fr","isAccessibleForFree":true,"image":{{"@type":"ImageObject","url":"{BASE_URL}/{hero_src}","width":1200,"height":630}},"author":{{"@type":"Organization","name":"Les Faits"}},"publisher":{{"@type":"Organization","name":"Les Faits","@id":"{BASE_URL}/#org","logo":{{"@type":"ImageObject","url":"{BASE_URL}/assets/images/og-default.jpg"}}}},"mainEntityOfPage":{{"@type":"WebPage","@id":"{art_url}"}}}}</script>

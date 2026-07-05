@@ -170,6 +170,7 @@ nav a.active { opacity: 1; color: var(--blue); border-bottom-color: var(--blue);
 .une__main {
   background: var(--white); padding: 32px 36px 28px; cursor: pointer;
   border-radius: var(--radius-card); box-shadow: var(--shadow-card);
+  overflow: hidden;
   transition: box-shadow .3s var(--ease), transform .3s var(--ease);
 }
 .une__main:hover { background: var(--white); box-shadow: var(--shadow-card-hover); transform: translateY(-3px); }
@@ -573,6 +574,9 @@ nav a.active { opacity: 1; color: var(--blue); border-bottom-color: var(--blue);
   .wrap { padding: 0 16px; }
   .une__grid { grid-template-columns: 1fr; }
   .une__main { padding: 20px; }
+  .une__main > img { width: calc(100% + 40px) !important; margin: -20px -20px 16px !important; height: 200px !important; border-radius: 0; }
+  .une__main > .cat { margin-top: 4px; }
+  .une__main > .title-xl { margin-top: 10px; font-size: 22px; }
   .une__side-item { padding: 16px 20px; }
   .grid3 { grid-template-columns: 1fr; }
   .list-grid { grid-template-columns: 1fr; }
