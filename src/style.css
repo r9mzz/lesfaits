@@ -125,6 +125,9 @@ nav a.active { opacity: 1; color: var(--blue); border-bottom-color: var(--blue);
 .manifeste__pillar:first-child { border-left: 2px solid var(--blue); }
 .manifeste__text strong { display: block; font-size: 11px; font-weight: 700; color: var(--ink); margin-bottom: 2px; }
 .manifeste__text span { font-size: 11px; color: var(--muted); line-height: 1.4; }
+[data-theme="dark"] .manifeste { background: color-mix(in srgb, var(--sand) 94%, rgba(108,133,189,1) 6%); border-bottom-color: rgba(108,133,189,.15); }
+[data-theme="dark"] .manifeste__pillar { border-left-color: rgba(108,133,189,.18); }
+[data-theme="dark"] .manifeste__pillar:first-child { border-left-color: rgba(108,133,189,.55); }
 
 /* ── TYPOGRAPHIE COMMUNE ── */
 .cat {

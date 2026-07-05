@@ -2043,9 +2043,9 @@ def rebuild_index():
     # Side : 3 articles diversifiés (catégories différentes du main et entre eux)
     side_arts = _pick_diverse(articles[1:], 3, used_une)
     used_une.update(a["slug"] for a in side_arts)
-    # Grille "Derniers articles" : les 6 plus récents du JSON, hero exclu seulement
-    # (les side_arts peuvent réapparaître en mini-carte — format différent, pas de confusion)
+    # Grille "Derniers articles" : hero + side_arts exclus — corpus vérifié (88+ articles)
     used_grid = {main_art["slug"]}
+    used_grid.update(a["slug"] for a in side_arts)
     grid_arts = _pick_diverse(articles, 6, used_grid, force_diversity=False)
     used_grid.update(a["slug"] for a in grid_arts)
     # Liste "À lire aussi" : 6 articles diversifiés, excluant la grille (pas la une)
