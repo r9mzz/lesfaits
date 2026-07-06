@@ -561,6 +561,7 @@ a:hover .title-xl, a:hover .title-md, a:hover .title-sm { color: var(--blue); }
 .nav-mobile.open { display: flex; }
 .methode__grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
 .methode__stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; }
+.nous-suivre__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
 .nav-mobile a {
   font-size: 15px;
   font-weight: 500;
@@ -615,6 +616,7 @@ a:hover .title-xl, a:hover .title-md, a:hover .title-sm { color: var(--blue); }
   .manifeste__pillar:first-child { border-left: none; border-top: none; border-left: 2px solid var(--blue); padding-left: 14px; }
   .methode__grid { grid-template-columns: 1fr; }
   .methode__stats { grid-template-columns: 1fr; gap: 20px; }
+  .nous-suivre__grid { grid-template-columns: 1fr; }
   .art { padding: 28px 16px 60px; }
   .art__title { font-size: 24px; }
   .art__data-grid { grid-template-columns: 1fr 1fr; }
