@@ -834,6 +834,63 @@ def _norm_attrib(s: str) -> str:
     return re.sub(r"[^a-z0-9 ]", " ", s).strip()
 
 
+def strip_attributions_invalides(art: dict) -> dict:
+    """Supprime déterministiquement les préfixes 'Selon X, ' / 'D'après X, '
+    invalides du texte (X absent des sources vérifiées).
+    Utilisé comme récupération après la relance Groq échouée — l'article
+    est ensuite passé à Anthropic qui juge la qualité finale."""
+    corpus = art.get("corps", {}) or {}
+    norm_sources = [_norm_attrib(s.get("institution", "")) for s in art.get("sources", [])]
+    norm_sources = [ns for ns in norm_sources if ns]
+
+    def _is_valid(target: str) -> bool:
+        tl = target.lower()
+        if any(v in tl for v in _ATTRIB_VAGUE):
+            return False
+        if any(tl.startswith(g) for g in _ATTRIB_GENERIQUE):
+            return True
+        tn = _norm_attrib(target)
+        if not tn:
+            return True
+        mots_t = {w for w in tn.split() if len(w) > 3}
+        tn_ns = tn.replace(" ", "")
+        return any(
+            tn in ns or ns in tn
+            or tn_ns == ns.replace(" ", "")
+            or (mots_t & {w for w in ns.split() if len(w) > 3})
+            for ns in norm_sources
+        )
+
+    def _clean(texte: str) -> str:
+        def sub(m):
+            target = m.group(1).strip()
+            if _is_valid(target):
+                return m.group(0)
+            # Supprimer "Selon X," — ce qui suit le match (espace + mot) reste intact
+            return ""
+        result = _ATTRIB_RE.sub(sub, texte)
+        # Nettoyage : espaces multiples → espace simple, capitalisation après ponctuation
+        result = re.sub(r"  +", " ", result).strip()
+        result = re.sub(r"(?<=\. )([a-zàâéèêëîïôùûçæœ])", lambda m: m.group(1).upper(), result)
+        if result:
+            result = result[0].upper() + result[1:]
+        return result
+
+    art = dict(art)
+    corps = dict(corpus)
+    for field in ("faits", "contexte", "nuances"):
+        if field in corps and corps[field]:
+            corps[field] = _clean(corps[field])
+    # Résumé (liste ou str)
+    resume = art.get("resume")
+    if isinstance(resume, list):
+        art["resume"] = [_clean(r) if isinstance(r, str) else r for r in resume]
+    elif isinstance(resume, str):
+        art["resume"] = _clean(resume)
+    art["corps"] = corps
+    return art
+
+
 def attributions_fantomes(art: dict) -> list[str]:
     """Attributions « Selon X / D'après X » du corps qui ne correspondent à
     aucune source de la liste officielle, + formules vagues interdites."""
@@ -1205,14 +1262,23 @@ def generate(content: str, category_hint: str, extra_sources: list[dict] | None 
 
     noms_autorises = " | ".join(f'"{n}"' for n in source_noms) if source_noms else "(aucune)"
 
+    # Règle d'attribution en TÊTE du message (avant le contenu) pour maximiser
+    # l'attention du modèle sur cette contrainte — puis rappel bref à la fin.
+    attrib_header = (
+        f"⚠ AVANT DE LIRE LE CONTENU — RÈGLE D'ATTRIBUTION ABSOLUE :\n"
+        f"Les seuls noms utilisables dans « Selon X » ou « D'après X » sont : {noms_autorises}.\n"
+        f"INTERDIT : utiliser 'SOURCE 1/2/3', un nom de domaine, un média vu À L'INTÉRIEUR "
+        f"d'un extrait, ou tout média connu par ailleurs mais absent de la liste ci-dessus.\n\n"
+    )
+
     user_msg = (
+        f"{attrib_header}"
         f"Catégorie probable : {category_hint}\n\n"
         f"CONTENU SOURCE PRINCIPAL :\n{content[:7000]}"
         f"{sources_block}"
-        f"RÈGLES D'ATTRIBUTION STRICTES :\n"
+        f"RAPPEL ATTRIBUTION :\n"
         f"1. Le champ 'sources' ne doit contenir QUE des entrées dont l'URL figure dans les SOURCES ci-dessus.\n"
-        f"2. Noms autorisés pour les attributions « Selon X » : {noms_autorises}. "
-        f"   AUCUN autre nom n'est autorisé, même reconnu, même présent dans un extrait CONTENU.\n"
+        f"2. Noms autorisés pour « Selon X » : {noms_autorises}. Aucun autre.\n"
         f"3. N'attribue un fait à une source QUE si ce fait est explicitement présent dans son extrait CONTENU.\n"
         f"   Si une information n'est dans aucun extrait, présente-la sans attribution ou omets-la.\n"
         f"4. JAMAIS « selon les experts », « des études montrent », « les scientifiques estiment » sans source précise.\n"
@@ -3098,9 +3164,18 @@ def generer_article(item: dict, dry_run: bool, published: set, new_pub: set, dat
             nb_garde_retries += 1
             fantomes = attributions_fantomes(art)
             if fantomes:
-                print(f"     [REJET QUALITÉ] Attributions toujours hors sources après relance "
-                      f"({', '.join(fantomes[:3])}…) — rejet définitif")
-                return False
+                # Récupération déterministe : supprimer les attributions invalides
+                # plutôt que rejeter — Anthropic jugera la qualité finale.
+                art_stripped = strip_attributions_invalides(art)
+                fantomes_post_strip = attributions_fantomes(art_stripped)
+                if not fantomes_post_strip:
+                    art = art_stripped
+                    print(f"     [RÉCUPÉRATION] {len(fantomes)} attribution(s) non sourcée(s) "
+                          f"supprimées du texte — passage à Anthropic")
+                else:
+                    print(f"     [REJET QUALITÉ] Attributions toujours hors sources après relance "
+                          f"({', '.join(fantomes[:3])}…) — rejet définitif")
+                    return False
 
         # ── Garde-fou 3 : résumé qui paraphrase le corps (déterministe, une
         # relance ; non bloquant — c'est un défaut de style, pas de conformité) ──
