@@ -1180,17 +1180,30 @@ def generate(content: str, category_hint: str, extra_sources: list[dict] | None 
     # puisse attribuer des faits réels sans inventer. 200 chars = un titre, pas
     # une source citeable. 1500 chars = plusieurs phrases exploitables.
     sources_block = ""
+    # Noms lisibles dérivés des URLs — utilisés dans le prompt ET dans les règles d'attribution
+    source_noms: list[str] = []
     if real_sources:
-        sources_block = "\n\nSOURCES DISPONIBLES — CONTENU RÉEL À CITER :\n"
-        sources_block += "(N'attribue dans le texte QUE des faits présents dans ces extraits.)\n\n"
+        sources_block = "\n\nSOURCES DISPONIBLES — LISTE FERMÉE :\n"
+        sources_block += (
+            "RÈGLE ABSOLUE : pour tout « Selon X » ou « D'après X » dans le texte, "
+            "X doit être EXACTEMENT l'une des valeurs NOM_SOURCE listées ci-dessous. "
+            "Interdit : utiliser 'SOURCE 1', 'SOURCE 2', un nom de domaine, "
+            "un média mentionné À L'INTÉRIEUR d'un extrait, ou tout nom connu par ailleurs.\n\n"
+        )
         for i, s in enumerate(real_sources, 1):
-            snippet = s.get("snippet") or ""
-            sources_block += f"SOURCE {i} : {s['title']} | URL: {s['url']}\n"
+            snippet  = s.get("snippet") or ""
+            nom      = _media_name_from_url(s["url"], s.get("title", "")) or s.get("title", "Source")
+            source_noms.append(nom)
+            sources_block += f"--- SOURCE {i} ---\n"
+            sources_block += f"NOM_SOURCE : {nom}\n"
+            sources_block += f"URL        : {s['url']}\n"
             if snippet:
-                # 1500 chars ≈ 3-4 paragraphes — suffisant pour citer des faits précis
-                sources_block += f"CONTENU :\n{snippet[:1500]}\n\n"
+                sources_block += f"CONTENU    :\n{snippet[:1500]}\n"
             else:
-                sources_block += "(pas de contenu disponible pour cette source)\n\n"
+                sources_block += "CONTENU    : (pas de contenu disponible)\n"
+            sources_block += f"--- FIN SOURCE {i} ({nom}) ---\n\n"
+
+    noms_autorises = " | ".join(f'"{n}"' for n in source_noms) if source_noms else "(aucune)"
 
     user_msg = (
         f"Catégorie probable : {category_hint}\n\n"
@@ -1198,7 +1211,8 @@ def generate(content: str, category_hint: str, extra_sources: list[dict] | None 
         f"{sources_block}"
         f"RÈGLES D'ATTRIBUTION STRICTES :\n"
         f"1. Le champ 'sources' ne doit contenir QUE des entrées dont l'URL figure dans les SOURCES ci-dessus.\n"
-        f"2. Chaque « Selon X » ou « D'après X » du corps DOIT désigner une source listée ci-dessus (nom exact).\n"
+        f"2. Noms autorisés pour les attributions « Selon X » : {noms_autorises}. "
+        f"   AUCUN autre nom n'est autorisé, même reconnu, même présent dans un extrait CONTENU.\n"
         f"3. N'attribue un fait à une source QUE si ce fait est explicitement présent dans son extrait CONTENU.\n"
         f"   Si une information n'est dans aucun extrait, présente-la sans attribution ou omets-la.\n"
         f"4. JAMAIS « selon les experts », « des études montrent », « les scientifiques estiment » sans source précise.\n"
@@ -1211,8 +1225,9 @@ def generate(content: str, category_hint: str, extra_sources: list[dict] | None 
         user_msg += (
             "\n\nCORRECTION OBLIGATOIRE — ta précédente réponse attribuait des informations à des "
             "sources ABSENTES de la liste autorisée : « " + " » ; « ".join(retry_feedback[:8]) + " ». "
-            "Réécris l'article en n'attribuant chaque affirmation QU'AUX sources de la liste "
-            "SOURCES DISPONIBLES (reprends leur nom exact), ou supprime les affirmations concernées."
+            f"Noms autorisés (NOM_SOURCE uniquement) : {noms_autorises}. "
+            "Réécris l'article en n'attribuant chaque affirmation QU'À ces noms exacts, "
+            "ou supprime les affirmations concernées."
         )
 
     if repetition_feedback:
