@@ -265,6 +265,60 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeMenu();
         </a></div></div>
 </div>
 
+<section class="nl-band" id="newsletter" aria-label="S'abonner à la newsletter">
+  <div class="nl-band__inner">
+    <div class="nl-band__text">
+      <div class="nl-band__label">NEWSLETTER</div>
+      <h2 class="nl-band__title">Le résumé du jour dans votre boîte mail</h2>
+      <p class="nl-band__sub">Chaque soir, les articles du jour en un email. Sans pub. Désabonnement en un clic.</p>
+    </div>
+    <div class="nl-band__form-wrap">
+      <form class="nl-form" id="nl-form" novalidate>
+        <div class="nl-form__row">
+          <input type="email" id="nl-email" name="email" class="nl-form__input" placeholder="votre@email.fr" required autocomplete="email" aria-label="Adresse email"/>
+          <button type="submit" class="nl-form__btn">S'abonner</button>
+        </div>
+        <label class="nl-form__consent">
+          <input type="checkbox" id="nl-consent" required/>
+          <span>J'accepte de recevoir le résumé quotidien par email. Désabonnement possible à tout moment. <a href="confidentialite.html">Vie privée</a>.</span>
+        </label>
+        <p class="nl-form__msg" id="nl-msg" role="alert" aria-live="polite"></p>
+      </form>
+    </div>
+  </div>
+</section>
+<script>
+(function(){
+  // Après avoir créé votre formulaire dans Brevo (Contacts > Formulaires d'abonnement),
+  // remplacez cette URL par l'URL de votre formulaire (ex: https://sibforms.com/serve/MUIEA...)
+  var BREVO_FORM_URL = "";
+  var form = document.getElementById("nl-form");
+  var msg  = document.getElementById("nl-msg");
+  if (!form) return;
+  form.addEventListener("submit", function(e) {
+    e.preventDefault();
+    var email   = (document.getElementById("nl-email").value || "").trim();
+    var consent = document.getElementById("nl-consent").checked;
+    msg.className = "nl-form__msg";
+    if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      msg.textContent = "Veuillez saisir une adresse email valide.";
+      msg.className = "nl-form__msg nl-form__msg--err"; return;
+    }
+    if (!consent) {
+      msg.textContent = "Veuillez accepter les conditions pour continuer.";
+      msg.className = "nl-form__msg nl-form__msg--err"; return;
+    }
+    if (!BREVO_FORM_URL) {
+      msg.textContent = "Inscription bientôt disponible — abonnez-vous au flux RSS en attendant.";
+      msg.className = "nl-form__msg nl-form__msg--ok"; return;
+    }
+    window.open(BREVO_FORM_URL + "?EMAIL=" + encodeURIComponent(email), "_blank", "noopener,noreferrer,width=640,height=520");
+    msg.textContent = "Un onglet de confirmation s'est ouvert — vérifiez vos spams si vous ne recevez pas l'email de confirmation.";
+    msg.className = "nl-form__msg nl-form__msg--ok";
+  });
+})();
+</script>
+
 <footer class="footer" role="contentinfo" aria-label="Pied de page">
   <div class="footer__inner">
     <div class="footer__brand">
@@ -285,6 +339,7 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeMenu();
       <a href="corrections.html">Corrections publiques</a>
       <a href="archive.html">Tous les articles</a>
       <a href="feed.xml" class="footer__rss">Flux RSS</a>
+      <a href="#newsletter">Newsletter</a>
     </div>
     <div class="footer__col"><h4>LÉGAL</h4>
       <a href="mentions-legales.html">Mentions légales</a>

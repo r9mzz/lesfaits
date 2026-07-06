@@ -1,0 +1,51 @@
+name: Factuel — Newsletter quotidienne
+
+on:
+  schedule:
+    # Envoi après le dernier déploiement du soir + marge de sécurité (~2h40).
+    # Soir ~20h30 Paris — été (CEST UTC+2) : avril–octobre
+    - cron: "30 18 * 4-10 *"
+    # Soir ~20h30 Paris — hiver (CET UTC+1) : novembre–mars
+    - cron: "30 19 * 11-12,1-3 *"
+  workflow_dispatch:
+    inputs:
+      force:
+        description: "Envoyer même si 0 article (test)"
+        required: false
+        default: "false"
+        type: boolean
+
+concurrency:
+  group: factuel-newsletter
+  cancel-in-progress: false
+
+jobs:
+  newsletter:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: read
+
+    steps:
+      - name: Checkout (repo privé — contient articles + search.json)
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 50   # historique sur ~3 jours pour git log --since
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+
+      - name: Installer les dépendances
+        run: pip install requests
+
+      - name: Générer et envoyer le digest
+        env:
+          BREVO_API_KEY:      ${{ secrets.BREVO_API_KEY }}
+          BREVO_LIST_ID:      ${{ secrets.BREVO_LIST_ID }}
+          BREVO_SENDER_EMAIL: ${{ secrets.BREVO_SENDER_EMAIL }}
+          PYTHONIOENCODING:   utf-8
+          TZ: Europe/Paris
+        run: python scripts/generer_digest.py

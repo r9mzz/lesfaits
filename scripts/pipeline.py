@@ -1969,6 +1969,7 @@ def _build_footer(year: int = None) -> str:
       <a href="corrections.html">Corrections publiques</a>
       <a href="archive.html">Tous les articles</a>
       <a href="feed.xml" class="footer__rss">Flux RSS</a>
+      <a href="index.html#newsletter">Newsletter</a>
     </div>
     <div class="footer__col"><h4>LÉGAL</h4>
       <a href="mentions-legales.html">Mentions légales</a>

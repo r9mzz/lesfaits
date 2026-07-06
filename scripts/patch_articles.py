@@ -133,10 +133,30 @@ for fn in os.listdir("articles"):
         )
         changed = True
 
-    # 5. Supprimer les blocs newsletter
+    # 5. Mettre à jour le bloc newsletter (supprimer l'ancien, réinjecter le nouveau)
     html_before = html
-    html = re.sub(r'<div class="newsletter-block">.*?</div>\s*\n?\s*', '', html, flags=re.DOTALL)
+    html = re.sub(r'<div class="newsletter-block">.*?</div>\s*\n?', '', html, flags=re.DOTALL)
     if html != html_before:
+        changed = True
+
+    # 5b. Injecter le bloc newsletter unifié (avant art__related ou avant </main>)
+    NL_BLOCK = (
+        '<div class="newsletter-block">'
+        '<div>'
+        '<div class="newsletter-block__label">NEWSLETTER</div>'
+        '<div class="newsletter-block__text">'
+        '<strong>Le résumé du jour dans votre boîte mail</strong>'
+        '<span>Chaque soir, les articles du jour en un email. Gratuit. Sans pub.</span>'
+        '</div>'
+        '</div>'
+        '<a class="newsletter-block__btn" href="index.html#newsletter">S\'abonner →</a>'
+        '</div>\n'
+    )
+    if 'newsletter-block' not in html:
+        if '<div class="art__related">' in html:
+            html = html.replace('<div class="art__related">', NL_BLOCK + '<div class="art__related">', 1)
+        else:
+            html = html.replace('</main>', NL_BLOCK + '</main>', 1)
         changed = True
 
     # 6. Back-to-top avant </body>
