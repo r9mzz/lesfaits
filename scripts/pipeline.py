@@ -1997,7 +1997,7 @@ def _build_newsletter_section() -> str:
     fetch(BREVO_API,{{method:"POST",headers:{{"accept":"application/json","content-type":"application/json","api-key":BREVO_KEY}},body:JSON.stringify({{email:email,listIds:[BREVO_LIST],attributes:attrs,updateEnabled:true}})}})
     .then(function(r){{
       if(r.status===201||r.status===200||r.status===204){{msgEl.textContent="Merci ! Un email de confirmation vous a été envoyé — pensez à vérifier vos spams.";msgEl.className="nl-form__msg nl-form__msg--ok";form.reset();}}
-      else if(r.status===400){{return r.json().then(function(d){{if(d&&d.code==="duplicate_parameter"){{msgEl.textContent="Cette adresse est déjà inscrite. Vos préférences ont été mises à jour.";msgEl.className="nl-form__msg nl-form__msg--ok";}}else{{throw new Error(d&&d.message);}}}}))}}
+      else if(r.status===400){{return r.json().then(function(d){{if(d&&d.code==="duplicate_parameter"){{msgEl.textContent="Cette adresse est déjà inscrite. Vos préférences ont été mises à jour.";msgEl.className="nl-form__msg nl-form__msg--ok";}}else{{throw new Error(d&&d.message);}}}})}}
       else{{throw new Error("Erreur "+r.status);}}
     }})
     .catch(function(err){{msgEl.textContent="Une erreur est survenue. Réessayez dans un instant.";msgEl.className="nl-form__msg nl-form__msg--err";console.error("[NL]",err);}})
@@ -2878,6 +2878,7 @@ def build_category_pages():
   </div>
 </main>
 
+{_build_newsletter_section()}
 {_build_footer()}
 {_DARK_MODE_JS}
 {_ANALYTICS_JS}
@@ -3042,6 +3043,7 @@ def build_archive_page():
   </script>
 </main>
 
+{_build_newsletter_section()}
 {_build_footer()}
 {_DARK_MODE_JS}
 {_ANALYTICS_JS}
@@ -3118,6 +3120,7 @@ def build_favoris_page():
   </div>
 </main>
 
+{_build_newsletter_section()}
 {_build_footer()}
 {_DARK_MODE_JS}
 {_ANALYTICS_JS}
