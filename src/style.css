@@ -653,6 +653,15 @@ a.card3,a.une__main,a.une__side-item,a.list-item,a.art__related-card,a.archive-i
 .nl-form__consent span { font-size: 11px; color: rgba(255,255,255,.55); line-height: 1.45; }
 .nl-form__consent a { color: rgba(255,255,255,.75); }
 
+/* Slot matin / soir */
+.nl-form__slot { border: none; padding: 0; margin: 12px 0 0; }
+.nl-form__slot-grid { display: flex; gap: 8px; margin-top: 6px; }
+.nl-slot { cursor: pointer; }
+.nl-slot input[type=radio] { position: absolute; opacity: 0; width: 0; height: 0; }
+.nl-slot__pill { display: inline-block; padding: 5px 14px; border-radius: 20px; font-size: 12px; font-weight: 600; color: rgba(255,255,255,.65); border: 1px solid rgba(255,255,255,.2); transition: all .15s; white-space: nowrap; }
+.nl-slot input:checked ~ .nl-slot__pill { background: rgba(255,255,255,.15); color: #fff; border-color: rgba(255,255,255,.5); }
+.nl-slot:hover .nl-slot__pill { color: #fff; }
+
 /* Bouton & message */
 .nl-form__btn { display: block; width: 100%; margin-top: 12px; padding: 10px 0; background: #3A3835; color: #fff; border: none; border-radius: var(--radius); font-size: 13px; font-weight: 700; font-family: inherit; cursor: pointer; transition: opacity .15s; letter-spacing: .3px; }
 .nl-form__btn:hover:not(:disabled) { opacity: .82; }

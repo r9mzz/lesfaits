@@ -29,6 +29,7 @@ import json
 import subprocess
 import datetime
 import time
+import argparse
 
 import requests
 
@@ -175,7 +176,7 @@ def _section_cat(cat: str, arts: list) -> str:
     return "\n".join(_article_html(a, couleur, label) for a in arts)
 
 
-def generer_template_html(articles_par_cat: dict, date_long: str) -> str:
+def generer_template_html(articles_par_cat: dict, date_long: str, slot: str = "matin") -> str:
     """
     Template Brevo avec blocs conditionnels {% if contact.CAT_X %}.
 
@@ -221,6 +222,15 @@ def generer_template_html(articles_par_cat: dict, date_long: str) -> str:
     nb_arts = sum(len(v) for v in articles_par_cat.values())
     resume  = f"{nb_arts} article{'s' if nb_arts > 1 else ''}"
 
+    salutation  = "Bonjour" if slot == "matin" else "Bonsoir"
+    intro_texte = (
+        "Bonne journée en perspective. Voici ce que l'actualité a retenu ce matin — "
+        "triés selon vos rubriques, résumés avec soin. À lire avec votre café."
+        if slot == "matin" else
+        "L'actualité ne manque pas d'intérêt aujourd'hui. Voici ce que Les Faits a "
+        "retenu pour vous ce soir — selon les rubriques que vous suivez. Bonne lecture."
+    )
+
     return f"""<!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -265,13 +275,11 @@ def generer_template_html(articles_par_cat: dict, date_long: str) -> str:
       <td style="background:#FAF9F6;padding:32px 40px 24px;border-bottom:1px solid #E8E3DB;">
         <p style="font-family:Georgia,'Times New Roman',serif;font-size:16px;color:#3A3835;
                   line-height:1.75;margin:0;">
-          Bonsoir,
+          {salutation},
         </p>
         <p style="font-family:Georgia,'Times New Roman',serif;font-size:15px;color:#4A4744;
                   line-height:1.75;margin:14px 0 0;">
-          L'actualité ne manque pas d'intérêt aujourd'hui. Nous avons sélectionné pour vous
-          les articles qui méritent votre attention, selon les rubriques que vous suivez.
-          Bonne lecture.
+          {intro_texte}
         </p>
       </td>
     </tr>
@@ -374,8 +382,14 @@ def envoyer_email(template_id: int, email: str) -> bool:
 # ── Point d'entrée ─────────────────────────────────────────────────────────────
 
 def main() -> None:
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--slot", choices=["matin", "soir"], default="matin",
+                        help="Créneau d'envoi : matin (ENVOI_MATIN=True) ou soir (ENVOI_MATIN=False)")
+    args = parser.parse_args()
+    slot = args.slot
+
     print("=" * 62)
-    print("  Les Faits — Digest personnalisé")
+    print(f"  Les Faits — Digest {slot.upper()}")
     print("=" * 62)
 
     # Vérification des variables d'environnement
@@ -416,18 +430,25 @@ def main() -> None:
         print("  Aucune rubrique reconnue — envoi annulé.\n" + "=" * 62)
         return
 
-    # 2. Contacts
+    # 2. Contacts filtrés par slot
     print("\n  Chargement des abonnés...")
     contacts = get_contacts()
-    actifs   = [c for c in contacts if c.get("email")]
-    print(f"  Abonnés actifs : {len(actifs)}")
+    # matin → ENVOI_MATIN is True ; soir → ENVOI_MATIN is False ou non défini
+    def veux_ce_slot(c: dict) -> bool:
+        val = c.get("attributes", {}).get("ENVOI_MATIN")
+        if slot == "matin":
+            return val is True
+        else:
+            return val is not True  # False, None, ou absent → soir par défaut
+    actifs = [c for c in contacts if c.get("email") and veux_ce_slot(c)]
+    print(f"  Abonnés slot={slot} : {len(actifs)}")
     if not actifs:
         print("  Liste vide — envoi annulé.\n" + "=" * 62)
         return
 
     # 3. Template HTML
     date_long    = date_longue()
-    html_content = generer_template_html(articles_par_cat, date_long)
+    html_content = generer_template_html(articles_par_cat, date_long, slot)
 
     # 4. Création du template Brevo
     print("\n  Création du template Brevo...")

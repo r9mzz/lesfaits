@@ -2,18 +2,22 @@ name: Factuel — Newsletter quotidienne
 
 on:
   schedule:
-    # Envoi après le déploiement du matin (~07h Paris) + marge de sécurité.
-    # Matin ~08h00 Paris — été (CEST UTC+2) : avril–octobre
+    # Matin ~08h00 Paris — été (CEST UTC+2)
     - cron: "0 6 * 4-10 *"
-    # Matin ~08h00 Paris — hiver (CET UTC+1) : novembre–mars
+    # Matin ~08h00 Paris — hiver (CET UTC+1)
     - cron: "0 7 * 11-12,1-3 *"
+    # Soir ~20h30 Paris — été (CEST UTC+2)
+    - cron: "30 18 * 4-10 *"
+    # Soir ~20h30 Paris — hiver (CET UTC+1)
+    - cron: "30 19 * 11-12,1-3 *"
   workflow_dispatch:
     inputs:
-      force:
-        description: "Envoyer même si 0 article (test)"
+      slot:
+        description: "Créneau : matin ou soir"
         required: false
-        default: "false"
-        type: boolean
+        default: "matin"
+        type: choice
+        options: ["matin", "soir"]
 
 concurrency:
   group: factuel-newsletter
@@ -41,6 +45,19 @@ jobs:
       - name: Installer les dépendances
         run: pip install requests
 
+      - name: Déterminer le slot (matin/soir)
+        id: slot
+        run: |
+          # workflow_dispatch → slot choisi manuellement
+          if [ -n "${{ github.event.inputs.slot }}" ]; then
+            echo "value=${{ github.event.inputs.slot }}" >> $GITHUB_OUTPUT
+          # cron du matin : 06h ou 07h UTC
+          elif [[ "$(date -u +%H)" -lt 12 ]]; then
+            echo "value=matin" >> $GITHUB_OUTPUT
+          else
+            echo "value=soir" >> $GITHUB_OUTPUT
+          fi
+
       - name: Générer et envoyer le digest
         env:
           BREVO_API_KEY:      ${{ secrets.BREVO_API_KEY }}
@@ -48,4 +65,4 @@ jobs:
           BREVO_SENDER_EMAIL: ${{ secrets.BREVO_SENDER_EMAIL }}
           PYTHONIOENCODING:   utf-8
           TZ: Europe/Paris
-        run: python scripts/generer_digest.py
+        run: python scripts/generer_digest.py --slot ${{ steps.slot.outputs.value }}

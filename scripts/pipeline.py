@@ -1929,7 +1929,7 @@ def _build_newsletter_section() -> str:
     <div class="nl-band__text">
       <div class="nl-band__label">NEWSLETTER</div>
       <h2 class="nl-band__title">Le résumé du jour dans votre boîte mail</h2>
-      <p class="nl-band__sub">Choisissez vos rubriques. Chaque soir, les articles du jour — rien que ceux qui vous intéressent. Gratuit, sans pub, désabonnement en un clic.</p>
+      <p class="nl-band__sub">Choisissez vos rubriques et l'heure de réception. Gratuit, sans pub, désabonnement en un clic.</p>
     </div>
     <div class="nl-band__form-wrap">
       <form class="nl-form" id="nl-form" novalidate>
@@ -1947,6 +1947,13 @@ def _build_newsletter_section() -> str:
             <label class="nl-cat nl-cat--environnement"><input type="checkbox" name="CAT_ENVIRONNEMENT" value="1"/><span class="nl-cat__dot"></span><span class="nl-cat__name">Environnement</span></label>
           </div>
           <p class="nl-form__cats-hint">Aucune sélection = toutes les rubriques</p>
+        </fieldset>
+        <fieldset class="nl-form__slot" aria-label="Heure de réception">
+          <legend class="nl-form__cats-legend">Recevoir le</legend>
+          <div class="nl-form__slot-grid">
+            <label class="nl-slot"><input type="radio" name="slot" value="matin" checked/><span class="nl-slot__pill">☀ Matin</span></label>
+            <label class="nl-slot"><input type="radio" name="slot" value="soir"/><span class="nl-slot__pill">🌙 Soir</span></label>
+          </div>
         </fieldset>
         <label class="nl-form__consent">
           <input type="checkbox" id="nl-consent" required aria-required="true"/>
@@ -1976,6 +1983,8 @@ def _build_newsletter_section() -> str:
     ["CAT_SOCIETE","CAT_SCIENCE","CAT_ECONOMIE","CAT_TECH","CAT_SANTE","CAT_ENVIRONNEMENT"].forEach(function(k){{
       var cb=form.querySelector('input[name="'+k+'"]');attrs[k]=cb?cb.checked:false;
     }});
+    var slotRadio=form.querySelector('input[name="slot"]:checked');
+    attrs["ENVOI_MATIN"]=!slotRadio||slotRadio.value==="matin";
     btn.disabled=true;btn.textContent="Envoi en cours…";
     fetch(BREVO_API,{{method:"POST",headers:{{"accept":"application/json","content-type":"application/json","api-key":BREVO_KEY}},body:JSON.stringify({{email:email,listIds:[BREVO_LIST],attributes:attrs,updateEnabled:true}})}})
     .then(function(r){{

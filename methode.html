@@ -209,6 +209,47 @@ function closeMenu(){document.getElementById('burger').classList.remove('open');
 
 </main>
 
+<section class="nl-band" id="newsletter" aria-label="S'abonner à la newsletter">
+  <div class="nl-band__inner">
+    <div class="nl-band__text">
+      <div class="nl-band__label">NEWSLETTER</div>
+      <h2 class="nl-band__title">Le résumé du jour dans votre boîte mail</h2>
+      <p class="nl-band__sub">Choisissez vos rubriques et l'heure de réception. Gratuit, sans pub, désabonnement en un clic.</p>
+    </div>
+    <div class="nl-band__form-wrap">
+      <form class="nl-form" id="nl-form" novalidate>
+        <label class="nl-form__email-label" for="nl-email">Votre adresse email</label>
+        <input type="email" id="nl-email" name="email" class="nl-form__input" placeholder="vous@exemple.fr" required autocomplete="email" aria-required="true"/>
+        <fieldset class="nl-form__cats" aria-label="Rubriques à suivre">
+          <legend class="nl-form__cats-legend">Je veux recevoir</legend>
+          <div class="nl-form__cats-grid">
+            <label class="nl-cat nl-cat--societe"><input type="checkbox" name="CAT_SOCIETE" value="1"/><span class="nl-cat__dot"></span><span class="nl-cat__name">Société</span></label>
+            <label class="nl-cat nl-cat--science"><input type="checkbox" name="CAT_SCIENCE" value="1"/><span class="nl-cat__dot"></span><span class="nl-cat__name">Science</span></label>
+            <label class="nl-cat nl-cat--economie"><input type="checkbox" name="CAT_ECONOMIE" value="1"/><span class="nl-cat__dot"></span><span class="nl-cat__name">Économie</span></label>
+            <label class="nl-cat nl-cat--tech"><input type="checkbox" name="CAT_TECH" value="1"/><span class="nl-cat__dot"></span><span class="nl-cat__name">Tech</span></label>
+            <label class="nl-cat nl-cat--sante"><input type="checkbox" name="CAT_SANTE" value="1"/><span class="nl-cat__dot"></span><span class="nl-cat__name">Santé</span></label>
+            <label class="nl-cat nl-cat--environnement"><input type="checkbox" name="CAT_ENVIRONNEMENT" value="1"/><span class="nl-cat__dot"></span><span class="nl-cat__name">Environnement</span></label>
+          </div>
+          <p class="nl-form__cats-hint">Aucune sélection = toutes les rubriques</p>
+        </fieldset>
+        <fieldset class="nl-form__slot" aria-label="Heure de réception">
+          <legend class="nl-form__cats-legend">Recevoir le</legend>
+          <div class="nl-form__slot-grid">
+            <label class="nl-slot"><input type="radio" name="slot" value="matin" checked/><span class="nl-slot__pill">☀ Matin</span></label>
+            <label class="nl-slot"><input type="radio" name="slot" value="soir"/><span class="nl-slot__pill">🌙 Soir</span></label>
+          </div>
+        </fieldset>
+        <label class="nl-form__consent">
+          <input type="checkbox" id="nl-consent" required aria-required="true"/>
+          <span>J'accepte de recevoir la newsletter et confirme avoir lu la <a href="confidentialite.html">politique de confidentialité</a>. Désabonnement possible à tout moment.</span>
+        </label>
+        <button type="submit" class="nl-form__btn" id="nl-btn">S'abonner gratuitement</button>
+        <p class="nl-form__msg" id="nl-msg" role="alert" aria-live="polite"></p>
+      </form>
+    </div>
+  </div>
+</section>
+
 <footer class="footer" role="contentinfo" aria-label="Pied de page">
   <div class="footer__inner">
     <div class="footer__brand">
