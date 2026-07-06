@@ -70,7 +70,11 @@ jobs:
         env:
           BREVO_CONTACTS_KEY: ${{ secrets.BREVO_CONTACTS_KEY }}
         run: |
-          sed -i "s|__BREVO_CONTACTS_KEY__|${BREVO_CONTACTS_KEY}|g" index.html
+          # Le bloc newsletter est injecté sur plusieurs pages (home, catégories,
+          # archive, favoris, méthode, à-propos) — la clé doit être remplacée partout,
+          # pas seulement sur index.html, sinon le formulaire échoue (401) ailleurs.
+          grep -rl "__BREVO_CONTACTS_KEY__" --include="*.html" . \
+            | xargs -r sed -i "s|__BREVO_CONTACTS_KEY__|${BREVO_CONTACTS_KEY}|g"
 
       - name: Patcher les articles (à lire aussi + disclaimer + newsletter + back-to-top)
         if: ${{ github.event.inputs.dry_run != 'true' }}
@@ -123,6 +127,7 @@ jobs:
           cp    cgu.html              /tmp/site/ 2>/dev/null || true
           cp    contact.html          /tmp/site/ 2>/dev/null || true
           cp    methode.html          /tmp/site/ 2>/dev/null || true
+          cp    a-propos.html         /tmp/site/ 2>/dev/null || true
           cp    corrections.html      /tmp/site/ 2>/dev/null || true
           cp    404.html             /tmp/site/ 2>/dev/null || true
           cp    favoris.html          /tmp/site/ 2>/dev/null || true
