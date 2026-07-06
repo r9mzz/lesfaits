@@ -1237,9 +1237,8 @@ def generate(content: str, category_hint: str, extra_sources: list[dict] | None 
 
     real_urls = {s["url"] for s in real_sources}
 
-    # Construire le bloc sources avec suffisamment de contenu pour que le modèle
-    # puisse attribuer des faits réels sans inventer. 200 chars = un titre, pas
-    # une source citeable. 1500 chars = plusieurs phrases exploitables.
+    # 800 chars ≈ 2-3 paragraphes — assez pour ancrer des faits précis sans
+    # dépasser le budget Groq (1500 chars × 8 sources dépassait 200k tokens/clé).
     sources_block = ""
     # Noms lisibles dérivés des URLs — utilisés dans le prompt ET dans les règles d'attribution
     source_noms: list[str] = []
@@ -1259,7 +1258,7 @@ def generate(content: str, category_hint: str, extra_sources: list[dict] | None 
             sources_block += f"NOM_SOURCE : {nom}\n"
             sources_block += f"URL        : {s['url']}\n"
             if snippet:
-                sources_block += f"CONTENU    :\n{snippet[:1500]}\n"
+                sources_block += f"CONTENU    :\n{snippet[:800]}\n"
             else:
                 sources_block += "CONTENU    : (pas de contenu disponible)\n"
             sources_block += f"--- FIN SOURCE {i} ({nom}) ---\n\n"
