@@ -54,11 +54,17 @@
 <a href="categories/environnement.html">Environnement</a>
 <a href="favoris.html">Favoris</a>
 <a href="archive.html">Tous les articles</a>
-<a href="methode.html" class="nav-cta">Comment on travaille →</a>
+<a href="methode.html">Comment on travaille</a>
+<a href="a-propos.html">À propos &amp; réseaux</a>
+<a href="index.html#newsletter" class="nav-cta">S'abonner à la newsletter</a>
 </nav>
 <script>
 function toggleMenu(){var b=document.getElementById('burger'),m=document.getElementById('nav-mobile'),o=document.getElementById('nav-overlay');b.classList.toggle('open');m.classList.toggle('open');o.classList.toggle('open');}
 function closeMenu(){document.getElementById('burger').classList.remove('open');document.getElementById('nav-mobile').classList.remove('open');document.getElementById('nav-overlay').classList.remove('open');}
+
+document.addEventListener('DOMContentLoaded',function(){document.querySelectorAll('.nav-dropdown__trigger').forEach(function(btn){btn.addEventListener('click',function(e){e.stopPropagation();var dd=btn.closest('.nav-dropdown');var open=dd.classList.toggle('open');btn.setAttribute('aria-expanded',open?'true':'false');});});});
+document.addEventListener('click',function(){document.querySelectorAll('.nav-dropdown.open').forEach(function(dd){dd.classList.remove('open');dd.querySelector('.nav-dropdown__trigger').setAttribute('aria-expanded','false');});});
+document.addEventListener('keydown',function(e){if(e.key==='Escape')document.querySelectorAll('.nav-dropdown.open').forEach(function(dd){dd.classList.remove('open');});});
 document.querySelectorAll('.nav-mobile a').forEach(function(a){a.addEventListener('click',closeMenu);});
 document.addEventListener('keydown',function(e){if(e.key==='Escape')closeMenu();});
 </script>
@@ -70,7 +76,7 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeMenu();
     <div class="header__search">
       <input type="search" class="header__search-input" placeholder="Rechercher…" autocomplete="off" onkeydown="if(event.key==='Enter'&&this.value.trim())window.location=(document.querySelector('base').href)+'recherche.html?q='+encodeURIComponent(this.value.trim())"/>
     </div>
-    <nav>
+    <nav aria-label="Navigation principale">
       <a href="categories/societe.html">Société</a>
       <a href="categories/science.html">Science</a>
       <a href="categories/economie.html">Économie</a>
@@ -78,9 +84,16 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeMenu();
       <a href="categories/sante.html">Santé</a>
       <a href="categories/environnement.html">Environnement</a>
       <a href="favoris.html">Favoris</a>
-<a href="archive.html">Tous les articles</a>
-      <a href="methode.html" class="nav-cta">Comment on travaille →</a>
+      <a href="archive.html">Tous les articles</a>
+      <div class="nav-dropdown">
+        <button class="nav-dropdown__trigger" type="button" aria-haspopup="true" aria-expanded="false">À propos ▾</button>
+        <div class="nav-dropdown__menu" role="menu">
+          <a href="methode.html" role="menuitem">Comment on travaille</a>
+          <a href="a-propos.html" role="menuitem">À propos &amp; réseaux</a>
+        </div>
+      </div>
     </nav>
+    <a href="index.html#newsletter" class="nav-cta">Newsletter</a>
     <button class="dark-toggle" id="dark-toggle" aria-label="Mode sombre" title="Mode sombre">🌙</button>
     <button class="burger" id="burger" aria-label="Menu" onclick="toggleMenu()"><span></span><span></span><span></span></button>
   </div>

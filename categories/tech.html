@@ -22,7 +22,6 @@
 <body>
 <div class="nav-overlay" id="nav-overlay" onclick="closeMenu()"></div>
 <nav class="nav-mobile" id="nav-mobile">
-<div class="nav-mobile__search"><input type="search" class="header__search-input" aria-label="Rechercher un article" placeholder="Rechercher…" autocomplete="off" onkeydown="if(event.key==='Enter'&&this.value.trim())window.location=(document.querySelector('base').href)+'recherche.html?q='+encodeURIComponent(this.value.trim())"/></div>
 <a href="categories/societe.html">Société</a>
 <a href="categories/science.html">Science</a>
 <a href="categories/economie.html">Économie</a>
@@ -31,13 +30,18 @@
 <a href="categories/environnement.html">Environnement</a>
 <a href="favoris.html">Favoris</a>
 <a href="archive.html">Tous les articles</a>
-<a href="methode.html" class="nav-cta">Comment on travaille →</a>
+<a href="methode.html">Comment on travaille</a>
+<a href="a-propos.html">À propos &amp; réseaux</a>
+<a href="index.html#newsletter" class="nav-cta">S'abonner à la newsletter</a>
 </nav>
 <script>
 function toggleMenu(){var b=document.getElementById('burger'),m=document.getElementById('nav-mobile'),o=document.getElementById('nav-overlay');b.classList.toggle('open');m.classList.toggle('open');o.classList.toggle('open');}
 function closeMenu(){document.getElementById('burger').classList.remove('open');document.getElementById('nav-mobile').classList.remove('open');document.getElementById('nav-overlay').classList.remove('open');}
 document.querySelectorAll('.nav-mobile a').forEach(function(a){a.addEventListener('click',closeMenu);});
 document.addEventListener('keydown',function(e){if(e.key==='Escape')closeMenu();});
+document.addEventListener('DOMContentLoaded',function(){document.querySelectorAll('.nav-dropdown__trigger').forEach(function(btn){btn.addEventListener('click',function(e){e.stopPropagation();var dd=btn.closest('.nav-dropdown');var open=dd.classList.toggle('open');btn.setAttribute('aria-expanded',open?'true':'false');});});});
+document.addEventListener('click',function(){document.querySelectorAll('.nav-dropdown.open').forEach(function(dd){dd.classList.remove('open');dd.querySelector('.nav-dropdown__trigger').setAttribute('aria-expanded','false');});});
+document.addEventListener('keydown',function(e){if(e.key==='Escape')document.querySelectorAll('.nav-dropdown.open').forEach(function(dd){dd.classList.remove('open');});});
 </script>
 <header class="header">
   <div class="header__inner">
@@ -47,7 +51,7 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeMenu();
     <div class="header__search">
       <input type="search" class="header__search-input" placeholder="Rechercher…" autocomplete="off" onkeydown="if(event.key==='Enter'&&this.value.trim())window.location=(document.querySelector('base').href)+'recherche.html?q='+encodeURIComponent(this.value.trim())"/>
     </div>
-    <nav>
+    <nav aria-label="Navigation principale">
       <a href="categories/societe.html">Société</a>
       <a href="categories/science.html">Science</a>
       <a href="categories/economie.html">Économie</a>
@@ -56,8 +60,15 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeMenu();
       <a href="categories/environnement.html">Environnement</a>
       <a href="favoris.html">Favoris</a>
       <a href="archive.html">Tous les articles</a>
-      <a href="methode.html" class="nav-cta">Comment on travaille →</a>
+      <div class="nav-dropdown">
+        <button class="nav-dropdown__trigger" type="button" aria-haspopup="true" aria-expanded="false">À propos ▾</button>
+        <div class="nav-dropdown__menu" role="menu">
+          <a href="methode.html" role="menuitem">Comment on travaille</a>
+          <a href="a-propos.html" role="menuitem">À propos &amp; réseaux</a>
+        </div>
+      </div>
     </nav>
+    <a href="index.html#newsletter" class="nav-cta">Newsletter</a>
     <button class="dark-toggle" id="dark-toggle" aria-label="Mode sombre" title="Mode sombre">🌙</button>
     <button class="burger" id="burger" aria-label="Menu" onclick="toggleMenu()"><span></span><span></span><span></span></button>
   </div>
@@ -225,6 +236,79 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeMenu();
   </div>
 </main>
 
+<section class="nl-band" id="newsletter" aria-label="S'abonner à la newsletter">
+  <div class="nl-band__inner">
+    <div class="nl-band__text">
+      <div class="nl-band__label">NEWSLETTER</div>
+      <h2 class="nl-band__title">Le résumé du jour dans votre boîte mail</h2>
+      <p class="nl-band__sub">Choisissez vos rubriques et l'heure de réception. Gratuit, sans pub, désabonnement en un clic.</p>
+    </div>
+    <div class="nl-band__form-wrap">
+      <form class="nl-form" id="nl-form" novalidate>
+        <label class="nl-form__email-label" for="nl-email">Votre adresse email</label>
+        <input type="email" id="nl-email" name="email" class="nl-form__input"
+               placeholder="vous@exemple.fr" required autocomplete="email" aria-required="true"/>
+        <fieldset class="nl-form__cats" aria-label="Rubriques à suivre">
+          <legend class="nl-form__cats-legend">Je veux recevoir</legend>
+          <div class="nl-form__cats-grid">
+            <label class="nl-cat nl-cat--societe"><input type="checkbox" name="CAT_SOCIETE" value="1"/><span class="nl-cat__dot"></span><span class="nl-cat__name">Société</span></label>
+            <label class="nl-cat nl-cat--science"><input type="checkbox" name="CAT_SCIENCE" value="1"/><span class="nl-cat__dot"></span><span class="nl-cat__name">Science</span></label>
+            <label class="nl-cat nl-cat--economie"><input type="checkbox" name="CAT_ECONOMIE" value="1"/><span class="nl-cat__dot"></span><span class="nl-cat__name">Économie</span></label>
+            <label class="nl-cat nl-cat--tech"><input type="checkbox" name="CAT_TECH" value="1"/><span class="nl-cat__dot"></span><span class="nl-cat__name">Tech</span></label>
+            <label class="nl-cat nl-cat--sante"><input type="checkbox" name="CAT_SANTE" value="1"/><span class="nl-cat__dot"></span><span class="nl-cat__name">Santé</span></label>
+            <label class="nl-cat nl-cat--environnement"><input type="checkbox" name="CAT_ENVIRONNEMENT" value="1"/><span class="nl-cat__dot"></span><span class="nl-cat__name">Environnement</span></label>
+          </div>
+          <p class="nl-form__cats-hint">Aucune sélection = toutes les rubriques</p>
+        </fieldset>
+        <fieldset class="nl-form__slot" aria-label="Heure de réception">
+          <legend class="nl-form__cats-legend">Recevoir le</legend>
+          <div class="nl-form__slot-grid">
+            <label class="nl-slot"><input type="radio" name="slot" value="matin" checked/><span class="nl-slot__pill">☀ Matin</span></label>
+            <label class="nl-slot"><input type="radio" name="slot" value="soir"/><span class="nl-slot__pill">🌙 Soir</span></label>
+          </div>
+        </fieldset>
+        <label class="nl-form__consent">
+          <input type="checkbox" id="nl-consent" required aria-required="true"/>
+          <span>J'accepte de recevoir la newsletter et confirme avoir lu la <a href="confidentialite.html">politique de confidentialité</a>. Désabonnement possible à tout moment.</span>
+        </label>
+        <button type="submit" class="nl-form__btn" id="nl-btn">S'abonner gratuitement</button>
+        <p class="nl-form__msg" id="nl-msg" role="alert" aria-live="polite"></p>
+      </form>
+    </div>
+  </div>
+</section>
+<script>
+(function(){
+  var BREVO_KEY  = "__BREVO_CONTACTS_KEY__";
+  var BREVO_LIST = 3;
+  var BREVO_API  = "https://api.brevo.com/v3/contacts";
+  var form=document.getElementById("nl-form"),msgEl=document.getElementById("nl-msg"),btn=document.getElementById("nl-btn");
+  if(!form)return;
+  form.addEventListener("submit",function(e){
+    e.preventDefault();
+    msgEl.className="nl-form__msg";msgEl.textContent="";
+    var email=(document.getElementById("nl-email").value||"").trim();
+    var consent=document.getElementById("nl-consent").checked;
+    if(!email||!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){msgEl.textContent="Veuillez saisir une adresse email valide.";msgEl.className="nl-form__msg nl-form__msg--err";return;}
+    if(!consent){msgEl.textContent="Veuillez accepter les conditions pour continuer.";msgEl.className="nl-form__msg nl-form__msg--err";return;}
+    var attrs={};
+    ["CAT_SOCIETE","CAT_SCIENCE","CAT_ECONOMIE","CAT_TECH","CAT_SANTE","CAT_ENVIRONNEMENT"].forEach(function(k){
+      var cb=form.querySelector('input[name="'+k+'"]');attrs[k]=cb?cb.checked:false;
+    });
+    var slotRadio=form.querySelector('input[name="slot"]:checked');
+    attrs["ENVOI_MATIN"]=!slotRadio||slotRadio.value==="matin";
+    btn.disabled=true;btn.textContent="Envoi en cours…";
+    fetch(BREVO_API,{method:"POST",headers:{"accept":"application/json","content-type":"application/json","api-key":BREVO_KEY},body:JSON.stringify({email:email,listIds:[BREVO_LIST],attributes:attrs,updateEnabled:true})})
+    .then(function(r){
+      if(r.status===201||r.status===200||r.status===204){msgEl.textContent="Merci ! Un email de confirmation vous a été envoyé — pensez à vérifier vos spams.";msgEl.className="nl-form__msg nl-form__msg--ok";form.reset();}
+      else if(r.status===400){return r.json().then(function(d){if(d&&d.code==="duplicate_parameter"){msgEl.textContent="Cette adresse est déjà inscrite. Vos préférences ont été mises à jour.";msgEl.className="nl-form__msg nl-form__msg--ok";}else{throw new Error(d&&d.message);}})}
+      else{throw new Error("Erreur "+r.status);}
+    })
+    .catch(function(err){msgEl.textContent="Une erreur est survenue. Réessayez dans un instant.";msgEl.className="nl-form__msg nl-form__msg--err";console.error("[NL]",err);})
+    .finally(function(){btn.disabled=false;btn.textContent="S'abonner gratuitement";});
+  });
+})();
+</script>
 <footer class="footer" role="contentinfo" aria-label="Pied de page">
   <div class="footer__inner">
     <div class="footer__brand">
@@ -242,6 +326,7 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeMenu();
     </div>
     <div class="footer__col"><h4>JOURNAL</h4>
       <a href="methode.html">Comment on travaille</a>
+      <a href="a-propos.html">À propos &amp; réseaux</a>
       <a href="corrections.html">Corrections publiques</a>
       <a href="archive.html">Tous les articles</a>
       <a href="feed.xml" class="footer__rss">Flux RSS</a>

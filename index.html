@@ -34,7 +34,6 @@
 <body>
 <div class="nav-overlay" id="nav-overlay" onclick="closeMenu()"></div>
 <nav class="nav-mobile" id="nav-mobile">
-<div class="nav-mobile__search"><input type="search" class="header__search-input" aria-label="Rechercher un article" placeholder="Rechercher…" autocomplete="off" onkeydown="if(event.key==='Enter'&&this.value.trim())window.location=(document.querySelector('base').href)+'recherche.html?q='+encodeURIComponent(this.value.trim())"/></div>
 <a href="categories/societe.html">Société</a>
 <a href="categories/science.html">Science</a>
 <a href="categories/economie.html">Économie</a>
@@ -43,13 +42,18 @@
 <a href="categories/environnement.html">Environnement</a>
 <a href="favoris.html">Favoris</a>
 <a href="archive.html">Tous les articles</a>
-<a href="methode.html" class="nav-cta">Comment on travaille →</a>
+<a href="methode.html">Comment on travaille</a>
+<a href="a-propos.html">À propos &amp; réseaux</a>
+<a href="index.html#newsletter" class="nav-cta">S'abonner à la newsletter</a>
 </nav>
 <script>
 function toggleMenu(){var b=document.getElementById('burger'),m=document.getElementById('nav-mobile'),o=document.getElementById('nav-overlay');b.classList.toggle('open');m.classList.toggle('open');o.classList.toggle('open');}
 function closeMenu(){document.getElementById('burger').classList.remove('open');document.getElementById('nav-mobile').classList.remove('open');document.getElementById('nav-overlay').classList.remove('open');}
 document.querySelectorAll('.nav-mobile a').forEach(function(a){a.addEventListener('click',closeMenu);});
 document.addEventListener('keydown',function(e){if(e.key==='Escape')closeMenu();});
+document.addEventListener('DOMContentLoaded',function(){document.querySelectorAll('.nav-dropdown__trigger').forEach(function(btn){btn.addEventListener('click',function(e){e.stopPropagation();var dd=btn.closest('.nav-dropdown');var open=dd.classList.toggle('open');btn.setAttribute('aria-expanded',open?'true':'false');});});});
+document.addEventListener('click',function(){document.querySelectorAll('.nav-dropdown.open').forEach(function(dd){dd.classList.remove('open');dd.querySelector('.nav-dropdown__trigger').setAttribute('aria-expanded','false');});});
+document.addEventListener('keydown',function(e){if(e.key==='Escape')document.querySelectorAll('.nav-dropdown.open').forEach(function(dd){dd.classList.remove('open');});});
 </script>
 <header class="header">
   <div class="header__inner">
@@ -59,7 +63,7 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeMenu();
     <div class="header__search">
       <input type="search" class="header__search-input" placeholder="Rechercher…" autocomplete="off" onkeydown="if(event.key==='Enter'&&this.value.trim())window.location=(document.querySelector('base').href)+'recherche.html?q='+encodeURIComponent(this.value.trim())"/>
     </div>
-    <nav>
+    <nav aria-label="Navigation principale">
       <a href="categories/societe.html">Société</a>
       <a href="categories/science.html">Science</a>
       <a href="categories/economie.html">Économie</a>
@@ -68,8 +72,15 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeMenu();
       <a href="categories/environnement.html">Environnement</a>
       <a href="favoris.html">Favoris</a>
       <a href="archive.html">Tous les articles</a>
-      <a href="methode.html" class="nav-cta">Comment on travaille →</a>
+      <div class="nav-dropdown">
+        <button class="nav-dropdown__trigger" type="button" aria-haspopup="true" aria-expanded="false">À propos ▾</button>
+        <div class="nav-dropdown__menu" role="menu">
+          <a href="methode.html" role="menuitem">Comment on travaille</a>
+          <a href="a-propos.html" role="menuitem">À propos &amp; réseaux</a>
+        </div>
+      </div>
     </nav>
+    <a href="index.html#newsletter" class="nav-cta">Newsletter</a>
     <button class="dark-toggle" id="dark-toggle" aria-label="Mode sombre" title="Mode sombre">🌙</button>
     <button class="burger" id="burger" aria-label="Menu" onclick="toggleMenu()"><span></span><span></span><span></span></button>
   </div>
@@ -120,12 +131,12 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeMenu();
           <span class="meta__sep">·</span><span>3 juillet 2026, 18h00</span></div>
           </div>
         </a>
-<a class="une__side-item" href="articles/danemark-priorite-services-essentiels.html" style="display:grid;grid-template-columns:64px 1fr;gap:14px;align-items:center">
-          <img src="assets/images/danemark-priorite-services-essentiels.jpg" alt="Danemark priorise services essentiels sur centres de données" loading="lazy" style="width:64px;height:64px;object-fit:cover;border-radius:4px;display:block">
+<a class="une__side-item" href="articles/reformes-economiques-allemagne-merz.html" style="display:grid;grid-template-columns:64px 1fr;gap:14px;align-items:center">
+          <img src="assets/images/reformes-economiques-allemagne-merz.jpg" alt="Allemagne : le chancelier Friedrich Merz annonce des réformes économiques" loading="lazy" style="width:64px;height:64px;object-fit:cover;border-radius:4px;display:block">
           <div>
-          <span class="cat cat--environnement">ENVIRONNEMENT</span>
-          <h3 class="title-md">Danemark priorise services essentiels sur centres de données</h3>
-          <div class="meta"><span class="meta__src">3 sources</span>
+          <span class="cat cat--economie">ÉCONOMIE</span>
+          <h3 class="title-md">Allemagne : le chancelier Friedrich Merz annonce des réformes économiques</h3>
+          <div class="meta"><span class="meta__src">4 sources</span>
           <span class="meta__sep">·</span><span>2 juillet 2026, 18h00</span></div>
           </div>
         </a></div>
@@ -212,17 +223,8 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeMenu();
             <span class="meta__sep">·</span><span>2 juillet 2026, 18h00</span>
           </div></div>
         </a>
-<a class="list-item" href="articles/reformes-economiques-allemagne-merz.html">
-          <span class="list-item__num">02</span>
-          <div><span class="cat cat--economie">ÉCONOMIE</span>
-          <h3 class="title-sm">Allemagne : le chancelier Friedrich Merz annonce des réformes économiques</h3>
-          <div class="meta" style="margin-top:6px">
-            <span class="meta__src">4 sources</span>
-            <span class="meta__sep">·</span><span>2 juillet 2026, 18h00</span>
-          </div></div>
-        </a>
 <a class="list-item" href="articles/sommeil-et-hypertension-symptomes.html">
-          <span class="list-item__num">03</span>
+          <span class="list-item__num">02</span>
           <div><span class="cat cat--sante">SANTÉ</span>
           <h3 class="title-sm">Sommeil et hypertension : les symptômes à ne pas négliger</h3>
           <div class="meta" style="margin-top:6px">
@@ -231,7 +233,7 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeMenu();
           </div></div>
         </a>
 <a class="list-item" href="articles/marc-bloch-historien-majeur-xxe-siecle.html">
-          <span class="list-item__num">04</span>
+          <span class="list-item__num">03</span>
           <div><span class="cat cat--science">SCIENCE</span>
           <h3 class="title-sm">Marc Bloch, un historien majeur du XXe siècle</h3>
           <div class="meta" style="margin-top:6px">
@@ -240,7 +242,7 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeMenu();
           </div></div>
         </a>
 <a class="list-item" href="articles/ver-informatique-ia-attaque-experimentale.html">
-          <span class="list-item__num">05</span>
+          <span class="list-item__num">04</span>
           <div><span class="cat cat--tech">TECH</span>
           <h3 class="title-sm">Première attaque expérimentale d’un ver informatique mû par l’IA</h3>
           <div class="meta" style="margin-top:6px">
@@ -248,13 +250,22 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeMenu();
             <span class="meta__sep">·</span><span>2 juillet 2026, 18h00</span>
           </div></div>
         </a>
-<a class="list-item" href="articles/construction-ponts-autoroutes-chine.html">
-          <span class="list-item__num">06</span>
-          <div><span class="cat cat--environnement">ENVIRONNEMENT</span>
-          <h3 class="title-sm">Construction de ponts et d’autoroutes en Chine, un modèle de développement à bout de souffle</h3>
+<a class="list-item" href="articles/france-dette-publique-insoutenable.html">
+          <span class="list-item__num">05</span>
+          <div><span class="cat cat--economie">ÉCONOMIE</span>
+          <h3 class="title-sm">La France face à une dette publique non soutenable selon Jean Peyrelevade</h3>
           <div class="meta" style="margin-top:6px">
             <span class="meta__src">4 sources</span>
-            <span class="meta__sep">·</span><span>2 juillet 2026, 07h00</span>
+            <span class="meta__sep">·</span><span>1 juillet 2026, 18h00</span>
+          </div></div>
+        </a>
+<a class="list-item" href="articles/danemark-priorite-services-essentiels.html">
+          <span class="list-item__num">06</span>
+          <div><span class="cat cat--environnement">ENVIRONNEMENT</span>
+          <h3 class="title-sm">Danemark priorise services essentiels sur centres de données</h3>
+          <div class="meta" style="margin-top:6px">
+            <span class="meta__src">3 sources</span>
+            <span class="meta__sep">·</span><span>2 juillet 2026, 18h00</span>
           </div></div>
         </a></div></div>
 </div>
@@ -324,7 +335,7 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeMenu();
     fetch(BREVO_API,{method:"POST",headers:{"accept":"application/json","content-type":"application/json","api-key":BREVO_KEY},body:JSON.stringify({email:email,listIds:[BREVO_LIST],attributes:attrs,updateEnabled:true})})
     .then(function(r){
       if(r.status===201||r.status===200||r.status===204){msgEl.textContent="Merci ! Un email de confirmation vous a été envoyé — pensez à vérifier vos spams.";msgEl.className="nl-form__msg nl-form__msg--ok";form.reset();}
-      else if(r.status===400){return r.json().then(function(d){if(d&&d.code==="duplicate_parameter"){msgEl.textContent="Cette adresse est déjà inscrite. Vos préférences ont été mises à jour.";msgEl.className="nl-form__msg nl-form__msg--ok";}else{throw new Error(d&&d.message);}}))}
+      else if(r.status===400){return r.json().then(function(d){if(d&&d.code==="duplicate_parameter"){msgEl.textContent="Cette adresse est déjà inscrite. Vos préférences ont été mises à jour.";msgEl.className="nl-form__msg nl-form__msg--ok";}else{throw new Error(d&&d.message);}})}
       else{throw new Error("Erreur "+r.status);}
     })
     .catch(function(err){msgEl.textContent="Une erreur est survenue. Réessayez dans un instant.";msgEl.className="nl-form__msg nl-form__msg--err";console.error("[NL]",err);})
@@ -350,6 +361,7 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeMenu();
     </div>
     <div class="footer__col"><h4>JOURNAL</h4>
       <a href="methode.html">Comment on travaille</a>
+      <a href="a-propos.html">À propos &amp; réseaux</a>
       <a href="corrections.html">Corrections publiques</a>
       <a href="archive.html">Tous les articles</a>
       <a href="feed.xml" class="footer__rss">Flux RSS</a>

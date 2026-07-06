@@ -1855,7 +1855,9 @@ _NAV_LINKS = (
     '<a href="categories/environnement.html">Environnement</a>\n'
     '<a href="favoris.html">Favoris</a>\n'
     '<a href="archive.html">Tous les articles</a>\n'
-    '<a href="methode.html" class="nav-cta">Comment on travaille →</a>'
+    '<a href="methode.html">Comment on travaille</a>\n'
+    '<a href="a-propos.html">À propos &amp; réseaux</a>\n'
+    '<a href="index.html#newsletter" class="nav-cta">S\'abonner à la newsletter</a>'
 )
 _BURGER_JS = (
     "function toggleMenu(){"
@@ -1871,24 +1873,53 @@ _BURGER_JS = (
     "\ndocument.querySelectorAll('.nav-mobile a').forEach(function(a){"
     "a.addEventListener('click',closeMenu);});"
     "\ndocument.addEventListener('keydown',function(e){if(e.key==='Escape')closeMenu();});"
-)
-_NAV_MOBILE_SEARCH = (
-    '<div class="nav-mobile__search">'
-    '<input type="search" class="header__search-input" aria-label="Rechercher un article" '
-    'placeholder="Rechercher…" autocomplete="off" '
-    'onkeydown="if(event.key===\'Enter\'&&this.value.trim())'
-    'window.location=(document.querySelector(\'base\').href)+\'recherche.html?q=\'+encodeURIComponent(this.value.trim())"/>'
-    '</div>\n'
+    # Menu déroulant "À propos" (desktop) — header pas encore parsé ici, on attend DOMContentLoaded
+    "\ndocument.addEventListener('DOMContentLoaded',function(){"
+    "document.querySelectorAll('.nav-dropdown__trigger').forEach(function(btn){"
+    "btn.addEventListener('click',function(e){"
+    "e.stopPropagation();"
+    "var dd=btn.closest('.nav-dropdown');"
+    "var open=dd.classList.toggle('open');"
+    "btn.setAttribute('aria-expanded',open?'true':'false');"
+    "});});});"
+    "\ndocument.addEventListener('click',function(){"
+    "document.querySelectorAll('.nav-dropdown.open').forEach(function(dd){"
+    "dd.classList.remove('open');"
+    "dd.querySelector('.nav-dropdown__trigger').setAttribute('aria-expanded','false');"
+    "});});"
+    "\ndocument.addEventListener('keydown',function(e){if(e.key==='Escape')"
+    "document.querySelectorAll('.nav-dropdown.open').forEach(function(dd){dd.classList.remove('open');});});"
 )
 BURGER_HTML = (
     '<div class="nav-overlay" id="nav-overlay" onclick="closeMenu()"></div>\n'
     '<nav class="nav-mobile" id="nav-mobile">\n'
-    + _NAV_MOBILE_SEARCH + _NAV_LINKS + '\n</nav>\n'
+    + _NAV_LINKS + '\n</nav>\n'
     '<script>\n' + _BURGER_JS + '\n</script>'
 )
 BURGER_BTN = (
     '<button class="burger" id="burger" aria-label="Menu" onclick="toggleMenu()">'
     '<span></span><span></span><span></span></button>'
+)
+
+HEADER_NAV_DESKTOP = (
+    '<nav aria-label="Navigation principale">\n'
+    '      <a href="categories/societe.html">Société</a>\n'
+    '      <a href="categories/science.html">Science</a>\n'
+    '      <a href="categories/economie.html">Économie</a>\n'
+    '      <a href="categories/tech.html">Tech</a>\n'
+    '      <a href="categories/sante.html">Santé</a>\n'
+    '      <a href="categories/environnement.html">Environnement</a>\n'
+    '      <a href="favoris.html">Favoris</a>\n'
+    '      <a href="archive.html">Tous les articles</a>\n'
+    '      <div class="nav-dropdown">\n'
+    '        <button class="nav-dropdown__trigger" type="button" aria-haspopup="true" aria-expanded="false">À propos ▾</button>\n'
+    '        <div class="nav-dropdown__menu" role="menu">\n'
+    '          <a href="methode.html" role="menuitem">Comment on travaille</a>\n'
+    '          <a href="a-propos.html" role="menuitem">À propos &amp; réseaux</a>\n'
+    '        </div>\n'
+    '      </div>\n'
+    '    </nav>\n'
+    '    <a href="index.html#newsletter" class="nav-cta">Newsletter</a>'
 )
 
 DARK_TOGGLE = '<button class="dark-toggle" id="dark-toggle" aria-label="Mode sombre" title="Mode sombre">🌙</button>'
@@ -2055,6 +2086,7 @@ def _build_footer(year: int = None) -> str:
     </div>
     <div class="footer__col"><h4>JOURNAL</h4>
       <a href="methode.html">Comment on travaille</a>
+      <a href="a-propos.html">À propos &amp; réseaux</a>
       <a href="corrections.html">Corrections publiques</a>
       <a href="archive.html">Tous les articles</a>
       <a href="feed.xml" class="footer__rss">Flux RSS</a>
@@ -2307,17 +2339,7 @@ function copyLink(){{
     <div class="header__search">
       <input type="search" class="header__search-input" placeholder="Rechercher…" autocomplete="off" onkeydown="if(event.key==='Enter'&&this.value.trim())window.location=(document.querySelector('base').href)+'recherche.html?q='+encodeURIComponent(this.value.trim())"/>
     </div>
-    <nav>
-      <a href="categories/societe.html">Société</a>
-      <a href="categories/science.html">Science</a>
-      <a href="categories/economie.html">Économie</a>
-      <a href="categories/tech.html">Tech</a>
-      <a href="categories/sante.html">Santé</a>
-      <a href="categories/environnement.html">Environnement</a>
-      <a href="favoris.html">Favoris</a>
-      <a href="archive.html">Tous les articles</a>
-      <a href="methode.html" class="nav-cta">Comment on travaille →</a>
-    </nav>
+    {HEADER_NAV_DESKTOP}
     {DARK_TOGGLE}
     {BURGER_BTN}
   </div>
@@ -2588,17 +2610,7 @@ def build_index_html(main, side_html, grid_html, list_html):
     <div class="header__search">
       <input type="search" class="header__search-input" placeholder="Rechercher…" autocomplete="off" onkeydown="if(event.key==='Enter'&&this.value.trim())window.location=(document.querySelector('base').href)+'recherche.html?q='+encodeURIComponent(this.value.trim())"/>
     </div>
-    <nav>
-      <a href="categories/societe.html">Société</a>
-      <a href="categories/science.html">Science</a>
-      <a href="categories/economie.html">Économie</a>
-      <a href="categories/tech.html">Tech</a>
-      <a href="categories/sante.html">Santé</a>
-      <a href="categories/environnement.html">Environnement</a>
-      <a href="favoris.html">Favoris</a>
-      <a href="archive.html">Tous les articles</a>
-      <a href="methode.html" class="nav-cta">Comment on travaille →</a>
-    </nav>
+    {HEADER_NAV_DESKTOP}
     {DARK_TOGGLE}
     {BURGER_BTN}
   </div>
@@ -2692,6 +2704,7 @@ def build_sitemap(articles: list):
         (f"{BASE_URL}/", "1.0", "daily"),
         (f"{BASE_URL}/archive.html", "0.8", "daily"),
         (f"{BASE_URL}/methode.html", "0.6", "monthly"),
+        (f"{BASE_URL}/a-propos.html", "0.5", "monthly"),
         (f"{BASE_URL}/mentions-legales.html", "0.3", "yearly"),
         (f"{BASE_URL}/cgu.html", "0.3", "yearly"),
         (f"{BASE_URL}/confidentialite.html", "0.3", "yearly"),
@@ -2848,17 +2861,7 @@ def build_category_pages():
     <div class="header__search">
       <input type="search" class="header__search-input" placeholder="Rechercher…" autocomplete="off" onkeydown="if(event.key==='Enter'&&this.value.trim())window.location=(document.querySelector('base').href)+'recherche.html?q='+encodeURIComponent(this.value.trim())"/>
     </div>
-    <nav>
-      <a href="categories/societe.html">Société</a>
-      <a href="categories/science.html">Science</a>
-      <a href="categories/economie.html">Économie</a>
-      <a href="categories/tech.html">Tech</a>
-      <a href="categories/sante.html">Santé</a>
-      <a href="categories/environnement.html">Environnement</a>
-      <a href="favoris.html">Favoris</a>
-      <a href="archive.html">Tous les articles</a>
-      <a href="methode.html" class="nav-cta">Comment on travaille →</a>
-    </nav>
+    {HEADER_NAV_DESKTOP}
     {DARK_TOGGLE}
     {BURGER_BTN}
   </div>
@@ -2996,17 +2999,7 @@ def build_archive_page():
     <div class="header__search">
       <input type="search" class="header__search-input" placeholder="Rechercher…" autocomplete="off" onkeydown="if(event.key==='Enter'&&this.value.trim())window.location=(document.querySelector('base').href)+'recherche.html?q='+encodeURIComponent(this.value.trim())"/>
     </div>
-    <nav>
-      <a href="categories/societe.html">Société</a>
-      <a href="categories/science.html">Science</a>
-      <a href="categories/economie.html">Économie</a>
-      <a href="categories/tech.html">Tech</a>
-      <a href="categories/sante.html">Santé</a>
-      <a href="categories/environnement.html">Environnement</a>
-      <a href="favoris.html">Favoris</a>
-      <a href="archive.html">Tous les articles</a>
-      <a href="methode.html" class="nav-cta">Comment on travaille →</a>
-    </nav>
+    {HEADER_NAV_DESKTOP}
     <button class="dark-toggle" id="dark-toggle" aria-label="Mode sombre" title="Mode sombre">🌙</button>
     <button class="burger" id="burger" aria-label="Menu" onclick="toggleMenu()"><span></span><span></span><span></span></button>
   </div>
@@ -3089,17 +3082,7 @@ def build_favoris_page():
     <div class="header__search">
       <input type="search" class="header__search-input" placeholder="Rechercher…" autocomplete="off" onkeydown="if(event.key==='Enter'&&this.value.trim())window.location=(document.querySelector('base').href)+'recherche.html?q='+encodeURIComponent(this.value.trim())"/>
     </div>
-    <nav>
-      <a href="categories/societe.html">Société</a>
-      <a href="categories/science.html">Science</a>
-      <a href="categories/economie.html">Économie</a>
-      <a href="categories/tech.html">Tech</a>
-      <a href="categories/sante.html">Santé</a>
-      <a href="categories/environnement.html">Environnement</a>
-      <a href="favoris.html">Favoris</a>
-      <a href="archive.html">Tous les articles</a>
-      <a href="methode.html" class="nav-cta">Comment on travaille →</a>
-    </nav>
+    {HEADER_NAV_DESKTOP}
     {DARK_TOGGLE}
     {BURGER_BTN}
   </div>

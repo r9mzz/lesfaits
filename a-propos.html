@@ -1,22 +1,22 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="fr" data-theme="">
 <head>
   <meta charset="UTF-8"/>
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cloud.umami.is; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; connect-src 'self' https://cloud.umami.is https://api.web3forms.com https://api.brevo.com; base-uri 'self'; form-action 'self' https://api.web3forms.com; frame-ancestors 'none';"/>
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <meta name="description" content="Les Faits — Notre engagement éditorial. Ce qui nous distingue, ce sont nos principes : rigueur des sources, zéro opinion, transparence totale."/>
-  <meta property="og:title" content="Comment on travaille — Les Faits"/>
-  <meta property="og:description" content="Les Faits — Notre engagement éditorial. Ce qui nous distingue, ce sont nos principes : rigueur des sources, zéro opinion, transparence totale."/>
+  <meta name="description" content="Les Faits — À propos. Notre histoire, notre gouvernance et comment nous suivre."/>
+  <meta property="og:title" content="À propos — Les Faits"/>
+  <meta property="og:description" content="Les Faits — À propos. Notre histoire, notre gouvernance et comment nous suivre."/>
   <meta property="og:type" content="website"/>
-  <meta property="og:url" content="https://lesfaits.info/methode.html"/>
+  <meta property="og:url" content="https://lesfaits.info/a-propos.html"/>
   <meta property="og:image" content="https://lesfaits.info/assets/images/og-default.jpg"/>
   <meta name="twitter:card" content="summary_large_image"/>
-  <meta name="twitter:title" content="Comment on travaille — Les Faits"/>
-  <meta name="twitter:description" content="Les Faits — Notre engagement éditorial. Ce qui nous distingue, ce sont nos principes : rigueur des sources, zéro opinion, transparence totale."/>
+  <meta name="twitter:title" content="À propos — Les Faits"/>
+  <meta name="twitter:description" content="Les Faits — À propos. Notre histoire, notre gouvernance et comment nous suivre."/>
   <meta name="twitter:image" content="https://lesfaits.info/assets/images/og-default.jpg"/>
-  <link rel="canonical" href="https://lesfaits.info/methode.html"/>
-  <title>Comment on travaille — Les Faits</title>
+  <link rel="canonical" href="https://lesfaits.info/a-propos.html"/>
+  <title>À propos — Les Faits</title>
   <base href="/"/>
   <link rel="stylesheet" href="src/style.css"/>
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
@@ -25,16 +25,7 @@
 </head>
 <body>
 <script>
-(function(){var s=localStorage.getItem('theme');var d=s==='dark'||(s===null&&window.matchMedia('(prefers-color-scheme:dark)').matches);document.documentElement.setAttribute('data-theme',d?'dark':'light');
-  // Header scroll shadow
-  var hdr=document.querySelector('.header');
-  if(hdr) window.addEventListener('scroll',function(){hdr.classList.toggle('scrolled',window.scrollY>40);},{passive:true});
-  // Scroll fade-in cartes catégorie
-  if('IntersectionObserver' in window){
-    var obs=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('is-visible');obs.unobserve(e.target);}});},{threshold:.12,rootMargin:'0px 0px -40px 0px'});
-    document.querySelectorAll('.card3,.list-item,.archive-item').forEach(function(el){el.classList.add('js-reveal');obs.observe(el);});
-  }
-})();
+(function(){var s=localStorage.getItem('theme');var d=s==='dark'||(s===null&&window.matchMedia('(prefers-color-scheme:dark)').matches);document.documentElement.setAttribute('data-theme',d?'dark':'light');})();
 </script>
 <div class="nav-overlay" id="nav-overlay" onclick="closeMenu()"></div>
 <nav class="nav-mobile" id="nav-mobile" aria-label="Menu mobile">
@@ -58,7 +49,6 @@ document.addEventListener('click',function(){document.querySelectorAll('.nav-dro
 document.addEventListener('keydown',function(e){if(e.key==='Escape')document.querySelectorAll('.nav-dropdown.open').forEach(function(dd){dd.classList.remove('open');});});
 </script>
 
-<div id="read-progress"></div>
 <header class="header">
   <div class="header__inner">
     <a href="index.html" class="brand">
@@ -94,131 +84,51 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')document.que
 
 <main style="max-width:780px;margin:80px auto;padding:0 24px">
 
-  <span style="font-size:.8rem;font-weight:700;letter-spacing:.1em;color:var(--muted);text-transform:uppercase">Notre engagement</span>
-  <h1 style="font-size:2.6rem;font-weight:700;margin:12px 0 8px;line-height:1.2">Un journal construit<br>sur une seule règle.</h1>
+  <span style="font-size:.8rem;font-weight:700;letter-spacing:.1em;color:var(--muted);text-transform:uppercase">À propos</span>
+  <h1 style="font-size:2.6rem;font-weight:700;margin:12px 0 8px;line-height:1.2">Notre histoire,<br>notre gouvernance.</h1>
   <p style="color:var(--muted);font-size:1.1rem;margin-bottom:56px;line-height:1.7">
-    Dans un paysage médiatique saturé d'opinions, de biais et de contenus sponsorisés, Les Faits fait le choix inverse :
-    aucune ligne éditoriale politique, aucun annonceur, aucune rédaction à convaincre. Seulement les faits — et la transparence sur comment ils sont sélectionnés.
+    Les Faits est né d'un constat simple : la plupart des médias mélangent information et opinion, souvent sans le dire.
+    Ce site est une tentative de séparer les deux — en confiant la rédaction à une intelligence artificielle contrainte par un protocole éditorial strict, sous la responsabilité d'une seule personne.
   </p>
 
-  <div style="border-left:3px solid var(--blue);padding-left:28px;margin-bottom:56px">
-    <p style="font-size:1.2rem;font-style:italic;color:var(--ink);line-height:1.7;margin:0">
-      "Juste les faits. Aucun parti pris."<br>
-      <span style="font-size:.95rem;color:var(--muted);font-style:normal">Nous savons qu'aucun média n'est totalement neutre — le choix des sujets est déjà éditorial. Notre objectif n'est pas l'impossible, c'est la réduction maximale des biais : pas d'opinion, pas de conclusion politique, chaque affirmation attribuée à sa source.</span>
-    </p>
-  </div>
-
-  <!-- Valeurs en grille -->
-  <div class="methode__grid" style="margin-bottom:64px">
-    <div style="background:var(--white);border:1px solid var(--rule);border-radius:8px;padding:28px">
-      <div style="font-size:1.5rem;margin-bottom:12px">⊘</div>
-      <h3 style="font-size:1rem;font-weight:700;margin-bottom:8px">Zéro opinion</h3>
-      <p style="font-size:.9rem;color:var(--muted);line-height:1.7;margin:0">Aucun éditorialiste. Aucune tribune. Aucun article d'humeur. Ce que vous lisez sur Les Faits est sourcé, attribué, vérifiable.</p>
-    </div>
-    <div style="background:var(--white);border:1px solid var(--rule);border-radius:8px;padding:28px">
-      <div style="font-size:1.5rem;margin-bottom:12px">◎</div>
-      <h3 style="font-size:1rem;font-weight:700;margin-bottom:8px">Sources institutionnelles</h3>
-      <p style="font-size:.9rem;color:var(--muted);line-height:1.7;margin:0">Chaque information est issue d'institutions officielles, de publications scientifiques ou de médias de référence. Toujours citées, toujours vérifiables.</p>
-    </div>
-    <div style="background:var(--white);border:1px solid var(--rule);border-radius:8px;padding:28px">
-      <div style="font-size:1.5rem;margin-bottom:12px">⟳</div>
-      <h3 style="font-size:1rem;font-weight:700;margin-bottom:8px">Actualité en continu</h3>
-      <p style="font-size:.9rem;color:var(--muted);line-height:1.7;margin:0">Le journal se met à jour deux fois par jour, chaque matin et chaque soir, sans interruption ni week-end.</p>
-    </div>
-    <div style="background:var(--white);border:1px solid var(--rule);border-radius:8px;padding:28px">
-      <div style="font-size:1.5rem;margin-bottom:12px">⬡</div>
-      <h3 style="font-size:1rem;font-weight:700;margin-bottom:8px">Sans publicité</h3>
-      <p style="font-size:.9rem;color:var(--muted);line-height:1.7;margin:0">Aucun annonceur. Aucun partenariat commercial. Aucun article sponsorisé. Notre seule obligation est envers les faits.</p>
-    </div>
-  </div>
-
-  <!-- Ce qui nous distingue -->
-  <h2 style="font-size:1.5rem;font-weight:700;margin-bottom:32px;border-bottom:1px solid var(--rule);padding-bottom:16px">Ce qui nous distingue</h2>
-
-  <div style="margin-bottom:40px">
-    <h3 style="font-size:1rem;font-weight:700;margin-bottom:8px;color:var(--blue)">Une sélection éditoriale rigoureuse</h3>
-    <p style="line-height:1.8;color:var(--muted);margin:0">
-      Tous les sujets ne méritent pas d'être publiés. Notre processus de sélection évalue chaque information selon des critères stricts : fiabilité de la source, importance du sujet, valeur informative réelle, et diversité thématique. Les faits divers, les sondages d'opinion et les contenus à caractère commercial sont systématiquement écartés.
-    </p>
-  </div>
-
-  <div style="margin-bottom:40px">
-    <h3 style="font-size:1rem;font-weight:700;margin-bottom:8px;color:var(--blue)">Un article, plusieurs sources</h3>
-    <p style="line-height:1.8;color:var(--muted);margin:0">
-      Chaque article publié repose sur un minimum de trois sources distinctes et citables (en général 3 à 5). Chaque donnée chiffrée, chaque déclaration, chaque fait est attribué à son auteur. Vous pouvez tout vérifier — c'est l'exigence que nous nous imposons.
-    </p>
-  </div>
-
-  <div style="margin-bottom:40px">
-    <h3 style="font-size:1rem;font-weight:700;margin-bottom:8px;color:var(--blue)">La position de chaque camp</h3>
-    <p style="line-height:1.8;color:var(--muted);margin:0">
-      Chaque article cartographie les positions des acteurs impliqués — institutions, experts, parties prenantes — sans en favoriser aucune. Ce n'est pas à Les Faits de trancher. Notre rôle est de vous donner les éléments pour former votre propre opinion.
-    </p>
-  </div>
-
-  <div style="margin-bottom:40px">
-    <h3 style="font-size:1rem;font-weight:700;margin-bottom:8px;color:var(--blue)">Un synthétiseur, assumé comme tel</h3>
-    <p style="line-height:1.8;color:var(--muted);margin:0">
-      Les Faits ne fait pas de reportage de terrain, n'envoie pas de journalistes sur place, ne produit pas d'exclusivités. Il fait quelque chose de différent : agréger, croiser et synthétiser ce que les sources institutionnelles et les médias de référence ont déjà publié — avec une rigueur que la presse quotidienne n'a pas toujours le temps d'appliquer. C'est un choix assumé, pas une limite.
-    </p>
-  </div>
-
-  <div style="margin-bottom:64px">
-    <h3 style="font-size:1rem;font-weight:700;margin-bottom:8px;color:var(--blue)">Rédigé par IA, sous contrainte éditoriale</h3>
-    <p style="line-height:1.8;color:var(--muted);margin:0">
-      Les Faits est entièrement rédigé par intelligence artificielle, sous un protocole éditorial strict défini et supervisé par son fondateur, qui en assume la responsabilité éditoriale. L'IA ne spécule pas, n'interprète pas, ne prend pas position. Elle structure, attribue et vérifie. En cas d'erreur, c'est une personne — pas un algorithme — qui répond et corrige.
-    </p>
-  </div>
-
-  <div style="margin-bottom:64px">
-    <h3 style="font-size:1rem;font-weight:700;margin-bottom:8px;color:var(--blue)">Gouvernance et limites éditoriales</h3>
+  <h2 style="font-size:1.5rem;font-weight:700;margin-bottom:24px;border-bottom:1px solid var(--rule);padding-bottom:16px">Notre histoire</h2>
+  <div style="margin-bottom:56px">
     <p style="line-height:1.8;color:var(--muted);margin:0 0 16px">
-      <strong style="color:var(--ink)">Qui est responsable ?</strong> Les Faits est un projet indépendant, fondé et exploité à titre personnel. Le protocole éditorial — règles de sélection, critères de fiabilité des sources, structure des articles — a été conçu par son fondateur, qui en assume seul la responsabilité légale et éditoriale. Il n'y a pas de rédaction, pas de comité éditorial, pas d'actionnaire.
-    </p>
-    <p style="line-height:1.8;color:var(--muted);margin:0 0 16px">
-      <strong style="color:var(--ink)">Comment les sujets sont-ils sélectionnés ?</strong> Le pipeline scanne en continu les flux d'information issus de médias de référence et d'institutions officielles. Chaque sujet candidat est évalué selon des critères fixes : fiabilité de la source, valeur informative, absence de caractère commercial ou de fait divers. Les sujets sensibles — impliquant des mineurs, des affaires judiciaires en cours, des questions de santé publique sans source officielle — sont systématiquement bloqués par le protocole et ne sont jamais publiés automatiquement.
+      Le projet est fondé et exploité à titre personnel, sans investisseur ni salle de rédaction. L'idée de départ était de vérifier si un journal pouvait exister sans les biais économiques habituels de la presse — sans publicité, sans actionnaire à satisfaire, sans clic à monétiser.
     </p>
     <p style="line-height:1.8;color:var(--muted);margin:0">
-      <strong style="color:var(--ink)">Ce que ce site ne prétend pas être.</strong> Les Faits n'est pas un organe de presse au sens légal, n'emploie aucun journaliste et ne bénéficie d'aucun agrément de presse. Il est un service d'agrégation et de synthèse automatisé, sous supervision humaine. Cette transparence fait partie de notre engagement envers les lecteurs.
+      Le protocole éditorial — règles de sélection des sujets, exigence de sourcing, structure des articles — a été conçu par le fondateur, qui en assume seul la responsabilité légale et éditoriale. L'intelligence artificielle applique ce protocole ; elle ne le définit pas et ne peut pas s'en écarter. Pour le détail du fonctionnement, voir <a href="methode.html" style="color:var(--blue)">Comment on travaille</a>.
     </p>
   </div>
 
-  <!-- Chiffres -->
-  <div style="background:var(--sand);border-radius:8px;padding:40px;margin-bottom:64px">
-    <h2 style="font-size:1rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:32px">Les Faits en chiffres</h2>
-    <div class="methode__stats" style="text-align:center">
-      <div>
-        <div style="font-size:2.2rem;font-weight:700;color:var(--ink)">3+</div>
-        <div style="font-size:.85rem;color:var(--muted);margin-top:4px">Sources minimum par article</div>
-      </div>
-      <div>
-        <div style="font-size:2.2rem;font-weight:700;color:var(--ink)">100%</div>
-        <div style="font-size:.85rem;color:var(--muted);margin-top:4px">Des sources citées et vérifiables</div>
-      </div>
-      <div>
-        <div style="font-size:2.2rem;font-weight:700;color:var(--ink)">0</div>
-        <div style="font-size:.85rem;color:var(--muted);margin-top:4px">Opinion, publicité, parti pris</div>
-      </div>
-    </div>
+  <h2 style="font-size:1.5rem;font-weight:700;margin-bottom:24px;border-bottom:1px solid var(--rule);padding-bottom:16px">Gouvernance</h2>
+  <div style="margin-bottom:56px">
+    <p style="line-height:1.8;color:var(--muted);margin:0 0 16px">
+      <strong style="color:var(--ink)">Qui est responsable ?</strong> Les Faits n'a pas de comité éditorial ni d'actionnaire. Une seule personne, le fondateur, répond des erreurs et des choix éditoriaux du site.
+    </p>
+    <p style="line-height:1.8;color:var(--muted);margin:0">
+      <strong style="color:var(--ink)">Ce que ce site ne prétend pas être.</strong> Les Faits n'est pas un organe de presse au sens légal, n'emploie aucun journaliste et ne bénéficie d'aucun agrément de presse. C'est un service d'agrégation et de synthèse automatisé, sous supervision humaine.
+    </p>
   </div>
 
-  <!-- Corrections -->
-  <div style="background:var(--white);border:1px solid var(--rule);border-radius:8px;padding:40px;text-align:center;margin-bottom:48px">
-    <h3 style="font-size:1.2rem;font-weight:700;margin-bottom:8px">Une erreur dans un article ?</h3>
-    <p style="color:var(--muted);margin-bottom:24px;line-height:1.7">
-      Chaque erreur factuelle signalée est traitée sous 48h.<br>
-      Si elle est confirmée, la correction est publiée publiquement dans notre journal des corrections.
-    </p>
-    <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
-      <a href="contact.html#erreur"
-         style="display:inline-block;padding:12px 28px;background:var(--blue);color:#fff;border-radius:4px;text-decoration:none;font-weight:600;font-size:.95rem">
-        Signaler une erreur
-      </a>
-      <a href="corrections.html"
-         style="display:inline-block;padding:12px 28px;background:transparent;color:var(--blue);border:1px solid var(--blue);border-radius:4px;text-decoration:none;font-weight:600;font-size:.95rem">
-        Voir les corrections →
-      </a>
-    </div>
+  <h2 style="font-size:1.5rem;font-weight:700;margin-bottom:24px;border-bottom:1px solid var(--rule);padding-bottom:16px">Nous suivre</h2>
+  <div class="methode__grid" style="margin-bottom:16px">
+    <a href="https://x.com/Lesfaitsinfo" target="_blank" rel="noopener noreferrer external" style="display:block;background:var(--white);border:1px solid var(--rule);border-radius:8px;padding:24px;text-decoration:none">
+      <div style="font-size:.75rem;font-weight:700;letter-spacing:.08em;color:var(--blue);text-transform:uppercase;margin-bottom:6px">X (Twitter)</div>
+      <div style="font-weight:600;color:var(--ink)">@Lesfaitsinfo →</div>
+    </a>
+    <a href="https://www.instagram.com/lesfaits.info/" target="_blank" rel="noopener noreferrer external" style="display:block;background:var(--white);border:1px solid var(--rule);border-radius:8px;padding:24px;text-decoration:none">
+      <div style="font-size:.75rem;font-weight:700;letter-spacing:.08em;color:var(--blue);text-transform:uppercase;margin-bottom:6px">Instagram</div>
+      <div style="font-weight:600;color:var(--ink)">@lesfaits.info →</div>
+    </a>
+    <a href="https://www.linkedin.com/in/lesfaits-info-37b377420/" target="_blank" rel="noopener noreferrer external" style="display:block;background:var(--white);border:1px solid var(--rule);border-radius:8px;padding:24px;text-decoration:none">
+      <div style="font-size:.75rem;font-weight:700;letter-spacing:.08em;color:var(--blue);text-transform:uppercase;margin-bottom:6px">LinkedIn</div>
+      <div style="font-weight:600;color:var(--ink)">Les Faits →</div>
+    </a>
+    <a href="feed.xml" style="display:block;background:var(--white);border:1px solid var(--rule);border-radius:8px;padding:24px;text-decoration:none">
+      <div style="font-size:.75rem;font-weight:700;letter-spacing:.08em;color:var(--blue);text-transform:uppercase;margin-bottom:6px">Flux RSS</div>
+      <div style="font-weight:600;color:var(--ink)">S'abonner au flux →</div>
+    </a>
   </div>
 
 </main>
@@ -314,15 +224,6 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')document.que
     localStorage.setItem('theme',d?'light':'dark');
     btn.textContent=d?'🌙':'☀️';btn.setAttribute('aria-label',d?'Passer en mode sombre':'Passer en mode clair');
   });
-
-  // Header scroll shadow
-  var hdr=document.querySelector('.header');
-  if(hdr) window.addEventListener('scroll',function(){hdr.classList.toggle('scrolled',window.scrollY>40);},{passive:true});
-  // Scroll fade-in cartes catégorie
-  if('IntersectionObserver' in window){
-    var obs=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('is-visible');obs.unobserve(e.target);}});},{threshold:.12,rootMargin:'0px 0px -40px 0px'});
-    document.querySelectorAll('.card3,.list-item,.archive-item').forEach(function(el){el.classList.add('js-reveal');obs.observe(el);});
-  }
 })();
 </script>
 <script>document.addEventListener('keydown',function(e){if(e.key==='/'&&!['INPUT','TEXTAREA','SELECT'].includes(document.activeElement.tagName)){e.preventDefault();var s=document.getElementById('search-input');if(s){s.focus();s.select();}}});</script>
@@ -349,7 +250,7 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')document.que
     btn.disabled=true;btn.textContent="Envoi en cours…";
     fetch(BREVO_API,{method:"POST",headers:{"accept":"application/json","content-type":"application/json","api-key":BREVO_KEY},body:JSON.stringify({email:email,listIds:[BREVO_LIST],attributes:attrs,updateEnabled:true})})
     .then(function(r){
-      if(r.status===201||r.status===200||r.status===204){msgEl.textContent="Merci ! Un email de confirmation vous a été envoyé — pensez à vérifier vos spams.";msgEl.className="nl-form__msg nl-form__msg--ok";form.reset();}
+      if(r.status===201||r.status===200||r.status===204){msgEl.textContent="Merci ! Un email de confirmation vous a été envoyé — pensez à vérifier vos spams.";msgEl.className="nl-form__msg nl-form__msg--ok";form.reset();}
       else if(r.status===400){return r.json().then(function(d){if(d&&d.code==="duplicate_parameter"){msgEl.textContent="Cette adresse est déjà inscrite. Vos préférences ont été mises à jour.";msgEl.className="nl-form__msg nl-form__msg--ok";}else{throw new Error(d&&d.message);}});}
       else{throw new Error("Erreur "+r.status);}
     })
