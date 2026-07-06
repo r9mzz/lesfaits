@@ -1216,6 +1216,10 @@ def _groq_call(api_key: str, messages: list, max_tokens: int = 4500) -> str:
         temperature=0.1,
         messages=messages,
     )
+    u = response.usage
+    if u:
+        print(f"     [TOKENS] prompt={u.prompt_tokens} completion={u.completion_tokens} "
+              f"total={u.total_tokens}", flush=True)
     return response.choices[0].message.content.strip()
 
 
