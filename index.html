@@ -2,7 +2,7 @@
 <html lang="fr" data-theme="">
 <head>
   <meta charset="UTF-8"/>
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cloud.umami.is; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; connect-src 'self' https://cloud.umami.is https://api.web3forms.com; base-uri 'self'; form-action 'self' https://api.web3forms.com; frame-ancestors 'none';"/>
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cloud.umami.is; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; connect-src 'self' https://cloud.umami.is https://api.web3forms.com; base-uri 'self'; form-action 'self' https://api.web3forms.com https://e6ad0381.sibforms.com; frame-src https://e6ad0381.sibforms.com; frame-ancestors 'none';"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <meta name="description" content="Les Faits — Journal numérique français rédigé par IA. Juste les faits. Aucun parti pris."/>
   <meta property="og:title" content="Les Faits — Juste les faits. Aucun parti pris."/>
@@ -272,52 +272,11 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeMenu();
       <h2 class="nl-band__title">Le résumé du jour dans votre boîte mail</h2>
       <p class="nl-band__sub">Chaque soir, les articles du jour en un email. Sans pub. Désabonnement en un clic.</p>
     </div>
-    <div class="nl-band__form-wrap">
-      <form class="nl-form" id="nl-form" novalidate>
-        <div class="nl-form__row">
-          <input type="email" id="nl-email" name="email" class="nl-form__input" placeholder="votre@email.fr" required autocomplete="email" aria-label="Adresse email"/>
-          <button type="submit" class="nl-form__btn">S'abonner</button>
-        </div>
-        <label class="nl-form__consent">
-          <input type="checkbox" id="nl-consent" required/>
-          <span>J'accepte de recevoir le résumé quotidien par email. Désabonnement possible à tout moment. <a href="confidentialite.html">Vie privée</a>.</span>
-        </label>
-        <p class="nl-form__msg" id="nl-msg" role="alert" aria-live="polite"></p>
-      </form>
+    <div class="nl-band__iframe-wrap">
+      <iframe src="https://e6ad0381.sibforms.com/serve/MUIFAErfidn3h7DoaZcjIRh-48s1GoiE0vZOe_KG-skCwDznnQ2831i0IkHsSaXfUJ15hBl1CH3ElJVKdGDdXdxHpt6v7iX-hAlyWb0i0M7mtq6UhgJ9JJyCUhNwckwfxW8EUJkF_hkjb4qX8YSntlFraZFiCcgQhZ3PXsPvAcSa9oEyPOgeL1EtAB4akgMS-hz76NcGAUSqOt3L1w==" frameborder="0" scrolling="auto" allowfullscreen title="Formulaire d'inscription à la newsletter Les Faits"></iframe>
     </div>
   </div>
 </section>
-<script>
-(function(){
-  // Après avoir créé votre formulaire dans Brevo (Contacts > Formulaires d'abonnement),
-  // remplacez cette URL par l'URL de votre formulaire (ex: https://sibforms.com/serve/MUIEA...)
-  var BREVO_FORM_URL = "https://e6ad0381.sibforms.com/serve/MUIFAErfidn3h7DoaZcjIRh-48s1GoiE0vZOe_KG-skCwDznnQ2831i0IkHsSaXfUJ15hBl1CH3ElJVKdGDdXdxHpt6v7iX-hAlyWb0i0M7mtq6UhgJ9JJyCUhNwckwfxW8EUJkF_hkjb4qX8YSntlFraZFiCcgQhZ3PXsPvAcSa9oEyPOgeL1EtAB4akgMS-hz76NcGAUSqOt3L1w==";
-  var form = document.getElementById("nl-form");
-  var msg  = document.getElementById("nl-msg");
-  if (!form) return;
-  form.addEventListener("submit", function(e) {
-    e.preventDefault();
-    var email   = (document.getElementById("nl-email").value || "").trim();
-    var consent = document.getElementById("nl-consent").checked;
-    msg.className = "nl-form__msg";
-    if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-      msg.textContent = "Veuillez saisir une adresse email valide.";
-      msg.className = "nl-form__msg nl-form__msg--err"; return;
-    }
-    if (!consent) {
-      msg.textContent = "Veuillez accepter les conditions pour continuer.";
-      msg.className = "nl-form__msg nl-form__msg--err"; return;
-    }
-    if (!BREVO_FORM_URL) {
-      msg.textContent = "Inscription bientôt disponible — abonnez-vous au flux RSS en attendant.";
-      msg.className = "nl-form__msg nl-form__msg--ok"; return;
-    }
-    window.open(BREVO_FORM_URL + "?EMAIL=" + encodeURIComponent(email), "_blank", "noopener,noreferrer,width=640,height=520");
-    msg.textContent = "Un onglet de confirmation s'est ouvert — vérifiez vos spams si vous ne recevez pas l'email de confirmation.";
-    msg.className = "nl-form__msg nl-form__msg--ok";
-  });
-})();
-</script>
 
 <footer class="footer" role="contentinfo" aria-label="Pied de page">
   <div class="footer__inner">
