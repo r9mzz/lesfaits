@@ -569,6 +569,7 @@ nav a.active { opacity: 1; color: var(--blue); border-bottom-color: var(--blue);
   .header__inner { padding: 12px 16px; }
   .brand__divider, .brand__slogan { display: none; }
   nav { display: none; }
+  .header__search { display: none; }
   .burger { display: flex; }
   .dark-toggle { font-size: 18px; padding: 10px 14px; min-width: 44px; min-height: 44px; }
   .wrap { padding: 0 16px; }
