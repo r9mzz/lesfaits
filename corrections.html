@@ -69,17 +69,19 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')document.que
       <input type="search" class="header__search-input" aria-label="Rechercher un article" id="search-input" placeholder="Rechercher…" autocomplete="off" onkeydown="if(event.key==='Enter'&&this.value.trim())window.location=(document.querySelector('base').href)+'recherche.html?q='+encodeURIComponent(this.value.trim())"/>
     </div>
     <nav aria-label="Navigation principale">
-      <a href="categories/societe.html">Société</a>
-      <a href="categories/science.html">Science</a>
-      <a href="categories/economie.html">Économie</a>
-      <a href="categories/tech.html">Tech</a>
-      <a href="categories/sante.html">Santé</a>
-      <a href="categories/environnement.html">Environnement</a>
-      <a href="favoris.html">Favoris</a>
-      <a href="archive.html">Tous les articles</a>
       <div class="nav-dropdown">
-        <button class="nav-dropdown__trigger" type="button" aria-haspopup="true" aria-expanded="false">À propos ▾</button>
+        <button class="nav-dropdown__trigger" type="button" aria-haspopup="true" aria-expanded="false">Menu ▾</button>
         <div class="nav-dropdown__menu" role="menu">
+          <a href="categories/societe.html" role="menuitem">Société</a>
+          <a href="categories/science.html" role="menuitem">Science</a>
+          <a href="categories/economie.html" role="menuitem">Économie</a>
+          <a href="categories/tech.html" role="menuitem">Tech</a>
+          <a href="categories/sante.html" role="menuitem">Santé</a>
+          <a href="categories/environnement.html" role="menuitem">Environnement</a>
+          <div class="nav-dropdown__sep"></div>
+          <a href="favoris.html" role="menuitem">Favoris</a>
+          <a href="archive.html" role="menuitem">Tous les articles</a>
+          <div class="nav-dropdown__sep"></div>
           <a href="methode.html" role="menuitem">Comment on travaille</a>
           <a href="a-propos.html" role="menuitem">À propos &amp; réseaux</a>
         </div>

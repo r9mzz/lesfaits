@@ -64,17 +64,19 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')document.que
       <input type="search" class="header__search-input" placeholder="Rechercher…" autocomplete="off" onkeydown="if(event.key==='Enter'&&this.value.trim())window.location=(document.querySelector('base').href)+'recherche.html?q='+encodeURIComponent(this.value.trim())"/>
     </div>
     <nav aria-label="Navigation principale">
-      <a href="categories/societe.html">Société</a>
-      <a href="categories/science.html">Science</a>
-      <a href="categories/economie.html">Économie</a>
-      <a href="categories/tech.html">Tech</a>
-      <a href="categories/sante.html">Santé</a>
-      <a href="categories/environnement.html">Environnement</a>
-      <a href="favoris.html">Favoris</a>
-      <a href="archive.html">Tous les articles</a>
       <div class="nav-dropdown">
-        <button class="nav-dropdown__trigger" type="button" aria-haspopup="true" aria-expanded="false">À propos ▾</button>
+        <button class="nav-dropdown__trigger" type="button" aria-haspopup="true" aria-expanded="false">Menu ▾</button>
         <div class="nav-dropdown__menu" role="menu">
+          <a href="categories/societe.html" role="menuitem">Société</a>
+          <a href="categories/science.html" role="menuitem">Science</a>
+          <a href="categories/economie.html" role="menuitem">Économie</a>
+          <a href="categories/tech.html" role="menuitem">Tech</a>
+          <a href="categories/sante.html" role="menuitem">Santé</a>
+          <a href="categories/environnement.html" role="menuitem">Environnement</a>
+          <div class="nav-dropdown__sep"></div>
+          <a href="favoris.html" role="menuitem">Favoris</a>
+          <a href="archive.html" role="menuitem">Tous les articles</a>
+          <div class="nav-dropdown__sep"></div>
           <a href="methode.html" role="menuitem">Comment on travaille</a>
           <a href="a-propos.html" role="menuitem">À propos &amp; réseaux</a>
         </div>
@@ -131,13 +133,13 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')document.que
           <span class="meta__sep">·</span><span>3 juillet 2026, 18h00</span></div>
           </div>
         </a>
-<a class="une__side-item" href="articles/reformes-economiques-allemagne-merz.html" style="display:grid;grid-template-columns:64px 1fr;gap:14px;align-items:center">
-          <img src="assets/images/reformes-economiques-allemagne-merz.jpg" alt="Allemagne : le chancelier Friedrich Merz annonce des réformes économiques" loading="lazy" style="width:64px;height:64px;object-fit:cover;border-radius:4px;display:block">
+<a class="une__side-item" href="articles/sommeil-et-hypertension-symptomes.html" style="display:grid;grid-template-columns:64px 1fr;gap:14px;align-items:center">
+          <img src="assets/images/sommeil-et-hypertension-symptomes.jpg" alt="Sommeil et hypertension : les symptômes à ne pas négliger" loading="lazy" style="width:64px;height:64px;object-fit:cover;border-radius:4px;display:block">
           <div>
-          <span class="cat cat--economie">ÉCONOMIE</span>
-          <h3 class="title-md">Allemagne : le chancelier Friedrich Merz annonce des réformes économiques</h3>
+          <span class="cat cat--sante">SANTÉ</span>
+          <h3 class="title-md">Sommeil et hypertension : les symptômes à ne pas négliger</h3>
           <div class="meta"><span class="meta__src">4 sources</span>
-          <span class="meta__sep">·</span><span>2 juillet 2026, 18h00</span></div>
+          <span class="meta__sep">·</span><span>1 juillet 2026, 18h00</span></div>
           </div>
         </a></div>
     </div>
@@ -223,17 +225,26 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')document.que
             <span class="meta__sep">·</span><span>2 juillet 2026, 18h00</span>
           </div></div>
         </a>
-<a class="list-item" href="articles/sommeil-et-hypertension-symptomes.html">
+<a class="list-item" href="articles/reformes-economiques-allemagne-merz.html">
           <span class="list-item__num">02</span>
-          <div><span class="cat cat--sante">SANTÉ</span>
-          <h3 class="title-sm">Sommeil et hypertension : les symptômes à ne pas négliger</h3>
+          <div><span class="cat cat--economie">ÉCONOMIE</span>
+          <h3 class="title-sm">Allemagne : le chancelier Friedrich Merz annonce des réformes économiques</h3>
           <div class="meta" style="margin-top:6px">
             <span class="meta__src">4 sources</span>
-            <span class="meta__sep">·</span><span>1 juillet 2026, 18h00</span>
+            <span class="meta__sep">·</span><span>2 juillet 2026, 18h00</span>
+          </div></div>
+        </a>
+<a class="list-item" href="articles/danemark-priorite-services-essentiels.html">
+          <span class="list-item__num">03</span>
+          <div><span class="cat cat--environnement">ENVIRONNEMENT</span>
+          <h3 class="title-sm">Danemark priorise services essentiels sur centres de données</h3>
+          <div class="meta" style="margin-top:6px">
+            <span class="meta__src">3 sources</span>
+            <span class="meta__sep">·</span><span>2 juillet 2026, 18h00</span>
           </div></div>
         </a>
 <a class="list-item" href="articles/marc-bloch-historien-majeur-xxe-siecle.html">
-          <span class="list-item__num">03</span>
+          <span class="list-item__num">04</span>
           <div><span class="cat cat--science">SCIENCE</span>
           <h3 class="title-sm">Marc Bloch, un historien majeur du XXe siècle</h3>
           <div class="meta" style="margin-top:6px">
@@ -242,7 +253,7 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')document.que
           </div></div>
         </a>
 <a class="list-item" href="articles/ver-informatique-ia-attaque-experimentale.html">
-          <span class="list-item__num">04</span>
+          <span class="list-item__num">05</span>
           <div><span class="cat cat--tech">TECH</span>
           <h3 class="title-sm">Première attaque expérimentale d’un ver informatique mû par l’IA</h3>
           <div class="meta" style="margin-top:6px">
@@ -250,22 +261,13 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')document.que
             <span class="meta__sep">·</span><span>2 juillet 2026, 18h00</span>
           </div></div>
         </a>
-<a class="list-item" href="articles/france-dette-publique-insoutenable.html">
-          <span class="list-item__num">05</span>
-          <div><span class="cat cat--economie">ÉCONOMIE</span>
-          <h3 class="title-sm">La France face à une dette publique non soutenable selon Jean Peyrelevade</h3>
+<a class="list-item" href="articles/demence-senile-alzheimer-differences.html">
+          <span class="list-item__num">06</span>
+          <div><span class="cat cat--sante">SANTÉ</span>
+          <h3 class="title-sm">Démence sénile et Alzheimer, comprendre les différences</h3>
           <div class="meta" style="margin-top:6px">
             <span class="meta__src">4 sources</span>
-            <span class="meta__sep">·</span><span>1 juillet 2026, 18h00</span>
-          </div></div>
-        </a>
-<a class="list-item" href="articles/danemark-priorite-services-essentiels.html">
-          <span class="list-item__num">06</span>
-          <div><span class="cat cat--environnement">ENVIRONNEMENT</span>
-          <h3 class="title-sm">Danemark priorise services essentiels sur centres de données</h3>
-          <div class="meta" style="margin-top:6px">
-            <span class="meta__src">3 sources</span>
-            <span class="meta__sep">·</span><span>2 juillet 2026, 18h00</span>
+            <span class="meta__sep">·</span><span>29 juin 2026, 18h00</span>
           </div></div>
         </a></div></div>
 </div>
