@@ -1,8 +1,8 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="fr" data-theme="">
 <head>
   <meta charset="UTF-8"/>
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cloud.umami.is; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; connect-src 'self' https://cloud.umami.is https://api.web3forms.com; base-uri 'self'; form-action 'self' https://api.web3forms.com; frame-ancestors 'none';"/>
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cloud.umami.is; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; connect-src 'self' https://cloud.umami.is https://api.web3forms.com https://api.brevo.com; base-uri 'self'; form-action 'self'; frame-ancestors 'none';"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <meta name="description" content="Vos articles favoris sur Les Faits — sauvegardés localement dans votre navigateur."/>
   <meta name="robots" content="noindex,follow"/>
@@ -30,6 +30,7 @@
 <body>
 <div class="nav-overlay" id="nav-overlay" onclick="closeMenu()"></div>
 <nav class="nav-mobile" id="nav-mobile">
+<div class="nav-mobile__search"><input type="search" class="header__search-input" aria-label="Rechercher un article" placeholder="Rechercher…" autocomplete="off" onkeydown="if(event.key==='Enter'&&this.value.trim())window.location=(document.querySelector('base').href)+'recherche.html?q='+encodeURIComponent(this.value.trim())"/></div>
 <a href="categories/societe.html">Société</a>
 <a href="categories/science.html">Science</a>
 <a href="categories/economie.html">Économie</a>
@@ -38,8 +39,7 @@
 <a href="categories/environnement.html">Environnement</a>
 <a href="favoris.html">Favoris</a>
 <a href="archive.html">Tous les articles</a>
-<a href="archive.html">Tous les articles</a>
-      <a href="methode.html" class="nav-cta">Comment on travaille →</a>
+<a href="methode.html" class="nav-cta">Comment on travaille →</a>
 </nav>
 <script>
 function toggleMenu(){var b=document.getElementById('burger'),m=document.getElementById('nav-mobile'),o=document.getElementById('nav-overlay');b.classList.toggle('open');m.classList.toggle('open');o.classList.toggle('open');}
@@ -62,7 +62,6 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeMenu();
       <a href="categories/environnement.html">Environnement</a>
       <a href="favoris.html">Favoris</a>
       <a href="archive.html">Tous les articles</a>
-      <a href="archive.html">Tous les articles</a>
       <a href="methode.html" class="nav-cta">Comment on travaille →</a>
     </nav>
     <button class="dark-toggle" id="dark-toggle" aria-label="Mode sombre" title="Mode sombre">🌙</button>
@@ -81,7 +80,7 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeMenu();
   <div id="favoris-list"></div>
   <div id="favoris-empty" style="display:none;text-align:center;padding:48px 0;color:var(--muted)">
     <p style="font-size:1rem;margin-bottom:8px">Vous n'avez encore aucun favori.</p>
-    <p style="font-size:.9rem">Cliquez sur ♡ Favoris en bas d'un article pour l'ajouter ici — vos favoris sont enregistrés dans ce navigateur.</p>
+    <p style="font-size:.9rem">Cliquez sur Favoris en bas d'un article pour l'ajouter ici — vos favoris sont enregistrés dans ce navigateur.</p>
   </div>
 </main>
 
@@ -105,6 +104,7 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeMenu();
       <a href="corrections.html">Corrections publiques</a>
       <a href="archive.html">Tous les articles</a>
       <a href="feed.xml" class="footer__rss">Flux RSS</a>
+      <a href="index.html#newsletter">Newsletter</a>
     </div>
     <div class="footer__col"><h4>LÉGAL</h4>
       <a href="mentions-legales.html">Mentions légales</a>

@@ -1,8 +1,8 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="fr" data-theme="">
 <head>
   <meta charset="UTF-8"/>
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cloud.umami.is; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; connect-src 'self' https://cloud.umami.is https://api.web3forms.com; base-uri 'self'; form-action 'self' https://api.web3forms.com; frame-ancestors 'none';"/>
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cloud.umami.is; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; connect-src 'self' https://cloud.umami.is https://api.web3forms.com https://api.brevo.com; base-uri 'self'; form-action 'self'; frame-ancestors 'none';"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <meta name="description" content="Tous les articles publiés par Les Faits — journal numérique français rédigé par IA."/>
   <meta property="og:title" content="Tous les articles — Les Faits"/>
@@ -22,26 +22,20 @@
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"/>
   <link rel="shortcut icon" href="/favicon.ico"/>
   <link rel="manifest" href="/manifest.json"/>
-  <script>(function(){var s=localStorage.getItem('theme'),d=s==='dark'||(s===null&&window.matchMedia('(prefers-color-scheme:dark)').matches);document.documentElement.setAttribute('data-theme',d?'dark':'light');
-  // Header scroll shadow
-  var hdr=document.querySelector('.header');
-  if(hdr) window.addEventListener('scroll',function(){hdr.classList.toggle('scrolled',window.scrollY>40);},{passive:true});
-  // Scroll fade-in cartes catégorie
-  if('IntersectionObserver' in window){
-    var obs=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('is-visible');obs.unobserve(e.target);}});},{threshold:.12,rootMargin:'0px 0px -40px 0px'});
-    document.querySelectorAll('.card3,.list-item,.archive-item').forEach(function(el){el.classList.add('js-reveal');obs.observe(el);});
-  }
-})();</script>
+  <script>(function(){var s=localStorage.getItem('theme'),d=s==='dark'||(s===null&&window.matchMedia('(prefers-color-scheme:dark)').matches);document.documentElement.setAttribute('data-theme',d?'dark':'light');})();</script>
 </head>
 <body>
 <div class="nav-overlay" id="nav-overlay" onclick="closeMenu()"></div>
 <nav class="nav-mobile" id="nav-mobile">
+<div class="nav-mobile__search"><input type="search" class="header__search-input" aria-label="Rechercher un article" placeholder="Rechercher…" autocomplete="off" onkeydown="if(event.key==='Enter'&&this.value.trim())window.location=(document.querySelector('base').href)+'recherche.html?q='+encodeURIComponent(this.value.trim())"/></div>
 <a href="categories/societe.html">Société</a>
 <a href="categories/science.html">Science</a>
 <a href="categories/economie.html">Économie</a>
 <a href="categories/tech.html">Tech</a>
 <a href="categories/sante.html">Santé</a>
 <a href="categories/environnement.html">Environnement</a>
+<a href="favoris.html">Favoris</a>
+<a href="archive.html">Tous les articles</a>
 <a href="methode.html" class="nav-cta">Comment on travaille →</a>
 </nav>
 <script>
@@ -63,6 +57,7 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeMenu();
       <a href="categories/tech.html">Tech</a>
       <a href="categories/sante.html">Santé</a>
       <a href="categories/environnement.html">Environnement</a>
+      <a href="favoris.html">Favoris</a>
       <a href="archive.html">Tous les articles</a>
       <a href="methode.html" class="nav-cta">Comment on travaille →</a>
     </nav>
@@ -78,12 +73,12 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeMenu();
     <span>Tous les articles</span>
   </nav>
   <h1 style="font-family:var(--font-serif,Georgia,serif);font-size:2rem;margin-bottom:4px">Tous les articles</h1>
-  <p style="color:var(--muted);font-size:14px;margin-bottom:48px">100 articles publiés</p>
+  <p style="color:var(--muted);font-size:14px;margin-bottom:48px">88 articles publiés</p>
   
   <section style="margin-bottom:48px">
-    <h2 style="font-size:.75rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);border-bottom:2px solid var(--blue);padding-bottom:8px;margin-bottom:0">Juillet 2026 · 47 articles</h2>
+    <h2 style="font-size:.75rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);border-bottom:2px solid var(--blue);padding-bottom:8px;margin-bottom:0">Juillet 2026 · 42 articles</h2>
     
-    <a href="articles/openai-participation-gouvernement-americain.html" style="display:grid;grid-template-columns:80px 1fr;gap:12px 20px;padding:16px 0;border-bottom:1px solid var(--border);align-items:start;text-decoration:none;color:inherit">
+    <a class="archive-row" href="articles/openai-participation-gouvernement-americain.html" style="display:grid;grid-template-columns:80px 1fr;gap:12px 20px;padding:16px 0;border-bottom:1px solid var(--border);align-items:start;text-decoration:none;color:inherit">
       <img src="assets/images/openai-participation-gouvernement-americain.jpg" alt="OpenAI propose une participation minoritaire au gouvernement américain" style="width:80px;height:54px;object-fit:cover;border-radius:4px;background:var(--light)" loading="lazy" onerror="this.style.display='none'"/>
       <div>
         <span class="cat cat--tech" style="display:inline-block;font-size:10px;font-weight:700;letter-spacing:.06em;margin-bottom:4px">TECH</span>
@@ -92,7 +87,7 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeMenu();
         <span style="font-size:.75rem;color:var(--muted);margin-top:4px;display:block">3 juillet 2026 · 4 sources</span>
       </div>
     </a>
-    <a href="articles/accident-jean-pierre-raffarin-paris.html" style="display:grid;grid-template-columns:80px 1fr;gap:12px 20px;padding:16px 0;border-bottom:1px solid var(--border);align-items:start;text-decoration:none;color:inherit">
+    <a class="archive-row" href="articles/accident-jean-pierre-raffarin-paris.html" style="display:grid;grid-template-columns:80px 1fr;gap:12px 20px;padding:16px 0;border-bottom:1px solid var(--border);align-items:start;text-decoration:none;color:inherit">
       <img src="assets/images/accident-jean-pierre-raffarin-paris.jpg" alt="Accident de Jean-Pierre Raffarin à Paris" style="width:80px;height:54px;object-fit:cover;border-radius:4px;background:var(--light)" loading="lazy" onerror="this.style.display='none'"/>
       <div>
         <span class="cat cat--societe" style="display:inline-block;font-size:10px;font-weight:700;letter-spacing:.06em;margin-bottom:4px">SOCIÉTÉ</span>
@@ -101,7 +96,7 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeMenu();
         <span style="font-size:.75rem;color:var(--muted);margin-top:4px;display:block">3 juillet 2026 · 4 sources</span>
       </div>
     </a>
-    <a href="articles/mousses-champignons-symbiose-inattendue.html" style="display:grid;grid-template-columns:80px 1fr;gap:12px 20px;padding:16px 0;border-bottom:1px solid var(--border);align-items:start;text-decoration:none;color:inherit">
+    <a class="archive-row" href="articles/mousses-champignons-symbiose-inattendue.html" style="display:grid;grid-template-columns:80px 1fr;gap:12px 20px;padding:16px 0;border-bottom:1px solid var(--border);align-items:start;text-decoration:none;color:inherit">
       <img src="assets/images/mousses-champignons-symbiose-inattendue.jpg" alt="Découverte d’une symbiose inattendue entre mousses et champignons" style="width:80px;height:54px;object-fit:cover;border-radius:4px;background:var(--light)" loading="lazy" onerror="this.style.display='none'"/>
       <div>
         <span class="cat cat--science" style="display:inline-block;font-size:10px;font-weight:700;letter-spacing:.06em;margin-bottom:4px">SCIENCE</span>
@@ -110,7 +105,7 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeMenu();
         <span style="font-size:.75rem;color:var(--muted);margin-top:4px;display:block">3 juillet 2026 · 4 sources</span>
       </div>
     </a>
-    <a href="articles/exoplanete-proche-terre-conditions-vie.html" style="display:grid;grid-template-columns:80px 1fr;gap:12px 20px;padding:16px 0;border-bottom:1px solid var(--border);align-items:start;text-decoration:none;color:inherit">
+    <a class="archive-row" href="articles/exoplanete-proche-terre-conditions-vie.html" style="display:grid;grid-template-columns:80px 1fr;gap:12px 20px;padding:16px 0;border-bottom:1px solid var(--border);align-items:start;text-decoration:none;color:inherit">
       <img src="assets/images/exoplanete-proche-terre-conditions-vie.jpg" alt="Découverte d’une exoplanète proche de la Terre avec conditions propices à la vie" style="width:80px;height:54px;object-fit:cover;border-radius:4px;background:var(--light)" loading="lazy" onerror="this.style.display='none'"/>
       <div>
         <span class="cat cat--societe" style="display:inline-block;font-size:10px;font-weight:700;letter-spacing:.06em;margin-bottom:4px">SOCIÉTÉ</span>
@@ -119,7 +114,7 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeMenu();
         <span style="font-size:.75rem;color:var(--muted);margin-top:4px;display:block">3 juillet 2026 · 4 sources</span>
       </div>
     </a>
-    <a href="articles/fin-jeux-sur-disque-xbox-playstation.html" style="display:grid;grid-template-columns:80px 1fr;gap:12px 20px;padding:16px 0;border-bottom:1px solid var(--border);align-items:start;text-decoration:none;color:inherit">
+    <a class="archive-row" href="articles/fin-jeux-sur-disque-xbox-playstation.html" style="display:grid;grid-template-columns:80px 1fr;gap:12px 20px;padding:16px 0;border-bottom:1px solid var(--border);align-items:start;text-decoration:none;color:inherit">
       <img src="assets/images/fin-jeux-sur-disque-xbox-playstation.jpg" alt="Fin des jeux sur disque pour Xbox et PlayStation" style="width:80px;height:54px;object-fit:cover;border-radius:4px;background:var(--light)" loading="lazy" onerror="this.style.display='none'"/>
       <div>
         <span class="cat cat--tech" style="display:inline-block;font-size:10px;font-weight:700;letter-spacing:.06em;margin-bottom:4px">TECH</span>
@@ -128,7 +123,7 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeMenu();
         <span style="font-size:.75rem;color:var(--muted);margin-top:4px;display:block">2 juillet 2026 · 4 sources</span>
       </div>
     </a>
-    <a href="articles/dell-16-nouvelle-generation-perd-350-euros.html" style="display:grid;grid-template-columns:80px 1fr;gap:12px 20px;padding:16px 0;border-bottom:1px solid var(--border);align-items:start;text-decoration:none;color:inherit">
+    <a class="archive-row" href="articles/dell-16-nouvelle-generation-perd-350-euros.html" style="display:grid;grid-template-columns:80px 1fr;gap:12px 20px;padding:16px 0;border-bottom:1px solid var(--border);align-items:start;text-decoration:none;color:inherit">
       <img src="assets/images/dell-16-nouvelle-generation-perd-350-euros.jpg" alt="Dell 16 nouvelle génération perd 350 euros avec Core Ultra 5" style="width:80px;height:54px;object-fit:cover;border-radius:4px;background:var(--light)" loading="lazy" onerror="this.style.display='none'"/>
       <div>
         <span class="cat cat--societe" style="display:inline-block;font-size:10px;font-weight:700;letter-spacing:.06em;margin-bottom:4px">SOCIÉTÉ</span>
@@ -137,7 +132,7 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeMenu();
         <span style="font-size:.75rem;color:var(--muted);margin-top:4px;display:block">2 juillet 2026 · 4 sources</span>
       </div>
     </a>
-    <a href="articles/la-vie-sur-terre-plus-longue-que-prevu.html" style="display:grid;grid-template-columns:80px 1fr;gap:12px 20px;padding:16px 0;border-bottom:1px solid var(--border);align-items:start;text-decoration:none;color:inherit">
+    <a class="archive-row" href="articles/la-vie-sur-terre-plus-longue-que-prevu.html" style="display:grid;grid-template-columns:80px 1fr;gap:12px 20px;padding:16px 0;border-bottom:1px solid var(--border);align-items:start;text-decoration:none;color:inherit">
       <img src="assets/images/la-vie-sur-terre-plus-longue-que-prevu.jpg" alt="La vie sur Terre pourrait durer plus longtemps que prévu" style="width:80px;height:54px;object-fit:cover;border-radius:4px;background:var(--light)" loading="lazy" onerror="this.style.display='none'"/>
       <div>
         <span class="cat cat--science" style="display:inline-block;font-size:10px;font-weight:700;letter-spacing:.06em;margin-bottom:4px">SCIENCE</span>
@@ -146,7 +141,7 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeMenu();
         <span style="font-size:.75rem;color:var(--muted);margin-top:4px;display:block">2 juillet 2026 · 4 sources</span>
       </div>
     </a>
-    <a href="articles/incendies-forets-aude-science-impacts.html" style="display:grid;grid-template-columns:80px 1fr;gap:12px 20px;padding:16px 0;border-bottom:1px solid var(--border);align-items:start;text-decoration:none;color:inherit">
+    <a class="archive-row" href="articles/incendies-forets-aude-science-impacts.html" style="display:grid;grid-template-columns:80px 1fr;gap:12px 20px;padding:16px 0;border-bottom:1px solid var(--border);align-items:start;text-decoration:none;color:inherit">
       <img src="assets/images/incendies-forets-aude-science-impacts.jpg" alt="Incendies de forêts dans l’Aude : la science étudie les impacts" style="width:80px;height:54px;object-fit:cover;border-radius:4px;background:var(--light)" loading="lazy" onerror="this.style.display='none'"/>
       <div>
         <span class="cat cat--science" style="display:inline-block;font-size:10px;font-weight:700;letter-spacing:.06em;margin-bottom:4px">SCIENCE</span>
@@ -155,7 +150,7 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeMenu();
         <span style="font-size:.75rem;color:var(--muted);margin-top:4px;display:block">2 juillet 2026 · 4 sources</span>
       </div>
     </a>
-    <a href="articles/hantavirus-oms-declare-fin-episode-mv-hondius.html" style="display:grid;grid-template-columns:80px 1fr;gap:12px 20px;padding:16px 0;border-bottom:1px solid var(--border);align-items:start;text-decoration:none;color:inherit">
+    <a class="archive-row" href="articles/hantavirus-oms-declare-fin-episode-mv-hondius.html" style="display:grid;grid-template-columns:80px 1fr;gap:12px 20px;padding:16px 0;border-bottom:1px solid var(--border);align-items:start;text-decoration:none;color:inherit">
       <img src="assets/images/hantavirus-oms-declare-fin-episode-mv-hondius.jpg" alt="Hantavirus : l’OMS déclare la fin de l’épisode lié au navire de croisière MV Hondius" style="width:80px;height:54px;object-fit:cover;border-radius:4px;background:var(--light)" loading="lazy" onerror="this.style.display='none'"/>
       <div>
         <span class="cat cat--science" style="display:inline-block;font-size:10px;font-weight:700;letter-spacing:.06em;margin-bottom:4px">SCIENCE</span>
@@ -164,7 +159,7 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeMenu();
         <span style="font-size:.75rem;color:var(--muted);margin-top:4px;display:block">2 juillet 2026 · 4 sources</span>
       </div>
     </a>
-    <a href="articles/vatican-sanctionne-schisme-fraternite-saint-pie-x.html" style="display:grid;grid-template-columns:80px 1fr;gap:12px 20px;padding:16px 0;border-bottom:1px solid var(--border);align-items:start;text-decoration:none;color:inherit">
+    <a class="archive-row" href="articles/vatican-sanctionne-schisme-fraternite-saint-pie-x.html" style="display:grid;grid-template-columns:80px 1fr;gap:12px 20px;padding:16px 0;border-bottom:1px solid var(--border);align-items:start;text-decoration:none;color:inherit">
       <img src="assets/images/vatican-sanctionne-schisme-fraternite-saint-pie-x.jpg" alt="Le Vatican sanctionne le schisme de la Fraternité Saint-Pie X" style="width:80px;height:54px;object-fit:cover;border-radius:4px;background:var(--light)" loading="lazy" onerror="this.style.display='none'"/>
       <div>
         <span class="cat cat--societe" style="display:inline-block;font-size:10px;font-weight:700;letter-spacing:.06em;margin-bottom:4px">SOCIÉTÉ</span>
@@ -173,7 +168,7 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeMenu();
         <span style="font-size:.75rem;color:var(--muted);margin-top:4px;display:block">2 juillet 2026 · 4 sources</span>
       </div>
     </a>
-    <a href="articles/reformes-economiques-allemagne-merz.html" style="display:grid;grid-template-columns:80px 1fr;gap:12px 20px;padding:16px 0;border-bottom:1px solid var(--border);align-items:start;text-decoration:none;color:inherit">
+    <a class="archive-row" href="articles/reformes-economiques-allemagne-merz.html" style="display:grid;grid-template-columns:80px 1fr;gap:12px 20px;padding:16px 0;border-bottom:1px solid var(--border);align-items:start;text-decoration:none;color:inherit">
       <img src="assets/images/reformes-economiques-allemagne-merz.jpg" alt="Allemagne : le chancelier Friedrich Merz annonce des réformes économiques" style="width:80px;height:54px;object-fit:cover;border-radius:4px;background:var(--light)" loading="lazy" onerror="this.style.display='none'"/>
       <div>
         <span class="cat cat--economie" style="display:inline-block;font-size:10px;font-weight:700;letter-spacing:.06em;margin-bottom:4px">ÉCONOMIE</span>
@@ -182,7 +177,7 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeMenu();
         <span style="font-size:.75rem;color:var(--muted);margin-top:4px;display:block">2 juillet 2026 · 4 sources</span>
       </div>
     </a>
-    <a href="articles/transport-aerien-crise-detroit-ormuz.html" style="display:grid;grid-template-columns:80px 1fr;gap:12px 20px;padding:16px 0;border-bottom:1px solid var(--border);align-items:start;text-decoration:none;color:inherit">
+    <a class="archive-row" href="articles/transport-aerien-crise-detroit-ormuz.html" style="display:grid;grid-template-columns:80px 1fr;gap:12px 20px;padding:16px 0;border-bottom:1px solid var(--border);align-items:start;text-decoration:none;color:inherit">
       <img src="assets/images/transport-aerien-crise-detroit-ormuz.jpg" alt="Transport aérien affecté par la crise du détroit d’Ormuz" style="width:80px;height:54px;object-fit:cover;border-radius:4px;background:var(--light)" loading="lazy" onerror="this.style.display='none'"/>
       <div>
         <span class="cat cat--societe" style="display:inline-block;font-size:10px;font-weight:700;letter-spacing:.06em;margin-bottom:4px">SOCIÉTÉ</span>
@@ -191,7 +186,7 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeMenu();
         <span style="font-size:.75rem;color:var(--muted);margin-top:4px;display:block">2 juillet 2026 · 4 sources</span>
       </div>
     </a>
-    <a href="articles/marc-bloch-historien-majeur-xxe-siecle.html" style="display:grid;grid-template-columns:80px 1fr;gap:12px 20px;padding:16px 0;border-bottom:1px solid var(--border);align-items:start;text-decoration:none;color:inherit">
+    <a class="archive-row" href="articles/marc-bloch-historien-majeur-xxe-siecle.html" style="display:grid;grid-template-columns:80px 1fr;gap:12px 20px;padding:16px 0;border-bottom:1px solid var(--border);align-items:start;text-decoration:none;color:inherit">
       <img src="assets/images/marc-bloch-historien-majeur-xxe-siecle.jpg" alt="Marc Bloch, un historien majeur du XXe siècle" style="width:80px;height:54px;object-fit:cover;border-radius:4px;background:var(--light)" loading="lazy" onerror="this.style.display='none'"/>
       <div>
         <span class="cat cat--science" style="display:inline-block;font-size:10px;font-weight:700;letter-spacing:.06em;margin-bottom:4px">SCIENCE</span>
@@ -200,16 +195,7 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeMenu();
         <span style="font-size:.75rem;color:var(--muted);margin-top:4px;display:block">2 juillet 2026 · 4 sources</span>
       </div>
     </a>
-    <a href="articles/eutrophisation-baie-guanabara-rio.html" style="display:grid;grid-template-columns:80px 1fr;gap:12px 20px;padding:16px 0;border-bottom:1px solid var(--border);align-items:start;text-decoration:none;color:inherit">
-      <img src="assets/images/eutrophisation-baie-guanabara-rio.jpg" alt="Eutrophisation de la baie de Guanabara à Rio de Janeiro" style="width:80px;height:54px;object-fit:cover;border-radius:4px;background:var(--light)" loading="lazy" onerror="this.style.display='none'"/>
-      <div>
-        <span class="cat cat--environnement" style="display:inline-block;font-size:10px;font-weight:700;letter-spacing:.06em;margin-bottom:4px">ENVIRONNEMENT</span>
-        <div style="font-weight:600;color:var(--ink);line-height:1.4;font-size:1rem">Eutrophisation de la baie de Guanabara à Rio de Janeiro</div>
-        <p style="margin:4px 0 0;font-size:.85rem;color:var(--muted);line-height:1.5">La baie de Guanabara, symbole de Rio de Janeiro, reçoit 65 % des eaux usées de la métropole, entraînant une prolifératio…</p>
-        <span style="font-size:.75rem;color:var(--muted);margin-top:4px;display:block">2 juillet 2026 · 3 sources</span>
-      </div>
-    </a>
-    <a href="articles/ver-informatique-ia-attaque-experimentale.html" style="display:grid;grid-template-columns:80px 1fr;gap:12px 20px;padding:16px 0;border-bottom:1px solid var(--border);align-items:start;text-decoration:none;color:inherit">
+    <a class="archive-row" href="articles/ver-informatique-ia-attaque-experimentale.html" style="display:grid;grid-template-columns:80px 1fr;gap:12px 20px;padding:16px 0;border-bottom:1px solid var(--border);align-items:start;text-decoration:none;color:inherit">
       <img src="assets/images/ver-informatique-ia-attaque-experimentale.jpg" alt="Première attaque expérimentale d’un ver informatique mû par l’IA" style="width:80px;height:54px;object-fit:cover;border-radius:4px;background:var(--light)" loading="lazy" onerror="this.style.display='none'"/>
       <div>
         <span class="cat cat--tech" style="display:inline-block;font-size:10px;font-weight:700;letter-spacing:.06em;margin-bottom:4px">TECH</span>
@@ -218,7 +204,7 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeMenu();
         <span style="font-size:.75rem;color:var(--muted);margin-top:4px;display:block">2 juillet 2026 · 4 sources</span>
       </div>
     </a>
-    <a href="articles/seismes-au-venezuela-sauvetage-en-cours.html" style="display:grid;grid-template-columns:80px 1fr;gap:12px 20px;padding:16px 0;border-bottom:1px solid var(--border);align-items:start;text-decoration:none;color:inherit">
+    <a class="archive-row" href="articles/seismes-au-venezuela-sauvetage-en-cours.html" style="display:grid;grid-template-columns:80px 1fr;gap:12px 20px;padding:16px 0;border-bottom:1px solid var(--border);align-items:start;text-decoration:none;color:inherit">
       <img src="assets/images/seismes-au-venezuela-sauvetage-en-cours.jpg" alt="Séismes au Venezuela, opérations de sauvetage en cours" style="width:80px;height:54px;object-fit:cover;border-radius:4px;background:var(--light)" loading="lazy" onerror="this.style.display='none'"/>
       <div>
         <span class="cat cat--societe" style="display:inline-block;font-size:10px;font-weight:700;letter-spacing:.06em;margin-bottom:4px">SOCIÉTÉ</span>
@@ -227,16 +213,7 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeMenu();
         <span style="font-size:.75rem;color:var(--muted);margin-top:4px;display:block">2 juillet 2026 · 4 sources</span>
       </div>
     </a>
-    <a href="articles/t-rex-exceptionnel-presentation-new-york.html" style="display:grid;grid-template-columns:80px 1fr;gap:12px 20px;padding:16px 0;border-bottom:1px solid var(--border);align-items:start;text-decoration:none;color:inherit">
-      <img src="assets/images/t-rex-exceptionnel-presentation-new-york.jpg" alt="Présentation à New York d’un T-Rex exceptionnel avant sa vente aux enchères" style="width:80px;height:54px;object-fit:cover;border-radius:4px;background:var(--light)" loading="lazy" onerror="this.style.display='none'"/>
-      <div>
-        <span class="cat cat--environnement" style="display:inline-block;font-size:10px;font-weight:700;letter-spacing:.06em;margin-bottom:4px">ENVIRONNEMENT</span>
-        <div style="font-weight:600;color:var(--ink);line-height:1.4;font-size:1rem">Présentation à New York d’un T-Rex exceptionnel avant sa vente aux enchères</div>
-        <p style="margin:4px 0 0;font-size:.85rem;color:var(--muted);line-height:1.5">Un spécimen de Tyrannosaurus rex exceptionnel, surnommé &#x27;Gus&#x27;, a été présenté à New York avant sa vente aux enchères pré…</p>
-        <span style="font-size:.75rem;color:var(--muted);margin-top:4px;display:block">2 juillet 2026 · 3 sources</span>
-      </div>
-    </a>
-    <a href="articles/danemark-priorite-services-essentiels.html" style="display:grid;grid-template-columns:80px 1fr;gap:12px 20px;padding:16px 0;border-bottom:1px solid var(--border);align-items:start;text-decoration:none;color:inherit">
+    <a class="archive-row" href="articles/danemark-priorite-services-essentiels.html" style="display:grid;grid-template-columns:80px 1fr;gap:12px 20px;padding:16px 0;border-bottom:1px solid var(--border);align-items:start;text-decoration:none;color:inherit">
       <img src="assets/images/danemark-priorite-services-essentiels.jpg" alt="Danemark priorise services essentiels sur centres de données" style="width:80px;height:54px;object-fit:cover;border-radius:4px;background:var(--light)" loading="lazy" onerror="this.style.display='none'"/>
       <div>
         <span class="cat cat--environnement" style="display:inline-block;font-size:10px;font-weight:700;letter-spacing:.06em;margin-bottom:4px">ENVIRONNEMENT</span>
@@ -245,7 +222,7 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeMenu();
         <span style="font-size:.75rem;color:var(--muted);margin-top:4px;display:block">2 juillet 2026 · 3 sources</span>
       </div>
     </a>
-    <a href="articles/squelette-d-artagnan-decouvert-maastricht.html" style="display:grid;grid-template-columns:80px 1fr;gap:12px 20px;padding:16px 0;border-bottom:1px solid var(--border);align-items:start;text-decoration:none;color:inherit">
+    <a class="archive-row" href="articles/squelette-d-artagnan-decouvert-maastricht.html" style="display:grid;grid-template-columns:80px 1fr;gap:12px 20px;padding:16px 0;border-bottom:1px solid var(--border);align-items:start;text-decoration:none;color:inherit">
       <img src="assets/images/squelette-d-artagnan-decouvert-maastricht.jpg" alt="Découverte d’un squelette à Maastricht aux Pays-Bas" style="width:80px;height:54px;object-fit:cover;border-radius:4px;background:var(--light)" loading="lazy" onerror="this.style.display='none'"/>
       <div>
         <span class="cat cat--societe" style="display:inline-block;font-size:10px;font-weight:700;letter-spacing:.06em;margin-bottom:4px">SOCIÉTÉ</span>
@@ -254,7 +231,7 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeMenu();
         <span style="font-size:.75rem;color:var(--muted);margin-top:4px;display:block">2 juillet 2026 · 3 sources</span>
       </div>
     </a>
-    <a href="articles/corruption-narcotrafic-france.html" style="display:grid;grid-template-columns:80px 1fr;gap:12px 20px;padding:16px 0;border-bottom:1px solid var(--border);align-items:start;text-decoration:none;color:inherit">
+    <a class="archive-row" href="articles/corruption-narcotrafic-france.html" style="display:grid;grid-template-columns:80px 1fr;gap:12px 20px;padding:16px 0;border-bottom:1px solid var(--border);align-items:start;text-decoration:none;color:inherit">
       <img src="assets/images/corruption-narcotrafic-france.jpg" alt="Corruption liée au narcotrafic en France" style="width:80px;height:54px;object-fit:cover;border-radius:4px;background:var(--light)" loading="lazy" onerror="this.style.display='none'"/>
       <div>
         <span class="cat cat--societe" style="display:inline-block;font-size:10px;font-weight:700;letter-spacing:.06em;margin-bottom:4px">SOCIÉTÉ</span>
@@ -263,7 +240,7 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeMenu();
         <span style="font-size:.75rem;color:var(--muted);margin-top:4px;display:block">2 juillet 2026 · 4 sources</span>
       </div>
     </a>
-    <a href="articles/demantelement-bidonville-stains-seine-saint-denis.html" style="display:grid;grid-template-columns:80px 1fr;gap:12px 20px;padding:16px 0;border-bottom:1px solid var(--border);align-items:start;text-decoration:none;color:inherit">
+    <a class="archive-row" href="articles/demantelement-bidonville-stains-seine-saint-denis.html" style="display:grid;grid-template-columns:80px 1fr;gap:12px 20px;padding:16px 0;border-bottom:1px solid var(--border);align-items:start;text-decoration:none;color:inherit">
       <img src="assets/images/demantelement-bidonville-stains-seine-saint-denis.jpg" alt="Démantèlement du bidonville de Stains en Seine-Saint-Denis" style="width:80px;height:54px;object-fit:cover;border-radius:4px;background:var(--light)" loading="lazy" onerror="this.style.display='none'"/>
       <div>
         <span class="cat cat--societe" style="display:inline-block;font-size:10px;font-weight:700;letter-spacing:.06em;margin-bottom:4px">SOCIÉTÉ</span>
@@ -272,7 +249,7 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeMenu();
         <span style="font-size:.75rem;color:var(--muted);margin-top:4px;display:block">2 juillet 2026 · 3 sources</span>
       </div>
     </a>
-    <a href="articles/vitamine-d-calcium-fractures.html" style="display:grid;grid-template-columns:80px 1fr;gap:12px 20px;padding:16px 0;border-bottom:1px solid var(--border);align-items:start;text-decoration:none;color:inherit">
+    <a class="archive-row" href="articles/vitamine-d-calcium-fractures.html" style="display:grid;grid-template-columns:80px 1fr;gap:12px 20px;padding:16px 0;border-bottom:1px solid var(--border);align-items:start;text-decoration:none;color:inherit">
       <img src="assets/images/vitamine-d-calcium-fractures.jpg" alt="Vitamine D et calcium contre les fractures" style="width:80px;height:54px;object-fit:cover;border-radius:4px;background:var(--light)" loading="lazy" onerror="this.style.display='none'"/>
       <div>
         <span class="cat cat--science" style="display:inline-block;font-size:10px;font-weight:700;letter-spacing:.06em;margin-bottom:4px">SCIENCE</span>
@@ -281,7 +258,7 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeMenu();
         <span style="font-size:.75rem;color:var(--muted);margin-top:4px;display:block">2 juillet 2026 · 4 sources</span>
       </div>
     </a>
-    <a href="articles/satellites-orbite-basse-menacent-ciel-etoile.html" style="display:grid;grid-template-columns:80px 1fr;gap:12px 20px;padding:16px 0;border-bottom:1px solid var(--border);align-items:start;text-decoration:none;color:inherit">
+    <a class="archive-row" href="articles/satellites-orbite-basse-menacent-ciel-etoile.html" style="display:grid;grid-template-columns:80px 1fr;gap:12px 20px;padding:16px 0;border-bottom:1px solid var(--border);align-items:start;text-decoration:none;color:inherit">
       <img src="assets/images/satellites-orbite-basse-menacent-ciel-etoile.jpg" alt="Prolifération de satellites en orbite basse menace le ciel étoilé" style="width:80px;height:54px;object-fit:cover;border-radius:4px;background:var(--light)" loading="lazy" onerror="this.style.display='none'"/>
       <div>
         <span class="cat cat--science" style="display:inline-block;font-size:10px;font-weight:700;letter-spacing:.06em;margin-bottom:4px">SCIENCE</span>
@@ -290,7 +267,7 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeMenu();
         <span style="font-size:.75rem;color:var(--muted);margin-top:4px;display:block">2 juillet 2026 · 4 sources</span>
       </div>
     </a>
-    <a href="articles/revision-loi-bioethique-france-2028.html" style="display:grid;grid-template-columns:80px 1fr;gap:12px 20px;padding:16px 0;border-bottom:1px solid var(--border);align-items:start;text-decoration:none;color:inherit">
+    <a class="archive-row" href="articles/revision-loi-bioethique-france-2028.html" style="display:grid;grid-template-columns:80px 1fr;gap:12px 20px;padding:16px 0;border-bottom:1px solid var(--border);align-items:start;text-decoration:none;color:inherit">
       <img src="assets/images/revision-loi-bioethique-france-2028.jpg" alt="Révision de la loi de bioéthique en France avec 82 recommandations" style="width:80px;height:54px;object-fit:cover;border-radius:4px;background:var(--light)" loading="lazy" onerror="this.style.display='none'"/>
       <div>
         <span class="cat cat--societe" style="display:inline-block;font-size:10px;font-weight:700;letter-spacing:.06em;margin-bottom:4px">SOCIÉTÉ</span>
@@ -299,7 +276,7 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeMenu();
         <span style="font-size:.75rem;color:var(--muted);margin-top:4px;display:block">2 juillet 2026 · 4 sources</span>
       </div>
     </a>
-    <a href="articles/cartes-gouv-fr-alternative-google-maps.html" style="display:grid;grid-template-columns:80px 1fr;gap:12px 20px;padding:16px 0;border-bottom:1px solid var(--border);align-items:start;text-decoration:none;color:inherit">
+    <a class="archive-row" href="articles/cartes-gouv-fr-alternative-google-maps.html" style="display:grid;grid-template-columns:80px 1fr;gap:12px 20px;padding:16px 0;border-bottom:1px solid var(--border);align-items:start;text-decoration:none;color:inherit">
       <img src="assets/images/cartes-gouv-fr-alternative-google-maps.jpg" alt="Lancement de Cartes.gouv.fr, alternative française à Google Maps" style="width:80px;height:54px;object-fit:cover;border-radius:4px;background:var(--light)" loading="lazy" onerror="this.style.display='none'"/>
       <div>
         <span class="cat cat--tech" style="display:inline-block;font-size:10px;font-weight:700;letter-spacing:.06em;margin-bottom:4px">TECH</span>
@@ -308,7 +285,7 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeMenu();
         <span style="font-size:.75rem;color:var(--muted);margin-top:4px;display:block">2 juillet 2026 · 4 sources</span>
       </div>
     </a>
-    <a href="articles/knds-reporte-entree-bourse-volatilite-marche.html" style="display:grid;grid-template-columns:80px 1fr;gap:12px 20px;padding:16px 0;border-bottom:1px solid var(--border);align-items:start;text-decoration:none;color:inherit">
+    <a class="archive-row" href="articles/knds-reporte-entree-bourse-volatilite-marche.html" style="display:grid;grid-template-columns:80px 1fr;gap:12px 20px;padding:16px 0;border-bottom:1px solid var(--border);align-items:start;text-decoration:none;color:inherit">
       <img src="assets/images/knds-reporte-entree-bourse-volatilite-marche.jpg" alt="KNDS reporte son entrée en Bourse en raison de la volatilité du marché" style="width:80px;height:54px;object-fit:cover;border-radius:4px;background:var(--light)" loading="lazy" onerror="this.style.display='none'"/>
       <div>
         <span class="cat cat--societe" style="display:inline-block;font-size:10px;font-weight:700;letter-spacing:.06em;margin-bottom:4px">SOCIÉTÉ</span>
@@ -317,7 +294,7 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeMenu();
         <span style="font-size:.75rem;color:var(--muted);margin-top:4px;display:block">2 juillet 2026 · 4 sources</span>
       </div>
     </a>
-    <a href="articles/peintures-rupestres-anciennes-grande-bretagne.html" style="display:grid;grid-template-columns:80px 1fr;gap:12px 20px;padding:16px 0;border-bottom:1px solid var(--border);align-items:start;text-decoration:none;color:inherit">
+    <a class="archive-row" href="articles/peintures-rupestres-anciennes-grande-bretagne.html" style="display:grid;grid-template-columns:80px 1fr;gap:12px 20px;padding:16px 0;border-bottom:1px solid var(--border);align-items:start;text-decoration:none;color:inherit">
       <img src="assets/images/peintures-rupestres-anciennes-grande-bretagne.jpg" alt="Découverte de peintures rupestres anciennes en Grande-Bretagne" style="width:80px;height:54px;object-fit:cover;border-radius:4px;background:var(--light)" loading="lazy" onerror="this.style.display='none'"/>
       <div>
         <span class="cat cat--science" style="display:inline-block;font-size:10px;font-weight:700;letter-spacing:.06em;margin-bottom:4px">SCIENCE</span>
@@ -326,7 +303,7 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeMenu();
         <span style="font-size:.75rem;color:var(--muted);margin-top:4px;display:block">2 juillet 2026 · 4 sources</span>
       </div>
     </a>
-    <a href="articles/supernova-etoile-secrets.html" style="display:grid;grid-template-columns:80px 1fr;gap:12px 20px;padding:16px 0;border-bottom:1px solid var(--border);align-items:start;text-decoration:none;color:inherit">
+    <a class="archive-row" href="articles/supernova-etoile-secrets.html" style="display:grid;grid-template-columns:80px 1fr;gap:12px 20px;padding:16px 0;border-bottom:1px solid var(--border);align-items:start;text-decoration:none;color:inherit">
       <img src="assets/images/supernova-etoile-secrets.jpg" alt="Découverte d’une supernova révélant les secrets d’une étoile" style="width:80px;height:54px;object-fit:cover;border-radius:4px;background:var(--light)" loading="lazy" onerror="this.style.display='none'"/>
       <div>
         <span class="cat cat--tech" style="display:inline-block;font-size:10px;font-weight:700;letter-spacing:.06em;margin-bottom:4px">TECH</span>
@@ -335,7 +312,7 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeMenu();
         <span style="font-size:.75rem;color:var(--muted);margin-top:4px;display:block">2 juillet 2026 · 4 sources</span>
       </div>
     </a>
-    <a href="articles/construction-ponts-autoroutes-chine.html" style="display:grid;grid-template-columns:80px 1fr;gap:12px 20px;padding:16px 0;border-bottom:1px solid var(--border);align-items:start;text-decoration:none;color:inherit">
+    <a class="archive-row" href="articles/construction-ponts-autoroutes-chine.html" style="display:grid;grid-template-columns:80px 1fr;gap:12px 20px;padding:16px 0;border-bottom:1px solid var(--border);align-items:start;text-decoration:none;color:inherit">
       <img src="assets/images/construction-ponts-autoroutes-chine.jpg" alt="Construction de ponts et d’autoroutes en Chine, un modèle de développement à bout de souffle" style="width:80px;height:54px;object-fit:cover;border-radius:4px;background:var(--light)" loading="lazy" onerror="this.style.display='none'"/>
       <div>
         <span class="cat cat--environnement" style="display:inline-block;font-size:10px;font-weight:700;letter-spacing:.06em;margin-bottom:4px">ENVIRONNEMENT</span>
@@ -344,16 +321,7 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeMenu();
         <span style="font-size:.75rem;color:var(--muted);margin-top:4px;display:block">2 juillet 2026 · 4 sources</span>
       </div>
     </a>
-    <a href="articles/climatiseurs-portables-fortes-chaleurs.html" style="display:grid;grid-template-columns:80px 1fr;gap:12px 20px;padding:16px 0;border-bottom:1px solid var(--border);align-items:start;text-decoration:none;color:inherit">
-      <img src="assets/images/climatiseurs-portables-fortes-chaleurs.jpg" alt="Climatiseurs portables pour les fortes chaleurs" style="width:80px;height:54px;object-fit:cover;border-radius:4px;background:var(--light)" loading="lazy" onerror="this.style.display='none'"/>
-      <div>
-        <span class="cat cat--environnement" style="display:inline-block;font-size:10px;font-weight:700;letter-spacing:.06em;margin-bottom:4px">ENVIRONNEMENT</span>
-        <div style="font-weight:600;color:var(--ink);line-height:1.4;font-size:1rem">Climatiseurs portables pour les fortes chaleurs</div>
-        <p style="margin:4px 0 0;font-size:.85rem;color:var(--muted);line-height:1.5">Les climatiseurs portables sont de plus en plus populaires pour faire face aux fortes chaleurs, avec des modèles comme l…</p>
-        <span style="font-size:.75rem;color:var(--muted);margin-top:4px;display:block">1 juillet 2026 · 3 sources</span>
-      </div>
-    </a>
-    <a href="articles/france-dette-publique-insoutenable.html" style="display:grid;grid-template-columns:80px 1fr;gap:12px 20px;padding:16px 0;border-bottom:1px solid var(--border);align-items:start;text-decoration:none;color:inherit">
+    <a class="archive-row" href="articles/france-dette-publique-insoutenable.html" style="display:grid;grid-template-columns:80px 1fr;gap:12px 20px;padding:16px 0;border-bottom:1px solid var(--border);align-items:start;text-decoration:none;color:inherit">
       <img src="assets/images/france-dette-publique-insoutenable.jpg" alt="La France face à une dette publique non soutenable selon Jean Peyrelevade" style="width:80px;height:54px;object-fit:cover;border-radius:4px;background:var(--light)" loading="lazy" onerror="this.style.display='none'"/>
       <div>
         <span class="cat cat--economie" style="display:inline-block;font-size:10px;font-weight:700;letter-spacing:.06em;margin-bottom:4px">ÉCONOMIE</span>
@@ -362,7 +330,7 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeMenu();
         <span style="font-size:.75rem;color:var(--muted);margin-top:4px;display:block">1 juillet 2026 · 4 sources</span>
       </div>
     </a>
-    <a href="articles/climat-changement-scientifiques-alertent.html" style="display:grid;grid-template-columns:80px 1fr;gap:12px 20px;padding:16px 0;border-bottom:1px solid var(--border);align-items:start;text-decoration:none;color:inherit">
+    <a class="archive-row" href="articles/climat-changement-scientifiques-alertent.html" style="display:grid;grid-template-columns:80px 1fr;gap:12px 20px;padding:16px 0;border-bottom:1px solid var(--border);align-items:start;text-decoration:none;color:inherit">
       <img src="assets/images/climat-changement-scientifiques-alertent.jpg" alt="Le climat de nos parents n’existe plus selon 26 scientifiques" style="width:80px;height:54px;object-fit:cover;border-radius:4px;background:var(--light)" loading="lazy" onerror="this.style.display='none'"/>
       <div>
         <span class="cat cat--science" style="display:inline-block;font-size:10px;font-weight:700;letter-spacing:.06em;margin-bottom:4px">SCIENCE</span>
@@ -371,16 +339,7 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeMenu();
         <span style="font-size:.75rem;color:var(--muted);margin-top:4px;display:block">1 juillet 2026 · 4 sources</span>
       </div>
     </a>
-    <a href="articles/washington-reautorise-ia-anthropic.html" style="display:grid;grid-template-columns:80px 1fr;gap:12px 20px;padding:16px 0;border-bottom:1px solid var(--border);align-items:start;text-decoration:none;color:inherit">
-      <img src="assets/images/washington-reautorise-ia-anthropic.jpg" alt="Washington rétablit les IA d’Anthropic sous surveillance" style="width:80px;height:54px;object-fit:cover;border-radius:4px;background:var(--light)" loading="lazy" onerror="this.style.display='none'"/>
-      <div>
-        <span class="cat cat--tech" style="display:inline-block;font-size:10px;font-weight:700;letter-spacing:.06em;margin-bottom:4px">TECH</span>
-        <div style="font-weight:600;color:var(--ink);line-height:1.4;font-size:1rem">Washington rétablit les IA d’Anthropic sous surveillance</div>
-        <p style="margin:4px 0 0;font-size:.85rem;color:var(--muted);line-height:1.5">L&#x27;administration Trump a levé les restrictions sur les modèles d&#x27;intelligence artificielle d&#x27;Anthropic, permettant leur …</p>
-        <span style="font-size:.75rem;color:var(--muted);margin-top:4px;display:block">1 juillet 2026 · 3 sources</span>
-      </div>
-    </a>
-    <a href="articles/meduses-echouees-normandie.html" style="display:grid;grid-template-columns:80px 1fr;gap:12px 20px;padding:16px 0;border-bottom:1px solid var(--border);align-items:start;text-decoration:none;color:inherit">
+    <a class="archive-row" href="articles/meduses-echouees-normandie.html" style="display:grid;grid-template-columns:80px 1fr;gap:12px 20px;padding:16px 0;border-bottom:1px solid var(--border);align-items:start;text-decoration:none;color:inherit">
       <img src="assets/images/meduses-echouees-normandie.jpg" alt="Méduses échouées sur les plages de Normandie" style="width:80px;height:54px;object-fit:cover;border-radius:4px;background:var(--light)" loading="lazy" onerror="this.style.display='none'"/>
       <div>
         <span class="cat cat--societe" style="display:inline-block;font-size:10px;font-weight:700;letter-spacing:.06em;margin-bottom:4px">SOCIÉTÉ</span>
@@ -389,7 +348,7 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeMenu();
         <span style="font-size:.75rem;color:var(--muted);margin-top:4px;display:block">1 juillet 2026 · 4 sources</span>
       </div>
     </a>
-    <a href="articles/canicule-france-hausse-deces-morts-animaux.html" style="display:grid;grid-template-columns:80px 1fr;gap:12px 20px;padding:16px 0;border-bottom:1px solid var(--border);align-items:start;text-decoration:none;color:inherit">
+    <a class="archive-row" href="articles/canicule-france-hausse-deces-morts-animaux.html" style="display:grid;grid-template-columns:80px 1fr;gap:12px 20px;padding:16px 0;border-bottom:1px solid var(--border);align-items:start;text-decoration:none;color:inherit">
       <img src="assets/images/canicule-france-hausse-deces-morts-animaux.jpg" alt="Canicule en France : Hausse des décès et des morts d’animaux domestiques" style="width:80px;height:54px;object-fit:cover;border-radius:4px;background:var(--light)" loading="lazy" onerror="this.style.display='none'"/>
       <div>
         <span class="cat cat--societe" style="display:inline-block;font-size:10px;font-weight:700;letter-spacing:.06em;margin-bottom:4px">SOCIÉTÉ</span>
@@ -398,7 +357,7 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeMenu();
         <span style="font-size:.75rem;color:var(--muted);margin-top:4px;display:block">1 juillet 2026 · 4 sources</span>
       </div>
     </a>
-    <a href="articles/sommeil-et-hypertension-symptomes.html" style="display:grid;grid-template-columns:80px 1fr;gap:12px 20px;padding:16px 0;border-bottom:1px solid var(--border);align-items:start;text-decoration:none;color:inherit">
+    <a class="archive-row" href="articles/sommeil-et-hypertension-symptomes.html" style="display:grid;grid-template-columns:80px 1fr;gap:12px 20px;padding:16px 0;border-bottom:1px solid var(--border);align-items:start;text-decoration:none;color:inherit">
       <img src="assets/images/sommeil-et-hypertension-symptomes.jpg" alt="Sommeil et hypertension : les symptômes à ne pas négliger" style="width:80px;height:54px;object-fit:cover;border-radius:4px;background:var(--light)" loading="lazy" onerror="this.style.display='none'"/>
       <div>
         <span class="cat cat--sante" style="display:inline-block;font-size:10px;font-weight:700;letter-spacing:.06em;margin-bottom:4px">SANTÉ</span>
@@ -407,7 +366,7 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeMenu();
         <span style="font-size:.75rem;color:var(--muted);margin-top:4px;display:block">1 juillet 2026 · 4 sources</span>
       </div>
     </a>
-    <a href="articles/vague-de-chaleur-historique-mediterranee.html" style="display:grid;grid-template-columns:80px 1fr;gap:12px 20px;padding:16px 0;border-bottom:1px solid var(--border);align-items:start;text-decoration:none;color:inherit">
+    <a class="archive-row" href="articles/vague-de-chaleur-historique-mediterranee.html" style="display:grid;grid-template-columns:80px 1fr;gap:12px 20px;padding:16px 0;border-bottom:1px solid var(--border);align-items:start;text-decoration:none;color:inherit">
       <img src="assets/images/vague-de-chaleur-historique-mediterranee.jpg" alt="Vague de chaleur historique dans le nord-ouest de la Méditerranée" style="width:80px;height:54px;object-fit:cover;border-radius:4px;background:var(--light)" loading="lazy" onerror="this.style.display='none'"/>
       <div>
         <span class="cat cat--environnement" style="display:inline-block;font-size:10px;font-weight:700;letter-spacing:.06em;margin-bottom:4px">ENVIRONNEMENT</span>
@@ -416,7 +375,7 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeMenu();
         <span style="font-size:.75rem;color:var(--muted);margin-top:4px;display:block">1 juillet 2026 · 4 sources</span>
       </div>
     </a>
-    <a href="articles/regularisation-sans-papiers-espagne.html" style="display:grid;grid-template-columns:80px 1fr;gap:12px 20px;padding:16px 0;border-bottom:1px solid var(--border);align-items:start;text-decoration:none;color:inherit">
+    <a class="archive-row" href="articles/regularisation-sans-papiers-espagne.html" style="display:grid;grid-template-columns:80px 1fr;gap:12px 20px;padding:16px 0;border-bottom:1px solid var(--border);align-items:start;text-decoration:none;color:inherit">
       <img src="assets/images/regularisation-sans-papiers-espagne.jpg" alt="Régularisation de sans-papiers en Espagne" style="width:80px;height:54px;object-fit:cover;border-radius:4px;background:var(--light)" loading="lazy" onerror="this.style.display='none'"/>
       <div>
         <span class="cat cat--economie" style="display:inline-block;font-size:10px;font-weight:700;letter-spacing:.06em;margin-bottom:4px">ÉCONOMIE</span>
@@ -425,7 +384,7 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeMenu();
         <span style="font-size:.75rem;color:var(--muted);margin-top:4px;display:block">1 juillet 2026 · 4 sources</span>
       </div>
     </a>
-    <a href="articles/legami-nouveaux-accessoires-vacances.html" style="display:grid;grid-template-columns:80px 1fr;gap:12px 20px;padding:16px 0;border-bottom:1px solid var(--border);align-items:start;text-decoration:none;color:inherit">
+    <a class="archive-row" href="articles/legami-nouveaux-accessoires-vacances.html" style="display:grid;grid-template-columns:80px 1fr;gap:12px 20px;padding:16px 0;border-bottom:1px solid var(--border);align-items:start;text-decoration:none;color:inherit">
       <img src="assets/images/legami-nouveaux-accessoires-vacances.jpg" alt="Legami présente de nouveaux accessoires pour les vacances" style="width:80px;height:54px;object-fit:cover;border-radius:4px;background:var(--light)" loading="lazy" onerror="this.style.display='none'"/>
       <div>
         <span class="cat cat--environnement" style="display:inline-block;font-size:10px;font-weight:700;letter-spacing:.06em;margin-bottom:4px">ENVIRONNEMENT</span>
@@ -434,7 +393,7 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeMenu();
         <span style="font-size:.75rem;color:var(--muted);margin-top:4px;display:block">1 juillet 2026 · 3 sources</span>
       </div>
     </a>
-    <a href="articles/droit-a-l-aide-a-mourir-approuve.html" style="display:grid;grid-template-columns:80px 1fr;gap:12px 20px;padding:16px 0;border-bottom:1px solid var(--border);align-items:start;text-decoration:none;color:inherit">
+    <a class="archive-row" href="articles/droit-a-l-aide-a-mourir-approuve.html" style="display:grid;grid-template-columns:80px 1fr;gap:12px 20px;padding:16px 0;border-bottom:1px solid var(--border);align-items:start;text-decoration:none;color:inherit">
       <img src="assets/images/droit-a-l-aide-a-mourir-approuve.jpg" alt="Droit à l’aide à mourir approuvé pour la troisième fois par les députés" style="width:80px;height:54px;object-fit:cover;border-radius:4px;background:var(--light)" loading="lazy" onerror="this.style.display='none'"/>
       <div>
         <span class="cat cat--societe" style="display:inline-block;font-size:10px;font-weight:700;letter-spacing:.06em;margin-bottom:4px">SOCIÉTÉ</span>
@@ -443,7 +402,7 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeMenu();
         <span style="font-size:.75rem;color:var(--muted);margin-top:4px;display:block">1 juillet 2026 · 4 sources</span>
       </div>
     </a>
-    <a href="articles/senat-vote-retour-acetamipride-loi-urgence-agricole.html" style="display:grid;grid-template-columns:80px 1fr;gap:12px 20px;padding:16px 0;border-bottom:1px solid var(--border);align-items:start;text-decoration:none;color:inherit">
+    <a class="archive-row" href="articles/senat-vote-retour-acetamipride-loi-urgence-agricole.html" style="display:grid;grid-template-columns:80px 1fr;gap:12px 20px;padding:16px 0;border-bottom:1px solid var(--border);align-items:start;text-decoration:none;color:inherit">
       <img src="assets/images/senat-vote-retour-acetamipride-loi-urgence-agricole.jpg" alt="Le Sénat vote le retour de l’acétamipride dans la loi d’urgence agricole" style="width:80px;height:54px;object-fit:cover;border-radius:4px;background:var(--light)" loading="lazy" onerror="this.style.display='none'"/>
       <div>
         <span class="cat cat--environnement" style="display:inline-block;font-size:10px;font-weight:700;letter-spacing:.06em;margin-bottom:4px">ENVIRONNEMENT</span>
@@ -452,7 +411,7 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeMenu();
         <span style="font-size:.75rem;color:var(--muted);margin-top:4px;display:block">1 juillet 2026 · 4 sources</span>
       </div>
     </a>
-    <a href="articles/dopage-sport-amateur.html" style="display:grid;grid-template-columns:80px 1fr;gap:12px 20px;padding:16px 0;border-bottom:1px solid var(--border);align-items:start;text-decoration:none;color:inherit">
+    <a class="archive-row" href="articles/dopage-sport-amateur.html" style="display:grid;grid-template-columns:80px 1fr;gap:12px 20px;padding:16px 0;border-bottom:1px solid var(--border);align-items:start;text-decoration:none;color:inherit">
       <img src="assets/images/dopage-sport-amateur.jpg" alt="Le dopage dans le sport amateur, un phénomène méconnu" style="width:80px;height:54px;object-fit:cover;border-radius:4px;background:var(--light)" loading="lazy" onerror="this.style.display='none'"/>
       <div>
         <span class="cat cat--societe" style="display:inline-block;font-size:10px;font-weight:700;letter-spacing:.06em;margin-bottom:4px">SOCIÉTÉ</span>
@@ -461,16 +420,7 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeMenu();
         <span style="font-size:.75rem;color:var(--muted);margin-top:4px;display:block">1 juillet 2026 · 4 sources</span>
       </div>
     </a>
-    <a href="articles/nouvelles-addictions-sante.html" style="display:grid;grid-template-columns:80px 1fr;gap:12px 20px;padding:16px 0;border-bottom:1px solid var(--border);align-items:start;text-decoration:none;color:inherit">
-      <img src="assets/images/nouvelles-addictions-sante.jpg" alt="Les nouvelles addictions et leur impact sur la santé" style="width:80px;height:54px;object-fit:cover;border-radius:4px;background:var(--light)" loading="lazy" onerror="this.style.display='none'"/>
-      <div>
-        <span class="cat cat--science" style="display:inline-block;font-size:10px;font-weight:700;letter-spacing:.06em;margin-bottom:4px">SCIENCE</span>
-        <div style="font-weight:600;color:var(--ink);line-height:1.4;font-size:1rem">Les nouvelles addictions et leur impact sur la santé</div>
-        <p style="margin:4px 0 0;font-size:.85rem;color:var(--muted);line-height:1.5">Selon l&#x27;Inserm, les addictions sont des pathologies cérébrales définies par une dépendance à une substance ou un comport…</p>
-        <span style="font-size:.75rem;color:var(--muted);margin-top:4px;display:block">1 juillet 2026 · 4 sources</span>
-      </div>
-    </a>
-    <a href="articles/emergence-cellules-eucaryotes.html" style="display:grid;grid-template-columns:80px 1fr;gap:12px 20px;padding:16px 0;border-bottom:1px solid var(--border);align-items:start;text-decoration:none;color:inherit">
+    <a class="archive-row" href="articles/emergence-cellules-eucaryotes.html" style="display:grid;grid-template-columns:80px 1fr;gap:12px 20px;padding:16px 0;border-bottom:1px solid var(--border);align-items:start;text-decoration:none;color:inherit">
       <img src="assets/images/emergence-cellules-eucaryotes.jpg" alt="L’émergence des cellules eucaryotes il y a plus de 2 milliards d’années" style="width:80px;height:54px;object-fit:cover;border-radius:4px;background:var(--light)" loading="lazy" onerror="this.style.display='none'"/>
       <div>
         <span class="cat cat--science" style="display:inline-block;font-size:10px;font-weight:700;letter-spacing:.06em;margin-bottom:4px">SCIENCE</span>
@@ -479,7 +429,7 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeMenu();
         <span style="font-size:.75rem;color:var(--muted);margin-top:4px;display:block">1 juillet 2026 · 4 sources</span>
       </div>
     </a>
-    <a href="articles/zuckerberg-devoile-atlas-proteines.html" style="display:grid;grid-template-columns:80px 1fr;gap:12px 20px;padding:16px 0;border-bottom:1px solid var(--border);align-items:start;text-decoration:none;color:inherit">
+    <a class="archive-row" href="articles/zuckerberg-devoile-atlas-proteines.html" style="display:grid;grid-template-columns:80px 1fr;gap:12px 20px;padding:16px 0;border-bottom:1px solid var(--border);align-items:start;text-decoration:none;color:inherit">
       <img src="assets/images/zuckerberg-devoile-atlas-proteines.jpg" alt="Zuckerberg dévoile un atlas d’un milliard de protéines" style="width:80px;height:54px;object-fit:cover;border-radius:4px;background:var(--light)" loading="lazy" onerror="this.style.display='none'"/>
       <div>
         <span class="cat cat--science" style="display:inline-block;font-size:10px;font-weight:700;letter-spacing:.06em;margin-bottom:4px">SCIENCE</span>
@@ -488,7 +438,7 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeMenu();
         <span style="font-size:.75rem;color:var(--muted);margin-top:4px;display:block">1 juillet 2026 · 3 sources</span>
       </div>
     </a>
-    <a href="articles/yaourts-a-eviter-supermarche.html" style="display:grid;grid-template-columns:80px 1fr;gap:12px 20px;padding:16px 0;border-bottom:1px solid var(--border);align-items:start;text-decoration:none;color:inherit">
+    <a class="archive-row" href="articles/yaourts-a-eviter-supermarche.html" style="display:grid;grid-template-columns:80px 1fr;gap:12px 20px;padding:16px 0;border-bottom:1px solid var(--border);align-items:start;text-decoration:none;color:inherit">
       <img src="assets/images/yaourts-a-eviter-supermarche.jpg" alt="Les yaourts à éviter au supermarché selon les nutritionnistes" style="width:80px;height:54px;object-fit:cover;border-radius:4px;background:var(--light)" loading="lazy" onerror="this.style.display='none'"/>
       <div>
         <span class="cat cat--societe" style="display:inline-block;font-size:10px;font-weight:700;letter-spacing:.06em;margin-bottom:4px">SOCIÉTÉ</span>
@@ -497,7 +447,7 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeMenu();
         <span style="font-size:.75rem;color:var(--muted);margin-top:4px;display:block">1 juillet 2026 · 4 sources</span>
       </div>
     </a>
-    <a href="articles/trump-gagne-1-2-milliard-dollars-cryptomonnaies.html" style="display:grid;grid-template-columns:80px 1fr;gap:12px 20px;padding:16px 0;border-bottom:1px solid var(--border);align-items:start;text-decoration:none;color:inherit">
+    <a class="archive-row" href="articles/trump-gagne-1-2-milliard-dollars-cryptomonnaies.html" style="display:grid;grid-template-columns:80px 1fr;gap:12px 20px;padding:16px 0;border-bottom:1px solid var(--border);align-items:start;text-decoration:none;color:inherit">
       <img src="assets/images/trump-gagne-1-2-milliard-dollars-cryptomonnaies.jpg" alt="Donald Trump gagne 1,2 milliard de dollars grâce aux cryptomonnaies en 2025" style="width:80px;height:54px;object-fit:cover;border-radius:4px;background:var(--light)" loading="lazy" onerror="this.style.display='none'"/>
       <div>
         <span class="cat cat--societe" style="display:inline-block;font-size:10px;font-weight:700;letter-spacing:.06em;margin-bottom:4px">SOCIÉTÉ</span>
@@ -508,9 +458,9 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeMenu();
     </a>
   </section>
   <section style="margin-bottom:48px">
-    <h2 style="font-size:.75rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);border-bottom:2px solid var(--blue);padding-bottom:8px;margin-bottom:0">Juin 2026 · 53 articles</h2>
+    <h2 style="font-size:.75rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);border-bottom:2px solid var(--blue);padding-bottom:8px;margin-bottom:0">Juin 2026 · 46 articles</h2>
     
-    <a href="articles/withings-degage-ses-premiers-benefices.html" style="display:grid;grid-template-columns:80px 1fr;gap:12px 20px;padding:16px 0;border-bottom:1px solid var(--border);align-items:start;text-decoration:none;color:inherit">
+    <a class="archive-row" href="articles/withings-degage-ses-premiers-benefices.html" style="display:grid;grid-template-columns:80px 1fr;gap:12px 20px;padding:16px 0;border-bottom:1px solid var(--border);align-items:start;text-decoration:none;color:inherit">
       <img src="assets/images/withings-degage-ses-premiers-benefices.jpg" alt="Withings dégage ses premiers bénéfices après dix-huit ans" style="width:80px;height:54px;object-fit:cover;border-radius:4px;background:var(--light)" loading="lazy" onerror="this.style.display='none'"/>
       <div>
         <span class="cat cat--tech" style="display:inline-block;font-size:10px;font-weight:700;letter-spacing:.06em;margin-bottom:4px">TECH</span>
@@ -519,7 +469,7 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeMenu();
         <span style="font-size:.75rem;color:var(--muted);margin-top:4px;display:block">30 juin 2026 · 4 sources</span>
       </div>
     </a>
-    <a href="articles/apple-accelere-mises-a-jour-securite-ia.html" style="display:grid;grid-template-columns:80px 1fr;gap:12px 20px;padding:16px 0;border-bottom:1px solid var(--border);align-items:start;text-decoration:none;color:inherit">
+    <a class="archive-row" href="articles/apple-accelere-mises-a-jour-securite-ia.html" style="display:grid;grid-template-columns:80px 1fr;gap:12px 20px;padding:16px 0;border-bottom:1px solid var(--border);align-items:start;text-decoration:none;color:inherit">
       <img src="assets/images/apple-accelere-mises-a-jour-securite-ia.jpg" alt="Apple accélère ses mises à jour de sécurité face à la menace IA" style="width:80px;height:54px;object-fit:cover;border-radius:4px;background:var(--light)" loading="lazy" onerror="this.style.display='none'"/>
       <div>
         <span class="cat cat--tech" style="display:inline-block;font-size:10px;font-weight:700;letter-spacing:.06em;margin-bottom:4px">TECH</span>
@@ -528,7 +478,7 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeMenu();
         <span style="font-size:.75rem;color:var(--muted);margin-top:4px;display:block">30 juin 2026 · 4 sources</span>
       </div>
     </a>
-    <a href="articles/asteroide-paris-impact.html" style="display:grid;grid-template-columns:80px 1fr;gap:12px 20px;padding:16px 0;border-bottom:1px solid var(--border);align-items:start;text-decoration:none;color:inherit">
+    <a class="archive-row" href="articles/asteroide-paris-impact.html" style="display:grid;grid-template-columns:80px 1fr;gap:12px 20px;padding:16px 0;border-bottom:1px solid var(--border);align-items:start;text-decoration:none;color:inherit">
       <img src="assets/images/asteroide-paris-impact.jpg" alt="Impact d’un astéroïde sur Paris : conséquences et probabilités" style="width:80px;height:54px;object-fit:cover;border-radius:4px;background:var(--light)" loading="lazy" onerror="this.style.display='none'"/>
       <div>
         <span class="cat cat--science" style="display:inline-block;font-size:10px;font-weight:700;letter-spacing:.06em;margin-bottom:4px">SCIENCE</span>
@@ -537,25 +487,7 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeMenu();
         <span style="font-size:.75rem;color:var(--muted);margin-top:4px;display:block">30 juin 2026 · 4 sources</span>
       </div>
     </a>
-    <a href="articles/coree-du-sud-investit-dans-ia.html" style="display:grid;grid-template-columns:80px 1fr;gap:12px 20px;padding:16px 0;border-bottom:1px solid var(--border);align-items:start;text-decoration:none;color:inherit">
-      <img src="assets/images/coree-du-sud-investit-dans-ia.jpg" alt="Corée du Sud lance plan colossal pour semi-conducteurs et IA" style="width:80px;height:54px;object-fit:cover;border-radius:4px;background:var(--light)" loading="lazy" onerror="this.style.display='none'"/>
-      <div>
-        <span class="cat cat--tech" style="display:inline-block;font-size:10px;font-weight:700;letter-spacing:.06em;margin-bottom:4px">TECH</span>
-        <div style="font-weight:600;color:var(--ink);line-height:1.4;font-size:1rem">Corée du Sud lance plan colossal pour semi-conducteurs et IA</div>
-        <p style="margin:4px 0 0;font-size:.85rem;color:var(--muted);line-height:1.5">Le gouvernement sud-coréen a dévoilé un plan d&#x27;investissement de plus de 1.000 milliards d&#x27;euros sur dix ans pour les se…</p>
-        <span style="font-size:.75rem;color:var(--muted);margin-top:4px;display:block">30 juin 2026 · 3 sources</span>
-      </div>
-    </a>
-    <a href="articles/hantavirus-terre-de-feu-argentine.html" style="display:grid;grid-template-columns:80px 1fr;gap:12px 20px;padding:16px 0;border-bottom:1px solid var(--border);align-items:start;text-decoration:none;color:inherit">
-      <img src="assets/images/hantavirus-terre-de-feu-argentine.jpg" alt="Découverte d’un variant d’hantavirus en Terre de Feu" style="width:80px;height:54px;object-fit:cover;border-radius:4px;background:var(--light)" loading="lazy" onerror="this.style.display='none'"/>
-      <div>
-        <span class="cat cat--environnement" style="display:inline-block;font-size:10px;font-weight:700;letter-spacing:.06em;margin-bottom:4px">ENVIRONNEMENT</span>
-        <div style="font-weight:600;color:var(--ink);line-height:1.4;font-size:1rem">Découverte d’un variant d’hantavirus en Terre de Feu</div>
-        <p style="margin:4px 0 0;font-size:.85rem;color:var(--muted);line-height:1.5">Un variant d&#x27;hantavirus a été détecté chez des rongeurs en Terre de Feu, en Argentine, selon des analyses menées par l&#x27;I…</p>
-        <span style="font-size:.75rem;color:var(--muted);margin-top:4px;display:block">30 juin 2026 · 3 sources</span>
-      </div>
-    </a>
-    <a href="articles/diagnostic-preimplantatoire-aneuploidies-france.html" style="display:grid;grid-template-columns:80px 1fr;gap:12px 20px;padding:16px 0;border-bottom:1px solid var(--border);align-items:start;text-decoration:none;color:inherit">
+    <a class="archive-row" href="articles/diagnostic-preimplantatoire-aneuploidies-france.html" style="display:grid;grid-template-columns:80px 1fr;gap:12px 20px;padding:16px 0;border-bottom:1px solid var(--border);align-items:start;text-decoration:none;color:inherit">
       <img src="assets/images/diagnostic-preimplantatoire-aneuploidies-france.jpg" alt="Diagnostic préimplantatoire des aneuploïdies en France" style="width:80px;height:54px;object-fit:cover;border-radius:4px;background:var(--light)" loading="lazy" onerror="this.style.display='none'"/>
       <div>
         <span class="cat cat--societe" style="display:inline-block;font-size:10px;font-weight:700;letter-spacing:.06em;margin-bottom:4px">SOCIÉTÉ</span>
@@ -564,7 +496,7 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeMenu();
         <span style="font-size:.75rem;color:var(--muted);margin-top:4px;display:block">30 juin 2026 · 4 sources</span>
       </div>
     </a>
-    <a href="articles/impreparation-canicules-france.html" style="display:grid;grid-template-columns:80px 1fr;gap:12px 20px;padding:16px 0;border-bottom:1px solid var(--border);align-items:start;text-decoration:none;color:inherit">
+    <a class="archive-row" href="articles/impreparation-canicules-france.html" style="display:grid;grid-template-columns:80px 1fr;gap:12px 20px;padding:16px 0;border-bottom:1px solid var(--border);align-items:start;text-decoration:none;color:inherit">
       <img src="assets/images/impreparation-canicules-france.jpg" alt="Impréparation face aux canicules en France depuis des décennies" style="width:80px;height:54px;object-fit:cover;border-radius:4px;background:var(--light)" loading="lazy" onerror="this.style.display='none'"/>
       <div>
         <span class="cat cat--science" style="display:inline-block;font-size:10px;font-weight:700;letter-spacing:.06em;margin-bottom:4px">SCIENCE</span>
@@ -573,7 +505,7 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeMenu();
         <span style="font-size:.75rem;color:var(--muted);margin-top:4px;display:block">30 juin 2026 · 4 sources</span>
       </div>
     </a>
-    <a href="articles/chapsvision-remplace-palantir-dgsi-france.html" style="display:grid;grid-template-columns:80px 1fr;gap:12px 20px;padding:16px 0;border-bottom:1px solid var(--border);align-items:start;text-decoration:none;color:inherit">
+    <a class="archive-row" href="articles/chapsvision-remplace-palantir-dgsi-france.html" style="display:grid;grid-template-columns:80px 1fr;gap:12px 20px;padding:16px 0;border-bottom:1px solid var(--border);align-items:start;text-decoration:none;color:inherit">
       <img src="assets/images/chapsvision-remplace-palantir-dgsi-france.jpg" alt="ChapsVision remplace Palantir à la DGSI en France" style="width:80px;height:54px;object-fit:cover;border-radius:4px;background:var(--light)" loading="lazy" onerror="this.style.display='none'"/>
       <div>
         <span class="cat cat--tech" style="display:inline-block;font-size:10px;font-weight:700;letter-spacing:.06em;margin-bottom:4px">TECH</span>
@@ -582,7 +514,7 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeMenu();
         <span style="font-size:.75rem;color:var(--muted);margin-top:4px;display:block">30 juin 2026 · 4 sources</span>
       </div>
     </a>
-    <a href="articles/tension-ressource-eau-france.html" style="display:grid;grid-template-columns:80px 1fr;gap:12px 20px;padding:16px 0;border-bottom:1px solid var(--border);align-items:start;text-decoration:none;color:inherit">
+    <a class="archive-row" href="articles/tension-ressource-eau-france.html" style="display:grid;grid-template-columns:80px 1fr;gap:12px 20px;padding:16px 0;border-bottom:1px solid var(--border);align-items:start;text-decoration:none;color:inherit">
       <img src="assets/images/tension-ressource-eau-france.jpg" alt="La ministre de la Transition écologique alerte sur la tension sur la ressource en eau" style="width:80px;height:54px;object-fit:cover;border-radius:4px;background:var(--light)" loading="lazy" onerror="this.style.display='none'"/>
       <div>
         <span class="cat cat--environnement" style="display:inline-block;font-size:10px;font-weight:700;letter-spacing:.06em;margin-bottom:4px">ENVIRONNEMENT</span>
@@ -591,16 +523,7 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeMenu();
         <span style="font-size:.75rem;color:var(--muted);margin-top:4px;display:block">30 juin 2026 · 4 sources</span>
       </div>
     </a>
-    <a href="articles/eutrophisation-rio-de-janeiro.html" style="display:grid;grid-template-columns:80px 1fr;gap:12px 20px;padding:16px 0;border-bottom:1px solid var(--border);align-items:start;text-decoration:none;color:inherit">
-      <img src="assets/images/eutrophisation-rio-de-janeiro.jpg" alt="Eutrophisation à Rio de Janeiro : la baie de Guanabara en danger" style="width:80px;height:54px;object-fit:cover;border-radius:4px;background:var(--light)" loading="lazy" onerror="this.style.display='none'"/>
-      <div>
-        <span class="cat cat--environnement" style="display:inline-block;font-size:10px;font-weight:700;letter-spacing:.06em;margin-bottom:4px">ENVIRONNEMENT</span>
-        <div style="font-weight:600;color:var(--ink);line-height:1.4;font-size:1rem">Eutrophisation à Rio de Janeiro : la baie de Guanabara en danger</div>
-        <p style="margin:4px 0 0;font-size:.85rem;color:var(--muted);line-height:1.5">La baie de Guanabara, symbole de Rio de Janeiro, reçoit 65 % des eaux usées de la métropole, entraînant une prolifératio…</p>
-        <span style="font-size:.75rem;color:var(--muted);margin-top:4px;display:block">30 juin 2026 · 4 sources</span>
-      </div>
-    </a>
-    <a href="articles/congres-international-des-mathematiciens-2026.html" style="display:grid;grid-template-columns:80px 1fr;gap:12px 20px;padding:16px 0;border-bottom:1px solid var(--border);align-items:start;text-decoration:none;color:inherit">
+    <a class="archive-row" href="articles/congres-international-des-mathematiciens-2026.html" style="display:grid;grid-template-columns:80px 1fr;gap:12px 20px;padding:16px 0;border-bottom:1px solid var(--border);align-items:start;text-decoration:none;color:inherit">
       <img src="assets/images/congres-international-des-mathematiciens-2026.jpg" alt="Congrès international des mathématiciens à Philadelphie" style="width:80px;height:54px;object-fit:cover;border-radius:4px;background:var(--light)" loading="lazy" onerror="this.style.display='none'"/>
       <div>
         <span class="cat cat--science" style="display:inline-block;font-size:10px;font-weight:700;letter-spacing:.06em;margin-bottom:4px">SCIENCE</span>
@@ -609,7 +532,7 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeMenu();
         <span style="font-size:.75rem;color:var(--muted);margin-top:4px;display:block">30 juin 2026 · 4 sources</span>
       </div>
     </a>
-    <a href="articles/deux-planetes-geantes-moins-denses-que-barbe-a-papa.html" style="display:grid;grid-template-columns:80px 1fr;gap:12px 20px;padding:16px 0;border-bottom:1px solid var(--border);align-items:start;text-decoration:none;color:inherit">
+    <a class="archive-row" href="articles/deux-planetes-geantes-moins-denses-que-barbe-a-papa.html" style="display:grid;grid-template-columns:80px 1fr;gap:12px 20px;padding:16px 0;border-bottom:1px solid var(--border);align-items:start;text-decoration:none;color:inherit">
       <img src="assets/images/deux-planetes-geantes-moins-denses-que-barbe-a-papa.jpg" alt="Découverte de deux planètes géantes moins denses que la barbe à papa" style="width:80px;height:54px;object-fit:cover;border-radius:4px;background:var(--light)" loading="lazy" onerror="this.style.display='none'"/>
       <div>
         <span class="cat cat--science" style="display:inline-block;font-size:10px;font-weight:700;letter-spacing:.06em;margin-bottom:4px">SCIENCE</span>
@@ -618,16 +541,7 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeMenu();
         <span style="font-size:.75rem;color:var(--muted);margin-top:4px;display:block">30 juin 2026 · 4 sources</span>
       </div>
     </a>
-    <a href="articles/parapluie-energetique-innovant.html" style="display:grid;grid-template-columns:80px 1fr;gap:12px 20px;padding:16px 0;border-bottom:1px solid var(--border);align-items:start;text-decoration:none;color:inherit">
-      <img src="assets/images/parapluie-energetique-innovant.jpg" alt="Parapluie énergétique innovant produit de l’électricité" style="width:80px;height:54px;object-fit:cover;border-radius:4px;background:var(--light)" loading="lazy" onerror="this.style.display='none'"/>
-      <div>
-        <span class="cat cat--environnement" style="display:inline-block;font-size:10px;font-weight:700;letter-spacing:.06em;margin-bottom:4px">ENVIRONNEMENT</span>
-        <div style="font-weight:600;color:var(--ink);line-height:1.4;font-size:1rem">Parapluie énergétique innovant produit de l’électricité</div>
-        <p style="margin:4px 0 0;font-size:.85rem;color:var(--muted);line-height:1.5">Une étudiante a conçu un parapluie qui produit de l’électricité grâce à sa toile innovante, pouvant accélérer la transit…</p>
-        <span style="font-size:.75rem;color:var(--muted);margin-top:4px;display:block">30 juin 2026 · 3 sources</span>
-      </div>
-    </a>
-    <a href="articles/violences-enfants-france-insuffisante.html" style="display:grid;grid-template-columns:80px 1fr;gap:12px 20px;padding:16px 0;border-bottom:1px solid var(--border);align-items:start;text-decoration:none;color:inherit">
+    <a class="archive-row" href="articles/violences-enfants-france-insuffisante.html" style="display:grid;grid-template-columns:80px 1fr;gap:12px 20px;padding:16px 0;border-bottom:1px solid var(--border);align-items:start;text-decoration:none;color:inherit">
       <img src="assets/images/violences-enfants-france-insuffisante.jpg" alt="Violences faites aux enfants en France reste insuffisante" style="width:80px;height:54px;object-fit:cover;border-radius:4px;background:var(--light)" loading="lazy" onerror="this.style.display='none'"/>
       <div>
         <span class="cat cat--societe" style="display:inline-block;font-size:10px;font-weight:700;letter-spacing:.06em;margin-bottom:4px">SOCIÉTÉ</span>
@@ -636,7 +550,7 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeMenu();
         <span style="font-size:.75rem;color:var(--muted);margin-top:4px;display:block">30 juin 2026 · 4 sources</span>
       </div>
     </a>
-    <a href="articles/le-rire-en-politique-instrumentalise.html" style="display:grid;grid-template-columns:80px 1fr;gap:12px 20px;padding:16px 0;border-bottom:1px solid var(--border);align-items:start;text-decoration:none;color:inherit">
+    <a class="archive-row" href="articles/le-rire-en-politique-instrumentalise.html" style="display:grid;grid-template-columns:80px 1fr;gap:12px 20px;padding:16px 0;border-bottom:1px solid var(--border);align-items:start;text-decoration:none;color:inherit">
       <img src="assets/images/le-rire-en-politique-instrumentalise.jpg" alt="L’instrumentalisation du rire en politique" style="width:80px;height:54px;object-fit:cover;border-radius:4px;background:var(--light)" loading="lazy" onerror="this.style.display='none'"/>
       <div>
         <span class="cat cat--societe" style="display:inline-block;font-size:10px;font-weight:700;letter-spacing:.06em;margin-bottom:4px">SOCIÉTÉ</span>
@@ -645,7 +559,7 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeMenu();
         <span style="font-size:.75rem;color:var(--muted);margin-top:4px;display:block">29 juin 2026 · 4 sources</span>
       </div>
     </a>
-    <a href="articles/canicules-meurtrieres-france.html" style="display:grid;grid-template-columns:80px 1fr;gap:12px 20px;padding:16px 0;border-bottom:1px solid var(--border);align-items:start;text-decoration:none;color:inherit">
+    <a class="archive-row" href="articles/canicules-meurtrieres-france.html" style="display:grid;grid-template-columns:80px 1fr;gap:12px 20px;padding:16px 0;border-bottom:1px solid var(--border);align-items:start;text-decoration:none;color:inherit">
       <img src="assets/images/canicules-meurtrieres-france.jpg" alt="La France face aux canicules meurtrières" style="width:80px;height:54px;object-fit:cover;border-radius:4px;background:var(--light)" loading="lazy" onerror="this.style.display='none'"/>
       <div>
         <span class="cat cat--societe" style="display:inline-block;font-size:10px;font-weight:700;letter-spacing:.06em;margin-bottom:4px">SOCIÉTÉ</span>
@@ -654,7 +568,7 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeMenu();
         <span style="font-size:.75rem;color:var(--muted);margin-top:4px;display:block">29 juin 2026 · 4 sources</span>
       </div>
     </a>
-    <a href="articles/seisme-venezuela-bilan-humain-economique.html" style="display:grid;grid-template-columns:80px 1fr;gap:12px 20px;padding:16px 0;border-bottom:1px solid var(--border);align-items:start;text-decoration:none;color:inherit">
+    <a class="archive-row" href="articles/seisme-venezuela-bilan-humain-economique.html" style="display:grid;grid-template-columns:80px 1fr;gap:12px 20px;padding:16px 0;border-bottom:1px solid var(--border);align-items:start;text-decoration:none;color:inherit">
       <img src="assets/images/seisme-venezuela-bilan-humain-economique.jpg" alt="Double séisme au Venezuela : bilan humain et économique" style="width:80px;height:54px;object-fit:cover;border-radius:4px;background:var(--light)" loading="lazy" onerror="this.style.display='none'"/>
       <div>
         <span class="cat cat--environnement" style="display:inline-block;font-size:10px;font-weight:700;letter-spacing:.06em;margin-bottom:4px">ENVIRONNEMENT</span>
@@ -663,7 +577,7 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeMenu();
         <span style="font-size:.75rem;color:var(--muted);margin-top:4px;display:block">29 juin 2026 · 4 sources</span>
       </div>
     </a>
-    <a href="articles/adn-revolutionne-enquetes-criminelles.html" style="display:grid;grid-template-columns:80px 1fr;gap:12px 20px;padding:16px 0;border-bottom:1px solid var(--border);align-items:start;text-decoration:none;color:inherit">
+    <a class="archive-row" href="articles/adn-revolutionne-enquetes-criminelles.html" style="display:grid;grid-template-columns:80px 1fr;gap:12px 20px;padding:16px 0;border-bottom:1px solid var(--border);align-items:start;text-decoration:none;color:inherit">
       <img src="assets/images/adn-revolutionne-enquetes-criminelles.jpg" alt="L’ADN révolutionne la résolution des enquêtes criminelles" style="width:80px;height:54px;object-fit:cover;border-radius:4px;background:var(--light)" loading="lazy" onerror="this.style.display='none'"/>
       <div>
         <span class="cat cat--societe" style="display:inline-block;font-size:10px;font-weight:700;letter-spacing:.06em;margin-bottom:4px">SOCIÉTÉ</span>
@@ -672,7 +586,7 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeMenu();
         <span style="font-size:.75rem;color:var(--muted);margin-top:4px;display:block">29 juin 2026 · 4 sources</span>
       </div>
     </a>
-    <a href="articles/desensibilisation-sublinguale-allergies-respiratoires.html" style="display:grid;grid-template-columns:80px 1fr;gap:12px 20px;padding:16px 0;border-bottom:1px solid var(--border);align-items:start;text-decoration:none;color:inherit">
+    <a class="archive-row" href="articles/desensibilisation-sublinguale-allergies-respiratoires.html" style="display:grid;grid-template-columns:80px 1fr;gap:12px 20px;padding:16px 0;border-bottom:1px solid var(--border);align-items:start;text-decoration:none;color:inherit">
       <img src="assets/images/desensibilisation-sublinguale-allergies-respiratoires.jpg" alt="Désensibilisation sublinguale contre les allergies respiratoires" style="width:80px;height:54px;object-fit:cover;border-radius:4px;background:var(--light)" loading="lazy" onerror="this.style.display='none'"/>
       <div>
         <span class="cat cat--science" style="display:inline-block;font-size:10px;font-weight:700;letter-spacing:.06em;margin-bottom:4px">SCIENCE</span>
@@ -681,7 +595,7 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeMenu();
         <span style="font-size:.75rem;color:var(--muted);margin-top:4px;display:block">29 juin 2026 · 4 sources</span>
       </div>
     </a>
-    <a href="articles/ia-dechiffre-papyrus-antiques.html" style="display:grid;grid-template-columns:80px 1fr;gap:12px 20px;padding:16px 0;border-bottom:1px solid var(--border);align-items:start;text-decoration:none;color:inherit">
+    <a class="archive-row" href="articles/ia-dechiffre-papyrus-antiques.html" style="display:grid;grid-template-columns:80px 1fr;gap:12px 20px;padding:16px 0;border-bottom:1px solid var(--border);align-items:start;text-decoration:none;color:inherit">
       <img src="assets/images/ia-dechiffre-papyrus-antiques.jpg" alt="L’intelligence artificielle déchiffre des papyrus carbonisés de la bibliothèque de Lucius Calpurnius Piso Caesoninus" style="width:80px;height:54px;object-fit:cover;border-radius:4px;background:var(--light)" loading="lazy" onerror="this.style.display='none'"/>
       <div>
         <span class="cat cat--tech" style="display:inline-block;font-size:10px;font-weight:700;letter-spacing:.06em;margin-bottom:4px">TECH</span>
@@ -690,7 +604,7 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeMenu();
         <span style="font-size:.75rem;color:var(--muted);margin-top:4px;display:block">29 juin 2026 · 4 sources</span>
       </div>
     </a>
-    <a href="articles/cern-modernise-accelerateur-particules-matiere-noire.html" style="display:grid;grid-template-columns:80px 1fr;gap:12px 20px;padding:16px 0;border-bottom:1px solid var(--border);align-items:start;text-decoration:none;color:inherit">
+    <a class="archive-row" href="articles/cern-modernise-accelerateur-particules-matiere-noire.html" style="display:grid;grid-template-columns:80px 1fr;gap:12px 20px;padding:16px 0;border-bottom:1px solid var(--border);align-items:start;text-decoration:none;color:inherit">
       <img src="assets/images/cern-modernise-accelerateur-particules-matiere-noire.jpg" alt="Le CERN modernise son accélérateur de particules pour traquer la matière noire" style="width:80px;height:54px;object-fit:cover;border-radius:4px;background:var(--light)" loading="lazy" onerror="this.style.display='none'"/>
       <div>
         <span class="cat cat--science" style="display:inline-block;font-size:10px;font-weight:700;letter-spacing:.06em;margin-bottom:4px">SCIENCE</span>
@@ -699,16 +613,7 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeMenu();
         <span style="font-size:.75rem;color:var(--muted);margin-top:4px;display:block">29 juin 2026 · 4 sources</span>
       </div>
     </a>
-    <a href="articles/chine-aimant-fusion-nucleaire.html" style="display:grid;grid-template-columns:80px 1fr;gap:12px 20px;padding:16px 0;border-bottom:1px solid var(--border);align-items:start;text-decoration:none;color:inherit">
-      <img src="assets/images/chine-aimant-fusion-nucleaire.jpg" alt="La Chine présente l’aimant le plus puissant pour la fusion nucléaire" style="width:80px;height:54px;object-fit:cover;border-radius:4px;background:var(--light)" loading="lazy" onerror="this.style.display='none'"/>
-      <div>
-        <span class="cat cat--science" style="display:inline-block;font-size:10px;font-weight:700;letter-spacing:.06em;margin-bottom:4px">SCIENCE</span>
-        <div style="font-weight:600;color:var(--ink);line-height:1.4;font-size:1rem">La Chine présente l’aimant le plus puissant pour la fusion nucléaire</div>
-        <p style="margin:4px 0 0;font-size:.85rem;color:var(--muted);line-height:1.5">La Chine a dévoilé un aimant de 582 tonnes pour la fusion nucléaire, surpassant le réacteur international Iter en volume…</p>
-        <span style="font-size:.75rem;color:var(--muted);margin-top:4px;display:block">29 juin 2026 · 3 sources</span>
-      </div>
-    </a>
-    <a href="articles/tache-froide-atlantique-canicules.html" style="display:grid;grid-template-columns:80px 1fr;gap:12px 20px;padding:16px 0;border-bottom:1px solid var(--border);align-items:start;text-decoration:none;color:inherit">
+    <a class="archive-row" href="articles/tache-froide-atlantique-canicules.html" style="display:grid;grid-template-columns:80px 1fr;gap:12px 20px;padding:16px 0;border-bottom:1px solid var(--border);align-items:start;text-decoration:none;color:inherit">
       <img src="assets/images/tache-froide-atlantique-canicules.jpg" alt="La tache froide de l’Atlantique et ses effets sur les canicules" style="width:80px;height:54px;object-fit:cover;border-radius:4px;background:var(--light)" loading="lazy" onerror="this.style.display='none'"/>
       <div>
         <span class="cat cat--environnement" style="display:inline-block;font-size:10px;font-weight:700;letter-spacing:.06em;margin-bottom:4px">ENVIRONNEMENT</span>
@@ -717,7 +622,7 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeMenu();
         <span style="font-size:.75rem;color:var(--muted);margin-top:4px;display:block">29 juin 2026 · 4 sources</span>
       </div>
     </a>
-    <a href="articles/demence-senile-alzheimer-differences.html" style="display:grid;grid-template-columns:80px 1fr;gap:12px 20px;padding:16px 0;border-bottom:1px solid var(--border);align-items:start;text-decoration:none;color:inherit">
+    <a class="archive-row" href="articles/demence-senile-alzheimer-differences.html" style="display:grid;grid-template-columns:80px 1fr;gap:12px 20px;padding:16px 0;border-bottom:1px solid var(--border);align-items:start;text-decoration:none;color:inherit">
       <img src="assets/images/demence-senile-alzheimer-differences.jpg" alt="Démence sénile et Alzheimer, comprendre les différences" style="width:80px;height:54px;object-fit:cover;border-radius:4px;background:var(--light)" loading="lazy" onerror="this.style.display='none'"/>
       <div>
         <span class="cat cat--sante" style="display:inline-block;font-size:10px;font-weight:700;letter-spacing:.06em;margin-bottom:4px">SANTÉ</span>
@@ -726,16 +631,7 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeMenu();
         <span style="font-size:.75rem;color:var(--muted);margin-top:4px;display:block">29 juin 2026 · 4 sources</span>
       </div>
     </a>
-    <a href="articles/redevance-pfas-industries-polluantes.html" style="display:grid;grid-template-columns:80px 1fr;gap:12px 20px;padding:16px 0;border-bottom:1px solid var(--border);align-items:start;text-decoration:none;color:inherit">
-      <img src="assets/images/redevance-pfas-industries-polluantes.jpg" alt="Industries polluantes paieront redevance pour PFAS à partir de septembre" style="width:80px;height:54px;object-fit:cover;border-radius:4px;background:var(--light)" loading="lazy" onerror="this.style.display='none'"/>
-      <div>
-        <span class="cat cat--environnement" style="display:inline-block;font-size:10px;font-weight:700;letter-spacing:.06em;margin-bottom:4px">ENVIRONNEMENT</span>
-        <div style="font-weight:600;color:var(--ink);line-height:1.4;font-size:1rem">Industries polluantes paieront redevance pour PFAS à partir de septembre</div>
-        <p style="margin:4px 0 0;font-size:.85rem;color:var(--muted);line-height:1.5">Selon le gouvernement, les industries qui rejettent des PFAS paieront une redevance à compter du 1er septembre 2026, ave…</p>
-        <span style="font-size:.75rem;color:var(--muted);margin-top:4px;display:block">29 juin 2026 · 3 sources</span>
-      </div>
-    </a>
-    <a href="articles/transparence-salaires-inegalites-femmes-hommes.html" style="display:grid;grid-template-columns:80px 1fr;gap:12px 20px;padding:16px 0;border-bottom:1px solid var(--border);align-items:start;text-decoration:none;color:inherit">
+    <a class="archive-row" href="articles/transparence-salaires-inegalites-femmes-hommes.html" style="display:grid;grid-template-columns:80px 1fr;gap:12px 20px;padding:16px 0;border-bottom:1px solid var(--border);align-items:start;text-decoration:none;color:inherit">
       <img src="assets/images/transparence-salaires-inegalites-femmes-hommes.jpg" alt="La transparence des salaires pour réduire les inégalités femmes-hommes" style="width:80px;height:54px;object-fit:cover;border-radius:4px;background:var(--light)" loading="lazy" onerror="this.style.display='none'"/>
       <div>
         <span class="cat cat--societe" style="display:inline-block;font-size:10px;font-weight:700;letter-spacing:.06em;margin-bottom:4px">SOCIÉTÉ</span>
@@ -744,7 +640,7 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeMenu();
         <span style="font-size:.75rem;color:var(--muted);margin-top:4px;display:block">29 juin 2026 · 4 sources</span>
       </div>
     </a>
-    <a href="articles/le-coucou-un-oiseau-strategique.html" style="display:grid;grid-template-columns:80px 1fr;gap:12px 20px;padding:16px 0;border-bottom:1px solid var(--border);align-items:start;text-decoration:none;color:inherit">
+    <a class="archive-row" href="articles/le-coucou-un-oiseau-strategique.html" style="display:grid;grid-template-columns:80px 1fr;gap:12px 20px;padding:16px 0;border-bottom:1px solid var(--border);align-items:start;text-decoration:none;color:inherit">
       <img src="assets/images/le-coucou-un-oiseau-strategique.jpg" alt="Le coucou, un oiseau stratège aux talents sans limites" style="width:80px;height:54px;object-fit:cover;border-radius:4px;background:var(--light)" loading="lazy" onerror="this.style.display='none'"/>
       <div>
         <span class="cat cat--environnement" style="display:inline-block;font-size:10px;font-weight:700;letter-spacing:.06em;margin-bottom:4px">ENVIRONNEMENT</span>
@@ -753,7 +649,7 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeMenu();
         <span style="font-size:.75rem;color:var(--muted);margin-top:4px;display:block">29 juin 2026 · 4 sources</span>
       </div>
     </a>
-    <a href="articles/frugalia-reduit-consommation-energetique-ia.html" style="display:grid;grid-template-columns:80px 1fr;gap:12px 20px;padding:16px 0;border-bottom:1px solid var(--border);align-items:start;text-decoration:none;color:inherit">
+    <a class="archive-row" href="articles/frugalia-reduit-consommation-energetique-ia.html" style="display:grid;grid-template-columns:80px 1fr;gap:12px 20px;padding:16px 0;border-bottom:1px solid var(--border);align-items:start;text-decoration:none;color:inherit">
       <img src="assets/images/frugalia-reduit-consommation-energetique-ia.jpg" alt="Frugalia réduit consommation énergétique des modèles d’intelligence artificielle" style="width:80px;height:54px;object-fit:cover;border-radius:4px;background:var(--light)" loading="lazy" onerror="this.style.display='none'"/>
       <div>
         <span class="cat cat--tech" style="display:inline-block;font-size:10px;font-weight:700;letter-spacing:.06em;margin-bottom:4px">TECH</span>
@@ -762,7 +658,7 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeMenu();
         <span style="font-size:.75rem;color:var(--muted);margin-top:4px;display:block">29 juin 2026 · 4 sources</span>
       </div>
     </a>
-    <a href="articles/regime-alimentaire-anti-inflammatoire-demence.html" style="display:grid;grid-template-columns:80px 1fr;gap:12px 20px;padding:16px 0;border-bottom:1px solid var(--border);align-items:start;text-decoration:none;color:inherit">
+    <a class="archive-row" href="articles/regime-alimentaire-anti-inflammatoire-demence.html" style="display:grid;grid-template-columns:80px 1fr;gap:12px 20px;padding:16px 0;border-bottom:1px solid var(--border);align-items:start;text-decoration:none;color:inherit">
       <img src="assets/images/regime-alimentaire-anti-inflammatoire-demence.jpg" alt="Régime alimentaire anti-inflammatoire réduit le risque de démence" style="width:80px;height:54px;object-fit:cover;border-radius:4px;background:var(--light)" loading="lazy" onerror="this.style.display='none'"/>
       <div>
         <span class="cat cat--science" style="display:inline-block;font-size:10px;font-weight:700;letter-spacing:.06em;margin-bottom:4px">SCIENCE</span>
@@ -771,7 +667,7 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeMenu();
         <span style="font-size:.75rem;color:var(--muted);margin-top:4px;display:block">29 juin 2026 · 4 sources</span>
       </div>
     </a>
-    <a href="articles/refuges-climatiques-espagne-canicules.html" style="display:grid;grid-template-columns:80px 1fr;gap:12px 20px;padding:16px 0;border-bottom:1px solid var(--border);align-items:start;text-decoration:none;color:inherit">
+    <a class="archive-row" href="articles/refuges-climatiques-espagne-canicules.html" style="display:grid;grid-template-columns:80px 1fr;gap:12px 20px;padding:16px 0;border-bottom:1px solid var(--border);align-items:start;text-decoration:none;color:inherit">
       <img src="assets/images/refuges-climatiques-espagne-canicules.jpg" alt="L&#x27;Espagne met en place des refuges climatiques pour lutter contre les canicules" style="width:80px;height:54px;object-fit:cover;border-radius:4px;background:var(--light)" loading="lazy" onerror="this.style.display='none'"/>
       <div>
         <span class="cat cat--environnement" style="display:inline-block;font-size:10px;font-weight:700;letter-spacing:.06em;margin-bottom:4px">ENVIRONNEMENT</span>
@@ -780,7 +676,7 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeMenu();
         <span style="font-size:.75rem;color:var(--muted);margin-top:4px;display:block">27 juin 2026 · 4 sources</span>
       </div>
     </a>
-    <a href="articles/rechauffement-climatique-biodiversite-en-danger.html" style="display:grid;grid-template-columns:80px 1fr;gap:12px 20px;padding:16px 0;border-bottom:1px solid var(--border);align-items:start;text-decoration:none;color:inherit">
+    <a class="archive-row" href="articles/rechauffement-climatique-biodiversite-en-danger.html" style="display:grid;grid-template-columns:80px 1fr;gap:12px 20px;padding:16px 0;border-bottom:1px solid var(--border);align-items:start;text-decoration:none;color:inherit">
       <img src="assets/images/rechauffement-climatique-biodiversite-en-danger.jpg" alt="Réchauffement climatique et biodiversité en danger" style="width:80px;height:54px;object-fit:cover;border-radius:4px;background:var(--light)" loading="lazy" onerror="this.style.display='none'"/>
       <div>
         <span class="cat cat--environnement" style="display:inline-block;font-size:10px;font-weight:700;letter-spacing:.06em;margin-bottom:4px">ENVIRONNEMENT</span>
@@ -789,7 +685,7 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeMenu();
         <span style="font-size:.75rem;color:var(--muted);margin-top:4px;display:block">27 juin 2026 · 4 sources</span>
       </div>
     </a>
-    <a href="articles/openai-reporte-introduction-bourse-2027.html" style="display:grid;grid-template-columns:80px 1fr;gap:12px 20px;padding:16px 0;border-bottom:1px solid var(--border);align-items:start;text-decoration:none;color:inherit">
+    <a class="archive-row" href="articles/openai-reporte-introduction-bourse-2027.html" style="display:grid;grid-template-columns:80px 1fr;gap:12px 20px;padding:16px 0;border-bottom:1px solid var(--border);align-items:start;text-decoration:none;color:inherit">
       <img src="assets/images/openai-reporte-introduction-bourse-2027.jpg" alt="OpenAI reporte son introduction en Bourse à 2027" style="width:80px;height:54px;object-fit:cover;border-radius:4px;background:var(--light)" loading="lazy" onerror="this.style.display='none'"/>
       <div>
         <span class="cat cat--tech" style="display:inline-block;font-size:10px;font-weight:700;letter-spacing:.06em;margin-bottom:4px">TECH</span>
@@ -798,7 +694,7 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeMenu();
         <span style="font-size:.75rem;color:var(--muted);margin-top:4px;display:block">27 juin 2026 · 4 sources</span>
       </div>
     </a>
-    <a href="articles/cma-cgm-investit-mombasa.html" style="display:grid;grid-template-columns:80px 1fr;gap:12px 20px;padding:16px 0;border-bottom:1px solid var(--border);align-items:start;text-decoration:none;color:inherit">
+    <a class="archive-row" href="articles/cma-cgm-investit-mombasa.html" style="display:grid;grid-template-columns:80px 1fr;gap:12px 20px;padding:16px 0;border-bottom:1px solid var(--border);align-items:start;text-decoration:none;color:inherit">
       <img src="assets/images/cma-cgm-investit-mombasa.jpg" alt="CMA CGM investit 700 millions de dollars à Mombasa" style="width:80px;height:54px;object-fit:cover;border-radius:4px;background:var(--light)" loading="lazy" onerror="this.style.display='none'"/>
       <div>
         <span class="cat cat--economie" style="display:inline-block;font-size:10px;font-weight:700;letter-spacing:.06em;margin-bottom:4px">ÉCONOMIE</span>
@@ -807,7 +703,7 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeMenu();
         <span style="font-size:.75rem;color:var(--muted);margin-top:4px;display:block">27 juin 2026 · 4 sources</span>
       </div>
     </a>
-    <a href="articles/canicule-france-fin-vigilances-rouges.html" style="display:grid;grid-template-columns:80px 1fr;gap:12px 20px;padding:16px 0;border-bottom:1px solid var(--border);align-items:start;text-decoration:none;color:inherit">
+    <a class="archive-row" href="articles/canicule-france-fin-vigilances-rouges.html" style="display:grid;grid-template-columns:80px 1fr;gap:12px 20px;padding:16px 0;border-bottom:1px solid var(--border);align-items:start;text-decoration:none;color:inherit">
       <img src="assets/images/canicule-france-fin-vigilances-rouges.jpg" alt="Canicule en France : fin des vigilances rouges prévue pour dimanche" style="width:80px;height:54px;object-fit:cover;border-radius:4px;background:var(--light)" loading="lazy" onerror="this.style.display='none'"/>
       <div>
         <span class="cat cat--environnement" style="display:inline-block;font-size:10px;font-weight:700;letter-spacing:.06em;margin-bottom:4px">ENVIRONNEMENT</span>
@@ -816,7 +712,7 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeMenu();
         <span style="font-size:.75rem;color:var(--muted);margin-top:4px;display:block">27 juin 2026 · 4 sources</span>
       </div>
     </a>
-    <a href="articles/canicule-france-phenomene-meteo.html" style="display:grid;grid-template-columns:80px 1fr;gap:12px 20px;padding:16px 0;border-bottom:1px solid var(--border);align-items:start;text-decoration:none;color:inherit">
+    <a class="archive-row" href="articles/canicule-france-phenomene-meteo.html" style="display:grid;grid-template-columns:80px 1fr;gap:12px 20px;padding:16px 0;border-bottom:1px solid var(--border);align-items:start;text-decoration:none;color:inherit">
       <img src="assets/images/canicule-france-phenomene-meteo.jpg" alt="La canicule en France, un phénomène de plus en plus fréquent" style="width:80px;height:54px;object-fit:cover;border-radius:4px;background:var(--light)" loading="lazy" onerror="this.style.display='none'"/>
       <div>
         <span class="cat cat--societe" style="display:inline-block;font-size:10px;font-weight:700;letter-spacing:.06em;margin-bottom:4px">SOCIÉTÉ</span>
@@ -825,7 +721,7 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeMenu();
         <span style="font-size:.75rem;color:var(--muted);margin-top:4px;display:block">26 juin 2026 · 4 sources</span>
       </div>
     </a>
-    <a href="articles/redmi-15-5g-smartphone-abordable.html" style="display:grid;grid-template-columns:80px 1fr;gap:12px 20px;padding:16px 0;border-bottom:1px solid var(--border);align-items:start;text-decoration:none;color:inherit">
+    <a class="archive-row" href="articles/redmi-15-5g-smartphone-abordable.html" style="display:grid;grid-template-columns:80px 1fr;gap:12px 20px;padding:16px 0;border-bottom:1px solid var(--border);align-items:start;text-decoration:none;color:inherit">
       <img src="assets/images/redmi-15-5g-smartphone-abordable.jpg" alt="Redmi 15 5G : un smartphone abordable avec écran 144 Hz et batterie 7000 mAh" style="width:80px;height:54px;object-fit:cover;border-radius:4px;background:var(--light)" loading="lazy" onerror="this.style.display='none'"/>
       <div>
         <span class="cat cat--tech" style="display:inline-block;font-size:10px;font-weight:700;letter-spacing:.06em;margin-bottom:4px">TECH</span>
@@ -834,7 +730,7 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeMenu();
         <span style="font-size:.75rem;color:var(--muted);margin-top:4px;display:block">26 juin 2026 · 4 sources</span>
       </div>
     </a>
-    <a href="articles/temperature-ressentie-indice-complexe.html" style="display:grid;grid-template-columns:80px 1fr;gap:12px 20px;padding:16px 0;border-bottom:1px solid var(--border);align-items:start;text-decoration:none;color:inherit">
+    <a class="archive-row" href="articles/temperature-ressentie-indice-complexe.html" style="display:grid;grid-template-columns:80px 1fr;gap:12px 20px;padding:16px 0;border-bottom:1px solid var(--border);align-items:start;text-decoration:none;color:inherit">
       <img src="assets/images/temperature-ressentie-indice-complexe.jpg" alt="La température ressentie, un indice complexe" style="width:80px;height:54px;object-fit:cover;border-radius:4px;background:var(--light)" loading="lazy" onerror="this.style.display='none'"/>
       <div>
         <span class="cat cat--environnement" style="display:inline-block;font-size:10px;font-weight:700;letter-spacing:.06em;margin-bottom:4px">ENVIRONNEMENT</span>
@@ -843,7 +739,7 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeMenu();
         <span style="font-size:.75rem;color:var(--muted);margin-top:4px;display:block">26 juin 2026 · 4 sources</span>
       </div>
     </a>
-    <a href="articles/arreter-de-fumer-reduit-les-risques-de-demence.html" style="display:grid;grid-template-columns:80px 1fr;gap:12px 20px;padding:16px 0;border-bottom:1px solid var(--border);align-items:start;text-decoration:none;color:inherit">
+    <a class="archive-row" href="articles/arreter-de-fumer-reduit-les-risques-de-demence.html" style="display:grid;grid-template-columns:80px 1fr;gap:12px 20px;padding:16px 0;border-bottom:1px solid var(--border);align-items:start;text-decoration:none;color:inherit">
       <img src="assets/images/arreter-de-fumer-reduit-les-risques-de-demence.jpg" alt="Arrêter de fumer réduit les risques de démence même tard dans la vie" style="width:80px;height:54px;object-fit:cover;border-radius:4px;background:var(--light)" loading="lazy" onerror="this.style.display='none'"/>
       <div>
         <span class="cat cat--science" style="display:inline-block;font-size:10px;font-weight:700;letter-spacing:.06em;margin-bottom:4px">SCIENCE</span>
@@ -852,7 +748,7 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeMenu();
         <span style="font-size:.75rem;color:var(--muted);margin-top:4px;display:block">26 juin 2026 · 4 sources</span>
       </div>
     </a>
-    <a href="articles/recherche-publique-en-crise.html" style="display:grid;grid-template-columns:80px 1fr;gap:12px 20px;padding:16px 0;border-bottom:1px solid var(--border);align-items:start;text-decoration:none;color:inherit">
+    <a class="archive-row" href="articles/recherche-publique-en-crise.html" style="display:grid;grid-template-columns:80px 1fr;gap:12px 20px;padding:16px 0;border-bottom:1px solid var(--border);align-items:start;text-decoration:none;color:inherit">
       <img src="assets/images/recherche-publique-en-crise.jpg" alt="La recherche publique en crise financière et politique" style="width:80px;height:54px;object-fit:cover;border-radius:4px;background:var(--light)" loading="lazy" onerror="this.style.display='none'"/>
       <div>
         <span class="cat cat--science" style="display:inline-block;font-size:10px;font-weight:700;letter-spacing:.06em;margin-bottom:4px">SCIENCE</span>
@@ -861,16 +757,7 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeMenu();
         <span style="font-size:.75rem;color:var(--muted);margin-top:4px;display:block">26 juin 2026 · 4 sources</span>
       </div>
     </a>
-    <a href="articles/chantal-delsol-droite-antimoderne.html" style="display:grid;grid-template-columns:80px 1fr;gap:12px 20px;padding:16px 0;border-bottom:1px solid var(--border);align-items:start;text-decoration:none;color:inherit">
-      <img src="assets/images/chantal-delsol-droite-antimoderne.jpg" alt="Chantal Delsol et la droite antimoderne" style="width:80px;height:54px;object-fit:cover;border-radius:4px;background:var(--light)" loading="lazy" onerror="this.style.display='none'"/>
-      <div>
-        <span class="cat cat--societe" style="display:inline-block;font-size:10px;font-weight:700;letter-spacing:.06em;margin-bottom:4px">SOCIÉTÉ</span>
-        <div style="font-weight:600;color:var(--ink);line-height:1.4;font-size:1rem">Chantal Delsol et la droite antimoderne</div>
-        <p style="margin:4px 0 0;font-size:.85rem;color:var(--muted);line-height:1.5">Chantal Delsol, philosophe et membre de l&#x27;Académie des sciences morales et politiques, a suscité la controverse en invit…</p>
-        <span style="font-size:.75rem;color:var(--muted);margin-top:4px;display:block">25 juin 2026 · 3 sources</span>
-      </div>
-    </a>
-    <a href="articles/agriculture-defis-climatiques-extremes.html" style="display:grid;grid-template-columns:80px 1fr;gap:12px 20px;padding:16px 0;border-bottom:1px solid var(--border);align-items:start;text-decoration:none;color:inherit">
+    <a class="archive-row" href="articles/agriculture-defis-climatiques-extremes.html" style="display:grid;grid-template-columns:80px 1fr;gap:12px 20px;padding:16px 0;border-bottom:1px solid var(--border);align-items:start;text-decoration:none;color:inherit">
       <img src="assets/images/agriculture-defis-climatiques-extremes.jpg" alt="L&#x27;agriculture face aux défis climatiques extrêmes" style="width:80px;height:54px;object-fit:cover;border-radius:4px;background:var(--light)" loading="lazy" onerror="this.style.display='none'"/>
       <div>
         <span class="cat cat--environnement" style="display:inline-block;font-size:10px;font-weight:700;letter-spacing:.06em;margin-bottom:4px">ENVIRONNEMENT</span>
@@ -879,7 +766,7 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeMenu();
         <span style="font-size:.75rem;color:var(--muted);margin-top:4px;display:block">24 juin 2026 · 5 sources</span>
       </div>
     </a>
-    <a href="articles/secheresse-estivale-france-changement-climatique.html" style="display:grid;grid-template-columns:80px 1fr;gap:12px 20px;padding:16px 0;border-bottom:1px solid var(--border);align-items:start;text-decoration:none;color:inherit">
+    <a class="archive-row" href="articles/secheresse-estivale-france-changement-climatique.html" style="display:grid;grid-template-columns:80px 1fr;gap:12px 20px;padding:16px 0;border-bottom:1px solid var(--border);align-items:start;text-decoration:none;color:inherit">
       <img src="assets/images/secheresse-estivale-france-changement-climatique.jpg" alt="Sécheresse estivale en France : les conséquences du changement climatique" style="width:80px;height:54px;object-fit:cover;border-radius:4px;background:var(--light)" loading="lazy" onerror="this.style.display='none'"/>
       <div>
         <span class="cat cat--environnement" style="display:inline-block;font-size:10px;font-weight:700;letter-spacing:.06em;margin-bottom:4px">ENVIRONNEMENT</span>
@@ -888,7 +775,7 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeMenu();
         <span style="font-size:.75rem;color:var(--muted);margin-top:4px;display:block">25 juin 2026 · 5 sources</span>
       </div>
     </a>
-    <a href="articles/sante-environnementale-impact-humain.html" style="display:grid;grid-template-columns:80px 1fr;gap:12px 20px;padding:16px 0;border-bottom:1px solid var(--border);align-items:start;text-decoration:none;color:inherit">
+    <a class="archive-row" href="articles/sante-environnementale-impact-humain.html" style="display:grid;grid-template-columns:80px 1fr;gap:12px 20px;padding:16px 0;border-bottom:1px solid var(--border);align-items:start;text-decoration:none;color:inherit">
       <img src="assets/images/sante-environnementale-impact-humain.jpg" alt="Santé Environnementale : L&#x27;Impact Humain sur la Planète" style="width:80px;height:54px;object-fit:cover;border-radius:4px;background:var(--light)" loading="lazy" onerror="this.style.display='none'"/>
       <div>
         <span class="cat cat--sante" style="display:inline-block;font-size:10px;font-weight:700;letter-spacing:.06em;margin-bottom:4px">SANTÉ</span>
@@ -897,7 +784,7 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeMenu();
         <span style="font-size:.75rem;color:var(--muted);margin-top:4px;display:block">25 juin 2026 · 5 sources</span>
       </div>
     </a>
-    <a href="articles/nasa-lance-mission-sauvetage-telescope-swift.html" style="display:grid;grid-template-columns:80px 1fr;gap:12px 20px;padding:16px 0;border-bottom:1px solid var(--border);align-items:start;text-decoration:none;color:inherit">
+    <a class="archive-row" href="articles/nasa-lance-mission-sauvetage-telescope-swift.html" style="display:grid;grid-template-columns:80px 1fr;gap:12px 20px;padding:16px 0;border-bottom:1px solid var(--border);align-items:start;text-decoration:none;color:inherit">
       <img src="assets/images/nasa-lance-mission-sauvetage-telescope-swift.jpg" alt="La NASA lance mission sauvetage pour le télescope Swift" style="width:80px;height:54px;object-fit:cover;border-radius:4px;background:var(--light)" loading="lazy" onerror="this.style.display='none'"/>
       <div>
         <span class="cat cat--science" style="display:inline-block;font-size:10px;font-weight:700;letter-spacing:.06em;margin-bottom:4px">SCIENCE</span>
@@ -906,7 +793,7 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeMenu();
         <span style="font-size:.75rem;color:var(--muted);margin-top:4px;display:block">25 juin 2026 · 5 sources</span>
       </div>
     </a>
-    <a href="articles/controle-aerien-france-en-crise.html" style="display:grid;grid-template-columns:80px 1fr;gap:12px 20px;padding:16px 0;border-bottom:1px solid var(--border);align-items:start;text-decoration:none;color:inherit">
+    <a class="archive-row" href="articles/controle-aerien-france-en-crise.html" style="display:grid;grid-template-columns:80px 1fr;gap:12px 20px;padding:16px 0;border-bottom:1px solid var(--border);align-items:start;text-decoration:none;color:inherit">
       <img src="assets/images/controle-aerien-france-en-crise.jpg" alt="Contrôle aérien : la France en crise" style="width:80px;height:54px;object-fit:cover;border-radius:4px;background:var(--light)" loading="lazy" onerror="this.style.display='none'"/>
       <div>
         <span class="cat cat--societe" style="display:inline-block;font-size:10px;font-weight:700;letter-spacing:.06em;margin-bottom:4px">SOCIÉTÉ</span>
@@ -915,7 +802,7 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeMenu();
         <span style="font-size:.75rem;color:var(--muted);margin-top:4px;display:block">25 juin 2026 · 5 sources</span>
       </div>
     </a>
-    <a href="articles/canicule-sante-publique-france.html" style="display:grid;grid-template-columns:80px 1fr;gap:12px 20px;padding:16px 0;border-bottom:1px solid var(--border);align-items:start;text-decoration:none;color:inherit">
+    <a class="archive-row" href="articles/canicule-sante-publique-france.html" style="display:grid;grid-template-columns:80px 1fr;gap:12px 20px;padding:16px 0;border-bottom:1px solid var(--border);align-items:start;text-decoration:none;color:inherit">
       <img src="assets/images/canicule-sante-publique-france.jpg" alt="Canicule : Situation sanitaire en France" style="width:80px;height:54px;object-fit:cover;border-radius:4px;background:var(--light)" loading="lazy" onerror="this.style.display='none'"/>
       <div>
         <span class="cat cat--sante" style="display:inline-block;font-size:10px;font-weight:700;letter-spacing:.06em;margin-bottom:4px">SANTÉ</span>
@@ -924,7 +811,7 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeMenu();
         <span style="font-size:.75rem;color:var(--muted);margin-top:4px;display:block">25 juin 2026 · 5 sources</span>
       </div>
     </a>
-    <a href="articles/theorie-evolution-darwin.html" style="display:grid;grid-template-columns:80px 1fr;gap:12px 20px;padding:16px 0;border-bottom:1px solid var(--border);align-items:start;text-decoration:none;color:inherit">
+    <a class="archive-row" href="articles/theorie-evolution-darwin.html" style="display:grid;grid-template-columns:80px 1fr;gap:12px 20px;padding:16px 0;border-bottom:1px solid var(--border);align-items:start;text-decoration:none;color:inherit">
       <img src="assets/images/theorie-evolution-darwin.jpg" alt="La Théorie de l&#x27;Évolution de Darwin" style="width:80px;height:54px;object-fit:cover;border-radius:4px;background:var(--light)" loading="lazy" onerror="this.style.display='none'"/>
       <div>
         <span class="cat cat--science" style="display:inline-block;font-size:10px;font-weight:700;letter-spacing:.06em;margin-bottom:4px">SCIENCE</span>
@@ -933,7 +820,7 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeMenu();
         <span style="font-size:.75rem;color:var(--muted);margin-top:4px;display:block">25 juin 2026 · 5 sources</span>
       </div>
     </a>
-    <a href="articles/emissions-co2-france-recul-2023.html" style="display:grid;grid-template-columns:80px 1fr;gap:12px 20px;padding:16px 0;border-bottom:1px solid var(--border);align-items:start;text-decoration:none;color:inherit">
+    <a class="archive-row" href="articles/emissions-co2-france-recul-2023.html" style="display:grid;grid-template-columns:80px 1fr;gap:12px 20px;padding:16px 0;border-bottom:1px solid var(--border);align-items:start;text-decoration:none;color:inherit">
       <img src="assets/images/emissions-co2-france-recul-2023.jpg" alt="Émissions de CO2 en France : un recul de 5,8% en 2023" style="width:80px;height:54px;object-fit:cover;border-radius:4px;background:var(--light)" loading="lazy" onerror="this.style.display='none'"/>
       <div>
         <span class="cat cat--environnement" style="display:inline-block;font-size:10px;font-weight:700;letter-spacing:.06em;margin-bottom:4px">ENVIRONNEMENT</span>
@@ -942,7 +829,7 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeMenu();
         <span style="font-size:.75rem;color:var(--muted);margin-top:4px;display:block">25 juin 2026 · 3 sources</span>
       </div>
     </a>
-    <a href="articles/loi-contre-ultrafast-fashion-adoptee.html" style="display:grid;grid-template-columns:80px 1fr;gap:12px 20px;padding:16px 0;border-bottom:1px solid var(--border);align-items:start;text-decoration:none;color:inherit">
+    <a class="archive-row" href="articles/loi-contre-ultrafast-fashion-adoptee.html" style="display:grid;grid-template-columns:80px 1fr;gap:12px 20px;padding:16px 0;border-bottom:1px solid var(--border);align-items:start;text-decoration:none;color:inherit">
       <img src="assets/images/loi-contre-ultrafast-fashion-adoptee.jpg" alt="Loi contre l&#x27;ultra fast fashion adoptée" style="width:80px;height:54px;object-fit:cover;border-radius:4px;background:var(--light)" loading="lazy" onerror="this.style.display='none'"/>
       <div>
         <span class="cat cat--environnement" style="display:inline-block;font-size:10px;font-weight:700;letter-spacing:.06em;margin-bottom:4px">ENVIRONNEMENT</span>
@@ -951,7 +838,7 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeMenu();
         <span style="font-size:.75rem;color:var(--muted);margin-top:4px;display:block">25 juin 2026 · 5 sources</span>
       </div>
     </a>
-    <a href="articles/subvention-ars-planning-familial-gironde-2026.html" style="display:grid;grid-template-columns:80px 1fr;gap:12px 20px;padding:16px 0;border-bottom:1px solid var(--border);align-items:start;text-decoration:none;color:inherit">
+    <a class="archive-row" href="articles/subvention-ars-planning-familial-gironde-2026.html" style="display:grid;grid-template-columns:80px 1fr;gap:12px 20px;padding:16px 0;border-bottom:1px solid var(--border);align-items:start;text-decoration:none;color:inherit">
       <img src="assets/images/subvention-ars-planning-familial-gironde-2026.jpg" alt="Subvention Ars Planning Familial Gironde 2026" style="width:80px;height:54px;object-fit:cover;border-radius:4px;background:var(--light)" loading="lazy" onerror="this.style.display='none'"/>
       <div>
         <span class="cat cat--sante" style="display:inline-block;font-size:10px;font-weight:700;letter-spacing:.06em;margin-bottom:4px">SANTÉ</span>
@@ -960,7 +847,7 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeMenu();
         <span style="font-size:.75rem;color:var(--muted);margin-top:4px;display:block">25 juin 2026 · 4 sources</span>
       </div>
     </a>
-    <a href="articles/sante-environnementale-defis-savoirs.html" style="display:grid;grid-template-columns:80px 1fr;gap:12px 20px;padding:16px 0;border-bottom:1px solid var(--border);align-items:start;text-decoration:none;color:inherit">
+    <a class="archive-row" href="articles/sante-environnementale-defis-savoirs.html" style="display:grid;grid-template-columns:80px 1fr;gap:12px 20px;padding:16px 0;border-bottom:1px solid var(--border);align-items:start;text-decoration:none;color:inherit">
       <img src="assets/images/sante-environnementale-defis-savoirs.jpg" alt="Défis de la santé environnementale et des savoirs" style="width:80px;height:54px;object-fit:cover;border-radius:4px;background:var(--light)" loading="lazy" onerror="this.style.display='none'"/>
       <div>
         <span class="cat cat--sante" style="display:inline-block;font-size:10px;font-weight:700;letter-spacing:.06em;margin-bottom:4px">SANTÉ</span>
@@ -969,7 +856,7 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeMenu();
         <span style="font-size:.75rem;color:var(--muted);margin-top:4px;display:block">25 juin 2026 · 4 sources</span>
       </div>
     </a>
-    <a href="articles/ia-dans-la-sante.html" style="display:grid;grid-template-columns:80px 1fr;gap:12px 20px;padding:16px 0;border-bottom:1px solid var(--border);align-items:start;text-decoration:none;color:inherit">
+    <a class="archive-row" href="articles/ia-dans-la-sante.html" style="display:grid;grid-template-columns:80px 1fr;gap:12px 20px;padding:16px 0;border-bottom:1px solid var(--border);align-items:start;text-decoration:none;color:inherit">
       <img src="assets/images/ia-dans-la-sante.jpg" alt="L&#x27;intelligence artificielle dans la santé" style="width:80px;height:54px;object-fit:cover;border-radius:4px;background:var(--light)" loading="lazy" onerror="this.style.display='none'"/>
       <div>
         <span class="cat cat--sante" style="display:inline-block;font-size:10px;font-weight:700;letter-spacing:.06em;margin-bottom:4px">SANTÉ</span>
@@ -978,7 +865,7 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeMenu();
         <span style="font-size:.75rem;color:var(--muted);margin-top:4px;display:block">25 juin 2026 · 5 sources</span>
       </div>
     </a>
-    <a href="articles/premier-cas-ebola-france.html" style="display:grid;grid-template-columns:80px 1fr;gap:12px 20px;padding:16px 0;border-bottom:1px solid var(--border);align-items:start;text-decoration:none;color:inherit">
+    <a class="archive-row" href="articles/premier-cas-ebola-france.html" style="display:grid;grid-template-columns:80px 1fr;gap:12px 20px;padding:16px 0;border-bottom:1px solid var(--border);align-items:start;text-decoration:none;color:inherit">
       <img src="assets/images/premier-cas-ebola-france.jpg" alt="Premier cas Ebola détecté en France" style="width:80px;height:54px;object-fit:cover;border-radius:4px;background:var(--light)" loading="lazy" onerror="this.style.display='none'"/>
       <div>
         <span class="cat cat--sante" style="display:inline-block;font-size:10px;font-weight:700;letter-spacing:.06em;margin-bottom:4px">SANTÉ</span>
@@ -988,6 +875,26 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeMenu();
       </div>
     </a>
   </section>
+  <div style="text-align:center;margin-top:8px">
+    <button id="archive-more" type="button" style="display:none;padding:12px 32px;background:var(--blue);color:#fff;border:none;border-radius:4px;font-weight:600;font-size:.95rem;cursor:pointer">Voir plus d'articles</button>
+  </div>
+  <script>
+  (function(){
+    var PAGE=40, rows=Array.prototype.slice.call(document.querySelectorAll('.archive-row')), shown=PAGE;
+    var btn=document.getElementById('archive-more');
+    function apply(){
+      rows.forEach(function(r,i){r.style.display=i<shown?'grid':'none';});
+      document.querySelectorAll('main section').forEach(function(s){
+        var srows=s.querySelectorAll('.archive-row'),vis=false;
+        for(var k=0;k<srows.length;k++){if(srows[k].style.display!=='none'){vis=true;break;}}
+        s.style.display=vis?'':'none';
+      });
+      btn.style.display=shown<rows.length?'inline-block':'none';
+      if(shown<rows.length)btn.textContent='Voir plus d'articles ('+(rows.length-shown)+' restants)';
+    }
+    if(rows.length>PAGE){btn.addEventListener('click',function(){shown+=PAGE;apply();});apply();}
+  })();
+  </script>
 </main>
 
 <footer class="footer" role="contentinfo" aria-label="Pied de page">
@@ -1010,6 +917,7 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeMenu();
       <a href="corrections.html">Corrections publiques</a>
       <a href="archive.html">Tous les articles</a>
       <a href="feed.xml" class="footer__rss">Flux RSS</a>
+      <a href="index.html#newsletter">Newsletter</a>
     </div>
     <div class="footer__col"><h4>LÉGAL</h4>
       <a href="mentions-legales.html">Mentions légales</a>
@@ -1030,22 +938,13 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeMenu();
 (function(){
   var btn=document.getElementById('dark-toggle');
   var dark=document.documentElement.getAttribute('data-theme')==='dark';
-  if(btn) btn.textContent=dark?'☀️':'🌙';
+  if(btn){btn.textContent=dark?'☀️':'🌙';btn.setAttribute('aria-label',dark?'Passer en mode clair':'Passer en mode sombre');}
   if(btn) btn.addEventListener('click',function(){
     var d=document.documentElement.getAttribute('data-theme')==='dark';
     document.documentElement.setAttribute('data-theme',d?'light':'dark');
     localStorage.setItem('theme',d?'light':'dark');
     btn.textContent=d?'🌙':'☀️';btn.setAttribute('aria-label',d?'Passer en mode sombre':'Passer en mode clair');
   });
-
-  // Header scroll shadow
-  var hdr=document.querySelector('.header');
-  if(hdr) window.addEventListener('scroll',function(){hdr.classList.toggle('scrolled',window.scrollY>40);},{passive:true});
-  // Scroll fade-in cartes catégorie
-  if('IntersectionObserver' in window){
-    var obs=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('is-visible');obs.unobserve(e.target);}});},{threshold:.12,rootMargin:'0px 0px -40px 0px'});
-    document.querySelectorAll('.card3,.list-item,.archive-item').forEach(function(el){el.classList.add('js-reveal');obs.observe(el);});
-  }
 })();
 </script>
 <script defer src="https://cloud.umami.is/script.js" data-website-id="8d68a78f-97ae-4c95-a955-5d3df758f7e2"></script>

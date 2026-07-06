@@ -1872,10 +1872,18 @@ _BURGER_JS = (
     "a.addEventListener('click',closeMenu);});"
     "\ndocument.addEventListener('keydown',function(e){if(e.key==='Escape')closeMenu();});"
 )
+_NAV_MOBILE_SEARCH = (
+    '<div class="nav-mobile__search">'
+    '<input type="search" class="header__search-input" aria-label="Rechercher un article" '
+    'placeholder="Rechercher…" autocomplete="off" '
+    'onkeydown="if(event.key===\'Enter\'&&this.value.trim())'
+    'window.location=(document.querySelector(\'base\').href)+\'recherche.html?q=\'+encodeURIComponent(this.value.trim())"/>'
+    '</div>\n'
+)
 BURGER_HTML = (
     '<div class="nav-overlay" id="nav-overlay" onclick="closeMenu()"></div>\n'
     '<nav class="nav-mobile" id="nav-mobile">\n'
-    + _NAV_LINKS + '\n</nav>\n'
+    + _NAV_MOBILE_SEARCH + _NAV_LINKS + '\n</nav>\n'
     '<script>\n' + _BURGER_JS + '\n</script>'
 )
 BURGER_BTN = (
@@ -2555,13 +2563,13 @@ def build_index_html(main, side_html, grid_html, list_html):
   <meta property="og:description" content="Journal numérique français rédigé par IA. Sans publicité. Sans actionnaires."/>
   <meta property="og:type" content="website"/>
   <meta property="og:url" content="https://lesfaits.info/"/>
-  <meta property="og:image" content="https://lesfaits.info/assets/images/og-default.jpg"/>
+  <meta property="og:image" content="https://lesfaits.info/assets/images/og-home.jpg"/>
   <meta property="og:image:width" content="1200"/>
   <meta property="og:image:height" content="630"/>
   <meta name="twitter:card" content="summary_large_image"/>
   <meta name="twitter:title" content="Les Faits — Juste les faits. Aucun parti pris."/>
   <meta name="twitter:description" content="Journal numérique français rédigé par IA. Sans publicité. Sans actionnaires."/>
-  <meta name="twitter:image" content="https://lesfaits.info/assets/images/og-default.jpg"/>
+  <meta name="twitter:image" content="https://lesfaits.info/assets/images/og-home.jpg"/>
   <link rel="canonical" href="https://lesfaits.info/"/>
   <link rel="alternate" type="application/rss+xml" title="Les Faits — RSS" href="/feed.xml"/>
   <title>Les Faits — Juste les faits. Aucun parti pris.</title>
