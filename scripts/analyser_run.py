@@ -79,6 +79,10 @@ def parse_pipeline_log(log: str) -> dict:
         "quota_epuise": False,
         "articles_publies": 0,
         "hors_perimetre": 0,
+        "tokens_prompt_total": 0,
+        "tokens_completion_total": 0,
+        "tokens_total": 0,
+        "tokens_appels": 0,
     }
 
     for line in log.splitlines():
@@ -104,6 +108,18 @@ def parse_pipeline_log(log: str) -> dict:
                 "sources": int(m2.group(2)),
                 "gardes": 0,
             })
+            continue
+
+        # Tokens réels Groq (loggués depuis d471b0d)
+        mt = re.search(r"\[TOKENS\] prompt=(\d+) completion=(\d+) total=(\d+)", line)
+        if mt:
+            results["tokens_prompt_total"]     += int(mt.group(1))
+            results["tokens_completion_total"] += int(mt.group(2))
+            results["tokens_total"]            += int(mt.group(3))
+            results["tokens_appels"]           += 1
+            if results["articles_tentes"]:
+                art = results["articles_tentes"][-1]
+                art.setdefault("tokens_calls", []).append(int(mt.group(3)))
             continue
 
         if "[GARDE]" in line and results["articles_tentes"]:
@@ -400,10 +416,23 @@ def _afficher_alertes_llm(pipeline: dict, verif: list):
         _anthropic_calls(e.get("statut", ""), e.get("tentatives"))
         for e in verif
     )
-    print(f"\n  Total appels estimés ce run :")
+    print(f"\n  Total appels ce run :")
     print(f"    Groq (génération)   : {total_groq}")
     print(f"    Anthropic (verif)   : {total_anthropic}")
     print(f"    TOTAL               : {total_groq + total_anthropic}")
+
+    if pipeline["tokens_appels"] > 0:
+        t = pipeline["tokens_total"]
+        moy = t // pipeline["tokens_appels"]
+        print(f"\n  Tokens Groq RÉELS :")
+        print(f"    Prompt total        : {pipeline['tokens_prompt_total']:,}")
+        print(f"    Output total        : {pipeline['tokens_completion_total']:,}")
+        print(f"    TOTAL               : {t:,}  (moy {moy:,}/appel sur {pipeline['tokens_appels']} appels)")
+        budget = 200_000
+        print(f"    Budget 1 clé (200k) : {t/budget*100:.1f}%  — budget 2 clés : {t/(2*budget)*100:.1f}%")
+    else:
+        tokens_est = total_groq * 11_000
+        print(f"\n  Tokens Groq estimés : ~{tokens_est:,}  (logging absent — runs antérieurs à d471b0d)")
 
 
 def afficher(run_id: str, pipeline: dict, verif: list, run_date: str = ""):
