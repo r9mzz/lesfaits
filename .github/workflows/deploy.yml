@@ -65,6 +65,13 @@ jobs:
             python scripts/pipeline.py --rebuild
           fi
 
+      - name: Injecter la clé Brevo dans l'HTML (newsletter form)
+        if: ${{ github.event.inputs.dry_run != 'true' }}
+        env:
+          BREVO_CONTACTS_KEY: ${{ secrets.BREVO_CONTACTS_KEY }}
+        run: |
+          sed -i "s|__BREVO_CONTACTS_KEY__|${BREVO_CONTACTS_KEY}|g" index.html
+
       - name: Patcher les articles (à lire aussi + disclaimer + newsletter + back-to-top)
         if: ${{ github.event.inputs.dry_run != 'true' }}
         env:

@@ -1911,11 +1911,83 @@ CSP_META = (
     'script-src \'self\' \'unsafe-inline\' https://cloud.umami.is; '
     'style-src \'self\' \'unsafe-inline\'; '
     'img-src \'self\' data: https:; '
-    'connect-src \'self\' https://cloud.umami.is https://api.web3forms.com; '
+    'connect-src \'self\' https://cloud.umami.is https://api.web3forms.com https://api.brevo.com; '
     'base-uri \'self\'; '
-    'form-action \'self\' https://api.web3forms.com; '
+    'form-action \'self\'; '
     'frame-ancestors \'none\';"/>'
 )
+
+# Placeholder remplacé par le secret BREVO_CONTACTS_KEY au moment du déploiement
+# (voir deploy.yml — step "Injecter la clé Brevo dans l'HTML")
+BREVO_CONTACTS_KEY = "__BREVO_CONTACTS_KEY__"
+BREVO_LIST_ID_NL   = 3
+
+# Bloc newsletter injecté dans index.html (avant le footer)
+def _build_newsletter_section() -> str:
+    return f"""<section class="nl-band" id="newsletter" aria-label="S'abonner à la newsletter">
+  <div class="nl-band__inner">
+    <div class="nl-band__text">
+      <div class="nl-band__label">NEWSLETTER</div>
+      <h2 class="nl-band__title">Le résumé du jour dans votre boîte mail</h2>
+      <p class="nl-band__sub">Choisissez vos rubriques. Chaque soir, les articles du jour — rien que ceux qui vous intéressent. Gratuit, sans pub, désabonnement en un clic.</p>
+    </div>
+    <div class="nl-band__form-wrap">
+      <form class="nl-form" id="nl-form" novalidate>
+        <label class="nl-form__email-label" for="nl-email">Votre adresse email</label>
+        <input type="email" id="nl-email" name="email" class="nl-form__input"
+               placeholder="vous@exemple.fr" required autocomplete="email" aria-required="true"/>
+        <fieldset class="nl-form__cats" aria-label="Rubriques à suivre">
+          <legend class="nl-form__cats-legend">Je veux recevoir</legend>
+          <div class="nl-form__cats-grid">
+            <label class="nl-cat nl-cat--societe"><input type="checkbox" name="CAT_SOCIETE" value="1"/><span class="nl-cat__dot"></span><span class="nl-cat__name">Société</span></label>
+            <label class="nl-cat nl-cat--science"><input type="checkbox" name="CAT_SCIENCE" value="1"/><span class="nl-cat__dot"></span><span class="nl-cat__name">Science</span></label>
+            <label class="nl-cat nl-cat--economie"><input type="checkbox" name="CAT_ECONOMIE" value="1"/><span class="nl-cat__dot"></span><span class="nl-cat__name">Économie</span></label>
+            <label class="nl-cat nl-cat--tech"><input type="checkbox" name="CAT_TECH" value="1"/><span class="nl-cat__dot"></span><span class="nl-cat__name">Tech</span></label>
+            <label class="nl-cat nl-cat--sante"><input type="checkbox" name="CAT_SANTE" value="1"/><span class="nl-cat__dot"></span><span class="nl-cat__name">Santé</span></label>
+            <label class="nl-cat nl-cat--environnement"><input type="checkbox" name="CAT_ENVIRONNEMENT" value="1"/><span class="nl-cat__dot"></span><span class="nl-cat__name">Environnement</span></label>
+          </div>
+          <p class="nl-form__cats-hint">Aucune sélection = toutes les rubriques</p>
+        </fieldset>
+        <label class="nl-form__consent">
+          <input type="checkbox" id="nl-consent" required aria-required="true"/>
+          <span>J'accepte de recevoir la newsletter et confirme avoir lu la <a href="confidentialite.html">politique de confidentialité</a>. Désabonnement possible à tout moment.</span>
+        </label>
+        <button type="submit" class="nl-form__btn" id="nl-btn">S'abonner gratuitement</button>
+        <p class="nl-form__msg" id="nl-msg" role="alert" aria-live="polite"></p>
+      </form>
+    </div>
+  </div>
+</section>
+<script>
+(function(){{
+  var BREVO_KEY  = "{BREVO_CONTACTS_KEY}";
+  var BREVO_LIST = {BREVO_LIST_ID_NL};
+  var BREVO_API  = "https://api.brevo.com/v3/contacts";
+  var form=document.getElementById("nl-form"),msgEl=document.getElementById("nl-msg"),btn=document.getElementById("nl-btn");
+  if(!form)return;
+  form.addEventListener("submit",function(e){{
+    e.preventDefault();
+    msgEl.className="nl-form__msg";msgEl.textContent="";
+    var email=(document.getElementById("nl-email").value||"").trim();
+    var consent=document.getElementById("nl-consent").checked;
+    if(!email||!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){{msgEl.textContent="Veuillez saisir une adresse email valide.";msgEl.className="nl-form__msg nl-form__msg--err";return;}}
+    if(!consent){{msgEl.textContent="Veuillez accepter les conditions pour continuer.";msgEl.className="nl-form__msg nl-form__msg--err";return;}}
+    var attrs={{}};
+    ["CAT_SOCIETE","CAT_SCIENCE","CAT_ECONOMIE","CAT_TECH","CAT_SANTE","CAT_ENVIRONNEMENT"].forEach(function(k){{
+      var cb=form.querySelector('input[name="'+k+'"]');attrs[k]=cb?cb.checked:false;
+    }});
+    btn.disabled=true;btn.textContent="Envoi en cours…";
+    fetch(BREVO_API,{{method:"POST",headers:{{"accept":"application/json","content-type":"application/json","api-key":BREVO_KEY}},body:JSON.stringify({{email:email,listIds:[BREVO_LIST],attributes:attrs,updateEnabled:true}})}})
+    .then(function(r){{
+      if(r.status===201||r.status===200||r.status===204){{msgEl.textContent="Merci ! Un email de confirmation vous a été envoyé — pensez à vérifier vos spams.";msgEl.className="nl-form__msg nl-form__msg--ok";form.reset();}}
+      else if(r.status===400){{return r.json().then(function(d){{if(d&&d.code==="duplicate_parameter"){{msgEl.textContent="Cette adresse est déjà inscrite. Vos préférences ont été mises à jour.";msgEl.className="nl-form__msg nl-form__msg--ok";}}else{{throw new Error(d&&d.message);}}}}))}}
+      else{{throw new Error("Erreur "+r.status);}}
+    }})
+    .catch(function(err){{msgEl.textContent="Une erreur est survenue. Réessayez dans un instant.";msgEl.className="nl-form__msg nl-form__msg--err";console.error("[NL]",err);}})
+    .finally(function(){{btn.disabled=false;btn.textContent="S'abonner gratuitement";}});
+  }});
+}})();
+</script>"""
 
 # Icône de marque affichée dans le header à côté du logotype "lesfaits"
 BRAND_ICON = (
@@ -2554,6 +2626,8 @@ def build_index_html(main, side_html, grid_html, list_html):
 
   {'<div class="list-section" style="padding-top:40px"><div class="section__head" style="margin-bottom:16px"><span class="section__title">À LIRE AUSSI</span></div><div class="section__rule"></div><div class="list-grid">' + list_html + '</div></div>' if list_html else ''}
 </div>
+
+{_build_newsletter_section()}
 
 {_build_footer()}
 {_DARK_MODE_JS}
