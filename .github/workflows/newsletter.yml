@@ -2,11 +2,11 @@ name: Factuel — Newsletter quotidienne
 
 on:
   schedule:
-    # Envoi après le dernier déploiement du soir + marge de sécurité (~2h40).
-    # Soir ~20h30 Paris — été (CEST UTC+2) : avril–octobre
-    - cron: "30 18 * 4-10 *"
-    # Soir ~20h30 Paris — hiver (CET UTC+1) : novembre–mars
-    - cron: "30 19 * 11-12,1-3 *"
+    # Envoi après le déploiement du matin (~07h Paris) + marge de sécurité.
+    # Matin ~08h00 Paris — été (CEST UTC+2) : avril–octobre
+    - cron: "0 6 * 4-10 *"
+    # Matin ~08h00 Paris — hiver (CET UTC+1) : novembre–mars
+    - cron: "0 7 * 11-12,1-3 *"
   workflow_dispatch:
     inputs:
       force:
