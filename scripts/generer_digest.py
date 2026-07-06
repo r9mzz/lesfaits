@@ -1,16 +1,26 @@
 #!/usr/bin/env python3
 """
-generer_digest.py — Résumé quotidien des Faits via l'API Brevo (Campaigns).
+generer_digest.py — Newsletter personnalisée Les Faits (Brevo transactionnel).
 
-- Lit les articles ajoutés dans les 27 dernières heures (git log)
-- Génère un email HTML avec titre + extrait + lien pour chaque article
-- Crée une campagne Brevo et l'envoie immédiatement à la liste d'abonnés
-- Si 0 article : ne fait rien (exit 0)
+Chaque abonné reçoit un email sur-mesure :
+  - uniquement les articles des rubriques qu'il a sélectionnées
+  - si aucune préférence définie → toutes les rubriques
+
+Fonctionnement :
+  1. Récupère les articles des 27 dernières heures (git log)
+  2. Récupère tous les contacts de la liste avec leurs attributs Brevo
+  3. Crée un template Brevo temporaire (blocs conditionnels {% if %})
+  4. Envoie un email transactionnel par contact (Brevo résout les conditions)
+  5. Supprime le template temporaire
 
 Variables d'environnement (secrets GitHub) :
-  BREVO_API_KEY      — Clé API Brevo
-  BREVO_LIST_ID      — ID entier de la liste d'abonnés (ex : "3")
+  BREVO_API_KEY      — Clé API Brevo (v3)
+  BREVO_LIST_ID      — ID entier de la liste principale (ex : "3")
   BREVO_SENDER_EMAIL — Adresse expéditeur vérifiée dans Brevo
+
+Attributs contact Brevo requis (booléens) :
+  CAT_SOCIETE · CAT_SCIENCE · CAT_ECONOMIE
+  CAT_TECH    · CAT_SANTE   · CAT_ENVIRONNEMENT
 """
 
 import sys
@@ -18,10 +28,11 @@ import os
 import json
 import subprocess
 import datetime
+import time
 
 import requests
 
-# ── Configuration ──────────────────────────────────────────────────────────
+# ── Configuration ──────────────────────────────────────────────────────────────
 BREVO_API_KEY      = os.environ.get("BREVO_API_KEY", "")
 BREVO_LIST_ID      = os.environ.get("BREVO_LIST_ID", "")
 BREVO_SENDER_EMAIL = os.environ.get("BREVO_SENDER_EMAIL", "")
@@ -31,19 +42,21 @@ DATA_SEARCH        = "data/search.json"
 BREVO_API_BASE     = "https://api.brevo.com/v3"
 
 HEADERS = {
-    "accept": "application/json",
+    "accept":       "application/json",
     "content-type": "application/json",
-    "api-key": BREVO_API_KEY,
+    "api-key":      BREVO_API_KEY,
 }
 
-MOIS_FR = {
-    "01": "janvier", "02": "février", "03": "mars",    "04": "avril",
-    "05": "mai",     "06": "juin",    "07": "juillet",  "08": "août",
-    "09": "septembre","10": "octobre","11": "novembre", "12": "décembre",
+CATEGORIES = ["societe", "science", "economie", "tech", "sante", "environnement"]
+
+CAT_LABELS = {
+    "societe":       "Société",
+    "science":       "Science",
+    "economie":      "Économie",
+    "tech":          "Tech",
+    "sante":         "Santé",
+    "environnement": "Environnement",
 }
-
-JOURS_FR = ["lundi", "mardi", "mercredi", "jeudi", "vendredi", "samedi", "dimanche"]
-
 CAT_COLORS = {
     "societe":       "#4A6B8E",
     "science":       "#3E7259",
@@ -52,13 +65,16 @@ CAT_COLORS = {
     "sante":         "#8E4A4A",
     "environnement": "#3E7A5B",
 }
-CAT_LABELS = {
-    "societe": "SOCIÉTÉ", "science": "SCIENCE", "economie": "ÉCONOMIE",
-    "tech": "TECH",       "sante": "SANTÉ",     "environnement": "ENVIRONNEMENT",
+MOIS_FR  = {
+    "01": "janvier",   "02": "février",  "03": "mars",
+    "04": "avril",     "05": "mai",      "06": "juin",
+    "07": "juillet",   "08": "août",     "09": "septembre",
+    "10": "octobre",   "11": "novembre", "12": "décembre",
 }
+JOURS_FR = ["lundi", "mardi", "mercredi", "jeudi", "vendredi", "samedi", "dimanche"]
 
 
-# ── Helpers ─────────────────────────────────────────────────────────────────
+# ── Utilitaires ────────────────────────────────────────────────────────────────
 
 def date_longue() -> str:
     t = datetime.date.today()
@@ -66,11 +82,10 @@ def date_longue() -> str:
 
 
 def trouver_slugs_recents() -> list:
-    """Slugs des articles ajoutés dans les 27 dernières heures (git log)."""
     r = subprocess.run(
         ["git", "log", "--since=27 hours ago", "--name-only",
          "--diff-filter=A", "--pretty=format:", "--", "articles/"],
-        capture_output=True, text=True
+        capture_output=True, text=True,
     )
     slugs = []
     for line in r.stdout.splitlines():
@@ -83,7 +98,6 @@ def trouver_slugs_recents() -> list:
 
 
 def charger_articles(slugs: list) -> list:
-    """Retourne les métadonnées (depuis search.json) pour les slugs donnés."""
     if not slugs or not os.path.exists(DATA_SEARCH):
         return []
     with open(DATA_SEARCH, encoding="utf-8") as f:
@@ -91,89 +105,207 @@ def charger_articles(slugs: list) -> list:
     return [index[s] for s in slugs if s in index]
 
 
-# ── Génération de l'email ───────────────────────────────────────────────────
+# ── Brevo : contacts ───────────────────────────────────────────────────────────
 
-def _bloc_article(art: dict) -> str:
-    slug      = art["slug"]
-    titre     = art["titre"]
-    excerpt   = art.get("excerpt", "")
-    cat       = art.get("categorie", "")
-    couleur   = CAT_COLORS.get(cat, "#6C85BD")
-    label     = CAT_LABELS.get(cat, cat.upper())
-    url       = f"{SITE_BASE}/articles/{slug}.html"
+def get_contacts() -> list:
+    """Récupère tous les contacts actifs de la liste avec leurs attributs."""
+    contacts, offset = [], 0
+    while True:
+        r = requests.get(
+            f"{BREVO_API_BASE}/contacts",
+            params={"listIds": BREVO_LIST_ID, "limit": 500, "offset": offset},
+            headers=HEADERS,
+            timeout=20,
+        )
+        if r.status_code != 200:
+            raise RuntimeError(f"Contacts Brevo {r.status_code}: {r.text[:200]}")
+        data  = r.json()
+        batch = data.get("contacts", [])
+        contacts.extend(batch)
+        if len(batch) < 500:
+            break
+        offset += 500
+    return contacts
 
+
+def contact_a_des_prefs(contact: dict) -> bool:
+    """Vrai si au moins un attribut CAT_* est explicitement True."""
+    attrs = contact.get("attributes", {})
+    return any(attrs.get(f"CAT_{cat.upper()}") is True for cat in CATEGORIES)
+
+
+def cats_du_contact(contact: dict) -> list:
+    """Rubriques sélectionnées. Retourne toutes si aucune préférence."""
+    attrs = contact.get("attributes", {})
+    cats  = [cat for cat in CATEGORIES if attrs.get(f"CAT_{cat.upper()}") is True]
+    return cats if cats else CATEGORIES
+
+
+# ── Génération HTML ────────────────────────────────────────────────────────────
+
+def _article_html(art: dict, couleur: str, label: str) -> str:
+    slug    = art["slug"]
+    titre   = art["titre"]
+    excerpt = (art.get("excerpt") or "")[:220]
+    url     = f"{SITE_BASE}/articles/{slug}.html"
     return (
-        '<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"'
-        ' style="border-bottom:1px solid #D0CCC3;">'
-        "<tr><td style=\"padding:22px 0;\">"
-        f"<span style=\"display:inline-block;background:{couleur};color:#fff;"
-        "font-family:Arial,Helvetica,sans-serif;font-size:10px;font-weight:700;"
-        f"letter-spacing:1px;padding:3px 10px;border-radius:3px;margin-bottom:12px;\">{label}</span>"
-        f"<h2 style=\"font-family:Georgia,'Times New Roman',serif;font-size:20px;"
-        f"color:#3A3835;margin:0 0 10px;line-height:1.4;\">{titre}</h2>"
-        f"<p style=\"font-family:Arial,Helvetica,sans-serif;font-size:14px;"
-        f"color:#696660;line-height:1.65;margin:0 0 16px;\">{excerpt}</p>"
-        f"<a href=\"{url}\" style=\"display:inline-block;background:#6C85BD;color:#fff;"
-        "font-family:Arial,Helvetica,sans-serif;font-size:13px;font-weight:700;"
-        "padding:9px 20px;border-radius:4px;text-decoration:none;\">Lire l'article &rarr;</a>"
-        "</td></tr></table>"
+        f'<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">'
+        f'<tr><td style="padding:0 0 32px;">'
+        # Catégorie
+        f'<div style="font-family:Arial,Helvetica,sans-serif;font-size:10px;font-weight:700;'
+        f'letter-spacing:2.5px;color:{couleur};text-transform:uppercase;margin-bottom:10px;">{label}</div>'
+        # Titre
+        f'<h2 style="font-family:Georgia,\'Times New Roman\',serif;font-size:20px;font-weight:normal;'
+        f'color:#3A3835;margin:0 0 10px;line-height:1.42;">{titre}</h2>'
+        # Extrait
+        f'<p style="font-family:Arial,Helvetica,sans-serif;font-size:14px;color:#6B6762;'
+        f'line-height:1.68;margin:0 0 16px;">{excerpt}</p>'
+        # Lien
+        f'<a href="{url}" style="font-family:Arial,Helvetica,sans-serif;font-size:13px;'
+        f'font-weight:700;color:{couleur};text-decoration:none;">Lire l\'article&nbsp;→</a>'
+        f'</td></tr>'
+        f'<tr><td style="border-bottom:1px solid #E5E1DA;margin-bottom:28px;">&nbsp;</td></tr>'
+        f'</table>'
     )
 
 
-def generer_email_html(articles: list, date_long: str) -> str:
-    """Retourne l'HTML complet de l'email (inline CSS, compatible Outlook/Gmail)."""
-    nb = len(articles)
-    compte = f"{nb} article" + ("s" if nb > 1 else "")
-    articles_html = "\n".join(_bloc_article(a) for a in articles)
+def _section_cat(cat: str, arts: list) -> str:
+    couleur = CAT_COLORS[cat]
+    label   = CAT_LABELS[cat]
+    return "\n".join(_article_html(a, couleur, label) for a in arts)
 
-    # NOTE : {unsubscribe} est une variable Brevo — ne pas modifier.
+
+def generer_template_html(articles_par_cat: dict, date_long: str) -> str:
+    """
+    Template Brevo avec blocs conditionnels {% if contact.CAT_X %}.
+
+    Structure :
+    - Si l'abonné a des préférences → seules ses rubriques s'affichent
+    - Sinon ({% else %}) → toutes les rubriques s'affichent
+
+    La syntaxe {% if %} / {% else %} / {% endif %} est native à Brevo
+    et est résolue par contact au moment de l'envoi transactionnel.
+    """
+    # Sections conditionnelles (pour abonnés avec préférences)
+    cond_parts = []
+    for cat in CATEGORIES:
+        arts = articles_par_cat.get(cat, [])
+        if not arts:
+            continue
+        attr = f"CAT_{cat.upper()}"
+        cond_parts.append(
+            f"{{% if contact.{attr} %}}\n{_section_cat(cat, arts)}\n{{% endif %}}"
+        )
+    cond_html = "\n".join(cond_parts)
+
+    # Sections complètes (pour abonnés sans préférences)
+    all_html = "\n".join(
+        _section_cat(cat, arts)
+        for cat in CATEGORIES
+        for arts in [articles_par_cat.get(cat, [])]
+        if arts
+    )
+
+    # Condition globale : a-t-il au moins un CAT_* ?
+    has_any = " or ".join(f"contact.CAT_{cat.upper()}" for cat in CATEGORIES)
+
+    content_html = f"""
+    {{% if {has_any} %}}
+    {cond_html}
+    {{% else %}}
+    {all_html}
+    {{% endif %}}
+    """
+
+    nb_cats = len([c for c in CATEGORIES if articles_par_cat.get(c)])
+    nb_arts = sum(len(v) for v in articles_par_cat.values())
+    resume  = f"{nb_arts} article{'s' if nb_arts > 1 else ''}"
+
     return f"""<!DOCTYPE html>
 <html lang="fr">
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
 <meta name="x-apple-disable-message-reformatting"/>
-<title>Les Faits &mdash; {date_long}</title>
+<title>Les Faits — {date_long}</title>
 </head>
-<body style="margin:0;padding:0;background:#F0EDE6;-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%;">
-<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background:#F0EDE6;">
-<tr><td align="center" style="padding:32px 16px;">
-  <table role="presentation" width="600" cellpadding="0" cellspacing="0" border="0" style="max-width:600px;width:100%;">
+<body style="margin:0;padding:0;background:#F0EDE6;-webkit-text-size-adjust:100%;">
+<!--[if mso]><center><table width="600"><tr><td><![endif]-->
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"
+       style="background:#F0EDE6;min-height:100%;">
+<tr><td align="center" style="padding:40px 16px 56px;">
 
-    <!-- En-tête -->
+  <table role="presentation" width="600" cellpadding="0" cellspacing="0" border="0"
+         style="max-width:600px;width:100%;">
+
+    <!-- ░░ EN-TÊTE ░░ -->
     <tr>
-      <td style="background:#3A3835;border-radius:8px 8px 0 0;padding:28px 32px;text-align:center;">
-        <div style="margin-bottom:8px;">
-          <span style="font-family:Arial,Helvetica,sans-serif;font-size:34px;font-weight:300;color:#F0EDE6;letter-spacing:-1px;">les</span>
-          <span style="font-family:Arial,Helvetica,sans-serif;font-size:34px;font-weight:700;color:#6C85BD;letter-spacing:-1px;">&nbsp;faits</span>
+      <td style="background:#3A3835;border-radius:8px 8px 0 0;padding:36px 40px 30px;">
+        <!-- Logo texte -->
+        <div style="margin-bottom:20px;">
+          <span style="font-family:Arial,Helvetica,sans-serif;font-size:30px;font-weight:300;
+                       color:#F0EDE6;letter-spacing:-0.5px;">les&nbsp;</span><span
+               style="font-family:Arial,Helvetica,sans-serif;font-size:30px;font-weight:700;
+                       color:#6C85BD;letter-spacing:-0.5px;">faits</span>
         </div>
-        <p style="font-family:Arial,Helvetica,sans-serif;font-size:13px;color:#9AA5BD;margin:0;">
-          R&eacute;sum&eacute; du {date_long} &mdash; {compte}
+        <!-- Date + résumé -->
+        <p style="font-family:Georgia,'Times New Roman',serif;font-size:16px;color:#B0A99F;
+                  line-height:1.5;margin:0 0 6px;">
+          Votre sélection du {date_long}
+        </p>
+        <p style="font-family:Arial,Helvetica,sans-serif;font-size:11px;color:#706A64;
+                  margin:0;letter-spacing:0.5px;text-transform:uppercase;">
+          {resume} · {nb_cats} rubrique{'s' if nb_cats > 1 else ''}
         </p>
       </td>
     </tr>
 
-    <!-- Corps -->
+    <!-- ░░ INTRO ░░ -->
     <tr>
-      <td style="background:#FAF9F6;padding:24px 32px 12px;">
-        {articles_html}
-        <p style="font-family:Arial,Helvetica,sans-serif;font-size:13px;color:#9AA5BD;text-align:center;margin:24px 0 4px;">
-          <a href="{SITE_BASE}" style="color:#6C85BD;text-decoration:none;">Voir tous les articles sur lesfaits.info &rarr;</a>
+      <td style="background:#FAF9F6;padding:32px 40px 24px;border-bottom:1px solid #E8E3DB;">
+        <p style="font-family:Georgia,'Times New Roman',serif;font-size:16px;color:#3A3835;
+                  line-height:1.75;margin:0;">
+          Bonsoir,
+        </p>
+        <p style="font-family:Georgia,'Times New Roman',serif;font-size:15px;color:#4A4744;
+                  line-height:1.75;margin:14px 0 0;">
+          L'actualité ne manque pas d'intérêt aujourd'hui. Nous avons sélectionné pour vous
+          les articles qui méritent votre attention, selon les rubriques que vous suivez.
+          Bonne lecture.
         </p>
       </td>
     </tr>
 
-    <!-- Pied de page -->
+    <!-- ░░ ARTICLES ░░ -->
     <tr>
-      <td style="background:#3A3835;border-radius:0 0 8px 8px;padding:20px 32px;text-align:center;">
-        <p style="font-family:Arial,Helvetica,sans-serif;font-size:11px;color:#9AA5BD;margin:0 0 6px;line-height:1.5;">
-          Vous recevez cet email car vous vous &ecirc;tes abonn&eacute; au r&eacute;sum&eacute; quotidien de
-          <a href="{SITE_BASE}" style="color:#6C85BD;">Les Faits</a>.
+      <td style="background:#FAF9F6;padding:28px 40px 4px;">
+        {content_html}
+      </td>
+    </tr>
+
+    <!-- ░░ LIEN SITE ░░ -->
+    <tr>
+      <td style="background:#FAF9F6;padding:8px 40px 36px;text-align:center;">
+        <a href="{SITE_BASE}"
+           style="font-family:Arial,Helvetica,sans-serif;font-size:13px;color:#6C85BD;
+                  text-decoration:none;font-weight:600;">
+          Voir toute l'actualité sur lesfaits.info →
+        </a>
+      </td>
+    </tr>
+
+    <!-- ░░ PIED DE PAGE ░░ -->
+    <tr>
+      <td style="background:#3A3835;border-radius:0 0 8px 8px;padding:24px 40px;">
+        <p style="font-family:Arial,Helvetica,sans-serif;font-size:11px;color:#706A64;
+                  margin:0 0 10px;line-height:1.6;text-align:center;">
+          Vous recevez ce résumé parce que vous vous êtes abonné·e à
+          <a href="{SITE_BASE}" style="color:#9AA5BD;text-decoration:none;">Les Faits</a>.
         </p>
-        <p style="font-family:Arial,Helvetica,sans-serif;font-size:11px;color:#9AA5BD;margin:0;">
-          <a href="{{unsubscribe}}" style="color:#6C85BD;">Se d&eacute;sabonner</a>
-          &nbsp;&middot;&nbsp;
-          <a href="{SITE_BASE}/confidentialite.html" style="color:#6C85BD;">Vie priv&eacute;e</a>
+        <p style="font-family:Arial,Helvetica,sans-serif;font-size:11px;margin:0;text-align:center;">
+          <a href="{{unsubscribe}}" style="color:#6C85BD;text-decoration:none;">Se désabonner</a>
+          &nbsp;·&nbsp;
+          <a href="{SITE_BASE}/confidentialite.html" style="color:#706A64;text-decoration:none;">Vie privée</a>
         </p>
       </td>
     </tr>
@@ -181,113 +313,162 @@ def generer_email_html(articles: list, date_long: str) -> str:
   </table>
 </td></tr>
 </table>
+<!--[if mso]></td></tr></table></center><![endif]-->
 </body>
 </html>"""
 
 
-# ── Brevo API ───────────────────────────────────────────────────────────────
+# ── Brevo : template ──────────────────────────────────────────────────────────
 
-def creer_campagne(subject: str, html_content: str, date_long: str) -> int:
-    """Crée la campagne Brevo et retourne son ID."""
+def creer_template(html_content: str, date_long: str) -> int:
+    """Crée un template Brevo temporaire et retourne son ID."""
     payload = {
-        "name":        f"Les Faits — {date_long}",
-        "subject":     subject,
-        "sender":      {"name": BREVO_SENDER_NAME, "email": BREVO_SENDER_EMAIL},
-        "type":        "classic",
-        "htmlContent": html_content,
-        "recipients":  {"listIds": [int(BREVO_LIST_ID)]},
+        "tag":          "nl-digest-temp",
+        "sender":       {"name": BREVO_SENDER_NAME, "email": BREVO_SENDER_EMAIL},
+        "templateName": f"Digest {date_long} (auto)",
+        "subject":      f"Les Faits du {date_long} — votre sélection",
+        "htmlContent":  html_content,
+        "isActive":     True,
     }
-    r = requests.post(f"{BREVO_API_BASE}/emailCampaigns", json=payload, headers=HEADERS, timeout=15)
-    if r.status_code not in (200, 201):
-        raise RuntimeError(f"Erreur création campagne Brevo {r.status_code} : {r.text[:300]}")
-    cid = r.json()["id"]
-    print(f"  [BREVO] Campagne créée — id={cid}")
-    return cid
-
-
-def envoyer_campagne(campaign_id: int) -> dict:
-    """Envoie la campagne immédiatement. Retourne la réponse JSON."""
     r = requests.post(
-        f"{BREVO_API_BASE}/emailCampaigns/{campaign_id}/sendNow",
-        headers=HEADERS, timeout=15
+        f"{BREVO_API_BASE}/smtp/templates",
+        json=payload, headers=HEADERS, timeout=20,
     )
-    if r.status_code not in (200, 201, 204):
-        raise RuntimeError(f"Erreur envoi campagne {campaign_id} — {r.status_code} : {r.text[:300]}")
-    return r.json() if r.content else {}
+    if r.status_code not in (200, 201):
+        raise RuntimeError(f"Création template {r.status_code}: {r.text[:300]}")
+    tid = r.json()["id"]
+    print(f"  [BREVO] Template créé — id={tid}")
+    return tid
 
 
-def compter_abonnes() -> int:
-    """Retourne le nombre de contacts actifs dans la liste."""
+def supprimer_template(template_id: int) -> None:
+    """Supprime le template temporaire après l'envoi."""
     try:
-        r = requests.get(
-            f"{BREVO_API_BASE}/contacts/lists/{BREVO_LIST_ID}",
-            headers=HEADERS, timeout=10
+        requests.delete(
+            f"{BREVO_API_BASE}/smtp/templates/{template_id}",
+            headers=HEADERS, timeout=10,
         )
-        if r.status_code == 200:
-            return r.json().get("uniqueSubscribers", 0)
-    except Exception:
-        pass
-    return -1
+        print(f"  [BREVO] Template {template_id} supprimé")
+    except Exception as e:
+        print(f"  [WARN] Suppression template: {e}")
 
 
-# ── Point d'entrée ──────────────────────────────────────────────────────────
+# ── Brevo : envoi transactionnel ───────────────────────────────────────────────
+
+def envoyer_email(template_id: int, email: str) -> bool:
+    """Envoie l'email transactionnel à un contact via le template."""
+    payload = {
+        "templateId": template_id,
+        "to":         [{"email": email}],
+    }
+    r = requests.post(
+        f"{BREVO_API_BASE}/smtp/email",
+        json=payload, headers=HEADERS, timeout=15,
+    )
+    if r.status_code not in (200, 201, 202):
+        print(f"    [WARN] Échec envoi à {email}: {r.status_code} — {r.text[:100]}")
+        return False
+    return True
+
+
+# ── Point d'entrée ─────────────────────────────────────────────────────────────
 
 def main() -> None:
-    print("=" * 60)
-    print("  DIGEST — Génération newsletter quotidienne")
-    print("=" * 60)
+    print("=" * 62)
+    print("  Les Faits — Digest personnalisé")
+    print("=" * 62)
 
-    for var, val in [("BREVO_API_KEY", BREVO_API_KEY), ("BREVO_LIST_ID", BREVO_LIST_ID),
-                     ("BREVO_SENDER_EMAIL", BREVO_SENDER_EMAIL)]:
-        if not val:
-            print(f"  [ERREUR] Variable d'environnement manquante : {var}")
-            sys.exit(1)
+    # Vérification des variables d'environnement
+    manquantes = [v for v, val in [
+        ("BREVO_API_KEY",      BREVO_API_KEY),
+        ("BREVO_LIST_ID",      BREVO_LIST_ID),
+        ("BREVO_SENDER_EMAIL", BREVO_SENDER_EMAIL),
+    ] if not val]
+    if manquantes:
+        for v in manquantes:
+            print(f"  [ERREUR] Variable manquante : {v}")
+        sys.exit(1)
 
-    # 1. Articles des dernières 27h
+    # 1. Articles récents
     slugs = trouver_slugs_recents()
-    print(f"  Articles récents (27h) : {len(slugs)}")
-
+    print(f"\n  Articles (27h) : {len(slugs)}")
     if not slugs:
-        print("  Aucun article publié dans les dernières 27h — envoi ignoré.")
-        print("=" * 60)
+        print("  Aucun article publié — envoi annulé.\n" + "=" * 62)
         return
 
     articles = charger_articles(slugs)
     if not articles:
-        print("  Slugs trouvés mais absents de search.json — envoi ignoré.")
-        print("=" * 60)
+        print("  Slugs introuvables dans search.json — envoi annulé.\n" + "=" * 62)
         return
 
-    print(f"  Articles à inclure : {len(articles)}")
+    # Grouper par rubrique
+    articles_par_cat: dict = {}
     for a in articles:
-        print(f"    · [{a.get('categorie','?').upper()}] {a['titre'][:60]}")
+        cat = a.get("categorie", "")
+        if cat in CATEGORIES:
+            articles_par_cat.setdefault(cat, []).append(a)
 
-    # 2. Génération email
-    date_long   = date_longue()
-    nb          = len(articles)
-    compte      = f"{nb} article" + ("s" if nb > 1 else "")
-    subject     = f"Les Faits du {date_long} — {compte}"
-    html_email  = generer_email_html(articles, date_long)
+    for cat, arts in articles_par_cat.items():
+        for a in arts:
+            print(f"    · [{CAT_LABELS[cat]}] {a['titre'][:55]}")
 
-    # 3. Nombre d'abonnés (informatif)
-    nb_abonnes = compter_abonnes()
-    if nb_abonnes >= 0:
-        print(f"  Abonnés actifs dans la liste : {nb_abonnes}")
-        if nb_abonnes == 0:
-            print("  Liste vide — envoi ignoré (aucun abonné).")
-            return
+    if not articles_par_cat:
+        print("  Aucune rubrique reconnue — envoi annulé.\n" + "=" * 62)
+        return
 
-    # 4. Création + envoi campagne
-    print(f"  Sujet : {subject}")
+    # 2. Contacts
+    print("\n  Chargement des abonnés...")
+    contacts = get_contacts()
+    actifs   = [c for c in contacts if c.get("email")]
+    print(f"  Abonnés actifs : {len(actifs)}")
+    if not actifs:
+        print("  Liste vide — envoi annulé.\n" + "=" * 62)
+        return
+
+    # 3. Template HTML
+    date_long    = date_longue()
+    html_content = generer_template_html(articles_par_cat, date_long)
+
+    # 4. Création du template Brevo
+    print("\n  Création du template Brevo...")
+    template_id = creer_template(html_content, date_long)
+
+    # 5. Envoi par contact
+    print(f"\n  Envoi à {len(actifs)} abonné(s)...")
+    envoyes = ignores = erreurs = 0
+
     try:
-        cid = creer_campagne(subject, html_email, date_long)
-        envoyer_campagne(cid)
-        print(f"  [OK] Digest envoyé — campagne id={cid}, liste={BREVO_LIST_ID}")
-    except Exception as exc:
-        print(f"  [ERREUR] {exc}")
-        sys.exit(1)
+        for contact in actifs:
+            email = contact["email"]
 
-    print("=" * 60)
+            # Vérifier qu'au moins une rubrique de l'abonné est active aujourd'hui
+            cats_contact = cats_du_contact(contact)
+            has_articles = any(cat in articles_par_cat for cat in cats_contact)
+            if not has_articles:
+                ignores += 1
+                continue
+
+            ok = envoyer_email(template_id, email)
+            if ok:
+                envoyes += 1
+                print(f"    ✓ {email}")
+            else:
+                erreurs += 1
+
+            # Pause légère pour ne pas saturer l'API (50 req/s max Brevo)
+            if (envoyes + erreurs) % 40 == 0:
+                time.sleep(1)
+
+    finally:
+        supprimer_template(template_id)
+
+    print(f"\n  ── Résultat ──────────────────────────────────────────")
+    print(f"  Envoyés  : {envoyes}")
+    if ignores:
+        print(f"  Ignorés  : {ignores}  (rubriques sans articles aujourd'hui)")
+    if erreurs:
+        print(f"  Erreurs  : {erreurs}")
+    print("=" * 62)
 
 
 if __name__ == "__main__":
