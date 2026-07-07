@@ -129,5 +129,13 @@
     "problemes_restants": 7,
     "bloquants_restants": 2,
     "article_type": "dossier_science"
+  },
+  {
+    "slug": "christophe-malsot-maladie-de-charcot",
+    "statut": "rejete_sensible",
+    "date": "2026-07-07T13:31:29",
+    "sujet_sensible": true,
+    "raison": "Article portant sur une personne nommément identifiée avec des affirmations négatives sur son état de santé et sa dépendance, et abordant indirectement la fin de vie d'un individu encore en vie.",
+    "article_type": "dossier_portrait"
   }
 ]
