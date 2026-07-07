@@ -35,7 +35,7 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 10
     permissions:
-      contents: read
+      contents: write
 
     steps:
       - name: Checkout (repo privé — contient tous les articles)
@@ -149,13 +149,16 @@ jobs:
 
           git push
 
-      - name: Publier les nouveaux articles sur X
+      - name: Sauvegarder les slugs pour publication X (07h00)
         if: ${{ github.event.inputs.dry_run != 'true' }}
-        # Inactif tant que les secrets X_* ne sont pas configurés
-        env:
-          X_API_KEY:             ${{ secrets.X_API_KEY }}
-          X_API_SECRET:          ${{ secrets.X_API_SECRET }}
-          X_ACCESS_TOKEN:        ${{ secrets.X_ACCESS_TOKEN }}
-          X_ACCESS_TOKEN_SECRET: ${{ secrets.X_ACCESS_TOKEN_SECRET }}
-          PYTHONIOENCODING: utf-8
-        run: python scripts/post_to_x.py "${GITHUB_WORKSPACE}/new_articles.txt"
+        run: |
+          # Les slugs des nouveaux articles sont publiés sur X par post_x.yml
+          # à 07h00 Paris (05h00 UTC), séparément du déploiement.
+          if [ -s "${GITHUB_WORKSPACE}/new_articles.txt" ]; then
+            cp "${GITHUB_WORKSPACE}/new_articles.txt" data/pending_x_posts.txt
+            git config user.name  "Factuel Bot"
+            git config user.email "bot@lesfaits.info"
+            git add data/pending_x_posts.txt
+            git diff --cached --quiet || git commit -m "chore: slugs en attente de publication X"
+            git push
+          fi
