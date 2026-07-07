@@ -1365,6 +1365,8 @@ def generate(content: str, category_hint: str, extra_sources: list[dict] | None 
     if "sources" in art:
         verified = []
         for src in art["sources"]:
+            if not isinstance(src, dict):
+                continue
             url = src.get("url") or ""
             path = urlparse(url).path.rstrip("/") if url else ""
             if url in real_urls and len(path) > 3:
@@ -3250,27 +3252,30 @@ def generer_article(item: dict, dry_run: bool, published: set, new_pub: set, dat
 
         # ── Garde-fou 3 : résumé qui paraphrase le corps (déterministe, une
         # relance ; non bloquant — c'est un défaut de style, pas de conformité) ──
+        # Ne compte PAS dans nb_garde_retries : le circuit-breaker ne doit
+        # sanctionner que les relances sur des critères bloquants (attributions).
         repetitions = resume_repete_corps(art)
         if repetitions:
             print(f"     [GARDE] {len(repetitions)} phrase(s) du résumé quasi identiques au corps — relance…")
             art = generate(content, cat, extra_sources=extra, rss_url=item.get("url"),
                            repetition_feedback=repetitions, article_type=article_type)
-            nb_garde_retries += 1
             repetitions = resume_repete_corps(art)
             if repetitions:
-                print(f"     [AVERTISSEMENT] Résumé toujours proche du corps après relance — publié quand même")
+                print(f"     [AVERTISSEMENT] Résumé toujours proche du corps après relance — passé à Anthropic")
 
         # ── Garde-fou 4 : répétition intra-article (même info sous plusieurs
         # attributions ; déterministe, une relance ; non bloquant) ──
+        # Ne compte PAS dans nb_garde_retries (même raison que garde-fou 3).
         intra = faits_repetitifs(art)
         if intra:
             print(f"     [GARDE] {len(intra)} répétition(s) intra-article détectée(s) — relance…")
             art = generate(content, cat, extra_sources=extra, rss_url=item.get("url"),
                            repetition_feedback=intra, article_type=article_type)
-            nb_garde_retries += 1
+            if not isinstance(art, dict):
+                art = {}
             intra = faits_repetitifs(art)
             if intra:
-                print(f"     [AVERTISSEMENT] Répétitions intra-article persistantes après relance — publié quand même")
+                print(f"     [AVERTISSEMENT] Répétitions intra-article persistantes après relance — passé à Anthropic")
 
         # ── Garde-fou Dossier Science : formulations assertives interdites ─────
         if article_type == "dossier_science":
