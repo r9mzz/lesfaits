@@ -1857,7 +1857,7 @@ _NAV_LINKS = (
     '<a href="archive.html">Tous les articles</a>\n'
     '<a href="methode.html">Comment on travaille</a>\n'
     '<a href="a-propos.html">À propos &amp; réseaux</a>\n'
-    '<a href="index.html#newsletter" class="nav-cta">S\'abonner à la newsletter</a>'
+    '<a href="index.html" class="nav-cta">S\'abonner à la newsletter</a>'
 )
 _BURGER_JS = (
     "function toggleMenu(){"
@@ -1921,7 +1921,7 @@ HEADER_NAV_DESKTOP = (
     '        </div>\n'
     '      </div>\n'
     '    </nav>\n'
-    '    <a href="index.html#newsletter" class="nav-cta">Newsletter</a>'
+    '    <a href="index.html" class="nav-cta">Newsletter</a>'
 )
 
 DARK_TOGGLE = '<button class="dark-toggle" id="dark-toggle" aria-label="Mode sombre" title="Mode sombre">🌙</button>'
@@ -2092,7 +2092,7 @@ def _build_footer(year: int = None) -> str:
       <a href="corrections.html">Corrections publiques</a>
       <a href="archive.html">Tous les articles</a>
       <a href="feed.xml" class="footer__rss">Flux RSS</a>
-      <a href="index.html#newsletter">Newsletter</a>
+      <a href="index.html">Newsletter</a>
     </div>
     <div class="footer__col"><h4>LÉGAL</h4>
       <a href="mentions-legales.html">Mentions légales</a>
@@ -2658,8 +2658,6 @@ def build_index_html(main, side_html, grid_html, list_html):
   {'<div class="list-section" style="padding-top:40px"><div class="section__head" style="margin-bottom:16px"><span class="section__title">À LIRE AUSSI</span></div><div class="section__rule"></div><div class="list-grid">' + list_html + '</div></div>' if list_html else ''}
 </div>
 
-{_build_newsletter_section()}
-
 {_build_footer()}
 {_DARK_MODE_JS}
 {_ANALYTICS_JS}
@@ -2883,7 +2881,6 @@ def build_category_pages():
   </div>
 </main>
 
-{_build_newsletter_section()}
 {_build_footer()}
 {_DARK_MODE_JS}
 {_ANALYTICS_JS}
@@ -3038,7 +3035,6 @@ def build_archive_page():
   </script>
 </main>
 
-{_build_newsletter_section()}
 {_build_footer()}
 {_DARK_MODE_JS}
 {_ANALYTICS_JS}
@@ -3105,7 +3101,6 @@ def build_favoris_page():
   </div>
 </main>
 
-{_build_newsletter_section()}
 {_build_footer()}
 {_DARK_MODE_JS}
 {_ANALYTICS_JS}
