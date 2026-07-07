@@ -51,6 +51,7 @@ BASE_URL = "https://lesfaits.info"
 
 GROQ_KEY       = os.getenv("GROQ_API_KEY", "")
 GROQ_KEY2      = os.getenv("GROQ_API_KEY_2", "")
+GROQ_KEY3      = os.getenv("GROQ_API_KEY_3", "")
 PEXELS_KEY     = os.getenv("PEXELS_API_KEY", "")
 PIXABAY_KEY    = os.getenv("PIXABAY_API_KEY", "")
 
@@ -1314,19 +1315,21 @@ def generate(content: str, category_hint: str, extra_sources: list[dict] | None 
     ]
 
     raw = None
-    keys_to_try = [(GROQ_KEY, "clé 1"), (GROQ_KEY2, "clé 2")] if GROQ_KEY2 else [(GROQ_KEY, "clé 1")]
+    _all_keys = [(GROQ_KEY, "clé 1"), (GROQ_KEY2, "clé 2"), (GROQ_KEY3, "clé 3")]
+    keys_to_try = [(k, l) for k, l in _all_keys if k]
+    last_label = keys_to_try[-1][1] if keys_to_try else "clé 1"
     for key, label in keys_to_try:
-        if not key:
-            continue
         try:
             raw = _groq_call(key, messages)
             break
         except Exception as e:
             err = str(e)
             if "429" in err or "rate_limit" in err.lower():
-                print(f"     [GROQ] Rate limit sur {label} — {'bascule sur clé 2' if label == 'clé 1' and GROQ_KEY2 else 'quota épuisé'}")
-                if label == "clé 2" or not GROQ_KEY2:
+                if label == last_label:
+                    print(f"     [GROQ] Rate limit sur {label} — quota épuisé")
                     raise
+                next_label = keys_to_try[keys_to_try.index((key, label)) + 1][1]
+                print(f"     [GROQ] Rate limit sur {label} — bascule sur {next_label}")
             else:
                 raise
     if raw is None:
@@ -3484,8 +3487,9 @@ if __name__ == "__main__":
     if not GROQ_KEY:
         print("ERREUR : GROQ_API_KEY manquant dans .env / secrets GitHub")
         exit(1)
-    if GROQ_KEY2:
-        print("[INFO] Clé Groq de secours (GROQ_API_KEY_2) détectée — bascule automatique si rate limit")
+    active_keys = sum(1 for k in (GROQ_KEY2, GROQ_KEY3) if k)
+    if active_keys:
+        print(f"[INFO] {active_keys} clé(s) Groq de secours détectée(s) — bascule automatique si rate limit")
 
     run(dry_run=args.dry_run, text_input=args.text)
 
