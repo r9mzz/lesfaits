@@ -30,6 +30,11 @@
       <span class="nl-compact__title">Le résumé du jour dans votre boîte mail</span>
     </div>
     <form id="nl-form" novalidate>
+      <div class="nl-compact__freq" role="group" aria-label="Fréquence de réception">
+        <label class="nl-compact__freq-opt"><input type="radio" name="FREQ" value="morning"/> Matin (~7h)</label>
+        <label class="nl-compact__freq-opt"><input type="radio" name="FREQ" value="evening"/> Soir (~18h)</label>
+        <label class="nl-compact__freq-opt"><input type="radio" name="FREQ" value="both" checked/> Les deux</label>
+      </div>
       <div class="nl-compact__row">
         <input type="email" id="nl-email" name="email" class="nl-compact__input" placeholder="vous@exemple.fr" required autocomplete="email" aria-required="true"/>
         <button type="submit" class="nl-compact__btn" id="nl-btn">S'abonner →</button>
@@ -65,6 +70,7 @@
     if(!consent){msgEl.textContent="Veuillez accepter les conditions.";msgEl.className="nl-compact__msg nl-compact__msg--err";return;}
     var attrs={};
     ["CAT_SOCIETE","CAT_SCIENCE","CAT_ECONOMIE","CAT_TECH","CAT_SANTE","CAT_ENVIRONNEMENT"].forEach(function(k){var cb=form.querySelector('input[name="'+k+'"]');attrs[k]=cb?cb.checked:false;});
+    var freqEl=form.querySelector('input[name="FREQ"]:checked');attrs["FREQ"]=freqEl?freqEl.value:"both";
     btn.disabled=true;btn.textContent="Envoi…";
     fetch(BREVO_API,{method:"POST",headers:{"accept":"application/json","content-type":"application/json","api-key":BREVO_KEY},body:JSON.stringify({email:email,listIds:[BREVO_LIST],attributes:attrs,updateEnabled:true})})
     .then(function(r){
