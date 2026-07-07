@@ -2032,6 +2032,78 @@ def _build_newsletter_section() -> str:
 </script>"""
 
 
+
+
+BRAND_ICON = (
+    '<svg class="brand__icon" width="26" height="26" viewBox="0 0 200 200" '
+    'aria-hidden="true" focusable="false">'
+    '<rect width="200" height="200" rx="28" fill="#141416"/>'
+    '<circle cx="100" cy="100" r="72" fill="none" stroke="#6C85BD" stroke-width="4"/>'
+    '<circle cx="28" cy="100" r="7" fill="#6C85BD"/>'
+    '<circle cx="172" cy="100" r="7" fill="#6C85BD"/>'
+    '<text x="84" y="132" font-family="Georgia,\'Times New Roman\',serif" font-size="92" '
+    'font-weight="700" fill="#F1EFE8" text-anchor="middle">l</text>'
+    '<text x="128" y="132" font-family="Georgia,\'Times New Roman\',serif" font-size="92" '
+    'font-weight="700" fill="#6C85BD" text-anchor="middle">f</text>'
+    '</svg>'
+)
+
+# Script complet injecté avant </body> (bouton + toggle)
+_DARK_MODE_JS = """<script>
+(function(){
+  var btn=document.getElementById('dark-toggle');
+  var dark=document.documentElement.getAttribute('data-theme')==='dark';
+  if(btn){btn.textContent=dark?'☀️':'🌙';btn.setAttribute('aria-label',dark?'Passer en mode clair':'Passer en mode sombre');}
+  if(btn) btn.addEventListener('click',function(){
+    var d=document.documentElement.getAttribute('data-theme')==='dark';
+    document.documentElement.setAttribute('data-theme',d?'light':'dark');
+    localStorage.setItem('theme',d?'light':'dark');
+    btn.textContent=d?'🌙':'☀️';btn.setAttribute('aria-label',d?'Passer en mode sombre':'Passer en mode clair');
+  });
+})();
+</script>"""
+
+def _build_footer(year: int = None) -> str:
+    y = year or datetime.now().year
+    return f"""<footer class="footer" role="contentinfo" aria-label="Pied de page">
+  <div class="footer__inner">
+    <div class="footer__brand">
+      <div class="brand__logotype"><span class="fact">les</span><span class="uel">faits</span></div>
+      <p>Journal numérique français rédigé par IA. Sans publicité. Sans actionnaires.</p>
+      <p style="font-size:10px;color:var(--muted);margin-top:8px">Aucune publicité · Aucun actionnaire · Aucun cookie de tracking</p>
+    </div>
+    <div class="footer__col"><h4>RUBRIQUES</h4>
+      <a href="categories/societe.html">Société</a>
+      <a href="categories/science.html">Science</a>
+      <a href="categories/economie.html">Économie</a>
+      <a href="categories/tech.html">Tech</a>
+      <a href="categories/sante.html">Santé</a>
+      <a href="categories/environnement.html">Environnement</a>
+    </div>
+    <div class="footer__col"><h4>JOURNAL</h4>
+      <a href="methode.html">Comment on travaille</a>
+      <a href="a-propos.html">À propos &amp; réseaux</a>
+      <a href="corrections.html">Corrections publiques</a>
+      <a href="archive.html">Tous les articles</a>
+      <a href="feed.xml" class="footer__rss">Flux RSS</a>
+      <a href="index.html">Newsletter</a>
+    </div>
+    <div class="footer__col"><h4>LÉGAL</h4>
+      <a href="mentions-legales.html">Mentions légales</a>
+      <a href="confidentialite.html">Confidentialité</a>
+      <a href="cgu.html">CGU</a>
+    </div>
+    <div class="footer__col"><h4>CONTACT</h4>
+      <a href="contact.html">Nous écrire</a>
+      <a href="contact.html#erreur">Signaler une erreur</a>
+    </div>
+  </div>
+  <div class="footer__bottom">
+    <span>© {y} Les Faits · <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/deed.fr" rel="noopener noreferrer external" target="_blank" style="color:inherit">CC BY-NC-ND 4.0</a></span>
+    <span>Protocole éditorial v1.1</span>
+  </div>
+</footer>"""
+
 def build_article_html(art: dict, date_pub: str) -> str:
     resume_txt = " ".join(art["resume"]) if isinstance(art.get("resume"), list) else art.get("resume", "")
     slug      = art.get("slug", "")
