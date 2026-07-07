@@ -1919,13 +1919,13 @@ HEADER_NAV_DESKTOP = (
     '          <a class="cat-dd-item" href="/categories/environnement.html" role="menuitem"><span class="cat-dd-dot" style="background:#3E7A5B"></span>Environnement</a>\n'
     '        </div>\n'
     '      </div>\n'
-    '      <a class="nav-expand-item" href="archive.html" aria-label="Tous les articles">'
+    '      <a class="nav-expand-item" href="/archive.html" aria-label="Tous les articles">'
     + _ICO_LIST +
     '<span class="nav-expand-label">Tous les articles</span></a>\n'
-    '      <a class="nav-expand-item" href="a-propos.html" aria-label="Réseaux">'
+    '      <a class="nav-expand-item" href="/a-propos.html" aria-label="Réseaux">'
     + _ICO_INSTA +
     '<span class="nav-expand-label">Réseaux</span></a>\n'
-    '      <a class="nav-expand-item" href="methode.html" aria-label="Notre méthode">'
+    '      <a class="nav-expand-item" href="/methode.html" aria-label="Notre méthode">'
     + _ICO_SPARK +
     '<span class="nav-expand-label">Notre méthode</span></a>\n'
     '      <a class="nav-expand-item" href="/#newsletter" aria-label="Newsletter">'
