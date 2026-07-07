@@ -1975,162 +1975,61 @@ BREVO_LIST_ID_NL   = 3
 
 # Bloc newsletter injecté dans index.html (avant le footer)
 def _build_newsletter_section() -> str:
-    return f"""<section class="nl-band" id="newsletter" aria-label="S'abonner à la newsletter">
-  <div class="nl-band__inner">
-    <div class="nl-band__text">
-      <div class="nl-band__label">NEWSLETTER</div>
-      <h2 class="nl-band__title">Le résumé du jour dans votre boîte mail</h2>
-      <p class="nl-band__sub">Choisissez vos rubriques et l'heure de réception. Gratuit, sans pub, désabonnement en un clic.</p>
+    return f"""
+<section class="nl-compact" id="newsletter" aria-label="S'abonner à la newsletter">
+  <div class="nl-compact__inner">
+    <div class="nl-compact__head">
+      <span class="nl-compact__label">NEWSLETTER</span>
+      <span class="nl-compact__title">Le résumé du jour dans votre boîte mail</span>
     </div>
-    <div class="nl-band__form-wrap">
-      <form class="nl-form" id="nl-form" novalidate>
-        <label class="nl-form__email-label" for="nl-email">Votre adresse email</label>
-        <input type="email" id="nl-email" name="email" class="nl-form__input"
-               placeholder="vous@exemple.fr" required autocomplete="email" aria-required="true"/>
-        <fieldset class="nl-form__cats" aria-label="Rubriques à suivre">
-          <legend class="nl-form__cats-legend">Je veux recevoir</legend>
-          <div class="nl-form__cats-grid">
-            <label class="nl-cat nl-cat--societe"><input type="checkbox" name="CAT_SOCIETE" value="1"/><span class="nl-cat__dot"></span><span class="nl-cat__name">Société</span></label>
-            <label class="nl-cat nl-cat--science"><input type="checkbox" name="CAT_SCIENCE" value="1"/><span class="nl-cat__dot"></span><span class="nl-cat__name">Science</span></label>
-            <label class="nl-cat nl-cat--economie"><input type="checkbox" name="CAT_ECONOMIE" value="1"/><span class="nl-cat__dot"></span><span class="nl-cat__name">Économie</span></label>
-            <label class="nl-cat nl-cat--tech"><input type="checkbox" name="CAT_TECH" value="1"/><span class="nl-cat__dot"></span><span class="nl-cat__name">Tech</span></label>
-            <label class="nl-cat nl-cat--sante"><input type="checkbox" name="CAT_SANTE" value="1"/><span class="nl-cat__dot"></span><span class="nl-cat__name">Santé</span></label>
-            <label class="nl-cat nl-cat--environnement"><input type="checkbox" name="CAT_ENVIRONNEMENT" value="1"/><span class="nl-cat__dot"></span><span class="nl-cat__name">Environnement</span></label>
-          </div>
-          <p class="nl-form__cats-hint">Aucune sélection = toutes les rubriques</p>
-        </fieldset>
-        <fieldset class="nl-form__slot" aria-label="Heure de réception">
-          <legend class="nl-form__cats-legend">Recevoir le</legend>
-          <div class="nl-form__slot-grid">
-            <label class="nl-slot"><input type="radio" name="slot" value="matin" checked/><span class="nl-slot__pill">☀ Matin</span></label>
-            <label class="nl-slot"><input type="radio" name="slot" value="soir"/><span class="nl-slot__pill">🌙 Soir</span></label>
-          </div>
-        </fieldset>
-        <label class="nl-form__consent">
-          <input type="checkbox" id="nl-consent" required aria-required="true"/>
-          <span>J'accepte de recevoir la newsletter et confirme avoir lu la <a href="confidentialite.html">politique de confidentialité</a>. Désabonnement possible à tout moment.</span>
-        </label>
-        <button type="submit" class="nl-form__btn" id="nl-btn">S'abonner gratuitement</button>
-        <p class="nl-form__msg" id="nl-msg" role="alert" aria-live="polite"></p>
-      </form>
-    </div>
+    <form id="nl-form" novalidate>
+      <div class="nl-compact__row">
+        <input type="email" id="nl-email" name="email" class="nl-compact__input" placeholder="vous@exemple.fr" required autocomplete="email" aria-required="true"/>
+        <button type="submit" class="nl-compact__btn" id="nl-btn">S'abonner →</button>
+      </div>
+      <div class="nl-compact__cats" role="group" aria-label="Rubriques">
+        <label class="nl-compact__cat"><input type="checkbox" name="CAT_SOCIETE" value="1"/> Société</label>
+        <label class="nl-compact__cat"><input type="checkbox" name="CAT_SCIENCE" value="1"/> Science</label>
+        <label class="nl-compact__cat"><input type="checkbox" name="CAT_ECONOMIE" value="1"/> Économie</label>
+        <label class="nl-compact__cat"><input type="checkbox" name="CAT_TECH" value="1"/> Tech</label>
+        <label class="nl-compact__cat"><input type="checkbox" name="CAT_SANTE" value="1"/> Santé</label>
+        <label class="nl-compact__cat"><input type="checkbox" name="CAT_ENVIRONNEMENT" value="1"/> Environnement</label>
+      </div>
+      <p class="nl-compact__hint">Aucune sélection = toutes les rubriques</p>
+      <label class="nl-compact__consent">
+        <input type="checkbox" id="nl-consent" required aria-required="true"/>
+        <span>J'accepte la <a href="confidentialite.html">politique de confidentialité</a>. Désabonnement en un clic.</span>
+      </label>
+      <p class="nl-compact__msg" id="nl-msg" role="alert" aria-live="polite"></p>
+    </form>
   </div>
 </section>
 <script>
 (function(){{
-  var BREVO_KEY  = "{BREVO_CONTACTS_KEY}";
-  var BREVO_LIST = {BREVO_LIST_ID_NL};
-  var BREVO_API  = "https://api.brevo.com/v3/contacts";
+  var BREVO_KEY="{BREVO_CONTACTS_KEY}",BREVO_LIST={BREVO_LIST_ID_NL},BREVO_API="https://api.brevo.com/v3/contacts";
   var form=document.getElementById("nl-form"),msgEl=document.getElementById("nl-msg"),btn=document.getElementById("nl-btn");
   if(!form)return;
   form.addEventListener("submit",function(e){{
     e.preventDefault();
-    msgEl.className="nl-form__msg";msgEl.textContent="";
+    msgEl.className="nl-compact__msg";msgEl.textContent="";
     var email=(document.getElementById("nl-email").value||"").trim();
     var consent=document.getElementById("nl-consent").checked;
-    if(!email||!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){{msgEl.textContent="Veuillez saisir une adresse email valide.";msgEl.className="nl-form__msg nl-form__msg--err";return;}}
-    if(!consent){{msgEl.textContent="Veuillez accepter les conditions pour continuer.";msgEl.className="nl-form__msg nl-form__msg--err";return;}}
+    if(!email||!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){{msgEl.textContent="Veuillez saisir une adresse email valide.";msgEl.className="nl-compact__msg nl-compact__msg--err";return;}}
+    if(!consent){{msgEl.textContent="Veuillez accepter les conditions.";msgEl.className="nl-compact__msg nl-compact__msg--err";return;}}
     var attrs={{}};
-    ["CAT_SOCIETE","CAT_SCIENCE","CAT_ECONOMIE","CAT_TECH","CAT_SANTE","CAT_ENVIRONNEMENT"].forEach(function(k){{
-      var cb=form.querySelector('input[name="'+k+'"]');attrs[k]=cb?cb.checked:false;
-    }});
-    var slotRadio=form.querySelector('input[name="slot"]:checked');
-    attrs["ENVOI_MATIN"]=!slotRadio||slotRadio.value==="matin";
-    btn.disabled=true;btn.textContent="Envoi en cours…";
+    ["CAT_SOCIETE","CAT_SCIENCE","CAT_ECONOMIE","CAT_TECH","CAT_SANTE","CAT_ENVIRONNEMENT"].forEach(function(k){{var cb=form.querySelector('input[name="'+k+'"]');attrs[k]=cb?cb.checked:false;}});
+    btn.disabled=true;btn.textContent="Envoi…";
     fetch(BREVO_API,{{method:"POST",headers:{{"accept":"application/json","content-type":"application/json","api-key":BREVO_KEY}},body:JSON.stringify({{email:email,listIds:[BREVO_LIST],attributes:attrs,updateEnabled:true}})}})
     .then(function(r){{
-      if(r.status===201||r.status===200||r.status===204){{msgEl.textContent="Merci ! Un email de confirmation vous a été envoyé — pensez à vérifier vos spams.";msgEl.className="nl-form__msg nl-form__msg--ok";form.reset();}}
-      else if(r.status===400){{return r.json().then(function(d){{if(d&&d.code==="duplicate_parameter"){{msgEl.textContent="Cette adresse est déjà inscrite. Vos préférences ont été mises à jour.";msgEl.className="nl-form__msg nl-form__msg--ok";}}else{{throw new Error(d&&d.message);}}}})}}
+      if(r.status===201||r.status===200||r.status===204){{msgEl.textContent="Merci ! Confirmez votre email (vérifiez vos spams).";msgEl.className="nl-compact__msg nl-compact__msg--ok";form.reset();}}
+      else if(r.status===400){{return r.json().then(function(d){{if(d&&d.code==="duplicate_parameter"){{msgEl.textContent="Déjà inscrit !";msgEl.className="nl-compact__msg nl-compact__msg--ok";}}else{{throw new Error(d&&d.message);}}}})}}
       else{{throw new Error("Erreur "+r.status);}}
     }})
-    .catch(function(err){{msgEl.textContent="Une erreur est survenue. Réessayez dans un instant.";msgEl.className="nl-form__msg nl-form__msg--err";console.error("[NL]",err);}})
-    .finally(function(){{btn.disabled=false;btn.textContent="S'abonner gratuitement";}});
+    .catch(function(err){{msgEl.textContent="Erreur. Réessayez dans un instant.";msgEl.className="nl-compact__msg nl-compact__msg--err";}})
+    .finally(function(){{btn.disabled=false;btn.textContent="S'abonner →";}});
   }});
 }})();
 </script>"""
-
-# Icône de marque affichée dans le header à côté du logotype "lesfaits"
-BRAND_ICON = (
-    '<svg class="brand__icon" width="26" height="26" viewBox="0 0 200 200" '
-    'aria-hidden="true" focusable="false">'
-    '<rect width="200" height="200" rx="28" fill="#141416"/>'
-    '<circle cx="100" cy="100" r="72" fill="none" stroke="#6C85BD" stroke-width="4"/>'
-    '<circle cx="28" cy="100" r="7" fill="#6C85BD"/>'
-    '<circle cx="172" cy="100" r="7" fill="#6C85BD"/>'
-    '<text x="84" y="132" font-family="Georgia,\'Times New Roman\',serif" font-size="92" '
-    'font-weight="700" fill="#F1EFE8" text-anchor="middle">l</text>'
-    '<text x="128" y="132" font-family="Georgia,\'Times New Roman\',serif" font-size="92" '
-    'font-weight="700" fill="#6C85BD" text-anchor="middle">f</text>'
-    '</svg>'
-)
-
-# Script complet injecté avant </body> (bouton + toggle)
-_DARK_MODE_JS = """<script>
-(function(){
-  var btn=document.getElementById('dark-toggle');
-  var dark=document.documentElement.getAttribute('data-theme')==='dark';
-  if(btn){btn.textContent=dark?'☀️':'🌙';btn.setAttribute('aria-label',dark?'Passer en mode clair':'Passer en mode sombre');}
-  if(btn) btn.addEventListener('click',function(){
-    var d=document.documentElement.getAttribute('data-theme')==='dark';
-    document.documentElement.setAttribute('data-theme',d?'light':'dark');
-    localStorage.setItem('theme',d?'light':'dark');
-    btn.textContent=d?'🌙':'☀️';btn.setAttribute('aria-label',d?'Passer en mode sombre':'Passer en mode clair');
-  });
-})();
-</script>"""
-
-def _build_footer(year: int = None) -> str:
-    y = year or datetime.now().year
-    return f"""<footer class="footer" role="contentinfo" aria-label="Pied de page">
-  <div class="footer__inner">
-    <div class="footer__brand">
-      <div class="brand__logotype"><span class="fact">les</span><span class="uel">faits</span></div>
-      <p>Journal numérique français rédigé par IA. Sans publicité. Sans actionnaires.</p>
-      <p style="font-size:10px;color:var(--muted);margin-top:8px">Aucune publicité · Aucun actionnaire · Aucun cookie de tracking</p>
-    </div>
-    <div class="footer__col"><h4>RUBRIQUES</h4>
-      <a href="categories/societe.html">Société</a>
-      <a href="categories/science.html">Science</a>
-      <a href="categories/economie.html">Économie</a>
-      <a href="categories/tech.html">Tech</a>
-      <a href="categories/sante.html">Santé</a>
-      <a href="categories/environnement.html">Environnement</a>
-    </div>
-    <div class="footer__col"><h4>JOURNAL</h4>
-      <a href="methode.html">Comment on travaille</a>
-      <a href="a-propos.html">À propos &amp; réseaux</a>
-      <a href="corrections.html">Corrections publiques</a>
-      <a href="archive.html">Tous les articles</a>
-      <a href="feed.xml" class="footer__rss">Flux RSS</a>
-      <a href="index.html">Newsletter</a>
-    </div>
-    <div class="footer__col"><h4>LÉGAL</h4>
-      <a href="mentions-legales.html">Mentions légales</a>
-      <a href="confidentialite.html">Confidentialité</a>
-      <a href="cgu.html">CGU</a>
-    </div>
-    <div class="footer__col"><h4>CONTACT</h4>
-      <a href="contact.html">Nous écrire</a>
-      <a href="contact.html#erreur">Signaler une erreur</a>
-    </div>
-  </div>
-  <div class="footer__bottom">
-    <span>© {y} Les Faits · <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/deed.fr" rel="noopener noreferrer external" target="_blank" style="color:inherit">CC BY-NC-ND 4.0</a></span>
-    <span>Protocole éditorial v1.1</span>
-  </div>
-</footer>"""
-
-def _sanitize_image_keyword(kw: str, fallback: str = "") -> str:
-    """Fix 2 — keyword propre : sans accents, sans virgules, max 5 mots anglais."""
-    import unicodedata
-    kw = unicodedata.normalize("NFD", kw)
-    kw = "".join(c for c in kw if unicodedata.category(c) != "Mn")
-    kw = kw.replace(",", " ").replace(";", " ")
-    kw = re.sub(r"\s+", " ", kw).strip()
-    words = kw.split()[:5]
-    result = " ".join(words)
-    # Si le résultat est vide ou trop court après nettoyage, utiliser le fallback
-    return result if len(result) > 3 else (fallback or "france news")
 
 
 def build_article_html(art: dict, date_pub: str) -> str:
@@ -2668,6 +2567,8 @@ def build_index_html(main, side_html, grid_html, list_html):
   {'<div class="list-section" style="padding-top:40px"><div class="section__head" style="margin-bottom:16px"><span class="section__title">À LIRE AUSSI</span></div><div class="section__rule"></div><div class="list-grid">' + list_html + '</div></div>' if list_html else ''}
 </div>
 
+{_build_newsletter_section()}
+
 {_build_footer()}
 {_DARK_MODE_JS}
 {_ANALYTICS_JS}
@@ -2891,6 +2792,8 @@ def build_category_pages():
   </div>
 </main>
 
+{_build_newsletter_section()}
+
 {_build_footer()}
 {_DARK_MODE_JS}
 {_ANALYTICS_JS}
@@ -3044,6 +2947,8 @@ def build_archive_page():
   }})();
   </script>
 </main>
+
+{_build_newsletter_section()}
 
 {_build_footer()}
 {_DARK_MODE_JS}

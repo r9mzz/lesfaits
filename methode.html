@@ -22,239 +22,113 @@
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 <link rel="manifest" href="/manifest.json">
 <script defer src="https://cloud.umami.is/script.js" data-website-id="8d68a78f-97ae-4c95-a955-5d3df758f7e2"></script>
-</head>
-<body>
-<script>
-(function(){var s=localStorage.getItem('theme');var d=s==='dark'||(s===null&&window.matchMedia('(prefers-color-scheme:dark)').matches);document.documentElement.setAttribute('data-theme',d?'dark':'light');
-  // Header scroll shadow
-  var hdr=document.querySelector('.header');
-  if(hdr) window.addEventListener('scroll',function(){hdr.classList.toggle('scrolled',window.scrollY>40);},{passive:true});
-  // Scroll fade-in cartes catégorie
-  if('IntersectionObserver' in window){
-    var obs=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('is-visible');obs.unobserve(e.target);}});},{threshold:.12,rootMargin:'0px 0px -40px 0px'});
-    document.querySelectorAll('.card3,.list-item,.archive-item').forEach(function(el){el.classList.add('js-reveal');obs.observe(el);});
-  }
-})();
-</script>
-<div class="nav-overlay" id="nav-overlay" onclick="closeMenu()"></div>
-<nav class="nav-mobile" id="nav-mobile" aria-label="Menu mobile">
-<a href="categories/societe.html">Société</a>
-<a href="categories/science.html">Science</a>
-<a href="categories/economie.html">Économie</a>
-<a href="categories/tech.html">Tech</a>
-<a href="categories/sante.html">Santé</a>
-<a href="categories/environnement.html">Environnement</a>
-<a href="favoris.html">Favoris</a>
-<a href="archive.html">Tous les articles</a>
-<a href="methode.html">Comment on travaille</a>
-<a href="a-propos.html">À propos &amp; réseaux</a>
-<a href="index.html" class="nav-cta">S'abonner à la newsletter</a>
-</nav>
-<script>
-function toggleMenu(){var b=document.getElementById('burger'),m=document.getElementById('nav-mobile'),o=document.getElementById('nav-overlay');b.classList.toggle('open');m.classList.toggle('open');o.classList.toggle('open');}
-function closeMenu(){document.getElementById('burger').classList.remove('open');document.getElementById('nav-mobile').classList.remove('open');document.getElementById('nav-overlay').classList.remove('open');}
-document.querySelectorAll('.nav-mobile a').forEach(function(a){a.addEventListener('click',closeMenu);});
-document.addEventListener('keydown',function(e){if(e.key==='Escape')closeMenu();});
-document.addEventListener('DOMContentLoaded',function(){var btn=document.getElementById('nav-cats-btn');var dd=document.getElementById('nav-cats-dd');if(!btn||!dd)return;btn.addEventListener('click',function(e){e.stopPropagation();var open=dd.classList.toggle('open');btn.classList.toggle('open',open);btn.setAttribute('aria-expanded',open?'true':'false');});document.addEventListener('click',function(){dd.classList.remove('open');btn.classList.remove('open');btn.setAttribute('aria-expanded','false');});document.addEventListener('keydown',function(e){if(e.key==='Escape'){dd.classList.remove('open');btn.classList.remove('open');btn.setAttribute('aria-expanded','false');}});});
-</script>
 
-<div id="read-progress"></div>
-<header class="header">
-  <div class="header__inner">
-    <a href="index.html" class="brand">
-      <svg class="brand__icon" width="26" height="26" viewBox="0 0 200 200" aria-hidden="true" focusable="false"><rect width="200" height="200" rx="28" fill="#141416"/><circle cx="100" cy="100" r="72" fill="none" stroke="#6C85BD" stroke-width="4"/><circle cx="28" cy="100" r="7" fill="#6C85BD"/><circle cx="172" cy="100" r="7" fill="#6C85BD"/><text x="84" y="132" font-family="Georgia,'Times New Roman',serif" font-size="92" font-weight="700" fill="#F1EFE8" text-anchor="middle">l</text><text x="128" y="132" font-family="Georgia,'Times New Roman',serif" font-size="92" font-weight="700" fill="#6C85BD" text-anchor="middle">f</text></svg><div class="brand__logotype"><span class="fact">les</span><span class="uel">faits</span></div>
-    </a>
-    <div class="header__search">
-      <input type="search" class="header__search-input" aria-label="Rechercher un article" id="search-input" placeholder="Rechercher…" autocomplete="off" onkeydown="if(event.key==='Enter'&&this.value.trim())window.location=(document.querySelector('base').href)+'recherche.html?q='+encodeURIComponent(this.value.trim())"/>
+<section class="nl-compact" id="newsletter" aria-label="S'abonner à la newsletter">
+  <div class="nl-compact__inner">
+    <div class="nl-compact__head">
+      <span class="nl-compact__label">NEWSLETTER</span>
+      <span class="nl-compact__title">Le résumé du jour dans votre boîte mail</span>
     </div>
-    <nav class="nav-expand-group" aria-label="Navigation principale">
-      <div class="nav-cats-wrap">
-        <button class="nav-expand-item" id="nav-cats-btn" aria-label="Catégories" aria-haspopup="true" aria-expanded="false"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg><span class="nav-expand-label">Catégories</span></button>
-        <div class="nav-cats-dd" id="nav-cats-dd" role="menu">
-          <a class="cat-dd-item" href="categories/societe.html" role="menuitem"><span class="cat-dd-dot" style="background:#4A6B8E"></span>Société</a>
-          <a class="cat-dd-item" href="categories/science.html" role="menuitem"><span class="cat-dd-dot" style="background:#3E7259"></span>Science</a>
-          <a class="cat-dd-item" href="categories/economie.html" role="menuitem"><span class="cat-dd-dot" style="background:#7A6B3E"></span>Économie</a>
-          <a class="cat-dd-item" href="categories/tech.html" role="menuitem"><span class="cat-dd-dot" style="background:#4A4E8E"></span>Tech</a>
-          <a class="cat-dd-item" href="categories/sante.html" role="menuitem"><span class="cat-dd-dot" style="background:#8E4A4A"></span>Santé</a>
-          <a class="cat-dd-item" href="categories/environnement.html" role="menuitem"><span class="cat-dd-dot" style="background:#3E7A5B"></span>Environnement</a>
-        </div>
+    <form id="nl-form" novalidate>
+      <div class="nl-compact__row">
+        <input type="email" id="nl-email" name="email" class="nl-compact__input" placeholder="vous@exemple.fr" required autocomplete="email" aria-required="true"/>
+        <button type="submit" class="nl-compact__btn" id="nl-btn">S'abonner →</button>
       </div>
-      <a class="nav-expand-item" href="archive.html" aria-label="Tous les articles"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><line x1="9" y1="6" x2="20" y2="6"/><line x1="9" y1="12" x2="20" y2="12"/><line x1="9" y1="18" x2="20" y2="18"/><circle cx="4" cy="6" r="1.5" fill="currentColor" stroke="none"/><circle cx="4" cy="12" r="1.5" fill="currentColor" stroke="none"/><circle cx="4" cy="18" r="1.5" fill="currentColor" stroke="none"/></svg><span class="nav-expand-label">Tous les articles</span></a>
-      <a class="nav-expand-item" href="a-propos.html" aria-label="Réseaux"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1.2" fill="currentColor" stroke="none"/></svg><span class="nav-expand-label">Réseaux</span></a>
-      <a class="nav-expand-item" href="methode.html" aria-label="Notre méthode"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z"/><path d="M20 3v4m2-2h-4"/></svg><span class="nav-expand-label">Notre méthode</span></a>
-      <a class="nav-expand-item" href="index.html" aria-label="Newsletter"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 7l10 7 10-7"/></svg><span class="nav-expand-label">Newsletter</span></a>
-    </nav>
-    <button class="burger" id="burger" aria-label="Menu" onclick="toggleMenu()">
-      <span></span><span></span><span></span>
-    </button>
-    <button class="dark-toggle" id="dark-toggle" aria-label="Mode sombre" title="Mode sombre">🌙</button>
-  </div>
-</header>
-
-<main style="max-width:780px;margin:80px auto;padding:0 24px">
-
-  <span style="font-size:.8rem;font-weight:700;letter-spacing:.1em;color:var(--muted);text-transform:uppercase">Notre engagement</span>
-  <h1 style="font-size:2.6rem;font-weight:700;margin:12px 0 8px;line-height:1.2">Un journal construit<br>sur une seule règle.</h1>
-  <p style="color:var(--muted);font-size:1.1rem;margin-bottom:56px;line-height:1.7">
-    Dans un paysage médiatique saturé d'opinions, de biais et de contenus sponsorisés, Les Faits fait le choix inverse :
-    aucune ligne éditoriale politique, aucun annonceur, aucune rédaction à convaincre. Seulement les faits — et la transparence sur comment ils sont sélectionnés.
-  </p>
-
-  <div style="border-left:3px solid var(--blue);padding-left:28px;margin-bottom:56px">
-    <p style="font-size:1.2rem;font-style:italic;color:var(--ink);line-height:1.7;margin:0">
-      "Juste les faits. Aucun parti pris."<br>
-      <span style="font-size:.95rem;color:var(--muted);font-style:normal">Nous savons qu'aucun média n'est totalement neutre — le choix des sujets est déjà éditorial. Notre objectif n'est pas l'impossible, c'est la réduction maximale des biais : pas d'opinion, pas de conclusion politique, chaque affirmation attribuée à sa source.</span>
-    </p>
-  </div>
-
-  <!-- Valeurs en grille -->
-  <div class="methode__grid" style="margin-bottom:64px">
-    <div style="background:var(--white);border:1px solid var(--rule);border-radius:8px;padding:28px">
-      <div style="font-size:1.5rem;margin-bottom:12px">⊘</div>
-      <h3 style="font-size:1rem;font-weight:700;margin-bottom:8px">Zéro opinion</h3>
-      <p style="font-size:.9rem;color:var(--muted);line-height:1.7;margin:0">Aucun éditorialiste. Aucune tribune. Aucun article d'humeur. Ce que vous lisez sur Les Faits est sourcé, attribué, vérifiable.</p>
-    </div>
-    <div style="background:var(--white);border:1px solid var(--rule);border-radius:8px;padding:28px">
-      <div style="font-size:1.5rem;margin-bottom:12px">◎</div>
-      <h3 style="font-size:1rem;font-weight:700;margin-bottom:8px">Sources institutionnelles</h3>
-      <p style="font-size:.9rem;color:var(--muted);line-height:1.7;margin:0">Chaque information est issue d'institutions officielles, de publications scientifiques ou de médias de référence. Toujours citées, toujours vérifiables.</p>
-    </div>
-    <div style="background:var(--white);border:1px solid var(--rule);border-radius:8px;padding:28px">
-      <div style="font-size:1.5rem;margin-bottom:12px">⟳</div>
-      <h3 style="font-size:1rem;font-weight:700;margin-bottom:8px">Actualité en continu</h3>
-      <p style="font-size:.9rem;color:var(--muted);line-height:1.7;margin:0">Le journal se met à jour deux fois par jour, chaque matin et chaque soir, sans interruption ni week-end.</p>
-    </div>
-    <div style="background:var(--white);border:1px solid var(--rule);border-radius:8px;padding:28px">
-      <div style="font-size:1.5rem;margin-bottom:12px">⬡</div>
-      <h3 style="font-size:1rem;font-weight:700;margin-bottom:8px">Sans publicité</h3>
-      <p style="font-size:.9rem;color:var(--muted);line-height:1.7;margin:0">Aucun annonceur. Aucun partenariat commercial. Aucun article sponsorisé. Notre seule obligation est envers les faits.</p>
-    </div>
-  </div>
-
-  <!-- Ce qui nous distingue -->
-  <h2 style="font-size:1.5rem;font-weight:700;margin-bottom:32px;border-bottom:1px solid var(--rule);padding-bottom:16px">Ce qui nous distingue</h2>
-
-  <div style="margin-bottom:40px">
-    <h3 style="font-size:1rem;font-weight:700;margin-bottom:8px;color:var(--blue)">Une sélection éditoriale rigoureuse</h3>
-    <p style="line-height:1.8;color:var(--muted);margin:0">
-      Tous les sujets ne méritent pas d'être publiés. Notre processus de sélection évalue chaque information selon des critères stricts : fiabilité de la source, importance du sujet, valeur informative réelle, et diversité thématique. Les faits divers, les sondages d'opinion et les contenus à caractère commercial sont systématiquement écartés.
-    </p>
-  </div>
-
-  <div style="margin-bottom:40px">
-    <h3 style="font-size:1rem;font-weight:700;margin-bottom:8px;color:var(--blue)">Un article, plusieurs sources</h3>
-    <p style="line-height:1.8;color:var(--muted);margin:0">
-      Chaque article publié repose sur un minimum de trois sources distinctes et citables (en général 3 à 5). Chaque donnée chiffrée, chaque déclaration, chaque fait est attribué à son auteur. Vous pouvez tout vérifier — c'est l'exigence que nous nous imposons.
-    </p>
-  </div>
-
-  <div style="margin-bottom:40px">
-    <h3 style="font-size:1rem;font-weight:700;margin-bottom:8px;color:var(--blue)">La position de chaque camp</h3>
-    <p style="line-height:1.8;color:var(--muted);margin:0">
-      Chaque article cartographie les positions des acteurs impliqués — institutions, experts, parties prenantes — sans en favoriser aucune. Ce n'est pas à Les Faits de trancher. Notre rôle est de vous donner les éléments pour former votre propre opinion.
-    </p>
-  </div>
-
-  <div style="margin-bottom:40px">
-    <h3 style="font-size:1rem;font-weight:700;margin-bottom:8px;color:var(--blue)">Un synthétiseur, assumé comme tel</h3>
-    <p style="line-height:1.8;color:var(--muted);margin:0">
-      Les Faits ne fait pas de reportage de terrain, n'envoie pas de journalistes sur place, ne produit pas d'exclusivités. Il fait quelque chose de différent : agréger, croiser et synthétiser ce que les sources institutionnelles et les médias de référence ont déjà publié — avec une rigueur que la presse quotidienne n'a pas toujours le temps d'appliquer. C'est un choix assumé, pas une limite.
-    </p>
-  </div>
-
-  <div style="margin-bottom:64px">
-    <h3 style="font-size:1rem;font-weight:700;margin-bottom:8px;color:var(--blue)">Rédigé par IA, sous contrainte éditoriale</h3>
-    <p style="line-height:1.8;color:var(--muted);margin:0">
-      Les Faits est entièrement rédigé par intelligence artificielle, sous un protocole éditorial strict défini et supervisé par notre équipe, qui en assume la responsabilité éditoriale. L'IA ne spécule pas, n'interprète pas, ne prend pas position. Elle structure, attribue et vérifie. En cas d'erreur, c'est une personne — pas un algorithme — qui répond et corrige.
-    </p>
-  </div>
-
-  <div style="margin-bottom:64px">
-    <h3 style="font-size:1rem;font-weight:700;margin-bottom:8px;color:var(--blue)">Gouvernance et limites éditoriales</h3>
-    <p style="line-height:1.8;color:var(--muted);margin:0 0 16px">
-      <strong style="color:var(--ink)">Qui est responsable ?</strong> Les Faits est un projet indépendant, financé par le soutien de sa communauté et n'appartenant à aucun grand groupe de presse. Le protocole éditorial — règles de sélection, critères de fiabilité des sources, structure des articles — a été conçu par l'équipe fondatrice, qui en assume la responsabilité éditoriale. Il n'y a pas d'actionnaire.
-    </p>
-    <p style="line-height:1.8;color:var(--muted);margin:0 0 16px">
-      <strong style="color:var(--ink)">Comment les sujets sont-ils sélectionnés ?</strong> Le pipeline scanne en continu les flux d'information issus de médias de référence et d'institutions officielles. Chaque sujet candidat est évalué selon des critères fixes : fiabilité de la source, valeur informative, absence de caractère commercial ou de fait divers. Les sujets sensibles — impliquant des mineurs, des affaires judiciaires en cours, des questions de santé publique sans source officielle — sont systématiquement bloqués par le protocole et ne sont jamais publiés automatiquement.
-    </p>
-    <p style="line-height:1.8;color:var(--muted);margin:0">
-      <strong style="color:var(--ink)">Ce que ce site ne prétend pas être.</strong> Les Faits n'est pas un organe de presse au sens légal, n'emploie aucun journaliste et ne bénéficie d'aucun agrément de presse. Il est un service d'agrégation et de synthèse automatisé, sous supervision humaine. Cette transparence fait partie de notre engagement envers les lecteurs.
-    </p>
-  </div>
-
-  <!-- Chiffres -->
-  <div style="background:var(--sand);border-radius:8px;padding:40px;margin-bottom:64px">
-    <h2 style="font-size:1rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:32px">Les Faits en chiffres</h2>
-    <div class="methode__stats" style="text-align:center">
-      <div>
-        <div style="font-size:2.2rem;font-weight:700;color:var(--ink)">3+</div>
-        <div style="font-size:.85rem;color:var(--muted);margin-top:4px">Sources minimum par article</div>
+      <div class="nl-compact__cats" role="group" aria-label="Rubriques">
+        <label class="nl-compact__cat"><input type="checkbox" name="CAT_SOCIETE" value="1"/> Société</label>
+        <label class="nl-compact__cat"><input type="checkbox" name="CAT_SCIENCE" value="1"/> Science</label>
+        <label class="nl-compact__cat"><input type="checkbox" name="CAT_ECONOMIE" value="1"/> Économie</label>
+        <label class="nl-compact__cat"><input type="checkbox" name="CAT_TECH" value="1"/> Tech</label>
+        <label class="nl-compact__cat"><input type="checkbox" name="CAT_SANTE" value="1"/> Santé</label>
+        <label class="nl-compact__cat"><input type="checkbox" name="CAT_ENVIRONNEMENT" value="1"/> Environnement</label>
       </div>
-      <div>
-        <div style="font-size:2.2rem;font-weight:700;color:var(--ink)">100%</div>
-        <div style="font-size:.85rem;color:var(--muted);margin-top:4px">Des sources citées et vérifiables</div>
-      </div>
-      <div>
-        <div style="font-size:2.2rem;font-weight:700;color:var(--ink)">0</div>
-        <div style="font-size:.85rem;color:var(--muted);margin-top:4px">Opinion, publicité, parti pris</div>
-      </div>
-    </div>
+      <p class="nl-compact__hint">Aucune sélection = toutes les rubriques</p>
+      <label class="nl-compact__consent">
+        <input type="checkbox" id="nl-consent" required aria-required="true"/>
+        <span>J'accepte la <a href="confidentialite.html">politique de confidentialité</a>. Désabonnement en un clic.</span>
+      </label>
+      <p class="nl-compact__msg" id="nl-msg" role="alert" aria-live="polite"></p>
+    </form>
   </div>
-
-  <!-- Corrections -->
-  <div style="background:var(--white);border:1px solid var(--rule);border-radius:8px;padding:40px;text-align:center;margin-bottom:48px">
-    <h3 style="font-size:1.2rem;font-weight:700;margin-bottom:8px">Une erreur dans un article ?</h3>
-    <p style="color:var(--muted);margin-bottom:24px;line-height:1.7">
-      Chaque erreur factuelle signalée est traitée sous 48h.<br>
-      Si elle est confirmée, la correction est publiée publiquement dans notre journal des corrections.
-    </p>
-    <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
-      <a href="contact.html#erreur"
-         style="display:inline-block;padding:12px 28px;background:var(--blue);color:#fff;border-radius:4px;text-decoration:none;font-weight:600;font-size:.95rem">
-        Signaler une erreur
-      </a>
-      <a href="corrections.html"
-         style="display:inline-block;padding:12px 28px;background:transparent;color:var(--blue);border:1px solid var(--blue);border-radius:4px;text-decoration:none;font-weight:600;font-size:.95rem">
-        Voir les corrections →
-      </a>
-    </div>
-  </div>
-
-</main>
-
-
-<script>document.addEventListener('keydown',function(e){if(e.key==='/'&&!['INPUT','TEXTAREA','SELECT'].includes(document.activeElement.tagName)){e.preventDefault();var s=document.getElementById('search-input');if(s){s.focus();s.select();}}});</script>
+</section>
 <script>
 (function(){
-  var BREVO_KEY  = "__BREVO_CONTACTS_KEY__";
-  var BREVO_LIST = 3;
-  var BREVO_API  = "https://api.brevo.com/v3/contacts";
+  var BREVO_KEY="__BREVO_CONTACTS_KEY__",BREVO_LIST=3,BREVO_API="https://api.brevo.com/v3/contacts";
   var form=document.getElementById("nl-form"),msgEl=document.getElementById("nl-msg"),btn=document.getElementById("nl-btn");
   if(!form)return;
   form.addEventListener("submit",function(e){
     e.preventDefault();
-    msgEl.className="nl-form__msg";msgEl.textContent="";
+    msgEl.className="nl-compact__msg";msgEl.textContent="";
     var email=(document.getElementById("nl-email").value||"").trim();
     var consent=document.getElementById("nl-consent").checked;
-    if(!email||!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){msgEl.textContent="Veuillez saisir une adresse email valide.";msgEl.className="nl-form__msg nl-form__msg--err";return;}
-    if(!consent){msgEl.textContent="Veuillez accepter les conditions pour continuer.";msgEl.className="nl-form__msg nl-form__msg--err";return;}
+    if(!email||!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){msgEl.textContent="Veuillez saisir une adresse email valide.";msgEl.className="nl-compact__msg nl-compact__msg--err";return;}
+    if(!consent){msgEl.textContent="Veuillez accepter les conditions.";msgEl.className="nl-compact__msg nl-compact__msg--err";return;}
     var attrs={};
-    ["CAT_SOCIETE","CAT_SCIENCE","CAT_ECONOMIE","CAT_TECH","CAT_SANTE","CAT_ENVIRONNEMENT"].forEach(function(k){
-      var cb=form.querySelector('input[name="'+k+'"]');attrs[k]=cb?cb.checked:false;
-    });
-    var slotRadio=form.querySelector('input[name="slot"]:checked');
-    attrs["ENVOI_MATIN"]=!slotRadio||slotRadio.value==="matin";
-    btn.disabled=true;btn.textContent="Envoi en cours…";
+    ["CAT_SOCIETE","CAT_SCIENCE","CAT_ECONOMIE","CAT_TECH","CAT_SANTE","CAT_ENVIRONNEMENT"].forEach(function(k){var cb=form.querySelector('input[name="'+k+'"]');attrs[k]=cb?cb.checked:false;});
+    btn.disabled=true;btn.textContent="Envoi…";
     fetch(BREVO_API,{method:"POST",headers:{"accept":"application/json","content-type":"application/json","api-key":BREVO_KEY},body:JSON.stringify({email:email,listIds:[BREVO_LIST],attributes:attrs,updateEnabled:true})})
     .then(function(r){
-      if(r.status===201||r.status===200||r.status===204){msgEl.textContent="Merci ! Un email de confirmation vous a été envoyé — pensez à vérifier vos spams.";msgEl.className="nl-form__msg nl-form__msg--ok";form.reset();}
-      else if(r.status===400){return r.json().then(function(d){if(d&&d.code==="duplicate_parameter"){msgEl.textContent="Cette adresse est déjà inscrite. Vos préférences ont été mises à jour.";msgEl.className="nl-form__msg nl-form__msg--ok";}else{throw new Error(d&&d.message);}});}
+      if(r.status===201||r.status===200||r.status===204){msgEl.textContent="Merci ! Confirmez votre email (vérifiez vos spams).";msgEl.className="nl-compact__msg nl-compact__msg--ok";form.reset();}
+      else if(r.status===400){return r.json().then(function(d){if(d&&d.code==="duplicate_parameter"){msgEl.textContent="Déjà inscrit !";msgEl.className="nl-compact__msg nl-compact__msg--ok";}else{throw new Error(d&&d.message);}})}
       else{throw new Error("Erreur "+r.status);}
     })
-    .catch(function(err){msgEl.textContent="Une erreur est survenue. Réessayez dans un instant.";msgEl.className="nl-form__msg nl-form__msg--err";console.error("[NL]",err);})
-    .finally(function(){btn.disabled=false;btn.textContent="S'abonner gratuitement";});
+    .catch(function(err){msgEl.textContent="Erreur. Réessayez dans un instant.";msgEl.className="nl-compact__msg nl-compact__msg--err";})
+    .finally(function(){btn.disabled=false;btn.textContent="S'abonner →";});
   });
 })();
 </script>
+<footer class="footer" role="contentinfo" aria-label="Pied de page">
+  <div class="footer__inner">
+    <div class="footer__brand">
+      <div class="brand__logotype"><span class="fact">les</span><span class="uel">faits</span></div>
+      <p>Journal numérique français rédigé par IA. Sans publicité. Sans actionnaires.</p>
+      <p style="font-size:10px;color:var(--muted);margin-top:8px">Aucune publicité · Aucun actionnaire · Aucun cookie de tracking</p>
+    </div>
+    <div class="footer__col"><h4>RUBRIQUES</h4>
+      <a href="categories/societe.html">Société</a>
+      <a href="categories/science.html">Science</a>
+      <a href="categories/economie.html">Économie</a>
+      <a href="categories/tech.html">Tech</a>
+      <a href="categories/sante.html">Santé</a>
+      <a href="categories/environnement.html">Environnement</a>
+    </div>
+    <div class="footer__col"><h4>JOURNAL</h4>
+      <a href="methode.html">Comment on travaille</a>
+      <a href="a-propos.html">À propos &amp; réseaux</a>
+      <a href="corrections.html">Corrections publiques</a>
+      <a href="archive.html">Tous les articles</a>
+      <a href="feed.xml" class="footer__rss">Flux RSS</a>
+      <a href="index.html#newsletter">Newsletter</a>
+    </div>
+    <div class="footer__col"><h4>LÉGAL</h4>
+      <a href="mentions-legales.html">Mentions légales</a>
+      <a href="confidentialite.html">Confidentialité</a>
+      <a href="cgu.html">CGU</a>
+    </div>
+    <div class="footer__col"><h4>CONTACT</h4>
+      <a href="contact.html">Nous écrire</a>
+      <a href="contact.html#erreur">Signaler une erreur</a>
+    </div>
+  </div>
+  <div class="footer__bottom">
+    <span>© 2026 Les Faits · <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/deed.fr" rel="noopener noreferrer external" target="_blank" style="color:inherit">CC BY-NC-ND 4.0</a></span>
+    <span>Protocole éditorial v1.1</span>
+  </div>
+</footer>
+<script>
+(function(){
+  var btn=document.getElementById('dark-toggle');
+  var dark=document.documentElement.getAttribute('data-theme')==='dark';
+  if(btn){btn.textContent=dark?'☀️':'🌙';btn.setAttribute('aria-label',dark?'Passer en mode clair':'Passer en mode sombre');}
+  if(btn) btn.addEventListener('click',function(){
+    var d=document.documentElement.getAttribute('data-theme')==='dark';
+    document.documentElement.setAttribute('data-theme',d?'light':'dark');
+    localStorage.setItem('theme',d?'light':'dark');
+    btn.textContent=d?'🌙':'☀️';btn.setAttribute('aria-label',d?'Passer en mode sombre':'Passer en mode clair');
+  });
+})();
+</script>
+<script defer src="https://cloud.umami.is/script.js" data-website-id="8d68a78f-97ae-4c95-a955-5d3df758f7e2"></script>
+
 </body>
 </html>
