@@ -239,7 +239,7 @@ document.addEventListener('DOMContentLoaded',function(){var btn=document.getElem
 </section>
 <script>
 (function(){
-  var BREVO_KEY="__BREVO_CONTACTS_KEY__",BREVO_LIST=3,BREVO_API="https://api.brevo.com/v3/contacts";
+  var BREVO_KEY="__BREVO_CONTACTS_KEY__",BREVO_LIST=3,BREVO_API="https://api.brevo.com/v3/contacts/doubleOptinConfirmation",BREVO_DOI_TPL=0,BREVO_DOI_URL="https://lesfaits.info/confirmation.html";
   var form=document.getElementById("nl-form"),msgEl=document.getElementById("nl-msg"),btn=document.getElementById("nl-btn");
   if(!form)return;
   form.addEventListener("submit",function(e){
@@ -253,9 +253,9 @@ document.addEventListener('DOMContentLoaded',function(){var btn=document.getElem
     ["CAT_SOCIETE","CAT_SCIENCE","CAT_ECONOMIE","CAT_TECH","CAT_SANTE","CAT_ENVIRONNEMENT"].forEach(function(k){var cb=form.querySelector('input[name="'+k+'"]');attrs[k]=cb?cb.checked:false;});
     var freqEl=form.querySelector('input[name="FREQ"]:checked');attrs["FREQ"]=freqEl?freqEl.value:"both";
     btn.disabled=true;btn.textContent="Envoi…";
-    fetch(BREVO_API,{method:"POST",headers:{"accept":"application/json","content-type":"application/json","api-key":BREVO_KEY},body:JSON.stringify({email:email,listIds:[BREVO_LIST],attributes:attrs,updateEnabled:true})})
+    fetch(BREVO_API,{method:"POST",headers:{"accept":"application/json","content-type":"application/json","api-key":BREVO_KEY},body:JSON.stringify({email:email,includeListIds:[BREVO_LIST],attributes:attrs,templateId:BREVO_DOI_TPL,redirectionUrl:BREVO_DOI_URL})})
     .then(function(r){
-      if(r.status===201||r.status===200||r.status===204){msgEl.textContent="Merci ! Confirmez votre email (vérifiez vos spams).";msgEl.className="nl-compact__msg nl-compact__msg--ok";form.reset();}
+      if(r.status===201||r.status===200||r.status===204){msgEl.textContent="Un email de confirmation vient de vous être envoyé — cliquez sur le lien pour valider votre inscription (vérifiez vos spams).";msgEl.className="nl-compact__msg nl-compact__msg--ok";form.reset();}
       else if(r.status===400){return r.json().then(function(d){if(d&&d.code==="duplicate_parameter"){msgEl.textContent="Déjà inscrit !";msgEl.className="nl-compact__msg nl-compact__msg--ok";}else{throw new Error(d&&d.message);}})}
       else{throw new Error("Erreur "+r.status);}
     })

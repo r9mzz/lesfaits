@@ -1977,6 +1977,10 @@ CSP_META = (
 # (voir deploy.yml — step "Injecter la clé Brevo dans l'HTML")
 BREVO_CONTACTS_KEY = "__BREVO_CONTACTS_KEY__"
 BREVO_LIST_ID_NL   = 3
+# ID du template "double opt-in" créé dans Brevo (Campagnes → Templates).
+# Le contact n'est ajouté à la liste qu'après clic sur le lien de confirmation.
+BREVO_DOI_TEMPLATE_ID = 0  # ⚠️ REMPLACER par l'ID réel du template DOI Brevo
+BREVO_DOI_REDIRECT    = "https://lesfaits.info/confirmation.html"
 
 # Bloc newsletter injecté dans index.html (avant le footer)
 def _build_newsletter_section() -> str:
@@ -2016,7 +2020,7 @@ def _build_newsletter_section() -> str:
 </section>
 <script>
 (function(){{
-  var BREVO_KEY="{BREVO_CONTACTS_KEY}",BREVO_LIST={BREVO_LIST_ID_NL},BREVO_API="https://api.brevo.com/v3/contacts";
+  var BREVO_KEY="{BREVO_CONTACTS_KEY}",BREVO_LIST={BREVO_LIST_ID_NL},BREVO_API="https://api.brevo.com/v3/contacts/doubleOptinConfirmation",BREVO_DOI_TPL={BREVO_DOI_TEMPLATE_ID},BREVO_DOI_URL="{BREVO_DOI_REDIRECT}";
   var form=document.getElementById("nl-form"),msgEl=document.getElementById("nl-msg"),btn=document.getElementById("nl-btn");
   if(!form)return;
   form.addEventListener("submit",function(e){{
@@ -2030,9 +2034,9 @@ def _build_newsletter_section() -> str:
     ["CAT_SOCIETE","CAT_SCIENCE","CAT_ECONOMIE","CAT_TECH","CAT_SANTE","CAT_ENVIRONNEMENT"].forEach(function(k){{var cb=form.querySelector('input[name="'+k+'"]');attrs[k]=cb?cb.checked:false;}});
     var freqEl=form.querySelector('input[name="FREQ"]:checked');attrs["FREQ"]=freqEl?freqEl.value:"both";
     btn.disabled=true;btn.textContent="Envoi…";
-    fetch(BREVO_API,{{method:"POST",headers:{{"accept":"application/json","content-type":"application/json","api-key":BREVO_KEY}},body:JSON.stringify({{email:email,listIds:[BREVO_LIST],attributes:attrs,updateEnabled:true}})}})
+    fetch(BREVO_API,{{method:"POST",headers:{{"accept":"application/json","content-type":"application/json","api-key":BREVO_KEY}},body:JSON.stringify({{email:email,includeListIds:[BREVO_LIST],attributes:attrs,templateId:BREVO_DOI_TPL,redirectionUrl:BREVO_DOI_URL}})}})
     .then(function(r){{
-      if(r.status===201||r.status===200||r.status===204){{msgEl.textContent="Merci ! Confirmez votre email (vérifiez vos spams).";msgEl.className="nl-compact__msg nl-compact__msg--ok";form.reset();}}
+      if(r.status===201||r.status===200||r.status===204){{msgEl.textContent="Un email de confirmation vient de vous être envoyé — cliquez sur le lien pour valider votre inscription (vérifiez vos spams).";msgEl.className="nl-compact__msg nl-compact__msg--ok";form.reset();}}
       else if(r.status===400){{return r.json().then(function(d){{if(d&&d.code==="duplicate_parameter"){{msgEl.textContent="Déjà inscrit !";msgEl.className="nl-compact__msg nl-compact__msg--ok";}}else{{throw new Error(d&&d.message);}}}})}}
       else{{throw new Error("Erreur "+r.status);}}
     }})
