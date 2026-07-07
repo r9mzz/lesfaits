@@ -1,9 +1,8 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="fr" data-theme="">
 <head>
   <meta charset="UTF-8"/>
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cloud.umami.is; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; connect-src 'self' https://cloud.umami.is https://api.web3forms.com https://api.brevo.com; base-uri 'self'; form-action 'self' https://api.web3forms.com; frame-ancestors 'none';"/>
-
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <meta name="description" content="Les Faits — À propos. Notre histoire, notre gouvernance et comment nous suivre."/>
   <meta property="og:title" content="À propos — Les Faits"/>
@@ -19,9 +18,122 @@
   <title>À propos — Les Faits</title>
   <base href="/"/>
   <link rel="stylesheet" href="/src/style.css"/>
-<link rel="icon" type="image/svg+xml" href="/favicon.svg">
-<link rel="manifest" href="/manifest.json">
-<script defer src="https://cloud.umami.is/script.js" data-website-id="8d68a78f-97ae-4c95-a955-5d3df758f7e2"></script>
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="manifest" href="/manifest.json">
+  <script defer src="https://cloud.umami.is/script.js" data-website-id="8d68a78f-97ae-4c95-a955-5d3df758f7e2"></script>
+</head>
+<body>
+<script>(function(){var s=localStorage.getItem('theme');var d=s==='dark'||(s===null&&window.matchMedia('(prefers-color-scheme:dark)').matches);document.documentElement.setAttribute('data-theme',d?'dark':'light');})();</script>
+<div class="nav-overlay" id="nav-overlay" onclick="closeMenu()"></div>
+<nav class="nav-mobile" id="nav-mobile" aria-label="Menu mobile">
+  <a href="/categories/societe.html">Société</a>
+  <a href="/categories/science.html">Science</a>
+  <a href="/categories/economie.html">Économie</a>
+  <a href="/categories/tech.html">Tech</a>
+  <a href="/categories/sante.html">Santé</a>
+  <a href="/categories/environnement.html">Environnement</a>
+  <a href="/archive.html">Tous les articles</a>
+  <a href="/methode.html">Comment on travaille</a>
+  <a href="/a-propos.html">À propos &amp; réseaux</a>
+  <a href="/#newsletter" class="nav-cta">Newsletter</a>
+</nav>
+<script>
+function toggleMenu(){var b=document.getElementById('burger'),m=document.getElementById('nav-mobile'),o=document.getElementById('nav-overlay');b.classList.toggle('open');m.classList.toggle('open');o.classList.toggle('open');}
+function closeMenu(){document.getElementById('burger').classList.remove('open');document.getElementById('nav-mobile').classList.remove('open');document.getElementById('nav-overlay').classList.remove('open');}
+document.querySelectorAll('.nav-mobile a').forEach(function(a){a.addEventListener('click',closeMenu);});
+document.addEventListener('keydown',function(e){if(e.key==='Escape')closeMenu();});
+document.addEventListener('DOMContentLoaded',function(){var btn=document.getElementById('nav-cats-btn');var dd=document.getElementById('nav-cats-dd');if(!btn||!dd)return;btn.addEventListener('click',function(e){e.stopPropagation();var open=dd.classList.toggle('open');btn.classList.toggle('open',open);btn.setAttribute('aria-expanded',open?'true':'false');});document.addEventListener('click',function(){dd.classList.remove('open');btn.classList.remove('open');btn.setAttribute('aria-expanded','false');});document.addEventListener('keydown',function(e){if(e.key==='Escape'){dd.classList.remove('open');btn.classList.remove('open');btn.setAttribute('aria-expanded','false');}});});
+</script>
+<header class="header">
+  <div class="header__inner">
+    <a href="/" class="brand"><svg class="brand__icon" width="26" height="26" viewBox="0 0 200 200" aria-hidden="true" focusable="false"><rect width="200" height="200" rx="28" fill="#141416"/><circle cx="100" cy="100" r="72" fill="none" stroke="#6C85BD" stroke-width="4"/><circle cx="28" cy="100" r="7" fill="#6C85BD"/><circle cx="172" cy="100" r="7" fill="#6C85BD"/><text x="84" y="132" font-family="Georgia,'Times New Roman',serif" font-size="92" font-weight="700" fill="#F1EFE8" text-anchor="middle">l</text><text x="128" y="132" font-family="Georgia,'Times New Roman',serif" font-size="92" font-weight="700" fill="#6C85BD" text-anchor="middle">f</text></svg><div class="brand__logotype"><span class="fact">les</span><span class="uel">faits</span></div></a>
+    <div class="header__search">
+      <input type="search" class="header__search-input" aria-label="Rechercher un article" id="search-input" placeholder="Rechercher…" autocomplete="off" onkeydown="if(event.key==='Enter'&&this.value.trim())window.location='/recherche.html?q='+encodeURIComponent(this.value.trim())"/>
+    </div>
+    <nav class="nav-expand-group" aria-label="Navigation principale">
+      <div class="nav-cats-wrap">
+        <button class="nav-expand-item" id="nav-cats-btn" aria-label="Catégories" aria-haspopup="true" aria-expanded="false"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg><span class="nav-expand-label">Catégories</span></button>
+        <div class="nav-cats-dd" id="nav-cats-dd" role="menu">
+          <a class="cat-dd-item" href="/categories/societe.html" role="menuitem"><span class="cat-dd-dot" style="background:#4A6B8E"></span>Société</a>
+          <a class="cat-dd-item" href="/categories/science.html" role="menuitem"><span class="cat-dd-dot" style="background:#3E7259"></span>Science</a>
+          <a class="cat-dd-item" href="/categories/economie.html" role="menuitem"><span class="cat-dd-dot" style="background:#7A6B3E"></span>Économie</a>
+          <a class="cat-dd-item" href="/categories/tech.html" role="menuitem"><span class="cat-dd-dot" style="background:#4A4E8E"></span>Tech</a>
+          <a class="cat-dd-item" href="/categories/sante.html" role="menuitem"><span class="cat-dd-dot" style="background:#8E4A4A"></span>Santé</a>
+          <a class="cat-dd-item" href="/categories/environnement.html" role="menuitem"><span class="cat-dd-dot" style="background:#3E7A5B"></span>Environnement</a>
+        </div>
+      </div>
+      <a class="nav-expand-item" href="/archive.html" aria-label="Tous les articles"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><line x1="9" y1="6" x2="20" y2="6"/><line x1="9" y1="12" x2="20" y2="12"/><line x1="9" y1="18" x2="20" y2="18"/><circle cx="4" cy="6" r="1.5" fill="currentColor" stroke="none"/><circle cx="4" cy="12" r="1.5" fill="currentColor" stroke="none"/><circle cx="4" cy="18" r="1.5" fill="currentColor" stroke="none"/></svg><span class="nav-expand-label">Tous les articles</span></a>
+      <a class="nav-expand-item" href="/a-propos.html" aria-label="Réseaux"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1.2" fill="currentColor" stroke="none"/></svg><span class="nav-expand-label">Réseaux</span></a>
+      <a class="nav-expand-item" href="/methode.html" aria-label="Notre méthode"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z"/><path d="M20 3v4m2-2h-4"/></svg><span class="nav-expand-label">Notre méthode</span></a>
+      <a class="nav-expand-item" href="/#newsletter" aria-label="Newsletter"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 7l10 7 10-7"/></svg><span class="nav-expand-label">Newsletter</span></a>
+    </nav>
+    <button class="dark-toggle" id="dark-toggle" aria-label="Mode sombre" title="Mode sombre">🌙</button>
+    <button class="burger" id="burger" aria-label="Menu" onclick="toggleMenu()"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<main style="max-width:780px;margin:80px auto;padding:0 24px">
+
+  <span style="font-size:.8rem;font-weight:700;letter-spacing:.1em;color:var(--muted);text-transform:uppercase">À propos</span>
+  <h1 style="font-size:2.6rem;font-weight:700;margin:12px 0 8px;line-height:1.2">Notre histoire,<br>notre méthode.</h1>
+  <p style="color:var(--muted);font-size:1.1rem;margin-bottom:56px;line-height:1.7">
+    Parce qu'avant toute opinion, il faut comprendre les faits — pourquoi Les Faits existe, qui le fait, et comment nous suivre.
+  </p>
+
+  <h2 style="font-size:1.5rem;font-weight:700;margin-bottom:24px;border-bottom:1px solid var(--rule);padding-bottom:16px">Notre histoire</h2>
+  <div style="margin-bottom:56px">
+    <p style="line-height:1.8;color:var(--muted);margin:0 0 16px">
+      Les Faits est un média indépendant né en juin 2026 de l'initiative de trois jeunes de 17 ans, avec une ambition simple : explorer une nouvelle manière de produire, vérifier et comprendre l'information.
+    </p>
+    <p style="line-height:1.8;color:var(--muted);margin:0 0 16px">
+      À une époque où la confiance envers les médias est fragilisée et où l'intelligence artificielle transforme profondément notre rapport au savoir, nous avons choisi de construire un modèle fondé sur trois principes essentiels : la transparence, la rigueur et la responsabilité.
+    </p>
+    <p style="line-height:1.8;color:var(--muted);margin:0">
+      Notre objectif est de permettre à chacun d'accéder à une information claire, accessible et accompagnée de sources vérifiables, afin que chaque lecteur puisse comprendre les faits et construire sa propre réflexion. Les Faits couvre les grands enjeux qui façonnent notre époque : intelligence artificielle, technologies, santé, société, environnement, économie et sciences.
+    </p>
+  </div>
+
+  <h2 style="font-size:1.5rem;font-weight:700;margin-bottom:24px;border-bottom:1px solid var(--rule);padding-bottom:16px">Notre méthode</h2>
+  <div style="margin-bottom:56px">
+    <p style="line-height:1.8;color:var(--muted);margin:0 0 16px">
+      Notre particularité repose sur l'utilisation de l'intelligence artificielle comme moteur de production éditoriale, encadrée par un protocole précis. L'IA nous permet d'analyser, structurer et rédiger des contenus selon une méthode définie, tandis que notre équipe reste responsable de la supervision, de la validation et de la qualité des publications. Pour le détail du fonctionnement, voir <a href="methode.html" style="color:var(--blue)">Comment on travaille</a>.
+    </p>
+    <p style="line-height:1.8;color:var(--muted);margin:0 0 16px">
+      Nous ne prétendons pas produire une information totalement dépourvue de biais, car toute production d'information implique des choix. En revanche, nous cherchons à limiter ces biais grâce à une méthode transparente : utilisation de sources accessibles, distinction entre faits et analyses, vérification des informations et possibilité de correction lorsque cela est nécessaire.
+    </p>
+    <p style="line-height:1.8;color:var(--muted);margin:0">
+      La confiance dans l'information ne repose pas uniquement sur les résultats, mais aussi sur la compréhension des méthodes utilisées pour les produire. C'est pourquoi nous expliquons notre fonctionnement et les principes qui encadrent notre travail éditorial.
+    </p>
+  </div>
+
+  <h2 style="font-size:1.5rem;font-weight:700;margin-bottom:24px;border-bottom:1px solid var(--rule);padding-bottom:16px">Indépendance</h2>
+  <div style="margin-bottom:56px">
+    <p style="line-height:1.8;color:var(--muted);margin:0 0 16px">
+      Les Faits est un projet indépendant en développement, financé par le soutien de sa communauté. Il n'appartient à aucun grand groupe de presse et cherche à construire un modèle d'information libre, transparent et responsable.
+    </p>
+    <p style="line-height:1.8;color:var(--muted);margin:0">
+      Notre vision est de participer à une nouvelle génération de médias : des médias capables d'utiliser les nouvelles technologies tout en conservant une exigence fondamentale, celle de placer les faits, les sources et la compréhension au centre de l'information. Parce qu'avant toute opinion, il faut comprendre les faits.
+    </p>
+  </div>
+
+  <h2 style="font-size:1.5rem;font-weight:700;margin-bottom:24px;border-bottom:1px solid var(--rule);padding-bottom:16px">Nous suivre</h2>
+  <div class="nous-suivre__grid" style="margin-bottom:16px">
+    <a href="https://x.com/Lesfaitsinfo" target="_blank" rel="noopener noreferrer external" style="display:block;background:var(--white);border:1px solid var(--rule);border-radius:8px;padding:24px;text-decoration:none">
+      <div style="font-size:.75rem;font-weight:700;letter-spacing:.08em;color:var(--blue);text-transform:uppercase;margin-bottom:6px">X (Twitter)</div>
+      <div style="font-weight:600;color:var(--ink)">@Lesfaitsinfo →</div>
+    </a>
+    <a href="https://www.instagram.com/lesfaits.info/" target="_blank" rel="noopener noreferrer external" style="display:block;background:var(--white);border:1px solid var(--rule);border-radius:8px;padding:24px;text-decoration:none">
+      <div style="font-size:.75rem;font-weight:700;letter-spacing:.08em;color:var(--blue);text-transform:uppercase;margin-bottom:6px">Instagram</div>
+      <div style="font-weight:600;color:var(--ink)">@lesfaits.info →</div>
+    </a>
+    <a href="https://www.linkedin.com/in/lesfaits-info-37b377420/" target="_blank" rel="noopener noreferrer external" style="display:block;background:var(--white);border:1px solid var(--rule);border-radius:8px;padding:24px;text-decoration:none">
+      <div style="font-size:.75rem;font-weight:700;letter-spacing:.08em;color:var(--blue);text-transform:uppercase;margin-bottom:6px">LinkedIn</div>
+      <div style="font-weight:600;color:var(--ink)">Les Faits →</div>
+    </a>
+  </div>
+
+</main>
+
 
 <section class="nl-compact" id="newsletter" aria-label="S'abonner à la newsletter">
   <div class="nl-compact__inner">
@@ -101,18 +213,18 @@
     <div class="footer__col"><h4>JOURNAL</h4>
       <a href="/methode.html">Comment on travaille</a>
       <a href="/a-propos.html">À propos &amp; réseaux</a>
-      <a href="corrections.html">Corrections publiques</a>
+      <a href="/corrections.html">Corrections publiques</a>
       <a href="/archive.html">Tous les articles</a>
       <a href="feed.xml" class="footer__rss">Flux RSS</a>
-      <a href="index.html#newsletter">Newsletter</a>
+      <a href="/#newsletter">Newsletter</a>
     </div>
     <div class="footer__col"><h4>LÉGAL</h4>
-      <a href="mentions-legales.html">Mentions légales</a>
-      <a href="confidentialite.html">Confidentialité</a>
-      <a href="cgu.html">CGU</a>
+      <a href="/mentions-legales.html">Mentions légales</a>
+      <a href="/confidentialite.html">Confidentialité</a>
+      <a href="/cgu.html">CGU</a>
     </div>
     <div class="footer__col"><h4>CONTACT</h4>
-      <a href="contact.html">Nous écrire</a>
+      <a href="/contact.html">Nous écrire</a>
       <a href="contact.html#erreur">Signaler une erreur</a>
     </div>
   </div>
@@ -134,7 +246,5 @@
   });
 })();
 </script>
-<script defer src="https://cloud.umami.is/script.js" data-website-id="8d68a78f-97ae-4c95-a955-5d3df758f7e2"></script>
-
 </body>
 </html>
