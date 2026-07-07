@@ -119,5 +119,15 @@
     "tentatives": 3,
     "problemes_restants": 10,
     "bloquants_restants": 5
+  },
+  {
+    "slug": "nouveaux-moteurs-velos-electriques",
+    "statut": "rejete_qualite",
+    "date": "2026-07-07T03:27:50",
+    "problemes_initiaux": 17,
+    "tentatives": 2,
+    "problemes_restants": 7,
+    "bloquants_restants": 2,
+    "article_type": "dossier_science"
   }
 ]
