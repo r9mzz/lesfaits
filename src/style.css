@@ -103,8 +103,8 @@ nav a.active { opacity: 1; color: var(--blue); border-bottom-color: var(--blue);
 [data-theme="dark"] nav a.active { text-shadow: 0 0 8px rgba(138,171,223,.45); }
 /* ── NAV EXPAND (icônes qui s'élargissent au survol, desktop uniquement) ── */
 .nav-expand-group { display: flex; align-items: center; gap: 4px; position: relative; }
-.nav-expand-item { display: inline-flex; align-items: center; height: 40px; overflow: hidden; border-radius: 999px; border: 1px solid transparent; padding: 0 12px; cursor: pointer; transition: background .2s, border-color .2s, color .2s; white-space: nowrap; color: var(--muted); text-decoration: none; background: none; font-family: inherit; flex-shrink: 0; }
-.nav-expand-item svg { flex-shrink: 0; width: 20px; height: 20px; }
+.nav-expand-item { display: inline-flex; align-items: center; height: 44px; overflow: hidden; border-radius: 999px; border: 1px solid transparent; padding: 0 14px; cursor: pointer; transition: background .2s, border-color .2s, color .2s; white-space: nowrap; color: var(--muted); text-decoration: none; background: none; font-family: inherit; flex-shrink: 0; }
+.nav-expand-item svg { flex-shrink: 0; width: 24px; height: 24px; }
 .nav-expand-label { font-size: 12px; font-weight: 500; max-width: 0; opacity: 0; overflow: hidden; transform: translateX(-5px); transition: max-width .38s cubic-bezier(.22,1,.36,1), opacity .2s, transform .25s; white-space: nowrap; }
 .nav-expand-item:hover { background: var(--light); border-color: var(--rule); color: var(--ink); }
 .nav-expand-item:hover .nav-expand-label { max-width: 150px; opacity: 1; transform: translateX(0); padding-left: 7px; }
@@ -457,7 +457,6 @@ a:hover .title-xl, a:hover .title-md, a:hover .title-sm { color: var(--blue); }
 .footer__col a { display: block; font-size: 12.5px; color: var(--muted); margin-bottom: 10px; transition: color .2s var(--ease); cursor: pointer; }
 .footer__col a:hover { color: var(--blue); }
 .footer__rss { display: none; }
-.footer__rss::before { content: ''; display: inline-block; width: 12px; height: 12px; background: var(--orange); border-radius: 2px; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3E%3Ccircle cx='6.18' cy='17.82' r='2.18'/%3E%3Cpath d='M4 4.44v2.83c7.03 0 12.73 5.7 12.73 12.73h2.83c0-8.59-6.97-15.56-15.56-15.56zm0 5.66v2.83c3.9 0 7.07 3.17 7.07 7.07h2.83c0-5.47-4.43-9.9-9.9-9.9z'/%3E%3C/svg%3E"); background-size: cover; }
 .footer__bottom { border-top: 1px solid var(--rule); padding: 20px 32px; display: flex; justify-content: space-between; font-size: 10.5px; color: var(--muted); flex-wrap: wrap; gap: 8px; }
 
 /* ── COULEURS PAR CATÉGORIE ── */
@@ -725,6 +724,11 @@ a.card3,a.une__main,a.une__side-item,a.list-item,a.art__related-card,a.archive-i
 .nl-compact__label { font-size: 10px; font-weight: 700; letter-spacing: 2px; color: var(--blue); white-space: nowrap; }
 .nl-compact__title { font-family: Georgia, serif; font-size: 15px; color: var(--ink); font-weight: 700; line-height: 1.35; }
 .nl-compact__row { display: flex; gap: 8px; margin-bottom: 10px; }
+
+.nl-compact__freq { display: flex; gap: 6px; margin-bottom: 12px; flex-wrap: wrap; }
+.nl-compact__freq-opt { display: flex; align-items: center; gap: 5px; font-size: 12px; color: var(--ink); cursor: pointer; background: var(--light); border: 1px solid var(--rule); border-radius: 999px; padding: 4px 12px; transition: background .15s, border-color .15s; }
+.nl-compact__freq-opt:has(input:checked) { background: var(--blue); border-color: var(--blue); color: #fff; }
+.nl-compact__freq-opt input { position: absolute; opacity: 0; width: 0; height: 0; }
 .nl-compact__input { flex: 1; min-width: 0; padding: 8px 12px; border: 1px solid var(--rule); border-radius: var(--radius); font-size: 13px; background: var(--sand); color: var(--ink); font-family: inherit; outline: none; transition: border-color .15s; }
 .nl-compact__input:focus { border-color: var(--blue); }
 .nl-compact__btn { padding: 8px 16px; background: var(--blue); color: #fff; border: none; border-radius: var(--radius); font-size: 13px; font-weight: 700; cursor: pointer; white-space: nowrap; font-family: inherit; transition: opacity .15s; }

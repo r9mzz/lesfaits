@@ -1847,16 +1847,16 @@ def _download_hero(
 
 # ── Constantes UI partagées ──────────────────────────────────────────────────
 _NAV_LINKS = (
-    '<a href="categories/societe.html">Société</a>\n'
-    '<a href="categories/science.html">Science</a>\n'
-    '<a href="categories/economie.html">Économie</a>\n'
-    '<a href="categories/tech.html">Tech</a>\n'
-    '<a href="categories/sante.html">Santé</a>\n'
-    '<a href="categories/environnement.html">Environnement</a>\n'
+    '<a href="/categories/societe.html">Société</a>\n'
+    '<a href="/categories/science.html">Science</a>\n'
+    '<a href="/categories/economie.html">Économie</a>\n'
+    '<a href="/categories/tech.html">Tech</a>\n'
+    '<a href="/categories/sante.html">Santé</a>\n'
+    '<a href="/categories/environnement.html">Environnement</a>\n'
     '<a href="favoris.html">Favoris</a>\n'
-    '<a href="archive.html">Tous les articles</a>\n'
-    '<a href="methode.html">Comment on travaille</a>\n'
-    '<a href="a-propos.html">À propos &amp; réseaux</a>\n'
+    '<a href="/archive.html">Tous les articles</a>\n'
+    '<a href="/methode.html">Comment on travaille</a>\n'
+    '<a href="/a-propos.html">À propos &amp; réseaux</a>\n'
     '<a href="index.html" class="nav-cta">S\'abonner à la newsletter</a>'
 )
 _BURGER_JS = (
@@ -1911,12 +1911,12 @@ HEADER_NAV_DESKTOP = (
     + _ICO_GRID +
     '<span class="nav-expand-label">Catégories</span></button>\n'
     '        <div class="nav-cats-dd" id="nav-cats-dd" role="menu">\n'
-    '          <a class="cat-dd-item" href="categories/societe.html" role="menuitem"><span class="cat-dd-dot" style="background:#4A6B8E"></span>Société</a>\n'
-    '          <a class="cat-dd-item" href="categories/science.html" role="menuitem"><span class="cat-dd-dot" style="background:#3E7259"></span>Science</a>\n'
-    '          <a class="cat-dd-item" href="categories/economie.html" role="menuitem"><span class="cat-dd-dot" style="background:#7A6B3E"></span>Économie</a>\n'
-    '          <a class="cat-dd-item" href="categories/tech.html" role="menuitem"><span class="cat-dd-dot" style="background:#4A4E8E"></span>Tech</a>\n'
-    '          <a class="cat-dd-item" href="categories/sante.html" role="menuitem"><span class="cat-dd-dot" style="background:#8E4A4A"></span>Santé</a>\n'
-    '          <a class="cat-dd-item" href="categories/environnement.html" role="menuitem"><span class="cat-dd-dot" style="background:#3E7A5B"></span>Environnement</a>\n'
+    '          <a class="cat-dd-item" href="/categories/societe.html" role="menuitem"><span class="cat-dd-dot" style="background:#4A6B8E"></span>Société</a>\n'
+    '          <a class="cat-dd-item" href="/categories/science.html" role="menuitem"><span class="cat-dd-dot" style="background:#3E7259"></span>Science</a>\n'
+    '          <a class="cat-dd-item" href="/categories/economie.html" role="menuitem"><span class="cat-dd-dot" style="background:#7A6B3E"></span>Économie</a>\n'
+    '          <a class="cat-dd-item" href="/categories/tech.html" role="menuitem"><span class="cat-dd-dot" style="background:#4A4E8E"></span>Tech</a>\n'
+    '          <a class="cat-dd-item" href="/categories/sante.html" role="menuitem"><span class="cat-dd-dot" style="background:#8E4A4A"></span>Santé</a>\n'
+    '          <a class="cat-dd-item" href="/categories/environnement.html" role="menuitem"><span class="cat-dd-dot" style="background:#3E7A5B"></span>Environnement</a>\n'
     '        </div>\n'
     '      </div>\n'
     '      <a class="nav-expand-item" href="archive.html" aria-label="Tous les articles">'
@@ -1928,7 +1928,7 @@ HEADER_NAV_DESKTOP = (
     '      <a class="nav-expand-item" href="methode.html" aria-label="Notre méthode">'
     + _ICO_SPARK +
     '<span class="nav-expand-label">Notre méthode</span></a>\n'
-    '      <a class="nav-expand-item" href="index.html" aria-label="Newsletter">'
+    '      <a class="nav-expand-item" href="/#newsletter" aria-label="Newsletter">'
     + _ICO_MAIL +
     '<span class="nav-expand-label">Newsletter</span></a>\n'
     '    </nav>'
@@ -1983,6 +1983,11 @@ def _build_newsletter_section() -> str:
       <span class="nl-compact__title">Le résumé du jour dans votre boîte mail</span>
     </div>
     <form id="nl-form" novalidate>
+      <div class="nl-compact__freq" role="group" aria-label="Fréquence de réception">
+        <label class="nl-compact__freq-opt"><input type="radio" name="FREQ" value="morning"/> Matin (~7h)</label>
+        <label class="nl-compact__freq-opt"><input type="radio" name="FREQ" value="evening"/> Soir (~18h)</label>
+        <label class="nl-compact__freq-opt"><input type="radio" name="FREQ" value="both" checked/> Les deux</label>
+      </div>
       <div class="nl-compact__row">
         <input type="email" id="nl-email" name="email" class="nl-compact__input" placeholder="vous@exemple.fr" required autocomplete="email" aria-required="true"/>
         <button type="submit" class="nl-compact__btn" id="nl-btn">S'abonner →</button>
@@ -2018,6 +2023,7 @@ def _build_newsletter_section() -> str:
     if(!consent){{msgEl.textContent="Veuillez accepter les conditions.";msgEl.className="nl-compact__msg nl-compact__msg--err";return;}}
     var attrs={{}};
     ["CAT_SOCIETE","CAT_SCIENCE","CAT_ECONOMIE","CAT_TECH","CAT_SANTE","CAT_ENVIRONNEMENT"].forEach(function(k){{var cb=form.querySelector('input[name="'+k+'"]');attrs[k]=cb?cb.checked:false;}});
+    var freqEl=form.querySelector('input[name="FREQ"]:checked');attrs["FREQ"]=freqEl?freqEl.value:"both";
     btn.disabled=true;btn.textContent="Envoi…";
     fetch(BREVO_API,{{method:"POST",headers:{{"accept":"application/json","content-type":"application/json","api-key":BREVO_KEY}},body:JSON.stringify({{email:email,listIds:[BREVO_LIST],attributes:attrs,updateEnabled:true}})}})
     .then(function(r){{
@@ -2073,28 +2079,28 @@ def _build_footer(year: int = None) -> str:
       <p style="font-size:10px;color:var(--muted);margin-top:8px">Aucune publicité · Aucun actionnaire · Aucun cookie de tracking</p>
     </div>
     <div class="footer__col"><h4>RUBRIQUES</h4>
-      <a href="categories/societe.html">Société</a>
-      <a href="categories/science.html">Science</a>
-      <a href="categories/economie.html">Économie</a>
-      <a href="categories/tech.html">Tech</a>
-      <a href="categories/sante.html">Santé</a>
-      <a href="categories/environnement.html">Environnement</a>
+      <a href="/categories/societe.html">Société</a>
+      <a href="/categories/science.html">Science</a>
+      <a href="/categories/economie.html">Économie</a>
+      <a href="/categories/tech.html">Tech</a>
+      <a href="/categories/sante.html">Santé</a>
+      <a href="/categories/environnement.html">Environnement</a>
     </div>
     <div class="footer__col"><h4>JOURNAL</h4>
-      <a href="methode.html">Comment on travaille</a>
-      <a href="a-propos.html">À propos &amp; réseaux</a>
-      <a href="corrections.html">Corrections publiques</a>
-      <a href="archive.html">Tous les articles</a>
+      <a href="/methode.html">Comment on travaille</a>
+      <a href="/a-propos.html">À propos &amp; réseaux</a>
+      <a href="/corrections.html">Corrections publiques</a>
+      <a href="/archive.html">Tous les articles</a>
       <a href="feed.xml" class="footer__rss">Flux RSS</a>
-      <a href="index.html">Newsletter</a>
+      <a href="/#newsletter">Newsletter</a>
     </div>
     <div class="footer__col"><h4>LÉGAL</h4>
-      <a href="mentions-legales.html">Mentions légales</a>
-      <a href="confidentialite.html">Confidentialité</a>
-      <a href="cgu.html">CGU</a>
+      <a href="/mentions-legales.html">Mentions légales</a>
+      <a href="/confidentialite.html">Confidentialité</a>
+      <a href="/cgu.html">CGU</a>
     </div>
     <div class="footer__col"><h4>CONTACT</h4>
-      <a href="contact.html">Nous écrire</a>
+      <a href="/contact.html">Nous écrire</a>
       <a href="contact.html#erreur">Signaler une erreur</a>
     </div>
   </div>
@@ -2309,7 +2315,7 @@ function copyLink(){{
   <script type="application/ld+json">{{"@context":"https://schema.org","@type":"NewsArticle","headline":"{_esc_json(art['titre'])}","description":"{_esc_json(desc_seo)}","datePublished":"{datetime.now().strftime('%Y-%m-%dT%H:%M:%S+02:00')}","dateModified":"{datetime.now().strftime('%Y-%m-%dT%H:%M:%S+02:00')}","articleSection":"{cat}","inLanguage":"fr","isAccessibleForFree":true,"image":{{"@type":"ImageObject","url":"{BASE_URL}/{hero_src}","width":1200,"height":630}},"author":{{"@type":"Organization","name":"Les Faits"}},"publisher":{{"@type":"Organization","name":"Les Faits","@id":"{BASE_URL}/#org","logo":{{"@type":"ImageObject","url":"{BASE_URL}/assets/images/og-default.jpg"}}}},"mainEntityOfPage":{{"@type":"WebPage","@id":"{art_url}"}}}}</script>
   <script type="application/ld+json">{{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{{"@type":"ListItem","position":1,"name":"Accueil","item":"{BASE_URL}/"}},{{"@type":"ListItem","position":2,"name":"{CAT_LABELS.get(cat, cat)}","item":"{BASE_URL}/categories/{cat}.html"}},{{"@type":"ListItem","position":3,"name":"{_esc_json(art['titre'])}"}}]}}</script>
   <base href="/"/>
-  <link rel="stylesheet" href="src/style.css"/>
+  <link rel="stylesheet" href="/src/style.css"/>
   {_DARK_INIT_HEAD}
 </head>
 <body>
@@ -2579,7 +2585,7 @@ def build_index_html(main, side_html, grid_html, list_html):
   <link rel="alternate" type="application/rss+xml" title="Les Faits — RSS" href="/feed.xml"/>
   <title>Les Faits — Juste les faits. Aucun parti pris.</title>
   <base href="/"/>
-  <link rel="stylesheet" href="src/style.css"/>
+  <link rel="stylesheet" href="/src/style.css"/>
   {FAVICON_LINKS}
   {_DARK_INIT_HEAD}
 </head>
@@ -2830,7 +2836,7 @@ def build_category_pages():
   <link rel="alternate" type="application/rss+xml" title="Les Faits — RSS" href="/feed.xml"/>
   <title>{label} — Les Faits</title>
   <base href="/"/>
-  <link rel="stylesheet" href="src/style.css"/>
+  <link rel="stylesheet" href="/src/style.css"/>
   {FAVICON_LINKS}
   {_DARK_INIT_HEAD}
 </head>
@@ -2971,7 +2977,7 @@ def build_archive_page():
   <link rel="canonical" href="https://lesfaits.info/archive.html"/>
   <title>Tous les articles — Les Faits</title>
   <base href="/"/>
-  <link rel="stylesheet" href="src/style.css"/>
+  <link rel="stylesheet" href="/src/style.css"/>
   {FAVICON_LINKS}
   <script>(function(){{var s=localStorage.getItem('theme'),d=s==='dark'||(s===null&&window.matchMedia('(prefers-color-scheme:dark)').matches);document.documentElement.setAttribute('data-theme',d?'dark':'light');}})();</script>
 </head>
@@ -3055,7 +3061,7 @@ def build_favoris_page():
   <link rel="canonical" href="https://lesfaits.info/favoris.html"/>
   <title>Mes favoris — Les Faits</title>
   <base href="/"/>
-  <link rel="stylesheet" href="src/style.css"/>
+  <link rel="stylesheet" href="/src/style.css"/>
   {FAVICON_LINKS}
   {_DARK_INIT_HEAD}
 </head>
