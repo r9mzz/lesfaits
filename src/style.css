@@ -101,18 +101,23 @@ nav a { font-size: 12px; font-weight: 500; color: var(--ink); opacity: .6; trans
 nav a:hover { opacity: 1; color: var(--blue); }
 nav a.active { opacity: 1; color: var(--blue); border-bottom-color: var(--blue); }
 [data-theme="dark"] nav a.active { text-shadow: 0 0 8px rgba(138,171,223,.45); }
-.nav-cta { border: 1px solid var(--blue) !important; border-radius: 20px !important; padding: 6px 14px; font-size: 11px !important; font-weight: 600 !important; opacity: 1 !important; color: var(--blue); transition: background .15s, color .15s; flex-shrink: 0; }
-.nav-cta:hover { background: var(--blue) !important; color: #fff !important; }
+/* ── NAV EXPAND (icônes qui s'élargissent au survol, desktop uniquement) ── */
+.nav-expand-group { display: flex; align-items: center; gap: 2px; position: relative; }
+.nav-expand-item { display: inline-flex; align-items: center; height: 34px; overflow: hidden; border-radius: 999px; border: 1px solid transparent; padding: 0 9px; cursor: pointer; transition: background .2s, border-color .2s, color .2s; white-space: nowrap; color: var(--muted); text-decoration: none; background: none; font-family: inherit; flex-shrink: 0; }
+.nav-expand-item svg { flex-shrink: 0; }
+.nav-expand-label { font-size: 12px; font-weight: 500; max-width: 0; opacity: 0; overflow: hidden; transform: translateX(-5px); transition: max-width .38s cubic-bezier(.22,1,.36,1), opacity .2s, transform .25s; white-space: nowrap; }
+.nav-expand-item:hover { background: var(--light); border-color: var(--rule); color: var(--ink); }
+.nav-expand-item:hover .nav-expand-label { max-width: 150px; opacity: 1; transform: translateX(0); padding-left: 7px; }
+.nav-expand-item.open { background: var(--light); border-color: var(--rule); color: var(--blue); }
+.nav-expand-item.open .nav-expand-label { max-width: 150px; opacity: 1; transform: translateX(0); padding-left: 7px; }
 
-.nav-dropdown { position: relative; }
-.nav-dropdown__trigger { font-size: 12px; font-weight: 500; color: var(--ink); opacity: .6; background: none; border: none; cursor: pointer; font-family: inherit; padding-bottom: 2px; transition: opacity .15s, color .15s; }
-.nav-dropdown__trigger:hover { opacity: 1; color: var(--blue); }
-.nav-dropdown.open .nav-dropdown__trigger { opacity: 1; color: var(--blue); }
-.nav-dropdown__menu { display: none; position: absolute; top: 100%; right: 0; margin-top: 14px; background: var(--white); border: 1px solid var(--rule); border-radius: 8px; box-shadow: var(--shadow-card-hover); min-width: 210px; padding: 6px; z-index: 250; }
-.nav-dropdown.open .nav-dropdown__menu { display: block; }
-.nav-dropdown__menu a { display: block; padding: 9px 12px; font-size: 13px; color: var(--ink); border-radius: 6px; opacity: .85; white-space: nowrap; }
-.nav-dropdown__menu a:hover { background: var(--light); color: var(--blue); opacity: 1; }
-.nav-dropdown__sep { height: 1px; background: var(--rule); margin: 6px 4px; }
+/* Dropdown catégories */
+.nav-cats-wrap { position: relative; }
+.nav-cats-dd { display: none; position: absolute; top: calc(100% + 10px); right: 0; background: var(--white); border: 1px solid var(--rule); border-radius: 10px; box-shadow: var(--shadow-card-hover); padding: 8px; min-width: 260px; z-index: 250; grid-template-columns: 1fr 1fr; gap: 3px; }
+.nav-cats-dd.open { display: grid; }
+.cat-dd-item { display: flex; align-items: center; gap: 9px; padding: 9px 11px; border-radius: 7px; text-decoration: none; color: var(--ink); font-size: 13px; font-weight: 500; transition: background .15s, color .15s; }
+.cat-dd-item:hover { background: var(--light); color: var(--blue); }
+.cat-dd-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
 
 /* ── TICKER ── */
 .ticker { background: var(--blue); padding: 7px 0; overflow: hidden; }
@@ -599,7 +604,7 @@ a:hover .title-xl, a:hover .title-md, a:hover .title-sm { color: var(--blue); }
   nav { display: none; }
   .header__search { flex: 1 1 auto; min-width: 0; }
   .header__search-input { padding: 7px 12px 7px 30px; font-size: 12px; }
-  .nav-cta { display: none; }
+  .nav-expand-group { display: none; }
   .burger { display: flex; }
   .dark-toggle { font-size: 16px; padding: 8px 10px; min-width: 36px; min-height: 36px; }
   .wrap { padding: 0 16px; }

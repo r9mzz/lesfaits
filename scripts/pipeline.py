@@ -1869,26 +1869,23 @@ _BURGER_JS = (
     "document.getElementById('burger').classList.remove('open');"
     "document.getElementById('nav-mobile').classList.remove('open');"
     "document.getElementById('nav-overlay').classList.remove('open');}"
-    # Fermer menu sur clic lien + touche Échap
     "\ndocument.querySelectorAll('.nav-mobile a').forEach(function(a){"
     "a.addEventListener('click',closeMenu);});"
     "\ndocument.addEventListener('keydown',function(e){if(e.key==='Escape')closeMenu();});"
-    # Menu déroulant "À propos" (desktop) — header pas encore parsé ici, on attend DOMContentLoaded
+    # Dropdown catégories desktop
     "\ndocument.addEventListener('DOMContentLoaded',function(){"
-    "document.querySelectorAll('.nav-dropdown__trigger').forEach(function(btn){"
+    "var btn=document.getElementById('nav-cats-btn');"
+    "var dd=document.getElementById('nav-cats-dd');"
+    "if(!btn||!dd)return;"
     "btn.addEventListener('click',function(e){"
     "e.stopPropagation();"
-    "var dd=btn.closest('.nav-dropdown');"
     "var open=dd.classList.toggle('open');"
-    "btn.setAttribute('aria-expanded',open?'true':'false');"
-    "});});});"
-    "\ndocument.addEventListener('click',function(){"
-    "document.querySelectorAll('.nav-dropdown.open').forEach(function(dd){"
-    "dd.classList.remove('open');"
-    "dd.querySelector('.nav-dropdown__trigger').setAttribute('aria-expanded','false');"
-    "});});"
-    "\ndocument.addEventListener('keydown',function(e){if(e.key==='Escape')"
-    "document.querySelectorAll('.nav-dropdown.open').forEach(function(dd){dd.classList.remove('open');});});"
+    "btn.classList.toggle('open',open);"
+    "btn.setAttribute('aria-expanded',open?'true':'false');});"
+    "document.addEventListener('click',function(){"
+    "dd.classList.remove('open');btn.classList.remove('open');btn.setAttribute('aria-expanded','false');});"
+    "document.addEventListener('keydown',function(e){"
+    "if(e.key==='Escape'){dd.classList.remove('open');btn.classList.remove('open');btn.setAttribute('aria-expanded','false');}});});"
 )
 BURGER_HTML = (
     '<div class="nav-overlay" id="nav-overlay" onclick="closeMenu()"></div>\n'
@@ -1901,27 +1898,40 @@ BURGER_BTN = (
     '<span></span><span></span><span></span></button>'
 )
 
+_ICO_GRID  = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>'
+_ICO_LIST  = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><line x1="9" y1="6" x2="20" y2="6"/><line x1="9" y1="12" x2="20" y2="12"/><line x1="9" y1="18" x2="20" y2="18"/><circle cx="4" cy="6" r="1.5" fill="currentColor" stroke="none"/><circle cx="4" cy="12" r="1.5" fill="currentColor" stroke="none"/><circle cx="4" cy="18" r="1.5" fill="currentColor" stroke="none"/></svg>'
+_ICO_INSTA = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1.2" fill="currentColor" stroke="none"/></svg>'
+_ICO_SPARK = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z"/><path d="M20 3v4m2-2h-4"/></svg>'
+_ICO_MAIL  = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 7l10 7 10-7"/></svg>'
+
 HEADER_NAV_DESKTOP = (
-    '<nav aria-label="Navigation principale">\n'
-    '      <div class="nav-dropdown">\n'
-    '        <button class="nav-dropdown__trigger" type="button" aria-haspopup="true" aria-expanded="false">Menu ▾</button>\n'
-    '        <div class="nav-dropdown__menu" role="menu">\n'
-    '          <a href="categories/societe.html" role="menuitem">Société</a>\n'
-    '          <a href="categories/science.html" role="menuitem">Science</a>\n'
-    '          <a href="categories/economie.html" role="menuitem">Économie</a>\n'
-    '          <a href="categories/tech.html" role="menuitem">Tech</a>\n'
-    '          <a href="categories/sante.html" role="menuitem">Santé</a>\n'
-    '          <a href="categories/environnement.html" role="menuitem">Environnement</a>\n'
-    '          <div class="nav-dropdown__sep"></div>\n'
-    '          <a href="favoris.html" role="menuitem">Favoris</a>\n'
-    '          <a href="archive.html" role="menuitem">Tous les articles</a>\n'
-    '          <div class="nav-dropdown__sep"></div>\n'
-    '          <a href="methode.html" role="menuitem">Comment on travaille</a>\n'
-    '          <a href="a-propos.html" role="menuitem">À propos &amp; réseaux</a>\n'
+    '<nav class="nav-expand-group" aria-label="Navigation principale">\n'
+    '      <div class="nav-cats-wrap">\n'
+    '        <button class="nav-expand-item" id="nav-cats-btn" aria-label="Catégories" aria-haspopup="true" aria-expanded="false">'
+    + _ICO_GRID +
+    '<span class="nav-expand-label">Catégories</span></button>\n'
+    '        <div class="nav-cats-dd" id="nav-cats-dd" role="menu">\n'
+    '          <a class="cat-dd-item" href="categories/societe.html" role="menuitem"><span class="cat-dd-dot" style="background:#4A6B8E"></span>Société</a>\n'
+    '          <a class="cat-dd-item" href="categories/science.html" role="menuitem"><span class="cat-dd-dot" style="background:#3E7259"></span>Science</a>\n'
+    '          <a class="cat-dd-item" href="categories/economie.html" role="menuitem"><span class="cat-dd-dot" style="background:#7A6B3E"></span>Économie</a>\n'
+    '          <a class="cat-dd-item" href="categories/tech.html" role="menuitem"><span class="cat-dd-dot" style="background:#4A4E8E"></span>Tech</a>\n'
+    '          <a class="cat-dd-item" href="categories/sante.html" role="menuitem"><span class="cat-dd-dot" style="background:#8E4A4A"></span>Santé</a>\n'
+    '          <a class="cat-dd-item" href="categories/environnement.html" role="menuitem"><span class="cat-dd-dot" style="background:#3E7A5B"></span>Environnement</a>\n'
     '        </div>\n'
     '      </div>\n'
-    '    </nav>\n'
-    '    <a href="index.html" class="nav-cta">Newsletter</a>'
+    '      <a class="nav-expand-item" href="archive.html" aria-label="Tous les articles">'
+    + _ICO_LIST +
+    '<span class="nav-expand-label">Tous les articles</span></a>\n'
+    '      <a class="nav-expand-item" href="a-propos.html" aria-label="Réseaux">'
+    + _ICO_INSTA +
+    '<span class="nav-expand-label">Réseaux</span></a>\n'
+    '      <a class="nav-expand-item" href="methode.html" aria-label="Notre méthode">'
+    + _ICO_SPARK +
+    '<span class="nav-expand-label">Notre méthode</span></a>\n'
+    '      <a class="nav-expand-item" href="index.html" aria-label="Newsletter">'
+    + _ICO_MAIL +
+    '<span class="nav-expand-label">Newsletter</span></a>\n'
+    '    </nav>'
 )
 
 DARK_TOGGLE = '<button class="dark-toggle" id="dark-toggle" aria-label="Mode sombre" title="Mode sombre">🌙</button>'
