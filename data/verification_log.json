@@ -137,5 +137,23 @@
     "sujet_sensible": true,
     "raison": "Article portant sur une personne nommément identifiée avec des affirmations négatives sur son état de santé et sa dépendance, et abordant indirectement la fin de vie d'un individu encore en vie.",
     "article_type": "dossier_portrait"
+  },
+  {
+    "slug": "enquete-ouverte-contre-senatrice-paraguayenne",
+    "statut": "rejete_sensible",
+    "date": "2026-07-08T03:09:19",
+    "sujet_sensible": true,
+    "raison": "Affaire judiciaire pénale en cours (enquête ouverte, non jugée) et affirmations négatives visant nommément une personne identifiée (Celeste Amarilla).",
+    "article_type": "actu"
+  },
+  {
+    "slug": "uranus-neptune-oceans-magma",
+    "statut": "rejete_qualite",
+    "date": "2026-07-08T03:13:47",
+    "problemes_initiaux": 13,
+    "tentatives": 2,
+    "problemes_restants": 13,
+    "bloquants_restants": 7,
+    "article_type": "actu"
   }
 ]
