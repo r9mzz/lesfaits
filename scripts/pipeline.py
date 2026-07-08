@@ -1317,21 +1317,31 @@ def generate(content: str, category_hint: str, extra_sources: list[dict] | None 
     raw = None
     _all_keys = [(GROQ_KEY, "clé 1"), (GROQ_KEY2, "clé 2"), (GROQ_KEY3, "clé 3")]
     keys_to_try = [(k, l) for k, l in _all_keys if k]
-    last_label = keys_to_try[-1][1] if keys_to_try else "clé 1"
-    for key, label in keys_to_try:
-        try:
-            raw = _groq_call(key, messages)
-            break
-        except Exception as e:
-            err = str(e)
-            if "429" in err or "rate_limit" in err.lower():
-                if label == last_label:
-                    print(f"     [GROQ] Rate limit sur {label} — quota épuisé")
+    MAX_RETRY_CYCLES = 3  # cycles complets sur toutes les clés avant abandon
+    RETRY_WAIT = 62       # secondes d'attente entre deux cycles (fenêtre rate-limit Groq = 60s)
+    for cycle in range(MAX_RETRY_CYCLES):
+        for key, label in keys_to_try:
+            try:
+                raw = _groq_call(key, messages)
+                break
+            except Exception as e:
+                err = str(e)
+                if "429" in err or "rate_limit" in err.lower():
+                    idx = keys_to_try.index((key, label))
+                    if idx < len(keys_to_try) - 1:
+                        next_label = keys_to_try[idx + 1][1]
+                        print(f"     [GROQ] Rate limit sur {label} — bascule sur {next_label}")
+                    else:
+                        if cycle < MAX_RETRY_CYCLES - 1:
+                            print(f"     [GROQ] Toutes les clés en rate limit — attente {RETRY_WAIT}s (cycle {cycle+1}/{MAX_RETRY_CYCLES})")
+                            time.sleep(RETRY_WAIT)
+                        else:
+                            print(f"     [ERREUR GROQ] Rate limit atteint sur toutes les clés après {MAX_RETRY_CYCLES} cycles")
+                            raise
+                else:
                     raise
-                next_label = keys_to_try[keys_to_try.index((key, label)) + 1][1]
-                print(f"     [GROQ] Rate limit sur {label} — bascule sur {next_label}")
-            else:
-                raise
+        if raw is not None:
+            break
     if raw is None:
         raise RuntimeError("Aucune clé Groq disponible")
 
