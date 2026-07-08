@@ -155,5 +155,23 @@
     "problemes_restants": 13,
     "bloquants_restants": 7,
     "article_type": "actu"
+  },
+  {
+    "slug": "totalenergies-projet-petrolier-ouganda-justice",
+    "statut": "rejete_sensible",
+    "date": "2026-07-08T12:40:48",
+    "sujet_sensible": true,
+    "raison": "L'article porte sur des affaires judiciaires en cours (action au Royaume-Uni, décision française) impliquant nommément TotalEnergies, avec des affirmations négatives visant une entreprise identifiée.",
+    "article_type": "actu"
+  },
+  {
+    "slug": "quasars-anciens-univers-primordial",
+    "statut": "rejete_qualite",
+    "date": "2026-07-08T12:44:12",
+    "problemes_initiaux": 12,
+    "tentatives": 2,
+    "problemes_restants": 9,
+    "bloquants_restants": 4,
+    "article_type": "dossier_science"
   }
 ]
