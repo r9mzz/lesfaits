@@ -258,13 +258,21 @@ def _log(slug: str, statut: str, detail: dict | None = None):
 
 
 def _problemes_bloquants(problemes: list) -> list:
-    """Blocs 1 (factuel), 2 (sourcing), 5 (légal) : zéro-tolérance, jamais
-    négociable — c'est la promesse envers le lecteur. Blocs 3/4 (style,
-    cadrage, richesse rédactionnelle) sont perfectibles à l'infini par
-    nature (un détecteur exhaustif trouve toujours une formulation à
-    améliorer) ; leur présence résiduelle ne doit pas bloquer indéfiniment
-    la publication tant que rien de bloquant ne subsiste."""
-    return [p for p in problemes if p.get("bloc") in (1, 2, 5)]
+    """Blocs véritablement bloquants :
+    - Bloc 1 (factuel) : zéro tolérance — chiffre erroné, incoherence, etc.
+    - Bloc 2 STRICT : source_inventee uniquement — une source qu'on a inventée
+      est une falsification ; en revanche formule_vague / source_non_editoriale
+      sont des défauts de style récurrents dans les articles IA (le modèle écrit
+      "selon les chercheurs" faute de citation disponible) — les traiter comme
+      bloquants conduisait à 0 article publié avec le checker premium.
+    - Bloc 5 (légal) : géré en amont (rejete_sensible), jamais ici.
+    Blocs 3/4 (style, cadrage) : non bloquants par définition."""
+    BLOC2_BLOQUANTS = {"source_inventee"}
+    return [
+        p for p in problemes
+        if p.get("bloc") == 1
+        or (p.get("bloc") == 2 and p.get("type") in BLOC2_BLOQUANTS)
+    ]
 
 
 def _perte_substance(art_original: dict, art_corrige: dict) -> tuple[bool, str | None, int, int]:
