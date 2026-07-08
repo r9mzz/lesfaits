@@ -201,5 +201,36 @@
     "problemes_restants": 11,
     "bloquants_restants": 5,
     "article_type": "dossier_science"
+  },
+  {
+    "slug": "expansion-dorsale-oceanique",
+    "statut": "rejete_qualite",
+    "date": "2026-07-09T00:35:27",
+    "problemes_initiaux": 15,
+    "tentatives": 2,
+    "problemes_restants": 15,
+    "bloquants_restants": 6,
+    "article_type": "dossier_science"
+  },
+  {
+    "slug": "decouverte-grotte-lascaux",
+    "statut": "rejete_qualite",
+    "date": "2026-07-09T00:38:16",
+    "problemes_initiaux": 16,
+    "tentatives": 2,
+    "problemes_restants": 12,
+    "bloquants_restants": 7,
+    "article_type": "dossier_science"
+  },
+  {
+    "slug": "panier-produits-sains-prix-coutant",
+    "statut": "rejete_qualite",
+    "date": "2026-07-09T00:41:09",
+    "tentative": 1,
+    "perte_substance": true,
+    "section": "faits",
+    "mots_avant": 210,
+    "mots_apres": 80,
+    "article_type": "actu"
   }
 ]
