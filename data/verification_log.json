@@ -173,5 +173,13 @@
     "problemes_restants": 9,
     "bloquants_restants": 4,
     "article_type": "dossier_science"
+  },
+  {
+    "slug": "projet-petrolier-ouganda-totalenergies",
+    "statut": "rejete_sensible",
+    "date": "2026-07-08T17:03:47",
+    "sujet_sensible": true,
+    "raison": "L'article porte sur une affaire judiciaire en cours (action en justice contre TotalEnergies, non définitivement jugée) et contient des affirmations négatives visant nommément une entreprise identifiée.",
+    "article_type": "actu"
   }
 ]
