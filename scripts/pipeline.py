@@ -1979,7 +1979,7 @@ BREVO_CONTACTS_KEY = "__BREVO_CONTACTS_KEY__"
 BREVO_LIST_ID_NL   = 3
 # ID du template "double opt-in" créé dans Brevo (Campagnes → Templates).
 # Le contact n'est ajouté à la liste qu'après clic sur le lien de confirmation.
-BREVO_DOI_TEMPLATE_ID = 0  # ⚠️ REMPLACER par l'ID réel du template DOI Brevo
+BREVO_DOI_TEMPLATE_ID = 5  # ⚠️ REMPLACER par l'ID réel du template DOI Brevo
 BREVO_DOI_REDIRECT    = "https://lesfaits.info/confirmation.html"
 
 # Bloc newsletter injecté dans index.html (avant le footer)
