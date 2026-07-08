@@ -181,5 +181,25 @@
     "sujet_sensible": true,
     "raison": "L'article porte sur une affaire judiciaire en cours (action en justice contre TotalEnergies, non définitivement jugée) et contient des affirmations négatives visant nommément une entreprise identifiée.",
     "article_type": "actu"
+  },
+  {
+    "slug": "expansion-dorsale-oceanique",
+    "statut": "rejete_qualite",
+    "date": "2026-07-09T00:19:52",
+    "problemes_initiaux": 17,
+    "tentatives": 2,
+    "problemes_restants": 11,
+    "bloquants_restants": 4,
+    "article_type": "dossier_science"
+  },
+  {
+    "slug": "decouverte-grotte-lascaux-tresor-17000-ans",
+    "statut": "rejete_qualite",
+    "date": "2026-07-09T00:23:51",
+    "problemes_initiaux": 17,
+    "tentatives": 2,
+    "problemes_restants": 11,
+    "bloquants_restants": 5,
+    "article_type": "dossier_science"
   }
 ]
