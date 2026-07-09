@@ -2129,6 +2129,18 @@ def _build_footer(year: int = None) -> str:
   </div>
 </footer>"""
 
+def _sanitize_image_keyword(kw: str, fallback: str = "") -> str:
+    """Keyword propre pour recherche image : sans accents, sans virgules, max 5 mots."""
+    import unicodedata
+    kw = unicodedata.normalize("NFD", kw)
+    kw = "".join(c for c in kw if unicodedata.category(c) != "Mn")
+    kw = kw.replace(",", " ").replace(";", " ")
+    kw = re.sub(r"\s+", " ", kw).strip()
+    words = kw.split()[:5]
+    result = " ".join(words)
+    return result if len(result) > 3 else (fallback or "france news")
+
+
 def build_article_html(art: dict, date_pub: str) -> str:
     resume_txt = " ".join(art["resume"]) if isinstance(art.get("resume"), list) else art.get("resume", "")
     slug      = art.get("slug", "")
