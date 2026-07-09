@@ -1228,7 +1228,8 @@ def _groq_call(api_key: str, messages: list, max_tokens: int = 4500) -> str:
 def generate(content: str, category_hint: str, extra_sources: list[dict] | None = None,
              rss_url: str | None = None, retry_feedback: list[str] | None = None,
              repetition_feedback: list[str] | None = None,
-             article_type: str = "actu") -> dict:
+             article_type: str = "actu",
+             previous_article: dict | None = None) -> dict:
 
     # Construire la liste des URLs réelles disponibles (DuckDuckGo + flux RSS)
     real_sources: list[dict] = []
@@ -1286,20 +1287,45 @@ def generate(content: str, category_hint: str, extra_sources: list[dict] | None 
     )
 
     content_len = 1500 if is_retry else 7000
+
+    # Relance avec article précédent : le modèle CORRIGE l'article existant au
+    # lieu de tout réécrire depuis des sources tronquées — sans ce bloc, les
+    # extraits raccourcis (200 chars) déclenchaient la règle HORS_PERIMETRE
+    # ("pas assez de faits pour 700 mots") ou poussaient à inventer.
+    article_precedent_block = ""
+    if is_retry and previous_article:
+        article_precedent_block = (
+            "\n\nARTICLE PRÉCÉDENT (ta réponse à corriger) :\n"
+            + json.dumps(previous_article, ensure_ascii=False)
+            + "\n\nConserve tout ce qui est valide dans cet article ; ne modifie "
+            "QUE ce que la CORRECTION OBLIGATOIRE ci-dessous exige. Renvoie "
+            "l'article complet corrigé au même format JSON.\n"
+        )
+
+    regle_5 = (
+        "" if (is_retry and previous_article) else
+        "5. Si les extraits disponibles ne fournissent pas assez de faits précis pour 700 mots sans inventer, "
+        "réponds uniquement HORS_PERIMETRE.\n"
+    )
+    instruction_finale = (
+        "Corrige maintenant l'article ci-dessus." if (is_retry and previous_article)
+        else "Rédige maintenant l'article complet."
+    )
+
     user_msg = (
         f"{attrib_header}"
         f"Catégorie probable : {category_hint}\n\n"
         f"CONTENU SOURCE PRINCIPAL :\n{content[:content_len]}"
         f"{sources_block}"
+        f"{article_precedent_block}"
         f"RAPPEL ATTRIBUTION :\n"
         f"1. Le champ 'sources' ne doit contenir QUE des entrées dont l'URL figure dans les SOURCES ci-dessus.\n"
         f"2. Noms autorisés pour « Selon X » : {noms_autorises}. Aucun autre.\n"
         f"3. N'attribue un fait à une source QUE si ce fait est explicitement présent dans son extrait CONTENU.\n"
         f"   Si une information n'est dans aucun extrait, présente-la sans attribution ou omets-la.\n"
         f"4. JAMAIS « selon les experts », « des études montrent », « les scientifiques estiment » sans source précise.\n"
-        f"5. Si les extraits disponibles ne fournissent pas assez de faits précis pour 700 mots sans inventer, "
-        f"réponds uniquement HORS_PERIMETRE.\n"
-        f"Rédige maintenant l'article complet."
+        f"{regle_5}"
+        f"{instruction_finale}"
     )
 
     if retry_feedback:
@@ -3280,7 +3306,8 @@ def generer_article(item: dict, dry_run: bool, published: set, new_pub: set, dat
         if fantomes:
             print(f"     [GARDE] {len(fantomes)} attribution(s) hors sources — relance avec correction…")
             art = generate(content, cat, extra_sources=extra, rss_url=item.get("url"),
-                           retry_feedback=fantomes, article_type=article_type)
+                           retry_feedback=fantomes, article_type=article_type,
+                           previous_article=art)
             nb_garde_retries += 1
             fantomes = attributions_fantomes(art)
             if fantomes:
@@ -3305,7 +3332,8 @@ def generer_article(item: dict, dry_run: bool, published: set, new_pub: set, dat
         if repetitions:
             print(f"     [GARDE] {len(repetitions)} phrase(s) du résumé quasi identiques au corps — relance…")
             art = generate(content, cat, extra_sources=extra, rss_url=item.get("url"),
-                           repetition_feedback=repetitions, article_type=article_type)
+                           repetition_feedback=repetitions, article_type=article_type,
+                           previous_article=art)
             repetitions = resume_repete_corps(art)
             if repetitions:
                 print(f"     [AVERTISSEMENT] Résumé toujours proche du corps après relance — passé à Anthropic")
@@ -3317,7 +3345,8 @@ def generer_article(item: dict, dry_run: bool, published: set, new_pub: set, dat
         if intra:
             print(f"     [GARDE] {len(intra)} répétition(s) intra-article détectée(s) — relance…")
             art = generate(content, cat, extra_sources=extra, rss_url=item.get("url"),
-                           repetition_feedback=intra, article_type=article_type)
+                           repetition_feedback=intra, article_type=article_type,
+                           previous_article=art)
             if not isinstance(art, dict):
                 art = {}
             intra = faits_repetitifs(art)
