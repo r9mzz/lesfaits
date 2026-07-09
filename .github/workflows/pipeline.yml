@@ -11,10 +11,10 @@ on:
     - cron: "5 0 * 4-10 *"
     # Matin ~02h05 Paris — hiver (CET UTC+1) : novembre–mars
     - cron: "5 1 * 11-12,1-3 *"
-    # Soir ~10h35 Paris — été (CEST UTC+2) : avril–octobre
-    - cron: "35 8 * 4-10 *"
-    # Soir ~10h35 Paris — hiver (CET UTC+1) : novembre–mars
-    - cron: "35 9 * 11-12,1-3 *"
+    # Soir ~13h05 Paris — été (CEST UTC+2) : avril–octobre
+    - cron: "5 11 * 4-10 *"
+    # Soir ~13h05 Paris — hiver (CET UTC+1) : novembre–mars
+    - cron: "5 12 * 11-12,1-3 *"
   workflow_dispatch:
     inputs:
       dry_run:
