@@ -311,7 +311,7 @@ def generer_template_html(articles_par_cat: dict, date_long: str, slot: str = "m
           <a href="{SITE_BASE}" style="color:#9AA5BD;text-decoration:none;">Les Faits</a>.
         </p>
         <p style="font-family:Arial,Helvetica,sans-serif;font-size:11px;margin:0;text-align:center;">
-          <a href="{{unsubscribe}}" style="color:#6C85BD;text-decoration:none;">Se désabonner</a>
+          <a href="{{{{ unsubscribe }}}}" style="color:#6C85BD;text-decoration:none;">Se désabonner</a>
           &nbsp;·&nbsp;
           <a href="{SITE_BASE}/confidentialite.html" style="color:#706A64;text-decoration:none;">Vie privée</a>
         </p>
