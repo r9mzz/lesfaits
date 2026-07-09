@@ -1909,7 +1909,7 @@ _NAV_LINKS = (
     '<a href="/archive.html">Tous les articles</a>\n'
     '<a href="/methode.html">Comment on travaille</a>\n'
     '<a href="/a-propos.html">À propos &amp; réseaux</a>\n'
-    '<a href="index.html" class="nav-cta">S\'abonner à la newsletter</a>'
+    '<a href="/#newsletter" class="nav-cta">S\'abonner à la newsletter</a>'
 )
 _BURGER_JS = (
     "function toggleMenu(){"
