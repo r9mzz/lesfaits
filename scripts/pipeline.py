@@ -499,6 +499,7 @@ CATEGORIES_MAP = {
         "nutrition", "hypertension", "allergie", "grippe", "sida", "tumeur",
         "greffe", "urgences", "infirmi", "clinique", "symptôme", "diagnostic",
         "thérapie", "immunothérapie", "antibiotique", "asthme", "cholestérol",
+        "sanitaire",
     ],
     "science": [
         "exoplanète", "planète", "astronomie", "astrophysique", "espace",
@@ -509,6 +510,8 @@ CATEGORIES_MAP = {
         "espèce ", "cnrs", "étude ", "chercheurs", "scientifique", "laboratoire",
         "mathémati", "expérience ", "revue nature", "peer-review", "microbiote",
         "évolution ", "cellule", "molécule", "particule", "gravitation",
+        "protéine", "rupestre", "préhistor", "séisme", "volcan", "supernova",
+        "étoile", "milliards d'années", "géolog",
     ],
     "tech": [
         "smartphone", "iphone", "android", "ordinateur", "processeur", "puce",
@@ -520,6 +523,8 @@ CATEGORIES_MAP = {
         "startup", "start-up", "algorithme", "numérique", "internet", "wifi",
         "bluetooth", "cloud", "serveur", "streaming", "tiktok", "instagram",
         "bitcoin", "crypto", "blockchain", "informatique", "écran ", "batterie ",
+        "centre de données", "centres de données", "data center", "cybersécurité",
+        "logiciel espion", "surveillance numérique",
     ],
     "economie": [
         "économie", "inflation", " pib ", "croissance", "chômage", "emploi",
@@ -546,6 +551,7 @@ CATEGORIES_MAP = {
         "sénat", "assemblée", "maire", "démographie", "population", "banlieue",
         "prison", "attentat", "laïcité", "discrimination", "violences",
         "harcèlement", "féminicide", "syndicat", "référendum", "constitution",
+        "politique", "historien", "patrimoine", "sans-papiers",
     ],
 }
 
