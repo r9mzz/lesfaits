@@ -11,6 +11,7 @@ Usage:
 
 import os, re, json, time, hashlib, argparse, sys
 from datetime import datetime
+from zoneinfo import ZoneInfo
 from pathlib import Path
 from xml.etree import ElementTree as ET
 from urllib.parse import urlparse
@@ -2151,6 +2152,13 @@ def _sanitize_image_keyword(kw: str, fallback: str = "") -> str:
     return result if len(result) > 3 else (fallback or "france news")
 
 
+def _paris_iso_now() -> str:
+    """Horodatage ISO 8601 avec le vrai offset Paris (+01:00 CET / +02:00 CEST) —
+    évite le décalage d'1h l'hiver qu'un offset codé en dur produirait."""
+    iso = datetime.now(ZoneInfo("Europe/Paris")).strftime("%Y-%m-%dT%H:%M:%S%z")
+    return f"{iso[:-2]}:{iso[-2:]}"
+
+
 def build_article_html(art: dict, date_pub: str) -> str:
     resume_txt = " ".join(art["resume"]) if isinstance(art.get("resume"), list) else art.get("resume", "")
     slug      = art.get("slug", "")
@@ -2353,7 +2361,7 @@ function copyLink(){{
   <link rel="shortcut icon" href="/favicon.ico"/>
   <link rel="manifest" href="/manifest.json"/>
   <title>{_esc(art['titre'])} — Les Faits</title>
-  <script type="application/ld+json">{{"@context":"https://schema.org","@type":"NewsArticle","headline":"{_esc_json(art['titre'])}","description":"{_esc_json(desc_seo)}","datePublished":"{datetime.now().strftime('%Y-%m-%dT%H:%M:%S+02:00')}","dateModified":"{datetime.now().strftime('%Y-%m-%dT%H:%M:%S+02:00')}","articleSection":"{cat}","inLanguage":"fr","isAccessibleForFree":true,"image":{{"@type":"ImageObject","url":"{BASE_URL}/{hero_src}","width":1200,"height":630}},"author":{{"@type":"Organization","name":"Les Faits"}},"publisher":{{"@type":"Organization","name":"Les Faits","@id":"{BASE_URL}/#org","logo":{{"@type":"ImageObject","url":"{BASE_URL}/assets/images/og-default.jpg"}}}},"mainEntityOfPage":{{"@type":"WebPage","@id":"{art_url}"}}}}</script>
+  <script type="application/ld+json">{{"@context":"https://schema.org","@type":"NewsArticle","headline":"{_esc_json(art['titre'])}","description":"{_esc_json(desc_seo)}","datePublished":"{_paris_iso_now()}","dateModified":"{_paris_iso_now()}","articleSection":"{cat}","inLanguage":"fr","isAccessibleForFree":true,"image":{{"@type":"ImageObject","url":"{BASE_URL}/{hero_src}","width":1200,"height":630}},"author":{{"@type":"Organization","name":"Les Faits"}},"publisher":{{"@type":"Organization","name":"Les Faits","@id":"{BASE_URL}/#org","logo":{{"@type":"ImageObject","url":"{BASE_URL}/assets/images/og-default.jpg"}}}},"mainEntityOfPage":{{"@type":"WebPage","@id":"{art_url}"}}}}</script>
   <script type="application/ld+json">{{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{{"@type":"ListItem","position":1,"name":"Accueil","item":"{BASE_URL}/"}},{{"@type":"ListItem","position":2,"name":"{CAT_LABELS.get(cat, cat)}","item":"{BASE_URL}/categories/{cat}.html"}},{{"@type":"ListItem","position":3,"name":"{_esc_json(art['titre'])}"}}]}}</script>
   <base href="/"/>
   <link rel="stylesheet" href="/src/style.css"/>
@@ -3434,9 +3442,10 @@ def run(dry_run=False, text_input=None, nb_max=10):
     MOIS = ["janvier","février","mars","avril","mai","juin",
             "juillet","août","septembre","octobre","novembre","décembre"]
     now      = datetime.now()
-    # Utiliser l'heure du créneau prévu plutôt que l'heure réelle du runner
-    slot_heure = "07h00" if now.hour < 12 else "18h00"
-    date_pub = f"{now.day} {MOIS[now.month-1]} {now.year}, {slot_heure}"
+    # Heure réelle de génération (Paris, via TZ=Europe/Paris du runner) — pas
+    # un créneau fixe 07h00/18h00, qui mentait sur l'heure de publication
+    # effective quand un run était retardé ou ralenti par les rate limits.
+    date_pub = f"{now.day} {MOIS[now.month-1]} {now.year}, {now.strftime('%Hh%M')}"
 
     if text_input:
         item = {

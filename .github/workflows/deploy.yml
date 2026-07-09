@@ -121,6 +121,7 @@ jobs:
           cp    favicon.ico           /tmp/site/ 2>/dev/null || true
           cp    favicon-16x16.png     /tmp/site/ 2>/dev/null || true
           cp    favicon-32x32.png     /tmp/site/ 2>/dev/null || true
+          cp    apple-touch-icon.png  /tmp/site/ 2>/dev/null || true
           cp    recherche.html        /tmp/site/
           cp    mentions-legales.html /tmp/site/
           cp    confidentialite.html  /tmp/site/ 2>/dev/null || true
