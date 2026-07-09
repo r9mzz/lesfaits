@@ -1238,6 +1238,15 @@ def generate(content: str, category_hint: str, extra_sources: list[dict] | None 
 
     real_urls = {s["url"] for s in real_sources}
 
+    # Relance (retry_feedback / repetition_feedback) : le modèle corrige un
+    # article déjà écrit, il n'a pas besoin de ré-analyser tout le contenu
+    # source en détail — seulement de savoir quels noms sont autorisés.
+    # Renvoyer les CONTENU complets à chaque relance (jusqu'à 4 appels par
+    # article) multipliait le coût par ~4 et épuisait le quota Groq quotidien
+    # après 2-3 articles à peine.
+    is_retry = bool(retry_feedback or repetition_feedback)
+    snippet_len = 200 if is_retry else 950
+
     # 950 chars ≈ 2-3 paragraphes — assez pour ancrer des faits précis sans
     # dépasser le budget Groq (1500 chars × 8 sources dépassait 200k tokens/clé).
     sources_block = ""
@@ -1259,7 +1268,7 @@ def generate(content: str, category_hint: str, extra_sources: list[dict] | None 
             sources_block += f"NOM_SOURCE : {nom}\n"
             sources_block += f"URL        : {s['url']}\n"
             if snippet:
-                sources_block += f"CONTENU    :\n{snippet[:950]}\n"
+                sources_block += f"CONTENU    :\n{snippet[:snippet_len]}\n"
             else:
                 sources_block += "CONTENU    : (pas de contenu disponible)\n"
             sources_block += f"--- FIN SOURCE {i} ({nom}) ---\n\n"
@@ -1275,10 +1284,11 @@ def generate(content: str, category_hint: str, extra_sources: list[dict] | None 
         f"d'un extrait, ou tout média connu par ailleurs mais absent de la liste ci-dessus.\n\n"
     )
 
+    content_len = 1500 if is_retry else 7000
     user_msg = (
         f"{attrib_header}"
         f"Catégorie probable : {category_hint}\n\n"
-        f"CONTENU SOURCE PRINCIPAL :\n{content[:7000]}"
+        f"CONTENU SOURCE PRINCIPAL :\n{content[:content_len]}"
         f"{sources_block}"
         f"RAPPEL ATTRIBUTION :\n"
         f"1. Le champ 'sources' ne doit contenir QUE des entrées dont l'URL figure dans les SOURCES ci-dessus.\n"
