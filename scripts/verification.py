@@ -259,18 +259,18 @@ def _log(slug: str, statut: str, detail: dict | None = None):
 
 def _problemes_bloquants(problemes: list) -> list:
     """Blocs véritablement bloquants :
-    - Bloc 1 (factuel) : zéro tolérance — chiffre erroné, incoherence, etc.
-    - Bloc 2 STRICT : source_inventee uniquement — une source qu'on a inventée
-      est une falsification ; en revanche formule_vague / source_non_editoriale
-      sont des défauts de style récurrents dans les articles IA (le modèle écrit
-      "selon les chercheurs" faute de citation disponible) — les traiter comme
-      bloquants conduisait à 0 article publié avec le checker premium.
+    - Bloc 1 STRICT : chiffre_errone + incoherence_inter_sections uniquement.
+      fait_tranche_arbitrairement / chronologie_confuse = défauts rédactionnels
+      (le checker exhaustif les trouve systématiquement dans les articles IA),
+      pas des mensonges factuels — non bloquants.
+    - Bloc 2 STRICT : source_inventee uniquement.
     - Bloc 5 (légal) : géré en amont (rejete_sensible), jamais ici.
     Blocs 3/4 (style, cadrage) : non bloquants par définition."""
+    BLOC1_BLOQUANTS = {"chiffre_errone", "incoherence_inter_sections"}
     BLOC2_BLOQUANTS = {"source_inventee"}
     return [
         p for p in problemes
-        if p.get("bloc") == 1
+        if (p.get("bloc") == 1 and p.get("type") in BLOC1_BLOQUANTS)
         or (p.get("bloc") == 2 and p.get("type") in BLOC2_BLOQUANTS)
     ]
 
@@ -429,13 +429,15 @@ def verifier_article(art: dict, article_type: str = "actu") -> tuple[dict, str]:
             return art_corrige, "corrige_automatiquement"
 
         n_restants = len(problemes)
+        types_b = [f"{p.get('bloc')}/{p.get('type')}" for p in bloquants]
         print(f"     [VERIF] tentative {tentative}/{MAX_TENTATIVES} : {n_restants} problème(s) restant(s) "
-              f"dont {len(bloquants)} bloquant(s)")
+              f"dont {len(bloquants)} bloquant(s) : {types_b}")
         art_courant, rapport_courant = art_corrige, rapport_final
 
     # Toujours des problèmes bloquants (factuel/sourcing) après MAX_TENTATIVES
     bloquants_restants = _problemes_bloquants(rapport_courant.get("problemes", []))
-    print(f"     [REJET QUALITÉ] {len(bloquants_restants)} bloquant(s) après {MAX_TENTATIVES} passes")
+    types_bloquants = [f"{p.get('bloc')}/{p.get('type')}" for p in bloquants_restants]
+    print(f"     [REJET QUALITÉ] {len(bloquants_restants)} bloquant(s) après {MAX_TENTATIVES} passes : {types_bloquants}")
     _log(slug, "rejete_qualite", {
         "problemes_initiaux": n_pb,
         "tentatives": MAX_TENTATIVES,
