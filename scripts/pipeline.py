@@ -452,7 +452,15 @@ _COMMERCE_RE = re.compile(
     r"(?:à partir de|dès|seulement|au prix de)\s*\d+[.,]?\d*\s*€"
     r"|\d+[.,]\d{2}\s*€\s*(?:chez|sur)\b"
     r"|chez\s+(?:cdiscount|amazon|aliexpress|rakuten|darty|boulanger|leclerc|carrefour)"
-    r"|(?:cdiscount|aliexpress|rakuten)\b",
+    r"|(?:cdiscount|aliexpress|rakuten)\b"
+    # Bons plans / promos déguisés en article (ex: "le Dell 16 perd 350 euros").
+    # Motifs volontairement étroits : "promotion" seul ou "moins cher" seul
+    # apparaissent dans de vrais articles (promotion sociale, essence moins
+    # chère) — on ne matche que le vocabulaire marketing sans ambiguïté.
+    r"|bons? plans?\b|\bpromos?\b|\ben promo\b|ventes? flash|prix cassés?"
+    r"|meilleures? offres?|\d+\s*%\s*de\s*r[ée]duction|offre à saisir"
+    r"|perd\s+\d+\s*(?:euros|€)"
+    r"|rapport qualité[- ]prix|code promo",
     re.IGNORECASE,
 )
 
@@ -483,21 +491,88 @@ KW_CONFIANCE = [
 ]
 
 CATEGORIES_MAP = {
-    "science":       ["science", "recherche", "étude", "cnrs", "inserm", "médecine", "vaccin", "biologie", "physique", "chimie"],
-    "economie":      ["économie", "emploi", "chômage", "inflation", "pib", "smic", "budget", "déficit", "croissance", "banque"],
-    "tech":          ["technologie", "numérique", "intelligence artificielle", "ia ", "cyber", "algorithme", "données", "logiciel"],
-    "environnement": ["climat", "environnement", "énergie", "co2", "carbone", "biodiversité", "eau", "pollution", "forêt"],
-    "societe":       ["société", "démographie", "population", "logement", "pauvreté", "inégalité", "santé", "éducation", "justice"],
+    "sante": [
+        "santé", "hôpital", "hopita", "maladie", "cancer", "vaccin", "épidémie",
+        "virus", "bactérie", "traitement", "médicament", "patient", "médecin",
+        "chirurgie", "obésité", "diabète", "alzheimer", "démence", "cardiaque",
+        "avc", "dépression", "psychiatr", "inserm", " oms ", "sommeil",
+        "nutrition", "hypertension", "allergie", "grippe", "sida", "tumeur",
+        "greffe", "urgences", "infirmi", "clinique", "symptôme", "diagnostic",
+        "thérapie", "immunothérapie", "antibiotique", "asthme", "cholestérol",
+    ],
+    "science": [
+        "exoplanète", "planète", "astronomie", "astrophysique", "espace",
+        "nasa", " esa ", "télescope", "galaxie", "astéroïde", "comète", "mars ",
+        "lune ", "satellite", "fusée", "spatial", "cosmos", "orbite",
+        "archéologie", "fossile", "dinosaure", "paléontolog", " adn ", "génome",
+        "génétique", "neurone", "physique", "quantique", "chimie", "biologie",
+        "espèce ", "cnrs", "étude ", "chercheurs", "scientifique", "laboratoire",
+        "mathémati", "expérience ", "revue nature", "peer-review", "microbiote",
+        "évolution ", "cellule", "molécule", "particule", "gravitation",
+    ],
+    "tech": [
+        "smartphone", "iphone", "android", "ordinateur", "processeur", "puce",
+        "semi-conducteur", "intelligence artificielle", " ia ", "chatgpt",
+        "openai", "google", "apple", "microsoft", "meta ", "réseau social",
+        "réseaux sociaux", "application", "logiciel", "cyberattaque", "hacker",
+        "piratage", "données personnelles", "jeu vidéo", "jeux vidéo", "console",
+        "xbox", "playstation", "nintendo", "robot", "drone", " 5g ", " 6g ",
+        "startup", "start-up", "algorithme", "numérique", "internet", "wifi",
+        "bluetooth", "cloud", "serveur", "streaming", "tiktok", "instagram",
+        "bitcoin", "crypto", "blockchain", "informatique", "écran ", "batterie ",
+    ],
+    "economie": [
+        "économie", "inflation", " pib ", "croissance", "chômage", "emploi",
+        "salaire", "smic", "budget", "déficit", "dette ", "impôt", "taxe",
+        "bourse", "marché financier", "banque", " bce ", " fed ", "taux d'intérêt",
+        "entreprise", "licenciement", "levée de fonds", "investissement",
+        "commerce", "export", "industrie", "usine", "immobilier", "consommation",
+        "pouvoir d'achat", "récession", "actionnaire", "fusion-acquisition",
+        "faillite", "milliard", "chiffre d'affaires",
+    ],
+    "environnement": [
+        "climat", "réchauffement", "canicule", "sécheresse", "inondation",
+        "ouragan", "cyclone", " co2 ", "carbone", "émission", "biodiversité",
+        "espèce menacée", "pollution", "plastique", "recyclage", "renouvelable",
+        "solaire", "éolien", "forêt", "océan", "glacier", "banquise", "météo",
+        "environnement", "écolog", "pesticide", "nappe phréatique", "incendie",
+        "déforestation", "vague de chaleur", "montée des eaux", "permafrost",
+    ],
+    "societe": [
+        "société", "justice", "procès", "tribunal", "police", "gendarmerie",
+        "crime", "agression", "école", "éducation", "université", "logement",
+        "pauvreté", "inégalité", "immigration", "retraite", "manifestation",
+        "grève", "gouvernement", "ministre", "élection", "parlement", "loi ",
+        "sénat", "assemblée", "maire", "démographie", "population", "banlieue",
+        "prison", "attentat", "laïcité", "discrimination", "violences",
+        "harcèlement", "féminicide", "syndicat", "référendum", "constitution",
+    ],
 }
+
+# Ordre de priorité en cas d'égalité de score : du plus spécifique au plus
+# générique — "societe" est le fourre-tout, il ne gagne jamais une égalité.
+_CAT_PRIORITE = ["sante", "science", "tech", "environnement", "economie", "societe"]
 
 # Quota max par catégorie dans un cycle de génération
 QUOTA_CATEGORIE = 3
 
 
 def detect_category(text: str) -> str:
+    """Classement déterministe par lexique pondéré : un mot-clé trouvé dans le
+    titre (≈120 premiers caractères) pèse 3, dans le corps 1. En cas d'égalité,
+    _CAT_PRIORITE départage du plus spécifique au plus générique."""
     text_l = text.lower()
-    scores = {cat: sum(1 for kw in kws if kw in text_l) for cat, kws in CATEGORIES_MAP.items()}
-    best = max(scores, key=scores.get)
+    head   = text_l[:120]
+    scores = {}
+    for cat, kws in CATEGORIES_MAP.items():
+        s = 0
+        for kw in kws:
+            if kw in head:
+                s += 3
+            elif kw in text_l:
+                s += 1
+        scores[cat] = s
+    best = max(_CAT_PRIORITE, key=lambda c: scores[c])
     return best if scores[best] > 0 else "societe"
 
 
@@ -2640,6 +2715,12 @@ def rebuild_index():
 
 def build_index_html(main, side_html, grid_html, list_html):
     resume = " ".join(main["resume"]) if isinstance(main.get("resume"), list) else main.get("resume", "")
+    # La une doit accrocher, pas noyer : on coupe à la fin de phrase la plus
+    # proche sous ~260 caractères au lieu d'afficher le résumé complet en pavé.
+    if len(resume) > 300:
+        coupe = resume[:300]
+        fin = max(coupe.rfind(". "), coupe.rfind("! "), coupe.rfind("? "))
+        resume = (coupe[:fin + 1] if fin > 120 else coupe.rstrip() + "…")
 
     return f"""<!DOCTYPE html>
 <html lang="fr" data-theme="">
