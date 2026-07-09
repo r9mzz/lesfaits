@@ -232,5 +232,140 @@
     "mots_avant": 210,
     "mots_apres": 80,
     "article_type": "actu"
+  },
+  {
+    "slug": "traitements-anti-obesite-efficaces-mais-avec-effets-secondaires",
+    "statut": "corrige_automatiquement",
+    "date": "2026-07-09T15:44:19",
+    "problemes_initiaux": 17,
+    "tentatives": 1,
+    "problemes_residuels_style": 9,
+    "rapport_initial": {
+      "conforme": false,
+      "sujet_sensible": false,
+      "sujet_sensible_raison": "",
+      "problemes": [
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "France 24 indique que les traitements anti-obésité dits GLP-1 suscitent des interrogations croissantes sur leurs effets secondaires.",
+          "explication": "France 24 est citée comme source dans le corps de l'article mais n'apparaît pas dans la liste des sources autorisées."
+        },
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "Caminteresse précise que plus de trois millions de Français sont éligibles à ces traitements contre l'obésité, soit 5,1 % de la population.",
+          "explication": "Caminteresse est citée comme source dans le corps de l'article mais n'apparaît pas dans la liste des sources autorisées."
+        },
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "5 questions sur les agonistes du GLP-1 souligne que les agonistes du GLP-1 ont une efficacité réelle sur le poids, mais au prix d'effets indésirables très courants.",
+          "explication": "\"5 questions sur les agonistes du GLP-1\" est citée comme source dans le corps de l'article mais n'apparaît pas dans la liste des sources autorisées ; il ne s'agit pas d'une institution ou d'un média reconnu identifiable."
+        },
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "compteur_incoherent",
+          "phrase_exacte": "\"nb_sources\": 4",
+          "explication": "Le champ nb_sources indique 4 sources alors que l'article en cite effectivement 7 (Libération, Cnews, Actu.fr, Le Temps, France 24, Caminteresse, \"5 questions sur les agonistes du GLP-1\"), dont 3 ne figurent pas dans les sources autorisées ; le compteur ne reflète pas la réalité du sourcing utilisé."
+        },
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "source_derivee_comptee_comme_primaire",
+          "phrase_exacte": "Selon Libération, les auteurs d'une vaste synthèse publiée dans le British Medical Journal ont analysé plus de 200 études portant sur 19 traitements commercialisés ou en développement. D'après Cnews, les traitements GLP-1 contre l'obésité, considérés comme les plus efficaces, sont aussi ceux qui provoquent le plus d'effets indésirables. Actu.fr rapporte que les traitements anti-obésité se démocratisent et peuvent être remboursés, mais ils ne sont pas sans effets indésirables.",
+          "explication": "Libération, Cnews et Actu.fr sont publiés le même jour (9 juillet 2026) et traitent manifestement du même événement déclencheur (la même synthèse du BMJ) ; ils sont très probablement dérivés de la même dépêche ou du même communiqué et ne constituent pas trois sources indépendantes apportant des informations distinctes."
+        },
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "formule_vague",
+          "phrase_exacte": "Actu.fr rapporte que les traitements anti-obésité se démocratisent et peuvent être remboursés, mais ils ne sont pas sans effets indésirables.",
+          "explication": "L'affirmation sur le remboursement est présentée de façon générique et vague (\"peuvent être remboursés\") sans aucun détail factuel précis ni renvoi à une disposition réglementaire sourcée depuis la liste autorisée."
+        },
+        {
+          "bloc": 2,
+          "section": "contexte",
+          "type": "formule_vague",
+          "phrase_exacte": "Selon des études comparatives, les traitements GLP-1 ont montré une efficacité supérieure à d'autres approches médicamenteuses pour la perte de poids, mais avec des profils d'effets secondaires distincts.",
+          "explication": "\"Selon des études comparatives\" ne renvoie à aucune source précise de la liste autorisée ; c'est une formule vague sans référence vérifiable."
+        },
+        {
+          "bloc": 2,
+          "section": "contexte",
+          "type": "formule_vague",
+          "phrase_exacte": "Les comparaisons internationales révèlent des disparités dans l'accès à ces traitements, soulignant la nécessité d'une approche globale pour aborder les défis de l'obésité.",
+          "explication": "\"Les comparaisons internationales\" ne renvoie à aucune source précise de la liste autorisée ; c'est une formule vague sans référence identifiable."
+        },
+        {
+          "bloc": 4,
+          "section": "contexte",
+          "type": "section_gonflee",
+          "phrase_exacte": "Historiquement, la lutte contre l'obésité a été marquée par des approches variées, allant de la modification des habitudes alimentaires et de l'exercice physique aux interventions chirurgicales.",
+          "explication": "Cette phrase de contexte historique est générique, non sourcée et n'apporte aucun fait distinct et vérifiable par rapport aux sources autorisées."
+        },
+        {
+          "bloc": 4,
+          "section": "contexte",
+          "type": "section_gonflee",
+          "phrase_exacte": "Cependant, cette évolution soulève également des questions sur la durabilité de ces traitements, leur impact à long terme sur la santé, et les stratégies pour minimiser les effets indésirables.",
+          "explication": "Affirmation vague et générique non sourcée, sans fait distinct ; elle ne fait que reformuler le sujet général sans apporter d'information nouvelle issue des sources autorisées."
+        },
+        {
+          "bloc": 4,
+          "section": "nuances",
+          "type": "section_gonflee",
+          "phrase_exacte": "Les limites des études actuelles sur les traitements anti-obésité incluent la variabilité dans la population étudiée, les critères d'inclusion et d'exclusion, ainsi que la durée des études. De plus, les effets à long terme de ces traitements sur la santé globale des patients, y compris les risques potentiels de maladies chroniques, nécessitent des recherches plus approfondies.",
+          "explication": "Ces affirmations sur les limites méthodologiques ne sont attribuées à aucune source de la liste autorisée et constituent du remplissage générique non sourcé."
+        },
+        {
+          "bloc": 4,
+          "section": "nuances",
+          "type": "section_gonflee",
+          "phrase_exacte": "Il est également important de considérer les facteurs psychosociaux et économiques qui influencent l'adoption et la conformité aux traitements, ainsi que les stratégies pour soutenir les patients dans leur parcours de perte de poids.",
+          "explication": "Affirmation générique non sourcée qui ne s'appuie sur aucune des sources autorisées et ne constitue pas un fait distinct vérifiable."
+        },
+        {
+          "bloc": 4,
+          "section": "nuances",
+          "type": "section_gonflee",
+          "phrase_exacte": "Les débats en cours entre les professionnels de santé et les patients soulignent la nécessité d'une communication claire et transparente sur les bénéfices et les risques associés à ces traitements.",
+          "explication": "Formule générique et non sourcée qui ne renvoie à aucun débat concret ni à aucune source de la liste autorisée."
+        },
+        {
+          "bloc": 4,
+          "section": "nuances",
+          "type": "redondance",
+          "phrase_exacte": "Les débats en cours entre les professionnels de santé et les patients soulignent la nécessité d'une communication claire et transparente sur les bénéfices et les risques associés à ces traitements.",
+          "explication": "L'idée d'une tension entre bénéfices et effets secondaires nécessitant information des patients est déjà présente dans les faits et le résumé ; cette phrase ne fait que la répéter sous une forme vague."
+        },
+        {
+          "bloc": 4,
+          "section": "resume",
+          "type": "redondance",
+          "phrase_exacte": "Les recherches récentes mettent en lumière les complexités entourant ces traitements, soulignant la nécessité d'une approche équilibrée qui prend en compte à la fois leur efficacité et leurs effets indésirables.",
+          "explication": "Cette phrase du résumé répète exactement la même idée que la première et la troisième bullets du résumé (efficacité vs effets secondaires, approche équilibrée) sans apporter d'information supplémentaire."
+        },
+        {
+          "bloc": 4,
+          "section": "faits",
+          "type": "jugement_de_valeur",
+          "phrase_exacte": "5 questions sur les agonistes du GLP-1 souligne que les agonistes du GLP-1 ont une efficacité réelle sur le poids, mais au prix d'effets indésirables très courants.",
+          "explication": "\"au prix de\" est une tournure éditoriale qui implique un jugement de valeur (coût/sacrifice) plutôt qu'une formulation neutre et factuelle."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "chronologie_confuse",
+          "phrase_exacte": "Selon Le Temps, les patients qui ont utilisé ces traitements ont partagé leurs expériences, soulignant à la fois les bénéfices en termes de perte de poids et les défis liés aux effets secondaires.",
+          "explication": "La source Le Temps est datée du 28 mars 2026, soit plus de trois mois avant les autres sources (9 juillet 2026) ; les deux temporalités sont mélangées sans que l'écart de date ni le rapport entre les événements soient explicités."
+        }
+      ]
+    },
+    "article_type": "actu"
   }
 ]
