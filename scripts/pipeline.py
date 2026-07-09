@@ -1834,6 +1834,30 @@ def _init_used_images():
     print(f"  [images] {len(_USED_IMAGE_HASHES)} hashes chargés (anti-doublon)")
 
 
+def _optimize_image_file(path, max_width: int = 1200, quality: int = 82) -> None:
+    """Redimensionne à max_width et recompresse en JPEG q82 si ça fait gagner
+    du poids — les héros s'affichent à 1140px max, inutile de servir du 4K.
+    Ne touche pas au fichier si l'optimisation ne réduit pas sa taille."""
+    try:
+        from PIL import Image
+        import io as _io
+        p = str(path)
+        avant = os.path.getsize(p)
+        img = Image.open(p)
+        if img.mode not in ("RGB", "L"):
+            img = img.convert("RGB")
+        if img.width > max_width:
+            ratio = max_width / img.width
+            img = img.resize((max_width, int(img.height * ratio)), Image.LANCZOS)
+        buf = _io.BytesIO()
+        img.save(buf, "JPEG", quality=quality, optimize=True, progressive=True)
+        if buf.tell() < avant:
+            with open(p, "wb") as f:
+                f.write(buf.getvalue())
+    except Exception as e:
+        print(f"  [WARN] optimisation image {path}: {e}")
+
+
 def _download_hero(
     keyword: str,
     slug: str,
@@ -1880,6 +1904,7 @@ def _download_hero(
             return None
         with open(dest, "wb") as _f:
             _f.write(data)
+        _optimize_image_file(dest)
         _USED_IMAGE_HASHES.add(h)
         print(f"  [OK] {slug} → {credit} ({source_type})")
         return source_type, credit
@@ -1900,6 +1925,7 @@ def _download_hero(
                 os.remove(dest)
                 print(f"  [SKIP-DUP] {slug} → image source identique à une existante")
                 continue
+            _optimize_image_file(dest)
             _USED_IMAGE_HASHES.add(h)
             host = urlparse(url).hostname or url
             return stype, host
