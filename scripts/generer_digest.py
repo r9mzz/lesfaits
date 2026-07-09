@@ -59,12 +59,12 @@ CAT_LABELS = {
     "environnement": "Environnement",
 }
 CAT_COLORS = {
-    "societe":       "#4A6B8E",
-    "science":       "#3E7259",
-    "economie":      "#7A6B3E",
-    "tech":          "#4A4E8E",
-    "sante":         "#8E4A4A",
-    "environnement": "#3E7A5B",
+    "societe":       "#78716c",
+    "science":       "#06b6d4",
+    "economie":      "#f97316",
+    "tech":          "#a855f7",
+    "sante":         "#f43f5e",
+    "environnement": "#22c55e",
 }
 MOIS_FR  = {
     "01": "janvier",   "02": "février",  "03": "mars",
