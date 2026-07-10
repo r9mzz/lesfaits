@@ -3030,6 +3030,7 @@ def build_index_html(main, side_html, grid_html, list_html):
     </div>
   </div>
 </div>
+<main id="contenu">
 <div class="wrap">
   <div class="une">
     <div class="une__label">À LA UNE</div>
@@ -3062,6 +3063,7 @@ def build_index_html(main, side_html, grid_html, list_html):
 </div>
 
 {_build_newsletter_section()}
+</main>
 
 {_build_footer()}
 {_DARK_MODE_JS}
