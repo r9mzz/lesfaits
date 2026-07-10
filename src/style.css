@@ -52,7 +52,7 @@
 html { font-size: 16px; scroll-behavior: smooth; }
 body { font-family: system-ui,-apple-system,'Segoe UI',sans-serif; background: var(--sand); color: var(--ink); line-height: 1.6; }
 a { color: inherit; text-decoration: none; }
-p a:not([class]), li a:not([class]) { text-decoration: underline; text-underline-offset: 2px; }
+p a:not([class]), li a:not([class]), span a:not([class]) { text-decoration: underline; text-underline-offset: 2px; }
 button { font-family: inherit; cursor: pointer; border: none; background: none; }
 
 /* ── FOCUS CLAVIER ── visible uniquement au clavier (:focus-visible), jamais au clic souris */
@@ -139,7 +139,7 @@ nav a.active { opacity: 1; color: var(--blue-ink); border-bottom-color: var(--bl
 .manifeste { background: var(--white); border-bottom: 1px solid var(--rule); padding: 22px 32px; }
 .manifeste__inner { max-width: 1140px; margin: 0 auto; display: flex; align-items: flex-start; gap: 40px; }
 .manifeste__headline { font-family: Georgia,serif; font-size: 18px; font-weight: 700; color: var(--ink); flex-shrink: 0; white-space: nowrap; }
-.manifeste__headline span { color: var(--blue); }
+.manifeste__headline span { color: var(--blue-ink); }
 .manifeste__pillars { display: flex; flex: 1; }
 .manifeste__pillar { display: flex; align-items: flex-start; gap: 10px; flex: 1; padding: 0 24px; border-left: 1px solid var(--rule); }
 .manifeste__pillar:first-child { border-left: 2px solid var(--blue); }
@@ -465,15 +465,28 @@ a:hover .title-xl, a:hover .title-md, a:hover .title-sm { color: var(--blue-ink)
 .footer__bottom { border-top: 1px solid var(--rule); padding: 20px 32px; display: flex; justify-content: space-between; font-size: 10.5px; color: var(--muted); flex-wrap: wrap; gap: 8px; }
 
 /* ── COULEURS PAR CATÉGORIE ── */
-.cat--societe      { color: #78716c !important; }
-.cat--environnement{ color: #22c55e !important; }
-.cat--sante        { color: #f43f5e !important; }
-.cat--economie     { color: #f97316 !important; }
-.cat--tech         { color: #a855f7 !important; }
-.cat--science      { color: #06b6d4 !important; }
+.cat--societe      { color: #645e5a !important; }
+.cat--environnement{ color: #136e34 !important; }
+.cat--sante        { color: #af2d43 !important; }
+.cat--economie     { color: #9a470d !important; }
+.cat--tech         { color: #7f40bb !important; }
+.cat--science      { color: #03697a !important; }
 .cat--societe, .cat--environnement, .cat--sante, .cat--economie, .cat--tech, .cat--science {
   background: color-mix(in srgb, currentColor 12%, transparent) !important;
 }
+/* Thème sombre : les teintes assombries (pensées pour le fond sable clair)
+   perdent leur contraste sur fond quasi noir — on restitue des teintes
+   vives, déjà ≥4.5:1 sur --sand sombre, sauf societe qui a besoin d'un
+   gris plus clair que l'original. */
+[data-theme="dark"] .cat--societe      { color: #827c77 !important; }
+[data-theme="dark"] .cat--environnement{ color: #22c55e !important; }
+[data-theme="dark"] .cat--sante        { color: #f43f5e !important; }
+[data-theme="dark"] .cat--economie     { color: #f97316 !important; }
+[data-theme="dark"] .cat--tech         { color: #a855f7 !important; }
+[data-theme="dark"] .cat--science      { color: #06b6d4 !important; }
+
+.nl-compact__cat, .nl-compact__consent { min-height: 24px; }
+.nl-compact__cat input, .nl-compact__consent input { width: 18px; height: 18px; margin: 3px 6px 3px 0; flex-shrink: 0; }
 
 /* ── RETOUR EN HAUT ── */
 .back-to-top {
@@ -751,7 +764,7 @@ a.card3,a.une__main,a.une__side-item,a.list-item,a.art__related-card,a.archive-i
 .nl-compact__hint { font-size: 10px; color: var(--muted); margin: 0 0 10px; font-style: italic; }
 .nl-compact__consent { display: flex; align-items: flex-start; gap: 7px; font-size: 11px; color: var(--muted); line-height: 1.45; cursor: pointer; margin-bottom: 0; }
 .nl-compact__consent input { accent-color: var(--blue); margin-top: 2px; flex-shrink: 0; }
-.nl-compact__consent a { color: var(--blue); }
+.nl-compact__consent a { color: var(--blue-ink); }
 .nl-compact__msg { font-size: 11px; margin-top: 8px; line-height: 1.45; }
 .nl-compact__msg--ok  { color: var(--green); }
 .nl-compact__msg--err { color: var(--red); }
