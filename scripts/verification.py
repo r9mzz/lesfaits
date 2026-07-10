@@ -372,13 +372,36 @@ def verifier_article(art: dict, article_type: str = "actu") -> tuple[dict, str]:
     rapport_courant = rapport
     MAX_TENTATIVES = 2
     for tentative in range(1, MAX_TENTATIVES + 1):
-        try:
-            art_corrige = corriger(art_courant, rapport_courant)
-            rapport_final = detecter(art_corrige)
-        except Exception as e:
-            print(f"     [REJET QUALITÉ] Erreur API correction (tentative {tentative}) ({e}) — rejet")
-            _log(slug, "rejete_qualite", {"etape": "correction", "tentative": tentative, "erreur": str(e), **_type_detail})
-            return art, "rejete_qualite"
+        # Une erreur d'API (JSON mal formé dans la réponse, timeout) n'est pas
+        # un défaut de l'article : réessayer une fois avant toute décision.
+        # Rejeter sur simple erreur de parsing jetait des articles valides
+        # (incohérent avec la détection, qui publie sans vérification en cas
+        # d'erreur API).
+        art_corrige = rapport_final = None
+        derniere_erreur = None
+        for essai_api in (1, 2):
+            try:
+                art_corrige = corriger(art_courant, rapport_courant)
+                rapport_final = detecter(art_corrige)
+                break
+            except Exception as e:
+                derniere_erreur = e
+                if essai_api == 1:
+                    print(f"     [VERIF] Erreur API correction (tentative {tentative}) ({e}) — nouvel essai…")
+        if rapport_final is None:
+            bloquants_connus = _problemes_bloquants(rapport_courant.get("problemes", []))
+            if bloquants_connus:
+                print(f"     [REJET QUALITÉ] Erreur API persistante ({derniere_erreur}) — "
+                      f"{len(bloquants_connus)} bloquant(s) connu(s) non corrigés, rejet")
+                _log(slug, "rejete_qualite", {"etape": "correction", "tentative": tentative,
+                                              "erreur": str(derniere_erreur),
+                                              "bloquants_connus": len(bloquants_connus), **_type_detail})
+                return art_courant, "rejete_qualite"
+            print(f"     [VERIF] Erreur API persistante ({derniere_erreur}) — "
+                  f"défauts restants non bloquants, publié")
+            _log(slug, "erreur_verification", {"etape": "correction", "tentative": tentative,
+                                               "erreur": str(derniere_erreur), **_type_detail})
+            return art_courant, "erreur_verification"
 
         problemes = rapport_final.get("problemes", [])
         bloquants = _problemes_bloquants(problemes)

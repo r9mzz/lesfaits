@@ -85,6 +85,10 @@ RSS_SOURCES = [
     {"name": "INSERM Actualités",    "url": "https://www.inserm.fr/feed/"},
     # Environnement
     {"name": "Reporterre",           "url": "https://reporterre.net/spip.php?page=backend"},
+    # Universitaire / expertise (licence CC-BY : contenu librement réutilisable)
+    {"name": "The Conversation FR",  "url": "https://theconversation.com/fr/articles.rss"},
+    # Sécurité sanitaire
+    {"name": "ANSES",                "url": "https://www.anses.fr/fr/flux-actualites.rss"},
 ]
 
 HEADERS = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"}
@@ -362,8 +366,23 @@ def pubmed_search(query_en: str, max_results: int = 4, min_year: int = 2022) -> 
 def fetch_rss(source: dict) -> list[dict]:
     """Parse un flux RSS et retourne les items avec leur contenu texte."""
     try:
-        r = requests.get(source["url"], headers=HEADERS, timeout=12)
-        r.raise_for_status()
+        # Header Accept explicite : certains serveurs (ex : inserm.fr) renvoient
+        # 415 Unsupported Media Type quand la requête n'annonce pas les types
+        # de flux attendus.
+        rss_headers = {**HEADERS,
+                       "Accept": "application/rss+xml, application/atom+xml, "
+                                 "application/xml;q=0.9, text/xml;q=0.8, */*;q=0.5"}
+        try:
+            r = requests.get(source["url"], headers=rss_headers, timeout=12)
+            r.raise_for_status()
+        except requests.HTTPError:
+            # Second essai avec un User-Agent de lecteur de flux : certains WAF
+            # bloquent les UA navigateur sur les endpoints /feed/.
+            r = requests.get(source["url"],
+                             headers={"User-Agent": "FactuelBot/1.0 (+https://lesfaits.fr) RSS reader",
+                                      "Accept": rss_headers["Accept"]},
+                             timeout=12)
+            r.raise_for_status()
         root = ET.fromstring(r.content)
 
         # Namespaces courants
@@ -460,7 +479,37 @@ _COMMERCE_RE = re.compile(
     r"|bons? plans?\b|\bpromos?\b|\ben promo\b|ventes? flash|prix cassés?"
     r"|meilleures? offres?|\d+\s*%\s*de\s*r[ée]duction|offre à saisir"
     r"|perd\s+\d+\s*(?:euros|€)"
+    # "le Dell 16 Plus chute de 900 €" : même famille que "perd X euros"
+    r"|chute\s+de\s+\d+\s*(?:euros|€)|baisse\s+de\s+\d+\s*(?:euros|€)"
+    r"|passe\s+(?:à|sous)\s+\d+[.,]?\d*\s*(?:euros|€)"
     r"|rapport qualité[- ]prix|code promo",
+    re.IGNORECASE,
+)
+
+# Sujets sport-spectacle / lifestyle sans valeur informationnelle vérifiable :
+# commentaire de match, mercato, mode, tendances… Le malus (pas un rejet) laisse
+# passer un vrai sujet (économie du sport, santé et sport) qui scorerait par
+# ailleurs, mais élimine les comptes-rendus et papiers d'ambiance.
+_SPORT_LIFESTYLE_RE = re.compile(
+    r"\bmercato\b|\btransfert(?:s)? de .{0,30}(?:joueur|club)|équipe de france\b"
+    r"|\bbleus?\b.{0,40}\b(?:match|victoire|défaite|qualifi)"
+    r"|\b(?:match|mi-temps|penalty|buteur|sélectionneur)\b"
+    r"|surpuissant|décisif face à|homme du match"
+    r"|\blook\b|\btendance mode\b|\bstreet ?style\b|dress ?code"
+    r"|\btouristes?\b.{0,40}\b(?:mode|style|look|chapeau)"
+    r"|il ou elle porte|comment s'habiller",
+    re.IGNORECASE,
+)
+
+# Institutions productrices de données — pour le bonus substance du barème.
+# Liste volontairement plus étroite que SOURCES_MAJEURES (qui contient des
+# mots ambigus comme "science" ou "nature" matchant n'importe quel texte).
+_INSTITUTIONS_RE = re.compile(
+    r"\b(?:insee|inserm|cnrs|inrae|anses|ademe|ansm|drees|dares|ined|citepa"
+    r"|ocde|oms|onu|unesco|unicef|eurostat|giec|noaa|nasa|esa"
+    r"|météo[- ]france|santé publique france|cour des comptes"
+    r"|haute autorité de santé|assemblée nationale|sénat|commission européenne"
+    r"|banque de france|agence internationale de l'énergie)\b",
     re.IGNORECASE,
 )
 
@@ -561,6 +610,10 @@ _CAT_PRIORITE = ["sante", "science", "tech", "environnement", "economie", "socie
 
 # Quota max par catégorie dans un cycle de génération
 QUOTA_CATEGORIE = 3
+# Société : plafond réduit — catégorie fourre-tout où atterrissent les papiers
+# d'ambiance ; 2 max par créneau laisse la place aux catégories à matière
+# (science, santé, environnement, économie).
+QUOTA_PAR_CATEGORIE = {"societe": 2}
 
 
 def detect_category(text: str) -> str:
@@ -652,6 +705,31 @@ def score_editorial(item: dict, source_name: str, published_topics: set) -> tupl
         score += 20
         reasons.append(f"+20 densité ({len(item['content'])} chars, source qualifiée)")
 
+    # ── BONUS SUBSTANCE : des chiffres ET une institution nommée ────────────
+    # C'est le critère qui manquait au barème : un papier d'ambiance long et
+    # frais d'un média reconnu scorait mieux qu'une vraie donnée publiée par
+    # une institution. Chiffres + source institutionnelle nommée dans le corps
+    # = matière factuelle vérifiable.
+    debut = text[:1500]
+    nb_chiffres = len(re.findall(
+        r"\b\d[\d\s,.]*\s*(?:%|millions?|milliards?|€|euros|habitants|tonnes|"
+        r"cas\b|décès|hectares|années|km²?|degrés)", debut))
+    a_institution = bool(_INSTITUTIONS_RE.search(debut))
+    if nb_chiffres >= 2 and a_institution:
+        score += 25
+        reasons.append(f"+25 substance (chiffres × institution nommée)")
+    elif nb_chiffres >= 2:
+        score += 10
+        reasons.append(f"+10 substance (données chiffrées)")
+
+    # ── MALUS SPORT-SPECTACLE / LIFESTYLE ────────────────────────────────────
+    if _SPORT_LIFESTYLE_RE.search(item["title"]):
+        score -= 40
+        reasons.append("-40 sport-spectacle/lifestyle (titre)")
+    elif _SPORT_LIFESTYLE_RE.search(text[:800]):
+        score -= 25
+        reasons.append("-25 sport-spectacle/lifestyle (contenu)")
+
     # ── PÉNALITÉ FORMAT CHRONIQUE / LIFESTYLE ───────────────────────────────
     title_lower = item["title"].lower()
     if any(p in title_lower for p in _TITRE_MALUS):
@@ -727,7 +805,7 @@ def selectionner_meilleurs(
         if len(selection) >= nb_max:
             break
         cat = item.get("_cat", "societe")
-        if compteur.get(cat, 0) >= quota_cat:
+        if compteur.get(cat, 0) >= QUOTA_PAR_CATEGORIE.get(cat, quota_cat):
             continue
         selection.append(item)
         compteur[cat] = compteur.get(cat, 0) + 1
@@ -1067,6 +1145,41 @@ def faits_repetitifs(art: dict) -> list[str]:
     return violations
 
 
+_ATTRIB_DEBUT_RE = re.compile(r"^\s*[«\"]?\s*(?:Selon|D['’]après)\b", re.IGNORECASE)
+
+# Au-delà de ce total, l'article devient une litanie de « Selon X » — le
+# corpus publié plafonnait à 26 occurrences par article (médiane : 10).
+MAX_ATTRIBUTIONS_SELON = 7
+
+
+def attributions_trop_repetitives(art: dict) -> list[str]:
+    """Détecte le tic de style « Selon X » : deux phrases consécutives qui
+    commencent par Selon/D'après, ou densité globale excessive. Défaut de
+    style non bloquant — corrigé via la relance combinée."""
+    corps = art.get("corps", {}) or {}
+    textes = [str(corps.get(s, "") or "") for s in ("faits", "contexte", "nuances")]
+    resume = art.get("resume")
+    if isinstance(resume, list):
+        textes.append(" ".join(str(p) for p in resume))
+
+    feedback = []
+    total = 0
+    for texte in textes:
+        total += len(re.findall(r"\b(?:Selon|D['’]après)\s", texte, re.IGNORECASE))
+        phrases = [p for p in re.split(r"(?<=[.!?])\s+", texte) if p.strip()]
+        consecutives = 0
+        for ph in phrases:
+            if _ATTRIB_DEBUT_RE.match(ph):
+                consecutives += 1
+                if consecutives == 2 and len(feedback) < 4:
+                    feedback.append(f"phrases consécutives en « Selon… » : « {ph[:70]}… »")
+            else:
+                consecutives = 0
+    if total > MAX_ATTRIBUTIONS_SELON:
+        feedback.append(f"{total} « Selon/D'après » au total (maximum : {MAX_ATTRIBUTIONS_SELON})")
+    return feedback
+
+
 # ══════════════════════════════════════════════════════════════════════════════
 # DÉTECTION DÉTERMINISTE DE SUJETS À REJETER (avant appel LLM)
 # Critères codés en dur — ne dépendent pas du jugement du modèle.
@@ -1290,6 +1403,36 @@ def sujet_sante_sans_source_officielle(art: dict) -> bool:
     return True
 
 
+def _anthropic_generate_call(messages: list, max_tokens: int = 4500) -> str:
+    """Fallback de génération quand toutes les clés Groq sont en rate limit.
+    Utilise Haiku (rapide, peu coûteux) via la même clé ANTHROPIC_API_KEY que
+    la vérification — mieux vaut un article généré par Haiku qu'un sujet
+    abandonné faute de quota Groq."""
+    system_msg = "\n\n".join(m["content"] for m in messages if m["role"] == "system")
+    user_msgs  = [m for m in messages if m["role"] != "system"]
+    r = requests.post(
+        "https://api.anthropic.com/v1/messages",
+        headers={
+            "x-api-key": _ANTHROPIC_KEY,
+            "anthropic-version": "2023-06-01",
+            "content-type": "application/json",
+        },
+        json={
+            "model": "claude-haiku-4-5-20251001",
+            "max_tokens": max_tokens,
+            "system": system_msg,
+            "messages": user_msgs,
+        },
+        timeout=180,
+    )
+    r.raise_for_status()
+    data = r.json()
+    u = data.get("usage", {})
+    print(f"     [TOKENS ANTHROPIC] prompt={u.get('input_tokens', '?')} "
+          f"completion={u.get('output_tokens', '?')}", flush=True)
+    return data["content"][0]["text"].strip()
+
+
 def _groq_call(api_key: str, messages: list, max_tokens: int = 4500) -> str:
     """Appelle Groq avec la clé donnée. Lève une exception en cas d'erreur."""
     client = Groq(api_key=api_key)
@@ -1309,6 +1452,8 @@ def _groq_call(api_key: str, messages: list, max_tokens: int = 4500) -> str:
 def generate(content: str, category_hint: str, extra_sources: list[dict] | None = None,
              rss_url: str | None = None, retry_feedback: list[str] | None = None,
              repetition_feedback: list[str] | None = None,
+             intra_feedback: list[str] | None = None,
+             selon_feedback: list[str] | None = None,
              article_type: str = "actu",
              previous_article: dict | None = None) -> dict:
 
@@ -1327,7 +1472,7 @@ def generate(content: str, category_hint: str, extra_sources: list[dict] | None 
     # Renvoyer les CONTENU complets à chaque relance (jusqu'à 4 appels par
     # article) multipliait le coût par ~4 et épuisait le quota Groq quotidien
     # après 2-3 articles à peine.
-    is_retry = bool(retry_feedback or repetition_feedback)
+    is_retry = bool(retry_feedback or repetition_feedback or intra_feedback or selon_feedback)
     snippet_len = 200 if is_retry else 950
 
     # 950 chars ≈ 2-3 paragraphes — assez pour ancrer des faits précis sans
@@ -1385,7 +1530,7 @@ def generate(content: str, category_hint: str, extra_sources: list[dict] | None 
 
     regle_5 = (
         "" if (is_retry and previous_article) else
-        "5. Si les extraits disponibles ne fournissent pas assez de faits précis pour 700 mots sans inventer, "
+        "6. Si les extraits disponibles ne fournissent pas assez de faits précis pour 700 mots sans inventer, "
         "réponds uniquement HORS_PERIMETRE.\n"
     )
     instruction_finale = (
@@ -1405,6 +1550,11 @@ def generate(content: str, category_hint: str, extra_sources: list[dict] | None 
         f"3. N'attribue un fait à une source QUE si ce fait est explicitement présent dans son extrait CONTENU.\n"
         f"   Si une information n'est dans aucun extrait, présente-la sans attribution ou omets-la.\n"
         f"4. JAMAIS « selon les experts », « des études montrent », « les scientifiques estiment » sans source précise.\n"
+        f"5. STYLE D'ATTRIBUTION : maximum {MAX_ATTRIBUTIONS_SELON} « Selon X » / « D'après X » dans tout l'article, "
+        f"et jamais deux phrases consécutives qui commencent ainsi. Varie les formes : attribution en fin de phrase "
+        f"(« …, indique X »), verbe de citation (« X rapporte que… »), ou regroupe plusieurs faits d'une même source "
+        f"sous une seule attribution. La variation porte sur la FORME uniquement — chaque fait attribué reste lié à "
+        f"sa source réelle.\n"
         f"{regle_5}"
         f"{instruction_finale}"
     )
@@ -1425,6 +1575,24 @@ def generate(content: str, category_hint: str, extra_sources: list[dict] | None 
             + " » ; « ".join(repetition_feedback[:5]) + " ». "
             "Réécris le champ 'resume' avec un vocabulaire et une syntaxe entièrement différents "
             "de ceux du corps — une synthèse, jamais un copier-coller déguisé."
+        )
+
+    if intra_feedback:
+        user_msg += (
+            "\n\nCORRECTION OBLIGATOIRE — ta précédente réponse répétait la même information "
+            "plusieurs fois dans le corps (sous des formulations ou attributions différentes) : « "
+            + " » ; « ".join(intra_feedback[:5]) + " ». "
+            "Fusionne chaque information répétée en une seule mention et remplace les passages "
+            "en doublon par des faits distincts issus des sources autorisées."
+        )
+
+    if selon_feedback:
+        user_msg += (
+            "\n\nCORRECTION OBLIGATOIRE — ta précédente réponse abusait des attributions "
+            "« Selon X » / « D'après X » : " + " ; ".join(selon_feedback[:4]) + ". "
+            f"Réduis à {MAX_ATTRIBUTIONS_SELON} maximum : regroupe les faits d'une même source sous une seule "
+            "attribution et varie les formes (« …, indique X », « X rapporte que… »). "
+            "N'attribue JAMAIS un fait à une source absente de la liste pour autant."
         )
 
     messages = [
@@ -1455,13 +1623,18 @@ def generate(content: str, category_hint: str, extra_sources: list[dict] | None 
                             time.sleep(RETRY_WAIT)
                         else:
                             print(f"     [ERREUR GROQ] Rate limit atteint sur toutes les clés après {MAX_RETRY_CYCLES} cycles")
-                            raise
                 else:
                     raise
         if raw is not None:
             break
     if raw is None:
-        raise RuntimeError("Aucune clé Groq disponible")
+        # Toutes les clés Groq épuisées : fallback Anthropic plutôt que
+        # d'abandonner les sujets restants du créneau.
+        if _ANTHROPIC_KEY:
+            print("     [FALLBACK] Quota Groq épuisé — génération via Anthropic (Haiku)")
+            raw = _anthropic_generate_call(messages)
+        else:
+            raise RuntimeError("Aucune clé Groq disponible (rate limit) et pas de clé Anthropic")
 
     if "HORS_PERIMETRE" in raw[:60]:
         raise ValueError(raw[:80])
@@ -3417,14 +3590,41 @@ def generer_article(item: dict, dry_run: bool, published: set, new_pub: set, dat
         # (voir rejet précoce plus bas).
         nb_garde_retries = 0
 
-        # ── Garde-fou 1 : attributions fantômes (déterministe, une relance) ──
-        fantomes = attributions_fantomes(art)
-        if fantomes:
-            print(f"     [GARDE] {len(fantomes)} attribution(s) hors sources — relance avec correction…")
+        # ── Garde-fous 1/3/4 : une SEULE relance corrective combinée ──────────
+        # Les trois contrôles (attributions fantômes, résumé qui paraphrase le
+        # corps, répétitions intra-article) sont déterministes et indépendants :
+        # les évaluer d'abord tous puis relancer une seule fois avec les retours
+        # combinés coûte 1 appel Groq au lieu de 3 — les relances en cascade
+        # épuisaient le quota des 3 clés dès le 5e sujet du créneau.
+        fantomes    = attributions_fantomes(art)
+        repetitions = resume_repete_corps(art)
+        intra       = faits_repetitifs(art)
+        selon       = attributions_trop_repetitives(art)
+        if fantomes or repetitions or intra or selon:
+            details = []
+            if fantomes:
+                details.append(f"{len(fantomes)} attribution(s) hors sources")
+            if repetitions:
+                details.append(f"{len(repetitions)} phrase(s) du résumé quasi identiques au corps")
+            if intra:
+                details.append(f"{len(intra)} répétition(s) intra-article")
+            if selon:
+                details.append(f"abus de « Selon X » ({len(selon)} signalement(s))")
+            print(f"     [GARDE] {' + '.join(details)} — relance corrective unique…")
             art = generate(content, cat, extra_sources=extra, rss_url=item.get("url"),
-                           retry_feedback=fantomes, article_type=article_type,
+                           retry_feedback=fantomes or None,
+                           repetition_feedback=repetitions or None,
+                           intra_feedback=intra or None,
+                           selon_feedback=selon or None,
+                           article_type=article_type,
                            previous_article=art)
-            nb_garde_retries += 1
+            if not isinstance(art, dict):
+                art = {}
+            if fantomes:
+                nb_garde_retries += 1
+            # Re-vérifier les attributions après TOUTE relance : une relance
+            # déclenchée par un défaut de style peut introduire de nouvelles
+            # attributions hors sources.
             fantomes = attributions_fantomes(art)
             if fantomes:
                 # Récupération déterministe : supprimer les attributions invalides
@@ -3439,35 +3639,14 @@ def generer_article(item: dict, dry_run: bool, published: set, new_pub: set, dat
                     print(f"     [REJET QUALITÉ] Attributions toujours hors sources après relance "
                           f"({', '.join(fantomes[:3])}…) — rejet définitif")
                     return False
-
-        # ── Garde-fou 3 : résumé qui paraphrase le corps (déterministe, une
-        # relance ; non bloquant — c'est un défaut de style, pas de conformité) ──
-        # Ne compte PAS dans nb_garde_retries : le circuit-breaker ne doit
-        # sanctionner que les relances sur des critères bloquants (attributions).
-        repetitions = resume_repete_corps(art)
-        if repetitions:
-            print(f"     [GARDE] {len(repetitions)} phrase(s) du résumé quasi identiques au corps — relance…")
-            art = generate(content, cat, extra_sources=extra, rss_url=item.get("url"),
-                           repetition_feedback=repetitions, article_type=article_type,
-                           previous_article=art)
-            repetitions = resume_repete_corps(art)
-            if repetitions:
+            # Défauts de style (non bloquants) : simple avertissement si persistants,
+            # Anthropic jugera la qualité finale.
+            if resume_repete_corps(art):
                 print(f"     [AVERTISSEMENT] Résumé toujours proche du corps après relance — passé à Anthropic")
-
-        # ── Garde-fou 4 : répétition intra-article (même info sous plusieurs
-        # attributions ; déterministe, une relance ; non bloquant) ──
-        # Ne compte PAS dans nb_garde_retries (même raison que garde-fou 3).
-        intra = faits_repetitifs(art)
-        if intra:
-            print(f"     [GARDE] {len(intra)} répétition(s) intra-article détectée(s) — relance…")
-            art = generate(content, cat, extra_sources=extra, rss_url=item.get("url"),
-                           repetition_feedback=intra, article_type=article_type,
-                           previous_article=art)
-            if not isinstance(art, dict):
-                art = {}
-            intra = faits_repetitifs(art)
-            if intra:
+            if faits_repetitifs(art):
                 print(f"     [AVERTISSEMENT] Répétitions intra-article persistantes après relance — passé à Anthropic")
+            if attributions_trop_repetitives(art):
+                print(f"     [AVERTISSEMENT] Abus de « Selon X » persistant après relance — passé à Anthropic")
 
         # ── Garde-fou Dossier Science : formulations assertives interdites ─────
         if article_type == "dossier_science":
