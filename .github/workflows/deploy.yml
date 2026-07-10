@@ -133,6 +133,7 @@ jobs:
           cp    404.html             /tmp/site/ 2>/dev/null || true
           cp    favoris.html          /tmp/site/ 2>/dev/null || true
           cp    confirmation.html     /tmp/site/ 2>/dev/null || true
+          cp    desabonnement.html    /tmp/site/ 2>/dev/null || true
           cp -r src/                  /tmp/site/ 2>/dev/null || true
 
           cd /tmp/site
