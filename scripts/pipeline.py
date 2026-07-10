@@ -762,7 +762,7 @@ Format obligatoire :
   "sources": [
     {"institution": "Nom exact institution", "titre": "Titre exact publication ou rapport", "date": "Date précise", "url": "URL FOURNIE DANS LES SOURCES SUPPLÉMENTAIRES UNIQUEMENT — si aucune URL n'a été fournie pour cette institution, mets null"}
   ],
-  "categorie": "science|economie|societe|tech|environnement",
+  "categorie": "science|economie|societe|tech|environnement|sante",
   "nb_sources": 4,
   "positions": {
     "verifie": true,
@@ -829,7 +829,7 @@ Format obligatoire (identique à ACTU) :
     "nuances": "MINIMUM 150 mots. LIMITES ET INCERTITUDES : ce que les sources ne permettent pas de confirmer, critiques légitimes du travail (non de la personne), questions ouvertes dans son domaine."
   },
   "sources": [...],
-  "categorie": "science|economie|societe|tech|environnement",
+  "categorie": "science|economie|societe|tech|environnement|sante",
   "nb_sources": 4,
   "positions": {"verifie": false, "label_gauche": "", "label_droite": "", "acteurs": []}
 }
@@ -3525,6 +3525,12 @@ def generer_article(item: dict, dry_run: bool, published: set, new_pub: set, dat
             # Messages déjà affichés dans verifier_article
             return False
         art["statut_verification"] = statut_verif
+
+        # La catégorie publiée est TOUJOURS celle du classifieur déterministe
+        # (detect_category, lexique v2) — jamais celle choisie par le LLM, dont
+        # la liste autorisée dans le prompt était incomplète (pas de "sante")
+        # et dont le choix contredisait régulièrement le lexique.
+        art["categorie"] = cat
 
         # Le badge public reflète le nombre de sources réellement citées
         # APRÈS correction, jamais le nombre fourni en entrée
