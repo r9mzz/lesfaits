@@ -1145,6 +1145,41 @@ def faits_repetitifs(art: dict) -> list[str]:
     return violations
 
 
+_ATTRIB_DEBUT_RE = re.compile(r"^\s*[«\"]?\s*(?:Selon|D['’]après)\b", re.IGNORECASE)
+
+# Au-delà de ce total, l'article devient une litanie de « Selon X » — le
+# corpus publié plafonnait à 26 occurrences par article (médiane : 10).
+MAX_ATTRIBUTIONS_SELON = 7
+
+
+def attributions_trop_repetitives(art: dict) -> list[str]:
+    """Détecte le tic de style « Selon X » : deux phrases consécutives qui
+    commencent par Selon/D'après, ou densité globale excessive. Défaut de
+    style non bloquant — corrigé via la relance combinée."""
+    corps = art.get("corps", {}) or {}
+    textes = [str(corps.get(s, "") or "") for s in ("faits", "contexte", "nuances")]
+    resume = art.get("resume")
+    if isinstance(resume, list):
+        textes.append(" ".join(str(p) for p in resume))
+
+    feedback = []
+    total = 0
+    for texte in textes:
+        total += len(re.findall(r"\b(?:Selon|D['’]après)\s", texte, re.IGNORECASE))
+        phrases = [p for p in re.split(r"(?<=[.!?])\s+", texte) if p.strip()]
+        consecutives = 0
+        for ph in phrases:
+            if _ATTRIB_DEBUT_RE.match(ph):
+                consecutives += 1
+                if consecutives == 2 and len(feedback) < 4:
+                    feedback.append(f"phrases consécutives en « Selon… » : « {ph[:70]}… »")
+            else:
+                consecutives = 0
+    if total > MAX_ATTRIBUTIONS_SELON:
+        feedback.append(f"{total} « Selon/D'après » au total (maximum : {MAX_ATTRIBUTIONS_SELON})")
+    return feedback
+
+
 # ══════════════════════════════════════════════════════════════════════════════
 # DÉTECTION DÉTERMINISTE DE SUJETS À REJETER (avant appel LLM)
 # Critères codés en dur — ne dépendent pas du jugement du modèle.
@@ -1418,6 +1453,7 @@ def generate(content: str, category_hint: str, extra_sources: list[dict] | None 
              rss_url: str | None = None, retry_feedback: list[str] | None = None,
              repetition_feedback: list[str] | None = None,
              intra_feedback: list[str] | None = None,
+             selon_feedback: list[str] | None = None,
              article_type: str = "actu",
              previous_article: dict | None = None) -> dict:
 
@@ -1436,7 +1472,7 @@ def generate(content: str, category_hint: str, extra_sources: list[dict] | None 
     # Renvoyer les CONTENU complets à chaque relance (jusqu'à 4 appels par
     # article) multipliait le coût par ~4 et épuisait le quota Groq quotidien
     # après 2-3 articles à peine.
-    is_retry = bool(retry_feedback or repetition_feedback or intra_feedback)
+    is_retry = bool(retry_feedback or repetition_feedback or intra_feedback or selon_feedback)
     snippet_len = 200 if is_retry else 950
 
     # 950 chars ≈ 2-3 paragraphes — assez pour ancrer des faits précis sans
@@ -1494,7 +1530,7 @@ def generate(content: str, category_hint: str, extra_sources: list[dict] | None 
 
     regle_5 = (
         "" if (is_retry and previous_article) else
-        "5. Si les extraits disponibles ne fournissent pas assez de faits précis pour 700 mots sans inventer, "
+        "6. Si les extraits disponibles ne fournissent pas assez de faits précis pour 700 mots sans inventer, "
         "réponds uniquement HORS_PERIMETRE.\n"
     )
     instruction_finale = (
@@ -1514,6 +1550,11 @@ def generate(content: str, category_hint: str, extra_sources: list[dict] | None 
         f"3. N'attribue un fait à une source QUE si ce fait est explicitement présent dans son extrait CONTENU.\n"
         f"   Si une information n'est dans aucun extrait, présente-la sans attribution ou omets-la.\n"
         f"4. JAMAIS « selon les experts », « des études montrent », « les scientifiques estiment » sans source précise.\n"
+        f"5. STYLE D'ATTRIBUTION : maximum {MAX_ATTRIBUTIONS_SELON} « Selon X » / « D'après X » dans tout l'article, "
+        f"et jamais deux phrases consécutives qui commencent ainsi. Varie les formes : attribution en fin de phrase "
+        f"(« …, indique X »), verbe de citation (« X rapporte que… »), ou regroupe plusieurs faits d'une même source "
+        f"sous une seule attribution. La variation porte sur la FORME uniquement — chaque fait attribué reste lié à "
+        f"sa source réelle.\n"
         f"{regle_5}"
         f"{instruction_finale}"
     )
@@ -1543,6 +1584,15 @@ def generate(content: str, category_hint: str, extra_sources: list[dict] | None 
             + " » ; « ".join(intra_feedback[:5]) + " ». "
             "Fusionne chaque information répétée en une seule mention et remplace les passages "
             "en doublon par des faits distincts issus des sources autorisées."
+        )
+
+    if selon_feedback:
+        user_msg += (
+            "\n\nCORRECTION OBLIGATOIRE — ta précédente réponse abusait des attributions "
+            "« Selon X » / « D'après X » : " + " ; ".join(selon_feedback[:4]) + ". "
+            f"Réduis à {MAX_ATTRIBUTIONS_SELON} maximum : regroupe les faits d'une même source sous une seule "
+            "attribution et varie les formes (« …, indique X », « X rapporte que… »). "
+            "N'attribue JAMAIS un fait à une source absente de la liste pour autant."
         )
 
     messages = [
@@ -3549,7 +3599,8 @@ def generer_article(item: dict, dry_run: bool, published: set, new_pub: set, dat
         fantomes    = attributions_fantomes(art)
         repetitions = resume_repete_corps(art)
         intra       = faits_repetitifs(art)
-        if fantomes or repetitions or intra:
+        selon       = attributions_trop_repetitives(art)
+        if fantomes or repetitions or intra or selon:
             details = []
             if fantomes:
                 details.append(f"{len(fantomes)} attribution(s) hors sources")
@@ -3557,11 +3608,14 @@ def generer_article(item: dict, dry_run: bool, published: set, new_pub: set, dat
                 details.append(f"{len(repetitions)} phrase(s) du résumé quasi identiques au corps")
             if intra:
                 details.append(f"{len(intra)} répétition(s) intra-article")
+            if selon:
+                details.append(f"abus de « Selon X » ({len(selon)} signalement(s))")
             print(f"     [GARDE] {' + '.join(details)} — relance corrective unique…")
             art = generate(content, cat, extra_sources=extra, rss_url=item.get("url"),
                            retry_feedback=fantomes or None,
                            repetition_feedback=repetitions or None,
                            intra_feedback=intra or None,
+                           selon_feedback=selon or None,
                            article_type=article_type,
                            previous_article=art)
             if not isinstance(art, dict):
@@ -3591,6 +3645,8 @@ def generer_article(item: dict, dry_run: bool, published: set, new_pub: set, dat
                 print(f"     [AVERTISSEMENT] Résumé toujours proche du corps après relance — passé à Anthropic")
             if faits_repetitifs(art):
                 print(f"     [AVERTISSEMENT] Répétitions intra-article persistantes après relance — passé à Anthropic")
+            if attributions_trop_repetitives(art):
+                print(f"     [AVERTISSEMENT] Abus de « Selon X » persistant après relance — passé à Anthropic")
 
         # ── Garde-fou Dossier Science : formulations assertives interdites ─────
         if article_type == "dossier_science":
