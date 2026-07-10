@@ -85,6 +85,10 @@ RSS_SOURCES = [
     {"name": "INSERM Actualités",    "url": "https://www.inserm.fr/feed/"},
     # Environnement
     {"name": "Reporterre",           "url": "https://reporterre.net/spip.php?page=backend"},
+    # Universitaire / expertise (licence CC-BY : contenu librement réutilisable)
+    {"name": "The Conversation FR",  "url": "https://theconversation.com/fr/articles.rss"},
+    # Sécurité sanitaire
+    {"name": "ANSES",                "url": "https://www.anses.fr/fr/flux-actualites.rss"},
 ]
 
 HEADERS = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"}
@@ -475,7 +479,37 @@ _COMMERCE_RE = re.compile(
     r"|bons? plans?\b|\bpromos?\b|\ben promo\b|ventes? flash|prix cassés?"
     r"|meilleures? offres?|\d+\s*%\s*de\s*r[ée]duction|offre à saisir"
     r"|perd\s+\d+\s*(?:euros|€)"
+    # "le Dell 16 Plus chute de 900 €" : même famille que "perd X euros"
+    r"|chute\s+de\s+\d+\s*(?:euros|€)|baisse\s+de\s+\d+\s*(?:euros|€)"
+    r"|passe\s+(?:à|sous)\s+\d+[.,]?\d*\s*(?:euros|€)"
     r"|rapport qualité[- ]prix|code promo",
+    re.IGNORECASE,
+)
+
+# Sujets sport-spectacle / lifestyle sans valeur informationnelle vérifiable :
+# commentaire de match, mercato, mode, tendances… Le malus (pas un rejet) laisse
+# passer un vrai sujet (économie du sport, santé et sport) qui scorerait par
+# ailleurs, mais élimine les comptes-rendus et papiers d'ambiance.
+_SPORT_LIFESTYLE_RE = re.compile(
+    r"\bmercato\b|\btransfert(?:s)? de .{0,30}(?:joueur|club)|équipe de france\b"
+    r"|\bbleus?\b.{0,40}\b(?:match|victoire|défaite|qualifi)"
+    r"|\b(?:match|mi-temps|penalty|buteur|sélectionneur)\b"
+    r"|surpuissant|décisif face à|homme du match"
+    r"|\blook\b|\btendance mode\b|\bstreet ?style\b|dress ?code"
+    r"|\btouristes?\b.{0,40}\b(?:mode|style|look|chapeau)"
+    r"|il ou elle porte|comment s'habiller",
+    re.IGNORECASE,
+)
+
+# Institutions productrices de données — pour le bonus substance du barème.
+# Liste volontairement plus étroite que SOURCES_MAJEURES (qui contient des
+# mots ambigus comme "science" ou "nature" matchant n'importe quel texte).
+_INSTITUTIONS_RE = re.compile(
+    r"\b(?:insee|inserm|cnrs|inrae|anses|ademe|ansm|drees|dares|ined|citepa"
+    r"|ocde|oms|onu|unesco|unicef|eurostat|giec|noaa|nasa|esa"
+    r"|météo[- ]france|santé publique france|cour des comptes"
+    r"|haute autorité de santé|assemblée nationale|sénat|commission européenne"
+    r"|banque de france|agence internationale de l'énergie)\b",
     re.IGNORECASE,
 )
 
@@ -576,6 +610,10 @@ _CAT_PRIORITE = ["sante", "science", "tech", "environnement", "economie", "socie
 
 # Quota max par catégorie dans un cycle de génération
 QUOTA_CATEGORIE = 3
+# Société : plafond réduit — catégorie fourre-tout où atterrissent les papiers
+# d'ambiance ; 2 max par créneau laisse la place aux catégories à matière
+# (science, santé, environnement, économie).
+QUOTA_PAR_CATEGORIE = {"societe": 2}
 
 
 def detect_category(text: str) -> str:
@@ -667,6 +705,31 @@ def score_editorial(item: dict, source_name: str, published_topics: set) -> tupl
         score += 20
         reasons.append(f"+20 densité ({len(item['content'])} chars, source qualifiée)")
 
+    # ── BONUS SUBSTANCE : des chiffres ET une institution nommée ────────────
+    # C'est le critère qui manquait au barème : un papier d'ambiance long et
+    # frais d'un média reconnu scorait mieux qu'une vraie donnée publiée par
+    # une institution. Chiffres + source institutionnelle nommée dans le corps
+    # = matière factuelle vérifiable.
+    debut = text[:1500]
+    nb_chiffres = len(re.findall(
+        r"\b\d[\d\s,.]*\s*(?:%|millions?|milliards?|€|euros|habitants|tonnes|"
+        r"cas\b|décès|hectares|années|km²?|degrés)", debut))
+    a_institution = bool(_INSTITUTIONS_RE.search(debut))
+    if nb_chiffres >= 2 and a_institution:
+        score += 25
+        reasons.append(f"+25 substance (chiffres × institution nommée)")
+    elif nb_chiffres >= 2:
+        score += 10
+        reasons.append(f"+10 substance (données chiffrées)")
+
+    # ── MALUS SPORT-SPECTACLE / LIFESTYLE ────────────────────────────────────
+    if _SPORT_LIFESTYLE_RE.search(item["title"]):
+        score -= 40
+        reasons.append("-40 sport-spectacle/lifestyle (titre)")
+    elif _SPORT_LIFESTYLE_RE.search(text[:800]):
+        score -= 25
+        reasons.append("-25 sport-spectacle/lifestyle (contenu)")
+
     # ── PÉNALITÉ FORMAT CHRONIQUE / LIFESTYLE ───────────────────────────────
     title_lower = item["title"].lower()
     if any(p in title_lower for p in _TITRE_MALUS):
@@ -742,7 +805,7 @@ def selectionner_meilleurs(
         if len(selection) >= nb_max:
             break
         cat = item.get("_cat", "societe")
-        if compteur.get(cat, 0) >= quota_cat:
+        if compteur.get(cat, 0) >= QUOTA_PAR_CATEGORIE.get(cat, quota_cat):
             continue
         selection.append(item)
         compteur[cat] = compteur.get(cat, 0) + 1
