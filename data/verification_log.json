@@ -518,5 +518,175 @@
       ]
     },
     "article_type": "actu"
+  },
+  {
+    "slug": "depistage-genetique-preconceptionnel-ouvert",
+    "statut": "rejete_qualite",
+    "date": "2026-07-10T15:22:19",
+    "problemes_initiaux": 12,
+    "tentatives": 2,
+    "problemes_restants": 8,
+    "bloquants_restants": 1,
+    "article_type": "actu"
+  },
+  {
+    "slug": "mbappe-victime-propos-racistes-senatrice-paraguayenne",
+    "statut": "rejete_sensible",
+    "date": "2026-07-10T15:25:00",
+    "sujet_sensible": true,
+    "raison": "L'article contient des affirmations négatives visant nommément une personne identifiée (Celeste Amarilla, sénatrice paraguayenne) pour des faits potentiellement constitutifs d'infractions pénales, dans le cadre d'une enquête judiciaire en cours.",
+    "article_type": "actu"
+  },
+  {
+    "slug": "expansion-dorsale-oceanique",
+    "statut": "corrige_automatiquement",
+    "date": "2026-07-10T15:26:41",
+    "problemes_initiaux": 18,
+    "tentatives": 1,
+    "problemes_residuels_style": 11,
+    "rapport_initial": {
+      "conforme": false,
+      "sujet_sensible": false,
+      "sujet_sensible_raison": "",
+      "problemes": [
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "source_non_editoriale",
+          "phrase_exacte": "D'après Haiticreoleradio, cette observation a été possible grâce à des instruments de mesure placés à près de 2 000 mètres de profondeur.",
+          "explication": "Haiticreoleradio est une radio haïtienne en créole, non reconnue comme média journalistique de référence scientifique ; son statut éditorial est insuffisant pour servir de source factuelle autonome sur un sujet géoscientifique."
+        },
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "source_non_editoriale",
+          "phrase_exacte": "Selon Vietnam, des scientifiques ont observé pour la première fois en temps réel le processus d'expansion d'une dorsale sous-marine, créant ainsi une nouvelle croûte terrestre dans l'océan Indien.",
+          "explication": "Vietnam.vn est un portail d'État vietnamien à vocation de propagande institutionnelle, non un média journalistique ou scientifique indépendant ; l'utiliser comme source factuelle autonome sur une découverte scientifique ne remplit pas les critères d'une source éditoriale fiable."
+        },
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "source_derivee_comptee_comme_primaire",
+          "phrase_exacte": "Selon Le Monde, des chercheurs ont pu observer en direct l'expansion d'une dorsale océanique au large de l'île Amsterdam. [...] D'après Haiticreoleradio [...] Trust My Science rapporte [...] Lesnews précise [...] Selon Vietnam",
+          "explication": "Les cinq sources (Haiticreoleradio, Lesnews, Vietnam, Trust My Science, Le Monde) traitent toutes du même événement et vraisemblablement de la même étude/communiqué originel ; plusieurs d'entre elles sont des agrégateurs ou relais sans reportage indépendant, ce qui les rend dérivées de la même source primaire et non indépendantes entre elles."
+        },
+        {
+          "bloc": 4,
+          "section": "contexte",
+          "type": "redondance",
+          "phrase_exacte": "Selon Le Monde, les géophysiciens ont constaté que le plancher abyssal s'était étendu en quelques jours de 2 à 4 mètres.",
+          "explication": "Cette phrase est déjà présente mot pour mot dans la section 'faits' et est répétée à l'identique dans le contexte sans apporter d'information supplémentaire."
+        },
+        {
+          "bloc": 4,
+          "section": "contexte",
+          "type": "redondance",
+          "phrase_exacte": "D'après Trust My Science, les dorsales médio-océaniques sont des réseaux sous-marins de frontières tectoniques s'étendant sur environ 65 000 km à travers les océans du globe.",
+          "explication": "Cette affirmation est déjà présente dans la section 'faits' avec la même attribution et le même chiffre ; sa répétition dans le contexte constitue un doublon."
+        },
+        {
+          "bloc": 4,
+          "section": "contexte",
+          "type": "redondance",
+          "phrase_exacte": "Lesnews rapporte que les dorsales océaniques sont des 'usines' qui génèrent presque deux tiers de la croûte terrestre.",
+          "explication": "Cette phrase figure déjà dans la section 'faits' avec la même attribution ; sa répétition dans le contexte est un copier-coller sans valeur ajoutée."
+        },
+        {
+          "bloc": 4,
+          "section": "contexte",
+          "type": "redondance",
+          "phrase_exacte": "Vietnam précise que des scientifiques ont observé pour la première fois en temps réel le processus d'expansion d'une dorsale sous-marine, créant ainsi une nouvelle croûte terrestre dans l'océan Indien.",
+          "explication": "Cette information est déjà présente dans la section 'faits' avec la même attribution ; elle est répétée à l'identique dans le contexte."
+        },
+        {
+          "bloc": 4,
+          "section": "nuances",
+          "type": "redondance",
+          "phrase_exacte": "Selon Le Monde, les chercheurs ont constaté que le plancher abyssal s'était étendu en quelques jours de 2 à 4 mètres.",
+          "explication": "Cette phrase est déjà présente dans les sections 'faits' et 'contexte' ; sa troisième occurrence dans 'nuances' est une redondance pure."
+        },
+        {
+          "bloc": 4,
+          "section": "nuances",
+          "type": "redondance",
+          "phrase_exacte": "D'après Trust My Science, les dorsales médio-océaniques sont des réseaux sous-marins de frontières tectoniques s'étendant sur environ 65 000 km à travers les océans du globe.",
+          "explication": "Cette affirmation apparaît pour la troisième fois (faits, contexte, nuances) sans ajout informationnel."
+        },
+        {
+          "bloc": 4,
+          "section": "nuances",
+          "type": "redondance",
+          "phrase_exacte": "Lesnews rapporte que les dorsales océaniques sont des 'usines' qui génèrent presque deux tiers de la croûte terrestre, mais les limites de cette affirmation ne sont pas clairement définies.",
+          "explication": "Le fait lui-même est répété pour la troisième fois ; l'ajout 'mais les limites ne sont pas clairement définies' est un commentaire vague sans apport factuel sourcé."
+        },
+        {
+          "bloc": 4,
+          "section": "nuances",
+          "type": "section_gonflee",
+          "phrase_exacte": "Cependant, les détails sur la méthodologie utilisée pour cette observation ne sont pas fournis.",
+          "explication": "Cette phrase est un remplissage générique ('on ne sait pas tout') sans fait distinct sourcé ; elle n'apporte aucune nuance réelle et devrait être coupée."
+        },
+        {
+          "bloc": 4,
+          "section": "nuances",
+          "type": "section_gonflee",
+          "phrase_exacte": "Cependant, les implications de cette observation pour la compréhension de la tectonique des plaques ne sont pas explicitement discutées.",
+          "explication": "Observation vague et générique sur l'absence d'information dans les sources, sans contenu factuel sourcé propre ; c'est du remplissage."
+        },
+        {
+          "bloc": 4,
+          "section": "resume",
+          "type": "section_gonflee",
+          "phrase_exacte": "Les implications de cette observation pour la compréhension de la formation de la croûte terrestre et de l'évolution des océans sont considérables.",
+          "explication": "Affirmation vague et non sourcée sur les 'implications considérables' ; aucune source n'est citée pour étayer ce jugement d'ampleur."
+        },
+        {
+          "bloc": 4,
+          "section": "resume",
+          "type": "jugement_de_valeur",
+          "phrase_exacte": "Les implications de cette observation pour la compréhension de la formation de la croûte terrestre et de l'évolution des océans sont considérables.",
+          "explication": "L'adjectif 'considérables' constitue une appréciation éditoriale non neutre et non attribuée à une source."
+        },
+        {
+          "bloc": 4,
+          "section": "resume",
+          "type": "jugement_de_valeur",
+          "phrase_exacte": "Une avancée majeure dans la compréhension de la tectonique des plaques a été réalisée avec l'observation directe d'une dorsale océanique en expansion.",
+          "explication": "'Avancée majeure' est un jugement de valeur éditorial non sourcé, présenté comme un fait neutre."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "chronologie_confuse",
+          "phrase_exacte": "Le processus d'expansion des dorsales océaniques est connu des scientifiques depuis les années 1950.",
+          "explication": "Cette affirmation historique est posée sans source, sans date précise et sans lien explicite avec l'événement observé récemment, ce qui mélange implicitement deux époques sans clarification."
+        },
+        {
+          "bloc": 2,
+          "section": "contexte",
+          "type": "formule_vague",
+          "phrase_exacte": "Le processus d'expansion des dorsales océaniques est connu des scientifiques depuis les années 1950.",
+          "explication": "Aucune source de la liste autorisée n'est citée pour étayer cette affirmation historique."
+        },
+        {
+          "bloc": 3,
+          "section": "faits",
+          "type": "paraphrase_structurelle",
+          "phrase_exacte": "Trust My Science rapporte que les dorsales médio-océaniques sont des réseaux sous-marins de frontières tectoniques s'étendant sur environ 65 000 km à travers les océans du globe.",
+          "explication": "La formulation reprend très probablement la structure et le vocabulaire quasi-identiques de l'article Trust My Science sans reformulation substantielle, reproduite ensuite à l'identique dans les sections 'contexte' et 'nuances'."
+        }
+      ]
+    },
+    "article_type": "dossier_science"
+  },
+  {
+    "slug": "cerebras-investit-dans-l-ia-en-europe",
+    "statut": "rejete_qualite",
+    "date": "2026-07-10T15:31:02",
+    "problemes_initiaux": 12,
+    "tentatives": 2,
+    "problemes_restants": 10,
+    "bloquants_restants": 3,
+    "article_type": "actu"
   }
 ]
