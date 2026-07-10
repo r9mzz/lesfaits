@@ -1673,7 +1673,7 @@ def generate(content: str, category_hint: str, extra_sources: list[dict] | None 
                 continue
             url = src.get("url") or ""
             path = urlparse(url).path.rstrip("/") if url else ""
-            if url in real_urls and len(path) > 3:
+            if url in real_urls and len(path) > 3 and urlparse(url).scheme in ("http", "https"):
                 src = dict(src)
                 src["institution"] = real_title_by_url.get(url, src.get("institution", ""))
                 verified.append(src)
@@ -2563,12 +2563,17 @@ def build_article_html(art: dict, date_pub: str) -> str:
     # Sources
     def _source_link(s):
         url = s.get("url") or ""
-        path = urlparse(url).path.rstrip("/") if url else ""
-        if url and len(path) > 3:
+        parsed = urlparse(url) if url else None
+        path = parsed.path.rstrip("/") if parsed else ""
+        # Défense en profondeur : les URLs viennent de flux RSS et de moteurs
+        # de recherche tiers — seuls http(s) sont insérés en href.
+        if url and parsed.scheme in ("http", "https") and len(path) > 3:
             return f' · <a href="{_esc(url)}" target="_blank" rel="noopener noreferrer external" aria-label="{_esc(s.get("institution","Source"))} (ouvre dans un nouvel onglet)">Lire la source →</a>'
         return ""
 
-    verified_sources = [s for s in art.get("sources", []) if s.get("url") and len(urlparse(s["url"]).path.rstrip("/")) > 3]
+    verified_sources = [s for s in art.get("sources", []) if s.get("url")
+                        and urlparse(s["url"]).scheme in ("http", "https")
+                        and len(urlparse(s["url"]).path.rstrip("/")) > 3]
     def _source_date(s):
         # Masquer le champ date quand il est absent (évite d'afficher "None")
         d = s.get("date")
