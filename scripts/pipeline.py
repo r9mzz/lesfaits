@@ -2010,7 +2010,10 @@ def _init_used_images():
 def _optimize_image_file(path, max_width: int = 1200, quality: int = 82) -> None:
     """Redimensionne à max_width et recompresse en JPEG q82 si ça fait gagner
     du poids — les héros s'affichent à 1140px max, inutile de servir du 4K.
-    Ne touche pas au fichier si l'optimisation ne réduit pas sa taille."""
+    Ne touche pas au fichier si l'optimisation ne réduit pas sa taille.
+    Génère aussi les variantes WebP (pleine taille + vignette 480px) servies
+    par les templates — le JPEG reste la source de vérité (og:image, RSS,
+    newsletter, fallback <picture>)."""
     try:
         from PIL import Image
         import io as _io
@@ -2027,8 +2030,48 @@ def _optimize_image_file(path, max_width: int = 1200, quality: int = 82) -> None
         if buf.tell() < avant:
             with open(p, "wb") as f:
                 f.write(buf.getvalue())
+        _make_webp_variants(p, img=img)
     except Exception as e:
         print(f"  [WARN] optimisation image {path}: {e}")
+
+
+def _make_webp_variants(jpg_path: str, img=None) -> None:
+    """Écrit slug.webp (≤1200px, q80) et slug-480.webp (≤480px, q78) à côté
+    du JPEG. Les cartes s'affichent à 400×110 ou 80×54 : servir le 1200px
+    partout gaspillait ~80 % du poids transféré."""
+    from PIL import Image
+    if img is None:
+        img = Image.open(jpg_path)
+        if img.mode not in ("RGB", "L"):
+            img = img.convert("RGB")
+    base, _ = os.path.splitext(str(jpg_path))
+    img.save(base + ".webp", "WEBP", quality=80, method=6)
+    thumb = img
+    if img.width > 480:
+        ratio = 480 / img.width
+        thumb = img.resize((480, int(img.height * ratio)), Image.LANCZOS)
+    thumb.save(base + "-480.webp", "WEBP", quality=78, method=6)
+
+
+def _ensure_webp_variants(img_dir: str = "assets/images") -> None:
+    """Auto-réparation à chaque run : génère les variantes WebP manquantes
+    pour tout JPEG du dossier (images ajoutées par d'autres scripts, stock
+    historique). Ne réécrit jamais une variante existante."""
+    from pathlib import Path as _P
+    made = 0
+    for jpg in _P(img_dir).glob("*.jpg"):
+        if jpg.stem.endswith("-480"):
+            continue
+        base = str(jpg)[: -len(".jpg")]
+        if os.path.exists(base + ".webp") and os.path.exists(base + "-480.webp"):
+            continue
+        try:
+            _make_webp_variants(str(jpg))
+            made += 1
+        except Exception as e:
+            print(f"  [WARN] variantes WebP {jpg.name}: {e}")
+    if made:
+        print(f"  [images] {made} jeu(x) de variantes WebP générés")
 
 
 def _download_hero(
@@ -2512,7 +2555,8 @@ def build_article_html(art: dict, date_pub: str) -> str:
     hero_img = (
         f'<!-- Image source: {img_credit} | Type: {img_source_type} -->\n'
         f'<figure class="article__hero" data-img-source="{img_source_type}" data-img-credit="{img_credit}" style="margin-bottom:28px">'
-        f'<img class="art__hero" src="{hero_src}" alt="Illustration : {_esc(art["titre"])}" loading="eager" fetchpriority="high" style="aspect-ratio:16/9;object-fit:cover"/>'
+        f'<picture><source type="image/webp" srcset="{hero_src[:-4]}.webp"/>'
+        f'<img class="art__hero" src="{hero_src}" alt="Illustration : {_esc(art["titre"])}" loading="eager" fetchpriority="high" style="aspect-ratio:16/9;object-fit:cover"/></picture>'
         f'</figure>'
     ) if hero_src else ""
 
@@ -2569,7 +2613,7 @@ def build_article_html(art: dict, date_pub: str) -> str:
         if related:
             cards = "\n".join(
                 f'<a class="art__related-card" href="articles/{a["slug"]}.html">'
-                f'<img src="assets/images/{a["slug"]}.jpg" alt="{a["titre"]}" loading="lazy" style="width:calc(100% + 32px);margin:-14px -16px 12px;height:110px;object-fit:cover;display:block;border-radius:var(--radius) var(--radius) 0 0">'
+                f'<img src="assets/images/{a["slug"]}-480.webp" alt="{a["titre"]}" loading="lazy" style="width:calc(100% + 32px);margin:-14px -16px 12px;height:110px;object-fit:cover;display:block;border-radius:var(--radius) var(--radius) 0 0">'
                 f'<span class="cat cat--{a["categorie"]}">{_cat_up(a["categorie"])}</span>'
                 f'<div class="title-sm">{a["titre"]}</div>'
                 f'<div style="font-size:10px;color:var(--muted);margin-top:6px">{a["date"]}</div>'
@@ -2768,7 +2812,7 @@ def rebuild_articles_related(articles: list):
             continue
         cards = "".join(
             f'<a class="art__related-card" href="articles/{a["slug"]}.html">'
-            f'<img src="assets/images/{a["slug"]}.jpg" alt="{_esc(a["titre"])}" width="400" height="110" loading="lazy" style="width:calc(100% + 32px);margin:-14px -16px 12px;height:110px;object-fit:cover;display:block;border-radius:var(--radius) var(--radius) 0 0">'
+            f'<img src="assets/images/{a["slug"]}-480.webp" alt="{_esc(a["titre"])}" width="400" height="110" loading="lazy" style="width:calc(100% + 32px);margin:-14px -16px 12px;height:110px;object-fit:cover;display:block;border-radius:var(--radius) var(--radius) 0 0">'
             f'<span class="cat cat--{a["categorie"]}">{_cat_up(a["categorie"])}</span>'
             f'<div class="title-sm">{_esc(a["titre"])}</div>'
             f'<div style="font-size:10px;color:var(--muted);margin-top:6px">{a["date"]}</div>'
@@ -2809,6 +2853,9 @@ def rebuild_articles_related(articles: list):
 
 def rebuild_index():
     """Relit articles.json et reconstruit la section À LA UNE de index.html."""
+    # Les templates servent des .webp : garantir que chaque JPEG a ses
+    # variantes avant de générer le HTML qui les référence.
+    _ensure_webp_variants()
     articles = load_index()
     if not articles:
         return
@@ -2816,7 +2863,7 @@ def rebuild_index():
     # Génération des cards "side" (articles 1-3)
     def side_card(a):
         return f"""<a class="une__side-item" href="articles/{a['slug']}.html" style="display:grid;grid-template-columns:64px 1fr;gap:14px;align-items:center">
-          <img src="assets/images/{a['slug']}.jpg" alt="{_esc(a['titre'])}" loading="lazy" style="width:64px;height:64px;object-fit:cover;border-radius:4px;display:block">
+          <img src="assets/images/{a['slug']}-480.webp" alt="{_esc(a['titre'])}" loading="lazy" style="width:64px;height:64px;object-fit:cover;border-radius:4px;display:block">
           <div>
           <span class="cat cat--{a['categorie']}">{_cat_up(a['categorie'])}</span>
           <h3 class="title-md">{_esc(a['titre'])}</h3>
@@ -2827,7 +2874,7 @@ def rebuild_index():
 
     def mini_card(a):
         return f"""<a class="card3" href="articles/{a['slug']}.html">
-          <img class="card3__img" src="assets/images/{a['slug']}.jpg" alt="{_esc(a['titre'])}" loading="lazy">
+          <img class="card3__img" src="assets/images/{a['slug']}-480.webp" alt="{_esc(a['titre'])}" loading="lazy">
           <div class="card3__body">
             <span class="cat cat--{a['categorie']}">{_cat_up(a['categorie'])}</span>
             <h3 class="title-sm">{_esc(a['titre'])}</h3>
@@ -2984,7 +3031,7 @@ def build_index_html(main, side_html, grid_html, list_html):
     <div style="height:2px;background:var(--blue);margin-bottom:1px"></div>
     <div class="une__grid">
       <a class="une__main" href="articles/{main['slug']}.html">
-        <img src="assets/images/{main['slug']}.jpg" alt="{main['titre']}" loading="eager" style="width:calc(100% + 72px);margin:-32px -36px 20px;height:240px;object-fit:cover;display:block">
+        <img src="assets/images/{main['slug']}.webp" alt="{main['titre']}" loading="eager" style="width:calc(100% + 72px);margin:-32px -36px 20px;height:240px;object-fit:cover;display:block">
         <span class="cat cat--{main['categorie']}">{_cat_up(main['categorie'])}</span>
         <h2 class="title-xl">{main['titre']}</h2>
         <p class="excerpt">{resume}</p>
@@ -3154,7 +3201,7 @@ def build_category_pages():
         if arts:
             cards_html = "\n".join(f"""
         <a class="card3" href="articles/{a['slug']}.html">
-          <img class="card3__img" src="assets/images/{a['slug']}.jpg" alt="{_esc(a['titre'])}" loading="lazy">
+          <img class="card3__img" src="assets/images/{a['slug']}-480.webp" alt="{_esc(a['titre'])}" loading="lazy">
           <div class="card3__body">
             <span class="cat cat--{cat}">{label.upper()}</span>
             <h3 class="title-sm">{_esc(a['titre'])}</h3>
@@ -3306,7 +3353,7 @@ def build_archive_page():
             resume = a.get("resume", "")
             if isinstance(resume, list):
                 resume = resume[0] if resume else ""
-            img_src = f"assets/images/{a['slug']}.jpg"
+            img_src = f"assets/images/{a['slug']}-480.webp"
             rows += f"""
     <a class="archive-row" href="articles/{a['slug']}.html" style="display:grid;grid-template-columns:80px 1fr;gap:12px 20px;padding:16px 0;border-bottom:1px solid var(--border);align-items:start;text-decoration:none;color:inherit">
       <img src="{img_src}" alt="{_esc(a['titre'])}" style="width:80px;height:54px;object-fit:cover;border-radius:4px;background:var(--light)" loading="lazy" onerror="this.style.display='none'"/>
@@ -3480,7 +3527,7 @@ def build_favoris_page():
     if(!found.length){{emptyEl.style.display='block';return;}}
     listEl.innerHTML = found.map(function(a){{
       var resume = Array.isArray(a.resume) ? (a.resume[0]||'') : (a.resume||'');
-      var img = 'assets/images/'+a.slug+'.jpg';
+      var img = 'assets/images/'+a.slug+'-480.webp';
       return '<a class="archive-row" href="articles/'+a.slug+'.html" style="display:grid;grid-template-columns:80px 1fr;gap:12px 20px;padding:16px 0;border-bottom:1px solid var(--border);align-items:start;text-decoration:none;color:inherit">'
         +'<img src="'+img+'" alt="" style="width:80px;height:54px;object-fit:cover;border-radius:4px;background:var(--light)" loading="lazy" onerror="this.style.display=\\'none\\'"/>'
         +'<div><span class="cat cat--'+a.categorie+'" style="display:inline-block;font-size:10px;font-weight:700;letter-spacing:.06em;margin-bottom:4px">'+_cat_up_js(a.categorie)+'</span>'
