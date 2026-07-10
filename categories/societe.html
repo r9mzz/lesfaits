@@ -8,7 +8,7 @@
   <link rel="alternate" type="application/rss+xml" title="Les Faits — RSS" href="/feed.xml"/>
   <title>Société — Les Faits</title>
   <base href="/"/>
-  <link rel="stylesheet" href="src/style.css"/>
+  <link rel="stylesheet" href="/src/style.css"/>
   <link rel="icon" type="image/svg+xml" href="/favicon.svg"/>
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png"/>
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"/>
@@ -22,26 +22,24 @@
 <body>
 <div class="nav-overlay" id="nav-overlay" onclick="closeMenu()"></div>
 <nav class="nav-mobile" id="nav-mobile">
-<a href="categories/societe.html">Société</a>
-<a href="categories/science.html">Science</a>
-<a href="categories/economie.html">Économie</a>
-<a href="categories/tech.html">Tech</a>
-<a href="categories/sante.html">Santé</a>
-<a href="categories/environnement.html">Environnement</a>
+<a href="/categories/societe.html">Société</a>
+<a href="/categories/science.html">Science</a>
+<a href="/categories/economie.html">Économie</a>
+<a href="/categories/tech.html">Tech</a>
+<a href="/categories/sante.html">Santé</a>
+<a href="/categories/environnement.html">Environnement</a>
 <a href="favoris.html">Favoris</a>
-<a href="archive.html">Tous les articles</a>
-<a href="methode.html">Comment on travaille</a>
-<a href="a-propos.html">À propos &amp; réseaux</a>
-<a href="index.html#newsletter" class="nav-cta">S'abonner à la newsletter</a>
+<a href="/archive.html">Tous les articles</a>
+<a href="/methode.html">Comment on travaille</a>
+<a href="/a-propos.html">À propos &amp; réseaux</a>
+<a href="/#newsletter" class="nav-cta">S'abonner à la newsletter</a>
 </nav>
 <script>
 function toggleMenu(){var b=document.getElementById('burger'),m=document.getElementById('nav-mobile'),o=document.getElementById('nav-overlay');b.classList.toggle('open');m.classList.toggle('open');o.classList.toggle('open');}
 function closeMenu(){document.getElementById('burger').classList.remove('open');document.getElementById('nav-mobile').classList.remove('open');document.getElementById('nav-overlay').classList.remove('open');}
 document.querySelectorAll('.nav-mobile a').forEach(function(a){a.addEventListener('click',closeMenu);});
 document.addEventListener('keydown',function(e){if(e.key==='Escape')closeMenu();});
-document.addEventListener('DOMContentLoaded',function(){document.querySelectorAll('.nav-dropdown__trigger').forEach(function(btn){btn.addEventListener('click',function(e){e.stopPropagation();var dd=btn.closest('.nav-dropdown');var open=dd.classList.toggle('open');btn.setAttribute('aria-expanded',open?'true':'false');});});});
-document.addEventListener('click',function(){document.querySelectorAll('.nav-dropdown.open').forEach(function(dd){dd.classList.remove('open');dd.querySelector('.nav-dropdown__trigger').setAttribute('aria-expanded','false');});});
-document.addEventListener('keydown',function(e){if(e.key==='Escape')document.querySelectorAll('.nav-dropdown.open').forEach(function(dd){dd.classList.remove('open');});});
+document.addEventListener('DOMContentLoaded',function(){var btn=document.getElementById('nav-cats-btn');var dd=document.getElementById('nav-cats-dd');if(!btn||!dd)return;btn.addEventListener('click',function(e){e.stopPropagation();var open=dd.classList.toggle('open');btn.classList.toggle('open',open);btn.setAttribute('aria-expanded',open?'true':'false');});document.addEventListener('click',function(){dd.classList.remove('open');btn.classList.remove('open');btn.setAttribute('aria-expanded','false');});document.addEventListener('keydown',function(e){if(e.key==='Escape'){dd.classList.remove('open');btn.classList.remove('open');btn.setAttribute('aria-expanded','false');}});});
 </script>
 <header class="header">
   <div class="header__inner">
@@ -51,26 +49,23 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')document.que
     <div class="header__search">
       <input type="search" class="header__search-input" placeholder="Rechercher…" autocomplete="off" onkeydown="if(event.key==='Enter'&&this.value.trim())window.location=(document.querySelector('base').href)+'recherche.html?q='+encodeURIComponent(this.value.trim())"/>
     </div>
-    <nav aria-label="Navigation principale">
-      <div class="nav-dropdown">
-        <button class="nav-dropdown__trigger" type="button" aria-haspopup="true" aria-expanded="false">Menu ▾</button>
-        <div class="nav-dropdown__menu" role="menu">
-          <a href="categories/societe.html" role="menuitem">Société</a>
-          <a href="categories/science.html" role="menuitem">Science</a>
-          <a href="categories/economie.html" role="menuitem">Économie</a>
-          <a href="categories/tech.html" role="menuitem">Tech</a>
-          <a href="categories/sante.html" role="menuitem">Santé</a>
-          <a href="categories/environnement.html" role="menuitem">Environnement</a>
-          <div class="nav-dropdown__sep"></div>
-          <a href="favoris.html" role="menuitem">Favoris</a>
-          <a href="archive.html" role="menuitem">Tous les articles</a>
-          <div class="nav-dropdown__sep"></div>
-          <a href="methode.html" role="menuitem">Comment on travaille</a>
-          <a href="a-propos.html" role="menuitem">À propos &amp; réseaux</a>
+    <nav class="nav-expand-group" aria-label="Navigation principale">
+      <div class="nav-cats-wrap">
+        <button class="nav-expand-item" id="nav-cats-btn" aria-label="Catégories" aria-haspopup="true" aria-expanded="false"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg><span class="nav-expand-label">Catégories</span></button>
+        <div class="nav-cats-dd" id="nav-cats-dd" role="menu">
+          <a class="cat-dd-item" href="/categories/societe.html" role="menuitem"><span class="cat-dd-dot" style="background:#78716c"></span>Société</a>
+          <a class="cat-dd-item" href="/categories/science.html" role="menuitem"><span class="cat-dd-dot" style="background:#06b6d4"></span>Science</a>
+          <a class="cat-dd-item" href="/categories/economie.html" role="menuitem"><span class="cat-dd-dot" style="background:#f97316"></span>Économie</a>
+          <a class="cat-dd-item" href="/categories/tech.html" role="menuitem"><span class="cat-dd-dot" style="background:#a855f7"></span>Tech</a>
+          <a class="cat-dd-item" href="/categories/sante.html" role="menuitem"><span class="cat-dd-dot" style="background:#f43f5e"></span>Santé</a>
+          <a class="cat-dd-item" href="/categories/environnement.html" role="menuitem"><span class="cat-dd-dot" style="background:#22c55e"></span>Environnement</a>
         </div>
       </div>
+      <a class="nav-expand-item" href="/archive.html" aria-label="Tous les articles"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><line x1="9" y1="6" x2="20" y2="6"/><line x1="9" y1="12" x2="20" y2="12"/><line x1="9" y1="18" x2="20" y2="18"/><circle cx="4" cy="6" r="1.5" fill="currentColor" stroke="none"/><circle cx="4" cy="12" r="1.5" fill="currentColor" stroke="none"/><circle cx="4" cy="18" r="1.5" fill="currentColor" stroke="none"/></svg><span class="nav-expand-label">Tous les articles</span></a>
+      <a class="nav-expand-item" href="/a-propos.html" aria-label="Réseaux"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1.2" fill="currentColor" stroke="none"/></svg><span class="nav-expand-label">Réseaux</span></a>
+      <a class="nav-expand-item" href="/methode.html" aria-label="Notre méthode"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z"/><path d="M20 3v4m2-2h-4"/></svg><span class="nav-expand-label">Notre méthode</span></a>
+      <a class="nav-expand-item" href="/#newsletter" aria-label="Newsletter"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 7l10 7 10-7"/></svg><span class="nav-expand-label">Newsletter</span></a>
     </nav>
-    <a href="index.html#newsletter" class="nav-cta">Newsletter</a>
     <button class="dark-toggle" id="dark-toggle" aria-label="Mode sombre" title="Mode sombre">🌙</button>
     <button class="burger" id="burger" aria-label="Menu" onclick="toggleMenu()"><span></span><span></span><span></span></button>
   </div>
@@ -80,7 +75,7 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')document.que
   <div style="margin-bottom:32px;border-bottom:1px solid var(--rule);padding-bottom:24px">
     <span style="font-size:.8rem;font-weight:700;letter-spacing:.1em;color:var(--muted);text-transform:uppercase">Rubrique</span>
     <h1 style="font-size:2.4rem;font-weight:700;margin:8px 0 4px">Société</h1>
-    <p style="color:var(--muted);font-size:.9rem">25 articles</p>
+    <p style="color:var(--muted);font-size:.9rem">27 articles</p>
   </div>
   <nav style="display:flex;gap:24px;margin-bottom:48px;flex-wrap:wrap;font-size:.9rem">
     <a href="categories/science.html" style="">Science</a>
@@ -92,6 +87,30 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')document.que
   </nav>
   <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:24px">
     
+        <a class="card3" href="articles/coupe-du-monde-et-sante-cardiovasculaire.html">
+          <img class="card3__img" src="assets/images/coupe-du-monde-et-sante-cardiovasculaire.jpg" alt="Regarder la Coupe du monde de football peut-il être dangereux pour le cœur" loading="lazy">
+          <div class="card3__body">
+            <span class="cat cat--societe">SOCIÉTÉ</span>
+            <h3 class="title-sm">Regarder la Coupe du monde de football peut-il être dangereux pour le cœur</h3>
+            <div class="meta" style="margin-top:10px">
+              <span class="meta__src">5 sources</span>
+              <span class="meta__sep">·</span><span>10 juillet 2026, 06h05</span>
+            </div>
+          </div>
+        </a>
+
+        <a class="card3" href="articles/look-des-touristes-a-paris.html">
+          <img class="card3__img" src="assets/images/look-des-touristes-a-paris.jpg" alt="Les touristes à Paris et leur look" loading="lazy">
+          <div class="card3__body">
+            <span class="cat cat--societe">SOCIÉTÉ</span>
+            <h3 class="title-sm">Les touristes à Paris et leur look</h3>
+            <div class="meta" style="margin-top:10px">
+              <span class="meta__src">4 sources</span>
+              <span class="meta__sep">·</span><span>10 juillet 2026, 06h05</span>
+            </div>
+          </div>
+        </a>
+
         <a class="card3" href="articles/accident-jean-pierre-raffarin-paris.html">
           <img class="card3__img" src="assets/images/accident-jean-pierre-raffarin-paris.jpg" alt="Accident de Jean-Pierre Raffarin à Paris" loading="lazy">
           <div class="card3__body">
@@ -394,79 +413,68 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')document.que
   </div>
 </main>
 
-<section class="nl-band" id="newsletter" aria-label="S'abonner à la newsletter">
-  <div class="nl-band__inner">
-    <div class="nl-band__text">
-      <div class="nl-band__label">NEWSLETTER</div>
-      <h2 class="nl-band__title">Le résumé du jour dans votre boîte mail</h2>
-      <p class="nl-band__sub">Choisissez vos rubriques et l'heure de réception. Gratuit, sans pub, désabonnement en un clic.</p>
+
+<section class="nl-compact" id="newsletter" aria-label="S'abonner à la newsletter">
+  <div class="nl-compact__inner">
+    <div class="nl-compact__head">
+      <span class="nl-compact__label">NEWSLETTER</span>
+      <span class="nl-compact__title">Le résumé du jour dans votre boîte mail</span>
     </div>
-    <div class="nl-band__form-wrap">
-      <form class="nl-form" id="nl-form" novalidate>
-        <label class="nl-form__email-label" for="nl-email">Votre adresse email</label>
-        <input type="email" id="nl-email" name="email" class="nl-form__input"
-               placeholder="vous@exemple.fr" required autocomplete="email" aria-required="true"/>
-        <fieldset class="nl-form__cats" aria-label="Rubriques à suivre">
-          <legend class="nl-form__cats-legend">Je veux recevoir</legend>
-          <div class="nl-form__cats-grid">
-            <label class="nl-cat nl-cat--societe"><input type="checkbox" name="CAT_SOCIETE" value="1"/><span class="nl-cat__dot"></span><span class="nl-cat__name">Société</span></label>
-            <label class="nl-cat nl-cat--science"><input type="checkbox" name="CAT_SCIENCE" value="1"/><span class="nl-cat__dot"></span><span class="nl-cat__name">Science</span></label>
-            <label class="nl-cat nl-cat--economie"><input type="checkbox" name="CAT_ECONOMIE" value="1"/><span class="nl-cat__dot"></span><span class="nl-cat__name">Économie</span></label>
-            <label class="nl-cat nl-cat--tech"><input type="checkbox" name="CAT_TECH" value="1"/><span class="nl-cat__dot"></span><span class="nl-cat__name">Tech</span></label>
-            <label class="nl-cat nl-cat--sante"><input type="checkbox" name="CAT_SANTE" value="1"/><span class="nl-cat__dot"></span><span class="nl-cat__name">Santé</span></label>
-            <label class="nl-cat nl-cat--environnement"><input type="checkbox" name="CAT_ENVIRONNEMENT" value="1"/><span class="nl-cat__dot"></span><span class="nl-cat__name">Environnement</span></label>
-          </div>
-          <p class="nl-form__cats-hint">Aucune sélection = toutes les rubriques</p>
-        </fieldset>
-        <fieldset class="nl-form__slot" aria-label="Heure de réception">
-          <legend class="nl-form__cats-legend">Recevoir le</legend>
-          <div class="nl-form__slot-grid">
-            <label class="nl-slot"><input type="radio" name="slot" value="matin" checked/><span class="nl-slot__pill">☀ Matin</span></label>
-            <label class="nl-slot"><input type="radio" name="slot" value="soir"/><span class="nl-slot__pill">🌙 Soir</span></label>
-          </div>
-        </fieldset>
-        <label class="nl-form__consent">
-          <input type="checkbox" id="nl-consent" required aria-required="true"/>
-          <span>J'accepte de recevoir la newsletter et confirme avoir lu la <a href="confidentialite.html">politique de confidentialité</a>. Désabonnement possible à tout moment.</span>
-        </label>
-        <button type="submit" class="nl-form__btn" id="nl-btn">S'abonner gratuitement</button>
-        <p class="nl-form__msg" id="nl-msg" role="alert" aria-live="polite"></p>
-      </form>
-    </div>
+    <form id="nl-form" novalidate>
+      <div class="nl-compact__freq" role="group" aria-label="Fréquence de réception">
+        <label class="nl-compact__freq-opt"><input type="radio" name="FREQ" value="morning"/> Matin (~7h)</label>
+        <label class="nl-compact__freq-opt"><input type="radio" name="FREQ" value="evening"/> Soir (~18h)</label>
+        <label class="nl-compact__freq-opt"><input type="radio" name="FREQ" value="both" checked/> Les deux</label>
+      </div>
+      <div class="nl-compact__row">
+        <input type="email" id="nl-email" name="email" class="nl-compact__input" placeholder="vous@exemple.fr" required autocomplete="email" aria-required="true"/>
+        <button type="submit" class="nl-compact__btn" id="nl-btn">S'abonner →</button>
+      </div>
+      <div class="nl-compact__cats" role="group" aria-label="Rubriques">
+        <label class="nl-compact__cat"><input type="checkbox" name="CAT_SOCIETE" value="1"/> Société</label>
+        <label class="nl-compact__cat"><input type="checkbox" name="CAT_SCIENCE" value="1"/> Science</label>
+        <label class="nl-compact__cat"><input type="checkbox" name="CAT_ECONOMIE" value="1"/> Économie</label>
+        <label class="nl-compact__cat"><input type="checkbox" name="CAT_TECH" value="1"/> Tech</label>
+        <label class="nl-compact__cat"><input type="checkbox" name="CAT_SANTE" value="1"/> Santé</label>
+        <label class="nl-compact__cat"><input type="checkbox" name="CAT_ENVIRONNEMENT" value="1"/> Environnement</label>
+      </div>
+      <p class="nl-compact__hint">Aucune sélection = toutes les rubriques</p>
+      <label class="nl-compact__consent">
+        <input type="checkbox" id="nl-consent" required aria-required="true"/>
+        <span>J'accepte la <a href="confidentialite.html">politique de confidentialité</a>. Désabonnement en un clic.</span>
+      </label>
+      <p class="nl-compact__msg" id="nl-msg" role="alert" aria-live="polite"></p>
+    </form>
   </div>
 </section>
 <script>
 (function(){
-  var BREVO_KEY  = "__BREVO_CONTACTS_KEY__";
-  var BREVO_LIST = 3;
-  var BREVO_API  = "https://api.brevo.com/v3/contacts";
+  var BREVO_KEY="__BREVO_CONTACTS_KEY__",BREVO_LIST=3,BREVO_API="https://api.brevo.com/v3/contacts/doubleOptinConfirmation",BREVO_DOI_TPL=3,BREVO_DOI_URL="https://lesfaits.info/confirmation.html";
   var form=document.getElementById("nl-form"),msgEl=document.getElementById("nl-msg"),btn=document.getElementById("nl-btn");
   if(!form)return;
   form.addEventListener("submit",function(e){
     e.preventDefault();
-    msgEl.className="nl-form__msg";msgEl.textContent="";
+    msgEl.className="nl-compact__msg";msgEl.textContent="";
     var email=(document.getElementById("nl-email").value||"").trim();
     var consent=document.getElementById("nl-consent").checked;
-    if(!email||!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){msgEl.textContent="Veuillez saisir une adresse email valide.";msgEl.className="nl-form__msg nl-form__msg--err";return;}
-    if(!consent){msgEl.textContent="Veuillez accepter les conditions pour continuer.";msgEl.className="nl-form__msg nl-form__msg--err";return;}
+    if(!email||!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){msgEl.textContent="Veuillez saisir une adresse email valide.";msgEl.className="nl-compact__msg nl-compact__msg--err";return;}
+    if(!consent){msgEl.textContent="Veuillez accepter les conditions.";msgEl.className="nl-compact__msg nl-compact__msg--err";return;}
     var attrs={};
-    ["CAT_SOCIETE","CAT_SCIENCE","CAT_ECONOMIE","CAT_TECH","CAT_SANTE","CAT_ENVIRONNEMENT"].forEach(function(k){
-      var cb=form.querySelector('input[name="'+k+'"]');attrs[k]=cb?cb.checked:false;
-    });
-    var slotRadio=form.querySelector('input[name="slot"]:checked');
-    attrs["ENVOI_MATIN"]=!slotRadio||slotRadio.value==="matin";
-    btn.disabled=true;btn.textContent="Envoi en cours…";
-    fetch(BREVO_API,{method:"POST",headers:{"accept":"application/json","content-type":"application/json","api-key":BREVO_KEY},body:JSON.stringify({email:email,listIds:[BREVO_LIST],attributes:attrs,updateEnabled:true})})
+    ["CAT_SOCIETE","CAT_SCIENCE","CAT_ECONOMIE","CAT_TECH","CAT_SANTE","CAT_ENVIRONNEMENT"].forEach(function(k){var cb=form.querySelector('input[name="'+k+'"]');attrs[k]=cb?cb.checked:false;});
+    var freqEl=form.querySelector('input[name="FREQ"]:checked');attrs["FREQ"]=freqEl?freqEl.value:"both";
+    btn.disabled=true;btn.textContent="Envoi…";
+    fetch(BREVO_API,{method:"POST",headers:{"accept":"application/json","content-type":"application/json","api-key":BREVO_KEY},body:JSON.stringify({email:email,includeListIds:[BREVO_LIST],attributes:attrs,templateId:BREVO_DOI_TPL,redirectionUrl:BREVO_DOI_URL})})
     .then(function(r){
-      if(r.status===201||r.status===200||r.status===204){msgEl.textContent="Merci ! Un email de confirmation vous a été envoyé — pensez à vérifier vos spams.";msgEl.className="nl-form__msg nl-form__msg--ok";form.reset();}
-      else if(r.status===400){return r.json().then(function(d){if(d&&d.code==="duplicate_parameter"){msgEl.textContent="Cette adresse est déjà inscrite. Vos préférences ont été mises à jour.";msgEl.className="nl-form__msg nl-form__msg--ok";}else{throw new Error(d&&d.message);}})}
+      if(r.status===201||r.status===200||r.status===204){msgEl.textContent="Un email de confirmation vient de vous être envoyé — cliquez sur le lien pour valider votre inscription (vérifiez vos spams).";msgEl.className="nl-compact__msg nl-compact__msg--ok";form.reset();}
+      else if(r.status===400){return r.json().then(function(d){if(d&&d.code==="duplicate_parameter"){msgEl.textContent="Déjà inscrit !";msgEl.className="nl-compact__msg nl-compact__msg--ok";}else{throw new Error(d&&d.message);}})}
       else{throw new Error("Erreur "+r.status);}
     })
-    .catch(function(err){msgEl.textContent="Une erreur est survenue. Réessayez dans un instant.";msgEl.className="nl-form__msg nl-form__msg--err";console.error("[NL]",err);})
-    .finally(function(){btn.disabled=false;btn.textContent="S'abonner gratuitement";});
+    .catch(function(err){msgEl.textContent="Erreur. Réessayez dans un instant.";msgEl.className="nl-compact__msg nl-compact__msg--err";})
+    .finally(function(){btn.disabled=false;btn.textContent="S'abonner →";});
   });
 })();
 </script>
+
 <footer class="footer" role="contentinfo" aria-label="Pied de page">
   <div class="footer__inner">
     <div class="footer__brand">
@@ -475,28 +483,28 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')document.que
       <p style="font-size:10px;color:var(--muted);margin-top:8px">Aucune publicité · Aucun actionnaire · Aucun cookie de tracking</p>
     </div>
     <div class="footer__col"><h4>RUBRIQUES</h4>
-      <a href="categories/societe.html">Société</a>
-      <a href="categories/science.html">Science</a>
-      <a href="categories/economie.html">Économie</a>
-      <a href="categories/tech.html">Tech</a>
-      <a href="categories/sante.html">Santé</a>
-      <a href="categories/environnement.html">Environnement</a>
+      <a href="/categories/societe.html">Société</a>
+      <a href="/categories/science.html">Science</a>
+      <a href="/categories/economie.html">Économie</a>
+      <a href="/categories/tech.html">Tech</a>
+      <a href="/categories/sante.html">Santé</a>
+      <a href="/categories/environnement.html">Environnement</a>
     </div>
     <div class="footer__col"><h4>JOURNAL</h4>
-      <a href="methode.html">Comment on travaille</a>
-      <a href="a-propos.html">À propos &amp; réseaux</a>
-      <a href="corrections.html">Corrections publiques</a>
-      <a href="archive.html">Tous les articles</a>
+      <a href="/methode.html">Comment on travaille</a>
+      <a href="/a-propos.html">À propos &amp; réseaux</a>
+      <a href="/corrections.html">Corrections publiques</a>
+      <a href="/archive.html">Tous les articles</a>
       <a href="feed.xml" class="footer__rss">Flux RSS</a>
-      <a href="index.html#newsletter">Newsletter</a>
+      <a href="/#newsletter">Newsletter</a>
     </div>
     <div class="footer__col"><h4>LÉGAL</h4>
-      <a href="mentions-legales.html">Mentions légales</a>
-      <a href="confidentialite.html">Confidentialité</a>
-      <a href="cgu.html">CGU</a>
+      <a href="/mentions-legales.html">Mentions légales</a>
+      <a href="/confidentialite.html">Confidentialité</a>
+      <a href="/cgu.html">CGU</a>
     </div>
     <div class="footer__col"><h4>CONTACT</h4>
-      <a href="contact.html">Nous écrire</a>
+      <a href="/contact.html">Nous écrire</a>
       <a href="contact.html#erreur">Signaler une erreur</a>
     </div>
   </div>

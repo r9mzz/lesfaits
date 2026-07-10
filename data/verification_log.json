@@ -367,5 +367,156 @@
       ]
     },
     "article_type": "actu"
+  },
+  {
+    "slug": "look-des-touristes-a-paris",
+    "statut": "erreur_verification",
+    "date": "2026-07-10T06:07:37",
+    "etape": "detection",
+    "erreur": "Expecting ',' delimiter: line 18 column 325 (char 1249)",
+    "article_type": "actu"
+  },
+  {
+    "slug": "cerebras-investit-milliards-europe-ia",
+    "statut": "rejete_qualite",
+    "date": "2026-07-10T06:10:21",
+    "problemes_initiaux": 12,
+    "tentatives": 2,
+    "problemes_restants": 11,
+    "bloquants_restants": 1,
+    "article_type": "actu"
+  },
+  {
+    "slug": "traitements-anti-obesite-efficaces-effets-secondaires",
+    "statut": "rejete_qualite",
+    "date": "2026-07-10T06:15:04",
+    "problemes_initiaux": 13,
+    "tentatives": 2,
+    "problemes_restants": 8,
+    "bloquants_restants": 1,
+    "article_type": "actu"
+  },
+  {
+    "slug": "expansion-dorsale-oceanique",
+    "statut": "rejete_qualite",
+    "date": "2026-07-10T06:17:44",
+    "etape": "correction",
+    "tentative": 2,
+    "erreur": "Expecting ',' delimiter: line 18 column 82 (char 1326)",
+    "article_type": "dossier_science"
+  },
+  {
+    "slug": "coupe-du-monde-et-sante-cardiovasculaire",
+    "statut": "corrige_automatiquement",
+    "date": "2026-07-10T06:20:44",
+    "problemes_initiaux": 14,
+    "tentatives": 1,
+    "problemes_residuels_style": 7,
+    "rapport_initial": {
+      "conforme": false,
+      "sujet_sensible": false,
+      "sujet_sensible_raison": "",
+      "problemes": [
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "fait_tranche_arbitrairement",
+          "phrase_exacte": "Selon Le Monde, aucune augmentation des admissions pour infarctus du myocarde n'a été constatée pendant les trois derniers tournois de Coupe du monde.",
+          "explication": "Le chiffre 'trois derniers tournois' ne peut pas être vérifié via la source autorisée (on n'a accès qu'au titre et à l'URL de l'article Le Monde) et il est présenté comme un fait établi ; de plus, la mention des 'trois derniers tournois' est une précision chiffrée non vérifiable qui pourrait être erronée."
+        },
+        {
+          "bloc": 1,
+          "section": "nuances",
+          "type": "incoherence_inter_sections",
+          "phrase_exacte": "Selon France Info, des études ont établi un lien entre la Coupe du monde et les infarctus du myocarde, notamment chez les personnes qui vivent des moments de stress et d'anxiété pendant les matchs.",
+          "explication": "Cette affirmation contredit directement ce qui est dit dans la section 'faits' attribué à Le Monde ('aucune augmentation des admissions pour infarctus du myocarde n'a été constatée') sans que la contradiction soit explicitée ni mise en regard."
+        },
+        {
+          "bloc": 1,
+          "section": "nuances",
+          "type": "chronologie_confuse",
+          "phrase_exacte": "Selon France Info, des études ont établi un lien entre la Coupe du monde et les infarctus du myocarde, notamment chez les personnes qui vivent des moments de stress et d'anxiété pendant les matchs.",
+          "explication": "La source France Info est datée du 10 juillet 2014 (Coupe du monde 2014), soit 12 ans avant les autres sources (2026) ; l'article ne précise pas que cette source est ancienne ni que les 'études' mentionnées portent sur une période différente, créant une confusion entre deux époques."
+        },
+        {
+          "bloc": 1,
+          "section": "nuances",
+          "type": "fait_tranche_arbitrairement",
+          "phrase_exacte": "Selon France Info, des études ont établi un lien entre la Coupe du monde et les infarctus du myocarde.",
+          "explication": "Le verbe 'ont établi' présente comme définitivement prouvé un lien qui, selon la section 'nuances' elle-même, fait l'objet d'études encore limitées et de résultats contradictoires avec d'autres sources."
+        },
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "formule_vague",
+          "phrase_exacte": "D'après Huffingtonpost, les émotions intenses liées au football peuvent avoir des conséquences sur l'organisme, notamment pour les supporters qui vivent des moments de stress et d'anxiété pendant les matchs.",
+          "explication": "'Des conséquences sur l'organisme' est une formulation vague qui n'identifie aucune conséquence précise et sourcée ; ce n'est pas un fait distinct et vérifiable attribué à la source."
+        },
+        {
+          "bloc": 2,
+          "section": "contexte",
+          "type": "formule_vague",
+          "phrase_exacte": "Selon Huffingtonpost, les émotions intenses liées au football peuvent avoir des conséquences sur l'organisme, notamment pour les supporters qui vivent des moments de stress et d'anxiété pendant les matchs.",
+          "explication": "Même formulation vague répétée mot pour mot depuis la section 'faits', sans fait précis ni chiffre vérifiable attribué à la source."
+        },
+        {
+          "bloc": 2,
+          "section": "nuances",
+          "type": "formule_vague",
+          "phrase_exacte": "Il est important de noter que les études sur les effets de la Coupe du monde sur la santé cardiovasculaire sont encore limitées.",
+          "explication": "Affirmation générique présentée sans attribution à aucune source de la liste autorisée."
+        },
+        {
+          "bloc": 3,
+          "section": "contexte",
+          "type": "redondance",
+          "phrase_exacte": "Selon Huffingtonpost, les émotions intenses liées au football peuvent avoir des conséquences sur l'organisme, notamment pour les supporters qui vivent des moments de stress et d'anxiété pendant les matchs.",
+          "explication": "Cette phrase est identique mot pour mot à celle déjà présente dans la section 'faits', constituant une redondance pure entre deux sections."
+        },
+        {
+          "bloc": 4,
+          "section": "resume",
+          "type": "redondance",
+          "phrase_exacte": "Les études sur les effets de la Coupe du monde sur la santé cardiovasculaire sont encore limitées, mais certaines recherches suggèrent que les émotions intenses liées au football peuvent avoir des conséquences sur l'organisme, notamment pour les personnes qui vivent des moments de stress et d'anxiété pendant les matchs.",
+          "explication": "Cette phrase du résumé reprend quasi mot pour mot les formulations utilisées dans 'faits', 'contexte' et 'nuances', sans rien ajouter."
+        },
+        {
+          "bloc": 4,
+          "section": "resume",
+          "type": "redondance",
+          "phrase_exacte": "La question de savoir si regarder un match de football peut être dangereux pour le cœur est complexe et dépend de plusieurs facteurs, notamment de l'état de santé préalable du supporter et de son niveau de stress pendant le match.",
+          "explication": "Cette phrase du résumé répète une idée déjà développée dans le corps de l'article sans apporter d'information nouvelle ni de source précise."
+        },
+        {
+          "bloc": 4,
+          "section": "nuances",
+          "type": "section_gonflee",
+          "phrase_exacte": "Il est important de noter que les études sur les effets de la Coupe du monde sur la santé cardiovasculaire sont encore limitées.",
+          "explication": "Cette affirmation vague et générique ne s'appuie sur aucune source précise de la liste et ne constitue pas un fait distinct sourcé ; elle remplit la section 'nuances' sans apporter de contenu vérifiable."
+        },
+        {
+          "bloc": 4,
+          "section": "faits",
+          "type": "jugement_de_valeur",
+          "phrase_exacte": "il est important de prendre des mesures pour limiter les stimulations et éviter de consommer de l'alcool, qui dérégule les émotions, pour préserver la santé cardiovasculaire pendant la Coupe du monde.",
+          "explication": "L'assertion que l'alcool 'dérégule les émotions' est présentée comme un fait neutre alors qu'il s'agit d'un jugement éditorial/médical non strictement attribué à une source vérifiable."
+        },
+        {
+          "bloc": 4,
+          "section": "contexte",
+          "type": "section_gonflee",
+          "phrase_exacte": "La Coupe du monde de football est un événement qui suscite de grandes émotions chez les supporters.",
+          "explication": "Phrase d'introduction générique et évidente qui ne s'appuie sur aucune source et ne constitue pas un fait distinct ; remplissage typique de section."
+        },
+        {
+          "bloc": 3,
+          "section": "faits",
+          "type": "paraphrase_structurelle",
+          "phrase_exacte": "D'après Le Monde, regarder un match de football ne semble pas faire courir de risque particulier au cœur.",
+          "explication": "Cette phrase paraphrase très étroitement le titre même de la source Le Monde ('Est-il dangereux pour le cœur de regarder la Coupe du monde de football ?') sans apport rédactionnel propre, avec une reformulation minimale qui en reprend la structure et la conclusion implicite."
+        }
+      ]
+    },
+    "article_type": "actu"
   }
 ]
