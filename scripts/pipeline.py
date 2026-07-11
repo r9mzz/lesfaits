@@ -366,24 +366,41 @@ def pubmed_search(query_en: str, max_results: int = 4, min_year: int = 2022) -> 
 def fetch_rss(source: dict) -> list[dict]:
     """Parse un flux RSS et retourne les items avec leur contenu texte."""
     try:
-        # Header Accept explicite : certains serveurs (ex : inserm.fr) renvoient
-        # 415 Unsupported Media Type quand la requête n'annonce pas les types
-        # de flux attendus.
-        rss_headers = {**HEADERS,
-                       "Accept": "application/rss+xml, application/atom+xml, "
-                                 "application/xml;q=0.9, text/xml;q=0.8, */*;q=0.5"}
+        # Chaque serveur a ses manies : inserm.fr renvoie 415 sans Accept
+        # explicite, theconversation.com renvoie 406 si l'Accept ne lui plaît
+        # pas, d'autres WAF filtrent sur le User-Agent. Échelle d'essais du
+        # plus spécifique au plus permissif.
+        accept_rss = ("application/rss+xml, application/atom+xml, "
+                      "application/xml;q=0.9, text/xml;q=0.8, */*;q=0.5")
+        tentatives = [
+            {**HEADERS, "Accept": accept_rss},
+            {**HEADERS, "Accept": "*/*"},
+            {"User-Agent": "FactuelBot/1.0 (+https://lesfaits.info) RSS reader",
+             "Accept": accept_rss},
+        ]
+        r = None
+        derniere = None
+        for hdrs in tentatives:
+            try:
+                r = requests.get(source["url"], headers=hdrs, timeout=12)
+                r.raise_for_status()
+                break
+            except requests.HTTPError as e:
+                derniere = e
+                r = None
+        if r is None:
+            raise derniere
+
         try:
-            r = requests.get(source["url"], headers=rss_headers, timeout=12)
-            r.raise_for_status()
-        except requests.HTTPError:
-            # Second essai avec un User-Agent de lecteur de flux : certains WAF
-            # bloquent les UA navigateur sur les endpoints /feed/.
-            r = requests.get(source["url"],
-                             headers={"User-Agent": "FactuelBot/1.0 (+https://lesfaits.fr) RSS reader",
-                                      "Accept": rss_headers["Accept"]},
-                             timeout=12)
-            r.raise_for_status()
-        root = ET.fromstring(r.content)
+            root = ET.fromstring(r.content)
+        except ET.ParseError:
+            # Flux mal formé (entité invalide, caractère de contrôle, HTML
+            # d'erreur mélangé au XML — cas ANSES) : reparse en mode récupération.
+            from lxml import etree as _lxml_etree
+            root = _lxml_etree.fromstring(
+                r.content, parser=_lxml_etree.XMLParser(recover=True, encoding=r.encoding or "utf-8"))
+            if root is None:
+                raise ValueError("flux irrécupérable même en mode recover")
 
         # Namespaces courants
         ns = {
@@ -2579,11 +2596,17 @@ def build_article_html(art: dict, date_pub: str) -> str:
         d = s.get("date")
         return f' · {_esc(str(d))}' if d and str(d).strip().lower() not in ("none", "null", "") else ""
 
+    def _source_li(s):
+        # Le correcteur LLM peut renvoyer un objet source incomplet — un champ
+        # manquant ne doit jamais faire planter le rendu (le crash arrivait
+        # après génération + vérification + image : tout le quota perdu).
+        institution = s.get("institution") or _media_name_from_url(s.get("url", ""), "") or "Source"
+        titre = s.get("titre") or ""
+        titre_html = f' · <em>{_esc(titre)}</em>' if titre else ""
+        return f'<li><cite>{_esc(institution)}</cite>{titre_html}{_source_date(s)}{_source_link(s)}</li>'
+
     if verified_sources:
-        sources_li = "\n".join(
-            f'<li><cite>{_esc(s["institution"])}</cite> · <em>{_esc(s["titre"])}</em>{_source_date(s)}{_source_link(s)}</li>'
-            for s in verified_sources
-        )
+        sources_li = "\n".join(_source_li(s) for s in verified_sources)
         sources_html = f'<section class="sources" aria-label="Sources"><h3>SOURCES</h3><ol>{sources_li}</ol></section>'
     else:
         sources_html = '<section class="sources sources--unverified" aria-label="Sources"><p style="color:#999;font-style:italic;font-size:.85rem;margin:0">Sources citées dans le texte — URLs non vérifiées directement.</p></section>'
