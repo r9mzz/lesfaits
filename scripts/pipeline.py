@@ -3843,7 +3843,10 @@ def generer_article(item: dict, dry_run: bool, published: set, new_pub: set, dat
     return False
 
 
-def run(dry_run=False, text_input=None, nb_max=10):
+def run(dry_run=False, text_input=None, nb_max=12):
+    # nb_max 10 -> 12 : le quota Groq couvre ~9-10 sujets par créneau depuis
+    # la relance combinée ; les 2-3 derniers passent sur le fallback Anthropic
+    # (Haiku), coût marginal accepté pour augmenter le volume publié.
     published = load_published()
     new_pub   = set()
     MOIS = ["janvier","février","mars","avril","mai","juin",
