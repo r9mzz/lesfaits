@@ -1468,5 +1468,349 @@
       ]
     },
     "article_type": "actu"
+  },
+  {
+    "slug": "technique-communication-chats",
+    "statut": "corrige_automatiquement",
+    "date": "2026-07-11T14:02:26",
+    "problemes_initiaux": 9,
+    "tentatives": 1,
+    "problemes_residuels_style": 11,
+    "rapport_initial": {
+      "conforme": false,
+      "sujet_sensible": false,
+      "sujet_sensible_raison": "",
+      "problemes": [
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "formule_vague",
+          "phrase_exacte": "Une étude récente a révélé qu'un simple clignement lent des yeux peut être une méthode efficace pour améliorer la communication entre un humain et son chat.",
+          "explication": "L'étude est mentionnée sans nom d'auteur, titre, journal ou date : aucune source de la liste ne permet d'identifier précisément quelle étude est citée ici, et l'article ne l'attribue explicitement à aucune des quatre sources autorisées."
+        },
+        {
+          "bloc": 2,
+          "section": "contexte",
+          "type": "formule_vague",
+          "phrase_exacte": "Les recherches sur la communication féline sont nombreuses et variées.",
+          "explication": "Affirmation générique non attribuée à une source précise de la liste autorisée."
+        },
+        {
+          "bloc": 2,
+          "section": "nuances",
+          "type": "formule_vague",
+          "phrase_exacte": "Les résultats de cette étude pourraient ne pas être généralisables à tous les chats, et il est important de prendre en compte les limites méthodologiques de cette étude.",
+          "explication": "Les limites méthodologiques évoquées ne sont attribuées à aucune source précise de la liste autorisée ; il s'agit d'un commentaire éditorial non sourcé présenté comme une nuance factuelle."
+        },
+        {
+          "bloc": 4,
+          "section": "contexte",
+          "type": "redondance",
+          "phrase_exacte": "Les chats sont généralement perçus comme des animaux indépendants et parfois distants, mais il est possible de communiquer avec eux de manière efficace.",
+          "explication": "Cette idée (chats perçus comme distants, communication possible) est déjà exprimée dans la section faits (« Les chats ont souvent la réputation d'être distants, voire froids ») et répétée ici sans apporter d'information nouvelle."
+        },
+        {
+          "bloc": 4,
+          "section": "nuances",
+          "type": "section_gonflee",
+          "phrase_exacte": "Il est également important de considérer les résultats avec prudence et de ne pas extrapoler les conclusions à d'autres situations.",
+          "explication": "Cette phrase est un conseil générique de prudence scientifique sans fait distinct sourcé ; elle ne fait que paraphraser la phrase précédente de la même section et ne constitue pas un apport informatif réel."
+        },
+        {
+          "bloc": 4,
+          "section": "nuances",
+          "type": "redondance",
+          "phrase_exacte": "Cependant, il reste à prouver si cette technique est efficace pour tous les chats et dans toutes les situations.",
+          "explication": "Cette affirmation reprend mot pour mot la troisième ligne du résumé (« il reste à prouver si cette technique est efficace pour tous les chats et dans toutes les situations »), constituant une redondance directe entre deux sections."
+        },
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "source_derivee_comptee_comme_primaire",
+          "phrase_exacte": "Lanature rapporte que cette perception est souvent liée à un problème de communication. Une étude récente a révélé qu'un simple clignement lent des yeux peut être une méthode efficace […]. Géo indique que les chats peuvent être rendus plus réceptifs […]. Mariefrance signale que les chats possèdent un langage unique […].",
+          "explication": "Les quatre sources (Lanature, Mariefrance, Géo, Futura Sciences) traitent toutes du même résultat d'une même étude scientifique (Slow Blink) sans apporter d'informations distinctes ou indépendantes entre elles ; elles sont vraisemblablement des relais du même communiqué/étude et ne peuvent pas être comptées comme quatre sources indépendantes au sens de la charte."
+        },
+        {
+          "bloc": 4,
+          "section": "faits",
+          "type": "jugement_de_valeur",
+          "phrase_exacte": "un simple clignement lent des yeux peut être une méthode efficace pour améliorer la communication entre un humain et son chat",
+          "explication": "Le qualificatif « simple » associé à l'adjectif implicite « efficace » constitue un cadrage valorisant non neutre, d'autant que la section nuances reconnaît elle-même que l'efficacité reste à prouver pour tous les cas."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "incoherence_inter_sections",
+          "phrase_exacte": "Une étude récente a révélé qu'un simple clignement lent des yeux peut être une méthode efficace pour améliorer la communication entre un humain et son chat.",
+          "explication": "La section faits présente le clignement lent comme une méthode « efficace » (affirmation positive), tandis que la section nuances indique qu'« il reste à prouver si cette technique est efficace » — contradiction directe entre deux sections du même article."
+        }
+      ]
+    },
+    "article_type": "dossier_science"
+  },
+  {
+    "slug": "nettoyage-toilettes-erreurs",
+    "statut": "corrige_automatiquement",
+    "date": "2026-07-11T14:05:09",
+    "problemes_initiaux": 19,
+    "tentatives": 1,
+    "problemes_residuels_style": 14,
+    "rapport_initial": {
+      "conforme": false,
+      "sujet_sensible": false,
+      "sujet_sensible_raison": "",
+      "problemes": [
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "compteur_incoherent",
+          "phrase_exacte": "\"nb_sources\": 8",
+          "explication": "Le champ nb_sources indique 8 sources, mais seulement 8 institutions sont listées et effectivement citées dans l'article — le chiffre est donc formellement exact ; cependant, voir le problème de source_derivee ci-dessous qui remet en cause le caractère distinct de certaines sources."
+        },
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "source_derivee_comptee_comme_primaire",
+          "phrase_exacte": "MSN rapporte que la plupart des gens oublient de nettoyer certaines parties des toilettes [...] Futura Sciences indique que les spécialistes du ménage recommandent de nettoyer les toilettes en fonction de leur utilisation.",
+          "explication": "MSN et Futura Sciences publient exactement le même titre ('Voici ce que la plupart des gens oublient en nettoyant les toilettes selon les spécialistes du ménage'), ce qui indique très fortement qu'ils reprennent la même dépêche ou le même contenu source ; ils sont néanmoins comptés comme deux sources indépendantes, ce qui gonfle artificiellement le nb_sources."
+        },
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "formule_vague",
+          "phrase_exacte": "Les spécialistes du ménage mettent en avant l'importance de nettoyer régulièrement les toilettes, en particulier les parties souvent négligées.",
+          "explication": "La mention 'les spécialistes du ménage' dans le résumé n'est attribuée à aucune source précise de la liste autorisée."
+        },
+        {
+          "bloc": 2,
+          "section": "resume",
+          "type": "formule_vague",
+          "phrase_exacte": "Il est essentiel de suivre les conseils des professionnels pour éviter les erreurs de nettoyage et maintenir une bonne hygiène.",
+          "explication": "'Les professionnels' n'est attribué à aucune source précise de la liste autorisée ; formule générique sans référence."
+        },
+        {
+          "bloc": 2,
+          "section": "contexte",
+          "type": "formule_vague",
+          "phrase_exacte": "Les spécialistes du ménage recommandent de nettoyer les toilettes en fonction de leur utilisation et de leur état.",
+          "explication": "Affirmation attribuée à 'les spécialistes du ménage' sans renvoi à une source précise de la liste autorisée."
+        },
+        {
+          "bloc": 2,
+          "section": "contexte",
+          "type": "formule_vague",
+          "phrase_exacte": "Il est essentiel de suivre les conseils des professionnels pour éviter les erreurs de nettoyage et maintenir une bonne hygiène.",
+          "explication": "Répète une formule générique sans attribution à une source précise ; 'les professionnels' ne renvoie à rien de sourcé."
+        },
+        {
+          "bloc": 2,
+          "section": "nuances",
+          "type": "formule_vague",
+          "phrase_exacte": "Il est important de noter que les erreurs de nettoyage des toilettes peuvent varier en fonction des individus et de leurs habitudes de nettoyage. Les conseils des professionnels du ménage peuvent également varier en fonction des individus et de leurs besoins spécifiques.",
+          "explication": "Aucune source précise de la liste n'est citée pour appuyer ces affirmations ; pure généralité non sourcée."
+        },
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "source_non_editoriale",
+          "phrase_exacte": "Minaconcept souligne que nettoyer les toilettes en profondeur est crucial pour éviter les erreurs de nettoyage qui pourraient fixer les bactéries au lieu de les éliminer.",
+          "explication": "Minaconcept (minaconcept.fr) est un site de conseils/astuces ménagers sans statut éditorial journalistique ni institutionnel reconnu ; il est utilisé ici comme autorité factuelle sur une affirmation concernant la santé (fixation des bactéries), ce qui dépasse les simples caractéristiques factuelles couvertes par les exceptions de la charte."
+        },
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "source_non_editoriale",
+          "phrase_exacte": "Leguidemaison recommande de détacher le siège de toilette lors d'un nettoyage en profondeur pour nettoyer les parties souvent négligées.",
+          "explication": "Leguidemaison est un site de conseils pratiques sans statut journalistique ni institutionnel ; cité comme autorité pour une recommandation de santé/hygiène, il ne remplit pas les critères d'une source éditoriale."
+        },
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "source_non_editoriale",
+          "phrase_exacte": "Paroledemamans met en avant l'importance de nettoyer régulièrement les toilettes pour éviter les problèmes de santé.",
+          "explication": "Paroledemamans est un site communautaire/blog parental sans statut journalistique ni institutionnel ; utilisé comme source d'autorité sur des problèmes de santé."
+        },
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "source_non_editoriale",
+          "phrase_exacte": "Santesos note que nettoyer les toilettes est une corvée ménagère importante qui doit être effectuée régulièrement pour maintenir une bonne hygiène.",
+          "explication": "Santesos est un site de bien-être/conseils santé non institutionnel ; il n'a pas de statut journalistique ou médical reconnu permettant de l'utiliser comme autorité factuelle sur des questions d'hygiène."
+        },
+        {
+          "bloc": 3,
+          "section": "faits",
+          "type": "cadrage_emprunte",
+          "phrase_exacte": "18h39 révèle que les professionnels du ménage recommandent de nettoyer les toilettes au moins une fois par semaine pour éviter la propagation des bactéries et des germes.",
+          "explication": "Le verbe 'révèle' reprend le cadrage éditorial sensationnaliste de la source sans distanciation ; Les Faits devraient reformuler de manière neutre plutôt que d'adopter la rhétorique de révélation de 18h39."
+        },
+        {
+          "bloc": 4,
+          "section": "contexte",
+          "type": "redondance",
+          "phrase_exacte": "Les toilettes sont une partie importante de la maison qui nécessite un nettoyage régulier pour maintenir une bonne hygiène.",
+          "explication": "Cette idée est déjà présente dans la section faits ('nettoyer les toilettes est une corvée ménagère importante qui doit être effectuée régulièrement pour maintenir une bonne hygiène') et dans le résumé."
+        },
+        {
+          "bloc": 4,
+          "section": "contexte",
+          "type": "redondance",
+          "phrase_exacte": "Les erreurs de nettoyage des toilettes peuvent avoir des conséquences sur la santé, notamment la propagation des bactéries et des germes.",
+          "explication": "Cette affirmation est déjà formulée dans le résumé ('peuvent avoir des conséquences sur la santé') et dans les faits ('éviter la propagation des bactéries et des germes') ; simple répétition sans apport factuel nouveau."
+        },
+        {
+          "bloc": 4,
+          "section": "contexte",
+          "type": "section_gonflee",
+          "phrase_exacte": "Les spécialistes du ménage recommandent de nettoyer les toilettes en fonction de leur utilisation et de leur état. Il est essentiel de suivre les conseils des professionnels pour éviter les erreurs de nettoyage et maintenir une bonne hygiène.",
+          "explication": "Ces deux phrases ne contiennent aucun fait distinct et sourcé supplémentaire par rapport à la section faits ; elles remplissent la section contexte avec du vague générique."
+        },
+        {
+          "bloc": 4,
+          "section": "nuances",
+          "type": "section_gonflee",
+          "phrase_exacte": "Il est important de noter que les erreurs de nettoyage des toilettes peuvent varier en fonction des individus et de leurs habitudes de nettoyage. Les conseils des professionnels du ménage peuvent également varier en fonction des individus et de leurs besoins spécifiques. Il est donc essentiel de prendre en compte ces facteurs pour nettoyer les toilettes de manière efficace et maintenir une bonne hygiène.",
+          "explication": "La section nuances entière est composée de généralités non sourcées et non distinctes ; elle n'apporte aucun fait nouveau ni nuance réelle et constitue du remplissage."
+        },
+        {
+          "bloc": 4,
+          "section": "nuances",
+          "type": "redondance",
+          "phrase_exacte": "Il est donc essentiel de prendre en compte ces facteurs pour nettoyer les toilettes de manière efficace et maintenir une bonne hygiène.",
+          "explication": "La conclusion 'maintenir une bonne hygiène' est répétée pour la quatrième fois dans l'article (résumé, faits, contexte, nuances) sans aucun apport informatif supplémentaire."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "fait_tranche_arbitrairement",
+          "phrase_exacte": "Minaconcept souligne que nettoyer les toilettes en profondeur est crucial pour éviter les erreurs de nettoyage qui pourraient fixer les bactéries au lieu de les éliminer.",
+          "explication": "L'affirmation que certaines méthodes 'fixent les bactéries' est présentée comme un fait établi alors qu'elle est issue d'un site non spécialisé (Minaconcept) sans validation scientifique citée ; le titre de la source contient lui-même 'que 90% des gens font', chiffre non repris ni vérifié dans l'article."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "chiffre_errone",
+          "phrase_exacte": "Minaconcept souligne que nettoyer les toilettes en profondeur est crucial pour éviter les erreurs de nettoyage qui pourraient fixer les bactéries au lieu de les éliminer.",
+          "explication": "La source Minaconcept mentionne explicitement dans son titre '90% des gens' font cette erreur, chiffre qui n'est ni repris ni mis à l'écart dans le texte de l'article ; son omission silencieuse sans signalement constitue une information tronquée susceptible de fausser la représentation du fait sourcé."
+        }
+      ]
+    },
+    "article_type": "actu"
+  },
+  {
+    "slug": "francois-petit-mathematiques-medecine-personnalisee",
+    "statut": "corrige_automatiquement",
+    "date": "2026-07-11T14:08:11",
+    "problemes_initiaux": 13,
+    "tentatives": 1,
+    "problemes_residuels_style": 9,
+    "rapport_initial": {
+      "conforme": false,
+      "sujet_sensible": false,
+      "sujet_sensible_raison": "",
+      "problemes": [
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "selon Fpetit",
+          "explication": "La source 'Fpetit' n'apparaît pas dans la liste des sources autorisées et n'est associée à aucune URL vérifiable dans l'article."
+        },
+        {
+          "bloc": 2,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "selon Publicnow",
+          "explication": "La source 'Publicnow' n'apparaît pas dans la liste des sources autorisées."
+        },
+        {
+          "bloc": 2,
+          "section": "nuances",
+          "type": "source_inventee",
+          "phrase_exacte": "indique IMJ-PRG",
+          "explication": "La source 'IMJ-PRG' n'apparaît pas dans la liste des sources autorisées."
+        },
+        {
+          "bloc": 2,
+          "section": "nuances",
+          "type": "source_inventee",
+          "phrase_exacte": "selon Fpetit",
+          "explication": "La source 'Fpetit' n'apparaît pas dans la liste des sources autorisées (même problème que dans 'faits')."
+        },
+        {
+          "bloc": 2,
+          "section": "contexte",
+          "type": "source_non_editoriale",
+          "phrase_exacte": "selon Google Scholar",
+          "explication": "Google Scholar est un moteur de recherche académique, pas une source éditoriale ou institutionnelle : il ne produit pas lui-même l'affirmation selon laquelle la médecine personnalisée 'nécessite une approche multidisciplinaire' ; il s'agit d'un usage comme caution factuelle d'un jugement générique, ce qui est invalide."
+        },
+        {
+          "bloc": 2,
+          "section": "contexte",
+          "type": "source_non_editoriale",
+          "phrase_exacte": "indique Sixactualites",
+          "explication": "Sixactualites est un site dont la nature éditoriale indépendante n'est pas établie ; son URL suggère un agrégateur ou site de contenu générique, non un média journalistique reconnu, ce qui le rend insuffisant pour attester que François Petit 'est l'un des acteurs clés' du domaine — formulation qui constitue un jugement de valeur."
+        },
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "compteur_incoherent",
+          "phrase_exacte": "\"nb_sources\": 4",
+          "explication": "L'article cite effectivement 6 sources distinctes dans le corps (Inserm, Actumaths, Fpetit, Sixactualites, Publicnow, IMJ-PRG, Google Scholar), dont plusieurs n'apparaissent pas dans la liste autorisée ; le compteur déclaré de 4 ne correspond pas au nombre réel de sources utilisées dans le texte."
+        },
+        {
+          "bloc": 3,
+          "section": "contexte",
+          "type": "jugement_de_valeur",
+          "phrase_exacte": "François Petit est l'un des acteurs clés de ce domaine",
+          "explication": "Qualifier François Petit d' 'acteur clé' est un jugement de valeur éditorial non neutre, non strictement sourcé par une autorité indépendante."
+        },
+        {
+          "bloc": 4,
+          "section": "faits",
+          "type": "redondance",
+          "phrase_exacte": "François Petit a également travaillé sur la construction de représentations fiables de patients pour mieux comprendre leurs trajectoires et guider les décisions médicales, selon Fpetit.",
+          "explication": "Cette phrase répète l'idée déjà exprimée dans la phrase précédente du même paragraphe : 'l'analyse des trajectoires cliniques [...] afin de mieux comprendre les patients et de guider les décisions médicales'."
+        },
+        {
+          "bloc": 4,
+          "section": "nuances",
+          "type": "section_gonflee",
+          "phrase_exacte": "il est important de noter que la médecine personnalisée est un domaine en développement, et qu'il y a encore beaucoup à apprendre sur les implications de ces nouvelles approches",
+          "explication": "Cette phrase est du vague générique non sourcé concrètement ; elle n'apporte aucun fait distinct et ne fait que paraphraser l'idée que le domaine est incertain, déjà présente dans le contexte."
+        },
+        {
+          "bloc": 4,
+          "section": "contexte",
+          "type": "redondance",
+          "phrase_exacte": "Ses recherches ont des implications importantes pour la santé publique, car elles pourraient permettre de réduire les coûts des soins de santé et d'améliorer les résultats pour les patients",
+          "explication": "L'idée que les recherches visent à améliorer les traitements et les résultats pour les patients est déjà exposée dans 'faits' et dans le résumé ; cette phrase ne fait que la répéter avec un angle légèrement différent."
+        },
+        {
+          "bloc": 4,
+          "section": "contexte",
+          "type": "extrapolation",
+          "phrase_exacte": "elles pourraient permettre de réduire les coûts des soins de santé et d'améliorer les résultats pour les patients",
+          "explication": "Cette anticipation de conséquences futures (réduction des coûts, amélioration des résultats) n'est explicitement sourcée par aucune source autorisée citée à cet endroit ; 'Publicnow' n'est pas une source valide."
+        },
+        {
+          "bloc": 4,
+          "section": "resume",
+          "type": "extrapolation",
+          "phrase_exacte": "L'impact potentiel de ses recherches pourrait transformer la façon dont les professionnels de la santé abordent le diagnostic et le traitement des maladies.",
+          "explication": "Cette projection sur la transformation future des pratiques médicales n'est attribuée à aucune source dans le résumé et constitue une extrapolation non sourcée."
+        }
+      ]
+    },
+    "article_type": "dossier_portrait"
+  },
+  {
+    "slug": "communes-victimes-pratiques-commerciales-douteuses",
+    "statut": "rejete_sensible",
+    "date": "2026-07-11T14:11:28",
+    "tentative": 1,
+    "sujet_sensible": true,
+    "raison": "L'article mentionne nommément deux entreprises condamnées pour pratiques commerciales trompeuses et agressives, ce qui constitue une affirmation négative visant des personnes morales identifiables, et l'article porte potentiellement sur des procédures judiciaires ou administratives en cours ou passées.",
+    "article_type": "actu"
   }
 ]

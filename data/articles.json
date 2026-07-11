@@ -1,5 +1,47 @@
 [
   {
+    "slug": "francois-petit-mathematiques-medecine-personnalisee",
+    "titre": "François Petit : mathématicien et directeur de recherche en médecine personnalisée",
+    "categorie": "sante",
+    "nb_sources": 3,
+    "date": "11 juillet 2026, 14h00",
+    "resume": [
+      "La carrière de François Petit illustre la convergence de la mathématique et de la médecine pour améliorer les soins de santé.",
+      "Ses travaux visent à intégrer les données cliniques et les avancées technologiques pour offrir des traitements plus efficaces et personnalisés.",
+      "Ses recherches portent notamment sur l'IA générative et l'analyse topologique des données appliquées aux trajectoires des patients."
+    ],
+    "image_keyword": "medical research laboratory",
+    "statut_verification": "corrige_automatiquement"
+  },
+  {
+    "slug": "nettoyage-toilettes-erreurs",
+    "titre": "Les erreurs de nettoyage des toilettes selon les spécialistes",
+    "categorie": "societe",
+    "nb_sources": 8,
+    "date": "11 juillet 2026, 14h00",
+    "resume": [
+      "L'hygiène des toilettes est souvent compromise par des erreurs de nettoyage, qui peuvent avoir des conséquences sur la santé.",
+      "Selon MSN et 18h39, les professionnels du ménage mettent en avant l'importance de nettoyer régulièrement les toilettes, en particulier les parties souvent négligées.",
+      "Selon 18h39, les professionnels du ménage recommandent de nettoyer les toilettes au moins une fois par semaine pour éviter la propagation des bactéries et des germes."
+    ],
+    "image_keyword": "toilettes propres",
+    "statut_verification": "corrige_automatiquement"
+  },
+  {
+    "slug": "technique-communication-chats",
+    "titre": "Une technique simple pour communiquer avec les chats",
+    "categorie": "science",
+    "nb_sources": 4,
+    "date": "11 juillet 2026, 14h00",
+    "resume": [
+      "Une étude suggère que les chats communiquent par des clignements d'yeux lents, ce qui pourrait transformer la relation avec votre compagnon à quatre pattes.",
+      "Les recherches existantes sur la communication féline montrent que les chats utilisent des signaux non verbaux pour interagir avec leur environnement.",
+      "Cependant, il reste à prouver si cette technique est efficace pour tous les chats et dans toutes les situations."
+    ],
+    "image_keyword": "chat communication",
+    "statut_verification": "corrige_automatiquement"
+  },
+  {
     "slug": "tiktok-lutte-contre-ai-slop",
     "titre": "TikTok renforce la détection des vidéos générées par IA",
     "categorie": "tech",
