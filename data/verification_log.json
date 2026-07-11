@@ -688,5 +688,785 @@
     "problemes_restants": 10,
     "bloquants_restants": 3,
     "article_type": "actu"
+  },
+  {
+    "slug": "fond-diffus-cosmique-supernovae",
+    "statut": "corrige_automatiquement",
+    "date": "2026-07-11T05:33:52",
+    "problemes_initiaux": 11,
+    "tentatives": 1,
+    "problemes_residuels_style": 6,
+    "rapport_initial": {
+      "conforme": false,
+      "sujet_sensible": false,
+      "sujet_sensible_raison": "",
+      "problemes": [
+        {
+          "bloc": 2,
+          "section": "contexte",
+          "type": "source_non_editoriale",
+          "phrase_exacte": "Le fond diffus cosmologique est un phénomène bien connu, décrit par Wikipédia comme un rayonnement en provenance de toutes les directions du ciel, dont les propriétés sont liées à l'univers primordial.",
+          "explication": "Wikipédia est une encyclopédie collaborative, non une source journalistique ou institutionnelle ; elle est ici citée comme autorité factuelle pour définir un concept scientifique, ce qui relève d'un usage non éditorial non couvert par les exceptions de la charte."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "fait_tranche_arbitrairement",
+          "phrase_exacte": "Generation NT mentionne un flash cosmique de dix secondes, émis par une supernova il y a 13 milliards d'années, qui vient d'être capté.",
+          "explication": "Ce fait est présenté comme établi et attribué à Generation NT, dont le titre source est 'un signal lointain remet en cause nos théories sur l'univers' ; mélanger une information sur le DSNB (fond diffus cumulatif) avec un 'flash de dix secondes d'une supernova précise' constitue potentiellement une affirmation tirée d'un contexte distinct présentée comme certaine, sans précision sur le caractère préliminaire ou la nature exacte du signal décrit par cette source."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "chronologie_confuse",
+          "phrase_exacte": "Generation NT mentionne un flash cosmique de dix secondes, émis par une supernova il y a 13 milliards d'années, qui vient d'être capté.",
+          "explication": "L'article mêle dans la section faits deux événements d'époques distinctes sans les distinguer explicitement : le DSNB (fond diffus cumulatif sur toute l'histoire de l'univers) et un flash d'une supernova spécifique il y a 13 milliards d'années, sans date ni articulation claire entre les deux."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "fait_tranche_arbitrairement",
+          "phrase_exacte": "Le détecteur géant au Japon, probablement le détecteur Super-Kamiokande, est utilisé pour détecter les neutrinos et étudier les phénomènes cosmiques.",
+          "explication": "L'usage du mot 'probablement' traduit une incertitude de l'auteur, mais la phrase est ensuite construite comme un fait établi ('est utilisé pour') ; une assertion incertaine ne peut pas être présentée factuellement sans conditionnel ou attribution explicite à une source."
+        },
+        {
+          "bloc": 2,
+          "section": "nuances",
+          "type": "formule_vague",
+          "phrase_exacte": "Les scientifiques doivent encore comprendre les implications de cette découverte et les conséquences qu'elle pourrait avoir sur nos théories sur l'univers.",
+          "explication": "Cette affirmation générale sur ce que 'les scientifiques doivent encore comprendre' n'est attribuée à aucune des sources autorisées et constitue un énoncé vague non sourcé."
+        },
+        {
+          "bloc": 4,
+          "section": "nuances",
+          "type": "section_gonflee",
+          "phrase_exacte": "De plus, la détection des neutrinos émis par les supernovae est un défi technique important, qui nécessite des détecteurs très sensibles et des méthodes d'analyse sophistiquées.",
+          "explication": "Cette phrase apporte un commentaire générique et non sourcé sur la difficulté technique, sans fait distinct ni chiffre, et ne fait qu'habiller en nuance ce qui est déjà implicite dans le reste de l'article."
+        },
+        {
+          "bloc": 4,
+          "section": "nuances",
+          "type": "redondance",
+          "phrase_exacte": "La découverte de ce fond diffus cosmique émis par les supernovae est encore préliminaire et nécessite une confirmation.",
+          "explication": "L'idée que la découverte est préliminaire est déjà présente dans les faits ('laissent penser que l'on commencerait à observer') ; la répéter en nuances sans apporter d'élément sourcé supplémentaire est une redondance."
+        },
+        {
+          "bloc": 4,
+          "section": "contexte",
+          "type": "redondance",
+          "phrase_exacte": "Les neutrinos émis par ces explosions pourraient fournir des informations sur l'évolution de l'univers, mais leur détection est très difficile.",
+          "explication": "L'idée que ces neutrinos 'pourraient fournir des informations sur l'évolution de l'univers' est mot pour mot déjà exprimée dans la section faits ('Cette découverte pourrait fournir des informations sur l'évolution de l'univers') ; sa répétition en contexte est une redondance."
+        },
+        {
+          "bloc": 4,
+          "section": "resume",
+          "type": "jugement_de_valeur",
+          "phrase_exacte": "dont la découverte récente suscite un grand intérêt dans la communauté scientifique",
+          "explication": "'Un grand intérêt' est une appréciation qualitative non sourcée et non mesurable qui introduit un jugement de valeur éditorial au lieu d'un fait neutre."
+        },
+        {
+          "bloc": 4,
+          "section": "resume",
+          "type": "extrapolation",
+          "phrase_exacte": "Ce phénomène, lié à l'histoire de l'univers, pourrait fournir des informations précieuses sur l'évolution de l'univers et les propriétés des neutrinos, éléments clés pour comprendre les mécanismes fondamentaux de l'univers.",
+          "explication": "'Éléments clés pour comprendre les mécanismes fondamentaux de l'univers' est un cadrage prospectif et valorisant non attribué à une source précise ; il s'agit d'une extrapolation éditoriale non explicitement sourcée."
+        },
+        {
+          "bloc": 4,
+          "section": "resume",
+          "type": "section_gonflee",
+          "phrase_exacte": "La confirmation de cette découverte et la compréhension de ses implications sont des défis importants pour les scientifiques, qui doivent naviguer dans un contexte de complexité et d'incertitude, caractéristique de la recherche cosmologique.",
+          "explication": "Cette phrase de résumé est entièrement générique ('complexité et d'incertitude, caractéristique de la recherche cosmologique') et n'apporte aucun fait distinct sourcé ; elle gonfle le résumé sans valeur informative."
+        }
+      ]
+    },
+    "article_type": "actu"
+  },
+  {
+    "slug": "administration-trump-modifie-loi-especes-menacees",
+    "statut": "corrige_automatiquement",
+    "date": "2026-07-11T05:35:48",
+    "problemes_initiaux": 16,
+    "tentatives": 1,
+    "problemes_residuels_style": 11,
+    "rapport_initial": {
+      "conforme": false,
+      "sujet_sensible": false,
+      "sujet_sensible_raison": "",
+      "problemes": [
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "L'Equipe Cousteau souligne que cette loi a permis de sauver des dizaines d'espèces menacées d'extinction, comme le célèbre emblème du pays Américain « bald-eagle » l'aigle à tête blanche, le lamantin, la baleine à bosse ou encore l'alligator américain, selon Equipe Cousteau.",
+          "explication": "L'Equipe Cousteau ne figure pas dans la liste des sources autorisées ; cette source est donc inventée au sens de la charte."
+        },
+        {
+          "bloc": 2,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "La New York Times souligne que la modification de la loi sur les espèces menacées est une des mesures les plus importantes prises par l'administration Trump en matière d'environnement, indique New York Times.",
+          "explication": "Le New York Times ne figure pas dans la liste des sources autorisées ; cette source est donc inventée au sens de la charte."
+        },
+        {
+          "bloc": 2,
+          "section": "nuances",
+          "type": "source_inventee",
+          "phrase_exacte": "La modification de la loi sur les espèces menacées est considérée comme l'une des mesures les plus importantes prises par l'administration Trump en matière d'environnement, selon New York Times.",
+          "explication": "Le New York Times n'est pas dans la liste des sources autorisées ; réutiliser cette source non autorisée en nuances constitue un second emploi de source inventée."
+        },
+        {
+          "bloc": 2,
+          "section": "contexte",
+          "type": "formule_vague",
+          "phrase_exacte": "Cette loi a été modifiée à plusieurs reprises depuis son adoption, mais la modification actuelle est considérée comme l'une des plus importantes, selon Lapresse.",
+          "explication": "L'affirmation que la modification actuelle est « l'une des plus importantes » est un jugement comparatif non étayé par un fait précis vérifiable dans la source Lapresse citée, et la formule reste vague faute de référence aux modifications antérieures et à leur hiérarchisation."
+        },
+        {
+          "bloc": 2,
+          "section": "contexte",
+          "type": "formule_vague",
+          "phrase_exacte": "Les défenseurs de l'environnement estiment que cette modification pourrait avoir des conséquences graves pour les espèces menacées, rapporte Le Devoir.",
+          "explication": "« Les défenseurs de l'environnement » est une formule collective non identifiée ; aucun expert, organisation ou porte-parole précis n'est nommé, ce qui constitue une référence vague."
+        },
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "compteur_incoherent",
+          "phrase_exacte": "\"nb_sources\": 4",
+          "explication": "Le champ nb_sources indique 4 sources, mais l'article utilise effectivement 5 sources distinctes (Le Monde — non utilisée dans le corps, Lapresse, Le Devoir, Foxnews et Equipe Cousteau) ; de plus, Le Monde est listée comme source autorisée mais n'est jamais citée dans le corps de l'article, ce qui crée une incohérence entre sources déclarées et sources effectivement mobilisées."
+        },
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "compteur_incoherent",
+          "phrase_exacte": "\"nb_sources\": 4",
+          "explication": "Le Monde est listée dans les sources autorisées et dans les métadonnées mais n'est jamais citée dans aucune section du corps de l'article, ce qui signifie qu'elle est comptée comme source utilisée alors qu'elle ne l'est pas (source fantôme)."
+        },
+        {
+          "bloc": 4,
+          "section": "contexte",
+          "type": "redondance",
+          "phrase_exacte": "La loi sur les espèces menacées a été adoptée en 1973 pour protéger les espèces menacées sur le sol américain, indique Le Devoir.",
+          "explication": "Cette information (ESA adoptée en 1973, protection des espèces sur le sol américain) est déjà énoncée deux fois dans la section faits ; la répéter en contexte constitue une redondance."
+        },
+        {
+          "bloc": 4,
+          "section": "nuances",
+          "type": "redondance",
+          "phrase_exacte": "Les défenseurs de l'environnement craignent que la modification de la loi sur les espèces menacées ne facilite la destruction des habitats naturels jusqu'ici protégés, rapporte Foxnews.",
+          "explication": "Cette phrase est quasiment identique à celle déjà présente dans la section faits (« Les défenseurs de l'environnement craignent que cette modification ne facilite la destruction des habitats naturels jusqu'ici protégés, rapporte Foxnews ») ; c'est une redondance mot pour mot."
+        },
+        {
+          "bloc": 4,
+          "section": "nuances",
+          "type": "redondance",
+          "phrase_exacte": "Les organisations de défense de l'environnement comptent contester cette mesure, rapporte Le Devoir.",
+          "explication": "Cette information est déjà présente mot pour mot dans la section faits ; la répéter en nuances est une redondance."
+        },
+        {
+          "bloc": 4,
+          "section": "nuances",
+          "type": "redondance",
+          "phrase_exacte": "La modification de la loi sur les espèces menacées est considérée comme l'une des mesures les plus importantes prises par l'administration Trump en matière d'environnement, selon New York Times.",
+          "explication": "Cette affirmation reprend quasi mot pour mot la phrase déjà présente en contexte (« La New York Times souligne que la modification de la loi sur les espèces menacées est une des mesures les plus importantes… ») ; redondance inter-sections."
+        },
+        {
+          "bloc": 4,
+          "section": "resume",
+          "type": "jugement_de_valeur",
+          "phrase_exacte": "Les réactions à cette modification de la loi reflètent les divisions profondes entre les défenseurs de l'environnement et les partisans d'une approche plus libérale en matière de réglementation.",
+          "explication": "« Divisions profondes » est une appréciation éditoriale non sourcée ; qualifier l'approche adverse de « plus libérale » est un cadrage politique subjectif qui n'est pas neutre."
+        },
+        {
+          "bloc": 4,
+          "section": "faits",
+          "type": "jugement_de_valeur",
+          "phrase_exacte": "ce qui pourrait faciliter l'implantation d'activités industrielles néfastes pour l'habitat de certains animaux",
+          "explication": "L'adjectif « néfastes » porte un jugement de valeur éditorial ; il faudrait attribuer cette qualification explicitement à la source ou la reformuler factuellement."
+        },
+        {
+          "bloc": 4,
+          "section": "faits",
+          "type": "jugement_de_valeur",
+          "phrase_exacte": "le célèbre emblème du pays Américain « bald-eagle »",
+          "explication": "« Célèbre » est un adjectif évaluatif qui constitue un jugement de valeur dans un texte censé être neutre et factuel."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "chronologie_confuse",
+          "phrase_exacte": "La loi sur les espèces menacées, adoptée en 1973, est une loi fédérale qui protège de nombreuses espèces menacées sur le sol américain, selon Le Devoir. L'administration Trump présente cette modification comme un retour à l'esprit initial de l'Endangered Species Act (ESA), loi majeure adoptée en 1973",
+          "explication": "La date 1973 est répétée deux fois dans des phrases consécutives sans que l'article précise le rapport temporel entre cette loi historique et la modification actuelle (aucune date de la modification elle-même n'est indiquée), ce qui mélange implicitement deux époques sans les distinguer clairement."
+        },
+        {
+          "bloc": 4,
+          "section": "contexte",
+          "type": "section_gonflee",
+          "phrase_exacte": "Les défenseurs de l'environnement estiment que cette modification pourrait avoir des conséquences graves pour les espèces menacées, rapporte Le Devoir.",
+          "explication": "Cette phrase ne fournit aucun fait distinct ni chiffre ; elle est générique et vague, et n'apporte rien par rapport aux informations déjà données en faits et nuances."
+        }
+      ]
+    },
+    "article_type": "dossier_science"
+  },
+  {
+    "slug": "europe-dependance-economique",
+    "statut": "corrige_automatiquement",
+    "date": "2026-07-11T05:38:18",
+    "problemes_initiaux": 14,
+    "tentatives": 1,
+    "problemes_residuels_style": 15,
+    "rapport_initial": {
+      "conforme": false,
+      "sujet_sensible": false,
+      "sujet_sensible_raison": "",
+      "problemes": [
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "source_non_editoriale",
+          "phrase_exacte": "Jean Pisani-Ferry est un économiste français qui a occupé plusieurs postes importants, notamment celui de commissaire général de France Stratégie, selon Wikipédia.",
+          "explication": "Wikipédia est une source non-éditoriale et non-institutionnelle ; elle ne satisfait aucune des deux exceptions prévues par la charte (fiche constructeur ou guide d'achat tech), et ne peut donc pas être citée comme autorité factuelle pour des informations biographiques."
+        },
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "source_non_editoriale",
+          "phrase_exacte": "Il a également publié plusieurs chroniques et tribunes sur des sujets économiques, notamment sur la politique économique française et européenne.",
+          "explication": "Cette affirmation suit le passage sourcé par Wikipédia et en est la continuation directe ; elle reste donc adossée à une source non-éditoriale non autorisée pour un rôle d'autorité factuelle."
+        },
+        {
+          "bloc": 2,
+          "section": "contexte",
+          "type": "source_non_editoriale",
+          "phrase_exacte": "L'histoire de l'économie européenne est marquée par des périodes de croissance et de récession, ainsi que par des efforts de coordination et d'intégration économique entre les pays membres de l'Union européenne, selon Wikipédia.",
+          "explication": "Wikipédia est une source non-éditoriale et ne peut pas être citée comme autorité factuelle pour des affirmations de contexte économique et historique."
+        },
+        {
+          "bloc": 2,
+          "section": "nuances",
+          "type": "formule_vague",
+          "phrase_exacte": "certains critiques estiment qu'il est trop favorable à la mondialisation et à la libéralisation des marchés",
+          "explication": "L'expression « certains critiques » ne renvoie à aucune source précise de la liste autorisée ; il s'agit d'une formule vague sans référence identifiable."
+        },
+        {
+          "bloc": 2,
+          "section": "nuances",
+          "type": "source_inventee",
+          "phrase_exacte": "Il est important de prendre en compte ces nuances et ces critiques pour avoir une vision plus complète des défis économiques et géopolitiques actuels et des solutions possibles, indique Le Monde.",
+          "explication": "Aucune des sources Le Monde listées ne contient ce jugement éditorial sur la nécessité de « prendre en compte des nuances » ; la référence à Le Monde pour cette affirmation générique n'est pas vérifiable dans les sources autorisées et constitue un usage abusif de la référence."
+        },
+        {
+          "bloc": 2,
+          "section": "nuances",
+          "type": "formule_vague",
+          "phrase_exacte": "Les opinions de Jean Pisani-Ferry sur la politique économique française et européenne ne sont pas unanimes",
+          "explication": "Aucune source de la liste autorisée n'est citée pour étayer cette affirmation, qui reste dans le vague sans fondement sourcé."
+        },
+        {
+          "bloc": 2,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "la crise du Brexit, rapporte Project Syndicate",
+          "explication": "La source Project Syndicate listée est une page de columnist (\"The World After Trump\") ; rien ne permet de vérifier qu'elle mentionne explicitement « la crise du Brexit » comme rapporté ici, et l'URL fournie est une page d'index d'auteur, pas un article sourcé précis contenant cette information."
+        },
+        {
+          "bloc": 1,
+          "section": "resume",
+          "type": "fait_tranche_arbitrairement",
+          "phrase_exacte": "Jean Pisani-Ferry et d'autres experts préconisent l'établissement d'un nouveau cadre de gouvernance multilatérale plus modeste, afin de permettre à l'Europe et à ses partenaires de faire face aux défis géopolitiques actuels, rapporte Project Syndicate.",
+          "explication": "La source Project Syndicate fournie est une page d'index d'auteur sans article précis vérifiable ; la préconisation spécifique d'un « cadre de gouvernance multilatérale plus modeste » est présentée comme un fait établi sans qu'il soit possible de la vérifier dans la source citée."
+        },
+        {
+          "bloc": 4,
+          "section": "contexte",
+          "type": "section_gonflee",
+          "phrase_exacte": "L'histoire de l'économie européenne est marquée par des périodes de croissance et de récession, ainsi que par des efforts de coordination et d'intégration économique entre les pays membres de l'Union européenne, selon Wikipédia.",
+          "explication": "Cette phrase est un générique encyclopédique sans lien direct avec les faits rapportés dans l'article ; elle remplit la section de vague contextuel non pertinent."
+        },
+        {
+          "bloc": 4,
+          "section": "nuances",
+          "type": "section_gonflee",
+          "phrase_exacte": "Il est important de prendre en compte ces nuances et ces critiques pour avoir une vision plus complète des défis économiques et géopolitiques actuels et des solutions possibles",
+          "explication": "Cette phrase est un remplissage éditorial générique (\"il est important de prendre en compte\") sans apport factuel distinct ni source vérifiable."
+        },
+        {
+          "bloc": 4,
+          "section": "contexte",
+          "type": "redondance",
+          "phrase_exacte": "Ces défis obligent l'Europe à repenser son modèle économique et à trouver de nouvelles voies de croissance et de développement.",
+          "explication": "Cette idée — que l'Europe doit repenser son modèle face aux tensions géopolitiques — est déjà exprimée dans les faits (\"nécessité pour l'Europe de se libérer de sa double dépendance\") et dans le résumé, sans apporter d'élément factuel nouveau."
+        },
+        {
+          "bloc": 4,
+          "section": "positions",
+          "type": "faux_debat",
+          "phrase_exacte": "\"label_gauche\": \"Pour une économie ouverte\", \"label_droite\": \"Contre la mondialisation\"",
+          "explication": "L'article ne rapporte aucun acteur identifié et sourcé qui s'opposerait nommément à Pisani-Ferry ; le camp \"Contre la mondialisation\" est présenté comme une position symétrique réelle alors qu'il est incarné uniquement par des \"critiques\" anonymes et non sourcés, ce qui constitue un faux débat."
+        },
+        {
+          "bloc": 4,
+          "section": "faits",
+          "type": "jugement_de_valeur",
+          "phrase_exacte": "Jean Pisani-Ferry est un économiste français qui a occupé plusieurs postes importants",
+          "explication": "L'adjectif « importants » pour qualifier les postes de Pisani-Ferry est un jugement de valeur subjectif non neutre."
+        },
+        {
+          "bloc": 3,
+          "section": "nuances",
+          "type": "cadrage_emprunte",
+          "phrase_exacte": "certains critiques estiment qu'il est trop favorable à la mondialisation et à la libéralisation des marchés",
+          "explication": "Ce cadrage critique de la position de Pisani-Ferry est présenté comme un fait établi sans être attribué à une source identifiable de la liste autorisée."
+        }
+      ]
+    },
+    "article_type": "actu"
+  },
+  {
+    "slug": "sciences-et-avenir-prix-relay-sepm-2026",
+    "statut": "rejete_qualite",
+    "date": "2026-07-11T05:41:25",
+    "problemes_initiaux": 14,
+    "tentatives": 2,
+    "problemes_restants": 11,
+    "bloquants_restants": 1,
+    "article_type": "actu"
+  },
+  {
+    "slug": "freiner-arthrose-protine-chercheurs-coreens",
+    "statut": "corrige_automatiquement",
+    "date": "2026-07-11T05:43:11",
+    "problemes_initiaux": 13,
+    "tentatives": 1,
+    "problemes_residuels_style": 13,
+    "rapport_initial": {
+      "conforme": false,
+      "sujet_sensible": false,
+      "sujet_sensible_raison": "",
+      "problemes": [
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "source_non_editoriale",
+          "phrase_exacte": "D'après Journaldesfemmes, certaines molécules pourraient avoir un effet anti-arthritique et ralentir la progression de l'arthrose.",
+          "explication": "La source Journaldesfemmes autorisée pointe vers un article intitulé 'meilleure soupe anti-arthrose', qui est un contenu lifestyle/nutrition et non une source journalistique ou institutionnelle crédible pour valider un fait scientifique sur l'effet anti-arthritique de molécules ; de plus, l'information attribuée ne correspond pas à ce que l'URL du titre suggère comme contenu."
+        },
+        {
+          "bloc": 2,
+          "section": "nuances",
+          "type": "source_non_editoriale",
+          "phrase_exacte": "Nutripure souligne que les sensations de douleur et d'inconfort peuvent être liées à l'usure du cartilage et des disques cervicaux.",
+          "explication": "Nutripure est une marque commerciale vendant des compléments alimentaires ; sa page blog n'est ni une source journalistique ni une source institutionnelle, et elle est ici citée comme autorité factuelle médicale, ce qui constitue une source non éditoriale au sens de la charte."
+        },
+        {
+          "bloc": 4,
+          "section": "nuances",
+          "type": "section_gonflee",
+          "phrase_exacte": "Il est important de noter que les traitements actuels pour l'arthrose ne sont pas toujours efficaces et que les nouvelles pistes explorées par les chercheurs sont encore en cours de développement.",
+          "explication": "Cette phrase est un commentaire vague et générique non sourcé qui n'apporte aucun fait distinct supplémentaire par rapport aux sections précédentes."
+        },
+        {
+          "bloc": 4,
+          "section": "nuances",
+          "type": "section_gonflee",
+          "phrase_exacte": "Les résultats des études sur les nouvelles pistes de traitement de l'arthrose doivent être interprétés avec prudence, car ils sont souvent basés sur des études préliminaires et nécessitent des confirmations supplémentaires.",
+          "explication": "Affirmation générique non attribuée à une source précise de la liste, qui ne constitue pas un fait distinct sourcé mais du remplissage éditorial."
+        },
+        {
+          "bloc": 4,
+          "section": "nuances",
+          "type": "redondance",
+          "phrase_exacte": "Il est important de noter que les traitements actuels pour l'arthrose ne sont pas toujours efficaces et que les nouvelles pistes explorées par les chercheurs sont encore en cours de développement.",
+          "explication": "Cette idée est déjà exprimée dans le contexte ('Les traitements actuels se contentent le plus souvent de soulager la douleur, sans jamais enrayer la destruction du cartilage') et dans le résumé, rendant cette phrase redondante."
+        },
+        {
+          "bloc": 4,
+          "section": "contexte",
+          "type": "redondance",
+          "phrase_exacte": "L'arthrose est une maladie qui touche non seulement les Français, mais également des millions de personnes à travers le monde.",
+          "explication": "Cette idée reprend ce qui est déjà dit dans les faits ('L'arthrose est une maladie qui touche un grand nombre de personnes') sans apporter d'information factuelle nouvelle ou sourcée distincte."
+        },
+        {
+          "bloc": 4,
+          "section": "faits",
+          "type": "extrapolation",
+          "phrase_exacte": "Cette découverte suggère que l'on pourrait, un jour, freiner la maladie elle-même.",
+          "explication": "L'expression 'un jour' constitue une projection temporelle future non explicitement attribuée à la source citée (Futura Sciences) et relève d'une extrapolation éditoriale non sourcée."
+        },
+        {
+          "bloc": 4,
+          "section": "resume",
+          "type": "section_gonflee",
+          "phrase_exacte": "Les progrès dans la compréhension de l'arthrose pourraient conduire à des thérapies innovantes pour améliorer la qualité de vie des personnes touchées.",
+          "explication": "Phrase générique et non sourcée qui anticipe des conséquences futures sans s'appuyer sur un fait précis issu de l'une des sources autorisées."
+        },
+        {
+          "bloc": 4,
+          "section": "resume",
+          "type": "extrapolation",
+          "phrase_exacte": "Les progrès dans la compréhension de l'arthrose pourraient conduire à des thérapies innovantes pour améliorer la qualité de vie des personnes touchées.",
+          "explication": "Anticipation de conséquences futures non attribuée à une source précise de la liste autorisée."
+        },
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "formule_vague",
+          "phrase_exacte": "D'après Journaldesfemmes, certaines molécules pourraient avoir un effet anti-arthritique et ralentir la progression de l'arthrose.",
+          "explication": "L'URL autorisée de Journaldesfemmes porte sur 'la meilleure soupe anti-arthrose' et non sur une démonstration scientifique de l'effet anti-arthritique de molécules ; le fait attribué ne correspond pas au contenu apparent de la source, ce qui rend le sourcing invérifiable tel que rédigé."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "fait_tranche_arbitrairement",
+          "phrase_exacte": "Economiematin rapporte que des chercheurs développent une injection régénérative destinée à réparer les articulations endommagées.",
+          "explication": "Ce fait est présenté comme une information factuelle établie alors que l'article source traite d'une piste de recherche en cours, ce qui devrait être nuancé par un conditionnel ou une attribution plus prudente."
+        },
+        {
+          "bloc": 3,
+          "section": "contexte",
+          "type": "cadrage_emprunte",
+          "phrase_exacte": "Les traitements actuels se contentent le plus souvent de soulager la douleur, sans jamais enrayer la destruction du cartilage.",
+          "explication": "L'adverbe 'jamais' et la formulation 'se contentent' constituent un cadrage éditorial à valeur de jugement de valeur sur les traitements actuels, présenté comme un fait neutre sans être attribué explicitement à une source précise de la liste."
+        },
+        {
+          "bloc": 4,
+          "section": "contexte",
+          "type": "jugement_de_valeur",
+          "phrase_exacte": "Les traitements actuels se contentent le plus souvent de soulager la douleur, sans jamais enrayer la destruction du cartilage.",
+          "explication": "'Se contentent' est une tournure péjorative qui trahit une opinion sur l'insuffisance des traitements actuels plutôt qu'une formulation neutre et factuelle."
+        }
+      ]
+    },
+    "article_type": "dossier_science"
+  },
+  {
+    "slug": "depistage-genetique-preconceptionnel-ouvert",
+    "statut": "corrige_automatiquement",
+    "date": "2026-07-11T05:44:48",
+    "problemes_initiaux": 11,
+    "tentatives": 1,
+    "problemes_residuels_style": 7,
+    "rapport_initial": {
+      "conforme": false,
+      "sujet_sensible": false,
+      "sujet_sensible_raison": "",
+      "problemes": [
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "source_derivee_comptee_comme_primaire",
+          "phrase_exacte": "Notretemps et La Croix soulignent que l'Académie de médecine plaide pour une autorisation générale de ces tests pour la population générale",
+          "explication": "Notretemps est un agrégateur de dépêches (sa source est libellée 'depeches' dans l'URL), et plusieurs des sources listées (Notretemps, Emretas, Lindependant, Midilibre) semblent relayer la même information institutionnelle sans apporter d'informations distinctes vérifiables ; les compter comme sources indépendantes gonfle artificiellement le sourcing apparent."
+        },
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "Emretas rapporte que ce dépistage permet d'évaluer les risques de transmission de maladies génétiques",
+          "explication": "Emretas (emretas.net) n'est pas un média éditorial reconnu ; ce site n'est pas identifiable comme un organe de presse légitime, ce qui en fait une source non éditoriale utilisée comme autorité factuelle."
+        },
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "source_non_editoriale",
+          "phrase_exacte": "Emretas rapporte que ce dépistage permet d'évaluer les risques de transmission de maladies génétiques et offre ainsi aux couples une information précieuse avant la conception.",
+          "explication": "Emretas.net n'est pas un média journalistique ou institutionnel reconnu ; le citer comme source factuelle au même titre que Le Monde ou La Croix est problématique car il s'agit vraisemblablement d'un site agrégateur ou de contenu non éditorial."
+        },
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "compteur_incoherent",
+          "phrase_exacte": "\"nb_sources\": 7",
+          "explication": "Le champ nb_sources indique 7, ce qui correspond au nombre de sources listées, mais plusieurs de ces sources (Notretemps, Emretas, Lindependant) semblent relayer la même dépêche ou communiqué sans information distincte, ce qui remet en question l'indépendance réelle des 7 sources comptées."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "fait_tranche_arbitrairement",
+          "phrase_exacte": "les tests de dépistage génétique préconceptionnel visent à identifier plus de 1 000 gènes associés à des maladies graves",
+          "explication": "Ce chiffre de '1 000 gènes' est présenté comme un fait établi sans que la source (Lindependant) puisse être considérée comme une autorité primaire sur ce chiffre technique ; de plus, il n'est pas précisé si c'est la capacité maximale des tests existants ou la portée spécifique des tests visés par la recommandation de l'Académie de médecine."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "chronologie_confuse",
+          "phrase_exacte": "ce sujet a nourri plusieurs débats à l'Assemblée nationale lors de révisions des lois de bioéthique, sans aboutir à un changement de législation jusqu'à présent",
+          "explication": "La mention de 'révisions des lois de bioéthique' à l'Assemblée nationale est évoquée sans aucune date ni précision sur les sessions concernées, ce qui mélange implicitement différentes époques législatives sans que le lecteur puisse les situer."
+        },
+        {
+          "bloc": 3,
+          "section": "nuances",
+          "type": "cadrage_emprunte",
+          "phrase_exacte": "Il est essentiel de fournir une information claire et précise aux couples sur les risques et les bénéfices de ces tests, ainsi que sur les options disponibles en cas de résultats positifs, souligne Santemagazine.",
+          "explication": "Le jugement normatif ('il est essentiel') est un cadrage éditorial attribué à Santemagazine, mais la formulation le présente d'abord comme un fait neutre avant l'attribution ; la phrase devrait être entièrement placée dans le registre du 'selon Santemagazine' dès le début."
+        },
+        {
+          "bloc": 4,
+          "section": "nuances",
+          "type": "redondance",
+          "phrase_exacte": "Le dépistage génétique préconceptionnel soulève des questions éthiques et médicales, notamment en ce qui concerne l'information et le soutien offerts aux couples ayant des résultats positifs.",
+          "explication": "Cette phrase reprend presque mot pour mot la troisième puce du résumé ('L'élargissement de ce dépistage soulève également des questions éthiques et médicales, notamment en ce qui concerne l'information et le soutien offerts aux couples ayant des résultats positifs'), constituant une redondance directe."
+        },
+        {
+          "bloc": 4,
+          "section": "nuances",
+          "type": "section_gonflee",
+          "phrase_exacte": "Il est essentiel de fournir une information claire et précise aux couples sur les risques et les bénéfices de ces tests, ainsi que sur les options disponibles en cas de résultats positifs",
+          "explication": "Cette affirmation est un générique vague ('information claire et précise', 'options disponibles') sans fait distinct sourcé ni précision sur ce que Santemagazine développe réellement ; la section nuances n'apporte pas d'information factuelle nouvelle par rapport aux faits."
+        },
+        {
+          "bloc": 4,
+          "section": "resume",
+          "type": "jugement_de_valeur",
+          "phrase_exacte": "leur permettant ainsi de prendre des décisions éclairées concernant leur projet parental",
+          "explication": "L'expression 'décisions éclairées' est un jugement de valeur implicite présentant le dépistage comme intrinsèquement bénéfique, alors que l'article lui-même mentionne des questions éthiques non résolues."
+        },
+        {
+          "bloc": 4,
+          "section": "faits",
+          "type": "extrapolation",
+          "phrase_exacte": "ce dépistage permet d'évaluer les risques de transmission de maladies génétiques et offre ainsi aux couples une information précieuse avant la conception",
+          "explication": "'Information précieuse' est une appréciation de valeur non sourcée sur la qualité de l'information fournie, qui dépasse la simple description factuelle du dépistage."
+        }
+      ]
+    },
+    "article_type": "actu"
+  },
+  {
+    "slug": "revenu-minimal-livreurs-velo-revalorise",
+    "statut": "corrige_automatiquement",
+    "date": "2026-07-11T05:47:30",
+    "problemes_initiaux": 16,
+    "tentatives": 1,
+    "problemes_residuels_style": 11,
+    "rapport_initial": {
+      "conforme": false,
+      "sujet_sensible": false,
+      "sujet_sensible_raison": "",
+      "problemes": [
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "fait_tranche_arbitrairement",
+          "phrase_exacte": "suite à un accord signé entre les plateformes de livraison et les syndicats de livreurs",
+          "explication": "Le résumé présente l'accord comme signé entre plateformes et syndicats, mais aucune source autorisée ne permet de confirmer précisément qui a signé quoi ; l'article lui-même en section faits parle d'un 'avenant à un accord de 2023' signé par les membres de l'Association des plateformes d'indépendants, ce qui ne correspond pas exactement à 'un accord signé entre les plateformes et les syndicats'."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "chronologie_confuse",
+          "phrase_exacte": "La Croix note que l'autorité de régulation du secteur avait publié en 2025 un rapport sur la chute drastique du taux horaire brut entre 2021 et 2024.",
+          "explication": "Cette information historique (rapport de 2025, données 2021-2024) est introduite sans que son rapport explicite avec l'accord du 10 juillet 2026 soit établi, et elle n'est pas vérifiable dans le titre de La Croix listé dans les sources autorisées qui ne mentionne pas ce rapport."
+        },
+        {
+          "bloc": 1,
+          "section": "resume",
+          "type": "incoherence_inter_sections",
+          "phrase_exacte": "suite à un accord signé entre les plateformes de livraison et les syndicats de livreurs",
+          "explication": "Le résumé dit 'accord signé entre les plateformes et les syndicats', mais la section faits précise que ce sont 'les deux entreprises membres de l'Association des plateformes d'indépendants [qui] ont signé un avenant à un accord de 2023' — la nature et les signataires de l'accord divergent entre les deux sections."
+        },
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "La Croix note que l'autorité de régulation du secteur avait publié en 2025 un rapport sur la chute drastique du taux horaire brut entre 2021 et 2024.",
+          "explication": "Le titre de La Croix listé dans les sources autorisées ('Uber Eats et Deliveroo : les livreurs à vélo obtiennent une hausse significative de leur revenu minimum') ne permet pas de vérifier cette affirmation sur un rapport 2025 de l'autorité de régulation ; le contenu attribué à La Croix excède ce que le titre de source autorisée laisse supposer."
+        },
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "source_derivee_comptee_comme_primaire",
+          "phrase_exacte": "TV5MONDE - Informations précise que les livreurs de repas à domicile viennent de remporter une bataille face à Uber Eats et Deliveroo [...] Lalsace rapporte que les livreurs de repas à domicile ont obtenu une hausse significative de leur rémunération.",
+          "explication": "TV5MONDE et Lalsace partagent un titre identique ('Les livreurs de repas obtiennent une hausse significative de leur rémunération'), tout comme Leprogres, suggérant fortement qu'ils reprennent la même dépêche d'agence sans apport d'information distinct ; comptées comme trois sources indépendantes alors qu'elles ne le sont vraisemblablement pas."
+        },
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "compteur_incoherent",
+          "phrase_exacte": "\"nb_sources\": 8",
+          "explication": "Leprogres, TV5MONDE et Lalsace ont des titres identiques et semblent relayer la même dépêche ; si l'on ne compte que les sources réellement indépendantes, le nombre effectif de sources distinctes est inférieur à 8, rendant le compteur inexact."
+        },
+        {
+          "bloc": 2,
+          "section": "contexte",
+          "type": "formule_vague",
+          "phrase_exacte": "Le débat sur les conditions de travail et le statut des livreurs à vélo a débuté il y a plusieurs années, avec des organisations de coursiers qui réclament une meilleure reconnaissance de leurs droits et une amélioration de leurs conditions de travail.",
+          "explication": "Aucune source de la liste autorisée n'est citée pour appuyer cette phrase de contexte générique ; elle constitue un énoncé sans référence précise à une source autorisée."
+        },
+        {
+          "bloc": 2,
+          "section": "contexte",
+          "type": "formule_vague",
+          "phrase_exacte": "La directive européenne sur les travailleurs de plateformes, qui pourrait être transposée dans les mois à venir, pourrait avoir un impact significatif sur le statut des livreurs.",
+          "explication": "Cette affirmation sur la directive européenne et sa transposition n'est attribuée à aucune source de la liste autorisée."
+        },
+        {
+          "bloc": 3,
+          "section": "resume",
+          "type": "cadrage_emprunte",
+          "phrase_exacte": "une avancée significative dans le débat sur les conditions de travail et le statut d'indépendants de ces travailleurs",
+          "explication": "Le jugement de valeur 'avancée significative' est présenté comme un fait neutre par Les Faits sans être attribué explicitement à une source ; il s'agit d'un cadrage éditorial non sourcé."
+        },
+        {
+          "bloc": 3,
+          "section": "nuances",
+          "type": "cadrage_emprunte",
+          "phrase_exacte": "La revalorisation du revenu minimal des livreurs à vélo est une mesure positive, mais elle ne résout pas tous les problèmes liés aux conditions de travail et au statut des livreurs.",
+          "explication": "Le jugement 'mesure positive' est présenté comme une appréciation neutre de Les Faits sans être attribué à une source précise ; c'est un cadrage éditorial non sourcé."
+        },
+        {
+          "bloc": 4,
+          "section": "resume",
+          "type": "redondance",
+          "phrase_exacte": "Cette revalorisation intervient dans un contexte de débat houleux sur les conditions de travail et le statut des livreurs, avec des organisations de coursiers qui réclament une meilleure reconnaissance de leurs droits et une amélioration de leurs conditions de travail, face à des plateformes qui cherchent à maintenir leur modèle économique.",
+          "explication": "Cette phrase du résumé reprend mot pour mot les idées développées dans la section contexte, sans apporter d'information nouvelle."
+        },
+        {
+          "bloc": 4,
+          "section": "nuances",
+          "type": "redondance",
+          "phrase_exacte": "BFM TV rapporte que les plateformes de livraison ont accepté une hausse significative du revenu minimal horaire des livreurs indépendants, mais que d'autres revendications restent en suspens.",
+          "explication": "Cette information est déjà présente dans la section faits ('Les deux entreprises ont accepté une hausse significative du revenu minimal horaire des livreurs indépendants') et dans le résumé ('d'autres revendications restent en suspens') ; la section nuances ne fait que la répéter."
+        },
+        {
+          "bloc": 4,
+          "section": "contexte",
+          "type": "extrapolation",
+          "phrase_exacte": "La directive européenne sur les travailleurs de plateformes, qui pourrait être transposée dans les mois à venir, pourrait avoir un impact significatif sur le statut des livreurs.",
+          "explication": "Cette anticipation sur la transposition de la directive et ses conséquences n'est attribuée à aucune source autorisée, ce qui en fait une extrapolation non sourcée."
+        },
+        {
+          "bloc": 4,
+          "section": "positions",
+          "type": "faux_debat",
+          "phrase_exacte": "\"label_gauche\": \"Pour la revalorisation du revenu minimal\", \"label_droite\": \"Contre la revalorisation du revenu minimal\"",
+          "explication": "Les plateformes ont signé l'accord et accepté la hausse ; il n'existe pas de camp réellement 'contre la revalorisation' — le débat présenté est artificiel et ne reflète pas un désaccord symétrique réel entre les acteurs."
+        },
+        {
+          "bloc": 4,
+          "section": "nuances",
+          "type": "jugement_de_valeur",
+          "phrase_exacte": "La revalorisation du revenu minimal des livreurs à vélo est une mesure positive",
+          "explication": "L'adjectif 'positive' constitue un jugement de valeur éditorial non attribué à une source."
+        },
+        {
+          "bloc": 4,
+          "section": "faits",
+          "type": "jugement_de_valeur",
+          "phrase_exacte": "une hausse historique de leur revenu minimum",
+          "explication": "Le titre de Charentelibre qualifie la hausse d'«historique» et l'article reprend ce cadrage sans guillemets ni attribution explicite, transformant un jugement de valeur en fait neutre."
+        }
+      ]
+    },
+    "article_type": "actu"
+  },
+  {
+    "slug": "tiktok-lutte-contre-ai-slop",
+    "statut": "corrige_automatiquement",
+    "date": "2026-07-11T05:49:24",
+    "problemes_initiaux": 13,
+    "tentatives": 1,
+    "problemes_residuels_style": 8,
+    "rapport_initial": {
+      "conforme": false,
+      "sujet_sensible": false,
+      "sujet_sensible_raison": "",
+      "problemes": [
+        {
+          "bloc": 2,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "Cette tendance est particulièrement préoccupante dans un contexte où les utilisateurs passent de plus en plus de temps sur les plateformes de réseaux sociaux, comme le souligne Les Numériques.",
+          "explication": "Les Numériques n'apparaît pas dans la liste des sources autorisées et ne figure pas dans les sources déclarées de l'article."
+        },
+        {
+          "bloc": 2,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "Disinfo rapporte que des contenus générés par IA sont utilisés pour promouvoir des personnalités politiques, ce qui souligne les risques potentiels de manipulation de l'information.",
+          "explication": "Disinfo n'apparaît pas dans la liste des sources autorisées et ne figure pas dans les sources déclarées de l'article."
+        },
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "Blog Nouvelles Technologies note que TikTok teste un curseur IA pour ajuster la quantité de vidéos générées par IA que les utilisateurs verront dans leur fil, dans une démarche visant à offrir plus de granularité dans la personnalisation du feed.",
+          "explication": "Blog Nouvelles Technologies n'apparaît pas dans la liste des sources autorisées et ne figure pas dans les sources déclarées de l'article."
+        },
+        {
+          "bloc": 2,
+          "section": "nuances",
+          "type": "source_inventee",
+          "phrase_exacte": "De plus, la question de la régulation des contenus générés par IA est complexe et fait l'objet de débats entre les experts, selon Blog Nouvelles Technologies.",
+          "explication": "Blog Nouvelles Technologies n'apparaît pas dans la liste des sources autorisées et ne figure pas dans les sources déclarées de l'article."
+        },
+        {
+          "bloc": 2,
+          "section": "nuances",
+          "type": "source_inventee",
+          "phrase_exacte": "Les Numériques note que les réseaux sociaux ont une responsabilité importante dans la lutte contre la désinformation et la promotion de contenus de qualité.",
+          "explication": "Les Numériques n'apparaît pas dans la liste des sources autorisées et ne figure pas dans les sources déclarées de l'article."
+        },
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "compteur_incoherent",
+          "phrase_exacte": "Blog Nouvelles Technologies note que TikTok teste un curseur IA pour ajuster la quantité de vidéos générées par IA que les utilisateurs verront dans leur fil",
+          "explication": "L'article cite effectivement 6 institutions distinctes (Sciences et Avenir, 20 Minutes, Frandroid, Fnac, Blog Nouvelles Technologies, Les Numériques, Disinfo) mais déclare nb_sources: 4, ce qui ne correspond pas au nombre réel de sources utilisées dans le corps de l'article."
+        },
+        {
+          "bloc": 3,
+          "section": "resume",
+          "type": "paraphrase_structurelle",
+          "phrase_exacte": "TikTok teste également un curseur IA pour ajuster la quantité de vidéos générées par IA que les utilisateurs verront dans leur fil, comme le rapporte Frandroid, dans une démarche visant à offrir plus de granularité dans la personnalisation du feed.",
+          "explication": "Cette phrase dans le résumé reprend quasi mot pour mot la formulation de la section faits attribuée à Blog Nouvelles Technologies (\"TikTok teste un curseur IA pour ajuster la quantité de vidéos générées par IA que les utilisateurs verront dans leur fil, dans une démarche visant à offrir plus de granularité dans la personnalisation du feed\"), avec seulement un changement d'attribution de source."
+        },
+        {
+          "bloc": 4,
+          "section": "nuances",
+          "type": "formule_vague",
+          "phrase_exacte": "Il est important de noter que la détection des contenus générés par IA n'est pas toujours facile, et que les outils de détection peuvent parfois être trompés, comme le souligne Frandroid.",
+          "explication": "Cette affirmation vague (\"pas toujours facile\", \"parfois être trompés\") est attribuée à Frandroid sans aucun fait précis ni donnée vérifiable qui étayerait cette assertion."
+        },
+        {
+          "bloc": 4,
+          "section": "nuances",
+          "type": "section_gonflee",
+          "phrase_exacte": "De plus, la question de la régulation des contenus générés par IA est complexe et fait l'objet de débats entre les experts, selon Blog Nouvelles Technologies.",
+          "explication": "Cette phrase est un remplissage générique (\"est complexe et fait l'objet de débats\") sans fait distinct ni information précise sourcée, caractéristique d'une section_gonflee."
+        },
+        {
+          "bloc": 4,
+          "section": "contexte",
+          "type": "redondance",
+          "phrase_exacte": "Sciences et Avenir note que la prolifération de ces contenus de faible qualité peut avoir des conséquences négatives sur la qualité de l'information disponible en ligne.",
+          "explication": "L'idée que les contenus IA de faible qualité dégradent la qualité de l'information est déjà exprimée dans les faits (\"contenus automatisés de faible qualité\") et dans le contexte (\"dégrader l'expérience des utilisateurs\"), cette phrase est redondante."
+        },
+        {
+          "bloc": 4,
+          "section": "contexte",
+          "type": "redondance",
+          "phrase_exacte": "Les réseaux sociaux sont de plus en plus confrontés à la diffusion de contenus générés par IA, qui peuvent favoriser la désinformation et dégrader l'expérience des utilisateurs, selon 20 Minutes.",
+          "explication": "Cette phrase du contexte reprend quasi identiquement la deuxième puce du résumé (\"les réseaux sociaux sont de plus en plus confrontés à la diffusion de contenus générés par IA, qui peuvent favoriser la désinformation et dégrader l'expérience des utilisateurs\")."
+        },
+        {
+          "bloc": 4,
+          "section": "contexte",
+          "type": "extrapolation",
+          "phrase_exacte": "Disinfo rapporte que des contenus générés par IA sont utilisés pour promouvoir des personnalités politiques, ce qui souligne les risques potentiels de manipulation de l'information.",
+          "explication": "La conclusion \"risques potentiels de manipulation de l'information\" est une extrapolation éditoriale à partir d'un constat factuel, présentée comme neutre alors qu'elle n'est pas explicitement sourcée ainsi, et attribuée à une source non autorisée."
+        },
+        {
+          "bloc": 4,
+          "section": "nuances",
+          "type": "jugement_de_valeur",
+          "phrase_exacte": "Les Numériques note que les réseaux sociaux ont une responsabilité importante dans la lutte contre la désinformation et la promotion de contenus de qualité.",
+          "explication": "L'affirmation que les réseaux sociaux \"ont une responsabilité importante\" est un jugement de valeur normatif, non un fait neutre, même présenté comme attribué à une source."
+        }
+      ]
+    },
+    "article_type": "actu"
   }
 ]
