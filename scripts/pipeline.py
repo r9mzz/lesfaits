@@ -1133,6 +1133,28 @@ def resume_repete_corps(art: dict) -> list[str]:
             if ratio > 0.55:
                 violations.append(r[:90])
                 break
+
+    # Répétition INTERNE au résumé : deux phrases du chapeau qui disent la
+    # même chose (vu le 11/07 : « La mesure est saluée par les syndicats… »
+    # présent quasi mot pour mot dans les phrases 2 et 3). Comparaison au
+    # niveau phrase, toutes entrées du résumé confondues.
+    phrases_resume = []
+    for r in resume:
+        for ph in re.split(r"(?<=[.!?])\s+", (r or "").strip()):
+            ph = ph.strip()
+            if len(ph) > 40:
+                phrases_resume.append(ph)
+    def _ngrams5(t):
+        mots = re.findall(r"\w+", t.lower())
+        return {" ".join(mots[k:k + 5]) for k in range(len(mots) - 4)}
+    for i in range(len(phrases_resume)):
+        for j in range(i + 1, len(phrases_resume)):
+            # Une phrase répétée est souvent enchâssée dans une phrase plus
+            # longue — le ratio global la rate. 3+ séquences de 5 mots en
+            # commun = même contenu recyclé (un résumé sain en partage 0-1).
+            communs = _ngrams5(phrases_resume[i]) & _ngrams5(phrases_resume[j])
+            if len(communs) >= 3:
+                violations.append(f"répétition interne au résumé : « {phrases_resume[j][:80]}… »")
     return violations
 
 
@@ -1588,7 +1610,7 @@ def generate(content: str, category_hint: str, extra_sources: list[dict] | None 
     if repetition_feedback:
         user_msg += (
             "\n\nCORRECTION OBLIGATOIRE — dans ta précédente réponse, ces phrases du résumé "
-            "étaient une quasi-répétition du corps 'faits' au lieu d'une reformulation : « "
+            "étaient une quasi-répétition du corps 'faits' ou d'une autre phrase du résumé : « "
             + " » ; « ".join(repetition_feedback[:5]) + " ». "
             "Réécris le champ 'resume' avec un vocabulaire et une syntaxe entièrement différents "
             "de ceux du corps — une synthèse, jamais un copier-coller déguisé."
@@ -1708,12 +1730,26 @@ def build_spectrum_html(positions: dict) -> str:
     """Génère le bloc HTML spectrum — uniquement si verifie=true et acteurs présents."""
     if not positions or not positions.get("verifie") or not positions.get("acteurs"):
         return ""
-    acteurs = positions["acteurs"]
-    label_g = positions.get("label_gauche", "Favorable")
-    label_d = positions.get("label_droite", "Critique")
+    # Le LLM peut renvoyer "label_gauche": null ou des acteurs incomplets —
+    # .get(clé, défaut) ne remplace pas un null existant (affichait "None"
+    # aux deux extrémités de l'axe). On filtre aussi les acteurs sans nom ou
+    # sans position numérique, et on borne la position à [0, 100].
+    label_g = positions.get("label_gauche") or "Favorable"
+    label_d = positions.get("label_droite") or "Critique"
+    acteurs = []
+    for a in positions["acteurs"]:
+        if not isinstance(a, dict) or not a.get("nom"):
+            continue
+        try:
+            pos = max(0, min(100, float(a.get("position"))))
+        except (TypeError, ValueError):
+            continue
+        acteurs.append({**a, "position": pos})
+    if not acteurs:
+        return ""
     COLORS = ["#4a90d9", "#e57373", "#66bb6a", "#ffa726", "#ab47bc"]
     markers = "\n".join(
-        f'<div class="spectrum__marker" style="left:{a["position"]}%">'
+        f'<div class="spectrum__marker" style="left:{a["position"]:g}%">'
         f'<span class="spectrum__marker-dot" style="background:{COLORS[i % len(COLORS)]}"></span>'
         f'</div>'
         for i, a in enumerate(acteurs)
@@ -1722,7 +1758,7 @@ def build_spectrum_html(positions: dict) -> str:
         f'<div class="spectrum__legend-item">'
         f'<span class="spectrum__legend-dot" style="background:{COLORS[i % len(COLORS)]}"></span>'
         f'<span class="spectrum__legend-name">{_esc(a["nom"])}</span>'
-        f'<span class="spectrum__legend-sub">{_esc(a.get("detail",""))}</span>'
+        f'<span class="spectrum__legend-sub">{_esc(a.get("detail") or "")}</span>'
         f'</div>'
         for i, a in enumerate(acteurs)
     )
