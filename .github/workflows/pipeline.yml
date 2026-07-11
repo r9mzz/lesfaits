@@ -7,10 +7,13 @@ on:
     # génération TRÈS en avance sur le déploiement (07h/18h Paris) pour que le
     # lot soit toujours prêt même avec un gros retard, et sur une minute non
     # ronde pour réduire l'attente en file.
-    # Matin ~02h05 Paris — été (CEST UTC+2) : avril–octobre
-    - cron: "5 0 * 4-10 *"
-    # Matin ~02h05 Paris — hiver (CET UTC+1) : novembre–mars
-    - cron: "5 1 * 11-12,1-3 *"
+    # Matin ~01h05 Paris — été (CEST UTC+2) : avril–octobre. Avancé de 02h05
+    # à 01h05 : le 11/07 le cron est parti avec 3h26 de retard (05h31) — une
+    # heure de marge en plus garantit une génération terminée avant le
+    # déploiement de 07h même dans le pire cas observé (~4h de retard).
+    - cron: "5 23 * 4-10 *"
+    # Matin ~01h05 Paris — hiver (CET UTC+1) : novembre–mars
+    - cron: "5 0 * 11-12,1-3 *"
     # Soir ~13h05 Paris — été (CEST UTC+2) : avril–octobre
     - cron: "5 11 * 4-10 *"
     # Soir ~13h05 Paris — hiver (CET UTC+1) : novembre–mars

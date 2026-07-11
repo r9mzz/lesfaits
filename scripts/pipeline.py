@@ -2522,9 +2522,12 @@ def _sanitize_image_keyword(kw: str, fallback: str = "") -> str:
 
 
 def _paris_iso_now() -> str:
-    """Horodatage ISO 8601 avec le vrai offset Paris (+01:00 CET / +02:00 CEST) —
-    évite le décalage d'1h l'hiver qu'un offset codé en dur produirait."""
-    iso = datetime.now(ZoneInfo("Europe/Paris")).strftime("%Y-%m-%dT%H:%M:%S%z")
+    """Horodatage ISO 8601 du CRÉNEAU de publication (07h00/18h00 Paris), avec
+    le vrai offset (+01:00 CET / +02:00 CEST). Aligné sur date_pub : c'est
+    l'heure d'apparition sur le site qui fait foi, pas celle de génération."""
+    now = datetime.now(ZoneInfo("Europe/Paris"))
+    slot = now.replace(hour=7 if now.hour < 12 else 18, minute=0, second=0, microsecond=0)
+    iso = slot.strftime("%Y-%m-%dT%H:%M:%S%z")
     return f"{iso[:-2]}:{iso[-2:]}"
 
 
@@ -3852,10 +3855,13 @@ def run(dry_run=False, text_input=None, nb_max=12):
     MOIS = ["janvier","février","mars","avril","mai","juin",
             "juillet","août","septembre","octobre","novembre","décembre"]
     now      = datetime.now()
-    # Heure réelle de génération (Paris, via TZ=Europe/Paris du runner) — pas
-    # un créneau fixe 07h00/18h00, qui mentait sur l'heure de publication
-    # effective quand un run était retardé ou ralenti par les rate limits.
-    date_pub = f"{now.day} {MOIS[now.month-1]} {now.year}, {now.strftime('%Hh%M')}"
+    # Heure AFFICHÉE = heure d'apparition sur le site, c'est-à-dire le créneau
+    # de déploiement (07h00 / 18h00 Paris), pas l'heure technique de génération
+    # (la génération tourne des heures en avance pour absorber les retards des
+    # crons GitHub — un article estampillé 05h31 alors qu'il apparaît à 07h+
+    # était incohérent pour le lecteur).
+    _heure_creneau = "07h00" if now.hour < 12 else "18h00"
+    date_pub = f"{now.day} {MOIS[now.month-1]} {now.year}, {_heure_creneau}"
 
     if text_input:
         item = {
