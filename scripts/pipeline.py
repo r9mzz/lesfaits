@@ -852,7 +852,7 @@ Format obligatoire :
   "corps": {
     "faits": "MINIMUM 300 mots. UNIQUEMENT l'actualité immédiate et ses données du jour : chiffres précis, dates, acteurs nommés, données quantitatives, résultats d'études récents, déclarations exactes avec attribution. NE JAMAIS inclure d'historique, d'évolution sur plusieurs années ni de comparaisons internationales — cela va exclusivement dans 'contexte'. NE PAS répéter le résumé mot pour mot ni avec les mêmes tournures — commencer directement par des faits NOUVEAUX ou plus détaillés non mentionnés dans le résumé. Attribuer chaque donnée à son institution avec 'Selon [Institution]' ou 'D'après [Institution]'. JAMAIS d'URL dans le texte — les URLs vont uniquement dans le tableau sources. Utiliser plusieurs paragraphes.",
     "contexte": "MINIMUM 200 mots. UNIQUEMENT de l'historique et de la mise en perspective : évolutions sur 5-10 ans, comparaisons internationales ou régionales, cadre réglementaire ou scientifique. NE JAMAIS reprendre les faits déjà énoncés dans 'faits' — les mettre en perspective, pas les répéter. Chiffres comparatifs obligatoires.",
-    "nuances": "MINIMUM 150 mots. Limites méthodologiques des études citées, points de désaccord entre experts, ce que les données ne permettent pas de conclure, précautions d'interprétation."
+    "nuances": "MINIMUM 150 mots. RÔLE EXCLUSIF de cette section — répondre à la question : « Qu'est-ce qu'un lecteur devrait savoir avant de tirer une conclusion ? ». UNIQUEMENT des informations NOUVELLES : limites, incertitudes, désaccords, points non encore établis. INTERDIT de répéter, reformuler ou résumer un fait déjà présenté dans 'faits' ou 'contexte' — si une phrase n'apporte rien de neuf par rapport aux sections précédentes, elle n'a pas sa place ici. Limites méthodologiques des études citées, points de désaccord entre experts, ce que les données ne permettent pas de conclure, précautions d'interprétation."
   },
   "sources": [
     {"institution": "Nom exact institution", "titre": "Titre exact publication ou rapport", "date": "Date précise", "url": "URL FOURNIE DANS LES SOURCES SUPPLÉMENTAIRES UNIQUEMENT — si aucune URL n'a été fournie pour cette institution, mets null"}
@@ -892,7 +892,10 @@ RÈGLES ABSOLUES — toute violation = article rejeté :
 17. RÉSULTATS INCERTAINS : si une étude est préliminaire, non encore répliquée, ou issue d'un seul chercheur, indique explicitement ce statut ("une étude préliminaire suggère que...", "selon une première analyse, non encore répliquée..."). Ne jamais présenter un résultat d'étude unique comme un fait établi. Le mot "prouve" ou "démontre définitivement" est interdit sauf citation directe attribuée.
 18. SECTIONS DENSES, PAS VAGUES : chaque phrase de 'contexte' et 'nuances' doit apporter un fait précis et sourcé (chiffre, date, acteur, étude). Les formulations génériques sans contenu factuel sont interdites : "il est difficile de prévoir les conséquences", "la situation reste complexe", "les experts sont partagés" — supprimer ou remplacer par un fait réel tiré des sources.
 19. nb_sources EXACT : le champ "nb_sources" doit correspondre exactement au nombre de sources DISTINCTES effectivement citées dans le texte final (chaque URL du tableau sources comptée une fois, même si citée plusieurs fois dans le corps). Pas de sources fantômes, pas de double-comptage.
-20. LÉGAL : ne jamais qualifier quelqu'un de "coupable", "l'assassin", "le violeur" avant condamnation définitive — utiliser "mis en examen", "soupçonné de", "présumé". Ne jamais identifier un mineur par son nom dans une affaire pénale. Si le sujet implique une affaire judiciaire en cours, présenter les faits comme allégations de l'accusation, pas comme faits établis."""
+20. LÉGAL : ne jamais qualifier quelqu'un de "coupable", "l'assassin", "le violeur" avant condamnation définitive — utiliser "mis en examen", "soupçonné de", "présumé". Ne jamais identifier un mineur par son nom dans une affaire pénale. Si le sujet implique une affaire judiciaire en cours, présenter les faits comme allégations de l'accusation, pas comme faits établis.
+21. UNE IDÉE = UNE SEULE APPARITION dans tout l'article (résumé + faits + contexte + nuances confondus). Avant de rendre ta réponse, relis chaque phrase : si elle n'apporte AUCUNE information nouvelle par rapport à ce qui précède (même reformulée, même avec une attribution différente), supprime-la ou fusionne-la avec la première occurrence.
+22. RÔLE STRICT DES SECTIONS : résumé = présentation rapide du sujet ; 'faits' = uniquement les faits principaux du jour ; 'contexte' = uniquement les éléments qui permettent de COMPRENDRE les faits, sans les répéter ; 'nuances' = uniquement ce qu'un lecteur devrait savoir avant de tirer une conclusion (limites, désaccords, incertitudes, points non établis). Aucun contenu d'une section ne doit pouvoir être déplacé dans une autre.
+23. TRIBUNE / PRISE DE POSITION : si la source principale est une tribune, chronique, interview ou essai d'opinion, TOUT l'article doit faire comprendre qu'il s'agit des analyses et propositions de son auteur, pas de faits établis. Utiliser systématiquement des verbes d'opinion ("estime", "plaide pour", "propose", "juge", "défend l'idée que") et le signaler dès le titre ou le résumé (ex : "Selon l'économiste X…"). Ne jamais transformer un argument d'auteur en constat factuel."""
 
 # ──────────────────────────────────────────────────────────────────────────────
 # PROMPTS DOSSIER (portrait neutre ou exploration scientifique hypothétique)
@@ -921,7 +924,7 @@ Format obligatoire (identique à ACTU) :
   "corps": {
     "faits": "MINIMUM 300 mots. PRÉSENTATION : identité publique, formation, parcours vérifiable. Chaque affirmation attribuée à une source. Aucune anecdote non sourcée. Aucune biographie inventée.",
     "contexte": "MINIMUM 200 mots. DÉVELOPPEMENT : travaux, réalisations, impact mesurable, reconnaissance. Chiffres et dates obligatoires. Comparaisons factuelles si sourcées.",
-    "nuances": "MINIMUM 150 mots. LIMITES ET INCERTITUDES : ce que les sources ne permettent pas de confirmer, critiques légitimes du travail (non de la personne), questions ouvertes dans son domaine."
+    "nuances": "MINIMUM 150 mots. RÔLE EXCLUSIF de cette section — répondre à la question : « Qu'est-ce qu'un lecteur devrait savoir avant de tirer une conclusion ? ». UNIQUEMENT des informations NOUVELLES : limites, incertitudes, désaccords, points non encore établis. INTERDIT de répéter, reformuler ou résumer un fait déjà présenté dans 'faits' ou 'contexte' — si une phrase n'apporte rien de neuf par rapport aux sections précédentes, elle n'a pas sa place ici. LIMITES ET INCERTITUDES : ce que les sources ne permettent pas de confirmer, critiques légitimes du travail (non de la personne), questions ouvertes dans son domaine."
   },
   "sources": [...],
   "categorie": "science|economie|societe|tech|environnement|sante",
@@ -963,7 +966,7 @@ Format obligatoire (identique à ACTU) :
   "corps": {
     "faits": "MINIMUM 300 mots. L'HYPOTHÈSE : description précise de ce qui a été observé ou proposé. Marqueurs d'incertitude obligatoires ('suggère que', 'selon une étude préliminaire', 'les chercheurs estiment'). Jamais de certitude assertive sur un résultat non répliqué.",
     "contexte": "MINIMUM 200 mots. ÉTAT DE L'ART : recherches existantes, cadre théorique, études connexes avec dates et institutions. Comparaisons chiffrées si disponibles.",
-    "nuances": "MINIMUM 150 mots. LIMITES ET CONTROVERSES : taille d'échantillon, limites méthodologiques, experts en désaccord, ce que l'étude ne permet pas de conclure, réplications nécessaires."
+    "nuances": "MINIMUM 150 mots. RÔLE EXCLUSIF de cette section — répondre à la question : « Qu'est-ce qu'un lecteur devrait savoir avant de tirer une conclusion ? ». UNIQUEMENT des informations NOUVELLES : limites, incertitudes, désaccords, points non encore établis. INTERDIT de répéter, reformuler ou résumer un fait déjà présenté dans 'faits' ou 'contexte' — si une phrase n'apporte rien de neuf par rapport aux sections précédentes, elle n'a pas sa place ici. LIMITES ET CONTROVERSES : taille d'échantillon, limites méthodologiques, experts en désaccord, ce que l'étude ne permet pas de conclure, réplications nécessaires."
   },
   "sources": [...],
   "categorie": "science|tech|environnement|sante",
@@ -1181,6 +1184,32 @@ def faits_repetitifs(art: dict) -> list[str]:
                     violations.append(f"[{section}] « {noyaux[i][1][:70]}… » ≈ « {noyaux[j][1][:70]}… »")
         if len(violations) >= 4:
             break
+
+    # Répétition ENTRE sections : un fait de 'faits' qui revient dans
+    # 'contexte' ou 'nuances' (règle éditoriale : une idée = une seule
+    # apparition dans tout l'article ; 'nuances' ne doit contenir que du
+    # nouveau). Détection par 5-grammes de mots partagés, robuste aux
+    # reformulations partielles et aux attributions différentes.
+    def _ngrams5(t):
+        mots = re.findall(r"\w+", t.lower())
+        return {" ".join(mots[k:k + 5]) for k in range(len(mots) - 4)}
+    phrases_par_section = {}
+    for section in ("faits", "contexte", "nuances"):
+        texte = corps.get(section, "") or ""
+        phrases_par_section[section] = [
+            _ATTRIB_PREFIX_RE.sub("", p.strip())
+            for p in re.split(r"(?<=[.!?])\s+", texte) if len(p.strip()) > 40
+        ]
+    paires = [("faits", "contexte"), ("faits", "nuances"), ("contexte", "nuances")]
+    for sec_a, sec_b in paires:
+        if len(violations) >= 6:
+            break
+        for pa in phrases_par_section[sec_a]:
+            for pb in phrases_par_section[sec_b]:
+                if len(_ngrams5(pa) & _ngrams5(pb)) >= 3:
+                    violations.append(
+                        f"[{sec_a}→{sec_b}] fait répété entre sections : « {pb[:70]}… »")
+                    break
     return violations
 
 
