@@ -1,5 +1,8 @@
 """Patche les articles HTML existants avec les nouvelles fonctionnalités."""
-import json, os, re
+import json, os, re, sys
+
+sys.path.insert(0, os.path.dirname(__file__))
+from pipeline import AUDIO_PLAYER_HTML
 
 BASE_URL = "https://r9mzz.github.io/lesfaits-site"
 OLD_BASE = "https://r9mzz.github.io/lesfaits"   # ancienne URL (sans -site)
@@ -192,6 +195,21 @@ for fn in os.listdir("articles"):
         )
         if n2:
             changed = True
+
+    # 10. Lecteur audio (synthèse vocale) — injecté après le bandeau IA, comme
+    # dans le template de génération. AUDIO_PLAYER_HTML est importé depuis
+    # pipeline.py pour ne jamais diverger du gabarit des nouveaux articles.
+    # Insertion par recherche de chaîne simple (pas de re.sub : le lecteur
+    # contient des backslashes JS que re.sub interpréterait comme des
+    # références de groupe invalides).
+    if 'id="audio-player"' not in html:
+        badge_start = html.find('<div class="art__ai-badge"')
+        if badge_start != -1:
+            badge_end = html.find('</div>', badge_start)
+            if badge_end != -1:
+                insert_at = badge_end + len('</div>')
+                html = html[:insert_at] + '\n  ' + AUDIO_PLAYER_HTML + html[insert_at:]
+                changed = True
 
     if changed:
         open(path, "w", encoding="utf-8").write(html)

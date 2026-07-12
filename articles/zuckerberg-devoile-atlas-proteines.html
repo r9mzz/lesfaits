@@ -113,6 +113,183 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeMenu();
     <span class="art__reading-time">Lecture : 2 min</span>
   </div>
   <div class="art__ai-badge" role="note">🤖 Contenu rédigé par intelligence artificielle — <a href="methode.html" style="color:inherit;text-decoration:underline">notre méthode</a></div>
+  <div class="audio-player" id="audio-player" style="display:none">
+  <button type="button" class="audio-player__btn" id="audio-play" aria-pressed="false">
+    <span class="audio-player__icon" id="audio-icon">🔊</span>
+    <span id="audio-label">Écouter cet article</span>
+  </button>
+  <div class="audio-player__controls" id="audio-controls" style="display:none">
+    <button type="button" class="audio-player__ctrl" id="audio-stop" aria-label="Arrêter la lecture">⏹</button>
+    <div class="audio-player__progress"><div class="audio-player__bar" id="audio-bar"></div></div>
+    <select class="audio-player__speed" id="audio-speed" aria-label="Vitesse de lecture">
+      <option value="0.85">0.85×</option>
+      <option value="1" selected>1×</option>
+      <option value="1.15">1.15×</option>
+      <option value="1.35">1.35×</option>
+    </select>
+  </div>
+</div>
+<script>
+(function(){
+  // Le bouton est affiché près du bandeau IA (haut d'article) mais le texte à
+  // lire (résumé, sections) est plus bas dans le DOM, pas encore parsé quand
+  // ce script inline s'exécute — attendre la fin du parsing du document.
+  if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',init);}else{init();}
+  function init(){
+  if(!('speechSynthesis' in window))return;
+  var wrap=document.getElementById('audio-player');
+  if(!wrap)return;
+  var playBtn=document.getElementById('audio-play'),icon=document.getElementById('audio-icon'),
+      label=document.getElementById('audio-label'),controls=document.getElementById('audio-controls'),
+      stopBtn=document.getElementById('audio-stop'),bar=document.getElementById('audio-bar'),
+      speedSel=document.getElementById('audio-speed');
+
+  // Texte lu = ce qui est réellement affiché, jamais dupliqué côté serveur.
+  var nodes=[];
+  var resumeEl=document.querySelector('.art__resume');
+  if(resumeEl)nodes.push(resumeEl);
+  document.querySelectorAll('.art__h2').forEach(function(h2){
+    var p=h2.nextElementSibling;
+    if(p&&p.tagName==='P')nodes.push(p);
+  });
+  if(!nodes.length)return;
+
+  // Découpage phrase par phrase (contourne le bug Chrome des utterances longues
+  // et permet la barre de progression + le surlignage).
+  var segments=[];
+  nodes.forEach(function(node){
+    var text=node.textContent.trim();
+    if(!text)return;
+    var sentences=text.match(/[^.!?]+[.!?]+(\s+|$)/g)||[text];
+    sentences.forEach(function(s){
+      s=s.trim();
+      if(s)segments.push({text:s,node:node});
+    });
+  });
+  if(!segments.length)return;
+
+  var voice=null,idx=0,playing=false,paused=false,rate=1;
+  try{
+    var savedRate=localStorage.getItem('lesfaits_audio_rate');
+    if(savedRate){rate=parseFloat(savedRate)||1;speedSel.value=String(rate);}
+  }catch(e){} // navigation privée stricte / stockage désactivé : on continue avec rate=1
+
+  function pickVoice(){
+    var voices=speechSynthesis.getVoices();
+    if(!voices.length)return null;
+    var fr=voices.filter(function(v){return v.lang&&v.lang.toLowerCase().indexOf('fr')===0;});
+    if(!fr.length)return null;
+    var preferred=fr.find(function(v){return /Google|Amélie|Thomas|Audrey/i.test(v.name);});
+    return preferred||fr[0];
+  }
+
+  function ensureVoice(cb){
+    voice=pickVoice();
+    if(voice){cb();return;}
+    var done=false;
+    var onChange=function(){
+      if(done)return;
+      voice=pickVoice();
+      if(voice){done=true;speechSynthesis.removeEventListener('voiceschanged',onChange);cb();}
+    };
+    speechSynthesis.addEventListener('voiceschanged',onChange);
+    setTimeout(function(){
+      if(done)return;
+      done=true;
+      speechSynthesis.removeEventListener('voiceschanged',onChange);
+      voice=pickVoice(); // repli : lecture même sans voix FR détectée (voix par défaut du système)
+      cb();
+    },400);
+  }
+
+  function clearHighlight(){
+    nodes.forEach(function(n){n.classList.remove('audio-reading');});
+  }
+
+  function updateProgress(){
+    bar.style.width=((idx/segments.length)*100)+'%';
+  }
+
+  function speakNext(){
+    if(idx>=segments.length){stop();return;}
+    var seg=segments[idx];
+    clearHighlight();
+    seg.node.classList.add('audio-reading');
+    var u=new SpeechSynthesisUtterance(seg.text);
+    u.lang='fr-FR';
+    if(voice)u.voice=voice;
+    u.rate=rate;
+    u.onend=function(){
+      // Garde double : playing (arrêté entre-temps) ET paused (implémentations
+      // de Web Speech API connues pour déclencher onend de façon incohérente
+      // pendant une pause — mieux vaut ignorer un signal de fin prématuré que
+      // sauter des phrases pendant que l'utilisateur croit avoir mis en pause).
+      if(!playing||paused)return;
+      idx++;
+      updateProgress();
+      speakNext();
+    };
+    u.onerror=function(){
+      if(!playing||paused)return;
+      idx++;
+      speakNext();
+    };
+    speechSynthesis.speak(u);
+  }
+
+  function start(){
+    playing=true;paused=false;
+    icon.textContent='⏸';label.textContent='Pause';
+    controls.style.display='flex';
+    playBtn.setAttribute('aria-pressed','true');
+    speakNext();
+  }
+
+  function stop(){
+    playing=false;paused=false;idx=0;
+    speechSynthesis.cancel();
+    clearHighlight();
+    icon.textContent='🔊';label.textContent='Écouter cet article';
+    controls.style.display='none';
+    playBtn.setAttribute('aria-pressed','false');
+    updateProgress();
+  }
+
+  function togglePlayPause(){
+    if(!playing){
+      ensureVoice(start);
+      return;
+    }
+    if(paused){
+      paused=false;
+      speechSynthesis.resume();
+      icon.textContent='⏸';label.textContent='Pause';
+    }else{
+      paused=true;
+      speechSynthesis.pause();
+      icon.textContent='▶';label.textContent='Reprendre';
+    }
+  }
+
+  playBtn.addEventListener('click',togglePlayPause);
+  stopBtn.addEventListener('click',stop);
+  speedSel.addEventListener('change',function(){
+    rate=parseFloat(speedSel.value)||1;
+    try{localStorage.setItem('lesfaits_audio_rate',String(rate));}catch(e){}
+    // Le débit ne s'applique qu'aux prochains segments — comportement natif
+    // de l'API, pas de coupure ni de désynchronisation.
+  });
+
+  // Ne jamais laisser une lecture continuer après avoir quitté la page.
+  window.addEventListener('pagehide',function(){speechSynthesis.cancel();});
+  window.addEventListener('beforeunload',function(){speechSynthesis.cancel();});
+
+  // Le bouton n'apparaît que si le navigateur sait vraiment synthétiser —
+  // évite un bouton mort sur les navigateurs sans TTS.
+  wrap.style.display='block';
+  } // fin init()
+})();
+</script>
   <div class="art__verify"><span class="art__verify-item">3 sources citées</span><span class="art__verify-item">✓ Protocole éditorial v1.1</span></div>
   <div class="art__rule"></div>
   <!-- Image source: Pexels / Mikhail Nilov | Type: pexels -->
@@ -134,7 +311,10 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeMenu();
   <section class="sources" aria-label="Sources"><h3>SOURCES</h3><ol><li><cite>Futura Sciences</cite> · <em>Zuckerberg dévoile un atlas d'un milliard de protéines pour accélérer les médicaments</em> · 1 juillet 2026 · <a href="https://www.futura-sciences.com/sante/actualites/medecine-zuckerberg-devoile-atlas-milliard-proteines-accelerer-medicaments-134943/" target="_blank" rel="noopener noreferrer external" aria-label="Futura Sciences (ouvre dans un nouvel onglet)">Lire la source →</a></li>
 <li><cite>Le Figaro</cite> · <em>Mark Zuckerberg et son épouse Priscilla Chan dévoilent un atlas des protéines pour accélérer la recherche biomédicale</em> · 28 mai 2026 · <a href="https://sante.lefigaro.fr/medecine/mark-zuckerberg-et-son-epouse-priscilla-chan-devoilent-un-atlas-des-proteines-pour-accelerer-la-recherche-biomedicale-20260528" target="_blank" rel="noopener noreferrer external" aria-label="Le Figaro (ouvre dans un nouvel onglet)">Lire la source →</a></li>
 <li><cite>Le Devoir</cite> · <em>Zuckerberg dévoile un atlas de protéines destiné à faire avancer la recherche biomédicale</em> · 28 mai 2026 · <a href="https://www.ledevoir.com/economie/983525/zuckerberg-devoile-atlas-proteines-destine-faire-avancer-recherche-biomedicale" target="_blank" rel="noopener noreferrer external" aria-label="Le Devoir (ouvre dans un nouvel onglet)">Lire la source →</a></li></ol></section>
-  <div class="art__related"><div class="art__related-title">À LIRE AUSSI</div><div class="art__related-grid"><a class="art__related-card" href="articles/loi-protection-nature-50-ans.html"><img src="assets/images/loi-protection-nature-50-ans-480.webp" alt="La loi sur la protection de la nature fête ses 50 ans" width="400" height="110" loading="lazy" style="width:calc(100% + 32px);margin:-14px -16px 12px;height:110px;object-fit:cover;display:block;border-radius:var(--radius) var(--radius) 0 0"><span class="cat cat--societe">SOCIÉTÉ</span><div class="title-sm">La loi sur la protection de la nature fête ses 50 ans</div><div style="font-size:10px;color:var(--muted);margin-top:6px">12 juillet 2026, 18h00</div></a><a class="art__related-card" href="articles/pompiers-volontaires-en-crise.html"><img src="assets/images/pompiers-volontaires-en-crise-480.webp" alt="Pompiers volontaires : sentiment d’épuisement et de manque de reconnaissance" width="400" height="110" loading="lazy" style="width:calc(100% + 32px);margin:-14px -16px 12px;height:110px;object-fit:cover;display:block;border-radius:var(--radius) var(--radius) 0 0"><span class="cat cat--environnement">ENVIRONNEMENT</span><div class="title-sm">Pompiers volontaires : sentiment d’épuisement et de manque de reconnaissance</div><div style="font-size:10px;color:var(--muted);margin-top:6px">12 juillet 2026, 18h00</div></a><a class="art__related-card" href="articles/inserm-atelier-fake-news-sante.html"><img src="assets/images/inserm-atelier-fake-news-sante-480.webp" alt="L’Inserm lance un atelier pour lutter contre les fake news en santé" width="400" height="110" loading="lazy" style="width:calc(100% + 32px);margin:-14px -16px 12px;height:110px;object-fit:cover;display:block;border-radius:var(--radius) var(--radius) 0 0"><span class="cat cat--sante">SANTÉ</span><div class="title-sm">L’Inserm lance un atelier pour lutter contre les fake news en santé</div><div style="font-size:10px;color:var(--muted);margin-top:6px">12 juillet 2026, 18h00</div></a></div></div>
+  <div class="newsletter-block"><div><div class="newsletter-block__label">NEWSLETTER</div><div class="newsletter-block__text"><strong>Le résumé du jour dans votre boîte mail</strong><span>Chaque soir, les articles du jour en un email. Gratuit. Sans pub.</span></div></div><a class="newsletter-block__btn" href="index.html#newsletter">S'abonner →</a></div>
+<div class="art__related"><div class="art__related-title">À LIRE AUSSI</div><div class="art__related-grid"><a class="art__related-card" href="articles/nouvelles-addictions-evolution-consommations-risques.html"><img src="assets/images/nouvelles-addictions-evolution-consommations-risques.jpg" alt="" width="400" height="110" loading="lazy" style="width:calc(100% + 32px);margin:-14px -16px 12px;height:110px;object-fit:cover;display:block;border-radius:var(--radius) var(--radius) 0 0"><span class="cat cat--sante">SANTE</span><div class="title-sm">Les nouvelles addictions : évolution des consommations et des risques</div><div style="font-size:10px;color:var(--muted);margin-top:6px">12 juillet 2026, 07h00</div></a>
+<a class="art__related-card" href="articles/resultats-baccalaureat-2026-taux-reussite-definitif.html"><img src="assets/images/resultats-baccalaureat-2026-taux-reussite-definitif.jpg" alt="" width="400" height="110" loading="lazy" style="width:calc(100% + 32px);margin:-14px -16px 12px;height:110px;object-fit:cover;display:block;border-radius:var(--radius) var(--radius) 0 0"><span class="cat cat--societe">SOCIETE</span><div class="title-sm">Résultats du baccalauréat 2026 : une légère baisse du taux de réussite</div><div style="font-size:10px;color:var(--muted);margin-top:6px">12 juillet 2026, 07h00</div></a>
+<a class="art__related-card" href="articles/tiktok-lutte-contre-ai-slop.html"><img src="assets/images/tiktok-lutte-contre-ai-slop.jpg" alt="" width="400" height="110" loading="lazy" style="width:calc(100% + 32px);margin:-14px -16px 12px;height:110px;object-fit:cover;display:block;border-radius:var(--radius) var(--radius) 0 0"><span class="cat cat--tech">TECH</span><div class="title-sm">TikTok renforce la détection des vidéos générées par IA</div><div style="font-size:10px;color:var(--muted);margin-top:6px">11 juillet 2026, 05h31</div></a></div></div>
   <p class="art__badge">Généré par IA · Protocole Les Faits v1.1 · 1 juillet 2026, 07h00</p>
   <a class="contest-btn" href="contact.html?article=zuckerberg-devoile-atlas-proteines#erreur">Signaler une erreur sur cet article</a>
 </div>
