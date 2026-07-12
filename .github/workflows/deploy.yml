@@ -65,17 +65,6 @@ jobs:
             python scripts/pipeline.py --rebuild
           fi
 
-      - name: Injecter la clé Brevo dans l'HTML (newsletter form)
-        if: ${{ github.event.inputs.dry_run != 'true' }}
-        env:
-          BREVO_CONTACTS_KEY: ${{ secrets.BREVO_CONTACTS_KEY }}
-        run: |
-          # Le bloc newsletter est injecté sur plusieurs pages (home, catégories,
-          # archive, favoris, méthode, à-propos) — la clé doit être remplacée partout,
-          # pas seulement sur index.html, sinon le formulaire échoue (401) ailleurs.
-          grep -rl "__BREVO_CONTACTS_KEY__" --include="*.html" . \
-            | xargs -r sed -i "s|__BREVO_CONTACTS_KEY__|${BREVO_CONTACTS_KEY}|g"
-
       - name: Patcher les articles (à lire aussi + disclaimer + newsletter + back-to-top)
         if: ${{ github.event.inputs.dry_run != 'true' }}
         env:
