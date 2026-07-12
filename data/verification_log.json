@@ -1812,5 +1812,368 @@
     "sujet_sensible": true,
     "raison": "L'article mentionne nommément deux entreprises condamnées pour pratiques commerciales trompeuses et agressives, ce qui constitue une affirmation négative visant des personnes morales identifiables, et l'article porte potentiellement sur des procédures judiciaires ou administratives en cours ou passées.",
     "article_type": "actu"
+  },
+  {
+    "slug": "resultats-baccalaureat-2026-taux-reussite-definitif",
+    "statut": "corrige_automatiquement",
+    "date": "2026-07-12T02:08:06",
+    "problemes_initiaux": 16,
+    "tentatives": 1,
+    "problemes_residuels_style": 8,
+    "rapport_initial": {
+      "conforme": false,
+      "sujet_sensible": false,
+      "sujet_sensible_raison": "",
+      "problemes": [
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "source_derivee_comptee_comme_primaire",
+          "phrase_exacte": "Cnews rapporte que le taux de réussite au baccalauréat général est de 95,9%, tandis que celui de la voie technologique s'établit à 90,3%.",
+          "explication": "Cnews, Laprovence, Larep, Sud Ouest et MSN sont très vraisemblablement des reprises de la même dépêche AFP ou d'un communiqué du ministère, sans apport d'information distinct ; les citer comme sources indépendantes gonfle artificiellement le nb_sources et constitue un problème de sourcing dérivé compté comme primaire."
+        },
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "source_derivee_comptee_comme_primaire",
+          "phrase_exacte": "Laprovence précise que 58,8% des candidats ont obtenu une mention. Larep souligne que le taux de réussite au baccalauréat professionnel est en hausse de 0,2 point, à 84,3%, selon Sud Ouest.",
+          "explication": "Laprovence, Larep et Sud Ouest sont des médias régionaux dont les titres des sources autorisées indiquent qu'ils reprennent tous le même chiffre global (91,4%) sans apport éditorial distinct ; les traiter comme trois sources indépendantes fausse le compteur."
+        },
+        {
+          "bloc": 2,
+          "section": "contexte",
+          "type": "source_non_editoriale",
+          "phrase_exacte": "MSN rapporte que près de 680 600 candidats ont été admis au bac 2026.",
+          "explication": "MSN est un agrégateur de contenus tiers, non un média éditorial produisant sa propre information ; le citer comme source factuelle autonome n'est pas valide selon la charte."
+        },
+        {
+          "bloc": 2,
+          "section": "contexte",
+          "type": "compteur_incoherent",
+          "phrase_exacte": "MSN rapporte que près de 680 600 candidats ont été admis au bac 2026.",
+          "explication": "MSN agrège du contenu tiers et ne constitue pas une source indépendante ; le compter parmi les 8 sources gonfle le nb_sources au-delà des sources réellement distinctes."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "chiffre_errone",
+          "phrase_exacte": "Larep souligne que le taux de réussite au baccalauréat professionnel est en hausse de 0,2 point, à 84,3%, selon Sud Ouest.",
+          "explication": "Ce chiffre (84,3%, +0,2 point pour le bac pro) est attribué à Larep puis à Sud Ouest, mais aucune des sources autorisées listées ne mentionne ce chiffre dans son titre ou son URL ; il n'est donc pas vérifiable via les sources fournies et peut être erroné ou inventé."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "chiffre_errone",
+          "phrase_exacte": "Cnews rapporte que le taux de réussite au baccalauréat général est de 95,9%, tandis que celui de la voie technologique s'établit à 90,3%.",
+          "explication": "Le titre de la source Cnews autorisée ne mentionne que le taux global de 91,4% ; les chiffres par filière (95,9% général, 90,3% technologique) ne sont pas vérifiables via cette source telle qu'elle est listée, et pourraient être inexacts ou attribués à la mauvaise source."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "chiffre_errone",
+          "phrase_exacte": "Les Échos note que le taux de réussite est de 81,6% en baisse de 3,9 points par rapport à 2025 pour le diplôme national du brevet (DNB).",
+          "explication": "Le titre de la source Les Échos autorisée porte exclusivement sur le baccalauréat (91,4%) ; les chiffres du DNB (81,6%, -3,9 points) ne figurent pas dans cette source listée et sont attribués de manière non vérifiable à Les Échos."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "incoherence_inter_sections",
+          "phrase_exacte": "MSN rapporte que près de 680 600 candidats ont été admis au bac 2026.",
+          "explication": "Dans les faits, Europe1 indique « 680 600 candidats ont été admis » (chiffre exact) ; dans le contexte, MSN reprend « près de 680 600 » (approximation) — la même donnée est présentée une fois comme exacte et une fois comme approximative, créant une incohérence inter-sections."
+        },
+        {
+          "bloc": 3,
+          "section": "resume",
+          "type": "cadrage_emprunte",
+          "phrase_exacte": "ce qui soulève des questions sur la qualité de l'enseignement et les attentes des étudiants.",
+          "explication": "Ce jugement interprétatif (lier la baisse du taux à des questions sur la qualité de l'enseignement) n'est attribué à aucune source et est présenté comme un fait neutre alors qu'il s'agit d'un cadrage éditorial."
+        },
+        {
+          "bloc": 3,
+          "section": "resume",
+          "type": "cadrage_emprunte",
+          "phrase_exacte": "ce qui nécessite une analyse plus approfondie pour comprendre les tendances et les facteurs influençant les résultats.",
+          "explication": "Cette conclusion prescriptive (« nécessite une analyse plus approfondie ») est un jugement éditorial non attribué à une source, présenté comme un fait neutre."
+        },
+        {
+          "bloc": 4,
+          "section": "nuances",
+          "type": "section_gonflee",
+          "phrase_exacte": "Il est important de considérer les nuances dans l'interprétation des résultats du baccalauréat 2026. Les résultats peuvent varier en fonction de la filière et de la région. Il est donc important de prendre en compte ces facteurs pour avoir une compréhension plus complète des résultats. De plus, il est nécessaire de considérer les limites des données et les facteurs qui pourraient influencer les résultats, tels que les changements dans les programmes scolaires et les méthodes d'enseignement.",
+          "explication": "La section nuances est entièrement composée de généralités vagues sans aucun fait distinct sourcé ; elle n'apporte aucune information nouvelle et devrait être supprimée ou remplacée par des données réelles."
+        },
+        {
+          "bloc": 4,
+          "section": "contexte",
+          "type": "section_gonflee",
+          "phrase_exacte": "Il est important de noter que les résultats du baccalauréat peuvent varier d'une année à l'autre en fonction de plusieurs facteurs, notamment la qualité de l'enseignement et les attentes des étudiants.",
+          "explication": "Cette phrase est un remplissage générique non sourcé qui n'apporte aucun fait distinct ; elle constitue du vague éditorial sans valeur informationnelle."
+        },
+        {
+          "bloc": 4,
+          "section": "contexte",
+          "type": "redondance",
+          "phrase_exacte": "Les résultats du baccalauréat 2026 sont en baisse par rapport à 2025, ce qui peut être lié à plusieurs facteurs, notamment les changements dans les programmes scolaires et les méthodes d'enseignement.",
+          "explication": "La baisse par rapport à 2025 est déjà établie dans les faits (« en baisse de 0,4 point par rapport à 2025 ») ; cette phrase répète l'information sans rien ajouter."
+        },
+        {
+          "bloc": 4,
+          "section": "resume",
+          "type": "redondance",
+          "phrase_exacte": "Les chiffres révèlent également des disparités régionales et des différences entre les filières, ce qui nécessite une analyse plus approfondie pour comprendre les tendances et les facteurs influençant les résultats.",
+          "explication": "Les disparités régionales et entre filières sont déjà évoquées dans les nuances ; cette phrase du résumé répète la même idée sans y ajouter de fait sourcé."
+        },
+        {
+          "bloc": 4,
+          "section": "contexte",
+          "type": "extrapolation",
+          "phrase_exacte": "ce qui peut être lié à plusieurs facteurs, notamment les changements dans les programmes scolaires et les méthodes d'enseignement.",
+          "explication": "Le lien causal entre la baisse du taux et les changements de programmes ou méthodes d'enseignement est une anticipation/interprétation non sourcée présentée comme une explication plausible des faits."
+        },
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "formule_vague",
+          "phrase_exacte": "selon les données disponibles.",
+          "explication": "L'expression « selon les données disponibles » dans le résumé est une formule vague sans référence à une source précise de la liste autorisée."
+        }
+      ]
+    },
+    "article_type": "actu"
+  },
+  {
+    "slug": "nouvelles-addictions-evolution-consommations-risques",
+    "statut": "corrige_automatiquement",
+    "date": "2026-07-12T02:10:37",
+    "problemes_initiaux": 13,
+    "tentatives": 1,
+    "problemes_residuels_style": 10,
+    "rapport_initial": {
+      "conforme": false,
+      "sujet_sensible": false,
+      "sujet_sensible_raison": "",
+      "problemes": [
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "formule_vague",
+          "phrase_exacte": "Les nouvelles données sur les addictions montrent que les consommations et les risques d'addiction évoluent, avec de nouvelles substances et de nouveaux comportements qui apparaissent.",
+          "explication": "Cette affirmation est présentée sans attribution à une source précise de la liste autorisée ; elle n'est rattachée à aucune référence vérifiable."
+        },
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "formule_vague",
+          "phrase_exacte": "L'Inserm rapporte que les addictions ont un impact important sur la santé et le bien-être des individus et de la société.",
+          "explication": "La source Inserm citée (inserm-magazine-n69) porte sur le numéro 69 du magazine Inserm, mais aucun élément précis extrait de cet article n'est cité ; l'affirmation reste générique et invérifiable dans la source indiquée."
+        },
+        {
+          "bloc": 2,
+          "section": "contexte",
+          "type": "source_non_editoriale",
+          "phrase_exacte": "Animals: friends of foes? souligne que les zoonoses, ou maladies d'origine animale, représentent un risque important pour la santé humaine et nécessitent une attention particulière de la part de la communauté scientifique.",
+          "explication": "La source 'Animals: friends of foes?' est une publication hébergée sur Calameo (plateforme de partage de documents), non un média journalistique ni une institution scientifique reconnue ; elle est utilisée ici pour cautionner un jugement de risque pour la santé humaine, ce qui dépasse les faits bruts et mesurables autorisés par l'exception de la charte."
+        },
+        {
+          "bloc": 2,
+          "section": "nuances",
+          "type": "source_non_editoriale",
+          "phrase_exacte": "Lecriteuse met en avant l'importance de prendre en compte la santé des femmes, notamment en ce qui concerne la précarité menstruelle, un sujet encore tabou.",
+          "explication": "'Lecriteuse' est un blog personnel (lecriteuse.com), non un média journalistique ni une institution scientifique ; il est utilisé pour cautionner un cadrage éditorial ('sujet encore tabou'), ce qui constitue un jugement de valeur non sourcé auprès d'une autorité neutre."
+        },
+        {
+          "bloc": 3,
+          "section": "nuances",
+          "type": "cadrage_emprunte",
+          "phrase_exacte": "la précarité menstruelle, un sujet encore tabou",
+          "explication": "Le qualificatif 'encore tabou' est un jugement de valeur ou cadrage éditorial attribué implicitement à 'Lecriteuse', un blog non institutionnel, et présenté sans guillemets ni attribution explicite neutre, ce qui revient à le faire endosser par l'article."
+        },
+        {
+          "bloc": 4,
+          "section": "contexte",
+          "type": "section_gonflee",
+          "phrase_exacte": "Unilim indique que les allergies sont également des pathologies qui peuvent avoir un impact important sur la santé et le bien-être des individus. Les recherches sur les addictions et les allergies sont menées par des équipes de chercheurs dans différents domaines, notamment la biologie, la psychologie et la médecine.",
+          "explication": "Ce passage sur les allergies est hors sujet par rapport au titre et à l'article (addictions) et ne fait qu'ajouter du vague générique sans apporter un fait distinct sourcé en lien avec le sujet traité."
+        },
+        {
+          "bloc": 4,
+          "section": "contexte",
+          "type": "section_gonflee",
+          "phrase_exacte": "Animals: friends of foes? souligne que les zoonoses, ou maladies d'origine animale, représentent un risque important pour la santé humaine et nécessitent une attention particulière de la part de la communauté scientifique.",
+          "explication": "Les zoonoses n'ont aucun lien établi avec le sujet de l'article (addictions) ; ce passage hors sujet gonfle la section contexte sans apporter d'information pertinente sourcée."
+        },
+        {
+          "bloc": 4,
+          "section": "nuances",
+          "type": "section_gonflee",
+          "phrase_exacte": "Biosante LAB note que les travaux de l'équipe MAB2 sur la protéine circulante EG-VEGF, également dénommée PROK-1, pourraient être un biomarqueur prédictif des accouchements prématurés.",
+          "explication": "Les accouchements prématurés et la protéine EG-VEGF/PROK-1 sont sans rapport avec le sujet des addictions ; ce passage remplit la section nuances avec un fait étranger au sujet de l'article."
+        },
+        {
+          "bloc": 4,
+          "section": "nuances",
+          "type": "section_gonflee",
+          "phrase_exacte": "Lirmm signale que les recherches sur les gliomes, une forme de cancer du cerveau, sont en cours pour développer de nouvelles méthodes de diagnostic et de traitement.",
+          "explication": "Les gliomes et le cancer du cerveau sont hors sujet par rapport aux addictions ; la section nuances est utilisée pour agréger des faits sans lien avec le titre ou le fil éditorial de l'article."
+        },
+        {
+          "bloc": 4,
+          "section": "resume",
+          "type": "section_gonflee",
+          "phrase_exacte": "Les recherches actuelles visent à identifier les facteurs de risque et les mécanismes sous-jacents des addictions pour développer des stratégies de prévention et de prise en charge efficaces.",
+          "explication": "Cette phrase du résumé est un propos générique et non sourcé qui n'est étayé par aucun élément précis dans le corps de l'article ; elle n'apporte aucun fait distinct vérifiable."
+        },
+        {
+          "bloc": 4,
+          "section": "resume",
+          "type": "redondance",
+          "phrase_exacte": "Les addictions sont des pathologies complexes qui nécessitent une approche multidisciplinaire pour être comprises et traitées.",
+          "explication": "Cette idée (addictions = pathologies complexes, approche multidisciplinaire) est une reformulation générique de ce qui est dit dans les faits ('pathologies cérébrales') sans apporter d'information nouvelle ni de source précise."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "fait_tranche_arbitrairement",
+          "phrase_exacte": "Selon l'Inserm, les addictions sont des pathologies cérébrales définies par une dépendance à une substance ou un comportement.",
+          "explication": "La définition des addictions comme 'pathologies cérébrales' est présentée comme une vérité établie attribuée à l'Inserm sans référence à un contenu précis du lien fourni (inserm-magazine-n69), rendant la vérification impossible et la formulation potentiellement tronquée par rapport à la complexité réelle du concept."
+        },
+        {
+          "bloc": 2,
+          "section": "nuances",
+          "type": "source_non_editoriale",
+          "phrase_exacte": "Biosante LAB note que les travaux de l'équipe MAB2 sur la protéine circulante EG-VEGF, également dénommée PROK-1, pourraient être un biomarqueur prédictif des accouchements prématurés.",
+          "explication": "'Biosante LAB' est le site d'un laboratoire de recherche (biosante-lab.fr), soit une source institutionnelle de recherche propre qui se cite elle-même pour un fait scientifique non définitif ; utilisé ici pour cautionner un fait médical incertain ('pourraient être'), ce qui dépasse le cadre des faits bruts et mesurables."
+        }
+      ]
+    },
+    "article_type": "dossier_science"
+  },
+  {
+    "slug": "ninja-woodfire-pro-xl-barbecue-electrique",
+    "statut": "rejete_qualite",
+    "date": "2026-07-12T02:14:39",
+    "problemes_initiaux": 19,
+    "tentatives": 2,
+    "problemes_restants": 11,
+    "bloquants_restants": 1,
+    "article_type": "actu"
+  },
+  {
+    "slug": "sciences-avenir-prix-relay-sepm-2026-magazine-passion",
+    "statut": "corrige_automatiquement",
+    "date": "2026-07-12T02:18:19",
+    "problemes_initiaux": 12,
+    "tentatives": 1,
+    "problemes_residuels_style": 8,
+    "rapport_initial": {
+      "conforme": false,
+      "sujet_sensible": false,
+      "sujet_sensible_raison": "",
+      "problemes": [
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "source_non_editoriale",
+          "phrase_exacte": "Facebook rapporte que le magazine a reçu cette récompense du jury Relay-SEPM.",
+          "explication": "Une page Facebook (même officielle d'un magazine) n'est pas une source journalistique ou institutionnelle ; elle ne constitue pas une source éditoriale indépendante et ne peut pas être citée comme autorité factuelle au sens de la charte."
+        },
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "source_non_editoriale",
+          "phrase_exacte": "Marcomputer indique que Sciences et Avenir a également participé à la compétition des magazines passion de l'année.",
+          "explication": "Marcomputer est un site non identifié comme média de presse reconnu ; son statut éditorial n'est pas établi et il ne peut pas être considéré comme une source journalistique ou institutionnelle fiable au sens de la charte."
+        },
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "source_derivee_comptee_comme_primaire",
+          "phrase_exacte": "Facebook rapporte que le magazine a reçu cette récompense du jury Relay-SEPM. Marcomputer indique que Sciences et Avenir a également participé à la compétition des magazines passion de l'année.",
+          "explication": "Facebook (page officielle de Sciences et Avenir) et Marcomputer relaient vraisemblablement la même information publiée par Sciences et Avenir elle-même, sans apporter de contenu indépendant distinct ; les compter comme des sources séparées crée une fausse impression de pluralité sourcing."
+        },
+        {
+          "bloc": 2,
+          "section": "nuances",
+          "type": "formule_vague",
+          "phrase_exacte": "Bien que Sciences et Avenir soit classé en tête pour la diffusion en presse scientifique, selon les données disponibles",
+          "explication": "\"Selon les données disponibles\" est une formule vague sans référence à une source précise de la liste autorisée ; aucune des quatre sources listées ne fournit de données de diffusion."
+        },
+        {
+          "bloc": 1,
+          "section": "nuances",
+          "type": "fait_tranche_arbitrairement",
+          "phrase_exacte": "Bien que Sciences et Avenir soit classé en tête pour la diffusion en presse scientifique, selon les données disponibles",
+          "explication": "Affirmer que Sciences et Avenir est « classé en tête pour la diffusion en presse scientifique » est un fait précis non étayé par aucune des sources autorisées ; cette affirmation est présentée comme établie sans sourçage vérifiable."
+        },
+        {
+          "bloc": 1,
+          "section": "resume",
+          "type": "chronologie_confuse",
+          "phrase_exacte": "Cette récompense intervient après plus de sept décennies d'activité du magazine",
+          "explication": "Le corps de l'article indique « près de 80 ans » alors que le résumé dit « plus de sept décennies » (70+ ans) : les deux formulations ne sont pas équivalentes et aucune n'est sourcée précisément, créant une incohérence sur l'ancienneté du magazine."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "incoherence_inter_sections",
+          "phrase_exacte": "Sciences et Avenir existe depuis près de 80 ans.",
+          "explication": "Le résumé indique « plus de sept décennies » (soit 70+ ans) tandis que le contexte dit « près de 80 ans » : deux chiffres différents pour la même information dans le même article, sans source permettant de trancher."
+        },
+        {
+          "bloc": 4,
+          "section": "contexte",
+          "type": "section_gonflee",
+          "phrase_exacte": "L'attribution de ce prix à Sciences et Avenir s'inscrit dans une longue histoire de reconnaissance de la presse scientifique généraliste en France, où des magazines de référence structurent l'accès du grand public aux découvertes et enjeux scientifiques contemporains.",
+          "explication": "Cette phrase est un commentaire générique et non sourcé qui n'apporte aucun fait distinct ; elle relève du remplissage éditorial."
+        },
+        {
+          "bloc": 4,
+          "section": "nuances",
+          "type": "redondance",
+          "phrase_exacte": "Le fait que plusieurs titres reçoivent des prix distincts lors d'une même édition du Relay-SEPM montre que la compétition s'organise par catégories, chacune couronnant un excellence spécifique plutôt qu'établissant une hiérarchie unique.",
+          "explication": "Cette idée — que plusieurs titres sont récompensés dans des catégories distinctes — a déjà été exprimée dans les faits (\"démontrant la diversité des titres honorés\") et dans le résumé ; il s'agit d'une répétition reformulée."
+        },
+        {
+          "bloc": 4,
+          "section": "nuances",
+          "type": "jugement_de_valeur",
+          "phrase_exacte": "chacune couronnant un excellence spécifique",
+          "explication": "\"Un excellence spécifique\" est une tournure laudative/éditoriale, pas un énoncé factuel neutre."
+        },
+        {
+          "bloc": 4,
+          "section": "resume",
+          "type": "jugement_de_valeur",
+          "phrase_exacte": "distinction remise par le Syndicat des éditeurs de la presse magazine et Relay pour saluer son engagement éditorial et sa transmission de la connaissance scientifique",
+          "explication": "\"Engagement éditorial\" et \"transmission de la connaissance scientifique\" sont des formulations valorisantes et subjectives présentées comme des faits neutres sans être attribuées explicitement à la source qui emploie ces termes."
+        },
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "compteur_incoherent",
+          "phrase_exacte": "\"nb_sources\": 4",
+          "explication": "La source Facebook est une page de réseau social non éditoriale et constitue en pratique la même voix que Sciences et Avenir (autopromotion) ; si elle est exclue comme source valide, le nombre réel de sources distinctes et recevables est inférieur à 4, rendant le compteur inexact."
+        }
+      ]
+    },
+    "article_type": "actu"
+  },
+  {
+    "slug": "alzheimer-genetique-protection-mystere",
+    "statut": "rejete_qualite",
+    "date": "2026-07-12T02:29:17",
+    "problemes_initiaux": 22,
+    "tentatives": 2,
+    "problemes_restants": 16,
+    "bloquants_restants": 3,
+    "article_type": "dossier_science"
+  },
+  {
+    "slug": "incendie-drome-quatre-mille-hectares-solidarite",
+    "statut": "rejete_sensible",
+    "date": "2026-07-12T02:35:10",
+    "sujet_sensible": true,
+    "raison": "L'article mentionne l'évacuation de colonies de vacances impliquant des enfants mineurs, et contient une critique nominative d'une élue (Marie Pochon) portant sur des décisions institutionnelles potentiellement contestées.",
+    "article_type": "actu"
   }
 ]
