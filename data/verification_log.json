@@ -2175,5 +2175,664 @@
     "sujet_sensible": true,
     "raison": "L'article mentionne l'évacuation de colonies de vacances impliquant des enfants mineurs, et contient une critique nominative d'une élue (Marie Pochon) portant sur des décisions institutionnelles potentiellement contestées.",
     "article_type": "actu"
+  },
+  {
+    "slug": "decouverte-graffitis-pompei-vie-quotidienne",
+    "statut": "corrige_automatiquement",
+    "date": "2026-07-12T14:08:22",
+    "problemes_initiaux": 14,
+    "tentatives": 1,
+    "problemes_residuels_style": 13,
+    "rapport_initial": {
+      "conforme": false,
+      "sujet_sensible": false,
+      "sujet_sensible_raison": "",
+      "problemes": [
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "Le projet 'Bruits de couloir' mené par Sorbonne Université et l'université du Québec à Montréal a permis de découvrir des centaines d'inscriptions et de dessins gravés sur les murs de Pompéi, indique Le Singulier.",
+          "explication": "Le nom du projet ('Bruits de couloir'), ainsi que les institutions mentionnées (Sorbonne Université, université du Québec à Montréal) ne peuvent pas être vérifiés via les sources autorisées ; aucune source listée ne contient ces informations attribuables à 'Le Singulier' avec suffisamment de certitude pour les présenter comme établies — en outre, si ces éléments sont absents de la source citée, ils constituent des faits inventés ou non sourcés."
+        },
+        {
+          "bloc": 2,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "Pompéi est une cité romaine qui a été détruite par l'éruption du Vésuve en 79 après Jésus-Christ, comme le rappelle Wikipédia.",
+          "explication": "Wikipédia n'apparaît pas dans la liste des sources autorisées ; le citer comme référence factuelle constitue une source non autorisée."
+        },
+        {
+          "bloc": 2,
+          "section": "contexte",
+          "type": "source_non_editoriale",
+          "phrase_exacte": "Pompéi est une cité romaine qui a été détruite par l'éruption du Vésuve en 79 après Jésus-Christ, comme le rappelle Wikipédia.",
+          "explication": "Wikipédia est une encyclopédie collaborative non-institutionnelle et non-journalistique, non admise comme source d'autorité factuelle selon la charte, et qui n'est de toute façon pas dans la liste des sources autorisées."
+        },
+        {
+          "bloc": 2,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "France Inter note que les graffitis de Pompéi sont un exemple de l'art de la communication à travers les âges.",
+          "explication": "France Inter n'apparaît pas dans la liste des sources autorisées ; cette attribution est donc une source inventée au regard de la liste fournie."
+        },
+        {
+          "bloc": 2,
+          "section": "nuances",
+          "type": "formule_vague",
+          "phrase_exacte": "La découverte des graffitis de Pompéi est un exemple de la complexité de la vie quotidienne des Romains. Les graffitis offrent un aperçu de la vie sociale, politique et culturelle de la cité, mais ils ne sont pas sans limites. Il est important de considérer le contexte historique et culturel dans lequel ces graffitis ont été créés pour en comprendre pleinement la signification.",
+          "explication": "L'ensemble de la section 'nuances' ne cite aucune source précise de la liste autorisée pour étayer ces affirmations, relevant du commentaire générique non attribué."
+        },
+        {
+          "bloc": 4,
+          "section": "nuances",
+          "type": "section_gonflee",
+          "phrase_exacte": "La découverte des graffitis de Pompéi est un exemple de la complexité de la vie quotidienne des Romains. Les graffitis offrent un aperçu de la vie sociale, politique et culturelle de la cité, mais ils ne sont pas sans limites. Il est important de considérer le contexte historique et culturel dans lequel ces graffitis ont été créés pour en comprendre pleinement la signification.",
+          "explication": "La section 'nuances' n'apporte aucun fait distinct sourcé ; elle se contente de généralités vagues sur la 'complexité' et l'importance du 'contexte', sans information nouvelle vérifiable."
+        },
+        {
+          "bloc": 4,
+          "section": "nuances",
+          "type": "redondance",
+          "phrase_exacte": "Les graffitis offrent un aperçu de la vie sociale, politique et culturelle de la cité",
+          "explication": "Cette affirmation répète mot pour mot la même idée déjà énoncée dans le résumé ('offrent une plongée unique dans la vie sociale, politique et culturelle de la cité') et dans les faits ('la vie sociale, politique et culturelle')."
+        },
+        {
+          "bloc": 4,
+          "section": "contexte",
+          "type": "redondance",
+          "phrase_exacte": "Non Stop Reality souligne que Pompéi est un site archéologique unique qui offre un aperçu de la vie quotidienne des Romains.",
+          "explication": "Cette phrase répète une idée déjà présente dans les faits ('révèlent les préoccupations ordinaires des habitants') et dans le résumé, sans apporter d'information factuelle supplémentaire distincte."
+        },
+        {
+          "bloc": 4,
+          "section": "contexte",
+          "type": "jugement_de_valeur",
+          "phrase_exacte": "Non Stop Reality souligne que Pompéi est un site archéologique unique qui offre un aperçu de la vie quotidienne des Romains.",
+          "explication": "Le qualificatif 'unique' est un jugement de valeur éditorial, même attribué à Non Stop Reality, dont l'URL renvoie à un article sur les réseaux sociaux du passé — cette appréciation n'est pas un fait mesurable."
+        },
+        {
+          "bloc": 4,
+          "section": "contexte",
+          "type": "cadrage_emprunte",
+          "phrase_exacte": "France Inter note que les graffitis de Pompéi sont un exemple de l'art de la communication à travers les âges.",
+          "explication": "Le cadrage éditorial 'art de la communication à travers les âges' est emprunté au titre de la source Non Stop Reality (et non France Inter), et est présenté ici comme une autorité neutre alors que France Inter n'est pas dans les sources et que c'est un cadrage interprétatif, pas un fait."
+        },
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "compteur_incoherent",
+          "phrase_exacte": "\"nb_sources\": 4",
+          "explication": "L'article fait référence à 5 sources distinctes dans le corps du texte (Le Singulier, France Culture, Pour la Science, Non Stop Reality, Wikipédia et France Inter), dont deux (Wikipédia et France Inter) ne figurent pas dans les sources autorisées ; le compteur de 4 ne reflète donc pas le nombre réel de sources effectivement citées dans l'article."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "fait_tranche_arbitrairement",
+          "phrase_exacte": "Le projet 'Bruits de couloir' mené par Sorbonne Université et l'université du Québec à Montréal a permis de découvrir des centaines d'inscriptions et de dessins gravés sur les murs de Pompéi",
+          "explication": "Ces inscriptions n'ont pas été 'découvertes' au sens propre — elles sont connues depuis longtemps ; le projet porte sur leur déchiffrement/étude, non sur une découverte nouvelle, ce qui constitue un fait présenté de manière tranchée et inexacte."
+        },
+        {
+          "bloc": 4,
+          "section": "resume",
+          "type": "redondance",
+          "phrase_exacte": "Les graffitis de Pompéi sont un témoignage exceptionnel de l'expression publique des sentiments et des idées des Romains, offrant une perspective nouvelle sur l'histoire de la cité.",
+          "explication": "Cette phrase du résumé répète la même idée que le deuxième point du résumé ('permettant de mieux comprendre les préoccupations et les modes de vie des Romains') sans apporter d'information supplémentaire distincte."
+        },
+        {
+          "bloc": 4,
+          "section": "resume",
+          "type": "jugement_de_valeur",
+          "phrase_exacte": "Ces découvertes offrent une plongée unique dans la vie sociale, politique et culturelle de la cité",
+          "explication": "'Unique' est un jugement de valeur éditorial non sourcé, présenté comme un fait neutre."
+        }
+      ]
+    },
+    "article_type": "actu"
+  },
+  {
+    "slug": "inserm-approche-une-seule-sante-recherche",
+    "statut": "rejete_qualite",
+    "date": "2026-07-12T14:16:56",
+    "problemes_initiaux": 15,
+    "tentatives": 2,
+    "problemes_restants": 11,
+    "bloquants_restants": 1,
+    "article_type": "actu"
+  },
+  {
+    "slug": "patient-bizarre-urgences-position-debout",
+    "statut": "corrige_automatiquement",
+    "date": "2026-07-12T14:19:11",
+    "problemes_initiaux": 13,
+    "tentatives": 1,
+    "problemes_residuels_style": 7,
+    "rapport_initial": {
+      "conforme": false,
+      "sujet_sensible": false,
+      "sujet_sensible_raison": "",
+      "problemes": [
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "Medisite mentionne des situations insolites aux urgences, mais sans fournir de détails sur ce cas spécifique.",
+          "explication": "Medisite est bien dans les sources autorisées, mais l'article s'en sert pour étayer implicitement le cas médical décrit alors que la source (datée de 2010) ne traite manifestement pas de ce cas précis : citer une source pour dire qu'elle ne parle pas du sujet n'est pas une utilisation valide comme appui factuel."
+        },
+        {
+          "bloc": 2,
+          "section": "contexte",
+          "type": "source_non_editoriale",
+          "phrase_exacte": "Cairn rapporte que les professionnels de la santé doivent être préparés à affronter des défis uniques et trouver des solutions innovantes pour sauver des vies.",
+          "explication": "La source Cairn listée est une page de revue académique (Geneses, revue de sciences sociales) qui n'a aucun rapport avec les équipes médicales ou les urgences ; elle est utilisée ici comme caution factuelle pour une affirmation générale qui ne peut pas y être trouvée, ce qui relève d'une attribution inventée."
+        },
+        {
+          "bloc": 2,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "Ladepeche rapporte que les patients peuvent parfois être confrontés à des traitements inappropriés ou à des conditions difficiles dans les hôpitaux.",
+          "explication": "La source La Dépêche autorisée porte sur un cas précis (une patiente de 58 ans humiliée aux urgences) ; l'article l'utilise pour une généralisation non sourcée ('les patients peuvent parfois être confrontés...') qui ne correspond pas au contenu de l'article cité."
+        },
+        {
+          "bloc": 2,
+          "section": "contexte",
+          "type": "formule_vague",
+          "phrase_exacte": "Cairn rapporte que les professionnels de la santé doivent être préparés à affronter des défis uniques et trouver des solutions innovantes pour sauver des vies.",
+          "explication": "La revue Geneses (Cairn) est une revue de sciences sociales/histoire sans lien avec ce sujet médical ; attribuer cette affirmation à Cairn sans préciser la page, l'auteur ou le passage concerné constitue une référence invérifiable et trompeuse."
+        },
+        {
+          "bloc": 2,
+          "section": "contexte",
+          "type": "source_derivee_comptee_comme_primaire",
+          "phrase_exacte": "Medisite mentionne des situations insolites aux urgences, mais sans fournir de détails sur ce cas spécifique.",
+          "explication": "Medisite (2010) et Futura Sciences traitent du même sujet général (urgences insolites) mais Medisite n'apporte aucune information distincte sur le cas traité ; compter ces deux sources comme indépendantes pour ce sujet gonfle artificiellement le sourcing."
+        },
+        {
+          "bloc": 3,
+          "section": "resume",
+          "type": "cadrage_emprunte",
+          "phrase_exacte": "Les cas médicaux inhabituels comme celui-ci mettent en lumière l'importance de la réactivité et de la créativité des équipes médicales pour sauver des vies.",
+          "explication": "Ce jugement éditorial sur 'l'importance de la réactivité et de la créativité des équipes médicales' est présenté comme une conclusion factuelle neutre alors qu'il s'agit d'un cadrage interprétatif non attribué à une source précise."
+        },
+        {
+          "bloc": 4,
+          "section": "resume",
+          "type": "redondance",
+          "phrase_exacte": "Les cas médicaux inhabituels comme celui-ci mettent en lumière l'importance de la réactivité et de la créativité des équipes médicales pour sauver des vies.",
+          "explication": "Cette phrase du résumé est quasiment identique à la dernière phrase du contexte ('les professionnels de la santé doivent être préparés à affronter des défis uniques et trouver des solutions innovantes pour sauver des vies') et à la première phrase des nuances."
+        },
+        {
+          "bloc": 4,
+          "section": "nuances",
+          "type": "redondance",
+          "phrase_exacte": "Les situations médicales inhabituelles comme celle-ci soulèvent des questions sur les limites de la médecine et les défis que les professionnels de la santé peuvent rencontrer.",
+          "explication": "Cette idée est déjà exprimée dans le résumé ('soulèvent des questions sur les limites de la médecine') et dans le contexte, constituant une répétition mot pour mot reformulée."
+        },
+        {
+          "bloc": 4,
+          "section": "nuances",
+          "type": "section_gonflee",
+          "phrase_exacte": "Il est important de noter que les détails de cette histoire médicale sont encore peu connus. Les situations médicales inhabituelles comme celle-ci soulèvent des questions sur les limites de la médecine et les défis que les professionnels de la santé peuvent rencontrer. Il est essentiel de maintenir une approche critique et nuancée lors de l'analyse de ces cas pour éviter les spéculations et les conclusions hâtives.",
+          "explication": "La section nuances entière est constituée de généralités vagues non sourcées ('il est important de noter', 'il est essentiel de maintenir une approche critique') sans aucun fait distinct ou source précise, ce qui constitue un remplissage éditorial sans valeur informative."
+        },
+        {
+          "bloc": 4,
+          "section": "contexte",
+          "type": "section_gonflee",
+          "phrase_exacte": "Les situations médicales inhabituelles comme celle-ci sont rares, mais elles soulignent l'importance de la réactivité et de la créativité des équipes médicales.",
+          "explication": "Affirmation générique non sourcée qui ne constitue pas un fait distinct apporté par une source identifiée, typique d'un contexte gonflé avec du vague générique."
+        },
+        {
+          "bloc": 4,
+          "section": "resume",
+          "type": "section_gonflee",
+          "phrase_exacte": "Les détails de cette histoire médicale sont encore peu connus, mais ils soulèvent des questions sur les limites de la médecine et les situations exceptionnelles que les professionnels de la santé peuvent rencontrer.",
+          "explication": "Cette phrase de résumé est du remplissage éditorial vague, non sourcé, sans apport factuel, qui ne résume aucun fait précis de l'article."
+        },
+        {
+          "bloc": 4,
+          "section": "faits",
+          "type": "jugement_de_valeur",
+          "phrase_exacte": "Patient bizarre",
+          "explication": "Le terme 'bizarre' qualifiant le patient est un jugement de valeur subjectif repris du titre de la source, mais utilisé comme qualification neutre dans les faits alors qu'il trahit une appréciation éditoriale."
+        },
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "compteur_incoherent",
+          "phrase_exacte": "Medisite mentionne des situations insolites aux urgences, mais sans fournir de détails sur ce cas spécifique.",
+          "explication": "Le nb_sources est indiqué à 4, mais Medisite est explicitement cité dans le texte comme n'apportant aucune information sur le cas traité, et Cairn est utilisé hors sujet ; seule Futura Sciences constitue une source réellement utilisée pour les faits, rendant le compteur de 4 sources trompeur."
+        }
+      ]
+    },
+    "article_type": "actu"
+  },
+  {
+    "slug": "couper-atome-couteau",
+    "statut": "corrige_automatiquement",
+    "date": "2026-07-12T14:22:30",
+    "problemes_initiaux": 13,
+    "tentatives": 2,
+    "problemes_residuels_style": 6,
+    "rapport_initial": {
+      "conforme": false,
+      "sujet_sensible": false,
+      "sujet_sensible_raison": "",
+      "problemes": [
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "source_non_editoriale",
+          "phrase_exacte": "L'atome explique que les atomes sont constitués de protons, neutrons et électrons, et que les forces qui lient les particules subatomiques sont trop fortes pour être cassées avec un couteau.",
+          "explication": "La source listée sous l'institution 'L'atome' est en réalité une page du CEA (Commissariat à l'énergie atomique), une institution scientifique gouvernementale, et non un média éditorial ; de plus, l'article lui attribue une affirmation sur les 'forces trop fortes pour être cassées avec un couteau' qui relève d'une appréciation explicative et non d'un fait brut mesurable directement lisible dans une fiche institutionnelle, ce qui dépasse l'exception autorisée."
+        },
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "source_non_editoriale",
+          "phrase_exacte": "L'atome explique que les atomes sont constitués de protons, neutrons et électrons, et que les forces qui lient les particules subatomiques sont trop fortes pour être cassées avec un couteau.",
+          "explication": "L'institution est nommée 'L'atome' dans l'article alors que la source autorisée pointe vers le CEA ; cette désignation trompeuse crée une confusion sur l'identité réelle de la source et pourrait induire le lecteur en erreur sur la nature de l'autorité citée."
+        },
+        {
+          "bloc": 2,
+          "section": "contexte",
+          "type": "source_non_editoriale",
+          "phrase_exacte": "Superprof précise que les atomes sont les plus petites unités de matière qui conservent les propriétés chimiques d'un élément.",
+          "explication": "Superprof est une plateforme de mise en relation avec des professeurs particuliers, non un média journalistique ni une institution scientifique reconnue ; elle est citée comme autorité factuelle sur une définition scientifique, ce qui constitue l'usage d'une source non éditoriale comme caution de contenu."
+        },
+        {
+          "bloc": 2,
+          "section": "contexte",
+          "type": "formule_vague",
+          "phrase_exacte": "La théorie de l'atomisme, développée par les anciens Grecs, postule que la matière est composée de petites particules solides insécables appelées atomes.",
+          "explication": "Cette affirmation historique n'est attribuée à aucune des sources autorisées listées ; elle est présentée comme un fait établi sans référence précise."
+        },
+        {
+          "bloc": 2,
+          "section": "nuances",
+          "type": "formule_vague",
+          "phrase_exacte": "Les scientifiques utilisent des méthodes spécifiques pour manipuler les atomes en laboratoire, mais ces méthodes ne sont pas applicables dans la vie quotidienne.",
+          "explication": "Cette affirmation n'est attribuée à aucune source précise de la liste autorisée ; 'les scientifiques' est une formulation générique non sourcée."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "fait_tranche_arbitrairement",
+          "phrase_exacte": "les forces qui lient les particules subatomiques sont trop fortes pour être cassées avec un couteau",
+          "explication": "Cette affirmation est présentée comme un fait définitif et absolu alors que la physique nucléaire distingue différents types de forces (force forte, force faible, force électromagnétique) et que la fission nucléaire montre précisément que le noyau peut être scindé sous certaines conditions ; l'énoncé simplifie à l'excès une réalité scientifique complexe sans nuance."
+        },
+        {
+          "bloc": 1,
+          "section": "nuances",
+          "type": "incoherence_inter_sections",
+          "phrase_exacte": "les atomes sont des particules subatomiques qui sont trop petites pour être vues à l'œil nu",
+          "explication": "Les atomes ne sont pas des 'particules subatomiques' (ce terme désigne les constituants de l'atome : protons, neutrons, électrons) ; cette affirmation contredit la définition correcte donnée dans la section 'faits' et 'contexte' où les atomes sont présentés comme étant eux-mêmes constitués de particules subatomiques."
+        },
+        {
+          "bloc": 4,
+          "section": "contexte",
+          "type": "redondance",
+          "phrase_exacte": "Les atomes sont les briques de base de la matière et sont constitués de protons, neutrons et électrons.",
+          "explication": "Cette information est déjà présente dans la section 'faits' (les atomes sont constitués de protons, neutrons et électrons) et répétée ici sans apport nouveau."
+        },
+        {
+          "bloc": 4,
+          "section": "nuances",
+          "type": "redondance",
+          "phrase_exacte": "Il est important de noter que les atomes sont des particules subatomiques qui sont trop petites pour être vues à l'œil nu et que les forces qui les lient sont trop fortes pour être cassées avec un couteau.",
+          "explication": "Cette phrase répète des éléments déjà exposés dans 'faits' (forces trop fortes, atomes trop petits) sans apporter d'information nouvelle ni de source distincte."
+        },
+        {
+          "bloc": 4,
+          "section": "nuances",
+          "type": "section_gonflee",
+          "phrase_exacte": "Il est donc important de comprendre les limites de nos connaissances et de ne pas extrapoler les résultats des expériences de laboratoire à la vie quotidienne.",
+          "explication": "Cette phrase est une conclusion morale générique et vague, non sourcée, qui n'apporte aucun fait distinct et relève du remplissage éditorial."
+        },
+        {
+          "bloc": 4,
+          "section": "resume",
+          "type": "redondance",
+          "phrase_exacte": "La question de savoir si l'on peut couper un atome avec un couteau est une métaphore pour les limites de nos connaissances et de nos capacités technologiques.",
+          "explication": "Cette reformulation métaphorique répète sans apport factuel une idée déjà présente dans le premier point du résumé et dans la section nuances."
+        },
+        {
+          "bloc": 4,
+          "section": "contexte",
+          "type": "chronologie_confuse",
+          "phrase_exacte": "La théorie de l'atomisme, développée par les anciens Grecs, postule que la matière est composée de petites particules solides insécables appelées atomes.",
+          "explication": "Un événement historique (la théorie atomiste antique) est mentionné sans date ni mise en perspective explicite avec les connaissances scientifiques modernes exposées dans l'article, créant une confusion implicite entre deux époques et deux définitions différentes de l'atome."
+        },
+        {
+          "bloc": 4,
+          "section": "resume",
+          "type": "section_gonflee",
+          "phrase_exacte": "Les scientifiques ont développé des méthodes pour manipuler les atomes en laboratoire, mais ces méthodes ne sont pas applicables dans la vie quotidienne.",
+          "explication": "Cette affirmation du résumé n'est étayée par aucun fait précis, aucune méthode nommée, aucune source référencée dans l'article ; elle constitue du vague générique non sourcé."
+        }
+      ]
+    },
+    "article_type": "actu"
+  },
+  {
+    "slug": "inserm-atelier-fake-news-sante",
+    "statut": "corrige_automatiquement",
+    "date": "2026-07-12T14:24:54",
+    "problemes_initiaux": 10,
+    "tentatives": 1,
+    "problemes_residuels_style": 7,
+    "rapport_initial": {
+      "conforme": false,
+      "sujet_sensible": false,
+      "sujet_sensible_raison": "",
+      "problemes": [
+        {
+          "bloc": 2,
+          "section": "contexte",
+          "type": "source_non_editoriale",
+          "phrase_exacte": "Harmonie Santé indique que les fausses informations sur la santé peuvent nous inciter à faire de mauvais choix et nous mettre en danger.",
+          "explication": "Harmonie Santé est une mutuelle (organisme d'assurance), pas un média journalistique ni une institution de santé publique ; sa page est un article de sensibilisation grand public sans valeur factuelle autonome, et elle est ici citée comme autorité factuelle sur les effets de la désinformation, ce qui relève d'un jugement de valeur/appréciation, domaine où la source_non_editoriale n'est pas couverte par les exceptions de la charte."
+        },
+        {
+          "bloc": 2,
+          "section": "contexte",
+          "type": "source_non_editoriale",
+          "phrase_exacte": "Aesio souligne que les fake news en santé peuvent avoir des conséquences graves et qu'il est essentiel de les combattre vigoureusement.",
+          "explication": "Aesio est une mutuelle (organisme d'assurance), pas un média journalistique ni une institution de santé publique ; elle est citée comme autorité factuelle/normative sur la gravité des fake news en santé, ce qui constitue un jugement de valeur/appréciation non couvert par les exceptions de la charte pour les sources non éditoriales."
+        },
+        {
+          "bloc": 2,
+          "section": "contexte",
+          "type": "source_derivee_comptee_comme_primaire",
+          "phrase_exacte": "Harmonie Santé indique que les fausses informations sur la santé peuvent nous inciter à faire de mauvais choix et nous mettre en danger. Aesio souligne que les fake news en santé peuvent avoir des conséquences graves et qu'il est essentiel de les combattre vigoureusement.",
+          "explication": "Harmonie Santé et Aesio sont deux mutuelles dont les pages reprennent des constats généraux identiques sur les dangers des fake news en santé sans apporter d'information distincte, indépendante ni originale l'une par rapport à l'autre ; les compter comme deux sources indépendantes gonfle artificiellement le nb_sources."
+        },
+        {
+          "bloc": 4,
+          "section": "contexte",
+          "type": "jugement_de_valeur",
+          "phrase_exacte": "il est essentiel de les combattre vigoureusement",
+          "explication": "L'adverbe « vigoureusement » et le tour prescriptif « il est essentiel » constituent une prise de position normative, pas un fait neutre, même présentés comme attribués à Aesio."
+        },
+        {
+          "bloc": 4,
+          "section": "nuances",
+          "type": "section_gonflee",
+          "phrase_exacte": "Il est important de noter que la lutte contre la désinformation en santé est un défi complexe. L'Inserm souligne l'importance de développer l'esprit critique et de vérifier les sources avant de partager des informations. Les fake news en santé peuvent être très convaincantes et difficiles à détecter, il est donc important de rester vigilant et de continuer à sensibiliser le public à l'importance de la vérification des sources.",
+          "explication": "Cette section entière ne contient aucun fait distinct sourcé : elle reformule des généralités vagues et répète des éléments déjà présents dans les faits et le contexte sans apporter d'information nouvelle vérifiable."
+        },
+        {
+          "bloc": 4,
+          "section": "nuances",
+          "type": "redondance",
+          "phrase_exacte": "L'Inserm souligne l'importance de développer l'esprit critique et de vérifier les sources avant de partager des informations.",
+          "explication": "L'importance de développer l'esprit critique et de vérifier les sources avant de partager est déjà exprimée dans les faits (« aider les jeunes à développer leur esprit critic face aux informations ») et dans le résumé ; cette phrase ne fait que répéter la même idée."
+        },
+        {
+          "bloc": 4,
+          "section": "nuances",
+          "type": "formule_vague",
+          "phrase_exacte": "Les fake news en santé peuvent être très convaincantes et difficiles à détecter, il est donc important de rester vigilant et de continuer à sensibiliser le public à l'importance de la vérification des sources.",
+          "explication": "Cette affirmation généraliste n'est rattachée à aucune source précise de la liste autorisée."
+        },
+        {
+          "bloc": 4,
+          "section": "contexte",
+          "type": "section_gonflee",
+          "phrase_exacte": "La désinformation en santé est un problème croissant, notamment sur les réseaux sociaux.",
+          "explication": "Cette affirmation générale n'est rattachée à aucune source précise et ne constitue pas un fait distinct sourcé ; elle sert de remplissage introductif sans valeur informationnelle ajoutée."
+        },
+        {
+          "bloc": 2,
+          "section": "contexte",
+          "type": "formule_vague",
+          "phrase_exacte": "La désinformation en santé est un problème croissant, notamment sur les réseaux sociaux.",
+          "explication": "Aucune source de la liste autorisée n'est citée pour étayer l'affirmation que la désinformation en santé est « croissante »."
+        },
+        {
+          "bloc": 4,
+          "section": "nuances",
+          "type": "jugement_de_valeur",
+          "phrase_exacte": "Il est important de noter que la lutte contre la désinformation en santé est un défi complexe.",
+          "explication": "Le tour « il est important de noter » est un marqueur d'opinion rédactionnelle, pas une formulation factuelle neutre sourcée."
+        }
+      ]
+    },
+    "article_type": "actu"
+  },
+  {
+    "slug": "brutalisation-vie-sensible-totalitarisme",
+    "statut": "corrige_automatiquement",
+    "date": "2026-07-12T14:27:04",
+    "problemes_initiaux": 12,
+    "tentatives": 1,
+    "problemes_residuels_style": 10,
+    "rapport_initial": {
+      "conforme": false,
+      "sujet_sensible": false,
+      "sujet_sensible_raison": "",
+      "problemes": [
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "source_non_editoriale",
+          "phrase_exacte": "Le fascisme, selon Wikipédia, est un système politique autoritaire qui associe populisme, nationalisme et totalitarisme.",
+          "explication": "Wikipédia n'est pas une source journalistique ou institutionnelle ; elle est utilisée ici comme autorité factuelle pour une définition conceptuelle (le fascisme), ce qui dépasse les exceptions autorisées (specs techniques ou prix produits) — c'est un usage non valide d'une source non éditoriale pour caution d'un jugement historico-politique."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "fait_tranche_arbitrairement",
+          "phrase_exacte": "Reporterre indique que cette « brutalisation » de la vie sensible pourrait nous faire basculer dans le totalitarisme.",
+          "explication": "Le titre de la source Reporterre pose la question (« nous mène-t-elle au fascisme ? »), suggérant un lien hypothétique et débattu, alors que la formulation de l'article présente ce lien comme une thèse affirmée par Reporterre, gommant la dimension interrogative et incertaine."
+        },
+        {
+          "bloc": 3,
+          "section": "faits",
+          "type": "cadrage_emprunte",
+          "phrase_exacte": "La vie sensible est en train de disparaître, remplacée par du béton et des pixels.",
+          "explication": "Ce cadrage éditorial fort (disparition de la vie sensible, béton et pixels) est présenté comme un constat neutre par Les Faits, alors qu'il s'agit du point de vue de Paul Klotz tel que rapporté par les sources ; il devrait être explicitement attribué à cet auteur."
+        },
+        {
+          "bloc": 4,
+          "section": "faits",
+          "type": "jugement_de_valeur",
+          "phrase_exacte": "La vie sensible est en train de disparaître, remplacée par du béton et des pixels.",
+          "explication": "\"béton et pixels\" est une tournure rhétorique chargée d'un jugement de valeur péjoratif, non neutre, qui trahit une opinion plutôt qu'un constat factuel vérifiable."
+        },
+        {
+          "bloc": 4,
+          "section": "faits",
+          "type": "extrapolation",
+          "phrase_exacte": "pour reconnecter notre espèce avec la nature et avec notre nature profonde d'êtres sensibles.",
+          "explication": "L'affirmation que l'humanité possède une « nature profonde d'êtres sensibles » est une affirmation philosophique non sourcée présentée comme un fait, constituant une extrapolation non étayée."
+        },
+        {
+          "bloc": 4,
+          "section": "contexte",
+          "type": "redondance",
+          "phrase_exacte": "Le concept de brutalisation de la vie sensible est lié à la perte de contact avec la nature et la réalité.",
+          "explication": "Cette phrase répète l'idée déjà exprimée dans les faits (disparition de la vie sensible, déconnexion de la nature) sans apporter d'information distincte et sourcée."
+        },
+        {
+          "bloc": 4,
+          "section": "contexte",
+          "type": "redondance",
+          "phrase_exacte": "Atlantico rapporte que Paul Klotz estime que notre vie est d'une brutalité jamais vue.",
+          "explication": "Cette information redouble le propos de Marianne et Parismatch dans les faits (Paul Klotz plaide pour une politique du sensible face à la brutalisation) sans apporter d'élément factuel distinct."
+        },
+        {
+          "bloc": 1,
+          "section": "nuances",
+          "type": "chronologie_confuse",
+          "phrase_exacte": "EHNE indique que le terme « brutalisation » a été avancé pour désigner les effets de la Grande Guerre sur les personnes et les sociétés.",
+          "explication": "Cette référence historique à la Grande Guerre (contexte de 1914-1918) est mentionnée sans que sa date ni son rapport avec le débat contemporain sur la brutalisation sensible soient rendus explicites, mélangeant implicitement deux époques sans lien établi."
+        },
+        {
+          "bloc": 4,
+          "section": "nuances",
+          "type": "section_gonflee",
+          "phrase_exacte": "Il est important de noter que les recherches sur le concept de brutalisation de la vie sensible sont encore limitées.",
+          "explication": "Cette phrase est du vague générique non sourcé (aucune source ne dit explicitement que les recherches sont « encore limitées ») et ne constitue pas un fait distinct vérifiable — c'est du remplissage."
+        },
+        {
+          "bloc": 2,
+          "section": "nuances",
+          "type": "formule_vague",
+          "phrase_exacte": "Il est important de noter que les recherches sur le concept de brutalisation de la vie sensible sont encore limitées.",
+          "explication": "Aucune source de la liste autorisée n'affirme que les recherches sur ce sujet précis sont « encore limitées » ; c'est une affirmation sans référence précise, présentée comme établie."
+        },
+        {
+          "bloc": 4,
+          "section": "resume",
+          "type": "section_gonflee",
+          "phrase_exacte": "Les recherches sur ce sujet sont encore en cours et nécessitent plus d'investigations pour comprendre les conséquences de cette tendance.",
+          "explication": "Cette phrase de résumé est du vague générique non sourcé, répétant en moins précis le contenu de la section nuances sans apporter d'information vérifiable supplémentaire."
+        },
+        {
+          "bloc": 4,
+          "section": "resume",
+          "type": "redondance",
+          "phrase_exacte": "Le concept de brutalisation de la vie sensible est étudié dans le contexte de la perte de contact avec la nature et la réalité.",
+          "explication": "Cette phrase du résumé répète mot pour mot (quasi-identique) la première phrase de la section contexte, sans aucune valeur ajoutée."
+        }
+      ]
+    },
+    "article_type": "dossier_science"
+  },
+  {
+    "slug": "pompiers-volontaires-en-crise",
+    "statut": "corrige_automatiquement",
+    "date": "2026-07-12T14:30:03",
+    "problemes_initiaux": 17,
+    "tentatives": 1,
+    "problemes_residuels_style": 12,
+    "rapport_initial": {
+      "conforme": false,
+      "sujet_sensible": false,
+      "sujet_sensible_raison": "",
+      "problemes": [
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "France Inter rapporte que les pompiers professionnels, qui sont 42 000 en France, manifestent régulièrement pour dénoncer leurs conditions de travail et les répercussions sur la qualité du service qu'ils rendent.",
+          "explication": "Le chiffre de 42 000 pompiers professionnels et l'affirmation qu'ils « manifestent régulièrement » ne peuvent pas être vérifiés via la source France Inter autorisée (podcast « Le blues des pompiers ») — le contenu attribué à cette source dépasse ou diffère manifestement de ce qu'un podcast de ce titre porte habituellement sur les volontaires, et aucune autre source autorisée ne couvre ce chiffre ni cette affirmation."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "fait_tranche_arbitrairement",
+          "phrase_exacte": "les pompiers professionnels, qui sont 42 000 en France, manifestent régulièrement pour dénoncer leurs conditions de travail",
+          "explication": "Le chiffre de 42 000 et l'affirmation sur les manifestations régulières sont présentés comme des faits établis sans que la source autorisée (France Inter) le confirme explicitement, et aucune source listée ne porte sur les pompiers professionnels."
+        },
+        {
+          "bloc": 2,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "selon France Info",
+          "explication": "France Info est citée comme source dans la section contexte mais n'apparaît pas dans la liste des sources autorisées."
+        },
+        {
+          "bloc": 2,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "indique l'Assemblée nationale",
+          "explication": "L'Assemblée nationale est citée comme source pour l'affirmation sur le recours aux pompiers et les difficultés de recrutement, mais elle n'apparaît pas dans la liste des sources autorisées."
+        },
+        {
+          "bloc": 2,
+          "section": "nuances",
+          "type": "source_inventee",
+          "phrase_exacte": "Boulevard Voltaire rapporte que les pompiers doivent également prendre en compte les conséquences environnementales de leurs actions, notamment en ce qui concerne l'utilisation de l'AdBlue pour éteindre les feux de forêt.",
+          "explication": "Boulevard Voltaire est cité comme source dans la section nuances mais n'apparaît pas du tout dans la liste des sources autorisées."
+        },
+        {
+          "bloc": 2,
+          "section": "nuances",
+          "type": "section_gonflee",
+          "phrase_exacte": "Boulevard Voltaire rapporte que les pompiers doivent également prendre en compte les conséquences environnementales de leurs actions, notamment en ce qui concerne l'utilisation de l'AdBlue pour éteindre les feux de forêt.",
+          "explication": "Cette information sur l'AdBlue est sans lien direct avec le sujet central (manque de reconnaissance des volontaires) et apporte un angle hors-sujet non étayé par une source autorisée, gonflant artificiellement la section nuances."
+        },
+        {
+          "bloc": 2,
+          "section": "nuances",
+          "type": "section_gonflee",
+          "phrase_exacte": "il est difficile de trouver des solutions concrètes pour répondre à leurs demandes",
+          "explication": "Formule générique de remplissage non sourcée, qui n'apporte aucun fait distinct et vérifiable."
+        },
+        {
+          "bloc": 2,
+          "section": "nuances",
+          "type": "formule_vague",
+          "phrase_exacte": "il est difficile de trouver des solutions concrètes pour répondre à leurs demandes",
+          "explication": "Affirmation vague présentée sans référence à aucune source précise de la liste autorisée."
+        },
+        {
+          "bloc": 2,
+          "section": "nuances",
+          "type": "formule_vague",
+          "phrase_exacte": "Il est important de noter que les pompiers volontaires ne sont pas les seuls à être touchés par la crise, les pompiers professionnels également dénoncent leurs conditions de travail et les répercussions sur la qualité du service qu'ils rendent.",
+          "explication": "Cette affirmation sur les pompiers professionnels est présentée sans attribution à une source précise de la liste autorisée."
+        },
+        {
+          "bloc": 2,
+          "section": "contexte",
+          "type": "formule_vague",
+          "phrase_exacte": "La situation des pompiers volontaires en France est préoccupante, avec un manque de reconnaissance et de considération, ainsi qu'un épuisement croissant, selon France Info.",
+          "explication": "La source citée (France Info) n'est pas dans la liste autorisée, rendant cette attribution invalide et l'affirmation non sourcée selon la charte."
+        },
+        {
+          "bloc": 2,
+          "section": "contexte",
+          "type": "compteur_incoherent",
+          "phrase_exacte": "\"nb_sources\": 4",
+          "explication": "Le champ nb_sources indique 4 sources, mais l'article mobilise en réalité au moins 6 sources distinctes (Le Figaro, Leprogres, France Inter, Actu.fr, France Info, l'Assemblée nationale, Boulevard Voltaire), dont plusieurs non autorisées — le compteur ne reflète pas le sourcing réel utilisé."
+        },
+        {
+          "bloc": 4,
+          "section": "nuances",
+          "type": "redondance",
+          "phrase_exacte": "les pompiers professionnels également dénoncent leurs conditions de travail et les répercussions sur la qualité du service qu'ils rendent",
+          "explication": "Cette phrase reprend mot pour mot une idée déjà exprimée dans la section faits (\"manifestent régulièrement pour dénoncer leurs conditions de travail et les répercussions sur la qualité du service qu'ils rendent\")."
+        },
+        {
+          "bloc": 4,
+          "section": "nuances",
+          "type": "redondance",
+          "phrase_exacte": "Les pompiers volontaires réclament une meilleure reconnaissance et des conditions de travail plus favorables",
+          "explication": "Cette affirmation est déjà présente dans les faits (\"réclamer une meilleure reconnaissance\") et dans le résumé, la répétition dans les nuances ne constitue pas un fait distinct."
+        },
+        {
+          "bloc": 4,
+          "section": "positions",
+          "type": "faux_debat",
+          "phrase_exacte": "\"label_gauche\": \"Pompiers volontaires\", \"label_droite\": \"Gouvernement\"",
+          "explication": "Le gouvernement n'est pas une partie prenante s'exprimant dans l'article ni dans aucune source autorisée — aucun représentant gouvernemental ne prend position, ce qui crée un faux débat symétrique là où seul le camp des pompiers s'exprime."
+        },
+        {
+          "bloc": 4,
+          "section": "positions",
+          "type": "extrapolation",
+          "phrase_exacte": "\"detail\": \"Doit trouver des solutions pour répondre aux demandes des pompiers volontaires\"",
+          "explication": "Cette description de la position du gouvernement est une anticipation non sourcée : aucun article autorisé ne rapporte la position ou l'engagement du gouvernement sur ce sujet."
+        },
+        {
+          "bloc": 4,
+          "section": "titre",
+          "type": "jugement_de_valeur",
+          "phrase_exacte": "Pompiers volontaires en crise, manque de reconnaissance et de considération",
+          "explication": "Le mot \"crise\" constitue un cadrage éditorial non neutre présenté comme un fait établi alors qu'il s'agit d'une appréciation qualitative non attribuée à une source."
+        },
+        {
+          "bloc": 3,
+          "section": "faits",
+          "type": "cadrage_emprunte",
+          "phrase_exacte": "on nous dit qu'on est des machines puis on reçoit zéro reconnaissance",
+          "explication": "Cette formulation (visible dans l'URL du Figaro) est intégrée implicitement dans le texte via \"Ils se sentent traités comme des « machines » sans reconnaissance\" sans être attribuée explicitement à une citation directe sourcée avec guillemets et locuteur identifié."
+        }
+      ]
+    },
+    "article_type": "actu"
   }
 ]
