@@ -85,8 +85,6 @@ RSS_SOURCES = [
     {"name": "INSERM Actualités",    "url": "https://www.inserm.fr/feed/"},
     # Environnement
     {"name": "Reporterre",           "url": "https://reporterre.net/spip.php?page=backend"},
-    # Universitaire / expertise (licence CC-BY : contenu librement réutilisable)
-    {"name": "The Conversation FR",  "url": "https://theconversation.com/fr/articles.rss"},
     # Sécurité sanitaire
     {"name": "ANSES",                "url": "https://www.anses.fr/fr/flux-actualites.rss"},
 ]
