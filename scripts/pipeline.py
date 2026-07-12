@@ -24,6 +24,7 @@ from dotenv import load_dotenv
 
 # Vérification éditoriale 3 passes (Anthropic) — inactive sans ANTHROPIC_API_KEY
 from verification import verifier_article, ANTHROPIC_KEY as _ANTHROPIC_KEY
+from verification import ANTHROPIC_MODEL as _ANTHROPIC_FALLBACK_MODEL
 from html import escape as _esc
 
 def _esc_json(s: str) -> str:
@@ -1471,9 +1472,13 @@ def sujet_sante_sans_source_officielle(art: dict) -> bool:
 
 def _anthropic_generate_call(messages: list, max_tokens: int = 4500) -> str:
     """Fallback de génération quand toutes les clés Groq sont en rate limit.
-    Utilise Haiku (rapide, peu coûteux) via la même clé ANTHROPIC_API_KEY que
-    la vérification — mieux vaut un article généré par Haiku qu'un sujet
-    abandonné faute de quota Groq."""
+    Utilise le même modèle (_ANTHROPIC_FALLBACK_MODEL) et la même clé que la
+    vérification éditoriale — mieux vaut un article généré ainsi qu'un sujet
+    abandonné faute de quota Groq. Le modèle "claude-haiku-4-5-20251001"
+    testé initialement renvoyait un 400 Bad Request (probablement un
+    identifiant non provisionné sur ce compte) ; réutiliser l'identifiant de
+    verification.py garantit un modèle dont le fonctionnement est déjà
+    confirmé par tous les runs de vérification."""
     system_msg = "\n\n".join(m["content"] for m in messages if m["role"] == "system")
     user_msgs  = [m for m in messages if m["role"] != "system"]
     r = requests.post(
@@ -1484,7 +1489,7 @@ def _anthropic_generate_call(messages: list, max_tokens: int = 4500) -> str:
             "content-type": "application/json",
         },
         json={
-            "model": "claude-haiku-4-5-20251001",
+            "model": _ANTHROPIC_FALLBACK_MODEL,
             "max_tokens": max_tokens,
             "system": system_msg,
             "messages": user_msgs,
@@ -1697,7 +1702,7 @@ def generate(content: str, category_hint: str, extra_sources: list[dict] | None 
         # Toutes les clés Groq épuisées : fallback Anthropic plutôt que
         # d'abandonner les sujets restants du créneau.
         if _ANTHROPIC_KEY:
-            print("     [FALLBACK] Quota Groq épuisé — génération via Anthropic (Haiku)")
+            print(f"     [FALLBACK] Quota Groq épuisé — génération via Anthropic ({_ANTHROPIC_FALLBACK_MODEL})")
             raw = _anthropic_generate_call(messages)
         else:
             raise RuntimeError("Aucune clé Groq disponible (rate limit) et pas de clé Anthropic")
