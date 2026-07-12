@@ -352,6 +352,7 @@ a:hover .title-xl, a:hover .title-md, a:hover .title-sm { color: var(--blue-ink)
 
 /* ── LECTEUR AUDIO (synthèse vocale) ── */
 .audio-player { margin: 4px 0 12px; }
+.audio-player__row { display: flex; align-items: center; gap: 8px; }
 .audio-player__btn {
   display: inline-flex; align-items: center; gap: 8px;
   font-family: inherit; font-size: 13px; font-weight: 600; color: var(--ink);
@@ -361,7 +362,6 @@ a:hover .title-xl, a:hover .title-md, a:hover .title-sm { color: var(--blue-ink)
 .audio-player__btn:hover { border-color: var(--blue-ink); }
 .audio-player__btn:focus-visible { outline: 2.5px solid var(--blue); outline-offset: 2px; }
 .audio-player__icon { font-size: 15px; line-height: 1; }
-.audio-player__controls { display: flex; align-items: center; gap: 10px; margin-top: 8px; }
 .audio-player__ctrl {
   display: inline-flex; align-items: center; justify-content: center;
   width: 30px; height: 30px; font-size: 13px; color: var(--ink);
@@ -370,15 +370,32 @@ a:hover .title-xl, a:hover .title-md, a:hover .title-sm { color: var(--blue-ink)
 }
 .audio-player__ctrl:hover { border-color: var(--blue-ink); }
 .audio-player__ctrl:focus-visible { outline: 2.5px solid var(--blue); outline-offset: 2px; }
-.audio-player__progress { flex: 1; height: 4px; background: var(--rule); border-radius: 999px; overflow: hidden; min-width: 60px; }
+.audio-player__progress { height: 4px; background: var(--rule); border-radius: 999px; overflow: hidden; margin-top: 8px; max-width: 320px; }
 .audio-player__bar { height: 100%; width: 0%; background: var(--blue-ink); transition: width .2s linear; }
-.audio-player__speed {
+.audio-player__settings {
+  display: flex; align-items: center; gap: 6px; flex-wrap: wrap;
+  margin-top: 8px; font-size: 12px; color: var(--muted);
+}
+.audio-player__setting-label { font-size: 11px; color: var(--muted); }
+.audio-player__select {
   font-family: inherit; font-size: 12px; color: var(--ink); background: var(--white);
   border: 1px solid var(--border); border-radius: 4px; padding: 4px 6px; cursor: pointer;
+  max-width: 180px;
 }
-.audio-player__speed:focus-visible { outline: 2.5px solid var(--blue); outline-offset: 2px; }
+.audio-player__select:focus-visible { outline: 2.5px solid var(--blue); outline-offset: 2px; }
+.audio-player__test {
+  font-family: inherit; font-size: 12px; font-weight: 600; color: var(--blue-ink);
+  background: none; border: 1px solid var(--rule); border-radius: 4px;
+  padding: 4px 10px; cursor: pointer; transition: border-color .15s, background .15s;
+}
+.audio-player__test:hover { border-color: var(--blue-ink); background: color-mix(in srgb, var(--blue) 8%, transparent); }
+.audio-player__test:focus-visible { outline: 2.5px solid var(--blue); outline-offset: 2px; }
 /* Phrase en cours de lecture : léger accompagnement visuel, jamais intrusif */
 .audio-reading { background: color-mix(in srgb, var(--blue) 10%, transparent); border-radius: 3px; transition: background .25s; scroll-margin-top: 90px; }
+@media (max-width: 480px) {
+  .audio-player__settings { font-size: 11px; }
+  .audio-player__select { max-width: 140px; }
+}
 
 /* ── PAGE MÉTHODE ── */
 .methode { max-width: 800px; margin: 0 auto; padding: 52px 32px 80px; }
