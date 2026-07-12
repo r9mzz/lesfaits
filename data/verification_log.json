@@ -2834,5 +2834,13 @@
       ]
     },
     "article_type": "actu"
+  },
+  {
+    "slug": "loi-protection-nature-50-ans",
+    "statut": "erreur_verification",
+    "date": "2026-07-12T17:04:06",
+    "etape": "detection",
+    "erreur": "400 Client Error: Bad Request for url: https://api.anthropic.com/v1/messages",
+    "article_type": "actu"
   }
 ]
