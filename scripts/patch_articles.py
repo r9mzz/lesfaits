@@ -245,12 +245,12 @@ for fn in os.listdir("articles"):
     # Insertion par recherche de chaîne simple (pas de re.sub : le lecteur
     # contient des backslashes JS que re.sub interpréterait comme des
     # références de groupe invalides).
-    if 'id="audio-voice"' not in html:
+    if 'id="audio-float"' not in html:
         block_start = html.find('<div class="audio-player"')
         if block_start != -1:
-            # Version antérieure du lecteur (sans sélecteur de voix) déjà
-            # présente : remplacer tout le bloc, du <div jusqu'au </script>
-            # qui le termine, plutôt que de l'ignorer.
+            # Version antérieure du lecteur (sans menu flottant, ou avec
+            # l'ancien sélecteur de voix) déjà présente : remplacer tout le
+            # bloc, du <div jusqu'au </script> qui le termine.
             script_end = html.find('</script>', block_start)
             end = script_end + len('</script>') if script_end != -1 else -1
             if end != -1:
