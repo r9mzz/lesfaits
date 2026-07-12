@@ -202,14 +202,25 @@ for fn in os.listdir("articles"):
     # Insertion par recherche de chaîne simple (pas de re.sub : le lecteur
     # contient des backslashes JS que re.sub interpréterait comme des
     # références de groupe invalides).
-    if 'id="audio-player"' not in html:
-        badge_start = html.find('<div class="art__ai-badge"')
-        if badge_start != -1:
-            badge_end = html.find('</div>', badge_start)
-            if badge_end != -1:
-                insert_at = badge_end + len('</div>')
-                html = html[:insert_at] + '\n  ' + AUDIO_PLAYER_HTML + html[insert_at:]
+    if 'id="audio-voice"' not in html:
+        block_start = html.find('<div class="audio-player"')
+        if block_start != -1:
+            # Version antérieure du lecteur (sans sélecteur de voix) déjà
+            # présente : remplacer tout le bloc, du <div jusqu'au </script>
+            # qui le termine, plutôt que de l'ignorer.
+            script_end = html.find('</script>', block_start)
+            end = script_end + len('</script>') if script_end != -1 else -1
+            if end != -1:
+                html = html[:block_start] + AUDIO_PLAYER_HTML + html[end:]
                 changed = True
+        else:
+            badge_start = html.find('<div class="art__ai-badge"')
+            if badge_start != -1:
+                badge_end = html.find('</div>', badge_start)
+                if badge_end != -1:
+                    insert_at = badge_end + len('</div>')
+                    html = html[:insert_at] + '\n  ' + AUDIO_PLAYER_HTML + html[insert_at:]
+                    changed = True
 
     if changed:
         open(path, "w", encoding="utf-8").write(html)
