@@ -14,58 +14,51 @@
 </script>
 </head>
 <body>
+
+
 <div class="nav-overlay" id="nav-overlay" onclick="closeMenu()"></div>
-<nav class="nav-mobile" id="nav-mobile">
-<a href="categories/societe.html">Société</a>
-<a href="categories/science.html">Science</a>
-<a href="categories/economie.html">Économie</a>
-<a href="categories/tech.html">Tech</a>
-<a href="categories/sante.html">Santé</a>
-<a href="categories/environnement.html">Environnement</a>
-<a href="favoris.html">Favoris</a>
-<a href="archive.html">Tous les articles</a>
-<a href="methode.html">Comment on travaille</a>
-<a href="a-propos.html">À propos &amp; réseaux</a>
-<a href="index.html#newsletter" class="nav-cta">S'abonner à la newsletter</a>
+<nav class="nav-mobile" id="nav-mobile" aria-label="Menu mobile">
+  <a href="/categories/societe.html">Société</a>
+  <a href="/categories/science.html">Science</a>
+  <a href="/categories/economie.html">Économie</a>
+  <a href="/categories/tech.html">Tech</a>
+  <a href="/categories/sante.html">Santé</a>
+  <a href="/categories/environnement.html">Environnement</a>
+  <a href="/archive.html">Tous les articles</a>
+  <a href="/methode.html">Comment on travaille</a>
+  <a href="/a-propos.html">À propos &amp; réseaux</a>
+  <a href="/#newsletter" class="nav-cta">Newsletter</a>
 </nav>
 <script>
 function toggleMenu(){var b=document.getElementById('burger'),m=document.getElementById('nav-mobile'),o=document.getElementById('nav-overlay');b.classList.toggle('open');m.classList.toggle('open');o.classList.toggle('open');}
 function closeMenu(){document.getElementById('burger').classList.remove('open');document.getElementById('nav-mobile').classList.remove('open');document.getElementById('nav-overlay').classList.remove('open');}
-
-document.addEventListener('DOMContentLoaded',function(){document.querySelectorAll('.nav-dropdown__trigger').forEach(function(btn){btn.addEventListener('click',function(e){e.stopPropagation();var dd=btn.closest('.nav-dropdown');var open=dd.classList.toggle('open');btn.setAttribute('aria-expanded',open?'true':'false');});});});
-document.addEventListener('click',function(){document.querySelectorAll('.nav-dropdown.open').forEach(function(dd){dd.classList.remove('open');dd.querySelector('.nav-dropdown__trigger').setAttribute('aria-expanded','false');});});
-document.addEventListener('keydown',function(e){if(e.key==='Escape')document.querySelectorAll('.nav-dropdown.open').forEach(function(dd){dd.classList.remove('open');});});
 document.querySelectorAll('.nav-mobile a').forEach(function(a){a.addEventListener('click',closeMenu);});
 document.addEventListener('keydown',function(e){if(e.key==='Escape')closeMenu();});
+document.addEventListener('DOMContentLoaded',function(){var btn=document.getElementById('nav-cats-btn');var dd=document.getElementById('nav-cats-dd');if(!btn||!dd)return;btn.addEventListener('click',function(e){e.stopPropagation();var open=dd.classList.toggle('open');btn.classList.toggle('open',open);btn.setAttribute('aria-expanded',open?'true':'false');});document.addEventListener('click',function(){dd.classList.remove('open');btn.classList.remove('open');btn.setAttribute('aria-expanded','false');});document.addEventListener('keydown',function(e){if(e.key==='Escape'){dd.classList.remove('open');btn.classList.remove('open');btn.setAttribute('aria-expanded','false');}});});
 </script>
 <header class="header">
   <div class="header__inner">
-    <a href="index.html" class="brand">
-      <svg class="brand__icon" width="26" height="26" viewBox="0 0 200 200" aria-hidden="true" focusable="false"><rect width="200" height="200" rx="28" fill="#141416"/><circle cx="100" cy="100" r="72" fill="none" stroke="#6C85BD" stroke-width="4"/><circle cx="28" cy="100" r="7" fill="#6C85BD"/><circle cx="172" cy="100" r="7" fill="#6C85BD"/><text x="84" y="132" font-family="Georgia,'Times New Roman',serif" font-size="92" font-weight="700" fill="#F1EFE8" text-anchor="middle">l</text><text x="128" y="132" font-family="Georgia,'Times New Roman',serif" font-size="92" font-weight="700" fill="#6C85BD" text-anchor="middle">f</text></svg><div class="brand__logotype"><span class="fact">les</span><span class="uel">faits</span></div>
-    </a>
+    <a href="/" class="brand"><svg class="brand__icon" width="26" height="26" viewBox="0 0 200 200" aria-hidden="true" focusable="false"><rect width="200" height="200" rx="28" fill="#141416"/><circle cx="100" cy="100" r="72" fill="none" stroke="#6C85BD" stroke-width="4"/><circle cx="28" cy="100" r="7" fill="#6C85BD"/><circle cx="172" cy="100" r="7" fill="#6C85BD"/><text x="84" y="132" font-family="Georgia,'Times New Roman',serif" font-size="92" font-weight="700" fill="#F1EFE8" text-anchor="middle">l</text><text x="128" y="132" font-family="Georgia,'Times New Roman',serif" font-size="92" font-weight="700" fill="#6C85BD" text-anchor="middle">f</text></svg><div class="brand__logotype"><span class="fact">les</span><span class="uel">faits</span></div></a>
     <div class="header__search">
-      <input type="search" class="header__search-input" placeholder="Rechercher…" autocomplete="off" onkeydown="if(event.key==='Enter'&&this.value.trim())window.location=(document.querySelector('base').href)+'recherche.html?q='+encodeURIComponent(this.value.trim())"/>
+      <input type="search" class="header__search-input" aria-label="Rechercher un article" id="search-input" placeholder="Rechercher…" autocomplete="off" onkeydown="if(event.key==='Enter'&&this.value.trim())window.location='/recherche.html?q='+encodeURIComponent(this.value.trim())"/>
     </div>
-    <nav aria-label="Navigation principale">
-      <div class="nav-dropdown">
-        <button class="nav-dropdown__trigger" type="button" aria-haspopup="true" aria-expanded="false">Menu ▾</button>
-        <div class="nav-dropdown__menu" role="menu">
-          <a href="categories/societe.html" role="menuitem">Société</a>
-          <a href="categories/science.html" role="menuitem">Science</a>
-          <a href="categories/economie.html" role="menuitem">Économie</a>
-          <a href="categories/tech.html" role="menuitem">Tech</a>
-          <a href="categories/sante.html" role="menuitem">Santé</a>
-          <a href="categories/environnement.html" role="menuitem">Environnement</a>
-          <div class="nav-dropdown__sep"></div>
-          <a href="favoris.html" role="menuitem">Favoris</a>
-          <a href="archive.html" role="menuitem">Tous les articles</a>
-          <div class="nav-dropdown__sep"></div>
-          <a href="methode.html" role="menuitem">Comment on travaille</a>
-          <a href="a-propos.html" role="menuitem">À propos &amp; réseaux</a>
+    <nav class="nav-expand-group" aria-label="Navigation principale">
+      <div class="nav-cats-wrap">
+        <button class="nav-expand-item" id="nav-cats-btn" aria-label="Catégories" aria-haspopup="true" aria-expanded="false"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg><span class="nav-expand-label">Catégories</span></button>
+        <div class="nav-cats-dd" id="nav-cats-dd" role="menu">
+          <a class="cat-dd-item" href="/categories/societe.html" role="menuitem"><span class="cat-dd-dot" style="background:#78716c"></span>Société</a>
+          <a class="cat-dd-item" href="/categories/science.html" role="menuitem"><span class="cat-dd-dot" style="background:#06b6d4"></span>Science</a>
+          <a class="cat-dd-item" href="/categories/economie.html" role="menuitem"><span class="cat-dd-dot" style="background:#f97316"></span>Économie</a>
+          <a class="cat-dd-item" href="/categories/tech.html" role="menuitem"><span class="cat-dd-dot" style="background:#a855f7"></span>Tech</a>
+          <a class="cat-dd-item" href="/categories/sante.html" role="menuitem"><span class="cat-dd-dot" style="background:#f43f5e"></span>Santé</a>
+          <a class="cat-dd-item" href="/categories/environnement.html" role="menuitem"><span class="cat-dd-dot" style="background:#22c55e"></span>Environnement</a>
         </div>
       </div>
+      <a class="nav-expand-item" href="/archive.html" aria-label="Tous les articles"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><line x1="9" y1="6" x2="20" y2="6"/><line x1="9" y1="12" x2="20" y2="12"/><line x1="9" y1="18" x2="20" y2="18"/><circle cx="4" cy="6" r="1.5" fill="currentColor" stroke="none"/><circle cx="4" cy="12" r="1.5" fill="currentColor" stroke="none"/><circle cx="4" cy="18" r="1.5" fill="currentColor" stroke="none"/></svg><span class="nav-expand-label">Tous les articles</span></a>
+      <a class="nav-expand-item" href="/a-propos.html" aria-label="Réseaux"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1.2" fill="currentColor" stroke="none"/></svg><span class="nav-expand-label">Réseaux</span></a>
+      <a class="nav-expand-item" href="/methode.html" aria-label="Notre méthode"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z"/><path d="M20 3v4m2-2h-4"/></svg><span class="nav-expand-label">Notre méthode</span></a>
+      <a class="nav-expand-item" href="/#newsletter" aria-label="Newsletter"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 7l10 7 10-7"/></svg><span class="nav-expand-label">Newsletter</span></a>
     </nav>
-    <a href="index.html#newsletter" class="nav-cta">Newsletter</a>
     <button class="dark-toggle" id="dark-toggle" aria-label="Mode sombre" title="Mode sombre">🌙</button>
     <button class="burger" id="burger" aria-label="Menu" onclick="toggleMenu()"><span></span><span></span><span></span></button>
   </div>
