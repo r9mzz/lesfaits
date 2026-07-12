@@ -2953,7 +2953,7 @@ def build_article_html(art: dict, date_pub: str) -> str:
         if related:
             cards = "\n".join(
                 f'<a class="art__related-card" href="articles/{a["slug"]}.html">'
-                f'<img src="assets/images/{a["slug"]}-480.webp" alt="{a["titre"]}" loading="lazy" style="width:calc(100% + 32px);margin:-14px -16px 12px;height:110px;object-fit:cover;display:block;border-radius:var(--radius) var(--radius) 0 0">'
+                f'<img src="assets/images/{a["slug"]}-480.webp" alt="{a["titre"]}" width="400" height="110" style="width:calc(100% + 32px);margin:-14px -16px 12px;height:110px;object-fit:cover;display:block;border-radius:var(--radius) var(--radius) 0 0">'
                 f'<span class="cat cat--{a["categorie"]}">{_cat_up(a["categorie"])}</span>'
                 f'<div class="title-sm">{a["titre"]}</div>'
                 f'<div style="font-size:10px;color:var(--muted);margin-top:6px">{a["date"]}</div>'
@@ -3153,7 +3153,7 @@ def rebuild_articles_related(articles: list):
             continue
         cards = "".join(
             f'<a class="art__related-card" href="articles/{a["slug"]}.html">'
-            f'<img src="assets/images/{a["slug"]}-480.webp" alt="{_esc(a["titre"])}" width="400" height="110" loading="lazy" style="width:calc(100% + 32px);margin:-14px -16px 12px;height:110px;object-fit:cover;display:block;border-radius:var(--radius) var(--radius) 0 0">'
+            f'<img src="assets/images/{a["slug"]}-480.webp" alt="{_esc(a["titre"])}" width="400" height="110" style="width:calc(100% + 32px);margin:-14px -16px 12px;height:110px;object-fit:cover;display:block;border-radius:var(--radius) var(--radius) 0 0">'
             f'<span class="cat cat--{a["categorie"]}">{_cat_up(a["categorie"])}</span>'
             f'<div class="title-sm">{_esc(a["titre"])}</div>'
             f'<div style="font-size:10px;color:var(--muted);margin-top:6px">{a["date"]}</div>'
