@@ -1030,11 +1030,24 @@ document.addEventListener('DOMContentLoaded',function(){var btn=document.getElem
       <span class="nl-compact__title">Le résumé du jour dans votre boîte mail</span>
     </div>
     <form id="nl-form" novalidate>
+      <div class="nl-compact__freq" role="group" aria-label="Fréquence de réception">
+        <label class="nl-compact__freq-opt"><input type="radio" name="FREQ" value="morning"/> Matin (~7h)</label>
+        <label class="nl-compact__freq-opt"><input type="radio" name="FREQ" value="evening"/> Soir (~18h)</label>
+        <label class="nl-compact__freq-opt"><input type="radio" name="FREQ" value="both" checked/> Les deux</label>
+      </div>
       <div class="nl-compact__row">
         <input type="email" id="nl-email" name="EMAIL" class="nl-compact__input" placeholder="vous@exemple.fr" required autocomplete="email" aria-required="true"/>
         <button type="submit" class="nl-compact__btn" id="nl-btn">S'abonner →</button>
       </div>
-      <p class="nl-compact__hint">Matin (~7h) et soir (~18h) — désabonnement en un clic depuis chaque email.</p>
+      <div class="nl-compact__cats" role="group" aria-label="Rubriques">
+        <label class="nl-compact__cat"><input type="checkbox" name="CAT_SOCIETE" value="1"/> Société</label>
+        <label class="nl-compact__cat"><input type="checkbox" name="CAT_SCIENCE" value="1"/> Science</label>
+        <label class="nl-compact__cat"><input type="checkbox" name="CAT_ECONOMIE" value="1"/> Économie</label>
+        <label class="nl-compact__cat"><input type="checkbox" name="CAT_TECH" value="1"/> Tech</label>
+        <label class="nl-compact__cat"><input type="checkbox" name="CAT_SANTE" value="1"/> Santé</label>
+        <label class="nl-compact__cat"><input type="checkbox" name="CAT_ENVIRONNEMENT" value="1"/> Environnement</label>
+      </div>
+      <p class="nl-compact__hint">Aucune sélection = toutes les rubriques.</p>
       <label class="nl-compact__consent">
         <input type="checkbox" id="nl-consent" required aria-required="true"/>
         <span>J'accepte de recevoir la newsletter et la <a href="confidentialite.html">politique de confidentialité</a>.</span>
@@ -1058,6 +1071,12 @@ document.addEventListener('DOMContentLoaded',function(){var btn=document.getElem
     var data=new FormData();
     data.append("EMAIL",email);
     data.append("LESFAITS_VERIFICATION","1");
+    ["CAT_SOCIETE","CAT_SCIENCE","CAT_ECONOMIE","CAT_TECH","CAT_SANTE","CAT_ENVIRONNEMENT"].forEach(function(k){
+      var cb=form.querySelector('input[name="'+k+'"]');
+      if(cb&&cb.checked)data.append(k,"1");
+    });
+    var freqEl=form.querySelector('input[name="FREQ"]:checked');
+    data.append("FREQ",freqEl?freqEl.value:"both");
     data.append("email_address_check","");
     data.append("locale","fr");
     btn.disabled=true;btn.textContent="Envoi…";
