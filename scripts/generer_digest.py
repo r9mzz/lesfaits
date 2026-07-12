@@ -364,10 +364,23 @@ def supprimer_template(template_id: int) -> None:
 # ── Brevo : envoi transactionnel ───────────────────────────────────────────────
 
 def envoyer_email(template_id: int, email: str) -> bool:
-    """Envoie l'email transactionnel à un contact via le template."""
+    """Envoie l'email transactionnel à un contact via le template.
+
+    En plus du lien {{ unsubscribe }} dans le corps HTML (qui dépend d'un
+    réglage compte Brevo — Expéditeurs, domaines & IP dédiées > Désabonnement
+    — pour rediriger vers /desabonnement.html), on ajoute l'en-tête
+    List-Unsubscribe (RFC 8058) : Gmail/Outlook/Yahoo affichent alors un
+    bouton "Se désabonner" natif à côté de l'expéditeur, indépendant du lien
+    dans le corps du mail et bien plus fiable — Brevo résout {{ unsubscribe }}
+    dans les en-têtes personnalisés de la même façon que dans le HTML.
+    """
     payload = {
         "templateId": template_id,
         "to":         [{"email": email}],
+        "headers": {
+            "List-Unsubscribe": "<{{ unsubscribe }}>",
+            "List-Unsubscribe-Post": "List-Unsubscribe=One-Click",
+        },
     }
     r = requests.post(
         f"{BREVO_API_BASE}/smtp/email",
