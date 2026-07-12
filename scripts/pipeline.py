@@ -2399,6 +2399,191 @@ _DARK_INIT_HEAD = """<script>
 # Analytics Umami
 _ANALYTICS_JS = '<script defer src="https://cloud.umami.is/script.js" data-website-id="8d68a78f-97ae-4c95-a955-5d3df758f7e2"></script>'
 
+# ── Lecteur audio (synthèse vocale navigateur, Web Speech API) ─────────────────
+# Aucune API externe, aucun fichier audio généré : le texte est lu directement
+# depuis le DOM déjà rendu (chapeau + faits + contexte + nuances), donc jamais
+# désynchronisé du contenu affiché. Découpage phrase par phrase — lire un très
+# long texte en un seul utterance fait planter la synthèse de Chrome après
+# ~15s de silence interne (bug connu) ; la lecture par petits segments contourne
+# le problème ET permet un vrai pause/reprise/progression.
+AUDIO_PLAYER_HTML = """<div class="audio-player" id="audio-player" style="display:none">
+  <button type="button" class="audio-player__btn" id="audio-play" aria-pressed="false">
+    <span class="audio-player__icon" id="audio-icon">🔊</span>
+    <span id="audio-label">Écouter cet article</span>
+  </button>
+  <div class="audio-player__controls" id="audio-controls" style="display:none">
+    <button type="button" class="audio-player__ctrl" id="audio-stop" aria-label="Arrêter la lecture">⏹</button>
+    <div class="audio-player__progress"><div class="audio-player__bar" id="audio-bar"></div></div>
+    <select class="audio-player__speed" id="audio-speed" aria-label="Vitesse de lecture">
+      <option value="0.85">0.85×</option>
+      <option value="1" selected>1×</option>
+      <option value="1.15">1.15×</option>
+      <option value="1.35">1.35×</option>
+    </select>
+  </div>
+</div>
+<script>
+(function(){
+  // Le bouton est affiché près du bandeau IA (haut d'article) mais le texte à
+  // lire (résumé, sections) est plus bas dans le DOM, pas encore parsé quand
+  // ce script inline s'exécute — attendre la fin du parsing du document.
+  if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',init);}else{init();}
+  function init(){
+  if(!('speechSynthesis' in window))return;
+  var wrap=document.getElementById('audio-player');
+  if(!wrap)return;
+  var playBtn=document.getElementById('audio-play'),icon=document.getElementById('audio-icon'),
+      label=document.getElementById('audio-label'),controls=document.getElementById('audio-controls'),
+      stopBtn=document.getElementById('audio-stop'),bar=document.getElementById('audio-bar'),
+      speedSel=document.getElementById('audio-speed');
+
+  // Texte lu = ce qui est réellement affiché, jamais dupliqué côté serveur.
+  var nodes=[];
+  var resumeEl=document.querySelector('.art__resume');
+  if(resumeEl)nodes.push(resumeEl);
+  document.querySelectorAll('.art__h2').forEach(function(h2){
+    var p=h2.nextElementSibling;
+    if(p&&p.tagName==='P')nodes.push(p);
+  });
+  if(!nodes.length)return;
+
+  // Découpage phrase par phrase (contourne le bug Chrome des utterances longues
+  // et permet la barre de progression + le surlignage).
+  var segments=[];
+  nodes.forEach(function(node){
+    var text=node.textContent.trim();
+    if(!text)return;
+    var sentences=text.match(/[^.!?]+[.!?]+(\\s+|$)/g)||[text];
+    sentences.forEach(function(s){
+      s=s.trim();
+      if(s)segments.push({text:s,node:node});
+    });
+  });
+  if(!segments.length)return;
+
+  var voice=null,idx=0,playing=false,paused=false,rate=1;
+  try{
+    var savedRate=localStorage.getItem('lesfaits_audio_rate');
+    if(savedRate){rate=parseFloat(savedRate)||1;speedSel.value=String(rate);}
+  }catch(e){} // navigation privée stricte / stockage désactivé : on continue avec rate=1
+
+  function pickVoice(){
+    var voices=speechSynthesis.getVoices();
+    if(!voices.length)return null;
+    var fr=voices.filter(function(v){return v.lang&&v.lang.toLowerCase().indexOf('fr')===0;});
+    if(!fr.length)return null;
+    var preferred=fr.find(function(v){return /Google|Amélie|Thomas|Audrey/i.test(v.name);});
+    return preferred||fr[0];
+  }
+
+  function ensureVoice(cb){
+    voice=pickVoice();
+    if(voice){cb();return;}
+    var done=false;
+    var onChange=function(){
+      if(done)return;
+      voice=pickVoice();
+      if(voice){done=true;speechSynthesis.removeEventListener('voiceschanged',onChange);cb();}
+    };
+    speechSynthesis.addEventListener('voiceschanged',onChange);
+    setTimeout(function(){
+      if(done)return;
+      done=true;
+      speechSynthesis.removeEventListener('voiceschanged',onChange);
+      voice=pickVoice(); // repli : lecture même sans voix FR détectée (voix par défaut du système)
+      cb();
+    },400);
+  }
+
+  function clearHighlight(){
+    nodes.forEach(function(n){n.classList.remove('audio-reading');});
+  }
+
+  function updateProgress(){
+    bar.style.width=((idx/segments.length)*100)+'%';
+  }
+
+  function speakNext(){
+    if(idx>=segments.length){stop();return;}
+    var seg=segments[idx];
+    clearHighlight();
+    seg.node.classList.add('audio-reading');
+    var u=new SpeechSynthesisUtterance(seg.text);
+    u.lang='fr-FR';
+    if(voice)u.voice=voice;
+    u.rate=rate;
+    u.onend=function(){
+      // Garde double : playing (arrêté entre-temps) ET paused (implémentations
+      // de Web Speech API connues pour déclencher onend de façon incohérente
+      // pendant une pause — mieux vaut ignorer un signal de fin prématuré que
+      // sauter des phrases pendant que l'utilisateur croit avoir mis en pause).
+      if(!playing||paused)return;
+      idx++;
+      updateProgress();
+      speakNext();
+    };
+    u.onerror=function(){
+      if(!playing||paused)return;
+      idx++;
+      speakNext();
+    };
+    speechSynthesis.speak(u);
+  }
+
+  function start(){
+    playing=true;paused=false;
+    icon.textContent='⏸';label.textContent='Pause';
+    controls.style.display='flex';
+    playBtn.setAttribute('aria-pressed','true');
+    speakNext();
+  }
+
+  function stop(){
+    playing=false;paused=false;idx=0;
+    speechSynthesis.cancel();
+    clearHighlight();
+    icon.textContent='🔊';label.textContent='Écouter cet article';
+    controls.style.display='none';
+    playBtn.setAttribute('aria-pressed','false');
+    updateProgress();
+  }
+
+  function togglePlayPause(){
+    if(!playing){
+      ensureVoice(start);
+      return;
+    }
+    if(paused){
+      paused=false;
+      speechSynthesis.resume();
+      icon.textContent='⏸';label.textContent='Pause';
+    }else{
+      paused=true;
+      speechSynthesis.pause();
+      icon.textContent='▶';label.textContent='Reprendre';
+    }
+  }
+
+  playBtn.addEventListener('click',togglePlayPause);
+  stopBtn.addEventListener('click',stop);
+  speedSel.addEventListener('change',function(){
+    rate=parseFloat(speedSel.value)||1;
+    try{localStorage.setItem('lesfaits_audio_rate',String(rate));}catch(e){}
+    // Le débit ne s'applique qu'aux prochains segments — comportement natif
+    // de l'API, pas de coupure ni de désynchronisation.
+  });
+
+  // Ne jamais laisser une lecture continuer après avoir quitté la page.
+  window.addEventListener('pagehide',function(){speechSynthesis.cancel();});
+  window.addEventListener('beforeunload',function(){speechSynthesis.cancel();});
+
+  // Le bouton n'apparaît que si le navigateur sait vraiment synthétiser —
+  // évite un bouton mort sur les navigateurs sans TTS.
+  wrap.style.display='block';
+  } // fin init()
+})();
+</script>"""
+
 # Favicon + manifest — doivent être présents dans TOUS les templates de page
 FAVICON_LINKS = (
     '<link rel="icon" type="image/svg+xml" href="/favicon.svg"/>\n'
@@ -2843,6 +3028,7 @@ function copyLink(){{
     <span class="art__reading-time">Lecture : {reading_time} min</span>
   </div>
   <div class="art__ai-badge" role="note">🤖 Contenu rédigé par intelligence artificielle — <a href="methode.html" style="color:inherit;text-decoration:underline">notre méthode</a></div>
+  {AUDIO_PLAYER_HTML}
   {verify_html}
   <div class="art__rule"></div>
   {hero_img}
