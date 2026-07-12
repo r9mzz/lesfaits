@@ -42,11 +42,37 @@ prompts ou des garde-fous doit les préserver.
 5. Chaque fait attribué doit figurer littéralement dans les sources fournies ;
    aucune extrapolation, aucun cadrage éditorial emprunté sans attribution.
 
+6. **Titre** : factuel, neutre, 6-15 mots, jamais de vocabulaire putaclic
+   (bizarre, insolite, choc…) ni de tournure en question.
+7. **Longueur/sourcing minimum** : 700 mots sur faits+contexte+nuances, 4
+   sources minimum — un article qui n'atteint pas ce seuil après relance
+   d'étoffement est rejeté définitivement, jamais publié incomplet.
+8. **Angle éditorial obligatoire** : un sujet sans actualité identifiable, avec
+   des sources trop pauvres pour l'expliquer, ou dont le contexte doit être
+   rempli avec un fait divers sans rapport, n'est PAS publié — même si le texte
+   est par ailleurs bien écrit. Mieux vaut publier moins d'articles que publier
+   un sujet creux ou un cas médical sans diagnostic/mécanisme/évolution connus.
+9. **Tournures génériques de remplissage** interdites sauf si elles apportent
+   une information précise : « s'inscrit dans une dynamique », « constitue un
+   enjeu majeur », « illustre la diversité des situations », « permet une
+   plongée dans », « intervient dans un contexte où », « pourrait
+   transformer », « reflète une évolution plus large ».
+
 Garde-fous déterministes correspondants (déclenchent UNE relance corrective
 combinée, jamais des relances en cascade — le quota Groq est la ressource rare) :
 `attributions_fantomes`, `resume_repete_corps` (y compris répétitions internes
 au chapeau), `faits_repetitifs` (intra ET inter-sections, 5-grammes),
-`attributions_trop_repetitives`.
+`attributions_trop_repetitives`, `titre_de_mauvaise_qualite`, `cliches_ia`.
+Garde-fou séparé (non combiné, relance d'étoffement dédiée) :
+`_deficit_longueur_sources` (700 mots / 4 sources minimum — vérifier le
+compte de MOTS réel, jamais une approximation en caractères).
+
+Contrôle LLM (passe 2 de `verification.py`, indépendant des garde-fous
+déterministes) : le fact-checker évalue aussi `angle_insuffisant` (le sujet
+mérite-t-il un article ?) et `nature_contenu` (tribune/chronique/interview
+doivent être signalées dès l'intro) — `angle_insuffisant: true` = rejet
+définitif immédiat, jamais de tentative de correction (un sujet creux ne se
+répare pas en réécrivant le texte).
 
 ## Pièges connus
 

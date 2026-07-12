@@ -1283,6 +1283,37 @@ def titre_de_mauvaise_qualite(art: dict) -> str | None:
             "énonce le fait directement, comme le ferait un titre de presse de référence.")
 
 
+# Tournures artificielles typiques d'un texte généré automatiquement — signalées
+# nommément par l'utilisateur comme remplissage stylistique récurrent.
+_CLICHES_IA_RE = re.compile(
+    r"\b(?:s['’]inscrit dans une dynamique|constitue un enjeu majeur|"
+    r"illustre la diversité des situations|permet une plong[ée]e dans|"
+    r"intervient dans un contexte o[uù]|pourrait transformer|"
+    r"reflète une [ée]volution plus large)\b",
+    re.IGNORECASE,
+)
+
+
+def cliches_ia(art: dict) -> list[str]:
+    """Détecte les tournures génériques de remplissage (règle 5, charte
+    éditoriale) dans le résumé et le corps — retourne la liste des expressions
+    trouvées, ou [] si l'article est propre."""
+    corps = art.get("corps") or {}
+    resume = art.get("resume")
+    textes = [str(corps.get(k, "") or "") for k in ("faits", "contexte", "nuances")]
+    if isinstance(resume, list):
+        textes.append(" ".join(str(p) for p in resume))
+    elif resume:
+        textes.append(str(resume))
+    trouvees = []
+    for texte in textes:
+        for m in _CLICHES_IA_RE.finditer(texte):
+            expr = m.group()
+            if expr not in trouvees:
+                trouvees.append(expr)
+    return trouvees
+
+
 # ══════════════════════════════════════════════════════════════════════════════
 # DÉTECTION DÉTERMINISTE DE SUJETS À REJETER (avant appel LLM)
 # Critères codés en dur — ne dépendent pas du jugement du modèle.
@@ -1563,6 +1594,7 @@ def generate(content: str, category_hint: str, extra_sources: list[dict] | None 
              selon_feedback: list[str] | None = None,
              expand_feedback: str | None = None,
              titre_feedback: str | None = None,
+             cliches_feedback: list[str] | None = None,
              article_type: str = "actu",
              previous_article: dict | None = None) -> dict:
 
@@ -1581,7 +1613,7 @@ def generate(content: str, category_hint: str, extra_sources: list[dict] | None 
     # Renvoyer les CONTENU complets à chaque relance (jusqu'à 4 appels par
     # article) multipliait le coût par ~4 et épuisait le quota Groq quotidien
     # après 2-3 articles à peine.
-    is_retry = bool(retry_feedback or repetition_feedback or intra_feedback or selon_feedback or expand_feedback or titre_feedback)
+    is_retry = bool(retry_feedback or repetition_feedback or intra_feedback or selon_feedback or expand_feedback or titre_feedback or cliches_feedback)
     # La relance "expand" a besoin de PLUS de matière source (pas moins) : le
     # problème est justement que l'article n'a pas assez puisé dans les
     # sources disponibles. Les autres relances corrigent un défaut déjà connu
@@ -1721,6 +1753,16 @@ def generate(content: str, category_hint: str, extra_sources: list[dict] | None 
 
     if titre_feedback:
         user_msg += "\n\nCORRECTION OBLIGATOIRE — " + titre_feedback
+
+    if cliches_feedback:
+        user_msg += (
+            "\n\nCORRECTION OBLIGATOIRE — ta précédente réponse contenait des tournures "
+            "génériques de remplissage typiques d'un texte généré automatiquement : « "
+            + " » ; « ".join(cliches_feedback[:5]) + " ». "
+            "Réécris ces passages en langage concret et informatif (un fait précis, un chiffre, "
+            "un acteur nommé) — n'utilise ce type de formule que si elle apporte une information "
+            "réellement nouvelle, jamais comme remplissage."
+        )
 
     messages = [
         {"role": "system", "content": _select_prompt(article_type)},
@@ -4052,7 +4094,8 @@ def generer_article(item: dict, dry_run: bool, published: set, new_pub: set, dat
         intra       = faits_repetitifs(art)
         selon       = attributions_trop_repetitives(art)
         titre_pb    = titre_de_mauvaise_qualite(art)
-        if fantomes or repetitions or intra or selon or titre_pb:
+        cliches     = cliches_ia(art)
+        if fantomes or repetitions or intra or selon or titre_pb or cliches:
             details = []
             if fantomes:
                 details.append(f"{len(fantomes)} attribution(s) hors sources")
@@ -4064,6 +4107,8 @@ def generer_article(item: dict, dry_run: bool, published: set, new_pub: set, dat
                 details.append(f"abus de « Selon X » ({len(selon)} signalement(s))")
             if titre_pb:
                 details.append("titre non conforme")
+            if cliches:
+                details.append(f"{len(cliches)} tournure(s) générique(s) IA")
             print(f"     [GARDE] {' + '.join(details)} — relance corrective unique…")
             art = generate(content, cat, extra_sources=extra, rss_url=item.get("url"),
                            retry_feedback=fantomes or None,
@@ -4071,6 +4116,7 @@ def generer_article(item: dict, dry_run: bool, published: set, new_pub: set, dat
                            intra_feedback=intra or None,
                            selon_feedback=selon or None,
                            titre_feedback=titre_pb or None,
+                           cliches_feedback=cliches or None,
                            article_type=article_type,
                            previous_article=art)
             if not isinstance(art, dict):
@@ -4104,6 +4150,8 @@ def generer_article(item: dict, dry_run: bool, published: set, new_pub: set, dat
                 print(f"     [AVERTISSEMENT] Abus de « Selon X » persistant après relance — passé à Anthropic")
             if titre_de_mauvaise_qualite(art):
                 print(f"     [AVERTISSEMENT] Titre toujours non conforme après relance — passé à Anthropic")
+            if cliches_ia(art):
+                print(f"     [AVERTISSEMENT] Tournures génériques IA persistantes après relance — passé à Anthropic")
 
         # ── Garde-fou Dossier Science : formulations assertives interdites ─────
         if article_type == "dossier_science":

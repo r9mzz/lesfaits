@@ -86,11 +86,23 @@ INDÉPENDAMMENT des blocs ci-dessus, évalue aussi si le SUJET lui-même exige u
 - porte sur une affaire judiciaire ou pénale en cours (non définitivement jugée)
 - contient une critique ou une affirmation négative visant nommément une personne identifiée (responsable politique, particulier, entreprise dirigée par une personne nommée)
 
+ÉGALEMENT INDÉPENDANT des blocs 1-5 : évalue si le sujet mérite réellement un article, avant même de juger sa rédaction. Indique "angle_insuffisant": true si, ET SEULEMENT SI :
+- aucune actualité identifiable ne justifie une publication maintenant (l'article ressemble à une fiche pédagogique générale sans fait déclencheur daté) ;
+- les sources fournies sont trop pauvres pour expliquer correctement le sujet (ex : cas médical exceptionnel sans diagnostic, mécanisme ou évolution connus) ;
+- le "contexte" a dû être rempli avec un fait divers sans rapport direct avec le sujet principal faute de matière pertinente ;
+- un lecteur terminant l'article ne saurait toujours pas ce qui s'est réellement passé, pourquoi c'est publié maintenant, ce qui est établi et ce qui ne l'est pas.
+Ce n'est PAS un jugement de style : un article bien écrit sur un sujet creux reste "angle_insuffisant": true. Précise la raison dans "angle_insuffisant_raison".
+
+Classe aussi la nature du contenu dans "nature_contenu", une valeur parmi : "actualite_factuelle", "etude_scientifique", "rapport", "decision_officielle", "declaration", "interview", "tribune", "chronique", "prise_de_position", "sujet_pedagogique". Si la valeur est "tribune", "chronique", "interview" ou "prise_de_position", vérifie que l'introduction de l'article l'indique explicitement (ex : "dans une tribune publiée par X, Y plaide pour...") plutôt que de présenter l'opinion comme un fait établi — sinon, signale-le comme un problème de bloc 3 "cadrage_emprunte".
+
 Réponds en JSON strict, sans texte hors JSON :
 {
   "conforme": true/false,
   "sujet_sensible": true/false,
   "sujet_sensible_raison": "explication courte si true, sinon chaîne vide",
+  "angle_insuffisant": true/false,
+  "angle_insuffisant_raison": "explication courte si true, sinon chaîne vide",
+  "nature_contenu": "actualite_factuelle | etude_scientifique | rapport | decision_officielle | declaration | interview | tribune | chronique | prise_de_position | sujet_pedagogique",
   "problemes": [
     {
       "bloc": 1-5,
@@ -342,6 +354,16 @@ def verifier_article(art: dict, article_type: str = "actu") -> tuple[dict, str]:
         _log(slug, "rejete_sensible", {"sujet_sensible": True, "raison": raison, **_type_detail})
         return art, "rejete_sensible"
 
+    # Angle insuffisant : sujet sans actualité identifiable, sources trop
+    # pauvres pour l'expliquer, ou contexte rempli avec un fait divers sans
+    # rapport — aucune correction de texte ne répare un sujet creux, donc
+    # rejet définitif immédiat, jamais de tentative de correction.
+    if rapport.get("angle_insuffisant"):
+        raison = rapport.get("angle_insuffisant_raison", "")
+        print(f"     [REJET] angle insuffisant — rejet définitif ({raison})")
+        _log(slug, "rejete_qualite", {"angle_insuffisant": True, "raison": raison, **_type_detail})
+        return art, "rejete_qualite"
+
     if rapport.get("conforme"):
         _log(slug, "conforme_du_premier_coup", _type_detail)
         return art, "conforme_du_premier_coup"
@@ -420,6 +442,12 @@ def verifier_article(art: dict, article_type: str = "actu") -> tuple[dict, str]:
             print(f"     [REJET] sujet sensible (tentative {tentative}) — rejet définitif ({raison})")
             _log(slug, "rejete_sensible", {"tentative": tentative, "sujet_sensible": True, "raison": raison, **_type_detail})
             return art_corrige, "rejete_sensible"
+
+        if rapport_final.get("angle_insuffisant"):
+            raison = rapport_final.get("angle_insuffisant_raison", "")
+            print(f"     [REJET] angle insuffisant (tentative {tentative}) — rejet définitif ({raison})")
+            _log(slug, "rejete_qualite", {"tentative": tentative, "angle_insuffisant": True, "raison": raison, **_type_detail})
+            return art_corrige, "rejete_qualite"
 
         # Garde-fou "perte de substance" : la correction a coupé une section
         # au lieu de la réécrire avec un fait neuf (faute de matière dans les
