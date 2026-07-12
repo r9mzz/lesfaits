@@ -453,7 +453,15 @@ def main() -> None:
             return val is True
         else:
             return val is not True  # False, None, ou absent → soir par défaut
-    actifs = [c for c in contacts if c.get("email") and veux_ce_slot(c)]
+    # Un contact désabonné (clic sur le lien de désabonnement, quelle que soit
+    # la page affichée derrière) est marqué "emailBlacklisted": true par Brevo
+    # — ce champ n'était jamais vérifié ici, donc le désabonnement n'avait
+    # aucun effet concret sur les envois suivants malgré le clic.
+    desabonnes = sum(1 for c in contacts if c.get("emailBlacklisted"))
+    if desabonnes:
+        print(f"  Désabonnés exclus : {desabonnes}")
+    actifs = [c for c in contacts
+              if c.get("email") and not c.get("emailBlacklisted") and veux_ce_slot(c)]
     print(f"  Abonnés slot={slot} : {len(actifs)}")
     if not actifs:
         print("  Liste vide — envoi annulé.\n" + "=" * 62)
