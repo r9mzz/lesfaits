@@ -1525,6 +1525,7 @@ def generate(content: str, category_hint: str, extra_sources: list[dict] | None 
              repetition_feedback: list[str] | None = None,
              intra_feedback: list[str] | None = None,
              selon_feedback: list[str] | None = None,
+             expand_feedback: str | None = None,
              article_type: str = "actu",
              previous_article: dict | None = None) -> dict:
 
@@ -1543,8 +1544,13 @@ def generate(content: str, category_hint: str, extra_sources: list[dict] | None 
     # Renvoyer les CONTENU complets à chaque relance (jusqu'à 4 appels par
     # article) multipliait le coût par ~4 et épuisait le quota Groq quotidien
     # après 2-3 articles à peine.
-    is_retry = bool(retry_feedback or repetition_feedback or intra_feedback or selon_feedback)
-    snippet_len = 200 if is_retry else 950
+    is_retry = bool(retry_feedback or repetition_feedback or intra_feedback or selon_feedback or expand_feedback)
+    # La relance "expand" a besoin de PLUS de matière source (pas moins) : le
+    # problème est justement que l'article n'a pas assez puisé dans les
+    # sources disponibles. Les autres relances corrigent un défaut déjà connu
+    # sans avoir besoin de ré-analyser le contenu en détail.
+    is_expand = bool(expand_feedback)
+    snippet_len = 950 if (not is_retry or is_expand) else 200
 
     # 950 chars ≈ 2-3 paragraphes — assez pour ancrer des faits précis sans
     # dépasser le budget Groq (1500 chars × 8 sources dépassait 200k tokens/clé).
@@ -1583,7 +1589,7 @@ def generate(content: str, category_hint: str, extra_sources: list[dict] | None 
         f"d'un extrait, ou tout média connu par ailleurs mais absent de la liste ci-dessus.\n\n"
     )
 
-    content_len = 1500 if is_retry else 7000
+    content_len = 7000 if (not is_retry or is_expand) else 1500
 
     # Relance avec article précédent : le modèle CORRIGE l'article existant au
     # lieu de tout réécrire depuis des sources tronquées — sans ce bloc, les
@@ -1664,6 +1670,16 @@ def generate(content: str, category_hint: str, extra_sources: list[dict] | None 
             f"Réduis à {MAX_ATTRIBUTIONS_SELON} maximum : regroupe les faits d'une même source sous une seule "
             "attribution et varie les formes (« …, indique X », « X rapporte que… »). "
             "N'attribue JAMAIS un fait à une source absente de la liste pour autant."
+        )
+
+    if expand_feedback:
+        user_msg += (
+            "\n\nCORRECTION OBLIGATOIRE — " + expand_feedback + " "
+            "Va chercher des faits NOUVEAUX et précis (chiffres, dates, déclarations) dans les "
+            "extraits CONTENU des sources listées ci-dessus — ils contiennent plus de matière que "
+            "ce que tu as utilisé. N'invente RIEN : si une source ne permet pas d'étoffer une section, "
+            "cite-en une autre de la liste plutôt que de laisser la section courte. "
+            "Renvoie l'article COMPLET (toutes les sections), pas seulement la partie à étoffer."
         )
 
     messages = [
@@ -4084,14 +4100,51 @@ def generer_article(item: dict, dry_run: bool, published: set, new_pub: set, dat
             print(f"     [REJET SENSIBLE] Sujet santé sensible sans source officielle — rejet définitif")
             return False
 
-        total_chars = sum(len(art["corps"].get(k, "")) for k in ["faits", "contexte", "nuances"])
+        # ── Garde-fou longueur/sources : la vraie règle éditoriale (700 mots,
+        # 4 sources — voir SYSTEM_PROMPT règles 1 et 3), pas une approximation.
+        # BUG CORRIGÉ : ce garde-fou vérifiait auparavant "600 caractères" et
+        # "3 sources" — 600 caractères ≈ 100 mots, soit 7 fois moins que la
+        # règle réellement annoncée. Résultat : les articles de 187 à 352 mots
+        # publiés le 12/07 passaient tous ce contrôle sans problème. Corrigé
+        # sur le nombre de MOTS réel (pas une conversion approximative en
+        # caractères) et sur le vrai seuil de 4 sources.
+        def _deficit_longueur_sources(a: dict) -> tuple[int, int]:
+            corps = a.get("corps") or {}
+            mots = sum(len(str(corps.get(k, "") or "").split()) for k in ("faits", "contexte", "nuances"))
+            nb_src = len(a.get("sources") or [])
+            return mots, nb_src
 
-        if len(art.get("sources", [])) < 3:
-            print(f"     [REJET] Seulement {len(art.get('sources',[]))} source(s) après vérification — min 3")
-            return False
-        if total_chars < 600:
-            print(f"     [REJET] Corps trop court ({total_chars} chars)")
-            return False
+        MIN_MOTS_CORPS = 700
+        MIN_SOURCES = 4
+        mots, nb_src = _deficit_longueur_sources(art)
+        if mots < MIN_MOTS_CORPS or nb_src < MIN_SOURCES:
+            manque_mots = max(0, MIN_MOTS_CORPS - mots)
+            manque_src = max(0, MIN_SOURCES - nb_src)
+            details = []
+            if manque_mots:
+                details.append(f"{mots} mots au lieu de {MIN_MOTS_CORPS} minimum")
+            if manque_src:
+                details.append(f"{nb_src} source(s) citée(s) au lieu de {MIN_SOURCES} minimum")
+            print(f"     [GARDE] Article trop court/peu sourcé ({' + '.join(details)}) — relance d'étoffement…")
+            expand_msg = (
+                f"Ton article ne fait que {mots} mots sur les sections faits+contexte+nuances "
+                f"(minimum {MIN_MOTS_CORPS}) et ne cite que {nb_src} source(s) (minimum {MIN_SOURCES})."
+                if manque_mots and manque_src else
+                f"Ton article ne fait que {mots} mots sur les sections faits+contexte+nuances "
+                f"(minimum {MIN_MOTS_CORPS})." if manque_mots else
+                f"Ton article ne cite que {nb_src} source(s) (minimum {MIN_SOURCES})."
+            )
+            art_expanded = generate(content, cat, extra_sources=extra, rss_url=item.get("url"),
+                                    expand_feedback=expand_msg, article_type=article_type,
+                                    previous_article=art)
+            if isinstance(art_expanded, dict) and art_expanded:
+                art = art_expanded
+            mots, nb_src = _deficit_longueur_sources(art)
+            if mots < MIN_MOTS_CORPS or nb_src < MIN_SOURCES:
+                print(f"     [REJET QUALITÉ] Toujours insuffisant après relance "
+                      f"({mots} mots, {nb_src} source(s)) — rejet définitif")
+                return False
+            print(f"     [OK] Étoffement réussi : {mots} mots, {nb_src} sources")
 
         # ── Passes 2/3 : fact-check + correction automatique (Anthropic) ──
         art, statut_verif = verifier_article(art, article_type=article_type)
