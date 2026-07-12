@@ -9,9 +9,15 @@ Chaque abonné reçoit un email sur-mesure :
 Fonctionnement :
   1. Récupère les articles des 27 dernières heures (git log)
   2. Récupère tous les contacts de la liste avec leurs attributs Brevo
-  3. Crée un template Brevo temporaire (blocs conditionnels {% if %})
-  4. Envoie un email transactionnel par contact (Brevo résout les conditions)
-  5. Supprime le template temporaire
+  3. Calcule les destinataires du jour (créneau matin/soir, désabonnés exclus,
+     rubriques choisies avec au moins un article aujourd'hui)
+  4. Resynchronise une liste Brevo temporaire ("Digest — Envoi du jour") avec
+     exactement ces destinataires
+  5. Crée puis envoie une campagne Brevo ciblant cette liste (blocs
+     conditionnels {% if %} pour la personnalisation par rubrique) — envoi en
+     campagne plutôt qu'en transactionnel pour que le désabonnement fonctionne
+     réellement (page personnalisée + retrait de liste), impossible à obtenir
+     via l'API transactionnelle /smtp/email
 
 Variables d'environnement (secrets GitHub) :
   BREVO_API_KEY      — Clé API Brevo (v3)
@@ -28,7 +34,6 @@ import os
 import json
 import subprocess
 import datetime
-import time
 import argparse
 
 import requests
@@ -326,70 +331,112 @@ def generer_template_html(articles_par_cat: dict, date_long: str, slot: str = "m
 </html>"""
 
 
-# ── Brevo : template ──────────────────────────────────────────────────────────
+# ── Brevo : liste temporaire de destinataires du jour ──────────────────────────
+# Migration transactionnel → campagne (juillet 2026) : Brevo ne propose une
+# page de désabonnement personnalisée (redirection vers /desabonnement.html)
+# et un vrai retrait de liste au clic QUE pour les campagnes marketing, jamais
+# pour l'API transactionnelle /smtp/email utilisée jusqu'ici. La personnalisation
+# par rubrique (blocs {% if contact.CAT_X %}) fonctionne identiquement dans les
+# deux mécanismes — seul le transport change. Le filtrage par créneau (matin/
+# soir) et par rubriques actives du jour, qui se faisait contact par contact
+# côté Python, est reproduit en resynchronisant une liste Brevo dédiée
+# ("Digest — Envoi du jour") juste avant chaque envoi : vidée puis repeuplée
+# avec exactement les destinataires calculés pour ce run, avant de cibler
+# cette liste comme destinataire de la campagne.
+NOM_LISTE_ENVOI_JOUR = "Digest — Envoi du jour"
+_CHUNK = 100  # taille de lot prudente pour les appels contacts/lists (add/remove)
 
-def creer_template(html_content: str, date_long: str) -> int:
-    """Crée un template Brevo temporaire et retourne son ID."""
-    payload = {
-        "tag":          "nl-digest-temp",
-        "sender":       {"name": BREVO_SENDER_NAME, "email": BREVO_SENDER_EMAIL},
-        "templateName": f"Digest {date_long} (auto)",
-        "subject":      f"Les Faits du {date_long} — votre sélection",
-        "htmlContent":  html_content,
-        "isActive":     True,
-    }
-    r = requests.post(
-        f"{BREVO_API_BASE}/smtp/templates",
-        json=payload, headers=HEADERS, timeout=20,
-    )
+
+def _obtenir_ou_creer_liste_envoi_jour() -> int:
+    """Retrouve la liste temporaire par son nom, la crée si absente (même
+    dossier que la liste principale des abonnés)."""
+    r = requests.get(f"{BREVO_API_BASE}/contacts/lists", params={"limit": 50},
+                      headers=HEADERS, timeout=20)
+    if r.status_code != 200:
+        raise RuntimeError(f"Lecture des listes {r.status_code}: {r.text[:200]}")
+    for lst in r.json().get("lists", []):
+        if lst.get("name") == NOM_LISTE_ENVOI_JOUR:
+            return lst["id"]
+
+    # Dossier de la liste principale, pour ranger la liste temporaire au même endroit.
+    r = requests.get(f"{BREVO_API_BASE}/contacts/lists/{BREVO_LIST_ID}",
+                      headers=HEADERS, timeout=20)
+    if r.status_code != 200:
+        raise RuntimeError(f"Lecture liste principale {r.status_code}: {r.text[:200]}")
+    folder_id = r.json()["folderId"]
+
+    r = requests.post(f"{BREVO_API_BASE}/contacts/lists",
+                       json={"name": NOM_LISTE_ENVOI_JOUR, "folderId": folder_id},
+                       headers=HEADERS, timeout=20)
     if r.status_code not in (200, 201):
-        raise RuntimeError(f"Création template {r.status_code}: {r.text[:300]}")
-    tid = r.json()["id"]
-    print(f"  [BREVO] Template créé — id={tid}")
-    return tid
+        raise RuntimeError(f"Création liste {r.status_code}: {r.text[:200]}")
+    lid = r.json()["id"]
+    print(f"  [BREVO] Liste « {NOM_LISTE_ENVOI_JOUR} » créée — id={lid}")
+    return lid
 
 
-def supprimer_template(template_id: int) -> None:
-    """Supprime le template temporaire après l'envoi."""
-    try:
-        requests.delete(
-            f"{BREVO_API_BASE}/smtp/templates/{template_id}",
-            headers=HEADERS, timeout=10,
-        )
-        print(f"  [BREVO] Template {template_id} supprimé")
-    except Exception as e:
-        print(f"  [WARN] Suppression template: {e}")
+def _vider_liste(list_id: int) -> None:
+    r = requests.post(f"{BREVO_API_BASE}/contacts/lists/{list_id}/contacts/remove",
+                       json={"all": True}, headers=HEADERS, timeout=30)
+    if r.status_code not in (200, 201, 202, 204):
+        raise RuntimeError(f"Vidage liste {r.status_code}: {r.text[:200]}")
 
 
-# ── Brevo : envoi transactionnel ───────────────────────────────────────────────
+def _peupler_liste(list_id: int, emails: list) -> None:
+    for i in range(0, len(emails), _CHUNK):
+        lot = emails[i:i + _CHUNK]
+        r = requests.post(f"{BREVO_API_BASE}/contacts/lists/{list_id}/contacts/add",
+                           json={"emails": lot}, headers=HEADERS, timeout=30)
+        if r.status_code not in (200, 201, 202):
+            raise RuntimeError(f"Ajout à la liste {r.status_code}: {r.text[:200]}")
 
-def envoyer_email(template_id: int, email: str) -> bool:
-    """Envoie l'email transactionnel à un contact via le template.
 
-    En plus du lien {{ unsubscribe }} dans le corps HTML (qui dépend d'un
-    réglage compte Brevo — Expéditeurs, domaines & IP dédiées > Désabonnement
-    — pour rediriger vers /desabonnement.html), on ajoute l'en-tête
-    List-Unsubscribe (RFC 8058) : Gmail/Outlook/Yahoo affichent alors un
-    bouton "Se désabonner" natif à côté de l'expéditeur, indépendant du lien
-    dans le corps du mail et bien plus fiable — Brevo résout {{ unsubscribe }}
-    dans les en-têtes personnalisés de la même façon que dans le HTML.
-    """
+def preparer_liste_destinataires(emails: list) -> int:
+    """Vide et repeuple la liste temporaire avec exactement les destinataires
+    calculés pour ce run, retourne son id (pour cibler la campagne)."""
+    list_id = _obtenir_ou_creer_liste_envoi_jour()
+    _vider_liste(list_id)
+    _peupler_liste(list_id, emails)
+    print(f"  [BREVO] Liste « {NOM_LISTE_ENVOI_JOUR} » resynchronisée — {len(emails)} destinataire(s)")
+    return list_id
+
+
+# ── Brevo : campagne email ──────────────────────────────────────────────────────
+# En plus du lien {{ unsubscribe }} dans le corps HTML — que Brevo peut, pour
+# une campagne, rediriger vers une page personnalisée (à configurer une seule
+# fois dans le compte : Campagnes > Modèles ou lors de la création manuelle
+# d'une campagne > Paramètres additionnels > page de désabonnement personnalisée
+# = /desabonnement.html) — on ajoute l'en-tête List-Unsubscribe (RFC 8058) pour
+# le bouton natif Gmail/Outlook/Yahoo, indépendant de ce réglage.
+
+def creer_et_envoyer_campagne(html_content: str, date_long: str, list_id: int) -> int:
+    """Crée une campagne ciblant la liste temporaire et l'envoie immédiatement.
+    Retourne l'id de la campagne."""
     payload = {
-        "templateId": template_id,
-        "to":         [{"email": email}],
+        "tag":            "nl-digest",
+        "name":           f"Digest {date_long} (auto)",
+        "subject":        f"Les Faits du {date_long} — votre sélection",
+        "sender":         {"name": BREVO_SENDER_NAME, "email": BREVO_SENDER_EMAIL},
+        "htmlContent":    html_content,
+        "recipients":     {"listIds": [list_id]},
         "headers": {
             "List-Unsubscribe": "<{{ unsubscribe }}>",
             "List-Unsubscribe-Post": "List-Unsubscribe=One-Click",
         },
     }
-    r = requests.post(
-        f"{BREVO_API_BASE}/smtp/email",
-        json=payload, headers=HEADERS, timeout=15,
-    )
-    if r.status_code not in (200, 201, 202):
-        print(f"    [WARN] Échec envoi à {email}: {r.status_code} — {r.text[:100]}")
-        return False
-    return True
+    r = requests.post(f"{BREVO_API_BASE}/emailCampaigns",
+                       json=payload, headers=HEADERS, timeout=20)
+    if r.status_code not in (200, 201):
+        raise RuntimeError(f"Création campagne {r.status_code}: {r.text[:300]}")
+    campaign_id = r.json()["id"]
+    print(f"  [BREVO] Campagne créée — id={campaign_id}")
+
+    r = requests.post(f"{BREVO_API_BASE}/emailCampaigns/{campaign_id}/sendNow",
+                       headers=HEADERS, timeout=20)
+    if r.status_code not in (200, 201, 202, 204):
+        raise RuntimeError(f"Envoi campagne {r.status_code}: {r.text[:300]}")
+    print(f"  [BREVO] Campagne {campaign_id} envoyée")
+    return campaign_id
 
 
 # ── Point d'entrée ─────────────────────────────────────────────────────────────
@@ -467,42 +514,36 @@ def main() -> None:
         print("  Liste vide — envoi annulé.\n" + "=" * 62)
         return
 
-    # 3. Template HTML
+    # 3. Exclure les abonnés dont aucune rubrique choisie n'a d'article aujourd'hui
+    # (la personnalisation par rubrique dans le HTML masque déjà ces sections,
+    # mais un abonné sans aucune rubrique active ne doit pas recevoir un email
+    # vide de contenu).
+    destinataires, ignores = [], 0
+    for contact in actifs:
+        cats_contact = cats_du_contact(contact)
+        if any(cat in articles_par_cat for cat in cats_contact):
+            destinataires.append(contact["email"])
+        else:
+            ignores += 1
+    if not destinataires:
+        print("  Aucun destinataire avec du contenu pertinent — envoi annulé.\n" + "=" * 62)
+        return
+
+    # 4. Template HTML
     date_long    = date_longue()
     html_content = generer_template_html(articles_par_cat, date_long, slot)
 
-    # 4. Création du template Brevo
-    print("\n  Création du template Brevo...")
-    template_id = creer_template(html_content, date_long)
+    # 5. Resynchronisation de la liste temporaire + envoi en campagne
+    print(f"\n  Préparation de la liste de destinataires ({len(destinataires)})...")
+    list_id = preparer_liste_destinataires(destinataires)
 
-    # 5. Envoi par contact
-    print(f"\n  Envoi à {len(actifs)} abonné(s)...")
-    envoyes = ignores = erreurs = 0
-
+    print(f"\n  Envoi de la campagne...")
     try:
-        for contact in actifs:
-            email = contact["email"]
-
-            # Vérifier qu'au moins une rubrique de l'abonné est active aujourd'hui
-            cats_contact = cats_du_contact(contact)
-            has_articles = any(cat in articles_par_cat for cat in cats_contact)
-            if not has_articles:
-                ignores += 1
-                continue
-
-            ok = envoyer_email(template_id, email)
-            if ok:
-                envoyes += 1
-                print(f"    ✓ {email}")
-            else:
-                erreurs += 1
-
-            # Pause légère pour ne pas saturer l'API (50 req/s max Brevo)
-            if (envoyes + erreurs) % 40 == 0:
-                time.sleep(1)
-
-    finally:
-        supprimer_template(template_id)
+        creer_et_envoyer_campagne(html_content, date_long, list_id)
+        envoyes, erreurs = len(destinataires), 0
+    except Exception as e:
+        print(f"  [ERREUR] Envoi campagne échoué : {e}")
+        envoyes, erreurs = 0, len(destinataires)
 
     print(f"\n  ── Résultat ──────────────────────────────────────────")
     print(f"  Envoyés  : {envoyes}")
