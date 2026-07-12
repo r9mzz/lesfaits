@@ -139,12 +139,34 @@ for fn in os.listdir("articles"):
         changed = True
 
     # 5. Mettre à jour le bloc newsletter (supprimer l'ancien, réinjecter le nouveau)
-    html_before = html
-    html = re.sub(r'<div class="newsletter-block">.*?</div>\s*\n?', '', html, flags=re.DOTALL)
-    if html != html_before:
-        changed = True
+    #
+    # BUG CORRIGÉ : l'ancienne regex `<div class="newsletter-block">.*?</div>`
+    # (non-gourmande) s'arrête à la PREMIÈRE balise </div> rencontrée. Comme le
+    # bloc a des <div> imbriqués (newsletter-block > div anonyme > label), elle
+    # ne supprimait que "newsletter-block"><div><div class="newsletter-block__
+    # label">NEWSLETTER</div>", laissant orphelins la suite (__text, le bouton,
+    # et 2 </div> sans ouverture correspondante). Pire : la vérification de
+    # réinjection ('newsletter-block' not in html) restait fausse à cause de
+    # ces résidus (qui contiennent encore la sous-chaîne "newsletter-block"),
+    # donc le bloc cassé n'était JAMAIS régénéré, même aux runs suivants.
+    #
+    # État avant nettoyage/réinjection, pour ne marquer 'changed' que si le
+    # résultat final diffère vraiment (idempotence : un run sans rien à faire
+    # ne doit ni réécrire le fichier, ni polluer le commit).
+    html_nl_start = html
 
-    # 5b. Injecter le bloc newsletter unifié (avant art__related ou avant </main>)
+    # 1) Suppression d'un bloc newsletter-block ENTIER et bien formé (ancien ou
+    #    actuel) : contrairement à art__related (contenu dynamique par article,
+    #    nécessitant un comptage de profondeur), le newsletter-block est un
+    #    gabarit STATIQUE identique sur tous les articles — une correspondance
+    #    littérale exacte est donc fiable ET plus sûre qu'un comptage de
+    #    profondeur, qui doit sinon scanner jusqu'à la fin du fichier et peut
+    #    ne jamais retomber à 0 à cause d'un déséquilibre <div>/</div> sans
+    #    rapport ailleurs dans la page (footer, autres composants).
+    # ORDRE IMPORTANT : tenter CE retrait exact EN PREMIER, avant le nettoyage
+    # de résidu ci-dessous — le motif du résidu (étape 2) est un SOUS-ENSEMBLE
+    # littéral de ce bloc complet ; l'exécuter avant sur un bloc déjà sain le
+    # mutilerait (reproduisant la troncature qu'on cherche justement à corriger).
     NL_BLOCK = (
         '<div class="newsletter-block">'
         '<div>'
@@ -155,13 +177,32 @@ for fn in os.listdir("articles"):
         '</div>'
         '</div>'
         '<a class="newsletter-block__btn" href="index.html#newsletter">S\'abonner →</a>'
-        '</div>\n'
+        '</div>'
     )
-    if 'newsletter-block' not in html:
-        if '<div class="art__related">' in html:
-            html = html.replace('<div class="art__related">', NL_BLOCK + '<div class="art__related">', 1)
-        else:
-            html = html.replace('</main>', NL_BLOCK + '</main>', 1)
+    # Retirer avec ET sans le \n final : l'insertion (plus bas) ajoute le bloc
+    # suivi d'un \n, donc une suppression qui ignore ce \n laisse une ligne
+    # vide orpheline qui réapparaît/disparaît selon les runs (non-idempotent).
+    html = html.replace(NL_BLOCK + '\n', '')
+    html = html.replace(NL_BLOCK, '')
+    NL_BLOCK += '\n'
+
+    # 2) Nettoyage ciblé du résidu EXACT laissé par l'ancien bug (uniquement
+    #    utile si l'étape 1 n'a rien trouvé à retirer, c.-à-d. un fichier
+    #    encore tronqué depuis un run antérieur à ce correctif) :
+    html = html.replace(
+        '<div class="newsletter-block__text"><strong>Le résumé du jour dans '
+        'votre boîte mail</strong><span>Chaque soir, les articles du jour en '
+        'un email. Gratuit. Sans pub.</span></div></div>'
+        '<a class="newsletter-block__btn" href="index.html#newsletter">S\'abonner →</a></div>',
+        ''
+    )
+    # Toujours réinjecter un bloc frais et complet — le nettoyage ci-dessus
+    # garantit qu'aucun résidu (correct ou tronqué) ne subsiste avant l'ajout.
+    if '<div class="art__related">' in html:
+        html = html.replace('<div class="art__related">', NL_BLOCK + '<div class="art__related">', 1)
+    else:
+        html = html.replace('</main>', NL_BLOCK + '</main>', 1)
+    if html != html_nl_start:
         changed = True
 
     # 6. Back-to-top avant </body>
