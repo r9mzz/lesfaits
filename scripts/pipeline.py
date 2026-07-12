@@ -1247,6 +1247,42 @@ def attributions_trop_repetitives(art: dict) -> list[str]:
     return feedback
 
 
+# Titres sensationnalistes/tabloïd repérés en audit (« Patient bizarre aux
+# urgences… », « La possibilité de couper un atome au couteau ? ») — le
+# modèle paraphrase parfois trop fidèlement un titre RSS racoleur au lieu de
+# reformuler le fait de façon factuelle et neutre.
+_TITRE_SENSATIONNALISTE_RE = re.compile(
+    r"\b(?:bizarre|insolite|incroyable|improbable|hallucinant|dingue|choc|"
+    r"stupéfiant|ahurissant|hallucinante|surprenant[e]?|inattendu[e]?)\b",
+    re.IGNORECASE,
+)
+_TITRE_QUESTION_RE = re.compile(r"\?\s*$|^(?:peut-on|peut-il|est-ce que|pourquoi|comment)\b", re.IGNORECASE)
+
+
+def titre_de_mauvaise_qualite(art: dict) -> str | None:
+    """Détecte un titre non conforme à la règle 7 (factuel, neutre, 10-15 mots,
+    jamais de question ni de vocabulaire putaclic) — retourne un message de
+    correction ou None si le titre est correct."""
+    titre = str(art.get("titre", "") or "").strip()
+    if not titre:
+        return None
+    nb_mots = len(titre.split())
+    problemes = []
+    if _TITRE_SENSATIONNALISTE_RE.search(titre):
+        mot = _TITRE_SENSATIONNALISTE_RE.search(titre).group()
+        problemes.append(f"vocabulaire putaclic/sensationnaliste (« {mot} »)")
+    if _TITRE_QUESTION_RE.search(titre):
+        problemes.append("formulation en question au lieu d'un titre factuel")
+    if nb_mots < 6:
+        problemes.append(f"trop court ({nb_mots} mots, minimum 6-10 attendus)")
+    if not problemes:
+        return None
+    return (f"le titre « {titre} » a un problème : {', '.join(problemes)}. "
+            "Réécris-le en 10 à 15 mots, factuel et neutre, qui résume l'essentiel de l'article "
+            "SANS vocabulaire putaclic (bizarre, insolite, choc…) et SANS tournure de question — "
+            "énonce le fait directement, comme le ferait un titre de presse de référence.")
+
+
 # ══════════════════════════════════════════════════════════════════════════════
 # DÉTECTION DÉTERMINISTE DE SUJETS À REJETER (avant appel LLM)
 # Critères codés en dur — ne dépendent pas du jugement du modèle.
@@ -1526,6 +1562,7 @@ def generate(content: str, category_hint: str, extra_sources: list[dict] | None 
              intra_feedback: list[str] | None = None,
              selon_feedback: list[str] | None = None,
              expand_feedback: str | None = None,
+             titre_feedback: str | None = None,
              article_type: str = "actu",
              previous_article: dict | None = None) -> dict:
 
@@ -1544,7 +1581,7 @@ def generate(content: str, category_hint: str, extra_sources: list[dict] | None 
     # Renvoyer les CONTENU complets à chaque relance (jusqu'à 4 appels par
     # article) multipliait le coût par ~4 et épuisait le quota Groq quotidien
     # après 2-3 articles à peine.
-    is_retry = bool(retry_feedback or repetition_feedback or intra_feedback or selon_feedback or expand_feedback)
+    is_retry = bool(retry_feedback or repetition_feedback or intra_feedback or selon_feedback or expand_feedback or titre_feedback)
     # La relance "expand" a besoin de PLUS de matière source (pas moins) : le
     # problème est justement que l'article n'a pas assez puisé dans les
     # sources disponibles. Les autres relances corrigent un défaut déjà connu
@@ -1681,6 +1718,9 @@ def generate(content: str, category_hint: str, extra_sources: list[dict] | None 
             "cite-en une autre de la liste plutôt que de laisser la section courte. "
             "Renvoie l'article COMPLET (toutes les sections), pas seulement la partie à étoffer."
         )
+
+    if titre_feedback:
+        user_msg += "\n\nCORRECTION OBLIGATOIRE — " + titre_feedback
 
     messages = [
         {"role": "system", "content": _select_prompt(article_type)},
@@ -4011,7 +4051,8 @@ def generer_article(item: dict, dry_run: bool, published: set, new_pub: set, dat
         repetitions = resume_repete_corps(art)
         intra       = faits_repetitifs(art)
         selon       = attributions_trop_repetitives(art)
-        if fantomes or repetitions or intra or selon:
+        titre_pb    = titre_de_mauvaise_qualite(art)
+        if fantomes or repetitions or intra or selon or titre_pb:
             details = []
             if fantomes:
                 details.append(f"{len(fantomes)} attribution(s) hors sources")
@@ -4021,12 +4062,15 @@ def generer_article(item: dict, dry_run: bool, published: set, new_pub: set, dat
                 details.append(f"{len(intra)} répétition(s) intra-article")
             if selon:
                 details.append(f"abus de « Selon X » ({len(selon)} signalement(s))")
+            if titre_pb:
+                details.append("titre non conforme")
             print(f"     [GARDE] {' + '.join(details)} — relance corrective unique…")
             art = generate(content, cat, extra_sources=extra, rss_url=item.get("url"),
                            retry_feedback=fantomes or None,
                            repetition_feedback=repetitions or None,
                            intra_feedback=intra or None,
                            selon_feedback=selon or None,
+                           titre_feedback=titre_pb or None,
                            article_type=article_type,
                            previous_article=art)
             if not isinstance(art, dict):
@@ -4058,6 +4102,8 @@ def generer_article(item: dict, dry_run: bool, published: set, new_pub: set, dat
                 print(f"     [AVERTISSEMENT] Répétitions intra-article persistantes après relance — passé à Anthropic")
             if attributions_trop_repetitives(art):
                 print(f"     [AVERTISSEMENT] Abus de « Selon X » persistant après relance — passé à Anthropic")
+            if titre_de_mauvaise_qualite(art):
+                print(f"     [AVERTISSEMENT] Titre toujours non conforme après relance — passé à Anthropic")
 
         # ── Garde-fou Dossier Science : formulations assertives interdites ─────
         if article_type == "dossier_science":
