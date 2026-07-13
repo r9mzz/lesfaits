@@ -2504,7 +2504,7 @@ AUDIO_PLAYER_HTML = """<div class="audio-player" id="audio-player" style="displa
 # pages déjà publiées et remplace le bloc entier si elle diffère — sans ça,
 # les articles patchés une première fois garderaient l'ancien moteur pour
 # toujours (le simple marqueur "LFAudio existe" ne détecte pas les évolutions).
-AUDIO_GLOBAL_VERSION = 6
+AUDIO_GLOBAL_VERSION = 7
 AUDIO_GLOBAL_HTML = f"""<!-- LF_AUDIO_GLOBAL_START v{AUDIO_GLOBAL_VERSION} -->""" + """<div class="audio-float" id="audio-float" style="display:none" role="region" aria-label="Lecture audio en cours">
   <button type="button" class="audio-float__ctrl" id="audio-float-prev" aria-label="Phrase précédente"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4.6 3v10" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M12.4 3.6v8.8a.5.5 0 0 1-.8.4L6.2 8.4a.5.5 0 0 1 0-.8l5.4-4.4a.5.5 0 0 1 .8.4z" fill="currentColor"/></svg></button>
   <button type="button" class="audio-float__ctrl audio-float__ctrl--play" id="audio-float-play" aria-label="Lecture/Pause">
@@ -2859,10 +2859,10 @@ AUDIO_GLOBAL_HTML = f"""<!-- LF_AUDIO_GLOBAL_START v{AUDIO_GLOBAL_VERSION} -->""
       try{hash=new URL(url,location.origin).hash;}catch(err){}
       window.scrollTo(0,0);
       if(hash){
-        requestAnimationFrame(function(){
+        setTimeout(function(){
           var target=document.querySelector(hash);
-          if(target)target.scrollIntoView();
-        });
+          if(target)target.scrollIntoView({behavior:'smooth'});
+        },500);
       }
       inserted.forEach(function(n){
         if(n.nodeType!==1)return;
