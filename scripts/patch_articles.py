@@ -279,3 +279,29 @@ for fn in os.listdir("articles"):
         patched2 += 1
 
 print(f"{patched2} articles patchés (URLs, disclaimer, newsletter, back-to-top, couleurs)")
+
+# ── Pages statiques racine : lecteur audio persistant + navigation douce ───────
+# index.html, categories/*.html et archive.html sont régénérés à chaque
+# --rebuild (via _build_footer(), qui embarque déjà AUDIO_GLOBAL_HTML) — mais
+# les pages statiques suivantes sont maintenues à la main et ne passent jamais
+# par le générateur. Sans ce patch, cliquer vers l'une d'elles pendant une
+# lecture audio provoquerait un rechargement complet (donc une coupure) au
+# lieu d'une navigation douce qui laisse le moteur persistant tourner.
+STATIC_ROOT_PAGES = [
+    "contact.html", "cgu.html", "confidentialite.html", "corrections.html",
+    "favoris.html", "methode.html", "recherche.html", "a-propos.html",
+    "mentions-legales.html",
+]
+patched_static = 0
+for fn in STATIC_ROOT_PAGES:
+    if not os.path.exists(fn):
+        continue
+    html = open(fn, encoding="utf-8").read()
+    if "LFAudio" in html or "</footer>" not in html:
+        continue
+    footer_end = html.find("</footer>") + len("</footer>")
+    html = html[:footer_end] + AUDIO_GLOBAL_HTML + html[footer_end:]
+    open(fn, "w", encoding="utf-8").write(html)
+    patched_static += 1
+
+print(f"{patched_static} page(s) statique(s) racine patchée(s) (lecteur audio persistant)")
