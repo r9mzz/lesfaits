@@ -379,6 +379,9 @@ def _vider_liste(list_id: int) -> None:
     r = requests.post(f"{BREVO_API_BASE}/contacts/lists/{list_id}/contacts/remove",
                        json={"all": True}, headers=HEADERS, timeout=30)
     if r.status_code not in (200, 201, 202, 204):
+        # Brevo renvoie 400 "already removed" si la liste est déjà vide — non fatal
+        if r.status_code == 400 and "already removed" in r.text:
+            return
         raise RuntimeError(f"Vidage liste {r.status_code}: {r.text[:200]}")
 
 

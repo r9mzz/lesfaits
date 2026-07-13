@@ -4286,18 +4286,18 @@ def generer_article(item: dict, dry_run: bool, published: set, new_pub: set, dat
                     print(f"     [REJET QUALITÉ] Attributions toujours hors sources après relance "
                           f"({', '.join(fantomes[:3])}…) — rejet définitif")
                     return False
-            # Défauts de style (non bloquants) : simple avertissement si persistants,
-            # Anthropic jugera la qualité finale.
+            # Défauts de style persistants après relance : avertissement uniquement,
+            # l'article passe quand même (le quota Groq est la ressource rare).
             if resume_repete_corps(art):
-                print(f"     [AVERTISSEMENT] Résumé toujours proche du corps après relance — passé à Anthropic")
+                print(f"     [AVERTISSEMENT] Résumé toujours proche du corps après relance")
             if faits_repetitifs(art):
-                print(f"     [AVERTISSEMENT] Répétitions intra-article persistantes après relance — passé à Anthropic")
+                print(f"     [AVERTISSEMENT] Répétitions intra-article persistantes après relance")
             if attributions_trop_repetitives(art):
-                print(f"     [AVERTISSEMENT] Abus de « Selon X » persistant après relance — passé à Anthropic")
+                print(f"     [AVERTISSEMENT] Abus de « Selon X » persistant après relance")
             if titre_de_mauvaise_qualite(art):
-                print(f"     [AVERTISSEMENT] Titre toujours non conforme après relance — passé à Anthropic")
+                print(f"     [AVERTISSEMENT] Titre toujours non conforme après relance")
             if cliches_ia(art):
-                print(f"     [AVERTISSEMENT] Tournures génériques IA persistantes après relance — passé à Anthropic")
+                print(f"     [AVERTISSEMENT] Tournures génériques IA persistantes après relance")
 
         # ── Garde-fou Dossier Science : formulations assertives interdites ─────
         if article_type == "dossier_science":
