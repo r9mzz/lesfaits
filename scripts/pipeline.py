@@ -2545,7 +2545,7 @@ AUDIO_PLAYER_HTML = """<div class="audio-player" id="audio-player" style="displa
 # pages déjà publiées et remplace le bloc entier si elle diffère — sans ça,
 # les articles patchés une première fois garderaient l'ancien moteur pour
 # toujours (le simple marqueur "LFAudio existe" ne détecte pas les évolutions).
-AUDIO_GLOBAL_VERSION = 2
+AUDIO_GLOBAL_VERSION = 3
 AUDIO_GLOBAL_HTML = f"""<!-- LF_AUDIO_GLOBAL_START v{AUDIO_GLOBAL_VERSION} -->""" + """<div class="audio-float" id="audio-float" style="display:none" role="region" aria-label="Lecture audio en cours">
   <button type="button" class="audio-float__ctrl" id="audio-float-prev" aria-label="Phrase précédente">⏮</button>
   <button type="button" class="audio-float__ctrl audio-float__ctrl--play" id="audio-float-play" aria-label="Lecture/Pause">
@@ -2680,6 +2680,7 @@ AUDIO_GLOBAL_HTML = f"""<!-- LF_AUDIO_GLOBAL_START v{AUDIO_GLOBAL_VERSION} -->""
     setLocalPlayingUI(true);
     if(floatBar)floatBar.style.display='flex';
     setFloatIcon(true);
+    updateProgress(); // affiche le temps restant dès l'ouverture du menu, pas après la 1re phrase
     speakNext();
   }
   function stop(){

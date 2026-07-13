@@ -409,39 +409,59 @@ a:hover .title-xl, a:hover .title-md, a:hover .title-sm { color: var(--blue-ink)
 
 /* Menu flottant de lecture — n'apparaît que pendant l'écoute, reste visible
    au scroll pour garder les commandes accessibles sans remonter en haut de
-   l'article. */
+   l'article. Pilule compacte façon papier journal : fond papier translucide
+   + flou, filet fin, ombre de carte, bouton lecture bleu encre — mêmes codes
+   que les chips/cartes du reste du site. */
 .audio-float {
-  display: none; align-items: center; gap: 10px;
-  position: fixed; left: 50%; bottom: 20px; transform: translateX(-50%);
+  display: none; align-items: center; gap: 6px;
+  position: fixed; left: 50%; bottom: 18px; transform: translateX(-50%);
   z-index: 40; max-width: calc(100% - 32px);
-  background: var(--ink); color: var(--white);
-  border-radius: 999px; padding: 8px 10px 8px 14px;
-  box-shadow: 0 8px 28px rgba(0,0,0,.28);
+  background: color-mix(in srgb, var(--white) 88%, transparent);
+  -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px);
+  color: var(--ink);
+  border: 1px solid var(--rule); border-radius: 999px;
+  padding: 5px 6px 5px 12px;
+  box-shadow: var(--shadow-card-hover, 0 2px 6px rgba(44,44,42,.06), 0 12px 32px rgba(44,44,42,.10));
+  animation: audio-float-in .25s var(--ease, ease) both;
 }
-[data-theme="dark"] .audio-float { background: var(--light); border: 1px solid var(--rule); }
+@keyframes audio-float-in {
+  from { opacity: 0; transform: translateX(-50%) translateY(8px); }
+  to   { opacity: 1; transform: translateX(-50%) translateY(0); }
+}
+[data-theme="dark"] .audio-float {
+  background: color-mix(in srgb, var(--light) 90%, transparent);
+  box-shadow: 0 2px 6px rgba(0,0,0,.3), 0 12px 32px rgba(0,0,0,.45);
+}
 .audio-float__ctrl {
   display: inline-flex; align-items: center; justify-content: center;
-  width: 32px; height: 32px; flex: none; font-size: 14px; line-height: 1;
-  color: inherit; background: rgba(255,255,255,.12); border: none; border-radius: 999px;
-  cursor: pointer; transition: background .15s;
+  width: 26px; height: 26px; flex: none; font-size: 11px; line-height: 1;
+  color: var(--blue-ink); background: none; border: none; border-radius: 999px;
+  cursor: pointer; transition: background .15s, color .15s;
 }
-[data-theme="dark"] .audio-float__ctrl { background: color-mix(in srgb, var(--ink) 8%, transparent); }
-.audio-float__ctrl:hover { background: rgba(255,255,255,.22); }
-[data-theme="dark"] .audio-float__ctrl:hover { background: color-mix(in srgb, var(--ink) 14%, transparent); }
+.audio-float__ctrl:hover { background: color-mix(in srgb, var(--blue) 12%, transparent); }
 .audio-float__ctrl:focus-visible { outline: 2.5px solid var(--blue); outline-offset: 2px; }
-.audio-float__ctrl--play { width: 36px; height: 36px; font-size: 15px; background: var(--blue-ink); color: var(--on-blue); }
-.audio-float__ctrl--play:hover { background: var(--blue); }
-.audio-float__ctrl--close { background: none; opacity: .7; }
-.audio-float__ctrl--close:hover { opacity: 1; background: rgba(255,255,255,.12); }
-.audio-float__info { display: flex; flex-direction: column; min-width: 0; margin-right: 4px; }
-.audio-float__title {
-  font-size: 12.5px; font-weight: 600; max-width: 220px;
-  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+.audio-float__ctrl--play {
+  width: 30px; height: 30px; font-size: 12px;
+  background: var(--blue-ink); color: var(--on-blue);
+  box-shadow: 0 1px 3px color-mix(in srgb, var(--blue-ink) 40%, transparent);
 }
-.audio-float__time { font-size: 11px; opacity: .75; }
+.audio-float__ctrl--play:hover { background: var(--blue); }
+.audio-float__ctrl--close { color: var(--muted); font-size: 10px; }
+.audio-float__ctrl--close:hover { color: var(--ink); background: color-mix(in srgb, var(--ink) 8%, transparent); }
+.audio-float__info { display: flex; flex-direction: column; min-width: 0; margin: 0 6px 0 4px; }
+.audio-float__title {
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 12px; font-weight: 400; font-style: italic; max-width: 200px;
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+  line-height: 1.35;
+}
+.audio-float__time {
+  font-size: 9.5px; color: var(--muted); font-variant-numeric: tabular-nums;
+  text-transform: uppercase; letter-spacing: .06em; line-height: 1.4;
+}
 @media (max-width: 480px) {
-  .audio-float { left: 12px; right: 12px; bottom: 12px; transform: none; max-width: none; padding: 6px 8px 6px 12px; }
-  .audio-float__title { max-width: 38vw; }
+  .audio-float { bottom: 12px; max-width: calc(100% - 24px); padding: 4px 5px 4px 10px; }
+  .audio-float__title { max-width: 40vw; }
 }
 
 /* ── PAGE MÉTHODE ── */
