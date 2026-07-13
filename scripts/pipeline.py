@@ -2540,7 +2540,13 @@ AUDIO_PLAYER_HTML = """<div class="audio-player" id="audio-player" style="displa
 # une seule fois par page via _build_footer(), jamais recréés lors d'une
 # navigation interne (voir soft-nav plus bas) afin que la lecture survive
 # au passage vers une autre page du site.
-AUDIO_GLOBAL_HTML = """<div class="audio-float" id="audio-float" style="display:none" role="region" aria-label="Lecture audio en cours">
+# AUDIO_GLOBAL_VERSION : à incrémenter à CHAQUE modification du bloc ci-dessous.
+# patch_articles.py compare cette version aux sentinelles présentes dans les
+# pages déjà publiées et remplace le bloc entier si elle diffère — sans ça,
+# les articles patchés une première fois garderaient l'ancien moteur pour
+# toujours (le simple marqueur "LFAudio existe" ne détecte pas les évolutions).
+AUDIO_GLOBAL_VERSION = 2
+AUDIO_GLOBAL_HTML = f"""<!-- LF_AUDIO_GLOBAL_START v{AUDIO_GLOBAL_VERSION} -->""" + """<div class="audio-float" id="audio-float" style="display:none" role="region" aria-label="Lecture audio en cours">
   <button type="button" class="audio-float__ctrl" id="audio-float-prev" aria-label="Phrase précédente">⏮</button>
   <button type="button" class="audio-float__ctrl audio-float__ctrl--play" id="audio-float-play" aria-label="Lecture/Pause">
     <span id="audio-float-icon">⏸</span>
@@ -2802,10 +2808,19 @@ AUDIO_GLOBAL_HTML = """<div class="audio-float" id="audio-float" style="display:
     // favoris, etc. — tout ce qui est injecté par générer_article()).
     container.querySelectorAll('script').forEach(function(old){
       if(old.type==='application/ld+json')return; // données seules
-      var s=document.createElement('script');
-      for(var i=0;i<old.attributes.length;i++)s.setAttribute(old.attributes[i].name,old.attributes[i].value);
-      s.textContent=old.textContent;
-      old.parentNode.replaceChild(s,old);
+      // try/catch par script : une erreur de syntaxe dans UN script de la
+      // page cible (elle serait tout aussi cassée en chargement normal) ne
+      // doit ni bloquer les scripts suivants ni faire échouer la navigation
+      // douce — sans ça, l'exception remonterait au .catch() de navigateTo
+      // qui déclencherait un rechargement complet et couperait la lecture.
+      try{
+        var s=document.createElement('script');
+        for(var i=0;i<old.attributes.length;i++)s.setAttribute(old.attributes[i].name,old.attributes[i].value);
+        s.textContent=old.textContent;
+        old.parentNode.replaceChild(s,old);
+      }catch(err){
+        if(window.console&&console.warn)console.warn('[soft-nav] script ignoré:',err);
+      }
     });
   }
 
@@ -2838,6 +2853,7 @@ AUDIO_GLOBAL_HTML = """<div class="audio-float" id="audio-float" style="display:
   window.addEventListener('popstate',function(){navigateTo(location.href,true);});
 })();
 </script>
+<!-- LF_AUDIO_GLOBAL_END -->
 """
 
 # Favicon + manifest — doivent être présents dans TOUS les templates de page
@@ -3969,7 +3985,7 @@ def build_archive_page():
         s.style.display=vis?'':'none';
       }});
       btn.style.display=shown<rows.length?'inline-block':'none';
-      if(shown<rows.length)btn.textContent='Voir plus d'articles ('+(rows.length-shown)+' restants)';
+      if(shown<rows.length)btn.textContent="Voir plus d'articles ("+(rows.length-shown)+" restants)";
     }}
     if(rows.length>PAGE){{btn.addEventListener('click',function(){{shown+=PAGE;apply();}});apply();}}
   }})();

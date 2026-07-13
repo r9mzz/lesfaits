@@ -2,7 +2,32 @@
 import json, os, re, sys
 
 sys.path.insert(0, os.path.dirname(__file__))
-from pipeline import AUDIO_PLAYER_HTML, AUDIO_GLOBAL_HTML
+from pipeline import AUDIO_PLAYER_HTML, AUDIO_GLOBAL_HTML, AUDIO_GLOBAL_VERSION
+
+CURRENT_AUDIO_MARKER = f"<!-- LF_AUDIO_GLOBAL_START v{AUDIO_GLOBAL_VERSION} -->"
+
+
+def upsert_audio_global(html: str) -> str | None:
+    """Insère le moteur audio persistant après </footer>, ou remplace un bloc
+    d'une version antérieure (délimité par les sentinelles LF_AUDIO_GLOBAL_*).
+    Retourne le HTML modifié, ou None si la page est déjà à jour / sans footer.
+    Le simple test « LFAudio présent » ne suffit pas : il laisserait pour
+    toujours l'ancienne version du moteur dans les pages déjà patchées."""
+    if CURRENT_AUDIO_MARKER in html:
+        return None
+    start = html.find("<!-- LF_AUDIO_GLOBAL_START")
+    if start != -1:
+        end_marker = "<!-- LF_AUDIO_GLOBAL_END -->"
+        end = html.find(end_marker, start)
+        if end != -1:
+            return html[:start] + AUDIO_GLOBAL_HTML.strip() + html[end + len(end_marker):]
+        return None  # sentinelle de fin absente : ne pas risquer une coupe aveugle
+    if "LFAudio" in html:
+        return None  # version pré-sentinelles sans repère fiable : laisser tel quel
+    if "</footer>" not in html:
+        return None
+    footer_end = html.find("</footer>") + len("</footer>")
+    return html[:footer_end] + AUDIO_GLOBAL_HTML + html[footer_end:]
 
 BASE_URL = "https://r9mzz.github.io/lesfaits-site"
 OLD_BASE = "https://r9mzz.github.io/lesfaits"   # ancienne URL (sans -site)
@@ -247,7 +272,6 @@ for fn in os.listdir("articles"):
     # Insertion par recherche de chaîne simple (pas de re.sub : le lecteur
     # contient des backslashes JS que re.sub interpréterait comme des
     # références de groupe invalides).
-    needs_footer_engine = 'LFAudio' not in html
     if 'id="audio-play"' not in html:
         # Jamais eu de lecteur : insérer le markup local après le bandeau IA.
         badge_start = html.find('<div class="art__ai-badge"')
@@ -257,10 +281,10 @@ for fn in os.listdir("articles"):
                 insert_at = badge_end + len('</div>')
                 html = html[:insert_at] + '\n  ' + AUDIO_PLAYER_HTML + html[insert_at:]
                 changed = True
-    elif needs_footer_engine:
-        # Ancienne version (script et/ou menu flottant encore embarqués dans
-        # l'article) : remplacer par le markup allégé — le moteur de lecture
-        # vit désormais dans le pied de page (persiste à la navigation).
+    elif 'LFAudio' not in html:
+        # Ancienne architecture (script et/ou menu flottant encore embarqués
+        # dans l'article) : remplacer par le markup allégé — le moteur de
+        # lecture vit désormais dans le pied de page (persiste à la navigation).
         block_start = html.find('<div class="audio-player"')
         if block_start != -1:
             script_end = html.find('</script>', block_start)
@@ -269,9 +293,9 @@ for fn in os.listdir("articles"):
                 html = html[:block_start] + AUDIO_PLAYER_HTML + html[end:]
                 changed = True
 
-    if needs_footer_engine and '</footer>' in html:
-        footer_end = html.find('</footer>') + len('</footer>')
-        html = html[:footer_end] + AUDIO_GLOBAL_HTML + html[footer_end:]
+    html_new = upsert_audio_global(html)
+    if html_new is not None:
+        html = html_new
         changed = True
 
     if changed:
@@ -297,11 +321,10 @@ for fn in STATIC_ROOT_PAGES:
     if not os.path.exists(fn):
         continue
     html = open(fn, encoding="utf-8").read()
-    if "LFAudio" in html or "</footer>" not in html:
+    html_new = upsert_audio_global(html)
+    if html_new is None:
         continue
-    footer_end = html.find("</footer>") + len("</footer>")
-    html = html[:footer_end] + AUDIO_GLOBAL_HTML + html[footer_end:]
-    open(fn, "w", encoding="utf-8").write(html)
+    open(fn, "w", encoding="utf-8").write(html_new)
     patched_static += 1
 
 print(f"{patched_static} page(s) statique(s) racine patchée(s) (lecteur audio persistant)")
