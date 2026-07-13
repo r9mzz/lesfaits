@@ -1563,7 +1563,12 @@ def _anthropic_generate_call(messages: list, max_tokens: int = 4500) -> str:
         },
         timeout=180,
     )
-    r.raise_for_status()
+    if r.status_code >= 400:
+        # Le corps de la réponse Anthropic contient la vraie raison du 400
+        # (modèle invalide, message mal formé, limite dépassée…) — sans ce
+        # log, un 400 persistant sur le fallback ne laisse aucun indice
+        # exploitable dans les logs de run.
+        raise RuntimeError(f"Anthropic {r.status_code}: {r.text[:500]}")
     data = r.json()
     u = data.get("usage", {})
     print(f"     [TOKENS ANTHROPIC] prompt={u.get('input_tokens', '?')} "
