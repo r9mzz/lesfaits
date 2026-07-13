@@ -163,6 +163,11 @@ for fn in os.listdir("articles"):
         )
         changed = True
 
+    # 4b. Corriger les liens newsletter relatifs (anciens articles) → URL absolue
+    if 'href="index.html#newsletter"' in html:
+        html = html.replace('href="index.html#newsletter"', 'href="/#newsletter"')
+        changed = True
+
     # 5. Mettre à jour le bloc newsletter (supprimer l'ancien, réinjecter le nouveau)
     #
     # BUG CORRIGÉ : l'ancienne regex `<div class="newsletter-block">.*?</div>`
@@ -201,7 +206,7 @@ for fn in os.listdir("articles"):
         '<span>Chaque soir, les articles du jour en un email. Gratuit. Sans pub.</span>'
         '</div>'
         '</div>'
-        '<a class="newsletter-block__btn" href="index.html#newsletter">S\'abonner →</a>'
+        '<a class="newsletter-block__btn" href="/#newsletter">S\'abonner →</a>'
         '</div>'
     )
     # Retirer avec ET sans le \n final : l'insertion (plus bas) ajoute le bloc
@@ -209,6 +214,10 @@ for fn in os.listdir("articles"):
     # vide orpheline qui réapparaît/disparaît selon les runs (non-idempotent).
     html = html.replace(NL_BLOCK + '\n', '')
     html = html.replace(NL_BLOCK, '')
+    # Retirer aussi l'ancienne version avec index.html#newsletter
+    OLD_NL_BLOCK = NL_BLOCK.replace('href="/#newsletter"', 'href="index.html#newsletter"')
+    html = html.replace(OLD_NL_BLOCK + '\n', '')
+    html = html.replace(OLD_NL_BLOCK, '')
     NL_BLOCK += '\n'
 
     # 2) Nettoyage ciblé du résidu EXACT laissé par l'ancien bug (uniquement
