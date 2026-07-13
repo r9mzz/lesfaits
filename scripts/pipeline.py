@@ -4235,7 +4235,7 @@ def generer_article(item: dict, dry_run: bool, published: set, new_pub: set, dat
             return mots, nb_src
 
         MIN_MOTS_CORPS = 700
-        MIN_SOURCES = 4
+        MIN_SOURCES = 3
         # Tolérance de 100 mots après relance : la cible reste 700 (c'est ce
         # que la relance d'étoffement vise et ce qu'affiche le message de
         # correction), mais un article qui plafonne à 600-699 mots malgré une

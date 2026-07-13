@@ -44,9 +44,10 @@ prompts ou des garde-fous doit les préserver.
 
 6. **Titre** : factuel, neutre, 6-15 mots, jamais de vocabulaire putaclic
    (bizarre, insolite, choc…) ni de tournure en question.
-7. **Longueur/sourcing minimum** : 700 mots sur faits+contexte+nuances, 4
-   sources minimum — un article qui n'atteint pas ce seuil après relance
-   d'étoffement est rejeté définitivement, jamais publié incomplet.
+7. **Longueur/sourcing minimum** : 700 mots sur faits+contexte+nuances (avec
+   une tolérance de 100 mots après relance d'étoffement, soit 600 mots
+   acceptés au plancher), 3 sources minimum — un article qui n'atteint pas ce
+   seuil après relance est rejeté définitivement, jamais publié incomplet.
 8. **Angle éditorial obligatoire** : un sujet sans actualité identifiable, avec
    des sources trop pauvres pour l'expliquer, ou dont le contexte doit être
    rempli avec un fait divers sans rapport, n'est PAS publié — même si le texte
@@ -64,8 +65,9 @@ combinée, jamais des relances en cascade — le quota Groq est la ressource rar
 au chapeau), `faits_repetitifs` (intra ET inter-sections, 5-grammes),
 `attributions_trop_repetitives`, `titre_de_mauvaise_qualite`, `cliches_ia`.
 Garde-fou séparé (non combiné, relance d'étoffement dédiée) :
-`_deficit_longueur_sources` (700 mots / 4 sources minimum — vérifier le
-compte de MOTS réel, jamais une approximation en caractères).
+`_deficit_longueur_sources` (700 mots cible / 600 mots plancher après
+tolérance, 3 sources minimum — vérifier le compte de MOTS réel, jamais une
+approximation en caractères).
 
 Contrôle LLM (passe 2 de `verification.py`, indépendant des garde-fous
 déterministes) : le fact-checker évalue aussi `angle_insuffisant` (le sujet
