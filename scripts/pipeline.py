@@ -4236,6 +4236,13 @@ def generer_article(item: dict, dry_run: bool, published: set, new_pub: set, dat
 
         MIN_MOTS_CORPS = 700
         MIN_SOURCES = 4
+        # Tolérance de 100 mots après relance : la cible reste 700 (c'est ce
+        # que la relance d'étoffement vise et ce qu'affiche le message de
+        # correction), mais un article qui plafonne à 600-699 mots malgré une
+        # relance qui a réellement puisé dans les sources n'est pas un sujet
+        # creux — rejeter systématiquement ces cas a coûté plusieurs articles
+        # solides et bien sourcés le 13/07 (663 et 610 mots, 7 sources).
+        TOLERANCE_MOTS = 100
         mots, nb_src = _deficit_longueur_sources(art)
         if mots < MIN_MOTS_CORPS or nb_src < MIN_SOURCES:
             manque_mots = max(0, MIN_MOTS_CORPS - mots)
@@ -4260,11 +4267,15 @@ def generer_article(item: dict, dry_run: bool, published: set, new_pub: set, dat
             if isinstance(art_expanded, dict) and art_expanded:
                 art = art_expanded
             mots, nb_src = _deficit_longueur_sources(art)
-            if mots < MIN_MOTS_CORPS or nb_src < MIN_SOURCES:
+            if mots < MIN_MOTS_CORPS - TOLERANCE_MOTS or nb_src < MIN_SOURCES:
                 print(f"     [REJET QUALITÉ] Toujours insuffisant après relance "
                       f"({mots} mots, {nb_src} source(s)) — rejet définitif")
                 return False
-            print(f"     [OK] Étoffement réussi : {mots} mots, {nb_src} sources")
+            if mots < MIN_MOTS_CORPS:
+                print(f"     [OK] Étoffement accepté sous tolérance : {mots} mots "
+                      f"(< {MIN_MOTS_CORPS} mais ≥ {MIN_MOTS_CORPS - TOLERANCE_MOTS}), {nb_src} sources")
+            else:
+                print(f"     [OK] Étoffement réussi : {mots} mots, {nb_src} sources")
 
         # ── Passes 2/3 : fact-check + correction automatique (Anthropic) ──
         art, statut_verif = verifier_article(art, article_type=article_type)
