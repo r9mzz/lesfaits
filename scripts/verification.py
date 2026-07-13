@@ -1,9 +1,16 @@
 """
-Les Faits — Vérification éditoriale en 3 passes (Anthropic claude-sonnet-4-6)
+Les Faits — Vérification éditoriale en 3 passes (Groq Llama 3.3)
 ==============================================================================
 Passe 1 : génération (Groq, dans pipeline.py — inchangée)
 Passe 2 : détection  (fact-checker indépendant, sans mémoire de la passe 1)
 Passe 3 : correction (uniquement si non conforme), puis passe 2 rejouée
+
+Migré d'Anthropic (claude-sonnet-4-6) vers Groq en juillet 2026 : le compte
+Anthropic n'a plus de crédits et ne sera pas réapprovisionné (décision de
+Nahil — la génération Anthropic était jugée de qualité insuffisante). Le
+fact-check tourne donc sur le même Llama 3.3 que la génération, avec les
+mêmes clés et la même rotation anti-rate-limit. Moins fin que Sonnet, mais
+un contrôle LLM imparfait vaut mieux que pas de contrôle du tout.
 
 Statuts possibles :
   conforme_du_premier_coup  → publié tel quel
@@ -13,14 +20,14 @@ Statuts possibles :
                               problème légal (bloc 5) — rejet définitif, aucune retry
   rejete_qualite            → JAMAIS publié, log seul : trop de problèmes bloquants après
                               MAX_TENTATIVES corrections, ou perte de substance détectée
-  non_verifie               → ANTHROPIC_API_KEY absent (comportement historique)
+  non_verifie               → aucune clé Groq disponible (comportement historique)
   erreur_verification       → l'API a échoué, publié tel quel + journalisé
 
-La clé API vient de l'environnement (secret GitHub ANTHROPIC_API_KEY).
+Les clés API viennent de l'environnement (secrets GitHub GROQ_API_KEY[_2/_3]).
 Aucune clé n'est jamais codée en dur.
 """
 
-import os, re, json
+import os, re, json, time
 from datetime import datetime
 from pathlib import Path
 
@@ -31,9 +38,11 @@ DATA = ROOT / "data"
 MODERATION_QUEUE = DATA / "moderation_queue.json"
 VERIF_LOG = DATA / "verification_log.json"
 
-ANTHROPIC_KEY = os.getenv("ANTHROPIC_API_KEY", "")
-ANTHROPIC_MODEL = "claude-sonnet-4-6"
-ANTHROPIC_URL = "https://api.anthropic.com/v1/messages"
+GROQ_KEYS = [k for k in (os.getenv("GROQ_API_KEY", ""),
+                         os.getenv("GROQ_API_KEY_2", ""),
+                         os.getenv("GROQ_API_KEY_3", "")) if k]
+GROQ_MODEL = "llama-3.3-70b-versatile"
+GROQ_URL = "https://api.groq.com/openai/v1/chat/completions"
 
 
 # ══════════════════════════════════════════════════════════════════════════════
@@ -161,27 +170,42 @@ SOURCES AUTORISÉES :
 # APPEL API
 # ══════════════════════════════════════════════════════════════════════════════
 
-def _anthropic_call(prompt: str, max_tokens: int = 6000) -> str:
-    r = requests.post(
-        ANTHROPIC_URL,
-        headers={
-            "x-api-key": ANTHROPIC_KEY,
-            "anthropic-version": "2023-06-01",
-            "content-type": "application/json",
-        },
-        json={
-            "model": ANTHROPIC_MODEL,
-            "max_tokens": max_tokens,
-            "messages": [{"role": "user", "content": prompt}],
-        },
-        timeout=180,
-    )
-    if r.status_code >= 400:
-        # Le corps de la réponse Anthropic contient la vraie raison du 400
-        # (modèle invalide, message mal formé, limite dépassée…) — sans ce
-        # log, un 400 persistant ne laisse aucun indice exploitable.
-        raise RuntimeError(f"Anthropic {r.status_code}: {r.text[:500]}")
-    return r.json()["content"][0]["text"].strip()
+def _llm_call(prompt: str, max_tokens: int = 6000) -> str:
+    """Appel Groq avec rotation des clés + attente sur rate limit — même
+    stratégie que la génération (pipeline.py), mais avec moins de patience
+    (2 cycles) : une vérification qui rate est publiée en erreur_verification,
+    ce n'est pas un sujet perdu comme en génération."""
+    if not GROQ_KEYS:
+        raise RuntimeError("Aucune clé Groq disponible")
+    MAX_CYCLES, WAIT = 2, 62
+    last_err = None
+    for cycle in range(MAX_CYCLES):
+        for key in GROQ_KEYS:
+            r = requests.post(
+                GROQ_URL,
+                headers={"Authorization": f"Bearer {key}",
+                         "content-type": "application/json"},
+                json={
+                    "model": GROQ_MODEL,
+                    "max_tokens": max_tokens,
+                    "messages": [{"role": "user", "content": prompt}],
+                    "temperature": 0.2,
+                },
+                timeout=180,
+            )
+            if r.status_code == 429:
+                last_err = f"429 rate limit ({r.text[:120]})"
+                continue
+            if r.status_code >= 400:
+                # Le corps de la réponse contient la vraie raison de l'erreur
+                # (modèle invalide, requête mal formée…) — sans ce log, une
+                # erreur persistante ne laisse aucun indice exploitable.
+                raise RuntimeError(f"Groq {r.status_code}: {r.text[:500]}")
+            return r.json()["choices"][0]["message"]["content"].strip()
+        if cycle < MAX_CYCLES - 1:
+            print(f"     [VERIF] Toutes les clés Groq en rate limit — attente {WAIT}s")
+            time.sleep(WAIT)
+    raise RuntimeError(f"Rate limit Groq persistant pour la vérification : {last_err}")
 
 
 def _extract_json(text: str) -> dict:
@@ -232,7 +256,7 @@ def detecter(art: dict) -> dict:
     prompt = (PROMPT_DETECTION
               .replace("{ARTICLE_JSON}", json.dumps(art, ensure_ascii=False))
               .replace("{SOURCES}", _sources_block(art)))
-    return _extract_json(_anthropic_call(prompt, max_tokens=8000))
+    return _extract_json(_llm_call(prompt, max_tokens=8000))
 
 
 def corriger(art: dict, rapport: dict) -> dict:
@@ -241,7 +265,7 @@ def corriger(art: dict, rapport: dict) -> dict:
               .replace("{ARTICLE_JSON}", json.dumps(art, ensure_ascii=False))
               .replace("{RAPPORT}", json.dumps(rapport, ensure_ascii=False))
               .replace("{SOURCES}", _sources_block(art)))
-    corrige = _extract_json(_anthropic_call(prompt, max_tokens=16000))
+    corrige = _extract_json(_llm_call(prompt, max_tokens=8000))
     # Champs techniques jamais modifiables par le correcteur
     for k in ("slug", "categorie", "image_keyword"):
         if k in art:
@@ -336,7 +360,7 @@ def verifier_article(art: dict, article_type: str = "actu") -> tuple[dict, str]:
     slug = art.get("slug", "?")
     _type_detail = {"article_type": article_type}
 
-    if not ANTHROPIC_KEY:
+    if not GROQ_KEYS:
         # Pas de clé → comportement historique, tracé comme non vérifié
         return art, "non_verifie"
 

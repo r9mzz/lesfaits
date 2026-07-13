@@ -22,9 +22,8 @@ import requests
 from bs4 import BeautifulSoup
 from dotenv import load_dotenv
 
-# Vérification éditoriale 3 passes (Anthropic) — inactive sans ANTHROPIC_API_KEY
-from verification import verifier_article, ANTHROPIC_KEY as _ANTHROPIC_KEY
-from verification import ANTHROPIC_MODEL as _ANTHROPIC_FALLBACK_MODEL
+# Vérification éditoriale 3 passes (Groq Llama 3.3) — inactive sans clé Groq
+from verification import verifier_article
 from html import escape as _esc
 
 def _esc_json(s: str) -> str:
@@ -1539,45 +1538,6 @@ def sujet_sante_sans_source_officielle(art: dict) -> bool:
     return True
 
 
-def _anthropic_generate_call(messages: list, max_tokens: int = 4500) -> str:
-    """Fallback de génération quand toutes les clés Groq sont en rate limit.
-    Utilise le même modèle (_ANTHROPIC_FALLBACK_MODEL) et la même clé que la
-    vérification éditoriale — mieux vaut un article généré ainsi qu'un sujet
-    abandonné faute de quota Groq. Le modèle "claude-haiku-4-5-20251001"
-    testé initialement renvoyait un 400 Bad Request (probablement un
-    identifiant non provisionné sur ce compte) ; réutiliser l'identifiant de
-    verification.py garantit un modèle dont le fonctionnement est déjà
-    confirmé par tous les runs de vérification."""
-    system_msg = "\n\n".join(m["content"] for m in messages if m["role"] == "system")
-    user_msgs  = [m for m in messages if m["role"] != "system"]
-    r = requests.post(
-        "https://api.anthropic.com/v1/messages",
-        headers={
-            "x-api-key": _ANTHROPIC_KEY,
-            "anthropic-version": "2023-06-01",
-            "content-type": "application/json",
-        },
-        json={
-            "model": _ANTHROPIC_FALLBACK_MODEL,
-            "max_tokens": max_tokens,
-            "system": system_msg,
-            "messages": user_msgs,
-        },
-        timeout=180,
-    )
-    if r.status_code >= 400:
-        # Le corps de la réponse Anthropic contient la vraie raison du 400
-        # (modèle invalide, message mal formé, limite dépassée…) — sans ce
-        # log, un 400 persistant sur le fallback ne laisse aucun indice
-        # exploitable dans les logs de run.
-        raise RuntimeError(f"Anthropic {r.status_code}: {r.text[:500]}")
-    data = r.json()
-    u = data.get("usage", {})
-    print(f"     [TOKENS ANTHROPIC] prompt={u.get('input_tokens', '?')} "
-          f"completion={u.get('output_tokens', '?')}", flush=True)
-    return data["content"][0]["text"].strip()
-
-
 def _groq_call(api_key: str, messages: list, max_tokens: int = 4500) -> str:
     """Appelle Groq avec la clé donnée. Lève une exception en cas d'erreur."""
     client = Groq(api_key=api_key)
@@ -1779,7 +1739,12 @@ def generate(content: str, category_hint: str, extra_sources: list[dict] | None 
     raw = None
     _all_keys = [(GROQ_KEY, "clé 1"), (GROQ_KEY2, "clé 2"), (GROQ_KEY3, "clé 3")]
     keys_to_try = [(k, l) for k, l in _all_keys if k]
-    MAX_RETRY_CYCLES = 3  # cycles complets sur toutes les clés avant abandon
+    # 8 cycles (~8 min max) au lieu de 3 : depuis l'abandon du fallback
+    # Anthropic (compte sans crédits, non réapprovisionné par choix — la
+    # génération Anthropic était jugée de qualité insuffisante), la patience
+    # est la SEULE façon de ne pas perdre un sujet quand les 3 clés Groq sont
+    # simultanément en rate limit — la fenêtre Groq se recharge chaque minute.
+    MAX_RETRY_CYCLES = 8  # cycles complets sur toutes les clés avant abandon
     RETRY_WAIT = 62       # secondes d'attente entre deux cycles (fenêtre rate-limit Groq = 60s)
     for cycle in range(MAX_RETRY_CYCLES):
         for key, label in keys_to_try:
@@ -1804,13 +1769,7 @@ def generate(content: str, category_hint: str, extra_sources: list[dict] | None 
         if raw is not None:
             break
     if raw is None:
-        # Toutes les clés Groq épuisées : fallback Anthropic plutôt que
-        # d'abandonner les sujets restants du créneau.
-        if _ANTHROPIC_KEY:
-            print(f"     [FALLBACK] Quota Groq épuisé — génération via Anthropic ({_ANTHROPIC_FALLBACK_MODEL})")
-            raw = _anthropic_generate_call(messages)
-        else:
-            raise RuntimeError("Aucune clé Groq disponible (rate limit) et pas de clé Anthropic")
+        raise RuntimeError(f"Quota Groq épuisé sur toutes les clés après {MAX_RETRY_CYCLES} cycles d'attente")
 
     if "HORS_PERIMETRE" in raw[:60]:
         raise ValueError(raw[:80])

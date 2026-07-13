@@ -1,14 +1,17 @@
 # Les Faits — lesfaits.info
 
-Journal 100 % IA : génération d'articles (Groq Llama 3.3, fallback Anthropic Haiku),
-vérification éditoriale 3 passes (Anthropic Sonnet), site statique déployé sur
-GitHub Pages via le repo `lesfaits-site`.
+Journal 100 % IA : génération d'articles ET vérification éditoriale 3 passes
+sur Groq Llama 3.3 (3 clés en rotation — le compte Anthropic n'a plus de
+crédits et ne sera pas réapprovisionné, décision de Nahil en juillet 2026 ;
+quand Groq est en rate limit, on attend jusqu'à 8 cycles de 62 s plutôt que
+de perdre le sujet). Site statique déployé sur GitHub Pages via le repo
+`lesfaits-site`.
 
 ## Architecture
 
 - `scripts/pipeline.py` — tout le pipeline : collecte RSS, scoring, génération,
   garde-fous déterministes, rendu HTML, index/feed/sitemap.
-- `scripts/verification.py` — fact-check + correction (Anthropic).
+- `scripts/verification.py` — fact-check + correction (Groq Llama 3.3).
 - Workflows : `pipeline.yml` (génération ~01h05/13h05 Paris, très en avance car
   les crons GitHub ont 1-4 h de retard), `deploy.yml` (mise en ligne ~07h/18h),
   `post_x.yml`, `newsletter.yml` (Brevo).
