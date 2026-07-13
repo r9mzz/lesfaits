@@ -2504,7 +2504,7 @@ AUDIO_PLAYER_HTML = """<div class="audio-player" id="audio-player" style="displa
 # pages déjà publiées et remplace le bloc entier si elle diffère — sans ça,
 # les articles patchés une première fois garderaient l'ancien moteur pour
 # toujours (le simple marqueur "LFAudio existe" ne détecte pas les évolutions).
-AUDIO_GLOBAL_VERSION = 4
+AUDIO_GLOBAL_VERSION = 5
 AUDIO_GLOBAL_HTML = f"""<!-- LF_AUDIO_GLOBAL_START v{AUDIO_GLOBAL_VERSION} -->""" + """<div class="audio-float" id="audio-float" style="display:none" role="region" aria-label="Lecture audio en cours">
   <button type="button" class="audio-float__ctrl" id="audio-float-prev" aria-label="Phrase précédente"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4.6 3v10" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M12.4 3.6v8.8a.5.5 0 0 1-.8.4L6.2 8.4a.5.5 0 0 1 0-.8l5.4-4.4a.5.5 0 0 1 .8.4z" fill="currentColor"/></svg></button>
   <button type="button" class="audio-float__ctrl audio-float__ctrl--play" id="audio-float-play" aria-label="Lecture/Pause">
@@ -2813,21 +2813,57 @@ AUDIO_GLOBAL_HTML = f"""<!-- LF_AUDIO_GLOBAL_START v{AUDIO_GLOBAL_VERSION} -->""
     });
   }
 
+  // Zone page-spécifique = TOUS les nœuds du <body> entre </header> et
+  // <footer>, pas seulement <main> : l'accueil a son manifeste ("100 % IA")
+  // AVANT <main>, les autres pages ont la newsletter APRÈS </main> — ne
+  // remplacer que <main> laissait ces blocs de l'ancienne page collés à la
+  // nouvelle (bug repéré le 13/07 : manifeste de l'accueil affiché au-dessus
+  // du contenu de l'archive après navigation).
+  function pageZone(rootDoc){
+    var body=rootDoc.body;
+    if(!body)return null;
+    var nodes=[],started=false;
+    for(var n=body.firstChild;n;n=n.nextSibling){
+      if(n.nodeType===1&&n.tagName==='HEADER'){started=true;continue;}
+      if(n.nodeType===1&&n.tagName==='FOOTER')break;
+      if(started)nodes.push(n);
+    }
+    var footer=body.querySelector(':scope > footer');
+    return (started&&footer)?{nodes:nodes,footer:footer}:null;
+  }
+
   function navigateTo(url,isPop){
-    var main=document.querySelector('main');
-    if(!main){location.href=url;return;}
+    var cur=pageZone(document);
+    if(!cur){location.href=url;return;}
     fetch(url).then(function(r){
       if(!r.ok)throw new Error('HTTP '+r.status);
       return r.text();
     }).then(function(html){
       var doc=new DOMParser().parseFromString(html,'text/html');
-      var newMain=doc.querySelector('main');
-      if(!newMain){location.href=url;return;}
+      var next=pageZone(doc);
+      if(!next){location.href=url;return;} // page hors gabarit (404, confirmation…) : navigation classique
       document.title=doc.title;
-      main.innerHTML=newMain.innerHTML;
+      cur.nodes.forEach(function(n){n.parentNode&&n.parentNode.removeChild(n);});
+      var inserted=[];
+      next.nodes.forEach(function(n){
+        var imported=document.importNode(n,true);
+        cur.footer.parentNode.insertBefore(imported,cur.footer);
+        inserted.push(imported);
+      });
       if(!isPop)history.pushState({},'',url);
       window.scrollTo(0,0);
-      runScripts(main);
+      inserted.forEach(function(n){
+        if(n.nodeType!==1)return;
+        if(n.tagName==='SCRIPT'){
+          // Script directement enfant de <body> dans la zone : le recréer
+          var s=document.createElement('script');
+          for(var i=0;i<n.attributes.length;i++)s.setAttribute(n.attributes[i].name,n.attributes[i].value);
+          s.textContent=n.textContent;
+          try{n.parentNode.replaceChild(s,n);}catch(err){}
+          return;
+        }
+        runScripts(n);
+      });
       if(window.LFAudio)window.LFAudio.attachArticle();
     }).catch(function(){location.href=url;}); // repli : navigation classique si le fetch échoue
   }
