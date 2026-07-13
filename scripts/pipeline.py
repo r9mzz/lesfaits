@@ -2534,8 +2534,13 @@ AUDIO_PLAYER_HTML = """<div class="audio-player" id="audio-player" style="displa
       <option value="1.35">1.35×</option>
     </select>
   </div>
-</div>
-<div class="audio-float" id="audio-float" style="display:none" role="region" aria-label="Lecture audio en cours">
+</div>"""
+
+# Menu flottant + moteur audio persistant + navigation douce — injectés
+# une seule fois par page via _build_footer(), jamais recréés lors d'une
+# navigation interne (voir soft-nav plus bas) afin que la lecture survive
+# au passage vers une autre page du site.
+AUDIO_GLOBAL_HTML = """<div class="audio-float" id="audio-float" style="display:none" role="region" aria-label="Lecture audio en cours">
   <button type="button" class="audio-float__ctrl" id="audio-float-prev" aria-label="Phrase précédente">⏮</button>
   <button type="button" class="audio-float__ctrl audio-float__ctrl--play" id="audio-float-play" aria-label="Lecture/Pause">
     <span id="audio-float-icon">⏸</span>
@@ -2549,20 +2554,13 @@ AUDIO_PLAYER_HTML = """<div class="audio-player" id="audio-player" style="displa
 </div>
 <script>
 (function(){
-  // Le bouton est affiché près du bandeau IA (haut d'article) mais le texte à
-  // lire (résumé, sections) est plus bas dans le DOM, pas encore parsé quand
-  // ce script inline s'exécute — attendre la fin du parsing du document.
-  if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',init);}else{init();}
-  function init(){
-  if(!('speechSynthesis' in window))return;
-  var wrap=document.getElementById('audio-player');
-  if(!wrap)return;
-  var playBtn=document.getElementById('audio-play'),icon=document.getElementById('audio-icon'),
-      label=document.getElementById('audio-label'),
-      stopBtn=document.getElementById('audio-stop'),bar=document.getElementById('audio-bar'),
-      progressWrap=document.getElementById('audio-progress-wrap'),
-      speedSel=document.getElementById('audio-speed'),
-      floatBar=document.getElementById('audio-float'),
+  // ── Lecteur audio PERSISTANT ────────────────────────────────────────────
+  // Vit dans le pied de page, chargé une seule fois par vraie navigation
+  // (jamais recréé par la navigation douce ci-dessous) : l'état de lecture
+  // (segments, index, voix, vitesse) survit donc quand on quitte la page de
+  // l'article en cours vers l'accueil ou un autre article.
+  if(!('speechSynthesis' in window)){window.LFAudio={attachArticle:function(){}};return;}
+  var floatBar=document.getElementById('audio-float'),
       floatPlay=document.getElementById('audio-float-play'),
       floatIcon=document.getElementById('audio-float-icon'),
       floatPrev=document.getElementById('audio-float-prev'),
@@ -2570,46 +2568,13 @@ AUDIO_PLAYER_HTML = """<div class="audio-player" id="audio-player" style="displa
       floatClose=document.getElementById('audio-float-close'),
       floatTitle=document.getElementById('audio-float-title'),
       floatTime=document.getElementById('audio-float-time');
-  var titleEl=document.querySelector('.art__title');
-  if(floatTitle)floatTitle.textContent=titleEl?titleEl.textContent.trim():'';
 
-  // Texte lu = ce qui est réellement affiché, jamais dupliqué côté serveur.
-  var nodes=[];
-  var resumeEl=document.querySelector('.art__resume');
-  if(resumeEl)nodes.push(resumeEl);
-  document.querySelectorAll('.art__h2').forEach(function(h2){
-    var p=h2.nextElementSibling;
-    if(p&&p.tagName==='P')nodes.push(p);
-  });
-  if(!nodes.length)return;
-
-  // Découpage phrase par phrase (contourne le bug Chrome des utterances longues
-  // et permet la barre de progression + le surlignage).
-  var segments=[];
-  nodes.forEach(function(node){
-    var text=node.textContent.trim();
-    if(!text)return;
-    var sentences=text.match(/[^.!?]+[.!?]+(\s+|$)/g)||[text];
-    sentences.forEach(function(s){
-      s=s.trim();
-      if(s)segments.push({text:s,node:node,words:s.split(/\s+/).length});
-    });
-  });
-  if(!segments.length)return;
-  var totalWords=segments.reduce(function(sum,s){return sum+s.words;},0);
-
-  var voice=null,idx=0,playing=false,paused=false,rate=1;
+  var segments=[],idx=0,playing=false,paused=false,rate=1,voice=null,voicesReady=false;
   try{
     var savedRate=localStorage.getItem('lesfaits_audio_rate');
-    if(savedRate){rate=parseFloat(savedRate)||1;speedSel.value=String(rate);}
-  }catch(e){} // navigation privée stricte / stockage désactivé : on continue avec rate=1
+    if(savedRate)rate=parseFloat(savedRate)||1;
+  }catch(e){}
 
-  // Une seule voix, celle de Google (qualité nettement supérieure aux voix
-  // système par défaut sur la plupart des appareils) — plus de sélecteur,
-  // ça évite à la personne d'avoir à choisir entre des dizaines d'options
-  // dont la plupart sonnent mal. Repli sur la première voix FR si Google
-  // n'est pas disponible (ex : Firefox, Safari) plutôt qu'un bouton muet.
-  var voicesReady=false;
   function pickVoice(){
     var all=speechSynthesis.getVoices();
     if(!all.length)return false;
@@ -2631,52 +2596,47 @@ AUDIO_PLAYER_HTML = """<div class="audio-player" id="audio-player" style="displa
       if(done)return;
       done=true;
       speechSynthesis.removeEventListener('voiceschanged',onChange);
-      pickVoice(); // repli : lecture même sans liste de voix chargée
+      pickVoice();
       voicesReady=true;
       cb();
     },400);
   }
+  ensureVoiceLoaded(function(){});
 
   function clearHighlight(){
-    nodes.forEach(function(n){n.classList.remove('audio-reading');});
+    segments.forEach(function(s){if(s.node)s.node.classList.remove('audio-reading');});
   }
-
   function remainingWords(){
     var w=0;
     for(var i=idx;i<segments.length;i++)w+=segments[i].words;
     return w;
   }
-
   function formatTime(sec){
     sec=Math.max(0,Math.round(sec));
     var m=Math.floor(sec/60),s=sec%60;
     return m+':'+(s<10?'0':'')+s;
   }
-
   function updateProgress(){
-    bar.style.width=((idx/segments.length)*100)+'%';
-    if(floatTime){
-      // ~150 mots/minute de base (2.5 mots/s), ajusté par la vitesse choisie —
-      // estimation grossière mais suffisante pour donner un ordre d'idée.
+    var local=document.getElementById('audio-bar'),
+        wrap=document.getElementById('audio-progress-wrap');
+    // Ces éléments locaux n'existent que si on est ENCORE sur la page de
+    // l'article en cours de lecture — absents après navigation, sans risque.
+    if(local&&segments.length)local.style.width=((idx/segments.length)*100)+'%';
+    if(floatTime&&segments.length){
       var secLeft=remainingWords()/(2.5*rate);
       floatTime.textContent=formatTime(secLeft)+' restant'+(secLeft>=60?'es':'');
     }
   }
-
   function speakNext(){
     if(idx>=segments.length){stop();return;}
     var seg=segments[idx];
     clearHighlight();
-    seg.node.classList.add('audio-reading');
+    if(seg.node)seg.node.classList.add('audio-reading');
     var u=new SpeechSynthesisUtterance(seg.text);
     u.lang='fr-FR';
     if(voice)u.voice=voice;
     u.rate=rate;
     u.onend=function(){
-      // Garde double : playing (arrêté entre-temps) ET paused (implémentations
-      // de Web Speech API connues pour déclencher onend de façon incohérente
-      // pendant une pause — mieux vaut ignorer un signal de fin prématuré que
-      // sauter des phrases pendant que l'utilisateur croit avoir mis en pause).
       if(!playing||paused)return;
       idx++;
       updateProgress();
@@ -2689,54 +2649,57 @@ AUDIO_PLAYER_HTML = """<div class="audio-player" id="audio-player" style="displa
     };
     speechSynthesis.speak(u);
   }
-
   function setFloatIcon(playIcon){
     if(floatIcon)floatIcon.textContent=playIcon?'⏸':'▶';
   }
-
+  function localEls(){
+    return {
+      play:document.getElementById('audio-play'),
+      icon:document.getElementById('audio-icon'),
+      label:document.getElementById('audio-label'),
+      stop:document.getElementById('audio-stop'),
+      progressWrap:document.getElementById('audio-progress-wrap'),
+    };
+  }
+  function setLocalPlayingUI(isPlaying){
+    var l=localEls();
+    if(l.icon)l.icon.textContent=isPlaying?'⏸':'🔊';
+    if(l.label)l.label.textContent=isPlaying?'Pause':'Écouter cet article';
+    if(l.stop)l.stop.style.display=isPlaying?'inline-flex':'none';
+    if(l.progressWrap)l.progressWrap.style.display=isPlaying?'block':'none';
+    if(l.play)l.play.setAttribute('aria-pressed',isPlaying?'true':'false');
+  }
   function start(){
     playing=true;paused=false;
-    icon.textContent='⏸';label.textContent='Pause';
-    stopBtn.style.display='inline-flex';
-    progressWrap.style.display='block';
-    playBtn.setAttribute('aria-pressed','true');
+    setLocalPlayingUI(true);
     if(floatBar)floatBar.style.display='flex';
     setFloatIcon(true);
     speakNext();
   }
-
   function stop(){
     playing=false;paused=false;idx=0;
     speechSynthesis.cancel();
     clearHighlight();
-    icon.textContent='🔊';label.textContent='Écouter cet article';
-    stopBtn.style.display='none';
-    progressWrap.style.display='none';
-    playBtn.setAttribute('aria-pressed','false');
+    setLocalPlayingUI(false);
     if(floatBar)floatBar.style.display='none';
     updateProgress();
   }
-
   function togglePlayPause(){
-    if(!playing){
-      ensureVoiceLoaded(start);
-      return;
-    }
+    if(!playing)return;
     if(paused){
       paused=false;
       speechSynthesis.resume();
-      icon.textContent='⏸';label.textContent='Pause';
+      setLocalPlayingUI(true);
       setFloatIcon(true);
     }else{
       paused=true;
       speechSynthesis.pause();
-      icon.textContent='▶';label.textContent='Reprendre';
+      var l=localEls();
+      if(l.icon)l.icon.textContent='▶';
+      if(l.label)l.label.textContent='Reprendre';
       setFloatIcon(false);
     }
   }
-
-  // Passe à la phrase précédente/suivante : coupe l'utterance en cours et
-  // relance immédiatement au nouvel index, sans casser l'état playing/paused.
   function jumpTo(newIdx){
     if(!playing)return;
     idx=Math.max(0,Math.min(segments.length-1,newIdx));
@@ -2745,35 +2708,137 @@ AUDIO_PLAYER_HTML = """<div class="audio-player" id="audio-player" style="displa
     if(!paused)speakNext();
   }
 
-  playBtn.addEventListener('click',togglePlayPause);
-  stopBtn.addEventListener('click',stop);
-  speedSel.addEventListener('change',function(){
-    rate=parseFloat(speedSel.value)||1;
-    try{localStorage.setItem('lesfaits_audio_rate',String(rate));}catch(e){}
-    updateProgress();
-    // Le débit ne s'applique qu'aux prochains segments — comportement natif
-    // de l'API, pas de coupure ni de désynchronisation.
-  });
-
   if(floatPlay)floatPlay.addEventListener('click',togglePlayPause);
   if(floatPrev)floatPrev.addEventListener('click',function(){jumpTo(idx-1);});
   if(floatNext)floatNext.addEventListener('click',function(){jumpTo(idx+1);});
   if(floatClose)floatClose.addEventListener('click',stop);
 
-  // Ne jamais laisser une lecture continuer après avoir quitté la page.
   window.addEventListener('pagehide',function(){speechSynthesis.cancel();});
   window.addEventListener('beforeunload',function(){speechSynthesis.cancel();});
 
-  // Charger la voix dès l'affichage (pas seulement au premier clic Play)
-  // pour que la lecture démarre sans latence perceptible.
-  ensureVoiceLoaded(function(){});
-
-  // Le bouton n'apparaît que si le navigateur sait vraiment synthétiser —
-  // évite un bouton mort sur les navigateurs sans TTS.
-  wrap.style.display='block';
-  } // fin init()
+  // ── Rattachement à la page COURANTE ─────────────────────────────────────
+  // Appelé au chargement initial ET après chaque navigation douce : (re)lie
+  // le bouton "Écouter cet article" de la page affichée, sans jamais toucher
+  // à une lecture déjà en cours tant que l'utilisateur ne reclique pas.
+  window.LFAudio={
+    attachArticle:function(){
+      var playBtn=document.getElementById('audio-play'),
+          stopBtn=document.getElementById('audio-stop'),
+          speedSel=document.getElementById('audio-speed');
+      if(speedSel){
+        speedSel.value=String(rate);
+        speedSel.addEventListener('change',function(){
+          rate=parseFloat(speedSel.value)||1;
+          try{localStorage.setItem('lesfaits_audio_rate',String(rate));}catch(e){}
+          updateProgress();
+        });
+      }
+      if(!playBtn)return; // page sans lecteur (accueil, catégories…)
+      var wrap=document.getElementById('audio-player');
+      // Le bouton n'apparaît que si le navigateur sait vraiment synthétiser —
+      // évite un bouton mort sur les navigateurs sans TTS (déjà garanti ici
+      // puisque tout ce script sort tôt si speechSynthesis est absent).
+      if(wrap)wrap.style.display='block';
+      playBtn.addEventListener('click',function(){
+        if(playing){togglePlayPause();return;}
+        // Construit les segments à partir du DOM affiché À L'INSTANT du clic
+        // (jamais mis en cache) : résumé + paragraphe suivant chaque <h2>.
+        var nodes=[];
+        var resumeEl=document.querySelector('.art__resume');
+        if(resumeEl)nodes.push(resumeEl);
+        document.querySelectorAll('.art__h2').forEach(function(h2){
+          var p=h2.nextElementSibling;
+          if(p&&p.tagName==='P')nodes.push(p);
+        });
+        if(!nodes.length)return;
+        var built=[];
+        nodes.forEach(function(node){
+          var text=node.textContent.trim();
+          if(!text)return;
+          var sentences=text.match(/[^.!?]+[.!?]+(\s+|$)/g)||[text];
+          sentences.forEach(function(s){
+            s=s.trim();
+            if(s)built.push({text:s,node:node,words:s.split(/\s+/).length});
+          });
+        });
+        if(!built.length)return;
+        segments=built;idx=0;
+        var titleEl=document.querySelector('.art__title');
+        if(floatTitle)floatTitle.textContent=titleEl?titleEl.textContent.trim():'';
+        ensureVoiceLoaded(start);
+      });
+      if(stopBtn)stopBtn.addEventListener('click',stop);
+    }
+  };
+  window.LFAudio.attachArticle();
 })();
-</script>"""
+</script>
+<script>
+(function(){
+  // ── Navigation douce (interne au site) ──────────────────────────────────
+  // But : garder le lecteur audio (et le menu flottant) actifs quand on
+  // quitte la page de l'article en cours d'écoute — un vrai rechargement de
+  // page couperait immédiatement speechSynthesis (contrainte du navigateur,
+  // aucun code ne peut l'éviter). On intercepte donc les clics sur les liens
+  // internes, on va chercher le HTML de la page suivante en arrière-plan et
+  // on ne remplace QUE le contenu de <main> — le pied de page (et donc le
+  // moteur audio ci-dessus) n'est jamais recréé, son état persiste.
+  function isSoftNavLink(a){
+    if(!a||!a.href)return false;
+    if(a.origin!==location.origin)return false;
+    if(a.hasAttribute('download'))return false;
+    if(a.target&&a.target!=='_self')return false;
+    var rel=a.getAttribute('rel')||'';
+    if(rel.indexOf('external')!==-1)return false;
+    if(/\.(xml|json|ico|pdf|jpg|jpeg|png|webp|svg)$/i.test(a.pathname))return false;
+    // Ancre vers la même page (ex: #newsletter) : laisser le scroll natif.
+    if(a.pathname===location.pathname&&a.hash)return false;
+    return true;
+  }
+
+  function runScripts(container){
+    // innerHTML n'exécute jamais les <script> qu'il insère : on les recrée
+    // pour forcer l'exécution (barre de progression, boutons de partage,
+    // favoris, etc. — tout ce qui est injecté par générer_article()).
+    container.querySelectorAll('script').forEach(function(old){
+      if(old.type==='application/ld+json')return; // données seules
+      var s=document.createElement('script');
+      for(var i=0;i<old.attributes.length;i++)s.setAttribute(old.attributes[i].name,old.attributes[i].value);
+      s.textContent=old.textContent;
+      old.parentNode.replaceChild(s,old);
+    });
+  }
+
+  function navigateTo(url,isPop){
+    var main=document.querySelector('main');
+    if(!main){location.href=url;return;}
+    fetch(url).then(function(r){
+      if(!r.ok)throw new Error('HTTP '+r.status);
+      return r.text();
+    }).then(function(html){
+      var doc=new DOMParser().parseFromString(html,'text/html');
+      var newMain=doc.querySelector('main');
+      if(!newMain){location.href=url;return;}
+      document.title=doc.title;
+      main.innerHTML=newMain.innerHTML;
+      if(!isPop)history.pushState({},'',url);
+      window.scrollTo(0,0);
+      runScripts(main);
+      if(window.LFAudio)window.LFAudio.attachArticle();
+    }).catch(function(){location.href=url;}); // repli : navigation classique si le fetch échoue
+  }
+
+  document.addEventListener('click',function(e){
+    if(e.defaultPrevented||e.button!==0||e.ctrlKey||e.metaKey||e.shiftKey||e.altKey)return;
+    var a=e.target.closest('a[href]');
+    if(!isSoftNavLink(a))return;
+    e.preventDefault();
+    navigateTo(a.href,false);
+  });
+  window.addEventListener('popstate',function(){navigateTo(location.href,true);});
+})();
+</script>
+"""
 
 # Favicon + manifest — doivent être présents dans TOUS les templates de page
 FAVICON_LINKS = (
@@ -2947,7 +3012,7 @@ def _build_footer(year: int = None) -> str:
     <span>© {y} Les Faits · <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/deed.fr" rel="noopener noreferrer external" target="_blank" style="color:inherit">CC BY-NC-ND 4.0</a></span>
     <span>Protocole éditorial v1.1</span>
   </div>
-</footer>"""
+</footer>""" + AUDIO_GLOBAL_HTML
 
 def _sanitize_image_keyword(kw: str, fallback: str = "") -> str:
     """Keyword propre pour recherche image : sans accents, sans virgules, max 5 mots."""

@@ -2,7 +2,7 @@
 import json, os, re, sys
 
 sys.path.insert(0, os.path.dirname(__file__))
-from pipeline import AUDIO_PLAYER_HTML
+from pipeline import AUDIO_PLAYER_HTML, AUDIO_GLOBAL_HTML
 
 BASE_URL = "https://r9mzz.github.io/lesfaits-site"
 OLD_BASE = "https://r9mzz.github.io/lesfaits"   # ancienne URL (sans -site)
@@ -240,30 +240,39 @@ for fn in os.listdir("articles"):
             changed = True
 
     # 10. Lecteur audio (synthèse vocale) — injecté après le bandeau IA, comme
-    # dans le template de génération. AUDIO_PLAYER_HTML est importé depuis
+    # dans le template de génération. AUDIO_PLAYER_HTML (markup local, sans
+    # script) et AUDIO_GLOBAL_HTML (moteur persistant + navigation douce,
+    # injecté une seule fois dans le pied de page) sont importés depuis
     # pipeline.py pour ne jamais diverger du gabarit des nouveaux articles.
     # Insertion par recherche de chaîne simple (pas de re.sub : le lecteur
     # contient des backslashes JS que re.sub interpréterait comme des
     # références de groupe invalides).
-    if 'id="audio-float"' not in html:
+    needs_footer_engine = 'LFAudio' not in html
+    if 'id="audio-play"' not in html:
+        # Jamais eu de lecteur : insérer le markup local après le bandeau IA.
+        badge_start = html.find('<div class="art__ai-badge"')
+        if badge_start != -1:
+            badge_end = html.find('</div>', badge_start)
+            if badge_end != -1:
+                insert_at = badge_end + len('</div>')
+                html = html[:insert_at] + '\n  ' + AUDIO_PLAYER_HTML + html[insert_at:]
+                changed = True
+    elif needs_footer_engine:
+        # Ancienne version (script et/ou menu flottant encore embarqués dans
+        # l'article) : remplacer par le markup allégé — le moteur de lecture
+        # vit désormais dans le pied de page (persiste à la navigation).
         block_start = html.find('<div class="audio-player"')
         if block_start != -1:
-            # Version antérieure du lecteur (sans menu flottant, ou avec
-            # l'ancien sélecteur de voix) déjà présente : remplacer tout le
-            # bloc, du <div jusqu'au </script> qui le termine.
             script_end = html.find('</script>', block_start)
-            end = script_end + len('</script>') if script_end != -1 else -1
-            if end != -1:
+            if script_end != -1:
+                end = script_end + len('</script>')
                 html = html[:block_start] + AUDIO_PLAYER_HTML + html[end:]
                 changed = True
-        else:
-            badge_start = html.find('<div class="art__ai-badge"')
-            if badge_start != -1:
-                badge_end = html.find('</div>', badge_start)
-                if badge_end != -1:
-                    insert_at = badge_end + len('</div>')
-                    html = html[:insert_at] + '\n  ' + AUDIO_PLAYER_HTML + html[insert_at:]
-                    changed = True
+
+    if needs_footer_engine and '</footer>' in html:
+        footer_end = html.find('</footer>') + len('</footer>')
+        html = html[:footer_end] + AUDIO_GLOBAL_HTML + html[footer_end:]
+        changed = True
 
     if changed:
         open(path, "w", encoding="utf-8").write(html)
