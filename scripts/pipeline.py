@@ -626,10 +626,12 @@ _CAT_PRIORITE = ["sante", "science", "tech", "environnement", "economie", "socie
 
 # Quota max par catégorie dans un cycle de génération
 QUOTA_CATEGORIE = 3
-# Société : plafond réduit — catégorie fourre-tout où atterrissent les papiers
-# d'ambiance ; 2 max par créneau laisse la place aux catégories à matière
-# (science, santé, environnement, économie).
-QUOTA_PAR_CATEGORIE = {"societe": 2}
+# Société : plafond légèrement réduit — catégorie fourre-tout où atterrissent
+# les papiers d'ambiance ; 3 max par créneau (relevé de 2 le 13/07 après une
+# matinée où seulement 9 candidats au total ont passé le filtre RSS et où
+# 3 sujets société solides ont été écartés par le quota alors que les autres
+# catégories n'avaient qu'un candidat chacune).
+QUOTA_PAR_CATEGORIE = {"societe": 3}
 
 
 def detect_category(text: str) -> str:
