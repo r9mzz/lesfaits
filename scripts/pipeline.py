@@ -2545,18 +2545,18 @@ AUDIO_PLAYER_HTML = """<div class="audio-player" id="audio-player" style="displa
 # pages déjà publiées et remplace le bloc entier si elle diffère — sans ça,
 # les articles patchés une première fois garderaient l'ancien moteur pour
 # toujours (le simple marqueur "LFAudio existe" ne détecte pas les évolutions).
-AUDIO_GLOBAL_VERSION = 3
+AUDIO_GLOBAL_VERSION = 4
 AUDIO_GLOBAL_HTML = f"""<!-- LF_AUDIO_GLOBAL_START v{AUDIO_GLOBAL_VERSION} -->""" + """<div class="audio-float" id="audio-float" style="display:none" role="region" aria-label="Lecture audio en cours">
-  <button type="button" class="audio-float__ctrl" id="audio-float-prev" aria-label="Phrase précédente">⏮</button>
+  <button type="button" class="audio-float__ctrl" id="audio-float-prev" aria-label="Phrase précédente"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4.6 3v10" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M12.4 3.6v8.8a.5.5 0 0 1-.8.4L6.2 8.4a.5.5 0 0 1 0-.8l5.4-4.4a.5.5 0 0 1 .8.4z" fill="currentColor"/></svg></button>
   <button type="button" class="audio-float__ctrl audio-float__ctrl--play" id="audio-float-play" aria-label="Lecture/Pause">
-    <span id="audio-float-icon">⏸</span>
+    <span id="audio-float-icon"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M5.2 3.2v9.6M10.8 3.2v9.6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg></span>
   </button>
-  <button type="button" class="audio-float__ctrl" id="audio-float-next" aria-label="Phrase suivante">⏭</button>
+  <button type="button" class="audio-float__ctrl" id="audio-float-next" aria-label="Phrase suivante"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M11.4 3v10" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M3.6 3.6v8.8a.5.5 0 0 0 .8.4l5.4-4.4a.5.5 0 0 0 0-.8L4.4 3.2a.5.5 0 0 0-.8.4z" fill="currentColor"/></svg></button>
   <div class="audio-float__info">
     <span class="audio-float__title" id="audio-float-title"></span>
     <span class="audio-float__time" id="audio-float-time"></span>
   </div>
-  <button type="button" class="audio-float__ctrl audio-float__ctrl--close" id="audio-float-close" aria-label="Fermer la lecture">✕</button>
+  <button type="button" class="audio-float__ctrl audio-float__ctrl--close" id="audio-float-close" aria-label="Fermer la lecture"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="m4 4 8 8M12 4l-8 8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></button>
 </div>
 <script>
 (function(){
@@ -2622,15 +2622,37 @@ AUDIO_GLOBAL_HTML = f"""<!-- LF_AUDIO_GLOBAL_START v{AUDIO_GLOBAL_VERSION} -->""
     var m=Math.floor(sec/60),s=sec%60;
     return m+':'+(s<10?'0':'')+s;
   }
+  // Compte à rebours en temps réel : l'estimation (mots restants / débit)
+  // n'est recalculée qu'à chaque changement de phrase — entre deux phrases,
+  // un ticker décrémente l'affichage seconde par seconde à partir de la
+  // dernière estimation, pour que le temps restant vive sous les yeux du
+  // lecteur au lieu de sauter par à-coups.
+  var estBase=0,estBaseAt=0,tickTimer=null;
+  function displayRemaining(sec){
+    if(!floatTime)return;
+    floatTime.textContent=formatTime(sec)+' restant'+(sec>=60?'es':'');
+  }
+  function startTicker(){
+    stopTicker();
+    tickTimer=setInterval(function(){
+      if(!playing||paused)return;
+      var left=estBase-(Date.now()-estBaseAt)/1000;
+      displayRemaining(Math.max(left,1));
+    },1000);
+  }
+  function stopTicker(){
+    if(tickTimer){clearInterval(tickTimer);tickTimer=null;}
+  }
   function updateProgress(){
     var local=document.getElementById('audio-bar'),
         wrap=document.getElementById('audio-progress-wrap');
     // Ces éléments locaux n'existent que si on est ENCORE sur la page de
     // l'article en cours de lecture — absents après navigation, sans risque.
     if(local&&segments.length)local.style.width=((idx/segments.length)*100)+'%';
-    if(floatTime&&segments.length){
-      var secLeft=remainingWords()/(2.5*rate);
-      floatTime.textContent=formatTime(secLeft)+' restant'+(secLeft>=60?'es':'');
+    if(segments.length){
+      estBase=remainingWords()/(2.5*rate);
+      estBaseAt=Date.now();
+      displayRemaining(estBase);
     }
   }
   function speakNext(){
@@ -2655,8 +2677,12 @@ AUDIO_GLOBAL_HTML = f"""<!-- LF_AUDIO_GLOBAL_START v{AUDIO_GLOBAL_VERSION} -->""
     };
     speechSynthesis.speak(u);
   }
+  // Icônes SVG (jamais d'emoji : Android/Windows les rendent en glyphes
+  // colorés hors charte, impossible à styler en CSS).
+  var SVG_PAUSE='<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M5.2 3.2v9.6M10.8 3.2v9.6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg>';
+  var SVG_PLAY='<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M5.2 3.4v9.2a.5.5 0 0 0 .77.42l7-4.6a.5.5 0 0 0 0-.84l-7-4.6a.5.5 0 0 0-.77.42z" fill="currentColor"/></svg>';
   function setFloatIcon(playIcon){
-    if(floatIcon)floatIcon.textContent=playIcon?'⏸':'▶';
+    if(floatIcon)floatIcon.innerHTML=playIcon?SVG_PAUSE:SVG_PLAY;
   }
   function localEls(){
     return {
@@ -2681,10 +2707,12 @@ AUDIO_GLOBAL_HTML = f"""<!-- LF_AUDIO_GLOBAL_START v{AUDIO_GLOBAL_VERSION} -->""
     if(floatBar)floatBar.style.display='flex';
     setFloatIcon(true);
     updateProgress(); // affiche le temps restant dès l'ouverture du menu, pas après la 1re phrase
+    startTicker();
     speakNext();
   }
   function stop(){
     playing=false;paused=false;idx=0;
+    stopTicker();
     speechSynthesis.cancel();
     clearHighlight();
     setLocalPlayingUI(false);
@@ -2698,6 +2726,7 @@ AUDIO_GLOBAL_HTML = f"""<!-- LF_AUDIO_GLOBAL_START v{AUDIO_GLOBAL_VERSION} -->""
       speechSynthesis.resume();
       setLocalPlayingUI(true);
       setFloatIcon(true);
+      updateProgress(); // repart d'une estimation fraîche, la pause a figé le temps
     }else{
       paused=true;
       speechSynthesis.pause();

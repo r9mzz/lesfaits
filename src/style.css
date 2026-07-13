@@ -438,6 +438,9 @@ a:hover .title-xl, a:hover .title-md, a:hover .title-sm { color: var(--blue-ink)
   color: var(--blue-ink); background: none; border: none; border-radius: 999px;
   cursor: pointer; transition: background .15s, color .15s;
 }
+.audio-float__ctrl svg { width: 13px; height: 13px; display: block; }
+.audio-float__ctrl--play svg { width: 14px; height: 14px; }
+.audio-float__ctrl--close svg { width: 11px; height: 11px; }
 .audio-float__ctrl:hover { background: color-mix(in srgb, var(--blue) 12%, transparent); }
 .audio-float__ctrl:focus-visible { outline: 2.5px solid var(--blue); outline-offset: 2px; }
 .audio-float__ctrl--play {
