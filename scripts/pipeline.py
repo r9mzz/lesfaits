@@ -53,6 +53,7 @@ BASE_URL = "https://lesfaits.info"
 GROQ_KEY       = os.getenv("GROQ_API_KEY", "")
 GROQ_KEY2      = os.getenv("GROQ_API_KEY_2", "")
 GROQ_KEY3      = os.getenv("GROQ_API_KEY_3", "")
+GROQ_KEY4      = os.getenv("GROQ_API_KEY_4", "")
 PEXELS_KEY     = os.getenv("PEXELS_API_KEY", "")
 PIXABAY_KEY    = os.getenv("PIXABAY_API_KEY", "")
 
@@ -1815,7 +1816,7 @@ def generate(content: str, category_hint: str, extra_sources: list[dict] | None 
     ]
 
     raw = None
-    _all_keys = [(GROQ_KEY, "clé 1"), (GROQ_KEY2, "clé 2"), (GROQ_KEY3, "clé 3")]
+    _all_keys = [(GROQ_KEY, "clé 1"), (GROQ_KEY2, "clé 2"), (GROQ_KEY3, "clé 3"), (GROQ_KEY4, "clé 4")]
     keys_to_try = [(k, l) for k, l in _all_keys if k]
     # 3 cycles max (≈3 min) par article — GitHub annule le job après 60 min.
     # Avec 10 candidats × 3 min = 30 min, on reste largement dans le budget.
@@ -4699,7 +4700,7 @@ if __name__ == "__main__":
     if not GROQ_KEY:
         print("ERREUR : GROQ_API_KEY manquant dans .env / secrets GitHub")
         exit(1)
-    active_keys = sum(1 for k in (GROQ_KEY2, GROQ_KEY3) if k)
+    active_keys = sum(1 for k in (GROQ_KEY2, GROQ_KEY3, GROQ_KEY4) if k)
     if active_keys:
         print(f"[INFO] {active_keys} clé(s) Groq de secours détectée(s) — bascule automatique si rate limit")
 

@@ -23,7 +23,7 @@ Statuts possibles :
   non_verifie               → aucune clé Groq disponible (comportement historique)
   erreur_verification       → l'API a échoué, publié tel quel + journalisé
 
-Les clés API viennent de l'environnement (secrets GitHub GROQ_API_KEY[_2/_3]).
+Les clés API viennent de l'environnement (secrets GitHub GROQ_API_KEY[_2/_3/_4]).
 Aucune clé n'est jamais codée en dur.
 """
 
@@ -40,7 +40,8 @@ VERIF_LOG = DATA / "verification_log.json"
 
 GROQ_KEYS = [k for k in (os.getenv("GROQ_API_KEY", ""),
                          os.getenv("GROQ_API_KEY_2", ""),
-                         os.getenv("GROQ_API_KEY_3", "")) if k]
+                         os.getenv("GROQ_API_KEY_3", ""),
+                         os.getenv("GROQ_API_KEY_4", "")) if k]
 GROQ_MODEL = "llama-3.3-70b-versatile"
 GROQ_URL = "https://api.groq.com/openai/v1/chat/completions"
 
