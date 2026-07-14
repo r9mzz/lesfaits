@@ -2850,5 +2850,13 @@
     "etape": "detection",
     "erreur": "Rate limit Groq persistant pour la vérification : 429 rate limit ({\"error\":{\"message\":\"Rate limit reached for model `llama-3.3-70b-versatile` in organization `org_01kw1p355yehfbepfm6ydy0)",
     "article_type": "dossier_science"
+  },
+  {
+    "slug": "conquete-de-mars",
+    "statut": "erreur_verification",
+    "date": "2026-07-15T01:05:47",
+    "etape": "detection",
+    "erreur": "Groq 413: {\"error\":{\"message\":\"Request too large for model `llama-3.3-70b-versatile` in organization `org_01kw7by94gfktt0g3d882rram6` service tier `on_demand` on tokens per minute (TPM): Limit 12000, Requested 12014, please reduce your message size and try again. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing\",\"type\":\"tokens\",\"code\":\"rate_limit_exceeded\"}}\n",
+    "article_type": "actu"
   }
 ]
