@@ -888,7 +888,7 @@ RÈGLES ABSOLUES — toute violation = article rejeté :
 1. MINIMUM 4 sources distinctes et citables. Si tu ne peux pas atteindre 4 sources réelles : réponds uniquement HORS_PERIMETRE
 2. Chaque donnée chiffrée DOIT être attribuée à son institution dans le corps : écrire "Selon [Institution], ..." — JAMAIS d'URL dans le corps du texte, les URLs sont réservées au tableau sources
 3. Corps total : minimum 500 mots combinés (faits + contexte + nuances)
-4. Résumé : chaque phrase minimum 25 mots, concrète, avec au moins un fait mesurable
+4. Résumé : chaque phrase minimum 25 mots, concrète, avec au moins un fait mesurable. INTERDIT de commencer par une phrase générique du type "Ce sujet est un défi", "Cette découverte pourrait changer", "Il est essentiel de comprendre", "s'inscrit dans une dynamique" — entrer DIRECTEMENT dans le fait principal avec chiffres ou acteurs.
 5. Aucun adjectif évaluatif sans source (alarmant, historique, sans précédent, incroyable...)
 6. Aucune opinion. Aucun parti pris. Structure : "Selon X, ... / D'après Y, ..."
 7. Titre : 10-15 mots, informatif, factuel — il doit résumer l'essentiel de l'article
@@ -897,6 +897,16 @@ RÈGLES ABSOLUES — toute violation = article rejeté :
 10. positions : génère ce bloc UNIQUEMENT si le sujet contient un véritable désaccord entre deux parties identifiables qui contestent ou défendent activement une même décision ou proposition — chacune avec une position EXPLICITEMENT attestée dans les sources (déclaration citée, vote enregistré, communiqué officiel). Critère opérationnel : deux camps avec des positions opposées ET défendables toutes les deux. INTERDIT si : acte institutionnel unilatéral sans opposition tracée (sanction disciplinaire, excommunication, condamnation judiciaire, décision administrative), décision technique, bilan statistique, découverte scientifique. Dans tous ces cas : verifie=false, acteurs=[]. Ne jamais inventer ou déduire une position. position = 0 (totalement favorable/consensuel) à 100 (totalement critique/opposé).
 11. Le résumé ('resume') et le corps ('faits') ne doivent JAMAIS contenir de phrases identiques ou quasi identiques (mêmes mots, même structure) : le résumé est une synthèse reformulée, pas un copier-coller déguisé du corps.
 12. Séparation stricte des registres : 'faits' = actualité immédiate uniquement (le fait du jour). 'contexte' = historique, évolution passée, comparaisons uniquement. Ne jamais mettre du contexte historique dans 'faits', ni redire les faits du jour dans 'contexte'.
+13. FUSION DES SOURCES OBLIGATOIRE : si plusieurs sources rapportent exactement la même information (même fait, même chiffre, même résultat), les fusionner en UNE SEULE phrase avec attribution groupée — ex : "Selon Pressesante, Doctissimo et Futura Sciences, [fait]". INTERDIT d'écrire une phrase par source pour le même fait. Une nouvelle source ne justifie une phrase propre que si elle apporte une information DIFFÉRENTE.
+14. UNE IDÉE = UNE SEULE APPARITION dans tout l'article. Avant de valider chaque phrase, vérifier qu'elle n'a pas déjà été dite dans une section précédente. Si une idée a été mentionnée dans 'faits', elle n'est JAMAIS reformulée dans 'contexte' ni dans 'nuances'.
+15. CONTRÔLE QUALITÉ AVANT SOUMISSION — avant de finaliser le JSON, vérifier explicitement :
+    a) Chaque section remplit-elle UNIQUEMENT son rôle (faits=actualité, contexte=historique/mise en perspective, nuances=limites/incertitudes) ?
+    b) Une même idée apparaît-elle plusieurs fois ? Si oui, supprimer toutes les occurrences sauf la première.
+    c) Chaque paragraphe apporte-t-il au moins une information nouvelle non dite avant ?
+    d) La section 'nuances' contient-elle uniquement des limites, incertitudes, désaccords — AUCUN fait déjà présenté ?
+    e) Plusieurs sources disent-elles la même chose ? Si oui, les fusionner.
+    f) Une phrase peut-elle être supprimée sans perte d'information ? Si oui, la supprimer.
+    Si l'un de ces contrôles échoue, corriger AVANT de soumettre le JSON.
 13. Chaque source citée dans le texte doit apporter un élément NOUVEAU (chiffre, angle, nuance). Ne JAMAIS répéter la même information sous plusieurs attributions successives. Maximum 3 attributions « Selon X » par section. RÈGLE DE SYNTHÈSE : quand plusieurs sources rapportent le même fait de façon identique ou quasi identique, les fusionner en UNE SEULE phrase de synthèse avec attribution groupée en fin de phrase. N'utiliser des attributions séparées que si les sources apportent des informations DIFFÉRENTES.
     MAUVAIS (interdit) : « Selon Le Monde, le Vatican a excommunié six évêques. D'après Radio Lac, le Vatican a confirmé l'excommunication de ces six évêques. Selon France 24, le Vatican a confirmé l'excommunication de six évêques. »
     BON (attendu) : « Le Vatican a confirmé l'excommunication de six évêques de la Fraternité Saint-Pie X, actant le schisme de ce mouvement avec Rome (Le Monde, France 24, Radio Lac). »
@@ -956,7 +966,10 @@ RÈGLES ABSOLUES :
 7. CADRAGES EMPRUNTÉS INTERDITS : ne jamais reprendre le cadrage éditorial d'une source comme fait neutre.
 8. SOURCES : n'écris "Selon [Institution]" que si le fait figure LITTÉRALEMENT dans l'extrait CONTENU fourni.
 9. positions : toujours verifie=false pour un portrait (pas de débat binaire).
-10. LÉGAL : ne jamais mentionner d'affaires judiciaires en cours, de mises en examen, de suspicions non confirmées."""
+10. LÉGAL : ne jamais mentionner d'affaires judiciaires en cours, de mises en examen, de suspicions non confirmées.
+11. FUSION DES SOURCES OBLIGATOIRE : si plusieurs sources rapportent la même information, les fusionner en UNE phrase. Une source ne justifie une phrase propre que si elle apporte une information DIFFÉRENTE.
+12. UNE IDÉE = UNE SEULE APPARITION. Une information présente dans 'faits' n'est JAMAIS reformulée dans 'contexte' ni dans 'nuances'.
+13. 'nuances' = UNIQUEMENT limites, incertitudes, désaccords — JAMAIS un fait déjà dit."""
 
 SYSTEM_PROMPT_DOSSIER_SCIENCE = """Tu es l'IA rédactrice de Les Faits, journal numérique français indépendant.
 Ligne éditoriale absolue : "Juste les faits. Aucun parti pris."
@@ -993,6 +1006,9 @@ RÈGLES ABSOLUES :
 2. JAMAIS "prouve que", "démontre que", "confirme définitivement", "il est désormais certain", "révolutionne", "va transformer" — toujours des marqueurs d'incertitude : "suggère", "laisse penser", "indique", "selon une étude préliminaire".
 3. Corps total : minimum 500 mots combinés.
 4. Chaque fait attribué à son institution avec "Selon [Institution]", uniquement si présent dans les extraits CONTENU.
+5. FUSION DES SOURCES OBLIGATOIRE : si plusieurs sources rapportent la même information, les fusionner en UNE phrase avec attribution groupée. Une source ne justifie une phrase propre que si elle apporte une information DIFFÉRENTE.
+6. UNE IDÉE = UNE SEULE APPARITION dans tout l'article. Un fait présent dans 'faits' n'est JAMAIS reformulé dans 'contexte' ni dans 'nuances'.
+7. 'nuances' = UNIQUEMENT limites méthodologiques, désaccords entre experts, ce que les données ne permettent pas de conclure — JAMAIS un résultat déjà présenté dans 'faits'.
 5. Aucun adjectif évaluatif sans source.
 6. PAS D'EXTRAPOLATION : n'écris jamais de conséquence future non sourcée.
 7. SOURCES : n'écris "Selon [Institution]" que si le fait figure LITTÉRALEMENT dans l'extrait CONTENU fourni.
@@ -1329,6 +1345,42 @@ def cliches_ia(art: dict) -> list[str]:
     return trouvees
 
 
+_INTRO_GENERIQUE_RE = re.compile(
+    r"(?:^|\. )(?:"
+    r"[A-ZÀ-Ü][^.]{0,120}(?:"
+    r"est (?:un|une) (?:défi|enjeu|sujet|question|problème|phénomène|thème|domaine)"
+    r"|(?:nécessite|requiert) une approche"
+    r"|(?:pourrait|peut) (?:changer|transformer|révolutionner|modifier profondément)"
+    r"|s'inscrit dans une dynamique"
+    r"|constitue un enjeu majeur"
+    r"|il est (?:essentiel|important|crucial|fondamental) de"
+    r"|(?:les études|la recherche|la science) (?:montre|révèle|indique) que"
+    r"|il convient de (?:comprendre|noter|souligner|rappeler)"
+    r")[^.]{0,80}\.)",
+    re.IGNORECASE | re.MULTILINE,
+)
+
+
+def intro_generique(art: dict) -> list[str]:
+    """Détecte les phrases d'introduction vagues/génériques dans le résumé
+    ou le début des sections — entrée directe dans les faits obligatoire."""
+    resume = art.get("resume")
+    texte_resume = ""
+    if isinstance(resume, list):
+        texte_resume = " ".join(str(p) for p in resume[:2])
+    elif resume:
+        texte_resume = str(resume)
+    corps = art.get("corps") or {}
+    debut_faits = str(corps.get("faits", "") or "")[:300]
+    trouvees = []
+    for texte in (texte_resume, debut_faits):
+        for m in _INTRO_GENERIQUE_RE.finditer(texte):
+            expr = m.group().strip()[:100]
+            if expr not in trouvees:
+                trouvees.append(expr)
+    return trouvees
+
+
 # ══════════════════════════════════════════════════════════════════════════════
 # DÉTECTION DÉTERMINISTE DE SUJETS À REJETER (avant appel LLM)
 # Critères codés en dur — ne dépendent pas du jugement du modèle.
@@ -1576,6 +1628,7 @@ def generate(content: str, category_hint: str, extra_sources: list[dict] | None 
              expand_feedback: str | None = None,
              titre_feedback: str | None = None,
              cliches_feedback: list[str] | None = None,
+             intro_feedback: list[str] | None = None,
              article_type: str = "actu",
              previous_article: dict | None = None) -> dict:
 
@@ -1594,7 +1647,7 @@ def generate(content: str, category_hint: str, extra_sources: list[dict] | None 
     # Renvoyer les CONTENU complets à chaque relance (jusqu'à 4 appels par
     # article) multipliait le coût par ~4 et épuisait le quota Groq quotidien
     # après 2-3 articles à peine.
-    is_retry = bool(retry_feedback or repetition_feedback or intra_feedback or selon_feedback or expand_feedback or titre_feedback or cliches_feedback)
+    is_retry = bool(retry_feedback or repetition_feedback or intra_feedback or selon_feedback or expand_feedback or titre_feedback or cliches_feedback or intro_feedback)
     # La relance "expand" a besoin de PLUS de matière source (pas moins) : le
     # problème est justement que l'article n'a pas assez puisé dans les
     # sources disponibles. Les autres relances corrigent un défaut déjà connu
@@ -1743,6 +1796,17 @@ def generate(content: str, category_hint: str, extra_sources: list[dict] | None 
             "Réécris ces passages en langage concret et informatif (un fait précis, un chiffre, "
             "un acteur nommé) — n'utilise ce type de formule que si elle apporte une information "
             "réellement nouvelle, jamais comme remplissage."
+        )
+
+    if intro_feedback:
+        user_msg += (
+            "\n\nCORRECTION OBLIGATOIRE — ton introduction ou le début de 'faits' contient "
+            "des phrases génériques vides d'information : « "
+            + " » ; « ".join(intro_feedback[:3]) + " ». "
+            "Remplace-les par une entrée directe dans le fait principal : commence par un chiffre, "
+            "un acteur nommé, une date ou une action concrète. Supprime toute phrase du type "
+            "'ce sujet est un défi', 'il est important de comprendre', 'cette question s'inscrit dans…' "
+            "— ces formules n'apportent aucune information au lecteur."
         )
 
     messages = [
@@ -4264,7 +4328,8 @@ def generer_article(item: dict, dry_run: bool, published: set, new_pub: set, dat
         selon       = attributions_trop_repetitives(art)
         titre_pb    = titre_de_mauvaise_qualite(art)
         cliches     = cliches_ia(art)
-        if fantomes or repetitions or intra or selon or titre_pb or cliches:
+        intro_pb    = intro_generique(art)
+        if fantomes or repetitions or intra or selon or titre_pb or cliches or intro_pb:
             details = []
             if fantomes:
                 details.append(f"{len(fantomes)} attribution(s) hors sources")
@@ -4278,6 +4343,8 @@ def generer_article(item: dict, dry_run: bool, published: set, new_pub: set, dat
                 details.append("titre non conforme")
             if cliches:
                 details.append(f"{len(cliches)} tournure(s) générique(s) IA")
+            if intro_pb:
+                details.append(f"intro générique ({len(intro_pb)} phrase(s))")
             print(f"     [GARDE] {' + '.join(details)} — relance corrective unique…")
             art = generate(content, cat, extra_sources=extra, rss_url=item.get("url"),
                            retry_feedback=fantomes or None,
@@ -4286,6 +4353,7 @@ def generer_article(item: dict, dry_run: bool, published: set, new_pub: set, dat
                            selon_feedback=selon or None,
                            titre_feedback=titre_pb or None,
                            cliches_feedback=cliches or None,
+                           intro_feedback=intro_pb or None,
                            article_type=article_type,
                            previous_article=art)
             if not isinstance(art, dict):
