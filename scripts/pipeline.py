@@ -1739,12 +1739,11 @@ def generate(content: str, category_hint: str, extra_sources: list[dict] | None 
     raw = None
     _all_keys = [(GROQ_KEY, "clé 1"), (GROQ_KEY2, "clé 2"), (GROQ_KEY3, "clé 3")]
     keys_to_try = [(k, l) for k, l in _all_keys if k]
-    # 8 cycles (~8 min max) au lieu de 3 : depuis l'abandon du fallback
-    # Anthropic (compte sans crédits, non réapprovisionné par choix — la
-    # génération Anthropic était jugée de qualité insuffisante), la patience
-    # est la SEULE façon de ne pas perdre un sujet quand les 3 clés Groq sont
-    # simultanément en rate limit — la fenêtre Groq se recharge chaque minute.
-    MAX_RETRY_CYCLES = 8  # cycles complets sur toutes les clés avant abandon
+    # 3 cycles max (≈3 min) par article — GitHub annule le job après 60 min.
+    # Avec 10 candidats × 3 min = 30 min, on reste largement dans le budget.
+    # Si les 3 clés sont encore en rate limit après 3 cycles, on abandonne
+    # CET article et on passe au suivant (l'appelant lève RuntimeError).
+    MAX_RETRY_CYCLES = 3  # cycles complets sur toutes les clés avant abandon
     RETRY_WAIT = 62       # secondes d'attente entre deux cycles (fenêtre rate-limit Groq = 60s)
     for cycle in range(MAX_RETRY_CYCLES):
         for key, label in keys_to_try:
@@ -4541,8 +4540,16 @@ def run(dry_run=False, text_input=None, nb_max=12):
         print(f"\n[SÉLECTION] {len(selection)} articles retenus sur {len(tous_candidats)} candidats")
 
         # ── Étape 4 : générer les articles sélectionnés ──
+        # Budget : GitHub annule le job après 60 min. On s'arrête à 50 min
+        # pour laisser le temps au commit/push final.
+        _pipeline_start = time.time()
+        _BUDGET_SECONDES = 50 * 60  # 50 minutes
         print(f"\n[GÉNÉRATION]")
         for item in selection:
+            elapsed = time.time() - _pipeline_start
+            if elapsed > _BUDGET_SECONDES:
+                print(f"  [BUDGET] {elapsed/60:.1f} min écoulées — arrêt pour éviter le timeout GitHub (budget={_BUDGET_SECONDES//60} min)")
+                break
             if generer_article(item, dry_run, published, new_pub, date_pub, published_topics):
                 # Ajouter le titre généré à published_topics pour éviter les doublons dans la même session
                 published_topics.add(item.get("title", ""))
