@@ -722,6 +722,20 @@ def score_editorial(item: dict, source_name: str, published_topics: set) -> tupl
         score += 20
         reasons.append(f"+20 densité ({len(item['content'])} chars, source qualifiée)")
 
+    # ── BONUS MOTS SOURCE : richesse du contenu brut disponible ─────────────
+    # Plus la source est longue, plus l'article généré aura matière à atteindre
+    # les seuils de longueur — bonus progressif par tranches.
+    _mots_src = len(item["content"].split())
+    if _mots_src >= 600:
+        score += 15
+        reasons.append(f"+15 source riche ≥ 600 mots ({_mots_src} mots)")
+    elif _mots_src >= 400:
+        score += 10
+        reasons.append(f"+10 source moyenne ≥ 400 mots ({_mots_src} mots)")
+    elif _mots_src >= 200:
+        score += 5
+        reasons.append(f"+5 source courte ≥ 200 mots ({_mots_src} mots)")
+
     # ── BONUS SUBSTANCE : des chiffres ET une institution nommée ────────────
     # C'est le critère qui manquait au barème : un papier d'ambiance long et
     # frais d'un média reconnu scorait mieux qu'une vraie donnée publiée par
@@ -873,7 +887,7 @@ Format obligatoire :
 RÈGLES ABSOLUES — toute violation = article rejeté :
 1. MINIMUM 4 sources distinctes et citables. Si tu ne peux pas atteindre 4 sources réelles : réponds uniquement HORS_PERIMETRE
 2. Chaque donnée chiffrée DOIT être attribuée à son institution dans le corps : écrire "Selon [Institution], ..." — JAMAIS d'URL dans le corps du texte, les URLs sont réservées au tableau sources
-3. Corps total : minimum 700 mots combinés (faits + contexte + nuances)
+3. Corps total : minimum 500 mots combinés (faits + contexte + nuances)
 4. Résumé : chaque phrase minimum 25 mots, concrète, avec au moins un fait mesurable
 5. Aucun adjectif évaluatif sans source (alarmant, historique, sans précédent, incroyable...)
 6. Aucune opinion. Aucun parti pris. Structure : "Selon X, ... / D'après Y, ..."
@@ -935,7 +949,7 @@ Format obligatoire (identique à ACTU) :
 RÈGLES ABSOLUES :
 1. MINIMUM 4 sources distinctes et citables. Si impossible : réponds uniquement HORS_PERIMETRE.
 2. Chaque affirmation sur la personne DOIT être attribuée à une source listée.
-3. Corps total : minimum 700 mots combinés.
+3. Corps total : minimum 500 mots combinés.
 4. Aucun adjectif évaluatif (brillant, remarquable, visionnaire, exceptionnel...) sans source directe.
 5. Aucune opinion. Aucun parti pris. Les faits uniquement.
 6. NE PAS écrire de portrait polémique : si la personne est associée à un débat politique, idéologique ou religieux, réponds HORS_PERIMETRE.
@@ -977,14 +991,14 @@ Format obligatoire (identique à ACTU) :
 RÈGLES ABSOLUES :
 1. MINIMUM 4 sources distinctes et citables. Si impossible : réponds uniquement HORS_PERIMETRE.
 2. JAMAIS "prouve que", "démontre que", "confirme définitivement", "il est désormais certain", "révolutionne", "va transformer" — toujours des marqueurs d'incertitude : "suggère", "laisse penser", "indique", "selon une étude préliminaire".
-3. Corps total : minimum 700 mots combinés.
+3. Corps total : minimum 500 mots combinés.
 4. Chaque fait attribué à son institution avec "Selon [Institution]", uniquement si présent dans les extraits CONTENU.
 5. Aucun adjectif évaluatif sans source.
 6. PAS D'EXTRAPOLATION : n'écris jamais de conséquence future non sourcée.
 7. SOURCES : n'écris "Selon [Institution]" que si le fait figure LITTÉRALEMENT dans l'extrait CONTENU fourni.
 8. nb_sources EXACT : compte uniquement les sources distinctes réellement citées dans le texte.
 9. LÉGAL : aucun nom de chercheur présenté comme fraudeur ou incompétent sans source directe.
-10. Si les sources ne fournissent pas assez de faits précis pour 700 mots sans inventer : réponds HORS_PERIMETRE."""
+10. Si les sources ne fournissent pas assez de faits précis pour 500 mots sans inventer : réponds HORS_PERIMETRE."""
 
 
 # ══════════════════════════════════════════════════════════════════════════════
@@ -1643,7 +1657,7 @@ def generate(content: str, category_hint: str, extra_sources: list[dict] | None 
 
     regle_5 = (
         "" if (is_retry and previous_article) else
-        "6. Si les extraits disponibles ne fournissent pas assez de faits précis pour 700 mots sans inventer, "
+        "6. Si les extraits disponibles ne fournissent pas assez de faits précis pour 500 mots sans inventer, "
         "réponds uniquement HORS_PERIMETRE.\n"
     )
     instruction_finale = (
@@ -3341,6 +3355,8 @@ function copyLink(){{
     <time datetime="{datetime.now().strftime('%Y-%m-%d')}">{date_pub}</time>
     <span class="meta__sep" aria-hidden="true">·</span>
     <span class="art__reading-time">Lecture : {reading_time} min</span>
+    <span class="meta__sep" aria-hidden="true">·</span>
+    <span title="Nombre de mots de l'article" style="color:var(--muted);font-size:.85rem">{word_count} mots</span>
   </div>
   <div class="art__ai-badge" role="note">🤖 Contenu rédigé par intelligence artificielle — <a href="methode.html" style="color:inherit;text-decoration:underline">notre méthode</a></div>
   {AUDIO_PLAYER_HTML}
@@ -4154,6 +4170,7 @@ def save_to_index(art: dict, date_pub: str):
         "titre":     art["titre"],
         "categorie": art["categorie"],
         "nb_sources":art["nb_sources"],
+        "nb_mots":   art.get("nb_mots", 0),
         "date":      date_pub,
         "resume":    art["resume"],
         "image_keyword": art.get("image_keyword", ""),
@@ -4346,8 +4363,8 @@ def generer_article(item: dict, dry_run: bool, published: set, new_pub: set, dat
             print(f"     [REJET SENSIBLE] Sujet santé sensible sans source officielle — rejet définitif")
             return False
 
-        # ── Garde-fou longueur/sources : la vraie règle éditoriale (700 mots,
-        # 4 sources — voir SYSTEM_PROMPT règles 1 et 3), pas une approximation.
+        # ── Garde-fou longueur/sources : la vraie règle éditoriale (500 mots,
+        # 3 sources — voir SYSTEM_PROMPT règles 1 et 3), pas une approximation.
         # BUG CORRIGÉ : ce garde-fou vérifiait auparavant "600 caractères" et
         # "3 sources" — 600 caractères ≈ 100 mots, soit 7 fois moins que la
         # règle réellement annoncée. Résultat : les articles de 187 à 352 mots
@@ -4360,14 +4377,11 @@ def generer_article(item: dict, dry_run: bool, published: set, new_pub: set, dat
             nb_src = len(a.get("sources") or [])
             return mots, nb_src
 
-        MIN_MOTS_CORPS = 700
+        MIN_MOTS_CORPS = 500
         MIN_SOURCES = 3
-        # Tolérance de 100 mots après relance : la cible reste 700 (c'est ce
-        # que la relance d'étoffement vise et ce qu'affiche le message de
-        # correction), mais un article qui plafonne à 600-699 mots malgré une
-        # relance qui a réellement puisé dans les sources n'est pas un sujet
-        # creux — rejeter systématiquement ces cas a coûté plusieurs articles
-        # solides et bien sourcés le 13/07 (663 et 610 mots, 7 sources).
+        # Tolérance de 100 mots après relance : la cible reste 500 mots, mais
+        # un article qui plafonne à 400-499 mots malgré la relance d'étoffement
+        # est accepté s'il est bien sourcé — plancher dur = 400 mots.
         TOLERANCE_MOTS = 100
         mots, nb_src = _deficit_longueur_sources(art)
         if mots < MIN_MOTS_CORPS or nb_src < MIN_SOURCES:
@@ -4419,6 +4433,13 @@ def generer_article(item: dict, dry_run: bool, published: set, new_pub: set, dat
         # Le badge public reflète le nombre de sources réellement citées
         # APRÈS correction, jamais le nombre fourni en entrée
         art["nb_sources"] = len(art.get("sources", []))
+
+        # Compter les mots finaux pour le système de scoring longueur
+        corps = art.get("corps") or {}
+        art["nb_mots"] = sum(
+            len(str(corps.get(k, "") or "").split())
+            for k in ("faits", "contexte", "nuances")
+        )
 
         try:
             html = build_article_html(art, date_pub)
