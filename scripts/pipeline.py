@@ -2312,23 +2312,40 @@ def _download_hero(
     """
     Cherche une image hero dans l'ordre de priorité :
     0. Sources de l'article (gov/institutionnel/Wikipedia)
-    1. Wikimedia Commons
-    2. Openverse
-    3. Pexels
-    4. Pixabay
-    5. Pillow fallback
+    1. Pexels (photos de stock modernes, professionnelles, jamais de gravures
+       ni de vrais patients — c'est la source par défaut depuis juillet 2026 :
+       Wikimedia en premier servait des gravures du XVIIIe et des photos
+       médicales de patients réels identifiables)
+    2. Wikimedia Commons (fallback, filtré : jamais pour la catégorie santé,
+       jamais d'œuvres d'art/scans de musée)
+    3. og-default.jpg
 
-    Retourne (source_type, credit) ex: ("wikimedia", "Wikimedia Commons")
+    Retourne (source_type, credit) ex: ("pexels", "Pexels / John Doe")
     """
     import urllib.parse
     os.makedirs(os.path.dirname(dest) or ".", exist_ok=True)
     hdrs = {"User-Agent": "LesFaits/1.1 (lesfaits.contact@gmail.com)"}
 
-    # Noms de fichier suspects
+    # Noms de fichier suspects : cartes/logos/schémas, MAIS AUSSI tout ce qui
+    # trahit une œuvre d'art ou un scan d'archive (gravures, lithographies,
+    # collections de musée type Wellcome) — Wikimedia en est saturé et une
+    # gravure satirique du XVIIIe a déjà illustré un article nutrition.
     _BAD = (
         "map", "flag", "logo", "icon", "diagram", "chart", "graph", "coat",
         "blason", "carte", "drapeau", "schema", "plan_", "seal_", "emblem",
         "stamp", "badge", "symbol", "sign_", "portrait_", "headshot",
+        "engraving", "etching", "woodcut", "lithograph", "gravure", "estampe",
+        "drawing", "sketch", "painting", "tableau", "manuscript", "manuscrit",
+        "wellcome", "folio", "plate_", "illustration_", "caricature",
+        "patient", "autopsy", "cadaver", "surgery_", "wound",
+    )
+    # Termes d'œuvre d'art dans les métadonnées Wikimedia (catégories/description)
+    _ART_META = (
+        "engraving", "etching", "woodcut", "lithograph", "painting", "drawing",
+        "watercolor", "watercolour", "manuscript", "wellcome collection",
+        "wellcome images", "art of", "oil on canvas", "18th century",
+        "17th century", "19th century", "medieval", "caricature", "satirical",
+        "patients", "medical illustration",
     )
 
     def _is_bad(url: str, w: int, h: int) -> bool:
@@ -2375,47 +2392,13 @@ def _download_hero(
     # Mots-clés visuels en anglais via IA
     vis_kw = extract_visual_keywords(title or keyword, summary, category)
 
-    # ── 1. Wikimedia Commons ─────────────────────────────────────────────────
-    try:
-        params = urllib.parse.urlencode({
-            "action": "query", "format": "json", "generator": "search",
-            "gsrnamespace": "6", "gsrsearch": vis_kw, "gsrlimit": "20",
-            "prop": "imageinfo", "iiprop": "url|size|mime", "iiurlwidth": "1200"
-        })
-        r = requests.get(f"https://commons.wikimedia.org/w/api.php?{params}", timeout=5, headers=hdrs)
-        pages = sorted(
-            r.json().get("query", {}).get("pages", {}).values(),
-            key=lambda p: -(p.get("imageinfo", [{}])[0].get("width", 0))
-        )
-        for page in pages:
-            ii = page.get("imageinfo", [{}])[0]
-            if ii.get("mime", "") not in ("image/jpeg", "image/png", "image/webp"):
-                continue
-            img_url = ii.get("thumburl") or ii.get("url", "")
-            if not img_url:
-                continue
-            w = ii.get("thumbwidth") or ii.get("width", 0)
-            h = ii.get("thumbheight") or ii.get("height", 0)
-            if w < 600 or h < 300 or _is_bad(img_url, w, h):
-                continue
-            if img_url in _USED_WIKIMEDIA_URLS:
-                continue
-            ir = requests.get(img_url, timeout=5, headers=hdrs)
-            if ir.status_code == 200 and len(ir.content) > 20_000:
-                result = _save(ir.content, "wikimedia", "Wikimedia Commons")
-                if result:
-                    _USED_WIKIMEDIA_URLS.add(img_url)
-                    return result
-    except Exception:
-        pass
-
-    # ── 2. Pexels — fallback si Wikimedia ne trouve rien ─────────────────────
+    # ── 1. Pexels — source PRINCIPALE (photos pro, jamais d'archives) ────────
     if PEXELS_KEY:
         try:
             r = requests.get(
                 "https://api.pexels.com/v1/search",
                 params={"query": vis_kw, "orientation": "landscape",
-                        "per_page": 5, "size": "large"},
+                        "per_page": 10, "size": "large"},
                 headers={"Authorization": PEXELS_KEY},
                 timeout=5,
             )
@@ -2434,6 +2417,52 @@ def _download_hero(
                         if result:
                             _USED_PEXELS_IDS.add(photo_id)
                             return result
+        except Exception:
+            pass
+
+    # ── 2. Wikimedia Commons — fallback filtré ───────────────────────────────
+    # JAMAIS pour la santé : Commons contient des photos de patients réels
+    # identifiables (une photo d'enfant malade a déjà illustré un article).
+    if category != "sante":
+        try:
+            params = urllib.parse.urlencode({
+                "action": "query", "format": "json", "generator": "search",
+                "gsrnamespace": "6", "gsrsearch": vis_kw, "gsrlimit": "20",
+                "prop": "imageinfo",
+                "iiprop": "url|size|mime|extmetadata", "iiurlwidth": "1200"
+            })
+            r = requests.get(f"https://commons.wikimedia.org/w/api.php?{params}", timeout=5, headers=hdrs)
+            pages = sorted(
+                r.json().get("query", {}).get("pages", {}).values(),
+                key=lambda p: -(p.get("imageinfo", [{}])[0].get("width", 0))
+            )
+            for page in pages:
+                ii = page.get("imageinfo", [{}])[0]
+                if ii.get("mime", "") not in ("image/jpeg", "image/png", "image/webp"):
+                    continue
+                img_url = ii.get("thumburl") or ii.get("url", "")
+                if not img_url:
+                    continue
+                w = ii.get("thumbwidth") or ii.get("width", 0)
+                h = ii.get("thumbheight") or ii.get("height", 0)
+                if w < 600 or h < 300 or _is_bad(img_url, w, h):
+                    continue
+                # Métadonnées : rejeter œuvres d'art, scans d'archives, patients
+                meta = ii.get("extmetadata") or {}
+                meta_txt = " ".join(
+                    str((meta.get(k) or {}).get("value", ""))
+                    for k in ("Categories", "ImageDescription", "ObjectName")
+                ).lower()
+                if any(t in meta_txt for t in _ART_META):
+                    continue
+                if img_url in _USED_WIKIMEDIA_URLS:
+                    continue
+                ir = requests.get(img_url, timeout=5, headers=hdrs)
+                if ir.status_code == 200 and len(ir.content) > 20_000:
+                    result = _save(ir.content, "wikimedia", "Wikimedia Commons")
+                    if result:
+                        _USED_WIKIMEDIA_URLS.add(img_url)
+                        return result
         except Exception:
             pass
 
