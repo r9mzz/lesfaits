@@ -1758,10 +1758,20 @@ def generate(content: str, category_hint: str, extra_sources: list[dict] | None 
     # sources disponibles. Les autres relances corrigent un défaut déjà connu
     # sans avoir besoin de ré-analyser le contenu en détail.
     is_expand = bool(expand_feedback)
-    snippet_len = 950 if (not is_retry or is_expand) else 200
-
-    # 950 chars ≈ 2-3 paragraphes — assez pour ancrer des faits précis sans
-    # dépasser le budget Groq (1500 chars × 8 sources dépassait 200k tokens/clé).
+    # EXPÉRIMENTATION EN COURS (15/07) — hypothèse : 950 car. ≈ 2-3 paragraphes
+    # ne donne au modèle que l'intro des sources scrapées (jusqu'à 8000 car.
+    # disponibles), jamais leur développement, d'où des articles de surface.
+    # Test : 950 → 3000 sur UNE seule variable, mesuré sur le run de prod
+    # suivant via les logs [TOKENS] déjà en place + mots réels + déclenchements
+    # faits_repetitifs()/résumé_repete_corps(). Risque connu et accepté pour ce
+    # test : chaque prompt initial grossit de ~4-5k tokens, ce qui peut
+    # aggraver le rate limit Groq déjà tendu (cf. logs quasi systématiques
+    # de "toutes les clés en rate limit" avant chaque appel réussi) — donc
+    # potentiellement moins d'articles publiés ce run-là. Si la profondeur ne
+    # s'améliore pas nettement ou si le rate limit s'aggrave trop, revenir à
+    # 950 (une hypothèse, une mesure, une conclusion — pas de cumul de
+    # changements).
+    snippet_len = 3000 if (not is_retry or is_expand) else 200
     sources_block = ""
     # Noms lisibles dérivés des URLs — utilisés dans le prompt ET dans les règles d'attribution
     source_noms: list[str] = []
