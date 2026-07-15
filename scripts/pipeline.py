@@ -2725,7 +2725,7 @@ AUDIO_PLAYER_HTML = """<div class="audio-player" id="audio-player" style="displa
 # pages déjà publiées et remplace le bloc entier si elle diffère — sans ça,
 # les articles patchés une première fois garderaient l'ancien moteur pour
 # toujours (le simple marqueur "LFAudio existe" ne détecte pas les évolutions).
-AUDIO_GLOBAL_VERSION = 8
+AUDIO_GLOBAL_VERSION = 9
 AUDIO_GLOBAL_HTML = f"""<!-- LF_AUDIO_GLOBAL_START v{AUDIO_GLOBAL_VERSION} -->""" + """<div class="audio-float" id="audio-float" style="display:none" role="region" aria-label="Lecture audio en cours">
   <button type="button" class="audio-float__ctrl" id="audio-float-prev" aria-label="Phrase précédente"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4.6 3v10" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M12.4 3.6v8.8a.5.5 0 0 1-.8.4L6.2 8.4a.5.5 0 0 1 0-.8l5.4-4.4a.5.5 0 0 1 .8.4z" fill="currentColor"/></svg></button>
   <button type="button" class="audio-float__ctrl audio-float__ctrl--play" id="audio-float-play" aria-label="Lecture/Pause">
@@ -3053,13 +3053,24 @@ AUDIO_GLOBAL_HTML = f"""<!-- LF_AUDIO_GLOBAL_START v{AUDIO_GLOBAL_VERSION} -->""
     return (started&&footer)?{nodes:nodes,footer:footer}:null;
   }
 
+  // Jeton de navigation : deux clics rapprochés (ex. newsletter puis logo)
+  // déclenchent deux navigateTo() qui se chevauchent. Sans garde, le scroll
+  // DIFFÉRÉ du premier clic (jusqu'à 300ms + 2 frames, pour une ancre) peut
+  // s'exécuter APRÈS le scrollTo(0,0) immédiat du second clic et l'écraser —
+  // bug observé le 15/07 : clic newsletter puis clic logo → on retombait sur
+  // la section newsletter au lieu du haut de page. Chaque navigateTo() prend
+  // un numéro ; toute application de résultat (DOM, scroll) vérifie qu'elle
+  // est toujours la navigation la plus récente avant d'agir.
+  var navSeq=0;
   function navigateTo(url,isPop){
+    var myNav=++navSeq;
     var cur=pageZone(document);
     if(!cur){location.href=url;return;}
     fetch(url).then(function(r){
       if(!r.ok)throw new Error('HTTP '+r.status);
       return r.text();
     }).then(function(html){
+      if(myNav!==navSeq)return; // une navigation plus récente a démarré entre-temps
       var doc=new DOMParser().parseFromString(html,'text/html');
       var next=pageZone(doc);
       if(!next){location.href=url;return;} // page hors gabarit (404, confirmation…) : navigation classique
@@ -3084,6 +3095,7 @@ AUDIO_GLOBAL_HTML = f"""<!-- LF_AUDIO_GLOBAL_START v{AUDIO_GLOBAL_VERSION} -->""
         requestAnimationFrame(function(){
           requestAnimationFrame(function(){
             setTimeout(function(){
+              if(myNav!==navSeq)return; // navigation suivante déjà en cours : ne pas écraser son scroll
               var target=document.querySelector(hash);
               if(target)target.scrollIntoView({behavior:'smooth'});
             },300);
