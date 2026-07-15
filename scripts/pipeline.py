@@ -1818,14 +1818,13 @@ def generate(content: str, category_hint: str, extra_sources: list[dict] | None 
     raw = None
     _all_keys = [(GROQ_KEY, "clé 1"), (GROQ_KEY2, "clé 2"), (GROQ_KEY3, "clé 3"), (GROQ_KEY4, "clé 4")]
     keys_to_try = [(k, l) for k, l in _all_keys if k]
-    # 5 cycles max (≈5 min) par article — GitHub annule le job après 60 min,
-    # mais c'est le budget GLOBAL de 45 min (boucle de génération) qui protège
-    # du timeout, pas ce plafond par article. 3 cycles étaient trop courts :
-    # le run du 15/07 à 01h05 a sauté quasi tous ses sujets en 27 min parce
-    # que Groq était saturé et qu'on abandonnait après 3 min. Si toutes les
-    # clés sont encore en rate limit après 5 cycles, on abandonne CET article
-    # et on passe au suivant (l'appelant lève RuntimeError).
-    MAX_RETRY_CYCLES = 5  # cycles complets sur toutes les clés avant abandon
+    # 8 cycles max (≈8 min) par article : le job GitHub a désormais 5 h
+    # (timeout-minutes: 300) — on attend les fenêtres de rate limit Groq
+    # plutôt que de perdre le sujet. La protection contre le timeout reste
+    # le budget GLOBAL de la boucle de génération, pas ce plafond par
+    # article. Si toutes les clés sont encore en rate limit après 8 cycles,
+    # on abandonne CET article et on passe au suivant.
+    MAX_RETRY_CYCLES = 8  # cycles complets sur toutes les clés avant abandon
     RETRY_WAIT = 62       # secondes d'attente entre deux cycles (fenêtre rate-limit Groq = 60s)
     for cycle in range(MAX_RETRY_CYCLES):
         for key, label in keys_to_try:
@@ -4662,12 +4661,13 @@ def run(dry_run=False, text_input=None, nb_max=12):
         print(f"\n[SÉLECTION] {len(selection)} articles retenus sur {len(tous_candidats)} candidats")
 
         # ── Étape 4 : générer les articles sélectionnés ──
-        # Budget : GitHub annule le job après 60 min. On s'arrête à 45 min
-        # car le budget est vérifié ENTRE deux articles : un dernier article
-        # entamé juste sous la limite peut encore prendre ~10 min (5 cycles
-        # de rate limit + relances) — 45 + 10 < 60 garde la marge du push.
+        # Budget : le job GitHub a 5 h (timeout-minutes: 300) et la génération
+        # démarre à 01h05/13h05 Paris pour un déploiement à ~06h/18h. On
+        # s'arrête à 4 h car le budget est vérifié ENTRE deux articles : un
+        # dernier article entamé juste sous la limite peut encore prendre
+        # ~20 min (8 cycles de rate limit + relances) — 4 h + marge < 5 h.
         _pipeline_start = time.time()
-        _BUDGET_SECONDES = 45 * 60  # 45 minutes
+        _BUDGET_SECONDES = 4 * 60 * 60  # 4 heures
         print(f"\n[GÉNÉRATION]")
         for item in selection:
             elapsed = time.time() - _pipeline_start
