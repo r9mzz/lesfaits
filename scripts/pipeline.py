@@ -1818,11 +1818,14 @@ def generate(content: str, category_hint: str, extra_sources: list[dict] | None 
     raw = None
     _all_keys = [(GROQ_KEY, "clé 1"), (GROQ_KEY2, "clé 2"), (GROQ_KEY3, "clé 3"), (GROQ_KEY4, "clé 4")]
     keys_to_try = [(k, l) for k, l in _all_keys if k]
-    # 3 cycles max (≈3 min) par article — GitHub annule le job après 60 min.
-    # Avec 10 candidats × 3 min = 30 min, on reste largement dans le budget.
-    # Si les 3 clés sont encore en rate limit après 3 cycles, on abandonne
-    # CET article et on passe au suivant (l'appelant lève RuntimeError).
-    MAX_RETRY_CYCLES = 3  # cycles complets sur toutes les clés avant abandon
+    # 5 cycles max (≈5 min) par article — GitHub annule le job après 60 min,
+    # mais c'est le budget GLOBAL de 45 min (boucle de génération) qui protège
+    # du timeout, pas ce plafond par article. 3 cycles étaient trop courts :
+    # le run du 15/07 à 01h05 a sauté quasi tous ses sujets en 27 min parce
+    # que Groq était saturé et qu'on abandonnait après 3 min. Si toutes les
+    # clés sont encore en rate limit après 5 cycles, on abandonne CET article
+    # et on passe au suivant (l'appelant lève RuntimeError).
+    MAX_RETRY_CYCLES = 5  # cycles complets sur toutes les clés avant abandon
     RETRY_WAIT = 62       # secondes d'attente entre deux cycles (fenêtre rate-limit Groq = 60s)
     for cycle in range(MAX_RETRY_CYCLES):
         for key, label in keys_to_try:
@@ -4659,10 +4662,12 @@ def run(dry_run=False, text_input=None, nb_max=12):
         print(f"\n[SÉLECTION] {len(selection)} articles retenus sur {len(tous_candidats)} candidats")
 
         # ── Étape 4 : générer les articles sélectionnés ──
-        # Budget : GitHub annule le job après 60 min. On s'arrête à 50 min
-        # pour laisser le temps au commit/push final.
+        # Budget : GitHub annule le job après 60 min. On s'arrête à 45 min
+        # car le budget est vérifié ENTRE deux articles : un dernier article
+        # entamé juste sous la limite peut encore prendre ~10 min (5 cycles
+        # de rate limit + relances) — 45 + 10 < 60 garde la marge du push.
         _pipeline_start = time.time()
-        _BUDGET_SECONDES = 50 * 60  # 50 minutes
+        _BUDGET_SECONDES = 45 * 60  # 45 minutes
         print(f"\n[GÉNÉRATION]")
         for item in selection:
             elapsed = time.time() - _pipeline_start
