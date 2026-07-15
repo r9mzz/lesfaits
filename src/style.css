@@ -341,6 +341,14 @@ a:hover .title-xl, a:hover .title-md, a:hover .title-sm { color: var(--blue-ink)
 .sources li a { color: var(--blue); background-image: linear-gradient(var(--blue), var(--blue)); background-repeat: no-repeat; background-position: 0 100%; background-size: 0% 1px; transition: background-size .25s var(--ease); padding-bottom: 1px; }
 .sources li a:hover { background-size: 100% 1px; }
 
+/* Pourquoi cet article a été publié — transparence du protocole éditorial */
+.art__pourquoi { background: var(--light); border-left: 3px solid var(--blue); border-radius: 0 var(--radius-card) var(--radius-card) 0; padding: 22px 26px; margin-top: 28px; }
+.art__pourquoi h3 { font-size: 9px; font-weight: 700; letter-spacing: 2.5px; color: var(--muted); text-transform: uppercase; margin-bottom: 14px; }
+.art__pourquoi ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+.art__pourquoi li { font-size: 12.5px; line-height: 1.6; color: var(--ink); }
+.art__pourquoi li strong { color: var(--blue-ink); }
+.art__pourquoi a { color: var(--blue-ink); text-decoration: underline; }
+
 /* Timestamp IA */
 .art__ia-stamp { font-size: 9px; color: var(--muted); font-style: italic; margin-top: 28px; padding-top: 16px; border-top: 1px solid var(--rule); }
 

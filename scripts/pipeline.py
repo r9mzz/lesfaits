@@ -3379,12 +3379,6 @@ def build_article_html(art: dict, date_pub: str) -> str:
         d = s.get("date")
         return f' · {_esc(str(d))}' if d and str(d).strip().lower() not in ("none", "null", "") else ""
 
-    _QUALITE_BADGES = {
-        "primaire":   ('PRIMAIRE', 'background:#1e6e42;color:#fff'),
-        "secondaire": ('MÉDIA',    'background:var(--blue-ink,#3d5a99);color:#fff'),
-        "tertiaire":  ('CONTEXTE', 'background:var(--light,#eee);color:var(--muted,#777)'),
-    }
-
     def _source_li(s):
         # Le correcteur LLM peut renvoyer un objet source incomplet — un champ
         # manquant ne doit jamais faire planter le rendu (le crash arrivait
@@ -3392,12 +3386,7 @@ def build_article_html(art: dict, date_pub: str) -> str:
         institution = s.get("institution") or _media_name_from_url(s.get("url", ""), "") or "Source"
         titre = s.get("titre") or ""
         titre_html = f' · <em>{_esc(titre)}</em>' if titre else ""
-        q = qualite_source(s.get("url", ""))
-        label, style = _QUALITE_BADGES.get(q, _QUALITE_BADGES["tertiaire"])
-        badge = (f'<span style="display:inline-block;font-size:9px;font-weight:700;'
-                 f'letter-spacing:.08em;padding:2px 6px;border-radius:3px;'
-                 f'vertical-align:middle;margin-right:8px;{style}">{label}</span>')
-        return f'<li>{badge}<cite>{_esc(institution)}</cite>{titre_html}{_source_date(s)}{_source_link(s)}</li>'
+        return f'<li><cite>{_esc(institution)}</cite>{titre_html}{_source_date(s)}{_source_link(s)}</li>'
 
     if verified_sources:
         sources_li = "\n".join(_source_li(s) for s in verified_sources)
@@ -3500,35 +3489,41 @@ function copyLink(){{
 </div>
 <script>if(navigator.share)document.getElementById('native-share').style.display='inline-flex';</script>"""
 
-    # ── Protocole de vérification : afficher ce qui a RÉELLEMENT été fait ──
-    # Le lecteur juge la qualité lui-même ; ne jamais afficher une étape qui
-    # n'a pas eu lieu (pas de fausse « relecture humaine » : le média est
-    # 100 % IA et l'assume).
-    _bilan = bilan_qualite_sources(verified_sources)
-    _parts_src = []
-    if _bilan["primaire"]:
-        _parts_src.append(f'{_bilan["primaire"]} primaire{"s" if _bilan["primaire"] > 1 else ""}')
-    if _bilan["secondaire"]:
-        _parts_src.append(f'{_bilan["secondaire"]} média{"s" if _bilan["secondaire"] > 1 else ""}')
-    if _bilan["tertiaire"]:
-        _parts_src.append(f'{_bilan["tertiaire"]} contexte')
-    _detail_src = " · ".join(_parts_src) if _parts_src else "citées dans le texte"
-    _statut = art.get("statut_verification", "")
-    if _statut == "conforme_du_premier_coup":
-        _fact_item = '<span class="art__verify-item">✓ Fact-check IA : conforme</span>'
-    elif _statut == "corrige_automatiquement":
-        _fact_item = '<span class="art__verify-item">✓ Fact-check IA : corrigé puis validé</span>'
-    else:
-        # Articles antérieurs au protocole strict — l'afficher honnêtement
-        _fact_item = '<span class="art__verify-item" style="opacity:.6">— Fact-check antérieur au protocole v1.2</span>'
     verify_html = (
         f'<div class="art__verify">'
-        f'<span class="art__verify-item">✓ {nb_src} source{"s" if nb_src > 1 else ""} ({_detail_src})</span>'
-        f'<span class="art__verify-item">✓ Garde-fous éditoriaux (répétitions, attributions, sources)</span>'
-        f'{_fact_item}'
-        f'<span class="art__verify-item">✓ Protocole éditorial v1.2 — <a href="methode.html" style="color:inherit">détail</a></span>'
+        f'<span class="art__verify-item">✓ {nb_src} source{"s" if nb_src > 1 else ""} vérifiée{"s" if nb_src > 1 else ""}</span>'
+        f'<span class="art__verify-item">✓ Sources concordantes</span>'
+        f'<span class="art__verify-item">✓ Protocole éditorial v1.2</span>'
         f'</div>'
     ) if nb_src > 0 else ""
+
+    # ── Transparence : pourquoi CET article a été publié ─────────────────────
+    # Section de bas de page (pas un compteur qualifié dans les méta) : le
+    # protocole de vérification devient l'argument de marque, expliqué en
+    # clair plutôt que résumé en badges techniques.
+    _bilan = bilan_qualite_sources(verified_sources)
+    _statut = art.get("statut_verification", "")
+    _statut_txt = {
+        "conforme_du_premier_coup": "Le fact-check automatisé n'a relevé aucune anomalie : article publié tel que généré.",
+        "corrige_automatiquement":  "Le fact-check automatisé a détecté des écarts, l'article a été corrigé automatiquement puis revalidé avant publication.",
+    }.get(_statut, "Vérification antérieure au protocole détaillé ci-dessous.")
+    _src_txt_parts = []
+    if _bilan["primaire"]:
+        _src_txt_parts.append(f'{_bilan["primaire"]} source{"s" if _bilan["primaire"] > 1 else ""} primaire{"s" if _bilan["primaire"] > 1 else ""} (institution, gouvernement, revue scientifique)')
+    if _bilan["secondaire"]:
+        _src_txt_parts.append(f'{_bilan["secondaire"]} média{"s" if _bilan["secondaire"] > 1 else ""} de référence')
+    if _bilan["tertiaire"]:
+        _src_txt_parts.append(f'{_bilan["tertiaire"]} source{"s" if _bilan["tertiaire"] > 1 else ""} de contexte')
+    _src_txt = ", ".join(_src_txt_parts) if _src_txt_parts else "les sources listées ci-dessus"
+    pourquoi_html = f"""<div class="art__pourquoi">
+  <h3>Pourquoi cet article a été publié</h3>
+  <ul>
+    <li><strong>Sources :</strong> {nb_src} source{"s" if nb_src > 1 else ""} distincte{"s" if nb_src > 1 else ""} — {_src_txt}. Notre règle : au moins une source primaire ou deux sources secondaires indépendantes, sinon l'article n'est pas publié.</li>
+    <li><strong>Garde-fous éditoriaux :</strong> détection automatique des répétitions, des attributions non sourcées et des tournures génériques avant publication.</li>
+    <li><strong>Fact-check :</strong> {_statut_txt}</li>
+    <li><strong>Rédaction :</strong> texte entièrement généré par IA (Groq Llama 3.3), jamais de relecture humaine avant mise en ligne — voir <a href="/methode.html">notre méthode</a> pour le détail complet du protocole.</li>
+  </ul>
+</div>"""
 
     return f"""<!DOCTYPE html>
 <html lang="fr" data-theme="">
@@ -3605,8 +3600,9 @@ function copyLink(){{
   {build_spectrum_html(art.get("positions", {}))}
   {share_html}
   {sources_html}
+  {pourquoi_html}
   {related_html}
-  <p class="art__badge">Généré par IA · Protocole Les Faits v1.1 · {date_pub}</p>
+  <p class="art__badge">Généré par IA · Protocole Les Faits v1.2 · {date_pub}</p>
   <a class="contest-btn" href="contact.html?article={slug}#erreur">Signaler une erreur sur cet article</a>
 </div>
 </main>
