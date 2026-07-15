@@ -285,6 +285,32 @@ def fetch_full_content(url: str) -> str:
         return ""
 
 
+# Domaines JAMAIS citables comme source journalistique : marchands (fiches
+# produit — un livre vendu chez 3 libraires est UNE œuvre, pas 3 sources),
+# réseaux sociaux, plateformes d'avis. Le run du 15/07 a publié un article
+# citant « Selon Amazon » / « Selon Fnac » / « Selon Payot » — trois fiches
+# du même livre comptées comme trois sources distinctes.
+_DOMAINES_NON_CITABLES_RE = re.compile(
+    r"(?:^|\.)(?:"
+    r"amazon\.[a-z.]+|fnac\.(?:com|ch|be)|payot\.ch|cultura\.com|decitre\.fr|"
+    r"furet\.com|momox-shop\.fr|rakuten\.(?:com|fr)|cdiscount\.com|ebay\.[a-z.]+|"
+    r"leboncoin\.fr|aliexpress\.[a-z.]+|temu\.com|etsy\.com|"
+    r"babelio\.com|goodreads\.com|booknode\.com|senscritique\.com|"
+    r"facebook\.com|instagram\.com|tiktok\.com|x\.com|twitter\.com|"
+    r"pinterest\.[a-z.]+|linkedin\.com|reddit\.com|quora\.com|"
+    r"tripadvisor\.[a-z.]+|booking\.com|airbnb\.[a-z.]+|"
+    r"lisez\.com|editions-[a-z]+\.(?:fr|com)|hachette\.fr|placedeslibraires\.fr"
+    r")$",
+    re.IGNORECASE,
+)
+
+
+def _est_source_citables(url: str) -> bool:
+    """False si le domaine est marchand/social/avis — jamais citable comme source."""
+    host = (urlparse(url).hostname or "").lower()
+    return not _DOMAINES_NON_CITABLES_RE.search(host)
+
+
 def duckduckgo_search(query: str, max_results: int = 8) -> list[dict]:
     """Recherche DuckDuckGo via la librairie duckduckgo-search (endpoint API, pas scraping HTML)."""
     try:
@@ -296,7 +322,15 @@ def duckduckgo_search(query: str, max_results: int = 8) -> list[dict]:
             return []
 
     seen = set()
+    seen_titles = set()
     results = []
+
+    def _titre_norm(t: str) -> str:
+        import unicodedata
+        t = unicodedata.normalize("NFD", t.lower())
+        t = "".join(c for c in t if unicodedata.category(c) != "Mn")
+        mots = re.findall(r"[a-z0-9]{3,}", t)
+        return " ".join(sorted(mots)[:8])
 
     queries = [
         query,
@@ -313,7 +347,16 @@ def duckduckgo_search(query: str, max_results: int = 8) -> list[dict]:
                         continue
                     if len(urlparse(url).path.rstrip("/")) <= 5:
                         continue
+                    if not _est_source_citables(url):
+                        continue
+                    # Même œuvre/dépêche sur plusieurs sites = UNE source :
+                    # dédupliquer sur le titre normalisé, pas seulement l'URL
+                    tn = _titre_norm(r.get("title", ""))
+                    if tn and tn in seen_titles:
+                        continue
                     seen.add(url)
+                    if tn:
+                        seen_titles.add(tn)
                     results.append({
                         "title":   r.get("title", ""),
                         "url":     url,
@@ -1888,6 +1931,8 @@ def generate(content: str, category_hint: str, extra_sources: list[dict] | None 
                 continue
             url = src.get("url") or ""
             path = urlparse(url).path.rstrip("/") if url else ""
+            if not _est_source_citables(url):
+                continue  # marchand/social — jamais une source, quel que soit le chemin d'entrée
             if url in real_urls and len(path) > 3 and urlparse(url).scheme in ("http", "https"):
                 src = dict(src)
                 src["institution"] = real_title_by_url.get(url, src.get("institution", ""))
