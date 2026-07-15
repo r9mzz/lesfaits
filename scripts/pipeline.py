@@ -311,6 +311,67 @@ def _est_source_citables(url: str) -> bool:
     return not _DOMAINES_NON_CITABLES_RE.search(host)
 
 
+# ── Hiérarchie de qualité des sources (liste BLANCHE, pas noire) ─────────────
+# primaire   : institutions, gouvernements, revues à comité de lecture —
+#              elles PRODUISENT la donnée.
+# secondaire : agences de presse et médias de référence — ils VÉRIFIENT.
+# tertiaire  : tout le reste (vulgarisation, Wikipédia, blogs) — utilisable
+#              en contexte, jamais comme preuve.
+# interdite  : marchands/réseaux sociaux (voir _DOMAINES_NON_CITABLES_RE).
+_DOMAINES_PRIMAIRES = (
+    ".gouv.fr", ".gov", ".europa.eu", ".int", "elysee.fr",
+    "assemblee-nationale.fr", "senat.fr", "vie-publique.fr",
+    "insee.fr", "banque-france.fr", "has-sante.fr", "anses.fr", "ansm.sante.fr",
+    "meteofrance.fr", "ined.fr", "cnrs.fr", "inserm.fr", "inrae.fr",
+    "cea.fr", "ademe.fr", "pasteur.fr", "santepubliquefrance.fr",
+    "nasa.gov", "esa.int", "cern.ch", "cnes.fr",
+    "nature.com", "science.org", "thelancet.com", "nejm.org", "bmj.com",
+    "ncbi.nlm.nih.gov", "pubmed.gov", "cell.com", "pnas.org",
+    "courdecassation.fr", "conseil-etat.fr", "ccomptes.fr",
+)
+_DOMAINES_SECONDAIRES = (
+    "afp.com", "reuters.com", "apnews.com",
+    "lemonde.fr", "lefigaro.fr", "liberation.fr", "lesechos.fr",
+    "leparisien.fr", "lepoint.fr", "lexpress.fr", "nouvelobs.com",
+    "mediapart.fr", "la-croix.com", "ouest-france.fr", "sudouest.fr",
+    "francetvinfo.fr", "franceinfo.fr", "france24.com", "rfi.fr",
+    "radiofrance.fr", "europe1.fr",
+    "bbc.com", "theguardian.com", "nytimes.com", "washingtonpost.com",
+    "letemps.ch", "rts.ch", "lesoir.be", "rtbf.be",
+    "theconversation.com", "sciencesetavenir.fr", "pourlascience.fr",
+)
+
+
+def qualite_source(url: str) -> str:
+    """Classe une URL : primaire / secondaire / tertiaire / interdite."""
+    if not url:
+        return "tertiaire"
+    host = (urlparse(url).hostname or "").lower()
+    if _DOMAINES_NON_CITABLES_RE.search(host):
+        return "interdite"
+    for d in _DOMAINES_PRIMAIRES:
+        if host == d.lstrip(".") or host.endswith(d):
+            return "primaire"
+    for d in _DOMAINES_SECONDAIRES:
+        if host == d or host.endswith("." + d):
+            return "secondaire"
+    return "tertiaire"
+
+
+def bilan_qualite_sources(sources: list) -> dict:
+    """Compte les sources par niveau de qualité (domaines distincts uniquement)."""
+    domaines_vus = {"primaire": set(), "secondaire": set(), "tertiaire": set()}
+    for s in sources or []:
+        url = (s.get("url") if isinstance(s, dict) else str(s)) or ""
+        q = qualite_source(url)
+        if q == "interdite":
+            continue
+        host = (urlparse(url).hostname or "").lower().removeprefix("www.")
+        if host:
+            domaines_vus[q].add(host)
+    return {k: len(v) for k, v in domaines_vus.items()}
+
+
 def duckduckgo_search(query: str, max_results: int = 8) -> list[dict]:
     """Recherche DuckDuckGo via la librairie duckduckgo-search (endpoint API, pas scraping HTML)."""
     try:
@@ -3318,6 +3379,12 @@ def build_article_html(art: dict, date_pub: str) -> str:
         d = s.get("date")
         return f' · {_esc(str(d))}' if d and str(d).strip().lower() not in ("none", "null", "") else ""
 
+    _QUALITE_BADGES = {
+        "primaire":   ('PRIMAIRE', 'background:#1e6e42;color:#fff'),
+        "secondaire": ('MÉDIA',    'background:var(--blue-ink,#3d5a99);color:#fff'),
+        "tertiaire":  ('CONTEXTE', 'background:var(--light,#eee);color:var(--muted,#777)'),
+    }
+
     def _source_li(s):
         # Le correcteur LLM peut renvoyer un objet source incomplet — un champ
         # manquant ne doit jamais faire planter le rendu (le crash arrivait
@@ -3325,7 +3392,12 @@ def build_article_html(art: dict, date_pub: str) -> str:
         institution = s.get("institution") or _media_name_from_url(s.get("url", ""), "") or "Source"
         titre = s.get("titre") or ""
         titre_html = f' · <em>{_esc(titre)}</em>' if titre else ""
-        return f'<li><cite>{_esc(institution)}</cite>{titre_html}{_source_date(s)}{_source_link(s)}</li>'
+        q = qualite_source(s.get("url", ""))
+        label, style = _QUALITE_BADGES.get(q, _QUALITE_BADGES["tertiaire"])
+        badge = (f'<span style="display:inline-block;font-size:9px;font-weight:700;'
+                 f'letter-spacing:.08em;padding:2px 6px;border-radius:3px;'
+                 f'vertical-align:middle;margin-right:8px;{style}">{label}</span>')
+        return f'<li>{badge}<cite>{_esc(institution)}</cite>{titre_html}{_source_date(s)}{_source_link(s)}</li>'
 
     if verified_sources:
         sources_li = "\n".join(_source_li(s) for s in verified_sources)
@@ -3428,11 +3500,33 @@ function copyLink(){{
 </div>
 <script>if(navigator.share)document.getElementById('native-share').style.display='inline-flex';</script>"""
 
+    # ── Protocole de vérification : afficher ce qui a RÉELLEMENT été fait ──
+    # Le lecteur juge la qualité lui-même ; ne jamais afficher une étape qui
+    # n'a pas eu lieu (pas de fausse « relecture humaine » : le média est
+    # 100 % IA et l'assume).
+    _bilan = bilan_qualite_sources(verified_sources)
+    _parts_src = []
+    if _bilan["primaire"]:
+        _parts_src.append(f'{_bilan["primaire"]} primaire{"s" if _bilan["primaire"] > 1 else ""}')
+    if _bilan["secondaire"]:
+        _parts_src.append(f'{_bilan["secondaire"]} média{"s" if _bilan["secondaire"] > 1 else ""}')
+    if _bilan["tertiaire"]:
+        _parts_src.append(f'{_bilan["tertiaire"]} contexte')
+    _detail_src = " · ".join(_parts_src) if _parts_src else "citées dans le texte"
+    _statut = art.get("statut_verification", "")
+    if _statut == "conforme_du_premier_coup":
+        _fact_item = '<span class="art__verify-item">✓ Fact-check IA : conforme</span>'
+    elif _statut == "corrige_automatiquement":
+        _fact_item = '<span class="art__verify-item">✓ Fact-check IA : corrigé puis validé</span>'
+    else:
+        # Articles antérieurs au protocole strict — l'afficher honnêtement
+        _fact_item = '<span class="art__verify-item" style="opacity:.6">— Fact-check antérieur au protocole v1.2</span>'
     verify_html = (
         f'<div class="art__verify">'
-        f'<span class="art__verify-item">✓ {nb_src} source{"s" if nb_src > 1 else ""} vérifiée{"s" if nb_src > 1 else ""}</span>'
-        f'<span class="art__verify-item">✓ Sources concordantes</span>'
-        f'<span class="art__verify-item">✓ Protocole éditorial v1.1</span>'
+        f'<span class="art__verify-item">✓ {nb_src} source{"s" if nb_src > 1 else ""} ({_detail_src})</span>'
+        f'<span class="art__verify-item">✓ Garde-fous éditoriaux (répétitions, attributions, sources)</span>'
+        f'{_fact_item}'
+        f'<span class="art__verify-item">✓ Protocole éditorial v1.2 — <a href="methode.html" style="color:inherit">détail</a></span>'
         f'</div>'
     ) if nb_src > 0 else ""
 
@@ -4562,10 +4656,31 @@ def generer_article(item: dict, dry_run: bool, published: set, new_pub: set, dat
             else:
                 print(f"     [OK] Étoffement réussi : {mots} mots, {nb_src} sources")
 
-        # ── Passes 2/3 : fact-check + correction automatique (Anthropic) ──
+        # ── Règle de publication par QUALITÉ des sources (liste blanche) ──
+        # « Au moins une source primaire OU deux sources secondaires
+        # indépendantes » — une pile de sources tertiaires (vulgarisation,
+        # blogs, agrégateurs) ne suffit jamais, quel que soit leur nombre.
+        bilan = bilan_qualite_sources(art.get("sources", []))
+        art["qualite_sources"] = bilan
+        if bilan["primaire"] < 1 and bilan["secondaire"] < 2:
+            print(f"     [REJET SOURCES] Qualité insuffisante : "
+                  f"{bilan['primaire']} primaire(s), {bilan['secondaire']} secondaire(s), "
+                  f"{bilan['tertiaire']} tertiaire(s) — il faut ≥1 primaire ou ≥2 secondaires")
+            return False
+
+        # ── Passes 2/3 : fact-check + correction automatique ──
         art, statut_verif = verifier_article(art, article_type=article_type)
         if statut_verif in ("rejete_sensible", "rejete_qualite"):
             # Messages déjà affichés dans verifier_article
+            return False
+        # Philosophie : empêcher qu'un mauvais article soit publié, pas en
+        # publier un maximum. Si le protocole de vérification n'a pas pu
+        # aller au bout (rate limit, erreur API), l'article N'EST PAS publié
+        # — le sujet sera retenté au run suivant, la vérification n'est
+        # jamais optionnelle.
+        if statut_verif in ("erreur_verification", "non_verifie"):
+            print(f"     [REJET PROTOCOLE] Vérification incomplète ({statut_verif}) — "
+                  f"article non publié, le sujet sera retenté au prochain run")
             return False
         art["statut_verification"] = statut_verif
 
