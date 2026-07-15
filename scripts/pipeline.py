@@ -1709,8 +1709,18 @@ def sujet_sante_sans_source_officielle(art: dict) -> bool:
     return True
 
 
-def _groq_call(api_key: str, messages: list, max_tokens: int = 4500) -> str:
-    """Appelle Groq avec la clé donnée. Lève une exception en cas d'erreur."""
+def _groq_call(api_key: str, messages: list, max_tokens: int = 6000) -> str:
+    """Appelle Groq avec la clé donnée. Lève une exception en cas d'erreur.
+
+    max_tokens relevé de 4500 à 6000 le 15/07 : deux générations valides ont été
+    perdues dans le même run (complétion tronquée pile à 4500, JSON invalide,
+    « Pas de JSON dans la réponse ») — le modèle voulait clairement produire
+    plus que 4500 tokens de sortie. Plafond gardé modéré (pas 8000+) car un
+    run du même jour a révélé la vraie limite Groq : 12 000 tokens/minute PAR
+    CLÉ (erreur 413 « Request too large », TPM Limit 12000) — un prompt déjà
+    lourd (jusqu'à ~9000 tokens observés) + un max_tokens trop généreux
+    rapprocherait chaque appel de ce plafond dur.
+    """
     client = Groq(api_key=api_key)
     response = client.chat.completions.create(
         model="llama-3.3-70b-versatile",
@@ -4755,7 +4765,7 @@ def generer_article(item: dict, dry_run: bool, published: set, new_pub: set, dat
         (ARTICLES / f"{art['slug']}.html").write_text(html, encoding="utf-8")
         save_to_index(art, date_pub)
         new_pub.add(item["id"])
-        print(f"     ✓ {art['slug']}.html ({art['nb_sources']} src, {total_chars} chars)")
+        print(f"     ✓ {art['slug']}.html ({art['nb_sources']} src, {art.get('nb_mots', 0)} mots)")
         return True
 
     except ValueError as e:
