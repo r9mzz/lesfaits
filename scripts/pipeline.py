@@ -1758,20 +1758,16 @@ def generate(content: str, category_hint: str, extra_sources: list[dict] | None 
     # sources disponibles. Les autres relances corrigent un défaut déjà connu
     # sans avoir besoin de ré-analyser le contenu en détail.
     is_expand = bool(expand_feedback)
-    # EXPÉRIMENTATION EN COURS (15/07) — hypothèse : 950 car. ≈ 2-3 paragraphes
-    # ne donne au modèle que l'intro des sources scrapées (jusqu'à 8000 car.
-    # disponibles), jamais leur développement, d'où des articles de surface.
-    # Test : 950 → 3000 sur UNE seule variable, mesuré sur le run de prod
-    # suivant via les logs [TOKENS] déjà en place + mots réels + déclenchements
-    # faits_repetitifs()/résumé_repete_corps(). Risque connu et accepté pour ce
-    # test : chaque prompt initial grossit de ~4-5k tokens, ce qui peut
-    # aggraver le rate limit Groq déjà tendu (cf. logs quasi systématiques
-    # de "toutes les clés en rate limit" avant chaque appel réussi) — donc
-    # potentiellement moins d'articles publiés ce run-là. Si la profondeur ne
-    # s'améliore pas nettement ou si le rate limit s'aggrave trop, revenir à
-    # 950 (une hypothèse, une mesure, une conclusion — pas de cumul de
-    # changements).
-    snippet_len = 3000 if (not is_retry or is_expand) else 200
+    # Expérimentation snippet_len 950→3000 (15/07) ANNULÉE avant mesure :
+    # l'audit des logs de prod montre que presque tous les sujets saturent
+    # déjà à 8 sources réelles — exactement le plafond max_results de
+    # duckduckgo_search(). Le facteur limitant n'est donc pas la profondeur
+    # de CHAQUE source (ce que snippet_len contrôlait) mais le NOMBRE de
+    # sources distinctes trouvées. On isole cette variable-là à la place
+    # (voir duckduckgo_search) — une hypothèse, une mesure à la fois.
+    # 950 car. ≈ 2-3 paragraphes : suffisant pour ancrer des faits précis
+    # sans dépasser le budget Groq (déjà rate-limité en continu, voir logs).
+    snippet_len = 950 if (not is_retry or is_expand) else 200
     sources_block = ""
     # Noms lisibles dérivés des URLs — utilisés dans le prompt ET dans les règles d'attribution
     source_noms: list[str] = []
@@ -4446,7 +4442,20 @@ def generer_article(item: dict, dry_run: bool, published: set, new_pub: set, dat
     content = full_content if len(full_content) > 500 else item["content"]
 
     # Recherche de sources corroborantes : DuckDuckGo + PubMed
-    extra = duckduckgo_search(item["title"] + " " + cat, max_results=8)
+    # EXPÉRIMENTATION EN COURS (15/07) — hypothèse : le facteur limitant n'est
+    # pas la profondeur de chaque source (testé puis annulé : snippet_len
+    # 950→3000, voir generate()) mais leur NOMBRE. L'audit des logs de prod
+    # montre que presque tous les sujets saturent déjà à 8 sources réelles,
+    # exactement le plafond ci-dessous — donc le pipeline ne cherche jamais
+    # plus loin que ça, quel que soit le sujet. Test : 8 → 15, UNE seule
+    # variable. Coût connu : jusqu'à 7 scrapes fetch_full_content() séquentiels
+    # de plus par sujet (~15s timeout chacun dans le pire cas), donc un run
+    # plus lent — le budget de 4h/300min laisse la marge. Mesure prévue sur
+    # le prochain run via le log "[X sources réelles]" déjà en place + le
+    # bilan qualité (primaire/secondaire/tertiaire) + la profondeur des
+    # articles publiés. Revenir à 8 si le gain de sources n'est pas réel
+    # (doublons post-dédup) ou si le coût temps devient trop élevé.
+    extra = duckduckgo_search(item["title"] + " " + cat, max_results=15)
     pubmed = pubmed_search(item["title"], max_results=4)
     # Fusionner sans doublons
     seen_urls = {s["url"] for s in extra}
