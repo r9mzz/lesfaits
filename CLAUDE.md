@@ -129,10 +129,22 @@ répare pas en réécrivant le texte).
   `non_verifie`), l'article n'est PAS publié, même s'il est par ailleurs bon.
   Le sujet est retenté au run suivant. Ne jamais publier « par défaut » faute
   de vérification complète.
-- Chaque source affichée sur le site porte un badge PRIMAIRE / MÉDIA /
-  CONTEXTE, et le bloc protocole affiche l'état réel de la vérification
-  (jamais une étape non réalisée présentée comme faite) — c'est le
-  différenciateur éditorial du site, à préserver dans tout futur design.
+- Le différenciateur éditorial n'est PAS un compteur de sources qualifiées
+  dans les méta (badges PRIMAIRE/MÉDIA/CONTEXTE testés puis retirés le
+  15/07 sur retour utilisateur) mais la section **« Pourquoi cet article a
+  été publié »** en bas de chaque article (`art__pourquoi` dans
+  `build_article_html`) : explique en langage clair — pas en indicateurs
+  techniques — la répartition des sources par fiabilité, la règle de
+  publication appliquée, le résultat du fact-check, et le rappel qu'il n'y a
+  jamais de relecture humaine. C'est l'argument de marque du site ("on ne
+  vous demande pas de nous croire, on vous montre pourquoi cet article a
+  été publié") — à préserver dans tout futur design, ne jamais le réduire à
+  un badge ou un score.
+- Le HTML des articles déjà publiés N'EST PAS régénéré par
+  `pipeline.py --rebuild` (qui ne touche qu'index/catégories/archive/
+  sitemap) : toute évolution du template `build_article_html` nécessite un
+  patch rétroactif dédié (script ponctuel, non versionné) pour s'appliquer
+  aux articles existants.
 
 - Les objets `sources` renvoyés par le correcteur LLM peuvent être incomplets :
   tout accès direct `s["titre"]` / `s["institution"]` au rendu est interdit —
