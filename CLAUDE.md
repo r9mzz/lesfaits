@@ -100,6 +100,14 @@ répare pas en réécrivant le texte).
 
 ## Pièges connus
 
+- **Sources marchandes interdites** : Amazon, Fnac, Payot, Cultura, réseaux
+  sociaux, plateformes d'avis ne sont JAMAIS des sources citables (« Selon
+  Amazon » a été publié le 15/07 — trois fiches produit du même livre
+  comptées comme trois sources). Blocklist `_DOMAINES_NON_CITABLES_RE` +
+  filtre `_est_source_citables()` appliqués dans `duckduckgo_search` ET à la
+  vérification des sources ; dédup par titre normalisé (même œuvre/dépêche
+  sur plusieurs sites = UNE source). Ne jamais retirer ces filtres.
+
 - Les objets `sources` renvoyés par le correcteur LLM peuvent être incomplets :
   tout accès direct `s["titre"]` / `s["institution"]` au rendu est interdit —
   utiliser `.get()` avec repli (un KeyError ici coûte un article entier).
