@@ -1,5 +1,14 @@
 # Les Faits — lesfaits.info
 
+## Philosophie éditoriale — priorité absolue
+
+Le pipeline n'existe pas pour maximiser le nombre d'articles publiés. Il
+existe pour **empêcher qu'un mauvais article soit publié**. Un run qui ne
+publie rien parce que rien n'a passé les contrôles est un run réussi, pas un
+échec. Ne jamais assouplir un garde-fou pour publier plus — le différenciateur
+éditorial de Les Faits est un protocole de vérification transparent, pas le
+volume de contenu.
+
 Journal 100 % IA : génération d'articles ET vérification éditoriale 3 passes
 sur Groq Llama 3.3 (3 clés en rotation — le compte Anthropic n'a plus de
 crédits et ne sera pas réapprovisionné, décision de Nahil en juillet 2026 ;
@@ -107,6 +116,23 @@ répare pas en réécrivant le texte).
   filtre `_est_source_citables()` appliqués dans `duckduckgo_search` ET à la
   vérification des sources ; dédup par titre normalisé (même œuvre/dépêche
   sur plusieurs sites = UNE source). Ne jamais retirer ces filtres.
+- **Hiérarchie de sources en liste BLANCHE** (`qualite_source`,
+  `bilan_qualite_sources`) : primaire (institutions/gouvernements/revues à
+  comité de lecture) / secondaire (agences de presse, médias de référence) /
+  tertiaire (vulgarisation, Wikipédia — jamais une preuve) / interdite
+  (marchands, réseaux sociaux). Règle de publication : **≥1 source primaire
+  OU ≥2 sources secondaires indépendantes**, sinon rejet — un empilement de
+  tertiaires ne suffit jamais. Une blocklist seule ne suffit pas (elle
+  grandit indéfiniment) ; c'est la liste blanche qui doit primer.
+- **Protocole de vérification jamais optionnel** : si le fact-check LLM
+  échoue (rate limit, erreur API — statut `erreur_verification` ou
+  `non_verifie`), l'article n'est PAS publié, même s'il est par ailleurs bon.
+  Le sujet est retenté au run suivant. Ne jamais publier « par défaut » faute
+  de vérification complète.
+- Chaque source affichée sur le site porte un badge PRIMAIRE / MÉDIA /
+  CONTEXTE, et le bloc protocole affiche l'état réel de la vérification
+  (jamais une étape non réalisée présentée comme faite) — c'est le
+  différenciateur éditorial du site, à préserver dans tout futur design.
 
 - Les objets `sources` renvoyés par le correcteur LLM peuvent être incomplets :
   tout accès direct `s["titre"]` / `s["institution"]` au rendu est interdit —
