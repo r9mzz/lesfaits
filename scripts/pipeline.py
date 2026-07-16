@@ -55,6 +55,7 @@ GROQ_KEY2      = os.getenv("GROQ_API_KEY_2", "")
 GROQ_KEY3      = os.getenv("GROQ_API_KEY_3", "")
 GROQ_KEY4      = os.getenv("GROQ_API_KEY_4", "")
 GROQ_KEY5      = os.getenv("GROQ_API_KEY_5", "")
+GROQ_KEY6      = os.getenv("GROQ_API_KEY_6", "")
 PEXELS_KEY     = os.getenv("PEXELS_API_KEY", "")
 PIXABAY_KEY    = os.getenv("PIXABAY_API_KEY", "")
 
@@ -1937,7 +1938,7 @@ def generate(content: str, category_hint: str, extra_sources: list[dict] | None 
     ]
 
     raw = None
-    _all_keys = [(GROQ_KEY, "clé 1"), (GROQ_KEY2, "clé 2"), (GROQ_KEY3, "clé 3"), (GROQ_KEY4, "clé 4"), (GROQ_KEY5, "clé 5")]
+    _all_keys = [(GROQ_KEY, "clé 1"), (GROQ_KEY2, "clé 2"), (GROQ_KEY3, "clé 3"), (GROQ_KEY4, "clé 4"), (GROQ_KEY5, "clé 5"), (GROQ_KEY6, "clé 6")]
     keys_to_try = [(k, l) for k, l in _all_keys if k]
     # 8 cycles max (≈8 min) par article : le job GitHub a désormais 5 h
     # (timeout-minutes: 300) — on attend les fenêtres de rate limit Groq
@@ -4913,7 +4914,7 @@ if __name__ == "__main__":
     if not GROQ_KEY:
         print("ERREUR : GROQ_API_KEY manquant dans .env / secrets GitHub")
         exit(1)
-    active_keys = sum(1 for k in (GROQ_KEY2, GROQ_KEY3, GROQ_KEY4, GROQ_KEY5) if k)
+    active_keys = sum(1 for k in (GROQ_KEY2, GROQ_KEY3, GROQ_KEY4, GROQ_KEY5, GROQ_KEY6) if k)
     if active_keys:
         print(f"[INFO] {active_keys} clé(s) Groq de secours détectée(s) — bascule automatique si rate limit")
 
