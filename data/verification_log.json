@@ -2858,5 +2858,13 @@
     "etape": "detection",
     "erreur": "Groq 413: {\"error\":{\"message\":\"Request too large for model `llama-3.3-70b-versatile` in organization `org_01kw7by94gfktt0g3d882rram6` service tier `on_demand` on tokens per minute (TPM): Limit 12000, Requested 12014, please reduce your message size and try again. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing\",\"type\":\"tokens\",\"code\":\"rate_limit_exceeded\"}}\n",
     "article_type": "actu"
+  },
+  {
+    "slug": "nouvelles-addictions-evolution-consommations-risques",
+    "statut": "rejete_qualite",
+    "date": "2026-07-16T03:03:08",
+    "angle_insuffisant": true,
+    "raison": "L'article ressemble à une fiche pédagogique générale sans fait déclencheur daté",
+    "article_type": "dossier_science"
   }
 ]
