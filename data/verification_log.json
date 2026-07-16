@@ -2866,5 +2866,21 @@
     "angle_insuffisant": true,
     "raison": "L'article ressemble à une fiche pédagogique générale sans fait déclencheur daté",
     "article_type": "dossier_science"
+  },
+  {
+    "slug": "nouvelles-addictions-evolution-consommations-risques",
+    "statut": "rejete_qualite",
+    "date": "2026-07-16T15:44:32",
+    "angle_insuffisant": true,
+    "raison": "L'article ressemble à une fiche pédagogique générale sans fait déclencheur daté",
+    "article_type": "dossier_science"
+  },
+  {
+    "slug": "mars-dans-la-fiction",
+    "statut": "erreur_verification",
+    "date": "2026-07-16T15:54:04",
+    "etape": "detection",
+    "erreur": "Groq 413: {\"error\":{\"message\":\"Request too large for model `llama-3.3-70b-versatile` in organization `org_01kw1p355yehfbepfm6ydy0dnb` service tier `on_demand` on tokens per minute (TPM): Limit 12000, Requested 12495, please reduce your message size and try again. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing\",\"type\":\"tokens\",\"code\":\"rate_limit_exceeded\"}}\n",
+    "article_type": "actu"
   }
 ]
