@@ -174,6 +174,12 @@ SOURCES AUTORISÉES :
 # APPEL API
 # ══════════════════════════════════════════════════════════════════════════════
 
+# Clés au quota JOURNALIER épuisé — mortes jusqu'à la fin du run (le corps
+# du 429 Groq distingue « per minute » de « per day » ; attendre 62 s ne sert
+# à rien contre une limite quotidienne). Même logique que pipeline.py.
+_CLES_MORTES_JOUR: set = set()
+
+
 def _llm_call(prompt: str, max_tokens: int = 6000) -> str:
     """Appel Groq avec rotation des clés + attente sur rate limit — même
     stratégie que la génération (pipeline.py), mais avec moins de patience
@@ -184,7 +190,10 @@ def _llm_call(prompt: str, max_tokens: int = 6000) -> str:
     MAX_CYCLES, WAIT = 2, 62
     last_err = None
     for cycle in range(MAX_CYCLES):
-        for key in GROQ_KEYS:
+        cles_vivantes = [k for k in GROQ_KEYS if k not in _CLES_MORTES_JOUR]
+        if not cles_vivantes:
+            raise RuntimeError("Quota Groq journalier épuisé sur toutes les clés (vérification)")
+        for key in cles_vivantes:
             r = requests.post(
                 GROQ_URL,
                 headers={"Authorization": f"Bearer {key}",
@@ -198,6 +207,10 @@ def _llm_call(prompt: str, max_tokens: int = 6000) -> str:
                 timeout=180,
             )
             if r.status_code == 429:
+                corps = r.text.lower()
+                if "per day" in corps or "tpd" in corps or "rpd" in corps:
+                    _CLES_MORTES_JOUR.add(key)
+                    print(f"     [VERIF] Clé au quota journalier épuisé — retirée de la rotation")
                 last_err = f"429 rate limit ({r.text[:120]})"
                 continue
             if r.status_code >= 400:

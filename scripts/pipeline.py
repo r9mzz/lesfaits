@@ -1712,6 +1712,32 @@ def sujet_sante_sans_source_officielle(art: dict) -> bool:
     return True
 
 
+class TronqueError(Exception):
+    """La complétion a été coupée à max_tokens (finish_reason='length') —
+    le JSON est forcément invalide, inutile de le parser."""
+
+
+class QuotaJournalierEpuise(RuntimeError):
+    """Toutes les clés Groq ont épuisé leur quota JOURNALIER (TPD) — attendre
+    62 s ne sert à rien, le budget ne se libère qu'à minuit UTC. Le run doit
+    s'arrêter proprement au lieu de moudre des cycles d'attente à vide."""
+
+
+# Clés dont le quota JOURNALIER est épuisé — mortes jusqu'à la fin du run.
+# Diagnostic du 16/07 : 4 runs dans la journée avaient consommé le budget
+# quotidien de la plupart des clés ; le code traitait tous les 429 comme des
+# limites par MINUTE et attendait 62s × 8 cycles × 12 sujets = 76 min d'attente
+# pour rien (0 article). Le corps de l'erreur Groq distingue les deux :
+# "tokens per minute (TPM)" vs "tokens per day (TPD)".
+_CLES_MORTES_JOUR: set = set()
+_ROTATION_APPELS = [0]  # compteur global — départ tournant dans la liste des clés
+
+
+def _est_quota_journalier(err: str) -> bool:
+    e = err.lower()
+    return "per day" in e or "tpd" in e or "tokens per day" in e or "requests per day" in e or "rpd" in e
+
+
 def _groq_call(api_key: str, messages: list, max_tokens: int = 6000) -> str:
     """Appelle Groq avec la clé donnée. Lève une exception en cas d'erreur.
 
@@ -1723,6 +1749,10 @@ def _groq_call(api_key: str, messages: list, max_tokens: int = 6000) -> str:
     CLÉ (erreur 413 « Request too large », TPM Limit 12000) — un prompt déjà
     lourd (jusqu'à ~9000 tokens observés) + un max_tokens trop généreux
     rapprocherait chaque appel de ce plafond dur.
+
+    Lève TronqueError si la complétion est coupée à max_tokens
+    (finish_reason='length') : le JSON est invalide par construction —
+    3 sujets perdus ainsi les 15-16/07, dont deux fois le même.
     """
     client = Groq(api_key=api_key)
     response = client.chat.completions.create(
@@ -1735,7 +1765,10 @@ def _groq_call(api_key: str, messages: list, max_tokens: int = 6000) -> str:
     if u:
         print(f"     [TOKENS] prompt={u.prompt_tokens} completion={u.completion_tokens} "
               f"total={u.total_tokens}", flush=True)
-    return response.choices[0].message.content.strip()
+    choice = response.choices[0]
+    if getattr(choice, "finish_reason", None) == "length":
+        raise TronqueError(f"complétion coupée à {max_tokens} tokens")
+    return choice.message.content.strip()
 
 
 def generate(content: str, category_hint: str, extra_sources: list[dict] | None = None,
@@ -1940,23 +1973,57 @@ def generate(content: str, category_hint: str, extra_sources: list[dict] | None 
 
     raw = None
     _all_keys = [(GROQ_KEY, "clé 1"), (GROQ_KEY2, "clé 2"), (GROQ_KEY3, "clé 3"), (GROQ_KEY4, "clé 4"), (GROQ_KEY5, "clé 5"), (GROQ_KEY6, "clé 6"), (GROQ_KEY7, "clé 7")]
-    keys_to_try = [(k, l) for k, l in _all_keys if k]
     # 8 cycles max (≈8 min) par article : le job GitHub a désormais 5 h
     # (timeout-minutes: 300) — on attend les fenêtres de rate limit Groq
     # plutôt que de perdre le sujet. La protection contre le timeout reste
     # le budget GLOBAL de la boucle de génération, pas ce plafond par
     # article. Si toutes les clés sont encore en rate limit après 8 cycles,
     # on abandonne CET article et on passe au suivant.
+    # DISTINCTION TPM/TPD (16/07) : un 429 « per day » signifie que la clé a
+    # épuisé son quota JOURNALIER — attendre 62 s est inutile, elle est retirée
+    # de la rotation pour tout le run. Si TOUTES les clés sont mortes pour la
+    # journée, QuotaJournalierEpuise remonte à la boucle principale qui arrête
+    # le run proprement (les sujets seront retentés au créneau suivant).
     MAX_RETRY_CYCLES = 8  # cycles complets sur toutes les clés avant abandon
     RETRY_WAIT = 62       # secondes d'attente entre deux cycles (fenêtre rate-limit Groq = 60s)
+    troncature_deja_reduite = False
     for cycle in range(MAX_RETRY_CYCLES):
+        keys_to_try = [(k, l) for k, l in _all_keys if k and k not in _CLES_MORTES_JOUR]
+        if not keys_to_try:
+            raise QuotaJournalierEpuise(
+                "Toutes les clés Groq ont épuisé leur quota journalier (TPD)")
+        # Départ tournant : ne pas marteler toujours la clé 1 en premier —
+        # chaque appel commence sur la clé suivante de la rotation.
+        offset = _ROTATION_APPELS[0] % len(keys_to_try)
+        _ROTATION_APPELS[0] += 1
+        keys_to_try = keys_to_try[offset:] + keys_to_try[:offset]
         for key, label in keys_to_try:
             try:
                 raw = _groq_call(key, messages)
                 break
+            except TronqueError:
+                # Complétion coupée à max_tokens : réessayer UNE fois (même
+                # clé, même cycle) avec une consigne de concision explicite —
+                # sans ça le sujet est perdu à coup sûr (JSON invalide).
+                if troncature_deja_reduite:
+                    raise ValueError("Réponse tronquée à max_tokens malgré la consigne de concision")
+                troncature_deja_reduite = True
+                print(f"     [GROQ] Complétion tronquée à max_tokens — nouvelle tentative avec consigne de concision")
+                messages = messages + [{
+                    "role": "user",
+                    "content": ("Ta réponse précédente a été coupée car trop longue. "
+                                "Recommence en visant 800 mots de corps MAXIMUM au total : "
+                                "va à l'essentiel, fusionne les redites, ta réponse JSON "
+                                "complète doit tenir en moins de 4000 tokens."),
+                }]
+                continue
             except Exception as e:
                 err = str(e)
                 if "429" in err or "rate_limit" in err.lower():
+                    if _est_quota_journalier(err):
+                        _CLES_MORTES_JOUR.add(key)
+                        print(f"     [GROQ] {label} : quota JOURNALIER épuisé — retirée de la rotation pour ce run")
+                        continue
                     idx = keys_to_try.index((key, label))
                     if idx < len(keys_to_try) - 1:
                         next_label = keys_to_try[idx + 1][1]
@@ -1972,6 +2039,9 @@ def generate(content: str, category_hint: str, extra_sources: list[dict] | None 
         if raw is not None:
             break
     if raw is None:
+        if not [(k, l) for k, l in _all_keys if k and k not in _CLES_MORTES_JOUR]:
+            raise QuotaJournalierEpuise(
+                "Toutes les clés Groq ont épuisé leur quota journalier (TPD)")
         raise RuntimeError(f"Quota Groq épuisé sur toutes les clés après {MAX_RETRY_CYCLES} cycles d'attente")
 
     if "HORS_PERIMETRE" in raw[:60]:
@@ -4781,6 +4851,8 @@ def generer_article(item: dict, dry_run: bool, published: set, new_pub: set, dat
         print(f"     ✓ {art['slug']}.html ({art['nb_sources']} src, {art.get('nb_mots', 0)} mots)")
         return True
 
+    except QuotaJournalierEpuise:
+        raise  # remonte à la boucle principale : arrêter le run, pas juste ce sujet
     except ValueError as e:
         print(f"     [REJET] {e}")
     except json.JSONDecodeError:
@@ -4884,9 +4956,15 @@ def run(dry_run=False, text_input=None, nb_max=12):
             if elapsed > _BUDGET_SECONDES:
                 print(f"  [BUDGET] {elapsed/60:.1f} min écoulées — arrêt pour éviter le timeout GitHub (budget={_BUDGET_SECONDES//60} min)")
                 break
-            if generer_article(item, dry_run, published, new_pub, date_pub, published_topics):
-                # Ajouter le titre généré à published_topics pour éviter les doublons dans la même session
-                published_topics.add(item.get("title", ""))
+            try:
+                if generer_article(item, dry_run, published, new_pub, date_pub, published_topics):
+                    # Ajouter le titre généré à published_topics pour éviter les doublons dans la même session
+                    published_topics.add(item.get("title", ""))
+            except QuotaJournalierEpuise:
+                print(f"\n  [ARRÊT] Quota Groq JOURNALIER épuisé sur toutes les clés — "
+                      f"inutile d'attendre (le budget ne se libère qu'à minuit UTC). "
+                      f"Les sujets restants seront retentés au prochain créneau.")
+                break
             time.sleep(1)
 
     if new_pub and not dry_run:
