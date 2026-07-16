@@ -4464,19 +4464,20 @@ def generer_article(item: dict, dry_run: bool, published: set, new_pub: set, dat
     content = full_content if len(full_content) > 500 else item["content"]
 
     # Recherche de sources corroborantes : DuckDuckGo + PubMed
-    # EXPÉRIMENTATION EN COURS (15/07) — hypothèse : le facteur limitant n'est
-    # pas la profondeur de chaque source (testé puis annulé : snippet_len
-    # 950→3000, voir generate()) mais leur NOMBRE. L'audit des logs de prod
-    # montre que presque tous les sujets saturent déjà à 8 sources réelles,
-    # exactement le plafond ci-dessous — donc le pipeline ne cherche jamais
-    # plus loin que ça, quel que soit le sujet. Test : 8 → 15, UNE seule
-    # variable. Coût connu : jusqu'à 7 scrapes fetch_full_content() séquentiels
-    # de plus par sujet (~15s timeout chacun dans le pire cas), donc un run
-    # plus lent — le budget de 4h/300min laisse la marge. Mesure prévue sur
-    # le prochain run via le log "[X sources réelles]" déjà en place + le
-    # bilan qualité (primaire/secondaire/tertiaire) + la profondeur des
-    # articles publiés. Revenir à 8 si le gain de sources n'est pas réel
-    # (doublons post-dédup) ou si le coût temps devient trop élevé.
+    # Historique : max_results 8→15 testé le 15/07 pour élargir le vivier de
+    # sources distinctes. Résultat mesuré sur 2 runs complets : 0 article
+    # publié à chaque fois — la plupart des sujets remontaient 13-15 sources,
+    # gonflant certains prompts à >11000 tokens, à un cheveu du plafond Groq
+    # de 12000 tokens/minute PAR CLÉ (découvert le 15/07 via une erreur 413).
+    # Un seul appel pouvait donc épuiser le budget d'une clé, et comme tous
+    # les sujets du batch avaient la même taille de prompt gonflée, les 4
+    # clés se retrouvaient à sec simultanément.
+    # Fix : chercher large (15) pour avoir un vrai choix, mais N'INJECTER
+    # dans le prompt que les 8 meilleures (triées par qualité de source —
+    # primaire > secondaire > tertiaire) — voir le tri juste après
+    # l'enrichissement. Le prompt retrouve sa taille d'origine, mais avec de
+    # meilleures sources qu'avant (choisies parmi 15 candidates, pas les 8
+    # premières trouvées).
     extra = duckduckgo_search(item["title"] + " " + cat, max_results=15)
     pubmed = pubmed_search(item["title"], max_results=4)
     # Fusionner sans doublons
@@ -4493,6 +4494,15 @@ def generer_article(item: dict, dry_run: bool, published: set, new_pub: set, dat
             full = fetch_full_content(src["url"])
             if len(full) > 500:
                 src["snippet"] = full[:8000]
+
+    # Plafond d'injection dans le prompt : les 8 meilleures par qualité
+    # (primaire d'abord, puis secondaire, puis tertiaire), stable à qualité
+    # égale (tri stable + ordre de découverte conservé en second critère).
+    _QUALITE_RANG = {"primaire": 0, "secondaire": 1, "tertiaire": 2, "interdite": 3}
+    extra = sorted(
+        extra,
+        key=lambda s: _QUALITE_RANG.get(qualite_source(s.get("url", "")), 3)
+    )[:8]
 
     # Bloquer si moins de 5 sources réelles trouvées AVANT même de générer.
     # Seuil relevé de 3 à 5 : avec seulement 3-4 sources, le correcteur (passe 3
