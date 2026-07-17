@@ -110,7 +110,18 @@ jobs:
             if git push; then PUSHED=1; break; fi
             echo "Push rejeté (tentative $i) — rebase et nouvel essai..."
             git fetch origin main
-            git rebase origin/main || { echo "Rebase impossible, abandon (commit conservé localement)."; git rebase --abort; break; }
+            # Conflits sur les fichiers générés (data/*.json, index, feed…) :
+            # consigne du projet — prendre la version de main ("ours" pendant
+            # un rebase = la branche amont), les articles nouveaux ne sont
+            # jamais en conflit (fichiers créés, pas modifiés).
+            if ! git rebase origin/main; then
+              git checkout --ours -- data/ index.html archive.html feed.xml sitemap.xml categories/ 2>/dev/null || true
+              git add -A
+              # --continue si le commit garde du contenu, --skip s'il est
+              # devenu vide (run à 0 article dont la seule modif était le
+              # fichier en conflit — rien à conserver dans ce cas).
+              GIT_EDITOR=true git rebase --continue || git rebase --skip || { echo "Rebase impossible, abandon (commit conservé localement)."; git rebase --abort; break; }
+            fi
             sleep 5
           done
           [ "$PUSHED" = "1" ] || { echo "::error::Push impossible après plusieurs tentatives."; exit 1; }
