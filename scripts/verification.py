@@ -187,6 +187,13 @@ def _llm_call(prompt: str, max_tokens: int = 6000) -> str:
     ce n'est pas un sujet perdu comme en génération."""
     if not GROQ_KEYS:
         raise RuntimeError("Aucune clé Groq disponible")
+    # La limite TPM Groq (12 000/clé) compte prompt + max_tokens RÉSERVÉS,
+    # pas les tokens réellement produits : une réservation trop large fait
+    # rejeter l'appel en 413 quel que soit le quota restant. On plafonne donc
+    # la réservation à ce que la fenêtre laisse après le prompt (~3,3 car/token
+    # en français, marge de sécurité incluse dans le plafond 11 500).
+    prompt_estime = int(len(prompt) / 3.3)
+    max_tokens = max(1500, min(max_tokens, 11_500 - prompt_estime))
     MAX_CYCLES, WAIT = 2, 62
     last_err = None
     for cycle in range(MAX_CYCLES):
@@ -273,7 +280,11 @@ def detecter(art: dict) -> dict:
     prompt = (PROMPT_DETECTION
               .replace("{ARTICLE_JSON}", json.dumps(art, ensure_ascii=False))
               .replace("{SOURCES}", _sources_block(art)))
-    return _extract_json(_llm_call(prompt, max_tokens=8000))
+    # Groq compte prompt + max_tokens réservés dans la limite TPM (12 000) :
+    # avec 8000 réservés, une détection à prompt ~4 400 tokens dépassait le
+    # plafond en un seul appel (413 "Requested 12366") et ne pouvait JAMAIS
+    # passer. Un rapport de détection tient largement en 4 000 tokens.
+    return _extract_json(_llm_call(prompt, max_tokens=4000))
 
 
 def corriger(art: dict, rapport: dict) -> dict:

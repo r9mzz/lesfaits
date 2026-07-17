@@ -1755,6 +1755,13 @@ def _groq_call(api_key: str, messages: list, max_tokens: int = 6000) -> str:
     3 sujets perdus ainsi les 15-16/07, dont deux fois le même.
     """
     client = Groq(api_key=api_key)
+    # La limite TPM (12 000/clé) compte prompt + max_tokens RÉSERVÉS, pas les
+    # tokens réellement produits : prompt lourd + réservation généreuse = 413
+    # « Request too large » systématique, quel que soit le quota restant.
+    # On plafonne la réservation à ce que la fenêtre laisse après le prompt
+    # (~3,3 caractères/token en français, marge incluse dans le plafond 11 500).
+    prompt_estime = int(sum(len(m.get("content", "")) for m in messages) / 3.3)
+    max_tokens = max(1500, min(max_tokens, 11_500 - prompt_estime))
     response = client.chat.completions.create(
         model="llama-3.3-70b-versatile",
         max_tokens=max_tokens,
