@@ -1,0 +1,42 @@
+name: Groq — Test état des clés
+
+# Diagnostic manuel uniquement : envoie à chaque clé une complétion de
+# 1 token (« ok ») pour lire son état réel — 200 = clé utilisable,
+# 429 « per day » = quota journalier épuisé, 429 « per minute » = TPM
+# temporaire. Coût : ~10 tokens par clé, négligeable.
+on:
+  workflow_dispatch:
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Tester chaque clé
+        env:
+          K1: ${{ secrets.GROQ_API_KEY }}
+          K2: ${{ secrets.GROQ_API_KEY_2 }}
+          K3: ${{ secrets.GROQ_API_KEY_3 }}
+          K4: ${{ secrets.GROQ_API_KEY_4 }}
+          K5: ${{ secrets.GROQ_API_KEY_5 }}
+          K6: ${{ secrets.GROQ_API_KEY_6 }}
+          K7: ${{ secrets.GROQ_API_KEY_7 }}
+        run: |
+          for i in 1 2 3 4 5 6 7; do
+            key=$(eval echo "\$K$i")
+            if [ -z "$key" ]; then echo "clé $i : (absente)"; continue; fi
+            body=$(curl -s -w "\n%{http_code}" https://api.groq.com/openai/v1/chat/completions \
+              -H "Authorization: Bearer $key" -H "Content-Type: application/json" \
+              -d '{"model":"llama-3.3-70b-versatile","max_tokens":1,"messages":[{"role":"user","content":"ok"}]}')
+            code=$(echo "$body" | tail -1)
+            msg=$(echo "$body" | head -1 | head -c 300)
+            if [ "$code" = "200" ]; then
+              echo "clé $i : ✅ 200 — utilisable"
+            elif echo "$msg" | grep -qi "per day\|TPD"; then
+              echo "clé $i : ❌ 429 quota JOURNALIER épuisé"
+            elif [ "$code" = "429" ]; then
+              echo "clé $i : ⏳ 429 limite par minute (temporaire)"
+            else
+              echo "clé $i : ⚠ HTTP $code — $(echo "$msg" | grep -o '"message":"[^"]*"' | head -c 200)"
+            fi
+          done
