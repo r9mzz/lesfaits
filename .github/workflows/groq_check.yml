@@ -22,20 +22,33 @@ jobs:
           K6: ${{ secrets.GROQ_API_KEY_6 }}
           K7: ${{ secrets.GROQ_API_KEY_7 }}
         run: |
+          # Sonde de solde journalier : on RÉSERVE 10 000 tokens (max_tokens)
+          # mais on n'en CONSOMME que ~10 (« réponds ok » ; la réservation
+          # non utilisée n'est pas décomptée). Si le solde TPD de la clé est
+          # sous 10 000, Groq refuse en 429 avec les chiffres exacts
+          # (Limit X, Used Y) → on affiche le solde précis. Si ça passe,
+          # le solde couvre au moins un article complet.
           for i in 1 2 3 4 5 6 7; do
             key=$(eval echo "\$K$i")
             if [ -z "$key" ]; then echo "clé $i : (absente)"; continue; fi
             body=$(curl -s -w "\n%{http_code}" https://api.groq.com/openai/v1/chat/completions \
               -H "Authorization: Bearer $key" -H "Content-Type: application/json" \
-              -d '{"model":"llama-3.3-70b-versatile","max_tokens":1,"messages":[{"role":"user","content":"ok"}]}')
+              -d '{"model":"llama-3.3-70b-versatile","max_tokens":10000,"messages":[{"role":"user","content":"Réponds uniquement : ok"}]}')
             code=$(echo "$body" | tail -1)
-            msg=$(echo "$body" | head -1 | head -c 300)
+            msg=$(echo "$body" | head -1 | head -c 500)
             if [ "$code" = "200" ]; then
-              echo "clé $i : ✅ 200 — utilisable"
+              echo "clé $i : ✅ solde journalier ≥ 10 000 tokens (au moins un article complet)"
             elif echo "$msg" | grep -qi "per day\|TPD"; then
-              echo "clé $i : ❌ 429 quota JOURNALIER épuisé"
+              chiffres=$(echo "$msg" | grep -oE "Limit [0-9]+, Used [0-9]+" | head -1)
+              limit=$(echo "$chiffres" | grep -oE "Limit [0-9]+" | grep -oE "[0-9]+")
+              used=$(echo "$chiffres" | grep -oE "Used [0-9]+" | grep -oE "[0-9]+")
+              if [ -n "$limit" ] && [ -n "$used" ]; then
+                echo "clé $i : 🔶 solde journalier = $((limit - used)) tokens (Limit $limit, Used $used)"
+              else
+                echo "clé $i : ❌ 429 journalier sans chiffres — $(echo "$msg" | head -c 200)"
+              fi
             elif [ "$code" = "429" ]; then
-              echo "clé $i : ⏳ 429 limite par minute (temporaire)"
+              echo "clé $i : ⏳ 429 limite par MINUTE (réessayer dans 60 s) — $(echo "$msg" | grep -o '"message":"[^"]*"' | head -c 150)"
             else
               echo "clé $i : ⚠ HTTP $code — $(echo "$msg" | grep -o '"message":"[^"]*"' | head -c 200)"
             fi
