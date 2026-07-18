@@ -7,13 +7,16 @@ on:
     # génération TRÈS en avance sur le déploiement (07h/18h Paris) pour que le
     # lot soit toujours prêt même avec un gros retard, et sur une minute non
     # ronde pour réduire l'attente en file.
-    # Matin ~01h05 Paris — été (CEST UTC+2) : avril–octobre. Avancé de 02h05
-    # à 01h05 : le 11/07 le cron est parti avec 3h26 de retard (05h31) — une
-    # heure de marge en plus garantit une génération terminée avant le
-    # déploiement de 07h même dans le pire cas observé (~4h de retard).
-    - cron: "5 23 * 4-10 *"
-    # Matin ~01h05 Paris — hiver (CET UTC+1) : novembre–mars
-    - cron: "5 0 * 11-12,1-3 *"
+    # Matin ~02h10 Paris — été (CEST UTC+2) : avril–octobre. Calé à 00h10 UTC
+    # (18/07) : le quota JOURNALIER Groq (TPD) se réinitialise à minuit UTC —
+    # l'ancien départ à 23h05 UTC faisait démarrer le run 55 min AVANT le
+    # reset, sur les fonds de quota de la veille, avec le reset en plein
+    # milieu du run. À 00h10 UTC, le run part chaque nuit avec 7 × 100 000
+    # tokens frais. La marge avant le déploiement de 07h reste ~5h, au-dessus
+    # du pire retard cron observé (~4h le 11/07).
+    # (02h10 Paris l'été, 01h10 l'hiver — un seul cron toute l'année, le
+    # calage sur le reset UTC ne dépend plus de l'heure de Paris)
+    - cron: "10 0 * * *"
     # Soir ~13h05 Paris — été (CEST UTC+2) : avril–octobre
     - cron: "5 11 * 4-10 *"
     # Soir ~13h05 Paris — hiver (CET UTC+1) : novembre–mars
