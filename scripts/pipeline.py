@@ -4817,6 +4817,32 @@ def generer_article(item: dict, dry_run: bool, published: set, new_pub: set, dat
             return False
         art["statut_verification"] = statut_verif
 
+        # ── Re-contrôle déterministe APRÈS correction LLM ──
+        # Le correcteur (passe 3) réécrit le texte APRÈS le passage des
+        # garde-fous : sa sortie partait en publication sans re-vérification.
+        # Constaté le 18/07 (article douleurs chroniques) : phrases dupliquées
+        # mot pour mot entre sections avec attributions différentes, et corps
+        # retombé à 320 mots sous le plancher de 400. Pas de relance Groq ici
+        # (quota rare) : un article que la correction a dégradé est rejeté,
+        # le sujet sera retenté au prochain run.
+        if statut_verif == "corrige_automatiquement":
+            _mots_final = sum(
+                len(str((art.get("corps") or {}).get(k, "") or "").split())
+                for k in ("faits", "contexte", "nuances")
+            )
+            _defauts = []
+            if _mots_final < 400:
+                _defauts.append(f"{_mots_final} mots (< 400)")
+            if faits_repetitifs(art):
+                _defauts.append("répétitions inter/intra-sections")
+            if resume_repete_corps(art):
+                _defauts.append("résumé répété dans le corps")
+            if _defauts:
+                print(f"     [REJET POST-CORRECTION] La correction a dégradé "
+                      f"l'article ({' + '.join(_defauts)}) — non publié, "
+                      f"sujet retenté au prochain run")
+                return False
+
         # La catégorie publiée est TOUJOURS celle du classifieur déterministe
         # (detect_category, lexique v2) — jamais celle choisie par le LLM, dont
         # la liste autorisée dans le prompt était incomplète (pas de "sante")
