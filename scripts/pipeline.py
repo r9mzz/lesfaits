@@ -1806,10 +1806,16 @@ def generate(content: str, category_hint: str, extra_sources: list[dict] | None 
     # article) multipliait le coût par ~4 et épuisait le quota Groq quotidien
     # après 2-3 articles à peine.
     is_retry = bool(retry_feedback or repetition_feedback or intra_feedback or selon_feedback or expand_feedback or titre_feedback or cliches_feedback or intro_feedback)
-    # La relance "expand" a besoin de PLUS de matière source (pas moins) : le
-    # problème est justement que l'article n'a pas assez puisé dans les
-    # sources disponibles. Les autres relances corrigent un défaut déjà connu
-    # sans avoir besoin de ré-analyser le contenu en détail.
+    # La relance "expand" a besoin de matière source (le problème est que
+    # l'article n'a pas assez puisé dedans), mais PAS des extraits intégraux :
+    # run du 18/07 matin, 2 sujets perdus en « réponse tronquée » parce que le
+    # prompt d'étoffement (~10 000 tokens avec extraits complets + article
+    # précédent) ne laissait que ~1 500 tokens de réponse dans la fenêtre TPM
+    # de 12 000 — trop peu pour un article JSON complet (~2 000 tokens). Des
+    # extraits raccourcis mais une réponse qui peut FINIR valent mieux que des
+    # extraits complets pour une réponse coupée en plein JSON (arbitrage
+    # validé par Nahil le 18/07). Les autres relances corrigent un défaut déjà
+    # connu sans avoir besoin de ré-analyser le contenu en détail.
     is_expand = bool(expand_feedback)
     # Expérimentation snippet_len 950→3000 (15/07) ANNULÉE avant mesure :
     # l'audit des logs de prod montre que presque tous les sujets saturent
@@ -1820,7 +1826,7 @@ def generate(content: str, category_hint: str, extra_sources: list[dict] | None 
     # (voir duckduckgo_search) — une hypothèse, une mesure à la fois.
     # 950 car. ≈ 2-3 paragraphes : suffisant pour ancrer des faits précis
     # sans dépasser le budget Groq (déjà rate-limité en continu, voir logs).
-    snippet_len = 950 if (not is_retry or is_expand) else 200
+    snippet_len = 950 if not is_retry else (450 if is_expand else 200)
     sources_block = ""
     # Noms lisibles dérivés des URLs — utilisés dans le prompt ET dans les règles d'attribution
     source_noms: list[str] = []
@@ -1856,7 +1862,7 @@ def generate(content: str, category_hint: str, extra_sources: list[dict] | None 
         f"d'un extrait, ou tout média connu par ailleurs mais absent de la liste ci-dessus.\n\n"
     )
 
-    content_len = 7000 if (not is_retry or is_expand) else 1500
+    content_len = 7000 if not is_retry else (2500 if is_expand else 1500)
 
     # Relance avec article précédent : le modèle CORRIGE l'article existant au
     # lieu de tout réécrire depuis des sources tronquées — sans ce bloc, les
