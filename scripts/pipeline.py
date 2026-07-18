@@ -1351,6 +1351,24 @@ def faits_repetitifs(art: dict) -> list[str]:
     return violations
 
 
+def _mots_totaux(art: dict) -> int:
+    """Compte de mots faisant foi pour le plancher éditorial (500 cible /
+    400 plancher) ET pour le badge public — chapeau + faits + contexte +
+    nuances. Le chapeau compte depuis le 18/07 (décision Nahil) : tant que
+    resume_repete_corps + la réparation des doublons empêchent un chapeau
+    redondant avec le corps, le compter ne récompense plus l'auto-résumé,
+    et ça aligne le chiffre affiché sur ce qu'un lecteur mesure en
+    copiant l'article (écart 320 affiché / 417 réels sur l'article
+    douleurs-chroniques, qui a motivé ce changement)."""
+    corps = art.get("corps") or {}
+    mots = sum(len(str(corps.get(k, "") or "").split()) for k in ("faits", "contexte", "nuances"))
+    resume = art.get("resume") or []
+    if isinstance(resume, str):
+        resume = [resume]
+    mots += sum(len(str(r or "").split()) for r in resume)
+    return mots
+
+
 def _supprimer_phrases_dupliquees(art: dict) -> int:
     """Réparation déterministe post-correction : supprime, dans le corps,
     toute phrase quasi identique à une phrase déjà conservée plus haut dans
@@ -4830,10 +4848,7 @@ def generer_article(item: dict, dry_run: bool, published: set, new_pub: set, dat
         # sur le nombre de MOTS réel (pas une conversion approximative en
         # caractères) et sur le vrai seuil de 4 sources.
         def _deficit_longueur_sources(a: dict) -> tuple[int, int]:
-            corps = a.get("corps") or {}
-            mots = sum(len(str(corps.get(k, "") or "").split()) for k in ("faits", "contexte", "nuances"))
-            nb_src = len(a.get("sources") or [])
-            return mots, nb_src
+            return _mots_totaux(a), len(a.get("sources") or [])
 
         MIN_MOTS_CORPS = 500
         MIN_SOURCES = 3
@@ -4852,10 +4867,10 @@ def generer_article(item: dict, dry_run: bool, published: set, new_pub: set, dat
                 details.append(f"{nb_src} source(s) citée(s) au lieu de {MIN_SOURCES} minimum")
             print(f"     [GARDE] Article trop court/peu sourcé ({' + '.join(details)}) — relance d'étoffement…")
             expand_msg = (
-                f"Ton article ne fait que {mots} mots sur les sections faits+contexte+nuances "
+                f"Ton article ne fait que {mots} mots (chapeau + faits + contexte + nuances) "
                 f"(minimum {MIN_MOTS_CORPS}) et ne cite que {nb_src} source(s) (minimum {MIN_SOURCES})."
                 if manque_mots and manque_src else
-                f"Ton article ne fait que {mots} mots sur les sections faits+contexte+nuances "
+                f"Ton article ne fait que {mots} mots (chapeau + faits + contexte + nuances) "
                 f"(minimum {MIN_MOTS_CORPS})." if manque_mots else
                 f"Ton article ne cite que {nb_src} source(s) (minimum {MIN_SOURCES})."
             )
@@ -4920,15 +4935,12 @@ def generer_article(item: dict, dry_run: bool, published: set, new_pub: set, dat
                 if _n_supp:
                     print(f"     [RÉPARATION] {_n_supp} phrase(s) dupliquée(s) "
                           f"supprimée(s) après correction LLM")
-            _mots_final = sum(
-                len(str((art.get("corps") or {}).get(k, "") or "").split())
-                for k in ("faits", "contexte", "nuances")
-            )
+            _mots_final = _mots_totaux(art)
             _restants = faits_repetitifs(art)
-            if _mots_final < 400 or _restants:
+            if _mots_final < MIN_MOTS_CORPS - TOLERANCE_MOTS or _restants:
                 _defauts = []
-                if _mots_final < 400:
-                    _defauts.append(f"{_mots_final} mots (< 400)")
+                if _mots_final < MIN_MOTS_CORPS - TOLERANCE_MOTS:
+                    _defauts.append(f"{_mots_final} mots (< {MIN_MOTS_CORPS - TOLERANCE_MOTS})")
                 if _restants:
                     _defauts.append("répétitions résiduelles")
                 print(f"     [REJET POST-CORRECTION] Article dégradé même "
@@ -4946,12 +4958,9 @@ def generer_article(item: dict, dry_run: bool, published: set, new_pub: set, dat
         # APRÈS correction, jamais le nombre fourni en entrée
         art["nb_sources"] = len(art.get("sources", []))
 
-        # Compter les mots finaux pour le système de scoring longueur
-        corps = art.get("corps") or {}
-        art["nb_mots"] = sum(
-            len(str(corps.get(k, "") or "").split())
-            for k in ("faits", "contexte", "nuances")
-        )
+        # Compter les mots finaux pour le système de scoring longueur ET le
+        # badge public (chapeau + corps — voir _mots_totaux)
+        art["nb_mots"] = _mots_totaux(art)
 
         try:
             html = build_article_html(art, date_pub)
