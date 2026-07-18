@@ -319,7 +319,7 @@ def corriger(art: dict, rapport: dict) -> dict:
               .replace("{ARTICLE_JSON}", json.dumps(art, ensure_ascii=False))
               .replace("{RAPPORT}", json.dumps(rapport, ensure_ascii=False))
               .replace("{SOURCES}", _sources_block(art)))
-    corrige = _extract_json(_llm_call(prompt, max_tokens=8000))
+    corrige = _extract_json(_llm_call(prompt, max_tokens=4500))
     # Champs techniques jamais modifiables par le correcteur
     for k in ("slug", "categorie", "image_keyword"):
         if k in art:

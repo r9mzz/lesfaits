@@ -22,22 +22,23 @@ jobs:
           K6: ${{ secrets.GROQ_API_KEY_6 }}
           K7: ${{ secrets.GROQ_API_KEY_7 }}
         run: |
-          # Sonde de solde journalier : on RÉSERVE 10 000 tokens (max_tokens)
-          # mais on n'en CONSOMME que ~10 (« réponds ok » ; la réservation
-          # non utilisée n'est pas décomptée). Si le solde TPD de la clé est
-          # sous 10 000, Groq refuse en 429 avec les chiffres exacts
-          # (Limit X, Used Y) → on affiche le solde précis. Si ça passe,
-          # le solde couvre au moins un article complet.
+          # ⚠ LEÇON DU 18/07 : Groq décompte du quota journalier (TPD) la
+          # RÉSERVATION max_tokens, pas la consommation réelle — une sonde à
+          # max_tokens=10000 a coûté 10 000 tokens de quota par clé (soldes
+          # tombés de ~10 020 à ~20). La sonde réserve donc le MINIMUM (1) :
+          # 200 = clé vivante ; 429 « per day » = solde exact dans le corps
+          # d'erreur (Limit X, Used Y). Le solde d'une clé vivante n'est pas
+          # mesurable sans le dépenser — ne JAMAIS remonter cette valeur.
           for i in 1 2 3 4 5 6 7; do
             key=$(eval echo "\$K$i")
             if [ -z "$key" ]; then echo "clé $i : (absente)"; continue; fi
             body=$(curl -s -w "\n%{http_code}" https://api.groq.com/openai/v1/chat/completions \
               -H "Authorization: Bearer $key" -H "Content-Type: application/json" \
-              -d '{"model":"llama-3.3-70b-versatile","max_tokens":10000,"messages":[{"role":"user","content":"Réponds uniquement : ok"}]}')
+              -d '{"model":"llama-3.3-70b-versatile","max_tokens":1,"messages":[{"role":"user","content":"Réponds uniquement : ok"}]}')
             code=$(echo "$body" | tail -1)
             msg=$(echo "$body" | head -1 | head -c 500)
             if [ "$code" = "200" ]; then
-              echo "clé $i : ✅ solde journalier ≥ 10 000 tokens (au moins un article complet)"
+              echo "clé $i : ✅ clé vivante (solde non mesurable sans le dépenser)"
             elif echo "$msg" | grep -qi "per day\|TPD"; then
               chiffres=$(echo "$msg" | grep -oE "Limit [0-9]+, Used [0-9]+" | head -1)
               limit=$(echo "$chiffres" | grep -oE "Limit [0-9]+" | grep -oE "[0-9]+")

@@ -1,4 +1,4 @@
-﻿"""
+"""
 Les Faits — Pipeline éditorial IA v2
 ====================================
 Sources RSS reelles → Filtre éditorial → Groq (Llama) → HTML → Site reconstruit
@@ -1805,7 +1805,7 @@ def _tpd_restant(err: str) -> int | None:
     return int(m.group(1)) if m else None
 
 
-def _groq_call(api_key: str, messages: list, max_tokens: int = 6000) -> str:
+def _groq_call(api_key: str, messages: list, max_tokens: int = 3500) -> str:
     """Appelle Groq avec la clé donnée. Lève une exception en cas d'erreur.
 
     max_tokens relevé de 4500 à 6000 le 15/07 : deux générations valides ont été
