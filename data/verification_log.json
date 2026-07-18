@@ -2963,5 +2963,183 @@
     "angle_insuffisant": true,
     "raison": "L'article ressemble à une fiche pédagogique générale sans fait déclencheur daté",
     "article_type": "dossier_science"
+  },
+  {
+    "slug": "enquete-edouard-philippe-lanceuse-dalerte",
+    "statut": "rejete_sensible",
+    "date": "2026-07-18T14:01:11",
+    "sujet_sensible": true,
+    "raison": "L'article implique une affaire judiciaire en cours concernant Edouard Philippe",
+    "article_type": "actu"
+  },
+  {
+    "slug": "le-cheval-blanc-d-uffington",
+    "statut": "corrige_automatiquement",
+    "date": "2026-07-18T14:02:13",
+    "problemes_initiaux": 4,
+    "tentatives": 1,
+    "problemes_residuels_style": 6,
+    "rapport_initial": {
+      "conforme": false,
+      "sujet_sensible": false,
+      "sujet_sensible_raison": "",
+      "angle_insuffisant": false,
+      "angle_insuffisant_raison": "",
+      "nature_contenu": "actualite_factuelle",
+      "problemes": [
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "source_non_editoriale",
+          "phrase_exacte": "D'après Wikipédia, le cheval blanc d'Uffington est situé à 51° 34′ 40″ nord, 1° 34′ 00″ ouest.",
+          "explication": "Wikipédia est utilisée comme source pour un fait factuel, mais elle n'est pas une source éditoriale traditionnelle."
+        },
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "source_non_editoriale",
+          "phrase_exacte": "Le cheval et ses patrimoines, une publication du Ministère de la Culture, met en avant l'importance de préserver les connaissances et les traditions liées aux chevaux, qui sont un patrimoine culturel important pour la France et le Royaume-Uni.",
+          "explication": "Le site 'Le cheval et ses patrimoines' est une source non éditoriale, car il s'agit d'un site web du Ministère de la Culture et non d'une publication éditoriale traditionnelle."
+        },
+        {
+          "bloc": 4,
+          "section": "contexte",
+          "type": "redondance",
+          "phrase_exacte": "Le cheval blanc d'Uffington est un exemple de l'importance de la conservation du patrimoine culturel, qui est un thème récurrent dans les publications du Ministère de la Culture.",
+          "explication": "Cette phrase répète l'idée déjà présente dans le résumé et dans la section 'faits'."
+        },
+        {
+          "bloc": 4,
+          "section": "nuances",
+          "type": "redondance",
+          "phrase_exacte": "Il est essentiel de trouver un équilibre entre la conservation et la préservation des sites historiques, tout en tenant compte des facteurs environnementaux et des besoins des communautés locales.",
+          "explication": "Cette phrase est générique et ne présente pas d'information spécifique au sujet du cheval blanc d'Uffington, elle pourrait être appliquée à n'importe quel site historique."
+        }
+      ]
+    },
+    "article_type": "actu"
+  },
+  {
+    "slug": "moustique-tigre-adaptation-rapide",
+    "statut": "corrige_automatiquement",
+    "date": "2026-07-18T14:04:38",
+    "problemes_initiaux": 5,
+    "tentatives": 1,
+    "problemes_residuels_style": 4,
+    "rapport_initial": {
+      "conforme": false,
+      "sujet_sensible": false,
+      "sujet_sensible_raison": "",
+      "angle_insuffisant": false,
+      "angle_insuffisant_raison": "",
+      "nature_contenu": "actualite_factuelle",
+      "problemes": [
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "source_non_editoriale",
+          "phrase_exacte": "La santé au quotidien souligne que les moustiques tigres démontrent une capacité d’adaptation remarquable, et que leur expansion géographique soulève des inquiétudes quant à l’endémisation de maladies vectorielles en France.",
+          "explication": "La santé au quotidien n'est pas une source éditoriale traditionnelle, mais plutôt un site web d'information sur la santé."
+        },
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "source_non_editoriale",
+          "phrase_exacte": "Pour chaque vie, la science agit rapporte que les moustiques tigres sont en voie de coloniser une part croissante de la planète, et que leur présence soulève des inquiétudes quant à la santé publique.",
+          "explication": "Pour chaque vie, la science agit n'est pas une source éditoriale traditionnelle, mais plutôt un site web d'information sur la science et la santé."
+        },
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "source_non_editoriale",
+          "phrase_exacte": "Lesjours indique que le moustique tigre est capable de s’adapter à de nouveaux environnements, ce qui rend difficile la lutte contre sa propagation.",
+          "explication": "Lesjours n'est pas clairement identifié comme une source éditoriale traditionnelle, mais plutôt un site web d'information sur les actualités."
+        },
+        {
+          "bloc": 4,
+          "section": "contexte",
+          "type": "redondance",
+          "phrase_exacte": "Le moustique tigre a été introduit en France métropolitaine en 2004, et a progressivement colonisé de nombreux territoires. Le réchauffement climatique continue d'ouvrir de nouveaux territoires aux moustiques tigres, ce qui soulève des inquiétudes quant à l’endémisation de maladies vectorielles en France.",
+          "explication": "Cette phrase répète des informations déjà présentées dans la section 'faits'."
+        },
+        {
+          "bloc": 4,
+          "section": "nuances",
+          "type": "jugement_de_valeur",
+          "phrase_exacte": "Il est essentiel de prendre des mesures pour prévenir la propagation de ces maladies, notamment en sensibilisant la population aux risques liés aux moustiques tigres et en développant des méthodes de lutte contre leur propagation.",
+          "explication": "Cette phrase contient un jugement de valeur ('il est essentiel') qui n'est pas neutre."
+        }
+      ]
+    },
+    "article_type": "actu"
+  },
+  {
+    "slug": "recherche-moustiques-lutte-maladies-virales",
+    "statut": "rejete_qualite",
+    "date": "2026-07-18T14:05:24",
+    "angle_insuffisant": true,
+    "raison": "L'article ressemble à une fiche pédagogique générale sans fait déclencheur daté",
+    "article_type": "dossier_science"
+  },
+  {
+    "slug": "douleurs-chroniques-femmes-sante-publique",
+    "statut": "corrige_automatiquement",
+    "date": "2026-07-18T14:07:25",
+    "problemes_initiaux": 6,
+    "tentatives": 1,
+    "problemes_residuels_style": 4,
+    "rapport_initial": {
+      "conforme": false,
+      "sujet_sensible": false,
+      "sujet_sensible_raison": "",
+      "angle_insuffisant": false,
+      "angle_insuffisant_raison": "",
+      "nature_contenu": "actualite_factuelle",
+      "problemes": [
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "source_non_editoriale",
+          "phrase_exacte": "Doctissimo note que la douleur chronique est un réel fléau médical et social, avec des conséquences importantes sur la qualité de vie des patients.",
+          "explication": "Doctissimo est une source non-journalistique/non-institutionnelle utilisée comme autorité factuelle."
+        },
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "source_non_editoriale",
+          "phrase_exacte": "Assuré précise que la douleur chronique est le symptôme principal de la fibromyalgie, qui est caractérisée par des douleurs diffuses persistantes accompagnées de fatigue chronique, des troubles du sommeil et de la concentration.",
+          "explication": "Assuré est une source non-journalistique/non-institutionnelle utilisée comme autorité factuelle."
+        },
+        {
+          "bloc": 2,
+          "section": "contexte",
+          "type": "source_non_editoriale",
+          "phrase_exacte": "CNP Assurances note que les femmes sont davantage sujettes aux douleurs chroniques, en particulier lorsqu’elles sont d’origine musculaire, osseuse ou viscérale.",
+          "explication": "CNP Assurances est une source non-journalistique/non-institutionnelle utilisée comme autorité factuelle."
+        },
+        {
+          "bloc": 2,
+          "section": "nuances",
+          "type": "source_non_editoriale",
+          "phrase_exacte": "Doctissimo note que la douleur chronique est un réel fléau médical et social, et que les conséquences importantes sur la qualité de vie des patients nécessitent une prise en charge adaptée et efficace.",
+          "explication": "Doctissimo est une source non-journalistique/non-institutionnelle utilisée comme autorité factuelle."
+        },
+        {
+          "bloc": 4,
+          "section": "nuances",
+          "type": "redondance",
+          "phrase_exacte": "Les femmes souffrant de douleurs chroniques font face à des défis uniques en termes de diagnostic et de traitement, et il est essentiel de prendre en compte leurs besoins spécifiques pour améliorer leur prise en charge.",
+          "explication": "La phrase répète une idée déjà présente dans la section 'faits'."
+        },
+        {
+          "bloc": 4,
+          "section": "nuances",
+          "type": "redondance",
+          "phrase_exacte": "Futura Sciences indique que les réponses neuronales sont différentes pour les deux sexes, ce qui pourrait expliquer pourquoi les femmes sont largement majoritaires à souffrir de douleurs chroniques.",
+          "explication": "La phrase répète une idée déjà présente dans la section 'faits'."
+        }
+      ]
+    },
+    "article_type": "actu"
   }
 ]
