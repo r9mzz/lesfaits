@@ -1790,6 +1790,21 @@ def _est_quota_journalier(err: str) -> bool:
     return "per day" in e or "tpd" in e or "tokens per day" in e or "requests per day" in e or "rpd" in e
 
 
+def _tpd_restant(err: str) -> int | None:
+    """Extrait le solde journalier réel du corps d'erreur Groq
+    (« Limit 100000, Used 97500, Requested 8000 »). Un 429 « per day » ne
+    signifie PAS que la clé est vide : seulement que CETTE requête (prompt +
+    max_tokens réservés) dépasse ce qui reste. Constat du 18/07 : des clés
+    déclarées « épuisées » à 14h08 acceptaient des appels à 16h11 — elles
+    n'étaient pas vides, nos requêtes étaient trop grosses pour leur solde.
+    Retourne None si les chiffres sont absents du message."""
+    m = re.search(r"Limit (\d+), Used (\d+)", err)
+    if m:
+        return int(m.group(1)) - int(m.group(2))
+    m = re.search(r"Remaining (\d+)", err)
+    return int(m.group(1)) if m else None
+
+
 def _groq_call(api_key: str, messages: list, max_tokens: int = 6000) -> str:
     """Appelle Groq avec la clé donnée. Lève une exception en cas d'erreur.
 
@@ -2086,8 +2101,27 @@ def generate(content: str, category_hint: str, extra_sources: list[dict] | None 
                 err = str(e)
                 if "429" in err or "rate_limit" in err.lower():
                     if _est_quota_journalier(err):
+                        # Lire le solde RÉEL avant de condamner la clé : un
+                        # 429 « per day » peut venir d'une requête trop grosse
+                        # pour le solde restant, pas d'une clé vide.
+                        restant = _tpd_restant(err)
+                        prompt_est = int(sum(len(m.get("content", "")) for m in messages) / 3.3)
+                        if restant is not None and restant > prompt_est + 2200:
+                            # Assez de budget pour prompt + article complet :
+                            # retenter tout de suite avec une réservation
+                            # taillée sur le solde.
+                            try:
+                                print(f"     [GROQ] {label} : solde journalier ~{restant} tokens — "
+                                      f"nouvel essai avec réservation réduite")
+                                raw = _groq_call(key, messages,
+                                                 max_tokens=max(1500, restant - prompt_est - 300))
+                                break
+                            except Exception:
+                                pass  # échec confirmé → clé morte ci-dessous
                         _CLES_MORTES_JOUR.add(key)
-                        print(f"     [GROQ] {label} : quota JOURNALIER épuisé — retirée de la rotation pour ce run")
+                        print(f"     [GROQ] {label} : quota JOURNALIER épuisé"
+                              f"{f' (solde ~{restant} tokens, insuffisant)' if restant is not None else ''}"
+                              f" — retirée de la rotation pour ce run")
                         continue
                     idx = keys_to_try.index((key, label))
                     if idx < len(keys_to_try) - 1:

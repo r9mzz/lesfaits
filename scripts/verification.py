@@ -216,8 +216,34 @@ def _llm_call(prompt: str, max_tokens: int = 6000) -> str:
             if r.status_code == 429:
                 corps = r.text.lower()
                 if "per day" in corps or "tpd" in corps or "rpd" in corps:
+                    # Lire le solde réel avant de condamner la clé (même
+                    # logique que pipeline.py : un 429 « per day » peut venir
+                    # d'une requête trop grosse pour le solde, pas d'une clé
+                    # vide). Si le solde permet prompt + rapport, on retente
+                    # une fois avec une réservation taillée dessus.
+                    m = re.search(r"Limit (\d+), Used (\d+)", r.text)
+                    restant = (int(m.group(1)) - int(m.group(2))) if m else None
+                    prompt_est = int(len(prompt) / 3.3)
+                    if restant is not None and restant > prompt_est + 1800:
+                        r2 = requests.post(
+                            GROQ_URL,
+                            headers={"Authorization": f"Bearer {key}",
+                                     "content-type": "application/json"},
+                            json={
+                                "model": GROQ_MODEL,
+                                "max_tokens": max(1200, restant - prompt_est - 300),
+                                "messages": [{"role": "user", "content": prompt}],
+                                "temperature": 0.2,
+                            },
+                            timeout=180,
+                        )
+                        if r2.status_code == 200:
+                            print(f"     [VERIF] Solde journalier ~{restant} tokens — appel passé avec réservation réduite")
+                            return r2.json()["choices"][0]["message"]["content"].strip()
                     _CLES_MORTES_JOUR.add(key)
-                    print(f"     [VERIF] Clé au quota journalier épuisé — retirée de la rotation")
+                    print(f"     [VERIF] Clé au quota journalier épuisé"
+                          f"{f' (solde ~{restant} tokens, insuffisant)' if restant is not None else ''}"
+                          f" — retirée de la rotation")
                 last_err = f"429 rate limit ({r.text[:120]})"
                 continue
             if r.status_code >= 400:
