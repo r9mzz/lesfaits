@@ -2898,5 +2898,70 @@
     "etape": "detection",
     "erreur": "Groq 413: {\"error\":{\"message\":\"Request too large for model `llama-3.3-70b-versatile` in organization `org_01kxhe7hkgfccsbbh1qdfzhwez` service tier `on_demand` on tokens per minute (TPM): Limit 12000, Requested 12484, please reduce your message size and try again. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing\",\"type\":\"tokens\",\"code\":\"rate_limit_exceeded\"}}\n",
     "article_type": "actu"
+  },
+  {
+    "slug": "moustique-tigre-france",
+    "statut": "rejete_qualite",
+    "date": "2026-07-18T11:53:03",
+    "problemes_initiaux": 4,
+    "tentatives": 2,
+    "problemes_restants": 4,
+    "bloquants_restants": 1,
+    "article_type": "actu"
+  },
+  {
+    "slug": "recherche-moustiques-maladies-virales",
+    "statut": "corrige_automatiquement",
+    "date": "2026-07-18T11:53:33",
+    "problemes_initiaux": 4,
+    "tentatives": 1,
+    "problemes_residuels_style": 5,
+    "rapport_initial": {
+      "conforme": false,
+      "sujet_sensible": false,
+      "sujet_sensible_raison": "",
+      "angle_insuffisant": false,
+      "angle_insuffisant_raison": "",
+      "nature_contenu": "actualite_factuelle",
+      "problemes": [
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "source_non_editoriale",
+          "phrase_exacte": "Caminteresse rapporte que le moustique tigre est arrivé en France via l'Italie et le commerce international de pneus d'occasion.",
+          "explication": "Caminteresse n'est pas une source éditoriale traditionnelle, mais plutôt un site d'information généraliste."
+        },
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "source_non_editoriale",
+          "phrase_exacte": "Caminteresse indique que les moustiques sont des insectes qui ont une capacité d'adaptation exceptionnelle et peuvent survivre dans des conditions défavorables.",
+          "explication": "Caminteresse n'est pas une source éditoriale traditionnelle, mais plutôt un site d'information généraliste."
+        },
+        {
+          "bloc": 4,
+          "section": "nuances",
+          "type": "redondance",
+          "phrase_exacte": "Les enjeux éthiques liés à la modification d'espèces invasives soulèvent des débats importants sur la responsabilité scientifique et les conséquences potentielles de telles actions. Il est important de prendre en compte les implications à long terme de la recherche scientifique et de considérer les conséquences potentielles de la modification d'espèces invasives.",
+          "explication": "La phrase répète l'idée déjà présente dans la section, sans apporter de nouvelles informations."
+        },
+        {
+          "bloc": 4,
+          "section": "contexte",
+          "type": "redondance",
+          "phrase_exacte": "Les moustiques sont des insectes qui peuvent transmettre des maladies graves, comme le paludisme, la dengue et la maladie de Lyme. La lutte contre les moustiques est un enjeu majeur de santé publique.",
+          "explication": "La phrase répète l'idée déjà présente dans la section 'faits', sans apporter de nouvelles informations."
+        }
+      ]
+    },
+    "article_type": "dossier_science"
+  },
+  {
+    "slug": "nouvelles-addictions-evolution-consommations-risques",
+    "statut": "rejete_qualite",
+    "date": "2026-07-18T11:55:54",
+    "angle_insuffisant": true,
+    "raison": "L'article ressemble à une fiche pédagogique générale sans fait déclencheur daté",
+    "article_type": "dossier_science"
   }
 ]
