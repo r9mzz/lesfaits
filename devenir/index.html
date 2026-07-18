@@ -1,0 +1,614 @@
+<meta charset="utf-8">
+<title>Devenir</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<style>
+:root{
+  --bg:#FAFAF8; --card:#FFFFFF; --ink:#1C1C1E; --muted:#8A8A85; --line:#ECECE8;
+  --accent:#4A7A5C; --accent-soft:#EDF3EF; --sun:#E4B54A;
+  color-scheme: light dark;
+}
+@media (prefers-color-scheme: dark){
+  :root{ --bg:#141416; --card:#1E1E21; --ink:#F2F2EF; --muted:#8E8E93; --line:#2C2C2F; --accent:#7FAE90; --accent-soft:#22302A; --sun:#D9A93F; }
+}
+:root[data-theme="dark"]{ --bg:#141416; --card:#1E1E21; --ink:#F2F2EF; --muted:#8E8E93; --line:#2C2C2F; --accent:#7FAE90; --accent-soft:#22302A; --sun:#D9A93F; }
+:root[data-theme="light"]{ --bg:#FAFAF8; --card:#FFFFFF; --ink:#1C1C1E; --muted:#8A8A85; --line:#ECECE8; --accent:#4A7A5C; --accent-soft:#EDF3EF; --sun:#E4B54A; }
+
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html,body{height:100%}
+body{
+  margin:0; background:var(--bg); color:var(--ink);
+  font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text","Segoe UI",Roboto,sans-serif;
+  -webkit-font-smoothing:antialiased;
+}
+.view{
+  animation:fadein .5s ease both;
+  max-width:460px;margin:0 auto;display:flex;flex-direction:column;gap:30px;
+  padding:max(24px,env(safe-area-inset-top)) 22px calc(90px + env(safe-area-inset-bottom));
+  min-height:100%;
+}
+h1,h2{margin:0;text-wrap:balance;font-weight:600}
+h2{font-size:12px;text-transform:uppercase;letter-spacing:.09em;color:var(--muted)}
+.date{font-size:13px;color:var(--muted)}
+.intent{font-size:20px;font-weight:600;line-height:1.35;text-wrap:balance;white-space:pre-wrap}
+.timeline{display:flex;flex-direction:column}
+.entry{display:flex;align-items:baseline;gap:12px;padding:10px 0;border-bottom:1px solid var(--line);font-size:15px}
+.entry:last-child{border-bottom:none}
+.entry time{font-variant-numeric:tabular-nums;color:var(--muted);font-size:13px;width:46px;flex-shrink:0}
+.entry .act{flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.entry .del{background:none;border:none;color:var(--muted);cursor:pointer;font-size:13px;padding:0 4px}
+.now{display:flex;align-items:center;gap:10px;padding:12px 0;color:var(--accent);font-size:12px;letter-spacing:.06em;text-transform:uppercase}
+.now::before,.now::after{content:"";flex:1;height:1px;background:var(--accent);opacity:.35}
+.empty{color:var(--muted);font-size:14px;padding:4px 0}
+.motto{color:var(--muted);font-size:13px;text-align:center;margin-top:auto;padding-top:18px;line-height:1.5}
+.warn{background:var(--accent-soft);border:1px solid var(--accent);border-radius:12px;padding:12px 14px;font-size:13px;line-height:1.5;color:var(--ink)}
+.pauserow{display:flex;align-items:center;gap:8px;flex-wrap:wrap;font-size:13px;color:var(--muted)}
+.mini{font-family:inherit;font-size:13px;color:var(--ink);background:var(--card);border:1px solid var(--line);border-radius:999px;padding:5px 12px;cursor:pointer}
+.mini:active,.mini:focus-visible{border-color:var(--accent);background:var(--accent-soft);outline:none}
+.mini.on{background:var(--accent-soft);border-color:var(--accent);color:var(--accent);font-weight:600}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.stepper{display:flex;align-items:center;gap:14px}
+.stepper button{width:34px;height:34px;border-radius:50%;border:1px solid var(--line);background:var(--card);color:var(--ink);font-size:18px;line-height:1;cursor:pointer;font-family:inherit}
+.stepper button:active,.stepper button:focus-visible{border-color:var(--accent);background:var(--accent-soft);outline:none}
+.stepper span{min-width:52px;text-align:center;font-size:16px;font-variant-numeric:tabular-nums}
+.qhead{display:flex;justify-content:space-between;align-items:baseline;gap:10px}
+.qhead .mini{flex-shrink:0}
+
+.checkin-btn{
+  position:fixed;right:max(20px,env(safe-area-inset-right));bottom:calc(74px + env(safe-area-inset-bottom));
+  width:52px;height:52px;border-radius:50%;border:1px solid var(--line);
+  background:var(--card);color:var(--accent);
+  font-size:24px;line-height:1;cursor:pointer;box-shadow:0 4px 14px rgba(0,0,0,.10);
+}
+.checkin-btn:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+
+/* Sheet */
+.overlay{position:fixed;inset:0;background:rgba(0,0,0,.32);opacity:0;pointer-events:none;transition:opacity .25s;z-index:20}
+.overlay.open{opacity:1;pointer-events:auto}
+.sheet{
+  position:fixed;left:0;right:0;bottom:0;background:var(--card);
+  border-radius:20px 20px 0 0;padding:14px 22px calc(26px + env(safe-area-inset-bottom));
+  transform:translateY(105%);transition:transform .3s cubic-bezier(.3,.9,.3,1);
+  max-width:460px;margin:0 auto;display:flex;flex-direction:column;gap:14px;z-index:30;
+}
+.sheet.open{transform:translateY(0)}
+.grip{width:36px;height:4px;border-radius:2px;background:var(--line);margin:0 auto}
+.sheet p{margin:0;font-size:21px;font-weight:600}
+.cats{display:flex;flex-direction:column;gap:8px}
+.cat{
+  display:flex;align-items:center;gap:12px;padding:14px 16px;border-radius:12px;
+  border:1px solid var(--line);background:var(--bg);color:var(--ink);
+  font-size:16px;font-family:inherit;cursor:pointer;text-align:left;
+  transition:background .15s,border-color .15s;
+}
+.cat:active,.cat:focus-visible{background:var(--accent-soft);border-color:var(--accent);outline:none}
+.cat .e{font-size:20px}
+
+input[type=text],textarea{
+  font-family:inherit;font-size:15px;color:var(--ink);background:transparent;
+  border:none;border-bottom:1px solid var(--line);padding:6px 0;width:100%;outline:none;resize:none;line-height:1.5;
+}
+input:focus,textarea:focus{border-bottom-color:var(--accent)}
+input::placeholder,textarea::placeholder{color:var(--muted)}
+label{font-size:13px;color:var(--muted);display:block;margin-bottom:2px}
+.field{display:flex;flex-direction:column;gap:2px}
+
+/* Soir */
+.soir{border-top:1px solid var(--line);padding-top:20px;display:flex;flex-direction:column;gap:16px}
+.sunwrap{border-radius:16px;padding:26px 20px 18px;text-align:center;transition:background .2s;background:var(--card);border:1px solid var(--line)}
+.sunwrap .q{font-size:17px;font-weight:600;margin:0 0 18px}
+input[type=range]{-webkit-appearance:none;appearance:none;width:100%;background:transparent;border:none;padding:0;margin:0}
+input[type=range]::-webkit-slider-runnable-track{height:3px;border-radius:2px;background:var(--line)}
+input[type=range]::-webkit-slider-thumb{
+  -webkit-appearance:none;width:34px;height:34px;margin-top:-16px;border:none;border-radius:50%;
+  background:radial-gradient(circle at 50% 45%, #FFE9A8 0%, var(--sun) 60%, #C98F2B 100%);
+  box-shadow:0 0 14px 2px rgba(228,181,74,.55);cursor:pointer;
+}
+input[type=range]::-moz-range-track{height:3px;border-radius:2px;background:var(--line)}
+input[type=range]::-moz-range-thumb{
+  width:34px;height:34px;border:none;border-radius:50%;
+  background:radial-gradient(circle at 50% 45%, #FFE9A8 0%, var(--sun) 60%, #C98F2B 100%);
+  box-shadow:0 0 14px 2px rgba(228,181,74,.55);cursor:pointer;
+}
+.sunlabels{display:flex;justify-content:space-between;font-size:11px;color:var(--muted);margin-top:8px}
+
+/* Moi */
+.month{font-size:20px;font-weight:600}
+.cal{display:grid;grid-template-columns:repeat(7,1fr);gap:6px}
+.cal .wd{font-size:10px;color:var(--muted);text-align:center;text-transform:uppercase;letter-spacing:.05em;padding-bottom:2px}
+.cell{
+  aspect-ratio:1;border-radius:50%;border:1px solid var(--line);background:var(--card);
+  font-size:12px;color:var(--muted);font-family:inherit;cursor:pointer;
+  font-variant-numeric:tabular-nums;display:flex;align-items:center;justify-content:center;
+}
+.cell:disabled{opacity:.35;cursor:default}
+.cell.today{border-color:var(--accent)}
+.obs{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px;font-size:15px;line-height:1.55}
+.obs h2{margin-bottom:8px}
+
+/* Détail jour */
+.daydetail{border-radius:16px;padding:20px;border:1px solid var(--line);display:flex;flex-direction:column;gap:14px;background:var(--card)}
+.back{background:none;border:none;color:var(--accent);font-size:14px;font-family:inherit;cursor:pointer;padding:0;text-align:left}
+.quote{font-size:15px;line-height:1.55;font-style:italic}
+
+/* Réglages */
+button.ghost{
+  font-family:inherit;font-size:14px;color:var(--muted);background:transparent;
+  border:1px solid var(--line);border-radius:12px;padding:11px;cursor:pointer;width:100%;
+}
+button.ghost:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+button.danger{color:#B4544A;border-color:#B4544A55}
+.hint{font-size:13px;color:var(--muted);line-height:1.5}
+#exportOut{font-size:12px;height:120px;border:1px solid var(--line);border-radius:12px;padding:10px;background:var(--card)}
+
+/* Tab bar */
+nav{
+  position:fixed;left:0;right:0;bottom:0;background:var(--card);border-top:1px solid var(--line);
+  display:flex;max-width:460px;margin:0 auto;
+  padding-bottom:env(safe-area-inset-bottom);
+}
+nav button{
+  flex:1;background:none;border:none;font-family:inherit;font-size:11px;color:var(--muted);
+  padding:9px 0 8px;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:3px;
+}
+nav button .i{height:22px;display:flex;align-items:center;opacity:.55}
+nav button .i svg{width:22px;height:22px;display:block}
+nav button.on{color:var(--accent)}
+nav button.on .i{opacity:1}
+@keyframes fadein{from{opacity:0;transform:translateY(5px)}to{opacity:1;transform:none}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+</style>
+
+<!-- AUJOURD'HUI -->
+<div class="view" id="view-today">
+  <header style="display:flex;flex-direction:column;gap:10px">
+    <div class="date" id="todayDate"></div>
+    <div class="intent" id="intentToday"></div>
+  </header>
+  <div class="warn" id="storageWarn" hidden>⚠️ Ce navigateur bloque le stockage local ici : tes saisies ne survivront pas à la fermeture de la page. Ouvre le lien directement dans ton navigateur (pas dans un aperçu intégré) pour que tout soit conservé.</div>
+  <div class="pauserow" id="pauseRow"></div>
+  <section>
+    <h2>Aujourd’hui</h2>
+    <div class="timeline" id="timeline"></div>
+  </section>
+  <section class="soir" id="soir" hidden>
+    <div class="sunwrap" id="sunwrap">
+      <p class="q">Cette journée ressemblait-elle à la personne que tu veux devenir&nbsp;?</p>
+      <input type="range" id="b1" min="0" max="100" value="50" step="1" aria-label="Alignement de la journée">
+      <div class="sunlabels"><span>peu</span><span>beaucoup</span></div>
+    </div>
+    <div class="field">
+      <div class="qhead"><label for="b2" id="qLabel"></label><button type="button" class="mini" id="qShuffle">↻ autre question</button></div>
+      <textarea id="b2" rows="2"></textarea>
+    </div>
+    <div class="field"><label for="b3">Demain, la chose qui comptera le plus</label><input type="text" id="b3"></div>
+    <div class="field"><label for="b4">Journal du testeur — réflexe ou réflexion ? notification agaçante ? question qui a changé quelque chose ?</label><textarea id="b4" rows="3"></textarea></div>
+  </section>
+  <p class="motto">Chaque heure est un vote pour la personne que tu deviens.</p>
+</div>
+
+<!-- MOI -->
+<div class="view" id="view-me" hidden>
+  <div class="month" id="monthName"></div>
+  <div class="cal" id="cal"></div>
+  <div class="daydetail" id="daydetail" hidden>
+    <button class="back" id="backCal">← Retour au mois</button>
+    <div>
+      <div class="date" id="ddDate"></div>
+      <p class="quote" id="ddQuote"></p>
+    </div>
+    <div class="timeline" id="ddTimeline"></div>
+    <div id="ddNotes" style="display:flex;flex-direction:column;gap:10px"></div>
+  </div>
+</div>
+
+<!-- RÉGLAGES -->
+<div class="view" id="view-settings" hidden>
+  <h1 style="font-size:20px">Réglages</h1>
+  <div style="display:flex;flex-direction:column;gap:10px">
+    <h2>Intention</h2>
+    <div class="field">
+      <label for="intention">Dans 5 ans, je veux être…</label>
+      <textarea id="intention" rows="3" placeholder="Écris ta phrase d’intention"></textarea>
+    </div>
+  </div>
+  <div style="display:flex;flex-direction:column;gap:14px">
+    <h2>Rappels</h2>
+    <div class="field">
+      <label>Fréquence</label>
+      <div class="chips" id="intervalChips"></div>
+    </div>
+    <div style="display:flex;gap:28px;flex-wrap:wrap">
+      <div class="field"><label>De</label><div class="stepper" data-s="start"><button type="button" aria-label="Plus tôt">−</button><span></span><button type="button" aria-label="Plus tard">+</button></div></div>
+      <div class="field"><label>Jusqu’à</label><div class="stepper" data-s="end"><button type="button" aria-label="Plus tôt">−</button><span></span><button type="button" aria-label="Plus tard">+</button></div></div>
+    </div>
+    <button class="ghost" id="notifBtn">Activer les notifications</button>
+    <p class="hint" id="notifHint">Les rappels se déclenchent quand cette page est ouverte (onglet ou icône sur l’écran d’accueil). Une page web ne peut pas réveiller un téléphone fermé : pour un rappel qui sonne même écran verrouillé, ajoute en plus une alarme répétée dans l’app Horloge, à la même fréquence.</p>
+  </div>
+  <div style="display:flex;flex-direction:column;gap:14px">
+    <h2>Bilan du soir</h2>
+    <div class="field"><label>Le bilan apparaît à partir de</label><div class="stepper" data-s="evening"><button type="button" aria-label="Plus tôt">−</button><span></span><button type="button" aria-label="Plus tard">+</button></div></div>
+    <p class="hint">Chaque soir, une question de réflexion différente — tu peux en changer d’un appui si elle ne t’inspire pas.</p>
+  </div>
+  <div style="display:flex;flex-direction:column;gap:10px">
+    <h2>Données</h2>
+    <p class="hint" id="dataHint">Tout est stocké localement dans ce navigateur. Rien ne quitte ton téléphone.</p>
+    <button class="ghost" id="export">Copier mon histoire (export)</button>
+    <textarea id="exportOut" hidden readonly aria-label="Export des données"></textarea>
+    <button class="ghost danger" id="reset">Effacer toutes les données</button>
+  </div>
+</div>
+
+<!-- SHEET CHECK-IN -->
+<div class="overlay" id="overlay"></div>
+<div class="sheet" id="sheet" role="dialog" aria-label="Check-in">
+  <div class="grip"></div>
+  <p>Cette dernière heure&nbsp;?</p>
+  <input type="text" id="act" placeholder="Activité en 2 mots (optionnel)" autocomplete="off">
+  <div class="chips" id="actChips"></div>
+  <div class="cats">
+    <button class="cat" data-c="🌱"><span class="e">🌱</span>Investie</button>
+    <button class="cat" data-c="❤️"><span class="e">❤️</span>Importante</button>
+    <button class="cat" data-c="😌"><span class="e">😌</span>Repos choisi</button>
+    <button class="cat" data-c="🤷"><span class="e">🤷</span>Temps subi</button>
+  </div>
+</div>
+
+<button class="checkin-btn" id="openSheet" aria-label="Check-in">+</button>
+
+<nav>
+  <button id="tab-today" class="on"><span class="i"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 11.5 12 4l9 7.5"/><path d="M5.5 9.8V20h13V9.8"/></svg></span>Aujourd’hui</button>
+  <button id="tab-me"><span class="i"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M3 10h18M8 3v4M16 3v4"/></svg></span>Parcours</button>
+  <button id="tab-settings"><span class="i"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M4 8h9M19.5 8H20M4 16h1.5M12 16h8"/><circle cx="16" cy="8" r="2.6"/><circle cx="8.5" cy="16" r="2.6"/></svg></span>Réglages</button>
+</nav>
+
+<script>
+const K='test7j';
+/* Safari iPhone peut interdire localStorage dans un cadre intégré :
+   sans ce repli en mémoire, la page entière meurt à la première ligne. */
+let store, persistent=true;
+try{
+  localStorage.setItem('__probe','1'); localStorage.removeItem('__probe');
+  store=localStorage;
+}catch(err){
+  persistent=false;
+  const mem={};
+  store={getItem:k=>(k in mem?mem[k]:null),setItem:(k,v)=>{mem[k]=String(v);},removeItem:k=>{delete mem[k];}};
+}
+const DEFS={interval:60,start:9,end:22,evening:19,pauseUntil:0};
+const load=()=>{
+  let d;
+  try{d=JSON.parse(store.getItem(K)||'{"intention":"","days":{}}');}catch(e){d={intention:'',days:{}};}
+  d.settings=Object.assign({},DEFS,d.settings||{});
+  return d;
+};
+const save=d=>{ try{store.setItem(K,JSON.stringify(d));}catch(e){} };
+let data=load();
+const pad2=n=>String(n).padStart(2,'0');
+const dkey=d=>d.getFullYear()+'-'+pad2(d.getMonth()+1)+'-'+pad2(d.getDate());
+const todayKey=()=>dkey(new Date());
+const day=k=>{ if(!data.days[k]) data.days[k]={entries:[],bilan:{}}; return data.days[k]; };
+const LB={'🌱':'Investie','❤️':'Importante','😌':'Repos choisi','🤷':'Temps subi'};
+const esc=s=>(s||'').replace(/</g,'&lt;');
+
+if(!persistent){
+  document.getElementById('storageWarn').hidden=false;
+  document.getElementById('dataHint').textContent='⚠️ Le stockage local est bloqué dans ce contexte : les données ne seront pas conservées après fermeture. Ouvre le lien directement dans Safari.';
+}
+
+/* ---------- navigation ---------- */
+const views={today:'view-today',me:'view-me',settings:'view-settings'};
+function show(tab){
+  Object.entries(views).forEach(([t,id])=>{
+    document.getElementById(id).hidden = t!==tab;
+    document.getElementById('tab-'+t).classList.toggle('on',t===tab);
+  });
+  document.getElementById('openSheet').hidden = tab!=='today';
+  if(tab==='today') renderToday();
+  if(tab==='me'){ document.getElementById('daydetail').hidden=true; document.getElementById('cal').hidden=false; renderMe(); }
+}
+['today','me','settings'].forEach(t=>document.getElementById('tab-'+t).addEventListener('click',()=>show(t)));
+
+/* ---------- sheet ---------- */
+const sheet=document.getElementById('sheet'),overlay=document.getElementById('overlay');
+function renderActChips(){
+  const el=document.getElementById('actChips');el.innerHTML='';
+  const freq={};
+  Object.values(data.days).forEach(d=>(d.entries||[]).forEach(e=>{if(e.a)freq[e.a]=(freq[e.a]||0)+1;}));
+  const perso=Object.keys(freq).sort((a,b)=>freq[b]-freq[a]);
+  const defauts=['Travail','Réseaux','Sport','Repas','Lecture','Transport'];
+  [...new Set([...perso,...defauts])].slice(0,8).forEach(a=>{
+    const b=document.createElement('button');b.type='button';b.className='mini';b.textContent=a;
+    b.onclick=()=>{document.getElementById('act').value=a;};
+    el.appendChild(b);
+  });
+}
+function openSheet(){renderActChips();sheet.classList.add('open');overlay.classList.add('open');}
+function closeSheet(){sheet.classList.remove('open');overlay.classList.remove('open');}
+document.getElementById('openSheet').addEventListener('click',openSheet);
+overlay.addEventListener('click',closeSheet);
+document.querySelectorAll('.cat').forEach(btn=>btn.addEventListener('click',()=>{
+  const act=document.getElementById('act');
+  const now=new Date();
+  day(todayKey()).entries.push({t:pad2(now.getHours())+'h'+pad2(now.getMinutes()),c:btn.dataset.c,a:act.value.trim()});
+  lastReminder=Date.now();
+  save(data); act.value='';
+  closeSheet(); renderToday();
+}));
+
+/* ---------- rappels ---------- */
+/* Une page web ne tourne pas téléphone fermé : le moteur agit quand la page
+   est ouverte (notification système si autorisée, sinon ouverture du sheet). */
+let lastReminder=Date.now();
+function renderPause(){
+  const el=document.getElementById('pauseRow');
+  const s=data.settings, now=Date.now();
+  if(s.pauseUntil&&now<s.pauseUntil){
+    const d=new Date(s.pauseUntil);
+    el.innerHTML=`<span>Rappels en pause jusqu’à ${d.getHours()}h${pad2(d.getMinutes())}</span>`;
+    const b=document.createElement('button');b.className='mini';b.textContent='Réactiver';
+    b.onclick=()=>{s.pauseUntil=0;save(data);renderPause();};
+    el.appendChild(b);
+  }else{
+    el.innerHTML='<span>Session longue&nbsp;? Couper les rappels&nbsp;:</span>';
+    [['1 h',60],['2 h',120],['3 h',180],['jusqu’à demain','demain']].forEach(([lbl,v])=>{
+      const b=document.createElement('button');b.className='mini';b.textContent=lbl;
+      b.onclick=()=>{
+        s.pauseUntil = v==='demain' ? new Date().setHours(24,0,0,0) : Date.now()+v*60000;
+        save(data);renderPause();
+      };
+      el.appendChild(b);
+    });
+  }
+}
+function notifGranted(){return typeof Notification!=='undefined'&&Notification.permission==='granted';}
+function fireReminder(){
+  let shown=false;
+  if(notifGranted()){
+    try{
+      const n=new Notification('Devenir',{body:'Cette dernière heure ?',tag:'devenir'});
+      n.onclick=()=>{try{window.focus();}catch(e){} show('today');openSheet();};
+      shown=true;
+    }catch(e){}
+  }
+  try{navigator.vibrate&&navigator.vibrate([200,100,200]);}catch(e){}
+  if(!shown&&!sheet.classList.contains('open')){show('today');openSheet();}
+}
+function checkReminder(){
+  const s=data.settings, now=Date.now(), h=new Date().getHours();
+  if(s.pauseUntil){
+    if(now<s.pauseUntil) return;
+    s.pauseUntil=0;save(data);renderPause();
+  }
+  if(h<s.start||h>=s.end) return;
+  if(now-lastReminder < s.interval*60000) return;
+  lastReminder=now;
+  fireReminder();
+}
+setInterval(checkReminder,30000);
+
+/* ---------- aujourd'hui ---------- */
+const fmtLong=new Intl.DateTimeFormat('fr-FR',{weekday:'long',day:'numeric',month:'long'});
+function entryRow(e,deletable,es,i){
+  const row=document.createElement('div');row.className='entry';
+  row.innerHTML=`<time>${e.t}</time><span>${e.c}</span><span class="act">${e.a?esc(e.a):'<span style="color:var(--muted)">'+LB[e.c]+'</span>'}</span>`;
+  if(deletable){
+    const del=document.createElement('button');del.className='del';del.textContent='✕';del.setAttribute('aria-label','Supprimer');
+    del.onclick=()=>{es.splice(i,1);save(data);renderToday();};
+    row.appendChild(del);
+  }
+  return row;
+}
+function renderToday(){
+  document.getElementById('todayDate').textContent=fmtLong.format(new Date());
+  document.getElementById('intentToday').textContent=data.intention||'Est-ce que cette journée reflète la personne que tu veux devenir ?';
+  const tl=document.getElementById('timeline');tl.innerHTML='';
+  const es=day(todayKey()).entries;
+  if(!es.length) tl.innerHTML='<div class="empty">Rien encore. Les trous sont une donnée aussi.</div>';
+  es.forEach((e,i)=>tl.appendChild(entryRow(e,true,es,i)));
+  const now=new Date();
+  const marker=document.createElement('div');marker.className='now';
+  marker.textContent='Maintenant · '+now.getHours()+'h'+pad2(now.getMinutes());
+  tl.appendChild(marker);
+  // soir
+  const soir=document.getElementById('soir');
+  soir.hidden = now.getHours()<data.settings.evening;
+  if(!soir.hidden) loadBilan(todayKey());
+}
+
+/* ---------- bilan ---------- */
+const QBANK=[
+  'Une observation inattendue sur ta journée ?',
+  'Quel moment ressemblait le plus à la personne que tu veux devenir ?',
+  'Qu’est-ce qui t’a pris du temps aujourd’hui sans que tu l’aies choisi ?',
+  'Qu’as-tu évité aujourd’hui, et pourquoi ?',
+  'À quel moment étais-tu le plus concentré ? Qu’est-ce qui l’a permis ?',
+  'De quoi es-tu fier aujourd’hui, même petit ?',
+  'Si la journée recommençait, que ferais-tu différemment ?',
+  'Quelle distraction est revenue le plus souvent ?',
+  'Qu’as-tu appris aujourd’hui que tu ne savais pas hier ?',
+  'Quelle décision d’aujourd’hui ton toi de dans 5 ans approuverait-il ?',
+  'Qu’est-ce qui t’a donné de l’énergie ? Qu’est-ce qui t’en a pris ?',
+  'Quelle promesse faite à toi-même as-tu tenue — ou pas — aujourd’hui ?'
+];
+function qIndexFor(k){let h=0;for(const c of k)h=(h*31+c.charCodeAt(0))>>>0;return h%QBANK.length;}
+function currentQ(k){const b=day(k).bilan;return b.qi!==undefined?b.qi:qIndexFor(k);}
+function sunTint(v){
+  document.getElementById('sunwrap').style.background=`color-mix(in srgb, var(--sun) ${Math.round(v*0.30)}%, var(--card))`;
+}
+function loadBilan(k){
+  const bl=day(k).bilan||{};
+  ['b2','b3','b4'].forEach(id=>document.getElementById(id).value=bl[id]||'');
+  const v=(bl.b1===undefined||bl.b1==='')?50:+bl.b1;
+  document.getElementById('b1').value=v; sunTint(v);
+  document.getElementById('qLabel').textContent=QBANK[currentQ(k)];
+}
+document.getElementById('qShuffle').addEventListener('click',()=>{
+  const k=todayKey(),b=day(k).bilan;
+  b.qi=(currentQ(k)+1)%QBANK.length;
+  save(data);
+  document.getElementById('qLabel').textContent=QBANK[b.qi];
+});
+['b1','b2','b3','b4'].forEach(id=>document.getElementById(id).addEventListener('input',e=>{
+  day(todayKey()).bilan[id]=e.target.value;save(data);
+  if(id==='b1') sunTint(+e.target.value);
+}));
+
+/* ---------- moi ---------- */
+function lum(k){
+  const b=(data.days[k]||{}).bilan||{};
+  return (b.b1===undefined||b.b1==='')?null:+b.b1;
+}
+function renderMe(){
+  const now=new Date();
+  document.getElementById('monthName').textContent=new Intl.DateTimeFormat('fr-FR',{month:'long',year:'numeric'}).format(now);
+  const cal=document.getElementById('cal');cal.innerHTML='';
+  ['L','M','M','J','V','S','D'].forEach(w=>{const d=document.createElement('div');d.className='wd';d.textContent=w;cal.appendChild(d);});
+  const first=new Date(now.getFullYear(),now.getMonth(),1);
+  const pad=(first.getDay()+6)%7;
+  for(let i=0;i<pad;i++) cal.appendChild(document.createElement('div'));
+  const nDays=new Date(now.getFullYear(),now.getMonth()+1,0).getDate();
+  for(let d=1;d<=nDays;d++){
+    const dt=new Date(now.getFullYear(),now.getMonth(),d,12);
+    const k=dkey(dt);
+    const cell=document.createElement('button');cell.className='cell';cell.textContent=d;
+    if(k===todayKey()) cell.classList.add('today');
+    const v=lum(k);
+    if(v!==null){
+      cell.style.background=`color-mix(in srgb, var(--sun) ${Math.round(v*0.55)}%, var(--card))`;
+      cell.style.color='var(--ink)';
+    }else if((data.days[k]||{entries:[]}).entries.length){
+      cell.style.background='var(--accent-soft)';
+      cell.style.color='var(--ink)';
+    }
+    if(dt>now){cell.disabled=true;}
+    else cell.onclick=()=>showDay(k);
+    cal.appendChild(cell);
+  }
+}
+function showDay(k){
+  document.getElementById('cal').hidden=true;
+  const dd=document.getElementById('daydetail');dd.hidden=false;
+  document.getElementById('ddDate').textContent=fmtLong.format(new Date(k+'T12:00'));
+  const v=lum(k);
+  dd.style.background = v===null ? 'var(--card)' : `color-mix(in srgb, var(--sun) ${Math.round(v*0.22)}%, var(--card))`;
+  const b=(data.days[k]||{}).bilan||{};
+  document.getElementById('ddQuote').textContent = v===null ? 'Journée non évaluée.' : (v>=60?'Cette journée te ressemblait.':'Une journée parmi d’autres.');
+  const tl=document.getElementById('ddTimeline');tl.innerHTML='';
+  const es=(data.days[k]||{entries:[]}).entries;
+  if(!es.length) tl.innerHTML='<div class="empty">Aucun check-in ce jour-là.</div>';
+  es.forEach(e=>tl.appendChild(entryRow(e,false)));
+  const notes=document.getElementById('ddNotes');notes.innerHTML='';
+  [[QBANK[b.qi!==undefined?b.qi:qIndexFor(k)],b.b2],['Le lendemain, ce qui comptait',b.b3],['Journal du testeur',b.b4]].forEach(([t,val])=>{
+    if(val){notes.innerHTML+=`<div><h2>${t}</h2><div style="font-size:14px;line-height:1.5;margin-top:4px">${esc(val)}</div></div>`;}
+  });
+}
+document.getElementById('backCal').addEventListener('click',()=>{
+  document.getElementById('daydetail').hidden=true;
+  document.getElementById('cal').hidden=false;
+});
+
+/* ---------- réglages ---------- */
+const intention=document.getElementById('intention');
+intention.value=data.intention;
+intention.addEventListener('input',()=>{data.intention=intention.value;save(data);});
+
+const INTERVALS=[[30,'30 min'],[60,'1 h'],[90,'1 h 30'],[120,'2 h'],[180,'3 h']];
+function renderIntervalChips(){
+  const el=document.getElementById('intervalChips');el.innerHTML='';
+  INTERVALS.forEach(([v,lbl])=>{
+    const b=document.createElement('button');b.type='button';
+    b.className='mini'+(data.settings.interval===v?' on':'');b.textContent=lbl;
+    b.onclick=()=>{data.settings.interval=v;save(data);renderIntervalChips();};
+    el.appendChild(b);
+  });
+}
+const STEP={start:{min:5,max:13},end:{min:16,max:23},evening:{min:12,max:23}};
+function renderSteppers(){
+  document.querySelectorAll('.stepper').forEach(st=>{
+    st.querySelector('span').textContent=data.settings[st.dataset.s]+' h';
+  });
+}
+document.querySelectorAll('.stepper').forEach(st=>{
+  const key=st.dataset.s,btns=st.querySelectorAll('button');
+  const bump=d=>{
+    data.settings[key]=Math.min(STEP[key].max,Math.max(STEP[key].min,data.settings[key]+d));
+    save(data);renderSteppers();
+    if(key==='evening')renderToday();
+  };
+  btns[0].onclick=()=>bump(-1);
+  btns[1].onclick=()=>bump(1);
+});
+renderIntervalChips();renderSteppers();
+
+const notifBtn=document.getElementById('notifBtn'),notifHint=document.getElementById('notifHint');
+function refreshNotifUI(){
+  if(typeof Notification==='undefined'||!Notification.requestPermission){
+    notifBtn.hidden=true;
+    notifHint.textContent='Les notifications système ne sont pas disponibles dans ce contexte : le rappel s’affiche dans la page quand elle est ouverte. Pour un rappel qui sonne écran verrouillé, ajoute une alarme répétée dans l’app Horloge, à la même fréquence.';
+    return;
+  }
+  if(Notification.permission==='granted'){notifBtn.textContent='Notifications activées ✓';notifBtn.disabled=true;}
+  else if(Notification.permission==='denied'){
+    notifBtn.hidden=true;
+    notifHint.textContent='Notifications refusées par le navigateur. Tu peux les réautoriser dans les réglages du site (icône à gauche de l’adresse), sinon le rappel s’affichera dans la page ouverte.';
+  }
+}
+notifBtn.addEventListener('click',()=>{
+  try{ Notification.requestPermission().then(refreshNotifUI).catch(refreshNotifUI); }
+  catch(e){ refreshNotifUI(); }
+});
+refreshNotifUI();
+
+function buildExport(){
+  let out='DEVENIR — export du test\nIntention : '+data.intention+'\n\n';
+  Object.keys(data.days).sort().forEach(k=>{
+    const d=data.days[k];
+    out+='=== '+k+' ===\n';
+    d.entries.forEach(e=>out+=e.t+' '+e.c+' '+(e.a||LB[e.c])+'\n');
+    const b=d.bilan||{};
+    if(b.b1!==undefined||b.b2||b.b3||b.b4) out+='Bilan — Alignement: '+(b.b1!==undefined&&b.b1!==''?b.b1+'/100':'—')+' | Observation: '+(b.b2||'—')+' | Demain: '+(b.b3||'—')+' | Testeur: '+(b.b4||'—')+'\n';
+    out+='\n';
+  });
+  return out;
+}
+function exportDone(){
+  const btn=document.getElementById('export');btn.textContent='Copié ✓';
+  setTimeout(()=>btn.textContent='Copier mon histoire (export)',2000);
+}
+document.getElementById('export').addEventListener('click',()=>{
+  const out=buildExport();
+  const fallback=()=>{
+    /* Presse-papier bloqué (fréquent en cadre intégré) : on affiche le texte à copier à la main */
+    const ta=document.getElementById('exportOut');
+    ta.hidden=false; ta.value=out; ta.focus(); ta.select();
+    let ok=false;
+    try{ ok=document.execCommand('copy'); }catch(e){}
+    if(ok){ ta.hidden=true; exportDone(); }
+  };
+  if(navigator.clipboard&&navigator.clipboard.writeText){
+    navigator.clipboard.writeText(out).then(()=>exportDone(),fallback);
+  }else fallback();
+});
+/* confirm() est bloqué dans un cadre intégré : confirmation en deux appuis */
+const resetBtn=document.getElementById('reset');
+let resetArmed=null;
+resetBtn.addEventListener('click',()=>{
+  if(resetArmed){
+    clearTimeout(resetArmed);resetArmed=null;
+    try{store.removeItem(K);}catch(e){}
+    data=load();intention.value='';
+    renderIntervalChips();renderSteppers();
+    resetBtn.textContent='Effacer toutes les données';
+    renderPause();
+    show('today');
+  }else{
+    resetBtn.textContent='Appuie encore pour tout effacer définitivement';
+    resetArmed=setTimeout(()=>{resetArmed=null;resetBtn.textContent='Effacer toutes les données';},4000);
+  }
+});
+
+renderToday();
+renderPause();
+setInterval(renderToday,60000);
+</script>
