@@ -1351,6 +1351,58 @@ def faits_repetitifs(art: dict) -> list[str]:
     return violations
 
 
+def _supprimer_phrases_dupliquees(art: dict) -> int:
+    """Réparation déterministe post-correction : supprime, dans le corps,
+    toute phrase quasi identique à une phrase déjà conservée plus haut dans
+    l'article (ordre de lecture : résumé → faits → contexte → nuances). La
+    PREMIÈRE occurrence est toujours gardée ; c'est la copie qui saute.
+    Mêmes critères de similarité que les détecteurs (faits_repetitifs /
+    resume_repete_corps) pour que ce que l'un détecte, l'autre le répare.
+    Retourne le nombre de phrases supprimées. Ne touche jamais au résumé."""
+    import difflib
+    corps = art.get("corps", {}) or {}
+
+    def _ngrams5(t):
+        mots = re.findall(r"\w+", t.lower())
+        return {" ".join(mots[k:k + 5]) for k in range(len(mots) - 4)}
+
+    # Référentiel initial : les phrases du résumé (jamais modifiées ici)
+    resume = art.get("resume") or []
+    if isinstance(resume, str):
+        resume = [resume]
+    gardees = []  # (noyau, ngrams) des phrases conservées
+    for r in resume:
+        for p in re.split(r"(?<=[.!?])\s+", str(r or "")):
+            if len(p.strip()) > 40:
+                noyau = _ATTRIB_PREFIX_RE.sub("", p.strip())
+                gardees.append((noyau, _ngrams5(noyau)))
+
+    n_supp = 0
+    for section in ("faits", "contexte", "nuances"):
+        texte = corps.get(section, "") or ""
+        phrases = [p.strip() for p in re.split(r"(?<=[.!?])\s+", texte) if p.strip()]
+        conservees = []
+        for p in phrases:
+            if len(p) <= 40:
+                conservees.append(p)
+                continue
+            noyau = _ATTRIB_PREFIX_RE.sub("", p)
+            ng = _ngrams5(noyau)
+            doublon = any(
+                len(ng & ng_g) >= 3
+                or difflib.SequenceMatcher(None, noyau.lower(), n_g.lower()).ratio() > 0.62
+                for n_g, ng_g in gardees
+            )
+            if doublon:
+                n_supp += 1
+            else:
+                conservees.append(p)
+                gardees.append((noyau, ng))
+        corps[section] = " ".join(conservees)
+    art["corps"] = corps
+    return n_supp
+
+
 _ATTRIB_DEBUT_RE = re.compile(r"^\s*[«\"]?\s*(?:Selon|D['’]après)\b", re.IGNORECASE)
 
 # Au-delà de ce total, l'article devient une litanie de « Selon X » — le
@@ -4820,27 +4872,34 @@ def generer_article(item: dict, dry_run: bool, published: set, new_pub: set, dat
         # ── Re-contrôle déterministe APRÈS correction LLM ──
         # Le correcteur (passe 3) réécrit le texte APRÈS le passage des
         # garde-fous : sa sortie partait en publication sans re-vérification.
-        # Constaté le 18/07 (article douleurs chroniques) : phrases dupliquées
-        # mot pour mot entre sections avec attributions différentes, et corps
-        # retombé à 320 mots sous le plancher de 400. Pas de relance Groq ici
-        # (quota rare) : un article que la correction a dégradé est rejeté,
-        # le sujet sera retenté au prochain run.
+        # Constaté le 18/07 : phrases dupliquées mot pour mot entre sections
+        # (jusqu'à 3 occurrences, attributions différentes) et corps sous le
+        # plancher de 400 mots. Stratégie « réparer, pas éradiquer » (Nahil,
+        # 18/07) : d'abord dédoublonnage déterministe gratuit (supprimer les
+        # phrases quasi identiques au-delà de la 1re occurrence), et rejet
+        # SEULEMENT si l'article reste sous le plancher après réparation —
+        # signe que la duplication masquait un article creux. Pas de relance
+        # Groq ici : le quota reste la ressource rare.
         if statut_verif == "corrige_automatiquement":
+            if faits_repetitifs(art) or resume_repete_corps(art):
+                _n_supp = _supprimer_phrases_dupliquees(art)
+                if _n_supp:
+                    print(f"     [RÉPARATION] {_n_supp} phrase(s) dupliquée(s) "
+                          f"supprimée(s) après correction LLM")
             _mots_final = sum(
                 len(str((art.get("corps") or {}).get(k, "") or "").split())
                 for k in ("faits", "contexte", "nuances")
             )
-            _defauts = []
-            if _mots_final < 400:
-                _defauts.append(f"{_mots_final} mots (< 400)")
-            if faits_repetitifs(art):
-                _defauts.append("répétitions inter/intra-sections")
-            if resume_repete_corps(art):
-                _defauts.append("résumé répété dans le corps")
-            if _defauts:
-                print(f"     [REJET POST-CORRECTION] La correction a dégradé "
-                      f"l'article ({' + '.join(_defauts)}) — non publié, "
-                      f"sujet retenté au prochain run")
+            _restants = faits_repetitifs(art)
+            if _mots_final < 400 or _restants:
+                _defauts = []
+                if _mots_final < 400:
+                    _defauts.append(f"{_mots_final} mots (< 400)")
+                if _restants:
+                    _defauts.append("répétitions résiduelles")
+                print(f"     [REJET POST-CORRECTION] Article dégradé même "
+                      f"après réparation ({' + '.join(_defauts)}) — non "
+                      f"publié, sujet retenté au prochain run")
                 return False
 
         # La catégorie publiée est TOUJOURS celle du classifieur déterministe
