@@ -2557,13 +2557,24 @@ def extract_visual_keywords(title: str, summary: str, category: str) -> str:
     Retourne une chaîne de mots séparés par des espaces, ex: "heat wave france summer"
     Fallback sur le titre nettoyé si Groq indisponible.
     """
+    # Fallback par CATÉGORIE en anglais : envoyer un titre français brut à
+    # Pexels (moteur anglophone) renvoie des images génériques hors-sujet —
+    # une plage de bord de mer sur un article pompiers, p.ex. (constat 19/07,
+    # l'extraction LLM échouait sous rate limit et retombait sur le titre FR).
+    # Mieux vaut une image neutre mais cohérente avec la rubrique.
+    _FALLBACK_CATEGORIE = {
+        "sante": "hospital medical laboratory",
+        "science": "science laboratory research",
+        "economie": "office business finance city",
+        "tech": "technology computer data center",
+        "environnement": "nature landscape environment",
+        "societe": "city street people france",
+    }
+    fallback_kw = _FALLBACK_CATEGORIE.get((category or "").lower(), "france city landscape")
+
     key = GROQ_KEY or GROQ_KEY2
     if not key:
-        # Fallback sans IA : nettoyer le titre
-        stopwords = {"le","la","les","de","du","en","un","une","et","pour","sur","par",
-                     "au","aux","ce","qui","que","dans","est","son","ses","leur","leurs"}
-        words = [w for w in title.lower().split() if w not in stopwords][:4]
-        return " ".join(words)
+        return fallback_kw
     try:
         messages = [{
             "role": "user",
@@ -2580,9 +2591,12 @@ def extract_visual_keywords(title: str, summary: str, category: str) -> str:
         result = _groq_call(key, messages, max_tokens=30)
         # Nettoyer la réponse (parfois entre guillemets ou avec ponctuation)
         clean = re.sub(r'[^\w\s]', '', result).strip().lower()
-        return clean[:80] if clean else title
+        # Un mot-clé anglophone plausible contient surtout de l'ASCII : si la
+        # réponse est vide ou visiblement restée en français, prendre le
+        # fallback catégorie plutôt qu'un titre FR inutilisable par Pexels.
+        return clean[:80] if clean else fallback_kw
     except Exception:
-        return title
+        return fallback_kw
 
 
 # Photos Pexels déjà utilisées dans ce run (évite les doublons visuels)
