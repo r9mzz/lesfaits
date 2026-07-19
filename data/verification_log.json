@@ -3271,5 +3271,96 @@
     "mots_avant": 130,
     "mots_apres": 47,
     "article_type": "actu"
+  },
+  {
+    "slug": "volcan-inconnu-sicile",
+    "statut": "corrige_automatiquement",
+    "date": "2026-07-19T14:05:03",
+    "problemes_initiaux": 7,
+    "tentatives": 1,
+    "problemes_residuels_style": 5,
+    "rapport_initial": {
+      "conforme": false,
+      "sujet_sensible": false,
+      "sujet_sensible_raison": "",
+      "angle_insuffisant": false,
+      "angle_insuffisant_raison": "",
+      "nature_contenu": "actualite_factuelle",
+      "problemes": [
+        {
+          "bloc": 2,
+          "section": "contexte",
+          "type": "source_non_editoriale",
+          "phrase_exacte": "Ilemaurice Tourisme rapporte que les scientifiques doivent continuer à surveiller la zone pour mieux comprendre les risques potentiels et prendre les mesures nécessaires pour protéger les populations et les environnements.",
+          "explication": "Ilemaurice Tourisme n'est pas une source éditoriale autorisée pour des faits scientifiques ou des informations sur les risques naturels."
+        },
+        {
+          "bloc": 2,
+          "section": "contexte",
+          "type": "source_non_editoriale",
+          "phrase_exacte": "RSE Magazine souligne que les signes d'activité du volcan pourraient être liés à des processus naturels qui ne nécessitent pas d'intervention humaine.",
+          "explication": "RSE Magazine n'est pas une source éditoriale autorisée pour des faits scientifiques ou des informations sur les risques naturels."
+        },
+        {
+          "bloc": 2,
+          "section": "nuances",
+          "type": "source_non_editoriale",
+          "phrase_exacte": "Ilemaurice Tourisme rapporte que les scientifiques doivent continuer à surveiller la zone pour mieux comprendre les risques potentiels et prendre les mesures nécessaires pour protéger les populations et les environnements.",
+          "explication": "Ilemaurice Tourisme n'est pas une source éditoriale autorisée pour des faits scientifiques ou des informations sur les risques naturels."
+        },
+        {
+          "bloc": 2,
+          "section": "nuances",
+          "type": "source_non_editoriale",
+          "phrase_exacte": "Letribunaldunet précise que la compréhension de l'activité volcanique est essentielle pour la protection des populations et des environnements.",
+          "explication": "Letribunaldunet n'est pas une source éditoriale autorisée pour des faits scientifiques ou des informations sur les risques naturels."
+        },
+        {
+          "bloc": 3,
+          "section": "nuances",
+          "type": "cadrage_emprunte",
+          "phrase_exacte": "Un volcan sous-marin à 300 km des côtes américaines menace de se réveiller, ce qui souligne l'importance de la surveillance des volcans sous-marins.",
+          "explication": "Le cadrage de la phrase est emprunté à Science et Vie, mais ne reflète pas nécessairement un fait objectif."
+        },
+        {
+          "bloc": 4,
+          "section": "contexte",
+          "type": "redondance",
+          "phrase_exacte": "Le volcanisme est un phénomène naturel qui peut avoir des conséquences importantes pour les populations et les environnements.",
+          "explication": "La phrase est redondante avec d'autres informations fournies dans l'article."
+        },
+        {
+          "bloc": 4,
+          "section": "nuances",
+          "type": "redondance",
+          "phrase_exacte": "Il est important de noter que la découverte de ce volcan inconnu ne signifie pas nécessairement que la région est en danger imminent.",
+          "explication": "La phrase est redondante avec d'autres informations fournies dans l'article."
+        }
+      ]
+    },
+    "article_type": "dossier_science"
+  },
+  {
+    "slug": "one-health-approche-globale-sante",
+    "statut": "conforme_du_premier_coup",
+    "date": "2026-07-19T14:06:25",
+    "article_type": "actu"
+  },
+  {
+    "slug": "nouvelles-addictions-evolution-consommations-risques",
+    "statut": "rejete_qualite",
+    "date": "2026-07-19T14:06:58",
+    "angle_insuffisant": true,
+    "raison": "L'article ressemble à une fiche pédagogique générale sans fait déclencheur daté",
+    "article_type": "dossier_science"
+  },
+  {
+    "slug": "la-planete-mars-dans-la-science-fiction",
+    "statut": "rejete_qualite",
+    "date": "2026-07-19T14:07:57",
+    "tentative": 1,
+    "angle_insuffisant": true,
+    "raison": "L'article ressemble à une fiche pédagogique générale sans fait déclencheur daté",
+    "article_type": "actu"
   }
 ]

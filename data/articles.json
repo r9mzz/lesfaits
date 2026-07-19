@@ -1,5 +1,35 @@
 [
   {
+    "slug": "one-health-approche-globale-sante",
+    "titre": "L’approche One Health pour une meilleure santé globale",
+    "categorie": "sante",
+    "nb_sources": 6,
+    "nb_mots": 450,
+    "date": "19 juillet 2026, 18h00",
+    "resume": [
+      "La santé humaine, animale et environnementale sont étroitement liées, ce qui nécessite une approche intégrée pour améliorer la santé globale.",
+      "L'approche One Health vise à dépasser les frontières disciplinaires pour mieux comprendre les interactions entre les humains, les animaux et l'environnement.",
+      "Cette approche est particulièrement pertinente dans le contexte des défis sanitaires actuels, tels que la résistance antimicrobienne et les épidémies."
+    ],
+    "image_keyword": "medical research laboratory",
+    "statut_verification": "conforme_du_premier_coup"
+  },
+  {
+    "slug": "volcan-inconnu-sicile",
+    "titre": "Découverte d’un volcan inconnu au large des côtes siciliennes",
+    "categorie": "science",
+    "nb_sources": 5,
+    "nb_mots": 422,
+    "date": "19 juillet 2026, 18h00",
+    "resume": [
+      "La découverte d'un volcan inconnu près des côtes siciliennes soulève des questions sur l'activité volcanique dans la région.",
+      "Les scientifiques utilisent des méthodes de cartographie pour étudier les fonds marins et identifier les risques potentiels.",
+      "La compréhension de l'activité volcanique est essentielle pour la protection des populations et des environnements."
+    ],
+    "image_keyword": "volcan sous-marin",
+    "statut_verification": "corrige_automatiquement"
+  },
+  {
     "slug": "tarif-agent-edf-cout-demesure",
     "titre": "Le tarif agent d’EDF, un avantage coûteux selon la Cour des comptes",
     "categorie": "societe",
