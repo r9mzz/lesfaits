@@ -1997,6 +1997,15 @@ def generate(content: str, category_hint: str, extra_sources: list[dict] | None 
         "- Si, après lecture, les sources ne convergent pas vers un événement principal identifiable "
         "et ne parlent que de sujets épars reliés par un simple mot-clé commun, réponds HORS_PERIMETRE "
         "plutôt que de produire un article qui agrège des actualités sans rapport.\n"
+        "- TEST ANTI-DIGRESSION pour « Contexte » et « Débats et nuances » : avant d'écrire une phrase "
+        "qui mentionne un AUTRE cas, lieu, instance ou exemple similaire (un autre volcan, un autre pays, "
+        "un autre incident du même type…), vérifie qu'elle répond à la question « est-ce que ça aide "
+        "directement à comprendre CETTE actualité précise ? ». Si la réponse est non — si c'est juste un "
+        "fait parallèle intéressant mais sans lien de cause, de méthode ou de comparaison chiffrée avec "
+        "l'événement principal — NE L'ÉCRIS PAS, même si une source en parle. Une comparaison n'est "
+        "légitime que si elle est explicitement mise en relation avec le sujet principal (« contrairement "
+        "à X, qui... », « comme dans le cas de Y, mais avec cette différence : ... ») — jamais une simple "
+        "juxtaposition (« par ailleurs, X se produit aussi »).\n"
     )
 
     user_msg = (
