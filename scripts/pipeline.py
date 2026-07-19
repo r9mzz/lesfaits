@@ -3614,9 +3614,11 @@ def build_article_html(art: dict, date_pub: str) -> str:
 
     nb_src = len(verified_sources)
 
-    # Temps de lecture
-    body_text = art["corps"]["faits"] + " " + art["corps"]["contexte"] + " " + art["corps"]["nuances"]
-    word_count = len(body_text.split())
+    # Temps de lecture — même base que le plancher éditorial et le rapport
+    # "Terminé — N mots" (chapeau + corps, voir _mots_totaux) : ce calcul
+    # dupliquait auparavant son propre compte (corps seul), d'où le badge
+    # public affichant 320 mots quand nb_mots (déjà corrigé) valait 420.
+    word_count = _mots_totaux(art)
     reading_time = max(1, round(word_count / 200))
 
     faits    = _esc(art["corps"]["faits"]).replace("\n", "</p><p>")
