@@ -1973,11 +1973,38 @@ def generate(content: str, category_hint: str, extra_sources: list[dict] | None 
         else "Rédige maintenant l'article complet."
     )
 
+    # ── Ancrage sur UN SEUL événement ──
+    # Défaut identifié le 19/07 (article Alzheimer, critique externe) : la
+    # recherche par mots-clés remonte des sources qui partagent le THÈME
+    # (« Alzheimer ») mais pas la même ACTUALITÉ (étude lithium + anticorps
+    # anti-amyloïde + inversion des symptômes = 3 études distinctes fusionnées
+    # de force). Le CONTENU SOURCE PRINCIPAL ci-dessus est l'événement unique
+    # de l'article. Les autres sources ne sont pas jetées (ni matière ni
+    # sources perdues) : celles qui décrivent une étude/annonce DIFFÉRENTE
+    # servent de mise en perspective dans « Contexte », jamais confondues avec
+    # le fait principal.
+    ancre_block = (
+        "\n\n⚠ ANGLE UNIQUE — RÈGLE DE COHÉRENCE ABSOLUE :\n"
+        "L'article traite d'UN SEUL événement : celui décrit dans le CONTENU SOURCE "
+        "PRINCIPAL ci-dessus (l'étude, l'annonce ou la décision précise qui est l'actualité du jour).\n"
+        "- « Les faits » : UNIQUEMENT cet événement précis et ses données. N'y mélange JAMAIS "
+        "les résultats d'une autre étude, même sur le même thème général.\n"
+        "- Les sources ci-dessus qui décrivent une étude / une découverte / une annonce DIFFÉRENTE "
+        "(autre équipe, autre mécanisme, autre date) ne rapportent PAS le même fait : utilise-les "
+        "dans « Contexte » comme mise en perspective (« d'autres travaux récents… », en les "
+        "distinguant clairement de l'actualité principale), jamais fusionnées dans « Les faits » "
+        "comme si c'était la même trouvaille.\n"
+        "- Si, après lecture, les sources ne convergent pas vers un événement principal identifiable "
+        "et ne parlent que de sujets épars reliés par un simple mot-clé commun, réponds HORS_PERIMETRE "
+        "plutôt que de produire un article qui agrège des actualités sans rapport.\n"
+    )
+
     user_msg = (
         f"{attrib_header}"
         f"Catégorie probable : {category_hint}\n\n"
         f"CONTENU SOURCE PRINCIPAL :\n{content[:content_len]}"
         f"{sources_block}"
+        f"{ancre_block}"
         f"{article_precedent_block}"
         f"RAPPEL ATTRIBUTION :\n"
         f"1. Le champ 'sources' ne doit contenir QUE des entrées dont l'URL figure dans les SOURCES ci-dessus.\n"
