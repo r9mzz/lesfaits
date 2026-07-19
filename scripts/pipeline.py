@@ -2085,6 +2085,11 @@ def generate(content: str, category_hint: str, extra_sources: list[dict] | None 
     MAX_RETRY_CYCLES = 8  # cycles complets sur toutes les clés avant abandon
     RETRY_WAIT = 62       # secondes d'attente entre deux cycles (fenêtre rate-limit Groq = 60s)
     troncature_deja_reduite = False
+    # Réservation de réponse : 3500 par défaut (voir _groq_call) ; montée à
+    # 6000 UNIQUEMENT pour la relance après troncature — payer plus de TPD
+    # seulement quand l'article en a réellement besoin, plutôt que de le
+    # perdre (1 sujet mort tronqué deux fois à 3500 la nuit du 19/07).
+    reservation_reponse = 3500
     for cycle in range(MAX_RETRY_CYCLES):
         keys_to_try = [(k, l) for k, l in _all_keys if k and k not in _CLES_MORTES_JOUR]
         if not keys_to_try:
@@ -2097,16 +2102,18 @@ def generate(content: str, category_hint: str, extra_sources: list[dict] | None 
         keys_to_try = keys_to_try[offset:] + keys_to_try[:offset]
         for key, label in keys_to_try:
             try:
-                raw = _groq_call(key, messages)
+                raw = _groq_call(key, messages, max_tokens=reservation_reponse)
                 break
             except TronqueError:
                 # Complétion coupée à max_tokens : réessayer UNE fois (même
-                # clé, même cycle) avec une consigne de concision explicite —
-                # sans ça le sujet est perdu à coup sûr (JSON invalide).
+                # clé, même cycle) avec une consigne de concision explicite
+                # ET une réservation doublée — sans ça le sujet est perdu à
+                # coup sûr (JSON invalide).
                 if troncature_deja_reduite:
                     raise ValueError("Réponse tronquée à max_tokens malgré la consigne de concision")
                 troncature_deja_reduite = True
-                print(f"     [GROQ] Complétion tronquée à max_tokens — nouvelle tentative avec consigne de concision")
+                reservation_reponse = 6000
+                print(f"     [GROQ] Complétion tronquée à max_tokens — nouvelle tentative avec consigne de concision et réservation élargie")
                 messages = messages + [{
                     "role": "user",
                     "content": ("Ta réponse précédente a été coupée car trop longue. "

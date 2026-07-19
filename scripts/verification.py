@@ -154,7 +154,7 @@ RÈGLES DE CORRECTION :
 - Pour une "extrapolation" : supprime, sauf si tu peux l'attribuer explicitement à une source qui l'exprime.
 - Pour un "compteur_incoherent" : recompte et corrige le champ "nb_sources" pour qu'il reflète exactement la réalité du texte corrigé.
 
-Objectif de longueur : chaque section corrigée (faits/contexte/nuances) doit rester proche de sa longueur originale (± 15 %), sauf si les sources sont réellement épuisées de tout fait distinct. Un article de presse a plusieurs paragraphes par section, pas une phrase unique — la richesse vient de la variété des faits cités, jamais de leur répétition.
+RÈGLE DE LONGUEUR ABSOLUE — AUSSI IMPORTANTE QUE LES CORRECTIONS ELLES-MÊMES : chaque section corrigée (faits/contexte/nuances) doit faire AU MOINS 85 % des mots de sa version originale. Une correction qui raccourcit une section de plus de 15 % sera REFUSÉE automatiquement et tout ton travail sera perdu. Quand tu dois retirer un passage problématique, tu as exactement trois options, dans cet ordre de préférence : (1) le réécrire correctement (reformuler, attribuer, préciser) ; (2) le remplacer par un fait DISTINCT encore inutilisé tiré des sources autorisées — relis-les intégralement, elles contiennent presque toujours plus de matière que ce qui a été extrait ; (3) en DERNIER recours seulement, si le passage est irrécupérable ET qu'aucun fait neuf n'existe dans les sources, conserver le passage original en l'améliorant a minima plutôt que de le supprimer — SUPPRIMER SANS REMPLACER N'EST JAMAIS UNE OPTION. Un article de presse a plusieurs paragraphes par section, pas une phrase unique — la richesse vient de la variété des faits cités, jamais de leur répétition.
 
 Ne modifie AUCUNE partie de l'article qui n'est pas mentionnée dans le rapport de problèmes. Ne réécris pas le style au-delà de ce qui est nécessaire pour corriger les problèmes signalés.
 
@@ -539,6 +539,34 @@ def verifier_article(art: dict, article_type: str = "actu") -> tuple[dict, str]:
         # restant est par ailleurs 100% conforme.
         perte, section_touchee, mots_avant, mots_apres = _perte_substance(art, art_corrige)
         if perte:
+            if tentative < MAX_TENTATIVES:
+                # Seconde chance AVANT rejet (18/07 : 2 articles/nuit perdus
+                # ici) : on relance la correction depuis l'article ORIGINAL
+                # intact — pas la version amputée — avec une consigne de
+                # longueur explicite injectée dans le rapport. Rejet
+                # uniquement si la 2e correction coupe aussi.
+                print(f"     [VERIF] perte de substance (tentative {tentative}) : "
+                      f"section '{section_touchee}' {mots_avant}→{mots_apres} mots — "
+                      f"nouvelle correction avec consigne de longueur")
+                rapport_courant = dict(rapport_courant)
+                rapport_courant["problemes"] = list(rapport_courant.get("problemes", [])) + [{
+                    "bloc": 4,
+                    "section": section_touchee,
+                    "type": "correction_precedente_trop_coupee",
+                    "phrase_exacte": "",
+                    "explication": (
+                        f"Ta correction précédente a réduit la section « {section_touchee} » "
+                        f"de {mots_avant} à {mots_apres} mots — c'est INTERDIT. Corrige les "
+                        f"problèmes en REMPLAÇANT chaque passage supprimé par un fait DISTINCT "
+                        f"encore inutilisé tiré des sources autorisées (chiffre, date, acteur, "
+                        f"réaction, comparaison). La section corrigée doit faire au moins "
+                        f"{int(mots_avant * 0.85)} mots. Si aucune matière neuve n'existe dans "
+                        f"les sources pour un passage, conserve sa version originale plutôt "
+                        f"que de le supprimer."
+                    ),
+                }]
+                art_courant = art  # repartir de l'original intact
+                continue
             print(f"     [REJET QUALITÉ] perte de substance (tentative {tentative}) : "
                   f"section '{section_touchee}' {mots_avant}→{mots_apres} mots")
             _log(slug, "rejete_qualite", {
