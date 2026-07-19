@@ -124,8 +124,10 @@ jobs:
           cp    confirmation.html     /tmp/site/ 2>/dev/null || true
           cp    desabonnement.html    /tmp/site/ 2>/dev/null || true
           cp -r src/                  /tmp/site/ 2>/dev/null || true
-          # App perso "Devenir" (noindex, hors sitemap) — https://lesfaits.info/devenir/
-          cp -r devenir/              /tmp/site/ 2>/dev/null || true
+          # L'app perso "Devenir" a été brièvement déployée le 18/07 puis
+          # retirée (aucun lien voulu avec lesfaits.info) — on purge le
+          # dossier du site à chaque déploiement pour garantir sa disparition.
+          rm -rf /tmp/site/devenir
 
           cd /tmp/site
           git config user.name  "Factuel Bot"
