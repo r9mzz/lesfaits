@@ -91,6 +91,21 @@ RSS_SOURCES = [
     {"name": "Reporterre",           "url": "https://reporterre.net/spip.php?page=backend"},
     # Sécurité sanitaire
     {"name": "ANSES",                "url": "https://www.anses.fr/fr/flux-actualites.rss"},
+    # ── Ajouts du 19/07 (Nahil : besoin de plus de matière) ──
+    # fetch_rss ignore déjà silencieusement un flux mort (voir gestion 415/406
+    # existante) — un flux qui ne répond pas ne casse rien, il rapporte juste
+    # 0 sujet. Confiance haute (format standard, documenté) sauf mention contraire.
+    {"name": "The Conversation France", "url": "https://theconversation.com/fr/articles.atom"},
+    {"name": "RFI",                  "url": "https://www.rfi.fr/fr/rss"},
+    {"name": "Numerama",             "url": "https://www.numerama.com/feed/"},
+    {"name": "Novethic",             "url": "https://www.novethic.fr/rss/toute-l-actualite.xml"},
+    # Institutionnels à forte valeur (source PRIMAIRE directe) mais URL non
+    # vérifiable depuis cet environnement (réseau restreint) — à confirmer
+    # dans les logs du prochain run réel (GitHub Actions) : chercher
+    # "[COLLECTE RSS]" et le nombre d'items par flux.
+    {"name": "Légifrance JORF",      "url": "https://www.legifrance.gouv.fr/rss/jorf.xml"},
+    {"name": "Santé Publique France", "url": "https://www.santepubliquefrance.fr/rss"},
+    {"name": "INSEE Informations rapides", "url": "https://www.insee.fr/fr/rss"},
 ]
 
 HEADERS = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"}
@@ -342,6 +357,7 @@ _DOMAINES_SECONDAIRES = (
     "bbc.com", "theguardian.com", "nytimes.com", "washingtonpost.com",
     "letemps.ch", "rts.ch", "lesoir.be", "rtbf.be",
     "theconversation.com", "sciencesetavenir.fr", "pourlascience.fr",
+    "numerama.com", "novethic.fr",
 )
 
 
