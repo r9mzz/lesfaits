@@ -2225,6 +2225,14 @@ def generate(content: str, category_hint: str, extra_sources: list[dict] | None 
     # et écraser le nom avec celui de la source authoritative (évite les mismatches nom↔URL).
     real_title_by_url = {s["url"]: _media_name_from_url(s["url"], s.get("title", ""))
                         for s in real_sources}
+    # Vrai titre de l'article/dépêche source (pas le nom du média) : le LLM
+    # laisse souvent le champ 'titre' vide, la section SOURCES n'affichait
+    # alors que « Média · Lire la source » sans intitulé (constat 19/07). On
+    # réinjecte le titre réel remonté par DuckDuckGo/RSS quand il manque.
+    real_headline_by_url = {
+        s["url"]: (s.get("title") or "").strip()
+        for s in real_sources if (s.get("title") or "").strip()
+    }
     if "sources" in art:
         verified = []
         for src in art["sources"]:
@@ -2237,6 +2245,11 @@ def generate(content: str, category_hint: str, extra_sources: list[dict] | None 
             if url in real_urls and len(path) > 3 and urlparse(url).scheme in ("http", "https"):
                 src = dict(src)
                 src["institution"] = real_title_by_url.get(url, src.get("institution", ""))
+                if not (src.get("titre") or "").strip():
+                    headline = real_headline_by_url.get(url, "")
+                    # Ne pas dupliquer le nom du média comme titre
+                    if headline and headline.lower() != (src.get("institution") or "").lower():
+                        src["titre"] = headline
                 verified.append(src)
         art["sources"] = verified
         art["nb_sources"] = len(verified)
@@ -2258,16 +2271,33 @@ def build_spectrum_html(positions: dict) -> str:
     # sans position numérique, et on borne la position à [0, 100].
     label_g = positions.get("label_gauche") or "Favorable"
     label_d = positions.get("label_droite") or "Critique"
+    # Un acteur dont le DÉTAIL indique qu'aucune position n'est rapportée
+    # (le LLM le génère quand même, avec une position inventée) ne doit PAS
+    # figurer sur le curseur — sinon on affiche une prise de position là où
+    # la légende dit « aucune position rapportée » (bug du 19/07, article
+    # pompiers volontaires). On masque ces acteurs incertains.
+    _SANS_POSITION_RE = re.compile(
+        r"aucune prise de position|aucune position|non rapport|pas de position|"
+        r"n['’]est pas rapport|position (?:inconnue|incertaine|non établie)|"
+        r"ne se prononce pas|non précisée?|indéterminée?",
+        re.IGNORECASE,
+    )
     acteurs = []
     for a in positions["acteurs"]:
         if not isinstance(a, dict) or not a.get("nom"):
             continue
+        if _SANS_POSITION_RE.search(str(a.get("detail") or "")):
+            continue  # position non attestée → masquée
         try:
             pos = max(0, min(100, float(a.get("position"))))
         except (TypeError, ValueError):
             continue
         acteurs.append({**a, "position": pos})
-    if not acteurs:
+    # Un spectre n'a de sens qu'avec AU MOINS DEUX camps réellement positionnés
+    # (règle 10 du prompt : deux positions opposées, chacune attestée). S'il
+    # reste 0 ou 1 acteur après filtrage, on masque tout le bloc plutôt que
+    # d'afficher un curseur à un seul point.
+    if len(acteurs) < 2:
         return ""
     COLORS = ["#4a90d9", "#e57373", "#66bb6a", "#ffa726", "#ab47bc"]
     markers = "\n".join(
