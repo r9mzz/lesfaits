@@ -104,7 +104,8 @@ INDÉPENDAMMENT des blocs ci-dessus, évalue aussi si le SUJET lui-même exige u
 - les sources fournies sont trop pauvres pour expliquer correctement le sujet (ex : cas médical exceptionnel sans diagnostic, mécanisme ou évolution connus) ;
 - le "contexte" a dû être rempli avec un fait divers sans rapport direct avec le sujet principal faute de matière pertinente ;
 - un lecteur terminant l'article ne saurait toujours pas ce qui s'est réellement passé, pourquoi c'est publié maintenant, ce qui est établi et ce qui ne l'est pas.
-Ce n'est PAS un jugement de style : un article bien écrit sur un sujet creux reste "angle_insuffisant": true. Précise la raison dans "angle_insuffisant_raison".
+
+TEST OPÉRATIONNEL OBLIGATOIRE (applique-le systématiquement, ne te fie pas à une impression générale) : cherche dans "faits" UNE phrase qui contienne à la fois (a) un événement précis daté ou datable (annonce, publication, décision, résultat rendu public récemment) ET (b) une donnée chiffrée ou nommée qui lui est propre. Si aucune phrase de "faits" ne remplit ce double critère — si le texte ne fait qu'expliquer un concept, une notion ou un phénomène général en citant des institutions sans jamais dire CE QUI VIENT DE SE PASSER — alors angle_insuffisant = true, même si l'article est bien écrit, bien sourcé et neutre. Un article qui répond à "qu'est-ce que X ?" plutôt qu'à "pourquoi parle-t-on de X maintenant ?" est TOUJOURS insuffisant, quelle que soit la qualité de ses sources. Ce n'est PAS un jugement de style : un article bien écrit sur un sujet creux reste "angle_insuffisant": true. Précise la raison dans "angle_insuffisant_raison".
 
 Classe aussi la nature du contenu dans "nature_contenu", une valeur parmi : "actualite_factuelle", "etude_scientifique", "rapport", "decision_officielle", "declaration", "interview", "tribune", "chronique", "prise_de_position", "sujet_pedagogique". Si la valeur est "tribune", "chronique", "interview" ou "prise_de_position", vérifie que l'introduction de l'article l'indique explicitement (ex : "dans une tribune publiée par X, Y plaide pour...") plutôt que de présenter l'opinion comme un fait établi — sinon, signale-le comme un problème de bloc 3 "cadrage_emprunte".
 
@@ -149,7 +150,7 @@ RÈGLES DE CORRECTION :
 - Pour un "cadrage_emprunte" : attribue explicitement le jugement à sa source ("selon X") ou reformule en langage factuel neutre.
 - Pour une "redondance" : NE SUPPRIME PAS SIMPLEMENT LA PHRASE. Remplace-la par un fait DISTINCT tiré des mêmes sources autorisées, encore inutilisé dans l'article — un chiffre précis, une date, un autre acteur cité, une méthodologie, une réaction, une comparaison historique ou géographique, une conséquence concrète. Les sources contiennent presque toujours plus de matière que ce qui a été extrait au premier passage ; relis-les intégralement pour trouver cet angle neuf. Supprimer purement et simplement n'est acceptable QUE si tu as vérifié qu'aucun fait distinct exploitable ne reste dans les sources.
 - Pour une "section_gonflee" : si un fait distinct sourcé existe encore, utilise-le ; sinon, coupe la section plutôt que de la laisser vague.
-- Pour un "faux_debat" : supprime le cadrage pour/contre et remplace par une présentation factuelle de la décision/sanction, ou indique explicitement qu'il n'y a pas de désaccord réel.
+- Pour un "faux_debat" : supprime le cadrage pour/contre et remplace par une présentation factuelle de la décision/sanction, ou indique explicitement qu'il n'y a pas de désaccord réel. IMPORTANT : mets AUSSI à jour le champ JSON "positions" en conséquence — "verifie": false et "acteurs": [] — le graphique de positionnement ne doit jamais afficher un faux débat, même si le problème initial ne portait que sur le texte de 'nuances'.
 - Pour un "jugement_de_valeur" : reformule en langage neutre et factuel, sans réduire la longueur.
 - Pour une "extrapolation" : supprime, sauf si tu peux l'attribuer explicitement à une source qui l'exprime.
 - Pour un "compteur_incoherent" : recompte et corrige le champ "nb_sources" pour qu'il reflète exactement la réalité du texte corrigé.
@@ -447,6 +448,13 @@ def verifier_article(art: dict, article_type: str = "actu") -> tuple[dict, str]:
         return art, "rejete_qualite"
 
     if rapport.get("conforme"):
+        # Même filet déterministe que pour corrige_automatiquement : bloc 3/4
+        # (dont faux_debat) est non-bloquant et peut coexister avec
+        # conforme=true — sans ce nettoyage, un faux débat resterait affiché
+        # dans le graphique de positionnement d'un article par ailleurs publié tel quel.
+        if any(p.get("type") == "faux_debat" for p in rapport.get("problemes", [])):
+            art["positions"] = {"verifie": False, "label_gauche": "",
+                                 "label_droite": "", "acteurs": []}
         _log(slug, "conforme_du_premier_coup", _type_detail)
         return art, "conforme_du_premier_coup"
 
@@ -577,6 +585,17 @@ def verifier_article(art: dict, article_type: str = "actu") -> tuple[dict, str]:
             return art_corrige, "rejete_qualite"
 
         if rapport_final.get("conforme") or not bloquants:
+            # Filet déterministe : si "faux_debat" a été signalé (passe initiale
+            # OU rapport final), on ne compte pas sur le correcteur LLM pour
+            # avoir nettoyé le JSON 'positions' en conséquence — un faux débat
+            # texte ("nuances" corrigé) laissait souvent le graphique de
+            # positionnement intact, affichant un Pour/Contre inventé pour un
+            # sujet consensuel (constat 19/07, article One Health). On force
+            # ici, sans dépendre de l'obéissance du LLM à la consigne du prompt.
+            tous_problemes = (rapport or {}).get("problemes", []) + problemes
+            if any(p.get("type") == "faux_debat" for p in tous_problemes):
+                art_corrige["positions"] = {"verifie": False, "label_gauche": "",
+                                             "label_droite": "", "acteurs": []}
             residuel = len(problemes)
             _log(slug, "corrige_automatiquement", {
                 "problemes_initiaux": n_pb,
