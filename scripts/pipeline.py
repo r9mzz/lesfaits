@@ -106,6 +106,28 @@ RSS_SOURCES = [
     {"name": "Légifrance JORF",      "url": "https://www.legifrance.gouv.fr/rss/jorf.xml"},
     {"name": "Santé Publique France", "url": "https://www.santepubliquefrance.fr/rss"},
     {"name": "INSEE Informations rapides", "url": "https://www.insee.fr/fr/rss"},
+    # ── Deuxième vague (19/07, suite) : couvrir les domaines déjà en liste
+    # blanche primaire/secondaire mais qui n'avaient encore AUCUN flux RSS
+    # configuré — le levier le plus direct pour plus de matière sans rien
+    # assouplir. Mêmes réserves de confiance qu'au-dessus (réseau sandbox
+    # bloqué, à confirmer au run réel via "[COLLECTE RSS]").
+    # -- Presse déjà secondaire, RSS manquant --
+    {"name": "Les Échos",            "url": "https://www.lesechos.fr/rss/rss_une.xml"},
+    {"name": "Le Parisien",          "url": "https://www.leparisien.fr/rss.xml"},
+    {"name": "L'Express",            "url": "https://www.lexpress.fr/arc/outboundfeeds/rss/?outputType=xml"},
+    {"name": "Ouest-France",         "url": "https://www.ouest-france.fr/rss-en-continu.xml"},
+    {"name": "La Croix",             "url": "https://www.la-croix.com/rss.xml"},
+    {"name": "France 24",            "url": "https://www.france24.com/fr/rss"},
+    {"name": "Mediapart",            "url": "https://www.mediapart.fr/articles/feed"},
+    {"name": "20 Minutes",           "url": "https://www.20minutes.fr/rss/une.xml"},
+    # -- Institutions déjà primaires, RSS manquant --
+    {"name": "ADEME",                "url": "https://www.ademe.fr/rss/"},
+    {"name": "CEA",                  "url": "https://www.cea.fr/rss"},
+    {"name": "INRAE",                "url": "https://www.inrae.fr/rss.xml"},
+    {"name": "Cour des comptes",     "url": "https://www.ccomptes.fr/fr/rss.xml"},
+    {"name": "Sénat",                "url": "https://www.senat.fr/rss/actualites.xml"},
+    {"name": "Assemblée nationale",  "url": "https://www.assemblee-nationale.fr/dyn/rss/rss_dossiers_legislatifs.xml"},
+    {"name": "Banque de France",     "url": "https://www.banque-france.fr/rss.xml"},
 ]
 
 HEADERS = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"}
@@ -351,7 +373,7 @@ _DOMAINES_SECONDAIRES = (
     "afp.com", "reuters.com", "apnews.com",
     "lemonde.fr", "lefigaro.fr", "liberation.fr", "lesechos.fr",
     "leparisien.fr", "lepoint.fr", "lexpress.fr", "nouvelobs.com",
-    "mediapart.fr", "la-croix.com", "ouest-france.fr", "sudouest.fr",
+    "mediapart.fr", "la-croix.com", "ouest-france.fr", "sudouest.fr", "20minutes.fr",
     "francetvinfo.fr", "franceinfo.fr", "france24.com", "rfi.fr",
     "radiofrance.fr", "europe1.fr",
     "bbc.com", "theguardian.com", "nytimes.com", "washingtonpost.com",
