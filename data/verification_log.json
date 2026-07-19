@@ -3141,5 +3141,135 @@
       ]
     },
     "article_type": "actu"
+  },
+  {
+    "slug": "epidemie-diarrhee-explosive-etats-unis",
+    "statut": "rejete_qualite",
+    "date": "2026-07-19T05:50:27",
+    "tentative": 1,
+    "perte_substance": true,
+    "section": "contexte",
+    "mots_avant": 209,
+    "mots_apres": 101,
+    "article_type": "actu"
+  },
+  {
+    "slug": "alzheimer-piste-prometteuse-eliminer-plaques-amyloides",
+    "statut": "corrige_automatiquement",
+    "date": "2026-07-19T05:51:08",
+    "problemes_initiaux": 4,
+    "tentatives": 1,
+    "problemes_residuels_style": 3,
+    "rapport_initial": {
+      "conforme": false,
+      "sujet_sensible": false,
+      "sujet_sensible_raison": "",
+      "angle_insuffisant": false,
+      "angle_insuffisant_raison": "",
+      "nature_contenu": "actualite_factuelle",
+      "problemes": [
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "source_derivee_comptee_comme_primaire",
+          "phrase_exacte": "Futura Sciences rapporte que des chercheurs américains ont découvert une piste prometteuse pour aider le cerveau à éliminer les plaques amyloïdes, qui sont des amas de protéines caractéristiques de la maladie d'Alzheimer.",
+          "explication": "Plusieurs sources rapportent la même information sans apporter d'informations distinctes, ce qui pourrait indiquer un manque de diversité dans les sources."
+        },
+        {
+          "bloc": 4,
+          "section": "contexte",
+          "type": "redondance",
+          "phrase_exacte": "Les causes de la maladie sont encore mal comprises, mais les recherches actuelles suggèrent que les plaques amyloïdes pourraient jouer un rôle important dans son développement.",
+          "explication": "Cette phrase répète une idée déjà présente dans la section 'faits', ce qui pourrait être considéré comme une redondance."
+        },
+        {
+          "bloc": 4,
+          "section": "nuances",
+          "type": "jugement_de_valeur",
+          "phrase_exacte": "La Libre note que les nanoparticules intelligentes et les traitements expérimentaux mentionnés ne sont pas encore approuvés pour une utilisation clinique et nécessitent des études supplémentaires pour évaluer leur sécurité et leur efficacité.",
+          "explication": "Le terme 'intelligentes' pourrait être considéré comme un jugement de valeur, car il implique une évaluation subjective des nanoparticules."
+        },
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "compteur_incoherent",
+          "phrase_exacte": "nb_sources : 8",
+          "explication": "Le nombre de sources réellement utilisées dans l'article pourrait être inférieur à 8, car certaines sources pourraient être des répétitions ou des sources non pertinentes."
+        }
+      ]
+    },
+    "article_type": "dossier_science"
+  },
+  {
+    "slug": "tarif-agent-edf-cout-demesure",
+    "statut": "corrige_automatiquement",
+    "date": "2026-07-19T05:54:50",
+    "problemes_initiaux": 6,
+    "tentatives": 2,
+    "problemes_residuels_style": 4,
+    "rapport_initial": {
+      "conforme": false,
+      "sujet_sensible": false,
+      "sujet_sensible_raison": "",
+      "angle_insuffisant": false,
+      "angle_insuffisant_raison": "",
+      "nature_contenu": "actualite_factuelle",
+      "problemes": [
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "Selon Boursorama.",
+          "explication": "Boursorama est bien une source autorisée, mais il manque une référence précise à l'article de Boursorama dans les sources."
+        },
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "Selon Bourseinside.",
+          "explication": "Bourseinside est bien une source autorisée, mais il manque une référence précise à l'article de Bourseinside dans les sources."
+        },
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "Selon 20 Minutes.",
+          "explication": "20 Minutes est bien une source autorisée, mais il manque une référence précise à l'article de 20 Minutes dans les sources."
+        },
+        {
+          "bloc": 2,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "Selon Publicsenat.",
+          "explication": "Publicsenat est bien une source autorisée, mais il manque une référence précise à l'article de Publicsenat dans les sources."
+        },
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "compteur_incoherent",
+          "phrase_exacte": "Le coût de cet avantage est estimé à plus de 700 millions d'euros par an, selon Bourseinside.",
+          "explication": "Le nombre de sources réellement utilisées est de 6, mais il y a 7 sources listées, dont Aperçu qui n'est pas utilisée dans l'article."
+        },
+        {
+          "bloc": 4,
+          "section": "nuances",
+          "type": "redondance",
+          "phrase_exacte": "Il est important de prendre en compte les conséquences d'une suppression ou d'une réduction de cet avantage sur les salariés.",
+          "explication": "Cette phrase répète une idée déjà présente dans la section 'faits'."
+        }
+      ]
+    },
+    "article_type": "actu"
+  },
+  {
+    "slug": "recherche-vie-mars-inspire-science-fiction",
+    "statut": "rejete_qualite",
+    "date": "2026-07-19T05:55:44",
+    "tentative": 2,
+    "perte_substance": true,
+    "section": "faits",
+    "mots_avant": 130,
+    "mots_apres": 47,
+    "article_type": "actu"
   }
 ]
