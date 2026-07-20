@@ -110,7 +110,7 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeMenu();
 <span class="meta__sep">·</span><span>25 juin 2026, 21h51</span>
 <span class="meta__sep" aria-hidden="true">·</span><span class="art__reading-time">Lecture : 3 min</span>
 </div>
-  <div class="art__ai-badge" role="note">🤖 Contenu rédigé par intelligence artificielle — <a href="methode.html" style="color:inherit;text-decoration:underline">notre méthode</a></div>
+  <div class="art__ai-badge" role="note">🤖 Rédigé par IA — <a href="methode.html" style="color:inherit;text-decoration:underline">notre méthode</a><span class="meta__sep" aria-hidden="true">·</span><span class="art__verify-item">✓ 5 sources vérifiées</span><span class="art__verify-item">✓ Sources concordantes</span></div>
   <div class="audio-player" id="audio-player" style="display:none">
   <div class="audio-player__row">
     <button type="button" class="audio-player__btn" id="audio-play" aria-pressed="false">
@@ -120,7 +120,7 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeMenu();
     <button type="button" class="audio-player__ctrl audio-player__ctrl--stop" id="audio-stop" aria-label="Arrêter la lecture" style="display:none">⏹</button>
   </div>
   <div class="audio-player__progress" id="audio-progress-wrap" style="display:none"><div class="audio-player__bar" id="audio-bar"></div></div>
-  <div class="audio-player__settings">
+  <div class="audio-player__settings" id="audio-settings" style="display:none">
     <label class="audio-player__setting-label" for="audio-speed">Vitesse</label>
     <select class="audio-player__select" id="audio-speed" aria-label="Vitesse de lecture">
       <option value="0.85">0.85×</option>
@@ -131,7 +131,7 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeMenu();
   </div>
 </div>
 <div class="art__rule"></div>
-<div class="art__verify"><span class="art__verify-item">✓ 5 sources vérifiées</span><span class="art__verify-item">✓ Sources concordantes</span><span class="art__verify-item">✓ Protocole éditorial v1.2</span></div>
+
 <img alt="Illustration : Canicule : Situation sanitaire en France" class="art__hero" loading="eager" fetchpriority="high" src="assets/images/canicule-sante-publique-france.jpg"/>
 <p class="art__resume">Un épisode de canicule intense touche la France hexagonale depuis le 16 juin La première vigilance rouge a été déclenchée dans 14 départements Le changement climatique entraîne une élévation globale des températures en France</p>
 <aside class="dossier-serie" style="border:1px solid var(--border);border-radius:6px;padding:14px 18px;margin:20px 0;background:var(--light)">

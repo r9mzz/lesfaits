@@ -120,7 +120,7 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeMenu();
     <button type="button" class="audio-player__ctrl audio-player__ctrl--stop" id="audio-stop" aria-label="Arrêter la lecture" style="display:none">⏹</button>
   </div>
   <div class="audio-player__progress" id="audio-progress-wrap" style="display:none"><div class="audio-player__bar" id="audio-bar"></div></div>
-  <div class="audio-player__settings">
+  <div class="audio-player__settings" id="audio-settings" style="display:none">
     <label class="audio-player__setting-label" for="audio-speed">Vitesse</label>
     <select class="audio-player__select" id="audio-speed" aria-label="Vitesse de lecture">
       <option value="0.85">0.85×</option>
