@@ -83,6 +83,17 @@ jobs:
           GROQ_API_KEY_5:   ${{ secrets.GROQ_API_KEY_5 }}
           GROQ_API_KEY_6:   ${{ secrets.GROQ_API_KEY_6 }}
           GROQ_API_KEY_7:   ${{ secrets.GROQ_API_KEY_7 }}
+          GROQ_API_KEY_8:   ${{ secrets.GROQ_API_KEY_8 }}
+          GROQ_API_KEY_9:   ${{ secrets.GROQ_API_KEY_9 }}
+          GROQ_API_KEY_10:  ${{ secrets.GROQ_API_KEY_10 }}
+          GROQ_API_KEY_11:  ${{ secrets.GROQ_API_KEY_11 }}
+          GROQ_API_KEY_12:  ${{ secrets.GROQ_API_KEY_12 }}
+          GROQ_API_KEY_13:  ${{ secrets.GROQ_API_KEY_13 }}
+          GROQ_API_KEY_14:  ${{ secrets.GROQ_API_KEY_14 }}
+          GROQ_API_KEY_15:  ${{ secrets.GROQ_API_KEY_15 }}
+          GROQ_API_KEY_16:  ${{ secrets.GROQ_API_KEY_16 }}
+          GROQ_API_KEY_17:  ${{ secrets.GROQ_API_KEY_17 }}
+          GROQ_API_KEY_18:  ${{ secrets.GROQ_API_KEY_18 }}
           PEXELS_API_KEY:   ${{ secrets.PEXELS_API_KEY }}
           # Vérification 3 passes (fact-check + correction auto) — le pipeline
           # fonctionne sans, avec statut "non_verifie" sur les articles

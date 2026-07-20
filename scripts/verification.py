@@ -38,13 +38,12 @@ DATA = ROOT / "data"
 MODERATION_QUEUE = DATA / "moderation_queue.json"
 VERIF_LOG = DATA / "verification_log.json"
 
-GROQ_KEYS = [k for k in (os.getenv("GROQ_API_KEY", ""),
-                         os.getenv("GROQ_API_KEY_2", ""),
-                         os.getenv("GROQ_API_KEY_3", ""),
-                         os.getenv("GROQ_API_KEY_4", ""),
-                         os.getenv("GROQ_API_KEY_5", ""),
-                         os.getenv("GROQ_API_KEY_6", ""),
-                         os.getenv("GROQ_API_KEY_7", "")) if k]
+# Liste dynamique (20/07, Nahil : 18 clés créées) — voir pipeline.py pour le
+# même mécanisme, GROQ_API_KEY_2 à _N sans plafond codé en dur.
+GROQ_KEYS = [k for k in (
+    [os.getenv("GROQ_API_KEY", "")]
+    + [os.getenv(f"GROQ_API_KEY_{i}", "") for i in range(2, 41)]
+) if k]
 GROQ_MODEL = "llama-3.3-70b-versatile"
 GROQ_URL = "https://api.groq.com/openai/v1/chat/completions"
 

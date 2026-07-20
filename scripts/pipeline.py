@@ -51,12 +51,19 @@ DATA.mkdir(exist_ok=True)
 BASE_URL = "https://lesfaits.info"
 
 GROQ_KEY       = os.getenv("GROQ_API_KEY", "")
-GROQ_KEY2      = os.getenv("GROQ_API_KEY_2", "")
-GROQ_KEY3      = os.getenv("GROQ_API_KEY_3", "")
-GROQ_KEY4      = os.getenv("GROQ_API_KEY_4", "")
-GROQ_KEY5      = os.getenv("GROQ_API_KEY_5", "")
-GROQ_KEY6      = os.getenv("GROQ_API_KEY_6", "")
-GROQ_KEY7      = os.getenv("GROQ_API_KEY_7", "")
+# Liste dynamique (20/07, Nahil : 18 clés créées) : GROQ_API_KEY_2 à
+# GROQ_API_KEY_N, N ajustable sans toucher au code — il suffit d'ajouter le
+# secret GitHub correspondant et de l'exposer dans pipeline.yml. Remplace les
+# 7 variables séparées GROQ_KEY2..GROQ_KEY7 codées en dur (devenu intenable
+# au-delà de quelques clés).
+GROQ_KEYS_SECONDAIRES = [
+    v for i in range(2, 41)
+    if (v := os.getenv(f"GROQ_API_KEY_{i}", ""))
+]
+GROQ_ALL_KEYS: list[tuple[str, str]] = (
+    ([(GROQ_KEY, "clé 1")] if GROQ_KEY else [])
+    + [(k, f"clé {i+2}") for i, k in enumerate(GROQ_KEYS_SECONDAIRES)]
+)
 PEXELS_KEY     = os.getenv("PEXELS_API_KEY", "")
 PIXABAY_KEY    = os.getenv("PIXABAY_API_KEY", "")
 
@@ -2144,7 +2151,7 @@ def generate(content: str, category_hint: str, extra_sources: list[dict] | None 
     ]
 
     raw = None
-    _all_keys = [(GROQ_KEY, "clé 1"), (GROQ_KEY2, "clé 2"), (GROQ_KEY3, "clé 3"), (GROQ_KEY4, "clé 4"), (GROQ_KEY5, "clé 5"), (GROQ_KEY6, "clé 6"), (GROQ_KEY7, "clé 7")]
+    _all_keys = GROQ_ALL_KEYS
     # 8 cycles max (≈8 min) par article : le job GitHub a désormais 5 h
     # (timeout-minutes: 300) — on attend les fenêtres de rate limit Groq
     # plutôt que de perdre le sujet. La protection contre le timeout reste
@@ -2619,7 +2626,7 @@ def extract_visual_keywords(title: str, summary: str, category: str) -> str:
     }
     fallback_kw = _FALLBACK_CATEGORIE.get((category or "").lower(), "france city landscape")
 
-    key = GROQ_KEY or GROQ_KEY2
+    key = GROQ_ALL_KEYS[0][0] if GROQ_ALL_KEYS else ""
     if not key:
         return fallback_kw
     try:
@@ -5263,7 +5270,7 @@ if __name__ == "__main__":
     if not GROQ_KEY:
         print("ERREUR : GROQ_API_KEY manquant dans .env / secrets GitHub")
         exit(1)
-    active_keys = sum(1 for k in (GROQ_KEY2, GROQ_KEY3, GROQ_KEY4, GROQ_KEY5, GROQ_KEY6, GROQ_KEY7) if k)
+    active_keys = len(GROQ_KEYS_SECONDAIRES)
     if active_keys:
         print(f"[INFO] {active_keys} clé(s) Groq de secours détectée(s) — bascule automatique si rate limit")
 

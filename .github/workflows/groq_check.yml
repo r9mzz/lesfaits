@@ -21,6 +21,17 @@ jobs:
           K5: ${{ secrets.GROQ_API_KEY_5 }}
           K6: ${{ secrets.GROQ_API_KEY_6 }}
           K7: ${{ secrets.GROQ_API_KEY_7 }}
+          K8: ${{ secrets.GROQ_API_KEY_8 }}
+          K9: ${{ secrets.GROQ_API_KEY_9 }}
+          K10: ${{ secrets.GROQ_API_KEY_10 }}
+          K11: ${{ secrets.GROQ_API_KEY_11 }}
+          K12: ${{ secrets.GROQ_API_KEY_12 }}
+          K13: ${{ secrets.GROQ_API_KEY_13 }}
+          K14: ${{ secrets.GROQ_API_KEY_14 }}
+          K15: ${{ secrets.GROQ_API_KEY_15 }}
+          K16: ${{ secrets.GROQ_API_KEY_16 }}
+          K17: ${{ secrets.GROQ_API_KEY_17 }}
+          K18: ${{ secrets.GROQ_API_KEY_18 }}
         run: |
           # ⚠ LEÇON DU 18/07 : Groq décompte du quota journalier (TPD) la
           # RÉSERVATION max_tokens, pas la consommation réelle — une sonde à
@@ -29,7 +40,7 @@ jobs:
           # 200 = clé vivante ; 429 « per day » = solde exact dans le corps
           # d'erreur (Limit X, Used Y). Le solde d'une clé vivante n'est pas
           # mesurable sans le dépenser — ne JAMAIS remonter cette valeur.
-          for i in 1 2 3 4 5 6 7; do
+          for i in 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18; do
             key=$(eval echo "\$K$i")
             if [ -z "$key" ]; then echo "clé $i : (absente)"; continue; fi
             body=$(curl -s -w "\n%{http_code}" https://api.groq.com/openai/v1/chat/completions \
