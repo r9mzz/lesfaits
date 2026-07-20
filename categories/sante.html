@@ -496,6 +496,7 @@ document.addEventListener('DOMContentLoaded',function(){var btn=document.getElem
       label:document.getElementById('audio-label'),
       stop:document.getElementById('audio-stop'),
       progressWrap:document.getElementById('audio-progress-wrap'),
+      settings:document.getElementById('audio-settings'),
     };
   }
   function setLocalPlayingUI(isPlaying){
@@ -504,6 +505,10 @@ document.addEventListener('DOMContentLoaded',function(){var btn=document.getElem
     if(l.label)l.label.textContent=isPlaying?'Pause':'Écouter cet article';
     if(l.stop)l.stop.style.display=isPlaying?'inline-flex':'none';
     if(l.progressWrap)l.progressWrap.style.display=isPlaying?'block':'none';
+    // Réglage de vitesse masqué tant que la lecture n'a pas démarré : allège
+    // le haut de l'article (constat 20/07, Nahil) — il n'a d'utilité qu'une
+    // fois la lecture en cours.
+    if(l.settings)l.settings.style.display=isPlaying?'flex':'none';
     if(l.play)l.play.setAttribute('aria-pressed',isPlaying?'true':'false');
   }
   function start(){
