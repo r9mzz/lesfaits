@@ -3371,5 +3371,139 @@
     "angle_insuffisant": true,
     "raison": "L'article ressemble à une fiche pédagogique générale sans fait déclencheur daté",
     "article_type": "actu"
+  },
+  {
+    "slug": "atapuerca-espagne-anthropophagie",
+    "statut": "corrige_automatiquement",
+    "date": "2026-07-20T06:02:24",
+    "problemes_initiaux": 6,
+    "tentatives": 1,
+    "problemes_residuels_style": 5,
+    "rapport_initial": {
+      "conforme": false,
+      "sujet_sensible": false,
+      "sujet_sensible_raison": "",
+      "angle_insuffisant": false,
+      "angle_insuffisant_raison": "",
+      "nature_contenu": "actualite_factuelle",
+      "problemes": [
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "source_non_editoriale",
+          "phrase_exacte": "D'après Sciences et Avenir, des traces de dépeçage ont été observées sur des ossements humains préhistoriques, notamment il y a 7000 ans en Espagne.",
+          "explication": "La source utilisée est une source secondaire, mais le contenu de la phrase est un fait brut qui pourrait être vérifiable, cependant, il est préférable de citer la source primaire pour les faits spécifiques."
+        },
+        {
+          "bloc": 2,
+          "section": "contexte",
+          "type": "source_non_editoriale",
+          "phrase_exacte": "Wikipédia précise que l'anthropophagie peut recouvrir des réalités profondément différentes selon la civilisation, la période historique et les individus.",
+          "explication": "Wikipédia est une source non éditoriale et ne devrait pas être utilisée comme source d'information pour des faits spécifiques."
+        },
+        {
+          "bloc": 2,
+          "section": "contexte",
+          "type": "source_non_editoriale",
+          "phrase_exacte": "FR Academic souligne que l'anthropophagie est une forme de cannibalisme spécifique à l'espèce humaine, avec une distinction entre l'endocannibalisme et l'exocannibalisme.",
+          "explication": "FR Academic est une source non éditoriale et ne devrait pas être utilisée comme source d'information pour des faits spécifiques."
+        },
+        {
+          "bloc": 2,
+          "section": "nuances",
+          "type": "source_non_editoriale",
+          "phrase_exacte": "Techno-Science précise que l'anthropophagie est une pratique qui consiste à consommer de la chair humaine, et qui a été pratiquée par différentes cultures à travers l'histoire, avec des exemples de cannibalisme au Brésil au XVIe siècle.",
+          "explication": "Techno-Science est une source non éditoriale et ne devrait pas être utilisée comme source d'information pour des faits spécifiques."
+        },
+        {
+          "bloc": 3,
+          "section": "contexte",
+          "type": "cadrage_emprunte",
+          "phrase_exacte": "L'anthropophagie est une pratique qui consiste à consommer de la chair humaine, et qui a été pratiquée par différentes cultures à travers l'histoire.",
+          "explication": "La phrase reprend un cadrage éditorial sans l'attribuer explicitement à une source."
+        },
+        {
+          "bloc": 4,
+          "section": "nuances",
+          "type": "redondance",
+          "phrase_exacte": "Il est important de noter que l'anthropophagie est une pratique complexe et multifacette, et que les motivations et les contextes de cette pratique varient selon les cultures et les époques.",
+          "explication": "La phrase répète une idée déjà présente dans la section 'contexte'."
+        }
+      ]
+    },
+    "article_type": "actu"
+  },
+  {
+    "slug": "espagne-remporte-coupe-du-monde-2026",
+    "statut": "corrige_automatiquement",
+    "date": "2026-07-20T06:03:24",
+    "problemes_initiaux": 3,
+    "tentatives": 1,
+    "problemes_residuels_style": 4,
+    "rapport_initial": {
+      "conforme": false,
+      "sujet_sensible": false,
+      "sujet_sensible_raison": "",
+      "angle_insuffisant": false,
+      "angle_insuffisant_raison": "",
+      "nature_contenu": "actualite_factuelle",
+      "problemes": [
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "source_non_editoriale",
+          "phrase_exacte": "Selon Goal, l'Espagne a dominé la rencontre et a créé de nombreuses occasions, avec une statistique de 20-0 en faveur de l'Espagne, qui démontre la supériorité de l'équipe espagnole.",
+          "explication": "Goal est un site spécialisé dans le football, mais il n'est pas considéré comme une source éditoriale traditionnelle. Cependant, dans ce cas, il est utilisé pour des faits vérifiables, ce qui est acceptable selon les exceptions explicites de la charte."
+        },
+        {
+          "bloc": 4,
+          "section": "resume",
+          "type": "jugement_de_valeur",
+          "phrase_exacte": "La victoire de l'Espagne en Coupe du monde 2026 marque un tournant pour l'équipe, qui confirme ainsi son statut de meilleure équipe du tournoi, avec une stratégie payante et une solidité défensive qui ont permis de contenir les attaques argentine.",
+          "explication": "L'utilisation de l'adjectif 'meilleure' pour décrire l'équipe d'Espagne constitue un jugement de valeur, ce qui n'est pas neutre."
+        },
+        {
+          "bloc": 4,
+          "section": "nuances",
+          "type": "jugement_de_valeur",
+          "phrase_exacte": "La victoire de l'Espagne est due en partie à sa solidité défensive, qui a permis de contenir les attaques argentine, selon Le Nouvel Obs.",
+          "explication": "L'utilisation de l'adjectif 'solide' pour décrire la défensive de l'Espagne constitue un jugement de valeur, ce qui n'est pas neutre."
+        }
+      ]
+    },
+    "article_type": "actu"
+  },
+  {
+    "slug": "violences-gynecologiques-france",
+    "statut": "rejete_sensible",
+    "date": "2026-07-20T06:04:44",
+    "sujet_sensible": true,
+    "raison": "L'article implique des victimes de violences gynécologiques et obstétricales",
+    "article_type": "actu"
+  },
+  {
+    "slug": "hopital-pellegrin-bordeaux-canicule",
+    "statut": "rejete_qualite",
+    "date": "2026-07-20T06:06:28",
+    "tentative": 2,
+    "angle_insuffisant": true,
+    "raison": "l'article ne contient pas d'événement précis daté ou datable avec une donnée chiffrée ou nommée",
+    "article_type": "actu"
+  },
+  {
+    "slug": "guerir-tous-les-cancers",
+    "statut": "rejete_qualite",
+    "date": "2026-07-20T06:07:01",
+    "angle_insuffisant": true,
+    "raison": "L'article ne présente pas d'événement précis daté ou datable lié à la guérison de tous les cancers, mais plutôt une hypothèse explorée par les chercheurs.",
+    "article_type": "dossier_science"
+  },
+  {
+    "slug": "inde-nation-spatiale-en-plein-essor",
+    "statut": "rejete_qualite",
+    "date": "2026-07-20T06:07:39",
+    "angle_insuffisant": true,
+    "raison": "aucune actualité identifiable ne justifie une publication maintenant",
+    "article_type": "actu"
   }
 ]
