@@ -3505,5 +3505,128 @@
     "angle_insuffisant": true,
     "raison": "aucune actualité identifiable ne justifie une publication maintenant",
     "article_type": "actu"
+  },
+  {
+    "slug": "atapuerca-anthropophagie-premiers-europeens",
+    "statut": "corrige_automatiquement",
+    "date": "2026-07-20T15:14:34",
+    "problemes_initiaux": 5,
+    "tentatives": 1,
+    "problemes_residuels_style": 5,
+    "rapport_initial": {
+      "conforme": false,
+      "sujet_sensible": false,
+      "sujet_sensible_raison": "",
+      "angle_insuffisant": false,
+      "angle_insuffisant_raison": "",
+      "nature_contenu": "actualite_factuelle",
+      "problemes": [
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "source_non_editoriale",
+          "phrase_exacte": "D'après Wikipédia, l'anthropophagie est une pratique qui consiste à consommer de la viande humaine, et elle a été observée chez différentes espèces d'hominidés.",
+          "explication": "Wikipédia n'est pas une source éditoriale, mais plutôt une encyclopédie collaborative."
+        },
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "source_non_editoriale",
+          "phrase_exacte": "Hominides rapporte que le cannibalisme a été observé chez les Néandertaliens, et que cette pratique pourrait avoir été liée à des facteurs tels que la famine ou les conflits.",
+          "explication": "Hominides n'est pas une source éditoriale reconnue, mais plutôt un site web spécialisé."
+        },
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "source_non_editoriale",
+          "phrase_exacte": "Neozone rapporte que des recherches récentes suggèrent que les premiers humains ont pu hiberner pendant l'hiver, ce qui pourrait avoir influencé leur comportement alimentaire et social.",
+          "explication": "Neozone n'est pas une source éditoriale reconnue, mais plutôt un site web spécialisé."
+        },
+        {
+          "bloc": 4,
+          "section": "nuances",
+          "type": "redondance",
+          "phrase_exacte": "Il est essentiel de considérer les limites méthodologiques et les incertitudes entourant l'interprétation des vestiges archéologiques.",
+          "explication": "Cette phrase répète une idée déjà présente dans le résumé."
+        },
+        {
+          "bloc": 4,
+          "section": "nuances",
+          "type": "jugement_de_valeur",
+          "phrase_exacte": "Les débats en cours parmi les chercheurs sur la signification et la portée de l'anthropophagie chez les premiers Européens nécessitent une approche nuancée et une considération de multiples perspectives.",
+          "explication": "Cette phrase contient un jugement de valeur en utilisant le mot 'nuancée'."
+        }
+      ]
+    },
+    "article_type": "actu"
+  },
+  {
+    "slug": "exposition-polluants-organiques-persistants-prise-poids-enfants",
+    "statut": "corrige_automatiquement",
+    "date": "2026-07-20T15:20:26",
+    "problemes_initiaux": 6,
+    "tentatives": 1,
+    "problemes_residuels_style": 4,
+    "rapport_initial": {
+      "conforme": false,
+      "sujet_sensible": false,
+      "sujet_sensible_raison": "",
+      "angle_insuffisant": false,
+      "angle_insuffisant_raison": "",
+      "nature_contenu": "actualite_factuelle",
+      "problemes": [
+        {
+          "bloc": 2,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "Selon Pour la Science, les particules fines, l'ozone et le dioxyde d'azote restent en concentrations importantes dans l'air, entraînant diverses pathologies, voire ayant un impact sur le développement in utero.",
+          "explication": "La source 'Pour la Science' est utilisée pour une affirmation spécifique, mais l'article cité ne correspond pas exactement à l'information donnée."
+        },
+        {
+          "bloc": 2,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "D'autres études, comme celles menées par RTBF, ont également mis en évidence les risques liés à l'exposition aux polluants organiques persistants, notamment en termes de développement de l'asthme et de l'hypertension.",
+          "explication": "La source 'RTBF' est utilisée pour une affirmation spécifique, mais l'article cité ne correspond pas exactement à l'information donnée, car il parle de bisphénol A et de dépression chez les garçons, et non d'asthme et d'hypertension."
+        },
+        {
+          "bloc": 2,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "Jean-François Gacougnolle rapporte que l'exposition in utero à des niveaux plus élevés de pollution atmosphérique durant le troisième trimestre de grossesse présente un risque plus élevé d'hypertension artérielle (HTA) dans l'enfance.",
+          "explication": "La source 'Jean-François Gacougnolle' n'est pas une source institutionnelle ou journalistique reconnue pour des informations factuelles sur la santé et l'environnement."
+        },
+        {
+          "bloc": 2,
+          "section": "nuances",
+          "type": "source_inventee",
+          "phrase_exacte": "Lanutrition indique que l'exposition au cadmium in utero a été associée au risque d'asthme dans une étude française.",
+          "explication": "La source 'Lanutrition' n'est pas une source institutionnelle ou journalistique reconnue pour des informations factuelles sur la santé et l'environnement."
+        },
+        {
+          "bloc": 2,
+          "section": "nuances",
+          "type": "source_inventee",
+          "phrase_exacte": "Vitaliseurdemarion souligne que les PFAS, ou polluants éternels, sont des substances chimiques utilisées dans de nombreux produits à usage industriel ou domestique, et que leur exposition peut avoir des conséquences à long terme sur la santé.",
+          "explication": "La source 'Vitaliseurdemarion' n'est pas une source institutionnelle ou journalistique reconnue pour des informations factuelles sur la santé et l'environnement."
+        },
+        {
+          "bloc": 2,
+          "section": "nuances",
+          "type": "source_inventee",
+          "phrase_exacte": "Santemagazine rapporte que les composés perfluorés, ou PFAS, dont fait partie le Teflon, sont des substances chimiques utilisées dans de nombreux produits à usage industriel ou domestique, et que leur exposition peut avoir des conséquences à long terme sur la santé.",
+          "explication": "La source 'Santemagazine' est utilisée pour une affirmation spécifique, mais il n'y a pas de vérification de l'exactitude de l'information par rapport à la source originale."
+        }
+      ]
+    },
+    "article_type": "actu"
+  },
+  {
+    "slug": "les-baronnies-des-pyrenees-region-rurale",
+    "statut": "rejete_qualite",
+    "date": "2026-07-20T15:21:39",
+    "angle_insuffisant": true,
+    "raison": "aucune actualité identifiable ne justifie une publication maintenant, l'article ressemble à une fiche pédagogique générale sans fait déclencheur daté",
+    "article_type": "dossier_portrait"
   }
 ]
