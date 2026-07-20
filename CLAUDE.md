@@ -58,9 +58,10 @@ prompts ou des garde-fous doit les préserver.
 
 6. **Titre** : factuel, neutre, 6-15 mots, jamais de vocabulaire putaclic
    (bizarre, insolite, choc…) ni de tournure en question.
-7. **Longueur/sourcing minimum** : 500 mots sur faits+contexte+nuances (avec
-   une tolérance de 100 mots après relance d'étoffement, soit 400 mots
-   acceptés au plancher), 3 sources minimum — un article qui n'atteint pas ce
+7. **Longueur/sourcing minimum** : 500 mots sur chapeau+faits+contexte+nuances
+   (avec une tolérance de 150 mots après relance d'étoffement, soit 350 mots
+   acceptés au plancher — élargi de 400 à 350 le 20/07, Nahil), 3 sources
+   minimum — un article qui n'atteint pas ce
    seuil après relance est rejeté définitivement, jamais publié incomplet.
 8. **Angle éditorial obligatoire** : un sujet sans actualité identifiable, avec
    des sources trop pauvres pour l'expliquer, ou dont le contexte doit être
@@ -96,7 +97,7 @@ au chapeau), `faits_repetitifs` (intra ET inter-sections, 5-grammes),
 `attributions_trop_repetitives`, `titre_de_mauvaise_qualite`, `cliches_ia`,
 `intro_generique` (intros vagues sans information — déclenche correction).
 Garde-fou séparé (non combiné, relance d'étoffement dédiée) :
-`_deficit_longueur_sources` (500 mots cible / 400 mots plancher après
+`_deficit_longueur_sources` (500 mots cible / 350 mots plancher après
 tolérance, 3 sources minimum — vérifier le compte de MOTS réel, jamais une
 approximation en caractères).
 

@@ -4979,10 +4979,12 @@ def generer_article(item: dict, dry_run: bool, published: set, new_pub: set, dat
 
         MIN_MOTS_CORPS = 500
         MIN_SOURCES = 3
-        # Tolérance de 100 mots après relance : la cible reste 500 mots, mais
-        # un article qui plafonne à 400-499 mots malgré la relance d'étoffement
-        # est accepté s'il est bien sourcé — plancher dur = 400 mots.
-        TOLERANCE_MOTS = 100
+        # Tolérance de 150 mots après relance (portée de 100 à 150 le 20/07,
+        # Nahil : deux articles rejetés à 378/382 mots, trop proches du seuil
+        # pour justifier une perte sèche) : la cible reste 500 mots, mais un
+        # article qui plafonne à 350-499 mots malgré la relance d'étoffement
+        # est accepté s'il est bien sourcé — plancher dur = 350 mots.
+        TOLERANCE_MOTS = 150
         mots, nb_src = _deficit_longueur_sources(art)
         if mots < MIN_MOTS_CORPS or nb_src < MIN_SOURCES:
             manque_mots = max(0, MIN_MOTS_CORPS - mots)
