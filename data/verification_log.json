@@ -3628,5 +3628,13 @@
     "angle_insuffisant": true,
     "raison": "aucune actualité identifiable ne justifie une publication maintenant, l'article ressemble à une fiche pédagogique générale sans fait déclencheur daté",
     "article_type": "dossier_portrait"
+  },
+  {
+    "slug": "enquete-ouverte-apres-altercation-ici-tout-commence",
+    "statut": "rejete_sensible",
+    "date": "2026-07-20T17:02:42",
+    "sujet_sensible": true,
+    "raison": "L'article implique une affaire judiciaire en cours",
+    "article_type": "actu"
   }
 ]
