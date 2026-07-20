@@ -1,20 +1,5 @@
 [
   {
-    "slug": "one-health-approche-globale-sante",
-    "titre": "L’approche One Health pour une meilleure santé globale",
-    "categorie": "sante",
-    "nb_sources": 6,
-    "nb_mots": 450,
-    "date": "19 juillet 2026, 18h00",
-    "resume": [
-      "La santé humaine, animale et environnementale sont étroitement liées, ce qui nécessite une approche intégrée pour améliorer la santé globale.",
-      "L'approche One Health vise à dépasser les frontières disciplinaires pour mieux comprendre les interactions entre les humains, les animaux et l'environnement.",
-      "Cette approche est particulièrement pertinente dans le contexte des défis sanitaires actuels, tels que la résistance antimicrobienne et les épidémies."
-    ],
-    "image_keyword": "medical research laboratory",
-    "statut_verification": "conforme_du_premier_coup"
-  },
-  {
     "slug": "volcan-inconnu-sicile",
     "titre": "Découverte d’un volcan inconnu au large des côtes siciliennes",
     "categorie": "science",
@@ -43,6 +28,78 @@
     ],
     "image_keyword": "electricity power plant",
     "statut_verification": "corrige_automatiquement"
+  },
+  {
+    "slug": "recherche-moustiques-maladies-virales",
+    "titre": "Recherche sur les moustiques pour enrayer les maladies virales",
+    "categorie": "tech",
+    "nb_sources": 7,
+    "nb_mots": 443,
+    "date": "18 juillet 2026, 07h00",
+    "resume": [
+      "Des chercheurs explorent de nouvelles stratégies pour lutter contre les maladies virales transmises par les moustiques, ce qui pourrait avoir des implications significatives pour la santé publique.",
+      "La compréhension des mécanismes biologiques des moustiques est cruciale pour développer des méthodes efficaces de prévention et de lutte.",
+      "Les enjeux éthiques liés à la modification d'espèces invasives soulèvent des débats importants sur la responsabilité scientifique et les conséquences potentielles de telles actions."
+    ],
+    "image_keyword": "moustique tigre",
+    "statut_verification": "corrige_automatiquement"
+  },
+  {
+    "slug": "resultats-baccalaureat-2026-taux-reussite-definitif",
+    "titre": "Résultats du baccalauréat 2026 : une légère baisse du taux de réussite",
+    "categorie": "societe",
+    "nb_sources": 7,
+    "date": "12 juillet 2026, 07h00",
+    "resume": [
+      "La session 2026 du baccalauréat a connu une baisse du taux de réussite, avec des variations selon les filières, selon Le Monde et Europe1.",
+      "Les résultats montrent que les candidats ont obtenu des mentions dans plus de la moitié des cas, selon Laprovence.",
+      "Les chiffres révèlent également des différences entre les filières, avec notamment un taux de réussite plus élevé en voie générale qu'en voie professionnelle, selon les données concordantes de plusieurs médias."
+    ],
+    "image_keyword": "lycee francais",
+    "statut_verification": "corrige_automatiquement"
+  },
+  {
+    "slug": "loi-protection-nature-50-ans",
+    "titre": "La loi sur la protection de la nature fête ses 50 ans",
+    "categorie": "societe",
+    "nb_sources": 4,
+    "date": "12 juillet 2026, 18h00",
+    "resume": [
+      "Le 10 juillet 1976 marque une étape cruciale dans l'histoire environnementale de la France avec l'adoption d'une loi fondatrice pour la protection de la nature, mais son impact actuel est remis en question.",
+      "Les défis actuels de la biodiversité mettent en lumière les limites de cette loi, malgré ses avancées initiales, et soulignent la nécessité d'une révision pour répondre aux menaces environnementales modernes.",
+      "La communauté environnementale évalue l'efficacité de cette loi à l'aune de ses réalisations et de ses échecs, cherchant à renforcer les mesures de protection pour préserver la biodiversité."
+    ],
+    "image_keyword": "parc national france",
+    "statut_verification": "erreur_verification"
+  },
+  {
+    "slug": "decouverte-graffitis-pompei-vie-quotidienne",
+    "titre": "Découverte de graffitis à Pompéi révélant la vie quotidienne",
+    "categorie": "societe",
+    "nb_sources": 4,
+    "date": "12 juillet 2026, 18h00",
+    "resume": [
+      "La cité romaine de Pompéi livre ses secrets grâce à un projet de recherche qui a permis de déchiffrer des centaines d'inscriptions et de dessins gravés sur ses murs.",
+      "Ces découvertes offrent une plongée dans la vie sociale, politique et culturelle de la cité, permettant de mieux comprendre les préoccupations et les modes de vie des Romains.",
+      "Les graffitis de Pompéi couvrent un large spectre d'expressions, des déclarations amoureuses aux annonces politiques, en passant par les insultes et les dessins satiriques."
+    ],
+    "image_keyword": "ruines pompei italie",
+    "statut_verification": "corrige_automatiquement"
+  },
+  {
+    "slug": "one-health-approche-globale-sante",
+    "titre": "L’approche One Health pour une meilleure santé globale",
+    "categorie": "sante",
+    "nb_sources": 6,
+    "nb_mots": 450,
+    "date": "19 juillet 2026, 18h00",
+    "resume": [
+      "La santé humaine, animale et environnementale sont étroitement liées, ce qui nécessite une approche intégrée pour améliorer la santé globale.",
+      "L'approche One Health vise à dépasser les frontières disciplinaires pour mieux comprendre les interactions entre les humains, les animaux et l'environnement.",
+      "Cette approche est particulièrement pertinente dans le contexte des défis sanitaires actuels, tels que la résistance antimicrobienne et les épidémies."
+    ],
+    "image_keyword": "medical research laboratory",
+    "statut_verification": "conforme_du_premier_coup"
   },
   {
     "slug": "alzheimer-piste-prometteuse-eliminer-plaques-amyloides",
@@ -105,35 +162,6 @@
     "statut_verification": "corrige_automatiquement"
   },
   {
-    "slug": "recherche-moustiques-maladies-virales",
-    "titre": "Recherche sur les moustiques pour enrayer les maladies virales",
-    "categorie": "tech",
-    "nb_sources": 7,
-    "nb_mots": 443,
-    "date": "18 juillet 2026, 07h00",
-    "resume": [
-      "Des chercheurs explorent de nouvelles stratégies pour lutter contre les maladies virales transmises par les moustiques, ce qui pourrait avoir des implications significatives pour la santé publique.",
-      "La compréhension des mécanismes biologiques des moustiques est cruciale pour développer des méthodes efficaces de prévention et de lutte.",
-      "Les enjeux éthiques liés à la modification d'espèces invasives soulèvent des débats importants sur la responsabilité scientifique et les conséquences potentielles de telles actions."
-    ],
-    "image_keyword": "moustique tigre",
-    "statut_verification": "corrige_automatiquement"
-  },
-  {
-    "slug": "loi-protection-nature-50-ans",
-    "titre": "La loi sur la protection de la nature fête ses 50 ans",
-    "categorie": "societe",
-    "nb_sources": 4,
-    "date": "12 juillet 2026, 18h00",
-    "resume": [
-      "Le 10 juillet 1976 marque une étape cruciale dans l'histoire environnementale de la France avec l'adoption d'une loi fondatrice pour la protection de la nature, mais son impact actuel est remis en question.",
-      "Les défis actuels de la biodiversité mettent en lumière les limites de cette loi, malgré ses avancées initiales, et soulignent la nécessité d'une révision pour répondre aux menaces environnementales modernes.",
-      "La communauté environnementale évalue l'efficacité de cette loi à l'aune de ses réalisations et de ses échecs, cherchant à renforcer les mesures de protection pour préserver la biodiversité."
-    ],
-    "image_keyword": "parc national france",
-    "statut_verification": "erreur_verification"
-  },
-  {
     "slug": "pompiers-volontaires-en-crise",
     "titre": "Pompiers volontaires : sentiment d’épuisement et de manque de reconnaissance",
     "categorie": "environnement",
@@ -159,34 +187,6 @@
       "Le terme « brutalisation » recouvre des usages distincts selon les auteurs et les époques, de la Grande Guerre au débat public contemporain."
     ],
     "image_keyword": "city life pollution",
-    "statut_verification": "corrige_automatiquement"
-  },
-  {
-    "slug": "decouverte-graffitis-pompei-vie-quotidienne",
-    "titre": "Découverte de graffitis à Pompéi révélant la vie quotidienne",
-    "categorie": "societe",
-    "nb_sources": 4,
-    "date": "12 juillet 2026, 18h00",
-    "resume": [
-      "La cité romaine de Pompéi livre ses secrets grâce à un projet de recherche qui a permis de déchiffrer des centaines d'inscriptions et de dessins gravés sur ses murs.",
-      "Ces découvertes offrent une plongée dans la vie sociale, politique et culturelle de la cité, permettant de mieux comprendre les préoccupations et les modes de vie des Romains.",
-      "Les graffitis de Pompéi couvrent un large spectre d'expressions, des déclarations amoureuses aux annonces politiques, en passant par les insultes et les dessins satiriques."
-    ],
-    "image_keyword": "ruines pompei italie",
-    "statut_verification": "corrige_automatiquement"
-  },
-  {
-    "slug": "resultats-baccalaureat-2026-taux-reussite-definitif",
-    "titre": "Résultats du baccalauréat 2026 : une légère baisse du taux de réussite",
-    "categorie": "societe",
-    "nb_sources": 7,
-    "date": "12 juillet 2026, 07h00",
-    "resume": [
-      "La session 2026 du baccalauréat a connu une baisse du taux de réussite, avec des variations selon les filières, selon Le Monde et Europe1.",
-      "Les résultats montrent que les candidats ont obtenu des mentions dans plus de la moitié des cas, selon Laprovence.",
-      "Les chiffres révèlent également des différences entre les filières, avec notamment un taux de réussite plus élevé en voie générale qu'en voie professionnelle, selon les données concordantes de plusieurs médias."
-    ],
-    "image_keyword": "lycee francais",
     "statut_verification": "corrige_automatiquement"
   },
   {
