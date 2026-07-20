@@ -356,7 +356,11 @@ a:hover .title-xl, a:hover .title-md, a:hover .title-sm { color: var(--blue-ink)
 
 /* Divulgation IA — AI Act art. 50 : doit être visible sur la page elle-même,
    pas seulement en pied de page ou sur /methode.html */
-.art__ai-badge { display: inline-block; font-size: 13px; font-weight: 600; color: var(--ink); background: var(--light); border: 1px solid var(--border); border-radius: 4px; padding: 6px 12px; margin: 12px 0; }
+.art__ai-badge { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 14px; font-size: 13px; font-weight: 600; color: var(--ink); background: var(--light); border: 1px solid var(--border); border-radius: 4px; padding: 6px 12px; margin: 12px 0; }
+/* Fusionné dans art__ai-badge (20/07, allègement du haut d'article) : items
+   de vérification en poids normal pour se distinguer du texte du badge. */
+.art__ai-badge .art__verify-item { font-size: 12px; font-weight: 500; color: var(--blue); }
+.art__ai-badge .meta__sep { color: var(--rule); }
 .contest-btn { display: inline-block; border: 1px solid var(--rule); padding: 8px 16px; font-size: 11px; color: var(--muted); margin-top: 16px; transition: .15s; cursor: pointer; }
 .contest-btn:hover { border-color: var(--blue); color: var(--blue); }
 

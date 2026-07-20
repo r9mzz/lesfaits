@@ -3037,7 +3037,7 @@ AUDIO_PLAYER_HTML = """<div class="audio-player" id="audio-player" style="displa
     <button type="button" class="audio-player__ctrl audio-player__ctrl--stop" id="audio-stop" aria-label="Arrêter la lecture" style="display:none">⏹</button>
   </div>
   <div class="audio-player__progress" id="audio-progress-wrap" style="display:none"><div class="audio-player__bar" id="audio-bar"></div></div>
-  <div class="audio-player__settings">
+  <div class="audio-player__settings" id="audio-settings" style="display:none">
     <label class="audio-player__setting-label" for="audio-speed">Vitesse</label>
     <select class="audio-player__select" id="audio-speed" aria-label="Vitesse de lecture">
       <option value="0.85">0.85×</option>
@@ -3203,6 +3203,7 @@ AUDIO_GLOBAL_HTML = f"""<!-- LF_AUDIO_GLOBAL_START v{AUDIO_GLOBAL_VERSION} -->""
       label:document.getElementById('audio-label'),
       stop:document.getElementById('audio-stop'),
       progressWrap:document.getElementById('audio-progress-wrap'),
+      settings:document.getElementById('audio-settings'),
     };
   }
   function setLocalPlayingUI(isPlaying){
@@ -3211,6 +3212,10 @@ AUDIO_GLOBAL_HTML = f"""<!-- LF_AUDIO_GLOBAL_START v{AUDIO_GLOBAL_VERSION} -->""
     if(l.label)l.label.textContent=isPlaying?'Pause':'Écouter cet article';
     if(l.stop)l.stop.style.display=isPlaying?'inline-flex':'none';
     if(l.progressWrap)l.progressWrap.style.display=isPlaying?'block':'none';
+    // Réglage de vitesse masqué tant que la lecture n'a pas démarré : allège
+    // le haut de l'article (constat 20/07, Nahil) — il n'a d'utilité qu'une
+    // fois la lecture en cours.
+    if(l.settings)l.settings.style.display=isPlaying?'flex':'none';
     if(l.play)l.play.setAttribute('aria-pressed',isPlaying?'true':'false');
   }
   function start(){
@@ -3841,12 +3846,13 @@ function copyLink(){{
 </div>
 <script>if(navigator.share)document.getElementById('native-share').style.display='inline-flex';</script>"""
 
+    # Fusionné avec le badge IA en une seule ligne légère (constat 20/07,
+    # Nahil : trop d'éléments empilés en haut d'article) — au lieu de 2 blocs
+    # séparés (badge IA + rangée de coches), une seule ligne de texte.
     verify_html = (
-        f'<div class="art__verify">'
+        f'<span class="meta__sep" aria-hidden="true">·</span>'
         f'<span class="art__verify-item">✓ {nb_src} source{"s" if nb_src > 1 else ""} vérifiée{"s" if nb_src > 1 else ""}</span>'
         f'<span class="art__verify-item">✓ Sources concordantes</span>'
-        f'<span class="art__verify-item">✓ Protocole éditorial v1.2</span>'
-        f'</div>'
     ) if nb_src > 0 else ""
 
     # ── Transparence : pourquoi CET article a été publié ─────────────────────
@@ -3940,9 +3946,8 @@ function copyLink(){{
     <span class="meta__sep" aria-hidden="true">·</span>
     <span title="Nombre de mots de l'article" style="color:var(--muted);font-size:.85rem">{word_count} mots</span>
   </div>
-  <div class="art__ai-badge" role="note">🤖 Contenu rédigé par intelligence artificielle — <a href="methode.html" style="color:inherit;text-decoration:underline">notre méthode</a></div>
+  <div class="art__ai-badge" role="note">🤖 Rédigé par IA — <a href="methode.html" style="color:inherit;text-decoration:underline">notre méthode</a>{verify_html}</div>
   {AUDIO_PLAYER_HTML}
-  {verify_html}
   <div class="art__rule"></div>
   {hero_img}
   <p class="art__resume">{_esc(resume_txt)}</p>
@@ -4214,9 +4219,9 @@ def build_index_html(main, side_html, grid_html, list_html):
   <div class="manifeste__inner">
     <div class="manifeste__headline">100&nbsp;% IA.<br><span>0&nbsp;% parti pris.</span></div>
     <div class="manifeste__pillars">
-      <div class="manifeste__pillar"><div class="manifeste__text"><strong>Rédigé par IA, sans filtre humain</strong><span>Aucun journaliste ne rédige ni n'oriente le contenu. L'IA applique le même protocole pour chaque sujet, sans exception.</span></div></div>
-      <div class="manifeste__pillar"><div class="manifeste__text"><strong>Zéro influence</strong><span>Pas d'actionnaires, pas de publicité, pas de ligne politique. Les faits bruts, leurs sources, leurs contradictions.</span></div></div>
-      <div class="manifeste__pillar"><div class="manifeste__text"><strong>Méthode publique</strong><span>Protocole éditorial ouvert. Minimum 3 sources par article. Corrections publiques et tracées.</span></div></div>
+      <div class="manifeste__pillar"><div class="manifeste__text"><strong>Rédigé par IA, sans filtre humain</strong> <span>Aucun journaliste ne rédige ni n'oriente le contenu. L'IA applique le même protocole pour chaque sujet, sans exception.</span></div></div>
+      <div class="manifeste__pillar"><div class="manifeste__text"><strong>Zéro influence</strong> <span>Pas d'actionnaires, pas de publicité, pas de ligne politique. Les faits bruts, leurs sources, leurs contradictions.</span></div></div>
+      <div class="manifeste__pillar"><div class="manifeste__text"><strong>Méthode publique</strong> <span>Protocole éditorial ouvert. Minimum 3 sources par article. Corrections publiques et tracées.</span></div></div>
     </div>
   </div>
 </div>
