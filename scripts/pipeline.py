@@ -2243,6 +2243,12 @@ def generate(content: str, category_hint: str, extra_sources: list[dict] | None 
                         print(f"     [GROQ] {label} : quota JOURNALIER épuisé"
                               f"{f' (solde ~{restant} tokens, insuffisant)' if restant is not None else ''}"
                               f" — retirée de la rotation pour ce run")
+                        # Message BRUT de Groq (21/07, doute de Nahil sur une
+                        # possible confusion TPD/TPM) — tronqué à 300 car. pour
+                        # ne pas polluer les logs, mais suffisant pour vérifier
+                        # noir sur blanc "per day" vs "per minute" sans se fier
+                        # à notre seule classification.
+                        print(f"     [GROQ-BRUT] {err[:300]}")
                         continue
                     idx = keys_to_try.index((key, label))
                     if idx < len(keys_to_try) - 1:

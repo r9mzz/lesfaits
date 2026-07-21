@@ -250,6 +250,7 @@ def _llm_call(prompt: str, max_tokens: int = 6000) -> str:
                     print(f"     [VERIF] Clé au quota journalier épuisé"
                           f"{f' (solde ~{restant} tokens, insuffisant)' if restant is not None else ''}"
                           f" — retirée de la rotation")
+                    print(f"     [VERIF-BRUT] {r.text[:300]}")
                 last_err = f"429 rate limit ({r.text[:120]})"
                 continue
             if r.status_code >= 400:
