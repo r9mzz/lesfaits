@@ -1889,13 +1889,28 @@ def _groq_call(api_key: str, messages: list, max_tokens: int = 3500) -> str:
     3 sujets perdus ainsi les 15-16/07, dont deux fois le même.
     """
     client = Groq(api_key=api_key)
-    # La limite TPM (12 000/clé) compte prompt + max_tokens RÉSERVÉS, pas les
-    # tokens réellement produits : prompt lourd + réservation généreuse = 413
+    # La limite TPM compte prompt + max_tokens RÉSERVÉS, pas les tokens
+    # réellement produits : prompt lourd + réservation généreuse = 413
     # « Request too large » systématique, quel que soit le quota restant.
-    # On plafonne la réservation à ce que la fenêtre laisse après le prompt
-    # (~3,3 caractères/token en français, marge incluse dans le plafond 11 500).
+    # Plafond TPM propre à chaque modèle (constat du 21/07 : gpt-oss-120b n'a
+    # que 8K TPM contre 12K pour Llama 3.3 — utiliser le plafond de Llama sur
+    # gpt-oss produisait un 413 à 0 token traité, à chaque appel, quel que
+    # soit le quota journalier restant).
+    _TPM_PAR_MODELE = {
+        "llama-3.3-70b-versatile": 12_000,
+        "openai/gpt-oss-120b": 8_000,
+        "openai/gpt-oss-20b": 8_000,
+        "qwen/qwen3.6-27b": 8_000,
+        "llama-3.1-8b-instant": 6_000,
+    }
+    tpm = _TPM_PAR_MODELE.get(GROQ_MODEL, 12_000)
+    marge_securite = 500
     prompt_estime = int(sum(len(m.get("content", "")) for m in messages) / 3.3)
-    max_tokens = max(1500, min(max_tokens, 11_500 - prompt_estime))
+    disponible = tpm - marge_securite - prompt_estime
+    # Pas de plancher qui dépasserait le budget réel (même piège corrigé le
+    # 21/07 côté repêchage TPD) : mieux vaut une réservation honnête, quitte
+    # à risquer une troncature déjà gérée séparément, qu'un 413 certain.
+    max_tokens = max(200, min(max_tokens, disponible))
     response = client.chat.completions.create(
         model=GROQ_MODEL,
         max_tokens=max_tokens,
@@ -2149,10 +2164,20 @@ def generate(content: str, category_hint: str, extra_sources: list[dict] | None 
             "— ces formules n'apportent aucune information au lecteur."
         )
 
-    messages = [
-        {"role": "system", "content": _select_prompt(article_type)},
-        {"role": "user",   "content": user_msg},
-    ]
+    # Les modèles "reasoning" de Groq (famille openai/gpt-oss-*, qwen*)
+    # documentent explicitement d'éviter les system prompts — tout mettre
+    # dans le message utilisateur (doc officielle Groq, section Reasoning :
+    # "Avoid system prompts - include all instructions in the user message!").
+    # Comportement par défaut (Llama) strictement inchangé.
+    if GROQ_MODEL.startswith(("openai/gpt-oss", "qwen/")):
+        messages = [
+            {"role": "user", "content": _select_prompt(article_type) + "\n\n" + user_msg},
+        ]
+    else:
+        messages = [
+            {"role": "system", "content": _select_prompt(article_type)},
+            {"role": "user",   "content": user_msg},
+        ]
 
     raw = None
     _all_keys = GROQ_ALL_KEYS
