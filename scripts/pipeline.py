@@ -2212,15 +2212,26 @@ def generate(content: str, category_hint: str, extra_sources: list[dict] | None 
                         # pour le solde restant, pas d'une clé vide.
                         restant = _tpd_restant(err)
                         prompt_est = int(sum(len(m.get("content", "")) for m in messages) / 3.3)
-                        if restant is not None and restant > prompt_est + 2200:
-                            # Assez de budget pour prompt + article complet :
-                            # retenter tout de suite avec une réservation
-                            # taillée sur le solde.
+                        # Constat du 21/07 : marge de 2200 + plancher de
+                        # réservation à 1500 pouvaient exiger un solde réel
+                        # bien supérieur à ce qu'exprimait la condition (le
+                        # max(1500,...) pouvait dépasser restant-prompt_est-300
+                        # et redemander plus que ce qui restait). Sur ce run,
+                        # 18 clés avaient un solde réel (22 à 7869 tokens) mais
+                        # aucune n'a jamais atteint cette marge — le repêchage
+                        # ne s'est JAMAIS déclenché. Reformulé pour que la
+                        # réservation soit toujours strictement bornée par le
+                        # solde réel (pas de plancher qui la dépasse) : la
+                        # troncature JSON qui en résulterait est déjà gérée
+                        # séparément par la relance à réservation élargie.
+                        MARGE_MIN_COMPLETION = 1200  # en dessous, JSON quasi toujours coupé
+                        SECURITE = 200
+                        if restant is not None and restant > prompt_est + MARGE_MIN_COMPLETION + SECURITE:
+                            reservation = restant - prompt_est - SECURITE
                             try:
                                 print(f"     [GROQ] {label} : solde journalier ~{restant} tokens — "
-                                      f"nouvel essai avec réservation réduite")
-                                raw = _groq_call(key, messages,
-                                                 max_tokens=max(1500, restant - prompt_est - 300))
+                                      f"nouvel essai avec réservation réduite à {reservation}")
+                                raw = _groq_call(key, messages, max_tokens=reservation)
                                 break
                             except Exception:
                                 pass  # échec confirmé → clé morte ci-dessous

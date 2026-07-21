@@ -224,21 +224,27 @@ def _llm_call(prompt: str, max_tokens: int = 6000) -> str:
                     m = re.search(r"Limit (\d+), Used (\d+)", r.text)
                     restant = (int(m.group(1)) - int(m.group(2))) if m else None
                     prompt_est = int(len(prompt) / 3.3)
-                    if restant is not None and restant > prompt_est + 1800:
+                    # Même correctif que pipeline.py (21/07) : marge + plancher
+                    # de réservation qui pouvait dépasser ce que la marge
+                    # garantissait, empêchant tout repêchage en pratique.
+                    MARGE_MIN_COMPLETION = 1000  # rapport JSON tient en ~2000 tokens
+                    SECURITE = 200
+                    if restant is not None and restant > prompt_est + MARGE_MIN_COMPLETION + SECURITE:
+                        reservation = restant - prompt_est - SECURITE
                         r2 = requests.post(
                             GROQ_URL,
                             headers={"Authorization": f"Bearer {key}",
                                      "content-type": "application/json"},
                             json={
                                 "model": GROQ_MODEL,
-                                "max_tokens": max(1200, restant - prompt_est - 300),
+                                "max_tokens": reservation,
                                 "messages": [{"role": "user", "content": prompt}],
                                 "temperature": 0.2,
                             },
                             timeout=180,
                         )
                         if r2.status_code == 200:
-                            print(f"     [VERIF] Solde journalier ~{restant} tokens — appel passé avec réservation réduite")
+                            print(f"     [VERIF] Solde journalier ~{restant} tokens — appel passé avec réservation réduite à {reservation}")
                             return r2.json()["choices"][0]["message"]["content"].strip()
                     _CLES_MORTES_JOUR.add(key)
                     print(f"     [VERIF] Clé au quota journalier épuisé"
