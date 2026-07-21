@@ -3636,5 +3636,131 @@
     "sujet_sensible": true,
     "raison": "L'article implique une affaire judiciaire en cours",
     "article_type": "actu"
+  },
+  {
+    "slug": "incendie-camp-roms-nantes",
+    "statut": "rejete_sensible",
+    "date": "2026-07-21T05:42:49",
+    "sujet_sensible": true,
+    "raison": "l'article implique une affaire en cours (incendie dans un camp de Roms) qui peut nécessiter une attention particulière en raison de son impact potentiel sur les communautés locales et l'environnement",
+    "article_type": "actu"
+  },
+  {
+    "slug": "freres-jumeaux-effacent-donnees-gouvernementales",
+    "statut": "rejete_sensible",
+    "date": "2026-07-21T05:43:39",
+    "sujet_sensible": true,
+    "raison": "l'article implique une affaire judiciaire ou pénale en cours",
+    "article_type": "actu"
+  },
+  {
+    "slug": "projet-loi-urgence-agricole-adopté",
+    "statut": "corrige_automatiquement",
+    "date": "2026-07-21T05:45:37",
+    "problemes_initiaux": 4,
+    "tentatives": 1,
+    "problemes_residuels_style": 4,
+    "rapport_initial": {
+      "conforme": false,
+      "sujet_sensible": false,
+      "sujet_sensible_raison": "",
+      "angle_insuffisant": false,
+      "angle_insuffisant_raison": "",
+      "nature_contenu": "actualite_factuelle",
+      "problemes": [
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "source_derivee_comptee_comme_primaire",
+          "phrase_exacte": "L'Assemblée nationale a adopté le projet de loi d'urgence agricole, avec 296 députés en faveur et 224 contre, comme le rapporte France Info.",
+          "explication": "Plusieurs sources rapportent la même information sans apporter d'éléments distincts, ce qui pourrait être considéré comme un problème de sources dérivées comptées comme primaires."
+        },
+        {
+          "bloc": 4,
+          "section": "contexte",
+          "type": "redondance",
+          "phrase_exacte": "La réintroduction de pesticides interdits en France est un sujet sensible qui a suscité des débats houleux.",
+          "explication": "L'information sur la sensibilité du sujet est déjà présente dans la section 'faits', ce qui rend cette phrase redondante."
+        },
+        {
+          "bloc": 4,
+          "section": "nuances",
+          "type": "jugement_de_valeur",
+          "phrase_exacte": "La réintroduction de pesticides interdits en France suscite des inquiétudes quant à son impact environnemental.",
+          "explication": "Le terme 'inquiétudes' peut être perçu comme un jugement de valeur, il serait préférable de reformuler pour présenter les faits de manière neutre."
+        },
+        {
+          "bloc": 2,
+          "section": "resume",
+          "type": "compteur_incoherent",
+          "phrase_exacte": "nb_sources: 8",
+          "explication": "Le nombre de sources réellement utilisées et distinctes doit être vérifié pour s'assurer qu'il correspond au compteur indiqué."
+        }
+      ]
+    },
+    "article_type": "actu"
+  },
+  {
+    "slug": "decouverte-sous-marine-revolutionnaire",
+    "statut": "rejete_qualite",
+    "date": "2026-07-21T05:47:10",
+    "angle_insuffisant": true,
+    "raison": "L'article ne fournit pas d'information spécifique sur un événement récent ou daté lié à la découverte sous-marine, mais plutôt une explication générale sur les sciences de la Terre et les découvertes sous-marines.",
+    "article_type": "actu"
+  },
+  {
+    "slug": "nouvelles-addictions-evolution-consommations-risques",
+    "statut": "rejete_qualite",
+    "date": "2026-07-21T05:48:25",
+    "angle_insuffisant": true,
+    "raison": "aucune actualité identifiable ne justifie une publication maintenant, l'article ressemble à une fiche pédagogique générale sans fait déclencheur daté",
+    "article_type": "dossier_science"
+  },
+  {
+    "slug": "sonde-viking-1-photographie-mars",
+    "statut": "corrige_automatiquement",
+    "date": "2026-07-21T05:54:20",
+    "problemes_initiaux": 4,
+    "tentatives": 1,
+    "problemes_residuels_style": 4,
+    "rapport_initial": {
+      "conforme": false,
+      "sujet_sensible": false,
+      "sujet_sensible_raison": "",
+      "angle_insuffisant": false,
+      "angle_insuffisant_raison": "",
+      "nature_contenu": "actualite_factuelle",
+      "problemes": [
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "source_non_editoriale",
+          "phrase_exacte": "D'après Wikipédia, la mission Viking 2 a également été lancée, avec des objectifs similaires à ceux de Viking 1.",
+          "explication": "Wikipédia est une source non éditoriale, même si elle est souvent utilisée comme référence."
+        },
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "source_derivee_comptee_comme_primaire",
+          "phrase_exacte": "La sonde Viking 1 a pris des photos de la surface de Mars, montrant des rochers et des paysages uniques, comme indiqué par BFM TV.",
+          "explication": "Plusieurs sources listées pourraient ne faire que recopier la même dépêche sans apporter d'info distincte."
+        },
+        {
+          "bloc": 4,
+          "section": "nuances",
+          "type": "jugement_de_valeur",
+          "phrase_exacte": "La mission Viking 1 a également soulevé des questions sur la possibilité de vie sur Mars, avec des découvertes qui ont alimenté le débat sur la présence de micro-organismes sur la planète.",
+          "explication": "Le terme 'débat' implique une opinion ou un jugement de valeur sur la question de la vie sur Mars."
+        },
+        {
+          "bloc": 4,
+          "section": "nuances",
+          "type": "extrapolation",
+          "phrase_exacte": "Cependant, d'autres études suggèrent que la surface de Mars pourrait avoir été habitable dans le passé, avec des conditions favorables à la vie, rapporte Techno-Science.",
+          "explication": "L'article anticipe des conséquences futures (habitabilité de Mars) sans les sourcer explicitement."
+        }
+      ]
+    },
+    "article_type": "actu"
   }
 ]
