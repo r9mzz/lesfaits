@@ -3762,5 +3762,97 @@
       ]
     },
     "article_type": "actu"
+  },
+  {
+    "slug": "frappes-ukrainiennes-en-russie",
+    "statut": "rejete_sensible",
+    "date": "2026-07-21T14:43:12",
+    "sujet_sensible": true,
+    "raison": "L'article implique une affaire judiciaire ou pénale en cours (conflit entre l'Ukraine et la Russie)",
+    "article_type": "actu"
+  },
+  {
+    "slug": "francois-noel-buffet-nomme-defenseur-des-droits",
+    "statut": "rejete_sensible",
+    "date": "2026-07-21T14:44:05",
+    "sujet_sensible": true,
+    "raison": "L'article implique une affaire politique et juridique en cours avec des critiques visant nommément une personne identifiée (François-Noël Buffet).",
+    "article_type": "actu"
+  },
+  {
+    "slug": "francois-noel-buffet-nomme-defenseur-des-droits",
+    "statut": "rejete_sensible",
+    "date": "2026-07-21T14:45:13",
+    "sujet_sensible": true,
+    "raison": "L'article implique une affaire politique et des opinions divergentes sur la nomination d'un Défenseur des droits, ce qui peut être considéré comme un sujet sensible.",
+    "article_type": "actu"
+  },
+  {
+    "slug": "faim-mondiale-2025-objectif-2030",
+    "statut": "corrige_automatiquement",
+    "date": "2026-07-21T14:47:29",
+    "problemes_initiaux": 7,
+    "tentatives": 1,
+    "problemes_residuels_style": 5,
+    "rapport_initial": {
+      "conforme": false,
+      "sujet_sensible": false,
+      "sujet_sensible_raison": "",
+      "angle_insuffisant": false,
+      "angle_insuffisant_raison": "",
+      "nature_contenu": "actualite_factuelle",
+      "problemes": [
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "Le Journaldebangui rapporte que l'objectif du Sommet africain de l'alimentation est de mobiliser le soutien politique pour la transformation structurelle de l'agriculture du continent.",
+          "explication": "Le Journaldebangui n'est pas dans la liste des sources autorisées."
+        },
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "D'après l'Unicef, 8,2 % de la population mondiale, soit quelque 673 millions de personnes, a connu la faim en 2024.",
+          "explication": "L'Unicef est une source autorisée, mais la date et le contenu de la source ne correspondent pas exactement à la phrase."
+        },
+        {
+          "bloc": 2,
+          "section": "contexte",
+          "type": "source_non_editoriale",
+          "phrase_exacte": "Devhaitimagazine note que cinq ans après que le monde se soit engagé à mettre un terme à la faim, à l'insécurité alimentaire et à toutes les formes de malnutrition, nous ne sommes toujours pas sur la bonne voie pour atteindre cet objectif d'ici 2030.",
+          "explication": "Devhaitimagazine n'est pas une source journalistique ou institutionnelle traditionnelle."
+        },
+        {
+          "bloc": 2,
+          "section": "nuances",
+          "type": "source_non_editoriale",
+          "phrase_exacte": "Le Devhaitimagazine note que cinq ans après que le monde se soit engagé à mettre un terme à la faim, à l'insécurité alimentaire et à toutes les formes de malnutrition, nous ne sommes toujours pas sur la bonne voie pour atteindre cet objectif d'ici 2030.",
+          "explication": "Devhaitimagazine n'est pas une source journalistique ou institutionnelle traditionnelle."
+        },
+        {
+          "bloc": 4,
+          "section": "contexte",
+          "type": "redondance",
+          "phrase_exacte": "Le rapport SOFI 2025 met en lumière les estimations actualisées du coût et de l'accessibilité financière à une alimentation saine.",
+          "explication": "La phrase répète une information déjà présente dans la section 'faits'."
+        },
+        {
+          "bloc": 4,
+          "section": "nuances",
+          "type": "redondance",
+          "phrase_exacte": "Selon le rapport SOFI 2025, les quelques tendances positives qui se dégagent n'empêchent pas les niveaux de faim et d'insécurité alimentaire de rester très élevés.",
+          "explication": "La phrase répète une information déjà présente dans la section 'faits'."
+        },
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "compteur_incoherent",
+          "phrase_exacte": "Le nombre de sources est indiqué comme 7, mais certaines sources ne sont pas utilisées de manière pertinente dans l'article.",
+          "explication": "Le nombre de sources indiqué ne correspond pas au nombre réel de sources distinctes utilisées dans l'article."
+        }
+      ]
+    },
+    "article_type": "actu"
   }
 ]
