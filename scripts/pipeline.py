@@ -50,6 +50,10 @@ DATA.mkdir(exist_ok=True)
 # ── URL de base du site public ─────────────────────────────────────────────────
 BASE_URL = "https://lesfaits.info"
 
+# Modèle de génération — extrait en constante (21/07) pour permettre un test
+# comparatif A/B sans dupliquer le pipeline (voir scripts/test_model_compare.py).
+# Le comportement par défaut est strictement inchangé.
+GROQ_MODEL     = os.getenv("GROQ_MODEL_OVERRIDE", "") or "llama-3.3-70b-versatile"
 GROQ_KEY       = os.getenv("GROQ_API_KEY", "")
 # Liste dynamique (20/07, Nahil : 18 clés créées) : GROQ_API_KEY_2 à
 # GROQ_API_KEY_N, N ajustable sans toucher au code — il suffit d'ajouter le
@@ -1893,7 +1897,7 @@ def _groq_call(api_key: str, messages: list, max_tokens: int = 3500) -> str:
     prompt_estime = int(sum(len(m.get("content", "")) for m in messages) / 3.3)
     max_tokens = max(1500, min(max_tokens, 11_500 - prompt_estime))
     response = client.chat.completions.create(
-        model="llama-3.3-70b-versatile",
+        model=GROQ_MODEL,
         max_tokens=max_tokens,
         temperature=0.1,
         messages=messages,

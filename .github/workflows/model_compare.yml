@@ -1,0 +1,40 @@
+name: Test A/B — comparaison modèle Groq
+
+# Déclenchement manuel uniquement — test ponctuel, n'écrit rien en
+# production (aucun fichier articles/ ni data/ modifié). Compare
+# llama-3.3-70b-versatile (actuel, 100K TPD) à openai/gpt-oss-120b
+# (candidat, 200K TPD) sur les mêmes sujets et sources réelles du jour.
+on:
+  workflow_dispatch:
+
+jobs:
+  compare:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+
+      - name: Installer les dépendances
+        run: pip install -r requirements.txt
+
+      - name: Comparer les modèles
+        env:
+          GROQ_API_KEY:     ${{ secrets.GROQ_API_KEY }}
+          GROQ_API_KEY_2:   ${{ secrets.GROQ_API_KEY_2 }}
+          GROQ_API_KEY_3:   ${{ secrets.GROQ_API_KEY_3 }}
+          GROQ_API_KEY_4:   ${{ secrets.GROQ_API_KEY_4 }}
+          GROQ_API_KEY_5:   ${{ secrets.GROQ_API_KEY_5 }}
+          GROQ_API_KEY_6:   ${{ secrets.GROQ_API_KEY_6 }}
+          GROQ_API_KEY_7:   ${{ secrets.GROQ_API_KEY_7 }}
+          PYTHONIOENCODING: utf-8
+          TZ: Europe/Paris
+        run: python scripts/test_model_compare.py
