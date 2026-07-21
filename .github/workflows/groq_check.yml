@@ -6,6 +6,15 @@ name: Groq — Test état des clés
 # temporaire. Coût : ~10 tokens par clé, négligeable.
 on:
   workflow_dispatch:
+  schedule:
+    # Diagnostic (21/07) : vérifier l'hypothèse que le reset TPD de chaque
+    # compte Groq suit son heure de CRÉATION plutôt qu'un minuit UTC uniforme
+    # pour tous — ce qui expliquerait pourquoi le run du matin (~00h10-04h
+    # UTC) trouve souvent le quota épuisé alors que le run du soir (~12h45
+    # UTC) s'en sort mieux. Sonde automatique toutes les 3h (coût négligeable :
+    # 18 clés × 1 token × 8 fois/jour). À comparer aux heures où chaque clé
+    # bascule de "épuisée" à "vivante" dans l'historique des runs.
+    - cron: "0 */3 * * *"
 
 jobs:
   check:
@@ -33,6 +42,7 @@ jobs:
           K17: ${{ secrets.GROQ_API_KEY_17 }}
           K18: ${{ secrets.GROQ_API_KEY_18 }}
         run: |
+          echo "=== $(date -u +'%Y-%m-%d %H:%M UTC') ==="
           # ⚠ LEÇON DU 18/07 : Groq décompte du quota journalier (TPD) la
           # RÉSERVATION max_tokens, pas la consommation réelle — une sonde à
           # max_tokens=10000 a coûté 10 000 tokens de quota par clé (soldes
