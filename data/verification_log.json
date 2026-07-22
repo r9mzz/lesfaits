@@ -3994,5 +3994,68 @@
     "etape": "detection",
     "erreur": "Quota Groq journalier épuisé sur toutes les clés (vérification)",
     "article_type": "actu"
+  },
+  {
+    "slug": "ebola-rdc-ouganda-1000-morts",
+    "statut": "rejete_sensible",
+    "date": "2026-07-22T14:46:58",
+    "sujet_sensible": true,
+    "raison": "l'article implique une affaire sanitaire en cours avec des victimes",
+    "article_type": "actu"
+  },
+  {
+    "slug": "helicopteres-militaires-drones-robotises",
+    "statut": "corrige_automatiquement",
+    "date": "2026-07-22T14:47:38",
+    "problemes_initiaux": 4,
+    "tentatives": 1,
+    "problemes_residuels_style": 3,
+    "rapport_initial": {
+      "conforme": false,
+      "sujet_sensible": false,
+      "sujet_sensible_raison": "",
+      "angle_insuffisant": false,
+      "angle_insuffisant_raison": "",
+      "nature_contenu": "actualite_factuelle",
+      "problemes": [
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "formule_vague",
+          "phrase_exacte": "Les hélicoptères, qui ont longtemps été les principaux acteurs des opérations aériennes, doivent désormais s'adapter à cette nouvelle réalité pour rester efficaces.",
+          "explication": "La phrase utilise une formule vague sans référence précise à une source."
+        },
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "source_non_editoriale",
+          "phrase_exacte": "Anduril Industries et Archer Aviation ont dévoilé au salon aéronautique de Farnborough un drone d'attaque autonome appelé Thunder, conçu pour épauler et protéger les hélicoptères dans la zone d'action la plus exposée du champ de bataille.",
+          "explication": "La source Anduril Industries et Archer Aviation n'est pas une source éditoriale."
+        },
+        {
+          "bloc": 4,
+          "section": "nuances",
+          "type": "jugement_de_valeur",
+          "phrase_exacte": "Les implications éthiques et stratégiques de l'utilisation de drones autonomes sont nombreuses et complexes, avec des questions sur l'avenir de la guerre et le rôle des humains dans les opérations militaires.",
+          "explication": "La phrase contient un jugement de valeur sur les implications éthiques et stratégiques."
+        },
+        {
+          "bloc": 4,
+          "section": "nuances",
+          "type": "extrapolation",
+          "phrase_exacte": "Selon Numerama, la logique d'hélicoptère-lanceur de drones s'impose chez les industriels, prélude à un basculement doctrinal.",
+          "explication": "La phrase contient une extrapolation sur l'avenir des hélicoptères et des drones."
+        }
+      ]
+    },
+    "article_type": "actu"
+  },
+  {
+    "slug": "avengers-doomsday-loki-comprehension",
+    "statut": "rejete_qualite",
+    "date": "2026-07-22T14:48:45",
+    "angle_insuffisant": true,
+    "raison": "aucune actualité identifiable ne justifie une publication maintenant, l'article ressemble à une fiche pédagogique générale sans fait déclencheur daté",
+    "article_type": "actu"
   }
 ]
