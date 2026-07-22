@@ -3480,7 +3480,7 @@ AUDIO_GLOBAL_HTML = f"""<!-- LF_AUDIO_GLOBAL_START v{AUDIO_GLOBAL_VERSION} -->""
             setTimeout(function(){
               if(myNav!==navSeq)return; // navigation suivante déjà en cours : ne pas écraser son scroll
               var target=document.querySelector(hash);
-              if(target)target.scrollIntoView({behavior:'smooth'});
+              if(target)target.scrollIntoView({behavior:'smooth',block:'start'});
             },300);
           });
         });
