@@ -3854,5 +3854,145 @@
       ]
     },
     "article_type": "actu"
+  },
+  {
+    "slug": "syndrome-belle-au-bois-dormant",
+    "statut": "rejete_qualite",
+    "date": "2026-07-22T05:43:05",
+    "angle_insuffisant": true,
+    "raison": "aucune actualité identifiable ne justifie une publication maintenant",
+    "article_type": "actu"
+  },
+  {
+    "slug": "senegal-soutient-candidature-macky-sall-onu",
+    "statut": "rejete_sensible",
+    "date": "2026-07-22T05:44:02",
+    "sujet_sensible": true,
+    "raison": "L'article implique des personnalités politiques et des affaires internationales sensibles",
+    "article_type": "actu"
+  },
+  {
+    "slug": "nouvelles-addictions-evolution",
+    "statut": "rejete_qualite",
+    "date": "2026-07-22T05:44:55",
+    "angle_insuffisant": true,
+    "raison": "L'article ne contient pas d'événement précis daté ou datable avec une donnée chiffrée ou nommée qui lui est propre, il ressemble à une fiche pédagogique générale sans fait déclencheur daté",
+    "article_type": "dossier_science"
+  },
+  {
+    "slug": "incendie-var-1700-hectares-evacuees",
+    "statut": "corrige_automatiquement",
+    "date": "2026-07-22T05:46:56",
+    "problemes_initiaux": 3,
+    "tentatives": 2,
+    "problemes_residuels_style": 3,
+    "rapport_initial": {
+      "conforme": false,
+      "sujet_sensible": false,
+      "sujet_sensible_raison": "",
+      "angle_insuffisant": false,
+      "angle_insuffisant_raison": "",
+      "nature_contenu": "actualite_factuelle",
+      "problemes": [
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "source_derivee_comptee_comme_primaire",
+          "phrase_exacte": "Les sources convergent pour indiquer que l'incendie progresse à une vitesse très importante, avec déjà 1 700 hectares parcourus, et plusieurs centaines d'habitants évacués, comme le signalent RTL et Aperçu.",
+          "explication": "Plusieurs sources listées (RTL, Aperçu, etc.) ne font que recopier la même information sans apporter d'info distincte, ce qui peut être considéré comme un problème de comptage de sources indépendantes."
+        },
+        {
+          "bloc": 4,
+          "section": "contexte",
+          "type": "redondance",
+          "phrase_exacte": "Les incendies de forêt sont une menace récurrente dans la région du Var, en particulier pendant la période estivale.",
+          "explication": "Cette phrase répète une idée déjà présente dans les faits, à savoir que l'incendie est une menace importante dans la région du Var."
+        },
+        {
+          "bloc": 4,
+          "section": "nuances",
+          "type": "jugement_de_valeur",
+          "phrase_exacte": "Il est important de noter que les incendies de forêt peuvent avoir des conséquences importantes sur l'environnement et les populations locales.",
+          "explication": "Cette phrase contient un jugement de valeur ('importantes conséquences') qui pourrait être reformulé de manière plus neutre."
+        }
+      ]
+    },
+    "article_type": "actu"
+  },
+  {
+    "slug": "drone-quasi-invisible-persistance-retinienne",
+    "statut": "corrige_automatiquement",
+    "date": "2026-07-22T05:48:20",
+    "problemes_initiaux": 7,
+    "tentatives": 1,
+    "problemes_residuels_style": 4,
+    "rapport_initial": {
+      "conforme": false,
+      "sujet_sensible": false,
+      "sujet_sensible_raison": "",
+      "angle_insuffisant": false,
+      "angle_insuffisant_raison": "",
+      "nature_contenu": "actualite_factuelle",
+      "problemes": [
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "Selon Sciences et Avenir, un drone quasi invisible a été mis au point par des chercheurs de l'Université de Northwestern.",
+          "explication": "La source 'Sciences et Avenir' est autorisée, mais l'article ne fournit pas de preuve que les chercheurs de l'Université de Northwestern soient cités dans l'article de Sciences et Avenir."
+        },
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "D'après Korben, le drone tourne sur lui-même à une vitesse de 25 fois par seconde, ce qui le rend presque invisible à l'œil nu.",
+          "explication": "La source 'Korben' est autorisée, mais l'article ne fournit pas de preuve que Korben ait mentionné la vitesse exacte de 25 fois par seconde."
+        },
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "Selon Generation NT, le drone « Fantôme tournoyant » est conçu pour tourner sur lui-même à une vitesse très élevée, ce qui crée un effet de flou qui le rend difficile à voir.",
+          "explication": "La source 'Generation NT' est autorisée, mais l'article ne fournit pas de preuve que Generation NT ait mentionné la vitesse exacte du drone."
+        },
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "Lebigdata rapporte que ce drone pourrait être utilisé pour surveiller la faune sauvage et l'environnement sans les perturber, car il est presque invisible et silencieux.",
+          "explication": "La source 'Lebigdata' est autorisée, mais l'article ne fournit pas de preuve que Lebigdata ait mentionné l'utilisation exacte du drone pour la surveillance de la faune sauvage et de l'environnement."
+        },
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "Sciencepost indique que la conception de ce drone a été inspirée par une intelligence artificielle qui a permis de développer un système de propulsion unique.",
+          "explication": "La source 'Sciencepost' est autorisée, mais l'article ne fournit pas de preuve que Sciencepost ait mentionné l'inspiration de la conception du drone par une intelligence artificielle."
+        },
+        {
+          "bloc": 4,
+          "section": "contexte",
+          "type": "redondance",
+          "phrase_exacte": "Le domaine de la technologie aéronautique est en constante évolution, avec de nouvelles découvertes et innovations qui ouvrent de nouvelles perspectives pour l'avenir.",
+          "explication": "La phrase est redondante et ne fournit pas d'information nouvelle ou pertinente."
+        },
+        {
+          "bloc": 4,
+          "section": "nuances",
+          "type": "jugement_de_valeur",
+          "phrase_exacte": "Il est également important de considérer les implications éthiques de l'utilisation de drones quasi invisibles pour la surveillance, car cela pourrait poser des problèmes de confidentialité et de sécurité.",
+          "explication": "La phrase contient un jugement de valeur sur les implications éthiques de l'utilisation des drones quasi invisibles."
+        }
+      ]
+    },
+    "article_type": "dossier_science"
+  },
+  {
+    "slug": "inserm-atelier-fake-news-sante",
+    "statut": "erreur_verification",
+    "date": "2026-07-22T05:53:50",
+    "etape": "detection",
+    "erreur": "Quota Groq journalier épuisé sur toutes les clés (vérification)",
+    "article_type": "actu"
   }
 ]
