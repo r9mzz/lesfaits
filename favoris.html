@@ -573,7 +573,7 @@ document.addEventListener('DOMContentLoaded',function(){var btn=document.getElem
     if(!found.length){emptyEl.style.display='block';return;}
     listEl.innerHTML = found.map(function(a){
       var resume = Array.isArray(a.resume) ? (a.resume[0]||'') : (a.resume||'');
-      var img = 'assets/images/'+a.slug+'-480.webp';
+      var img = 'assets/images/'+a.slug.normalize('NFD').replace(/[\u0300-\u036f]/g,'')+'-480.webp';
       return '<a class="archive-row" href="articles/'+a.slug+'.html" style="display:grid;grid-template-columns:80px 1fr;gap:12px 20px;padding:16px 0;border-bottom:1px solid var(--border);align-items:start;text-decoration:none;color:inherit">'
         +'<img src="'+img+'" alt="" style="width:80px;height:54px;object-fit:cover;border-radius:4px;background:var(--light)" loading="lazy" onerror="this.style.display=\'none\'"/>'
         +'<div><span class="cat cat--'+a.categorie+'" style="display:inline-block;font-size:10px;font-weight:700;letter-spacing:.06em;margin-bottom:4px">'+_cat_up_js(a.categorie)+'</span>'

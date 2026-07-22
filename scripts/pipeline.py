@@ -3827,7 +3827,7 @@ def build_article_html(art: dict, date_pub: str) -> str:
         if related:
             cards = "\n".join(
                 f'<a class="art__related-card" href="articles/{a["slug"]}.html">'
-                f'<img src="assets/images/{a["slug"]}-480.webp" alt="{a["titre"]}" width="400" height="110" style="width:calc(100% + 32px);margin:-14px -16px 12px;height:110px;object-fit:cover;display:block;border-radius:var(--radius) var(--radius) 0 0">'
+                f'<img src="assets/images/{_slug_ascii(a["slug"])}-480.webp" alt="{a["titre"]}" width="400" height="110" style="width:calc(100% + 32px);margin:-14px -16px 12px;height:110px;object-fit:cover;display:block;border-radius:var(--radius) var(--radius) 0 0">'
                 f'<span class="cat cat--{a["categorie"]}">{_cat_up(a["categorie"])}</span>'
                 f'<div class="title-sm">{a["titre"]}</div>'
                 f'<div style="font-size:10px;color:var(--muted);margin-top:6px">{a["date"]}</div>'
@@ -4058,7 +4058,7 @@ def rebuild_articles_related(articles: list):
             continue
         cards = "".join(
             f'<a class="art__related-card" href="articles/{a["slug"]}.html">'
-            f'<img src="assets/images/{a["slug"]}-480.webp" alt="{_esc(a["titre"])}" width="400" height="110" style="width:calc(100% + 32px);margin:-14px -16px 12px;height:110px;object-fit:cover;display:block;border-radius:var(--radius) var(--radius) 0 0">'
+            f'<img src="assets/images/{_slug_ascii(a["slug"])}-480.webp" alt="{_esc(a["titre"])}" width="400" height="110" style="width:calc(100% + 32px);margin:-14px -16px 12px;height:110px;object-fit:cover;display:block;border-radius:var(--radius) var(--radius) 0 0">'
             f'<span class="cat cat--{a["categorie"]}">{_cat_up(a["categorie"])}</span>'
             f'<div class="title-sm">{_esc(a["titre"])}</div>'
             f'<div style="font-size:10px;color:var(--muted);margin-top:6px">{a["date"]}</div>'
@@ -4109,7 +4109,7 @@ def rebuild_index():
     # Génération des cards "side" (articles 1-3)
     def side_card(a):
         return f"""<a class="une__side-item" href="articles/{a['slug']}.html" style="display:grid;grid-template-columns:64px 1fr;gap:14px;align-items:center">
-          <img src="assets/images/{a['slug']}-480.webp" alt="{_esc(a['titre'])}" loading="lazy" style="width:64px;height:64px;object-fit:cover;border-radius:4px;display:block">
+          <img src="assets/images/{_slug_ascii(a['slug'])}-480.webp" alt="{_esc(a['titre'])}" loading="lazy" style="width:64px;height:64px;object-fit:cover;border-radius:4px;display:block">
           <div>
           <span class="cat cat--{a['categorie']}">{_cat_up(a['categorie'])}</span>
           <h3 class="title-md">{_esc(a['titre'])}</h3>
@@ -4120,7 +4120,7 @@ def rebuild_index():
 
     def mini_card(a):
         return f"""<a class="card3" href="articles/{a['slug']}.html">
-          <img class="card3__img" src="assets/images/{a['slug']}-480.webp" alt="{_esc(a['titre'])}" loading="lazy">
+          <img class="card3__img" src="assets/images/{_slug_ascii(a['slug'])}-480.webp" alt="{_esc(a['titre'])}" loading="lazy">
           <div class="card3__body">
             <span class="cat cat--{a['categorie']}">{_cat_up(a['categorie'])}</span>
             <h3 class="title-sm">{_esc(a['titre'])}</h3>
@@ -4278,7 +4278,7 @@ def build_index_html(main, side_html, grid_html, list_html):
     <div style="height:2px;background:var(--blue);margin-bottom:1px"></div>
     <div class="une__grid">
       <a class="une__main" href="articles/{main['slug']}.html">
-        <img src="assets/images/{main['slug']}.webp" alt="{main['titre']}" loading="eager" style="width:calc(100% + 72px);margin:-32px -36px 20px;height:240px;object-fit:cover;display:block">
+        <img src="assets/images/{_slug_ascii(main['slug'])}.webp" alt="{main['titre']}" loading="eager" style="width:calc(100% + 72px);margin:-32px -36px 20px;height:240px;object-fit:cover;display:block">
         <span class="cat cat--{main['categorie']}">{_cat_up(main['categorie'])}</span>
         <h2 class="title-xl">{main['titre']}</h2>
         <p class="excerpt">{resume}</p>
@@ -4401,7 +4401,7 @@ def build_feed_xml(articles: list):
         resume  = escape(" ".join(a["resume"]) if isinstance(a.get("resume"), list) else a.get("resume", ""))
         cat     = escape(a.get("categorie", ""))
         url     = f"{base}/articles/{slug}.html"
-        img     = f"{base}/assets/images/{slug}.jpg"
+        img     = f"{base}/assets/images/{_slug_ascii(slug)}.jpg"
         # date RFC-822 approximative (on utilise now pour les anciens articles sans timezone)
         items.append(f"""  <item>
     <title>{titre}</title>
@@ -4449,7 +4449,7 @@ def build_category_pages():
         if arts:
             cards_html = "\n".join(f"""
         <a class="card3" href="articles/{a['slug']}.html">
-          <img class="card3__img" src="assets/images/{a['slug']}-480.webp" alt="{_esc(a['titre'])}" loading="lazy">
+          <img class="card3__img" src="assets/images/{_slug_ascii(a['slug'])}-480.webp" alt="{_esc(a['titre'])}" loading="lazy">
           <div class="card3__body">
             <span class="cat cat--{cat}">{label.upper()}</span>
             <h3 class="title-sm">{_esc(a['titre'])}</h3>
@@ -4601,7 +4601,7 @@ def build_archive_page():
             resume = a.get("resume", "")
             if isinstance(resume, list):
                 resume = resume[0] if resume else ""
-            img_src = f"assets/images/{a['slug']}-480.webp"
+            img_src = f"assets/images/{_slug_ascii(a['slug'])}-480.webp"
             rows += f"""
     <a class="archive-row" href="articles/{a['slug']}.html" style="display:grid;grid-template-columns:80px 1fr;gap:12px 20px;padding:16px 0;border-bottom:1px solid var(--border);align-items:start;text-decoration:none;color:inherit">
       <img src="{img_src}" alt="{_esc(a['titre'])}" style="width:80px;height:54px;object-fit:cover;border-radius:4px;background:var(--light)" loading="lazy" onerror="this.style.display='none'"/>
@@ -4775,7 +4775,7 @@ def build_favoris_page():
     if(!found.length){{emptyEl.style.display='block';return;}}
     listEl.innerHTML = found.map(function(a){{
       var resume = Array.isArray(a.resume) ? (a.resume[0]||'') : (a.resume||'');
-      var img = 'assets/images/'+a.slug+'-480.webp';
+      var img = 'assets/images/'+a.slug.normalize('NFD').replace(/[\\u0300-\\u036f]/g,'')+'-480.webp';
       return '<a class="archive-row" href="articles/'+a.slug+'.html" style="display:grid;grid-template-columns:80px 1fr;gap:12px 20px;padding:16px 0;border-bottom:1px solid var(--border);align-items:start;text-decoration:none;color:inherit">'
         +'<img src="'+img+'" alt="" style="width:80px;height:54px;object-fit:cover;border-radius:4px;background:var(--light)" loading="lazy" onerror="this.style.display=\\'none\\'"/>'
         +'<div><span class="cat cat--'+a.categorie+'" style="display:inline-block;font-size:10px;font-weight:700;letter-spacing:.06em;margin-bottom:4px">'+_cat_up_js(a.categorie)+'</span>'
