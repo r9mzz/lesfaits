@@ -96,7 +96,13 @@ combinée, jamais des relances en cascade — le quota Groq est la ressource rar
 `attributions_fantomes`, `resume_repete_corps` (y compris répétitions internes
 au chapeau), `faits_repetitifs` (intra ET inter-sections, 5-grammes),
 `attributions_trop_repetitives`, `titre_de_mauvaise_qualite`, `cliches_ia`,
-`intro_generique` (intros vagues sans information — déclenche correction).
+`intro_generique` (intros vagues sans information — déclenche correction),
+`nuances_vagues` (généralités sans exemple concret dans « Débats et
+nuances » — « les défis sont nombreux » sans chiffre ni fait précis qui
+suit — retour revue éditoriale externe du 22/07), `affirmation_non_demontree`
+(usage/potentiel présenté comme acquis — « ouvre de nouvelles perspectives »
+— alors que la source ne décrit qu'un prototype/étude préliminaire/projet ;
+doit être au conditionnel, même retour du 22/07).
 Garde-fou séparé (non combiné, relance d'étoffement dédiée) :
 `_deficit_longueur_sources` (500 mots cible / 350 mots plancher après
 tolérance, 3 sources minimum — vérifier le compte de MOTS réel, jamais une

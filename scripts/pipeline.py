@@ -1608,6 +1608,83 @@ def intro_generique(art: dict) -> list[str]:
     return trouvees
 
 
+# Retour externe (revue éditoriale du 22/07) : "Débats et nuances" retombe
+# régulièrement sur des généralités ("les défis sont nombreux", "les enjeux
+# sont complexes") au lieu de limites/incertitudes concrètes liées au sujet.
+# Une phrase générique est tolérée si elle est suivie d'un exemple concret
+# (chiffre, terme technique, nom propre) ; sinon c'est du remplissage pur.
+_NUANCE_VAGUE_RE = re.compile(
+    r"(?:les?\s+)?(?:d[ée]fis|enjeux|implications|cons[ée]quences|risques)\s+"
+    r"(?:sont|restent|demeurent)\s+(?:nombreux(?:\s+et\s+complexes)?|complexes|"
+    r"multiples|importantes?|significatifs?|consid[ée]rables)\b",
+    re.IGNORECASE,
+)
+_A_UN_FAIT_PRECIS_RE = re.compile(r"\d|%|€|\$")
+
+
+def nuances_vagues(art: dict) -> list[str]:
+    """Détecte dans « Débats et nuances » les généralités de remplissage
+    (« les défis sont nombreux ») qui ne sont suivies d'aucun exemple concret
+    (chiffre, donnée précise) dans la même phrase ou la suivante."""
+    corps = art.get("corps") or {}
+    texte = str(corps.get("nuances", "") or "")
+    if not texte:
+        return []
+    phrases = re.split(r"(?<=[.!?])\s+", texte)
+    trouvees = []
+    for i, phrase in enumerate(phrases):
+        m = _NUANCE_VAGUE_RE.search(phrase)
+        if not m:
+            continue
+        fenetre = phrase + " " + (phrases[i + 1] if i + 1 < len(phrases) else "")
+        if _A_UN_FAIT_PRECIS_RE.search(fenetre):
+            continue  # un chiffre/donnée précise suit de près : pas du remplissage
+        expr = m.group().strip()
+        if expr not in trouvees:
+            trouvees.append(expr)
+    return trouvees
+
+
+# Retour externe (revue éditoriale du 22/07) : un usage ou une application
+# encore à l'état de prototype/étude/projet est parfois présenté comme acquis
+# ("ouvre de nouvelles perspectives", "représente une avancée majeure") au
+# lieu du conditionnel attendu pour du potentiel non démontré.
+_AFFIRMATION_PROSPECTIVE_RE = re.compile(
+    r"\b(?:ouvre|ouvrent|repr[ée]sente(?:nt)?|marque(?:nt)?|constitue(?:nt)?)\s+"
+    r"(?:de\s+nouvelles?\s+perspectives|une\s+avanc[ée]e\s+majeure|un\s+tournant"
+    r"|des?\s+perspectives\s+(?:nouvelles|prometteuses)|une\s+r[ée]volution)\b"
+    r"|\bva(?:\s+ainsi)?\s+(?:changer|transformer)\s+(?:la\s+donne|le\s+secteur)\b"
+    r"|\bpermettra\s+de\b(?!.{0,15}(?:potentiellement|peut[- ]être))",
+    re.IGNORECASE,
+)
+_CONDITIONNEL_DEJA_PRESENT_RE = re.compile(
+    r"\b(?:pourrait|pourraient|pourrait\s+potentiellement|selon\s+les\s+chercheurs|"
+    r"si\s+cette\s+piste\s+se\s+confirme|reste\s+à\s+d[ée]montrer|"
+    r"n'est\s+pas\s+encore\s+d[ée]montr[ée])\b",
+    re.IGNORECASE,
+)
+
+
+def affirmation_non_demontree(art: dict) -> list[str]:
+    """Détecte les formulations affirmatives sur un usage/potentiel qui n'est
+    pas encore démontré (prototype, étude préliminaire, projet) — ces
+    passages doivent être au conditionnel, pas présentés comme acquis."""
+    corps = art.get("corps") or {}
+    textes = [str(corps.get(k, "") or "") for k in ("faits", "contexte", "nuances")]
+    trouvees = []
+    for texte in textes:
+        for m in _AFFIRMATION_PROSPECTIVE_RE.finditer(texte):
+            debut = max(0, m.start() - 60)
+            fin = min(len(texte), m.end() + 60)
+            fenetre = texte[debut:fin]
+            if _CONDITIONNEL_DEJA_PRESENT_RE.search(fenetre):
+                continue  # déjà nuancé à proximité (pourrait, reste à démontrer…)
+            expr = m.group().strip()
+            if expr not in trouvees:
+                trouvees.append(expr)
+    return trouvees
+
+
 # ══════════════════════════════════════════════════════════════════════════════
 # DÉTECTION DÉTERMINISTE DE SUJETS À REJETER (avant appel LLM)
 # Critères codés en dur — ne dépendent pas du jugement du modèle.
@@ -1936,6 +2013,8 @@ def generate(content: str, category_hint: str, extra_sources: list[dict] | None 
              titre_feedback: str | None = None,
              cliches_feedback: list[str] | None = None,
              intro_feedback: list[str] | None = None,
+             nuances_feedback: list[str] | None = None,
+             prospectif_feedback: list[str] | None = None,
              article_type: str = "actu",
              previous_article: dict | None = None) -> dict:
 
@@ -1954,7 +2033,7 @@ def generate(content: str, category_hint: str, extra_sources: list[dict] | None 
     # Renvoyer les CONTENU complets à chaque relance (jusqu'à 4 appels par
     # article) multipliait le coût par ~4 et épuisait le quota Groq quotidien
     # après 2-3 articles à peine.
-    is_retry = bool(retry_feedback or repetition_feedback or intra_feedback or selon_feedback or expand_feedback or titre_feedback or cliches_feedback or intro_feedback)
+    is_retry = bool(retry_feedback or repetition_feedback or intra_feedback or selon_feedback or expand_feedback or titre_feedback or cliches_feedback or intro_feedback or nuances_feedback or prospectif_feedback)
     # La relance "expand" a besoin de matière source (le problème est que
     # l'article n'a pas assez puisé dedans), mais PAS des extraits intégraux :
     # run du 18/07 matin, 2 sujets perdus en « réponse tronquée » parce que le
@@ -2162,6 +2241,27 @@ def generate(content: str, category_hint: str, extra_sources: list[dict] | None 
             "un acteur nommé, une date ou une action concrète. Supprime toute phrase du type "
             "'ce sujet est un défi', 'il est important de comprendre', 'cette question s'inscrit dans…' "
             "— ces formules n'apportent aucune information au lecteur."
+        )
+
+    if nuances_feedback:
+        user_msg += (
+            "\n\nCORRECTION OBLIGATOIRE — ta section 'Débats et nuances' contient des généralités "
+            "creuses, jamais suivies d'un exemple concret : « " + " » ; « ".join(nuances_feedback[:5]) + " ». "
+            "Remplace chacune par une limite, une incertitude ou un désaccord PRÉCIS et propre à ce "
+            "sujet (un chiffre encore provisoire, un point que les sources ne tranchent pas, une "
+            "méthodologie contestée) — si tu ne trouves aucun exemple concret dans les sources, "
+            "supprime la phrase plutôt que de la garder vide de sens."
+        )
+
+    if prospectif_feedback:
+        user_msg += (
+            "\n\nCORRECTION OBLIGATOIRE — ton article présente comme acquis un usage, un impact ou "
+            "un potentiel qui n'est pourtant pas démontré dans les sources : « "
+            + " » ; « ".join(prospectif_feedback[:5]) + " ». "
+            "Mets ces passages au CONDITIONNEL (« pourrait », « pourrait potentiellement », « si "
+            "cette piste se confirme ») dès que la source elle-même parle d'un prototype, d'une étude "
+            "préliminaire, d'un projet ou d'une application envisagée — ne présente comme acquis que "
+            "ce qui est déjà effectivement en usage ou démontré selon la source."
         )
 
     # Les modèles "reasoning" de Groq (famille openai/gpt-oss-*, qwen*)
@@ -4936,7 +5036,9 @@ def generer_article(item: dict, dry_run: bool, published: set, new_pub: set, dat
         titre_pb    = titre_de_mauvaise_qualite(art)
         cliches     = cliches_ia(art)
         intro_pb    = intro_generique(art)
-        if fantomes or repetitions or intra or selon or titre_pb or cliches or intro_pb:
+        nuances_pb  = nuances_vagues(art)
+        prospectif  = affirmation_non_demontree(art)
+        if fantomes or repetitions or intra or selon or titre_pb or cliches or intro_pb or nuances_pb or prospectif:
             details = []
             if fantomes:
                 details.append(f"{len(fantomes)} attribution(s) hors sources")
@@ -4952,6 +5054,10 @@ def generer_article(item: dict, dry_run: bool, published: set, new_pub: set, dat
                 details.append(f"{len(cliches)} tournure(s) générique(s) IA")
             if intro_pb:
                 details.append(f"intro générique ({len(intro_pb)} phrase(s))")
+            if nuances_pb:
+                details.append(f"{len(nuances_pb)} généralité(s) sans exemple concret dans Débats et nuances")
+            if prospectif:
+                details.append(f"{len(prospectif)} affirmation(s) prospective(s) non conditionnelle(s)")
             print(f"     [GARDE] {' + '.join(details)} — relance corrective unique…")
             art = generate(content, cat, extra_sources=extra, rss_url=item.get("url"),
                            retry_feedback=fantomes or None,
@@ -4961,6 +5067,8 @@ def generer_article(item: dict, dry_run: bool, published: set, new_pub: set, dat
                            titre_feedback=titre_pb or None,
                            cliches_feedback=cliches or None,
                            intro_feedback=intro_pb or None,
+                           nuances_feedback=nuances_pb or None,
+                           prospectif_feedback=prospectif or None,
                            article_type=article_type,
                            previous_article=art)
             if not isinstance(art, dict):
@@ -4996,6 +5104,10 @@ def generer_article(item: dict, dry_run: bool, published: set, new_pub: set, dat
                 print(f"     [AVERTISSEMENT] Titre toujours non conforme après relance")
             if cliches_ia(art):
                 print(f"     [AVERTISSEMENT] Tournures génériques IA persistantes après relance")
+            if nuances_vagues(art):
+                print(f"     [AVERTISSEMENT] Débats et nuances toujours génériques après relance")
+            if affirmation_non_demontree(art):
+                print(f"     [AVERTISSEMENT] Affirmation prospective toujours non conditionnelle après relance")
 
         # ── Garde-fou Dossier Science : formulations assertives interdites ─────
         if article_type == "dossier_science":
