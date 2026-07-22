@@ -2,7 +2,7 @@
 import json, os, re, sys
 
 sys.path.insert(0, os.path.dirname(__file__))
-from pipeline import AUDIO_PLAYER_HTML, AUDIO_GLOBAL_HTML, AUDIO_GLOBAL_VERSION
+from pipeline import AUDIO_PLAYER_HTML, AUDIO_GLOBAL_HTML, AUDIO_GLOBAL_VERSION, _slug_ascii
 
 CURRENT_AUDIO_MARKER = f"<!-- LF_AUDIO_GLOBAL_START v{AUDIO_GLOBAL_VERSION} -->"
 
@@ -67,7 +67,7 @@ for fn in os.listdir("articles"):
         # visibles quand le lecteur atteint le bas de l'article (voir commit qui a
         # retiré loading="lazy" — flash de blanc possible en scroll rapide).
         f'<a class="art__related-card" href="articles/{a["slug"]}.html">'
-        f'<img src="assets/images/{a["slug"]}-480.webp" alt="{a.get("titre","")}" width="400" height="110" style="width:calc(100% + 32px);margin:-14px -16px 12px;height:110px;object-fit:cover;display:block;border-radius:var(--radius) var(--radius) 0 0">'
+        f'<img src="assets/images/{_slug_ascii(a["slug"])}-480.webp" alt="{a.get("titre","")}" width="400" height="110" style="width:calc(100% + 32px);margin:-14px -16px 12px;height:110px;object-fit:cover;display:block;border-radius:var(--radius) var(--radius) 0 0">'
         f'<span class="cat cat--{a["categorie"]}">{a["categorie"].upper()}</span>'
         f'<div class="title-sm">{a["titre"]}</div>'
         f'<div style="font-size:10px;color:var(--muted);margin-top:6px">{a["date"]}</div>'
