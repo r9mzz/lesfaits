@@ -3045,7 +3045,7 @@ HEADER_NAV_DESKTOP = (
     '      <a class="nav-expand-item" href="/archive.html" aria-label="Tous les articles">'
     + _ICO_LIST +
     '<span class="nav-expand-label">Tous les articles</span></a>\n'
-    '      <a class="nav-expand-item" href="/a-propos.html#reseaux" aria-label="Réseaux">'
+    '      <a class="nav-expand-item" href="/a-propos.html" aria-label="Réseaux">'
     + _ICO_INSTA +
     '<span class="nav-expand-label">Réseaux</span></a>\n'
     '      <a class="nav-expand-item" href="/methode.html" aria-label="Notre méthode">'
