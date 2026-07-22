@@ -3703,12 +3703,12 @@ def _sanitize_image_keyword(kw: str, fallback: str = "") -> str:
 
 
 def _paris_iso_now() -> str:
-    """Horodatage ISO 8601 du CRÉNEAU de publication (07h00/18h00 Paris), avec
-    le vrai offset (+01:00 CET / +02:00 CEST). Aligné sur date_pub : c'est
-    l'heure d'apparition sur le site qui fait foi, pas celle de génération."""
+    """Horodatage ISO 8601 de la GÉNÉRATION réelle de l'article (Paris), avec
+    le vrai offset (+01:00 CET / +02:00 CEST). Aligné sur date_pub depuis le
+    22/07 (demande de Nahil) : c'est l'heure technique réelle qui fait foi,
+    plus le créneau arrondi 07h00/18h00."""
     now = datetime.now(ZoneInfo("Europe/Paris"))
-    slot = now.replace(hour=7 if now.hour < 12 else 18, minute=0, second=0, microsecond=0)
-    iso = slot.strftime("%Y-%m-%dT%H:%M:%S%z")
+    iso = now.strftime("%Y-%m-%dT%H:%M:%S%z")
     return f"{iso[:-2]}:{iso[-2:]}"
 
 
@@ -4186,12 +4186,15 @@ def rebuild_index():
     # Side : 3 articles diversifiés (catégories différentes du main et entre eux)
     side_arts = _pick_diverse(articles[1:], 3, used_une)
     used_une.update(a["slug"] for a in side_arts)
-    # Grille "Derniers articles" : hero + side_arts exclus — corpus vérifié (88+ articles)
+    # Grille "Derniers articles" : seul le hero est exclu — cette section doit
+    # montrer les VRAIS articles les plus récents (retour Nahil, 22/07) ; un
+    # recoupement avec "side" est accepté plutôt que de masquer les derniers
+    # articles publiés.
+    grid_arts = _pick_diverse(articles, 6, {main_art["slug"]}, force_diversity=False)
     used_grid = {main_art["slug"]}
     used_grid.update(a["slug"] for a in side_arts)
-    grid_arts = _pick_diverse(articles, 6, used_grid, force_diversity=False)
     used_grid.update(a["slug"] for a in grid_arts)
-    # Liste "À lire aussi" : 6 articles diversifiés, excluant la grille (pas la une)
+    # Liste "À lire aussi" : 6 articles diversifiés, excluant hero+side+grille
     list_arts = _pick_diverse(articles, 6, used_grid)
 
     side_html  = "\n".join(side_card(a) for a in side_arts) if side_arts else ""
@@ -5211,13 +5214,10 @@ def run(dry_run=False, text_input=None, nb_max=12):
     MOIS = ["janvier","février","mars","avril","mai","juin",
             "juillet","août","septembre","octobre","novembre","décembre"]
     now      = datetime.now()
-    # Heure AFFICHÉE = heure d'apparition sur le site, c'est-à-dire le créneau
-    # de déploiement (07h00 / 18h00 Paris), pas l'heure technique de génération
-    # (la génération tourne des heures en avance pour absorber les retards des
-    # crons GitHub — un article estampillé 05h31 alors qu'il apparaît à 07h+
-    # était incohérent pour le lecteur).
-    _heure_creneau = "07h00" if now.hour < 12 else "18h00"
-    date_pub = f"{now.day} {MOIS[now.month-1]} {now.year}, {_heure_creneau}"
+    # Heure AFFICHÉE = heure réelle de génération de l'article (demande de
+    # Nahil, 22/07) — recalculée pour chaque article dans la boucle
+    # ci-dessous plutôt que figée une fois pour tout le run.
+    date_pub = f"{now.day} {MOIS[now.month-1]} {now.year}, {now.strftime('%Hh%M')}"
 
     if text_input:
         item = {
@@ -5285,6 +5285,8 @@ def run(dry_run=False, text_input=None, nb_max=12):
                 print(f"  [BUDGET] {elapsed/60:.1f} min écoulées — arrêt pour éviter le timeout GitHub (budget={_BUDGET_SECONDES//60} min)")
                 break
             try:
+                _now_article = datetime.now()
+                date_pub = f"{_now_article.day} {MOIS[_now_article.month-1]} {_now_article.year}, {_now_article.strftime('%Hh%M')}"
                 if generer_article(item, dry_run, published, new_pub, date_pub, published_topics):
                     # Ajouter le titre généré à published_topics pour éviter les doublons dans la même session
                     published_topics.add(item.get("title", ""))

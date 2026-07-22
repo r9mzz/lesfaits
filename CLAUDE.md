@@ -24,8 +24,9 @@ de perdre le sujet). Site statique déployé sur GitHub Pages via le repo
 - Workflows : `pipeline.yml` (génération ~01h05/13h05 Paris, très en avance car
   les crons GitHub ont 1-4 h de retard), `deploy.yml` (mise en ligne ~07h/18h),
   `post_x.yml`, `newsletter.yml` (Brevo).
-- Les articles affichent l'heure du CRÉNEAU de mise en ligne (07h00/18h00),
-  jamais l'heure technique de génération.
+- Les articles affichent l'heure RÉELLE de génération (changement du 22/07,
+  Nahil — avant cette date, l'heure affichée était arrondie au créneau
+  07h00/18h00, jamais la génération technique ; ce n'est plus le cas).
 - Après toute modif des templates : `python scripts/pipeline.py --rebuild`
   régénère index, catégories, archive, favoris, search.json, feed, sitemap.
 
