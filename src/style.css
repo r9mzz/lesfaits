@@ -260,9 +260,15 @@ a:hover .title-xl, a:hover .title-md, a:hover .title-sm { color: var(--blue-ink)
 .cat-page__title { font-family: Georgia,serif; font-size: 34px; font-weight: 700; letter-spacing: -.5px; }
 
 /* ── PAGE ARTICLE ── */
-.art__hero { display:block; width:100%; aspect-ratio:1200/630; object-fit:cover; border-radius:var(--radius-card); margin-bottom:32px; background:var(--light); box-shadow: var(--shadow-card); }
-.article__hero { width:100%; margin:0 0 2rem 0; border-radius:var(--radius-card); overflow:hidden; aspect-ratio:1200/630; box-shadow: var(--shadow-card); }
-.article__hero img { width:100%; height:100%; object-fit:cover; display:block; }
+/* Une seule source de vérité pour la taille/le recadrage de l'image : la
+   règle .article__hero img { width:100%; height:100% } imposait une hauteur
+   ET une largeur explicites en plus de l'aspect-ratio de .art__hero — ce
+   double contrainte (width+height+aspect-ratio) est ambiguë et rendait la
+   photo en object-fit:contain (bandes visibles) sur certains navigateurs
+   au lieu de cover (bug remonté le 22/07). Le figure englobant ne fait
+   plus que le cadre (radius/ombre/marge), sans dupliquer la taille. */
+.art__hero { display:block; width:100%; aspect-ratio:16/9; object-fit:cover; border-radius:var(--radius-card); margin-bottom:32px; background:var(--light); box-shadow: var(--shadow-card); }
+.article__hero { margin:0 0 2rem 0; border-radius:var(--radius-card); overflow:hidden; box-shadow: var(--shadow-card); }
 .art { max-width: 740px; margin: 0 auto; padding: 48px 32px 80px; }
 .art__back { font-size: 11px; color: var(--blue-ink); border-bottom: 1px solid var(--blue-ink); display: inline-block; margin-bottom: 32px; transition: opacity .15s; }
 .art__back:hover { opacity: .7; }
