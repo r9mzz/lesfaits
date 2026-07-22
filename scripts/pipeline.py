@@ -4060,7 +4060,7 @@ function copyLink(){{
   <script type="application/ld+json">{{"@context":"https://schema.org","@type":"NewsArticle","headline":"{_esc_json(art['titre'])}","description":"{_esc_json(desc_seo)}","datePublished":"{_paris_iso_now()}","dateModified":"{_paris_iso_now()}","articleSection":"{cat}","inLanguage":"fr","isAccessibleForFree":true,"image":{{"@type":"ImageObject","url":"{BASE_URL}/{hero_src}","width":1200,"height":630}},"author":{{"@type":"Organization","name":"Les Faits"}},"publisher":{{"@type":"Organization","name":"Les Faits","@id":"{BASE_URL}/#org","logo":{{"@type":"ImageObject","url":"{BASE_URL}/assets/images/og-default.jpg"}}}},"mainEntityOfPage":{{"@type":"WebPage","@id":"{art_url}"}}}}</script>
   <script type="application/ld+json">{{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{{"@type":"ListItem","position":1,"name":"Accueil","item":"{BASE_URL}/"}},{{"@type":"ListItem","position":2,"name":"{CAT_LABELS.get(cat, cat)}","item":"{BASE_URL}/categories/{cat}.html"}},{{"@type":"ListItem","position":3,"name":"{_esc_json(art['titre'])}"}}]}}</script>
   <base href="/"/>
-  <link rel="stylesheet" href="/src/style.css"/>
+  <link rel="stylesheet" href="/src/style.css?v=2"/>
   {_DARK_INIT_HEAD}
 </head>
 <body>
@@ -4356,7 +4356,7 @@ def build_index_html(main, side_html, grid_html, list_html):
   <link rel="alternate" type="application/rss+xml" title="Les Faits — RSS" href="/feed.xml"/>
   <title>Les Faits — Juste les faits. Aucun parti pris.</title>
   <base href="/"/>
-  <link rel="stylesheet" href="/src/style.css"/>
+  <link rel="stylesheet" href="/src/style.css?v=2"/>
   {FAVICON_LINKS}
   {_DARK_INIT_HEAD}
 </head>
@@ -4609,7 +4609,7 @@ def build_category_pages():
   <link rel="alternate" type="application/rss+xml" title="Les Faits — RSS" href="/feed.xml"/>
   <title>{label} — Les Faits</title>
   <base href="/"/>
-  <link rel="stylesheet" href="/src/style.css"/>
+  <link rel="stylesheet" href="/src/style.css?v=2"/>
   {FAVICON_LINKS}
   {_DARK_INIT_HEAD}
 </head>
@@ -4750,7 +4750,7 @@ def build_archive_page():
   <link rel="canonical" href="https://lesfaits.info/archive.html"/>
   <title>Tous les articles — Les Faits</title>
   <base href="/"/>
-  <link rel="stylesheet" href="/src/style.css"/>
+  <link rel="stylesheet" href="/src/style.css?v=2"/>
   {FAVICON_LINKS}
   <script>(function(){{var s=localStorage.getItem('theme'),d=s==='dark'||(s===null&&window.matchMedia('(prefers-color-scheme:dark)').matches);document.documentElement.setAttribute('data-theme',d?'dark':'light');}})();</script>
 </head>
@@ -4834,7 +4834,7 @@ def build_favoris_page():
   <link rel="canonical" href="https://lesfaits.info/favoris.html"/>
   <title>Mes favoris — Les Faits</title>
   <base href="/"/>
-  <link rel="stylesheet" href="/src/style.css"/>
+  <link rel="stylesheet" href="/src/style.css?v=2"/>
   {FAVICON_LINKS}
   {_DARK_INIT_HEAD}
 </head>
