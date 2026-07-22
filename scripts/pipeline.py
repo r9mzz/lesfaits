@@ -4181,10 +4181,21 @@ def rebuild_index():
                 cat_counts[to_replace["categorie"]] -= 1
         return chosen
 
-    main_art  = articles[0]
+    # "À la une" : les articles les plus INTÉRESSANTS parmi les récents, pas
+    # juste le plus récent (demande de Nahil, 22/07) — nb de sources et
+    # longueur comme proxys de substance éditoriale, restreint à une fenêtre
+    # récente (15 derniers) pour ne jamais faire remonter un vieil article.
+    def _interet(a: dict) -> float:
+        return a.get("nb_sources", 0) * 10 + min(a.get("nb_mots", 0), 800) / 20
+
+    fenetre_recente = articles[:15] if len(articles) > 15 else list(articles)
+    fenetre_recente.sort(key=_interet, reverse=True)
+
+    main_art  = fenetre_recente[0]
     used_une  = {main_art["slug"]}
-    # Side : 3 articles diversifiés (catégories différentes du main et entre eux)
-    side_arts = _pick_diverse(articles[1:], 3, used_une)
+    # Side : 3 articles diversifiés (catégories différentes du main et entre eux),
+    # toujours classés par intérêt plutôt que par pure fraîcheur
+    side_arts = _pick_diverse(fenetre_recente[1:], 3, used_une)
     used_une.update(a["slug"] for a in side_arts)
     # Grille "Derniers articles" : seul le hero est exclu — cette section doit
     # montrer les VRAIS articles les plus récents (retour Nahil, 22/07) ; un
