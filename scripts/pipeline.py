@@ -4377,12 +4377,8 @@ def build_index_html(main, side_html, grid_html, list_html):
 </header>
 <div class="manifeste">
   <div class="manifeste__inner">
-    <div class="manifeste__headline">100&nbsp;% IA.<br><span>0&nbsp;% parti pris.</span></div>
-    <div class="manifeste__pillars">
-      <div class="manifeste__pillar"><div class="manifeste__text"><strong>Rédigé par IA, sans filtre humain</strong> <span>Aucun journaliste ne rédige ni n'oriente le contenu. L'IA applique le même protocole pour chaque sujet, sans exception.</span></div></div>
-      <div class="manifeste__pillar"><div class="manifeste__text"><strong>Zéro influence</strong> <span>Pas d'actionnaires, pas de publicité, pas de ligne politique. Les faits bruts, leurs sources, leurs contradictions.</span></div></div>
-      <div class="manifeste__pillar"><div class="manifeste__text"><strong>Méthode publique</strong> <span>Protocole éditorial ouvert. Minimum 3 sources par article. Corrections publiques et tracées.</span></div></div>
-    </div>
+    <div class="manifeste__headline">100&nbsp;% IA. <span>0&nbsp;% parti pris.</span></div>
+    <a href="methode.html" class="manifeste__link">Notre méthode →</a>
   </div>
 </div>
 <main id="contenu">

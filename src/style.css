@@ -138,18 +138,17 @@ nav a.active { opacity: 1; color: var(--blue-ink); border-bottom-color: var(--bl
 @keyframes ticker { 0%{transform:translateX(0)} 100%{transform:translateX(-50%)} }
 
 /* ── MANIFESTE ── */
-.manifeste { background: var(--white); border-bottom: 1px solid var(--rule); padding: 22px 32px; }
-.manifeste__inner { max-width: 1140px; margin: 0 auto; display: flex; align-items: flex-start; gap: 40px; }
-.manifeste__headline { font-family: Georgia,serif; font-size: 18px; font-weight: 700; color: var(--ink); flex-shrink: 0; white-space: nowrap; }
+/* Bandeau manifeste simplifié en une ligne (retour design du 23/07) : les
+   3 piliers détaillés (rédaction IA, indépendance, méthode) faisaient
+   double emploi avec méthode.html et alourdissaient l'accueil avant même
+   "À la une" — un statement + un lien suffit, le détail vit sur sa page. */
+.manifeste { background: var(--white); border-bottom: 1px solid var(--rule); padding: 16px 32px; }
+.manifeste__inner { max-width: 1140px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+.manifeste__headline { font-family: Georgia,serif; font-size: 16px; font-weight: 700; color: var(--ink); }
 .manifeste__headline span { color: var(--blue-ink); }
-.manifeste__pillars { display: flex; flex: 1; }
-.manifeste__pillar { display: flex; align-items: flex-start; gap: 10px; flex: 1; padding: 0 24px; border-left: 1px solid var(--rule); }
-.manifeste__pillar:first-child { border-left: 2px solid var(--blue); }
-.manifeste__text strong { display: block; font-size: 11px; font-weight: 700; color: var(--ink); margin-bottom: 2px; }
-.manifeste__text span { font-size: 11px; color: var(--muted); line-height: 1.4; }
+.manifeste__link { font-size: 13px; font-weight: 600; color: var(--blue-ink); white-space: nowrap; text-decoration: none; }
+.manifeste__link:hover { text-decoration: underline; }
 [data-theme="dark"] .manifeste { background: color-mix(in srgb, var(--sand) 94%, rgba(108,133,189,1) 6%); border-bottom-color: rgba(108,133,189,.15); }
-[data-theme="dark"] .manifeste__pillar { border-left-color: rgba(108,133,189,.18); }
-[data-theme="dark"] .manifeste__pillar:first-child { border-left-color: rgba(108,133,189,.55); }
 
 /* ── TYPOGRAPHIE COMMUNE ── */
 .cat {
@@ -771,10 +770,7 @@ a:hover .title-xl, a:hover .title-md, a:hover .title-sm { color: var(--blue-ink)
   .une__side-item { padding: 16px 20px; }
   .grid3 { grid-template-columns: 1fr; }
   .list-grid { grid-template-columns: 1fr; }
-  .manifeste__inner { flex-direction: column; gap: 16px; }
-  .manifeste__pillars { flex-direction: column; gap: 0; }
-  .manifeste__pillar { padding: 14px 0; border-left: none; border-top: 1px solid var(--rule); }
-  .manifeste__pillar:first-child { border-left: none; border-top: none; border-left: 2px solid var(--blue); padding-left: 14px; }
+  .manifeste__inner { flex-wrap: wrap; gap: 8px 16px; }
   .methode__grid { grid-template-columns: 1fr; }
   .methode__stats { grid-template-columns: 1fr; gap: 20px; }
   .nous-suivre__grid { grid-template-columns: 1fr; }
