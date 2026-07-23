@@ -4057,5 +4057,54 @@
     "angle_insuffisant": true,
     "raison": "aucune actualité identifiable ne justifie une publication maintenant, l'article ressemble à une fiche pédagogique générale sans fait déclencheur daté",
     "article_type": "actu"
+  },
+  {
+    "slug": "seychelles-crise-d-addiction",
+    "statut": "rejete_sensible",
+    "date": "2026-07-23T05:42:06",
+    "sujet_sensible": true,
+    "raison": "L'article implique une affaire de santé publique et de trafic de drogues, ce qui peut être considéré comme un sujet sensible.",
+    "article_type": "dossier_portrait"
+  },
+  {
+    "slug": "diamants-profonds-terre",
+    "statut": "rejete_qualite",
+    "date": "2026-07-23T05:43:14",
+    "angle_insuffisant": true,
+    "raison": "L'article ne mentionne pas d'événement précis daté ou datable lié à la découverte des diamants formés à grande profondeur, mais plutôt des études et des découvertes générales sur les profondeurs terrestres.",
+    "article_type": "dossier_science"
+  },
+  {
+    "slug": "tyr-patrimoine-mondial-en-peril",
+    "statut": "rejete_sensible",
+    "date": "2026-07-23T05:45:46",
+    "sujet_sensible": true,
+    "raison": "L'article implique une affaire judiciaire ou pénale en cours (conflit au Liban) et contient des critiques ou affirmations négatives visant des personnes ou entités identifiées (armée israélienne)",
+    "article_type": "actu"
+  },
+  {
+    "slug": "ebola-epidemie-rdc-ouganda",
+    "statut": "rejete_sensible",
+    "date": "2026-07-23T05:47:36",
+    "tentative": 1,
+    "sujet_sensible": true,
+    "raison": "l'article implique des victimes d'une épidémie",
+    "article_type": "actu"
+  },
+  {
+    "slug": "nenette-orang-outan-droits-primates",
+    "statut": "rejete_sensible",
+    "date": "2026-07-23T05:50:27",
+    "sujet_sensible": true,
+    "raison": "l'article implique un animal (Nénette, l'orang-outan) et aborde la question de son statut et de son traitement",
+    "article_type": "actu"
+  },
+  {
+    "slug": "nouvelles-addictions-evolution-consommations-risques",
+    "statut": "rejete_qualite",
+    "date": "2026-07-23T05:53:21",
+    "angle_insuffisant": true,
+    "raison": "L'article ne présente pas d'événement précis daté ou datable lié aux nouvelles addictions, mais plutôt une présentation générale du sujet.",
+    "article_type": "dossier_science"
   }
 ]
