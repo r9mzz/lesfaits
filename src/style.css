@@ -876,7 +876,10 @@ a.card3,a.une__main,a.une__side-item,a.list-item,a.art__related-card,a.archive-i
 /* ── NEWSLETTER COMPACTE ── */
 /* scroll-margin : l'ancre /#newsletter doit s'arrêter sous le header sticky,
    pas derrière lui — sinon le haut de la section est masqué à l'arrivée. */
-.nl-compact { padding: 40px 24px 56px; scroll-margin-top: 76px; }
+/* Fond légèrement teinté + bordures : la carte flottait dans un grand vide
+   entre "À lire aussi" et le footer, sans repère visuel de section (retour
+   revue design du 23/07). */
+.nl-compact { padding: 40px 24px; margin-top: 16px; scroll-margin-top: 76px; background: var(--light); border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); }
 .nl-compact__inner { max-width: 540px; margin: 0 auto; background: var(--white); border: 1px solid var(--rule); border-radius: 12px; padding: 22px 26px; box-shadow: var(--shadow-card); }
 .nl-compact__head { display: flex; align-items: baseline; gap: 10px; margin-bottom: 14px; flex-wrap: wrap; }
 .nl-compact__label { font-size: 10px; font-weight: 700; letter-spacing: 2px; color: var(--blue); white-space: nowrap; }

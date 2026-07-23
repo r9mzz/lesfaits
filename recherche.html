@@ -649,11 +649,21 @@ function renderCards(matches, q) {
   }).join('');
 }
 
+function emptyStateHtml() {
+  const cats = Object.keys(CAT_LABELS).map(c =>
+    `<a class="cat-dd-item" href="${BASE}categories/${c}.html" style="display:inline-block;margin:0 8px 8px 0;padding:6px 14px;border:1px solid var(--rule);border-radius:20px;color:var(--ink);text-decoration:none">${CAT_LABELS[c]}</a>`
+  ).join('');
+  return `<div class="search-empty" style="text-align:center;padding:32px 0">
+    <p style="color:var(--muted);margin-bottom:16px">Tapez au moins 2 caractères, ou parcourez par rubrique :</p>
+    <div>${cats}</div>
+  </div>`;
+}
+
 function renderResults(q) {
   const countEl = document.getElementById('search-count');
   const sortEl  = document.getElementById('search-sort');
   if (!q || q.length < 2) {
-    document.getElementById('search-results').innerHTML = '';
+    document.getElementById('search-results').innerHTML = emptyStateHtml();
     countEl.textContent = '';
     sortEl.style.display = 'none';
     return;
@@ -698,7 +708,7 @@ function renderResults(q) {
       renderResults(q);
     }
   }
-  else document.getElementById('search-results').innerHTML = '';
+  else document.getElementById('search-results').innerHTML = emptyStateHtml();
 
   input.addEventListener('input', () => renderResults(input.value.trim()));
   input.addEventListener('keydown', e => { if(e.key==='Escape'){input.value='';renderResults('');} });

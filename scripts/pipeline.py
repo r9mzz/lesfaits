@@ -4399,7 +4399,6 @@ def build_index_html(main, side_html, grid_html, list_html):
         <div class="meta">
           <span class="meta__src">{main['nb_sources']} sources</span>
           <span class="meta__sep">·</span><span>{main['date']}</span>
-          <span class="meta__sep">·</span><span>Protocole v1.1</span>
           <span class="meta__push"></span>
         </div>
         <p class="ai-badge">Rédigé par IA · Protocole Les Faits v1.1</p>
