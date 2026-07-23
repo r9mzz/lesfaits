@@ -4106,5 +4106,54 @@
     "angle_insuffisant": true,
     "raison": "L'article ne présente pas d'événement précis daté ou datable lié aux nouvelles addictions, mais plutôt une présentation générale du sujet.",
     "article_type": "dossier_science"
+  },
+  {
+    "slug": "orques-fragmentent-poisson-lune",
+    "statut": "erreur_verification",
+    "date": "2026-07-23T14:47:17",
+    "etape": "correction",
+    "tentative": 1,
+    "erreur": "JSON tronqué ou incomplet dans la réponse (max_tokens atteint ?)",
+    "article_type": "dossier_science"
+  },
+  {
+    "slug": "transfert-dauphins-marineland-espagne",
+    "statut": "rejete_sensible",
+    "date": "2026-07-23T14:47:57",
+    "sujet_sensible": true,
+    "raison": "L'article implique des animaux (dauphins) et leur transfert, ce qui peut être un sujet sensible pour certaines personnes.",
+    "article_type": "dossier_science"
+  },
+  {
+    "slug": "lac-biotope-combloux-developpement-durable",
+    "statut": "rejete_qualite",
+    "date": "2026-07-23T14:49:31",
+    "angle_insuffisant": true,
+    "raison": "aucune actualité identifiable ne justifie une publication maintenant",
+    "article_type": "actu"
+  },
+  {
+    "slug": "pfas-polluants-eternels-destruction-possible",
+    "statut": "rejete_qualite",
+    "date": "2026-07-23T14:50:30",
+    "angle_insuffisant": true,
+    "raison": "L'article ne contient pas d'événement précis daté ou datable avec une donnée chiffrée ou nommée qui lui est propre.",
+    "article_type": "dossier_science"
+  },
+  {
+    "slug": "syndrome-gilles-de-la-tourette",
+    "statut": "rejete_qualite",
+    "date": "2026-07-23T14:51:27",
+    "angle_insuffisant": true,
+    "raison": "L'article ne présente pas d'événement précis daté ou datable lié au syndrome de Gilles de La Tourette, mais plutôt une explication générale du trouble.",
+    "article_type": "actu"
+  },
+  {
+    "slug": "ebola-epidemie-rdc-ouganda",
+    "statut": "rejete_sensible",
+    "date": "2026-07-23T14:53:00",
+    "sujet_sensible": true,
+    "raison": "l'article implique des décès et une épidémie en cours",
+    "article_type": "actu"
   }
 ]
