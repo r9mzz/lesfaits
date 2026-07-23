@@ -4155,5 +4155,45 @@
     "sujet_sensible": true,
     "raison": "l'article implique des décès et une épidémie en cours",
     "article_type": "actu"
+  },
+  {
+    "slug": "medaille-fields-2026-hong-wang",
+    "statut": "corrige_automatiquement",
+    "date": "2026-07-23T17:02:10",
+    "problemes_initiaux": 3,
+    "tentatives": 1,
+    "problemes_residuels_style": 4,
+    "rapport_initial": {
+      "conforme": false,
+      "sujet_sensible": false,
+      "sujet_sensible_raison": "",
+      "angle_insuffisant": false,
+      "angle_insuffisant_raison": "",
+      "nature_contenu": "actualite_factuelle",
+      "problemes": [
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "compteur_incoherent",
+          "phrase_exacte": "La médaille Fields est décernée tous les quatre ans par l'Union mathématique internationale.",
+          "explication": "Le champ 'nb_sources' indique 7 sources, mais certaines sources semblent se répéter avec des informations similaires, ce qui pourrait indiquer un problème de comptage des sources distinctes."
+        },
+        {
+          "bloc": 4,
+          "section": "contexte",
+          "type": "redondance",
+          "phrase_exacte": "La conjecture de Kakeya a été posée pour la première fois dans les années 1920. Le Monde rapporte que la médaille Fields est décernée tous les quatre ans par l'Union mathématique internationale.",
+          "explication": "La phrase sur la médaille Fields étant décernée tous les quatre ans est déjà mentionnée dans la section 'faits', ce qui crée une redondance inutile dans le 'contexte'."
+        },
+        {
+          "bloc": 4,
+          "section": "nuances",
+          "type": "redondance",
+          "phrase_exacte": "Selon Scientific American, la résolution de la conjecture de Kakeya par Hong Wang est considérée comme un accomplissement exceptionnel dans la communauté mathématique internationale.",
+          "explication": "Cette information est déjà présente dans d'autres sections, ce qui crée une redondance inutile dans les 'nuances'."
+        }
+      ]
+    },
+    "article_type": "actu"
   }
 ]
