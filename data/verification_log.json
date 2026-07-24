@@ -4273,5 +4273,164 @@
     "angle_insuffisant": true,
     "raison": "L'article ne contient pas d'événement précis daté ou datable avec une donnée chiffrée ou nommée qui lui est propre.",
     "article_type": "actu"
+  },
+  {
+    "slug": "fleuve-senegal-menace-erosion-djihadistes",
+    "statut": "rejete_sensible",
+    "date": "2026-07-24T14:27:56",
+    "sujet_sensible": true,
+    "raison": "Le sujet implique des groupes djihadistes et des risques pour la sécurité des populations.",
+    "article_type": "dossier_science"
+  },
+  {
+    "slug": "medaille-fields-2026-hong-wang-conjecture-kakeya",
+    "statut": "corrige_automatiquement",
+    "date": "2026-07-24T14:30:34",
+    "problemes_initiaux": 3,
+    "tentatives": 1,
+    "problemes_residuels_style": 3,
+    "rapport_initial": {
+      "conforme": false,
+      "sujet_sensible": false,
+      "sujet_sensible_raison": "",
+      "angle_insuffisant": false,
+      "angle_insuffisant_raison": "",
+      "nature_contenu": "actualite_factuelle",
+      "problemes": [
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "compteur_incoherent",
+          "phrase_exacte": "Le CNRS rapporte que cette conjecture est un problème mathématique vieux de plus d'un siècle.",
+          "explication": "Le nombre de sources distinctes effectivement utilisées est 7, mais il n'est pas clair si toutes les sources apportent des informations distinctes."
+        },
+        {
+          "bloc": 4,
+          "section": "contexte",
+          "type": "redondance",
+          "phrase_exacte": "La conjecture de Kakeya est un problème mathématique qui date de plus d'un siècle et qui concerne la géométrie et l'analyse harmonique.",
+          "explication": "Cette phrase répète l'information déjà présente dans la section 'faits'."
+        },
+        {
+          "bloc": 4,
+          "section": "nuances",
+          "type": "jugement_de_valeur",
+          "phrase_exacte": "La résolution de la conjecture de Kakeya soulève des questions sur les implications de ces découvertes pour les domaines connexes des mathématiques et de la physique, selon Le Monde.",
+          "explication": "Le terme 'soulève des questions' implique un jugement de valeur sur l'importance de la résolution de la conjecture."
+        }
+      ]
+    },
+    "article_type": "actu"
+  },
+  {
+    "slug": "nouvelles-addictions-evolution-consommations-risques",
+    "statut": "rejete_qualite",
+    "date": "2026-07-24T14:31:17",
+    "angle_insuffisant": true,
+    "raison": "L'article ne contient pas d'événement précis daté ou datable avec une donnée chiffrée ou nommée qui lui est propre, il ressemble à une fiche pédagogique générale sans fait déclencheur daté",
+    "article_type": "dossier_science"
+  },
+  {
+    "slug": "youscribe-abonnement-ete",
+    "statut": "rejete_qualite",
+    "date": "2026-07-24T14:32:00",
+    "angle_insuffisant": true,
+    "raison": "L'article ne présente pas d'événement précis daté ou datable avec une donnée chiffrée ou nommée qui lui est propre, mais plutôt une offre générale d'abonnement.",
+    "article_type": "actu"
+  },
+  {
+    "slug": "hong-wang-medaille-fields-2026",
+    "statut": "corrige_automatiquement",
+    "date": "2026-07-24T14:32:48",
+    "problemes_initiaux": 4,
+    "tentatives": 1,
+    "problemes_residuels_style": 0,
+    "rapport_initial": {
+      "conforme": false,
+      "sujet_sensible": false,
+      "sujet_sensible_raison": "",
+      "angle_insuffisant": false,
+      "angle_insuffisant_raison": "",
+      "nature_contenu": "actualite_factuelle",
+      "problemes": [
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "source_non_editoriale",
+          "phrase_exacte": "YouTube rapporte que la résolution de la conjecture de Kakeya en dimension trois est un problème mathématique qui a des applications en physique et en ingénierie.",
+          "explication": "YouTube n'est pas une source éditoriale traditionnelle, mais plutôt une plateforme de partage de vidéos, ce qui la rend non appropriée comme source pour des faits factuels sans plus de contexte."
+        },
+        {
+          "bloc": 4,
+          "section": "nuances",
+          "type": "redondance",
+          "phrase_exacte": "La résolution de la conjecture de Kakeya en dimension trois a des implications importantes pour la compréhension des phénomènes physiques et des structures géométriques, selon IHES.",
+          "explication": "Cette phrase répète des informations déjà présentes dans la section 'faits', ce qui constitue une redondance."
+        },
+        {
+          "bloc": 4,
+          "section": "nuances",
+          "type": "redondance",
+          "phrase_exacte": "Les travaux de Hong Wang ont des applications en analyse harmonique et en théorie de la mesure géométrique, rapporte le CNRS.",
+          "explication": "Cette phrase répète des informations déjà présentes dans la section 'faits', ce qui constitue une redondance."
+        },
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "compteur_incoherent",
+          "phrase_exacte": "Les sources fournies sont au nombre de 8.",
+          "explication": "Le nombre de sources réellement utilisées dans l'article est inférieur à 8, car certaines sources ne sont pas utilisées de manière significative ou sont redondantes."
+        }
+      ]
+    },
+    "article_type": "actu"
+  },
+  {
+    "slug": "google-apercus-ia-france-sources",
+    "statut": "corrige_automatiquement",
+    "date": "2026-07-24T14:33:32",
+    "problemes_initiaux": 3,
+    "tentatives": 1,
+    "problemes_residuels_style": 3,
+    "rapport_initial": {
+      "conforme": false,
+      "sujet_sensible": false,
+      "sujet_sensible_raison": "",
+      "angle_insuffisant": false,
+      "angle_insuffisant_raison": "",
+      "nature_contenu": "actualite_factuelle",
+      "problemes": [
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "source_derivee_comptee_comme_primaire",
+          "phrase_exacte": "Selon Le Monde, les réponses rédigées par l'intelligence artificielle peuvent être imprécises et manquer de fiabilité. RFI indique que les Aperçus IA s'affichent uniquement lorsque les systèmes de Google déterminent qu'une réponse optimisée par l'IA est utile pour répondre à la requête.",
+          "explication": "Plusieurs sources (Le Monde, RFI, France 24) fournissent des informations similaires sur les Aperçus IA de Google, ce qui peut indiquer un problème de sources dérivées comptées comme primaires."
+        },
+        {
+          "bloc": 4,
+          "section": "contexte",
+          "type": "redondance",
+          "phrase_exacte": "L'introduction des Aperçus IA de Google fait partie d'une tendance plus large vers l'utilisation de l'intelligence artificielle dans les moteurs de recherche.",
+          "explication": "La phrase répète une idée déjà présente dans la section 'faits', ce qui peut être considéré comme une redondance."
+        },
+        {
+          "bloc": 4,
+          "section": "nuances",
+          "type": "jugement_de_valeur",
+          "phrase_exacte": "Il est important de noter que les Aperçus IA ne sont pas une substitution aux contenus éditoriaux traditionnels, mais plutôt une complémentarité qui peut aider les utilisateurs à trouver des réponses plus rapides et plus précises.",
+          "explication": "La phrase contient un jugement de valeur ('importance', 'complémentarité') qui n'est pas neutre."
+        }
+      ]
+    },
+    "article_type": "actu"
+  },
+  {
+    "slug": "inserm-atelier-pedagogique-contre-infox-sante",
+    "statut": "rejete_qualite",
+    "date": "2026-07-24T14:34:31",
+    "angle_insuffisant": true,
+    "raison": "aucune actualité identifiable ne justifie une publication maintenant",
+    "article_type": "actu"
   }
 ]
