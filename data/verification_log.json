@@ -4195,5 +4195,83 @@
       ]
     },
     "article_type": "actu"
+  },
+  {
+    "slug": "macky-sall-candidature-onu",
+    "statut": "rejete_sensible",
+    "date": "2026-07-24T05:43:09",
+    "sujet_sensible": true,
+    "raison": "Le sujet implique une affaire judiciaire et des controverses entourant la candidature de Macky Sall",
+    "article_type": "actu"
+  },
+  {
+    "slug": "medaille-fields-2026-hong-wang-conjecture-kakeya",
+    "statut": "corrige_automatiquement",
+    "date": "2026-07-24T05:46:32",
+    "problemes_initiaux": 5,
+    "tentatives": 1,
+    "problemes_residuels_style": 3,
+    "rapport_initial": {
+      "conforme": false,
+      "sujet_sensible": false,
+      "sujet_sensible_raison": "",
+      "angle_insuffisant": false,
+      "angle_insuffisant_raison": "",
+      "nature_contenu": "actualite_factuelle",
+      "problemes": [
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "source_non_editoriale",
+          "phrase_exacte": "D'après YouTube, la résolution de la conjecture de Kakeya par Hong Wang est un événement majeur dans le domaine des mathématiques.",
+          "explication": "YouTube n'est pas une source éditoriale traditionnelle, mais plutôt une plateforme de partage de vidéos."
+        },
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "source_non_editoriale",
+          "phrase_exacte": "Selon YouTube, la résolution de cette conjecture ne signifie pas que tous les problèmes mathématiques sont résolus, et qu'il reste encore beaucoup de défis à relever dans ce domaine.",
+          "explication": "YouTube n'est pas une source éditoriale traditionnelle, mais plutôt une plateforme de partage de vidéos."
+        },
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "source_non_editoriale",
+          "phrase_exacte": "Selon Wikipédia, Hong Wang est née en 1991 à Xian de Pingle, en Chine, et a étudié à l'Institut de technologie du Massachusetts et à l'Université de Pékin.",
+          "explication": "Wikipédia n'est pas une source éditoriale traditionnelle, mais plutôt une encyclopédie en ligne collaborative."
+        },
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "source_non_editoriale",
+          "phrase_exacte": "D'après Wikipédia, Hong Wang a déjà commencé à travailler sur de nouveaux projets de recherche, ce qui laisse penser que sa résolution de la conjecture de Kakeya ne sera pas la seule contribution qu'elle apportera au domaine des mathématiques.",
+          "explication": "Wikipédia n'est pas une source éditoriale traditionnelle, mais plutôt une encyclopédie en ligne collaborative."
+        },
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "Selon Polymarket, la résolution de la conjecture de Kakeya par Hong Wang a établi son statut de favorite pour la médaille Fields 2026.",
+          "explication": "Polymarket n'est pas une source reconnue ou traditionnelle dans le domaine des mathématiques ou de la science."
+        }
+      ]
+    },
+    "article_type": "actu"
+  },
+  {
+    "slug": "nouvelles-addictions-evolution-consommations-risques",
+    "statut": "rejete_qualite",
+    "date": "2026-07-24T05:47:06",
+    "angle_insuffisant": true,
+    "raison": "L'article ne présente pas d'événement précis daté ou datable avec une donnée chiffrée ou nommée qui lui est propre, mais plutôt une exploration générale des nouvelles addictions et des recherches en cours.",
+    "article_type": "dossier_science"
+  },
+  {
+    "slug": "inserm-atelier-contre-fake-news-sante",
+    "statut": "rejete_qualite",
+    "date": "2026-07-24T05:49:01",
+    "angle_insuffisant": true,
+    "raison": "L'article ne contient pas d'événement précis daté ou datable avec une donnée chiffrée ou nommée qui lui est propre.",
+    "article_type": "actu"
   }
 ]
