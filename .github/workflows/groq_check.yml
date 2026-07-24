@@ -41,6 +41,11 @@ jobs:
           K16: ${{ secrets.GROQ_API_KEY_16 }}
           K17: ${{ secrets.GROQ_API_KEY_17 }}
           K18: ${{ secrets.GROQ_API_KEY_18 }}
+          K19: ${{ secrets.GROQ_API_KEY_19 }}
+          K20: ${{ secrets.GROQ_API_KEY_20 }}
+          K21: ${{ secrets.GROQ_API_KEY_21 }}
+          K22: ${{ secrets.GROQ_API_KEY_22 }}
+          K23: ${{ secrets.GROQ_API_KEY_23 }}
         run: |
           echo "=== $(date -u +'%Y-%m-%d %H:%M UTC') ==="
           # ⚠ LEÇON DU 18/07 : Groq décompte du quota journalier (TPD) la
@@ -50,7 +55,7 @@ jobs:
           # 200 = clé vivante ; 429 « per day » = solde exact dans le corps
           # d'erreur (Limit X, Used Y). Le solde d'une clé vivante n'est pas
           # mesurable sans le dépenser — ne JAMAIS remonter cette valeur.
-          for i in 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18; do
+          for i in 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23; do
             key=$(eval echo "\$K$i")
             if [ -z "$key" ]; then echo "clé $i : (absente)"; continue; fi
             body=$(curl -s -w "\n%{http_code}" https://api.groq.com/openai/v1/chat/completions \

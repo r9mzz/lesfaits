@@ -46,6 +46,11 @@ jobs:
           GROQ_API_KEY_16:  ${{ secrets.GROQ_API_KEY_16 }}
           GROQ_API_KEY_17:  ${{ secrets.GROQ_API_KEY_17 }}
           GROQ_API_KEY_18:  ${{ secrets.GROQ_API_KEY_18 }}
+          GROQ_API_KEY_19:  ${{ secrets.GROQ_API_KEY_19 }}
+          GROQ_API_KEY_20:  ${{ secrets.GROQ_API_KEY_20 }}
+          GROQ_API_KEY_21:  ${{ secrets.GROQ_API_KEY_21 }}
+          GROQ_API_KEY_22:  ${{ secrets.GROQ_API_KEY_22 }}
+          GROQ_API_KEY_23:  ${{ secrets.GROQ_API_KEY_23 }}
           PYTHONIOENCODING: utf-8
           TZ: Europe/Paris
         run: python scripts/test_model_compare.py

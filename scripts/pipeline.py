@@ -55,8 +55,8 @@ BASE_URL = "https://lesfaits.info"
 # Le comportement par défaut est strictement inchangé.
 GROQ_MODEL     = os.getenv("GROQ_MODEL_OVERRIDE", "") or "llama-3.3-70b-versatile"
 GROQ_KEY       = os.getenv("GROQ_API_KEY", "")
-# Liste dynamique (20/07, Nahil : 18 clés créées) : GROQ_API_KEY_2 à
-# GROQ_API_KEY_N, N ajustable sans toucher au code — il suffit d'ajouter le
+# Liste dynamique (23/07, Nahil : 23 clés après nettoyage à 1 clé/compte) :
+# GROQ_API_KEY_2 à GROQ_API_KEY_N, N ajustable sans toucher au code — il suffit d'ajouter le
 # secret GitHub correspondant et de l'exposer dans pipeline.yml. Remplace les
 # 7 variables séparées GROQ_KEY2..GROQ_KEY7 codées en dur (devenu intenable
 # au-delà de quelques clés).

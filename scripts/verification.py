@@ -38,7 +38,7 @@ DATA = ROOT / "data"
 MODERATION_QUEUE = DATA / "moderation_queue.json"
 VERIF_LOG = DATA / "verification_log.json"
 
-# Liste dynamique (20/07, Nahil : 18 clés créées) — voir pipeline.py pour le
+# Liste dynamique (23/07, Nahil : 23 clés après nettoyage à 1 clé/compte) — voir pipeline.py pour le
 # même mécanisme, GROQ_API_KEY_2 à _N sans plafond codé en dur.
 GROQ_KEYS = [k for k in (
     [os.getenv("GROQ_API_KEY", "")]
