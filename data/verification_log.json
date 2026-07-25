@@ -4659,5 +4659,259 @@
     "sujet_sensible": true,
     "raison": "l'article implique des morts et des incendies de forêt, ce qui peut être sensible pour certaines personnes",
     "article_type": "actu"
+  },
+  {
+    "slug": "drone-filme-tornade",
+    "statut": "rejete_qualite",
+    "date": "2026-07-25T14:08:32",
+    "angle_insuffisant": true,
+    "raison": "L'article ne contient pas d'événement précis daté ou datable avec une donnée chiffrée ou nommée qui lui est propre.",
+    "article_type": "dossier_science"
+  },
+  {
+    "slug": "neandertaliens-soignaient-caries-dentaires",
+    "statut": "corrige_automatiquement",
+    "date": "2026-07-25T14:09:16",
+    "problemes_initiaux": 5,
+    "tentatives": 1,
+    "problemes_residuels_style": 4,
+    "rapport_initial": {
+      "conforme": false,
+      "sujet_sensible": false,
+      "sujet_sensible_raison": "",
+      "angle_insuffisant": false,
+      "angle_insuffisant_raison": "",
+      "nature_contenu": "actualite_factuelle",
+      "problemes": [
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "source_derivee_comptee_comme_primaire",
+          "phrase_exacte": "Selon RFI, une étude récente a révélé que les Néandertaliens avaient des caries et savaient comment les soigner.",
+          "explication": "Plusieurs sources listées sont des répétitions de la même information sans apporter de détails supplémentaires, ce qui les rend non indépendantes."
+        },
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "compteur_incoherent",
+          "phrase_exacte": "Selon Radio France, cette découverte montre que les Néandertaliens étaient capables de réaliser des interventions dentaires sophistiquées pour soulager les caries.",
+          "explication": "Le champ 'nb_sources' indique 8 sources, mais certaines sources semblent se répéter sans apporter d'informations distinctes, ce qui remet en question l'intégrité du sourcing."
+        },
+        {
+          "bloc": 3,
+          "section": "contexte",
+          "type": "cadrage_emprunte",
+          "phrase_exacte": "D'autres travaux récents, comme ceux rapportés par Pour la Science, ont montré que les Néandertaliens étaient capables de réaliser des interventions chirurgicales complexes.",
+          "explication": "Le jugement de valeur sur les capacités des Néandertaliens à réaliser des interventions chirurgicales complexes est présenté comme un fait sans être explicitement attribué à la source."
+        },
+        {
+          "bloc": 4,
+          "section": "nuances",
+          "type": "jugement_de_valeur",
+          "phrase_exacte": "Si cette découverte se confirme, elle pourrait potentiellement ouvrir de nouvelles perspectives pour la recherche sur les Néandertaliens et leur place dans l'histoire de l'humanité.",
+          "explication": "L'utilisation de 'potentiellement' et 'nouvelles perspectives' introduit un jugement de valeur sur l'importance de la découverte sans le justifier par des faits."
+        },
+        {
+          "bloc": 4,
+          "section": "nuances",
+          "type": "extrapolation",
+          "phrase_exacte": "Il est possible que cette découverte soit due à une exception plutôt qu'à une règle générale, et il est donc important de poursuivre les recherches pour déterminer si les Néandertaliens étaient réellement capables de réaliser des interventions dentaires sophistiquées.",
+          "explication": "L'article anticipe les conséquences futures de la découverte sans les sourcer explicitement, ce qui constitue une extrapolation non justifiée."
+        }
+      ]
+    },
+    "article_type": "dossier_science"
+  },
+  {
+    "slug": "pommes-de-terre-cultivees-grace-a-la-mer",
+    "statut": "corrige_automatiquement",
+    "date": "2026-07-25T14:09:58",
+    "problemes_initiaux": 4,
+    "tentatives": 1,
+    "problemes_residuels_style": 4,
+    "rapport_initial": {
+      "conforme": false,
+      "sujet_sensible": false,
+      "sujet_sensible_raison": "",
+      "angle_insuffisant": false,
+      "angle_insuffisant_raison": "",
+      "nature_contenu": "actualite_factuelle",
+      "problemes": [
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "source_non_editoriale",
+          "phrase_exacte": "D'après le BILAN SANITAIRE 2019 Pomme de terre, la production de pommes de terre en France est soumise à des contrôles sanitaires réguliers.",
+          "explication": "Le BILAN SANITAIRE 2019 Pomme de terre n'est pas une source journalistique ou institutionnelle classique, mais plutôt un document de référence, ce qui pourrait poser problème dans certaines circonstances."
+        },
+        {
+          "bloc": 2,
+          "section": "nuances",
+          "type": "source_inventee",
+          "phrase_exacte": "Wikifarmer souligne l'importance de la santé des sols pour la production de pommes de terre et note que les pratiques agricoles doivent être adaptées pour préserver la fertilité des sols.",
+          "explication": "Wikifarmer n'est pas explicitement listé comme une source autorisée avec ce titre spécifique, ce qui pourrait être considéré comme une source inventée si elle n'est pas vérifiée."
+        },
+        {
+          "bloc": 4,
+          "section": "contexte",
+          "type": "redondance",
+          "phrase_exacte": "L'utilisation d'algues marines pour améliorer la résistance des plantes à la sécheresse et réduire l'utilisation de produits phytosanitaires est un domaine de recherche en plein essor, indique l'INAO.",
+          "explication": "Cette phrase répète l'idée déjà présente dans la section 'faits' sans apporter d'information nouvelle."
+        },
+        {
+          "bloc": 4,
+          "section": "nuances",
+          "type": "jugement_de_valeur",
+          "phrase_exacte": "Il est important de noter que l'utilisation d'algues marines pour améliorer la résistance des plantes à la sécheresse est encore à ses débuts et nécessite davantage de recherches pour comprendre pleinement ses effets et ses limites, indique le CNRS.",
+          "explication": "La phrase contient un jugement de valeur ('il est important de noter') qui pourrait être reformulé de manière plus neutre."
+        }
+      ]
+    },
+    "article_type": "actu"
+  },
+  {
+    "slug": "nouvelles-addictions-evolution-consommations-risques",
+    "statut": "rejete_qualite",
+    "date": "2026-07-25T14:11:30",
+    "angle_insuffisant": true,
+    "raison": "L'article ne présente pas d'événement précis daté ou datable avec une donnée chiffrée ou nommée qui lui est propre, mais plutôt une présentation générale du sujet des addictions",
+    "article_type": "dossier_science"
+  },
+  {
+    "slug": "epidemie-rougeole-etats-unis-2026",
+    "statut": "rejete_sensible",
+    "date": "2026-07-25T14:11:56",
+    "sujet_sensible": true,
+    "raison": "l'article implique des questions de santé publique et de vaccination, qui sont des sujets sensibles",
+    "article_type": "actu"
+  },
+  {
+    "slug": "christopher-nolan-odyssee",
+    "statut": "corrige_automatiquement",
+    "date": "2026-07-25T14:12:24",
+    "problemes_initiaux": 10,
+    "tentatives": 1,
+    "problemes_residuels_style": 4,
+    "rapport_initial": {
+      "conforme": false,
+      "sujet_sensible": false,
+      "sujet_sensible_raison": "",
+      "angle_insuffisant": false,
+      "angle_insuffisant_raison": "",
+      "nature_contenu": "actualite_factuelle",
+      "problemes": [
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "formule_vague",
+          "phrase_exacte": "D'après 20 Minutes, le film met en scène la virtuosité de la parole, avec les aèdes, poètes itinérants qui célèbrent les exploits des héros.",
+          "explication": "La phrase ne précise pas quel article ou quelle section de 20 Minutes est utilisée comme source."
+        },
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "formule_vague",
+          "phrase_exacte": "Theconversation rapporte que L'Odyssée se prête aux interprétations et aux captations par d'autres auteurs depuis sa création.",
+          "explication": "La phrase ne précise pas quel article ou quelle section de Theconversation est utilisée comme source."
+        },
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "formule_vague",
+          "phrase_exacte": "Ecranlarge note que le film de Christopher Nolan est une adaptation cinématographique du poème d'Homère, avec des libertés prises par rapport au récit mythologique.",
+          "explication": "La phrase ne précise pas quel article ou quelle section d'Ecranlarge est utilisée comme source."
+        },
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "formule_vague",
+          "phrase_exacte": "BBC rapporte que L'Odyssée est une épopée relatant le voyage d'un héros de la Grèce antique vers son foyer, et que le film de Christopher Nolan est une nouvelle interprétation de ce classique.",
+          "explication": "La phrase ne précise pas quel article ou quelle section de BBC est utilisée comme source."
+        },
+        {
+          "bloc": 2,
+          "section": "contexte",
+          "type": "formule_vague",
+          "phrase_exacte": "Theconversation explique que les études de réception sont un champ des études littéraires qui étudie comment chaque époque refaçonne ses classiques.",
+          "explication": "La phrase ne précise pas quel article ou quelle section de Theconversation est utilisée comme source."
+        },
+        {
+          "bloc": 2,
+          "section": "contexte",
+          "type": "formule_vague",
+          "phrase_exacte": "20 Minutes note que le film est une coproduction internationale, avec des acteurs tels que Matt Damon, Tom Holland et Anne Hathaway.",
+          "explication": "La phrase ne précise pas quel article ou quelle section de 20 Minutes est utilisée comme source."
+        },
+        {
+          "bloc": 2,
+          "section": "contexte",
+          "type": "formule_vague",
+          "phrase_exacte": "Ecranlarge indique que le film prend des libertés par rapport au récit original, mais que cela permet de rendre l'histoire plus accessible au public moderne.",
+          "explication": "La phrase ne précise pas quel article ou quelle section d'Ecranlarge est utilisée comme source."
+        },
+        {
+          "bloc": 2,
+          "section": "contexte",
+          "type": "formule_vague",
+          "phrase_exacte": "Selon BBC, L'Odyssée est un poème épique attribué au poète Homère, et que son interprétation peut varier en fonction de la période et de la culture.",
+          "explication": "La phrase ne précise pas quel article ou quelle section de BBC est utilisée comme source."
+        },
+        {
+          "bloc": 2,
+          "section": "nuances",
+          "type": "formule_vague",
+          "phrase_exacte": "D'après Wikipédia, L'Odyssée est un poème épique attribué au poète Homère, et que son interprétation peut varier en fonction de la période et de la culture.",
+          "explication": "La phrase ne précise pas quel article ou quelle section de Wikipédia est utilisée comme source."
+        },
+        {
+          "bloc": 2,
+          "section": "nuances",
+          "type": "formule_vague",
+          "phrase_exacte": "Selon Ecranlarge, les différences entre le film et le poème original sont nombreuses, et il est important de les prendre en compte pour comprendre la vision de Christopher Nolan.",
+          "explication": "La phrase ne précise pas quel article ou quelle section d'Ecranlarge est utilisée comme source."
+        }
+      ]
+    },
+    "article_type": "dossier_portrait"
+  },
+  {
+    "slug": "can-feminine-2026-enjeux-joueuses-cles",
+    "statut": "corrige_automatiquement",
+    "date": "2026-07-25T14:14:57",
+    "problemes_initiaux": 3,
+    "tentatives": 2,
+    "problemes_residuels_style": 3,
+    "rapport_initial": {
+      "conforme": false,
+      "sujet_sensible": false,
+      "sujet_sensible_raison": "",
+      "angle_insuffisant": false,
+      "angle_insuffisant_raison": "",
+      "nature_contenu": "actualite_factuelle",
+      "problemes": [
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "compteur_incoherent",
+          "phrase_exacte": "La Coupe d'Afrique des nations féminine 2026 a débuté au Maroc, avec 16 sélections engagées.",
+          "explication": "Le champ 'nb_sources' indique 9 sources, mais certaines sources ne sont pas directement liées à l'article ou sont des sources secondaires."
+        },
+        {
+          "bloc": 4,
+          "section": "contexte",
+          "type": "redondance",
+          "phrase_exacte": "La compétition est également une occasion pour les joueuses de se faire connaître et de promouvoir le football féminin en Afrique.",
+          "explication": "Cette phrase répète une idée déjà présente dans la section 'faits'."
+        },
+        {
+          "bloc": 4,
+          "section": "nuances",
+          "type": "redondance",
+          "phrase_exacte": "La compétition est également une occasion pour les joueuses de se faire connaître et de promouvoir le football féminin en Afrique, mais il est important de noter que les médias et les sponsors ont un rôle important à jouer pour promouvoir la compétition et les joueuses.",
+          "explication": "Cette phrase répète une idée déjà présente dans la section 'faits' et 'contexte'."
+        }
+      ]
+    },
+    "article_type": "actu"
   }
 ]
