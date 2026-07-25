@@ -1608,15 +1608,24 @@ def intro_generique(art: dict) -> list[str]:
     return trouvees
 
 
-# Retour externe (revue éditoriale du 22/07) : "Débats et nuances" retombe
-# régulièrement sur des généralités ("les défis sont nombreux", "les enjeux
-# sont complexes") au lieu de limites/incertitudes concrètes liées au sujet.
-# Une phrase générique est tolérée si elle est suivie d'un exemple concret
-# (chiffre, terme technique, nom propre) ; sinon c'est du remplissage pur.
+# Retour externe (revues éditoriales du 22/07 et du 25/07) : "Débats et
+# nuances" retombe régulièrement sur des généralités ("les défis sont
+# nombreux", "c'est un problème difficile, les recherches continuent",
+# "les utilisateurs doivent être conscients...") au lieu de limites ou
+# d'incertitudes concrètes liées au sujet. Une phrase générique est tolérée
+# si elle est suivie d'un exemple concret (chiffre, terme technique, nom
+# propre) ; sinon c'est du remplissage pur.
 _NUANCE_VAGUE_RE = re.compile(
     r"(?:les?\s+)?(?:d[ée]fis|enjeux|implications|cons[ée]quences|risques)\s+"
     r"(?:sont|restent|demeurent)\s+(?:nombreux(?:\s+et\s+complexes)?|complexes|"
-    r"multiples|importantes?|significatifs?|consid[ée]rables)\b",
+    r"multiples|importantes?|significatifs?|consid[ée]rables)\b"
+    r"|\bc['’]est un (?:problème|sujet|domaine) (?:difficile|complexe)\b"
+    r"|\bil s['’]agit d['’]un (?:problème|sujet|domaine) (?:difficile|complexe)\b"
+    r"|\bles? recherches? (?:continue(?:nt)?|se poursuit|se poursuivent)\b"
+    r"|\b(?:les? utilisateurs?|le lecteur|le grand public|chacun) doivent? (?:rester|être) (?:conscients?|prudents?|vigilants?)\b"
+    r"|\bla vigilance (?:est|reste) de mise\b"
+    r"|\bsoul[eè]ve(?:nt)? (?:des|de nombreuses) questions?\b(?!\s+(?:sur|quant|concernant)\s+\S)"
+    r"|\breste(?:nt)? (?:incertaine?s?|flou(?:e|s)?|à (?:d[ée]montrer|confirmer|pr[ée]ciser))\b",
     re.IGNORECASE,
 )
 _A_UN_FAIT_PRECIS_RE = re.compile(r"\d|%|€|\$")

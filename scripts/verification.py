@@ -61,7 +61,7 @@ BLOC 1 — FACTUEL (zéro tolérance) :
 - chiffre_errone : un chiffre/statistique/date ne correspond pas exactement à ce que dit la source citée (pas d'arrondi ni d'extrapolation non signalée)
 - chronologie_confuse : un événement antérieur/historique est mentionné sans que sa date et son rapport avec l'événement du jour soient explicites (deux époques mélangées implicitement)
 - incoherence_inter_sections : une même affirmation présentée différemment dans deux sections du même article
-- fait_tranche_arbitrairement : un fait incertain ou contesté présenté comme définitivement établi
+- fait_tranche_arbitrairement : un fait incertain ou contesté présenté comme définitivement établi. Inclut la SIMPLIFICATION EXCESSIVE d'un résultat scientifique ou technique : si la source décrit une avancée partielle, un cas particulier ou une variante spécifique d'un problème ("résultat majeur sur le cas de dimension 3"), l'article ne doit jamais généraliser à "a résolu le problème" / "a démontré la conjecture" sans la même restriction que la source — reprends le niveau de précision exact de la source, jamais un raccourci plus impressionnant qu'elle (retour revue éditoriale du 25/07).
 
 BLOC 2 — SOURCING (100% vérifiable) :
 - source_inventee : tout nom de média, expert, institution, étude cité dans le texte qui n'apparaît pas dans les sources autorisées
@@ -81,6 +81,7 @@ BLOC 3 — ORIGINALITÉ (zéro plagiat déguisé) :
 BLOC 4 — RÉDACTION (zéro remplissage) :
 - redondance : toute phrase de "contexte" ou "nuances" qui répète, même reformulée, une idée déjà présente dans "faits" ou ailleurs dans l'article
 - section_gonflee : "contexte" ou "nuances" rempli avec du vague générique ("il est difficile de prévoir les conséquences") au lieu d'un fait distinct sourcé, ou alors que la section n'apporte rien et devrait être coupée
+- contexte_hors_sujet : une source citée en "contexte" qui n'éclaire pas directement le sujet principal de l'article (ex : une source générale sur l'IA en médecine citée dans un article sur un produit IA grand public sans lien avec la santé) — le simple fait qu'une source parle du même domaine large (ex : "l'IA") ne suffit pas, elle doit apporter un éclairage sur CE sujet précis (retour revue éditoriale du 25/07)
 - faux_debat : "positions des acteurs" ou "nuances" présente un désaccord qui n'est pas réel/symétrique (ex : appliqué à une sanction, une décision de justice, un acte institutionnel unilatéral qui n'a qu'un seul camp)
 - jugement_de_valeur : tout adjectif, adverbe ou tournure qui trahit une opinion plutôt qu'un fait neutre
 - extrapolation : toute anticipation de conséquence future non explicitement sourcée
@@ -120,7 +121,7 @@ Réponds en JSON strict, sans texte hors JSON :
     {
       "bloc": 1-5,
       "section": "faits | contexte | nuances | resume | titre | positions",
-      "type": "chiffre_errone | chronologie_confuse | incoherence_inter_sections | fait_tranche_arbitrairement | source_inventee | formule_vague | source_non_editoriale | source_derivee_comptee_comme_primaire | paraphrase_structurelle | citation_non_attribuee | cadrage_emprunte | redondance | section_gonflee | faux_debat | jugement_de_valeur | extrapolation | compteur_incoherent | presomption_innocence | affaire_en_cours_presentee_comme_fait | diffamation_potentielle | mineur_identifie",
+      "type": "chiffre_errone | chronologie_confuse | incoherence_inter_sections | fait_tranche_arbitrairement | source_inventee | formule_vague | source_non_editoriale | source_derivee_comptee_comme_primaire | paraphrase_structurelle | citation_non_attribuee | cadrage_emprunte | redondance | section_gonflee | contexte_hors_sujet | faux_debat | jugement_de_valeur | extrapolation | compteur_incoherent | presomption_innocence | affaire_en_cours_presentee_comme_fait | diffamation_potentielle | mineur_identifie",
       "phrase_exacte": "citation mot pour mot de l'article",
       "explication": "pourquoi c'est un problème, en une phrase"
     }
@@ -149,6 +150,7 @@ RÈGLES DE CORRECTION :
 - Pour un "cadrage_emprunte" : attribue explicitement le jugement à sa source ("selon X") ou reformule en langage factuel neutre.
 - Pour une "redondance" : NE SUPPRIME PAS SIMPLEMENT LA PHRASE. Remplace-la par un fait DISTINCT tiré des mêmes sources autorisées, encore inutilisé dans l'article — un chiffre précis, une date, un autre acteur cité, une méthodologie, une réaction, une comparaison historique ou géographique, une conséquence concrète. Les sources contiennent presque toujours plus de matière que ce qui a été extrait au premier passage ; relis-les intégralement pour trouver cet angle neuf. Supprimer purement et simplement n'est acceptable QUE si tu as vérifié qu'aucun fait distinct exploitable ne reste dans les sources.
 - Pour une "section_gonflee" : si un fait distinct sourcé existe encore, utilise-le ; sinon, coupe la section plutôt que de la laisser vague.
+- Pour un "contexte_hors_sujet" : remplace la source hors-sujet par une source des sources autorisées directement liée au sujet principal ; si aucune n'existe, coupe le passage plutôt que de garder un contexte qui n'éclaire pas l'article.
 - Pour un "faux_debat" : supprime le cadrage pour/contre et remplace par une présentation factuelle de la décision/sanction, ou indique explicitement qu'il n'y a pas de désaccord réel. IMPORTANT : mets AUSSI à jour le champ JSON "positions" en conséquence — "verifie": false et "acteurs": [] — le graphique de positionnement ne doit jamais afficher un faux débat, même si le problème initial ne portait que sur le texte de 'nuances'.
 - Pour un "jugement_de_valeur" : reformule en langage neutre et factuel, sans réduire la longueur.
 - Pour une "extrapolation" : supprime, sauf si tu peux l'attribuer explicitement à une source qui l'exprime.
