@@ -4313,11 +4313,12 @@ def rebuild_index():
     # toujours classés par intérêt plutôt que par pure fraîcheur
     side_arts = _pick_diverse(fenetre_recente[1:], 3, used_une)
     used_une.update(a["slug"] for a in side_arts)
-    # Grille "Derniers articles" : seul le hero est exclu — cette section doit
-    # montrer les VRAIS articles les plus récents (retour Nahil, 22/07) ; un
-    # recoupement avec "side" est accepté plutôt que de masquer les derniers
-    # articles publiés.
-    grid_arts = _pick_diverse(articles, 6, {main_art["slug"]}, force_diversity=False)
+    # Grille "Derniers articles" : AUCUNE exclusion, même pas le hero — cette
+    # section doit toujours montrer les 6 vrais articles les plus récents
+    # (retour Nahil, 23/07 : exclure le hero faisait sauter un article plus
+    # récent au profit d'un plus vieux). Le recoupement visuel avec "à la
+    # une" est accepté.
+    grid_arts = _pick_diverse(articles, 6, set(), force_diversity=False)
     used_grid = {main_art["slug"]}
     used_grid.update(a["slug"] for a in side_arts)
     used_grid.update(a["slug"] for a in grid_arts)
