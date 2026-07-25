@@ -74,7 +74,7 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeMenu();
       <div class="brand__logotype"><span class="fact">les</span><span class="uel">faits</span></div>
     </a>
     <div class="header__search">
-      <input type="search" class="header__search-input" placeholder="Rechercher…" autocomplete="off" onkeydown="if(event.key==='Enter'&&this.value.trim())window.location=(document.querySelector('base').href)+'recherche.html?q='+encodeURIComponent(this.value.trim())"/>
+      <input type="search" class="header__search-input" aria-label="Rechercher un article" placeholder="Rechercher…" autocomplete="off" onkeydown="if(event.key==='Enter'&&this.value.trim())window.location=(document.querySelector('base').href)+'recherche.html?q='+encodeURIComponent(this.value.trim())"/>
     </div>
     <nav aria-label="Navigation principale">
       <div class="nav-dropdown">

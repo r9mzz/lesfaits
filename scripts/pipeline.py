@@ -4103,7 +4103,7 @@ function copyLink(){{
       <div class="brand__logotype"><span class="fact">les</span><span class="uel">faits</span></div>
     </a>
     <div class="header__search">
-      <input type="search" class="header__search-input" placeholder="Rechercher…" autocomplete="off" onkeydown="if(event.key==='Enter'&&this.value.trim())window.location=(document.querySelector('base').href)+'recherche.html?q='+encodeURIComponent(this.value.trim())"/>
+      <input type="search" class="header__search-input" aria-label="Rechercher un article" placeholder="Rechercher…" autocomplete="off" onkeydown="if(event.key==='Enter'&&this.value.trim())window.location=(document.querySelector('base').href)+'recherche.html?q='+encodeURIComponent(this.value.trim())"/>
     </div>
     {HEADER_NAV_DESKTOP}
     {DARK_TOGGLE}
@@ -4417,7 +4417,7 @@ def build_index_html(main, side_html, grid_html, list_html):
       {BRAND_ICON}<div class="brand__logotype"><span class="fact">les</span><span class="uel">faits</span></div>
     </a>
     <div class="header__search">
-      <input type="search" class="header__search-input" placeholder="Rechercher…" autocomplete="off" onkeydown="if(event.key==='Enter'&&this.value.trim())window.location=(document.querySelector('base').href)+'recherche.html?q='+encodeURIComponent(this.value.trim())"/>
+      <input type="search" class="header__search-input" aria-label="Rechercher un article" placeholder="Rechercher…" autocomplete="off" onkeydown="if(event.key==='Enter'&&this.value.trim())window.location=(document.querySelector('base').href)+'recherche.html?q='+encodeURIComponent(this.value.trim())"/>
     </div>
     {HEADER_NAV_DESKTOP}
     {DARK_TOGGLE}
@@ -4665,7 +4665,7 @@ def build_category_pages():
       {BRAND_ICON}<div class="brand__logotype"><span class="fact">les</span><span class="uel">faits</span></div>
     </a>
     <div class="header__search">
-      <input type="search" class="header__search-input" placeholder="Rechercher…" autocomplete="off" onkeydown="if(event.key==='Enter'&&this.value.trim())window.location=(document.querySelector('base').href)+'recherche.html?q='+encodeURIComponent(this.value.trim())"/>
+      <input type="search" class="header__search-input" aria-label="Rechercher un article" placeholder="Rechercher…" autocomplete="off" onkeydown="if(event.key==='Enter'&&this.value.trim())window.location=(document.querySelector('base').href)+'recherche.html?q='+encodeURIComponent(this.value.trim())"/>
     </div>
     {HEADER_NAV_DESKTOP}
     {DARK_TOGGLE}
@@ -4804,7 +4804,7 @@ def build_archive_page():
   <div class="header__inner">
     <a href="index.html" class="brand">{BRAND_ICON}<div class="brand__logotype"><span class="fact">les</span><span class="uel">faits</span></div></a>
     <div class="header__search">
-      <input type="search" class="header__search-input" placeholder="Rechercher…" autocomplete="off" onkeydown="if(event.key==='Enter'&&this.value.trim())window.location=(document.querySelector('base').href)+'recherche.html?q='+encodeURIComponent(this.value.trim())"/>
+      <input type="search" class="header__search-input" aria-label="Rechercher un article" placeholder="Rechercher…" autocomplete="off" onkeydown="if(event.key==='Enter'&&this.value.trim())window.location=(document.querySelector('base').href)+'recherche.html?q='+encodeURIComponent(this.value.trim())"/>
     </div>
     {HEADER_NAV_DESKTOP}
     <button class="dark-toggle" id="dark-toggle" aria-label="Mode sombre" title="Mode sombre">🌙</button>
@@ -4888,7 +4888,7 @@ def build_favoris_page():
   <div class="header__inner">
     <a href="index.html" class="brand">{BRAND_ICON}<div class="brand__logotype"><span class="fact">les</span><span class="uel">faits</span></div></a>
     <div class="header__search">
-      <input type="search" class="header__search-input" placeholder="Rechercher…" autocomplete="off" onkeydown="if(event.key==='Enter'&&this.value.trim())window.location=(document.querySelector('base').href)+'recherche.html?q='+encodeURIComponent(this.value.trim())"/>
+      <input type="search" class="header__search-input" aria-label="Rechercher un article" placeholder="Rechercher…" autocomplete="off" onkeydown="if(event.key==='Enter'&&this.value.trim())window.location=(document.querySelector('base').href)+'recherche.html?q='+encodeURIComponent(this.value.trim())"/>
     </div>
     {HEADER_NAV_DESKTOP}
     {DARK_TOGGLE}
