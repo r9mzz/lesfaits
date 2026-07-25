@@ -4564,5 +4564,100 @@
     "angle_insuffisant": true,
     "raison": "L'article ne contient pas d'événement précis daté ou datable avec une donnée chiffrée ou nommée qui lui est propre, il ressemble à une fiche pédagogique générale sans fait déclencheur daté.",
     "article_type": "dossier_science"
+  },
+  {
+    "slug": "epidemie-rougeole-etats-unis-2026",
+    "statut": "rejete_sensible",
+    "date": "2026-07-25T05:37:04",
+    "tentative": 1,
+    "sujet_sensible": true,
+    "raison": "L'article implique des enfants et des décès potentiels dus à la rougeole, ce qui constitue un sujet sensible.",
+    "article_type": "actu"
+  },
+  {
+    "slug": "nouvelles-addictions-evolution-consommations-risques",
+    "statut": "rejete_qualite",
+    "date": "2026-07-25T05:39:04",
+    "angle_insuffisant": true,
+    "raison": "L'article ne présente pas d'événement précis daté ou datable lié aux addictions, mais plutôt une présentation générale du sujet.",
+    "article_type": "dossier_science"
+  },
+  {
+    "slug": "incendie-paradise-californie",
+    "statut": "rejete_sensible",
+    "date": "2026-07-25T05:39:23",
+    "sujet_sensible": true,
+    "raison": "l'article implique des victimes d'un incendie meurtrier",
+    "article_type": "dossier_science"
+  },
+  {
+    "slug": "lasalliens-demandent-pardon-violences",
+    "statut": "rejete_sensible",
+    "date": "2026-07-25T05:40:27",
+    "sujet_sensible": true,
+    "raison": "L'article implique des mineurs victimes d'agressions sexuelles et physiques",
+    "article_type": "actu"
+  },
+  {
+    "slug": "hong-wang-medaille-fields-2026",
+    "statut": "corrige_automatiquement",
+    "date": "2026-07-25T05:42:08",
+    "problemes_initiaux": 5,
+    "tentatives": 1,
+    "problemes_residuels_style": 4,
+    "rapport_initial": {
+      "conforme": false,
+      "sujet_sensible": false,
+      "sujet_sensible_raison": "",
+      "angle_insuffisant": false,
+      "angle_insuffisant_raison": "",
+      "nature_contenu": "actualite_factuelle",
+      "problemes": [
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "fait_tranche_arbitrairement",
+          "phrase_exacte": "La résolution de ce problème par Hong Wang et Joshua Zahl est considérée comme une avancée majeure dans le domaine des mathématiques, avec des implications pour la physique et l'ingénierie.",
+          "explication": "La phrase présente la résolution du problème comme un fait établi, sans préciser que c'est une interprétation ou une analyse des sources."
+        },
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "D'après Sciences et Avenir, la conjecture de Kakeya est un exemple de problème mathématique qui a des applications dans d'autres domaines.",
+          "explication": "La source 'Sciences et Avenir' est bien dans les sources autorisées, mais il n'y a pas de vérification que cette phrase soit exactement ce que dit l'article de Sciences et Avenir."
+        },
+        {
+          "bloc": 3,
+          "section": "nuances",
+          "type": "cadrage_emprunte",
+          "phrase_exacte": "La conjecture de Kakeya est un problème complexe qui nécessite une compréhension approfondie des mathématiques et de la géométrie.",
+          "explication": "La phrase présente un jugement de valeur sur la complexité du problème, sans attribuer cette analyse à une source spécifique."
+        },
+        {
+          "bloc": 4,
+          "section": "nuances",
+          "type": "jugement_de_valeur",
+          "phrase_exacte": "La communauté mathématique attend avec intérêt les prochaines étapes de la recherche sur ce problème, qui pourraient conduire à de nouvelles avancées dans le domaine.",
+          "explication": "La phrase contient un adjectif 'intérêt' qui trahit une opinion plutôt qu'un fait neutre."
+        },
+        {
+          "bloc": 4,
+          "section": "resume",
+          "type": "extrapolation",
+          "phrase_exacte": "Cette avancée majeure dans le domaine des mathématiques est le résultat de plusieurs années de travail et de collaboration, et elle met en lumière l'importance de la recherche fondamentale.",
+          "explication": "La phrase contient une anticipation de conséquence future non explicitement sourcée."
+        }
+      ]
+    },
+    "article_type": "actu"
+  },
+  {
+    "slug": "vague-de-chaleur-afrique-du-nord",
+    "statut": "rejete_sensible",
+    "date": "2026-07-25T05:43:15",
+    "sujet_sensible": true,
+    "raison": "l'article implique des morts et des incendies de forêt, ce qui peut être sensible pour certaines personnes",
+    "article_type": "actu"
   }
 ]
