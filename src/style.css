@@ -191,10 +191,12 @@ a:hover .title-xl, a:hover .title-md, a:hover .title-sm { color: var(--blue-ink)
   transition: box-shadow .3s var(--ease), transform .3s var(--ease);
 }
 .une__main:hover { background: var(--white); box-shadow: var(--shadow-card-hover); transform: translateY(-3px); }
+.une__main:active { transform: scale(.98); }
 .une__main .title-xl::before { content:''; display:block; width:36px; height:3px; background:var(--blue); border-radius:2px; margin-bottom:14px; }
 .une__side { display: flex; flex-direction: column; gap: 1px; border-radius: var(--radius-card); overflow: hidden; box-shadow: var(--shadow-card); }
-.une__side-item { background: var(--white); padding: 20px 24px 18px; cursor: pointer; transition: background .2s var(--ease); flex: 1; }
+.une__side-item { background: var(--white); padding: 20px 24px 18px; cursor: pointer; transition: background .2s var(--ease), transform .15s var(--ease); flex: 1; }
 .une__side-item:hover { background: var(--light); }
+.une__side-item:active { transform: scale(.98); }
 .une__side-item + .une__side-item { border-top: 1px solid var(--rule); }
 
 .section { padding: 56px 0 0; }
@@ -223,16 +225,18 @@ a:hover .title-xl, a:hover .title-md, a:hover .title-sm { color: var(--blue-ink)
 .card3:nth-child(5) { animation-delay: .24s; }
 .card3:nth-child(6) { animation-delay: .3s; }
 .card3:hover { background: var(--white); box-shadow: var(--shadow-card-hover); transform: translateY(-3px); }
+.card3:active { transform: scale(.98); }
 .card3__img { width: 100%; height: 160px; object-fit: cover; display: block; flex-shrink: 0; transition: transform .4s var(--ease); }
 .card3:hover .card3__img { transform: scale(1.04); }
 .card3__body { padding: 16px 20px 18px; flex: 1; }
 
 .list-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--rule); border-radius: var(--radius-card); overflow: hidden; box-shadow: var(--shadow-card); }
-.list-item { background: var(--white); padding: 18px 24px; display: grid; grid-template-columns: 36px 1fr; gap: 16px; align-items: start; cursor: pointer; transition: background .2s var(--ease); animation: fadeInUp .5s var(--ease) backwards; }
+.list-item { background: var(--white); padding: 18px 24px; display: grid; grid-template-columns: 36px 1fr; gap: 16px; align-items: start; cursor: pointer; transition: background .2s var(--ease), transform .15s var(--ease); animation: fadeInUp .5s var(--ease) backwards; }
 .list-item:nth-child(2) { animation-delay: .05s; }
 .list-item:nth-child(3) { animation-delay: .1s; }
 .list-item:nth-child(4) { animation-delay: .15s; }
 .list-item:hover { background: var(--light); }
+.list-item:active { transform: scale(.98); }
 .list-item__num { font-size: 28px; font-weight: 700; color: var(--rule); line-height: 1; }
 
 /* ── BLOC SOUTIEN ── */
