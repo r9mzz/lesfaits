@@ -10,7 +10,7 @@ Usage:
 """
 
 import os, re, json, time, hashlib, argparse, sys
-from datetime import datetime
+from datetime import datetime, timedelta
 from zoneinfo import ZoneInfo
 from pathlib import Path
 from xml.etree import ElementTree as ET
@@ -4283,12 +4283,28 @@ def rebuild_index():
 
     # "À la une" : les articles les plus INTÉRESSANTS parmi les récents, pas
     # juste le plus récent (demande de Nahil, 22/07) — nb de sources et
-    # longueur comme proxys de substance éditoriale, restreint à une fenêtre
-    # récente (15 derniers) pour ne jamais faire remonter un vieil article.
+    # longueur comme proxys de substance éditoriale.
     def _interet(a: dict) -> float:
         return a.get("nb_sources", 0) * 10 + min(a.get("nb_mots", 0), 800) / 20
 
-    fenetre_recente = articles[:15] if len(articles) > 15 else list(articles)
+    _MOIS_IDX = {"janvier":1,"février":2,"mars":3,"avril":4,"mai":5,"juin":6,
+                 "juillet":7,"août":8,"septembre":9,"octobre":10,"novembre":11,"décembre":12}
+
+    def _parse_date_pub(s: str):
+        import re
+        m = re.match(r"(\d+)\s+(\w+)\s+(\d+),\s*(\d+)h(\d+)", s or "")
+        if not m or m.group(2) not in _MOIS_IDX:
+            return None
+        j, mois, an, h, mn = m.groups()
+        return datetime(int(an), _MOIS_IDX[mois], int(j), int(h), int(mn))
+
+    # Fenêtre glissante de 48h (23/07, retour Nahil : "à la une" doit se
+    # renouveler chaque jour) — si moins de 4 articles publiés récemment
+    # (créneau calme), on retombe sur les 15 derniers pour garder du choix.
+    _seuil_48h = datetime.now() - timedelta(hours=48)
+    fenetre_recente = [a for a in articles if (_d := _parse_date_pub(a.get("date", ""))) and _d >= _seuil_48h]
+    if len(fenetre_recente) < 4:
+        fenetre_recente = articles[:15] if len(articles) > 15 else list(articles)
     fenetre_recente.sort(key=_interet, reverse=True)
 
     main_art  = fenetre_recente[0]
@@ -5323,10 +5339,15 @@ def generer_article(item: dict, dry_run: bool, published: set, new_pub: set, dat
     return False
 
 
-def run(dry_run=False, text_input=None, nb_max=12):
-    # nb_max 10 -> 12 : le quota Groq couvre ~9-10 sujets par créneau depuis
-    # la relance combinée ; les 2-3 derniers passent sur le fallback Anthropic
-    # (Haiku), coût marginal accepté pour augmenter le volume publié.
+def run(dry_run=False, text_input=None, nb_max=18):
+    # nb_max 12 -> 18 (23/07, retour Nahil) : plusieurs runs récents montrent
+    # que le quota Groq n'est PAS le facteur limitant (budget encore large en
+    # fin de run) — c'est le taux de rejet éditorial (angle insuffisant,
+    # sources insuffisantes, sujet sensible) qui borne le volume publié à
+    # 1-2 articles sur 12 essayés. Plus de candidats testés par créneau =
+    # plus de chances de trouver des sujets qui passent les garde-fous, sans
+    # rien assouplir. Le garde-fou de budget (_BUDGET_SECONDES, 4h) protège
+    # toujours contre un run qui dépasserait le timeout GitHub.
     published = load_published()
     new_pub   = set()
     MOIS = ["janvier","février","mars","avril","mai","juin",
