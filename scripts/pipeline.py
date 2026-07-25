@@ -1515,6 +1515,19 @@ _TITRE_SENSATIONNALISTE_RE = re.compile(
     re.IGNORECASE,
 )
 _TITRE_QUESTION_RE = re.compile(r"\?\s*$|^(?:peut-on|peut-il|est-ce que|pourquoi|comment)\b", re.IGNORECASE)
+# Retour éditorial (25/07) : titres trop génériques ("Découverte sur les
+# larves de mollusques abyssaux") sans chiffre ni nom propre — faible valeur
+# SEO/partage. Un chiffre (date, montant, %) ou un nom propre (acteur,
+# institution, lieu) ancre le titre dans du concret.
+_TITRE_A_UN_CHIFFRE_RE = re.compile(r"\d")
+
+
+def _titre_a_un_nom_propre(titre: str) -> bool:
+    """Un mot capitalisé après le premier mot du titre = nom propre probable
+    (acteur, institution, lieu) — on ignore le tout premier mot (toujours
+    capitalisé en début de phrase, pas un signal de spécificité)."""
+    mots = titre.split()
+    return any(m[:1].isupper() for m in mots[1:] if m[:1].isalpha())
 
 
 def titre_de_mauvaise_qualite(art: dict) -> str | None:
@@ -1533,12 +1546,22 @@ def titre_de_mauvaise_qualite(art: dict) -> str | None:
         problemes.append("formulation en question au lieu d'un titre factuel")
     if nb_mots < 6:
         problemes.append(f"trop court ({nb_mots} mots, minimum 6-10 attendus)")
+    titre_generique = False
+    if not _TITRE_A_UN_CHIFFRE_RE.search(titre) and not _titre_a_un_nom_propre(titre):
+        problemes.append("trop générique (aucun chiffre ni nom propre — acteur, institution, lieu)")
+        titre_generique = True
     if not problemes:
         return None
+    consigne_generique = (
+        " Ajoute un élément concret (un chiffre, une date, un acteur nommé, une institution, un lieu) "
+        "au lieu d'une formulation abstraite type 'Découverte sur…'."
+        if titre_generique else ""
+    )
     return (f"le titre « {titre} » a un problème : {', '.join(problemes)}. "
             "Réécris-le en 10 à 15 mots, factuel et neutre, qui résume l'essentiel de l'article "
             "SANS vocabulaire putaclic (bizarre, insolite, choc…) et SANS tournure de question — "
-            "énonce le fait directement, comme le ferait un titre de presse de référence.")
+            "énonce le fait directement, comme le ferait un titre de presse de référence."
+            + consigne_generique)
 
 
 # Tournures artificielles typiques d'un texte généré automatiquement — signalées
