@@ -4913,5 +4913,143 @@
       ]
     },
     "article_type": "actu"
+  },
+  {
+    "slug": "drone-filme-tornade-supercellule-canada",
+    "statut": "rejete_qualite",
+    "date": "2026-07-25T17:02:13",
+    "angle_insuffisant": true,
+    "raison": "L'article ne fournit pas d'information sur un événement précis daté ou datable lié à la tornade filmée par le drone",
+    "article_type": "dossier_science"
+  },
+  {
+    "slug": "neandertaliens-soignaient-caries",
+    "statut": "corrige_automatiquement",
+    "date": "2026-07-25T17:02:50",
+    "problemes_initiaux": 5,
+    "tentatives": 1,
+    "problemes_residuels_style": 4,
+    "rapport_initial": {
+      "conforme": false,
+      "sujet_sensible": false,
+      "sujet_sensible_raison": "",
+      "angle_insuffisant": false,
+      "angle_insuffisant_raison": "",
+      "nature_contenu": "actualite_factuelle",
+      "problemes": [
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "fait_tranche_arbitrairement",
+          "phrase_exacte": "Les scientifiques russes y ont identifié des éraflures sur une dent d'homme de Néandertal qui pourraient être la marque d'un perçage volontaire pour soulager une carie.",
+          "explication": "La phrase utilise \"pourraient être\" ce qui indique une incertitude, mais le reste de l'article présente cette découverte comme un fait établi."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "fait_tranche_arbitrairement",
+          "phrase_exacte": "Selon France Info, les Néandertaliens vivaient il y a environ 40 000 ans, et cette découverte montre qu'ils étaient capables de soigner les caries dentaires de manière sophistiquée.",
+          "explication": "La phrase présente la capacité des Néandertaliens à soigner les caries de manière sophistiquée comme un fait établi, alors que cela devrait être présenté avec plus de nuance."
+        },
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "D'après France Culture, cette découverte a été faite dans la grotte de Sibérie.",
+          "explication": "La source \"France Culture\" n'est pas citée comme ayant mentionné la grotte de Sibérie dans les sources autorisées."
+        },
+        {
+          "bloc": 3,
+          "section": "nuances",
+          "type": "cadrage_emprunte",
+          "phrase_exacte": "Selon RTS, les chercheurs estiment que les outils en silex utilisés comme des forets miniatures pourraient avoir été utilisés pour percer les dents malades.",
+          "explication": "La phrase reprend le cadrage de la source RTS sans le mettre entre guillemets ni l'attribuer explicitement."
+        },
+        {
+          "bloc": 4,
+          "section": "contexte",
+          "type": "redondance",
+          "phrase_exacte": "Les découvertes récentes sur les Néandertaliens montrent qu'ils étaient capables de soigner les caries dentaires, ce qui remet en question l'image traditionnelle de l'Homme de Néandertal.",
+          "explication": "La phrase répète une idée déjà présente dans la section \"faits\"."
+        }
+      ]
+    },
+    "article_type": "dossier_science"
+  },
+  {
+    "slug": "comores-medinas-patrimoine-mondial-unesco",
+    "statut": "corrige_automatiquement",
+    "date": "2026-07-25T17:03:51",
+    "problemes_initiaux": 7,
+    "tentatives": 1,
+    "problemes_residuels_style": 3,
+    "rapport_initial": {
+      "conforme": false,
+      "sujet_sensible": false,
+      "sujet_sensible_raison": "",
+      "angle_insuffisant": false,
+      "angle_insuffisant_raison": "",
+      "nature_contenu": "actualite_factuelle",
+      "problemes": [
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "indique RFI",
+          "explication": "RFI est mentionnée comme source, mais l'article cite 'RFI' alors que la source autorisée est 'Comores: six médinas séculaires inscrites au patrimoine mondial de l'Unesco' de RFI, il manque le titre exact de la source"
+        },
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "France Info rapporte",
+          "explication": "France Info est mentionnée comme source, mais l'article cite 'France Info' alors que la source autorisée est 'Six médinas séculaires des Comores inscrites au patrimoine mondial de l'Unesco' de France Info, il manque le titre exact de la source"
+        },
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "Africanews note",
+          "explication": "Africanews est mentionnée comme source, mais l'article cite 'Africanews' alors que la source autorisée est 'Comores: six anciennes médinas sur la liste du patrimoine mondial de l'UNESCO' d'Africanews, il manque le titre exact de la source"
+        },
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "Entrevue précise",
+          "explication": "Entrevue est mentionnée comme source, mais l'article cite 'Entrevue' alors que la source autorisée est 'Six médinas comoriennes rejoignent le patrimoine de l'Unesco' d'Entrevue, il manque le titre exact de la source"
+        },
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "Selon le Ministère de la Culture",
+          "explication": "Ministère de la Culture est mentionnée comme source, mais l'article cite 'Ministère de la Culture' alors que la source autorisée est 'Les biens français inscrits sur la Liste du patrimoine mondial de l'Unesco' du Ministère de la Culture, il manque le titre exact de la source"
+        },
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "Gouv indique",
+          "explication": "Gouv est mentionnée comme source, mais l'article cite 'Gouv' alors que la source autorisée est 'Patrimoine mondial' de Gouv, il manque le titre exact de la source"
+        },
+        {
+          "bloc": 4,
+          "section": "nuances",
+          "type": "redondance",
+          "phrase_exacte": "Les médinas sont en très mauvais état et nécessitent une préservation urgente pour conserver leur valeur culturelle et historique, souligne Entrevue.",
+          "explication": "La phrase répète l'information déjà présente dans la section 'faits'"
+        }
+      ]
+    },
+    "article_type": "actu"
+  },
+  {
+    "slug": "pommes-de-terre-cultivees-grace-a-la-mer",
+    "statut": "rejete_qualite",
+    "date": "2026-07-25T17:04:46",
+    "angle_insuffisant": true,
+    "raison": "L'article ne présente pas d'événement précis daté ou datable lié à l'utilisation d'extraits d'algue pour améliorer la résistance des cultures de pommes de terre à la sécheresse",
+    "article_type": "actu"
   }
 ]
