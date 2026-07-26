@@ -1570,7 +1570,10 @@ _CLICHES_IA_RE = re.compile(
     r"\b(?:s['’]inscrit dans une dynamique|constitue un enjeu majeur|"
     r"illustre la diversité des situations|permet une plong[ée]e dans|"
     r"intervient dans un contexte o[uù]|pourrait transformer|"
-    r"reflète une [ée]volution plus large)\b",
+    r"reflète une [ée]volution plus large|"
+    r"offre une plateforme|"
+    r"d[ée]velopper (?:leurs?|ses|ces) comp[ée]tences et gagner de l['’]exp[ée]rience|"
+    r"n[ée]cessite une approche nuanc[ée]e)\b",
     re.IGNORECASE,
 )
 
