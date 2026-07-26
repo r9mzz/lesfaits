@@ -5051,5 +5051,103 @@
     "angle_insuffisant": true,
     "raison": "L'article ne présente pas d'événement précis daté ou datable lié à l'utilisation d'extraits d'algue pour améliorer la résistance des cultures de pommes de terre à la sécheresse",
     "article_type": "actu"
+  },
+  {
+    "slug": "metastases-cerebrales-cas-recent",
+    "statut": "rejete_qualite",
+    "date": "2026-07-26T05:53:53",
+    "angle_insuffisant": true,
+    "raison": "L'article ne contient pas d'événement précis daté ou datable avec une donnée chiffrée ou nommée qui lui est propre.",
+    "article_type": "actu"
+  },
+  {
+    "slug": "pommes-de-terre-cultivees-grace-a-la-mer",
+    "statut": "rejete_qualite",
+    "date": "2026-07-26T05:55:46",
+    "angle_insuffisant": true,
+    "raison": "L'article ne présente pas d'événement précis daté ou datable avec une donnée chiffrée ou nommée qui lui est propre, mais plutôt une explication générale sur l'utilisation d'extraits d'algue pour améliorer la culture des pommes de terre.",
+    "article_type": "actu"
+  },
+  {
+    "slug": "lidl-5-appareils-cuisine-moins-10-euros",
+    "statut": "corrige_automatiquement",
+    "date": "2026-07-26T05:56:35",
+    "problemes_initiaux": 4,
+    "tentatives": 1,
+    "problemes_residuels_style": 3,
+    "rapport_initial": {
+      "conforme": false,
+      "sujet_sensible": false,
+      "sujet_sensible_raison": "",
+      "angle_insuffisant": false,
+      "angle_insuffisant_raison": "",
+      "nature_contenu": "actualite_factuelle",
+      "problemes": [
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "source_derivee_comptee_comme_primaire",
+          "phrase_exacte": "20 Minutes rapporte que Lidl propose une sélection de 5 appareils de cuisine à moins de 10 euros, dont un mixeur, un moulin à café, une poêle, un appareil à raclette et une balance, tous signés Silvercrest.",
+          "explication": "Plusieurs sources de 20 Minutes sont utilisées, mais elles ne semblent pas apporter d'informations distinctes, ce qui pourrait les rendre redondantes."
+        },
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "compteur_incoherent",
+          "phrase_exacte": "Le Figaro indique que ces appareils sont disponibles en exclusivité chez Lidl et peuvent être achetés à des prix très compétitifs.",
+          "explication": "Le champ 'nb_sources' est défini à 4, mais il n'est pas clair si toutes les sources sont utilisées de manière significative dans l'article."
+        },
+        {
+          "bloc": 4,
+          "section": "contexte",
+          "type": "redondance",
+          "phrase_exacte": "D'après 20 Minutes, cette offre est particulièrement intéressante pour les consommateurs qui cherchent à équiper leur cuisine sans dépenser trop d'argent.",
+          "explication": "L'information sur l'intérêt de l'offre pour les consommateurs est déjà mentionnée dans la section 'faits', ce qui rend cette phrase redondante."
+        },
+        {
+          "bloc": 4,
+          "section": "nuances",
+          "type": "jugement_de_valeur",
+          "phrase_exacte": "Il est important de noter que ces appareils de cuisine à moins de 10 euros peuvent avoir des limites en termes de qualité et de durabilité.",
+          "explication": "La phrase contient un jugement de valeur sur la qualité et la durabilité des appareils, qui pourrait être reformulé de manière plus neutre."
+        }
+      ]
+    },
+    "article_type": "actu"
+  },
+  {
+    "slug": "marche-des-fiertes-berlin-incident",
+    "statut": "rejete_sensible",
+    "date": "2026-07-26T05:58:06",
+    "sujet_sensible": true,
+    "raison": "l'article implique une affaire pénale en cours",
+    "article_type": "actu"
+  },
+  {
+    "slug": "impact-lune-5-aout-2026",
+    "statut": "rejete_qualite",
+    "date": "2026-07-26T05:58:41",
+    "problemes_initiaux": 6,
+    "tentatives": 2,
+    "problemes_restants": 5,
+    "bloquants_restants": 1,
+    "article_type": "actu"
+  },
+  {
+    "slug": "louve-abattue-haute-savoie-etude-scientifique",
+    "statut": "erreur_verification",
+    "date": "2026-07-26T05:59:30",
+    "etape": "correction",
+    "tentative": 1,
+    "erreur": "JSON tronqué ou incomplet dans la réponse (max_tokens atteint ?)",
+    "article_type": "actu"
+  },
+  {
+    "slug": "droits-de-douane-trump-ue",
+    "statut": "rejete_qualite",
+    "date": "2026-07-26T06:00:59",
+    "angle_insuffisant": true,
+    "raison": "L'article ne fournit pas d'actualité identifiable justifiant une publication maintenant, et les sources fournies sont trop pauvres pour expliquer correctement le sujet.",
+    "article_type": "actu"
   }
 ]
