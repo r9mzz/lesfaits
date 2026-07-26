@@ -5397,7 +5397,11 @@ def generer_article(item: dict, dry_run: bool, published: set, new_pub: set, dat
     return False
 
 
-def run(dry_run=False, text_input=None, nb_max=18):
+def run(dry_run=False, text_input=None, nb_max=36):
+    # nb_max 18 -> 36 (26/07, passage à 2 runs/jour au lieu de 4) : en
+    # regroupant matin+soir sur 2 créneaux au lieu d'étaler sur des runs
+    # manuels supplémentaires dans l'après-midi, chaque run doit tenter deux
+    # fois plus de sujets pour ne pas publier moins d'articles au total.
     # nb_max 12 -> 18 (23/07, retour Nahil) : plusieurs runs récents montrent
     # que le quota Groq n'est PAS le facteur limitant (budget encore large en
     # fin de run) — c'est le taux de rejet éditorial (angle insuffisant,
