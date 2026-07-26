@@ -640,10 +640,11 @@ _TITRE_MALUS = [
 
 # Contenu commercial déguisé en article : prix précis + enseigne de vente
 _COMMERCE_RE = re.compile(
-    r"(?:à partir de|dès|seulement|au prix de)\s*\d+[.,]?\d*\s*€"
+    r"(?:à partir de|dès|seulement|au prix de|(?:à\s+)?moins de)\s*\d+[.,]?\d*\s*€"
     r"|\d+[.,]\d{2}\s*€\s*(?:chez|sur)\b"
-    r"|chez\s+(?:cdiscount|amazon|aliexpress|rakuten|darty|boulanger|leclerc|carrefour)"
+    r"|chez\s+(?:cdiscount|amazon|aliexpress|rakuten|darty|boulanger|leclerc|carrefour|lidl|aldi|action)"
     r"|(?:cdiscount|aliexpress|rakuten)\b"
+    r"|^\d+\s+\w+.{0,40}\b(?:lidl|aldi|action|cdiscount|amazon)\b"
     # Bons plans / promos déguisés en article (ex: "le Dell 16 perd 350 euros").
     # Motifs volontairement étroits : "promotion" seul ou "moins cher" seul
     # apparaissent dans de vrais articles (promotion sociale, essence moins
@@ -925,16 +926,27 @@ def score_editorial(item: dict, source_name: str, published_topics: set) -> tupl
         reasons.append("-20 titre format guide/conseil")
 
     # ── PÉNALITÉ RÉCURRENCE ──────────────────────────────────────────────────
-    # Comparer les mots significatifs du titre avec les topics déjà publiés
-    title_words = set(w for w in item["title"].lower().split() if len(w) > 5)
+    # Comparer les mots significatifs du titre avec les topics déjà publiés.
+    # Normalisation par préfixe (8 car., accents retirés) plutôt que mot exact :
+    # "néandertaliens" et "néandertalien" (singulier/pluriel, variantes de
+    # source) ne partageaient aucun mot identique et laissaient passer un vrai
+    # doublon (constat 26/07 — deux articles sur la même découverte de carie
+    # néandertalienne, publiés à 5 h d'intervalle).
+    def _norm_words(s: str) -> set[str]:
+        import unicodedata
+        s = unicodedata.normalize("NFD", s)
+        s = "".join(c for c in s if unicodedata.category(c) != "Mn")
+        return set(w[:8] for w in s.lower().split() if len(w) > 5)
+
+    title_words = _norm_words(item["title"])
     for topic in published_topics:
-        topic_words = set(w for w in topic.lower().split() if len(w) > 5)
+        topic_words = _norm_words(topic)
         shared = title_words & topic_words
         overlap = len(shared)
         # Un seul mot commun suffit au rejet s'il est long donc très spécifique
         # (ex: "eutrophisation", "guanabara", "immunothérapie", "sublinguale") —
         # c'est le cas de tous les doublons passés au travers de l'ancien seuil.
-        rare_match = overlap == 1 and max(len(w) for w in shared) >= 9
+        rare_match = overlap == 1 and max(len(w) for w in shared) >= 8
         if overlap >= 2 or rare_match:
             score -= 500  # rejet quasi-certain : même sujet déjà publié
             reasons.append(f"-500 sujet très redondant (overlap: {overlap}, mots: {sorted(shared)[:3]} avec '{topic[:40]}')")
@@ -2819,6 +2831,9 @@ def extract_visual_keywords(title: str, summary: str, category: str) -> str:
                 f"Category: {category}\n\n"
                 "Extract 3-4 English keywords to search for a relevant stock photo illustration. "
                 "Prefer concrete visual subjects (place, object, event, scene). "
+                "If the subject is specifically about women/girls or men/boys "
+                "(e.g. women's sport, a female athlete), include 'women' or 'men' "
+                "in the keywords so the photo matches — never a mismatched gender. "
                 "Avoid abstract concepts. "
                 "Reply with ONLY the keywords separated by spaces, nothing else."
             )
@@ -2829,7 +2844,14 @@ def extract_visual_keywords(title: str, summary: str, category: str) -> str:
         # Un mot-clé anglophone plausible contient surtout de l'ASCII : si la
         # réponse est vide ou visiblement restée en français, prendre le
         # fallback catégorie plutôt qu'un titre FR inutilisable par Pexels.
-        return clean[:80] if clean else fallback_kw
+        kw = clean[:80] if clean else fallback_kw
+        # Garde-fou déterministe : sujet explicitement féminin (titre FR) →
+        # forcer "women" si le LLM ne l'a pas mis (photo d'hommes sur un
+        # article "CAN féminine", constat 26/07).
+        if re.search(r"f[ée]minin|f[ée]minine|\bfemmes?\b|\bdames?\b", title or "", re.IGNORECASE):
+            if "women" not in kw and "woman" not in kw:
+                kw = f"women {kw}"
+        return kw
     except Exception:
         return fallback_kw
 

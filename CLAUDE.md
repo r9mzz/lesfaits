@@ -117,6 +117,25 @@ répare pas en réécrivant le texte).
 
 ## Pièges connus
 
+- **Listicles commerciaux déguisés** (constat 26/07 — « Lidl : 5 appareils de
+  cuisine à moins de 10 euros » publié, lu comme une pub) : `_COMMERCE_RE`
+  élargi à « (à) moins de X€ » et aux enseignes discount (Lidl, Aldi, Action)
+  en plus de la liste existante — un article n'est pas éditorial simplement
+  parce qu'il cite un prix bas, il l'est encore moins avec une enseigne.
+- **Doublon de sujet malgré la fenêtre anti-doublon** (constat 26/07 — deux
+  articles publiés à 5 h d'intervalle sur la même découverte de carie
+  néandertalienne) : le filtre de récurrence dans `score_editorial` comparait
+  des mots exacts (« néandertaliens » ≠ « néandertalien », singulier/pluriel
+  selon la source RSS) et ne détectait aucun chevauchement. Comparaison
+  passée à un préfixe de 8 caractères (accents retirés) plutôt qu'au mot
+  exact — ne jamais revenir à une correspondance de mot strict.
+- **Image hero hors-sujet sur un article genré** (constat 26/07 — photo de
+  joueurs de football HOMMES sur un article « CAN féminine 2026 ») :
+  `extract_visual_keywords` ne précisait pas le genre à Pexels, qui renvoie du
+  stock majoritairement masculin par défaut sur les requêtes sport neutres.
+  Prompt LLM + garde-fou déterministe (regex « féminin(e)/femmes/dames » dans
+  le titre → force « women » dans les mots-clés si absent) ajoutés dans
+  `extract_visual_keywords`.
 - **Sources marchandes interdites** : Amazon, Fnac, Payot, Cultura, réseaux
   sociaux, plateformes d'avis ne sont JAMAIS des sources citables (« Selon
   Amazon » a été publié le 15/07 — trois fiches produit du même livre
