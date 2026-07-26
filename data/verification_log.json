@@ -5219,5 +5219,70 @@
     "angle_insuffisant": true,
     "raison": "aucune actualité identifiable ne justifie une publication maintenant, l'article ressemble à une fiche pédagogique générale sans fait déclencheur daté",
     "article_type": "actu"
+  },
+  {
+    "slug": "recherche-vie-extraterrestre-approche-scientifique",
+    "statut": "rejete_qualite",
+    "date": "2026-07-26T17:02:08",
+    "angle_insuffisant": true,
+    "raison": "L'article ne contient pas d'événement précis daté ou datable avec une donnée chiffrée ou nommée qui lui est propre.",
+    "article_type": "actu"
+  },
+  {
+    "slug": "exposition-croire-et-guerir-musee-saint-denis",
+    "statut": "rejete_qualite",
+    "date": "2026-07-26T17:02:53",
+    "tentative": 1,
+    "angle_insuffisant": true,
+    "raison": "aucune actualité identifiable ne justifie une publication maintenant, l'article ressemble à une fiche pédagogique générale sans fait déclencheur daté",
+    "article_type": "actu"
+  },
+  {
+    "slug": "laurent-maistret-absent-koh-lanta-all-stars",
+    "statut": "corrige_automatiquement",
+    "date": "2026-07-26T17:04:41",
+    "problemes_initiaux": 3,
+    "tentatives": 1,
+    "problemes_residuels_style": 4,
+    "rapport_initial": {
+      "conforme": false,
+      "sujet_sensible": false,
+      "sujet_sensible_raison": "",
+      "angle_insuffisant": false,
+      "angle_insuffisant_raison": "",
+      "nature_contenu": "actualite_factuelle",
+      "problemes": [
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "compteur_incoherent",
+          "phrase_exacte": "D'après Ozap, Laurent Maistret a déclaré qu'il aurait aimé revivre cette aventure, mais qu'il n'avait pas été contacté par la production.",
+          "explication": "Le champ 'nb_sources' indique 7 sources distinctes, mais certaines sources (Ozap, Letribunaldunet, Telestar, Zaptv) semblent ne faire que recopier la même information sans apporter d'informations distinctes."
+        },
+        {
+          "bloc": 4,
+          "section": "contexte",
+          "type": "redondance",
+          "phrase_exacte": "Koh-Lanta est une émission de télé-réalité qui a été diffusée pour la première fois en 2001.",
+          "explication": "Cette phrase répète une information déjà présente dans la section 'faits' ou ailleurs dans l'article."
+        },
+        {
+          "bloc": 4,
+          "section": "nuances",
+          "type": "redondance",
+          "phrase_exacte": "La décision de la production de ne pas sélectionner Laurent Maistret pour cette édition a suscité des réactions mitigées parmi les fans de l'émission.",
+          "explication": "Cette phrase répète une information déjà présente dans la section 'faits' ou ailleurs dans l'article."
+        }
+      ]
+    },
+    "article_type": "actu"
+  },
+  {
+    "slug": "inserm-exploration-nouvelles-addictions-2026",
+    "statut": "rejete_qualite",
+    "date": "2026-07-26T17:06:40",
+    "angle_insuffisant": true,
+    "raison": "L'article ne présente pas d'événement précis daté ou datable avec une donnée chiffrée ou nommée qui lui est propre, mais plutôt une présentation générale du sujet des addictions et des recherches menées par l'Inserm.",
+    "article_type": "dossier_science"
   }
 ]
