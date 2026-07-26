@@ -5149,5 +5149,75 @@
     "angle_insuffisant": true,
     "raison": "L'article ne fournit pas d'actualité identifiable justifiant une publication maintenant, et les sources fournies sont trop pauvres pour expliquer correctement le sujet.",
     "article_type": "actu"
+  },
+  {
+    "slug": "exposition-croire-et-guerir-saint-denis",
+    "statut": "rejete_qualite",
+    "date": "2026-07-26T14:13:06",
+    "angle_insuffisant": true,
+    "raison": "aucune actualité identifiable ne justifie une publication maintenant",
+    "article_type": "actu"
+  },
+  {
+    "slug": "pommes-de-terre-cultivees-grace-a-la-mer",
+    "statut": "corrige_automatiquement",
+    "date": "2026-07-26T14:14:12",
+    "problemes_initiaux": 5,
+    "tentatives": 1,
+    "problemes_residuels_style": 5,
+    "rapport_initial": {
+      "conforme": false,
+      "sujet_sensible": false,
+      "sujet_sensible_raison": "",
+      "angle_insuffisant": false,
+      "angle_insuffisant_raison": "",
+      "nature_contenu": "actualite_factuelle",
+      "problemes": [
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "source_non_editoriale",
+          "phrase_exacte": "Selon le CNRS, des extraits d'algue sont utilisés pour améliorer la résistance à la sécheresse des pommes de terre cultivées en Bretagne.",
+          "explication": "Le CNRS est une institution scientifique, mais il n'est pas clair si la source est une publication éditoriale ou non."
+        },
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "source_non_editoriale",
+          "phrase_exacte": "Les chercheurs de la Station biologique de Roscoff, en partenariat avec Le Monde, ont mené une enquête sur les molécules qui pourraient transformer l'agriculture de demain.",
+          "explication": "Le Monde est un média, mais il n'est pas clair si la source est une publication éditoriale ou non."
+        },
+        {
+          "bloc": 4,
+          "section": "contexte",
+          "type": "contexte_hors_sujet",
+          "phrase_exacte": "L'INAO précise que les pommes de terre de Noirmoutier sont cultivées dans des conditions spécifiques, avec un microclimat particulier qui leur permet de être récoltées plus tôt que les autres variétés.",
+          "explication": "Cette phrase ne concerne pas directement le sujet principal de l'article, qui est l'utilisation d'extraits d'algue pour améliorer la résistance à la sécheresse des pommes de terre."
+        },
+        {
+          "bloc": 4,
+          "section": "nuances",
+          "type": "jugement_de_valeur",
+          "phrase_exacte": "Il est important de noter que les résultats de cette étude sont encore préliminaires et nécessitent davantage de recherches pour confirmer leur efficacité à long terme.",
+          "explication": "Cette phrase contient un jugement de valeur sur l'importance de noter les limites de l'étude."
+        },
+        {
+          "bloc": 2,
+          "section": "sources",
+          "type": "compteur_incoherent",
+          "phrase_exacte": "nb_sources: 6",
+          "explication": "Il n'y a que 6 sources listées, mais certaines d'entre elles pourraient être considérées comme des sources secondaires ou tertiaires."
+        }
+      ]
+    },
+    "article_type": "actu"
+  },
+  {
+    "slug": "syndrome-belle-au-bois-dormant",
+    "statut": "rejete_qualite",
+    "date": "2026-07-26T14:16:39",
+    "angle_insuffisant": true,
+    "raison": "aucune actualité identifiable ne justifie une publication maintenant, l'article ressemble à une fiche pédagogique générale sans fait déclencheur daté",
+    "article_type": "actu"
   }
 ]
