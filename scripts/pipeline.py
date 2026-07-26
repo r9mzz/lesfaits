@@ -83,6 +83,15 @@ RSS_SOURCES = [
     {"name": "Le Monde Economie",    "url": "https://www.lemonde.fr/economie/rss_full.xml"},
     {"name": "Le Monde Société",     "url": "https://www.lemonde.fr/societe/rss_full.xml"},
     {"name": "Le Monde Pixel",       "url": "https://www.lemonde.fr/pixels/rss_full.xml"},
+    # Idées (entretiens/décryptages) et Décodeurs (data-journalisme factuel) :
+    # rubriques structurellement alignées avec l'angle éditorial de Les Faits
+    # (analyse à charge factuelle précise) mais absentes jusqu'ici du flux —
+    # constat 26/07, Nahil : le flux généraliste Monde/Parisien est surtout
+    # composé de guerre/sport-spectacle/fait-divers/people, hors périmètre
+    # par choix éditorial ; ces deux rubriques sont le contenu qui correspond
+    # réellement à ce qu'on publie.
+    {"name": "Le Monde Idées",       "url": "https://www.lemonde.fr/idees/rss_full.xml"},
+    {"name": "Le Monde Décodeurs",   "url": "https://www.lemonde.fr/les-decodeurs/rss_full.xml"},
     # Libération
     {"name": "Libération",           "url": "https://www.liberation.fr/arc/outboundfeeds/rss/?outputType=xml"},
     # France Info
