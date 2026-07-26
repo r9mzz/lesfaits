@@ -1,5 +1,18 @@
 # Les Faits — lesfaits.info
 
+## Test en cours (26-28/07, 2 jours, Nahil)
+
+Guerre/faits-divers/politique retirés du rejet immédiat (`BLACKLIST` →
+`_BLACKLIST_SUSPENDUE_TEST_2607` dans `pipeline.py`) : à voir si la charte
+éditoriale (règles 1-15) et la vérification LLM (`sujet_sensible`) suffisent
+à traiter ces sujets avec neutralité factuelle sans prise de parti, plutôt
+que de les exclure a priori. Les garde-fous de sécurité légale (mineur
+impliqué, affaire judiciaire en cours, diffamation) restent actifs sans
+changement. Pas de retouche des catégories pour l'instant (un article CAN
+féminine classé en "science" est un bug distinct à creuser séparément, pas
+pendant ce test). **Si non concluant, remettre les mots-clés dans
+`BLACKLIST`.**
+
 ## Philosophie éditoriale — priorité absolue
 
 Le pipeline n'existe pas pour maximiser le nombre d'articles publiés. Il

@@ -620,14 +620,25 @@ def fetch_rss(source: dict) -> list[dict]:
 # FILTRE ÉDITORIAL v2 — Barème par score
 # ══════════════════════════════════════════════════════════════════════════════
 
-BLACKLIST = [
-    # Violence / faits divers
+# TEST 26-28/07 (Nahil, 2 jours) : guerre/faits-divers/politique retirés du
+# rejet immédiat pour voir si le prompt strict (charte règles 1-15 +
+# garde-fous) suffit à les traiter avec neutralité factuelle sans prendre
+# parti, plutôt que de les exclure a priori. La vérification LLM
+# (sujet_sensible : mineur impliqué, affaire judiciaire en cours,
+# diffamation) continue de s'appliquer indépendamment et rejette toujours
+# ce qui l'exige — ce test ne touche qu'au filtre de sujet, pas aux
+# garde-fous de sécurité légale. Si le test n'est pas concluant, remettre
+# ces mots-clés dans BLACKLIST ci-dessous.
+_BLACKLIST_SUSPENDUE_TEST_2607 = [
     "guerre", "conflit armé", "attentat", "terrorisme",
     "fait divers", "meurtre", "accident mortel",
-    # People / opinion
-    "célébrité", "scandale people", "vie privée",
     "sondage d'opinion", "cote de popularité",
     "parti politique", "élection présidentielle",
+]
+
+BLACKLIST = [
+    # People / opinion
+    "célébrité", "scandale people", "vie privée",
     "horoscope", "téléréalité",
     # Contenu commercial / publicitaire
     "prime day", "black friday", "soldes", "promo ", "promotion ",
