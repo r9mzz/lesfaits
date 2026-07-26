@@ -133,7 +133,10 @@ RSS_SOURCES = [
     # bloqué, à confirmer au run réel via "[COLLECTE RSS]").
     # -- Presse déjà secondaire, RSS manquant --
     {"name": "Les Échos",            "url": "https://www.lesechos.fr/rss/rss_une.xml"},
-    {"name": "Le Parisien",          "url": "https://www.leparisien.fr/rss.xml"},
+    # ancienne URL "www.leparisien.fr/rss.xml" en 404 depuis leur migration
+    # d'infra RSS vers un sous-domaine dédié (constat 26/07) — nouveau flux
+    # général confirmé par recherche externe (feeds.leparisien.fr/leparisien/rss).
+    {"name": "Le Parisien",          "url": "https://feeds.leparisien.fr/leparisien/rss"},
     {"name": "L'Express",            "url": "https://www.lexpress.fr/arc/outboundfeeds/rss/?outputType=xml"},
     {"name": "Ouest-France",         "url": "https://www.ouest-france.fr/rss-en-continu.xml"},
     {"name": "La Croix",             "url": "https://www.la-croix.com/rss.xml"},
