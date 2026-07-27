@@ -5412,5 +5412,69 @@
     "problemes_restants": 3,
     "bloquants_restants": 1,
     "article_type": "dossier_science"
+  },
+  {
+    "slug": "huawei-bannissement-europe-securite",
+    "statut": "corrige_automatiquement",
+    "date": "2026-07-27T17:02:23",
+    "problemes_initiaux": 4,
+    "tentatives": 1,
+    "problemes_residuels_style": 4,
+    "rapport_initial": {
+      "conforme": false,
+      "sujet_sensible": false,
+      "sujet_sensible_raison": "",
+      "angle_insuffisant": false,
+      "angle_insuffisant_raison": "",
+      "nature_contenu": "actualite_factuelle",
+      "problemes": [
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "source_derivee_comptee_comme_primaire",
+          "phrase_exacte": "Les opérateurs télécoms estiment que cela coûterait entre 30 et 40 milliards d'euros, selon Le Figaro.",
+          "explication": "Plusieurs sources (Le Monde, Le Figaro, RFI, etc.) sont utilisées pour dire la même chose, ce qui pourrait être considéré comme un problème de sources dérivées comptées comme primaires."
+        },
+        {
+          "bloc": 4,
+          "section": "contexte",
+          "type": "redondance",
+          "phrase_exacte": "L'Union européenne a déjà recommandé aux États membres d'écarter autant que possible les équipements chinois de leurs réseaux en 2020, selon RFI.",
+          "explication": "Cette phrase répète une information déjà présente dans la section 'faits'."
+        },
+        {
+          "bloc": 4,
+          "section": "nuances",
+          "type": "redondance",
+          "phrase_exacte": "Les opérateurs télécoms sous pression doivent remplacer les équipements chinois par des alternatives plus sécurisées, selon 01net.",
+          "explication": "Cette phrase répète une information déjà présente dans la section 'faits' ou 'contexte'."
+        },
+        {
+          "bloc": 4,
+          "section": "nuances",
+          "type": "jugement_de_valeur",
+          "phrase_exacte": "Les opérateurs télécoms et certains pays européens, comme l'Allemagne et l'Espagne, s'opposent à ce bannissement, craignant les conséquences économiques et la perte de compétitivité, selon Le Figaro.",
+          "explication": "Le terme 'craignant' implique un jugement de valeur, il serait préférable de reformuler pour rester neutre."
+        }
+      ]
+    },
+    "article_type": "actu"
+  },
+  {
+    "slug": "etude-fusions-trous-noirs-gravitation",
+    "statut": "rejete_qualite",
+    "date": "2026-07-27T17:04:53",
+    "angle_insuffisant": true,
+    "raison": "aucune actualité identifiable ne justifie une publication maintenant",
+    "article_type": "actu"
+  },
+  {
+    "slug": "luigi-gubitosi-fusion-tim-poste-italiane",
+    "statut": "erreur_verification",
+    "date": "2026-07-27T17:06:52",
+    "etape": "correction",
+    "tentative": 1,
+    "erreur": "Expecting ',' delimiter: line 20 column 36 (char 854)",
+    "article_type": "dossier_portrait"
   }
 ]
