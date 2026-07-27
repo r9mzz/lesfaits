@@ -5340,5 +5340,77 @@
     "angle_insuffisant": true,
     "raison": "L'article ne répond pas à la question de ce qui se passe actuellement avec Ubisoft, mais plutôt à une question générale sur l'histoire de l'entreprise.",
     "article_type": "actu"
+  },
+  {
+    "slug": "huawei-bannissement-europe-securite",
+    "statut": "rejete_sensible",
+    "date": "2026-07-27T15:44:51",
+    "sujet_sensible": true,
+    "raison": "L'article implique des affaires judiciaires et des décisions politiques en cours, notamment concernant le bannissement de Huawei en Europe pour des motifs de sécurité.",
+    "article_type": "actu"
+  },
+  {
+    "slug": "luigi-gubitosi-pdg-tim-fusion-poste-italiane",
+    "statut": "corrige_automatiquement",
+    "date": "2026-07-27T15:46:28",
+    "problemes_initiaux": 5,
+    "tentatives": 1,
+    "problemes_residuels_style": 3,
+    "rapport_initial": {
+      "conforme": false,
+      "sujet_sensible": false,
+      "sujet_sensible_raison": "",
+      "angle_insuffisant": false,
+      "angle_insuffisant_raison": "",
+      "nature_contenu": "actualite_factuelle",
+      "problemes": [
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "Glamzn analyse cette fusion comme une reprise en main politique d'un actif dont la déchéance financière menaçait la sécurité nationale italienne.",
+          "explication": "Glamzn n'est pas une source reconnue pour des faits factuels dans le contexte de l'article, elle est plutôt une source d'analyse stratégique."
+        },
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "Ctol FR analyse cette opération comme un remaniement à hauts enjeux dans les secteurs des télécoms et des paiements en Italie.",
+          "explication": "Ctol FR n'est pas une source reconnue pour des faits factuels dans le contexte de l'article."
+        },
+        {
+          "bloc": 4,
+          "section": "nuances",
+          "type": "jugement_de_valeur",
+          "phrase_exacte": "La fusion entre TIM et Poste Italiane soulève des questions sur la concurrence dans le secteur des télécommunications en Italie.",
+          "explication": "La phrase contient un jugement de valeur sur la concurrence sans attribution à une source spécifique."
+        },
+        {
+          "bloc": 4,
+          "section": "nuances",
+          "type": "extrapolation",
+          "phrase_exacte": "Il est possible que cette opération ait un impact sur la concurrence et la réglementation dans le secteur des télécoms.",
+          "explication": "La phrase contient une anticipation de conséquence future sans être explicitement sourcée."
+        },
+        {
+          "bloc": 2,
+          "section": "contexte",
+          "type": "source_non_editoriale",
+          "phrase_exacte": "Glamzn analyse cette opération comme un remaniement à hauts enjeux dans les secteurs des télécoms et des paiements en Italie.",
+          "explication": "Glamzn est utilisée comme source pour un fait factuel alors qu'elle est plutôt une source d'analyse stratégique."
+        }
+      ]
+    },
+    "article_type": "dossier_portrait"
+  },
+  {
+    "slug": "cxmt-levée-de-fonds-asie",
+    "statut": "rejete_qualite",
+    "date": "2026-07-27T15:53:00",
+    "problemes_initiaux": 4,
+    "tentatives": 2,
+    "problemes_restants": 3,
+    "bloquants_restants": 1,
+    "article_type": "dossier_science"
   }
 ]
