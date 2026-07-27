@@ -5292,5 +5292,53 @@
     "angle_insuffisant": true,
     "raison": "L'article ne présente pas d'événement précis daté ou datable avec une donnée chiffrée ou nommée qui lui est propre, mais plutôt une explication générale sur la recherche de la vie extraterrestre.",
     "article_type": "actu"
+  },
+  {
+    "slug": "recherche-vie-extraterrestre-sans-revelation-spectaculaire",
+    "statut": "rejete_qualite",
+    "date": "2026-07-27T06:00:27",
+    "angle_insuffisant": true,
+    "raison": "L'article ne présente pas d'événement précis daté ou datable lié à la recherche de la vie extraterrestre, mais plutôt une discussion générale sur le sujet.",
+    "article_type": "actu"
+  },
+  {
+    "slug": "inserm-magazine-n69-nouvelles-addictions",
+    "statut": "rejete_qualite",
+    "date": "2026-07-27T06:01:03",
+    "angle_insuffisant": true,
+    "raison": "aucune actualité identifiable ne justifie une publication maintenant, l'article ressemble à une fiche pédagogique générale sans fait déclencheur daté",
+    "article_type": "dossier_science"
+  },
+  {
+    "slug": "exposition-croire-et-guerir-musee-paul-eluard",
+    "statut": "rejete_qualite",
+    "date": "2026-07-27T06:01:48",
+    "angle_insuffisant": true,
+    "raison": "aucune actualité identifiable ne justifie une publication maintenant",
+    "article_type": "actu"
+  },
+  {
+    "slug": "effondrement-age-bronze",
+    "statut": "rejete_qualite",
+    "date": "2026-07-27T06:03:43",
+    "angle_insuffisant": true,
+    "raison": "L'article ne présente pas d'événement précis daté ou datable lié à l'effondrement de l'âge du bronze, mais plutôt une explication générale du phénomène",
+    "article_type": "actu"
+  },
+  {
+    "slug": "syndrome-gilles-de-la-tourette",
+    "statut": "rejete_qualite",
+    "date": "2026-07-27T06:04:37",
+    "angle_insuffisant": true,
+    "raison": "L'article ne présente pas d'événement précis daté ou datable lié au syndrome de Gilles de La Tourette, mais plutôt une explication générale du trouble.",
+    "article_type": "actu"
+  },
+  {
+    "slug": "ubisoft-40-ans-crise",
+    "statut": "rejete_qualite",
+    "date": "2026-07-27T06:05:22",
+    "angle_insuffisant": true,
+    "raison": "L'article ne répond pas à la question de ce qui se passe actuellement avec Ubisoft, mais plutôt à une question générale sur l'histoire de l'entreprise.",
+    "article_type": "actu"
   }
 ]
