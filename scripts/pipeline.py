@@ -575,14 +575,39 @@ def fetch_rss(source: dict) -> list[dict]:
             "dc":      "http://purl.org/dc/elements/1.1/",
         }
 
+        # RSS utilise <item>, Atom utilise <entry> — et Atom met tout dans un
+        # namespace, donc root.iter("item") ne trouvait RIEN sur un flux Atom.
+        # Aucune erreur n'était levée : la source renvoyait simplement 0 article
+        # en silence, en paraissant fonctionner dans les logs. C'était le cas de
+        # The Conversation France (articles.atom), muette depuis son ajout
+        # (constat 28/07). On repère les entrées par leur nom de balise LOCAL,
+        # namespace ignoré.
+        def _local(tag) -> str:
+            return tag.rsplit("}", 1)[-1] if isinstance(tag, str) else ""
+
+        def _texte(el, *noms) -> str:
+            """findtext insensible au namespace, sur plusieurs noms possibles."""
+            for enfant in el:
+                if _local(enfant.tag) in noms:
+                    if enfant.text and enfant.text.strip():
+                        return enfant.text.strip()
+                    # Atom : <link href="…"/> porte l'URL en attribut
+                    href = enfant.get("href")
+                    if href:
+                        return href.strip()
+            return ""
+
+        entrees = [e for e in root.iter() if _local(e.tag) in ("item", "entry")]
+
         items = []
-        for item in root.iter("item"):
-            title   = item.findtext("title", "").strip()
-            link    = item.findtext("link",  "").strip()
-            desc    = item.findtext("description", "")
-            # Contenu complet si disponible
-            full    = item.find("content:encoded", ns)
-            content_raw = full.text if full is not None else desc
+        for item in entrees:
+            title = _texte(item, "title")
+            link  = _texte(item, "link", "id")
+            # RSS : description / content:encoded — Atom : summary / content
+            desc  = _texte(item, "description", "summary", "content", "encoded")
+            # Contenu complet si disponible (content:encoded, namespacé)
+            full  = item.find("content:encoded", ns)
+            content_raw = full.text if full is not None and full.text else desc
 
             # Nettoyer le HTML dans le contenu
             if content_raw:
@@ -591,7 +616,7 @@ def fetch_rss(source: dict) -> list[dict]:
             else:
                 content_clean = ""
 
-            pub_date = item.findtext("pubDate", datetime.now().isoformat())
+            pub_date = _texte(item, "pubDate", "published", "updated") or datetime.now().isoformat()
 
             if not title or not link:
                 continue
@@ -1006,17 +1031,29 @@ def score_editorial(item: dict, source_name: str, published_topics: set) -> tupl
         topic_words = _norm_words(topic)
         shared = title_words & topic_words
         overlap = len(shared)
-        # Un seul mot commun suffit au rejet s'il est long donc très spécifique
-        # (ex: "eutrophisation", "guanabara", "immunothérapie", "sublinguale") —
-        # c'est le cas de tous les doublons passés au travers de l'ancien seuil.
-        rare_match = overlap == 1 and max(len(w) for w in shared) >= 8
-        if overlap >= 2 or rare_match:
+        # Il faut DEUX mots communs pour conclure au doublon. La règle
+        # précédente rejetait sur un seul mot dès qu'il faisait 8 caractères —
+        # or, une fois les mots tronqués à 8 caractères pour absorber les
+        # variantes singulier/pluriel, « faire 8 caractères » ne veut plus dire
+        # « être rare » : ça désigne n'importe quel mot d'au moins 8 lettres.
+        # Résultat mesuré sur les 129 titres publiés (28/07) : 49 % d'entre eux
+        # se rejetaient mutuellement, sur des collisions absurdes — « Huawei
+        # face à un bannissement » vs « Apple accélère ses mises à jour de
+        # SÉCURITÉ », « Comores : six médinas HISTORIQUES » vs « Vague de
+        # chaleur HISTORIQUE », « CAN FÉMININE » vs « Douleurs chroniques
+        # FÉMININES ». Avec deux mots communs exigés : 15 %, et le vrai doublon
+        # visé (les deux articles sur la carie néandertalienne) reste attrapé,
+        # il partage 4 mots. Ne jamais revenir à un rejet sur un seul mot.
+        if overlap >= 2:
             score -= 500  # rejet quasi-certain : même sujet déjà publié
             reasons.append(f"-500 sujet très redondant (overlap: {overlap}, mots: {sorted(shared)[:3]} avec '{topic[:40]}')")
             break
         elif overlap == 1:
-            score -= 60
-            reasons.append(f"-60 sujet proche (1 mot commun avec '{topic[:40]}')")
+            # Simple voisinage lexical : on rétrograde, on ne tue pas. À -60,
+            # tout candidat sous 80 points passait sous le seuil de sélection
+            # (20) — c'était un second rejet déguisé sur un seul mot commun.
+            score -= 25
+            reasons.append(f"-25 sujet proche (1 mot commun avec '{topic[:40]}')")
             break
 
     return score, reasons
@@ -2162,9 +2199,109 @@ def sujet_sante_sans_source_officielle(art: dict) -> bool:
     return True
 
 
+def _reparer_json_tronque(texte: str):
+    """Referme un JSON coupé en cours d'écriture, ou None si irrécupérable.
+
+    Coupe ce qui suit la dernière valeur complète (chaîne, objet ou tableau
+    refermé), retire une éventuelle clé ou virgule orpheline, puis referme les
+    `{` / `[` restés ouverts. Utilisé pour récupérer un article dont la
+    génération a été tronquée à max_tokens — la coupure tombe en général dans
+    le tableau « sources », après un corps d'article complet.
+    """
+    # Une seule passe pour savoir, à chaque index, si l'on est dans une chaîne
+    # et quelle est la pile de structures ouvertes. On ne peut pas se contenter
+    # du dernier point « propre » rencontré : après une coupure au milieu du
+    # tableau "sources", le dernier guillemet fermé appartient à une clé
+    # orpheline (« {"url" ») et couper là produit un JSON invalide. On collecte
+    # donc tous les points de coupe plausibles et on remonte depuis la fin
+    # jusqu'au premier qui se referme proprement.
+    hors_chaine: list[bool] = []
+    piles: list[tuple] = []
+    pile: list[str] = []
+    dans_chaine = echappe = False
+    candidats: list[int] = []
+    for i, c in enumerate(texte):
+        hors_chaine.append(not dans_chaine)
+        piles.append(tuple(pile))
+        if dans_chaine:
+            if echappe:
+                echappe = False
+            elif c == "\\":
+                echappe = True
+            elif c == '"':
+                dans_chaine = False
+                candidats.append(i + 1)
+            continue
+        if c == '"':
+            dans_chaine = True
+        elif c in "{[":
+            pile.append(c)
+        elif c in "}]":
+            if not pile:
+                return None
+            pile.pop()
+            candidats.append(i + 1)
+        elif c == ",":
+            candidats.append(i)
+
+    for coupe in reversed(candidats):
+        tronc = texte[:coupe].rstrip()
+        # Retirer virgule finale puis clé orpheline (« , "sources": » ou
+        # « {"url" » sans valeur), éventuellement enchaînées.
+        for _ in range(3):
+            avant = tronc
+            tronc = re.sub(r'[,\s]+$', '', tronc)
+            tronc = re.sub(r',?\s*"[^"]*"\s*:\s*$', '', tronc)
+            tronc = re.sub(r',?\s*\{\s*"[^"]*"$', '', tronc)
+            tronc = re.sub(r',?\s*"[^"]*"$', '', tronc) if tronc.rstrip().endswith('"') and re.search(r'[\{\[]\s*"[^"]*"$', tronc) else tronc
+            if tronc == avant:
+                break
+        if not tronc:
+            continue
+        # Recalculer la pile réellement ouverte à ce point
+        p2: list[str] = []
+        ds = ec = False
+        for c in tronc:
+            if ds:
+                if ec:
+                    ec = False
+                elif c == "\\":
+                    ec = True
+                elif c == '"':
+                    ds = False
+                continue
+            if c == '"':
+                ds = True
+            elif c in "{[":
+                p2.append(c)
+            elif c in "}]":
+                if p2:
+                    p2.pop()
+        if ds:
+            continue  # coupe tombée dans une chaîne : point suivant
+        ferme = tronc + "".join("}" if o == "{" else "]" for o in reversed(p2))
+        try:
+            obj = json.loads(ferme)
+        except Exception:
+            continue
+        if isinstance(obj, dict) and obj:
+            return obj
+    return None
+
+
 class TronqueError(Exception):
     """La complétion a été coupée à max_tokens (finish_reason='length') —
-    le JSON est forcément invalide, inutile de le parser."""
+    le JSON est forcément invalide en l'état.
+
+    `contenu` porte le texte partiel : il contient presque toujours un article
+    complet coupé dans la liste des sources, et `_extract_json` sait refermer
+    un JSON tronqué. Sans ce champ, le texte était jeté avec l'exception et le
+    sujet perdu (34 sujets et ~323 k tokens ainsi gâchés sur 27 runs, mesuré
+    le 28/07)."""
+
+    def __init__(self, message: str, contenu: str = ""):
+        super().__init__(message)
+        self.contenu = contenu
 
 
 class QuotaJournalierEpuise(RuntimeError):
@@ -2254,7 +2391,8 @@ def _groq_call(api_key: str, messages: list, max_tokens: int = 3500) -> str:
               f"total={u.total_tokens}", flush=True)
     choice = response.choices[0]
     if getattr(choice, "finish_reason", None) == "length":
-        raise TronqueError(f"complétion coupée à {max_tokens} tokens")
+        raise TronqueError(f"complétion coupée à {max_tokens} tokens",
+                           contenu=(choice.message.content or ""))
     return choice.message.content.strip()
 
 
@@ -2596,12 +2734,28 @@ def generate(content: str, category_hint: str, extra_sources: list[dict] | None 
             try:
                 raw = _groq_call(key, messages, max_tokens=reservation_reponse)
                 break
-            except TronqueError:
+            except TronqueError as _tronque:
                 # Complétion coupée à max_tokens : réessayer UNE fois (même
                 # clé, même cycle) avec une consigne de concision explicite
                 # ET une réservation doublée — sans ça le sujet est perdu à
                 # coup sûr (JSON invalide).
                 if troncature_deja_reduite:
+                    # Dernier recours avant de perdre le sujet : récupérer le
+                    # JSON partiel. Mesuré sur 27 runs (28/07) : la relance à
+                    # 6000 ne sauve que 11 % des cas (4 sur 38), et les 34
+                    # échecs restants ont brûlé ~323 k tokens — 3 quotas
+                    # journaliers de clé — pour zéro article. La distribution
+                    # des complétions est bimodale (médiane 1417 tokens, ou
+                    # emballement jusqu'à la coupure) : quand le modèle part en
+                    # boucle, lui donner plus de place ne le fait pas
+                    # converger. L'article récupéré repasse par TOUS les
+                    # garde-fous (longueur, sources, qualité, fact-check) —
+                    # s'il est réellement incomplet, il est rejeté là.
+                    if _tronque.contenu.strip():
+                        print("     [GROQ] Toujours tronquée — récupération du "
+                              "JSON partiel plutôt que perte du sujet…")
+                        raw = _tronque.contenu
+                        break
                     raise ValueError("Réponse tronquée à max_tokens malgré la consigne de concision")
                 troncature_deja_reduite = True
                 reservation_reponse = 6000
@@ -2699,9 +2853,34 @@ def generate(content: str, category_hint: str, extra_sources: list[dict] | None 
                         return json.loads(candidate[:i + 1])
                     except Exception:
                         continue
+            # Repli sur la dernière accolade valide : ne marche que si la
+            # coupure laisse une structure équilibrée. Or une troncature tombe
+            # presque toujours AU MILIEU du tableau "sources" — il reste alors
+            # un `[` ouvert et aucun préfixe n'est parsable. On referme donc
+            # explicitement les structures restées ouvertes.
+            repare = _reparer_json_tronque(candidate)
+            if repare is not None:
+                return repare
             raise ValueError("JSON non réparable")
 
     art = _extract_json(raw)
+
+    # Un JSON récupéré après troncature peut se terminer en pleine phrase.
+    # On coupe la dernière phrase incomplète de chaque section plutôt que de
+    # publier un texte suspendu ; si la section devient trop courte, les
+    # garde-fous de longueur s'en chargent juste après.
+    if isinstance(art, dict) and isinstance(art.get("corps"), dict):
+        for _sec, _txt in list(art["corps"].items()):
+            if not isinstance(_txt, str) or not _txt.strip():
+                continue
+            _t = _txt.rstrip()
+            if _t[-1:] in ".!?»\"'" :
+                continue
+            _coupe = max(_t.rfind("."), _t.rfind("!"), _t.rfind("?"))
+            if _coupe > 40:  # garder la section si au moins une phrase entière
+                art["corps"][_sec] = _t[:_coupe + 1]
+                print(f"     [RÉCUP] section « {_sec} » : dernière phrase "
+                      f"incomplète coupée")
 
     # Supprimer toute source dont l'URL n'est pas dans la liste réelle,
     # et écraser le nom avec celui de la source authoritative (évite les mismatches nom↔URL).
@@ -5566,12 +5745,35 @@ def generer_article(item: dict, dry_run: bool, published: set, new_pub: set, dat
                           f"supprimée(s) après correction LLM")
             _mots_final = _mots_totaux(art)
             _restants = faits_repetitifs(art)
-            if _mots_final < MIN_MOTS_CORPS - TOLERANCE_MOTS or _restants:
+            # Le correcteur (passe 3) réécrit AUSSI la liste des sources et
+            # peut en supprimer : les deux contrôles de sourcing les plus
+            # importants (règle 7, 3 sources minimum ; règle de publication
+            # ≥1 primaire OU ≥2 secondaires) tournaient AVANT la correction et
+            # n'étaient jamais rejoués après. C'est ainsi que l'article Lidl a
+            # été publié avec 2 sources (20 Minutes, Le Figaro) le 26/07 alors
+            # qu'il en avait assez pour passer le contrôle initial. On les
+            # rejoue ici — sans relance Groq (quota rare) : le sujet repart au
+            # run suivant.
+            _src_final = len(art.get("sources") or [])
+            _bilan_final = bilan_qualite_sources(art.get("sources", []))
+            art["qualite_sources"] = _bilan_final
+            _sourcing_ko = (
+                _src_final < MIN_SOURCES
+                or (_bilan_final["primaire"] < 1 and _bilan_final["secondaire"] < 2)
+            )
+            if _mots_final < MIN_MOTS_CORPS - TOLERANCE_MOTS or _restants or _sourcing_ko:
                 _defauts = []
                 if _mots_final < MIN_MOTS_CORPS - TOLERANCE_MOTS:
                     _defauts.append(f"{_mots_final} mots (< {MIN_MOTS_CORPS - TOLERANCE_MOTS})")
                 if _restants:
                     _defauts.append("répétitions résiduelles")
+                if _src_final < MIN_SOURCES:
+                    _defauts.append(f"{_src_final} source(s) après correction (< {MIN_SOURCES})")
+                elif _sourcing_ko:
+                    _defauts.append(
+                        f"sourcing dégradé après correction "
+                        f"({_bilan_final['primaire']} primaire(s), "
+                        f"{_bilan_final['secondaire']} secondaire(s))")
                 print(f"     [REJET POST-CORRECTION] Article dégradé même "
                       f"après réparation ({' + '.join(_defauts)}) — non "
                       f"publié, sujet retenté au prochain run")

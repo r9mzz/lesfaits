@@ -128,6 +128,28 @@ doivent être signalées dès l'intro) — `angle_insuffisant: true` = rejet
 définitif immédiat, jamais de tentative de correction (un sujet creux ne se
 répare pas en réécrivant le texte).
 
+## Tunnel de sélection — mesures du 28/07 (27 runs)
+
+623 candidats collectés → 319 générations tentées → **33 publiés (10 %)**.
+Répartition des rejets : angle insuffisant 41, **troncature Groq 34**,
+qualité des sources 30, sujet sensible 40, listicle 8, post-correction 12,
+protocole (quota) 6. Autrement dit **~30 % des pertes ne sont PAS des
+décisions éditoriales** mais des échecs techniques. Points à surveiller :
+
+- **Troncature à max_tokens** : distribution bimodale — complétion médiane
+  1 417 tokens, ou emballement du modèle jusqu'à la coupure. Donner plus de
+  place ne fait pas converger (la relance à 6 000 ne sauvait que 11 % des
+  cas, 4 sur 38) ; les 34 échecs restants brûlaient ~323 k tokens, soit
+  3 quotas journaliers de clé, pour zéro article. Le contenu partiel est
+  désormais récupéré (`_reparer_json_tronque`) plutôt que jeté.
+- **Flux RSS morts** : 13 des ~41 sources renvoient 404/403/500 depuis le
+  20/07 (elles ont été ajoutées sans être testées). Un flux mort est visible
+  dans les logs (`[RSS ERREUR]`), mais un flux Atom lu comme du RSS ne l'est
+  PAS : il renvoie 0 article en silence. Toujours vérifier le rendement réel
+  d'une source, pas seulement l'absence d'erreur.
+- **Plafond de 8 items par flux** (`fetch_rss`) : borne haute du gisement à
+  ~230 articles/run avant tout filtre.
+
 ## Pièges connus
 
 - **Catégorie calculée sur l'extrait RSS et non sur l'article** (constat
@@ -152,6 +174,30 @@ répare pas en réécrivant le texte).
   DIFFÉRENTE → relance corrective combinée. Ne pas fusionner ce garde-fou
   avec celui de la règle 4, ils sanctionnent deux défauts opposés (répéter
   une forme / empiler des sources).
+- **Flux Atom lus comme du RSS** (constat 28/07) : `fetch_rss` ne parcourait
+  que les balises `<item>` (RSS). Atom utilise `<entry>`, dans un namespace —
+  `root.iter("item")` n'y trouvait rien et la source renvoyait 0 article
+  SANS erreur, en paraissant fonctionner dans les logs. The Conversation
+  France (`articles.atom`) était muette depuis son ajout. Les entrées sont
+  désormais repérées par leur nom de balise local, namespace ignoré.
+- **Filtre anti-doublon trop agressif** (constat 28/07) : rejeter sur UN seul
+  mot commun de 8 caractères n'a plus de sens une fois les mots tronqués à 8
+  caractères pour absorber les variantes singulier/pluriel — « faire 8
+  caractères » ne désigne plus un mot rare mais n'importe quel mot d'au moins
+  8 lettres. Mesure sur les 129 titres publiés : 49 % se rejetaient
+  mutuellement (« Huawei… » vs « Apple… **sécurité** », « médinas
+  **historiques** » vs « chaleur **historique** », « CAN **féminine** » vs
+  « douleurs **féminines** »). Il faut DEUX mots communs pour un rejet
+  (15 %) ; un seul mot ne vaut qu'une rétrogradation (-25, pas -60 : à -60
+  tout candidat sous 80 points passait sous le seuil de sélection, c'était un
+  rejet déguisé). Ne jamais rejeter sur un seul mot commun.
+- **Sourcing non revérifié après correction** (constat 28/07 — article Lidl
+  publié avec 2 sources) : les deux contrôles de sourcing (règle 7, 3 sources
+  minimum ; règle ≥1 primaire OU ≥2 secondaires) tournaient AVANT la passe de
+  correction, qui réécrit aussi la liste des sources et peut en supprimer.
+  Ils sont rejoués après correction. Tout contrôle placé avant
+  `verifier_article` doit être considéré comme potentiellement invalidé par
+  la passe 3.
 - **Titre au futur pour un événement déjà survenu** (constat 28/07 sur
   l'article CXMT — titré « s'apprête à réaliser la plus grosse levée de
   fonds » alors que « Les faits » décrivent l'action déjà cotée, « a flambé
