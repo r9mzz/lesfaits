@@ -5801,5 +5801,52 @@
     "erreur": "Quota Groq journalier épuisé sur toutes les clés (vérification)",
     "bloquants_connus": 1,
     "article_type": "actu"
+  },
+  {
+    "slug": "betelgeuse-etoile-geante-rouge-compagnon-stellaire",
+    "statut": "corrige_automatiquement",
+    "date": "2026-07-28T17:02:45",
+    "problemes_initiaux": 4,
+    "tentatives": 1,
+    "problemes_residuels_style": 3,
+    "rapport_initial": {
+      "conforme": false,
+      "sujet_sensible": false,
+      "sujet_sensible_raison": "",
+      "angle_insuffisant": false,
+      "angle_insuffisant_raison": "",
+      "nature_contenu": "actualite_factuelle",
+      "problemes": [
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "source_derivee_comptee_comme_primaire",
+          "phrase_exacte": "D'après Numerama, des scientifiques ont confirmé la présence d'un compagnon stellaire proche de Bételgeuse, qui a été détecté grâce à une technique d'imagerie innovante.",
+          "explication": "La source Numerama est comptée comme une source primaire, mais elle ne fournit pas d'informations distinctes par rapport à d'autres sources."
+        },
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "compteur_incoherent",
+          "phrase_exacte": "",
+          "explication": "Le champ 'nb_sources' indique 8 sources, mais certaines sources sont comptées plusieurs fois (par exemple, Numerama apparait deux fois)."
+        },
+        {
+          "bloc": 3,
+          "section": "contexte",
+          "type": "paraphrase_structurelle",
+          "phrase_exacte": "Bételgeuse est une supergéante rouge située dans la constellation d'Orion, connue pour sa luminosité variable.",
+          "explication": "La phrase reprend la structure et l'essentiel du vocabulaire de la source Wikipédia sans guillemets."
+        },
+        {
+          "bloc": 4,
+          "section": "nuances",
+          "type": "redondance",
+          "phrase_exacte": "Cependant, les chercheurs restent prudents quant à cette découverte et prévoient des observations de confirmation pour valider la présence de ce compagnon stellaire.",
+          "explication": "La phrase répète l'idée déjà présente dans la section 'faits' sans apporter de nouvelles informations."
+        }
+      ]
+    },
+    "article_type": "dossier_science"
   }
 ]
