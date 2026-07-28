@@ -5476,5 +5476,140 @@
     "tentative": 1,
     "erreur": "Expecting ',' delimiter: line 20 column 36 (char 854)",
     "article_type": "dossier_portrait"
+  },
+  {
+    "slug": "deces-enfant-6-ans-essai-therapie-genique-chine",
+    "statut": "rejete_sensible",
+    "date": "2026-07-28T05:32:40",
+    "sujet_sensible": true,
+    "raison": "L'article implique un mineur (la fillette de 6 ans) décédée lors d'un essai de thérapie génique.",
+    "article_type": "actu"
+  },
+  {
+    "slug": "fusion-trous-noirs-ondes-gravitationnelles",
+    "statut": "rejete_qualite",
+    "date": "2026-07-28T05:34:13",
+    "angle_insuffisant": true,
+    "raison": "aucune actualité identifiable ne justifie une publication maintenant",
+    "article_type": "actu"
+  },
+  {
+    "slug": "inserm-magazine-n69-nouvelles-addictions",
+    "statut": "rejete_qualite",
+    "date": "2026-07-28T05:34:45",
+    "angle_insuffisant": true,
+    "raison": "L'article ne présente pas d'événement précis daté ou datable avec une donnée chiffrée ou nommée qui lui est propre, mais plutôt un sujet général sur les addictions",
+    "article_type": "dossier_science"
+  },
+  {
+    "slug": "luigi-gubitosi-pdg-tim-fusion-poste-italiane",
+    "statut": "corrige_automatiquement",
+    "date": "2026-07-28T05:35:23",
+    "problemes_initiaux": 4,
+    "tentatives": 1,
+    "problemes_residuels_style": 4,
+    "rapport_initial": {
+      "conforme": false,
+      "sujet_sensible": false,
+      "sujet_sensible_raison": "",
+      "angle_insuffisant": false,
+      "angle_insuffisant_raison": "",
+      "nature_contenu": "actualite_factuelle",
+      "problemes": [
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "source_derivee_comptee_comme_primaire",
+          "phrase_exacte": "D'après Glamzn, cette opération vise à créer un géant national des infrastructures connectées, avec pour objectif de garantir la souveraineté numérique de l'Italie.",
+          "explication": "La source Glamzn n'est pas une source primaire, mais plutôt une analyse stratégique."
+        },
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "source_non_editoriale",
+          "phrase_exacte": "D'après Glamzn, cette opération vise à créer un géant national des infrastructures connectées, avec pour objectif de garantir la souveraineté numérique de l'Italie.",
+          "explication": "La source Glamzn n'est pas une source éditoriale traditionnelle, mais plutôt un blog d'analyse stratégique."
+        },
+        {
+          "bloc": 4,
+          "section": "contexte",
+          "type": "redondance",
+          "phrase_exacte": "La fusion entre TIM et Poste Italiane s'inscrit dans un contexte de consolidation du secteur des télécoms en Europe.",
+          "explication": "La phrase répète l'information déjà présente dans la section 'faits'."
+        },
+        {
+          "bloc": 4,
+          "section": "nuances",
+          "type": "jugement_de_valeur",
+          "phrase_exacte": "Freenews estime que cette opération pourrait avoir un impact négatif sur la concurrence, en créant un monopole de fait.",
+          "explication": "La phrase contient un jugement de valeur ('impact négatif') qui n'est pas neutre."
+        }
+      ]
+    },
+    "article_type": "dossier_portrait"
+  },
+  {
+    "slug": "ia-et-droit-openai",
+    "statut": "rejete_qualite",
+    "date": "2026-07-28T05:38:33",
+    "angle_insuffisant": true,
+    "raison": "L'article ne contient pas d'événement précis daté ou datable avec une donnée chiffrée ou nommée qui lui est propre dans la section 'faits'.",
+    "article_type": "actu"
+  },
+  {
+    "slug": "cxmt-levee-de-fonds-asie",
+    "statut": "corrige_automatiquement",
+    "date": "2026-07-28T05:39:58",
+    "problemes_initiaux": 3,
+    "tentatives": 1,
+    "problemes_residuels_style": 4,
+    "rapport_initial": {
+      "conforme": false,
+      "sujet_sensible": false,
+      "sujet_sensible_raison": "",
+      "angle_insuffisant": false,
+      "angle_insuffisant_raison": "",
+      "nature_contenu": "actualite_factuelle",
+      "problemes": [
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "source_non_editoriale",
+          "phrase_exacte": "Google indique que cette introduction en Bourse record permet de lever des milliards afin d'accélérer la production de puces DRAM ainsi que la recherche et le développement.",
+          "explication": "Google est utilisé comme source pour un fait qui n'est pas une caractéristique factuelle de son propre produit ou service, mais plutôt comme une source d'information générale."
+        },
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "source_derivee_comptee_comme_primaire",
+          "phrase_exacte": "Zonebourse précise que CXMT est le quatrième fabricant mondial de DRAM après Samsung Electronics, SK Hynix et Micron Technology.",
+          "explication": "Plusieurs sources (Zonebourse, Boursorama, etc.) pourraient être en train de recopier la même information sans apporter de nouvelles informations distinctes."
+        },
+        {
+          "bloc": 4,
+          "section": "contexte",
+          "type": "redondance",
+          "phrase_exacte": "Le secteur des semi-conducteurs est actuellement en pleine croissance, notamment en raison de la demande croissante en puces mémoire liées à l'intelligence artificielle.",
+          "explication": "Cette phrase répète l'idée déjà présente dans la section 'faits' sans apporter de nouveaux faits ou informations."
+        }
+      ]
+    },
+    "article_type": "dossier_science"
+  },
+  {
+    "slug": "fibre-excellence-liquidation-judiciaire-tarascon",
+    "statut": "rejete_sensible",
+    "date": "2026-07-28T05:40:52",
+    "sujet_sensible": true,
+    "raison": "L'article implique des salariés et une entreprise dans une affaire judiciaire en cours.",
+    "article_type": "actu"
+  },
+  {
+    "slug": "dinaw-mengestu-quitter-pen-america",
+    "statut": "rejete_sensible",
+    "date": "2026-07-28T05:42:47",
+    "sujet_sensible": true,
+    "raison": "L'article implique des débats houleux sur les boycotts ciblant les auteurs israéliens et la liberté d'expression, ce qui peut être considéré comme un sujet sensible.",
+    "article_type": "actu"
   }
 ]
