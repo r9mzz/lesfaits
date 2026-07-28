@@ -104,7 +104,6 @@ RSS_SOURCES = [
     # Le Figaro
     {"name": "Le Figaro Société",    "url": "https://www.lefigaro.fr/rss/figaro_societe.xml"},
     # Institutions françaises
-    {"name": "Vie Publique",         "url": "https://www.vie-publique.fr/rss.xml"},
     # Science internationale
     {"name": "Futura Sciences",      "url": "https://www.futura-sciences.com/rss/actualites.xml"},
     {"name": "CNRS Actualités",      "url": "https://lejournal.cnrs.fr/rss"},
@@ -113,7 +112,6 @@ RSS_SOURCES = [
     # Environnement
     {"name": "Reporterre",           "url": "https://reporterre.net/spip.php?page=backend"},
     # Sécurité sanitaire
-    {"name": "ANSES",                "url": "https://www.anses.fr/fr/flux-actualites.rss"},
     # ── Ajouts du 19/07 (Nahil : besoin de plus de matière) ──
     # fetch_rss ignore déjà silencieusement un flux mort (voir gestion 415/406
     # existante) — un flux qui ne répond pas ne casse rien, il rapporte juste
@@ -126,7 +124,7 @@ RSS_SOURCES = [
     # vérifiable depuis cet environnement (réseau restreint) — à confirmer
     # dans les logs du prochain run réel (GitHub Actions) : chercher
     # "[COLLECTE RSS]" et le nombre d'items par flux.
-    {"name": "Santé Publique France", "url": "https://www.santepubliquefrance.fr/rss"},
+    {"name": "Santé Publique France", "url": "https://www.santepubliquefrance.fr/rss/actualites.xml"},
     # ── Deuxième vague (19/07, suite) : couvrir les domaines déjà en liste
     # blanche primaire/secondaire mais qui n'avaient encore AUCUN flux RSS
     # configuré — le levier le plus direct pour plus de matière sans rien
@@ -144,7 +142,6 @@ RSS_SOURCES = [
     {"name": "Mediapart",            "url": "https://www.mediapart.fr/articles/feed"},
     {"name": "20 Minutes",           "url": "https://www.20minutes.fr/feeds/rss-une.xml"},
     # -- Institutions déjà primaires, RSS manquant --
-    {"name": "ADEME",                "url": "https://www.ademe.fr/rss/"},
     {"name": "Sénat",                "url": "https://www.senat.fr/themes/rss/therss4.rss"},
     # ── Sources ajoutées le 28/07 — rendement VÉRIFIÉ par check_feeds.py sur
     # le runner GitHub (8 articles chacune) avant ajout, contrairement à la

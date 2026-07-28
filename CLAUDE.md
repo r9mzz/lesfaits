@@ -160,9 +160,10 @@ de développement n'a pas d'accès réseau vers ces domaines, une URL ne peut do
 PAS y être validée. Le script teste aussi des URLs candidates avant tout
 rebranchement, et inspecte les flux qui répondent 200 avec 0 article.
 
-État mesuré le 28/07 (avant correction) : **24 sources sur 40 produisaient des
-articles**. La vague d'ajouts du 19/07 avait 13 flux morts sur 14, ajoutés sans
-test. Leçons :
+État mesuré le 28/07 : **24 sources sur 40** produisaient des articles
+(192 collectés) — la vague d'ajouts du 19/07 avait 13 flux morts sur 14,
+ajoutés sans test. Après réparation : **36 sources sur 36, 635 articles
+collectés**. Leçons :
 
 - Un **403** sur `.gouv.fr`, Les Échos, 20 Minutes ou Banque de France est un
   blocage WAF sur l'IP du runner GitHub, pas une mauvaise URL : changer
@@ -173,7 +174,14 @@ test. Leçons :
   les logs. D'où le rapport `[RENDEMENT]` affiché à chaque run.
 - Tout nouveau domaine doit être ajouté à `_DOMAINES_PRIMAIRES` ou
   `_DOMAINES_SECONDAIRES` — sinon il compte « tertiaire » et ne vaut rien pour
-  la règle ≥1 primaire OU ≥2 secondaires, quel que soit son sérieux.
+  la règle ≥1 primaire OU ≥2 secondaires, quel que soit son sérieux. Attention,
+  ces listes sont distinctes de `_SOURCE_DOMAINS` (qui sert au choix d'image et
+  aux droits voisins) : modifier l'une ne modifie pas l'autre.
+- Trois causes distinctes derrière un « 200 avec 0 article », que l'inspection
+  du contenu brut permet seule de départager : page HTML servie à la place du
+  flux (Vie Publique, ANSES — supprimées), flux RSS valide mais réellement vide
+  (ADEME — supprimée), ou format non reconnu par le parseur (The Conversation,
+  Atom — réparée côté code).
 
 ## Pièges connus
 
