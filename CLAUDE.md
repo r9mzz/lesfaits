@@ -256,6 +256,20 @@ collectés**. Leçons :
   détectée (chapeau « 1 000 milliards de yuans » ≈ 120 Md€ vs faits
   « 450 milliards d'euros ») → `incoherence_inter_sections` renforcé sur la
   conversion d'unités/devises et sur deux valeurs divergentes du même chiffre.
+- **Prise de position éditoriale** (constat 28/07 sur l'article Perenco/RDC —
+  « Les autorités congolaises doivent prendre des mesures pour réguler les
+  activités des entreprises pétrolières, comme le souligne Viralmag ») : le
+  journal ne dit JAMAIS ce qu'un acteur devrait faire. Attribuer une injonction
+  à une source ne la rend pas neutre — si une ONG réclame une mesure, l'écrire
+  comme SA demande. Garde-fou `prise_de_position` sur le chapeau et « Débats et
+  nuances » (5 % de déclenchement mesuré).
+- **Chapeau répété dans « Débats et nuances »** : `resume_repete_corps` ne
+  compare le chapeau qu'à « Les faits ». L'étendre à toutes les sections a été
+  TESTÉ puis écarté (28/07) — le taux passait de 7 % à 41-95 % selon la
+  métrique, car un chapeau partage forcément des groupes de mots avec le corps
+  qu'il résume (noms propres, termes techniques). Aucun seuil ne sépare le
+  résumé légitime du recopiage ; ce défaut relève du contrôle LLM
+  (`redondance`), pas d'un garde-fou déterministe.
 - **Précision > rappel sur les garde-fous à relance** : le quota Groq est la
   ressource rare et chaque garde-fou déclenche une relance corrective. Motif
   « il est important de noter/souligner que… » testé puis ÉCARTÉ de

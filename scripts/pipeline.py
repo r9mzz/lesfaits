@@ -1724,6 +1724,44 @@ def incoherence_temporelle(art: dict) -> list[str]:
     ]
 
 
+# ── Neutralité — prise de position éditoriale ────────────────────────────────
+# Le chapeau et « Débats et nuances » exposent des faits, des limites et des
+# incertitudes (règle 2), jamais ce qu'un acteur DOIT faire. Constat 28/07 sur
+# l'article Perenco/RDC : « Les autorités congolaises doivent prendre des
+# mesures pour réguler les activités des entreprises pétrolières et protéger
+# l'environnement, comme le souligne Viralmag » — une injonction politique,
+# adossée qui plus est à une source tertiaire. Attribuer une injonction à une
+# source ne la rend pas neutre : si une ONG réclame une mesure, il faut
+# l'écrire comme SA demande (« HRW demande que… »), jamais comme une nécessité
+# énoncée par le journal. Taux mesuré sur les 150 articles publiés : 5 %, et
+# les 7 cas relevés sont tous de véritables prises de position.
+_PRISE_DE_POSITION_RE = re.compile(
+    r"\b(?:les autorit[ée]s(?:\s+\w+)?|le gouvernement|l['’][ÉEe]tat|les pouvoirs publics|"
+    r"les entreprises|la communaut[ée] internationale|les d[ée]cideurs|les industriels|"
+    r"les institutions)\s+(?:\w+\s+){0,3}?doi(?:t|vent)\b"
+    r"|\bil est (?:urgent|imp[ée]ratif) (?:de|d['’]|que)\b"
+    r"|n[ée]cessit(?:e|ant) une (?:action|r[ée]ponse|intervention) (?:urgente|imm[ée]diate)"
+    r"|\bdoi(?:t|vent) (?:prendre des mesures|agir|intervenir|r[ée]guler|l[ée]gif[ée]rer)\b",
+    re.IGNORECASE,
+)
+
+
+def prise_de_position(art: dict) -> list[str]:
+    """Injonctions (« les autorités doivent… ») dans le chapeau ou « Débats et
+    nuances ». Défaut corrigeable : relance corrective combinée."""
+    resume = art.get("resume")
+    if isinstance(resume, list):
+        resume = " ".join(str(x) for x in resume)
+    textes = [str(resume or ""), str((art.get("corps", {}) or {}).get("nuances", "") or "")]
+    trouvees = []
+    for texte in textes:
+        for m in _PRISE_DE_POSITION_RE.finditer(texte):
+            extrait = texte[max(0, m.start() - 40):m.end() + 60].strip()
+            if extrait not in trouvees:
+                trouvees.append(extrait)
+    return trouvees
+
+
 def sources_non_fusionnees(art: dict) -> list[str]:
     """Règle 10 : détecte l'empilement « une phrase = une source » — plusieurs
     phrases consécutives attribuant chacune à une source DIFFÉRENTE, au lieu
@@ -1827,6 +1865,9 @@ _CLICHES_IA_RE = re.compile(
     # Remplissage méta constaté sur l'article CXMT (28/07) : des phrases qui
     # annoncent qu'il faudrait donner du contexte… sans en donner aucun.
     r"pour approfondir le contexte|"
+    r"les (?:faits|informations) pr[ée]sent[ée]s dans (?:ce|cet)|"
+    r"refl[èe]tent la situation actuelle|"
+    r"sont bas[ée]s sur les informations disponibles|"
     r"les facteurs cl[ée]s qui influencent|"
     r"les tendances du march[ée] et les facteurs|"
     r"joue un r[ôo]le (?:cl[ée]|essentiel|important) dans|"
@@ -2418,6 +2459,7 @@ def generate(content: str, category_hint: str, extra_sources: list[dict] | None 
              nuances_feedback: list[str] | None = None,
              prospectif_feedback: list[str] | None = None,
              fusion_feedback: list[str] | None = None,
+             position_feedback: list[str] | None = None,
              temporel_feedback: list[str] | None = None,
              article_type: str = "actu",
              previous_article: dict | None = None) -> dict:
@@ -2437,7 +2479,7 @@ def generate(content: str, category_hint: str, extra_sources: list[dict] | None 
     # Renvoyer les CONTENU complets à chaque relance (jusqu'à 4 appels par
     # article) multipliait le coût par ~4 et épuisait le quota Groq quotidien
     # après 2-3 articles à peine.
-    is_retry = bool(retry_feedback or repetition_feedback or intra_feedback or selon_feedback or expand_feedback or titre_feedback or cliches_feedback or intro_feedback or nuances_feedback or prospectif_feedback or fusion_feedback or temporel_feedback)
+    is_retry = bool(retry_feedback or repetition_feedback or intra_feedback or selon_feedback or expand_feedback or titre_feedback or cliches_feedback or intro_feedback or nuances_feedback or prospectif_feedback or fusion_feedback or temporel_feedback or position_feedback)
     # La relance "expand" a besoin de matière source (le problème est que
     # l'article n'a pas assez puisé dedans), mais PAS des extraits intégraux :
     # run du 18/07 matin, 2 sujets perdus en « réponse tronquée » parce que le
@@ -2624,6 +2666,19 @@ def generate(content: str, category_hint: str, extra_sources: list[dict] | None 
             "Une source ne mérite une phrase à elle seule que si elle apporte une "
             "information DIFFÉRENTE (un chiffre, une date, un acteur que les autres "
             "ne donnent pas). Supprime les phrases qui n'ajoutent rien."
+        )
+
+    if position_feedback:
+        user_msg += (
+            "\n\nCORRECTION OBLIGATOIRE (neutralité) — ta précédente réponse prenait "
+            "position au lieu de rapporter : " + " ; ".join(position_feedback[:3]) + ". "
+            "Le journal ne dit JAMAIS ce qu'un gouvernement, une institution ou une "
+            "entreprise devrait faire. Si une source réclame une mesure, écris-le comme "
+            "SA demande — « Human Rights Watch demande au gouvernement de publier les "
+            "résultats de l'audit » — jamais comme une nécessité énoncée par l'article "
+            "(« les autorités doivent… », « il est urgent de… »). Dans « Débats et "
+            "nuances », remplace ces injonctions par de vraies limites : ce qui reste "
+            "inconnu, contesté ou non établi."
         )
 
     if temporel_feedback:
@@ -5540,7 +5595,8 @@ def generer_article(item: dict, dry_run: bool, published: set, new_pub: set, dat
         prospectif  = affirmation_non_demontree(art)
         fusion_pb   = sources_non_fusionnees(art)
         temporel_pb = incoherence_temporelle(art)
-        if fantomes or repetitions or intra or selon or titre_pb or cliches or intro_pb or nuances_pb or prospectif or fusion_pb or temporel_pb:
+        position_pb = prise_de_position(art)
+        if fantomes or repetitions or intra or selon or titre_pb or cliches or intro_pb or nuances_pb or prospectif or fusion_pb or temporel_pb or position_pb:
             details = []
             if fantomes:
                 details.append(f"{len(fantomes)} attribution(s) hors sources")
@@ -5564,6 +5620,8 @@ def generer_article(item: dict, dry_run: bool, published: set, new_pub: set, dat
                 details.append(f"{len(fusion_pb)} empilement(s) une phrase = une source")
             if temporel_pb:
                 details.append("titre au futur pour un événement déjà survenu")
+            if position_pb:
+                details.append(f"{len(position_pb)} prise(s) de position (neutralité)")
             print(f"     [GARDE] {' + '.join(details)} — relance corrective unique…")
             art = generate(content, cat, extra_sources=extra, rss_url=item.get("url"),
                            retry_feedback=fantomes or None,
@@ -5577,6 +5635,7 @@ def generer_article(item: dict, dry_run: bool, published: set, new_pub: set, dat
                            prospectif_feedback=prospectif or None,
                            fusion_feedback=fusion_pb or None,
                            temporel_feedback=temporel_pb or None,
+                           position_feedback=position_pb or None,
                            article_type=article_type,
                            previous_article=art)
             if not isinstance(art, dict):
@@ -5620,6 +5679,8 @@ def generer_article(item: dict, dry_run: bool, published: set, new_pub: set, dat
                 print(f"     [AVERTISSEMENT] Sources toujours empilées une phrase par source après relance")
             if incoherence_temporelle(art):
                 print(f"     [AVERTISSEMENT] Titre toujours au futur pour un événement déjà survenu après relance")
+            if prise_de_position(art):
+                print(f"     [AVERTISSEMENT] Prise de position persistante après relance")
 
         # ── Garde-fou Dossier Science : formulations assertives interdites ─────
         if article_type == "dossier_science":
