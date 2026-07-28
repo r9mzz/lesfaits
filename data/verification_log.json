@@ -5611,5 +5611,195 @@
     "sujet_sensible": true,
     "raison": "L'article implique des débats houleux sur les boycotts ciblant les auteurs israéliens et la liberté d'expression, ce qui peut être considéré comme un sujet sensible.",
     "article_type": "actu"
+  },
+  {
+    "slug": "perenco-accusee-de-pollution-en-rdc",
+    "statut": "corrige_automatiquement",
+    "date": "2026-07-28T15:00:20",
+    "problemes_initiaux": 4,
+    "tentatives": 1,
+    "problemes_residuels_style": 5,
+    "rapport_initial": {
+      "conforme": false,
+      "sujet_sensible": false,
+      "sujet_sensible_raison": "",
+      "angle_insuffisant": false,
+      "angle_insuffisant_raison": "",
+      "nature_contenu": "actualite_factuelle",
+      "problemes": [
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "source_derivee_comptee_comme_primaire",
+          "phrase_exacte": "Selon RFI, 7sur7 et Connaissancedesenergies, Human Rights Watch a publié un rapport dénonçant les activités de Perenco en République démocratique du Congo",
+          "explication": "Plusieurs sources listées semblent recopier la même information sans apporter d'informations distinctes, ce qui pourrait les rendre dérivées et non primaires."
+        },
+        {
+          "bloc": 4,
+          "section": "contexte",
+          "type": "redondance",
+          "phrase_exacte": "La République démocratique du Congo est l'un des plus grands producteurs de pétrole en Afrique subsaharienne, selon la Direction générale du Trésor.",
+          "explication": "Cette phrase répète une information générale qui n'apporte pas de valeur ajoutée spécifique au sujet traité dans l'article."
+        },
+        {
+          "bloc": 4,
+          "section": "nuances",
+          "type": "jugement_de_valeur",
+          "phrase_exacte": "Il est important de noter que les faits présentés dans ce rapport sont basés sur les informations disponibles et peuvent être sujets à des mises à jour ou des corrections, indique Sciences et Avenir.",
+          "explication": "Cette phrase contient un jugement de valeur en soulignant l'importance de considérer les informations disponibles, ce qui pourrait être reformulé de manière plus neutre."
+        },
+        {
+          "bloc": 2,
+          "section": "sources",
+          "type": "compteur_incoherent",
+          "phrase_exacte": "nb_sources: 9",
+          "explication": "Le nombre de sources réellement utilisées dans l'article pourrait être inférieur à 9 si certaines sources sont dérivées ou ne fournissent pas d'informations distinctes."
+        }
+      ]
+    },
+    "article_type": "actu"
+  },
+  {
+    "slug": "betelgeuse-etoile-compagnon",
+    "statut": "rejete_qualite",
+    "date": "2026-07-28T15:00:59",
+    "angle_insuffisant": true,
+    "raison": "aucune actualité identifiable ne justifie une publication maintenant",
+    "article_type": "dossier_science"
+  },
+  {
+    "slug": "lanceurs-d-alerte-silencieux",
+    "statut": "corrige_automatiquement",
+    "date": "2026-07-28T15:02:25",
+    "problemes_initiaux": 5,
+    "tentatives": 1,
+    "problemes_residuels_style": 3,
+    "rapport_initial": {
+      "conforme": false,
+      "sujet_sensible": false,
+      "sujet_sensible_raison": "",
+      "angle_insuffisant": false,
+      "angle_insuffisant_raison": "",
+      "nature_contenu": "actualite_factuelle",
+      "problemes": [
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "source_non_editoriale",
+          "phrase_exacte": "Wikipédia définit un lanceur d'alerte comme toute personne, groupe ou institution qui adresse un signal d'alarme en espérant enclencher un processus de régulation ou de mobilisation collective.",
+          "explication": "Wikipédia est une source non-journalistique/non-institutionnelle utilisée comme autorité factuelle."
+        },
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "source_derivee_comptee_comme_primaire",
+          "phrase_exacte": "Gouv indique que la loi sur le lancement d'alerte impose à toutes les organisations de plus de 50 salariés de disposer d'un canal interne de lancement d'alerte.",
+          "explication": "La source Gouv est une source primaire, mais il n'est pas clair si les autres sources sont indépendantes ou non."
+        },
+        {
+          "bloc": 3,
+          "section": "nuances",
+          "type": "cadrage_emprunte",
+          "phrase_exacte": "Selon Revue Silence, l'expression « lanceur d'alerte » a vu le jour en France à la fin des années 1990 pour distinguer le terme anglais « whistleblower » et conférer une dimension particulière au signalement de risques et de dangers.",
+          "explication": "Le jugement de valeur de la Revue Silence est présenté comme un fait neutre."
+        },
+        {
+          "bloc": 4,
+          "section": "contexte",
+          "type": "redondance",
+          "phrase_exacte": "Le contexte est que les lanceurs d'alerte sont souvent victimes d'isolement et de répression.",
+          "explication": "La phrase répète une idée déjà présente dans les faits."
+        },
+        {
+          "bloc": 4,
+          "section": "nuances",
+          "type": "jugement_de_valeur",
+          "phrase_exacte": "Les employés doivent être convaincus que le signalement d'irrégularités donnera lieu à des mesures concrètes et qu'ils ne subiront aucune conséquence négative.",
+          "explication": "La phrase contient un jugement de valeur sur les employés."
+        }
+      ]
+    },
+    "article_type": "actu"
+  },
+  {
+    "slug": "deficit-hopitaux-publics-2-3-milliards-euros-2025",
+    "statut": "rejete_qualite",
+    "date": "2026-07-28T15:03:39",
+    "problemes_initiaux": 5,
+    "tentatives": 2,
+    "problemes_restants": 4,
+    "bloquants_restants": 1,
+    "article_type": "actu"
+  },
+  {
+    "slug": "france-etats-unis-desaccord-onu-droits-homme",
+    "statut": "corrige_automatiquement",
+    "date": "2026-07-28T15:05:50",
+    "problemes_initiaux": 6,
+    "tentatives": 1,
+    "problemes_residuels_style": 3,
+    "rapport_initial": {
+      "conforme": false,
+      "sujet_sensible": false,
+      "sujet_sensible_raison": "",
+      "angle_insuffisant": false,
+      "angle_insuffisant_raison": "",
+      "nature_contenu": "actualite_factuelle",
+      "problemes": [
+        {
+          "bloc": 2,
+          "section": "contexte",
+          "type": "source_non_editoriale",
+          "phrase_exacte": "Le Méridien rapporte que l'Europe est attachée au multilatéralisme, mais que les Etats-Unis cherchent à affaiblir et subordonner l'Europe.",
+          "explication": "La source Le Méridien n'a pas de date et son contenu n'est pas vérifiable."
+        },
+        {
+          "bloc": 2,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "Capital note que les Etats-Unis et la France ont des approches différentes de la politique étrangère et des relations internationales.",
+          "explication": "L'article de Capital est daté de 2016 et ne concerne pas les événements actuels."
+        },
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "source_derivee_comptee_comme_primaire",
+          "phrase_exacte": "Selon France Info, les Etats-Unis se sont opposés vendredi dernier à la reconduction de Volker Turk à la tête du Haut-commissariat aux droits de l'Homme.",
+          "explication": "Plusieurs sources rapportent la même information sans apporter de détails supplémentaires."
+        },
+        {
+          "bloc": 4,
+          "section": "contexte",
+          "type": "redondance",
+          "phrase_exacte": "Les tensions entre la France et les Etats-Unis sur les droits de l'homme ne sont pas nouvelles.",
+          "explication": "L'information est déjà présente dans le résumé et ne nécessite pas d'être répétée."
+        },
+        {
+          "bloc": 4,
+          "section": "nuances",
+          "type": "jugement_de_valeur",
+          "phrase_exacte": "Il est important de noter que les positions des deux pays sont complexes et multifacettes, et qu'il est difficile de réduire les tensions à une simple question de droits de l'homme.",
+          "explication": "La phrase contient un jugement de valeur et non un fait objectif."
+        },
+        {
+          "bloc": 2,
+          "section": "sources",
+          "type": "compteur_incoherent",
+          "phrase_exacte": "nb_sources: 8",
+          "explication": "Le nombre de sources réellement utilisées est inférieur à 8, certaines sources étant des doublons ou non pertinentes."
+        }
+      ]
+    },
+    "article_type": "actu"
+  },
+  {
+    "slug": "inserm-additifs-alimentaires-risque-sante",
+    "statut": "rejete_qualite",
+    "date": "2026-07-28T15:09:49",
+    "etape": "correction",
+    "tentative": 2,
+    "erreur": "Quota Groq journalier épuisé sur toutes les clés (vérification)",
+    "bloquants_connus": 1,
+    "article_type": "actu"
   }
 ]
