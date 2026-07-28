@@ -42,9 +42,11 @@ de perdre le sujet). Site statique déployé sur GitHub Pages via le repo
   (constat 28/07, 5-6 jours consécutifs, en `workflow_dispatch` sur le compte
   de Nahil). Il n'est ni dans ce dépôt ni dans les Routines Claude — donc
   impossible à couper depuis le code. Ses effets sont neutralisés par deux
-  garde-fous (`scripts/dernier_run.py`) : `pipeline.yml` ignore un run
-  démarrant moins de 2 h après le précédent (le quota Groq est la ressource
-  rare, et ces runs rapprochés n'ont jamais rien publié) ; `deploy.yml` ignore
+  garde-fous (`scripts/dernier_run.py`) : `pipeline.yml` ignore un
+  `workflow_dispatch` démarrant moins de 2 h après le précédent — les deux
+  crons du dépôt (matin + après-midi) ne sont JAMAIS filtrés, sinon un cron
+  retardé par GitHub tombant après un déclenchement externe serait bloqué par
+  lui et on perdrait le vrai run ; `deploy.yml` ignore
   un déploiement dont le SHA est déjà en ligne (critère de CONTENU, jamais de
   temps : ne jamais bloquer un déploiement qui a du neuf). Option `forcer`
   dans les deux cas. **À terme, il faut retrouver et couper cet automate.**

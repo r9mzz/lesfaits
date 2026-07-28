@@ -75,8 +75,20 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           FORCER: ${{ inputs.forcer }}
+          EVENEMENT: ${{ github.event_name }}
         run: |
           FENETRE_MIN=120
+          # Les deux crons du dépôt (matin + après-midi) passent TOUJOURS.
+          # Sans cette exemption, un cron retardé par GitHub (retards de 1 à
+          # 4 h courants) qui tomberait juste après un déclenchement externe
+          # serait bloqué par lui — on perdrait le vrai run de l'après-midi à
+          # cause d'un run qui, lui, n'a rien fait. Seuls les déclenchements
+          # par API (workflow_dispatch) sont filtrés.
+          if [ "$EVENEMENT" != "workflow_dispatch" ]; then
+            echo "Run planifié ($EVENEMENT) — jamais filtré."
+            echo "passer=false" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
           if [ "$FORCER" = "true" ]; then
             echo "Forçage demandé — garde-fou ignoré."
             echo "passer=false" >> "$GITHUB_OUTPUT"
