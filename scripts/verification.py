@@ -97,8 +97,10 @@ Pour CHAQUE problème trouvé, cite la phrase exacte concernée (mot pour mot, c
 
 INDÉPENDAMMENT des blocs ci-dessus, évalue aussi si le SUJET lui-même exige une relecture humaine avant publication, quel que soit le nombre de problèmes trouvés — un article peut être parfaitement conforme sur les blocs 1-5 et rester un mauvais candidat à la publication 100% automatique si son sujet le justifie. Indique "sujet_sensible": true si l'article :
 - implique un mineur (victime ou mis en cause) d'une manière ou d'une autre, même sans l'identifier nommément
-- porte sur une affaire judiciaire ou pénale en cours (non définitivement jugée)
+- porte sur une affaire judiciaire ou PÉNALE en cours visant des PERSONNES (mise en examen, procès, enquête criminelle, garde à vue, plainte contre une personne nommée), non définitivement jugée
 - contient une critique ou une affirmation négative visant nommément une personne identifiée (responsable politique, particulier, entreprise dirigée par une personne nommée)
+
+NE classe PAS "sujet_sensible": true au seul motif qu'un sujet est politique, réglementaire, diplomatique ou économique. Un débat public normal — décision d'une institution (Commission européenne, gouvernement, autorité de régulation), contentieux administratif ou commercial entre organisations, avis d'une juridiction sur une norme, négociation internationale, désaccord entre États ou entre entreprises — n'est PAS un sujet sensible tant qu'aucune personne physique n'est mise en cause pénalement et qu'aucun mineur n'est impliqué. Ces sujets doivent être traités factuellement, avec les positions des parties attribuées, et non écartés. Le critère est la mise en cause de PERSONNES, jamais la sensibilité politique du thème.
 
 ÉGALEMENT INDÉPENDANT des blocs 1-5 : évalue si le sujet mérite réellement un article, avant même de juger sa rédaction. Indique "angle_insuffisant": true si, ET SEULEMENT SI :
 - aucune actualité identifiable ne justifie une publication maintenant (l'article ressemble à une fiche pédagogique générale sans fait déclencheur daté) ;

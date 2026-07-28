@@ -130,6 +130,28 @@ répare pas en réécrivant le texte).
 
 ## Pièges connus
 
+- **Catégorie calculée sur l'extrait RSS et non sur l'article** (constat
+  28/07 — Huawei/réseaux télécoms classé « science », CAN féminine classée
+  « science ») : `detect_category` tournait sur le teaser RSS tronqué, qui
+  ne contient presque aucun mot-clé propre au sujet ; le lexique « science »
+  (plein de mots courants — « étude », « chercheurs », « scientifique »)
+  raflait alors la mise, d'autant qu'il est 2e dans `_CAT_PRIORITE` et gagne
+  les égalités. Trois correctifs : catégorie recalculée sur le TEXTE GÉNÉRÉ
+  (titre + chapeau + faits + contexte), `_MOTS_FAIBLES` (mots peu
+  discriminants comptés seulement dans le titre), et `SCORE_CATEGORIE_MIN`
+  (en dessous de 2, on assume « societe » plutôt qu'un faux classement
+  spécifique). Ne jamais reclasser depuis le seul extrait RSS.
+- **Empilement « une phrase = une source »** (constat 28/07 sur l'article
+  Huawei — 7 sources en 7 phrases quasi interchangeables dans « Les faits »,
+  vu par le contrôle LLM mais classé « défaut de style non bloquant ») :
+  `attributions_trop_repetitives` ne compte QUE les formes « Selon /
+  D'après » — or la règle 4 encourage justement à varier les formes, donc un
+  empilement en « indique X », « X rapporte », « X note » passait entre les
+  mailles des deux garde-fous. Garde-fou dédié `sources_non_fusionnees`
+  (règle 10) : ≥4 phrases consécutives attribuées chacune à une source
+  DIFFÉRENTE → relance corrective combinée. Ne pas fusionner ce garde-fou
+  avec celui de la règle 4, ils sanctionnent deux défauts opposés (répéter
+  une forme / empiler des sources).
 - **Listicles commerciaux déguisés** (constat 26/07 — « Lidl : 5 appareils de
   cuisine à moins de 10 euros » publié, lu comme une pub) : `_COMMERCE_RE`
   élargi à « (à) moins de X€ » et aux enseignes discount (Lidl, Aldi, Action)

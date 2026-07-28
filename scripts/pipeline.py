@@ -770,6 +770,12 @@ CATEGORIES_MAP = {
         "bitcoin", "crypto", "blockchain", "informatique", "écran ", "batterie ",
         "centre de données", "centres de données", "data center", "cybersécurité",
         "logiciel espion", "surveillance numérique",
+        # Télécoms : angle mort du lexique jusqu'au 28/07 — un article sur le
+        # bannissement de Huawei des réseaux télécoms européens ne déclenchait
+        # AUCUN mot-clé "tech" et retombait sur les mots génériques du lexique
+        # "science" (« étude », « chercheurs »…).
+        "télécom", "opérateur mobile", "huawei", "zte", "ericsson", "nokia",
+        "fibre optique", "équipementier",
     ],
     "economie": [
         "économie", "inflation", " pib ", "croissance", "chômage", "emploi",
@@ -814,23 +820,57 @@ QUOTA_CATEGORIE = 3
 QUOTA_PAR_CATEGORIE = {"societe": 3}
 
 
-def detect_category(text: str) -> str:
-    """Classement déterministe par lexique pondéré : un mot-clé trouvé dans le
-    titre (≈120 premiers caractères) pèse 3, dans le corps 1. En cas d'égalité,
-    _CAT_PRIORITE départage du plus spécifique au plus générique."""
+# Mots-clés à FAIBLE pouvoir discriminant : ils apparaissent dans le corps de
+# presque n'importe quel article ("une étude montre…", "les chercheurs…",
+# "l'entreprise…", "la société…"). Comptés 3 points au même titre qu'un terme
+# décisif comme "exoplanète", ils faisaient gagner leur catégorie par simple
+# accumulation dans le corps — et "science", 2e de _CAT_PRIORITE, remportait
+# en prime toutes les égalités. D'où « Transport aérien / détroit d'Ormuz »
+# classé science (28/07). Ils ne comptent donc QUE dans le titre, et pour
+# 2 points au lieu de 3 : un titre reste un signal fiable, pas le corps.
+_MOTS_FAIBLES = {
+    "étude ", "chercheurs", "scientifique", "expérience ", "laboratoire",
+    "évolution ", "cellule", "physique", "chimie", "biologie", "espèce ",
+    "entreprise", "société", "milliard", "commerce", "application",
+    "croissance", "expérience", "traitement",
+}
+
+
+def _scores_categories(text: str) -> dict:
+    """Score lexical brut par catégorie : un mot-clé trouvé dans le titre
+    (≈120 premiers caractères) pèse 3, dans le corps 1. Les mots-clés à faible
+    pouvoir discriminant (_MOTS_FAIBLES) ne comptent que dans le titre, pour 2."""
     text_l = text.lower()
     head   = text_l[:120]
     scores = {}
     for cat, kws in CATEGORIES_MAP.items():
         s = 0
         for kw in kws:
+            faible = kw in _MOTS_FAIBLES
             if kw in head:
-                s += 3
-            elif kw in text_l:
+                s += 2 if faible else 3
+            elif not faible and kw in text_l:
                 s += 1
         scores[cat] = s
+    return scores
+
+
+# Score minimum pour qu'un classement soit jugé fiable. À 1 point — un seul
+# mot-clé croisé au détour du corps — c'est du bruit, et l'égalité entre deux
+# catégories à 1 point était tranchée par _CAT_PRIORITE, donc au profit de
+# "science" (2e de la liste) : « Transport aérien / détroit d'Ormuz » a été
+# classé science sur le seul mot « spatial » croisé dans le corps, à égalité
+# avec « industrie » pour économie. En dessous du seuil, on assume la rubrique
+# fourre-tout plutôt qu'un faux classement spécifique.
+SCORE_CATEGORIE_MIN = 2
+
+
+def detect_category(text: str) -> str:
+    """Classement déterministe par lexique pondéré. En cas d'égalité,
+    _CAT_PRIORITE départage du plus spécifique au plus générique."""
+    scores = _scores_categories(text)
     best = max(_CAT_PRIORITE, key=lambda c: scores[c])
-    return best if scores[best] > 0 else "societe"
+    return best if scores[best] >= SCORE_CATEGORIE_MIN else "societe"
 
 
 def _age_heures(date_str: str) -> float:
@@ -1540,6 +1580,89 @@ def attributions_trop_repetitives(art: dict) -> list[str]:
     return feedback
 
 
+# ── Règle 10 — fusion des sources obligatoire ────────────────────────────────
+# attributions_trop_repetitives ne compte QUE les formes « Selon / D'après »
+# (règle 4, qui encourage justement à VARIER les formes). Un article qui empile
+# une phrase par source en variant le verbe passe donc entre les mailles des
+# deux garde-fous : « …, indique Le Monde. … selon Le Figaro. RFI rapporte
+# que… Numerama note que… BFM TV indique que… 01net précise que…
+# Universfreebox souligne que… » — constat 28/07 sur l'article Huawei, où la
+# section « Les faits » alignait 7 sources en 7 phrases quasi interchangeables
+# pour un même fait, exactement ce que la règle 10 interdit. Le contrôle LLM
+# l'avait vu mais classé « défaut de style non bloquant ».
+_ATTRIB_VERBES = (
+    r"indique|indiquent|rapporte|rapportent|note|notent|précise|précisent|"
+    r"souligne|soulignent|estime|estiment|explique|expliquent|affirme|"
+    r"affirment|ajoute|ajoutent|relève|relèvent|observe|observent|"
+    r"constate|constatent|détaille|détaillent|confirme|confirment|"
+    r"écrit|écrivent|rappelle|rappellent"
+)
+# Un nom de source : 1 à 3 mots commençant par une majuscule ou un chiffre
+# (« Le Monde », « BFM TV », « 01net », « Universfreebox »).
+_NOM_SOURCE = r"(?:[A-ZÀ-ÖØ-Þ0-9][\wÀ-ÖØ-öø-ÿ’'\-]*)(?:\s+[A-ZÀ-ÖØ-Þ0-9][\wÀ-ÖØ-öø-ÿ’'\-]*){0,2}"
+_ATTRIB_TOUTE_FORME_RE = re.compile(
+    rf"(?:[Ss]elon|[Dd]['’]après)\s+({_NOM_SOURCE})"
+    rf"|({_NOM_SOURCE})\s+(?:{_ATTRIB_VERBES})\b"
+    rf"|(?:{_ATTRIB_VERBES})\s+({_NOM_SOURCE})"
+)
+# Mots qui ouvrent une phrase et seraient pris pour un nom de source.
+_FAUX_NOMS = {
+    "le", "la", "les", "ce", "cette", "ces", "il", "elle", "ils", "elles",
+    "cela", "en", "de", "des", "du", "un", "une", "on", "leur", "leurs",
+    "son", "sa", "ses", "cet", "par", "pour", "dans", "mais", "or", "et",
+    "l", "d", "qui", "que", "dont", "où", "ainsi", "enfin", "outre",
+}
+# Au-delà de ce nombre de phrases consécutives portant chacune une source
+# DIFFÉRENTE, on considère l'empilement caractérisé.
+MAX_SOURCES_EMPILEES = 4
+
+
+def _sources_attribuees(phrase: str) -> set:
+    """Noms de sources auxquels une phrase attribue explicitement un fait,
+    toutes formes confondues (« selon X », « X indique », « indique X »)."""
+    noms = set()
+    for m in _ATTRIB_TOUTE_FORME_RE.finditer(phrase):
+        nom = (m.group(1) or m.group(2) or m.group(3) or "").strip()
+        if not nom:
+            continue
+        premier = nom.split()[0].lower().strip("’'")
+        if premier in _FAUX_NOMS or len(nom) < 2:
+            continue
+        noms.add(nom)
+    return noms
+
+
+def sources_non_fusionnees(art: dict) -> list[str]:
+    """Règle 10 : détecte l'empilement « une phrase = une source » — plusieurs
+    phrases consécutives attribuant chacune à une source DIFFÉRENTE, au lieu
+    d'une phrase de synthèse à attribution groupée. Défaut corrigeable :
+    déclenche la relance corrective combinée."""
+    corps = art.get("corps", {}) or {}
+    feedback = []
+    for section in ("faits", "contexte", "nuances"):
+        texte = str(corps.get(section, "") or "")
+        phrases = [p for p in re.split(r"(?<=[.!?])\s+", texte) if p.strip()]
+        serie_noms: set = set()
+        serie_len = 0
+        for ph in phrases:
+            noms = _sources_attribuees(ph)
+            if noms:
+                serie_len += 1
+                serie_noms |= noms
+            else:
+                serie_len = 0
+                serie_noms = set()
+            if serie_len >= MAX_SOURCES_EMPILEES and len(serie_noms) >= MAX_SOURCES_EMPILEES:
+                feedback.append(
+                    f"section « {section} » : {serie_len} phrases consécutives "
+                    f"attribuées chacune à une source différente "
+                    f"({', '.join(sorted(serie_noms)[:6])}) — fusionner celles "
+                    f"qui rapportent le même fait en UNE phrase à attribution groupée"
+                )
+                break
+    return feedback
+
+
 # Titres sensationnalistes/tabloïd repérés en audit (« Patient bizarre aux
 # urgences… », « La possibilité de couper un atome au couteau ? ») — le
 # modèle paraphrase parfois trop fidèlement un titre RSS racoleur au lieu de
@@ -2085,6 +2208,7 @@ def generate(content: str, category_hint: str, extra_sources: list[dict] | None 
              intro_feedback: list[str] | None = None,
              nuances_feedback: list[str] | None = None,
              prospectif_feedback: list[str] | None = None,
+             fusion_feedback: list[str] | None = None,
              article_type: str = "actu",
              previous_article: dict | None = None) -> dict:
 
@@ -2103,7 +2227,7 @@ def generate(content: str, category_hint: str, extra_sources: list[dict] | None 
     # Renvoyer les CONTENU complets à chaque relance (jusqu'à 4 appels par
     # article) multipliait le coût par ~4 et épuisait le quota Groq quotidien
     # après 2-3 articles à peine.
-    is_retry = bool(retry_feedback or repetition_feedback or intra_feedback or selon_feedback or expand_feedback or titre_feedback or cliches_feedback or intro_feedback or nuances_feedback or prospectif_feedback)
+    is_retry = bool(retry_feedback or repetition_feedback or intra_feedback or selon_feedback or expand_feedback or titre_feedback or cliches_feedback or intro_feedback or nuances_feedback or prospectif_feedback or fusion_feedback)
     # La relance "expand" a besoin de matière source (le problème est que
     # l'article n'a pas assez puisé dedans), mais PAS des extraits intégraux :
     # run du 18/07 matin, 2 sujets perdus en « réponse tronquée » parce que le
@@ -2277,6 +2401,19 @@ def generate(content: str, category_hint: str, extra_sources: list[dict] | None 
             f"Réduis à {MAX_ATTRIBUTIONS_SELON} maximum : regroupe les faits d'une même source sous une seule "
             "attribution et varie les formes (« …, indique X », « X rapporte que… »). "
             "N'attribue JAMAIS un fait à une source absente de la liste pour autant."
+        )
+
+    if fusion_feedback:
+        user_msg += (
+            "\n\nCORRECTION OBLIGATOIRE (règle 10 — fusion des sources) — ta précédente "
+            "réponse empilait une phrase par source au lieu de les fusionner : "
+            + " ; ".join(fusion_feedback[:3]) + ". "
+            "Quand PLUSIEURS sources rapportent la MÊME information, écris UNE seule "
+            "phrase avec attribution groupée — « Selon Le Monde, RFI et BFM TV, [fait] » "
+            "— au lieu d'une phrase par source qui répète le fait en le reformulant. "
+            "Une source ne mérite une phrase à elle seule que si elle apporte une "
+            "information DIFFÉRENTE (un chiffre, une date, un acteur que les autres "
+            "ne donnent pas). Supprime les phrases qui n'ajoutent rien."
         )
 
     if expand_feedback:
@@ -5130,7 +5267,8 @@ def generer_article(item: dict, dry_run: bool, published: set, new_pub: set, dat
         intro_pb    = intro_generique(art)
         nuances_pb  = nuances_vagues(art)
         prospectif  = affirmation_non_demontree(art)
-        if fantomes or repetitions or intra or selon or titre_pb or cliches or intro_pb or nuances_pb or prospectif:
+        fusion_pb   = sources_non_fusionnees(art)
+        if fantomes or repetitions or intra or selon or titre_pb or cliches or intro_pb or nuances_pb or prospectif or fusion_pb:
             details = []
             if fantomes:
                 details.append(f"{len(fantomes)} attribution(s) hors sources")
@@ -5150,6 +5288,8 @@ def generer_article(item: dict, dry_run: bool, published: set, new_pub: set, dat
                 details.append(f"{len(nuances_pb)} généralité(s) sans exemple concret dans Débats et nuances")
             if prospectif:
                 details.append(f"{len(prospectif)} affirmation(s) prospective(s) non conditionnelle(s)")
+            if fusion_pb:
+                details.append(f"{len(fusion_pb)} empilement(s) une phrase = une source")
             print(f"     [GARDE] {' + '.join(details)} — relance corrective unique…")
             art = generate(content, cat, extra_sources=extra, rss_url=item.get("url"),
                            retry_feedback=fantomes or None,
@@ -5161,6 +5301,7 @@ def generer_article(item: dict, dry_run: bool, published: set, new_pub: set, dat
                            intro_feedback=intro_pb or None,
                            nuances_feedback=nuances_pb or None,
                            prospectif_feedback=prospectif or None,
+                           fusion_feedback=fusion_pb or None,
                            article_type=article_type,
                            previous_article=art)
             if not isinstance(art, dict):
@@ -5200,6 +5341,8 @@ def generer_article(item: dict, dry_run: bool, published: set, new_pub: set, dat
                 print(f"     [AVERTISSEMENT] Débats et nuances toujours génériques après relance")
             if affirmation_non_demontree(art):
                 print(f"     [AVERTISSEMENT] Affirmation prospective toujours non conditionnelle après relance")
+            if sources_non_fusionnees(art):
+                print(f"     [AVERTISSEMENT] Sources toujours empilées une phrase par source après relance")
 
         # ── Garde-fou Dossier Science : formulations assertives interdites ─────
         if article_type == "dossier_science":
@@ -5357,7 +5500,33 @@ def generer_article(item: dict, dry_run: bool, published: set, new_pub: set, dat
         # (detect_category, lexique v2) — jamais celle choisie par le LLM, dont
         # la liste autorisée dans le prompt était incomplète (pas de "sante")
         # et dont le choix contredisait régulièrement le lexique.
-        art["categorie"] = cat
+        #
+        # Elle est recalculée sur le TEXTE GÉNÉRÉ (titre + chapeau + faits +
+        # contexte) et non plus sur le seul extrait RSS : un teaser tronqué de
+        # quelques lignes ne contient presque aucun mot-clé propre au sujet, et
+        # le lexique "science" — qui contient des mots très courants
+        # (« étude », « chercheurs », « scientifique », « évolution ») — raflait
+        # alors la mise par défaut, d'autant qu'il est 2e dans _CAT_PRIORITE et
+        # gagne donc les égalités. C'est ce qui a classé en « science » un
+        # article sur le bannissement de Huawei des réseaux télécoms (28/07) et
+        # un article sur la CAN féminine (26/07). Repli sur la catégorie issue
+        # du RSS si le texte généré ne déclenche aucun mot-clé.
+        _corps_cat = art.get("corps", {}) or {}
+        _resume_cat = art.get("resume", "")
+        if isinstance(_resume_cat, list):
+            _resume_cat = " ".join(str(p) for p in _resume_cat)
+        _texte_cat = " ".join(str(x or "") for x in (
+            art.get("titre", ""), _resume_cat,
+            _corps_cat.get("faits", ""), _corps_cat.get("contexte", ""),
+        ))
+        _scores_cat = _scores_categories(_texte_cat)
+        _best_cat   = max(_CAT_PRIORITE, key=lambda c: _scores_cat[c])
+        if _scores_cat[_best_cat] < SCORE_CATEGORIE_MIN:
+            _best_cat = "societe"
+        if _best_cat != cat:
+            print(f"     [CATÉGORIE] {cat} (extrait RSS) → {_best_cat} "
+                  f"(texte généré, score {_scores_cat[_best_cat]})")
+        art["categorie"] = _best_cat
 
         # Le badge public reflète le nombre de sources réellement citées
         # APRÈS correction, jamais le nombre fourni en entrée
