@@ -1,0 +1,43 @@
+name: Diagnostic des flux RSS
+
+# Déclenchement manuel : mesure le rendement réel de chaque flux (nombre
+# d'articles réellement collectés, pas seulement l'absence d'erreur HTTP) et
+# teste les URLs candidates avant de rebrancher une source. N'écrit rien.
+on:
+  workflow_dispatch:
+    inputs:
+      candidats:
+        description: "Tester aussi les URLs candidates / nouvelles sources"
+        required: false
+        default: true
+        type: boolean
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+
+      - name: Installer les dépendances
+        run: pip install -r requirements.txt
+
+      - name: Diagnostiquer les flux
+        env:
+          PYTHONIOENCODING: utf-8
+          TZ: Europe/Paris
+        run: |
+          if [ "${{ inputs.candidats }}" = "false" ]; then
+            python scripts/check_feeds.py
+          else
+            python scripts/check_feeds.py --candidats
+          fi
