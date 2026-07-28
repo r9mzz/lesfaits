@@ -147,8 +147,33 @@ décisions éditoriales** mais des échecs techniques. Points à surveiller :
   dans les logs (`[RSS ERREUR]`), mais un flux Atom lu comme du RSS ne l'est
   PAS : il renvoie 0 article en silence. Toujours vérifier le rendement réel
   d'une source, pas seulement l'absence d'erreur.
-- **Plafond de 8 items par flux** (`fetch_rss`) : borne haute du gisement à
-  ~230 articles/run avant tout filtre.
+- **Plafond par flux** (`MAX_ITEMS_PAR_FLUX`) : porté de 8 à 20 le 28/07. À 8,
+  la collecte était bornée à ~230 articles/run avant tout filtre. Ce plafond ne
+  coûte rien en quota Groq — il n'élargit que le vivier où
+  `selectionner_meilleurs` puise ses `nb_max` sujets.
+
+## Sources RSS — ne jamais en ajouter sans mesurer
+
+`scripts/check_feeds.py` + le workflow `check_feeds.yml` (déclenchement manuel)
+mesurent le rendement RÉEL de chaque flux depuis le runner GitHub — le sandbox
+de développement n'a pas d'accès réseau vers ces domaines, une URL ne peut donc
+PAS y être validée. Le script teste aussi des URLs candidates avant tout
+rebranchement, et inspecte les flux qui répondent 200 avec 0 article.
+
+État mesuré le 28/07 (avant correction) : **24 sources sur 40 produisaient des
+articles**. La vague d'ajouts du 19/07 avait 13 flux morts sur 14, ajoutés sans
+test. Leçons :
+
+- Un **403** sur `.gouv.fr`, Les Échos, 20 Minutes ou Banque de France est un
+  blocage WAF sur l'IP du runner GitHub, pas une mauvaise URL : changer
+  d'adresse n'y change rien, il faut remplacer la source.
+- Une source morte coûte jusqu'à **12 s de timeout par run** (3 tentatives
+  d'en-têtes), pour zéro article — les supprimer accélère la collecte.
+- Un flux qui répond **200 avec 0 article** est le pire cas : invisible dans
+  les logs. D'où le rapport `[RENDEMENT]` affiché à chaque run.
+- Tout nouveau domaine doit être ajouté à `_DOMAINES_PRIMAIRES` ou
+  `_DOMAINES_SECONDAIRES` — sinon il compte « tertiaire » et ne vaut rien pour
+  la règle ≥1 primaire OU ≥2 secondaires, quel que soit son sérieux.
 
 ## Pièges connus
 
