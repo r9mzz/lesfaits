@@ -152,6 +152,25 @@ répare pas en réécrivant le texte).
   DIFFÉRENTE → relance corrective combinée. Ne pas fusionner ce garde-fou
   avec celui de la règle 4, ils sanctionnent deux défauts opposés (répéter
   une forme / empiler des sources).
+- **Titre au futur pour un événement déjà survenu** (constat 28/07 sur
+  l'article CXMT — titré « s'apprête à réaliser la plus grosse levée de
+  fonds » alors que « Les faits » décrivent l'action déjà cotée, « a flambé
+  de plus de 500 % lors de sa première journée ») : le pipeline agrège des
+  sources publiées à des dates différentes ; quand le titre vient d'une
+  dépêche pré-événement et le corps de dépêches post-événement, l'article
+  annonce au futur ce qu'il raconte au passé. Garde-fou déterministe
+  `incoherence_temporelle` + critère LLM `annonce_perimee` (bloquant après
+  correction). Le même article cumulait une contradiction chiffrée non
+  détectée (chapeau « 1 000 milliards de yuans » ≈ 120 Md€ vs faits
+  « 450 milliards d'euros ») → `incoherence_inter_sections` renforcé sur la
+  conversion d'unités/devises et sur deux valeurs divergentes du même chiffre.
+- **Précision > rappel sur les garde-fous à relance** : le quota Groq est la
+  ressource rare et chaque garde-fou déclenche une relance corrective. Motif
+  « il est important de noter/souligner que… » testé puis ÉCARTÉ de
+  `cliches_ia` (28/07) : même restreint aux phrases sans chiffre, il faisait
+  passer le déclenchement de 4 % à 42 % du corpus — c'est un connecteur
+  français courant, pas un défaut. Toujours mesurer le taux de déclenchement
+  sur les articles publiés avant d'ajouter un motif.
 - **Listicles commerciaux déguisés** (constat 26/07 — « Lidl : 5 appareils de
   cuisine à moins de 10 euros » publié, lu comme une pub) : `_COMMERCE_RE`
   élargi à « (à) moins de X€ » et aux enseignes discount (Lidl, Aldi, Action)

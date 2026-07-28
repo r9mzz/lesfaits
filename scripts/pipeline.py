@@ -1632,6 +1632,51 @@ def _sources_attribuees(phrase: str) -> set:
     return noms
 
 
+# ── Incohérence temporelle titre ↔ faits ─────────────────────────────────────
+# Le pipeline agrège des sources publiées à des dates différentes sur un même
+# événement. Quand le titre est repris d'une dépêche écrite AVANT l'événement
+# et le corps de dépêches écrites APRÈS, l'article annonce au futur ce qu'il
+# raconte ensuite au passé — constat 28/07 sur l'article CXMT, titré
+# « s'apprête à réaliser la plus grosse levée de fonds » alors que « Les faits »
+# décrivent l'introduction en Bourse déjà cotée (« a flambé de plus de 500 %
+# lors de sa première journée de cotation »). Ni les garde-fous ni le
+# fact-check LLM ne l'avaient vu.
+_TITRE_PROSPECTIF_RE = re.compile(
+    r"s['’]appr[êe]te à|se pr[ée]pare à|est sur le point de|en passe de|"
+    r"va bient[ôo]t|pr[ée]voit de|envisage de|devrait bient[ôo]t",
+    re.IGNORECASE,
+)
+# Marqueurs d'un événement DÉJÀ survenu (passé composé d'accomplissement).
+_FAIT_ACCOMPLI_RE = re.compile(
+    r"\ba (?:flamb[ée]|bondi|grimp[ée]|chut[ée]|d[ée]coll[ée]|lev[ée]|r[ée]alis[ée]|"
+    r"conclu|sign[ée]|annonc[ée]|ouvert|cl[ôo]tur[ée]|d[ée]but[ée])\b|"
+    r"s['’]est (?:envol[ée]|effondr[ée]|conclu[e]?)\b|"
+    r"lors de sa premi[èe]re (?:journ[ée]e|s[ée]ance)\b|"
+    r"\bont (?:lev[ée]|r[ée]alis[ée]|conclu|sign[ée])\b",
+    re.IGNORECASE,
+)
+
+
+def incoherence_temporelle(art: dict) -> list[str]:
+    """Titre annonçant un événement à venir alors que « Les faits » le
+    décrivent comme déjà survenu. On n'examine que le DÉBUT des faits (le fait
+    principal du jour) pour ne pas confondre avec un antécédent historique
+    mentionné plus loin."""
+    titre = str(art.get("titre", "") or "")
+    m_titre = _TITRE_PROSPECTIF_RE.search(titre)
+    if not m_titre:
+        return []
+    faits = str((art.get("corps", {}) or {}).get("faits", "") or "")
+    m_fait = _FAIT_ACCOMPLI_RE.search(faits[:400])
+    if not m_fait:
+        return []
+    return [
+        f"le titre annonce un événement à venir (« {m_titre.group(0)} ») alors que "
+        f"« Les faits » le décrivent comme déjà survenu (« …{m_fait.group(0)}… ») — "
+        f"le titre vient probablement d'une source publiée avant l'événement"
+    ]
+
+
 def sources_non_fusionnees(art: dict) -> list[str]:
     """Règle 10 : détecte l'empilement « une phrase = une source » — plusieurs
     phrases consécutives attribuant chacune à une source DIFFÉRENTE, au lieu
@@ -1731,9 +1776,25 @@ _CLICHES_IA_RE = re.compile(
     r"reflète une [ée]volution plus large|"
     r"offre une plateforme|"
     r"d[ée]velopper (?:leurs?|ses|ces) comp[ée]tences et gagner de l['’]exp[ée]rience|"
-    r"n[ée]cessite une approche nuanc[ée]e)\b",
+    r"n[ée]cessite une approche nuanc[ée]e|"
+    # Remplissage méta constaté sur l'article CXMT (28/07) : des phrases qui
+    # annoncent qu'il faudrait donner du contexte… sans en donner aucun.
+    r"pour approfondir le contexte|"
+    r"les facteurs cl[ée]s qui influencent|"
+    r"les tendances du march[ée] et les facteurs|"
+    r"joue un r[ôo]le (?:cl[ée]|essentiel|important) dans|"
+    r"soul[èe]ve des questions (?:importantes|cruciales)(?: et complexes)?)\b",
     re.IGNORECASE,
 )
+
+
+# NOTE — « il est important de noter/souligner que… » a été testé puis écarté
+# comme motif (28/07) : même en ne le retenant que sans donnée chiffrée dans la
+# phrase, il faisait passer le taux de déclenchement de cliches_ia de 4 % à
+# 42 % du corpus. C'est un connecteur français courant, pas un défaut en soi ;
+# le remplissage réel de l'article CXMT est déjà attrapé par les motifs
+# spécifiques ci-dessus. Le quota Groq étant la ressource rare et ce garde-fou
+# déclenchant une relance, on privilégie la précision au rappel.
 
 
 def cliches_ia(art: dict) -> list[str]:
@@ -2209,6 +2270,7 @@ def generate(content: str, category_hint: str, extra_sources: list[dict] | None 
              nuances_feedback: list[str] | None = None,
              prospectif_feedback: list[str] | None = None,
              fusion_feedback: list[str] | None = None,
+             temporel_feedback: list[str] | None = None,
              article_type: str = "actu",
              previous_article: dict | None = None) -> dict:
 
@@ -2227,7 +2289,7 @@ def generate(content: str, category_hint: str, extra_sources: list[dict] | None 
     # Renvoyer les CONTENU complets à chaque relance (jusqu'à 4 appels par
     # article) multipliait le coût par ~4 et épuisait le quota Groq quotidien
     # après 2-3 articles à peine.
-    is_retry = bool(retry_feedback or repetition_feedback or intra_feedback or selon_feedback or expand_feedback or titre_feedback or cliches_feedback or intro_feedback or nuances_feedback or prospectif_feedback or fusion_feedback)
+    is_retry = bool(retry_feedback or repetition_feedback or intra_feedback or selon_feedback or expand_feedback or titre_feedback or cliches_feedback or intro_feedback or nuances_feedback or prospectif_feedback or fusion_feedback or temporel_feedback)
     # La relance "expand" a besoin de matière source (le problème est que
     # l'article n'a pas assez puisé dedans), mais PAS des extraits intégraux :
     # run du 18/07 matin, 2 sujets perdus en « réponse tronquée » parce que le
@@ -2414,6 +2476,19 @@ def generate(content: str, category_hint: str, extra_sources: list[dict] | None 
             "Une source ne mérite une phrase à elle seule que si elle apporte une "
             "information DIFFÉRENTE (un chiffre, une date, un acteur que les autres "
             "ne donnent pas). Supprime les phrases qui n'ajoutent rien."
+        )
+
+    if temporel_feedback:
+        user_msg += (
+            "\n\nCORRECTION OBLIGATOIRE (cohérence temporelle) — "
+            + " ; ".join(temporel_feedback[:2]) + ". "
+            "Les sources fournies n'ont pas toutes été publiées au même moment : "
+            "certaines annoncent l'événement AVANT qu'il ait lieu, d'autres le "
+            "racontent APRÈS. Réécris le titre ET le chapeau au temps de ce qui "
+            "s'est RÉELLEMENT produit selon les sources les plus récentes — "
+            "si l'événement a eu lieu, ne l'annonce jamais comme à venir. "
+            "Vérifie aussi que les chiffres du chapeau et ceux de « Les faits » "
+            "décrivent la même réalité dans la même unité."
         )
 
     if expand_feedback:
@@ -5268,7 +5343,8 @@ def generer_article(item: dict, dry_run: bool, published: set, new_pub: set, dat
         nuances_pb  = nuances_vagues(art)
         prospectif  = affirmation_non_demontree(art)
         fusion_pb   = sources_non_fusionnees(art)
-        if fantomes or repetitions or intra or selon or titre_pb or cliches or intro_pb or nuances_pb or prospectif or fusion_pb:
+        temporel_pb = incoherence_temporelle(art)
+        if fantomes or repetitions or intra or selon or titre_pb or cliches or intro_pb or nuances_pb or prospectif or fusion_pb or temporel_pb:
             details = []
             if fantomes:
                 details.append(f"{len(fantomes)} attribution(s) hors sources")
@@ -5290,6 +5366,8 @@ def generer_article(item: dict, dry_run: bool, published: set, new_pub: set, dat
                 details.append(f"{len(prospectif)} affirmation(s) prospective(s) non conditionnelle(s)")
             if fusion_pb:
                 details.append(f"{len(fusion_pb)} empilement(s) une phrase = une source")
+            if temporel_pb:
+                details.append("titre au futur pour un événement déjà survenu")
             print(f"     [GARDE] {' + '.join(details)} — relance corrective unique…")
             art = generate(content, cat, extra_sources=extra, rss_url=item.get("url"),
                            retry_feedback=fantomes or None,
@@ -5302,6 +5380,7 @@ def generer_article(item: dict, dry_run: bool, published: set, new_pub: set, dat
                            nuances_feedback=nuances_pb or None,
                            prospectif_feedback=prospectif or None,
                            fusion_feedback=fusion_pb or None,
+                           temporel_feedback=temporel_pb or None,
                            article_type=article_type,
                            previous_article=art)
             if not isinstance(art, dict):
@@ -5343,6 +5422,8 @@ def generer_article(item: dict, dry_run: bool, published: set, new_pub: set, dat
                 print(f"     [AVERTISSEMENT] Affirmation prospective toujours non conditionnelle après relance")
             if sources_non_fusionnees(art):
                 print(f"     [AVERTISSEMENT] Sources toujours empilées une phrase par source après relance")
+            if incoherence_temporelle(art):
+                print(f"     [AVERTISSEMENT] Titre toujours au futur pour un événement déjà survenu après relance")
 
         # ── Garde-fou Dossier Science : formulations assertives interdites ─────
         if article_type == "dossier_science":

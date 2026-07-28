@@ -60,7 +60,10 @@ Chaque type de problème appartient à un bloc. Le bloc détermine si l'article 
 BLOC 1 — FACTUEL (zéro tolérance) :
 - chiffre_errone : un chiffre/statistique/date ne correspond pas exactement à ce que dit la source citée (pas d'arrondi ni d'extrapolation non signalée)
 - chronologie_confuse : un événement antérieur/historique est mentionné sans que sa date et son rapport avec l'événement du jour soient explicites (deux époques mélangées implicitement)
-- incoherence_inter_sections : une même affirmation présentée différemment dans deux sections du même article
+- incoherence_inter_sections : une même affirmation présentée différemment dans deux sections du même article. Vérifie EXPLICITEMENT deux points, en convertissant si besoin les unités et les devises avant de conclure :
+  (a) les chiffres du chapeau et ceux de « Les faits » décrivent-ils la même réalité ? Exemple réel non détecté (28/07) : chapeau « pourrait dépasser les 1 000 milliards de yuans de valorisation » et faits « valorisation à plus de 450 milliards d'euros » — 1 000 milliards de yuans valent environ 120 milliards d'euros, les deux chiffres sont donc incompatibles pour une même valorisation ;
+  (b) deux sources donnent-elles deux valeurs différentes du MÊME chiffre (« +500 % » et « +530 % » pour la même séance de cotation) sans que l'article ne les réconcilie ni ne signale l'écart ? Dans ce cas une seule valeur doit être retenue et attribuée, ou l'écart explicitement mentionné.
+- annonce_perimee : le titre ou le chapeau présente comme À VENIR (« s'apprête à », « prévoit de », « devrait bientôt ») un événement que « Les faits » décrivent comme DÉJÀ SURVENU (« a levé », « a bondi lors de sa première séance »). Les sources fournies n'ont pas toutes été publiées au même moment : certaines précèdent l'événement, d'autres le suivent. Le titre et le chapeau doivent toujours refléter l'état le plus récent établi par les sources.
 - fait_tranche_arbitrairement : un fait incertain ou contesté présenté comme définitivement établi. Inclut la SIMPLIFICATION EXCESSIVE d'un résultat scientifique ou technique : si la source décrit une avancée partielle, un cas particulier ou une variante spécifique d'un problème ("résultat majeur sur le cas de dimension 3"), l'article ne doit jamais généraliser à "a résolu le problème" / "a démontré la conjecture" sans la même restriction que la source — reprends le niveau de précision exact de la source, jamais un raccourci plus impressionnant qu'elle (retour revue éditoriale du 25/07).
 
 BLOC 2 — SOURCING (100% vérifiable) :
@@ -124,7 +127,7 @@ Réponds en JSON strict, sans texte hors JSON :
     {
       "bloc": 1-5,
       "section": "faits | contexte | nuances | resume | titre | positions",
-      "type": "chiffre_errone | chronologie_confuse | incoherence_inter_sections | fait_tranche_arbitrairement | source_inventee | formule_vague | source_non_editoriale | source_derivee_comptee_comme_primaire | paraphrase_structurelle | citation_non_attribuee | cadrage_emprunte | redondance | section_gonflee | contexte_hors_sujet | angle_annonce_non_tenu | faux_debat | jugement_de_valeur | extrapolation | compteur_incoherent | presomption_innocence | affaire_en_cours_presentee_comme_fait | diffamation_potentielle | mineur_identifie",
+      "type": "chiffre_errone | chronologie_confuse | incoherence_inter_sections | annonce_perimee | fait_tranche_arbitrairement | source_inventee | formule_vague | source_non_editoriale | source_derivee_comptee_comme_primaire | paraphrase_structurelle | citation_non_attribuee | cadrage_emprunte | redondance | section_gonflee | contexte_hors_sujet | angle_annonce_non_tenu | faux_debat | jugement_de_valeur | extrapolation | compteur_incoherent | presomption_innocence | affaire_en_cours_presentee_comme_fait | diffamation_potentielle | mineur_identifie",
       "phrase_exacte": "citation mot pour mot de l'article",
       "explication": "pourquoi c'est un problème, en une phrase"
     }
@@ -155,6 +158,8 @@ RÈGLES DE CORRECTION :
 - Pour une "section_gonflee" : si un fait distinct sourcé existe encore, utilise-le ; sinon, coupe la section plutôt que de la laisser vague.
 - Pour un "contexte_hors_sujet" : remplace le fait ou la source hors-sujet par un fait des sources autorisées directement lié au sujet principal ; si aucun n'existe, coupe le passage plutôt que de garder un contexte qui n'éclaire pas l'article.
 - Pour un "angle_annonce_non_tenu" : soit réécris le résumé pour qu'il annonce fidèlement ce que l'article développe réellement, soit développe l'angle annoncé avec des faits des sources autorisées s'ils existent — ne laisse jamais une promesse d'intro sans suite dans le corps de l'article.
+- Pour une "annonce_perimee" : réécris le titre ET le chapeau au temps de ce qui s'est réellement produit d'après les sources les plus récentes. Si l'événement a déjà eu lieu, ne l'annonce jamais comme à venir ("s'apprête à", "prévoit de") — l'état le plus récent établi par les sources fait foi, même si le titre d'une source plus ancienne dit le contraire.
+- Pour une "incoherence_inter_sections" portant sur des chiffres : ramène-les à une même unité ou devise et ne garde qu'une seule valeur cohérente, attribuée à sa source. Si deux sources donnent deux valeurs différentes du même chiffre, retiens la plus précise ou la plus récente et signale l'écart explicitement plutôt que de présenter les deux comme des faits distincts.
 - Pour un "faux_debat" : supprime le cadrage pour/contre et remplace par une présentation factuelle de la décision/sanction, ou indique explicitement qu'il n'y a pas de désaccord réel. IMPORTANT : mets AUSSI à jour le champ JSON "positions" en conséquence — "verifie": false et "acteurs": [] — le graphique de positionnement ne doit jamais afficher un faux débat, même si le problème initial ne portait que sur le texte de 'nuances'.
 - Pour un "jugement_de_valeur" : reformule en langage neutre et factuel, sans réduire la longueur.
 - Pour une "extrapolation" : supprime, sauf si tu peux l'attribuer explicitement à une source qui l'exprime.
@@ -373,7 +378,7 @@ def _problemes_bloquants(problemes: list) -> list:
     - Bloc 2 STRICT : source_inventee uniquement.
     - Bloc 5 (légal) : géré en amont (rejete_sensible), jamais ici.
     Blocs 3/4 (style, cadrage) : non bloquants par définition."""
-    BLOC1_BLOQUANTS = {"chiffre_errone", "incoherence_inter_sections"}
+    BLOC1_BLOQUANTS = {"chiffre_errone", "incoherence_inter_sections", "annonce_perimee"}
     BLOC2_BLOQUANTS = {"source_inventee"}
     return [
         p for p in problemes
