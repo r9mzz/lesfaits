@@ -75,6 +75,9 @@ PIXABAY_KEY    = os.getenv("PIXABAY_API_KEY", "")
 # SOURCES RSS — retournent du texte propre, pas de JavaScript
 # ══════════════════════════════════════════════════════════════════════════════
 
+# Nombre maximum d'articles retenus par flux à chaque run (voir fetch_rss).
+MAX_ITEMS_PAR_FLUX = 20
+
 RSS_SOURCES = [
     # Le Monde — rubriques thématiques
     {"name": "Le Monde Science",     "url": "https://www.lemonde.fr/sciences/rss_full.xml"},
@@ -634,7 +637,13 @@ def fetch_rss(source: dict) -> list[dict]:
                 "date":        pub_date,
             })
 
-        return items[:8]  # max 8 par source
+        # Plafond par flux : 8 → 20 (28/07). À 8, le gisement était borné à
+        # ~230 articles/run AVANT tout filtre, alors que Le Monde publie à lui
+        # seul plusieurs dizaines d'articles par jour et par rubrique. Ce
+        # plafond ne coûte rien en quota Groq : il n'élargit que le vivier où
+        # `selectionner_meilleurs` puise ses nb_max sujets — plus de choix à
+        # score égal, donc de meilleurs candidats, pas davantage de générations.
+        return items[:MAX_ITEMS_PAR_FLUX]
 
     except Exception as e:
         print(f"  [RSS ERREUR] {source['name']} : {e}")
@@ -5915,8 +5924,12 @@ def run(dry_run=False, text_input=None, nb_max=36):
         published_topics = {a.get("titre", "") for a in load_index()[:140]}
         tous_candidats   = []
 
+        rendement: dict[str, tuple[int, int]] = {}  # source → (collectés, retenus)
+        brut_total = 0
         for src in RSS_SOURCES:
             items = fetch_rss(src)
+            brut_total += len(items)
+            retenus_src = 0
             deja_vus = {i["id"] for i in tous_candidats}
             for item in items:
                 if item["id"] in published or item["id"] in deja_vus:
@@ -5924,6 +5937,25 @@ def run(dry_run=False, text_input=None, nb_max=36):
                 scored = filtrer_et_classer([item], src["name"], published_topics, seuil_score=20)
                 if scored:
                     tous_candidats.extend(scored)
+                    retenus_src += len(scored)
+            rendement[src["name"]] = (len(items), retenus_src)
+
+        # Rapport de rendement : une source en erreur est déjà visible via
+        # [RSS ERREUR], mais une source qui répond 200 en renvoyant 0 article
+        # ne l'était PAS — c'est ainsi qu'un flux Atom lu comme du RSS est
+        # resté muet pendant des semaines en paraissant fonctionner. On liste
+        # donc explicitement les sources sans rendement à chaque run.
+        muettes = [n for n, (c, _) in rendement.items() if c == 0]
+        if muettes:
+            print(f"\n  [RENDEMENT] {len(muettes)} source(s) sans aucun article "
+                  f"(0 collecté, sans erreur HTTP) : {', '.join(muettes)}")
+        steriles = [n for n, (c, r) in rendement.items() if c > 0 and r == 0]
+        if steriles:
+            print(f"  [RENDEMENT] {len(steriles)} source(s) dont aucun article ne "
+                  f"passe le filtre éditorial : {', '.join(steriles)}")
+        actives = sum(1 for c, _ in rendement.values() if c > 0)
+        print(f"  [RENDEMENT] {actives}/{len(RSS_SOURCES)} sources actives — "
+              f"{brut_total} articles collectés avant filtre")
 
         print(f"\n[SCORING] {len(tous_candidats)} candidats après filtre")
 
