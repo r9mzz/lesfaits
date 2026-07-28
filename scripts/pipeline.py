@@ -121,39 +121,41 @@ RSS_SOURCES = [
     {"name": "The Conversation France", "url": "https://theconversation.com/fr/articles.atom"},
     {"name": "RFI",                  "url": "https://www.rfi.fr/fr/rss"},
     {"name": "Numerama",             "url": "https://www.numerama.com/feed/"},
-    {"name": "Novethic",             "url": "https://www.novethic.fr/rss/toute-l-actualite.xml"},
+    {"name": "Novethic",             "url": "https://www.novethic.fr/feed"},
     # Institutionnels à forte valeur (source PRIMAIRE directe) mais URL non
     # vérifiable depuis cet environnement (réseau restreint) — à confirmer
     # dans les logs du prochain run réel (GitHub Actions) : chercher
     # "[COLLECTE RSS]" et le nombre d'items par flux.
-    {"name": "Légifrance JORF",      "url": "https://www.legifrance.gouv.fr/rss/jorf.xml"},
     {"name": "Santé Publique France", "url": "https://www.santepubliquefrance.fr/rss"},
-    {"name": "INSEE Informations rapides", "url": "https://www.insee.fr/fr/rss"},
     # ── Deuxième vague (19/07, suite) : couvrir les domaines déjà en liste
     # blanche primaire/secondaire mais qui n'avaient encore AUCUN flux RSS
     # configuré — le levier le plus direct pour plus de matière sans rien
     # assouplir. Mêmes réserves de confiance qu'au-dessus (réseau sandbox
     # bloqué, à confirmer au run réel via "[COLLECTE RSS]").
     # -- Presse déjà secondaire, RSS manquant --
-    {"name": "Les Échos",            "url": "https://www.lesechos.fr/rss/rss_une.xml"},
     # ancienne URL "www.leparisien.fr/rss.xml" en 404 depuis leur migration
     # d'infra RSS vers un sous-domaine dédié (constat 26/07) — nouveau flux
     # général confirmé par recherche externe (feeds.leparisien.fr/leparisien/rss).
     {"name": "Le Parisien",          "url": "https://feeds.leparisien.fr/leparisien/rss"},
-    {"name": "L'Express",            "url": "https://www.lexpress.fr/arc/outboundfeeds/rss/?outputType=xml"},
+    {"name": "L'Express",            "url": "https://www.lexpress.fr/rss/alaune.xml"},
     {"name": "Ouest-France",         "url": "https://www.ouest-france.fr/rss-en-continu.xml"},
     {"name": "La Croix",             "url": "https://www.la-croix.com/rss.xml"},
     {"name": "France 24",            "url": "https://www.france24.com/fr/rss"},
     {"name": "Mediapart",            "url": "https://www.mediapart.fr/articles/feed"},
-    {"name": "20 Minutes",           "url": "https://www.20minutes.fr/rss/une.xml"},
+    {"name": "20 Minutes",           "url": "https://www.20minutes.fr/feeds/rss-une.xml"},
     # -- Institutions déjà primaires, RSS manquant --
     {"name": "ADEME",                "url": "https://www.ademe.fr/rss/"},
-    {"name": "CEA",                  "url": "https://www.cea.fr/rss"},
-    {"name": "INRAE",                "url": "https://www.inrae.fr/rss.xml"},
-    {"name": "Cour des comptes",     "url": "https://www.ccomptes.fr/fr/rss.xml"},
-    {"name": "Sénat",                "url": "https://www.senat.fr/rss/actualites.xml"},
-    {"name": "Assemblée nationale",  "url": "https://www.assemblee-nationale.fr/dyn/rss/rss_dossiers_legislatifs.xml"},
-    {"name": "Banque de France",     "url": "https://www.banque-france.fr/rss.xml"},
+    {"name": "Sénat",                "url": "https://www.senat.fr/themes/rss/therss4.rss"},
+    # ── Sources ajoutées le 28/07 — rendement VÉRIFIÉ par check_feeds.py sur
+    # le runner GitHub (8 articles chacune) avant ajout, contrairement à la
+    # vague du 19/07 dont 13 flux sur 14 étaient morts faute de test.
+    {"name": "Le Monde International", "url": "https://www.lemonde.fr/international/rss_full.xml"},
+    {"name": "France Culture",       "url": "https://radiofrance.fr/franceculture/rss"},
+    {"name": "Courrier international", "url": "https://www.courrierinternational.com/feed/all/rss.xml"},
+    {"name": "Slate.fr",             "url": "https://www.slate.fr/rss.xml"},
+    {"name": "France Info Sciences", "url": "https://www.francetvinfo.fr/sciences.rss"},
+    {"name": "INSERM presse",        "url": "https://presse.inserm.fr/feed/"},
+    {"name": "IRD",                  "url": "https://www.ird.fr/rss.xml"},
 ]
 
 HEADERS = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"}
@@ -394,6 +396,7 @@ _DOMAINES_PRIMAIRES = (
     "nature.com", "science.org", "thelancet.com", "nejm.org", "bmj.com",
     "ncbi.nlm.nih.gov", "pubmed.gov", "cell.com", "pnas.org",
     "courdecassation.fr", "conseil-etat.fr", "ccomptes.fr",
+    "ird.fr",  # institut public de recherche ajouté le 28/07
 )
 _DOMAINES_SECONDAIRES = (
     "afp.com", "reuters.com", "apnews.com",
@@ -406,6 +409,7 @@ _DOMAINES_SECONDAIRES = (
     "letemps.ch", "rts.ch", "lesoir.be", "rtbf.be",
     "theconversation.com", "sciencesetavenir.fr", "pourlascience.fr",
     "numerama.com", "novethic.fr",
+    "courrierinternational.com", "slate.fr",  # ajoutés le 28/07
 )
 
 
@@ -3107,6 +3111,8 @@ _SOURCE_DOMAINS = {
         "insee.fr", "banque-france.fr", "has-sante.fr", "anses.fr",
         "meteofrance.fr", "ined.fr", "cnrs.fr", "inserm.fr",
         "nasa.gov", "esa.int", "cern.ch", "pasteur.fr",
+        # Instituts publics de recherche ajoutés le 28/07 (sources primaires)
+        "ird.fr", "inrae.fr", "cea.fr", "ademe.fr",
     ],
     "press_agency": ["reuters.com", "afp.com", "apnews.com"],
     "media": [
@@ -3114,6 +3120,11 @@ _SOURCE_DOMAINS = {
         "bbc.com", "theguardian.com", "nytimes.com", "francetvinfo.fr",
         "franceinfo.fr", "rtl.fr", "bfmtv.com", "20minutes.fr",
         "lepoint.fr", "lexpress.fr", "nouvelobs.com", "mediapart.fr",
+        # Médias ajoutés le 28/07 — sans cette entrée ils seraient comptés
+        # "tertiaires" et ne compteraient pas pour la règle ≥2 secondaires.
+        "radiofrance.fr", "franceculture.fr", "courrierinternational.com",
+        "slate.fr", "novethic.fr", "lesechos.fr", "ouest-france.fr",
+        "la-croix.com", "france24.com", "rfi.fr", "theconversation.com",
     ],
 }
 

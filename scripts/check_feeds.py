@@ -89,11 +89,14 @@ CANDIDATS = {
     "[new] Le Monde Décodeurs": ["https://www.lemonde.fr/les-decodeurs/rss_full.xml"],
     "[new] Le Monde International": ["https://www.lemonde.fr/international/rss_full.xml"],
     "[new] France Info Sciences": ["https://www.francetvinfo.fr/sciences.rss"],
-    "[new] Ouest-France Sciences": ["https://www.ouest-france.fr/sciences/rss.xml"],
-    "[new] INSERM presse": ["https://presse.inserm.fr/feed/"],
-    "[new] IRD": ["https://www.ird.fr/rss.xml"],
-    "[new] Ademe presse": ["https://presse.ademe.fr/feed"],
-    "[new] Public Sénat": ["https://www.publicsenat.fr/rss.xml"],
+    # Pistes pour les sources qui répondent 200 avec 0 article
+    "Vie Publique": ["https://www.vie-publique.fr/rss/actualites.xml",
+                     "https://www.vie-publique.fr/rss.xml"],
+    "ANSES": ["https://www.anses.fr/fr/flux-rss.xml",
+              "https://www.anses.fr/fr/flux-actualites.rss"],
+    "Santé Publique France": ["https://www.santepubliquefrance.fr/rss/actualites.xml",
+                              "https://www.santepubliquefrance.fr/rss"],
+    "ADEME": ["https://www.ademe.fr/actualites/rss", "https://www.ademe.fr/rss/"],
 }
 
 
@@ -130,6 +133,38 @@ def main():
         print(f"  MORTES ({len(morts)}) : {', '.join(morts)}")
     if vides:
         print(f"  SILENCIEUSES ({len(vides)}) : {', '.join(vides)}")
+
+    # Une source qui répond 200 en renvoyant 0 article ne dit pas pourquoi :
+    # mauvaise balise d'entrée, XML vide, page HTML servie à la place du flux…
+    # On inspecte la réponse brute pour trancher.
+    if vides:
+        print()
+        print("=" * 78)
+        print("INSPECTION DES SOURCES SILENCIEUSES (200 mais 0 article)")
+        print("=" * 78)
+        import requests
+        import xml.etree.ElementTree as ET
+        for nom in vides:
+            url = next(s["url"] for s in p.RSS_SOURCES if s["name"] == nom)
+            print(f"\n{nom}  {url}")
+            try:
+                r = requests.get(url, headers={**p.HEADERS, "Accept": "*/*"}, timeout=12)
+                print(f"  HTTP {r.status_code} · {r.headers.get('Content-Type','?')} · "
+                      f"{len(r.content)} octets")
+                try:
+                    root = ET.fromstring(r.content)
+                    enfants = {}
+                    for el in root.iter():
+                        t = el.tag.rsplit("}", 1)[-1]
+                        enfants[t] = enfants.get(t, 0) + 1
+                    racine = root.tag.rsplit("}", 1)[-1]
+                    top = sorted(enfants.items(), key=lambda x: -x[1])[:8]
+                    print(f"  racine <{racine}> · balises : {top}")
+                except ET.ParseError as e:
+                    print(f"  XML illisible : {e}")
+                    print(f"  début : {r.text[:200]!r}")
+            except Exception as e:
+                print(f"  ERREUR {e}")
 
     if "--candidats" not in sys.argv:
         return
