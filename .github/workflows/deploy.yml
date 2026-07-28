@@ -22,6 +22,11 @@ on:
         required: false
         default: 'false'
         type: boolean
+      forcer:
+        description: "Forcer même si rien de neuf depuis le dernier déploiement"
+        required: false
+        default: 'false'
+        type: boolean
 
 # Deux déploiements simultanés pourraient pousser des commits concurrents ou
 # des suppressions d'articles incohérentes sur lesfaits-site — en file, pas
@@ -43,16 +48,51 @@ jobs:
         with:
           fetch-depth: 1
 
+      # ── Garde-fou : ne pas redéployer un contenu identique ───────────────
+      # Un automate EXTERNE au dépôt déclenche deploy.yml à 04h00 ET 04h50 UTC
+      # chaque jour (constat 28/07, 5 jours consécutifs) — le second arrive
+      # 50 min après le premier, sans qu'aucune génération n'ait eu lieu entre
+      # les deux : il republie exactement le même contenu. On compare donc le
+      # SHA courant à celui du dernier déploiement réussi. Critère volontaire-
+      # ment fondé sur le contenu et non sur le temps : un déploiement ne doit
+      # JAMAIS être bloqué s'il a réellement des articles neufs à publier.
+      - name: Ignorer si rien de neuf à déployer
+        id: garde
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          FORCER: ${{ inputs.forcer }}
+        run: |
+          if [ "$FORCER" = "true" ]; then
+            echo "Forçage demandé — garde-fou ignoré."
+            echo "passer=false" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          curl -sS -H "Authorization: Bearer $GH_TOKEN" \
+            "https://api.github.com/repos/${GITHUB_REPOSITORY}/actions/workflows/deploy.yml/runs?per_page=30" \
+            > /tmp/runs.json || echo '{}' > /tmp/runs.json
+          DERNIER_SHA=$(python3 scripts/dernier_run.py /tmp/runs.json "$GITHUB_RUN_ID" --sha)
+          echo "SHA courant : ${GITHUB_SHA}"
+          echo "SHA du dernier déploiement réussi : ${DERNIER_SHA:-aucun}"
+          if [ -n "$DERNIER_SHA" ] && [ "$DERNIER_SHA" = "$GITHUB_SHA" ]; then
+            echo "::notice::Déploiement ignoré — le site est déjà à jour sur ce commit. Option « forcer » pour republier quand même."
+            echo "passer=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "passer=false" >> "$GITHUB_OUTPUT"
+          fi
+
       - name: Set up Python
+        if: steps.garde.outputs.passer != 'true'
         uses: actions/setup-python@v5
         with:
           python-version: "3.11"
           cache: pip
 
       - name: Installer les dépendances
+        if: steps.garde.outputs.passer != 'true'
         run: pip install -r requirements.txt
 
       - name: Rebuild index + catégories + archive
+        if: steps.garde.outputs.passer != 'true'
         env:
           GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
@@ -66,19 +106,19 @@ jobs:
           fi
 
       - name: Patcher les articles (à lire aussi + disclaimer + newsletter + back-to-top)
-        if: ${{ github.event.inputs.dry_run != 'true' }}
+        if: ${{ steps.garde.outputs.passer != 'true' && github.event.inputs.dry_run != 'true' }}
         env:
           PYTHONIOENCODING: utf-8
         run: python scripts/patch_articles.py
 
       - name: Test non-régression SEO (bloque le déploiement en cas d'échec)
-        if: ${{ github.event.inputs.dry_run != 'true' }}
+        if: ${{ steps.garde.outputs.passer != 'true' && github.event.inputs.dry_run != 'true' }}
         env:
           PYTHONIOENCODING: utf-8
         run: python scripts/check_seo.py
 
       - name: Déployer vers lesfaits-site
-        if: ${{ github.event.inputs.dry_run != 'true' }}
+        if: ${{ steps.garde.outputs.passer != 'true' && github.event.inputs.dry_run != 'true' }}
         env:
           SITE_DEPLOY_TOKEN: ${{ secrets.SITE_DEPLOY_TOKEN }}
           TZ: Europe/Paris
@@ -146,7 +186,7 @@ jobs:
           git push
 
       - name: Sauvegarder les slugs pour publication X (07h00)
-        if: ${{ github.event.inputs.dry_run != 'true' }}
+        if: ${{ steps.garde.outputs.passer != 'true' && github.event.inputs.dry_run != 'true' }}
         run: |
           # Les slugs des nouveaux articles sont publiés sur X par post_x.yml
           # à 07h00 Paris (05h00 UTC), séparément du déploiement.

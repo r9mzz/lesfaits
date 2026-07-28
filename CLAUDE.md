@@ -36,7 +36,18 @@ de perdre le sujet). Site statique déployé sur GitHub Pages via le repo
 - `scripts/verification.py` — fact-check + correction (Groq Llama 3.3).
 - Workflows : `pipeline.yml` (génération ~01h05/13h05 Paris, très en avance car
   les crons GitHub ont 1-4 h de retard), `deploy.yml` (mise en ligne ~07h/18h),
-  `post_x.yml`, `newsletter.yml` (Brevo).
+  `post_x.yml`, `newsletter.yml` (Brevo), `check_feeds.yml` (diagnostic RSS).
+- **Un automate EXTERNE au dépôt** déclenche `pipeline.yml` à 15h00 et 15h50
+  UTC et `deploy.yml` à 04h00 et 04h50 UTC, tous les jours à la minute près
+  (constat 28/07, 5-6 jours consécutifs, en `workflow_dispatch` sur le compte
+  de Nahil). Il n'est ni dans ce dépôt ni dans les Routines Claude — donc
+  impossible à couper depuis le code. Ses effets sont neutralisés par deux
+  garde-fous (`scripts/dernier_run.py`) : `pipeline.yml` ignore un run
+  démarrant moins de 2 h après le précédent (le quota Groq est la ressource
+  rare, et ces runs rapprochés n'ont jamais rien publié) ; `deploy.yml` ignore
+  un déploiement dont le SHA est déjà en ligne (critère de CONTENU, jamais de
+  temps : ne jamais bloquer un déploiement qui a du neuf). Option `forcer`
+  dans les deux cas. **À terme, il faut retrouver et couper cet automate.**
 - Les articles affichent l'heure RÉELLE de génération (changement du 22/07,
   Nahil — avant cette date, l'heure affichée était arrondie au créneau
   07h00/18h00, jamais la génération technique ; ce n'est plus le cas).

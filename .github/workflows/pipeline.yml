@@ -28,6 +28,11 @@ on:
         required: false
         default: "false"
         type: boolean
+      forcer:
+        description: "Forcer même si un run vient d'avoir lieu"
+        required: false
+        default: "false"
+        type: boolean
 
 # Empêche deux exécutions simultanées (cron + déclenchement manuel qui se
 # chevauchent) de pousser des commits concurrents sur le même dépôt — mises
@@ -53,18 +58,63 @@ jobs:
         with:
           fetch-depth: 1
 
+      # ── Garde-fou : ignorer un déclenchement trop rapproché ──────────────
+      # Un automate EXTERNE au dépôt déclenche pipeline.yml à 15h00 ET 15h50
+      # UTC chaque jour (constat 28/07 : 6 jours consécutifs, à la minute
+      # près, en workflow_dispatch — rien dans ce dépôt ni dans les Routines
+      # Claude ne le fait). Le second run arrive 50 min après le premier,
+      # quand le quota Groq journalier est déjà consommé : vérifié les 25, 26
+      # et 27/07, il n'a JAMAIS publié un seul article et se contentait de
+      # commiter « draft 0 article(s) ». Le quota Groq est la ressource rare —
+      # le découper en 4 runs au lieu de 2 le vide avant le créneau du soir.
+      # On neutralise donc tout run démarrant moins de FENETRE_MIN après le
+      # précédent ; les deux crons légitimes (00h10 et 11h05 UTC) sont espacés
+      # de 11 h et ne sont jamais concernés.
+      - name: Ignorer si un run vient d'avoir lieu
+        id: garde
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          FORCER: ${{ inputs.forcer }}
+        run: |
+          FENETRE_MIN=120
+          if [ "$FORCER" = "true" ]; then
+            echo "Forçage demandé — garde-fou ignoré."
+            echo "passer=false" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          curl -sS -H "Authorization: Bearer $GH_TOKEN" \
+            "https://api.github.com/repos/${GITHUB_REPOSITORY}/actions/workflows/pipeline.yml/runs?per_page=30" \
+            > /tmp/runs.json || echo '{}' > /tmp/runs.json
+          PRECEDENT=$(python3 scripts/dernier_run.py /tmp/runs.json "$GITHUB_RUN_ID")
+          if [ "$PRECEDENT" = "0" ]; then
+            echo "Aucun run précédent — on continue."
+            echo "passer=false" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          ECART=$(( ($(date -u +%s) - PRECEDENT) / 60 ))
+          echo "Dernier run il y a ${ECART} min (fenêtre : ${FENETRE_MIN} min)."
+          if [ "$ECART" -lt "$FENETRE_MIN" ]; then
+            echo "::notice::Run ignoré — un run a déjà eu lieu il y a ${ECART} min. Relancer si vite ne publierait rien (quota Groq). Option « forcer » pour outrepasser."
+            echo "passer=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "passer=false" >> "$GITHUB_OUTPUT"
+          fi
+
       # ── 2. Python ────────────────────────────────────────────────────────
       - name: Set up Python
+        if: steps.garde.outputs.passer != 'true'
         uses: actions/setup-python@v5
         with:
           python-version: "3.11"
           cache: pip
 
       - name: Installer les dépendances
+        if: steps.garde.outputs.passer != 'true'
         run: pip install -r requirements.txt
 
       # ── 3. Récupérer les images existantes pour le dédup MD5 ────────────
       - name: Récupérer les images depuis lesfaits-site
+        if: steps.garde.outputs.passer != 'true'
         env:
           SITE_DEPLOY_TOKEN: ${{ secrets.SITE_DEPLOY_TOKEN }}
         run: |
@@ -75,6 +125,7 @@ jobs:
 
       # ── 4. Générer les articles ───────────────────────────────────────────
       - name: Générer les articles
+        if: steps.garde.outputs.passer != 'true'
         env:
           GROQ_API_KEY:     ${{ secrets.GROQ_API_KEY }}
           GROQ_API_KEY_2:   ${{ secrets.GROQ_API_KEY_2 }}
@@ -114,6 +165,7 @@ jobs:
 
       # ── 4. Commit dans le repo privé (sans déployer sur le site) ─────────
       - name: Sauvegarder les articles générés
+        if: steps.garde.outputs.passer != 'true'
         env:
           TZ: Europe/Paris
         run: |
