@@ -4,17 +4,22 @@ name: Groq — Test état des clés
 # 1 token (« ok ») pour lire son état réel — 200 = clé utilisable,
 # 429 « per day » = quota journalier épuisé, 429 « per minute » = TPM
 # temporaire. Coût : ~10 tokens par clé, négligeable.
+# ENQUÊTE CLOSE (29/07) — la sonde tournait toutes les 3 h depuis le 21/07
+# (61 runs) pour trancher entre « reset TPD à minuit UTC » et « reset calé sur
+# l'heure de création du compte ». La réponse est ni l'un ni l'autre : le TPD
+# est une FENÊTRE GLISSANTE de 24 h. Preuve obtenue sur le run de 03h34 UTC du
+# 29/07 — Groq y annonçait des libérations étalées entre 03h46 et 05h40, alors
+# qu'un reset à heure fixe les aurait toutes groupées au même instant.
+#
+# La sonde ne pouvait de toute façon pas répondre : elle réserve max_tokens=1,
+# donc elle réussit même sur une clé qui n'a plus que quelques centaines de
+# tokens — alors que le pipeline, lui, en réserve 3 500 à 6 000 et échoue.
+# Elle affichait donc « vivante » en permanence.
+#
+# Le cron est retiré (8 runs GitHub par jour pour rien) ; le déclenchement
+# manuel reste disponible pour un contrôle ponctuel.
 on:
   workflow_dispatch:
-  schedule:
-    # Diagnostic (21/07) : vérifier l'hypothèse que le reset TPD de chaque
-    # compte Groq suit son heure de CRÉATION plutôt qu'un minuit UTC uniforme
-    # pour tous — ce qui expliquerait pourquoi le run du matin (~00h10-04h
-    # UTC) trouve souvent le quota épuisé alors que le run du soir (~12h45
-    # UTC) s'en sort mieux. Sonde automatique toutes les 3h (coût négligeable :
-    # 18 clés × 1 token × 8 fois/jour). À comparer aux heures où chaque clé
-    # bascule de "épuisée" à "vivante" dans l'historique des runs.
-    - cron: "0 */3 * * *"
 
 jobs:
   check:

@@ -6125,9 +6125,12 @@ def run(dry_run=False, text_input=None, nb_max=36):
                     # Ajouter le titre généré à published_topics pour éviter les doublons dans la même session
                     published_topics.add(item.get("title", ""))
             except QuotaJournalierEpuise:
-                print(f"\n  [ARRÊT] Quota Groq JOURNALIER épuisé sur toutes les clés — "
-                      f"inutile d'attendre (le budget ne se libère qu'à minuit UTC). "
-                      f"Les sujets restants seront retentés au prochain créneau.")
+                print(f"\n  [ARRÊT] Quota Groq épuisé sur toutes les clés, et aucune "
+                      f"ne se libère dans les {ATTENTE_MAX_LIBERATION // 60} min. "
+                      f"Le TPD est une fenêtre GLISSANTE de 24 h (pas un reset à "
+                      f"minuit) : les tokens brûlés hier après-midi pèsent encore "
+                      f"ce matin. Les sujets restants seront retentés au prochain "
+                      f"créneau.")
                 break
             time.sleep(1)
 
