@@ -7,15 +7,18 @@ on:
     # génération TRÈS en avance sur le déploiement (07h/18h Paris) pour que le
     # lot soit toujours prêt même avec un gros retard, et sur une minute non
     # ronde pour réduire l'attente en file.
-    # Matin ~02h10 Paris — été (CEST UTC+2) : avril–octobre. Calé à 00h10 UTC
-    # (18/07) : le quota JOURNALIER Groq (TPD) se réinitialise à minuit UTC —
-    # l'ancien départ à 23h05 UTC faisait démarrer le run 55 min AVANT le
-    # reset, sur les fonds de quota de la veille, avec le reset en plein
-    # milieu du run. À 00h10 UTC, le run part chaque nuit avec 7 × 100 000
-    # tokens frais. La marge avant le déploiement de 07h reste ~5h, au-dessus
-    # du pire retard cron observé (~4h le 11/07).
-    # (02h10 Paris l'été, 01h10 l'hiver — un seul cron toute l'année, le
-    # calage sur le reset UTC ne dépend plus de l'heure de Paris)
+    # Matin ~02h10 Paris — été (CEST UTC+2) : avril–octobre.
+    # HISTORIQUE À NE PAS RÉPÉTER : ce cron a été calé à 00h10 UTC le 18/07 en
+    # croyant que le quota Groq (TPD) se réinitialisait à minuit UTC, pour que
+    # le run parte « avec des tokens frais ». C'EST FAUX — mesuré le 29/07 : le
+    # TPD est une fenêtre glissante de 24 h. Sur le run de 03h34 UTC, Groq
+    # annonçait des libérations entre 03h46 et 05h40 ; un reset à minuit aurait
+    # renvoyé « try again in ~20h26m » sur toutes les clés. Il n'existe donc
+    # AUCUNE heure de départ « avec quota frais » : le budget disponible ne
+    # dépend que de ce qui a été consommé dans les 24 h précédentes. L'heure du
+    # cron n'a d'importance que pour espacer les deux runs et laisser la marge
+    # avant le déploiement de 07h — ce que 00h10 fait correctement, d'où son
+    # maintien. Le vrai levier est de limiter le nombre de runs par jour.
     - cron: "10 0 * * *"
     # Soir ~13h05 Paris — été (CEST UTC+2) : avril–octobre
     - cron: "5 11 * 4-10 *"
