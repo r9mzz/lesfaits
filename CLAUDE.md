@@ -246,6 +246,29 @@ DuckDuckGo/PubMed), le prompt demande d'en CITER au moins 4, et le contrôle
 après correction en exige au moins 3 (charte règle 7). Ce sont trois étapes
 différentes du tunnel, pas une contradiction.
 
+## Rendu HTML — audit du 29/07 (174 pages)
+
+`scripts/check_seo.py` ne couvre que 5 pages statiques et 6 balises. Un audit
+complet a relevé quatre défauts, tous corrigés :
+
+- **7 articles du 26-27/06 avaient 2 `</div>` orphelins chacun** (HTML
+  malformé). Le template actuel est correct — les 147 autres articles sont
+  équilibrés : c'était du dégât hérité d'une ancienne version, réparé par un
+  patch ponctuel.
+- **Le champ de recherche principal ne servait à rien** : il partageait son
+  `id` avec celui du header, si bien que `getElementById` renvoyait celui du
+  header. Le JS attachait donc ses écouteurs au mauvais champ et `hInput`
+  valait toujours `null`. Identifiants séparés.
+- **Les 6 pages catégories n'avaient ni canonical ni Open Graph** — partagées
+  sur un réseau social, elles n'affichaient aucun aperçu.
+- **3 pages en `noindex` étaient déclarées dans le sitemap** (mentions
+  légales, CGU, confidentialité) : signal contradictoire envoyé aux moteurs.
+
+Attention aux faux positifs quand on réaudite : toutes les pages portent
+`<base href="/">`, donc un chemin relatif se résout depuis la RACINE et non
+depuis le dossier de la page. Sans en tenir compte, un audit signale des
+milliers de « liens cassés » qui fonctionnent parfaitement.
+
 ## Pièges connus
 
 - **Catégorie calculée sur l'extrait RSS et non sur l'article** (constat

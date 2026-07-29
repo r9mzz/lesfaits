@@ -5078,9 +5078,10 @@ def build_sitemap(articles: list):
         (f"{BASE_URL}/archive.html", "0.8", "daily"),
         (f"{BASE_URL}/methode.html", "0.6", "monthly"),
         (f"{BASE_URL}/a-propos.html", "0.5", "monthly"),
-        (f"{BASE_URL}/mentions-legales.html", "0.3", "yearly"),
-        (f"{BASE_URL}/cgu.html", "0.3", "yearly"),
-        (f"{BASE_URL}/confidentialite.html", "0.3", "yearly"),
+        # mentions-legales, cgu et confidentialite sont volontairement en
+        # <meta robots="noindex"> : les déclarer ici revenait à dire à Google
+        # « indexe ces pages » pendant qu'elles répondent « ne m'indexe pas »
+        # (constat 29/07). Un sitemap ne doit lister que des pages indexables.
         (f"{BASE_URL}/contact.html", "0.4", "monthly"),
         (f"{BASE_URL}/corrections.html", "0.4", "weekly"),
         (f"{BASE_URL}/recherche.html", "0.3", "monthly"),
@@ -5219,6 +5220,22 @@ def build_category_pages():
   <meta name="description" content="Les Faits — Rubrique {label}. Juste les faits. Aucun parti pris."/>
   <link rel="alternate" type="application/rss+xml" title="Les Faits — RSS" href="/feed.xml"/>
   <title>{label} — Les Faits</title>
+  <!-- Les 6 pages catégories n'avaient ni canonical ni balises Open Graph
+       (constat 29/07) : partagées sur un réseau social, elles n'affichaient
+       aucun aperçu, et les moteurs n'avaient pas d'URL de référence pour des
+       pages pourtant centrales dans la navigation. -->
+  <link rel="canonical" href="{BASE_URL}/categories/{cat}.html"/>
+  <meta property="og:type" content="website"/>
+  <meta property="og:site_name" content="Les Faits"/>
+  <meta property="og:locale" content="fr_FR"/>
+  <meta property="og:title" content="{label} — Les Faits"/>
+  <meta property="og:description" content="Toute l'actualité {label} de Les Faits. Juste les faits. Aucun parti pris."/>
+  <meta property="og:url" content="{BASE_URL}/categories/{cat}.html"/>
+  <meta property="og:image" content="{BASE_URL}/assets/images/og-home.jpg"/>
+  <meta name="twitter:card" content="summary_large_image"/>
+  <meta name="twitter:title" content="{label} — Les Faits"/>
+  <meta name="twitter:description" content="Toute l'actualité {label} de Les Faits."/>
+  <meta name="twitter:image" content="{BASE_URL}/assets/images/og-home.jpg"/>
   <base href="/"/>
   <link rel="stylesheet" href="/src/style.css?v=2"/>
   {FAVICON_LINKS}
