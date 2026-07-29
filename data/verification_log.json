@@ -5984,5 +5984,139 @@
       ]
     },
     "article_type": "actu"
+  },
+  {
+    "slug": "executions-de-masse-en-iran",
+    "statut": "rejete_sensible",
+    "date": "2026-07-29T15:06:46",
+    "sujet_sensible": true,
+    "raison": "L'article implique des exécutions de mineurs et des arrestations arbitraires, ce qui constitue un sujet sensible.",
+    "article_type": "actu"
+  },
+  {
+    "slug": "administration-trump-assouplit-regles-environnementales-secteur-spatial-prive",
+    "statut": "rejete_qualite",
+    "date": "2026-07-29T15:08:12",
+    "problemes_initiaux": 4,
+    "tentatives": 2,
+    "problemes_restants": 4,
+    "bloquants_restants": 1,
+    "article_type": "actu"
+  },
+  {
+    "slug": "mort-enfant-6-ans-essai-therapie-genique-chine",
+    "statut": "rejete_sensible",
+    "date": "2026-07-29T15:09:01",
+    "sujet_sensible": true,
+    "raison": "l'article implique un mineur (une enfant de 6 ans) décédée lors d'un essai de thérapie génique",
+    "article_type": "actu"
+  },
+  {
+    "slug": "rechauffement-climatique-vagues-de-chaleur",
+    "statut": "corrige_automatiquement",
+    "date": "2026-07-29T15:09:46",
+    "problemes_initiaux": 5,
+    "tentatives": 2,
+    "problemes_residuels_style": 4,
+    "rapport_initial": {
+      "conforme": false,
+      "sujet_sensible": false,
+      "sujet_sensible_raison": "",
+      "angle_insuffisant": false,
+      "angle_insuffisant_raison": "",
+      "nature_contenu": "actualite_factuelle",
+      "problemes": [
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "fait_tranche_arbitrairement",
+          "phrase_exacte": "le réchauffement climatique pourrait provoquer environ 430 000 décès supplémentaires par an d’ici 2050, principalement dus aux vagues de chaleur plus fréquentes et plus intenses.",
+          "explication": "La phrase présente un fait incertain comme définitivement établi, sans mentionner les incertitudes ou les hypothèses de l'étude."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "fait_tranche_arbitrairement",
+          "phrase_exacte": "676 millions de personnes pourraient être menacées par ces vagues de chaleur, qui pourraient devenir plus fréquentes et plus intenses en raison du changement climatique.",
+          "explication": "La phrase présente un fait incertain comme définitivement établi, sans mentionner les incertitudes ou les hypothèses de l'étude."
+        },
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "D'après Lanature, une nouvelle étude scientifique attire l’attention sur un danger climatique souvent sous-estimé, à savoir la montée du niveau de la mer, qui pourrait forcer des millions de personnes à fuir et provoquer une crise migratoire mondiale.",
+          "explication": "La source 'Lanature' est mentionnée, mais il n'est pas clair si elle est la source originale de l'information ou si elle est simplement citée comme une source secondaire."
+        },
+        {
+          "bloc": 3,
+          "section": "contexte",
+          "type": "cadrage_emprunte",
+          "phrase_exacte": "Les Échos rapportent que le réchauffement climatique pourrait avoir des conséquences dramatiques, notamment l'élévation du niveau de la mer, qui pourrait déplacer des millions de personnes.",
+          "explication": "La phrase présente un jugement de valeur ('conséquences dramatiques') comme un fait neutre, sans attribuer explicitement ce jugement à la source."
+        },
+        {
+          "bloc": 4,
+          "section": "nuances",
+          "type": "jugement_de_valeur",
+          "phrase_exacte": "Il est important de noter que les conséquences du réchauffement climatique pourraient être encore plus graves que prévu.",
+          "explication": "La phrase contient un jugement de valeur ('plus graves que prévu') qui n'est pas attribué à une source spécifique."
+        }
+      ]
+    },
+    "article_type": "dossier_science"
+  },
+  {
+    "slug": "stock-munitions-americain-preoccupant",
+    "statut": "corrige_automatiquement",
+    "date": "2026-07-29T15:10:55",
+    "problemes_initiaux": 5,
+    "tentatives": 1,
+    "problemes_residuels_style": 5,
+    "rapport_initial": {
+      "conforme": false,
+      "sujet_sensible": false,
+      "sujet_sensible_raison": "",
+      "angle_insuffisant": false,
+      "angle_insuffisant_raison": "",
+      "nature_contenu": "actualite_factuelle",
+      "problemes": [
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "source_derivee_comptee_comme_primaire",
+          "phrase_exacte": "Selon L'Express, le stock de munitions américain a fondu à vitesse grand V ces derniers mois, ce qui inquiète les autorités américaines.",
+          "explication": "La source est comptée trois fois comme des sources indépendantes alors qu'il s'agit de la même dépêche."
+        },
+        {
+          "bloc": 2,
+          "section": "sources",
+          "type": "compteur_incoherent",
+          "phrase_exacte": "nb_sources: 4",
+          "explication": "Le champ 'nb_sources' ne correspond pas au nombre réel de sources distinctes effectivement utilisées."
+        },
+        {
+          "bloc": 4,
+          "section": "nuances",
+          "type": "redondance",
+          "phrase_exacte": "Il est important de noter que la situation des stocks de munitions américains est complexe et dépend de plusieurs facteurs, notamment la production et la livraison de nouvelles munitions.",
+          "explication": "La phrase répète une idée déjà présente dans 'faits' ou ailleurs dans l'article."
+        },
+        {
+          "bloc": 4,
+          "section": "nuances",
+          "type": "section_gonflee",
+          "phrase_exacte": "Cependant, il est difficile de prévoir les conséquences exactes d'une pénurie de munitions, car cela dépend de plusieurs facteurs, notamment la stratégie militaire et les capacités de production.",
+          "explication": "La section 'nuances' est remplie avec du vague générique au lieu d'un fait distinct sourcé."
+        },
+        {
+          "bloc": 2,
+          "section": "sources",
+          "type": "source_non_editoriale",
+          "phrase_exacte": "PubMed | Soins. Psychiatrie | https://pubmed.ncbi.nlm.nih.gov/40945934/",
+          "explication": "La source PubMed n'est pas pertinente pour l'article sur les stocks de munitions américains."
+        }
+      ]
+    },
+    "article_type": "actu"
   }
 ]
