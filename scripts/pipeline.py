@@ -698,8 +698,14 @@ _TITRE_MALUS = [
 
 # Contenu commercial déguisé en article : prix précis + enseigne de vente
 _COMMERCE_RE = re.compile(
-    r"(?:à partir de|dès|seulement|au prix de|(?:à\s+)?moins de)\s*\d+[.,]?\d*\s*€"
-    r"|\d+[.,]\d{2}\s*€\s*(?:chez|sur)\b"
+    # ATTENTION : toujours accepter les DEUX écritures de la devise, « € » et
+    # le mot « euros ». Écrire seulement « € » a laissé passer l'article même
+    # qui a motivé cette règle — « Lidl : 5 appareils de cuisine à moins de 10
+    # euros » (26/07) — alors que la variante « à moins de 10 € » était bien
+    # rejetée. Les motifs « perd/chute de X euros » plus bas, écrits ensuite,
+    # géraient déjà le mot ; l'incohérence a survécu à l'élargissement du 26/07.
+    r"(?:à partir de|dès|seulement|au prix de|(?:à\s+)?moins de)\s*\d+[.,]?\d*\s*(?:€|euros?)\b"
+    r"|\d+[.,]\d{2}\s*(?:€|euros?)\b\s*(?:chez|sur)\b"
     r"|chez\s+(?:cdiscount|amazon|aliexpress|rakuten|darty|boulanger|leclerc|carrefour|lidl|aldi|action)"
     r"|(?:cdiscount|aliexpress|rakuten)\b"
     r"|^\d+\s+\w+.{0,40}\b(?:lidl|aldi|action|cdiscount|amazon)\b"
