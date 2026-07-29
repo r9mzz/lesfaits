@@ -2828,18 +2828,33 @@ def generate(content: str, category_hint: str, extra_sources: list[dict] | None 
             # qu'une clé revenait dans 6 min 32 s. On attend donc la première
             # libération quand elle est proche, au lieu de perdre les sujets
             # restants.
-            _proch = min(_DELAIS_LIBERATION.values()) if _DELAIS_LIBERATION else None
-            _attente = int(_proch - time.time()) if _proch else None
-            if _attente is not None and 0 < _attente <= ATTENTE_MAX_LIBERATION:
-                print(f"     [GROQ] Toutes les clés au quota, mais l'une se libère "
-                      f"dans {_attente // 60} min {_attente % 60} s (le TPD est une "
-                      f"fenêtre glissante) — attente plutôt qu'abandon…")
-                time.sleep(_attente + 5)
+            def _reveiller_cles_expirees() -> list:
                 for _k, _echeance in list(_DELAIS_LIBERATION.items()):
                     if _echeance <= time.time():
                         _CLES_MORTES_JOUR.discard(_k)
                         _DELAIS_LIBERATION.pop(_k, None)
-                keys_to_try = [(k, l) for k, l in _all_keys if k and k not in _CLES_MORTES_JOUR]
+                return [(k, l) for k, l in _all_keys if k and k not in _CLES_MORTES_JOUR]
+
+            # 1) Réveiller d'abord les clés dont le délai est DÉJÀ écoulé. Sans
+            # cette étape, une clé annonçant « try again in 1m3s » restait morte
+            # jusqu'à la fin du run : le réveil n'avait lieu qu'à l'intérieur du
+            # bloc d'attente ci-dessous, or une échéance passée donne un délai
+            # négatif qui ne satisfait pas la condition — on abandonnait donc
+            # avec des clés redevenues utilisables (constat sur le run du soir
+            # du 29/07, qui s'est arrêté alors qu'une clé était libre depuis
+            # plusieurs minutes).
+            keys_to_try = _reveiller_cles_expirees()
+
+            # 2) Sinon, attendre la prochaine libération si elle est proche.
+            if not keys_to_try:
+                _proch = min(_DELAIS_LIBERATION.values()) if _DELAIS_LIBERATION else None
+                _attente = int(_proch - time.time()) if _proch else None
+                if _attente is not None and 0 < _attente <= ATTENTE_MAX_LIBERATION:
+                    print(f"     [GROQ] Toutes les clés au quota, mais l'une se libère "
+                          f"dans {_attente // 60} min {_attente % 60} s (le TPD est une "
+                          f"fenêtre glissante) — attente plutôt qu'abandon…")
+                    time.sleep(_attente + 5)
+                    keys_to_try = _reveiller_cles_expirees()
             if not keys_to_try:
                 raise QuotaJournalierEpuise(
                     "Toutes les clés Groq ont épuisé leur quota journalier (TPD)")
