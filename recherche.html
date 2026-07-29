@@ -635,8 +635,13 @@ function applySort() {
 function renderCards(matches, q) {
   const container = document.getElementById('search-results');
   container.innerHTML = matches.map(a => {
-    const imgKw = (a.image_keyword||'').replace(/\s+/g,',');
-    const imgSrc = a.slug ? `assets/images/${a.slug}.jpg` : '';
+    // Le slug peut contenir des accents (« …-adopté ») alors que les fichiers
+    // image sont écrits en ASCII : sans normalisation, l'image est en 404 sur
+    // cette page seule — même bug que celui corrigé ailleurs, oublié ici.
+    // On sert la variante WebP 480 px, comme le reste du site (le JPEG est
+    // réservé à og:image, au flux RSS et à la newsletter).
+    const slugAscii = (a.slug||'').normalize('NFD').replace(/[\u0300-\u036f]/g,'');
+    const imgSrc = slugAscii ? `assets/images/${slugAscii}-480.webp` : '';
     return `<a class="search-result" href="${BASE}articles/${a.slug}.html">
       ${imgSrc ? `<img class="search-result__img" src="${imgSrc}" alt="${a.titre.replace(/"/g,'&quot;')}" loading="lazy"/>` : ''}
       <div class="search-result__body">

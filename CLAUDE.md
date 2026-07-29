@@ -221,6 +221,31 @@ collectés**. Leçons :
   (ADEME — supprimée), ou format non reconnu par le parseur (The Conversation,
   Atom — réparée côté code).
 
+## Prompt de génération — cohérence
+
+Audit du 29/07. Trois défauts corrigés, à ne pas réintroduire :
+
+- **Le prompt se contredisait sur le chapeau** : la règle 4 exige d'« entrer
+  DIRECTEMENT dans le fait principal » et interdit les phrases génériques,
+  mais la règle sur le rôle des sections définissait le résumé comme une
+  « présentation rapide du sujet ». C'est précisément la formulation qui
+  produisait les chapeaux d'ambiance (« La situation dans la province du Kongo
+  Central soulève des inquiétudes… »). Les deux règles disent désormais la
+  même chose.
+- **Numérotation dupliquée** : 26 règles pour 23 numéros, les 13/14/15
+  apparaissant deux fois avec des contenus différents — ce qui rendait la
+  référence « règles 11-15 » de ce fichier ambiguë. Renumérotées 1-25, sans
+  perte d'instruction (vérifié par comparaison des sujets avant/après).
+- **Titre** : le prompt exigeait 10-15 mots là où la charte et le garde-fou
+  disent 6-15. Le prompt refusait donc des titres courts que le pipeline
+  accepte. Aligné sur 6-15.
+
+Trois seuils de sourcing coexistent, et c'est VOULU — ne pas les « harmoniser »
+sans comprendre : 5 sources doivent être TROUVÉES avant génération (garde-fou
+DuckDuckGo/PubMed), le prompt demande d'en CITER au moins 4, et le contrôle
+après correction en exige au moins 3 (charte règle 7). Ce sont trois étapes
+différentes du tunnel, pas une contradiction.
+
 ## Pièges connus
 
 - **Catégorie calculée sur l'extrait RSS et non sur l'article** (constat
