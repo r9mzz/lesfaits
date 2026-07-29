@@ -5848,5 +5848,141 @@
       ]
     },
     "article_type": "dossier_science"
+  },
+  {
+    "slug": "mort-enfant-6-ans-therapie-genique-chine",
+    "statut": "rejete_sensible",
+    "date": "2026-07-29T05:35:42",
+    "sujet_sensible": true,
+    "raison": "L'article implique un mineur (la fillette de 6 ans) et porte sur une affaire pénale/enquête en cours.",
+    "article_type": "actu"
+  },
+  {
+    "slug": "lanceurs-dalerte-au-travail-se-censurent",
+    "statut": "rejete_qualite",
+    "date": "2026-07-29T05:36:43",
+    "angle_insuffisant": true,
+    "raison": "aucune actualité identifiable ne justifie une publication maintenant",
+    "article_type": "actu"
+  },
+  {
+    "slug": "baisse-stock-munitions-americain-pentagone",
+    "statut": "rejete_qualite",
+    "date": "2026-07-29T05:37:19",
+    "angle_insuffisant": true,
+    "raison": "L'article ne fournit pas d'information spécifique et datée sur la baisse du stock de munitions américain, mais plutôt des généralités sur l'importance de la production de munitions pour la défense",
+    "article_type": "actu"
+  },
+  {
+    "slug": "etudes-inserm-additifs-alimentaires-risque-maladies",
+    "statut": "rejete_qualite",
+    "date": "2026-07-29T05:39:04",
+    "problemes_initiaux": 3,
+    "tentatives": 2,
+    "problemes_restants": 4,
+    "bloquants_restants": 1,
+    "article_type": "actu"
+  },
+  {
+    "slug": "fusions-trous-noirs-nouvelle-ere-astronomie",
+    "statut": "corrige_automatiquement",
+    "date": "2026-07-29T05:40:30",
+    "problemes_initiaux": 4,
+    "tentatives": 1,
+    "problemes_residuels_style": 5,
+    "rapport_initial": {
+      "conforme": false,
+      "sujet_sensible": false,
+      "sujet_sensible_raison": "",
+      "angle_insuffisant": false,
+      "angle_insuffisant_raison": "",
+      "nature_contenu": "actualite_factuelle",
+      "problemes": [
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "source_derivee_comptee_comme_primaire",
+          "phrase_exacte": "Selon Theconversation, l'astronomie gravitationnelle est née lors de la détection, en 2015, d'ondes gravitationnelles provenant de la fusion de deux trous noirs.",
+          "explication": "Plusieurs sources listées (Theconversation, Sciences et Avenir, etc.) pourraient ne faire que recopier la même information sans apporter d'info distincte, mais dans ce cas, elles semblent fournir des informations complémentaires."
+        },
+        {
+          "bloc": 4,
+          "section": "contexte",
+          "type": "redondance",
+          "phrase_exacte": "Les trous noirs en fusion sont des phénomènes complexes qui nécessitent une analyse approfondie pour en dévoiler les secrets.",
+          "explication": "Cette phrase répète une idée déjà présente dans la section 'faits'."
+        },
+        {
+          "bloc": 4,
+          "section": "nuances",
+          "type": "redondance",
+          "phrase_exacte": "Les trous noirs en fusion sont des phénomènes complexes qui nécessitent une analyse approfondie pour en dévoiler les secrets.",
+          "explication": "Cette phrase répète à nouveau une idée déjà présente dans les sections 'faits' et 'contexte'."
+        },
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "compteur_incoherent",
+          "phrase_exacte": "nb_sources : 8",
+          "explication": "Le nombre de sources distinctes effectivement utilisées pourrait ne pas correspondre au nombre indiqué (8), car certaines sources pourraient être redondantes ou non utilisées de manière significative."
+        }
+      ]
+    },
+    "article_type": "actu"
+  },
+  {
+    "slug": "robot-araignee-secours-victimes-eau",
+    "statut": "rejete_qualite",
+    "date": "2026-07-29T05:43:07",
+    "angle_insuffisant": true,
+    "raison": "L'article ne contient pas d'événement précis daté ou datable avec une donnée chiffrée ou nommée propre à cet événement.",
+    "article_type": "dossier_science"
+  },
+  {
+    "slug": "deficit-hopitaux-publics-2-3-milliards-euros-2025",
+    "statut": "corrige_automatiquement",
+    "date": "2026-07-29T05:44:17",
+    "problemes_initiaux": 4,
+    "tentatives": 1,
+    "problemes_residuels_style": 4,
+    "rapport_initial": {
+      "conforme": false,
+      "sujet_sensible": false,
+      "sujet_sensible_raison": "",
+      "angle_insuffisant": false,
+      "angle_insuffisant_raison": "",
+      "nature_contenu": "actualite_factuelle",
+      "problemes": [
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "source_derivee_comptee_comme_primaire",
+          "phrase_exacte": "Selon Le Monde, le déficit des hôpitaux publics en France est estimé à 2,3 milliards d'euros pour l'année 2025. Boursorama indique que ce déficit est en baisse par rapport à l'année précédente, où il avait atteint 2,9 milliards d'euros.",
+          "explication": "Plusieurs sources (Le Monde, Boursorama, DNA, etc.) fournissent la même information sans apporter d'informations distinctes, ce qui pourrait indiquer des sources dérivées comptées comme primaires."
+        },
+        {
+          "bloc": 2,
+          "section": "contexte",
+          "type": "source_derivee_comptee_comme_primaire",
+          "phrase_exacte": "Economiematin souligne que la France investit déjà plus que la moyenne européenne dans son système de santé, mais les hôpitaux publics continuent de faire face à des difficultés financières.",
+          "explication": "La source Economiematin est mentionnée dans le contexte, mais son information est similaire à celles déjà fournies par d'autres sources, ce qui pourrait indiquer une redondance dans les sources."
+        },
+        {
+          "bloc": 4,
+          "section": "nuances",
+          "type": "redondance",
+          "phrase_exacte": "Whatsupdoc Lemag note que la situation financière des hôpitaux publics est influencée par de nombreux facteurs, notamment la démographie, l'évolution des besoins de santé et les contraintes budgétaires.",
+          "explication": "L'information fournie dans les nuances est similaire à celle déjà mentionnée dans les faits, ce qui pourrait indiquer une redondance dans la rédaction."
+        },
+        {
+          "bloc": 4,
+          "section": "contexte",
+          "type": "contexte_hors_sujet",
+          "phrase_exacte": "Journaldeleconomie rapporte que la proportion d'administratifs dans les hôpitaux publics français est de 36%, contre 25% en Allemagne, ce qui pèse lourdement sur les comptes.",
+          "explication": "La comparaison avec l'Allemagne n'est pas directement pertinente au sujet du déficit des hôpitaux publics en France, ce qui pourrait indiquer un contexte hors sujet."
+        }
+      ]
+    },
+    "article_type": "actu"
   }
 ]
