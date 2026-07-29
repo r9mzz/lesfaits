@@ -846,13 +846,21 @@ CATEGORIES_MAP = {
 _CAT_PRIORITE = ["sante", "science", "tech", "environnement", "economie", "societe"]
 
 # Quota max par catégorie dans un cycle de génération
-QUOTA_CATEGORIE = 3
+# Plafond par catégorie. ATTENTION : ce quota borne la sélection AVANT nb_max —
+# avec 6 catégories, un quota de 3 plafonnait la sélection à 18 sujets, quel que
+# soit nb_max. Constat 29/07 : 655 articles collectés, 71 candidats après
+# filtre… et exactement 18 retenus, alors que nb_max valait 36. Porté à 6 pour
+# que nb_max redevienne le vrai plafond (6 × 6 = 36). Toute hausse de nb_max
+# doit s'accompagner d'une hausse d'ici, sinon elle n'a aucun effet.
+QUOTA_CATEGORIE = 6
 # Société : plafond légèrement réduit — catégorie fourre-tout où atterrissent
 # les papiers d'ambiance ; 3 max par créneau (relevé de 2 le 13/07 après une
 # matinée où seulement 9 candidats au total ont passé le filtre RSS et où
 # 3 sujets société solides ont été écartés par le quota alors que les autres
 # catégories n'avaient qu'un candidat chacune).
-QUOTA_PAR_CATEGORIE = {"societe": 3}
+# Société reste plus contrainte : catégorie fourre-tout où atterrissent les
+# papiers d'ambiance.
+QUOTA_PAR_CATEGORIE = {"societe": 6}
 
 
 # Mots-clés à FAIBLE pouvoir discriminant : ils apparaissent dans le corps de
@@ -2356,9 +2364,19 @@ class TronqueError(Exception):
 
 
 class QuotaJournalierEpuise(RuntimeError):
-    """Toutes les clés Groq ont épuisé leur quota JOURNALIER (TPD) — attendre
-    62 s ne sert à rien, le budget ne se libère qu'à minuit UTC. Le run doit
-    s'arrêter proprement au lieu de moudre des cycles d'attente à vide."""
+    """Toutes les clés Groq ont épuisé leur quota JOURNALIER (TPD).
+
+    ATTENTION — le TPD Groq est une FENÊTRE GLISSANTE de 24 h, PAS une remise à
+    zéro à minuit UTC comme on l'a longtemps cru. Preuve (run du 29/07 à 03h34) :
+    les délais « try again in… » renvoyés par Groq étaient étalés entre 03h46 et
+    05h40, alors qu'un reset quotidien les aurait tous groupés à 00h00. Chaque
+    clé se libère progressivement, à mesure que les tokens consommés 24 h plus
+    tôt sortent de la fenêtre.
+
+    Deux conséquences : (1) les runs de l'après-midi amputent le budget du run
+    du lendemain matin, 12 h plus tard ; (2) abandonner un run parce que « tout
+    est épuisé » gâche des sujets alors qu'une clé peut redevenir utilisable en
+    quelques minutes — d'où l'attente ciblée avant de lever cette exception."""
 
 
 # Clés dont le quota JOURNALIER est épuisé — mortes jusqu'à la fin du run.
@@ -2368,12 +2386,29 @@ class QuotaJournalierEpuise(RuntimeError):
 # pour rien (0 article). Le corps de l'erreur Groq distingue les deux :
 # "tokens per minute (TPM)" vs "tokens per day (TPD)".
 _CLES_MORTES_JOUR: set = set()
+# Délai (secondes) annoncé par Groq avant qu'une clé morte revienne — le TPD
+# étant une fenêtre glissante, on s'en sert pour attendre plutôt qu'abandonner.
+_DELAIS_LIBERATION: dict = {}
+# Au-delà de ce délai, attendre la libération d'une clé coûte plus de temps de
+# run qu'elle ne rapporte d'articles — on préfère rendre la main.
+ATTENTE_MAX_LIBERATION = 15 * 60
 _ROTATION_APPELS = [0]  # compteur global — départ tournant dans la liste des clés
 
 
 def _est_quota_journalier(err: str) -> bool:
     e = err.lower()
     return "per day" in e or "tpd" in e or "tokens per day" in e or "requests per day" in e or "rpd" in e
+
+
+def _delai_liberation(err: str) -> int | None:
+    """Secondes avant que la clé redevienne utilisable, d'après le « try again
+    in 1h24m14.4s » de Groq. Le TPD étant une fenêtre glissante, ce délai est
+    exploitable : inutile d'abandonner un run quand une clé revient dans
+    quelques minutes. Retourne None si le message ne le précise pas."""
+    m = re.search(r"try again in (?:(\d+)h)?(?:(\d+)m)?([\d.]+)s", err)
+    if not m:
+        return None
+    return int(m.group(1) or 0) * 3600 + int(m.group(2) or 0) * 60 + int(float(m.group(3)))
 
 
 def _tpd_restant(err: str) -> int | None:
@@ -2788,8 +2823,27 @@ def generate(content: str, category_hint: str, extra_sources: list[dict] | None 
     for cycle in range(MAX_RETRY_CYCLES):
         keys_to_try = [(k, l) for k, l in _all_keys if k and k not in _CLES_MORTES_JOUR]
         if not keys_to_try:
-            raise QuotaJournalierEpuise(
-                "Toutes les clés Groq ont épuisé leur quota journalier (TPD)")
+            # Le TPD est une fenêtre glissante : une clé « morte » redevient
+            # utilisable dès que ses tokens d'il y a 24 h sortent de la fenêtre,
+            # et Groq annonce le délai exact. Le run du 29/07 a abandonné alors
+            # qu'une clé revenait dans 6 min 32 s. On attend donc la première
+            # libération quand elle est proche, au lieu de perdre les sujets
+            # restants.
+            _proch = min(_DELAIS_LIBERATION.values()) if _DELAIS_LIBERATION else None
+            _attente = int(_proch - time.time()) if _proch else None
+            if _attente is not None and 0 < _attente <= ATTENTE_MAX_LIBERATION:
+                print(f"     [GROQ] Toutes les clés au quota, mais l'une se libère "
+                      f"dans {_attente // 60} min {_attente % 60} s (le TPD est une "
+                      f"fenêtre glissante) — attente plutôt qu'abandon…")
+                time.sleep(_attente + 5)
+                for _k, _echeance in list(_DELAIS_LIBERATION.items()):
+                    if _echeance <= time.time():
+                        _CLES_MORTES_JOUR.discard(_k)
+                        _DELAIS_LIBERATION.pop(_k, None)
+                keys_to_try = [(k, l) for k, l in _all_keys if k and k not in _CLES_MORTES_JOUR]
+            if not keys_to_try:
+                raise QuotaJournalierEpuise(
+                    "Toutes les clés Groq ont épuisé leur quota journalier (TPD)")
         # Départ tournant : ne pas marteler toujours la clé 1 en premier —
         # chaque appel commence sur la clé suivante de la rotation.
         offset = _ROTATION_APPELS[0] % len(keys_to_try)
@@ -2866,6 +2920,9 @@ def generate(content: str, category_hint: str, extra_sources: list[dict] | None 
                             except Exception:
                                 pass  # échec confirmé → clé morte ci-dessous
                         _CLES_MORTES_JOUR.add(key)
+                        _d = _delai_liberation(err)
+                        if _d is not None:
+                            _DELAIS_LIBERATION[key] = time.time() + _d
                         print(f"     [GROQ] {label} : quota JOURNALIER épuisé"
                               f"{f' (solde ~{restant} tokens, insuffisant)' if restant is not None else ''}"
                               f" — retirée de la rotation pour ce run")

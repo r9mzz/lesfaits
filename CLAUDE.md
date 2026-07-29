@@ -141,6 +141,25 @@ doivent être signalées dès l'intro) — `angle_insuffisant: true` = rejet
 définitif immédiat, jamais de tentative de correction (un sujet creux ne se
 répare pas en réécrivant le texte).
 
+## Quota Groq — fenêtre glissante, PAS un reset à minuit
+
+Constat du 29/07, à démontrer avant toute remise en cause : le TPD Groq
+(100 k tokens) est une **fenêtre glissante de 24 h**. Preuve — sur le run de
+03h34 UTC, les délais « try again in… » renvoyés par Groq s'étalaient de 03h46
+à 05h40 ; un reset quotidien les aurait tous groupés à 00h00. Deux
+conséquences directes :
+
+- **Les runs de l'après-midi amputent le budget du lendemain matin** (12 h plus
+  tard, on est toujours dans la fenêtre). C'est ce qui a limité le run du 29/07
+  à 1 article : les clés étaient déjà à 97 % consommées AVANT son démarrage
+  (327 k tokens consommés par le run, ~1,07 M déjà comptabilisés sur les
+  11 clés). D'où l'importance du garde-fou anti-run-rapproché.
+- **Ne jamais abandonner un run sur « quota épuisé » sans regarder le délai
+  annoncé** : le 29/07, une clé revenait dans 6 min 32 s et le run a rendu la
+  main. `_delai_liberation()` extrait ce délai ; en dessous de
+  `ATTENTE_MAX_LIBERATION` (15 min) le pipeline attend au lieu de perdre les
+  sujets restants.
+
 ## Tunnel de sélection — mesures du 28/07 (27 runs)
 
 623 candidats collectés → 319 générations tentées → **33 publiés (10 %)**.
@@ -160,6 +179,12 @@ décisions éditoriales** mais des échecs techniques. Points à surveiller :
   dans les logs (`[RSS ERREUR]`), mais un flux Atom lu comme du RSS ne l'est
   PAS : il renvoie 0 article en silence. Toujours vérifier le rendement réel
   d'une source, pas seulement l'absence d'erreur.
+- **Le quota par catégorie borne la sélection AVANT `nb_max`** : avec
+  6 catégories, `QUOTA_CATEGORIE = 3` plafonnait à 18 sujets quel que soit
+  `nb_max`. Constat 29/07 : 655 articles collectés, 71 candidats… et exactement
+  18 retenus, alors que `nb_max` valait 36. Porté à 6 par catégorie. Toute
+  hausse de `nb_max` doit s'accompagner d'une hausse du quota, sinon elle
+  n'a **aucun** effet.
 - **Plafond par flux** (`MAX_ITEMS_PAR_FLUX`) : porté de 8 à 20 le 28/07. À 8,
   la collecte était bornée à ~230 articles/run avant tout filtre. Ce plafond ne
   coûte rien en quota Groq — il n'élargit que le vivier où
