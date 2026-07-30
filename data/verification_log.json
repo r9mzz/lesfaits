@@ -6118,5 +6118,169 @@
       ]
     },
     "article_type": "actu"
+  },
+  {
+    "slug": "obsessed-fest-prime-video-romcom",
+    "statut": "corrige_automatiquement",
+    "date": "2026-07-30T05:27:05",
+    "problemes_initiaux": 5,
+    "tentatives": 2,
+    "problemes_residuels_style": 4,
+    "rapport_initial": {
+      "conforme": false,
+      "sujet_sensible": false,
+      "sujet_sensible_raison": "",
+      "angle_insuffisant": false,
+      "angle_insuffisant_raison": "",
+      "nature_contenu": "actualite_factuelle",
+      "problemes": [
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "fait_tranche_arbitrairement",
+          "phrase_exacte": "Les comédies romantiques peuvent renforcer les stéréotypes de genre et la culture de fandom, qui peuvent être problématiques, notamment avec des séries qui présentent des relations idéalisées et peu réalistes.",
+          "explication": "La phrase présente une affirmation générale sans source précise pour étayer ce fait, ce qui peut être considéré comme une simplification excessive ou une généralisation non sourcée."
+        },
+        {
+          "bloc": 2,
+          "section": "nuances",
+          "type": "source_inventee",
+          "phrase_exacte": "Selon Screenrant, la série Off Campus a atteint la première place des contenus les plus visionnés dans le monde sur Prime Video.",
+          "explication": "La source Screenrant n'est pas listée dans les sources autorisées fournies."
+        },
+        {
+          "bloc": 2,
+          "section": "nuances",
+          "type": "source_inventee",
+          "phrase_exacte": "Télé-Loisirs note que la plateforme de streaming Prime Video va adapter une nouvelle série inspirée d'un livre qui a cartonné en librairies, intitulée Fourth Wing.",
+          "explication": "La source Télé-Loisirs n'est pas listée dans les sources autorisées fournies."
+        },
+        {
+          "bloc": 2,
+          "section": "nuances",
+          "type": "source_inventee",
+          "phrase_exacte": "Puremédias rapporte que la série Au fil des années a déjà détrôné le phénomène Off Campus sur Prime Video.",
+          "explication": "La source Puremédias n'est pas listée dans les sources autorisées fournies."
+        },
+        {
+          "bloc": 4,
+          "section": "contexte",
+          "type": "redondance",
+          "phrase_exacte": "Les comédies romantiques ont toujours été un genre populaire auprès des jeunes adultes.",
+          "explication": "Cette phrase répète une idée générale sans apporter d'information nouvelle ou spécifique au sujet traité."
+        }
+      ]
+    },
+    "article_type": "actu"
+  },
+  {
+    "slug": "incendie-gironde-recherches-forestieres",
+    "statut": "rejete_qualite",
+    "date": "2026-07-30T05:28:05",
+    "problemes_initiaux": 4,
+    "tentatives": 2,
+    "problemes_restants": 3,
+    "bloquants_restants": 1,
+    "article_type": "actu"
+  },
+  {
+    "slug": "guerre-en-ukraine-frappes-russes-sur-kiev",
+    "statut": "rejete_sensible",
+    "date": "2026-07-30T05:29:32",
+    "sujet_sensible": true,
+    "raison": "L'article implique des pertes humaines et des dégâts matériels dans le contexte d'une guerre en cours.",
+    "article_type": "actu"
+  },
+  {
+    "slug": "incendie-gironde-recherches-forestieres",
+    "statut": "rejete_qualite",
+    "date": "2026-07-30T05:30:41",
+    "problemes_initiaux": 4,
+    "tentatives": 2,
+    "problemes_restants": 4,
+    "bloquants_restants": 2,
+    "article_type": "actu"
+  },
+  {
+    "slug": "mort-elephants-kenya",
+    "statut": "corrige_automatiquement",
+    "date": "2026-07-30T05:31:33",
+    "problemes_initiaux": 4,
+    "tentatives": 1,
+    "problemes_residuels_style": 5,
+    "rapport_initial": {
+      "conforme": false,
+      "sujet_sensible": false,
+      "sujet_sensible_raison": "",
+      "angle_insuffisant": false,
+      "angle_insuffisant_raison": "",
+      "nature_contenu": "actualite_factuelle",
+      "problemes": [
+        {
+          "bloc": 2,
+          "section": "contexte",
+          "type": "source_non_editoriale",
+          "phrase_exacte": "Entrevue note que les enquêtes sur les décès inexpliqués peuvent être complexes et nécessiter des expertises spécialisées.",
+          "explication": "La source \"Entrevue\" n'est pas présente dans la liste des sources autorisées."
+        },
+        {
+          "bloc": 2,
+          "section": "contexte",
+          "type": "source_non_editoriale",
+          "phrase_exacte": "France Info rapporte que les autorités kényanes ont ouvert une enquête pour déterminer les causes de la mort de ces éléphants et prendre des mesures pour prévenir de nouvelles pertes.",
+          "explication": "La source \"France Info\" n'est pas présente dans la liste des sources autorisées."
+        },
+        {
+          "bloc": 4,
+          "section": "contexte",
+          "type": "contexte_hors_sujet",
+          "phrase_exacte": "D'autres parcs nationaux et réserves animalières ont également connu des problèmes de santé et de sécurité des animaux, comme le montre l'exemple du Bangladesh où 20 Minutes rapporte qu'une enquête officielle a été ouverte après la mort mystérieuse de onze zèbres.",
+          "explication": "L'exemple du Bangladesh n'est pas directement lié au sujet principal de l'article, qui concerne la mort de 15 éléphants au Kenya."
+        },
+        {
+          "bloc": 2,
+          "section": "sources",
+          "type": "compteur_incoherent",
+          "phrase_exacte": "nb_sources: 4",
+          "explication": "Le nombre de sources réellement utilisées dans l'article est inférieur à 4, car certaines sources ne sont pas présentes dans la liste des sources autorisées."
+        }
+      ]
+    },
+    "article_type": "actu"
+  },
+  {
+    "slug": "enquete-incendies-foret-france",
+    "statut": "rejete_qualite",
+    "date": "2026-07-30T05:33:09",
+    "tentative": 1,
+    "angle_insuffisant": true,
+    "raison": "aucune actualité identifiable ne justifie une publication maintenant",
+    "article_type": "actu"
+  },
+  {
+    "slug": "inserm-additifs-alimentaires-risque-sante",
+    "statut": "rejete_qualite",
+    "date": "2026-07-30T05:34:06",
+    "problemes_initiaux": 3,
+    "tentatives": 2,
+    "problemes_restants": 3,
+    "bloquants_restants": 1,
+    "article_type": "actu"
+  },
+  {
+    "slug": "etude-internationale-fusions-trous-noirs",
+    "statut": "rejete_qualite",
+    "date": "2026-07-30T05:35:36",
+    "angle_insuffisant": true,
+    "raison": "aucune actualité identifiable ne justifie une publication maintenant",
+    "article_type": "actu"
+  },
+  {
+    "slug": "inserm-magazine-n69-nouvelles-addictions",
+    "statut": "rejete_qualite",
+    "date": "2026-07-30T05:36:07",
+    "angle_insuffisant": true,
+    "raison": "L'article ne présente pas d'événement précis daté ou datable avec une donnée chiffrée ou nommée propre à cet événement.",
+    "article_type": "dossier_science"
   }
 ]
