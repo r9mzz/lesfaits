@@ -190,6 +190,42 @@ décisions éditoriales** mais des échecs techniques. Points à surveiller :
   coûte rien en quota Groq — il n'élargit que le vivier où
   `selectionner_meilleurs` puise ses `nb_max` sujets.
 
+## Barème de sélection — « meilleur » doit vouloir dire « le plus intéressant »
+
+Constat 30/07 (Nahil) : « Amazon Prime Video organise Obsessed Fest pour les
+fans de comédies romantiques » figurait parmi les 78 candidats d'un run. Cause
+racine : **le barème ne notait que la FORME** — source connue, longueur,
+fraîcheur, densité de chiffres. Aucun critère ne mesurait l'intérêt du sujet
+lui-même, si bien qu'un communiqué de plateforme, long et frais, pouvait
+devancer un rapport de la Cour des comptes. Trois ajouts dans
+`score_editorial` :
+
+- `_PR_MARQUE_RE` — **rejet immédiat** de la communication de marque. Exige
+  DEUX éléments : une marque/plateforme ET un verbe d'événementiel. La marque
+  seule ne suffit JAMAIS — « Netflix perd 2 millions d'abonnés », « Amazon
+  condamné par la Commission européenne » sont de vraies actualités.
+- `_ENJEU_PUBLIC_RE` — **bonus** (+30 / +15) sur la portée : décision publique,
+  argent public, santé, environnement, travail. Le titre pèse double. C'est le
+  seul signal POSITIF du barème qui parle du sujet et non de son emballage.
+- `_DIVERTISSEMENT_RE` — **malus** (-30 titre / -15 corps), pas rejet : un
+  festival peut avoir une portée réelle (financement public, polémique).
+
+Mots écartés après mesure sur les 154 articles publiés, ne pas les
+réintroduire : `annonce` et `propose` (verbes neutres de l'actualité
+d'entreprise), `célèbre` (aussi un adjectif : « un célèbre mathématicien »),
+et la marque `meta` (matche la balise `<meta>` et s'emploie hors marque).
+
+**Le filtre commercial doit accepter les DEUX écritures de la devise**, « € »
+et le mot « euros ». N'écrire que « € » a laissé passer pendant quatre jours
+l'article même qui avait motivé la règle — « Lidl : 5 appareils de cuisine à
+moins de 10 euros » — alors que la variante « à moins de 10 € » était bien
+rejetée.
+
+`_STATS_REJETS` / `_STATS_REJETS_SOURCE` affichent à chaque run le décompte des
+rejets **par motif et par source** (`[REJETS]`). Sans ça, la perte entre la
+collecte et le scoring (~88 % : 655 → 78) est un trou noir et toute analyse du
+barème est une hypothèse. Diagnostic seul, n'influence aucune décision.
+
 ## Sources RSS — ne jamais en ajouter sans mesurer
 
 `scripts/check_feeds.py` + le workflow `check_feeds.yml` (déclenchement manuel)

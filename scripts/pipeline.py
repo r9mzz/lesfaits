@@ -10,6 +10,7 @@ Usage:
 """
 
 import os, re, json, time, hashlib, argparse, sys
+from collections import Counter
 from datetime import datetime, timedelta
 from zoneinfo import ZoneInfo
 from pathlib import Path
@@ -696,6 +697,75 @@ _TITRE_MALUS = [
     "nos astuces", "tout savoir", "on vous explique",
 ]
 
+# ── Communication de marque déguisée en actualité ────────────────────────────
+# Constat 30/07 (Nahil) : « Amazon Prime Video organise Obsessed Fest pour les
+# fans de comédies romantiques » figurait parmi les 78 candidats d'un run. Ce
+# n'est pas de l'information, c'est un communiqué de presse — mais il ne
+# déclenchait RIEN : pas de prix (donc `_COMMERCE_RE` muet), pas de vocabulaire
+# sportif, un contenu long et frais d'une source « média reconnu », donc même
+# un bonus de densité. Le barème ne savait pas distinguer « une entreprise fait
+# quelque chose d'intéressant » de « une entreprise fait sa promotion ».
+#
+# Le motif exige DEUX éléments : une marque/plateforme ET un verbe de
+# communication. La marque seule ne suffit jamais — « Netflix perd 2 millions
+# d'abonnés » ou « Amazon condamné par la Commission européenne » sont de
+# vraies actualités et doivent passer.
+_MARQUES_PROMO = (
+    r"amazon|prime video|netflix|disney\+?|apple tv|canal\+?|paramount\+?"
+    # « meta » est volontairement ABSENT : le mot matche la balise <meta> et
+    # s'emploie couramment hors marque. On vise les plateformes par leur nom
+    # de produit, jamais par un mot ambigu.
+    r"|spotify|deezer|tiktok|snapchat|instagram|facebook|whatsapp|youtube|twitch"
+    r"|ubisoft|nintendo|playstation|xbox|steam"
+)
+# « annonce » et « propose » ont été TESTÉS puis retirés : ce sont les verbes
+# neutres de l'actualité d'entreprise (« TikTok annonce lutter contre l'AI
+# slop » est un vrai sujet), et ils faisaient le seul faux positif mesuré sur
+# les 154 articles publiés. On ne garde que les verbes d'événementiel.
+_PROMO_VERBES = (
+    # « célèbre » retiré : c'est aussi un adjectif très courant (« un célèbre
+    # mathématicien »), il produisait un faux positif sur un article publié.
+    r"organise|dévoile|inaugure"
+    r"|met en ligne|donne rendez-vous|s'associe"
+)
+_PR_MARQUE_RE = re.compile(
+    rf"\b(?:{_MARQUES_PROMO})\b.{{0,60}}\b(?:{_PROMO_VERBES})\b"
+    rf"|\b(?:{_PROMO_VERBES})\b.{{0,60}}\b(?:{_MARQUES_PROMO})\b"
+    # « pour les fans de… », « à ne pas manquer » : adresse au public-cible,
+    # marqueur de communication et jamais de compte rendu factuel.
+    rf"|pour les fans de|à ne pas manquer|disponible dès maintenant"
+    rf"|nouvelle saison de|bande[- ]annonce",
+    re.IGNORECASE,
+)
+
+# ── Divertissement / culture-spectacle : malus, pas rejet ────────────────────
+# Une sortie de série ou un casting n'est pas illégitime en soi, mais ce n'est
+# pas ce que Les Faits cherche à traiter. On rétrograde plutôt que d'exclure :
+# un festival peut avoir une portée réelle (financement public, polémique).
+_DIVERTISSEMENT_RE = re.compile(
+    r"\b(?:s[ée]rie|saison \d|[ée]pisode|casting|acteur|actrice|r[ée]alisateur"
+    r"|box[- ]office|blockbuster|spin[- ]off|reboot|tr[ai]iler"
+    r"|album|clip|tourn[ée]e|concert|festival|jeu vid[ée]o|streaming)\b",
+    re.IGNORECASE,
+)
+
+# ── Enjeu public : le signal POSITIF qui manquait au barème ──────────────────
+# Le barème ne récompensait que des propriétés de forme (source connue,
+# longueur, fraîcheur, chiffres). Rien ne mesurait ce qui rend un sujet
+# intéressant : une décision, une mesure, une donnée qui engage des gens.
+# Ce bonus est ce qui doit faire remonter un rapport de la Cour des comptes
+# au-dessus d'un communiqué de plateforme de streaming.
+_ENJEU_PUBLIC_RE = re.compile(
+    r"\b(?:d[ée]cret|loi\b|r[ée]forme|r[ée]glementation|directive|jugement"
+    r"|condamn[ée]|amende|enqu[êe]te|rapport|audit|plainte|proc[èe]s"
+    r"|budget|financement|subvention|imp[ôo]t|taxe|cotisation|retraite"
+    r"|h[ôo]pital|[ée]cole|logement|transport|[ée]nergie|climat|pollution"
+    r"|[ée]missions|biodiversit[ée]|s[ée]cheresse|canicule"
+    r"|essai clinique|vaccin|[ée]pid[ée]mie|mortalit[ée]|pr[ée]valence"
+    r"|ch[ôo]mage|salaire|pouvoir d'achat|in[ée]galit[ée]s|pauvret[ée])\b",
+    re.IGNORECASE,
+)
+
 # Contenu commercial déguisé en article : prix précis + enseigne de vente
 _COMMERCE_RE = re.compile(
     # ATTENTION : toujours accepter les DEUX écritures de la devise, « € » et
@@ -953,6 +1023,10 @@ def score_editorial(item: dict, source_name: str, published_topics: set) -> tupl
     if _COMMERCE_RE.search(text[:800]):
         return -1, ["Contenu commercial (prix/enseigne détectés)"]
 
+    # Communication de marque : un communiqué n'est pas une actualité
+    if _PR_MARQUE_RE.search(text[:800]):
+        return -1, ["Communication de marque (marque + verbe événementiel)"]
+
     if len(item["content"]) < 300:
         return -1, [f"Contenu trop court : {len(item['content'])} chars (min 300)"]
 
@@ -1023,6 +1097,36 @@ def score_editorial(item: dict, source_name: str, published_topics: set) -> tupl
         score += 10
         reasons.append(f"+10 substance (données chiffrées)")
 
+    # ── BONUS ENJEU PUBLIC : ce que « meilleur » devrait vouloir dire ───────
+    # Le reste du barème ne note que la FORME (source connue, longueur,
+    # fraîcheur). Rien n'y mesurait l'intérêt du sujet lui-même, si bien qu'un
+    # communiqué de plateforme de streaming, long et frais, pouvait devancer
+    # un rapport de la Cour des comptes. Ce bonus note la PORTÉE : décision
+    # publique, argent public, santé, environnement, travail — ce qui engage
+    # des gens. Bonus fort à partir de 3 marqueurs pour ne pas récompenser une
+    # mention isolée ; le titre pèse double, c'est là qu'est le vrai sujet.
+    title_lower_brut = item["title"].lower()
+    marqueurs = set(m.group(0).lower() for m in _ENJEU_PUBLIC_RE.finditer(debut))
+    marqueurs_titre = set(m.group(0).lower() for m in _ENJEU_PUBLIC_RE.finditer(title_lower_brut))
+    poids = len(marqueurs) + 2 * len(marqueurs_titre)
+    if poids >= 4:
+        score += 30
+        reasons.append(f"+30 enjeu public fort (poids {poids} : {sorted(marqueurs)[:3]})")
+    elif poids >= 2:
+        score += 15
+        reasons.append(f"+15 enjeu public (poids {poids} : {sorted(marqueurs)[:3]})")
+
+    # ── MALUS DIVERTISSEMENT / CULTURE-SPECTACLE ────────────────────────────
+    # Rétrogradation, pas rejet : un festival ou une série peuvent avoir une
+    # portée réelle (financement public, polémique). Mais à défaut d'enjeu
+    # identifié, ils ne doivent pas occuper une des rares places de génération.
+    if _DIVERTISSEMENT_RE.search(title_lower_brut):
+        score -= 30
+        reasons.append("-30 divertissement/culture-spectacle (titre)")
+    elif _DIVERTISSEMENT_RE.search(debut):
+        score -= 15
+        reasons.append("-15 divertissement/culture-spectacle (contenu)")
+
     # ── MALUS SPORT-SPECTACLE / LIFESTYLE ────────────────────────────────────
     if _SPORT_LIFESTYLE_RE.search(item["title"]):
         score -= 40
@@ -1083,6 +1187,12 @@ def score_editorial(item: dict, source_name: str, published_topics: set) -> tupl
     return score, reasons
 
 
+# Compteurs de rejet du filtre éditorial, remplis par `filtrer_et_classer` et
+# vidés au début de chaque run. Diagnostic seul : ils n'influencent rien.
+_STATS_REJETS: "Counter[str]" = Counter()
+_STATS_REJETS_SOURCE: "Counter[str]" = Counter()
+
+
 def filtrer_et_classer(
     items: list[dict],
     source_name: str,
@@ -1100,11 +1210,19 @@ def filtrer_et_classer(
             item["_score"]   = -1
             item["_reasons"] = reasons
             item["_reject"]  = True
+            # Comptage par MOTIF : sans ça, on ne sait pas où meurent les
+            # ~88 % de candidats perdus entre la collecte et le scoring, et on
+            # en est réduit à des hypothèses sur le barème.
+            _STATS_REJETS[reasons[0].split(" :")[0].split(" (")[0]] += 1
+            _STATS_REJETS_SOURCE[source_name] += 1
         else:
             item["_score"]   = score
             item["_reasons"] = reasons
             item["_reject"]  = score < seuil_score
             item["_cat"]     = detect_category(item["title"] + " " + item["content"])
+            if item["_reject"]:
+                _STATS_REJETS[f"Score sous le seuil ({seuil_score})"] += 1
+                _STATS_REJETS_SOURCE[source_name] += 1
         resultats.append(item)
 
     return sorted(
@@ -6087,6 +6205,8 @@ def run(dry_run=False, text_input=None, nb_max=36):
         published_topics = {a.get("titre", "") for a in load_index()[:140]}
         tous_candidats   = []
 
+        _STATS_REJETS.clear()
+        _STATS_REJETS_SOURCE.clear()
         rendement: dict[str, tuple[int, int]] = {}  # source → (collectés, retenus)
         brut_total = 0
         for src in RSS_SOURCES:
@@ -6121,6 +6241,17 @@ def run(dry_run=False, text_input=None, nb_max=36):
               f"{brut_total} articles collectés avant filtre")
 
         print(f"\n[SCORING] {len(tous_candidats)} candidats après filtre")
+
+        # Où meurent les articles collectés ? Sans ce décompte, la perte entre
+        # la collecte et le scoring (~88 %) est un trou noir : impossible de
+        # savoir si le barème écarte du bruit ou de vrais sujets.
+        if _STATS_REJETS:
+            total_rej = sum(_STATS_REJETS.values())
+            print(f"  [REJETS] {total_rej} article(s) écarté(s) par le filtre éditorial :")
+            for motif, n in _STATS_REJETS.most_common():
+                print(f"    {n:>5}  ({100*n/total_rej:4.1f} %)  {motif}")
+            print(f"  [REJETS] sources les plus filtrées : " + ", ".join(
+                f"{s} ({n})" for s, n in _STATS_REJETS_SOURCE.most_common(6)))
 
         # ── Étape 2 : afficher le classement ──
         tous_candidats.sort(key=lambda x: x["_score"], reverse=True)
