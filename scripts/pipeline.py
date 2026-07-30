@@ -5766,7 +5766,40 @@ def generer_article(item: dict, dry_run: bool, published: set, new_pub: set, dat
     extra = sorted(
         extra,
         key=lambda s: _QUALITE_RANG.get(qualite_source(s.get("url", "")), 3)
-    )[:8]
+    )
+
+    # Plafond d'injection : un BUDGET DE MATIÈRE, pas un nombre de sources.
+    #
+    # Constat 30/07 : les premiers jets font ~250 mots pour une cible de 500,
+    # sur TOUS les sujets, y compris les plus riches (incendies en Gironde).
+    # Cause : le plafond était « les 8 meilleures sources », quelle que soit
+    # leur épaisseur. Or les 20 médias de `_PRESSE_PROTEGEE` sont plafonnés à
+    # ~200-1200 caractères (droits voisins) et ne sont pas scrapés — 8 sources
+    # protégées, c'est ~1 600 caractères, soit moins de 300 mots de matière.
+    # On demandait donc 500 mots sans extrapoler à partir de 300. Le modèle
+    # s'arrêtait court : c'était la bonne réponse à une consigne impossible.
+    #
+    # On compte désormais les caractères réellement disponibles et on continue
+    # de piocher (dans l'ordre de qualité) tant que le budget n'est pas atteint.
+    # Un sujet couvert par des sources institutionnelles épaisses garde 8
+    # sources ; un sujet couvert par de la presse protégée en obtient
+    # davantage, ce qui rétablit la matière SANS toucher au plafond légal par
+    # source. Bornes : au moins 8 sources, au plus 16 (le prompt tourne déjà à
+    # ~7-8 k tokens, il ne faut pas le faire exploser).
+    BUDGET_MATIERE = 18000   # caractères de snippets injectés
+    MIN_SOURCES_INJ, MAX_SOURCES_INJ = 8, 16
+    _retenues, _budget = [], 0
+    for _s in extra:
+        if len(_retenues) >= MAX_SOURCES_INJ:
+            break
+        if len(_retenues) >= MIN_SOURCES_INJ and _budget >= BUDGET_MATIERE:
+            break
+        _retenues.append(_s)
+        _budget += len(_s.get("snippet") or "")
+    if len(_retenues) > MIN_SOURCES_INJ:
+        print(f"     [MATIÈRE] {_budget} caractères sur {len(_retenues)} sources "
+              f"(sources fines : {MIN_SOURCES_INJ} n'auraient pas suffi)")
+    extra = _retenues
 
     # Bloquer si moins de 5 sources réelles trouvées AVANT même de générer.
     # Seuil relevé de 3 à 5 : avec seulement 3-4 sources, le correcteur (passe 3
