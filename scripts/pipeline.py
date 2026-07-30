@@ -6092,6 +6092,24 @@ def generer_article(item: dict, dry_run: bool, published: set, new_pub: set, dat
             art.get("titre", ""), _resume_cat,
             _corps_cat.get("faits", ""), _corps_cat.get("contexte", ""),
         ))
+        # ── Communication de marque : recontrôle sur le TEXTE GÉNÉRÉ ────────
+        # Constat 30/07 : l'article « Amazon Prime Video organise Obsessed Fest
+        # pour les fans de comédies romantiques » a été publié alors que le
+        # candidat RSS sélectionné s'intitulait « De "Off Campus" à "Fourth
+        # Wing", l'hégémonie de Prime Video » — un sujet culturel défendable,
+        # 2e sur 75 au score. C'est la GÉNÉRATION qui a glissé vers l'événement
+        # promotionnel trouvé dans les sources. Le filtre `_PR_MARQUE_RE` du
+        # scoring ne pouvait rien voir : il s'applique à l'extrait RSS, pas au
+        # texte produit. Même classe de piège que la catégorie calculée sur le
+        # teaser — d'où le même remède, un recontrôle en aval.
+        # Rejet définitif : un communiqué ne se répare pas en le réécrivant.
+        if _PR_MARQUE_RE.search(_texte_cat[:1500]):
+            _motif = _PR_MARQUE_RE.search(_texte_cat[:1500]).group(0)
+            print(f"     [REJET] Communication de marque dans le texte généré "
+                  f"(« {_motif} ») — le sujet a glissé du candidat vers un "
+                  f"contenu promotionnel, non publié")
+            return False
+
         _scores_cat = _scores_categories(_texte_cat)
         _best_cat   = max(_CAT_PRIORITE, key=lambda c: _scores_cat[c])
         if _scores_cat[_best_cat] < SCORE_CATEGORIE_MIN:
