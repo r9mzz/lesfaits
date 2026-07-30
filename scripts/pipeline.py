@@ -494,9 +494,17 @@ def duckduckgo_search(query: str, max_results: int = 8) -> list[dict]:
                     })
         except Exception:
             pass
-        if len(results) >= max_results:
-            break
 
+    # BUG CORRIGÉ (30/07) : la boucle s'arrêtait dès `len(results) >= max_results`.
+    # Or la 3e requête est CELLE QUI CHERCHE LES SOURCES PRIMAIRES
+    # (site:gouv.fr OR inserm OR insee OR who.int). Avec l'ancien plafond de 15,
+    # les deux premières requêtes (10 résultats chacune) suffisaient à
+    # l'atteindre : la requête institutionnelle n'était JAMAIS exécutée.
+    # C'est ce qui explique les rejets répétés « 0 primaire(s), 0 secondaire(s),
+    # N tertiaire(s) » — le pipeline exigeait une source primaire tout en
+    # sautant systématiquement la seule requête conçue pour en trouver une.
+    # Les trois requêtes sont désormais toujours jouées : elles ne coûtent
+    # aucun token Groq, seule l'injection dans le prompt est facturée.
     return results[:max_results]
 
 
@@ -5742,7 +5750,14 @@ def generer_article(item: dict, dry_run: bool, published: set, new_pub: set, dat
     # l'enrichissement. Le prompt retrouve sa taille d'origine, mais avec de
     # meilleures sources qu'avant (choisies parmi 15 candidates, pas les 8
     # premières trouvées).
-    extra = duckduckgo_search(item["title"] + " " + cat, max_results=15)
+    # 15 → 26 (30/07) : le budget de matière peut retenir jusqu'à 16 sources
+    # quand elles sont fines (presse protégée plafonnée à ~200 caractères).
+    # Avec un vivier de 15 dont une partie est écartée par `_est_source_citables`
+    # et la dédup par titre, ce plafond amont rendait le budget inatteignable —
+    # le correctif d'injection ne servait à rien. La recherche DDG ne coûte
+    # AUCUN token Groq : élargir le vivier est gratuit, seule l'injection
+    # dans le prompt est facturée, et elle reste bornée par BUDGET_MATIERE.
+    extra = duckduckgo_search(item["title"] + " " + cat, max_results=26)
     pubmed = pubmed_search(item["title"], max_results=4)
     # Fusionner sans doublons
     seen_urls = {s["url"] for s in extra}
