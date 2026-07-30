@@ -6282,5 +6282,124 @@
     "angle_insuffisant": true,
     "raison": "L'article ne présente pas d'événement précis daté ou datable avec une donnée chiffrée ou nommée propre à cet événement.",
     "article_type": "dossier_science"
+  },
+  {
+    "slug": "morts-elephants-kenya",
+    "statut": "corrige_automatiquement",
+    "date": "2026-07-30T14:54:20",
+    "problemes_initiaux": 4,
+    "tentatives": 2,
+    "problemes_residuels_style": 4,
+    "rapport_initial": {
+      "conforme": false,
+      "sujet_sensible": false,
+      "sujet_sensible_raison": "",
+      "angle_insuffisant": false,
+      "angle_insuffisant_raison": "",
+      "nature_contenu": "actualite_factuelle",
+      "problemes": [
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "incoherence_inter_sections",
+          "phrase_exacte": "Selon Le Figaro, dix des éléphants morts présentaient des signes cliniques similaires, dont une paralysie partielle les ayant empêchés de se tenir debout, avant de succomber en un ou deux jours.",
+          "explication": "L'article ne fournit pas de détails sur les sources des informations concernant les signes cliniques et la cause de la mort des éléphants, ce qui pourrait être considéré comme une incohérence entre les sections."
+        },
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "source_derivee_comptee_comme_primaire",
+          "phrase_exacte": "Marcomputer rapporte que les éléphants du parc d'Amboseli sont connus pour leur grande taille et leur longévité, ce qui rend cette mort inexpliquée encore plus préoccupante.",
+          "explication": "Marcomputer est peut-être une source secondaire ou tertiaire, car son article semble reprendre des informations déjà disponibles dans d'autres sources."
+        },
+        {
+          "bloc": 4,
+          "section": "contexte",
+          "type": "redondance",
+          "phrase_exacte": "Le parc national d'Amboseli est situé dans le sud du Kenya, à la frontière avec la Tanzanie. Il est connu pour sa richesse en faune, notamment ses troupeaux d'éléphants.",
+          "explication": "Ces informations sont déjà mentionnées dans d'autres parties de l'article, ce qui pourrait être considéré comme une redondance."
+        },
+        {
+          "bloc": 4,
+          "section": "nuances",
+          "type": "jugement_de_valeur",
+          "phrase_exacte": "La mort de ces éléphants suscite des inquiétudes quant à la santé de la population d'éléphants dans le parc et à la possible existence d'une menace pour l'écosystème.",
+          "explication": "L'utilisation du mot 'inquiétudes' pourrait être considérée comme un jugement de valeur, car il exprime une émotion ou une opinion plutôt qu'un fait objectif."
+        }
+      ]
+    },
+    "article_type": "actu"
+  },
+  {
+    "slug": "japon-exclut-femmes-succession-imperiale",
+    "statut": "rejete_qualite",
+    "date": "2026-07-30T14:55:21",
+    "problemes_initiaux": 4,
+    "tentatives": 2,
+    "problemes_restants": 3,
+    "bloquants_restants": 1,
+    "article_type": "actu"
+  },
+  {
+    "slug": "dell-slim-ordinateur-de-bureau-moins-500-euros",
+    "statut": "rejete_qualite",
+    "date": "2026-07-30T14:59:22",
+    "angle_insuffisant": true,
+    "raison": "L'article ne présente pas d'événement précis daté ou datable avec une donnée chiffrée ou nommée qui lui est propre, mais plutôt une offre générale d'ordinateurs de bureau.",
+    "article_type": "actu"
+  },
+  {
+    "slug": "cancer-pancreas-anticorps-essai-clinique",
+    "statut": "corrige_automatiquement",
+    "date": "2026-07-30T15:03:54",
+    "problemes_initiaux": 5,
+    "tentatives": 2,
+    "problemes_residuels_style": 3,
+    "rapport_initial": {
+      "conforme": false,
+      "sujet_sensible": false,
+      "sujet_sensible_raison": "",
+      "angle_insuffisant": false,
+      "angle_insuffisant_raison": "",
+      "nature_contenu": "actualite_factuelle",
+      "problemes": [
+        {
+          "bloc": 1,
+          "section": "resume",
+          "type": "fait_tranche_arbitrairement",
+          "phrase_exacte": "Un anticorps expérimental a montré des résultats prometteurs dans le traitement du cancer du pancréas, en améliorant la réponse à la chimiothérapie et en prolongeant la survie des patients.",
+          "explication": "Le résumé présente les résultats de l'essai clinique comme définitivement établis, alors que les sources indiquent que l'essai est encore en phase précoce et que les résultats doivent être confirmés par des études plus larges."
+        },
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "Selon Doctissimo, il touche un nombre croissant de patients.",
+          "explication": "Doctissimo est une source secondaire, mais son contenu n'est pas explicitement cité dans les sources autorisées."
+        },
+        {
+          "bloc": 2,
+          "section": "contexte",
+          "type": "source_non_editoriale",
+          "phrase_exacte": "Techno-Science rapporte que les chercheurs ont développé un anticorps capable de bloquer l'un des mécanismes de résistance des cellules cancéreuses.",
+          "explication": "Techno-Science n'est pas une source autorisée et n'est pas explicitement citée dans les sources autorisées."
+        },
+        {
+          "bloc": 2,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "Leprogres note que les résultats de l'essai clinique sont prometteurs et pourraient ouvrir de nouvelles perspectives pour le traitement du cancer du pancréas.",
+          "explication": "Leprogres n'est pas une source autorisée et n'est pas explicitement citée dans les sources autorisées."
+        },
+        {
+          "bloc": 4,
+          "section": "nuances",
+          "type": "redondance",
+          "phrase_exacte": "Selon l'Inserm, l'essai clinique est encore en phase précoce et les résultats doivent être confirmés par des études plus larges.",
+          "explication": "Cette phrase répète l'information déjà présente dans les faits et n'apporte pas de nouvelle information."
+        }
+      ]
+    },
+    "article_type": "actu"
   }
 ]
