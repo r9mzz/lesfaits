@@ -1035,8 +1035,26 @@ def score_editorial(item: dict, source_name: str, published_topics: set) -> tupl
     if _PR_MARQUE_RE.search(text[:800]):
         return -1, ["Communication de marque (marque + verbe événementiel)"]
 
-    if len(item["content"]) < 300:
-        return -1, [f"Contenu trop court : {len(item['content'])} chars (min 300)"]
+    # Seuil de contenu : 300 caractères — SAUF pour la presse protégée et les
+    # sources de référence. Ce filtre est censé écarter les sujets sans
+    # substance ; il mesurait en réalité la GÉNÉROSITÉ DU FLUX. Or les 20
+    # médias de `_PRESSE_PROTEGEE` ne diffusent qu'un chapeau court (droits
+    # voisins), et les flux institutionnels un simple intitulé. Constat 30/07 :
+    # 10 sources sur 36 ne produisaient AUCUN candidat — Le Monde Planète,
+    # Le Monde Idées, Le Monde Décodeurs, Libération, Le Parisien, France
+    # Culture, Numerama, Slate, et surtout le Sénat et Santé Publique France,
+    # deux sources PRIMAIRES. Le pipeline jetait la presse de référence parce
+    # qu'elle respecte le droit voisin.
+    # Ce n'est pas un assouplissement : la matière de l'article ne vient pas
+    # du teaser RSS mais des sources recherchées ensuite (jusqu'à 26), et tous
+    # les contrôles de fond restent inchangés.
+    _seuil_contenu = 300
+    _src_connue = (any(s in src or s in text[:200] for s in SOURCES_MAJEURES)
+                   or any(s in src for s in SOURCES_MEDIAS))
+    if _est_presse_protegee(item.get("url", "")) or _src_connue:
+        _seuil_contenu = 140
+    if len(item["content"]) < _seuil_contenu:
+        return -1, [f"Contenu trop court : {len(item['content'])} chars (min {_seuil_contenu})"]
 
     # ── BARÈME POSITIF ───────────────────────────────────────────────────────
 
@@ -3107,8 +3125,16 @@ def generate(content: str, category_hint: str, extra_sources: list[dict] | None 
                 "Toutes les clés Groq ont épuisé leur quota journalier (TPD)")
         raise RuntimeError(f"Quota Groq épuisé sur toutes les clés après {MAX_RETRY_CYCLES} cycles d'attente")
 
-    if "HORS_PERIMETRE" in raw[:60]:
-        raise ValueError(raw[:80])
+    # BUG CORRIGÉ (30/07) : le marqueur n'était cherché que dans les 60
+    # PREMIERS caractères. Le prompt demande de répondre HORS_PERIMETRE quand
+    # les sources ne suffisent pas (règle 10), mais le modèle le fait souvent
+    # précédé d'une phrase d'explication — le marqueur tombe alors au-delà de
+    # 60 caractères, la réponse ne contient aucune accolade, et on la comptait
+    # en « Pas de JSON dans la réponse », c'est-à-dire en panne technique.
+    # C'était en réalité un verdict éditorial correct, mal classé. On cherche
+    # donc le marqueur dans toute réponse dépourvue de JSON.
+    if "HORS_PERIMETRE" in raw[:60] or ("{" not in raw and "HORS_PERIMETRE" in raw):
+        raise ValueError(raw.strip()[:120])
 
     # Extraire le JSON robustement (le modèle peut ajouter du texte avant/après)
     def _extract_json(text):
@@ -3118,6 +3144,11 @@ def generate(content: str, category_hint: str, extra_sources: list[dict] | None 
             return json.loads(candidate)
         start = text.find('{')
         if start == -1:
+            # Journaliser la réponse brute : sans ça, « Pas de JSON » est un
+            # diagnostic aveugle. C'était 3 pertes sur 14 au run du 30/07
+            # (~66 k tokens) sans qu'on puisse savoir ce que Groq avait rendu.
+            print(f"     [GROQ-BRUT] réponse sans JSON ({len(text)} car.) : "
+                  f"{text.strip()[:300]!r}")
             raise ValueError("Pas de JSON dans la réponse")
         candidate = re.sub(r',\s*([\}\]])', r'\1', text[start:])
         try:

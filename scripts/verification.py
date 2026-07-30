@@ -635,6 +635,15 @@ def verifier_article(art: dict, article_type: str = "actu") -> tuple[dict, str]:
     bloquants_restants = _problemes_bloquants(rapport_courant.get("problemes", []))
     types_bloquants = [f"{p.get('bloc')}/{p.get('type')}" for p in bloquants_restants]
     print(f"     [REJET QUALITÉ] {len(bloquants_restants)} bloquant(s) après {MAX_TENTATIVES} passes : {types_bloquants}")
+    # Le TYPE seul ne permet pas de juger si le garde-fou a raison. Constat
+    # 30/07 : incoherence_inter_sections est le 1er motif de rejet éditorial
+    # (3 sur 14 tentatives), impossible à arbitrer depuis les logs — l'article
+    # n'étant pas publié, son texte est perdu. On journalise donc la
+    # description renvoyée par le fact-checker, seule trace exploitable.
+    for _p in bloquants_restants:
+        _desc = str(_p.get("description") or _p.get("explication") or "")[:220]
+        if _desc:
+            print(f"       └ {_p.get('type')} : {_desc}")
     _log(slug, "rejete_qualite", {
         "problemes_initiaux": n_pb,
         "tentatives": MAX_TENTATIVES,
