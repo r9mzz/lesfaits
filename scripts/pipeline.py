@@ -1193,6 +1193,14 @@ _STATS_REJETS: "Counter[str]" = Counter()
 _STATS_REJETS_SOURCE: "Counter[str]" = Counter()
 
 
+def _titre_norme(titre: str) -> str:
+    """Titre réduit à sa forme comparable : accents et ponctuation retirés."""
+    import unicodedata
+    t = unicodedata.normalize("NFD", titre or "")
+    t = "".join(c for c in t if unicodedata.category(c) != "Mn").lower()
+    return " ".join(re.findall(r"\w+", t))[:70]
+
+
 def filtrer_et_classer(
     items: list[dict],
     source_name: str,
@@ -6232,8 +6240,17 @@ def run(dry_run=False, text_input=None, nb_max=36):
             brut_total += len(items)
             retenus_src = 0
             deja_vus = {i["id"] for i in tous_candidats}
+            # Dédup par TITRE en plus de l'id : l'id est un hash de l'URL, donc
+            # la même dépêche reprise par deux flux (ou republiée avec une URL
+            # de tracking) passait deux fois. Constat 30/07 : « En Gironde,
+            # 80 hectares dédiés aux recherches forestières » a occupé DEUX des
+            # 31 places de sélection et a été généré deux fois — ~26 k tokens
+            # brûlés pour le même sujet, tous deux rejetés.
+            deja_titres = {_titre_norme(i["title"]) for i in tous_candidats}
             for item in items:
                 if item["id"] in published or item["id"] in deja_vus:
+                    continue
+                if _titre_norme(item["title"]) in deja_titres:
                     continue
                 scored = filtrer_et_classer([item], src["name"], published_topics, seuil_score=20)
                 if scored:
