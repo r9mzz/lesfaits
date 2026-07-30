@@ -5848,7 +5848,17 @@ def generer_article(item: dict, dry_run: bool, published: set, new_pub: set, dat
     # plafond TPM — un prompt trop lourd fait échouer l'appel en 413.
     SNIPPET_LEN_INJ = 950
     BUDGET_MATIERE = 11000   # caractères effectivement injectés
-    MIN_SOURCES_INJ, MAX_SOURCES_INJ = 8, 14
+    # MAX 14 → 10 (30/07, après mesure). Le run du 30/07 après-midi a injecté
+    # 14 sources sur les 14 sujets, et 9 d'entre eux ont reçu de Groq une
+    # réponse NON TEXTUELLE — des octets répétés en boucle (« \x13\x13… »,
+    # « \x06\x06… »), pas du JSON malformé mais une dégénérescence du modèle.
+    # Le taux est passé de 3/14 à 9/14 dans le seul run où le nombre de
+    # sources a doublé : corrélation forte, causalité non démontrée. On
+    # redescend à 10 en attendant une mesure propre — le gain de matière est
+    # conservé (2 étoffements sur 14 contre 9 avant) sans pousser le prompt
+    # aussi loin. Ne pas remonter ce plafond sans vérifier le taux de réponses
+    # dégénérées dans les logs `[GROQ-BRUT] réponse sans JSON`.
+    MIN_SOURCES_INJ, MAX_SOURCES_INJ = 8, 10
     _retenues, _budget = [], 0
     for _s in extra:
         if len(_retenues) >= MAX_SOURCES_INJ:
