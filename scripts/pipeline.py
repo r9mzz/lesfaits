@@ -5832,8 +5832,23 @@ def generer_article(item: dict, dry_run: bool, published: set, new_pub: set, dat
     # davantage, ce qui rétablit la matière SANS toucher au plafond légal par
     # source. Bornes : au moins 8 sources, au plus 16 (le prompt tourne déjà à
     # ~7-8 k tokens, il ne faut pas le faire exploser).
-    BUDGET_MATIERE = 18000   # caractères de snippets injectés
-    MIN_SOURCES_INJ, MAX_SOURCES_INJ = 8, 16
+    # ATTENTION — le budget doit compter ce qui est RÉELLEMENT INJECTÉ, pas la
+    # taille du snippet stocké. `generate()` tronque chaque source à
+    # `snippet_len` = 950 caractères (voir le bloc SOURCES DISPONIBLES). Une
+    # première version comptait la taille brute (jusqu'à 8 000) : le budget se
+    # remplissait avec des sources dont 900 caractères seulement partaient dans
+    # le prompt, et la boucle s'arrêtait à 8 sources — le correctif ne servait
+    # à rien précisément dans le cas visé.
+    #
+    # Budget calibré sur la contrainte Groq, pas sur l'envie de matière : la
+    # limite est de 12 000 tokens/minute PAR CLÉ, prompt + max_tokens réservés.
+    # Le prompt tourne déjà à ~7 000 tokens. 11 000 caractères de sources
+    # ≈ 2 750 tokens, contre ~1 900 auparavant (8 × 950) : +850 tokens, ce qui
+    # laisse la marge TPM intacte. Ne pas monter ce budget sans revérifier le
+    # plafond TPM — un prompt trop lourd fait échouer l'appel en 413.
+    SNIPPET_LEN_INJ = 950
+    BUDGET_MATIERE = 11000   # caractères effectivement injectés
+    MIN_SOURCES_INJ, MAX_SOURCES_INJ = 8, 14
     _retenues, _budget = [], 0
     for _s in extra:
         if len(_retenues) >= MAX_SOURCES_INJ:
@@ -5841,7 +5856,7 @@ def generer_article(item: dict, dry_run: bool, published: set, new_pub: set, dat
         if len(_retenues) >= MIN_SOURCES_INJ and _budget >= BUDGET_MATIERE:
             break
         _retenues.append(_s)
-        _budget += len(_s.get("snippet") or "")
+        _budget += min(len(_s.get("snippet") or ""), SNIPPET_LEN_INJ)
     if len(_retenues) > MIN_SOURCES_INJ:
         print(f"     [MATIÈRE] {_budget} caractères sur {len(_retenues)} sources "
               f"(sources fines : {MIN_SOURCES_INJ} n'auraient pas suffi)")
