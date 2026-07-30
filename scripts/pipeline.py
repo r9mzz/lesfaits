@@ -5963,7 +5963,18 @@ def generer_article(item: dict, dry_run: bool, published: set, new_pub: set, dat
         # est accepté s'il est bien sourcé — plancher dur = 350 mots.
         TOLERANCE_MOTS = 150
         mots, nb_src = _deficit_longueur_sources(art)
-        if mots < MIN_MOTS_CORPS or nb_src < MIN_SOURCES:
+        # La relance ne part QUE sous le plancher dur (350), pas sous la cible
+        # (500). Mesure du run du 30/07 : 9 relances d'étoffement sur 14
+        # générations, soit une génération complète (~9 k tokens) payée deux
+        # fois dans 64 % des cas — premier poste de dépense du run, pour un
+        # résultat qui retombait de toute façon dans la bande 350-499 déjà
+        # déclarée acceptable. Un article à 362 mots était donc régénéré pour
+        # arriver à 450, alors qu'il était publiable en l'état.
+        # La règle éditoriale n'est PAS affaiblie : le plancher de publication
+        # reste 350 mots et 3 sources, exactement comme avant. Seul change le
+        # moment où l'on dépense un aller-retour Groq.
+        SEUIL_RELANCE_MOTS = MIN_MOTS_CORPS - TOLERANCE_MOTS  # 350
+        if mots < SEUIL_RELANCE_MOTS or nb_src < MIN_SOURCES:
             manque_mots = max(0, MIN_MOTS_CORPS - mots)
             manque_src = max(0, MIN_SOURCES - nb_src)
             details = []
