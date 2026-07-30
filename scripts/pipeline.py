@@ -2583,6 +2583,21 @@ def _tpd_restant(err: str) -> int | None:
     return int(m.group(1)) if m else None
 
 
+def _reponse_degeneree(raw: str) -> bool:
+    """La réponse de Groq n'est pas du texte : octets de contrôle répétés.
+
+    Signature observée le 30/07 : des séquences comme « \\x13\\x13… » ou
+    « \\ufffd/\\ufffd/… » sur des milliers de caractères, sans une seule
+    accolade. Deux critères, cumulatifs pour éviter les faux positifs sur un
+    texte contenant un caractère exotique isolé : (a) aucune accolade ouvrante,
+    (b) plus de 10 % de caractères de contrôle ou de remplacement.
+    """
+    if not raw or "{" in raw:
+        return False
+    suspects = sum(1 for c in raw if c == "�" or (ord(c) < 32 and c not in "\n\r\t"))
+    return suspects > len(raw) * 0.10
+
+
 def _groq_call(api_key: str, messages: list, max_tokens: int = 3500) -> str:
     """Appelle Groq avec la clé donnée. Lève une exception en cas d'erreur.
 
@@ -3024,6 +3039,17 @@ def generate(content: str, category_hint: str, extra_sources: list[dict] | None 
         for key, label in keys_to_try:
             try:
                 raw = _groq_call(key, messages, max_tokens=reservation_reponse)
+                # Réponse DÉGÉNÉRÉE : Groq renvoie parfois des octets répétés
+                # en boucle au lieu de texte (« \x13\x13… », « �/�/… »).
+                # Ce n'est pas du JSON malformé, c'est le modèle qui déraille ;
+                # aucune réparation n'est possible. Constat 30/07 après-midi :
+                # 9 sujets sur 14 perdus comme ça, comptés en « Pas de JSON ».
+                # On réessaie sur la CLÉ SUIVANTE plutôt que de perdre le sujet
+                # — la dégénérescence est aléatoire, pas liée au contenu.
+                if _reponse_degeneree(raw):
+                    print(f"     [GROQ] {label} : réponse dégénérée "
+                          f"({len(raw)} car. non textuels) — nouvelle clé…")
+                    continue
                 break
             except TronqueError as _tronque:
                 # Complétion coupée à max_tokens : réessayer UNE fois (même
