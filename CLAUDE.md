@@ -1,17 +1,17 @@
 # Les Faits — lesfaits.info
 
-## Test en cours (26-28/07, 2 jours, Nahil)
+## Test guerre/faits-divers/politique — CLOS le 31/07, NON CONCLUANT
 
-Guerre/faits-divers/politique retirés du rejet immédiat (`BLACKLIST` →
-`_BLACKLIST_SUSPENDUE_TEST_2607` dans `pipeline.py`) : à voir si la charte
-éditoriale (règles 1-15) et la vérification LLM (`sujet_sensible`) suffisent
-à traiter ces sujets avec neutralité factuelle sans prise de parti, plutôt
-que de les exclure a priori. Les garde-fous de sécurité légale (mineur
-impliqué, affaire judiciaire en cours, diffamation) restent actifs sans
-changement. Pas de retouche des catégories pour l'instant (un article CAN
-féminine classé en "science" est un bug distinct à creuser séparément, pas
-pendant ce test). **Si non concluant, remettre les mots-clés dans
-`BLACKLIST`.**
+Les mots-clés guerre/faits-divers/politique, retirés de `BLACKLIST` le 26/07
+pour voir si la charte et la vérification LLM suffisaient à les traiter avec
+neutralité, y ont été **réintégrés le 31/07**. Mesure sur le run du 31/07
+matin : **3 sujets sur 14 tentés (21 %)** ont été générés en entier — ~17 k
+tokens chacun — puis rejetés « sujet sensible » par la vérification LLM
+(mineurs, migrants victimes de sévices, personnalités politiques). Le prompt
+strict ne suffit pas : ces sujets passent la collecte, consomment le quota, et
+meurent à la dernière étape. Les rejeter à la collecte rend ce budget aux
+sujets publiables. Ne pas les retirer à nouveau sans mesurer le taux de rejet
+« sujet sensible » en aval.
 
 ## Philosophie éditoriale — priorité absolue
 

@@ -673,14 +673,23 @@ def fetch_rss(source: dict) -> list[dict]:
 # ce qui l'exige — ce test ne touche qu'au filtre de sujet, pas aux
 # garde-fous de sécurité légale. Si le test n'est pas concluant, remettre
 # ces mots-clés dans BLACKLIST ci-dessous.
-_BLACKLIST_SUSPENDUE_TEST_2607 = [
+# TEST CLOS (31/07) — NON CONCLUANT, mots-clés réintégrés ci-dessous.
+# Mesure sur le run du 31/07 matin : 3 sujets sur 14 tentés (21 %) ont été
+# générés en entier — ~17 k tokens chacun — puis rejetés « sujet sensible »
+# par la vérification LLM (mineurs, migrants victimes de sévices,
+# personnalités politiques). Le prompt strict ne suffit donc PAS à les
+# traiter : ils passent la collecte, consomment le quota, et meurent à la
+# dernière étape. Les rejeter à la collecte rend ce budget aux sujets
+# publiables. Ne pas les retirer à nouveau sans mesurer le taux de rejet
+# « sujet sensible » en aval.
+
+BLACKLIST = [
+    # Sujets sensibles — rejetés en aval par la vérification LLM de toute
+    # façon (test du 26-28/07, clos le 31/07)
     "guerre", "conflit armé", "attentat", "terrorisme",
     "fait divers", "meurtre", "accident mortel",
     "sondage d'opinion", "cote de popularité",
     "parti politique", "élection présidentielle",
-]
-
-BLACKLIST = [
     # People / opinion
     "célébrité", "scandale people", "vie privée",
     "horoscope", "téléréalité",
