@@ -191,6 +191,10 @@ SOURCES AUTORISÉES :
 _CLES_MORTES_JOUR: set = set()
 
 
+# Cumul des tokens consommés par la vérification sur tout le run.
+_VERIF_TOKENS = [0]
+
+
 def _llm_call(prompt: str, max_tokens: int = 6000) -> str:
     """Appel Groq avec rotation des clés + attente sur rate limit — même
     stratégie que la génération (pipeline.py), mais avec moins de patience
@@ -269,7 +273,21 @@ def _llm_call(prompt: str, max_tokens: int = 6000) -> str:
                 # (modèle invalide, requête mal formée…) — sans ce log, une
                 # erreur persistante ne laisse aucun indice exploitable.
                 raise RuntimeError(f"Groq {r.status_code}: {r.text[:500]}")
-            return r.json()["choices"][0]["message"]["content"].strip()
+            # Comptabiliser les tokens : verification.py n'en journalisait
+            # AUCUN, alors qu'il fait 2 à 4 appels par article avec un prompt
+            # de fact-check de ~4 200 tokens PLUS l'article et ses sources.
+            # Résultat : les totaux « par run » calculés depuis les logs ne
+            # couvraient que la génération — la moitié du budget était
+            # invisible, et c'est la vérification qui vidait les clés.
+            _d = r.json()
+            _u = _d.get("usage") or {}
+            if _u:
+                _VERIF_TOKENS[0] += _u.get("total_tokens", 0)
+                print(f"     [VERIF-TOKENS] prompt={_u.get('prompt_tokens')} "
+                      f"completion={_u.get('completion_tokens')} "
+                      f"total={_u.get('total_tokens')} "
+                      f"(cumul vérification : {_VERIF_TOKENS[0]})")
+            return _d["choices"][0]["message"]["content"].strip()
         if cycle < MAX_CYCLES - 1:
             print(f"     [VERIF] Toutes les clés Groq en rate limit — attente {WAIT}s")
             time.sleep(WAIT)
