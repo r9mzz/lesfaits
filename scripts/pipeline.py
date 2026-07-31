@@ -2592,8 +2592,19 @@ def _reponse_degeneree(raw: str) -> bool:
     texte contenant un caractère exotique isolé : (a) aucune accolade ouvrante,
     (b) plus de 10 % de caractères de contrôle ou de remplacement.
     """
-    if not raw or "{" in raw:
+    if not raw or "{" in raw or len(raw) < 200:
         return False
+    # Critère 1 — PAUVRETÉ DE L'ALPHABET. C'est le critère fiable : une
+    # réponse dégénérée boucle sur 2 ou 3 caractères (« _�_�_� », « (�(�(� »),
+    # là où du français en compte plusieurs dizaines.
+    # La première version ne testait que les caractères de contrôle et U+FFFD
+    # et n'a rien attrapé au run du 31/07 (4 sujets perdus) : le « � » visible
+    # dans les logs GitHub est un artefact d'affichage, la chaîne reçue par
+    # Python contient des caractères imprimables d'un autre bloc Unicode.
+    # Ne jamais se fier à la classe des caractères, seulement à leur variété.
+    if len(set(raw)) <= 15:
+        return True
+    # Critère 2 — densité de caractères de contrôle (filet de sécurité).
     suspects = sum(1 for c in raw if c == "�" or (ord(c) < 32 and c not in "\n\r\t"))
     return suspects > len(raw) * 0.10
 
