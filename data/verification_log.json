@@ -6401,5 +6401,98 @@
       ]
     },
     "article_type": "actu"
+  },
+  {
+    "slug": "migrants-ceuta-neuf-morts",
+    "statut": "rejete_sensible",
+    "date": "2026-07-31T05:51:57",
+    "sujet_sensible": true,
+    "raison": "L'article implique des mineurs et des personnes vulnérables dans une situation de crise migratoire",
+    "article_type": "actu"
+  },
+  {
+    "slug": "region-paca-coupe-subvention-agriculture",
+    "statut": "rejete_qualite",
+    "date": "2026-07-31T05:53:05",
+    "problemes_initiaux": 5,
+    "tentatives": 2,
+    "problemes_restants": 4,
+    "bloquants_restants": 2,
+    "article_type": "actu"
+  },
+  {
+    "slug": "ocean-viking-migrants-secourus",
+    "statut": "rejete_sensible",
+    "date": "2026-07-31T05:53:42",
+    "sujet_sensible": true,
+    "raison": "l'article implique des migrants qui ont subi des sévices et des violences, et qui sont actuellement en attente à bord de l'Ocean Viking",
+    "article_type": "dossier_portrait"
+  },
+  {
+    "slug": "ibrahim-traore-chef-junte-burkina-faso",
+    "statut": "rejete_sensible",
+    "date": "2026-07-31T05:54:21",
+    "sujet_sensible": true,
+    "raison": "L'article implique des personnalités politiques et des affaires diplomatiques en cours",
+    "article_type": "dossier_portrait"
+  },
+  {
+    "slug": "cancer-pancreas-essai-clinique-anticorps",
+    "statut": "corrige_automatiquement",
+    "date": "2026-07-31T05:56:10",
+    "problemes_initiaux": 3,
+    "tentatives": 2,
+    "problemes_residuels_style": 4,
+    "rapport_initial": {
+      "conforme": false,
+      "sujet_sensible": false,
+      "sujet_sensible_raison": "",
+      "angle_insuffisant": false,
+      "angle_insuffisant_raison": "",
+      "nature_contenu": "actualite_factuelle",
+      "problemes": [
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "source_derivee_comptee_comme_primaire",
+          "phrase_exacte": "Selon l'Inserm, un anticorps expérimental a montré des résultats prometteurs dans le traitement du cancer du pancréas. D'après le CNRS, cet anticorps a été évalué dans le cadre d'un essai clinique de phase 1b et a permis d'améliorer la réponse à la chimiothérapie et la survie des patients atteints de cancer du pancréas localement avancé.",
+          "explication": "Les sources Inserm et CNRS semblent fournir la même information, ce qui pourrait indiquer des sources dérivées comptées comme primaires."
+        },
+        {
+          "bloc": 2,
+          "section": "sources",
+          "type": "compteur_incoherent",
+          "phrase_exacte": "nb_sources: 9",
+          "explication": "Le nombre de sources réellement utilisées dans l'article est peut-être inférieur à 9 en raison de sources dérivées."
+        },
+        {
+          "bloc": 4,
+          "section": "contexte",
+          "type": "redondance",
+          "phrase_exacte": "Le cancer du pancréas est un cancer agressif qui touche un nombre croissant de patients. L'Inserm note que les cellules cancéreuses du pancréas sont capables de résister aux traitements conventionnels, ce qui rend le traitement de cette maladie particulièrement difficile.",
+          "explication": "L'information sur l'agressivité du cancer du pancréas et la résistance aux traitements est redondante par rapport aux faits présentés."
+        }
+      ]
+    },
+    "article_type": "actu"
+  },
+  {
+    "slug": "rdc-cholera-epidemie",
+    "statut": "rejete_qualite",
+    "date": "2026-07-31T05:57:44",
+    "problemes_initiaux": 4,
+    "tentatives": 2,
+    "problemes_restants": 4,
+    "bloquants_restants": 1,
+    "article_type": "actu"
+  },
+  {
+    "slug": "ebola-bundibugyo-vaccin",
+    "statut": "erreur_verification",
+    "date": "2026-07-31T05:59:27",
+    "etape": "correction",
+    "tentative": 1,
+    "erreur": "Quota Groq journalier épuisé sur toutes les clés (vérification)",
+    "article_type": "dossier_science"
   }
 ]
