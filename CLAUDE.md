@@ -2,6 +2,16 @@
 
 ## Test guerre/faits-divers/politique — CLOS le 31/07, NON CONCLUANT
 
+**Affinement du 31/07** : le critère de `sujet_sensible` n'est PAS le thème
+mais la **mise en cause de personnes** (mineur impliqué, affaire pénale en
+cours, critique nominale). Bloquer « guerre » ou « parti politique » ratait
+donc la cible : ça éliminait « guerre commerciale » et l'analyse
+institutionnelle d'un conflit, tout en laissant passer des récits de victimes
+sans ces mots. `BLACKLIST` bloque désormais le **vocabulaire de victimes et de
+procédure pénale** (victimes civiles, sévices, massacre, bombardement, mis en
+examen, garde à vue…), pas les thèmes. Le géopolitique et l'institutionnel
+sans personnes nommées repassent.
+
 Les mots-clés guerre/faits-divers/politique, retirés de `BLACKLIST` le 26/07
 pour voir si la charte et la vérification LLM suffisaient à les traiter avec
 neutralité, y ont été **réintégrés le 31/07**. Mesure sur le run du 31/07

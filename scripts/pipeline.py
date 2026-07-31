@@ -684,12 +684,26 @@ def fetch_rss(source: dict) -> list[dict]:
 # « sujet sensible » en aval.
 
 BLACKLIST = [
-    # Sujets sensibles — rejetés en aval par la vérification LLM de toute
-    # façon (test du 26-28/07, clos le 31/07)
-    "guerre", "conflit armé", "attentat", "terrorisme",
-    "fait divers", "meurtre", "accident mortel",
-    "sondage d'opinion", "cote de popularité",
-    "parti politique", "élection présidentielle",
+    # ── Sujets sensibles — affinés le 31/07 ────────────────────────────────
+    # Le critère de `sujet_sensible` (verification.py) n'est PAS le thème mais
+    # la MISE EN CAUSE DE PERSONNES : mineur impliqué, affaire pénale en cours
+    # visant des personnes, critique nominale. Bloquer « guerre » ou « parti
+    # politique » ratait donc la cible : ça éliminait « guerre commerciale »,
+    # « guerre des prix » et l'analyse institutionnelle d'un conflit — des
+    # sujets sans aucune personne mise en cause — tout en laissant passer des
+    # récits de victimes qui ne contiennent pas ces mots.
+    # On bloque désormais le VOCABULAIRE DE VICTIMES ET DE PROCÉDURE PÉNALE,
+    # qui est ce que la vérification refuse réellement en aval. Le géopolitique
+    # et l'institutionnel sans personnes nommées repassent.
+    "fait divers", "meurtre", "assassinat", "accident mortel",
+    "attentat", "terrorisme",
+    # Victimes (le motif n°1 des rejets mesurés le 31/07)
+    "victimes civiles", "sévices", "torture", "massacre", "charnier",
+    "viol ", "agression sexuelle", "pédocriminal", "maltraitance",
+    "bombardement", "frappe meurtrière", "otage",
+    # Procédure pénale visant des personnes
+    "mis en examen", "garde à vue", "mise en examen", "inculpé",
+    "procès de", "condamné à de la prison",
     # People / opinion
     "célébrité", "scandale people", "vie privée",
     "horoscope", "téléréalité",
