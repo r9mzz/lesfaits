@@ -517,7 +517,15 @@ def verifier_article(art: dict, article_type: str = "actu") -> tuple[dict, str]:
     # et brûle le budget qui devrait servir aux sujets suivants.
     art_courant = art
     rapport_courant = rapport
-    MAX_TENTATIVES = 2
+    # TEST 31/07 (Nahil) : 2 → 3. Mesure sur les 240 vérifications
+    # journalisées — la 2e tentative tourne sur 37 articles et en sauve 9
+    # (24 %), pour ~11 500 tokens l'unité, soit ~47 000 tokens par article
+    # sauvé. Un sujet NEUF coûte ~500 000 tokens par article publié : corriger
+    # un article presque bon est dix fois plus rentable que d'en tenter un
+    # autre. Une 3e tentative devrait rester gagnante même à 10 % de réussite.
+    # À MESURER sur 2-3 runs : si aucun article n'est sauvé au 3e passage,
+    # revenir à 2 (chercher `tentatives: 3` dans data/verification_log.json).
+    MAX_TENTATIVES = 3
     for tentative in range(1, MAX_TENTATIVES + 1):
         # Une erreur d'API (JSON mal formé dans la réponse, timeout) n'est pas
         # un défaut de l'article : réessayer une fois avant toute décision.

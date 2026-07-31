@@ -6006,8 +6006,29 @@ def generer_article(item: dict, dry_run: bool, published: set, new_pub: set, dat
                 details.append("titre au futur pour un événement déjà survenu")
             if position_pb:
                 details.append(f"{len(position_pb)} prise(s) de position (neutralité)")
+            # PISTE C (31/07) — fusionner l'étoffement dans la relance
+            # corrective. Avant : on corrigeait les répétitions dans un appel,
+            # puis on constatait que l'article était trop court et on relançait
+            # une SECONDE fois. Deux allers-retours complets (~14 000 tokens)
+            # pour deux défauts pourtant connus AU MÊME MOMENT. Mesure du
+            # 31/07 : 8 étoffements sur 14 générations, dont la quasi-totalité
+            # suivait déjà une relance corrective.
+            # On joint donc le déficit de longueur au feedback combiné. Le
+            # garde-fou d'étoffement dédié reste en place juste après : il ne
+            # se déclenchera plus que si cette relance unique n'a pas suffi.
+            _mots_avant = _mots_totaux(art)
+            _expand_combine = None
+            if _mots_avant < 350:
+                _expand_combine = (
+                    f"Ton article ne fait que {_mots_avant} mots "
+                    f"(chapeau + faits + contexte + nuances), il en faut 500. "
+                    f"Développe en même temps que tu corriges les points "
+                    f"ci-dessus, sans rien inventer au-delà des sources."
+                )
+                details.append(f"trop court ({_mots_avant} mots) — étoffement joint")
             print(f"     [GARDE] {' + '.join(details)} — relance corrective unique…")
             art = generate(content, cat, extra_sources=extra, rss_url=item.get("url"),
+                           expand_feedback=_expand_combine,
                            retry_feedback=fantomes or None,
                            repetition_feedback=repetitions or None,
                            intra_feedback=intra or None,
