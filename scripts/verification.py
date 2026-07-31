@@ -64,6 +64,10 @@ BLOC 1 — FACTUEL (zéro tolérance) :
   (a) les chiffres du chapeau et ceux de « Les faits » décrivent-ils la même réalité ? Exemple réel non détecté (28/07) : chapeau « pourrait dépasser les 1 000 milliards de yuans de valorisation » et faits « valorisation à plus de 450 milliards d'euros » — 1 000 milliards de yuans valent environ 120 milliards d'euros, les deux chiffres sont donc incompatibles pour une même valorisation ;
   (b) deux sources donnent-elles deux valeurs différentes du MÊME chiffre (« +500 % » et « +530 % » pour la même séance de cotation) sans que l'article ne les réconcilie ni ne signale l'écart ? Dans ce cas une seule valeur doit être retenue et attribuée, ou l'écart explicitement mentionné.
 - annonce_perimee : le titre ou le chapeau présente comme À VENIR (« s'apprête à », « prévoit de », « devrait bientôt ») un événement que « Les faits » décrivent comme DÉJÀ SURVENU (« a levé », « a bondi lors de sa première séance »). Les sources fournies n'ont pas toutes été publiées au même moment : certaines précèdent l'événement, d'autres le suivent. Le titre et le chapeau doivent toujours refléter l'état le plus récent établi par les sources.
+- niveau_preuve_insuffisant : article médical ou scientifique qui présente un résultat d'essai comme une efficacité acquise. Est un problème si l'une de ces conditions est vraie : (a) le stade de la recherche (phase 1/1b/2/3, préclinique, étude observationnelle) n'apparaît NI dans le résumé NI à côté du résultat principal alors que la source le précise ; (b) l'article écrit "améliore la survie" quand la source ne décrit qu'une survie SANS PROGRESSION, un taux de réponse ou une opérabilité — ces indicateurs ne sont pas interchangeables ; (c) une comparaison chiffrée est donnée ("cinq mois de plus") sans que le COMPARATEUR soit identifié (plus que quoi, chez qui, mesuré comment) ; (d) les limites se résument à "des recherches supplémentaires sont nécessaires" au lieu des limites réelles de l'essai (effectif, absence de randomisation, durée de suivi, tolérance inconnue). Vérifie AUSSI que la publication scientifique originale figure dans les sources quand la source la mentionne : un communiqué d'institution ne la remplace pas.
+- accusation_presentee_comme_fait : une accusation, une conclusion d'ONG ou un résultat d'audit reformulé en constat de la rédaction. "Les activités de X exposent les populations à des risques graves" au lieu de "Human Rights Watch estime que…". Distingue fait observé / accusation / conclusion d'ONG / résultat d'audit / décision administrative ou judiciaire : seule la dernière catégorie s'énonce sans attribution. Signale aussi le cas inverse : une accusation attribuée dans "Les faits" mais reprise sans attribution dans le résumé, le titre ou les nuances.
+- acteur_mis_en_cause_sans_reponse : une entreprise, une institution ou une personne est mise en cause sans que l'article rapporte sa réponse, ou indique explicitement qu'elle n'était pas disponible ("La réaction de X n'était pas disponible dans les sources consultées"). Est également un problème un acteur figurant dans "positions" sans qu'aucune position réelle ne lui soit attribuée : une entrée vide est trompeuse, elle simule un équilibre inexistant.
+- sources_dependantes_du_meme_document : plusieurs sources présentées comme concordantes alors qu'elles relaient toutes le MÊME document primaire (un rapport, une dépêche, un communiqué). Ce ne sont pas des confirmations indépendantes. La source primaire est le document original lui-même ; les médias qui le commentent ne le remplacent pas et ne se comptent pas séparément.
 - fait_tranche_arbitrairement : un fait incertain ou contesté présenté comme définitivement établi. Inclut la SIMPLIFICATION EXCESSIVE d'un résultat scientifique ou technique : si la source décrit une avancée partielle, un cas particulier ou une variante spécifique d'un problème ("résultat majeur sur le cas de dimension 3"), l'article ne doit jamais généraliser à "a résolu le problème" / "a démontré la conjecture" sans la même restriction que la source — reprends le niveau de précision exact de la source, jamais un raccourci plus impressionnant qu'elle (retour revue éditoriale du 25/07).
 
 BLOC 2 — SOURCING (100% vérifiable) :
@@ -127,7 +131,7 @@ Réponds en JSON strict, sans texte hors JSON :
     {
       "bloc": 1-5,
       "section": "faits | contexte | nuances | resume | titre | positions",
-      "type": "chiffre_errone | chronologie_confuse | incoherence_inter_sections | annonce_perimee | fait_tranche_arbitrairement | source_inventee | formule_vague | source_non_editoriale | source_derivee_comptee_comme_primaire | paraphrase_structurelle | citation_non_attribuee | cadrage_emprunte | redondance | section_gonflee | contexte_hors_sujet | angle_annonce_non_tenu | faux_debat | jugement_de_valeur | extrapolation | compteur_incoherent | presomption_innocence | affaire_en_cours_presentee_comme_fait | diffamation_potentielle | mineur_identifie",
+      "type": "chiffre_errone | chronologie_confuse | incoherence_inter_sections | annonce_perimee | fait_tranche_arbitrairement | niveau_preuve_insuffisant | accusation_presentee_comme_fait | acteur_mis_en_cause_sans_reponse | sources_dependantes_du_meme_document | source_inventee | formule_vague | source_non_editoriale | source_derivee_comptee_comme_primaire | paraphrase_structurelle | citation_non_attribuee | cadrage_emprunte | redondance | section_gonflee | contexte_hors_sujet | angle_annonce_non_tenu | faux_debat | jugement_de_valeur | extrapolation | compteur_incoherent | presomption_innocence | affaire_en_cours_presentee_comme_fait | diffamation_potentielle | mineur_identifie",
       "phrase_exacte": "citation mot pour mot de l'article",
       "explication": "pourquoi c'est un problème, en une phrase"
     }
@@ -396,7 +400,12 @@ def _problemes_bloquants(problemes: list) -> list:
     - Bloc 2 STRICT : source_inventee uniquement.
     - Bloc 5 (légal) : géré en amont (rejete_sensible), jamais ici.
     Blocs 3/4 (style, cadrage) : non bloquants par définition."""
-    BLOC1_BLOQUANTS = {"chiffre_errone", "incoherence_inter_sections", "annonce_perimee"}
+    # Ajouts du 31/07 (revue éditoriale externe, articles NP137 et Perenco/RDC) :
+    # présenter un essai précoce comme une efficacité acquise, ou une accusation
+    # comme un constat de la rédaction, sont des fautes de FOND — pas de style.
+    # Elles touchent à la neutralité, qui est la seule valeur ajoutée du site.
+    BLOC1_BLOQUANTS = {"chiffre_errone", "incoherence_inter_sections", "annonce_perimee",
+                       "niveau_preuve_insuffisant", "accusation_presentee_comme_fait"}
     BLOC2_BLOQUANTS = {"source_inventee"}
     return [
         p for p in problemes
