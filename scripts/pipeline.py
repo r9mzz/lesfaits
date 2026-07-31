@@ -5824,6 +5824,57 @@ def save_to_index(art: dict, date_pub: str):
 # ORCHESTRATION
 # ══════════════════════════════════════════════════════════════════════════════
 
+def audit_matiere(sources: list[dict], snippet_len: int = 950) -> dict:
+    """Mesure la RICHESSE DOCUMENTAIRE, pas le volume de caractères.
+
+    Constat (revue externe du 31/07) : `BUDGET_MATIERE` compte des caractères,
+    or trois dépêches disant « le chômage baisse / diminue / recule » font
+    3 000 caractères pour UN fait, tandis que NASA + ESA + Nature + CNRS font
+    2 500 caractères pour quinze faits différents. Le second corpus produit un
+    bien meilleur article, et l'ancien compteur les jugeait équivalents —
+    pire, il préférait le premier.
+
+    On mesure donc trois choses, sans aucun appel LLM :
+      - `faits_distincts` : 5-grammes distincts sur l'ensemble du corpus. Deux
+        sources qui reformulent la même phrase partagent leurs 5-grammes et ne
+        comptent qu'une fois ; deux sources qui apportent des faits différents
+        s'additionnent.
+      - `redondance` : part des 5-grammes déjà vus dans une source précédente.
+        Proche de 1 = un corpus d'échos, proche de 0 = des sources
+        complémentaires.
+      - `donnees_chiffrees` : valeurs numériques distinctes (avec leur unité),
+        le marqueur le plus fiable d'une information propre à une source.
+
+    Diagnostic seul pour l'instant : la fonction n'influence AUCUNE décision.
+    La règle du projet est de mesurer un signal avant de s'en servir pour
+    rejeter — c'est ce qui a évité deux faux garde-fous cette semaine.
+    """
+    def _cinq_grammes(txt: str) -> set:
+        mots = re.findall(r"\w+", (txt or "").lower())
+        return {" ".join(mots[i:i + 5]) for i in range(max(0, len(mots) - 4))}
+
+    vus, redondants, total = set(), 0, 0
+    for src in sources:
+        g = _cinq_grammes((src.get("snippet") or "")[:snippet_len])
+        total += len(g)
+        redondants += len(g & vus)
+        vus |= g
+
+    chiffres = set()
+    for src in sources:
+        for m in re.finditer(r"\b\d[\d\s.,]*\s*(?:%|millions?|milliards?|€|euros?|"
+                             r"km|kg|tonnes?|habitants?|cas|décès|ans|jours)\b",
+                             (src.get("snippet") or "")[:snippet_len], re.I):
+            chiffres.add(re.sub(r"\s+", " ", m.group(0).lower().strip()))
+
+    return {
+        "sources": len(sources),
+        "faits_distincts": len(vus),
+        "redondance": round(redondants / total, 2) if total else 0.0,
+        "donnees_chiffrees": len(chiffres),
+    }
+
+
 def generer_article(item: dict, dry_run: bool, published: set, new_pub: set, date_pub: str, published_topics: set | None = None) -> bool:
     """Génère et publie un article. Retourne True si succès."""
     if item["id"] in published:
@@ -5944,6 +5995,11 @@ def generer_article(item: dict, dry_run: bool, published: set, new_pub: set, dat
             break
         _retenues.append(_s)
         _budget += min(len(_s.get("snippet") or ""), SNIPPET_LEN_INJ)
+    _audit = audit_matiere(_retenues, SNIPPET_LEN_INJ)
+    print(f"     [MATIÈRE] {_audit['sources']} sources · "
+          f"{_audit['faits_distincts']} faits distincts · "
+          f"redondance {_audit['redondance']:.0%} · "
+          f"{_audit['donnees_chiffrees']} données chiffrées")
     if len(_retenues) > MIN_SOURCES_INJ:
         print(f"     [MATIÈRE] {_budget} caractères sur {len(_retenues)} sources "
               f"(sources fines : {MIN_SOURCES_INJ} n'auraient pas suffi)")
