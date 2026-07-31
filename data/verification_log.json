@@ -6494,5 +6494,74 @@
     "tentative": 1,
     "erreur": "Quota Groq journalier épuisé sur toutes les clés (vérification)",
     "article_type": "dossier_science"
+  },
+  {
+    "slug": "ile-oleron-remporte-bras-de-fer-avec-airbnb",
+    "statut": "corrige_automatiquement",
+    "date": "2026-07-31T15:04:23",
+    "problemes_initiaux": 3,
+    "tentatives": 1,
+    "problemes_residuels_style": 4,
+    "rapport_initial": {
+      "conforme": false,
+      "sujet_sensible": false,
+      "sujet_sensible_raison": "",
+      "angle_insuffisant": false,
+      "angle_insuffisant_raison": "",
+      "nature_contenu": "actualite_factuelle",
+      "problemes": [
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "fait_tranche_arbitrairement",
+          "phrase_exacte": "La décision du Conseil constitutionnel a des implications significatives pour les communes touristiques et les plateformes de location entre particuliers.",
+          "explication": "La phrase présente une interprétation des implications de la décision comme un fait établi, sans citer une source spécifique pour cette affirmation."
+        },
+        {
+          "bloc": 2,
+          "section": "nuances",
+          "type": "formule_vague",
+          "phrase_exacte": "Il est important de noter que la taxe de séjour est un impôt local qui peut être institué par les communes ou un établissement public de coopération intercommunale (EPCI), et que les collectivités locales sont libres de définir certaines caractéristiques de la taxe de séjour, dont la période d'application et le montant de la taxe par type d'hébergement.",
+          "explication": "La phrase utilise une formulation générale sans référence spécifique à une source pour étayer l'information sur la liberté des collectivités locales dans la définition de la taxe de séjour."
+        },
+        {
+          "bloc": 4,
+          "section": "contexte",
+          "type": "redondance",
+          "phrase_exacte": "Les recettes de la taxe de séjour permettent aux collectivités locales de financer des projets de développement touristique, tels que l'amélioration des infrastructures ou la promotion de l'offre touristique.",
+          "explication": "La phrase répète l'idée déjà présente dans la section 'faits' sur l'utilisation des recettes de la taxe de séjour pour le développement touristique, sans apporter d'information nouvelle."
+        }
+      ]
+    },
+    "article_type": "actu"
+  },
+  {
+    "slug": "pollution-fioul-saint-maur-des-fosses",
+    "statut": "rejete_sensible",
+    "date": "2026-07-31T15:07:00",
+    "problemes_initiaux": 6,
+    "tentative": 2,
+    "bloc5": true,
+    "article_type": "actu"
+  },
+  {
+    "slug": "inflation-france-2-pour-cent-juillet",
+    "statut": "rejete_qualite",
+    "date": "2026-07-31T15:08:08",
+    "problemes_initiaux": 5,
+    "tentatives": 2,
+    "problemes_restants": 5,
+    "bloquants_restants": 1,
+    "article_type": "actu"
+  },
+  {
+    "slug": "rebeca-grynspan-tete-course-secretaire-generale-onu",
+    "statut": "rejete_qualite",
+    "date": "2026-07-31T15:12:52",
+    "etape": "correction",
+    "tentative": 2,
+    "erreur": "Quota Groq journalier épuisé sur toutes les clés (vérification)",
+    "bloquants_connus": 2,
+    "article_type": "actu"
   }
 ]
