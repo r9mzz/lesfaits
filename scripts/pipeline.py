@@ -1386,7 +1386,18 @@ RÈGLES ABSOLUES — toute violation = article rejeté :
 22. LÉGAL : ne jamais qualifier quelqu'un de "coupable", "l'assassin", "le violeur" avant condamnation définitive — utiliser "mis en examen", "soupçonné de", "présumé". Ne jamais identifier un mineur par son nom dans une affaire pénale. Si le sujet implique une affaire judiciaire en cours, présenter les faits comme allégations de l'accusation, pas comme faits établis.
 23. UNE IDÉE = UNE SEULE APPARITION dans tout l'article (résumé + faits + contexte + nuances confondus). Avant de rendre ta réponse, relis chaque phrase : si elle n'apporte AUCUNE information nouvelle par rapport à ce qui précède (même reformulée, même avec une attribution différente), supprime-la ou fusionne-la avec la première occurrence.
 24. RÔLE STRICT DES SECTIONS : résumé = ENTRÉE DIRECTE dans le fait principal (chiffre, acteur, date dès la première phrase) — jamais une « présentation du sujet » ni une phrase d'ambiance ; 'faits' = uniquement les faits principaux du jour ; 'contexte' = uniquement les éléments qui permettent de COMPRENDRE les faits, sans les répéter ; 'nuances' = uniquement ce qu'un lecteur devrait savoir avant de tirer une conclusion (limites, désaccords, incertitudes, points non établis). Aucun contenu d'une section ne doit pouvoir être déplacé dans une autre.
-25. TRIBUNE / PRISE DE POSITION : si la source principale est une tribune, chronique, interview ou essai d'opinion, TOUT l'article doit faire comprendre qu'il s'agit des analyses et propositions de son auteur, pas de faits établis. Utiliser systématiquement des verbes d'opinion ("estime", "plaide pour", "propose", "juge", "défend l'idée que") et le signaler dès le titre ou le résumé (ex : "Selon l'économiste X…"). Ne jamais transformer un argument d'auteur en constat factuel."""
+25. TRIBUNE / PRISE DE POSITION : si la source principale est une tribune, chronique, interview ou essai d'opinion, TOUT l'article doit faire comprendre qu'il s'agit des analyses et propositions de son auteur, pas de faits établis. Utiliser systématiquement des verbes d'opinion ("estime", "plaide pour", "propose", "juge", "défend l'idée que") et le signaler dès le titre ou le résumé (ex : "Selon l'économiste X…"). Ne jamais transformer un argument d'auteur en constat factuel.
+
+26. ARTICLES MÉDICAUX — NIVEAU DE PREUVE OBLIGATOIRE (revue éditoriale externe du 31/07, article NP137). Dès le résumé, puis à chaque résultat, indiquer le STADE de la recherche. Ne jamais écrire qu'un traitement "a amélioré la survie" quand la source décrit un essai précoce : écrire "dans un essai de phase 1b, les chercheurs ont observé…". Distinguer strictement quatre statuts, jamais interchangeables : résultat observé dans un essai / efficacité confirmée / traitement validé / traitement disponible en pratique clinique.
+Nommer chaque indicateur avec précision — survie GLOBALE, survie SANS PROGRESSION, taux de réponse et opérabilité sont des choses différentes. Ne jamais écrire "amélioration de la survie" si la source ne parle que de survie sans progression. Pour chaque résultat chiffré, donner l'indicateur exact, sa valeur, le groupe concerné, la durée de suivi et le nombre de patients quand la source les fournit.
+Toute comparaison chiffrée ("cinq mois de plus") exige un COMPARATEUR EXPLICITE : plus que quoi, chez qui, mesuré comment ? Si la source ne l'identifie pas, ne pas formuler la comparaison — donner la valeur brute en précisant qu'aucun groupe de comparaison n'est décrit.
+Les limites doivent être SPÉCIFIQUES à l'étude (essai précoce, effectif réduit, absence de randomisation, tolérance à long terme inconnue, impossibilité de conclure à un standard de traitement). "Des recherches supplémentaires sont nécessaires" est interdit : c'est vrai de toute étude, donc ça n'informe pas.
+Le contexte doit expliquer le MÉCANISME (ce qu'est la cible biologique, pourquoi elle est visée, comment le traitement est supposé agir), jamais répéter que la maladie est grave et difficile à traiter.
+
+27. ACCUSATIONS VISANT UNE ENTREPRISE, UNE INSTITUTION OU UNE PERSONNE (même revue, article Perenco/RDC). Une accusation reste une accusation dans tout l'article : elle doit être attribuée à qui la porte ("Human Rights Watch estime que…"), jamais reformulée en constat ("les activités exposent les populations à des risques graves"). Distinguer fait observé / accusation / conclusion d'une ONG / résultat d'un audit / décision administrative ou judiciaire.
+La RÉPONSE de l'acteur mis en cause doit être cherchée dans les sources et rapportée. Si elle est absente, l'écrire explicitement : "La réaction de [acteur] n'était pas disponible dans les sources consultées à la date de publication." Ne jamais faire figurer un acteur dans "positions" sans exposer sa position réelle — une entrée vide vaut mieux qu'une entrée trompeuse.
+La source PRIMAIRE d'une accusation est le document original (le rapport lui-même), pas les médias qui le commentent. Si plusieurs sources ne font que relayer le même document, elles ne constituent PAS des confirmations indépendantes : les fusionner en une attribution groupée.
+Vérifier le PAYS et l'entité concernés : une source portant sur un État homonyme, une autre juridiction ou une autre filiale est hors sujet et ne doit pas être citée (ex : le Congo-Brazzaville n'est pas la République démocratique du Congo)."""
 
 # ──────────────────────────────────────────────────────────────────────────────
 # PROMPTS DOSSIER (portrait neutre ou exploration scientifique hypothétique)
@@ -4843,7 +4854,13 @@ function copyLink(){{
     verify_html = (
         f'<span class="meta__sep" aria-hidden="true">·</span>'
         f'<span class="art__verify-item">✓ {nb_src} source{"s" if nb_src > 1 else ""} vérifiée{"s" if nb_src > 1 else ""}</span>'
-        f'<span class="art__verify-item">✓ Sources concordantes</span>'
+        # « ✓ Sources concordantes » RETIRÉ le 31/07 (revue éditoriale
+        # externe) : la mention s'affichait dès qu'il y avait au moins une
+        # source, sans qu'aucune concordance n'ait jamais été mesurée. Or
+        # neuf médias qui relaient le même rapport d'ONG ne sont pas neuf
+        # confirmations indépendantes — c'était une affirmation invérifiée
+        # affichée comme un contrôle passé. Ne pas la réintroduire sans un
+        # test réel d'indépendance des sources.
     ) if nb_src > 0 else ""
 
     # ── Transparence : pourquoi CET article a été publié ─────────────────────
