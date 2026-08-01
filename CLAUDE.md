@@ -23,59 +23,93 @@ meurent à la dernière étape. Les rejeter à la collecte rend ce budget aux
 sujets publiables. Ne pas les retirer à nouveau sans mesurer le taux de rejet
 « sujet sensible » en aval.
 
-## ÉTAT AU 31/07 — à lire en premier
+## ÉTAT AU 01/08 — à lire en premier
 
-**Le problème actuel : 1 à 2 articles par jour, et de qualité inégale.**
-Le tunnel mesuré sur les runs des 30-31/07 :
+**Les deux runs du 01/08 ont produit ZÉRO article.** Le dernier article publié
+date du 31/07 (« L'île d'Oléron remporte son bras de fer avec Airbnb » — titre
+non neutre, à l'origine du garde-fou `_TITRE_NARRATIF_RE`).
+
+C'est une RÉGRESSION, et elle est très probablement de mon fait : deux motifs
+BLOQUANTS ont été ajoutés au fact-check le 31/07 (`niveau_preuve_insuffisant`,
+`accusation_presentee_comme_fait`) **sans que leur taux de déclenchement ait pu
+être mesuré au préalable** — ils portent sur des défauts que rien ne détectait
+avant, donc aucune mesure rétrospective n'était possible. C'est une entorse
+assumée à la règle du projet, et elle a coûté cher.
+
+### Les 11 vérifications du 01/08
 
 ```
-~650 collectés → ~125 candidats → 36 sélectionnés → 10-14 TENTÉS → 1 publié
+6  rejete_qualite            ← à investiguer EN PRIORITÉ
+3  corrige_automatiquement   ← ont passé le fact-check, et pourtant NON PUBLIÉS
+1  erreur_verification
+1  rejete_sensible
 ```
 
-Deux plafonds distincts, ne pas les confondre :
-- **10-14 tentatives par run** : plafond de QUOTA. ~35 k tokens par sujet mené
-  au bout (génération + relances + 3 passes de vérification), 1,1 M de tokens
-  sur 24 h glissantes partagés entre les deux runs. C'est une division, pas un
-  bug.
-- **1 publié sur 10-14** : plafond de CONVERSION (7 %). C'est là qu'est le vrai
-  problème. Sur le run du 31/07 matin, 7 des 13 échecs n'étaient PAS éditoriaux
-  (4 charabia Groq, 3 sujets sensibles générés puis rejetés) — corrigés depuis,
-  mais jamais encore validés en conditions réelles.
+**PIÈGE MAJEUR : `corrige_automatiquement` dans `verification_log.json` ne veut
+PAS dire « publié ».** Trois articles (`pollution-fioul-saint-maur-des-fosses`,
+`senat-bloque-rapport-souffrance-psychique`, …) ont ce statut et n'existent
+dans `articles/`. Ils ont survécu à tout le protocole éditorial puis sont morts
+sur les contrôles rejoués APRÈS correction (≥3 sources, ≥1 primaire OU
+≥2 secondaires, ≥350 mots — voir « Sourcing non revérifié après correction »).
+Ne jamais compter les articles publiés depuis ce journal : compter les fichiers
+réellement créés dans `articles/`.
 
-**Correctifs poussés le 31/07, AUCUN encore mesuré sur un run** (le premier run
-qui les contient tous est celui du 01/08 au matin) :
-- détecteur de réponse Groq dégénérée (`_reponse_degeneree`, critère =
-  pauvreté de l'alphabet, PAS la classe des caractères — la 1re version testait
-  les caractères de contrôle et n'a rien attrapé) ;
-- BLACKLIST affinée (vocabulaire de victimes, pas les thèmes) ;
-- fusion de l'étoffement dans la relance corrective (piste C) ;
-- `MAX_TENTATIVES` 2 → 3 en test (piste E — mesuré : la 2e tentative sauve
-  9 articles sur 37 pour ~47 k tokens l'unité, contre ~500 k pour un sujet
-  neuf ; vérifier `tentatives: 3` dans `data/verification_log.json`) ;
-- 3 détecteurs éditoriaux (`niveau_preuve_insuffisant`,
-  `accusation_presentee_comme_fait`, `acteur_mis_en_cause_sans_reponse`), les
-  deux premiers BLOQUANTS ;
-- garde-fou `_TITRE_NARRATIF_RE` (titre qui raconte un match : « remporte son
-  bras de fer ») ;
-- `audit_matiere()` — mesure la RICHESSE documentaire (5-grammes distincts,
-  redondance, données chiffrées) et non le volume de caractères. **Diagnostic
-  seul, n'influence encore aucune décision** : il faut d'abord relever les
-  distributions réelles avant de fixer un seuil de rejet. C'est probablement
-  le plus gros levier restant — écarter un sujet documentairement pauvre AVANT
-  génération économise ~35 k tokens ET améliore la qualité ;
-- instrumentation des tokens de vérification (`[VERIF-TOKENS]`) : jusqu'au
-  31/07, `verification.py` n'en journalisait AUCUN — tous les totaux « par
-  run » ne couvraient que la génération, la moitié du budget était invisible.
+### Les deux premiers travaux à faire, dans cet ordre
 
-**Méthode à respecter** (deux faux garde-fous évités cette semaine grâce à
-elle) : mesurer le taux de déclenchement d'un motif sur les articles publiés
-AVANT de l'ajouter. Un motif qui se déclenche sur plus de ~10 % du corpus est
-trop large — le quota Groq est la ressource rare et chaque garde-fou coûte une
-relance.
+1. **Lire les 6 `rejete_qualite` du 01/08** dans `data/verification_log.json`
+   (la description du fact-checker y est journalisée depuis le 31/07). Si
+   `niveau_preuve_insuffisant` et `accusation_presentee_comme_fait` dominent,
+   les repasser en NON bloquants — correction au lieu de rejet — et ne garder
+   le blocage que sur les cas nets. Ces deux motifs visent de vrais défauts
+   (revue éditoriale externe du 31/07, articles NP137 et Perenco), le problème
+   est leur seuil, pas leur existence.
+2. **Comprendre pourquoi 3 articles validés meurent au contrôle final.** C'est
+   le goulot le plus coûteux du pipeline : ~35 k tokens dépensés par article,
+   jusqu'au bout, pour zéro publication.
 
-**Erreurs commises, à ne pas refaire** : se fier à l'affichage des logs GitHub
-plutôt qu'à ce que Python reçoit ; ajouter un détecteur sans vérifier qu'il
-n'existe pas déjà ; annoncer un gain avant de l'avoir mesuré.
+### Ce qui a marché, mesuré
+
+- **`MAX_TENTATIVES` 3 (piste E)** : deux articles sont allés jusqu'à la 3e
+  tentative le 01/08, dont un a fini `corrige_automatiquement`. Le mécanisme
+  fonctionne — c'est le contrôle final qui l'a ensuite recalé.
+- Collecte et sélection sont saines : ~650 collectés, ~125 candidats,
+  36 sélectionnés. Le haut du tunnel n'est plus le problème.
+
+### Les deux plafonds, à ne pas confondre
+
+- **10-14 tentatives par run** : plafond de QUOTA (~35 k tokens par sujet mené
+  au bout, 1,1 M sur 24 h glissantes partagés entre deux runs). C'est une
+  division, pas un bug.
+- **0 à 1 publié sur 10-14** : plafond de CONVERSION. C'est là qu'est le vrai
+  problème, et c'est là qu'il faut chercher.
+
+### Correctifs du 30-31/07 ayant tourné le 01/08, non encore isolés
+
+`_reponse_degeneree` (détection sur la PAUVRETÉ DE L'ALPHABET, pas la classe
+des caractères — la 1re version testait les caractères de contrôle et n'a rien
+attrapé), BLACKLIST affinée (vocabulaire de victimes, pas les thèmes), fusion
+de l'étoffement dans la relance corrective (piste C), `_TITRE_NARRATIF_RE`,
+instrumentation `[VERIF-TOKENS]` (jusqu'au 31/07 `verification.py` ne
+journalisait AUCUN token : tous les totaux « par run » ne couvraient que la
+génération, la moitié du budget était invisible).
+
+`audit_matiere()` mesure la RICHESSE documentaire (5-grammes distincts,
+redondance, données chiffrées) plutôt que le volume de caractères. **Diagnostic
+seul, n'influence aucune décision** — relever les distributions réelles avant
+de fixer un seuil. C'est probablement le plus gros levier restant : écarter un
+sujet documentairement pauvre AVANT génération économise ~35 k tokens ET
+améliore la qualité.
+
+### Méthode et erreurs à ne pas refaire
+
+Mesurer le taux de déclenchement d'un motif sur les articles publiés AVANT de
+l'ajouter ; au-delà de ~10 % du corpus il est trop large. Quand la mesure
+préalable est impossible (motif inédit), l'ajouter en NON bloquant d'abord.
+
+Erreurs commises : se fier à l'affichage des logs GitHub plutôt qu'à ce que
+Python reçoit ; ajouter un détecteur sans vérifier qu'il n'existe pas déjà ;
+compter les articles publiés depuis `verification_log.json` au lieu de
+`articles/` ; annoncer un gain avant de l'avoir mesuré.
 
 ## Philosophie éditoriale — priorité absolue
 
