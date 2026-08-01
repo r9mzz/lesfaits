@@ -6669,5 +6669,117 @@
     "tentative": 1,
     "erreur": "Quota Groq journalier épuisé sur toutes les clés (vérification)",
     "article_type": "dossier_science"
+  },
+  {
+    "slug": "senat-bloque-rapport-souffrance-psychique-travail",
+    "statut": "corrige_automatiquement",
+    "date": "2026-08-01T14:09:47",
+    "problemes_initiaux": 4,
+    "tentatives": 1,
+    "problemes_residuels_style": 3,
+    "rapport_initial": {
+      "conforme": false,
+      "sujet_sensible": false,
+      "sujet_sensible_raison": "",
+      "angle_insuffisant": false,
+      "angle_insuffisant_raison": "",
+      "nature_contenu": "actualite_factuelle",
+      "problemes": [
+        {
+          "bloc": 1,
+          "section": "resume",
+          "type": "chronologie_confuse",
+          "phrase_exacte": "Cette question est devenue un enjeu majeur pour la société, avec des conséquences importantes pour les salariés, les entreprises et l'économie dans son ensemble, notamment en termes de productivité et de coûts pour la santé publique.",
+          "explication": "La phrase ne précise pas quand cette question est devenue un enjeu majeur, ce qui crée une confusion chronologique."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "fait_tranche_arbitrairement",
+          "phrase_exacte": "La souffrance psychique au travail est un problème important qui affecte la santé et la productivité des salariés.",
+          "explication": "La phrase présente la souffrance psychique au travail comme un problème important sans préciser les sources ou les chiffres qui étayent cette affirmation."
+        },
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "source_non_editoriale",
+          "phrase_exacte": "Gouv note que la souffrance psychique au travail est un problème important qui affecte la santé et la productivité des salariés.",
+          "explication": "La source 'Gouv' n'est pas une source éditoriale, mais plutôt un site gouvernemental, ce qui peut être considéré comme une source non éditoriale."
+        },
+        {
+          "bloc": 4,
+          "section": "contexte",
+          "type": "redondance",
+          "phrase_exacte": "La souffrance psychique au travail est un phénomène qui s'est accentué ces dernières années, en particulier avec la crise sanitaire.",
+          "explication": "La phrase répète une idée déjà présente dans le résumé, ce qui crée une redondance."
+        }
+      ]
+    },
+    "article_type": "actu"
+  },
+  {
+    "slug": "association-ac-anti-corruption-denonce-prise-illegale-d-interets",
+    "statut": "rejete_sensible",
+    "date": "2026-08-01T14:10:29",
+    "sujet_sensible": true,
+    "raison": "l'article implique une affaire pénale en cours visant des personnes",
+    "article_type": "actu"
+  },
+  {
+    "slug": "eclipse-solaire-12-aout-2026",
+    "statut": "corrige_automatiquement",
+    "date": "2026-08-01T14:14:22",
+    "problemes_initiaux": 4,
+    "tentatives": 1,
+    "problemes_residuels_style": 4,
+    "rapport_initial": {
+      "conforme": false,
+      "sujet_sensible": false,
+      "sujet_sensible_raison": "",
+      "angle_insuffisant": false,
+      "angle_insuffisant_raison": "",
+      "nature_contenu": "actualite_factuelle",
+      "problemes": [
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "fait_tranche_arbitrairement",
+          "phrase_exacte": "Les éclipses solaires offrent l'occasion unique de mieux comprendre les phénomènes célestes et de sensibiliser le public à l'importance de la recherche astronomique, rapportent CNES et NASA Science.",
+          "explication": "La phrase simplifie excessivement le résultat scientifique, car les éclipses solaires ne permettent pas nécessairement de mieux comprendre tous les phénomènes célestes, mais plutôt certains aspects spécifiques liés au Soleil et à la Lune."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "fait_tranche_arbitrairement",
+          "phrase_exacte": "Les éclipses solaires peuvent avoir des effets sur l'environnement, notamment sur la température et la luminosité, mais ces effets sont encore mal compris et nécessitent des études plus approfondies, rapportent Insee et Données et études statistiques.",
+          "explication": "La phrase présente les effets des éclipses solaires sur l'environnement de manière trop générale, sans préciser quels aspects spécifiques de l'environnement sont concernés et dans quelle mesure."
+        },
+        {
+          "bloc": 2,
+          "section": "nuances",
+          "type": "source_non_editoriale",
+          "phrase_exacte": "Selon WHO, les éclipses solaires peuvent avoir des impacts sur la santé humaine, notamment en ce qui concerne les risques pour les yeux.",
+          "explication": "La source WHO est utilisée pour une affirmation qui n'est pas directement liée à son domaine d'expertise principal, ce qui pourrait être considéré comme une utilisation non éditoriale de la source."
+        },
+        {
+          "bloc": 4,
+          "section": "contexte",
+          "type": "redondance",
+          "phrase_exacte": "Les éclipses solaires se produisent lorsque la Lune s'intercale entre la Terre et le Soleil, de sorte que les trois corps (Soleil - Lune - Terre) s'alignent presque parfaitement sur un plan imaginaire appelé écliptique.",
+          "explication": "La phrase répète une information déjà présente dans la section 'faits', ce qui est inutile et contribue à la redondance de l'article."
+        }
+      ]
+    },
+    "article_type": "actu"
+  },
+  {
+    "slug": "changements-budget-1-aout",
+    "statut": "rejete_qualite",
+    "date": "2026-08-01T14:20:32",
+    "etape": "correction",
+    "tentative": 3,
+    "erreur": "Quota Groq journalier épuisé sur toutes les clés (vérification)",
+    "bloquants_connus": 2,
+    "article_type": "actu"
   }
 ]
