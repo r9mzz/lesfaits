@@ -2001,6 +2001,22 @@ _TITRE_SENSATIONNALISTE_RE = re.compile(
     r"stupéfiant|ahurissant|hallucinante|surprenant[e]?|inattendu[e]?)\b",
     re.IGNORECASE,
 )
+# Cadrage NARRATIF : le titre raconte un match (vainqueur / perdant / duel)
+# au lieu d'énoncer un fait. Constat 31/07 (Nahil) : « L'île d'Oléron remporte
+# son bras de fer avec Airbnb » — publié, alors que le fait est « le Conseil
+# constitutionnel valide l'encadrement des meublés touristiques ». Le garde-fou
+# existant ne connaissait que les ADJECTIFS putaclic (bizarre, insolite, choc)
+# et ne voyait pas la mise en récit, qui est pourtant une prise de position :
+# désigner un gagnant, c'est prendre parti sur l'issue.
+# Mesuré sur les 158 titres publiés : 1 déclenchement (0,6 %) — celui-là
+# précisément. Précision maximale, aucun faux positif.
+_TITRE_NARRATIF_RE = re.compile(
+    r"\b(?:bras de fer|remporte|remportent|l'emporte|victoire|défaite|camouflet"
+    r"|revers cinglant|coup de (?:tonnerre|massue|grâce)|tacle|s'attaque à"
+    r"|riposte|contre-attaque|duel|affronte|humilié|fait plier|cède face à"
+    r"|coup dur)\b",
+    re.IGNORECASE,
+)
 _TITRE_QUESTION_RE = re.compile(r"\?\s*$|^(?:peut-on|peut-il|est-ce que|pourquoi|comment)\b", re.IGNORECASE)
 # Retour éditorial (25/07) : titres trop génériques ("Découverte sur les
 # larves de mollusques abyssaux") sans chiffre ni nom propre — faible valeur
@@ -2031,6 +2047,11 @@ def titre_de_mauvaise_qualite(art: dict) -> str | None:
         problemes.append(f"vocabulaire putaclic/sensationnaliste (« {mot} »)")
     if _TITRE_QUESTION_RE.search(titre):
         problemes.append("formulation en question au lieu d'un titre factuel")
+    if _TITRE_NARRATIF_RE.search(titre):
+        _m = _TITRE_NARRATIF_RE.search(titre).group()
+        problemes.append(
+            f"cadrage narratif « {_m} » — le titre raconte un affrontement avec "
+            f"un vainqueur au lieu d'énoncer le fait (quelle décision, de qui, sur quoi)")
     if nb_mots < 6:
         problemes.append(f"trop court ({nb_mots} mots, minimum 6-10 attendus)")
     titre_generique = False
