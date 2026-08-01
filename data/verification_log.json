@@ -6563,5 +6563,111 @@
     "erreur": "Quota Groq journalier épuisé sur toutes les clés (vérification)",
     "bloquants_connus": 2,
     "article_type": "actu"
+  },
+  {
+    "slug": "annee-la-plus-difficile-histoire-humanite",
+    "statut": "rejete_qualite",
+    "date": "2026-08-01T05:50:09",
+    "angle_insuffisant": true,
+    "raison": "L'article ne présente pas d'événement précis daté ou datable avec une donnée chiffrée ou nommée qui lui est propre.",
+    "article_type": "dossier_science"
+  },
+  {
+    "slug": "pollution-fioul-saint-maur-des-fosses",
+    "statut": "corrige_automatiquement",
+    "date": "2026-08-01T05:52:18",
+    "problemes_initiaux": 5,
+    "tentatives": 3,
+    "problemes_residuels_style": 4,
+    "rapport_initial": {
+      "conforme": false,
+      "sujet_sensible": false,
+      "sujet_sensible_raison": "",
+      "angle_insuffisant": false,
+      "angle_insuffisant_raison": "",
+      "nature_contenu": "actualite_factuelle",
+      "problemes": [
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "incoherence_inter_sections",
+          "phrase_exacte": "Selon Le Monde, la ville de Saint-Maur-des-Fossés a porté plainte après le déversement de milliers de litres de fioul dans les égouts. Demotivateur rapporte que 3 000 litres de fioul ont été déversés illégalement dans les égouts.",
+          "explication": "Les deux sources donnent des valeurs différentes pour le volume de fioul déversé sans que l'article ne les réconcilie ni ne signale l'écart."
+        },
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "Demotivateur rapporte que 3 000 litres de fioul ont été déversés illégalement dans les égouts.",
+          "explication": "Demotivateur n'est pas une source autorisée, mais elle est utilisée comme source dans l'article."
+        },
+        {
+          "bloc": 2,
+          "section": "contexte",
+          "type": "source_non_editoriale",
+          "phrase_exacte": "Linternaute note que la ville de Saint-Maur-des-Fossés ne possède pas de station de mesure de la qualité de l'air, ce qui peut rendre difficile la détection de pollutions.",
+          "explication": "Linternaute est une source non-journalistique/non-institutionnelle utilisée comme autorité factuelle."
+        },
+        {
+          "bloc": 2,
+          "section": "contexte",
+          "type": "source_derivee_comptee_comme_primaire",
+          "phrase_exacte": "Republicain Lorrain rappelle que la pollution au fioul peut avoir des conséquences graves pour l'environnement et la santé publique.",
+          "explication": "Republicain Lorrain est une source secondaire qui ne rapporte pas d'information distincte par rapport aux autres sources."
+        },
+        {
+          "bloc": 4,
+          "section": "nuances",
+          "type": "redondance",
+          "phrase_exacte": "Il est important de noter que la pollution au fioul peut avoir des conséquences à long terme pour l'environnement et la santé publique, et que les mesures de prévention et de surveillance sont essentielles pour prévenir de tels incidents à l'avenir.",
+          "explication": "Cette phrase répète des idées déjà présentes dans la section 'faits' sans apporter de nouveaux faits ou d'informations distinctes."
+        }
+      ]
+    },
+    "article_type": "actu"
+  },
+  {
+    "slug": "depenses-pre-engagees-menages-francais-2024",
+    "statut": "rejete_qualite",
+    "date": "2026-08-01T05:55:17",
+    "tentative": 1,
+    "angle_insuffisant": true,
+    "raison": "L'article ne présente pas d'événement précis daté ou datable avec une donnée chiffrée ou nommée qui lui est propre, mais plutôt une tendance générale sur les dépenses pré-engagées des ménages français.",
+    "article_type": "actu"
+  },
+  {
+    "slug": "ebola-bundibugyo-vaccin-recherche",
+    "statut": "rejete_qualite",
+    "date": "2026-08-01T05:56:23",
+    "problemes_initiaux": 5,
+    "tentatives": 3,
+    "problemes_restants": 4,
+    "bloquants_restants": 2,
+    "article_type": "dossier_science"
+  },
+  {
+    "slug": "globes-virtuels-cnrs",
+    "statut": "rejete_qualite",
+    "date": "2026-08-01T06:02:25",
+    "angle_insuffisant": true,
+    "raison": "aucune actualité identifiable ne justifie une publication maintenant",
+    "article_type": "actu"
+  },
+  {
+    "slug": "inserm-magazine-n69-nouvelles-addictions",
+    "statut": "rejete_qualite",
+    "date": "2026-08-01T06:02:48",
+    "angle_insuffisant": true,
+    "raison": "aucune actualité identifiable ne justifie une publication maintenant, l'article ressemble à une fiche pédagogique générale sans fait déclencheur daté",
+    "article_type": "dossier_science"
+  },
+  {
+    "slug": "decontamination-eau-potable-pesticides-pfas",
+    "statut": "erreur_verification",
+    "date": "2026-08-01T06:07:13",
+    "etape": "correction",
+    "tentative": 1,
+    "erreur": "Quota Groq journalier épuisé sur toutes les clés (vérification)",
+    "article_type": "dossier_science"
   }
 ]
