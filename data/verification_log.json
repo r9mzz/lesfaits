@@ -6789,5 +6789,138 @@
     "angle_insuffisant": true,
     "raison": "aucune actualité identifiable ne justifie une publication maintenant",
     "article_type": "actu"
+  },
+  {
+    "slug": "rapport-souffrance-psychique-travail-entere",
+    "statut": "corrige_automatiquement",
+    "date": "2026-08-02T05:51:18",
+    "problemes_initiaux": 5,
+    "tentatives": 1,
+    "problemes_residuels_style": 3,
+    "rapport_initial": {
+      "conforme": false,
+      "sujet_sensible": false,
+      "sujet_sensible_raison": "",
+      "angle_insuffisant": false,
+      "angle_insuffisant_raison": "",
+      "nature_contenu": "actualite_factuelle",
+      "problemes": [
+        {
+          "bloc": 1,
+          "section": "resume",
+          "type": "chronologie_confuse",
+          "phrase_exacte": "Le Sénat a rejeté, le 8 juillet, le rapport final de la mission d’information sur la souffrance psychique au travail, après cinq mois de travaux et d’auditions, provoquant le mécontentement des professionnels de santé et de l’opposition.",
+          "explication": "La date du rejet du rapport est précisée, mais la date de début des travaux de la mission d'information n'est pas explicitement mentionnée."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "fait_tranche_arbitrairement",
+          "phrase_exacte": "La souffrance psychique au travail est un phénomène de plus en plus reconnu comme un problème majeur.",
+          "explication": "La phrase présente la souffrance psychique au travail comme un problème majeur sans préciser les critères ou les sources qui étayent cette affirmation."
+        },
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "source_non_editoriale",
+          "phrase_exacte": "Miroir Social souligne que le rapport censuré du Sénat contenait des propositions innovantes pour lutter contre la souffrance psychique au travail.",
+          "explication": "Miroir Social n'est pas explicitement mentionné dans les sources autorisées, il est donc considéré comme une source non éditoriale."
+        },
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "La Gazette France rapporte que la majorité sénatoriale a rejeté le rapport sur la souffrance psychique au travail, empêchant sa publication.",
+          "explication": "La Gazette France n'est pas mentionnée dans les sources autorisées, il s'agit donc d'une source inventée."
+        },
+        {
+          "bloc": 4,
+          "section": "nuances",
+          "type": "jugement_de_valeur",
+          "phrase_exacte": "CFDT dénonce le rejet du rapport, qui aurait pu apporter des solutions pour lutter contre la souffrance psychique au travail.",
+          "explication": "La phrase contient un jugement de valeur en présentant le rejet du rapport comme une action négative sans attribution explicite."
+        }
+      ]
+    },
+    "article_type": "actu"
+  },
+  {
+    "slug": "onu-inquiete-demolitions-israeliennes-liban",
+    "statut": "rejete_sensible",
+    "date": "2026-08-02T05:53:07",
+    "sujet_sensible": true,
+    "raison": "l'article implique une affaire pénale en cours visant des personnes (conflit entre Israël et le Liban)",
+    "article_type": "actu"
+  },
+  {
+    "slug": "inserm-magazine-n69-nouvelles-addictions",
+    "statut": "rejete_qualite",
+    "date": "2026-08-02T05:57:50",
+    "angle_insuffisant": true,
+    "raison": "L'article ne présente pas d'événement précis daté ou datable avec une donnée chiffrée ou nommée qui lui est propre.",
+    "article_type": "dossier_science"
+  },
+  {
+    "slug": "esperance-de-vie-france-ralentit",
+    "statut": "rejete_qualite",
+    "date": "2026-08-02T05:59:15",
+    "etape": "correction",
+    "tentative": 1,
+    "erreur": "JSON tronqué ou incomplet dans la réponse (max_tokens atteint ?)",
+    "bloquants_connus": 1,
+    "article_type": "dossier_science"
+  },
+  {
+    "slug": "eclipse-solaire-12-aout-france",
+    "statut": "corrige_automatiquement",
+    "date": "2026-08-02T06:00:21",
+    "problemes_initiaux": 4,
+    "tentatives": 1,
+    "problemes_residuels_style": 3,
+    "rapport_initial": {
+      "conforme": false,
+      "sujet_sensible": false,
+      "sujet_sensible_raison": "",
+      "angle_insuffisant": false,
+      "angle_insuffisant_raison": "",
+      "nature_contenu": "actualite_factuelle",
+      "problemes": [
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "fait_tranche_arbitrairement",
+          "phrase_exacte": "une occultation du Soleil pouvant atteindre 99,5 % dans certaines régions, selon Sciences et Avenir.",
+          "explication": "La source ne précise pas quelles régions atteindront 99,5% d'occultation, ce qui pourrait être considéré comme une simplification excessive."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "chronologie_confuse",
+          "phrase_exacte": "Le changement climatique est responsable d'une augmentation des phénomènes météorologiques extrêmes, tels que les canicules, qui peuvent avoir des impacts significatifs sur la santé publique.",
+          "explication": "La phrase mentionne le changement climatique et ses impacts sur la santé publique sans explicitement lier cela à l'éclipse solaire du 12 août."
+        },
+        {
+          "bloc": 2,
+          "section": "nuances",
+          "type": "source_non_editoriale",
+          "phrase_exacte": "Selon PubMed, des études ont montré l'importance de prendre des mesures de protection pour prévenir les dommages oculaires lors de l'observation d'éclipses solaires.",
+          "explication": "PubMed n'est pas une source éditoriale, mais plutôt une base de données de publications scientifiques."
+        },
+        {
+          "bloc": 4,
+          "section": "contexte",
+          "type": "redondance",
+          "phrase_exacte": "Les simulations climatiques les plus récentes confirment qu’au cours des étés des trois prochaines décennies, le nombre de journées et de nuits anormalement chaudes augmentera notablement, selon Insee.",
+          "explication": "La phrase répète l'idée que le changement climatique aura des impacts sur la santé publique, déjà mentionnée précédemment."
+        }
+      ]
+    },
+    "article_type": "actu"
+  },
+  {
+    "slug": "changements-aout-budget",
+    "statut": "conforme_du_premier_coup",
+    "date": "2026-08-02T06:01:53",
+    "article_type": "actu"
   }
 ]
