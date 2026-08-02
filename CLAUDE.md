@@ -581,6 +581,61 @@ milliers de « liens cassés » qui fonctionnent parfaitement.
   (15 %) ; un seul mot ne vaut qu'une rétrogradation (-25, pas -60 : à -60
   tout candidat sous 80 points passait sous le seuil de sélection, c'était un
   rejet déguisé). Ne jamais rejeter sur un seul mot commun.
+- **Filtre anti-doublon — RÉSULTAT NÉGATIF du 02/08, ne pas retenter.**
+  Doublon publié : « Éclipse solaire du 12 août 2026 » (01/08) et « Éclipse
+  solaire du 12 août visible en France » (02/08). Deux défauts distincts, à ne
+  pas confondre :
+
+  - **A — on compare deux vocabulaires que le prompt fabrique différents.**
+    `published_topics` contient les titres GÉNÉRÉS, le filtre les compare aux
+    titres RSS. Le candidat était « Le Soleil s'éclipse au cœur de l'été » :
+    overlap 0, aucune pénalité. Sur les titres générés, l'overlap valait 2 →
+    rejet. Même famille que « catégorie calculée sur l'extrait RSS » et
+    « `_PR_MARQUE_RE` appliqué à l'extrait RSS ». Il n'existe AUCUN recontrôle
+    de doublon en aval : le titre généré n'est jamais comparé avant écriture.
+  - **B — `_norm_words` découpe sur les espaces, sans retirer la ponctuation**,
+    alors que `_titre_norme` (dix lignes plus bas) la retire via `\w+`. Deux
+    normaliseurs, deux règles, même fichier. `s'éclipse` → `s'eclips`, qui ne
+    matchera jamais `eclipse` : 61 formes corrompues sur 138 titres.
+
+  **Le correctif B n'est PAS gratuit** — mesuré sur les 161 titres publiés,
+  pas supposé : 25 → 32 paires en rejet (+28 %), 348 → 379 en rétrogradation.
+  Retirer la ponctuation recompose aussi les clés tronquées à 8 caractères
+  (`d'urgenc` → `urgence`), donc le voisinage se redessine au-delà des cas
+  visés. Les 7 paires nouvelles = 2 articles seulement : « Frugalia / IA »
+  (faux positif franc) et l'explicatif canicule. Acceptable, et le correctif
+  supprime surtout une incohérence interne.
+
+  **Ce qui NE sépare PAS un vrai doublon d'un faux positif — les trois ont été
+  testés le 02/08 et ont échoué :**
+
+  | piste | vrai doublon (éclipse) | faux positif (Canadair/Palantir) |
+  |---|---|---|
+  | seuil de mots communs | 2 | 2 |
+  | rareté (DF min du corpus) | 2 | 2 |
+  | adjacence des mots partagés | oui | oui (« intelligence artificielle ») |
+
+  La rareté échoue parce que sur 161 titres elle mesure la taille du corpus,
+  pas la spécificité : le mot rare de la paire Canadair est le VERBE
+  `remplace` (DF=2). **Le discriminant n'existe pas dans les titres.** C'est
+  le troisième rustinage de cette heuristique (26/07, 28/07, 02/08) ; ne pas
+  en tenter un quatrième. « Deux items parlent du même événement » se lit dans
+  les sources partagées et les entités nommées — c'est le clustering.
+
+  **Ce que corrige quoi, à ne pas confondre :** stocker le titre RSS source
+  dans `articles.json` règle le défaut A, donc les doublons MANQUÉS. Ça ne
+  touche PAS les faux positifs, dont la cause est qu'une expression figée de
+  deux mots (`intelligence artificielle`, `loi d'urgence`) compte comme deux
+  signaux indépendants — orthogonal au décalage de vocabulaire. Seul le
+  clustering règle les deux. Ne pas attendre du stockage du titre RSS un
+  bénéfice qu'il ne peut pas rendre.
+
+  ⚠ **Piège d'interprétation** : l'explicatif canicule serait bloqué comme
+  doublon alors que son vrai défaut est l'absence d'événement daté (règle 8 /
+  `angle_insuffisant`). Le résultat est souhaitable aujourd'hui, mais ce n'est
+  PAS une preuve que le filtre vise juste — et si ce sujet revient avec un
+  angle daté (canicule réelle, rapport Météo-France), le filtre le bloquera
+  cette fois à tort. Un blocage de doublon est permanent, le sujet ne l'est pas.
 - **Sourcing non revérifié après correction** (constat 28/07 — article Lidl
   publié avec 2 sources) : les deux contrôles de sourcing (règle 7, 3 sources
   minimum ; règle ≥1 primaire OU ≥2 secondaires) tournaient AVANT la passe de
