@@ -248,6 +248,54 @@ Python reçoit ; ajouter un détecteur sans vérifier qu'il n'existe pas déjà 
 compter les articles publiés depuis `verification_log.json` au lieu de
 `articles/` ; annoncer un gain avant de l'avoir mesuré.
 
+## ESPACE LECTEURS SOUS CHAQUE ARTICLE — décidé le 02/08 (Nahil), à construire
+
+Décision de Nahil, à ne pas re-discuter : un espace d'expression **sous chaque
+article**, pas par rubrique. Les lecteurs réagissent aux faits bruts qu'on leur
+présente. **Toute contribution est relue AVANT publication** — rien n'apparaît
+en ligne sans validation.
+
+### Architecture — aucun service tiers, aucun serveur
+
+Le site est statique (GitHub Pages) et doit le rester. La plomberie existe déjà
+en grande partie :
+
+```
+lecteur écrit  →  formulaire Web3Forms (déjà en place sur contact.html)
+               →  data/moderation_queue.json  (le fichier existe déjà)
+               →  relecture (voir ci-dessous)
+               →  commit dans le dépôt
+               →  rendu HTML au déploiement suivant
+```
+
+Contraintes à respecter :
+- **pas de service de commentaires tiers** (Disqus & co) : la CSP l'interdit,
+  et ça introduirait du pistage ;
+- les contributions vivent dans git, donc tout est traçable — cohérent avec la
+  transparence revendiquée par le site ;
+- le rendu passe par `build_article_html`, donc **le HTML des articles déjà
+  publiés ne sera PAS régénéré** (voir « Pièges connus ») : prévoir un patch
+  rétroactif dédié pour poser le bloc sur les articles existants.
+
+### Relecture : approche recommandée en deux étages
+
+1. **Filtre IA** avec une charte de modération (insultes, hors-sujet, propos
+   haineux, attaques nommées) — cohérent avec un journal 100 % IA, et ça passe
+   à l'échelle. ⚠ Consomme du quota Groq, la ressource déjà limitante : à
+   n'activer qu'en dehors des créneaux de génération, ou sur un modèle plus
+   petit.
+2. **Validation humaine** du reste, par lot, en quelques secondes.
+
+### Limite à assumer et à AFFICHER
+
+Le déploiement tourne 2×/jour : une contribution écrite à 10h paraît à 18h.
+Ce n'est pas un forum temps réel, c'est un courrier des lecteurs. L'écrire
+explicitement sous le formulaire (« les contributions sont relues avant
+publication ») — c'est cohérent avec un journal qui documente tous ses
+contrôles, et ça évite que le lecteur croie à un bug.
+
+Option si le volume le justifie : déclencher un déploiement à chaque lot validé.
+
 ## Philosophie éditoriale — priorité absolue
 
 Le pipeline n'existe pas pour maximiser le nombre d'articles publiés. Il
