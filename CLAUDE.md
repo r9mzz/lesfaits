@@ -1,5 +1,80 @@
 # Les Faits — lesfaits.info
 
+## FORMAT BRÈVE — introduit le 02/08, À MESURER AU PROCHAIN RUN
+
+**Le diagnostic qui l'a motivé.** Sur les 251 vérifications loguées depuis le
+début, **2 articles étaient conformes du premier coup (0,8 %)**. Un taux
+d'échec de 99 % ne décrit pas des sorties ratées : il décrit une consigne
+impossible. On demandait 500 mots en quatre sections à partir d'une matière
+qui, une fois retirée la redondance entre sources (les mêmes dépêches
+reprises), en portait souvent 150.
+
+Le modèle n'avait alors que deux issues : s'arrêter court (→ relance
+d'étoffement, premier poste de dépense du run) ou remplir. Quand il remplit, il
+produit exactement ce que les garde-fous détectent. Et surtout : « Contexte » et
+« Débats et nuances », n'ayant aucune matière factuelle à contenir sur un sujet
+mince, se remplissent de cadrage. **Le cadrage inventé, c'est la prise de
+position** — le seul défaut que ce journal ne peut pas se permettre.
+
+**Ce n'est PAS un assouplissement de la charte.** Attribution, neutralité,
+sourcing (3 sources minimum, ≥1 primaire OU ≥2 secondaires), fact-check en
+3 passes, `angle_insuffisant`, blocs légaux : tout s'applique à l'identique. Le
+plancher de l'ARTICLE reste 350 mots — aucun texte de 250 mots n'est publié
+« en tant qu'article ». C'est le format qui s'aligne sur la matière disponible,
+au lieu de l'inverse.
+
+### Comment ça marche
+
+- **`SYSTEM_PROMPT_BREVE`** (pipeline.py) : chapeau d'une phrase + `faits` de
+  110-200 mots. `contexte` et `nuances` sont des chaînes VIDES, `positions` est
+  neutralisé. Prompt de 5 450 caractères contre 16 129 pour l'article.
+- **Allocation par BUDGET, pas par prédiction de qualité.**
+  `QUOTA_ARTICLES_LONGS = 4` dans `run()` : les 4 sujets les mieux notés (la
+  sélection est déjà triée par score éditorial) reçoivent le format long, tout
+  le reste part en brève. Aucun seuil de « richesse » n'a été inventé — la
+  règle du projet interdit de fixer un seuil non mesuré, et aucune distribution
+  d'`audit_matiere` n'a encore été relevée. C'est le seul paramètre à bouger
+  pour arbitrer profondeur / couverture.
+- **Conversion a posteriori** (`CONVERSION_BREVE_SI_COURT`) : un premier jet
+  d'article sous 350 mots dont le chapeau + `faits` atteint 100 mots bascule en
+  brève **immédiatement, avant la relance corrective** — au lieu de payer un
+  étoffement vers 500 mots puis de rejeter. Sous 100 mots de `faits`, rejet
+  définitif comme avant : une brève squelettique n'est pas publiée.
+- **Économie** : injection réduite (6-8 sources × 380 car. au lieu de 10 × 950),
+  `content_len` 2 500 au lieu de 7 000, réservation de réponse 1 500 au lieu de
+  3 500. Une brève devrait coûter ~8-10 k tokens contre ~35 k — **estimation non
+  encore vérifiée sur un run réel**.
+- Le fact-checker reçoit `article_type="breve"` et un préambule qui lui
+  interdit de signaler l'absence de contexte/nuances comme un défaut. Sans lui
+  il jugerait la brève à l'aune d'un format qu'elle n'est pas.
+- Côté public : sections vides jamais rendues, badge « Brève » sur la page
+  article et sur les cartes (accueil + catégories). Les entrées d'articles.json
+  antérieures au 02/08 n'ont pas de champ `format` : absence = article.
+
+### Ce qu'il faut mesurer au premier run, avant tout autre changement
+
+`python scripts/analyser_run.py` sépare désormais **ACTU / BRÈVE / DOSSIER** et
+affiche le taux de `conforme_du_premier_coup` par format. Deux questions, dans
+cet ordre :
+
+1. **Le taux de conformité des brèves dépasse-t-il celui des actus ?** C'est
+   toute la thèse. Référence à battre : 0,8 % tous formats confondus.
+2. **Combien de tokens coûte réellement une brève ?** Relever `[VERIF-TOKENS]`
+   et le total Groq, diviser par le nombre de brèves menées au bout.
+
+Ne toucher à `QUOTA_ARTICLES_LONGS` qu'après ces deux mesures. Si les brèves
+échouent autant que les articles, le problème n'est pas le format et il faudra
+chercher ailleurs — piste suivante identifiée : **clusteriser les items RSS par
+événement au lieu de les dédupliquer**. Quand 8 flux sur 36 couvrent le même
+fait, c'est le signal d'importance le plus fiable disponible (il remplace le
+jugement du chef d'édition qui n'existe pas ici), et il est aujourd'hui traité
+comme du bruit par le filtre anti-doublon.
+
+`[MATIÈRE]` journalise maintenant le format retenu à côté de la mesure de
+richesse documentaire : après quelques runs, ces couples permettront de savoir
+si un routage par `audit_matiere` ferait mieux que le routage par budget — avec
+des distributions relevées, jamais devinées.
+
 ## Test guerre/faits-divers/politique — CLOS le 31/07, NON CONCLUANT
 
 **Affinement du 31/07** : le critère de `sujet_sensible` n'est PAS le thème

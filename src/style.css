@@ -518,6 +518,20 @@ a:hover .title-xl, a:hover .title-md, a:hover .title-sm { color: var(--blue-ink)
 /* ── TEMPS DE LECTURE ── */
 .art__reading-time { font-size: 10px; color: var(--muted); }
 
+/* ── FORMAT BRÈVE (02/08) ──
+   Marqueur discret mais lisible : le lecteur doit savoir avant et pendant sa
+   lecture qu'il ouvre le fait du jour seul, pas un article tronqué. Volontairement
+   neutre (gris, pas une couleur de catégorie) pour ne pas être lu comme un label
+   de qualité — une brève n'est ni un article raté ni un article premium. */
+.art__format,
+.meta__format {
+  display: inline-block; font-size: 10px; font-weight: 600; letter-spacing: .04em;
+  text-transform: uppercase; color: var(--muted);
+  border: 1px solid var(--rule); border-radius: 3px; padding: 1px 5px;
+  vertical-align: middle;
+}
+.meta__format { margin-left: 2px; }
+
 /* ── SHARE BUTTONS ── */
 .art__share { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; margin: 32px 0; padding: 16px 0; border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); }
 .art__share-label { font-size: 9px; font-weight: 700; letter-spacing: 2px; color: var(--muted); text-transform: uppercase; margin-right: 4px; }

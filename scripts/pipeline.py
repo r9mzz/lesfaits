@@ -1400,6 +1400,80 @@ La source PRIMAIRE d'une accusation est le document original (le rapport lui-mê
 Vérifier le PAYS et l'entité concernés : une source portant sur un État homonyme, une autre juridiction ou une autre filiale est hors sujet et ne doit pas être citée (ex : le Congo-Brazzaville n'est pas la République démocratique du Congo)."""
 
 # ──────────────────────────────────────────────────────────────────────────────
+# PROMPT BRÈVE (02/08)
+#
+# Constat à l'origine du format : sur 251 vérifications loguées, DEUX articles
+# étaient conformes du premier coup (0,8 %). Un taux d'échec de 99 % ne décrit
+# pas des sorties ratées, il décrit une consigne impossible — on demandait 500
+# mots structurés (chapeau + faits + contexte + nuances) à partir d'une matière
+# qui, une fois la redondance inter-sources retirée, en contient souvent 150.
+#
+# Le modèle n'avait alors que deux issues : s'arrêter court (→ relance
+# d'étoffement, premier poste de dépense du run) ou remplir. Quand il remplit,
+# il produit exactement ce que les garde-fous détectent — tournures génériques,
+# répétitions inter-sections, affirmations non démontrées. Et surtout :
+# « Contexte » et « Débats et nuances » n'ayant, sur un sujet mince, AUCUNE
+# matière factuelle à contenir, le modèle les remplit avec du cadrage. Le
+# cadrage inventé, c'est la prise de position — la seule chose que ce journal
+# ne peut pas se permettre.
+#
+# La brève supprime le problème à la racine plutôt que de le corriger en aval :
+# pas de section à remplir, donc aucune surface où broder. Ce n'est PAS un
+# assouplissement de la charte — les règles d'attribution, de neutralité, de
+# sourcing et le protocole de vérification s'appliquent à l'identique. C'est le
+# format qui s'aligne sur la matière, au lieu de l'inverse.
+# ──────────────────────────────────────────────────────────────────────────────
+
+SYSTEM_PROMPT_BREVE = """Tu es l'IA rédactrice de Les Faits, journal numérique français indépendant.
+Ligne éditoriale absolue : "Juste les faits. Aucun parti pris."
+
+Tu rédiges une BRÈVE : le fait du jour, établi et sourcé, et RIEN d'autre.
+Une brève n'est pas un article raté ni un résumé — c'est un format complet en
+soi. Elle ne contient ni mise en perspective historique, ni débat, ni analyse.
+
+RÉPONDS UNIQUEMENT EN JSON VALIDE, sans texte avant ou après, sans bloc ```json.
+
+Format obligatoire :
+{
+  "titre": "Titre factuel informatif, 6 à 15 mots, sans exclamation ni question",
+  "slug": "slug-kebab-case-descriptif-max-65-chars",
+  "image_keyword": "3 mots EN ANGLAIS — paysage, bâtiment ou objet UNIQUEMENT, jamais de visages ni personnes (ex: 'wheat field france', 'hospital building', 'solar panels europe')",
+  "resume": [
+    "UNE seule phrase de 25 à 40 mots : qui, quoi, quand, avec le chiffre-clé. Entrée DIRECTE dans le fait — jamais de phrase d'ambiance, jamais de mise en contexte. Vocabulaire et syntaxe DIFFÉRENTS de 'faits'."
+  ],
+  "corps": {
+    "faits": "110 à 200 mots, 4 à 8 phrases, un seul bloc. UNIQUEMENT le fait du jour et ses données propres : chiffres précis, montants, dates, acteurs nommés, décisions, résultats. Chaque phrase apporte une donnée que le résumé n'a PAS déjà donnée. Attribuer avec 'Selon [Institution]' ou 'D'après [Institution]'. JAMAIS d'URL dans le texte.",
+    "contexte": "",
+    "nuances": ""
+  },
+  "sources": [
+    {"institution": "Nom exact institution", "titre": "Titre exact publication ou rapport", "date": "Date précise", "url": "URL FOURNIE DANS LES SOURCES DISPONIBLES UNIQUEMENT — sinon null"}
+  ],
+  "categorie": "science|economie|societe|tech|environnement|sante",
+  "nb_sources": 3,
+  "positions": {"verifie": false, "label_gauche": "", "label_droite": "", "acteurs": []}
+}
+
+RÈGLES ABSOLUES — toute violation = brève rejetée :
+1. "contexte" et "nuances" DOIVENT être des chaînes VIDES (""). N'écris rien dedans, sous aucun prétexte. Si tu as de la matière historique ou des limites méthodologiques à exposer, c'est que le sujet méritait un article complet — ce n'est pas le format demandé ici, ignore cette matière.
+2. "positions" est TOUJOURS {"verifie": false, ...} avec "acteurs": []. Une brève ne met jamais en scène un débat.
+3. MINIMUM 3 sources distinctes et citables, toutes issues de SOURCES DISPONIBLES. Si tu ne peux pas atteindre 3 sources réelles : réponds uniquement HORS_PERIMETRE
+4. Chaque donnée chiffrée DOIT être attribuée à son institution : "Selon [Institution], ..." — JAMAIS d'URL dans le corps.
+5. RÈGLE D'ATTRIBUTION : n'écris "Selon [Institution]" que si le fait attribué figure LITTÉRALEMENT dans l'extrait CONTENU fourni pour cette institution. Ne jamais citer une institution absente de SOURCES DISPONIBLES, même si tu la connais.
+6. FUSION DES SOURCES OBLIGATOIRE : si plusieurs sources rapportent la même information, UNE seule phrase avec attribution groupée (« Selon l'INSEE et la Dares, [fait] »). INTERDIT d'écrire une phrase par source pour le même fait — c'est le défaut le plus fréquent sur ce format court.
+7. Aucune opinion, aucun parti pris, aucun adjectif évaluatif sans source (alarmant, historique, sans précédent, majeur, inquiétant...).
+8. PAS D'EXTRAPOLATION : aucune projection ni conséquence future ("pourrait entraîner", "risque de", "devrait permettre") sauf si une source listée la formule explicitement — auquel cas elle est attribuée à cette source.
+9. CADRAGES EMPRUNTÉS INTERDITS : ne jamais reprendre le jugement de valeur d'une source ("crise sans précédent", "tournant historique") comme s'il s'agissait d'un fait neutre. L'attribuer ou le supprimer.
+10. ACTUALITÉ UNIQUEMENT : le fait doit être daté des dernières 48 heures (décision, publication, annonce, vote, résultat, incident). Un sujet intemporel ou encyclopédique sans événement déclencheur récent = réponds HORS_PERIMETRE.
+11. RÉSULTATS INCERTAINS : une étude préliminaire, non répliquée ou issue d'un seul groupe doit être présentée comme telle. Pour un résultat médical, nommer le stade (phase 1/2/3, observationnelle) et l'indicateur EXACT (survie globale ≠ survie sans progression ≠ taux de réponse). "prouve" et "démontre" sont interdits hors citation attribuée.
+12. ACCUSATIONS : une accusation, une conclusion d'ONG ou un résultat d'audit reste attribué à qui le porte ("Human Rights Watch estime que…"), jamais reformulé en constat. Si la réponse de l'acteur mis en cause ne figure pas dans les sources, l'écrire : "La réaction de [acteur] n'était pas disponible dans les sources consultées."
+13. LÉGAL : jamais "coupable", "l'assassin", "le violeur" avant condamnation définitive — "mis en examen", "soupçonné de", "présumé". Ne jamais identifier un mineur dans une affaire pénale. Une affaire en cours se présente comme allégations de l'accusation.
+14. UNE IDÉE = UNE SEULE APPARITION. Le résumé et 'faits' ne doivent jamais contenir de phrases identiques ou quasi identiques. Relis avant de rendre : si une phrase n'apporte aucune information nouvelle par rapport à ce qui précède, supprime-la.
+15. Titre : 6-15 mots, informatif, factuel, sans vocabulaire putaclic et sans tournure en question.
+16. nb_sources EXACT : le nombre de sources DISTINCTES effectivement citées dans le texte final.
+17. Si les extraits disponibles ne fournissent pas assez de faits précis pour 110 mots sans inventer : réponds uniquement HORS_PERIMETRE. Mieux vaut aucune brève qu'une brève brodée."""
+
+# ──────────────────────────────────────────────────────────────────────────────
 # PROMPTS DOSSIER (portrait neutre ou exploration scientifique hypothétique)
 # Format JSON identique à ACTU ; champs faits/contexte/nuances réinterprétés.
 # ──────────────────────────────────────────────────────────────────────────────
@@ -1719,6 +1793,63 @@ def faits_repetitifs(art: dict) -> list[str]:
                         f"[{sec_a}→{sec_b}] fait répété entre sections : « {pb[:70]}… »")
                     break
     return violations
+
+
+# ──────────────────────────────────────────────────────────────────────────────
+# Seuils éditoriaux par FORMAT (02/08)
+#
+# Un seul jeu de seuils existait, calibré sur l'article de 500 mots, et il
+# s'appliquait à tout. Les voici explicités par format pour que la brève ne
+# soit pas jugée à l'aune d'un format qu'elle n'est pas — et pour qu'on ne
+# puisse pas affaiblir les seuils de l'ARTICLE en croyant toucher à la brève.
+#
+# Le plancher de sourcing (3 sources) est IDENTIQUE dans les deux formats, et
+# la règle de qualité (≥1 primaire OU ≥2 secondaires) s'applique sans
+# changement. Une brève est plus courte, jamais moins sourcée.
+# ──────────────────────────────────────────────────────────────────────────────
+SEUILS_FORMAT = {
+    # cible : longueur demandée au prompt ; plancher : refus en dessous
+    "article": {"cible": 500, "plancher": 350, "sources": 3},
+    "breve":   {"cible": 130, "plancher": 100, "sources": 3},
+}
+
+
+def _seuils(article_type: str) -> dict:
+    """Seuils applicables au type d'article (les dossiers suivent l'article)."""
+    return SEUILS_FORMAT["breve"] if article_type == "breve" else SEUILS_FORMAT["article"]
+
+
+# Un article long qui revient sous son plancher est-il converti en brève, ou
+# relancé en étoffement comme avant ? Mettre à False rétablit exactement le
+# comportement d'avant le 02/08 (relance puis rejet), pour comparer.
+CONVERSION_BREVE_SI_COURT = True
+
+
+def _mots_resume_faits(art: dict) -> int:
+    """Mots du périmètre d'une BRÈVE : chapeau + 'faits'. Sert à savoir si un
+    article long revenu trop court contient malgré tout une brève complète."""
+    corps = art.get("corps") or {}
+    mots = len(str(corps.get("faits", "") or "").split())
+    resume = art.get("resume") or []
+    if isinstance(resume, str):
+        resume = [resume]
+    return mots + sum(len(str(r or "").split()) for r in resume)
+
+
+def _reduire_en_breve(art: dict) -> None:
+    """Ramène un article au format brève, sur place et sans appel Groq.
+
+    Les sections 'contexte' et 'nuances' sont VIDÉES, jamais résumées : sur un
+    sujet dont la matière ne portait pas 500 mots, ce sont précisément elles
+    que le modèle a remplies avec du cadrage faute de faits — c'est de là que
+    viennent les prises de position. Le bloc 'positions' tombe pour la même
+    raison : un débat qui n'existe pas dans les sources n'a pas à être mis en
+    scène. Ce qui reste (chapeau + faits) est ce qui était réellement sourcé.
+    """
+    corps = art.setdefault("corps", {})
+    corps["contexte"] = ""
+    corps["nuances"] = ""
+    art["positions"] = {"verifie": False, "label_gauche": "", "label_droite": "", "acteurs": []}
 
 
 def _mots_totaux(art: dict) -> int:
@@ -2449,6 +2580,8 @@ def classifier_type_article(title: str, snippet: str) -> str:
 
 def _select_prompt(article_type: str) -> str:
     """Retourne le SYSTEM_PROMPT adapté au type d'article."""
+    if article_type == "breve":
+        return SYSTEM_PROMPT_BREVE
     if article_type == "dossier_portrait":
         return SYSTEM_PROMPT_DOSSIER_PORTRAIT
     if article_type == "dossier_science":
@@ -2774,6 +2907,15 @@ def generate(content: str, category_hint: str, extra_sources: list[dict] | None 
     # 950 car. ≈ 2-3 paragraphes : suffisant pour ancrer des faits précis
     # sans dépasser le budget Groq (déjà rate-limité en continu, voir logs).
     snippet_len = 950 if not is_retry else (450 if is_expand else 200)
+    # BRÈVE (02/08) : c'est ICI que se fait l'essentiel de l'économie de quota.
+    # Une brève de 130 mots n'a pas besoin de 10 extraits de 950 caractères —
+    # elle a besoin du fait du jour, que les premières lignes de chaque source
+    # portent déjà. On divise la matière injectée par ~2,5, ce qui divise le
+    # prompt d'autant : ~2 500 tokens au lieu de ~7 000. Ne pas confondre avec
+    # un affaiblissement du sourcing : le NOMBRE de sources trouvées, contrôlées
+    # et citées est inchangé, seule la profondeur d'extrait injectée baisse.
+    if article_type == "breve" and not is_retry:
+        snippet_len = 380
     sources_block = ""
     # Noms lisibles dérivés des URLs — utilisés dans le prompt ET dans les règles d'attribution
     source_noms: list[str] = []
@@ -2810,6 +2952,8 @@ def generate(content: str, category_hint: str, extra_sources: list[dict] | None 
     )
 
     content_len = 7000 if not is_retry else (2500 if is_expand else 1500)
+    if article_type == "breve" and not is_retry:
+        content_len = 2500
 
     # Relance avec article précédent : le modèle CORRIGE l'article existant au
     # lieu de tout réécrire depuis des sources tronquées — sans ce bloc, les
@@ -3058,6 +3202,12 @@ def generate(content: str, category_hint: str, extra_sources: list[dict] | None 
     # seulement quand l'article en a réellement besoin, plutôt que de le
     # perdre (1 sujet mort tronqué deux fois à 3500 la nuit du 19/07).
     reservation_reponse = 3500
+    # Une brève complète fait ~450 tokens de JSON. Réserver 3 500 comme pour un
+    # article gaspille de la fenêtre TPM (12 000/min/clé, prompt + réservation)
+    # sans rien apporter : 1 500 laisse trois fois la marge nécessaire tout en
+    # permettant à une clé de traiter plusieurs brèves dans la même minute.
+    if article_type == "breve":
+        reservation_reponse = 1500
     for cycle in range(MAX_RETRY_CYCLES):
         keys_to_try = [(k, l) for k, l in _all_keys if k and k not in _CLES_MORTES_JOUR]
         if not keys_to_try:
@@ -4782,8 +4932,24 @@ def build_article_html(art: dict, date_pub: str) -> str:
     reading_time = max(1, round(word_count / 200))
 
     faits    = _esc(art["corps"]["faits"]).replace("\n", "</p><p>")
-    contexte = _esc(art["corps"]["contexte"]).replace("\n", "</p><p>")
-    nuances  = _esc(art["corps"]["nuances"]).replace("\n", "</p><p>")
+    contexte = _esc(art["corps"].get("contexte") or "").replace("\n", "</p><p>")
+    nuances  = _esc(art["corps"].get("nuances") or "").replace("\n", "</p><p>")
+
+    # Une BRÈVE n'a ni « Contexte » ni « Débats et nuances » — on ne rend pas
+    # des titres de section vides. Le format est affiché explicitement au
+    # lecteur : il doit savoir qu'il lit le fait du jour et rien d'autre, pas
+    # se demander si l'article a été tronqué.
+    est_breve = (art.get("format") == "breve") or not (contexte.strip() or nuances.strip())
+    sections_html = f'<h2 class="art__h2">Les faits</h2><p>{faits}</p>'
+    if contexte.strip():
+        sections_html += f'\n  <h2 class="art__h2">Contexte</h2><p>{contexte}</p>'
+    if nuances.strip():
+        sections_html += f'\n  <h2 class="art__h2">Débats et nuances</h2><p>{nuances}</p>'
+    format_badge = (
+        '<span class="meta__sep" aria-hidden="true">·</span>'
+        '<span class="art__format" title="Format court : le fait du jour, établi et sourcé, '
+        'sans mise en perspective ni analyse">Brève</span>'
+    ) if est_breve else ""
 
     # Articles liés — 1 par catégorie différente de l'article courant
     related_html = ""
@@ -4974,15 +5140,14 @@ function copyLink(){{
     <span class="art__reading-time">Lecture : {reading_time} min</span>
     <span class="meta__sep" aria-hidden="true">·</span>
     <span title="Nombre de mots de l'article" style="color:var(--muted);font-size:.85rem">{word_count} mots</span>
+    {format_badge}
   </div>
   <div class="art__ai-badge" role="note">🤖 Rédigé par IA — <a href="methode.html" style="color:inherit;text-decoration:underline">notre méthode</a>{verify_html}</div>
   {AUDIO_PLAYER_HTML}
   <div class="art__rule"></div>
   {hero_img}
   <p class="art__resume">{_esc(resume_txt)}</p>
-  <h2 class="art__h2">Les faits</h2><p>{faits}</p>
-  <h2 class="art__h2">Contexte</h2><p>{contexte}</p>
-  <h2 class="art__h2">Débats et nuances</h2><p>{nuances}</p>
+  {sections_html}
   {build_spectrum_html(art.get("positions", {}))}
   {share_html}
   {sources_html}
@@ -5080,6 +5245,19 @@ def rebuild_articles_related(articles: list):
     print(f"  ✓ {updated} articles mis à jour (À lire aussi cross-catégorie)")
 
 
+def _fmt_badge(a: dict) -> str:
+    """Marqueur « Brève » sur les cartes (accueil et pages catégories).
+
+    Les entrées d'articles.json antérieures au 02/08 n'ont pas de champ
+    `format` : leur absence vaut "article", ce qu'elles étaient toutes. Aucune
+    carte déjà publiée n'est donc modifiée par l'arrivée du format.
+    """
+    if a.get("format") != "breve":
+        return ""
+    return ('<span class="meta__sep">·</span>'
+            '<span class="meta__format">Brève</span>')
+
+
 def rebuild_index():
     """Relit articles.json et reconstruit la section À LA UNE de index.html."""
     # Les templates servent des .webp : garantir que chaque JPEG a ses
@@ -5097,7 +5275,7 @@ def rebuild_index():
           <span class="cat cat--{a['categorie']}">{_cat_up(a['categorie'])}</span>
           <h3 class="title-md">{_esc(a['titre'])}</h3>
           <div class="meta"><span class="meta__src">{a['nb_sources']} sources</span>
-          <span class="meta__sep">·</span><span>{a['date']}</span></div>
+          <span class="meta__sep">·</span><span>{a['date']}</span>{_fmt_badge(a)}</div>
           </div>
         </a>"""
 
@@ -5109,7 +5287,7 @@ def rebuild_index():
             <h3 class="title-sm">{_esc(a['titre'])}</h3>
             <div class="meta" style="margin-top:10px">
               <span class="meta__src">{a['nb_sources']} sources</span>
-              <span class="meta__sep">·</span><span>{a['date']}</span>
+              <span class="meta__sep">·</span><span>{a['date']}</span>{_fmt_badge(a)}
             </div>
           </div>
         </a>"""
@@ -5121,7 +5299,7 @@ def rebuild_index():
           <h3 class="title-sm">{_esc(a['titre'])}</h3>
           <div class="meta" style="margin-top:6px">
             <span class="meta__src">{a['nb_sources']} sources</span>
-            <span class="meta__sep">·</span><span>{a['date']}</span>
+            <span class="meta__sep">·</span><span>{a['date']}</span>{_fmt_badge(a)}
           </div></div>
         </a>"""
 
@@ -5465,7 +5643,7 @@ def build_category_pages():
             <h3 class="title-sm">{_esc(a['titre'])}</h3>
             <div class="meta" style="margin-top:10px">
               <span class="meta__src">{a['nb_sources']} sources</span>
-              <span class="meta__sep">·</span><span>{a['date']}</span>
+              <span class="meta__sep">·</span><span>{a['date']}</span>{_fmt_badge(a)}
             </div>
           </div>
         </a>""" for a in arts)
@@ -5831,6 +6009,10 @@ def save_to_index(art: dict, date_pub: str):
         "categorie": art["categorie"],
         "nb_sources":art["nb_sources"],
         "nb_mots":   art.get("nb_mots", 0),
+        # "article" (500 mots, 4 sections) | "breve" (130 mots, le fait seul).
+        # Absent des entrées antérieures au 02/08 : traiter l'absence comme
+        # "article", c'est ce qu'elles étaient toutes.
+        "format":    art.get("format", "article"),
         "date":      date_pub,
         "resume":    art["resume"],
         "image_keyword": art.get("image_keyword", ""),
@@ -5896,8 +6078,18 @@ def audit_matiere(sources: list[dict], snippet_len: int = 950) -> dict:
     }
 
 
-def generer_article(item: dict, dry_run: bool, published: set, new_pub: set, date_pub: str, published_topics: set | None = None) -> bool:
-    """Génère et publie un article. Retourne True si succès."""
+def generer_article(item: dict, dry_run: bool, published: set, new_pub: set, date_pub: str,
+                    published_topics: set | None = None,
+                    budget_formats: dict | None = None) -> bool:
+    """Génère et publie un article. Retourne True si succès.
+
+    `budget_formats` — compteur MUTABLE partagé par toute la boucle du run, de
+    la forme {"longs_restants": n}. Il n'est décrémenté qu'au moment où un
+    sujet part réellement en génération longue : un sujet écarté en amont
+    (listicle, sources insuffisantes) ne consomme aucun budget. À zéro, tous
+    les sujets suivants passent en brève. Absent = aucun plafond, pour les
+    appels de test et les régénérations ponctuelles.
+    """
     if item["id"] in published:
         return False
 
@@ -5908,6 +6100,21 @@ def generer_article(item: dict, dry_run: bool, published: set, new_pub: set, dat
     if article_type == "rejete":
         print(f"  [REJET DOSSIER] Listicle, lifestyle ou portrait polémique détecté : {item['title'][:55]}")
         return False
+
+    # ── Allocation du format : budget, pas prédiction de qualité (02/08) ──
+    # On NE tente PAS de deviner à l'avance si un sujet « mérite » 500 mots :
+    # aucune distribution n'a encore été relevée sur `audit_matiere`, et la
+    # règle du projet interdit de fixer un seuil avant de l'avoir mesuré.
+    # On applique donc la seule règle défendable aujourd'hui, celle d'une
+    # rédaction : le budget du créneau paie N articles longs, attribués aux
+    # sujets les mieux notés (la sélection est déjà triée par score éditorial),
+    # et tout le reste part en brève. Aucun sujet n'est plus perdu faute de
+    # quota — il est traité au format que le budget permet.
+    # Les dossiers (portrait/science) ne sont jamais dégradés : ils sont rares
+    # et leur matière est structurellement épaisse.
+    if article_type == "actu" and budget_formats is not None \
+            and budget_formats.get("longs_restants", 0) <= 0:
+        article_type = "breve"
 
     # Scraping du contenu complet
     full_content = ""
@@ -5997,6 +6204,14 @@ def generer_article(item: dict, dry_run: bool, published: set, new_pub: set, dat
     # plafond TPM — un prompt trop lourd fait échouer l'appel en 413.
     SNIPPET_LEN_INJ = 950
     BUDGET_MATIERE = 11000   # caractères effectivement injectés
+    # BRÈVE : le budget d'injection suit le format. Ces valeurs DOIVENT rester
+    # alignées sur `snippet_len` dans generate() — c'est l'erreur déjà commise
+    # une fois ici (budget calculé sur la taille stockée, pas sur la taille
+    # injectée) : si les deux divergent, le budget compte des caractères qui
+    # ne partent jamais dans le prompt et la boucle s'arrête au mauvais moment.
+    if article_type == "breve":
+        SNIPPET_LEN_INJ = 380
+        BUDGET_MATIERE = 2600
     # MAX 14 → 10 (30/07, après mesure). Le run du 30/07 après-midi a injecté
     # 14 sources sur les 14 sujets, et 9 d'entre eux ont reçu de Groq une
     # réponse NON TEXTUELLE — des octets répétés en boucle (« \x13\x13… »,
@@ -6008,6 +6223,11 @@ def generer_article(item: dict, dry_run: bool, published: set, new_pub: set, dat
     # aussi loin. Ne pas remonter ce plafond sans vérifier le taux de réponses
     # dégénérées dans les logs `[GROQ-BRUT] réponse sans JSON`.
     MIN_SOURCES_INJ, MAX_SOURCES_INJ = 8, 10
+    # Brève : 6 sources injectées au minimum, pas moins. Le garde-fou d'après
+    # exige 5 sources RÉELLES (après exclusion des URLs non citables) — passer
+    # sous 6 injectées ferait échouer des sujets valides sur ce contrôle-là.
+    if article_type == "breve":
+        MIN_SOURCES_INJ, MAX_SOURCES_INJ = 6, 8
     _retenues, _budget = [], 0
     for _s in extra:
         if len(_retenues) >= MAX_SOURCES_INJ:
@@ -6017,7 +6237,11 @@ def generer_article(item: dict, dry_run: bool, published: set, new_pub: set, dat
         _retenues.append(_s)
         _budget += min(len(_s.get("snippet") or ""), SNIPPET_LEN_INJ)
     _audit = audit_matiere(_retenues, SNIPPET_LEN_INJ)
-    print(f"     [MATIÈRE] {_audit['sources']} sources · "
+    # Le format retenu est journalisé À CÔTÉ de la mesure de matière : c'est ce
+    # qui permettra, après quelques runs, de savoir si un routage par richesse
+    # documentaire ferait mieux que le routage par budget appliqué ici — et de
+    # fixer un seuil sur des distributions relevées, jamais devinées.
+    print(f"     [MATIÈRE] format={article_type} · {_audit['sources']} sources · "
           f"{_audit['faits_distincts']} faits distincts · "
           f"redondance {_audit['redondance']:.0%} · "
           f"{_audit['donnees_chiffrees']} données chiffrées")
@@ -6040,13 +6264,19 @@ def generer_article(item: dict, dry_run: bool, published: set, new_pub: set, dat
         print(f"  [REJET] Seulement {len(specific_sources)} source(s) — minimum 5 requis (DDG+PubMed)")
         return False
 
-    type_label = {"actu": "ACTU", "dossier_portrait": "DOSSIER/portrait",
+    type_label = {"actu": "ACTU", "breve": "BRÈVE", "dossier_portrait": "DOSSIER/portrait",
                   "dossier_science": "DOSSIER/science"}.get(article_type, article_type)
     print(f"  → Génération [{type_label}] : {item['title'][:50]} [{len(specific_sources)} sources réelles]")
 
     if dry_run:
         print(f"     (dry-run)")
         return False
+
+    # Le budget d'articles longs se consomme ICI, au dernier moment avant le
+    # premier appel Groq — pas à la sélection. Un sujet écarté plus haut n'a
+    # rien coûté et ne doit donc pas priver le suivant d'un format long.
+    if budget_formats is not None and article_type != "breve":
+        budget_formats["longs_restants"] = budget_formats.get("longs_restants", 0) - 1
 
     try:
         art = generate(content, cat, extra_sources=extra, rss_url=item.get("url"),
@@ -6055,6 +6285,30 @@ def generer_article(item: dict, dry_run: bool, published: set, new_pub: set, dat
         # Compteur de relances Groq pour cet article — sert de circuit-breaker
         # (voir rejet précoce plus bas).
         nb_garde_retries = 0
+
+        # ── Article long revenu trop court : convertir AVANT les garde-fous ──
+        # C'était le scénario le plus coûteux du pipeline — ~9 000 tokens de
+        # relance d'étoffement, suivis dans la plupart des cas d'un rejet
+        # définitif : 35 k tokens dépensés pour zéro publication. Or un premier
+        # jet qui plafonne à 250 mots n'a pas un problème d'écriture mais un
+        # problème de MATIÈRE : les sources n'en portaient pas 500. Le
+        # constater après génération est une mesure, pas une supposition.
+        # La décision est prise ICI, avant la relance corrective, pour deux
+        # raisons : ne pas payer un étoffement vers 500 mots qu'on jetterait
+        # juste après, et faire tourner tous les garde-fous suivants avec les
+        # seuils du format réellement publié.
+        # La charte n'est pas affaiblie : le plancher de l'ARTICLE reste 350
+        # mots, aucun texte de 250 mots n'est publié « en tant qu'article ».
+        if (CONVERSION_BREVE_SI_COURT and article_type == "actu"
+                and isinstance(art, dict) and art
+                and _mots_totaux(art) < SEUILS_FORMAT["article"]["plancher"]
+                and _mots_resume_faits(art) >= SEUILS_FORMAT["breve"]["plancher"]):
+            _mots_avant_conv = _mots_totaux(art)
+            _reduire_en_breve(art)
+            article_type = "breve"
+            print(f"     [CONVERSION] Premier jet à {_mots_avant_conv} mots (plancher article "
+                  f"{SEUILS_FORMAT['article']['plancher']}) — bascule en BRÈVE de "
+                  f"{_mots_totaux(art)} mots, sans relance d'étoffement")
 
         # ── Garde-fous 1/3/4 : une SEULE relance corrective combinée ──────────
         # Les trois contrôles (attributions fantômes, résumé qui paraphrase le
@@ -6111,13 +6365,19 @@ def generer_article(item: dict, dry_run: bool, published: set, new_pub: set, dat
             # garde-fou d'étoffement dédié reste en place juste après : il ne
             # se déclenchera plus que si cette relance unique n'a pas suffi.
             _mots_avant = _mots_totaux(art)
+            _seuil = _seuils(article_type)
             _expand_combine = None
-            if _mots_avant < 350:
+            if _mots_avant < _seuil["plancher"]:
+                _perimetre = ("chapeau + faits" if article_type == "breve"
+                              else "chapeau + faits + contexte + nuances")
                 _expand_combine = (
-                    f"Ton article ne fait que {_mots_avant} mots "
-                    f"(chapeau + faits + contexte + nuances), il en faut 500. "
+                    f"Ton texte ne fait que {_mots_avant} mots "
+                    f"({_perimetre}), il en faut {_seuil['cible']}. "
                     f"Développe en même temps que tu corriges les points "
                     f"ci-dessus, sans rien inventer au-delà des sources."
+                    + (" N'ouvre PAS les sections 'contexte' et 'nuances' : "
+                       "elles doivent rester vides, développe uniquement 'faits'."
+                       if article_type == "breve" else "")
                 )
                 details.append(f"trop court ({_mots_avant} mots) — étoffement joint")
             print(f"     [GARDE] {' + '.join(details)} — relance corrective unique…")
@@ -6233,15 +6493,46 @@ def generer_article(item: dict, dry_run: bool, published: set, new_pub: set, dat
         def _deficit_longueur_sources(a: dict) -> tuple[int, int]:
             return _mots_totaux(a), len(a.get("sources") or [])
 
-        MIN_MOTS_CORPS = 500
-        MIN_SOURCES = 3
+        # ── Format brève : sections vides, garanties par le code ─────────────
+        # Le prompt l'exige (règle 1), mais un modèle qui vient d'écrire 200
+        # mots de « faits » remplit volontiers « contexte » par habitude, et
+        # une relance corrective peut les rouvrir. On les vide ici plutôt que
+        # de les détecter et relancer : c'est gratuit et sans échec possible.
+        if article_type == "breve":
+            _corps_b = art.get("corps") or {}
+            if (_corps_b.get("contexte") or "").strip() or (_corps_b.get("nuances") or "").strip():
+                print(f"     [BRÈVE] Sections 'contexte'/'nuances' remplies malgré la "
+                      f"consigne — vidées (le fait du jour reste dans 'faits')")
+            _reduire_en_breve(art)
+
+        _seuil_fmt     = _seuils(article_type)
+        MIN_MOTS_CORPS = _seuil_fmt["cible"]
+        MIN_SOURCES    = _seuil_fmt["sources"]
         # Tolérance de 150 mots après relance (portée de 100 à 150 le 20/07,
         # Nahil : deux articles rejetés à 378/382 mots, trop proches du seuil
         # pour justifier une perte sèche) : la cible reste 500 mots, mais un
         # article qui plafonne à 350-499 mots malgré la relance d'étoffement
         # est accepté s'il est bien sourcé — plancher dur = 350 mots.
-        TOLERANCE_MOTS = 150
+        # Depuis le 02/08 les deux valeurs viennent de SEUILS_FORMAT, pour que
+        # la brève (130 / 100) soit jugée sur son propre format et pas sur
+        # celui de l'article. Le sourcing, lui, est identique dans les deux.
+        TOLERANCE_MOTS = MIN_MOTS_CORPS - _seuil_fmt["plancher"]
         mots, nb_src = _deficit_longueur_sources(art)
+        # Second filet : la relance corrective peut avoir raccourci un article
+        # qui passait avant elle. La conversion principale a lieu plus haut,
+        # juste après le premier jet — voir [CONVERSION].
+        if (CONVERSION_BREVE_SI_COURT and article_type == "actu"
+                and mots < _seuil_fmt["plancher"]
+                and _mots_resume_faits(art) >= SEUILS_FORMAT["breve"]["plancher"]):
+            _reduire_en_breve(art)
+            article_type   = "breve"
+            _seuil_fmt     = _seuils(article_type)
+            MIN_MOTS_CORPS = _seuil_fmt["cible"]
+            MIN_SOURCES    = _seuil_fmt["sources"]
+            TOLERANCE_MOTS = MIN_MOTS_CORPS - _seuil_fmt["plancher"]
+            _mots_avant_conv, (mots, nb_src) = mots, _deficit_longueur_sources(art)
+            print(f"     [CONVERSION] Article retombé à {_mots_avant_conv} mots après relance "
+                  f"corrective — publié en BRÈVE de {mots} mots")
         # La relance ne part QUE sous le plancher dur (350), pas sous la cible
         # (500). Mesure du run du 30/07 : 9 relances d'étoffement sur 14
         # générations, soit une génération complète (~9 k tokens) payée deux
@@ -6261,20 +6552,28 @@ def generer_article(item: dict, dry_run: bool, published: set, new_pub: set, dat
                 details.append(f"{mots} mots au lieu de {MIN_MOTS_CORPS} minimum")
             if manque_src:
                 details.append(f"{nb_src} source(s) citée(s) au lieu de {MIN_SOURCES} minimum")
-            print(f"     [GARDE] Article trop court/peu sourcé ({' + '.join(details)}) — relance d'étoffement…")
+            _lbl_fmt = "brève" if article_type == "breve" else "article"
+            _perimetre = ("chapeau + faits" if article_type == "breve"
+                          else "chapeau + faits + contexte + nuances")
+            print(f"     [GARDE] {_lbl_fmt.capitalize()} trop court/peu sourcé ({' + '.join(details)}) — relance d'étoffement…")
             expand_msg = (
-                f"Ton article ne fait que {mots} mots (chapeau + faits + contexte + nuances) "
+                f"Ton texte ne fait que {mots} mots ({_perimetre}) "
                 f"(minimum {MIN_MOTS_CORPS}) et ne cite que {nb_src} source(s) (minimum {MIN_SOURCES})."
                 if manque_mots and manque_src else
-                f"Ton article ne fait que {mots} mots (chapeau + faits + contexte + nuances) "
+                f"Ton texte ne fait que {mots} mots ({_perimetre}) "
                 f"(minimum {MIN_MOTS_CORPS})." if manque_mots else
-                f"Ton article ne cite que {nb_src} source(s) (minimum {MIN_SOURCES})."
+                f"Ton texte ne cite que {nb_src} source(s) (minimum {MIN_SOURCES})."
             )
+            if article_type == "breve":
+                expand_msg += (" N'ouvre PAS 'contexte' ni 'nuances' : elles doivent "
+                               "rester vides, développe uniquement 'faits'.")
             art_expanded = generate(content, cat, extra_sources=extra, rss_url=item.get("url"),
                                     expand_feedback=expand_msg, article_type=article_type,
                                     previous_article=art)
             if isinstance(art_expanded, dict) and art_expanded:
                 art = art_expanded
+            if article_type == "breve":
+                _reduire_en_breve(art)
             mots, nb_src = _deficit_longueur_sources(art)
             if mots < MIN_MOTS_CORPS - TOLERANCE_MOTS or nb_src < MIN_SOURCES:
                 print(f"     [REJET QUALITÉ] Toujours insuffisant après relance "
@@ -6326,6 +6625,12 @@ def generer_article(item: dict, dry_run: bool, published: set, new_pub: set, dat
         # signe que la duplication masquait un article creux. Pas de relance
         # Groq ici : le quota reste la ressource rare.
         if statut_verif == "corrige_automatiquement":
+            # Le correcteur travaille sur le JSON complet : il peut rouvrir
+            # 'contexte'/'nuances' d'une brève en croyant réparer une section
+            # vide. On les revide AVANT de compter les mots, sinon le contrôle
+            # de plancher validerait des sections qui ne seront pas rendues.
+            if article_type == "breve":
+                _reduire_en_breve(art)
             if faits_repetitifs(art) or resume_repete_corps(art):
                 _n_supp = _supprimer_phrases_dupliquees(art)
                 if _n_supp:
@@ -6424,6 +6729,10 @@ def generer_article(item: dict, dry_run: bool, published: set, new_pub: set, dat
         # Compter les mots finaux pour le système de scoring longueur ET le
         # badge public (chapeau + corps — voir _mots_totaux)
         art["nb_mots"] = _mots_totaux(art)
+        # Format publié — porté jusqu'à l'index et aux cartes d'accueil : un
+        # lecteur doit savoir avant de cliquer qu'il ouvre une brève de 130
+        # mots et pas un article. C'est la contrepartie honnête du format.
+        art["format"] = "breve" if article_type == "breve" else "article"
 
         try:
             html = build_article_html(art, date_pub)
@@ -6605,7 +6914,24 @@ def run(dry_run=False, text_input=None, nb_max=36):
         # ~20 min (8 cycles de rate limit + relances) — 4 h + marge < 5 h.
         _pipeline_start = time.time()
         _BUDGET_SECONDES = 4 * 60 * 60  # 4 heures
-        print(f"\n[GÉNÉRATION]")
+        # ── Répartition du quota entre formats (02/08) ───────────────────────
+        # Le créneau dispose d'environ 550 k tokens (1,1 M sur 24 h glissantes,
+        # partagés entre les deux runs). Un article long en coûte ~35 k menés au
+        # bout, une brève ~8-10 k. L'ancienne règle « tout le monde en article
+        # long » consommait donc tout le budget en 10-14 sujets, dont 1 à 2
+        # étaient publiés : les 20+ sujets suivants de la sélection n'étaient
+        # même jamais tentés.
+        # On paie désormais QUOTA_ARTICLES_LONGS articles complets — attribués
+        # aux sujets les mieux notés, puisque `selection` est déjà triée par
+        # score éditorial — et le reste du budget part en brèves, qui traitent
+        # 3 à 4 fois plus de sujets à quota égal.
+        # Ce nombre est le seul paramètre à bouger pour arbitrer entre
+        # profondeur et couverture. Le monter réduit mécaniquement le nombre de
+        # brèves possibles ; le descendre à 0 ferait un journal 100 % brèves.
+        QUOTA_ARTICLES_LONGS = 4
+        budget_formats = {"longs_restants": QUOTA_ARTICLES_LONGS}
+        print(f"\n[GÉNÉRATION] budget : {QUOTA_ARTICLES_LONGS} article(s) long(s), "
+              f"puis brèves sur les {max(0, len(selection) - QUOTA_ARTICLES_LONGS)} sujets suivants")
         for item in selection:
             elapsed = time.time() - _pipeline_start
             if elapsed > _BUDGET_SECONDES:
@@ -6614,7 +6940,8 @@ def run(dry_run=False, text_input=None, nb_max=36):
             try:
                 _now_article = datetime.now()
                 date_pub = f"{_now_article.day} {MOIS[_now_article.month-1]} {_now_article.year}, {_now_article.strftime('%Hh%M')}"
-                if generer_article(item, dry_run, published, new_pub, date_pub, published_topics):
+                if generer_article(item, dry_run, published, new_pub, date_pub, published_topics,
+                                   budget_formats=budget_formats):
                     # Ajouter le titre généré à published_topics pour éviter les doublons dans la même session
                     published_topics.add(item.get("title", ""))
             except QuotaJournalierEpuise:

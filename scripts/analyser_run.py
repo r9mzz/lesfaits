@@ -157,15 +157,25 @@ def load_verif_for_date(run_date: str) -> list:
     return [e for e in entries if e.get("date", "").startswith(run_date)]
 
 
-def _split_by_type(verif: list) -> tuple[list, list]:
-    actu, dossier = [], []
+def _split_by_type(verif: list) -> tuple[list, list, list]:
+    """Sépare ACTU / BRÈVE / DOSSIER.
+
+    La brève a son propre bucket depuis le 02/08, et ce n'est pas cosmétique :
+    tout l'intérêt du format est de savoir s'il convertit mieux que l'article
+    long (taux de `conforme_du_premier_coup`, coût par publication). Mélanger
+    les deux dans « ACTU » rendrait la mesure impossible — exactement l'erreur
+    déjà commise en comptant les publications depuis verification_log.json.
+    """
+    actu, breve, dossier = [], [], []
     for e in verif:
         t = e.get("article_type", "actu")
         if t.startswith("dossier"):
             dossier.append(e)
+        elif t == "breve":
+            breve.append(e)
         else:
             actu.append(e)
-    return actu, dossier
+    return actu, breve, dossier
 
 
 # ── 4. Calcul appels LLM estimés ─────────────────────────────────────────────
@@ -361,30 +371,51 @@ def _bloc_verif(entries: list):
         print(f"    {slug:<38} | init={str(init):<3} bloquants={str(bloc):<3} | {s}")
 
 
+def _taux_conforme(entries: list) -> str:
+    """Part de `conforme_du_premier_coup` — la mesure qui décide du sort du
+    format brève. Sur les 251 vérifications antérieures au 02/08, elle valait
+    0,8 % : c'est la valeur de référence à battre."""
+    if not entries:
+        return "n/a"
+    n = sum(1 for e in entries if e.get("statut") == "conforme_du_premier_coup")
+    return f"{n}/{len(entries)} ({n / len(entries):.0%})"
+
+
 def _afficher_actu_dossier(verif: list):
     has_type_field = any("article_type" in e for e in verif)
-    verif_actu, verif_dossier = _split_by_type(verif)
+    verif_actu, verif_breve, verif_dossier = _split_by_type(verif)
 
     if not verif:
-        _section("4. ACTU vs DOSSIER (0 entrées aujourd'hui)")
+        _section("4. ACTU vs BRÈVE vs DOSSIER (0 entrées aujourd'hui)")
         print("  Aucune entrée dans verification_log.json pour aujourd'hui.")
         return
 
     if not has_type_field:
         _section(f"4. ACTU ({len(verif)} entrées — champ article_type absent)")
-        print("  Runs antérieurs au Format Dossier — séparation ACTU/DOSSIER indisponible.")
+        print("  Runs antérieurs au Format Dossier — séparation par format indisponible.")
         _bloc_verif(verif_actu)
         return
 
-    _section(f"4a. ACTU ({len(verif_actu)} entrées)")
+    _section(f"4a. ACTU ({len(verif_actu)} entrées) — conformes du 1er coup : "
+             f"{_taux_conforme(verif_actu)}")
     _bloc_verif(verif_actu)
 
+    if verif_breve:
+        _section(f"4b. BRÈVE ({len(verif_breve)} entrées) — conformes du 1er coup : "
+                 f"{_taux_conforme(verif_breve)}")
+        print("  Comparer ce taux à celui d'ACTU ci-dessus : c'est LA mesure qui")
+        print("  dit si le format brève tient sa promesse (référence avant le")
+        print("  02/08, tous formats confondus : 2 conformes sur 251, soit 0,8 %).")
+        _bloc_verif(verif_breve)
+    else:
+        _section("4b. BRÈVE : 0 brève vérifiée")
+        print("  Aucune brève sur ce run — vérifier QUOTA_ARTICLES_LONGS dans pipeline.py.")
+
     if verif_dossier:
-        _section(f"4b. DOSSIER ({len(verif_dossier)} entrées)")
-        print("  (Premier run avec Format Dossier — aucune référence historique)")
+        _section(f"4c. DOSSIER ({len(verif_dossier)} entrées)")
         _bloc_verif(verif_dossier)
     else:
-        _section("4b. DOSSIER : 0 article vérifié")
+        _section("4c. DOSSIER : 0 article vérifié")
         print("  Aucun candidat DOSSIER n'a passé la vérification, ou aucun trouvé.")
 
 
@@ -459,7 +490,7 @@ def afficher(run_id: str, pipeline: dict, verif: list, run_date: str = ""):
               f"{art['titre'][:42]:<42} "
               f"src={art['sources']} gardes={art['gardes']}{flags}")
 
-    verif_actu, _ = _split_by_type(verif)
+    verif_actu, _, _ = _split_by_type(verif)
 
     _afficher_alertes_quota(pipeline, verif)
     _afficher_verdict_sourcing(verif_actu)

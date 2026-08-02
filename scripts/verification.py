@@ -340,11 +340,42 @@ def _sources_block(art: dict) -> str:
     return "\n".join(lines) or "(aucune source)"
 
 
-def detecter(art: dict) -> dict:
+# Préambule injecté en tête du fact-check quand le texte est une BRÈVE (02/08).
+# Sans lui, le checker signale l'absence de « Contexte » et de « Débats et
+# nuances » comme des sections gonflées ou manquantes, et réclame la mise en
+# perspective que ce format exclut par construction : il jugerait la brève à
+# l'aune d'un format qu'elle n'est pas. Tout le reste du protocole — factuel,
+# sourcing, originalité, légal, sujet sensible, angle insuffisant — s'applique
+# à l'identique. Rien n'est retiré au contrôle, seul le format attendu change.
+PREAMBULE_BREVE = """FORMAT DU TEXTE À VÉRIFIER : BRÈVE.
+
+Une brève est un format court et complet en soi : un chapeau d'une phrase et une
+section « faits » de 110 à 200 mots, rien d'autre. Les champs "contexte" et
+"nuances" sont VIDES INTENTIONNELLEMENT.
+
+Conséquences pour ton analyse, à respecter strictement :
+- Ne signale JAMAIS l'absence de contexte, de mise en perspective, d'historique,
+  de limites méthodologiques ou de débat comme un problème. Ces sections n'ont
+  pas à exister ici, leur absence n'est ni une omission ni une section gonflée.
+- N'exige aucune longueur minimale au-delà de ce format.
+- En revanche, applique SANS AUCUN allègement : les blocs 1 (factuel), 2
+  (sourcing), 3 (originalité) et 5 (légal), ainsi que "sujet_sensible" et
+  "angle_insuffisant". Une brève mal sourcée, une accusation non attribuée ou un
+  chiffre faux dans 110 mots sont exactement aussi graves que dans 500.
+- Le TEST OPÉRATIONNEL sur "angle_insuffisant" s'applique tel quel : si "faits"
+  ne contient aucune phrase liant un événement daté récent à une donnée chiffrée
+  ou nommée qui lui est propre, alors angle_insuffisant = true.
+
+"""
+
+
+def detecter(art: dict, article_type: str = "actu") -> dict:
     """Passe 2 — fact-check indépendant. Retourne le rapport JSON."""
     prompt = (PROMPT_DETECTION
               .replace("{ARTICLE_JSON}", json.dumps(art, ensure_ascii=False))
               .replace("{SOURCES}", _sources_block(art)))
+    if article_type == "breve":
+        prompt = PREAMBULE_BREVE + prompt
     # Groq compte prompt + max_tokens réservés dans la limite TPM (12 000) :
     # avec 8000 réservés, une détection à prompt ~4 400 tokens dépassait le
     # plafond en un seul appel (413 "Requested 12366") et ne pouvait JAMAIS
@@ -352,12 +383,25 @@ def detecter(art: dict) -> dict:
     return _extract_json(_llm_call(prompt, max_tokens=4000))
 
 
-def corriger(art: dict, rapport: dict) -> dict:
+def corriger(art: dict, rapport: dict, article_type: str = "actu") -> dict:
     """Passe 3 — correction ciblée. Retourne l'article corrigé."""
     prompt = (PROMPT_CORRECTION
               .replace("{ARTICLE_JSON}", json.dumps(art, ensure_ascii=False))
               .replace("{RAPPORT}", json.dumps(rapport, ensure_ascii=False))
               .replace("{SOURCES}", _sources_block(art)))
+    if article_type == "breve":
+        # La « RÈGLE DE LONGUEUR ABSOLUE » du prompt de correction parle de
+        # sections faits/contexte/nuances et pousse à étoffer. Sur une brève,
+        # suivie à la lettre, elle rouvrirait les sections vides — exactement
+        # ce que le format supprime. pipeline.py les revide ensuite par
+        # sécurité, mais autant ne pas payer les tokens de leur rédaction.
+        prompt = (
+            "FORMAT : BRÈVE. Les champs \"contexte\" et \"nuances\" sont vides "
+            "INTENTIONNELLEMENT et doivent le RESTER — ne les remplis sous aucun "
+            "prétexte. La règle de longueur ci-dessous ne s'applique qu'au chapeau "
+            "et à \"faits\", qui doivent conserver au moins 85 % de leurs mots.\n\n"
+            + prompt
+        )
     corrige = _extract_json(_llm_call(prompt, max_tokens=4500))
     # Champs techniques jamais modifiables par le correcteur
     for k in ("slug", "categorie", "image_keyword"):
@@ -452,8 +496,9 @@ def verifier_article(art: dict, article_type: str = "actu") -> tuple[dict, str]:
     Applique les passes 2 (détection) et 3 (correction) sur un article généré.
     Retourne (article_final, statut).
     rejete_sensible / rejete_qualite → JAMAIS publié, rejet définitif, log seul.
-    article_type : "actu" | "dossier_portrait" | "dossier_science" — tracé dans le log
-    pour permettre l'analyse séparée ACTU vs DOSSIER après le run.
+    article_type : "actu" | "breve" | "dossier_portrait" | "dossier_science" —
+    tracé dans le log ET transmis aux deux passes : le fact-checker doit savoir
+    qu'une brève n'a ni contexte ni nuances, sinon il rejette le format lui-même.
     """
     slug = art.get("slug", "?")
     _type_detail = {"article_type": article_type}
@@ -463,7 +508,7 @@ def verifier_article(art: dict, article_type: str = "actu") -> tuple[dict, str]:
         return art, "non_verifie"
 
     try:
-        rapport = detecter(art)
+        rapport = detecter(art, article_type)
     except Exception as e:
         print(f"     [VERIF] Erreur API détection ({e}) — publié sans vérification")
         _log(slug, "erreur_verification", {"etape": "detection", "erreur": str(e), **_type_detail})
@@ -544,8 +589,8 @@ def verifier_article(art: dict, article_type: str = "actu") -> tuple[dict, str]:
         derniere_erreur = None
         for essai_api in (1, 2):
             try:
-                art_corrige = corriger(art_courant, rapport_courant)
-                rapport_final = detecter(art_corrige)
+                art_corrige = corriger(art_courant, rapport_courant, article_type)
+                rapport_final = detecter(art_corrige, article_type)
                 break
             except Exception as e:
                 derniere_erreur = e
