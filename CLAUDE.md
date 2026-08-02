@@ -62,6 +62,21 @@ cet ordre :
 2. **Combien de tokens coûte réellement une brève ?** Relever `[VERIF-TOKENS]`
    et le total Groq, diviser par le nombre de brèves menées au bout.
 
+**⚠ PLAFOND DE L'EXPÉRIENCE — à lire avant d'interpréter le résultat.** Le
+format brève ne peut pas corriger `angle_insuffisant`, qui juge le SUJET et non
+l'écriture : un sujet creux le reste à 130 mots comme à 500. Or `angle_insuffisant`
+représente **64 % des rejets qualité**. Le taux ABSOLU de publication est donc
+borné par un problème de sélection que le format ne touche pas — s'il bouge peu,
+ce n'est PAS un échec du format brève. La seule lecture concluante est la
+comparaison **brève contre actu à l'intérieur du même run** : même quota, mêmes
+détecteurs, mêmes motifs bloquants, seul le format change. C'est le seul test
+contrôlé disponible.
+
+Corollaire : ne pas comparer au taux d'un autre jour, et ne pas prendre un petit
+échantillon pour une référence. Le run du matin du 02/08 a donné 1
+`conforme_du_premier_coup` sur 6 — sur n=6, un seul article chanceux suffit à
+produire ce chiffre. Repère historique : 0,8 % (2 sur 251).
+
 Ne toucher à `QUOTA_ARTICLES_LONGS` qu'après ces deux mesures. Si les brèves
 échouent autant que les articles, le problème n'est pas le format et il faudra
 chercher ailleurs — piste suivante identifiée : **clusteriser les items RSS par
@@ -104,17 +119,38 @@ sujets publiables. Ne pas les retirer à nouveau sans mesurer le taux de rejet
 date du 31/07 (« L'île d'Oléron remporte son bras de fer avec Airbnb » — titre
 non neutre, à l'origine du garde-fou `_TITRE_NARRATIF_RE`).
 
-C'est une RÉGRESSION, et elle est très probablement de mon fait : deux motifs
-BLOQUANTS ont été ajoutés au fact-check le 31/07 (`niveau_preuve_insuffisant`,
-`accusation_presentee_comme_fait`) **sans que leur taux de déclenchement ait pu
-être mesuré au préalable** — ils portent sur des défauts que rien ne détectait
-avant, donc aucune mesure rétrospective n'était possible. C'est une entorse
-assumée à la règle du projet, et elle a coûté cher.
+**HYPOTHÈSE RÉFUTÉE LE 02/08 — ne pas la reprendre.** Cette section attribuait
+le zéro du 01/08 aux deux motifs bloquants ajoutés au fact-check le 31/07
+(`niveau_preuve_insuffisant`, `accusation_presentee_comme_fait`), avec la
+mention « très probablement de mon fait ». **Les données la contredisent.**
+Lecture des 9 `rejete_qualite` du 01-02/08 :
+
+```
+6  angle_insuffisant           ← sujet jugé creux, rejet définitif immédiat
+1  motifs bloquants (3 passes) ← le seul candidat pour les deux motifs du 31/07
+1  TECHNIQUE : quota Groq épuisé pendant la vérification
+1  TECHNIQUE : JSON tronqué pendant la correction
+```
+
+Les deux motifs du 31/07 ne peuvent donc expliquer **au mieux qu'un rejet sur
+neuf**. Sur l'ensemble du log, même profil : **67 des 105 `rejete_qualite` sont
+des `angle_insuffisant` (64 %)**. Le zéro du 01/08 s'explique par six sujets
+creux et deux pannes techniques — pas par un durcissement du fact-check.
+
+Deux leçons de méthode, au-delà du chiffre :
+
+- Une hypothèse écrite « très probablement de mon fait » en tête du fichier de
+  reprise est lue comme un fait par la session suivante. Marquer explicitement
+  ce qui est mesuré et ce qui est supposé.
+- **Les pannes techniques sont loguées sous le même statut que les décisions
+  éditoriales** (`rejete_qualite`). Deux des neuf entrées sont un quota épuisé
+  et un JSON tronqué. Tant que c'est le cas, tout comptage de « rejets qualité »
+  surestime la sévérité éditoriale du pipeline.
 
 ### Les 11 vérifications du 01/08
 
 ```
-6  rejete_qualite            ← à investiguer EN PRIORITÉ
+6  rejete_qualite            ← investigué le 02/08, voir ci-dessus
 3  corrige_automatiquement   ← ont passé le fact-check, et pourtant NON PUBLIÉS
 1  erreur_verification
 1  rejete_sensible
@@ -131,16 +167,42 @@ réellement créés dans `articles/`.
 
 ### Les deux premiers travaux à faire, dans cet ordre
 
-1. **Lire les 6 `rejete_qualite` du 01/08** dans `data/verification_log.json`
-   (la description du fact-checker y est journalisée depuis le 31/07). Si
-   `niveau_preuve_insuffisant` et `accusation_presentee_comme_fait` dominent,
-   les repasser en NON bloquants — correction au lieu de rejet — et ne garder
-   le blocage que sur les cas nets. Ces deux motifs visent de vrais défauts
-   (revue éditoriale externe du 31/07, articles NP137 et Perenco), le problème
-   est leur seuil, pas leur existence.
+1. ~~Lire les 6 `rejete_qualite` du 01/08~~ — **FAIT le 02/08**, voir la
+   réfutation ci-dessus. Les deux motifs du 31/07 ne dominent pas ; ne pas les
+   repasser en non bloquants sur la foi de l'ancienne hypothèse. Ils visent de
+   vrais défauts (revue éditoriale externe du 31/07, articles NP137 et Perenco)
+   et rien ne démontre aujourd'hui que leur seuil est trop large.
+   ⚠ Le commentaire du code affirmait que « la description du fact-checker est
+   journalisée depuis le 31/07 » : **c'était faux**, elle n'était que `print`ée
+   et `_log` ne recevait que des comptes. Corrigé le 02/08 — `bloquants_types`,
+   `bloquants_detail` et `types_restants` sont désormais réellement écrits dans
+   `verification_log.json`. Un commentaire décrivait une intention, pas le code.
 2. **Comprendre pourquoi 3 articles validés meurent au contrôle final.** C'est
    le goulot le plus coûteux du pipeline : ~35 k tokens dépensés par article,
    jusqu'au bout, pour zéro publication.
+3. **Le vrai goulot est la SÉLECTION, pas la rédaction.** Les deux extrémités
+   du tunnel disent la même chose : 423 des 507 sujets écartés au filtre
+   éditorial le sont sur un score sous le seuil (83 %), et 67 des 105 rejets
+   qualité sont des `angle_insuffisant` (64 %). Le barème note la FORME (source,
+   fraîcheur, longueur, densité de chiffres) plus un bonus d'enjeu public jamais
+   calibré ; le fact-checker, lui, juge le SUJET — et le recale deux fois sur
+   trois, après ~35 k tokens dépensés. Piste principale : **clusteriser les
+   items RSS par événement au lieu de les dédupliquer.** Quand 8 flux sur 36
+   couvrent le même fait, la taille du cluster est le seul signal d'importance
+   disponible (il remplace le chef d'édition qui n'existe pas ici), et le filtre
+   anti-doublon le traite aujourd'hui comme du bruit.
+4. **Mémoriser les rejets `angle_insuffisant`** — un sujet définitivement jugé
+   creux est retenté indéfiniment, aucune trace n'est gardée. Mesure du 02/08 :
+   67 rejets pour 48 sujets distincts, soit **19 générations complètes payées
+   pour re-condamner un sujet déjà rejeté** (~400-500 k tokens, un créneau
+   entier). Le record : l'INSERM magazine n°69 / nouvelles addictions, généré et
+   rejeté **16 fois sur 12 jours** (16/07 → 02/08), sous deux slugs différents.
+   ⚠ **Ne pas indexer sur `item["id"]`** : c'est un md5 de l'URL, donc une même
+   dépêche republiée avec une URL de tracking ou reprise par un autre flux donne
+   un id différent — bug déjà rencontré le 30/07 (« En Gironde, 80 hectares »
+   généré deux fois). Clé recommandée : `_titre_norme(title)`, ou le couple
+   id + titre normalisé. Les 3 « pommes de terre cultivées grâce à la mer » sur
+   trois jours ressemblent à de la reprise multi-flux, pas au même lien.
 
 ### Ce qui a marché, mesuré
 
