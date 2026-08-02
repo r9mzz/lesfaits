@@ -719,15 +719,31 @@ def verifier_article(art: dict, article_type: str = "actu") -> tuple[dict, str]:
     # (3 sur 14 tentatives), impossible à arbitrer depuis les logs — l'article
     # n'étant pas publié, son texte est perdu. On journalise donc la
     # description renvoyée par le fact-checker, seule trace exploitable.
+    # CORRECTIF 02/08 — l'intention ci-dessus n'était pas tenue : les types et
+    # les descriptions étaient IMPRIMÉS, jamais journalisés. `_log` ne recevait
+    # que des COMPTES (`bloquants_restants: 2`). Conséquence concrète : la
+    # question « niveau_preuve_insuffisant et accusation_presentee_comme_fait
+    # dominent-ils les rejets ? » est restée sans réponse possible depuis le
+    # 31/07 — la seule entrée du 01-02/08 concernée ne dit pas quels motifs ont
+    # bloqué, et la sortie GitHub qui les contenait n'est pas requêtable.
+    # Même famille d'erreur que « se fier à l'affichage plutôt qu'aux données ».
+    # Instrumentation seule : aucune décision du pipeline ne change.
+    _detail_bloquants = []
     for _p in bloquants_restants:
         _desc = str(_p.get("description") or _p.get("explication") or "")[:220]
         if _desc:
             print(f"       └ {_p.get('type')} : {_desc}")
+        _detail_bloquants.append({"bloc": _p.get("bloc"), "type": _p.get("type"),
+                                  "description": _desc,
+                                  "phrase": str(_p.get("phrase_exacte") or "")[:220]})
     _log(slug, "rejete_qualite", {
         "problemes_initiaux": n_pb,
         "tentatives": MAX_TENTATIVES,
         "problemes_restants": len(rapport_courant.get("problemes", [])),
         "bloquants_restants": len(bloquants_restants),
+        "bloquants_types": [p.get("type") for p in bloquants_restants],
+        "bloquants_detail": _detail_bloquants,
+        "types_restants": [p.get("type") for p in rapport_courant.get("problemes", [])],
         **_type_detail,
     })
     return art_courant, "rejete_qualite"
