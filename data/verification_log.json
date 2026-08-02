@@ -6922,5 +6922,83 @@
     "statut": "conforme_du_premier_coup",
     "date": "2026-08-02T06:01:53",
     "article_type": "actu"
+  },
+  {
+    "slug": "adn-ancien-populations-humaines",
+    "statut": "rejete_qualite",
+    "date": "2026-08-02T14:13:43",
+    "angle_insuffisant": true,
+    "raison": "L'article ne contient pas d'événement daté récent lié à une donnée chiffrée ou nommée propre à cet événement",
+    "article_type": "breve"
+  },
+  {
+    "slug": "experimentation-animale-debats-ethiques",
+    "statut": "rejete_qualite",
+    "date": "2026-08-02T14:15:12",
+    "angle_insuffisant": true,
+    "raison": "aucune actualité identifiable ne justifie une publication maintenant",
+    "article_type": "dossier_science"
+  },
+  {
+    "slug": "lunettes-intelligentes-lancement-2026",
+    "statut": "rejete_qualite",
+    "date": "2026-08-02T14:15:53",
+    "angle_insuffisant": true,
+    "raison": "L'article ne contient pas de phrase qui lie un événement daté récent à une donnée chiffrée ou nommée propre à cet événement",
+    "article_type": "breve"
+  },
+  {
+    "slug": "additifs-alimentaires-risque-sante",
+    "statut": "conforme_du_premier_coup",
+    "date": "2026-08-02T14:17:03",
+    "article_type": "breve"
+  },
+  {
+    "slug": "ordinateur-quantique-verifier-resultats-ibm",
+    "statut": "rejete_qualite",
+    "date": "2026-08-02T14:18:11",
+    "angle_insuffisant": true,
+    "raison": "aucune actualité identifiable ne justifie une publication maintenant, les sources fournies sont trop pauvres pour expliquer correctement le sujet",
+    "article_type": "breve"
+  },
+  {
+    "slug": "cnrs-etude-globes-virtuels",
+    "statut": "rejete_qualite",
+    "date": "2026-08-02T14:18:36",
+    "angle_insuffisant": true,
+    "raison": "aucune actualité identifiable ne justifie une publication maintenant, l'article ressemble à une fiche pédagogique générale sans fait déclencheur daté",
+    "article_type": "breve"
+  },
+  {
+    "slug": "inserm-magazine-n69-nouvelles-addictions",
+    "statut": "rejete_qualite",
+    "date": "2026-08-02T14:19:07",
+    "angle_insuffisant": true,
+    "raison": "aucune actualité identifiable ne justifie une publication maintenant, l'article ressemble à une fiche pédagogique générale sans fait déclencheur daté",
+    "article_type": "dossier_science"
+  },
+  {
+    "slug": "ebola-bundibugyo-rdc-ouganda",
+    "statut": "erreur_verification",
+    "date": "2026-08-02T14:20:30",
+    "etape": "detection",
+    "erreur": "Quota Groq journalier épuisé sur toutes les clés (vérification)",
+    "article_type": "breve"
+  },
+  {
+    "slug": "meteo-france-vigilance-orange-canicule",
+    "statut": "erreur_verification",
+    "date": "2026-08-02T14:36:29",
+    "etape": "detection",
+    "erreur": "Quota Groq journalier épuisé sur toutes les clés (vérification)",
+    "article_type": "breve"
+  },
+  {
+    "slug": "etats-unis-interdisent-robots-humanoides-etrangers",
+    "statut": "erreur_verification",
+    "date": "2026-08-02T14:49:01",
+    "etape": "detection",
+    "erreur": "Quota Groq journalier épuisé sur toutes les clés (vérification)",
+    "article_type": "breve"
   }
 ]
