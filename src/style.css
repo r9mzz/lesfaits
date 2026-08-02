@@ -1,3 +1,13 @@
+/* ── Filet de sécurité global ────────────────────────────────────────────────
+   Constat 02/08 : la page contact s'est affichée avec ses TROIS formulaires
+   empilés en vrac. Le masquage des onglets ne reposait que sur une règle
+   `display:none` d'un <style> inline — dès que la feuille de style ne
+   s'appliquait pas, tout le contenu masqué apparaissait d'un coup.
+   Règle du projet : ne JAMAIS masquer du contenu par la seule CSS. Utiliser
+   l'attribut HTML `hidden`, qui masque même sans aucune feuille de style, et
+   garder cette règle pour qu'aucune classe ne puisse le contredire. */
+[hidden] { display: none !important; }
+
 /* ═══════════════════════════════════════
    FACTUEL — Feuille de style globale v2
    Partagée par toutes les pages
