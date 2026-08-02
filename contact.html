@@ -127,9 +127,9 @@ document.addEventListener('DOMContentLoaded',function(){var btn=document.getElem
   </p>
 
   <div class="contact-tabs">
-    <button class="contact-tab active" onclick="switchTab('general', this)">Message général</button>
-    <button class="contact-tab" onclick="switchTab('erreur', this)">Signaler une erreur</button>
-    <button class="contact-tab" onclick="switchTab('sujet', this)">Proposer un sujet</button>
+    <button id="general" class="contact-tab active" onclick="switchTab('general', this)">Message général</button>
+    <button id="erreur" class="contact-tab" onclick="switchTab('erreur', this)">Signaler une erreur</button>
+    <button id="sujet" class="contact-tab" onclick="switchTab('sujet', this)">Proposer un sujet</button>
   </div>
 
   <!-- Onglet 1 : Message général -->
@@ -706,11 +706,26 @@ function switchTab(id, btn) {
   btn.setAttribute('aria-selected', 'true');
 }
 
-if (window.location.hash === '#erreur') {
-  document.querySelectorAll('.contact-tab')[1].click();
-} else if (window.location.hash === '#sujet') {
-  document.querySelectorAll('.contact-tab')[2].click();
+// Ouverture de l'onglet demandé par l'ancre (#erreur, #sujet).
+// BUG CORRIGÉ (02/08) : ce code ne tournait qu'au CHARGEMENT. Depuis la page
+// contact elle-même, cliquer sur « Signaler une erreur » (href
+// contact.html#erreur) ne recharge pas la page — le navigateur se contente de
+// changer le hash. Le JS ne se rejouait donc jamais et l'utilisateur restait
+// sur l'onglet courant, avec l'impression que le lien ne faisait rien.
+// On écoute désormais aussi `hashchange`.
+function ouvrirOngletDepuisHash() {
+  const onglets = document.querySelectorAll('.contact-tab');
+  const cible = {'#erreur': 1, '#sujet': 2, '#general': 0}[window.location.hash];
+  if (cible === undefined || !onglets[cible]) return;
+  onglets[cible].click();
+  // La page ne défile pas d'elle-même vers une ancre qui n'existe pas comme
+  // id : on ramène l'utilisateur sur les onglets pour qu'il voie le changement.
+  const tabs = document.querySelector('.contact-tabs');
+  if (tabs) tabs.scrollIntoView({behavior: 'smooth', block: 'start'});
 }
+
+ouvrirOngletDepuisHash();
+window.addEventListener('hashchange', ouvrirOngletDepuisHash);
 
 function showAlert(id, type, msg) {
   const el = document.getElementById('alert-' + id);
