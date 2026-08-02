@@ -5320,7 +5320,14 @@ def rebuild_index():
         all_cats = {"societe", "science", "economie", "tech", "sante", "environnement"}
         present = {a["categorie"] for a in chosen}
         missing = all_cats - present
-        for cat in missing:
+        # `sorted` OBLIGATOIRE : itérer directement sur la différence de sets
+        # donne un ordre qui varie d'un processus Python à l'autre (hachage des
+        # chaînes randomisé). Conséquence constatée le 02/08 : deux rebuilds
+        # consécutifs du MÊME code produisaient deux `index.html` différents —
+        # la une du site se réorganisait au hasard à chaque déploiement, et
+        # chaque run commitait un diff parasite sur index/feed/sitemap.
+        # Ne jamais itérer sur un set pour produire un rendu.
+        for cat in sorted(missing):
             # Trouver le plus récent article de ce thème hors sélection
             candidate = next((a for a in avail if a["categorie"] == cat and a not in chosen), None)
             if candidate is None:
