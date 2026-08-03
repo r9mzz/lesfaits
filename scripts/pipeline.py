@@ -4103,6 +4103,7 @@ _NAV_LINKS = (
     '<a href="/categories/tech.html">Tech</a>\n'
     '<a href="/categories/sante.html">Santé</a>\n'
     '<a href="/categories/environnement.html">Environnement</a>\n'
+    '<a href="/breves.html">Brèves</a>\n'
     '<a href="favoris.html">Favoris</a>\n'
     '<a href="/archive.html">Tous les articles</a>\n'
     '<a href="/methode.html">Comment on travaille</a>\n'
@@ -4169,6 +4170,9 @@ HEADER_NAV_DESKTOP = (
     '          <a class="cat-dd-item" href="/categories/environnement.html" role="menuitem"><span class="cat-dd-dot" style="background:#22c55e"></span>Environnement</a>\n'
     '        </div>\n'
     '      </div>\n'
+    '      <a class="nav-expand-item" href="/breves.html" aria-label="Brèves">'
+    + _ICO_LIST +
+    '<span class="nav-expand-label">Brèves</span></a>\n'
     '      <a class="nav-expand-item" href="/archive.html" aria-label="Tous les articles">'
     + _ICO_LIST +
     '<span class="nav-expand-label">Tous les articles</span></a>\n'
@@ -4797,6 +4801,7 @@ def _build_footer(year: int = None) -> str:
       <a href="/methode.html">Comment on travaille</a>
       <a href="/a-propos.html">À propos &amp; réseaux</a>
       <a href="/corrections.html">Corrections publiques</a>
+      <a href="/breves.html">Brèves</a>
       <a href="/archive.html">Tous les articles</a>
       <a href="feed.xml" class="footer__rss">Flux RSS</a>
       <a href="/#newsletter">Newsletter</a>
@@ -4952,9 +4957,36 @@ def build_article_html(art: dict, date_pub: str) -> str:
     ) if est_breve else ""
 
     # Articles liés — 1 par catégorie différente de l'article courant
+    # ── Bloc de bas d'article : EN BREF, à défaut À LIRE AUSSI (03/08) ──────
+    # Les brèves remplacent les articles liés : elles se lisent en trente
+    # secondes, ce qui en fait un bien meilleur « et sinon, quoi d'autre » en
+    # fin de lecture qu'un second article de 500 mots. C'est aussi ce qui leur
+    # donne une distribution — sans ça une brève n'existe que sur l'accueil,
+    # le temps d'être poussée hors de la une par la suivante.
+    # REPLI OBLIGATOIRE : tant que le corpus compte moins de 3 brèves (4 au
+    # 03/08), on retombe sur les articles liés. Un bloc à moitié vide serait
+    # pire que l'ancien.
     related_html = ""
     try:
-        all_arts = load_index()
+        _breves = _breves_recentes(exclure_slug=slug, n=3)
+        if len(_breves) >= 3:
+            _cards = "\n".join(
+                f'<a class="art__related-card art__related-card--breve" href="articles/{b["slug"]}.html">'
+                f'<span class="cat cat--{b["categorie"]}">{_cat_up(b["categorie"])}</span>'
+                f'<div class="title-sm">{_esc(b["titre"])}</div>'
+                f'<div style="font-size:10px;color:var(--muted);margin-top:6px">'
+                f'{_esc(b.get("date", "").split(",")[0])} · {b.get("nb_sources", 0)} sources</div>'
+                f'</a>'
+                for b in _breves
+            )
+            related_html = (
+                '<div class="art__related">'
+                '<div class="art__related-title">EN BREF'
+                '<a href="breves.html" class="art__related-more">Toutes les brèves →</a>'
+                '</div>'
+                f'<div class="art__related-grid">{_cards}</div></div>'
+            )
+        all_arts = [] if related_html else load_index()
         other = [a for a in all_arts if a.get("categorie") != cat and a["slug"] != slug]
         seen_cats: set = set()
         related: list = []
@@ -4964,7 +4996,7 @@ def build_article_html(art: dict, date_pub: str) -> str:
                 seen_cats.add(a["categorie"])
             if len(related) == 3:
                 break
-        if len(related) < 3:
+        if all_arts and len(related) < 3:
             same = [a for a in all_arts if a.get("categorie") == cat and a["slug"] != slug]
             related += same[:3 - len(related)]
         if related:
@@ -5179,16 +5211,81 @@ function copyLink(){{
 # RECONSTRUCTION INDEX.HTML
 # ══════════════════════════════════════════════════════════════════════════════
 
+def _remplacer_bloc_related(path: Path, new_block: str) -> bool:
+    """Remplace le bloc `<div class="art__related">…</div>` d'un article.
+
+    Le découpage se fait en comptant les div imbriqués, pas par regex : le bloc
+    en contient plusieurs et une expression non gourmande couperait au premier
+    `</div>`. Retourne True si le fichier a réellement changé.
+    """
+    html = path.read_text(encoding="utf-8")
+    start = html.find('<div class="art__related">')
+    if start < 0:
+        return False
+    depth, i, end = 0, start, -1
+    while i < len(html):
+        if html[i:i + 4] == '<div':
+            depth += 1; i += 4
+        elif html[i:i + 6] == '</div>':
+            depth -= 1
+            if depth == 0:
+                end = i + 6; break
+            i += 6
+        else:
+            i += 1
+    if end < 0:
+        return False
+    new_html = html[:start] + new_block + html[end:]
+    if new_html == html:
+        return False
+    path.write_text(new_html, encoding="utf-8")
+    return True
+
+
 def rebuild_articles_related(articles: list):
-    """Met à jour le bloc 'À lire aussi' de chaque article avec des thèmes croisés."""
-    arts_by_slug = {a["slug"]: a for a in articles}
+    """Met à jour le bloc de bas d'article : EN BREF, à défaut À LIRE AUSSI.
+
+    ATTENTION — cette fonction duplique la construction du bloc faite dans
+    `build_article_html`. Les deux DOIVENT rester alignées : la première sert
+    à la génération d'un article neuf, celle-ci repatche les ~160 articles
+    déjà publiés à chaque `--rebuild`. Un changement appliqué à une seule des
+    deux donne un site où les nouveaux articles et les anciens n'ont pas le
+    même pied de page (constat 03/08 : le bloc EN BREF n'apparaissait que sur
+    les articles générés après la modification).
+    """
     updated = 0
+    breves_globales = [a for a in articles if a.get("format") == "breve"]
     for art in articles:
         slug = art["slug"]
         cat  = art.get("categorie", "")
         path = ROOT / "articles" / f"{slug}.html"
         if not path.exists():
             continue
+
+        # Priorité aux brèves — même repli que dans build_article_html : sous
+        # 3 brèves disponibles hors article courant, on garde les articles liés.
+        _breves = [b for b in breves_globales if b["slug"] != slug][:3]
+        if len(_breves) >= 3:
+            _cards = "".join(
+                f'<a class="art__related-card art__related-card--breve" href="articles/{b["slug"]}.html">'
+                f'<span class="cat cat--{b["categorie"]}">{_cat_up(b["categorie"])}</span>'
+                f'<div class="title-sm">{_esc(b["titre"])}</div>'
+                f'<div style="font-size:10px;color:var(--muted);margin-top:6px">'
+                f'{_esc(b.get("date", "").split(",")[0])} · {b.get("nb_sources", 0)} sources</div>'
+                f'</a>'
+                for b in _breves
+            )
+            new_block = (
+                '<div class="art__related">'
+                '<div class="art__related-title">EN BREF'
+                '<a href="breves.html" class="art__related-more">Toutes les brèves →</a>'
+                '</div>'
+                f'<div class="art__related-grid">{_cards}</div></div>'
+            )
+            if _remplacer_bloc_related(path, new_block):
+                updated += 1
+            continue
+
         # Sélectionner 3 articles de catégories différentes
         other = [a for a in articles if a.get("categorie") != cat and a["slug"] != slug]
         seen_cats: set = set()
@@ -5219,30 +5316,9 @@ def rebuild_articles_related(articles: list):
             f'<div class="art__related-grid">{cards}</div>'
             f'</div>'
         )
-        html = path.read_text(encoding="utf-8")
-        # Remplacement robuste par comptage des divs imbriqués
-        marker = '<div class="art__related">'
-        start = html.find(marker)
-        if start < 0:
-            continue
-        depth, i, end = 0, start, -1
-        while i < len(html):
-            if html[i:i+4] == '<div':
-                depth += 1; i += 4
-            elif html[i:i+6] == '</div>':
-                depth -= 1
-                if depth == 0:
-                    end = i + 6; break
-                i += 6
-            else:
-                i += 1
-        if end < 0:
-            continue
-        new_html = html[:start] + new_block + html[end:]
-        if new_html != html:
-            path.write_text(new_html, encoding="utf-8")
+        if _remplacer_bloc_related(path, new_block):
             updated += 1
-    print(f"  ✓ {updated} articles mis à jour (À lire aussi cross-catégorie)")
+    print(f"  ✓ {updated} articles mis à jour (bloc de bas d'article)")
 
 
 def _fmt_badge(a: dict) -> str:
@@ -5403,11 +5479,41 @@ def rebuild_index():
     print(f"  ✓ index.html reconstruit ({len(articles)} articles)")
     build_category_pages()
     build_archive_page()
+    build_breves_page()
     build_favoris_page()
     build_search_json(articles)
     build_feed_xml(articles)
     build_sitemap(articles)
     rebuild_articles_related(articles)
+
+
+def _build_bloc_breves_accueil() -> str:
+    """Section « EN BREF » de l'accueil — le fil des 6 dernières brèves.
+
+    Remplace « À LIRE AUSSI » quand il y a de quoi la remplir. Format liste
+    plutôt que grille d'images : une brève n'a pas de valeur visuelle propre,
+    elle a une valeur de fil — on en lit six d'un coup d'œil.
+    Repli : sous 3 brèves, on rend une chaîne vide et l'appelant retombe sur
+    l'ancien bloc. Ne pas retirer ce repli tant que le corpus est jeune.
+    """
+    breves = _breves_recentes(n=6)
+    if len(breves) < 3:
+        return ""
+    lignes = "\n".join(f"""
+        <a class="breve-line" href="articles/{b['slug']}.html">
+          <span class="cat cat--{b['categorie']}">{_cat_up(b['categorie'])}</span>
+          <span class="breve-line__titre">{_esc(b['titre'])}</span>
+          <span class="breve-line__date">{_esc(b.get('date', '').split(',')[0])}</span>
+        </a>""" for b in breves)
+    return f"""
+  <div class="list-section" style="padding-top:40px">
+    <div class="section__head" style="margin-bottom:16px">
+      <span class="section__title">EN BREF</span>
+      <a href="breves.html" class="section__more">Toutes les brèves →</a>
+    </div>
+    <div class="section__rule"></div>
+    <div class="breve-list">{lignes}</div>
+  </div>"""
 
 
 def build_index_html(main, side_html, grid_html, list_html):
@@ -5494,7 +5600,7 @@ def build_index_html(main, side_html, grid_html, list_html):
     <div class="grid3">{grid_html}</div>
   </div>
 
-  {'<div class="list-section" style="padding-top:40px"><div class="section__head" style="margin-bottom:16px"><span class="section__title">À LIRE AUSSI</span></div><div class="section__rule"></div><div class="list-grid">' + list_html + '</div></div>' if list_html else ''}
+  {_build_bloc_breves_accueil() or ('<div class="list-section" style="padding-top:40px"><div class="section__head" style="margin-bottom:16px"><span class="section__title">À LIRE AUSSI</span></div><div class="section__rule"></div><div class="list-grid">' + list_html + '</div></div>' if list_html else '')}
 </div>
 
 {_build_newsletter_section()}
@@ -5545,6 +5651,7 @@ def build_sitemap(articles: list):
     static_urls = [
         (f"{BASE_URL}/", "1.0", "daily"),
         (f"{BASE_URL}/archive.html", "0.8", "daily"),
+        (f"{BASE_URL}/breves.html", "0.7", "daily"),
         (f"{BASE_URL}/methode.html", "0.6", "monthly"),
         (f"{BASE_URL}/a-propos.html", "0.5", "monthly"),
         # mentions-legales, cgu et confidentialite sont volontairement en
@@ -5907,6 +6014,126 @@ def build_archive_page():
     ROOT = Path(__file__).parent.parent
     (ROOT / "archive.html").write_text(html, encoding="utf-8")
     print(f"  ✓ archive.html mis à jour ({len(articles)} articles)")
+
+def _resume_texte(a: dict) -> str:
+    """Chapeau d'une entrée d'index en texte plat. `resume` est une liste de
+    phrases pour les articles et une liste d'UNE phrase pour les brèves, mais
+    d'anciennes entrées le stockent en chaîne — les deux formes coexistent
+    dans articles.json et il ne faut pas casser sur les anciennes."""
+    r = a.get("resume") or ""
+    return " ".join(str(p) for p in r) if isinstance(r, list) else str(r)
+
+
+def _breves_recentes(exclure_slug: str = "", n: int = 3) -> list[dict]:
+    """Les n brèves les plus récentes, hors `exclure_slug`.
+
+    Sert les blocs « EN BREF » de l'accueil et des pages article. Renvoie une
+    liste éventuellement plus courte que n — l'appelant DOIT prévoir le repli :
+    au 03/08 le corpus n'en compte que 4, et un bloc à moitié vide serait pire
+    que l'ancien bloc « À lire aussi ».
+    """
+    return [a for a in load_index()
+            if a.get("format") == "breve" and a.get("slug") != exclure_slug][:n]
+
+
+def build_breves_page():
+    """Génère breves.html — le fil des brèves, du plus récent au plus ancien.
+
+    Rubrique à part entière et non catégorie : le format est ORTHOGONAL aux six
+    catégories (une brève est aussi bien « santé » que « économie »). D'où une
+    page dédiée plutôt qu'une septième entrée dans `CAT_LABELS`, qui aurait
+    cassé le quota par catégorie de la sélection et la palette de couleurs.
+
+    Présentation en fil compact, sans image : une brève tient en 150 mots, la
+    donner à lire directement dans la liste vaut mieux qu'une vignette qui
+    oblige à cliquer pour découvrir qu'il n'y a que six phrases.
+    """
+    breves = [a for a in load_index() if a.get("format") == "breve"]
+
+    rows = "\n".join(f"""
+    <a class="breve-row" href="articles/{a['slug']}.html">
+      <div class="breve-row__meta">
+        <span class="cat cat--{a['categorie']}">{_cat_up(a['categorie'])}</span>
+        <span class="breve-row__date">{_esc(a.get('date', '').split(',')[0])}</span>
+      </div>
+      <div>
+        <h2 class="breve-row__titre">{_esc(a['titre'])}</h2>
+        <p class="breve-row__resume">{_esc(_resume_texte(a))}</p>
+        <span class="breve-row__src">{a.get('nb_sources', 0)} sources · {a.get('nb_mots', 0)} mots</span>
+      </div>
+    </a>""" for a in breves)
+
+    vide = """
+    <p style="color:var(--muted);font-size:15px;line-height:1.7">
+      Aucune brève publiée pour l'instant. Les brèves paraissent au fil des
+      créneaux de publication, deux fois par jour.
+    </p>"""
+
+    html = f"""<!DOCTYPE html>
+<html lang="fr" data-theme="">
+<head>
+  <meta charset="UTF-8"/>
+  {CSP_META}
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="Les brèves de Les Faits : le fait du jour, établi et sourcé, en 150 mots. Sans mise en perspective ni analyse."/>
+  <meta property="og:title" content="Brèves — Les Faits"/>
+  <meta property="og:description" content="Le fait du jour, établi et sourcé, en 150 mots."/>
+  <meta property="og:type" content="website"/>
+  <meta property="og:url" content="https://lesfaits.info/breves.html"/>
+  <meta property="og:image" content="https://lesfaits.info/assets/images/og-default.jpg"/>
+  <meta name="twitter:card" content="summary_large_image"/>
+  <meta name="twitter:image" content="https://lesfaits.info/assets/images/og-default.jpg"/>
+  <link rel="canonical" href="https://lesfaits.info/breves.html"/>
+  <title>Brèves — Les Faits</title>
+  <base href="/"/>
+  <link rel="stylesheet" href="/src/style.css?v=2"/>
+  {FAVICON_LINKS}
+  <script>(function(){{var s=localStorage.getItem('theme'),d=s==='dark'||(s===null&&window.matchMedia('(prefers-color-scheme:dark)').matches);document.documentElement.setAttribute('data-theme',d?'dark':'light');}})();</script>
+</head>
+<body>
+{BURGER_HTML}
+<header class="header">
+  <div class="header__inner">
+    <a href="index.html" class="brand">{BRAND_ICON}<div class="brand__logotype"><span class="fact">les</span><span class="uel">faits</span></div></a>
+    <div class="header__search">
+      <input type="search" class="header__search-input" aria-label="Rechercher un article" placeholder="Rechercher…" autocomplete="off" onkeydown="if(event.key==='Enter'&&this.value.trim())window.location=(document.querySelector('base').href)+'recherche.html?q='+encodeURIComponent(this.value.trim())"/>
+    </div>
+    {HEADER_NAV_DESKTOP}
+    <button class="dark-toggle" id="dark-toggle" aria-label="Mode sombre" title="Mode sombre">🌙</button>
+    <button class="burger" id="burger" aria-label="Menu" onclick="toggleMenu()"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<main class="wrap" style="max-width:760px;margin:48px auto;padding:0 20px 80px">
+  <nav aria-label="Fil d'Ariane" style="font-size:13px;color:var(--muted);margin-bottom:32px">
+    <a href="index.html" style="color:var(--muted)">Accueil</a>
+    <span style="margin:0 6px">›</span>
+    <span>Brèves</span>
+  </nav>
+  <h1 style="font-family:var(--font-serif,Georgia,serif);font-size:2rem;margin-bottom:8px">Brèves</h1>
+  <p style="color:var(--muted);font-size:14px;line-height:1.7;margin-bottom:40px;max-width:60ch">
+    Le fait du jour, établi et sourcé, en 150 mots — sans mise en perspective
+    ni analyse. Une brève suit exactement le même protocole de vérification
+    qu'un article : trois sources minimum, au moins une source primaire ou deux
+    sources secondaires indépendantes, et le même fact-check avant publication.
+    Elle est plus courte, jamais moins vérifiée.
+    <a href="methode.html" style="color:var(--blue)">Notre méthode</a>.
+  </p>
+  <p style="color:var(--muted);font-size:13px;margin-bottom:24px">{len(breves)} brève{'s' if len(breves) > 1 else ''} publiée{'s' if len(breves) > 1 else ''}</p>
+  {rows if breves else vide}
+</main>
+
+{_build_newsletter_section()}
+
+{_build_footer()}
+{_DARK_MODE_JS}
+{_ANALYTICS_JS}
+</body>
+</html>"""
+
+    (ROOT / "breves.html").write_text(html, encoding="utf-8")
+    print(f"  ✓ breves.html généré ({len(breves)} brèves)")
+
 
 def build_favoris_page():
     """Génère favoris.html — les favoris étant stockés en localStorage (par

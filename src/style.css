@@ -542,6 +542,55 @@ a:hover .title-xl, a:hover .title-md, a:hover .title-sm { color: var(--blue-ink)
 }
 .meta__format { margin-left: 2px; }
 
+/* ── RUBRIQUE BRÈVES (03/08) ──
+   Trois composants : la ligne de fil sur l'accueil (.breve-line), la carte de
+   bas d'article (.art__related-card--breve, sans image), et la rangée de la
+   page /breves.html (.breve-row). Aucun n'utilise d'image : une brève de 150
+   mots n'a pas de valeur visuelle propre, elle a une valeur de fil. */
+
+.section__more, .art__related-more {
+  float: right; font-size: 11px; font-weight: 600; letter-spacing: .02em;
+  color: var(--blue); text-decoration: none; text-transform: none;
+}
+.section__more:hover, .art__related-more:hover { text-decoration: underline; }
+
+/* Accueil — fil compact */
+.breve-list { display: flex; flex-direction: column; }
+.breve-line {
+  display: grid; grid-template-columns: auto 1fr auto; gap: 12px; align-items: baseline;
+  padding: 11px 0; border-bottom: 1px solid var(--rule); text-decoration: none;
+}
+.breve-line:last-child { border-bottom: none; }
+.breve-line:hover .breve-line__titre { color: var(--blue-ink); }
+.breve-line__titre { font-weight: 600; color: var(--ink); line-height: 1.45; font-size: .98rem; }
+.breve-line__date { font-size: 11px; color: var(--muted); white-space: nowrap; }
+
+/* Bas d'article — carte sans image */
+.art__related-card--breve { padding-top: 14px; }
+
+/* Page /breves.html — rangée avec chapeau */
+.breve-row {
+  display: grid; grid-template-columns: 150px 1fr; gap: 20px;
+  padding: 22px 0; border-bottom: 1px solid var(--rule); text-decoration: none;
+}
+.breve-row:last-child { border-bottom: none; }
+.breve-row__meta { display: flex; flex-direction: column; gap: 6px; align-items: flex-start; }
+.breve-row__date { font-size: 12px; color: var(--muted); }
+.breve-row__titre {
+  font-size: 1.06rem; font-weight: 600; color: var(--ink);
+  line-height: 1.4; margin: 0 0 6px;
+}
+.breve-row:hover .breve-row__titre { color: var(--blue-ink); }
+.breve-row__resume { margin: 0 0 8px; font-size: .9rem; color: var(--muted); line-height: 1.6; }
+.breve-row__src { font-size: 11px; color: var(--muted); }
+
+@media (max-width: 640px) {
+  .breve-row { grid-template-columns: 1fr; gap: 8px; }
+  .breve-row__meta { flex-direction: row; align-items: center; gap: 10px; }
+  .breve-line { grid-template-columns: 1fr auto; }
+  .breve-line .cat { grid-column: 1 / -1; }
+}
+
 /* ── SHARE BUTTONS ── */
 .art__share { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; margin: 32px 0; padding: 16px 0; border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); }
 .art__share-label { font-size: 9px; font-weight: 700; letter-spacing: 2px; color: var(--muted); text-transform: uppercase; margin-right: 4px; }

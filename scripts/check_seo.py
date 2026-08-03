@@ -21,7 +21,8 @@ REQUIRED = {
 }
 
 # Pages statiques à vérifier + le premier article trouvé (représentatif du template)
-PAGES = ["index.html", "methode.html", "contact.html", "corrections.html", "archive.html"]
+PAGES = ["index.html", "methode.html", "contact.html", "corrections.html", "archive.html",
+         "breves.html"]
 
 
 def check(path: Path) -> list[str]:
