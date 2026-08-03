@@ -1439,10 +1439,10 @@ Format obligatoire :
   "slug": "slug-kebab-case-descriptif-max-65-chars",
   "image_keyword": "3 mots EN ANGLAIS — paysage, bâtiment ou objet UNIQUEMENT, jamais de visages ni personnes (ex: 'wheat field france', 'hospital building', 'solar panels europe')",
   "resume": [
-    "UNE seule phrase de 25 à 40 mots : qui, quoi, quand, avec le chiffre-clé. Entrée DIRECTE dans le fait — jamais de phrase d'ambiance, jamais de mise en contexte. Vocabulaire et syntaxe DIFFÉRENTS de 'faits'."
+    "UNE SEULE phrase, 25 à 40 mots, JAMAIS deux. Elle porte L'ÉVÉNEMENT et rien d'autre : quoi, où, quand, le chiffre-clé. Entrée DIRECTE dans le fait — jamais de phrase d'ambiance, jamais de mise en contexte, jamais de justification ('dans le but de', 'afin de'). C'est l'attaque de la brève, pas son résumé : ce qui est écrit ici ne sera PAS réécrit dans 'faits'."
   ],
   "corps": {
-    "faits": "110 à 200 mots, 4 à 8 phrases, un seul bloc. UNIQUEMENT le fait du jour et ses données propres : chiffres précis, montants, dates, acteurs nommés, décisions, résultats. Chaque phrase apporte une donnée que le résumé n'a PAS déjà donnée. Attribuer avec 'Selon [Institution]' ou 'D'après [Institution]'. JAMAIS d'URL dans le texte.",
+    "faits": "110 à 200 mots, 4 à 8 phrases, un seul bloc. COMMENCE PAR CE QUE LE RÉSUMÉ N'A PAS DIT — jamais par une reformulation de la phrase du résumé, même avec d'autres mots. UNIQUEMENT le fait du jour et ses données propres : chiffres précis, montants, dates, acteurs nommés, décisions, résultats. ATTRIBUTION : une SEULE attribution groupée en tête de section, puis les faits s'enchaînent SANS réattribuer à chaque phrase (voir règle 6). JAMAIS d'URL dans le texte.",
     "contexte": "",
     "nuances": ""
   },
@@ -1458,9 +1458,15 @@ RÈGLES ABSOLUES — toute violation = brève rejetée :
 1. "contexte" et "nuances" DOIVENT être des chaînes VIDES (""). N'écris rien dedans, sous aucun prétexte. Si tu as de la matière historique ou des limites méthodologiques à exposer, c'est que le sujet méritait un article complet — ce n'est pas le format demandé ici, ignore cette matière.
 2. "positions" est TOUJOURS {"verifie": false, ...} avec "acteurs": []. Une brève ne met jamais en scène un débat.
 3. MINIMUM 3 sources distinctes et citables, toutes issues de SOURCES DISPONIBLES. Si tu ne peux pas atteindre 3 sources réelles : réponds uniquement HORS_PERIMETRE
-4. Chaque donnée chiffrée DOIT être attribuée à son institution : "Selon [Institution], ..." — JAMAIS d'URL dans le corps.
+4. Chaque donnée chiffrée doit PROVENIR d'une source listée et être COUVERTE par une attribution — celle de tête suffit (règle 6), il n'est pas demandé d'en remettre une à chaque phrase. Aucun chiffre qui ne figure pas dans les extraits fournis. JAMAIS d'URL dans le corps.
 5. RÈGLE D'ATTRIBUTION : n'écris "Selon [Institution]" que si le fait attribué figure LITTÉRALEMENT dans l'extrait CONTENU fourni pour cette institution. Ne jamais citer une institution absente de SOURCES DISPONIBLES, même si tu la connais.
-6. FUSION DES SOURCES OBLIGATOIRE : si plusieurs sources rapportent la même information, UNE seule phrase avec attribution groupée (« Selon l'INSEE et la Dares, [fait] »). INTERDIT d'écrire une phrase par source pour le même fait — c'est le défaut le plus fréquent sur ce format court.
+6. ATTRIBUTION GROUPÉE EN TÊTE — règle de forme la plus importante de ce format. Une brève cite 3 à 10 sources en 150 mots : si tu attribues phrase par phrase, le lecteur lit une liste de médias au lieu de lire les faits. Procède donc ainsi, dans cet ordre :
+   a) UNE attribution groupée ouvre la section et couvre le fait principal : « Selon Libération, RTBF et 20 Minutes, un incendie s'est déclaré dans un entrepôt classé Seveso, conduisant au confinement de 30 000 habitants. »
+   b) ENSUITE, les faits s'enchaînent SANS attribution : cette attribution de tête vaut pour tout ce qui suit. « Les communes concernées sont Gandrange, Amnéville et Rombas. L'entrepôt mesure 500 m². Le confinement a été levé en fin de matinée. »
+   c) Ne nomme une source SÉPARÉMENT que si elle apporte un fait que les autres ne donnent PAS — et une seule fois, au moment de ce fait.
+   INTERDIT ABSOLU : deux phrases consécutives commençant chacune par une attribution différente. Si tu en écris deux à la suite, c'est que le fait est le même : fusionne-les.
+   MAUVAIS : « Selon RTBF, les communes concernées incluent Gandrange. D'après Radiofrance, l'incendie a été maîtrisé. Selon BFM TV, la préfecture a appelé les habitants à se confiner. D'après RTL, l'incendie touche un entrepôt de la société Safe. »
+   BON : « Selon RTBF, Radiofrance et RTL, l'incendie a touché un entrepôt de la société Safe à Gandrange avant d'être maîtrisé. La préfecture avait appelé les habitants au confinement. »
 7. Aucune opinion, aucun parti pris, aucun adjectif évaluatif sans source (alarmant, historique, sans précédent, majeur, inquiétant...).
 8. PAS D'EXTRAPOLATION : aucune projection ni conséquence future ("pourrait entraîner", "risque de", "devrait permettre") sauf si une source listée la formule explicitement — auquel cas elle est attribuée à cette source.
 9. CADRAGES EMPRUNTÉS INTERDITS : ne jamais reprendre le jugement de valeur d'une source ("crise sans précédent", "tournant historique") comme s'il s'agissait d'un fait neutre. L'attribuer ou le supprimer.
@@ -1468,10 +1474,16 @@ RÈGLES ABSOLUES — toute violation = brève rejetée :
 11. RÉSULTATS INCERTAINS : une étude préliminaire, non répliquée ou issue d'un seul groupe doit être présentée comme telle. Pour un résultat médical, nommer le stade (phase 1/2/3, observationnelle) et l'indicateur EXACT (survie globale ≠ survie sans progression ≠ taux de réponse). "prouve" et "démontre" sont interdits hors citation attribuée.
 12. ACCUSATIONS : une accusation, une conclusion d'ONG ou un résultat d'audit reste attribué à qui le porte ("Human Rights Watch estime que…"), jamais reformulé en constat. Si la réponse de l'acteur mis en cause ne figure pas dans les sources, l'écrire : "La réaction de [acteur] n'était pas disponible dans les sources consultées."
 13. LÉGAL : jamais "coupable", "l'assassin", "le violeur" avant condamnation définitive — "mis en examen", "soupçonné de", "présumé". Ne jamais identifier un mineur dans une affaire pénale. Une affaire en cours se présente comme allégations de l'accusation.
-14. UNE IDÉE = UNE SEULE APPARITION. Le résumé et 'faits' ne doivent jamais contenir de phrases identiques ou quasi identiques. Relis avant de rendre : si une phrase n'apporte aucune information nouvelle par rapport à ce qui précède, supprime-la.
-15. Titre : 6-15 mots, informatif, factuel, sans vocabulaire putaclic et sans tournure en question.
-16. nb_sources EXACT : le nombre de sources DISTINCTES effectivement citées dans le texte final.
-17. Si les extraits disponibles ne fournissent pas assez de faits précis pour 110 mots sans inventer : réponds uniquement HORS_PERIMETRE. Mieux vaut aucune brève qu'une brève brodée."""
+14. RÔLES SÉPARÉS DU RÉSUMÉ ET DE L'ATTAQUE — second défaut structurel de ce format. Sur 150 mots, un résumé qui « résume » et une attaque qui « énonce » disent forcément la même chose : il n'y a pas la place de la dire deux fois autrement. Les deux ne se répartissent donc pas la même matière, ils se la PARTAGENT :
+    - le résumé porte L'ÉVÉNEMENT : quoi, où, quand, le chiffre-clé ;
+    - 'faits' commence par LA SUITE : le détail, les acteurs, les conséquences, les chiffres secondaires. Sa première phrase doit être impossible à deviner à la lecture du résumé.
+    TEST AVANT DE RENDRE : relis la phrase du résumé, puis la première phrase de 'faits'. Si la seconde redit la première — même reformulée, même avec un chiffre en plus —, SUPPRIME-la et commence 'faits' par la phrase suivante.
+    MAUVAIS : résumé « La baignade en zone non autorisée est désormais passible d'une amende de 68 euros. » puis faits « La baignade en zone non autorisée est désormais passible d'une amende de 68 euros, contre 38 euros auparavant. »
+    BON : résumé « La baignade en zone non autorisée est désormais passible d'une amende de 68 euros depuis le 2 août. » puis faits « Le montant était de 38 euros auparavant, et l'amende peut être dressée par procès-verbal électronique. »
+15. UNE IDÉE = UNE SEULE APPARITION. Le résumé et 'faits' ne doivent jamais contenir de phrases identiques ou quasi identiques. Relis avant de rendre : si une phrase n'apporte aucune information nouvelle par rapport à ce qui précède, supprime-la.
+16. Titre : 6-15 mots, informatif, factuel, sans vocabulaire putaclic et sans tournure en question.
+17. nb_sources EXACT : le nombre de sources DISTINCTES effectivement citées dans le texte final.
+18. Si les extraits disponibles ne fournissent pas assez de faits précis pour 110 mots sans inventer : réponds uniquement HORS_PERIMETRE. Mieux vaut aucune brève qu'une brève brodée."""
 
 # ──────────────────────────────────────────────────────────────────────────────
 # PROMPTS DOSSIER (portrait neutre ou exploration scientifique hypothétique)
