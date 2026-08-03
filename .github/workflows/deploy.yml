@@ -142,6 +142,7 @@ jobs:
           cp -r data/                 /tmp/site/
           cp    index.html            /tmp/site/
           cp    archive.html          /tmp/site/
+          cp    breves.html           /tmp/site/
           cp    feed.xml              /tmp/site/
           cp    sitemap.xml           /tmp/site/
           cp    robots.txt            /tmp/site/ 2>/dev/null || true
@@ -168,6 +169,23 @@ jobs:
           # retirée (aucun lien voulu avec lesfaits.info) — on purge le
           # dossier du site à chaque déploiement pour garantir sa disparition.
           rm -rf /tmp/site/devenir
+
+          # GARDE-FOU (03/08) — les copies ci-dessus forment une LISTE BLANCHE,
+          # un fichier à la fois. Une nouvelle page à la racine est donc
+          # générée par --rebuild, validée par check_seo, puis JAMAIS publiée,
+          # sans que rien n'échoue : le déploiement se termine en succès et la
+          # page répond 404 en ligne. C'est exactement ce qui est arrivé à
+          # breves.html le 03/08. On vérifie donc que toute page HTML présente
+          # à la racine de la source est bien arrivée sur le site.
+          manquantes=""
+          for f in *.html; do
+            [ -f "/tmp/site/$f" ] || manquantes="$manquantes $f"
+          done
+          if [ -n "$manquantes" ]; then
+            echo "::error::Page(s) générée(s) mais NON copiée(s) vers lesfaits-site :$manquantes"
+            echo "Ajouter un 'cp <fichier> /tmp/site/' dans .github/workflows/deploy.yml."
+            exit 1
+          fi
 
           cd /tmp/site
           git config user.name  "Factuel Bot"
