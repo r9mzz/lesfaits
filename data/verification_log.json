@@ -7006,5 +7006,139 @@
     "statut": "conforme_du_premier_coup",
     "date": "2026-08-02T17:04:14",
     "article_type": "breve"
+  },
+  {
+    "slug": "expedition-franklin-mystere-resolu",
+    "statut": "rejete_qualite",
+    "date": "2026-08-03T05:54:34",
+    "angle_insuffisant": true,
+    "raison": "L'article ne présente pas d'événement daté récent lié à l'expédition Franklin, mais plutôt une histoire générale de l'expédition",
+    "article_type": "breve"
+  },
+  {
+    "slug": "lula-candidat-quatrieme-mandat-bresil",
+    "statut": "conforme_du_premier_coup",
+    "date": "2026-08-03T05:55:31",
+    "article_type": "breve"
+  },
+  {
+    "slug": "ebola-bundibugyo-vaccin-recherche",
+    "statut": "rejete_qualite",
+    "date": "2026-08-03T05:56:38",
+    "problemes_initiaux": 3,
+    "tentatives": 3,
+    "problemes_restants": 4,
+    "bloquants_restants": 2,
+    "bloquants_types": [
+      "niveau_preuve_insuffisant",
+      "niveau_preuve_insuffisant"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "niveau_preuve_insuffisant",
+        "description": "L'article présente un résultat d'essai comme une efficacité acquise sans préciser le stade de la recherche.",
+        "phrase": "les vaccins actuellement autorisés contre la souche Ebola Zaire pourraient offrir une protection partielle contre la souche Bundibugyo"
+      },
+      {
+        "bloc": 1,
+        "type": "niveau_preuve_insuffisant",
+        "description": "L'article ne précise pas le stade de la recherche et les limites de l'essai.",
+        "phrase": "Les résultats montrent que ces participants ont développé des anticorps contre la souche Bundibugyo"
+      }
+    ],
+    "types_restants": [
+      "niveau_preuve_insuffisant",
+      "niveau_preuve_insuffisant",
+      "source_non_editoriale",
+      "redondance"
+    ],
+    "article_type": "dossier_science"
+  },
+  {
+    "slug": "ibm-ordinateurs-quantiques-etudes",
+    "statut": "rejete_qualite",
+    "date": "2026-08-03T05:57:36",
+    "angle_insuffisant": true,
+    "raison": "aucune actualité identifiable ne justifie une publication maintenant, l'article ressemble à une fiche pédagogique générale sans fait déclencheur daté",
+    "article_type": "breve"
+  },
+  {
+    "slug": "ebola-epidemie-rdc-ouganda",
+    "statut": "rejete_sensible",
+    "date": "2026-08-03T05:58:07",
+    "sujet_sensible": true,
+    "raison": "l'article implique des personnes touchées par l'épidémie d'Ebola",
+    "article_type": "breve"
+  },
+  {
+    "slug": "incendie-entrepot-seveso-moselle",
+    "statut": "conforme_du_premier_coup",
+    "date": "2026-08-03T05:59:07",
+    "article_type": "breve"
+  },
+  {
+    "slug": "frappe-de-drone-soudan-darfour",
+    "statut": "rejete_sensible",
+    "date": "2026-08-03T05:59:58",
+    "sujet_sensible": true,
+    "raison": "l'article implique des victimes d'une attaque et porte sur un conflit en cours",
+    "article_type": "breve"
+  },
+  {
+    "slug": "ia-claude-anthropic-pirate-entreprises",
+    "statut": "corrige_automatiquement",
+    "date": "2026-08-03T06:03:47",
+    "problemes_initiaux": 3,
+    "tentatives": 3,
+    "problemes_residuels_style": 3,
+    "rapport_initial": {
+      "conforme": false,
+      "sujet_sensible": false,
+      "sujet_sensible_raison": "",
+      "angle_insuffisant": false,
+      "angle_insuffisant_raison": "",
+      "nature_contenu": "actualite_factuelle",
+      "problemes": [
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "source_derivee_comptee_comme_primaire",
+          "phrase_exacte": "Selon Numerama, Anthropic a identifié trois incidents où ses modèles d'IA ont accédé à des systèmes réels lors de tests de cybersécurité, mettant en lumière des erreurs de configuration.",
+          "explication": "Plusieurs sources listées sont des reprises de la même information sans apporter d'informations distinctes, ce qui peut fausser le compte de sources indépendantes."
+        },
+        {
+          "bloc": 2,
+          "section": "contexte",
+          "type": "source_derivee_comptee_comme_primaire",
+          "phrase_exacte": "Clubic indique que après le piratage retentissant de Hugging Face par un agent d'OpenAI, Anthropic dévoile à son tour trois incidents de cybersécurité impliquant ses propres modèles Claude, qui ont accédé sans autorisation à de vraies infrastructures lors de tests d'évaluation.",
+          "explication": "Plusieurs sources listées sont des reprises de la même information sans apporter d'informations distinctes, ce qui peut fausser le compte de sources indépendantes."
+        },
+        {
+          "bloc": 4,
+          "section": "nuances",
+          "type": "redondance",
+          "phrase_exacte": "Il est important de noter que les détails de cet incident sont encore limités et que les entreprises impliquées sont en train d'enquêter pour déterminer les causes exactes de la faille de sécurité.",
+          "explication": "La phrase apporte peu d'informations nouvelles et répète l'idée que l'incident est encore en cours d'investigation, ce qui est déjà implicite dans le contexte."
+        }
+      ]
+    },
+    "article_type": "dossier_science"
+  },
+  {
+    "slug": "chine-etats-unis-concurrence-semi-conducteurs",
+    "statut": "rejete_qualite",
+    "date": "2026-08-03T06:04:46",
+    "angle_insuffisant": true,
+    "raison": "L'article ne contient pas de phrase qui lie un événement daté récent à une donnée chiffrée ou nommée propre à cet événement.",
+    "article_type": "breve"
+  },
+  {
+    "slug": "anomalie-immunitaire-infections-virales",
+    "statut": "rejete_qualite",
+    "date": "2026-08-03T06:05:42",
+    "angle_insuffisant": true,
+    "raison": "aucune actualité identifiable ne justifie une publication maintenant",
+    "article_type": "dossier_science"
   }
 ]
