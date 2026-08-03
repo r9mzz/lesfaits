@@ -7140,5 +7140,75 @@
     "angle_insuffisant": true,
     "raison": "aucune actualité identifiable ne justifie une publication maintenant",
     "article_type": "dossier_science"
+  },
+  {
+    "slug": "autisme-inflammation-cerebrale",
+    "statut": "rejete_qualite",
+    "date": "2026-08-03T15:50:53",
+    "angle_insuffisant": true,
+    "raison": "aucune actualité identifiable ne justifie une publication maintenant",
+    "article_type": "dossier_science"
+  },
+  {
+    "slug": "stress-lundi-persiste-etude-britannique",
+    "statut": "rejete_qualite",
+    "date": "2026-08-03T15:53:11",
+    "angle_insuffisant": true,
+    "raison": "L'article ne contient pas de phrase liant un événement daté récent à une donnée chiffrée ou nommée qui lui est propre.",
+    "article_type": "breve"
+  },
+  {
+    "slug": "carte-interactive-refuges-climatiques",
+    "statut": "conforme_du_premier_coup",
+    "date": "2026-08-03T15:53:53",
+    "article_type": "breve"
+  },
+  {
+    "slug": "ebola-bundibugyo-vaccin",
+    "statut": "rejete_qualite",
+    "date": "2026-08-03T15:55:10",
+    "etape": "correction",
+    "tentative": 3,
+    "erreur": "JSON tronqué ou incomplet dans la réponse (max_tokens atteint ?)",
+    "bloquants_connus": 2,
+    "article_type": "dossier_science"
+  },
+  {
+    "slug": "inserm-additifs-alimentaires-maladies-chroniques-2026",
+    "statut": "rejete_sensible",
+    "date": "2026-08-03T15:56:14",
+    "problemes_initiaux": 3,
+    "bloc5": [
+      "diffamation_potentielle"
+    ],
+    "article_type": "breve"
+  },
+  {
+    "slug": "rougeole-recrudescence-mondiale-antiviral",
+    "statut": "rejete_qualite",
+    "date": "2026-08-03T15:59:22",
+    "problemes_initiaux": 4,
+    "tentatives": 3,
+    "problemes_restants": 5,
+    "bloquants_restants": 1,
+    "bloquants_types": [
+      "niveau_preuve_insuffisant"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "niveau_preuve_insuffisant",
+        "description": "L'article ne précise pas le stade de la recherche ou les limites de l'étude, ce qui est nécessaire pour évaluer la qualité de la preuve.",
+        "phrase": "Selon l'OMS, la vaccination antirougeoleuse a permis d'éviter près de 59 millions de décès entre 2000 et 2024, selon une étude menée par l'organisation et publiée sur son site web."
+      }
+    ],
+    "types_restants": [
+      "niveau_preuve_insuffisant",
+      "fait_tranche_arbitrairement",
+      "source_derivee_comptee_comme_primaire",
+      "redondance",
+      "jugement_de_valeur"
+    ],
+    "article_type": "dossier_science"
   }
 ]
