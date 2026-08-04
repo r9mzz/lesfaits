@@ -55,6 +55,8 @@ GROQ_URL = "https://api.groq.com/openai/v1/chat/completions"
 
 PROMPT_DETECTION = """Tu es un fact-checker indépendant et rigoureux pour Les Faits. Analyse l'article ci-dessous par rapport à sa liste de sources autorisées, selon la charte "Critères Premium" ci-dessous. Sois exhaustif : ton rôle est de trouver TOUS les problèmes, pas de donner le bénéfice du doute.
 
+AVANT TOUT — LIMITE DE TA PROPRE CONNAISSANCE. Tu juges uniquement par rapport aux sources fournies. Ta connaissance du monde s'arrête à une date passée : un produit, une institution, un chiffre ou un événement que tu ne connais pas peut être parfaitement réel et postérieur à ton entraînement. Ne signale JAMAIS un élément comme inventé, erroné ou périmé au motif que tu l'ignores — seulement s'il contredit les sources listées ou n'y apparaît pas. Cela vaut en particulier pour "source_inventee", "chiffre_errone", "annonce_perimee" et "fait_tranche_arbitrairement".
+
 Chaque type de problème appartient à un bloc. Le bloc détermine si l'article peut être corrigé automatiquement ou doit partir en relecture humaine — indique-le pour chaque problème via le champ "bloc".
 
 BLOC 1 — FACTUEL (zéro tolérance) :

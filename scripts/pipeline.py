@@ -1397,7 +1397,13 @@ Le contexte doit expliquer le MÉCANISME (ce qu'est la cible biologique, pourquo
 27. ACCUSATIONS VISANT UNE ENTREPRISE, UNE INSTITUTION OU UNE PERSONNE (même revue, article Perenco/RDC). Une accusation reste une accusation dans tout l'article : elle doit être attribuée à qui la porte ("Human Rights Watch estime que…"), jamais reformulée en constat ("les activités exposent les populations à des risques graves"). Distinguer fait observé / accusation / conclusion d'une ONG / résultat d'un audit / décision administrative ou judiciaire.
 La RÉPONSE de l'acteur mis en cause doit être cherchée dans les sources et rapportée. Si elle est absente, l'écrire explicitement : "La réaction de [acteur] n'était pas disponible dans les sources consultées à la date de publication." Ne jamais faire figurer un acteur dans "positions" sans exposer sa position réelle — une entrée vide vaut mieux qu'une entrée trompeuse.
 La source PRIMAIRE d'une accusation est le document original (le rapport lui-même), pas les médias qui le commentent. Si plusieurs sources ne font que relayer le même document, elles ne constituent PAS des confirmations indépendantes : les fusionner en une attribution groupée.
-Vérifier le PAYS et l'entité concernés : une source portant sur un État homonyme, une autre juridiction ou une autre filiale est hors sujet et ne doit pas être citée (ex : le Congo-Brazzaville n'est pas la République démocratique du Congo)."""
+Vérifier le PAYS et l'entité concernés : une source portant sur un État homonyme, une autre juridiction ou une autre filiale est hors sujet et ne doit pas être citée (ex : le Congo-Brazzaville n'est pas la République démocratique du Congo).
+
+28. AGENTIVITÉ — NE PAS PRÊTER D'INTENTION À UN OBJET TECHNIQUE. Les actes de COMMUNICATION et de DÉCISION appartiennent aux organisations et aux personnes, jamais aux systèmes qu'elles opèrent : une entreprise annonce, révèle, publie, reconnaît, décide, suspend. Un modèle, un algorithme ou un logiciel ne « révèle » rien et ne « décide » rien.
+    MAUVAIS : « L'IA d'Anthropic a révélé que ses modèles avaient accédé à des systèmes. »
+    BON : « Anthropic a révélé que ses modèles avaient accédé à des systèmes. »
+    En revanche, une action TECHNIQUE effectivement décrite par les sources s'attribue bien au système : « le modèle a accédé aux systèmes », « l'algorithme a classé 12 000 dossiers » sont corrects. La distinction est entre ce qu'un système FAIT (technique, attribuable) et ce qu'une organisation DIT ou DÉCIDE (jamais attribuable au système).
+    Cette confusion n'est pas une facilité de style : elle transforme un incident opérationnel en récit d'intention, et elle est d'autant plus grave dans un article qui porte justement sur le comportement d'un système."""
 
 # ──────────────────────────────────────────────────────────────────────────────
 # PROMPT BRÈVE (02/08)
@@ -1483,7 +1489,8 @@ RÈGLES ABSOLUES — toute violation = brève rejetée :
 15. UNE IDÉE = UNE SEULE APPARITION. Le résumé et 'faits' ne doivent jamais contenir de phrases identiques ou quasi identiques. Relis avant de rendre : si une phrase n'apporte aucune information nouvelle par rapport à ce qui précède, supprime-la.
 16. Titre : 6-15 mots, informatif, factuel, sans vocabulaire putaclic et sans tournure en question.
 17. nb_sources EXACT : le nombre de sources DISTINCTES effectivement citées dans le texte final.
-18. Si les extraits disponibles ne fournissent pas assez de faits précis pour 110 mots sans inventer : réponds uniquement HORS_PERIMETRE. Mieux vaut aucune brève qu'une brève brodée."""
+18. AGENTIVITÉ — les actes de COMMUNICATION et de DÉCISION appartiennent aux organisations, jamais aux systèmes qu'elles opèrent. Une entreprise annonce, révèle, publie, reconnaît ; un modèle ou un algorithme ne « révèle » rien. Écrire « Anthropic a révélé que ses modèles avaient accédé à des systèmes », jamais « l'IA d'Anthropic a révélé ». Une action TECHNIQUE décrite par les sources reste attribuable au système (« le modèle a accédé aux systèmes ») : la distinction est entre ce qu'un système FAIT et ce qu'une organisation DIT.
+19. Si les extraits disponibles ne fournissent pas assez de faits précis pour 110 mots sans inventer : réponds uniquement HORS_PERIMETRE. Mieux vaut aucune brève qu'une brève brodée."""
 
 # ──────────────────────────────────────────────────────────────────────────────
 # PROMPTS DOSSIER (portrait neutre ou exploration scientifique hypothétique)
