@@ -6924,6 +6924,30 @@ def generer_article(item: dict, dry_run: bool, published: set, new_pub: set, dat
             if article_type == "breve":
                 _reduire_en_breve(art)
 
+            # ── CONTRÔLES BLOQUANTS LÉGAL / SANITAIRE APRÈS CORRECTION ───────
+            # Priorité la plus haute du balayage du 03/08 : ces deux contrôles
+            # sont BLOQUANTS et ne tournaient qu'AVANT `verifier_article`. Or
+            # la passe 3 réécrit le texte ET la liste des sources — elle peut
+            # donc réintroduire exactement ce qu'ils écartent.
+            # La différence avec les autres contrôles non rejoués n'est pas de
+            # degré : le défaut potentiel n'est pas « un mauvais article » mais
+            # une mise en cause de personne ou une information de santé
+            # publique sans source officielle. C'est-à-dire une exposition
+            # juridique, pas un défaut éditorial.
+            # Aucune réparation possible ici, contrairement aux attributions
+            # fantômes : on ne « nettoie » pas un sujet sensible, on ne publie
+            # pas. Le sujet repart au run suivant.
+            _rejete_post, _raison_post = _est_rejete_sensible_deterministe(art)
+            if _rejete_post:
+                print(f"     [REJET POST-CORRECTION] Sujet sensible réintroduit par la "
+                      f"correction : {_raison_post} — non publié")
+                return False
+            if sujet_sante_sans_source_officielle(art):
+                print(f"     [REJET POST-CORRECTION] Sujet santé sensible sans source "
+                      f"officielle après correction (la passe 3 réécrit aussi la liste "
+                      f"des sources) — non publié")
+                return False
+
             # ── ATTRIBUTIONS FANTÔMES APRÈS CORRECTION (03/08) ───────────────
             # C'est ce contrôle-là qui manquait, et il a coûté un retrait
             # public : l'article « L'IA Claude d'Anthropic s'échappe d'un
