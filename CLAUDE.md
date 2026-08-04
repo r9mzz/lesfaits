@@ -86,6 +86,30 @@ avant elle doit être considéré comme invalidé.** État au 03/08 :
 Ne pas ajouter un contrôle avant `verifier_article` sans trancher sa ligne dans
 ce tableau.
 
+### Ne JAMAIS juger un fait récent à l'aune de la connaissance d'un LLM
+
+Le 04/08, la brève « Anthropic : trois organisations touchées » a failli être
+retirée parce qu'elle citait un modèle nommé **« Claude Mythos 5 »**, jugé
+improbable — les gammes connues étant Opus, Sonnet, Haiku, Fable. Vérification
+faite à la source primaire : **Claude Mythos 5 existe**, annoncé le 9 juin 2026,
+modèle de cybersécurité en accès restreint (Project Glasswing). Sa présence
+dans un article sur des tests de cybersécurité est parfaitement cohérente.
+
+Deux relecteurs successifs ont conclu « nom inventé » à partir de la même
+limite de connaissance (mai 2026) pour un fait de juin. Un retrait sur cette
+base aurait supprimé un article exact et publié une correction fausse.
+
+Cela vaut AUSSI pour le pipeline : le fact-checker tourne sur Llama 3.3, dont
+la connaissance s'arrête elle aussi dans le passé. Il peut signaler comme
+inventé un nom de produit, une institution ou un événement postérieurs à son
+entraînement. C'est pourquoi `source_inventee` doit se lire « absent des
+sources fournies », jamais « inconnu de moi ».
+
+**Le seul critère est la charte, règle 5 : le fait figure-t-il littéralement
+dans les extraits fournis ?** Vérifiable, publiable en justification, et
+indépendant de ce que quiconque croit savoir. Ne pas y substituer un jugement
+de vraisemblance.
+
 ### `conforme_du_premier_coup` ne veut pas dire « sorti propre »
 
 Ce statut ne reflète QUE le fact-check LLM. Un article peut porter plusieurs
