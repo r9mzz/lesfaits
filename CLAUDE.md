@@ -197,6 +197,24 @@ Corollaire : ne pas comparer au taux d'un autre jour, et ne pas prendre un petit
 `conforme_du_premier_coup` sur 6 — sur n=6, un seul article chanceux suffit à
 produire ce chiffre. Repère historique : 0,8 % (2 sur 251).
 
+**⚠ COUPURE DU 04/08 — ce qui est mesuré change de nature, à écrire AVANT le
+run pour ne pas le découvrir en interprétant le résultat.**
+
+Les règles 6 (attribution groupée) et 14 (chapeau ≠ attaque) n'améliorent QUE
+les brèves. À partir du run du 04/08 au soir, la comparaison intra-run ne
+mesure donc plus « format brève contre format actu à consigne égale », mais
+**« brève + règles d'attribution et de chapeau » contre « actu inchangée »**.
+Si les brèves l'emportent, une part du gain vient des règles, pas du format.
+
+- **Thèse d'origine — « le format seul suffit » : testée les 02 et 03/08**, à
+  consigne égale. Résultat de cette fenêtre, le seul propre : 0 correction sur
+  16 brèves contre 2 sur 4 actus, et 7 rejets de brèves sur 7 dus à
+  `angle_insuffisant` (le sujet), jamais à la rédaction.
+- **À partir du 04/08 : on teste le format OUTILLÉ.** Suffisant pour la
+  décision produit — ce qui compte est de savoir quel format publier, règles
+  comprises — mais ne permet plus de conclure sur la thèse d'origine. Ne pas
+  attribuer au format un gain qui peut venir des règles.
+
 Ne toucher à `QUOTA_ARTICLES_LONGS` qu'après ces deux mesures. Si les brèves
 échouent autant que les articles, le problème n'est pas le format et il faudra
 chercher ailleurs — piste suivante identifiée : **clusteriser les items RSS par
