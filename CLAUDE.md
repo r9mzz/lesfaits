@@ -48,8 +48,23 @@ motif dans les rapports journalisés   :  35 sur 80 rapports (44 %)
 Très au-dessus du seuil de ~10 % du corpus au-delà duquel la règle du projet
 juge un motif trop large. Le bloquer rejetterait la majorité de la production.
 Le vrai levier est en amont — trouver des sources primaires, pas rejeter en
-aval celles qui n'en ont pas. Piste : `_DOMAINES_PRIMAIRES` et la requête de
-sources primaires, pas le fact-check.
+aval celles qui n'en ont pas.
+
+**Et ce levier fonctionne déjà.** La 3e requête DuckDuckGo
+(`site:gouv.fr OR inserm OR insee OR who.int`) n'était JAMAIS exécutée avant sa
+réparation du 30/07 : la boucle s'arrêtait au plafond de résultats avant de
+l'atteindre. Mesure en coupant le corpus à cette date :
+
+```
+publiés AVANT le 30/07  : n=133  sans primaire 70 %  moy. 0,47 primaire/article
+publiés DEPUIS le 30/07 : n= 15  sans primaire 53 %  moy. 1,20 primaire/article
+```
+
+La moyenne de sources primaires par article est **multipliée par 2,5**. Le 69 %
+global est donc un héritage des 133 articles antérieurs, pas l'état courant de
+la production. ⚠ n=15 : à reconfirmer sur un corpus plus large avant toute
+décision — mais l'hypothèse « la requête ne rend rien d'exploitable » est
+réfutée. Ne pas la ré-émettre sans refaire cette coupe par date.
 
 ### Balayage complet : contrôles avant `verifier_article`
 
@@ -64,8 +79,8 @@ avant elle doit être considéré comme invalidé.** État au 03/08 :
 | longueur (mots) + nombre de sources | oui (calcul inline, pas via `_deficit_longueur_sources`) | garder |
 | `bilan_qualite_sources` | oui | garder |
 | `_reduire_en_breve` | oui | garder — le correcteur rouvre les sections vides |
-| **`_est_rejete_sensible_deterministe`** | **NON** | **à rejouer — priorité la plus haute restante.** Contrôle BLOQUANT de nature légale : la correction peut réintroduire du vocabulaire de victime ou de procédure pénale. Même classe que le défaut n° 2, mêmes conséquences potentielles, en pire. |
-| **`sujet_sante_sans_source_officielle`** | **NON** | **à rejouer.** La passe 3 réécrit la liste des sources : un article santé peut perdre sa source officielle pendant la correction et être publié quand même. |
+| `_est_rejete_sensible_deterministe` | **oui** (03/08) | garder — contrôle BLOQUANT de nature légale : la correction peut réintroduire du vocabulaire de victime ou de procédure pénale. Aucune réparation possible, rejet sec. |
+| `sujet_sante_sans_source_officielle` | **oui** (03/08) | garder — la passe 3 réécrit la liste des sources : un article santé peut perdre la source officielle qui autorisait sa publication. Rejet sec. |
 | `attributions_trop_repetitives`, `titre_de_mauvaise_qualite`, `cliches_ia`, `intro_generique`, `nuances_vagues`, `affirmation_non_demontree`, `sources_non_fusionnees`, `incoherence_temporelle`, `prise_de_position` | NON | acceptable : ce sont des AVERTISSEMENTS, pas des blocages. Mais depuis le 03/08 ils sont journalisés — les rejouer après correction coûte zéro token et rendrait le journal exact. À faire quand le reste sera stable. |
 
 Ne pas ajouter un contrôle avant `verifier_article` sans trancher sa ligne dans
