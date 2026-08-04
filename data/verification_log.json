@@ -7326,5 +7326,88 @@
     "statut": "conforme_du_premier_coup",
     "date": "2026-08-04T05:50:26",
     "article_type": "breve"
+  },
+  {
+    "slug": "secheresse-france-amende-remplir-piscine",
+    "statut": "rejete_qualite",
+    "date": "2026-08-04T15:09:30",
+    "problemes_initiaux": 3,
+    "tentatives": 3,
+    "problemes_restants": 3,
+    "bloquants_restants": 1,
+    "bloquants_types": [
+      "incoherence_inter_sections"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "incoherence_inter_sections",
+        "description": "L'article ne fournit pas de source pour le nombre exact de départements concernés par les restrictions d'eau, mais deux sources (Ouest-France et 20 Minutes) sont mentionnées sans cohérence entre les deux.",
+        "phrase": "20 Minutes rapporte que 63 départements sont concernés par ces restrictions."
+      }
+    ],
+    "types_restants": [
+      "incoherence_inter_sections",
+      "compteur_incoherent",
+      "source_derivee_comptee_comme_primaire"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "resume_repete_corps"
+    ]
+  },
+  {
+    "slug": "guerre-en-ukraine-quatre-morts-en-crimee",
+    "statut": "rejete_sensible",
+    "date": "2026-08-04T15:11:46",
+    "sujet_sensible": true,
+    "raison": "l'article implique des morts et des affaires militaires en cours",
+    "article_type": "breve",
+    "avertissements_garde_fous": [
+      "sources_non_fusionnees"
+    ]
+  },
+  {
+    "slug": "royal-mint-recycle-telephones-usages-or",
+    "statut": "rejete_qualite",
+    "date": "2026-08-04T15:12:22",
+    "angle_insuffisant": true,
+    "raison": "aucune actualité identifiable ne justifie une publication maintenant, l'article ressemble à une fiche pédagogique générale sans fait déclencheur daté",
+    "article_type": "breve",
+    "avertissements_garde_fous": [
+      "resume_repete_corps",
+      "attributions_trop_repetitives"
+    ]
+  },
+  {
+    "slug": "fusee-spacex-secraser-lune",
+    "statut": "rejete_sensible",
+    "date": "2026-08-04T15:13:09",
+    "problemes_initiaux": 5,
+    "tentative": 3,
+    "bloc5": true,
+    "article_type": "breve",
+    "avertissements_garde_fous": [
+      "faits_repetitifs",
+      "attributions_trop_repetitives"
+    ]
+  },
+  {
+    "slug": "stress-lundi-retraite",
+    "statut": "rejete_qualite",
+    "date": "2026-08-04T15:15:01",
+    "angle_insuffisant": true,
+    "raison": "L'article ne fournit pas d'information spécifique sur un événement récent lié au stress du lundi à la retraite, mais plutôt une généralité sur le sujet.",
+    "article_type": "breve",
+    "avertissements_garde_fous": [
+      "resume_repete_corps",
+      "titre_de_mauvaise_qualite"
+    ]
+  },
+  {
+    "slug": "ebola-bundibugyo-vaccin-recherche",
+    "statut": "conforme_du_premier_coup",
+    "date": "2026-08-04T15:15:36",
+    "article_type": "breve"
   }
 ]
