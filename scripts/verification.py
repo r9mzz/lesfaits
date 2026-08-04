@@ -491,7 +491,8 @@ def enqueue_moderation(art: dict, rapport_initial: dict, rapport_final: dict):
 # ORCHESTRATION — la fonction appelée par pipeline.py
 # ══════════════════════════════════════════════════════════════════════════════
 
-def verifier_article(art: dict, article_type: str = "actu") -> tuple[dict, str]:
+def verifier_article(art: dict, article_type: str = "actu",
+                     avertissements: list | None = None) -> tuple[dict, str]:
     """
     Applique les passes 2 (détection) et 3 (correction) sur un article généré.
     Retourne (article_final, statut).
@@ -501,7 +502,13 @@ def verifier_article(art: dict, article_type: str = "actu") -> tuple[dict, str]:
     qu'une brève n'a ni contexte ni nuances, sinon il rejette le format lui-même.
     """
     slug = art.get("slug", "?")
+    # `avertissements` : garde-fous déterministes ayant signalé un défaut que
+    # la relance corrective n'a pas réglé et qui reste dans le texte. Sans
+    # eux, `conforme_du_premier_coup` ne dit que « le fact-check LLM n'a rien
+    # relevé » et surestime la propreté réelle des articles.
     _type_detail = {"article_type": article_type}
+    if avertissements:
+        _type_detail["avertissements_garde_fous"] = list(avertissements)
 
     if not GROQ_KEYS:
         # Pas de clé → comportement historique, tracé comme non vérifié

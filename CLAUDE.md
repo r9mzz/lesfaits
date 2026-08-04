@@ -1,5 +1,86 @@
 # Les Faits — lesfaits.info
 
+## RETRAIT PUBLIC DU 03/08 — et le balayage qu'il a déclenché
+
+**Article retiré :** « L'IA Claude d'Anthropic s'échappe d'un test et pirate
+trois entreprises » (03/08, 06h02). Retrait documenté sur `corrections.html`,
+stub de redirection vers `/categories/tech.html`, sorti de l'index.
+
+Son chapeau s'ouvrait sur **« Selon des sources autorisées »** — une
+attribution qui ne renvoie à aucune source réelle, sur un journal dont
+l'attribution est la règle fondatrice. Il présentait en outre une erreur de
+configuration comme une évasion délibérée d'un modèle, et ses 8 sources étaient
+8 reprises d'une même annonce, sans lien vers la publication d'origine.
+
+### Cinq causes, toutes des classes déjà connues
+
+1. **Routage décidé sur le TEASER RSS.** `classifier_type_article` a envoyé
+   l'article en `dossier_science` : le titre seul donne `actu`, c'est
+   `_SCIENCE_HYPO_RE` qui a matché dans `snippet[:500]`. Une actualité chaude a
+   reçu le prompt « exploration scientifique hypothétique ». **Quatrième**
+   occurrence de la classe « décision prise sur l'extrait RSS » (catégorie,
+   `_PR_MARQUE_RE`, flux Atom). Le fact-checker a pourtant renvoyé
+   `nature_contenu: "actualite_factuelle"` — l'information était dans le
+   rapport, rien ne s'en sert.
+2. **`attributions_fantomes` n'était pas rejoué après la passe 3.** Rejoué sur
+   le texte publié, il déclenche sur « des sources autorisées ». Il ne tournait
+   qu'avant `verifier_article` ; la correction a réintroduit ce que la relance
+   avait nettoyé. **CORRIGÉ le 03/08.**
+3. **`source_derivee_comptee_comme_primaire` signalé DEUX fois, non bloquant.**
+   Bilan réel : 0 primaire, 2 secondaires, 6 tertiaires.
+4. **`incoherence_inter_sections` n'a pas vu la contradiction** entre le chapeau
+   (« s'échappe », « contourner les mesures de sécurité ») et les nuances
+   (« aucun comportement autonome n'a été observé »). Motif bloquant, muet ici.
+5. **Le budget d'articles longs ne bornait pas les dossiers.** La bascule vers
+   la brève ne s'applique qu'à `actu` : run du soir 6 dossiers pour 1 actu,
+   `longs_restants` à −3. **Dossiers suspendus le 03/08**, voir plus bas.
+
+### Mesure : ne PAS rendre `source_derivee_comptee_comme_primaire` bloquant
+
+Mesuré sur les 166 articles publiés, avant tout changement :
+
+```
+0 source PRIMAIRE                    : 114 articles (69 %)
+  dont publiés sur « ≥2 secondaires » :  63
+motif dans les rapports journalisés   :  35 sur 80 rapports (44 %)
+```
+
+Très au-dessus du seuil de ~10 % du corpus au-delà duquel la règle du projet
+juge un motif trop large. Le bloquer rejetterait la majorité de la production.
+Le vrai levier est en amont — trouver des sources primaires, pas rejeter en
+aval celles qui n'en ont pas. Piste : `_DOMAINES_PRIMAIRES` et la requête de
+sources primaires, pas le fact-check.
+
+### Balayage complet : contrôles avant `verifier_article`
+
+La passe 3 réécrit le texte ET la liste des sources. **Tout contrôle placé
+avant elle doit être considéré comme invalidé.** État au 03/08 :
+
+| contrôle | rejoué après | décision |
+|---|---|---|
+| `attributions_fantomes` | **oui** (03/08) | garder — c'est la règle fondatrice, réparation par `strip_attributions_invalides` puis rejet si insuffisant |
+| `faits_repetitifs` | oui | garder, avec `_supprimer_phrases_dupliquees` |
+| `resume_repete_corps` | oui | garder |
+| longueur (mots) + nombre de sources | oui (calcul inline, pas via `_deficit_longueur_sources`) | garder |
+| `bilan_qualite_sources` | oui | garder |
+| `_reduire_en_breve` | oui | garder — le correcteur rouvre les sections vides |
+| **`_est_rejete_sensible_deterministe`** | **NON** | **à rejouer — priorité la plus haute restante.** Contrôle BLOQUANT de nature légale : la correction peut réintroduire du vocabulaire de victime ou de procédure pénale. Même classe que le défaut n° 2, mêmes conséquences potentielles, en pire. |
+| **`sujet_sante_sans_source_officielle`** | **NON** | **à rejouer.** La passe 3 réécrit la liste des sources : un article santé peut perdre sa source officielle pendant la correction et être publié quand même. |
+| `attributions_trop_repetitives`, `titre_de_mauvaise_qualite`, `cliches_ia`, `intro_generique`, `nuances_vagues`, `affirmation_non_demontree`, `sources_non_fusionnees`, `incoherence_temporelle`, `prise_de_position` | NON | acceptable : ce sont des AVERTISSEMENTS, pas des blocages. Mais depuis le 03/08 ils sont journalisés — les rejouer après correction coûte zéro token et rendrait le journal exact. À faire quand le reste sera stable. |
+
+Ne pas ajouter un contrôle avant `verifier_article` sans trancher sa ligne dans
+ce tableau.
+
+### `conforme_du_premier_coup` ne veut pas dire « sorti propre »
+
+Ce statut ne reflète QUE le fact-check LLM. Un article peut porter plusieurs
+avertissements de garde-fous déterministes restés sans effet et être compté
+conforme. Jusqu'au 03/08 ces avertissements n'existaient que dans la sortie
+GitHub : toute statistique de conformité par format était ininterprétable.
+Ils sont désormais journalisés dans `avertissements_garde_fous`. **Ne rien
+construire sur les taux de conformité mesurés avant cette date.**
+
+
 ## FORMAT BRÈVE — introduit le 02/08, À MESURER AU PROCHAIN RUN
 
 **Le diagnostic qui l'a motivé.** Sur les 251 vérifications loguées depuis le

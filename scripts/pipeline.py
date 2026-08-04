@@ -2550,6 +2550,38 @@ _LISTICLE_RE = re.compile(
 )
 
 
+# ──────────────────────────────────────────────────────────────────────────────
+# DOSSIERS SUSPENDUS — 03/08, à rouvrir sur mesure
+#
+# Mesure sur les runs des 02 et 03/08 : 13 dossiers menés à la vérification,
+# **0 conforme du premier coup**, 1 seul publié — et c'est celui qui a dû être
+# retiré (« L'IA Claude d'Anthropic s'échappe d'un test », chapeau ouvrant sur
+# une attribution inventée).
+#
+# Deux raisons de suspendre plutôt que de borner :
+#   1. Ils consomment les places de format long. Le garde-fou de budget ne
+#      dégrade que les `actu` : le run du soir a produit 6 dossiers pour 1 actu,
+#      `longs_restants` est descendu à −3. Résultat, QUATRE runs consécutifs
+#      sans actu vérifiée — la comparaison brève/actu, seul test contrôlé du
+#      format brève, n'a jamais pu avoir lieu. Les suspendre la débloque.
+#   2. Le routage vers `dossier_science` se décide sur le TEASER RSS
+#      (`_SCIENCE_HYPO_RE` sur `snippet[:500]`). Le titre seul de l'article
+#      Claude donne « actu » : c'est un mot du teaser qui a envoyé une
+#      actualité chaude vers le prompt « exploration scientifique
+#      hypothétique ». Quatrième occurrence de la classe « décision prise sur
+#      l'extrait RSS » (catégorie, _PR_MARQUE_RE, flux Atom).
+#
+# CONSÉQUENCE ASSUMÉE : les sujets scientifiques hypothétiques passent
+# désormais par le prompt ACTU, donc SANS le garde-fou `_ASSERTIF_SCIENCE_RE`
+# qui interdit les formulations assertives. À peser au moment de rouvrir. Les
+# filtres de REJET (listicle, Liste A, Liste B) restent actifs à l'identique :
+# seul le FORMAT dossier est suspendu, pas les protections.
+#
+# Pour rouvrir : repasser à False, et mesurer le taux de conforme_du_premier_coup
+# des dossiers sur au moins deux runs avant d'en tirer une conclusion.
+DOSSIERS_SUSPENDUS = True
+
+
 def classifier_type_article(title: str, snippet: str) -> str:
     """Classifie un article AVANT génération (déterministe, zéro LLM).
 
@@ -2558,6 +2590,9 @@ def classifier_type_article(title: str, snippet: str) -> str:
       "dossier_portrait" → portrait neutre d'une personne non-politique
       "dossier_science"  → exploration scientifique hypothétique
       "rejete"           → listicle, lifestyle, portrait polémique
+
+    Tant que `DOSSIERS_SUSPENDUS` vaut True, les deux types de dossier sont
+    rendus comme "actu" — les rejets, eux, restent des rejets.
     """
     texte = (title + " " + snippet).lower()
     texte_raw = title + " " + snippet  # pour les regexes sensibles à la casse
@@ -2578,14 +2613,14 @@ def classifier_type_article(title: str, snippet: str) -> str:
         # Vérifier Liste B : sujet clivant dans titre+snippet → rejet
         if _LISTE_B_RE.search(texte_raw):
             return "rejete"
-        return "dossier_portrait"
+        return "actu" if DOSSIERS_SUSPENDUS else "dossier_portrait"
 
     # Détection science hypothétique (titre + début snippet)
     if _SCIENCE_HYPO_RE.search(title) or _SCIENCE_HYPO_RE.search(snippet[:500]):
         # Liste B s'applique aussi ici
         if _LISTE_B_RE.search(texte_raw):
             return "rejete"
-        return "dossier_science"
+        return "actu" if DOSSIERS_SUSPENDUS else "dossier_science"
 
     return "actu"
 
@@ -6531,6 +6566,10 @@ def generer_article(item: dict, dry_run: bool, published: set, new_pub: set, dat
         # Compteur de relances Groq pour cet article — sert de circuit-breaker
         # (voir rejet précoce plus bas).
         nb_garde_retries = 0
+        # Garde-fous ayant signalé un défaut RESTÉ dans le texte publié. Passés
+        # au log de vérification pour que `conforme_du_premier_coup` soit
+        # interprétable (voir INSTRUMENTATION 03/08 plus bas).
+        avertissements: list[str] = []
 
         # ── Article long revenu trop court : convertir AVANT les garde-fous ──
         # C'était le scénario le plus coûteux du pipeline — ~9 000 tokens de
@@ -6666,26 +6705,32 @@ def generer_article(item: dict, dry_run: bool, published: set, new_pub: set, dat
                     return False
             # Défauts de style persistants après relance : avertissement uniquement,
             # l'article passe quand même (le quota Groq est la ressource rare).
-            if resume_repete_corps(art):
-                print(f"     [AVERTISSEMENT] Résumé toujours proche du corps après relance")
-            if faits_repetitifs(art):
-                print(f"     [AVERTISSEMENT] Répétitions intra-article persistantes après relance")
-            if attributions_trop_repetitives(art):
-                print(f"     [AVERTISSEMENT] Abus de « Selon X » persistant après relance")
-            if titre_de_mauvaise_qualite(art):
-                print(f"     [AVERTISSEMENT] Titre toujours non conforme après relance")
-            if cliches_ia(art):
-                print(f"     [AVERTISSEMENT] Tournures génériques IA persistantes après relance")
-            if nuances_vagues(art):
-                print(f"     [AVERTISSEMENT] Débats et nuances toujours génériques après relance")
-            if affirmation_non_demontree(art):
-                print(f"     [AVERTISSEMENT] Affirmation prospective toujours non conditionnelle après relance")
-            if sources_non_fusionnees(art):
-                print(f"     [AVERTISSEMENT] Sources toujours empilées une phrase par source après relance")
-            if incoherence_temporelle(art):
-                print(f"     [AVERTISSEMENT] Titre toujours au futur pour un événement déjà survenu après relance")
-            if prise_de_position(art):
-                print(f"     [AVERTISSEMENT] Prise de position persistante après relance")
+            #
+            # INSTRUMENTATION 03/08 — ces avertissements n'existaient que dans la
+            # sortie GitHub, jamais dans `verification_log.json`. Conséquence :
+            # `conforme_du_premier_coup` se lit « le fact-check LLM n'a rien
+            # relevé », PAS « l'article est sorti propre » — un article peut
+            # porter plusieurs avertissements de garde-fous restés sans effet et
+            # être compté conforme. Tant que ce champ n'était pas journalisé,
+            # toute statistique de conformité par format était ininterprétable.
+            # Diagnostic seul : aucun de ces avertissements ne bloque, le
+            # comportement du pipeline est strictement inchangé.
+            _CONTROLES_AVERTISSEMENT = [
+                ("resume_repete_corps", resume_repete_corps, "Résumé toujours proche du corps"),
+                ("faits_repetitifs", faits_repetitifs, "Répétitions intra-article persistantes"),
+                ("attributions_trop_repetitives", attributions_trop_repetitives, "Abus de « Selon X » persistant"),
+                ("titre_de_mauvaise_qualite", titre_de_mauvaise_qualite, "Titre toujours non conforme"),
+                ("cliches_ia", cliches_ia, "Tournures génériques IA persistantes"),
+                ("nuances_vagues", nuances_vagues, "Débats et nuances toujours génériques"),
+                ("affirmation_non_demontree", affirmation_non_demontree, "Affirmation prospective non conditionnelle"),
+                ("sources_non_fusionnees", sources_non_fusionnees, "Sources toujours empilées une phrase par source"),
+                ("incoherence_temporelle", incoherence_temporelle, "Titre au futur pour un événement déjà survenu"),
+                ("prise_de_position", prise_de_position, "Prise de position persistante"),
+            ]
+            for _nom, _fn, _libelle in _CONTROLES_AVERTISSEMENT:
+                if _fn(art):
+                    avertissements.append(_nom)
+                    print(f"     [AVERTISSEMENT] {_libelle} après relance")
 
         # ── Garde-fou Dossier Science : formulations assertives interdites ─────
         if article_type == "dossier_science":
@@ -6844,7 +6889,8 @@ def generer_article(item: dict, dry_run: bool, published: set, new_pub: set, dat
             return False
 
         # ── Passes 2/3 : fact-check + correction automatique ──
-        art, statut_verif = verifier_article(art, article_type=article_type)
+        art, statut_verif = verifier_article(art, article_type=article_type,
+                                            avertissements=avertissements)
         if statut_verif in ("rejete_sensible", "rejete_qualite"):
             # Messages déjà affichés dans verifier_article
             return False
@@ -6877,6 +6923,37 @@ def generer_article(item: dict, dry_run: bool, published: set, new_pub: set, dat
             # de plancher validerait des sections qui ne seront pas rendues.
             if article_type == "breve":
                 _reduire_en_breve(art)
+
+            # ── ATTRIBUTIONS FANTÔMES APRÈS CORRECTION (03/08) ───────────────
+            # C'est ce contrôle-là qui manquait, et il a coûté un retrait
+            # public : l'article « L'IA Claude d'Anthropic s'échappe d'un
+            # test » a été publié avec un chapeau ouvrant sur « Selon des
+            # sources autorisées » — une attribution qui ne renvoie à aucune
+            # source réelle, sur un journal dont l'attribution est la règle
+            # fondatrice. Le garde-fou déterministe la détecte parfaitement :
+            # rejoué sur le texte PUBLIÉ, il déclenche. Mais il ne tournait
+            # qu'AVANT `verifier_article`, et la passe 3 réécrit le texte —
+            # elle a réintroduit ce que la relance avait nettoyé.
+            # Application directe de la leçon déjà écrite pour le sourcing le
+            # 28/07 : tout contrôle placé avant `verifier_article` doit être
+            # considéré comme invalidé par la passe 3. Même remède, même
+            # stratégie « réparer, pas éradiquer » : on retire les attributions
+            # invalides sans relance Groq, et on ne rejette que si le retrait
+            # ne suffit pas.
+            _fantomes_post = attributions_fantomes(art)
+            if _fantomes_post:
+                _art_nettoye = strip_attributions_invalides(art)
+                if not attributions_fantomes(_art_nettoye):
+                    art = _art_nettoye
+                    print(f"     [RÉPARATION] {len(_fantomes_post)} attribution(s) fantôme(s) "
+                          f"réintroduite(s) par la correction, supprimée(s) : "
+                          f"{', '.join(_fantomes_post[:3])}")
+                else:
+                    print(f"     [REJET POST-CORRECTION] Attributions hors sources après "
+                          f"correction et impossibles à retirer proprement "
+                          f"({', '.join(_fantomes_post[:3])}) — non publié")
+                    return False
+
             if faits_repetitifs(art) or resume_repete_corps(art):
                 _n_supp = _supprimer_phrases_dupliquees(art)
                 if _n_supp:
