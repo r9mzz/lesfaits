@@ -7210,5 +7210,121 @@
       "jugement_de_valeur"
     ],
     "article_type": "dossier_science"
+  },
+  {
+    "slug": "sciences-po-paris-enquete-sur-les-methodes-de-surveillance",
+    "statut": "rejete_sensible",
+    "date": "2026-08-04T05:34:24",
+    "sujet_sensible": true,
+    "raison": "l'article implique des étudiants dans une affaire de surveillance, ce qui peut être considéré comme une affaire pénale ou une mise en cause de personnes",
+    "article_type": "actu"
+  },
+  {
+    "slug": "revenus-airbnb-la-rochelle",
+    "statut": "rejete_qualite",
+    "date": "2026-08-04T05:35:07",
+    "angle_insuffisant": true,
+    "raison": "L'article ne contient pas de phrase qui lie un événement daté récent à une donnée chiffrée ou nommée propre à cet événement.",
+    "article_type": "breve"
+  },
+  {
+    "slug": "stress-lundi-vacances",
+    "statut": "rejete_qualite",
+    "date": "2026-08-04T05:39:45",
+    "angle_insuffisant": true,
+    "raison": "aucune actualité identifiable ne justifie une publication maintenant, l'article ressemble à une fiche pédagogique générale sans fait déclencheur daté",
+    "article_type": "breve"
+  },
+  {
+    "slug": "autisme-inflammation-cerebrale",
+    "statut": "rejete_qualite",
+    "date": "2026-08-04T05:42:33",
+    "angle_insuffisant": true,
+    "raison": "L'article ne présente pas d'événement précis daté ou datable lié à l'autisme et à l'inflammation cérébrale",
+    "article_type": "dossier_science"
+  },
+  {
+    "slug": "trou-noir-supermassif-voie-lactee",
+    "statut": "rejete_sensible",
+    "date": "2026-08-04T05:43:38",
+    "problemes_initiaux": 3,
+    "tentative": 1,
+    "bloc5": true,
+    "article_type": "breve"
+  },
+  {
+    "slug": "rougeole-antiviral-etude",
+    "statut": "corrige_automatiquement",
+    "date": "2026-08-04T05:45:08",
+    "problemes_initiaux": 4,
+    "tentatives": 1,
+    "problemes_residuels_style": 4,
+    "rapport_initial": {
+      "conforme": false,
+      "sujet_sensible": false,
+      "sujet_sensible_raison": "",
+      "angle_insuffisant": false,
+      "angle_insuffisant_raison": "",
+      "nature_contenu": "actualite_factuelle",
+      "problemes": [
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "fait_tranche_arbitrairement",
+          "phrase_exacte": "La vaccination antirougeoleuse a permis d’éviter près de 59 millions de décès entre 2000 et 2024, indique le WHO.",
+          "explication": "Le chiffre de 59 millions de décès évités n'est pas explicitement sourcé dans les sources fournies, il est possible que cela soit une extrapolation non justifiée."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "niveau_preuve_insuffisant",
+          "phrase_exacte": "Un antiviral est actuellement à l'étude pour aider à protéger les personnes infectées et réduire leur contagiosité.",
+          "explication": "L'article ne fournit pas d'informations sur le stade de la recherche, les résultats préliminaires ou les limites de l'étude sur l'antiviral, ce qui est insuffisant pour évaluer la preuve."
+        },
+        {
+          "bloc": 2,
+          "section": "sources",
+          "type": "source_derivee_comptee_comme_primaire",
+          "phrase_exacte": "",
+          "explication": "La source 'Rougeole' semble être une source secondaire ou tertiaire, car elle ne fournit pas d'informations originales ou de recherches primaires, mais plutôt des informations générales sur la rougeole."
+        },
+        {
+          "bloc": 4,
+          "section": "contexte",
+          "type": "redondance",
+          "phrase_exacte": "La rougeole est une maladie virale très contagieuse qui se transmet par voie aérienne et qui peut entraîner des complications sévères voire la mort, indique le WHO.",
+          "explication": "Cette phrase répète des informations déjà fournies dans la section 'faits', ce qui est redondant et ne contribue pas à l'article."
+        }
+      ]
+    },
+    "article_type": "dossier_science"
+  },
+  {
+    "slug": "eric-coquerel-budget-rectificatif-incendies",
+    "statut": "conforme_du_premier_coup",
+    "date": "2026-08-04T05:46:20",
+    "article_type": "breve"
+  },
+  {
+    "slug": "experimentation-animale-laboratoire-reduction",
+    "statut": "rejete_qualite",
+    "date": "2026-08-04T05:47:44",
+    "angle_insuffisant": true,
+    "raison": "aucune actualité identifiable ne justifie une publication maintenant",
+    "article_type": "dossier_science"
+  },
+  {
+    "slug": "eclipse-solaire-12-aout-2026",
+    "statut": "rejete_qualite",
+    "date": "2026-08-04T05:48:57",
+    "angle_insuffisant": true,
+    "raison": "L'article ne fournit pas d'information spécifique sur l'éclipse solaire du 12 août 2026, mais plutôt des informations générales sur les éclipses solaires et des données démographiques sans lien direct avec l'événement.",
+    "article_type": "breve"
+  },
+  {
+    "slug": "ia-anthropic-acces-non-autorise",
+    "statut": "conforme_du_premier_coup",
+    "date": "2026-08-04T05:50:26",
+    "article_type": "breve"
   }
 ]

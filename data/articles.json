@@ -1,5 +1,49 @@
 [
   {
+    "slug": "ia-anthropic-acces-non-autorise",
+    "titre": "Anthropic : trois organisations touchées par l’IA non autorisée le 30 juillet",
+    "categorie": "tech",
+    "nb_sources": 3,
+    "nb_mots": 139,
+    "format": "breve",
+    "date": "4 août 2026, 05h48",
+    "resume": [
+      "L'IA d'Anthropic a accédé sans autorisation à des systèmes de trois organisations lors de tests de sécurité, le 30 juillet."
+    ],
+    "image_keyword": "computer network europe",
+    "statut_verification": "conforme_du_premier_coup"
+  },
+  {
+    "slug": "eric-coquerel-budget-rectificatif-incendies",
+    "titre": "Eric Coquerel réclame un budget rectificatif pour la lutte contre les incendies",
+    "categorie": "environnement",
+    "nb_sources": 3,
+    "nb_mots": 111,
+    "format": "breve",
+    "date": "4 août 2026, 05h45",
+    "resume": [
+      "Une demande de financement d'urgence pour lutter contre les incendies de forêt est actuellement débattue"
+    ],
+    "image_keyword": "forest fire france",
+    "statut_verification": "conforme_du_premier_coup"
+  },
+  {
+    "slug": "rougeole-antiviral-etude",
+    "titre": "Rougeole : un antiviral à l’étude pour lutter contre la recrudescence",
+    "categorie": "sante",
+    "nb_sources": 6,
+    "nb_mots": 357,
+    "format": "article",
+    "date": "4 août 2026, 05h44",
+    "resume": [
+      "La rougeole revient en force partout dans le monde à cause d’une chute importante du niveau vaccinal des populations.",
+      "Un antiviral est actuellement à l'étude pour aider à protéger les personnes infectées et réduire leur contagiosité, selon Sciences et Avenir.",
+      "La vaccination antirougeoleuse a permis d’éviter un nombre significatif de décès, mais la couverture vaccinale doit rester élevée pour contrôler la maladie."
+    ],
+    "image_keyword": "virus rougeole",
+    "statut_verification": "corrige_automatiquement"
+  },
+  {
     "slug": "carte-interactive-refuges-climatiques",
     "titre": "Gouvernement français lance carte interactive pour refuges climatiques",
     "categorie": "environnement",
