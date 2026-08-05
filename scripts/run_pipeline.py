@@ -106,8 +106,10 @@ def _run_legacy_pipeline() -> None:
         try:
             runpy.run_path(str(PIPELINE), run_name="__main__")
         except SystemExit as exc:
-            code = exc.code if isinstance(exc.code, int) else 0
-            if code:
+            # argparse peut utiliser un entier, None ou un message texte. Tout
+            # arrêt non nul/non vide doit rester bloquant : ne jamais avaler
+            # silencieusement une erreur du pipeline historique.
+            if exc.code not in (None, 0):
                 raise
     finally:
         sys.argv[0] = old_argv0
