@@ -11,6 +11,7 @@ on:
       - "scripts/test_retirements.py"
       - "scripts/test_editorial_quality.py"
       - "scripts/test_editorial_depth.py"
+      - "scripts/test_run_pipeline.py"
       - ".github/workflows/pipeline.yml"
       - ".github/workflows/editorial-quality.yml"
   workflow_dispatch:
@@ -45,12 +46,14 @@ jobs:
           scripts/test_retirements.py
           scripts/test_editorial_quality.py
           scripts/test_editorial_depth.py
+          scripts/test_run_pipeline.py
 
       - name: Tests de non-régression éditoriale
         run: |
           python scripts/test_retirements.py
           python scripts/test_editorial_quality.py
           python scripts/test_editorial_depth.py
+          python scripts/test_run_pipeline.py
 
       - name: Vérifier la lecture du corpus HTML
         run: |
