@@ -102,9 +102,9 @@ class EditorialDepthTests(unittest.TestCase):
 
     def test_probable_same_dispatch_is_reported(self):
         sources = [
-            Source("Média A", "Le gouvernement annonce une nouvelle règle pour les trains", "https://a.test/x"),
-            Source("Média B", "Le gouvernement annonce une nouvelle règle pour les trains régionaux", "https://b.test/x"),
-            Source("Média C", "Nouvelle règle pour les trains annoncée par le gouvernement", "https://c.test/x"),
+            Source("Média A", "Le gouvernement annonce une nouvelle règle pour les trains régionaux", "https://a.test/x"),
+            Source("Média B", "Le gouvernement annonce une nouvelle règle pour les trains régionaux en septembre", "https://b.test/x"),
+            Source("Média C", "Le gouvernement annonce une nouvelle règle pour les trains régionaux dès septembre", "https://c.test/x"),
         ]
         article = make_article(
             facts="Fait précis. " * 80, context="Contexte distinct. " * 40,
@@ -114,9 +114,9 @@ class EditorialDepthTests(unittest.TestCase):
 
     def test_primary_source_prevents_dispatch_warning(self):
         sources = [
-            Source("Ministère", "Le gouvernement annonce une nouvelle règle pour les trains", "https://transport.gouv.fr/regle"),
-            Source("Média B", "Le gouvernement annonce une nouvelle règle pour les trains régionaux", "https://b.test/x"),
-            Source("Média C", "Nouvelle règle pour les trains annoncée par le gouvernement", "https://c.test/x"),
+            Source("Ministère", "Le gouvernement annonce une nouvelle règle pour les trains régionaux", "https://transport.gouv.fr/regle"),
+            Source("Média B", "Le gouvernement annonce une nouvelle règle pour les trains régionaux en septembre", "https://b.test/x"),
+            Source("Média C", "Le gouvernement annonce une nouvelle règle pour les trains régionaux dès septembre", "https://c.test/x"),
         ]
         article = make_article(
             facts="Fait précis. " * 80, context="Contexte distinct. " * 40,
