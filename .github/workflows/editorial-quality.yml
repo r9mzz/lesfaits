@@ -4,8 +4,10 @@ on:
   pull_request:
     paths:
       - "scripts/editorial_quality.py"
+      - "scripts/editorial_depth.py"
       - "scripts/run_pipeline.py"
       - "scripts/test_editorial_quality.py"
+      - "scripts/test_editorial_depth.py"
       - ".github/workflows/pipeline.yml"
       - ".github/workflows/editorial-quality.yml"
   workflow_dispatch:
@@ -31,10 +33,18 @@ jobs:
         run: pip install -r requirements.txt
 
       - name: Vérifier la syntaxe
-        run: python -m py_compile scripts/editorial_quality.py scripts/run_pipeline.py scripts/test_editorial_quality.py
+        run: >-
+          python -m py_compile
+          scripts/editorial_quality.py
+          scripts/editorial_depth.py
+          scripts/run_pipeline.py
+          scripts/test_editorial_quality.py
+          scripts/test_editorial_depth.py
 
       - name: Tests de non-régression éditoriale
-        run: python scripts/test_editorial_quality.py
+        run: |
+          python scripts/test_editorial_quality.py
+          python scripts/test_editorial_depth.py
 
       - name: Vérifier la lecture du corpus HTML
         run: |
