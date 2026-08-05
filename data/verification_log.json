@@ -7409,5 +7409,128 @@
     "statut": "conforme_du_premier_coup",
     "date": "2026-08-04T15:15:36",
     "article_type": "breve"
+  },
+  {
+    "slug": "exportations-uranium-rdc-chine",
+    "statut": "rejete_sensible",
+    "date": "2026-08-05T05:33:07",
+    "problemes_initiaux": 3,
+    "tentative": 1,
+    "bloc5": true,
+    "article_type": "breve",
+    "avertissements_garde_fous": [
+      "faits_repetitifs"
+    ]
+  },
+  {
+    "slug": "graffitis-neonazis-la-fleche",
+    "statut": "rejete_sensible",
+    "date": "2026-08-05T05:36:47",
+    "sujet_sensible": true,
+    "raison": "L'article implique une affaire pénale en cours visant des actes odieux et une enquête ouverte, ce qui justifie une relecture humaine.",
+    "article_type": "breve",
+    "avertissements_garde_fous": [
+      "resume_repete_corps",
+      "titre_de_mauvaise_qualite"
+    ]
+  },
+  {
+    "slug": "secheresse-record-angleterre-pays-galles",
+    "statut": "conforme_du_premier_coup",
+    "date": "2026-08-05T05:37:30",
+    "article_type": "breve"
+  },
+  {
+    "slug": "cannibalisme-prehistorique-mancos-canyon",
+    "statut": "rejete_qualite",
+    "date": "2026-08-05T05:38:32",
+    "problemes_initiaux": 3,
+    "tentatives": 3,
+    "problemes_restants": 3,
+    "bloquants_restants": 1,
+    "bloquants_types": [
+      "niveau_preuve_insuffisant"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "niveau_preuve_insuffisant",
+        "description": "L'article ne précise pas le stade de la recherche ou les limites réelles de l'étude, ce qui est nécessaire pour une compréhension claire des résultats.",
+        "phrase": "Les résultats de cette étude, basés sur des preuves archéologiques et anthropologiques, nécessitent une analyse minutieuse et une interprétation prudente, compte tenu des limites inhérentes à ce type d'études, comme le s"
+      }
+    ],
+    "types_restants": [
+      "niveau_preuve_insuffisant",
+      "source_non_editoriale",
+      "paraphrase_structurelle"
+    ],
+    "article_type": "breve"
+  },
+  {
+    "slug": "autisme-inflammation-cerveau",
+    "statut": "rejete_qualite",
+    "date": "2026-08-05T05:39:12",
+    "angle_insuffisant": true,
+    "raison": "aucune actualité identifiable ne justifie une publication maintenant, les sources fournies sont trop pauvres pour expliquer correctement le sujet",
+    "article_type": "breve",
+    "avertissements_garde_fous": [
+      "titre_de_mauvaise_qualite"
+    ]
+  },
+  {
+    "slug": "esperance-de-vie-en-bonne-sante-royaume-uni",
+    "statut": "rejete_qualite",
+    "date": "2026-08-05T05:41:58",
+    "angle_insuffisant": true,
+    "raison": "L'article ne fournit pas d'information spécifique sur un événement récent lié à l'espérance de vie en bonne santé au Royaume-Uni, mais plutôt des données générales sur le sujet.",
+    "article_type": "breve"
+  },
+  {
+    "slug": "chine-etats-unis-concurrence-semi-conducteurs",
+    "statut": "rejete_sensible",
+    "date": "2026-08-05T05:43:22",
+    "problemes_initiaux": 3,
+    "bloc5": [
+      "compteur_incoherent"
+    ],
+    "article_type": "breve"
+  },
+  {
+    "slug": "anomalie-immunitaire-infections-virales",
+    "statut": "conforme_du_premier_coup",
+    "date": "2026-08-05T05:43:55",
+    "article_type": "breve"
+  },
+  {
+    "slug": "deficit-hopitaux-publics-2-3-milliards-euros-2025",
+    "statut": "rejete_sensible",
+    "date": "2026-08-05T05:45:30",
+    "problemes_initiaux": 3,
+    "bloc5": [
+      "compteur_incoherent"
+    ],
+    "article_type": "breve",
+    "avertissements_garde_fous": [
+      "resume_repete_corps"
+    ]
+  },
+  {
+    "slug": "mort-fillette-therapie-genique-chine",
+    "statut": "rejete_sensible",
+    "date": "2026-08-05T05:48:36",
+    "sujet_sensible": true,
+    "raison": "l'article implique un mineur (la fillette Mei) décédée après une thérapie génique",
+    "article_type": "breve"
+  },
+  {
+    "slug": "formation-logiciel-r-debutants-montpellier",
+    "statut": "rejete_qualite",
+    "date": "2026-08-05T05:50:14",
+    "angle_insuffisant": true,
+    "raison": "L'article ne contient pas de phrase liant un événement daté récent à une donnée chiffrée ou nommée qui lui est propre",
+    "article_type": "breve",
+    "avertissements_garde_fous": [
+      "cliches_ia"
+    ]
   }
 ]
