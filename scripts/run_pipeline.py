@@ -2,8 +2,8 @@
 """Point d'entrée renforcé du pipeline Les Faits.
 
 Il ajoute une consigne rédactionnelle spécialisée aux appels de génération,
-exécute le pipeline historique sans le dupliquer, puis lance un garde éditorial
-déterministe sur les nouveaux articles.
+exécute le pipeline historique sans le dupliquer, puis lance les gardes
+éditoriaux déterministes sur les nouveaux articles.
 """
 from __future__ import annotations
 
@@ -127,9 +127,11 @@ def main() -> int:
         return 0
 
     from editorial_quality import process_generated_articles
+    from editorial_depth import process_editorial_depth
 
-    summary = process_generated_articles(ROOT)
-    if summary.get("needs_rebuild"):
+    quality = process_generated_articles(ROOT)
+    depth = process_editorial_depth(ROOT)
+    if quality.get("needs_rebuild") or depth.get("needs_rebuild"):
         print("[GARDE ÉDITORIAL] Reconstruction des pages après retrait(s)…")
         subprocess.run(
             [sys.executable, str(PIPELINE), "--rebuild"],
