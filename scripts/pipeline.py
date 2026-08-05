@@ -3822,6 +3822,28 @@ def _extract_image_from_source(url: str, source_type: str, dest: str) -> bool:
     return False
 
 
+def _est_du_francais(kw: str) -> bool:
+    """Le mot-clé visuel est-il resté en français ?
+
+    Pexels est un moteur anglophone : une requête française ne rend rien de
+    pertinent et l'article récupère une image générique hors-sujet. Deux
+    critères, l'un OU l'autre suffit :
+      (a) un mot vide français (de, des, du, le, la, pour, avec…) — ces mots
+          n'existent pas dans une requête anglaise de 3-4 mots ;
+      (b) une lettre accentuée — l'anglais n'en a pas, et `clean` a déjà
+          retiré la ponctuation sans toucher aux accents.
+    Volontairement étroit : « france », « paris », « europe » sont des mots
+    anglais valides en requête stock et ne doivent PAS déclencher.
+    """
+    if not kw:
+        return False
+    if re.search(r"[éèêëàâçùûôîï]", kw):
+        return True
+    _VIDES_FR = {"de", "des", "du", "le", "la", "les", "un", "une", "et",
+                 "en", "au", "aux", "pour", "sur", "avec", "dans", "par"}
+    return any(m in _VIDES_FR for m in kw.split())
+
+
 def extract_visual_keywords(title: str, summary: str, category: str) -> str:
     """
     Utilise Groq (llama-3.3-70b) pour extraire 3 mots-clés visuels en anglais.
@@ -3865,9 +3887,20 @@ def extract_visual_keywords(title: str, summary: str, category: str) -> str:
         result = _groq_call(key, messages, max_tokens=30)
         # Nettoyer la réponse (parfois entre guillemets ou avec ponctuation)
         clean = re.sub(r'[^\w\s]', '', result).strip().lower()
-        # Un mot-clé anglophone plausible contient surtout de l'ASCII : si la
-        # réponse est vide ou visiblement restée en français, prendre le
-        # fallback catégorie plutôt qu'un titre FR inutilisable par Pexels.
+        # BUG CORRIGÉ (05/08) : ce commentaire décrivait un contrôle du
+        # français qui N'EXISTAIT PAS — le code ne testait que `if clean`
+        # (réponse non vide). Le LLM répond parfois en français malgré la
+        # consigne, et ces mots-clés partaient tels quels vers Pexels, moteur
+        # anglophone : « festival de films américain », « puces électroniques »,
+        # « étoile supergéante rouge » ne rendent rien de pertinent, l'article
+        # récupère alors une image générique hors-sujet. Mesuré sur les 149
+        # articles publiés : 6 cas (4 %).
+        # Même classe de défaut que la journalisation du 02/08 — un commentaire
+        # décrivait une intention, pas le code. Le contrôle existe maintenant.
+        if clean and _est_du_francais(clean):
+            print(f"  [IMG] mots-clés rendus en français (« {clean[:40]} ») — "
+                  f"repli sur le fallback catégorie")
+            clean = ""
         kw = clean[:80] if clean else fallback_kw
         # Garde-fou déterministe : sujet explicitement féminin (titre FR) →
         # forcer "women" si le LLM ne l'a pas mis (photo d'hommes sur un
