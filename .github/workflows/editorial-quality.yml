@@ -1,0 +1,51 @@
+name: Qualité éditoriale
+
+on:
+  pull_request:
+    paths:
+      - "scripts/editorial_quality.py"
+      - "scripts/run_pipeline.py"
+      - "scripts/test_editorial_quality.py"
+      - ".github/workflows/pipeline.yml"
+      - ".github/workflows/editorial-quality.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  tests:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+
+      - name: Installer les dépendances
+        run: pip install -r requirements.txt
+
+      - name: Vérifier la syntaxe
+        run: python -m py_compile scripts/editorial_quality.py scripts/run_pipeline.py scripts/test_editorial_quality.py
+
+      - name: Tests de non-régression éditoriale
+        run: python scripts/test_editorial_quality.py
+
+      - name: Vérifier la lecture du corpus HTML
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import sys
+          sys.path.insert(0, "scripts")
+          from editorial_quality import parse_article
+
+          files = sorted(Path("articles").glob("*.html"))
+          for path in files:
+              parse_article(path)
+          print(f"{len(files)} articles analysés sans erreur")
+          PY
