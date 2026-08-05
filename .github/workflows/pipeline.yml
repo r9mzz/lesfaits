@@ -127,6 +127,10 @@ jobs:
         if: steps.garde.outputs.passer != 'true'
         run: pip install -r requirements.txt
 
+      - name: Tester le garde éditorial
+        if: steps.garde.outputs.passer != 'true'
+        run: python scripts/test_editorial_quality.py
+
       # ── 3. Récupérer les images existantes pour le dédup MD5 ────────────
       - name: Récupérer les images depuis lesfaits-site
         if: steps.garde.outputs.passer != 'true'
@@ -173,9 +177,9 @@ jobs:
           TZ: Europe/Paris
         run: |
           if [ "${{ inputs.dry_run }}" = "true" ]; then
-            python scripts/pipeline.py --dry-run
+            python scripts/run_pipeline.py --dry-run
           else
-            python scripts/pipeline.py
+            python scripts/run_pipeline.py
           fi
 
       # ── 4. Commit dans le repo privé (sans déployer sur le site) ─────────
