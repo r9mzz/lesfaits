@@ -7532,5 +7532,168 @@
     "avertissements_garde_fous": [
       "cliches_ia"
     ]
+  },
+  {
+    "slug": "thanabots-clones-numeriques-de-defunts",
+    "statut": "rejete_qualite",
+    "date": "2026-08-05T15:02:31",
+    "angle_insuffisant": true,
+    "raison": "aucune actualité identifiable ne justifie une publication maintenant",
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "resume_repete_corps",
+      "faits_repetitifs",
+      "titre_de_mauvaise_qualite"
+    ]
+  },
+  {
+    "slug": "collision-lunaire-fusee-spacex",
+    "statut": "conforme_du_premier_coup",
+    "date": "2026-08-05T15:05:18",
+    "article_type": "breve",
+    "avertissements_garde_fous": [
+      "titre_de_mauvaise_qualite"
+    ]
+  },
+  {
+    "slug": "ebola-bundibugyo-vaccin-recherche",
+    "statut": "corrige_automatiquement",
+    "date": "2026-08-05T15:05:57",
+    "problemes_initiaux": 3,
+    "tentatives": 1,
+    "problemes_residuels_style": 0,
+    "rapport_initial": {
+      "conforme": false,
+      "sujet_sensible": false,
+      "sujet_sensible_raison": "",
+      "angle_insuffisant": false,
+      "angle_insuffisant_raison": "",
+      "nature_contenu": "actualite_factuelle",
+      "problemes": [
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "source_non_editoriale",
+          "phrase_exacte": "D'après Vidal, les vaccins existants entraînent une réponse immunitaire croisée contre la souche Bundibugyo.",
+          "explication": "Vidal est une source non-journalistique/non-institutionnelle utilisée comme autorité factuelle."
+        },
+        {
+          "bloc": 2,
+          "section": "sources",
+          "type": "source_derivee_comptee_comme_primaire",
+          "phrase_exacte": "",
+          "explication": "La source 'Vidal' est peut-être une reprise d'information d'une autre source, ce qui pourrait fausser le comptage des sources primaires."
+        },
+        {
+          "bloc": 2,
+          "section": "sources",
+          "type": "compteur_incoherent",
+          "phrase_exacte": "",
+          "explication": "Le champ 'nb_sources' indique 3, mais il n'est pas clair si toutes les sources sont effectivement distinctes et primaires."
+        }
+      ]
+    },
+    "article_type": "breve"
+  },
+  {
+    "slug": "cannibalisme-prehistorique-mancos-canyon",
+    "statut": "rejete_qualite",
+    "date": "2026-08-05T15:06:35",
+    "problemes_initiaux": 4,
+    "tentatives": 3,
+    "problemes_restants": 3,
+    "bloquants_restants": 1,
+    "bloquants_types": [
+      "niveau_preuve_insuffisant"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "niveau_preuve_insuffisant",
+        "description": "L'article ne précise pas le stade de la recherche ni les limites méthodologiques de l'étude, ce qui est essentiel pour comprendre la portée des résultats.",
+        "phrase": "Les résultats de l'étude sur les ossements de ces individus, menée par des chercheurs, suggèrent, selon les auteurs de l'étude, des actes d'anthropophagie préhistoriques, mais il est important de noter que les limites et"
+      }
+    ],
+    "types_restants": [
+      "niveau_preuve_insuffisant",
+      "paraphrase_structurelle",
+      "cadrage_emprunte"
+    ],
+    "article_type": "breve"
+  },
+  {
+    "slug": "autisme-inflammation-cerveau",
+    "statut": "erreur_verification",
+    "date": "2026-08-05T15:07:10",
+    "etape": "detection",
+    "erreur": "Expecting ',' delimiter: line 34 column 36 (char 1644)",
+    "article_type": "breve",
+    "avertissements_garde_fous": [
+      "titre_de_mauvaise_qualite"
+    ]
+  },
+  {
+    "slug": "fusee-spacex-ecrase-lune",
+    "statut": "conforme_du_premier_coup",
+    "date": "2026-08-05T15:07:48",
+    "article_type": "breve"
+  },
+  {
+    "slug": "secheresse-record-angleterre-pays-galles",
+    "statut": "conforme_du_premier_coup",
+    "date": "2026-08-05T15:08:17",
+    "article_type": "breve"
+  },
+  {
+    "slug": "etats-unis-interdisent-robots-humanoides-etrangers",
+    "statut": "conforme_du_premier_coup",
+    "date": "2026-08-05T15:09:40",
+    "article_type": "breve",
+    "avertissements_garde_fous": [
+      "titre_de_mauvaise_qualite"
+    ]
+  },
+  {
+    "slug": "esperance-de-vie-en-bonne-sante-royaume-uni",
+    "statut": "erreur_verification",
+    "date": "2026-08-05T15:11:53",
+    "etape": "detection",
+    "erreur": "Quota Groq journalier épuisé sur toutes les clés (vérification)",
+    "article_type": "breve"
+  },
+  {
+    "slug": "eclipse-solaire-12-aout-2026-france",
+    "statut": "erreur_verification",
+    "date": "2026-08-05T15:41:07",
+    "etape": "detection",
+    "erreur": "Quota Groq journalier épuisé sur toutes les clés (vérification)",
+    "article_type": "breve"
+  },
+  {
+    "slug": "spacex-chiffre-daffaires-perte-nette-2024",
+    "statut": "erreur_verification",
+    "date": "2026-08-05T16:43:13",
+    "etape": "detection",
+    "erreur": "Quota Groq journalier épuisé sur toutes les clés (vérification)",
+    "article_type": "breve",
+    "avertissements_garde_fous": [
+      "attributions_trop_repetitives"
+    ]
+  },
+  {
+    "slug": "deficit-hopitaux-publics-2-3-milliards-euros-2025",
+    "statut": "erreur_verification",
+    "date": "2026-08-05T17:11:41",
+    "etape": "detection",
+    "erreur": "Quota Groq journalier épuisé sur toutes les clés (vérification)",
+    "article_type": "breve"
+  },
+  {
+    "slug": "japon-sort-de-la-deflation",
+    "statut": "erreur_verification",
+    "date": "2026-08-05T17:32:17",
+    "etape": "detection",
+    "erreur": "Quota Groq journalier épuisé sur toutes les clés (vérification)",
+    "article_type": "breve"
   }
 ]
