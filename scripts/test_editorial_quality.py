@@ -6,9 +6,11 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
 from editorial_quality import (  # noqa: E402
-    ArticleRecord, Source, annotate_attributions, repeated_statement,
-    same_event, timeline_conflict,
+    ArticleRecord, Source, annotate_attributions, parse_article,
+    quality_issues, repeated_statement, same_event, timeline_conflict,
 )
+
+ROOT = Path(__file__).resolve().parent.parent
 
 
 def article(title, urls, *, date="2026-08-05", body="", slug="x"):
@@ -31,6 +33,16 @@ class EditorialQualityTests(unittest.TestCase):
             ["https://example.com/spacex-lune?utm_source=rss", "https://media.test/b"], slug="b",
         )
         self.assertTrue(same_event(a, b))
+
+    def test_real_spacex_regression(self):
+        first = ROOT / "articles" / "collision-lunaire-fusee-spacex.html"
+        second = ROOT / "articles" / "fusee-spacex-ecrase-lune.html"
+        if not first.exists() or not second.exists():
+            self.skipTest("articles de régression absents du corpus")
+        a = parse_article(first, {"format": "breve", "nb_mots": 108})
+        b = parse_article(second, {"format": "breve", "nb_mots": 149})
+        self.assertTrue(same_event(a, b))
+        self.assertTrue(timeline_conflict(a.lead + " " + a.facts))
 
     def test_different_events_same_company_not_duplicate(self):
         a = article("SpaceX lance une fusée vers Mars", ["https://a.test/mars"], slug="a")
@@ -64,6 +76,16 @@ class EditorialQualityTests(unittest.TestCase):
         self.assertIn('href="#source-1"', result)
         self.assertIn('href="#source-2"', result)
         self.assertTrue(result.startswith("La mesure"))
+
+    def test_brief_with_generic_filler_is_rejected(self):
+        a = article(
+            "Une découverte scientifique annoncée",
+            ["https://a.test/etude"],
+            body="Cette découverte pourrait révolutionner le secteur dans les années à venir.",
+        )
+        a.format = "breve"
+        hard, _ = quality_issues(a)
+        self.assertTrue(any("remplissage générique" in issue for issue in hard))
 
 
 if __name__ == "__main__":
