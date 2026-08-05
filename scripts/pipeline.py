@@ -5113,7 +5113,7 @@ function copyLink(){{
     share_html = f"""<div class="art__share">
   <span class="art__share-label">Partager</span>
   <button class="share-btn share-btn--native" onclick="shareArticle()" style="display:{'none' if True else 'none'}" id="native-share">↗ Partager</button>
-  <a class="share-btn" href="https://twitter.com/intent/tweet?url={art_url}&text={urllib.parse.quote(art['titre'])}" target="_blank" rel="noopener noreferrer external">𝕏 Twitter</a>
+  <a class="share-btn" href="https://twitter.com/intent/tweet?url={art_url}&amp;text={urllib.parse.quote(art['titre'])}" target="_blank" rel="noopener noreferrer external">𝕏 Twitter</a>
   <a class="share-btn" href="https://www.linkedin.com/sharing/share-offsite/?url={art_url}" target="_blank" rel="noopener noreferrer external">in LinkedIn</a>
   <a class="share-btn" href="https://api.whatsapp.com/send?text={urllib.parse.quote(art['titre'])}%20{art_url}" target="_blank" rel="noopener noreferrer external">WhatsApp</a>
   <button class="share-btn" onclick="copyLink()" id="copy-btn">Copier le lien</button>
@@ -5975,7 +5975,7 @@ def build_archive_page():
                 resume = resume[0] if resume else ""
             img_src = f"assets/images/{_slug_ascii(a['slug'])}-480.webp"
             rows += f"""
-    <a class="archive-row" href="articles/{a['slug']}.html" style="display:grid;grid-template-columns:80px 1fr;gap:12px 20px;padding:16px 0;border-bottom:1px solid var(--border);align-items:start;text-decoration:none;color:inherit">
+    <a class="archive-row" href="articles/{a['slug']}.html" style="display:grid;grid-template-columns:80px 1fr;gap:12px 20px;padding:16px 0;border-bottom:1px solid var(--rule);align-items:start;text-decoration:none;color:inherit">
       <img src="{img_src}" alt="{_esc(a['titre'])}" style="width:80px;height:54px;object-fit:cover;border-radius:4px;background:var(--light)" loading="lazy" onerror="this.style.display='none'"/>
       <div>
         <span class="cat cat--{cat}" style="display:inline-block;font-size:10px;font-weight:700;letter-spacing:.06em;margin-bottom:4px">{label.upper()}</span>
@@ -6268,7 +6268,7 @@ def build_favoris_page():
     listEl.innerHTML = found.map(function(a){{
       var resume = Array.isArray(a.resume) ? (a.resume[0]||'') : (a.resume||'');
       var img = 'assets/images/'+a.slug.normalize('NFD').replace(/[\\u0300-\\u036f]/g,'')+'-480.webp';
-      return '<a class="archive-row" href="articles/'+a.slug+'.html" style="display:grid;grid-template-columns:80px 1fr;gap:12px 20px;padding:16px 0;border-bottom:1px solid var(--border);align-items:start;text-decoration:none;color:inherit">'
+      return '<a class="archive-row" href="articles/'+a.slug+'.html" style="display:grid;grid-template-columns:80px 1fr;gap:12px 20px;padding:16px 0;border-bottom:1px solid var(--rule);align-items:start;text-decoration:none;color:inherit">'
         +'<img src="'+img+'" alt="" style="width:80px;height:54px;object-fit:cover;border-radius:4px;background:var(--light)" loading="lazy" onerror="this.style.display=\\'none\\'"/>'
         +'<div><span class="cat cat--'+a.categorie+'" style="display:inline-block;font-size:10px;font-weight:700;letter-spacing:.06em;margin-bottom:4px">'+_cat_up_js(a.categorie)+'</span>'
         +'<div style="font-weight:600;color:var(--ink);line-height:1.4;font-size:1rem">'+escapeHtml(a.titre)+'</div>'

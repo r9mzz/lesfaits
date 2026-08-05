@@ -1,5 +1,63 @@
 # Les Faits — lesfaits.info
 
+## AUDIT ESTHÉTIQUE/LIENS DU 04/08 — .nav-dropdown cassé sur 171 pages, et un garde-fou permanent
+
+Nahil a demandé un audit complet, focalisé esthétique/liens, après plusieurs
+allers-retours frustrants sur des défauts visuels ponctuels (page contact).
+Le vrai défaut n'était pas là où on le cherchait.
+
+**Le bug le plus grave** : le template article (`build_article_html`) utilise
+un menu déroulant `.nav-dropdown` / `.nav-dropdown__trigger` /
+`.nav-dropdown__menu` / `.nav-dropdown__sep` — **sans AUCUNE règle CSS nulle
+part**, ni dans `src/style.css`, ni en `<style>` inline. Sur **171 des
+192 pages du site** (toutes les pages article, donc la quasi-totalité du
+trafic), le menu "Société / Science / Économie / Tech / Santé /
+Environnement / Favoris / …" s'affichait en liste brute, non positionnée,
+sans fond ni bordure. Les pages statiques (index, catégories, archive) ont un
+menu ANALOGUE mais sous d'autres noms de classe (`nav-cats-dd`,
+`nav-cats-wrap`), correctement stylé — les deux implémentations ont divergé
+et seule celle des articles a été oubliée. **Corrigé** : CSS ajoutée dans
+`src/style.css` juste après `.nav-cats-dd`, reprenant le même habillage
+visuel. Aucune page article n'a eu besoin d'être patchée : la feuille de
+style est chargée par toutes, donc le correctif s'applique instantanément
+partout.
+
+**Deux autres défauts réels, corrigés à la source** (`scripts/pipeline.py`) :
+- `var(--border)` dans le template `.archive-row` (archive.html, favoris.html)
+  — cette variable CSS n'existe nulle part, le vrai nom est `--rule`. Le
+  séparateur entre lignes de liste était donc invisible. Corrigé aux deux
+  occurrences, puis `--rebuild` relancé pour regénérer archive.html/
+  favoris.html/index.html avec la bonne valeur (149 pages concernées).
+- `&` non échappée dans le lien de partage Twitter (`&text=` au lieu de
+  `&amp;text=`) — HTML invalide (les navigateurs le tolèrent, mais ça reste un
+  défaut). Corrigé à la source ; **les 171 articles déjà publiés le portent
+  encore** (pas de patch rétroactif fait — impact visuel nul, priorité basse).
+
+**Trois choses ressemblaient à des bugs et n'en étaient pas** — à ne pas
+re-signaler sans vérifier à nouveau :
+- `.meta__src`, `.archive-row`, `.audio-player__ctrl--stop`, `.list-section`
+  n'ont pas de CSS dédiée, mais tout leur style vient d'un `style=""` inline
+  ou d'une classe parente (`.meta`) — fonctionnement voulu, pas un oubli.
+- `breves.html` n'existe qu'après `--rebuild` (comme `index.html`) : absent
+  du dépôt tant qu'aucun rebuild n'a tourné, ce n'est pas un lien cassé.
+- Les ancres `../contact.html#erreur` depuis `articles/` avec `<base href="/">`
+  se résolvent correctement (RFC 3986 : les navigateurs clampent au domaine
+  racine, un premier audit maison avec une résolution de chemin naïve les
+  signalait à tort).
+
+### Le garde-fou permanent — pour que ça ne se reproduise plus
+
+`scripts/check_seo.py` (déjà bloquant au déploiement, voir `deploy.yml`)
+détecte désormais **toute classe utilisée dans le HTML sans définition CSS
+trouvée nulle part** (`classes_sans_css()`), scanné sur les pages statiques
+ET sur les 171 articles — pas un échantillon, parce que c'est justement un
+échantillon qui avait laissé passer celui-ci. Une classe volontairement sans
+CSS dédiée (style entièrement inline) doit être ajoutée à
+`CLASSES_HOOK_SANS_CSS` **après vérification manuelle**, jamais pour faire
+taire l'alerte. C'est le même principe que le garde-fou blanc-liste de
+`deploy.yml` (03/08) sur les pages non copiées : une nouvelle classe HTML est
+un signal qui doit être vu, jamais un échec silencieux.
+
 ## RETRAIT PUBLIC DU 03/08 — et le balayage qu'il a déclenché
 
 **Article retiré :** « L'IA Claude d'Anthropic s'échappe d'un test et pirate

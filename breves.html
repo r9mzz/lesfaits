@@ -4,17 +4,16 @@
   <meta charset="UTF-8"/>
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cloud.umami.is; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; connect-src 'self' https://cloud.umami.is https://api.web3forms.com https://e6ad0381.sibforms.com; base-uri 'self'; form-action 'self'; frame-ancestors 'none';"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <meta name="description" content="Vos articles favoris sur Les Faits — sauvegardés localement dans votre navigateur."/>
-  <meta name="robots" content="noindex,follow"/>
-  <meta property="og:title" content="Mes favoris — Les Faits"/>
-  <meta property="og:description" content="Vos articles favoris sur Les Faits."/>
+  <meta name="description" content="Les brèves de Les Faits : le fait du jour, établi et sourcé, en 150 mots. Sans mise en perspective ni analyse."/>
+  <meta property="og:title" content="Brèves — Les Faits"/>
+  <meta property="og:description" content="Le fait du jour, établi et sourcé, en 150 mots."/>
   <meta property="og:type" content="website"/>
-  <meta property="og:url" content="https://lesfaits.info/favoris.html"/>
+  <meta property="og:url" content="https://lesfaits.info/breves.html"/>
   <meta property="og:image" content="https://lesfaits.info/assets/images/og-default.jpg"/>
   <meta name="twitter:card" content="summary_large_image"/>
   <meta name="twitter:image" content="https://lesfaits.info/assets/images/og-default.jpg"/>
-  <link rel="canonical" href="https://lesfaits.info/favoris.html"/>
-  <title>Mes favoris — Les Faits</title>
+  <link rel="canonical" href="https://lesfaits.info/breves.html"/>
+  <title>Brèves — Les Faits</title>
   <base href="/"/>
   <link rel="stylesheet" href="/src/style.css?v=2"/>
   <link rel="icon" type="image/svg+xml" href="/favicon.svg"/>
@@ -23,9 +22,7 @@
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"/>
   <link rel="shortcut icon" href="/favicon.ico"/>
   <link rel="manifest" href="/manifest.json"/>
-  <script>
-(function(){var s=localStorage.getItem('theme'),d=s==='dark'||(s===null&&window.matchMedia('(prefers-color-scheme:dark)').matches);document.documentElement.setAttribute('data-theme',d?'dark':'light');})();
-</script>
+  <script>(function(){var s=localStorage.getItem('theme'),d=s==='dark'||(s===null&&window.matchMedia('(prefers-color-scheme:dark)').matches);document.documentElement.setAttribute('data-theme',d?'dark':'light');})();</script>
 </head>
 <body>
 <div class="nav-overlay" id="nav-overlay" onclick="closeMenu()"></div>
@@ -79,20 +76,188 @@ document.addEventListener('DOMContentLoaded',function(){var btn=document.getElem
   </div>
 </header>
 
-<main class="wrap" style="max-width:860px;margin:48px auto;padding:0 20px 80px">
+<main class="wrap" style="max-width:760px;margin:48px auto;padding:0 20px 80px">
   <nav aria-label="Fil d'Ariane" style="font-size:13px;color:var(--muted);margin-bottom:32px">
     <a href="index.html" style="color:var(--muted)">Accueil</a>
     <span style="margin:0 6px">›</span>
-    <span>Mes favoris</span>
+    <span>Brèves</span>
   </nav>
-  <h1 style="font-family:var(--font-serif,Georgia,serif);font-size:2rem;margin-bottom:4px">Mes favoris</h1>
-  <p id="favoris-count" style="color:var(--muted);font-size:14px;margin-bottom:48px">Chargement…</p>
-  <div id="favoris-list"></div>
-  <div id="favoris-empty" style="display:none;text-align:center;padding:48px 0;color:var(--muted)">
-    <p style="font-size:1rem;margin-bottom:8px">Vous n'avez encore aucun favori.</p>
-    <p style="font-size:.9rem">Cliquez sur Favoris en bas d'un article pour l'ajouter ici — vos favoris sont enregistrés dans ce navigateur.</p>
-  </div>
+  <h1 style="font-family:var(--font-serif,Georgia,serif);font-size:2rem;margin-bottom:8px">Brèves</h1>
+  <p style="color:var(--muted);font-size:14px;line-height:1.7;margin-bottom:40px;max-width:60ch">
+    Le fait du jour, établi et sourcé, en 150 mots — sans mise en perspective
+    ni analyse. Une brève suit exactement le même protocole de vérification
+    qu'un article : trois sources minimum, au moins une source primaire ou deux
+    sources secondaires indépendantes, et le même fact-check avant publication.
+    Elle est plus courte, jamais moins vérifiée.
+    <a href="methode.html" style="color:var(--blue)">Notre méthode</a>.
+  </p>
+  <p style="color:var(--muted);font-size:13px;margin-bottom:24px">8 brèves publiées</p>
+  
+    <a class="breve-row" href="articles/ebola-bundibugyo-vaccin-recherche.html">
+      <div class="breve-row__meta">
+        <span class="cat cat--sante">SANTÉ</span>
+        <span class="breve-row__date">4 août 2026</span>
+      </div>
+      <div>
+        <h2 class="breve-row__titre">Épidémie d’Ebola Bundibugyo : premiers résultats pour un vaccin</h2>
+        <p class="breve-row__resume">L&#x27;Inserm et l&#x27;Université de Bordeaux ont publié des résultats pour accélérer la recherche d&#x27;un vaccin contre l&#x27;Ebola Bundibugyo, avec plus de 1000 décès déclarés au 22 juillet 2026.</p>
+        <span class="breve-row__src">3 sources · 146 mots</span>
+      </div>
+    </a>
+
+    <a class="breve-row" href="articles/ia-anthropic-acces-non-autorise.html">
+      <div class="breve-row__meta">
+        <span class="cat cat--tech">TECH</span>
+        <span class="breve-row__date">4 août 2026</span>
+      </div>
+      <div>
+        <h2 class="breve-row__titre">Anthropic : trois organisations touchées par l’IA non autorisée le 30 juillet</h2>
+        <p class="breve-row__resume">L&#x27;IA d&#x27;Anthropic a accédé sans autorisation à des systèmes de trois organisations lors de tests de sécurité, le 30 juillet.</p>
+        <span class="breve-row__src">3 sources · 139 mots</span>
+      </div>
+    </a>
+
+    <a class="breve-row" href="articles/eric-coquerel-budget-rectificatif-incendies.html">
+      <div class="breve-row__meta">
+        <span class="cat cat--environnement">ENVIRONNEMENT</span>
+        <span class="breve-row__date">4 août 2026</span>
+      </div>
+      <div>
+        <h2 class="breve-row__titre">Eric Coquerel réclame un budget rectificatif pour la lutte contre les incendies</h2>
+        <p class="breve-row__resume">Une demande de financement d&#x27;urgence pour lutter contre les incendies de forêt est actuellement débattue</p>
+        <span class="breve-row__src">3 sources · 111 mots</span>
+      </div>
+    </a>
+
+    <a class="breve-row" href="articles/carte-interactive-refuges-climatiques.html">
+      <div class="breve-row__meta">
+        <span class="cat cat--environnement">ENVIRONNEMENT</span>
+        <span class="breve-row__date">3 août 2026</span>
+      </div>
+      <div>
+        <h2 class="breve-row__titre">Gouvernement français lance carte interactive pour refuges climatiques</h2>
+        <p class="breve-row__resume">Une nouvelle ressource en ligne aide les Français à trouver des endroits frais près de chez eux.</p>
+        <span class="breve-row__src">3 sources · 134 mots</span>
+      </div>
+    </a>
+
+    <a class="breve-row" href="articles/incendie-entrepot-seveso-moselle.html">
+      <div class="breve-row__meta">
+        <span class="cat cat--environnement">ENVIRONNEMENT</span>
+        <span class="breve-row__date">3 août 2026</span>
+      </div>
+      <div>
+        <h2 class="breve-row__titre">Incendie dans un entrepôt Seveso en Moselle</h2>
+        <p class="breve-row__resume">Une situation d&#x27;urgence a nécessité la mise en confinement temporaire de milliers d&#x27;habitants en Moselle.</p>
+        <span class="breve-row__src">7 sources · 164 mots</span>
+      </div>
+    </a>
+
+    <a class="breve-row" href="articles/lula-candidat-quatrieme-mandat-bresil.html">
+      <div class="breve-row__meta">
+        <span class="cat cat--societe">SOCIÉTÉ</span>
+        <span class="breve-row__date">3 août 2026</span>
+      </div>
+      <div>
+        <h2 class="breve-row__titre">Lula se porte candidat pour un quatrième mandat au Brésil</h2>
+        <p class="breve-row__resume">Lula, âgé de 80 ans, se porte candidat pour un quatrième et dernier mandat au Brésil.</p>
+        <span class="breve-row__src">5 sources · 159 mots</span>
+      </div>
+    </a>
+
+    <a class="breve-row" href="articles/baignade-zone-non-autorisee-amende-68-euros.html">
+      <div class="breve-row__meta">
+        <span class="cat cat--societe">SOCIÉTÉ</span>
+        <span class="breve-row__date">2 août 2026</span>
+      </div>
+      <div>
+        <h2 class="breve-row__titre">Baignade en zone non autorisée : amende de 68 euros</h2>
+        <p class="breve-row__resume">La baignade en zone non autorisée est désormais passible d&#x27;une amende de 68 euros, dans le but de protéger les personnes qui s&#x27;exposent à un danger grave. Cette mesure vise à prévenir les noyades, qui ont déjà coûté la vie à 197 personnes depuis le début de l&#x27;été, selon Lepopulaire.</p>
+        <span class="breve-row__src">10 sources · 182 mots</span>
+      </div>
+    </a>
+
+    <a class="breve-row" href="articles/additifs-alimentaires-risque-sante.html">
+      <div class="breve-row__meta">
+        <span class="cat cat--sante">SANTÉ</span>
+        <span class="breve-row__date">2 août 2026</span>
+      </div>
+      <div>
+        <h2 class="breve-row__titre">Inserm : trois études lient additifs alimentaires à risque accru de cancer et diabète</h2>
+        <p class="breve-row__resume">Trois études menées par l&#x27;Inserm établissent un lien entre certains additifs alimentaires et un risque accru de cancer, de diabète de type 2 et d&#x27;hypertension, selon les données de plus de 100 000 participants.</p>
+        <span class="breve-row__src">3 sources · 156 mots</span>
+      </div>
+    </a>
 </main>
+
+
+<section class="nl-compact" id="newsletter" aria-label="S'abonner à la newsletter">
+  <div class="nl-compact__inner">
+    <div class="nl-compact__head">
+      <span class="nl-compact__label">NEWSLETTER</span>
+      <span class="nl-compact__title">Le résumé du jour dans votre boîte mail</span>
+    </div>
+    <form id="nl-form" novalidate>
+      <div class="nl-compact__freq" role="group" aria-label="Fréquence de réception">
+        <label class="nl-compact__freq-opt"><input type="radio" name="FREQ" value="morning"/> Matin (~7h)</label>
+        <label class="nl-compact__freq-opt"><input type="radio" name="FREQ" value="evening"/> Soir (~18h)</label>
+        <label class="nl-compact__freq-opt"><input type="radio" name="FREQ" value="both" checked/> Les deux</label>
+      </div>
+      <div class="nl-compact__row">
+        <input type="email" id="nl-email" name="EMAIL" class="nl-compact__input" placeholder="vous@exemple.fr" required autocomplete="email" aria-required="true"/>
+        <button type="submit" class="nl-compact__btn" id="nl-btn">S'abonner →</button>
+      </div>
+      <div class="nl-compact__cats" role="group" aria-label="Rubriques">
+        <label class="nl-compact__cat nl-cat--societe"><input type="checkbox" name="CAT_SOCIETE" value="1"/><span class="nl-cat__dot" aria-hidden="true"></span>Société</label>
+        <label class="nl-compact__cat nl-cat--science"><input type="checkbox" name="CAT_SCIENCE" value="1"/><span class="nl-cat__dot" aria-hidden="true"></span>Science</label>
+        <label class="nl-compact__cat nl-cat--economie"><input type="checkbox" name="CAT_ECONOMIE" value="1"/><span class="nl-cat__dot" aria-hidden="true"></span>Économie</label>
+        <label class="nl-compact__cat nl-cat--tech"><input type="checkbox" name="CAT_TECH" value="1"/><span class="nl-cat__dot" aria-hidden="true"></span>Tech</label>
+        <label class="nl-compact__cat nl-cat--sante"><input type="checkbox" name="CAT_SANTE" value="1"/><span class="nl-cat__dot" aria-hidden="true"></span>Santé</label>
+        <label class="nl-compact__cat nl-cat--environnement"><input type="checkbox" name="CAT_ENVIRONNEMENT" value="1"/><span class="nl-cat__dot" aria-hidden="true"></span>Environnement</label>
+      </div>
+      <p class="nl-compact__hint">Aucune sélection = toutes les rubriques.</p>
+      <label class="nl-compact__consent">
+        <input type="checkbox" id="nl-consent" required aria-required="true"/>
+        <span>J'accepte de recevoir la newsletter et la <a href="confidentialite.html">politique de confidentialité</a>.</span>
+      </label>
+      <p class="nl-compact__msg" id="nl-msg" role="alert" aria-live="polite"></p>
+    </form>
+  </div>
+</section>
+<script>
+(function(){
+  var SIB_URL="https://e6ad0381.sibforms.com/serve/MUIFAErfidn3h7DoaZcjIRh-48s1GoiE0vZOe_KG-skCwDznnQ2831i0IkHsSaXfUJ15hBl1CH3ElJVKdGDdXdxHpt6v7iX-hAlyWb0i0M7mtq6UhgJ9JJyCUhNwckwfxW8EUJkF_hkjb4qX8YSntlFraZFiCcgQhZ3PXsPvAcSa9oEyPOgeL1EtAB4akgMS-hz76NcGAUSqOt3L1w==";
+  var form=document.getElementById("nl-form"),msgEl=document.getElementById("nl-msg"),btn=document.getElementById("nl-btn");
+  if(!form)return;
+  form.addEventListener("submit",function(e){
+    e.preventDefault();
+    msgEl.className="nl-compact__msg";msgEl.textContent="";
+    var email=(document.getElementById("nl-email").value||"").trim();
+    var consent=document.getElementById("nl-consent").checked;
+    if(!email||!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){msgEl.textContent="Veuillez saisir une adresse email valide.";msgEl.className="nl-compact__msg nl-compact__msg--err";return;}
+    if(!consent){msgEl.textContent="Veuillez accepter les conditions.";msgEl.className="nl-compact__msg nl-compact__msg--err";return;}
+    var data=new FormData();
+    data.append("EMAIL",email);
+    data.append("LESFAITS_VERIFICATION","1");
+    ["CAT_SOCIETE","CAT_SCIENCE","CAT_ECONOMIE","CAT_TECH","CAT_SANTE","CAT_ENVIRONNEMENT"].forEach(function(k){
+      var cb=form.querySelector('input[name="'+k+'"]');
+      if(cb&&cb.checked)data.append(k,"1");
+    });
+    var freqEl=form.querySelector('input[name="FREQ"]:checked');
+    data.append("FREQ",freqEl?freqEl.value:"both");
+    data.append("email_address_check","");
+    data.append("locale","fr");
+    btn.disabled=true;btn.textContent="Envoi…";
+    fetch(SIB_URL,{method:"POST",mode:"no-cors",body:data})
+    .then(function(){
+      msgEl.textContent="Un email de confirmation vient de vous être envoyé — cliquez sur le lien pour valider votre inscription (vérifiez vos spams).";
+      msgEl.className="nl-compact__msg nl-compact__msg--ok";form.reset();
+    })
+    .catch(function(){msgEl.textContent="Erreur réseau. Réessayez dans un instant.";msgEl.className="nl-compact__msg nl-compact__msg--err";})
+    .finally(function(){btn.disabled=false;btn.textContent="S'abonner →";});
+  });
+})();
+</script>
 
 <footer class="footer" role="contentinfo" aria-label="Pied de page">
   <div class="footer__inner">
@@ -557,38 +722,5 @@ document.addEventListener('DOMContentLoaded',function(){var btn=document.getElem
 })();
 </script>
 <script defer src="https://cloud.umami.is/script.js" data-website-id="8d68a78f-97ae-4c95-a955-5d3df758f7e2"></script>
-<script>
-(function(){
-  var favs = JSON.parse(localStorage.getItem('lesfaits_favs')||'[]');
-  var countEl = document.getElementById('favoris-count');
-  var listEl = document.getElementById('favoris-list');
-  var emptyEl = document.getElementById('favoris-empty');
-  if(!favs.length){
-    countEl.textContent = '0 article enregistré';
-    emptyEl.style.display = 'block';
-    return;
-  }
-  fetch('data/articles.json').then(function(r){return r.json();}).then(function(articles){
-    var bySlug = {};
-    articles.forEach(function(a){bySlug[a.slug]=a;});
-    var found = favs.map(function(s){return bySlug[s];}).filter(Boolean);
-    countEl.textContent = found.length + ' article' + (found.length>1?'s':'') + ' enregistré' + (found.length>1?'s':'');
-    if(!found.length){emptyEl.style.display='block';return;}
-    listEl.innerHTML = found.map(function(a){
-      var resume = Array.isArray(a.resume) ? (a.resume[0]||'') : (a.resume||'');
-      var img = 'assets/images/'+a.slug.normalize('NFD').replace(/[\u0300-\u036f]/g,'')+'-480.webp';
-      return '<a class="archive-row" href="articles/'+a.slug+'.html" style="display:grid;grid-template-columns:80px 1fr;gap:12px 20px;padding:16px 0;border-bottom:1px solid var(--rule);align-items:start;text-decoration:none;color:inherit">'
-        +'<img src="'+img+'" alt="" style="width:80px;height:54px;object-fit:cover;border-radius:4px;background:var(--light)" loading="lazy" onerror="this.style.display=\'none\'"/>'
-        +'<div><span class="cat cat--'+a.categorie+'" style="display:inline-block;font-size:10px;font-weight:700;letter-spacing:.06em;margin-bottom:4px">'+_cat_up_js(a.categorie)+'</span>'
-        +'<div style="font-weight:600;color:var(--ink);line-height:1.4;font-size:1rem">'+escapeHtml(a.titre)+'</div>'
-        +'<p style="margin:4px 0 0;font-size:.85rem;color:var(--muted);line-height:1.5">'+escapeHtml(resume.slice(0,120))+(resume.length>120?'…':'')+'</p>'
-        +'<span style="font-size:.75rem;color:var(--muted);margin-top:4px;display:block">'+(a.date||'').split(',')[0]+' · '+(a.nb_sources||0)+' sources</span>'
-        +'</div></a>';
-    }).join('');
-  });
-  function escapeHtml(s){return String(s).replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];});}
-  function _cat_up_js(c){var m={"science": "SCIENCE", "economie": "ÉCONOMIE", "tech": "TECH", "sante": "SANTÉ", "environnement": "ENVIRONNEMENT", "societe": "SOCIÉTÉ"};return (m[c]||c).toUpperCase();}
-})();
-</script>
 </body>
 </html>

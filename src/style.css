@@ -136,6 +136,46 @@ nav a.active { opacity: 1; color: var(--blue-ink); border-bottom-color: var(--bl
 .cat-dd-item:hover { background: var(--light); color: var(--blue-ink); }
 .cat-dd-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
 
+/* Dropdown "Menu" des pages ARTICLE — composant distinct de .nav-cats-dd
+   ci-dessus (pages index/catégories/statiques). Constat 04/08 : le template
+   article utilise des noms de classe BEM (.nav-dropdown, .nav-dropdown__*)
+   qui n'ont jamais reçu de CSS, nulle part — ni ici, ni en inline. Sur les
+   171 pages article du site (la quasi-totalité des pages), le menu de
+   navigation s'affichait donc en liste brute, non positionnée, sans fond ni
+   bordure : c'est ce qui donnait l'impression d'un site cassé alors que le
+   reste du gabarit était correct. Repris sur le même habillage visuel que
+   .nav-cats-dd pour que les deux implémentations se ressemblent, en
+   attendant qu'un template de header unique les remplace toutes les deux.
+   Ne jamais ajouter un nouveau nom de classe dans build_article_html sans
+   vérifier qu'il a une définition ici : rien ne le signale sinon. */
+.nav-dropdown { position: relative; }
+.nav-dropdown__trigger {
+  display: inline-flex; align-items: center; height: 44px; padding: 0 16px;
+  border: 1px solid transparent; border-radius: 999px; background: none;
+  font-family: inherit; font-size: 14px; font-weight: 500; color: var(--muted);
+  cursor: pointer; white-space: nowrap;
+  transition: background .2s, border-color .2s, color .2s;
+}
+.nav-dropdown__trigger:hover,
+.nav-dropdown.open .nav-dropdown__trigger { background: var(--light); border-color: var(--rule); color: var(--ink); }
+.nav-dropdown__menu {
+  display: none; flex-direction: column; position: absolute; top: calc(100% + 10px); right: 0;
+  min-width: 220px; background: var(--white); border: 1px solid var(--rule);
+  border-radius: 10px; box-shadow: var(--shadow-card-hover); padding: 8px; z-index: 250;
+}
+.nav-dropdown.open .nav-dropdown__menu { display: flex; }
+.nav-dropdown__menu a {
+  display: block; padding: 9px 12px; border-radius: 7px; font-size: 13px; font-weight: 500;
+  color: var(--ink); text-decoration: none; transition: background .15s, color .15s;
+}
+.nav-dropdown__menu a:hover { background: var(--light); color: var(--blue-ink); }
+.nav-dropdown__sep { height: 1px; margin: 6px 4px; background: var(--rule); }
+/* Pas de media query dédiée : `.nav-dropdown` vit dans <nav>, déjà masqué
+   sous 768px par la règle existante `nav { display: none; }` (le burger
+   mobile prend le relais). Une règle spécifique ici aurait été redondante
+   et, pire, sur un seuil différent (760px) qui aurait pu se désynchroniser
+   de celui du reste du header au premier changement. */
+
 /* ── TICKER ── */
 /* .ticker* : CSS mort supprimé le 25/07 — jamais généré dans le HTML du
    site (bandeau défilant abandonné), inutile de maintenir son animation

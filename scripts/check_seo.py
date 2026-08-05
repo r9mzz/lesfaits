@@ -24,10 +24,57 @@ REQUIRED = {
 PAGES = ["index.html", "methode.html", "contact.html", "corrections.html", "archive.html",
          "breves.html"]
 
+# Classes utilisées volontairement SANS CSS dédiée : tout leur style vient
+# d'un attribut style="" en ligne, ou d'une classe parente (.meta, .audio-
+# player__ctrl). Vérifié une à une le 04/08 — à ne compléter qu'après
+# vérification manuelle du même genre, jamais pour faire taire l'alerte.
+CLASSES_HOOK_SANS_CSS = {
+    "meta__src", "archive-row", "audio-player__ctrl--stop", "list-section",
+    "dossier-serie",  # legacy : 7 vieux articles, plus produit par pipeline.py
+}
+
 
 def check(path: Path) -> list[str]:
     html = path.read_text(encoding="utf-8", errors="replace")
     return [name for name, rx in REQUIRED.items() if not re.search(rx, html)]
+
+
+def classes_sans_css(pages_html: list[Path], style_css: str) -> dict[str, list[str]]:
+    """Garde-fou contre la classe du 04/08 : `.nav-dropdown` et ses enfants
+    étaient utilisés sur les 171 pages article sans AUCUNE règle CSS nulle
+    part (ni style.css, ni <style> inline) — le menu s'affichait en liste
+    brute, non positionnée, sans fond ni bordure, sur la quasi-totalité du
+    site, sans que rien ne le signale avant la lecture manuelle d'un lecteur.
+
+    On extrait les classes réellement définies (sélecteurs simples ET
+    listes séparées par des virgules) et on compare à celles utilisées dans
+    le HTML. Toute classe qui n'a ni définition globale, ni définition
+    inline sur SA PAGE, ni figure dans CLASSES_HOOK_SANS_CSS est un défaut
+    potentiel — à vérifier manuellement (cf. cette liste) avant d'ajouter
+    une exception, jamais pour la faire disparaître silencieusement."""
+    def _classes_definies(css: str) -> set[str]:
+        # Un sélecteur avant `{` peut être une liste séparée par virgules
+        # (".a, .b, .c { … }") — les considérer une à une, pas comme un bloc.
+        classes = set()
+        for bloc_selecteur in re.findall(r"([^{}]+)\{", css):
+            for sel in bloc_selecteur.split(","):
+                classes |= set(re.findall(r"\.([a-zA-Z0-9_-]+)", sel))
+        return classes
+
+    classes_globales = _classes_definies(style_css)
+    manquantes: dict[str, list[str]] = {}
+    for path in pages_html:
+        html = path.read_text(encoding="utf-8", errors="replace")
+        inline_css = "".join(re.findall(r"<style>(.*?)</style>", html, re.S))
+        classes_dispo = classes_globales | _classes_definies(inline_css) | CLASSES_HOOK_SANS_CSS
+        for classattr in re.findall(r'class="([^"]+)"', html):
+            for c in classattr.split():
+                # Classes visiblement injectées par un template JS (jamais
+                # littérales dans le HTML statique) : faux positifs connus.
+                if not c or c in classes_dispo or "+" in c or "${" in c:
+                    continue
+                manquantes.setdefault(c, []).append(str(path.relative_to(ROOT)))
+    return manquantes
 
 
 def main() -> int:
@@ -58,6 +105,26 @@ def main() -> int:
         print(f"[SEO FAIL] Champ date 'None' affiché dans : {', '.join(none_hits[:5])}"
               + (f" (+{len(none_hits)-5} autres)" if len(none_hits) > 5 else ""))
         failures += 1
+
+    # Garde-fou classes sans CSS (constat 04/08, .nav-dropdown sur 171 pages) —
+    # scanné sur les mêmes pages que le reste de ce fichier : les statiques
+    # ci-dessus, plus TOUS les articles (le défaut ne touchait qu'eux, et un
+    # seul échantillon ne l'aurait pas montré sur toutes les variantes de
+    # template).
+    style_css_path = ROOT / "src" / "style.css"
+    if style_css_path.exists():
+        style_css = style_css_path.read_text(encoding="utf-8", errors="replace")
+        pages_a_scanner = [p for p in targets] + articles
+        manquantes = classes_sans_css(pages_a_scanner, style_css)
+        if manquantes:
+            print(f"\n[SEO FAIL] Classe(s) utilisée(s) sans CSS trouvée nulle part :")
+            for c, pages_touchees in sorted(manquantes.items(), key=lambda x: -len(x[1])):
+                exemple = pages_touchees[0]
+                print(f"    .{c}  — {len(pages_touchees)} page(s), ex. {exemple}")
+            print("Si c'est volontaire (style entièrement inline), ajouter la classe "
+                  "à CLASSES_HOOK_SANS_CSS dans scripts/check_seo.py — après vérification "
+                  "manuelle, jamais pour faire taire cette alerte.")
+            failures += 1
 
     if failures:
         print(f"\n{failures} page(s) en échec — déploiement bloqué.")
