@@ -2,8 +2,8 @@
 """Point d'entrée renforcé du pipeline Les Faits.
 
 Il ajoute une consigne rédactionnelle spécialisée aux appels de génération,
-exécute le pipeline historique sans le dupliquer, puis lance les gardes
-éditoriaux déterministes sur les nouveaux articles.
+consolide les retraits déclarés, exécute le pipeline historique sans le
+dupliquer, puis lance les gardes éditoriaux sur les nouveaux articles.
 """
 from __future__ import annotations
 
@@ -106,9 +106,6 @@ def _run_legacy_pipeline() -> None:
         try:
             runpy.run_path(str(PIPELINE), run_name="__main__")
         except SystemExit as exc:
-            # argparse peut utiliser un entier, None ou un message texte. Tout
-            # arrêt non nul/non vide doit rester bloquant : ne jamais avaler
-            # silencieusement une erreur du pipeline historique.
             if exc.code not in (None, 0):
                 raise
     finally:
@@ -118,11 +115,18 @@ def _run_legacy_pipeline() -> None:
 def main() -> int:
     os.chdir(ROOT)
     args = set(sys.argv[1:])
+
+    retirement = {"changed": False}
+    # Un dry-run doit rester totalement sans effet de bord. Tous les autres
+    # modes appliquent les consolidations avant que le pipeline reconstruise
+    # ses index ou sélectionne de nouveaux sujets.
+    if "--dry-run" not in args:
+        from apply_retirements import apply_retirements
+        retirement = apply_retirements(ROOT)
+
     _patch_groq_generation_prompt()
     _run_legacy_pipeline()
 
-    # Rebuild et dry-run ne créent aucun article. Les options inconnues sont
-    # laissées au pipeline historique, qui reste l'unique parseur CLI.
     if "--dry-run" in args or "--rebuild" in args:
         return 0
 
@@ -131,8 +135,8 @@ def main() -> int:
 
     quality = process_generated_articles(ROOT)
     depth = process_editorial_depth(ROOT)
-    if quality.get("needs_rebuild") or depth.get("needs_rebuild"):
-        print("[GARDE ÉDITORIAL] Reconstruction des pages après retrait(s)…")
+    if retirement.get("changed") or quality.get("needs_rebuild") or depth.get("needs_rebuild"):
+        print("[GARDE ÉDITORIAL] Reconstruction des pages après consolidation/retrait…")
         subprocess.run(
             [sys.executable, str(PIPELINE), "--rebuild"],
             cwd=ROOT, check=True,
