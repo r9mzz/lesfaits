@@ -3,7 +3,7 @@
 
 Il ajoute une consigne rédactionnelle spécialisée aux appels de génération,
 consolide les retraits déclarés, exécute le pipeline historique sans le
-dupliquer, puis lance les gardes éditoriaux sur les nouveaux articles.
+dupliquer, puis lance les gardes éditoriaux sur les SEULS nouveaux articles.
 """
 from __future__ import annotations
 
@@ -39,6 +39,28 @@ CONSIGNE PREMIUM DE LISIBILITÉ — PRIORITÉ ABSOLUE :
   source de vérification ou les données fournies l'établissent explicitement, en attribuant ce constat.
 - N'ajoute aucun fait absent de la matière fournie. La précision prime toujours sur la longueur.
 """
+
+
+def _article_slugs(root: Path = ROOT) -> set[str]:
+    articles_dir = root / "articles"
+    if not articles_dir.exists():
+        return set()
+    return {path.stem for path in articles_dir.glob("*.html")}
+
+
+def _generated_article_paths(before: set[str], root: Path = ROOT) -> set[Path]:
+    """Retourne uniquement les fichiers créés pendant CE run.
+
+    ``pipeline.py`` met à jour le bloc « à lire aussi » de nombreux anciens
+    articles à chaque reconstruction. Leur présence dans ``git status`` ne doit
+    jamais les faire passer pour des articles neufs. Les stubs de consolidation
+    sont également créés avant la photographie ``before`` et sont donc exclus.
+    """
+    after = _article_slugs(root)
+    return {
+        (root / "articles" / f"{slug}.html").resolve()
+        for slug in after - before
+    }
 
 
 def _patch_groq_generation_prompt() -> None:
@@ -124,17 +146,34 @@ def main() -> int:
         from apply_retirements import apply_retirements
         retirement = apply_retirements(ROOT)
 
+    # Photographie APRÈS consolidation et AVANT génération : les gardes ne
+    # contrôleront que les nouveaux fichiers, jamais les anciens articles dont
+    # le bloc de bas de page a été rafraîchi pendant le rebuild.
+    article_slugs_before = _article_slugs(ROOT)
+
     _patch_groq_generation_prompt()
     _run_legacy_pipeline()
 
     if "--dry-run" in args or "--rebuild" in args:
         return 0
 
-    from editorial_quality import process_generated_articles
-    from editorial_depth import process_editorial_depth
+    generated_paths = _generated_article_paths(article_slugs_before, ROOT)
+    print(f"[GARDE ÉDITORIAL] {len(generated_paths)} fichier(s) réellement nouveau(x) à contrôler.")
 
-    quality = process_generated_articles(ROOT)
-    depth = process_editorial_depth(ROOT)
+    import editorial_quality
+    import editorial_depth
+
+    # Les deux modules gardent un repli basé sur git status pour leur usage
+    # autonome. Dans le vrai pipeline, on impose la liste exacte calculée ici.
+    editorial_quality._changed_article_paths = lambda: set(generated_paths)
+    quality = editorial_quality.process_generated_articles(ROOT)
+
+    # Un article rejeté par le premier garde n'existe plus : ne pas le reparcourir.
+    editorial_depth._changed_article_paths = lambda: {
+        path for path in generated_paths if path.exists()
+    }
+    depth = editorial_depth.process_editorial_depth(ROOT)
+
     if retirement.get("changed") or quality.get("needs_rebuild") or depth.get("needs_rebuild"):
         print("[GARDE ÉDITORIAL] Reconstruction des pages après consolidation/retrait…")
         subprocess.run(
