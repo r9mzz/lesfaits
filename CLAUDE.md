@@ -1,5 +1,95 @@
 # Les Faits — lesfaits.info
 
+## SOURCING PAR QUESTION — 05/08, le vrai écart avec la concurrence
+
+Nahil a trouvé **Le Courrier de France** (lecourrierdefrance.fr), autre journal
+100 % IA, et demandé pourquoi leurs articles sont plus intéressants. La réponse
+est structurelle, pas rédactionnelle. Mesure sur un de leurs articles (Ceuta,
+1er août) contre nos 149 publiés :
+
+```
+NOUS : médiane 4 sources (max 10), presque toujours des reprises de la même dépêche
+EUX  : 21 sources — droit primaire (EUR-Lex, code frontières Schengen art. 41),
+       2 arrêts de la CJUE, séries statistiques, 2 organismes de vérification,
+       chacune datée, typée (officiel/investigation/partie prenante/académique)
+       et appelée par une NOTE NUMÉROTÉE au niveau de chaque affirmation
+```
+
+**La cause n'était pas la qualité de la recherche, mais sa QUESTION.** Nos trois
+requêtes demandaient « qui d'autre parle de ce sujet ? » — une logique de
+CORROBORATION, qui ne peut par construction ramener que des articles de presse.
+Une logique de RECHERCHE demande « quels documents établissent les faits de ce
+sujet ? » et va chercher le texte de loi, l'arrêt, la série statistique, le
+rapport d'audit, la vérification.
+
+C'est aussi la racine du déficit de matière qui avait motivé le format brève :
+ces documents étaient disponibles depuis le début, on ne les cherchait pas.
+**Ne pas en conclure que la brève était une erreur** — elle reste le bon format
+quand la matière est réellement mince ; mais elle traitait un symptôme.
+
+### Ce qui a été implémenté (05/08)
+
+`_AXES_RECHERCHE` dans `duckduckgo_search()` : **4 axes universels + 1 à 2 axes
+propres à la rubrique**, soit 5 à 6 requêtes par sujet au lieu de 3.
+
+```
+universels : générique · officiel/juridique · contrôle/audit · vérification
+par rubrique : santé officielle + littérature médicale (sante),
+               publication scientifique (science), environnement officiel,
+               statistiques économiques (economie), statistiques publiques
+               (societe), régulation numérique (tech)
+```
+
+Trois points à ne pas défaire :
+- **Ne JAMAIS interrompre la boucle sur `len(results) >= max_results`.** Les axes
+  documentaires passent APRÈS l'axe générique : couper au plafond revient à ne
+  jamais les exécuter. C'est exactement le bug du 30/07, qui avait rendu la
+  requête institutionnelle inatteignable pendant des semaines.
+- **Tout nouveau domaine visé par un axe DOIT être ajouté à
+  `_DOMAINES_PRIMAIRES` ou `_DOMAINES_SECONDAIRES`**, sinon il compte
+  « tertiaire » et ne vaut rien pour la règle « ≥1 primaire OU ≥2 secondaires » —
+  la recherche ramènerait la bonne source et le contrôle l'ignorerait. Ajoutés
+  le 05/08 : OCDE, GIEC, Citepa, EFSA, FMI, Banque mondiale, FAO, OIT, CEDH,
+  Défenseur des droits, CNIL, Arcom, Autorité de la concurrence, IGAS, France
+  Stratégie. Et en secondaires, les organismes de VÉRIFICATION (AFP Factuel,
+  Newtral, Full Fact, Maldita, Correctiv) — ils n'établissent pas le fait mais
+  ils établissent si une affirmation publique est étayée, matière qui nous
+  manquait totalement.
+- `max_results` 26 → 45 : avec 5-6 axes le vivier brut est plus large, et couper
+  à 26 jetterait précisément les documents des derniers axes. Le tri par qualité
+  et `BUDGET_MATIERE` bornent ce qui part réellement dans le prompt — élargir
+  ici ne coûte AUCUN token Groq.
+
+`[SOURCING]` journalise à chaque sujet le total, la répartition primaire/
+secondaire/tertiaire ET le rendement par axe. **C'est la mesure à lire au
+prochain run** : elle dira quels axes rapportent des documents et lesquels sont
+du temps perdu, pour élaguer sur des chiffres plutôt qu'à l'intuition.
+
+### Les deux chantiers suivants, non faits
+
+2. **Notes de bas de page numérotées** à la place de l'attribution en prose
+   (« Selon Libération, RTBF et 20 Minutes… »). Ça supprimerait à la racine
+   l'empilement « une phrase = une source » qu'on combat depuis le 28/07 avec
+   `sources_non_fusionnees`, la règle 6 des brèves et deux détecteurs — le texte
+   redevient fluide et la preuve reste attachée à l'affirmation.
+3. **Intertitres éditoriaux** au lieu de « Les faits / Contexte / Débats et
+   nuances ». Les leurs portent l'information et font avancer la démonstration
+   (« Le chiffre de la nuit, et ce qu'il contient », « Libre circulation et
+   Schengen : deux régimes distincts ») ; les nôtres sont des noms de fonction,
+   du mobilier, identiques sur tous les sujets.
+
+### La question éditoriale que ça pose, et qui appartient à Nahil
+
+Leur article écrit : « L'agence AP classe cette causalité *non étayée*. Newtral
+ne la valide pas non plus. » Puis donne le raisonnement : « Un appel d'air
+général se verrait partout, pas sur un seul point pendant qu'il recule ailleurs. »
+
+C'est un argument tiré des données, et c'est neutre. **Notre charte l'interdit de
+fait** : `prise_de_position` est si large qu'on ne peut pas écrire « cette
+affirmation n'est pas étayée » même quand deux organismes de vérification le
+disent. On confond neutralité et abstention, et c'est pourquoi nos articles ne
+répondent jamais à la question que le lecteur se pose. À trancher.
+
 ## AUDIT ESTHÉTIQUE/LIENS DU 04/08 — .nav-dropdown cassé sur 171 pages, et un garde-fou permanent
 
 Nahil a demandé un audit complet, focalisé esthétique/liens, après plusieurs

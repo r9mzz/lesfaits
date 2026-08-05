@@ -395,6 +395,20 @@ _DOMAINES_PRIMAIRES = (
     "ncbi.nlm.nih.gov", "pubmed.gov", "cell.com", "pnas.org",
     "courdecassation.fr", "conseil-etat.fr", "ccomptes.fr",
     "ird.fr",  # institut public de recherche ajouté le 28/07
+    # ── Ajouts du 05/08, avec le sourcing par question ────────────────────
+    # Ces domaines sont visés par les nouveaux axes de recherche (voir
+    # `_AXES_RECHERCHE`). Sans les déclarer ici, un arrêt de la CJUE ou un
+    # rapport de l'OCDE compterait « tertiaire » et ne vaudrait rien pour la
+    # règle « ≥1 primaire OU ≥2 secondaires » — la recherche aurait ramené la
+    # bonne source et le contrôle l'aurait ignorée.
+    # (legifrance/eur-lex/curia/eurostat/drees/dares sont déjà couverts par
+    #  les suffixes .gouv.fr, .europa.eu et .int ci-dessus.)
+    "oecd.org", "ipcc.ch", "citepa.org", "efsa.europa.eu",
+    "imf.org", "worldbank.org", "fao.org", "unesco.org", "ilo.org",
+    "eurofound.europa.eu", "echr.coe.int", "coe.int",
+    "defenseurdesdroits.fr", "cnil.fr", "arcom.fr", "autoritedelaconcurrence.fr",
+    "igas.gouv.fr", "strategie.gouv.fr", "france-strategie.gouv.fr",
+    "observatoire-des-inegalites.fr", "ofce.sciences-po.fr",
 )
 _DOMAINES_SECONDAIRES = (
     "afp.com", "reuters.com", "apnews.com",
@@ -408,6 +422,13 @@ _DOMAINES_SECONDAIRES = (
     "theconversation.com", "sciencesetavenir.fr", "pourlascience.fr",
     "numerama.com", "novethic.fr",
     "courrierinternational.com", "slate.fr",  # ajoutés le 28/07
+    # Organismes de VÉRIFICATION (05/08) — ils ne sont pas « primaires » (ils
+    # ne produisent pas le fait) mais ce sont eux qui établissent si une
+    # affirmation publique est étayée. C'est la matière qui manquait le plus à
+    # nos articles : sans eux, on rapporte une polémique sans jamais pouvoir
+    # dire ce que les vérifications en disent.
+    "factuel.afp.com", "newtral.es", "fullfact.org", "maldita.es",
+    "correctiv.org", "faktencheck.afp.com", "snopes.com", "politifact.com",
 )
 
 
@@ -441,7 +462,92 @@ def bilan_qualite_sources(sources: list) -> dict:
     return {k: len(v) for k, v in domaines_vus.items()}
 
 
-def duckduckgo_search(query: str, max_results: int = 8) -> list[dict]:
+# ══════════════════════════════════════════════════════════════════════════════
+# SOURCING PAR QUESTION — et non plus par corroboration (05/08)
+# ══════════════════════════════════════════════════════════════════════════════
+# Constat comparatif du 05/08 (Nahil, sur un confrère 100 % IA) : à sujet égal,
+# ils publient 21 sources dont des textes de droit primaire, deux arrêts de
+# justice, des séries statistiques et deux organismes de vérification ; nous en
+# publions 4, presque toujours des reprises de la même dépêche (médiane mesurée
+# sur nos 149 articles).
+#
+# La cause n'était pas la qualité de la recherche mais sa QUESTION. Nos trois
+# requêtes demandaient « qui d'autre parle de ce sujet ? » — une logique de
+# corroboration, qui ne peut par construction ramener que des articles de
+# presse. Une logique de recherche demande « quels documents établissent les
+# faits de ce sujet ? », et va chercher le texte de loi, l'arrêt, la série
+# statistique, le rapport d'audit, la vérification.
+#
+# C'est aussi la racine du déficit de matière qui nous a fait créer le format
+# brève : ces documents étaient disponibles, on ne les cherchait pas.
+#
+# Chaque axe ne coûte AUCUN token Groq — seule l'injection dans le prompt est
+# facturée, et elle reste bornée par BUDGET_MATIERE. Le coût d'un axe est une
+# requête DDG (~1-2 s), payée une fois par sujet.
+_AXES_UNIVERSELS = (
+    # (nom, suffixe de requête) — joués sur TOUS les sujets.
+    ("générique", ""),
+    ("officiel/juridique",
+     "site:legifrance.gouv.fr OR site:eur-lex.europa.eu OR site:curia.europa.eu "
+     "OR site:conseil-etat.fr OR site:vie-publique.fr"),
+    ("contrôle/audit",
+     "rapport site:ccomptes.fr OR site:senat.fr OR site:assemblee-nationale.fr "
+     "OR site:igas.gouv.fr OR site:defenseurdesdroits.fr"),
+    ("vérification",
+     "vérification site:factuel.afp.com OR site:lemonde.fr OR site:newtral.es "
+     "OR site:fullfact.org"),
+)
+
+# Axes supplémentaires selon la rubrique — c'est ce qui distingue une recherche
+# d'une requête générique : on ne cherche pas les mêmes documents pour un
+# sujet santé et pour un sujet économique.
+_AXES_PAR_CATEGORIE = {
+    "sante": (
+        ("santé officielle",
+         "site:has-sante.fr OR site:ansm.sante.fr OR site:santepubliquefrance.fr "
+         "OR site:who.int OR site:efsa.europa.eu"),
+        ("littérature médicale",
+         "étude site:pubmed.ncbi.nlm.nih.gov OR site:thelancet.com OR site:nejm.org "
+         "OR site:inserm.fr"),
+    ),
+    "science": (
+        ("publication scientifique",
+         "site:nature.com OR site:science.org OR site:pnas.org OR site:cnrs.fr "
+         "OR site:cea.fr"),
+    ),
+    "environnement": (
+        ("environnement officiel",
+         "site:ademe.fr OR site:citepa.org OR site:ipcc.ch OR site:meteofrance.fr "
+         "OR site:eea.europa.eu OR site:anses.fr"),
+    ),
+    "economie": (
+        ("statistiques économiques",
+         "chiffres site:insee.fr OR site:banque-france.fr OR site:oecd.org "
+         "OR site:ec.europa.eu OR site:dares.travail-emploi.gouv.fr"),
+    ),
+    "societe": (
+        ("statistiques publiques",
+         "chiffres site:insee.fr OR site:drees.solidarites-sante.gouv.fr "
+         "OR site:ined.fr OR site:observatoire-des-inegalites.fr"),
+    ),
+    "tech": (
+        ("régulation numérique",
+         "site:cnil.fr OR site:arcom.fr OR site:autoritedelaconcurrence.fr "
+         "OR site:digital-strategy.ec.europa.eu"),
+    ),
+}
+
+
+def _requetes_recherche(query: str, categorie: str = "") -> list[tuple[str, str]]:
+    """Construit les requêtes de recherche documentaire pour un sujet.
+
+    Retourne une liste de (nom_axe, requête). 4 axes universels + 1 à 2 axes
+    propres à la rubrique, soit 5 à 6 requêtes par sujet."""
+    axes = list(_AXES_UNIVERSELS) + list(_AXES_PAR_CATEGORIE.get((categorie or "").lower(), ()))
+    return [(nom, f"{query} {suffixe}".strip()) for nom, suffixe in axes]
+
+
+def duckduckgo_search(query: str, max_results: int = 8, categorie: str = "") -> list[dict]:
     """Recherche DuckDuckGo via la librairie duckduckgo-search (endpoint API, pas scraping HTML)."""
     try:
         from ddgs import DDGS
@@ -462,13 +568,9 @@ def duckduckgo_search(query: str, max_results: int = 8) -> list[dict]:
         mots = re.findall(r"[a-z0-9]{3,}", t)
         return " ".join(sorted(mots)[:8])
 
-    queries = [
-        query,
-        query + " rapport statistiques données officielles",
-        query + " site:gouv.fr OR site:inserm.fr OR site:insee.fr OR site:who.int",
-    ]
-
-    for q in queries:
+    rendement_axes: list[str] = []
+    for nom_axe, q in _requetes_recherche(query, categorie):
+        avant = len(results)
         try:
             with DDGS() as ddgs:
                 for r in ddgs.text(q, max_results=10, region="fr-fr"):
@@ -491,20 +593,29 @@ def duckduckgo_search(query: str, max_results: int = 8) -> list[dict]:
                         "title":   r.get("title", ""),
                         "url":     url,
                         "snippet": r.get("body", ""),
+                        "_axe":    nom_axe,
                     })
         except Exception:
             pass
+        rendement_axes.append(f"{nom_axe} +{len(results) - avant}")
 
-    # BUG CORRIGÉ (30/07) : la boucle s'arrêtait dès `len(results) >= max_results`.
-    # Or la 3e requête est CELLE QUI CHERCHE LES SOURCES PRIMAIRES
-    # (site:gouv.fr OR inserm OR insee OR who.int). Avec l'ancien plafond de 15,
-    # les deux premières requêtes (10 résultats chacune) suffisaient à
-    # l'atteindre : la requête institutionnelle n'était JAMAIS exécutée.
-    # C'est ce qui explique les rejets répétés « 0 primaire(s), 0 secondaire(s),
-    # N tertiaire(s) » — le pipeline exigeait une source primaire tout en
-    # sautant systématiquement la seule requête conçue pour en trouver une.
-    # Les trois requêtes sont désormais toujours jouées : elles ne coûtent
-    # aucun token Groq, seule l'injection dans le prompt est facturée.
+    # Rendement PAR AXE : sans ça, on ne saura pas lesquels rapportent
+    # réellement des documents et lesquels sont du temps perdu — c'est la
+    # mesure qui permettra d'élaguer ou d'étendre `_AXES_PAR_CATEGORIE` sur
+    # des chiffres relevés plutôt que devinés.
+    _q = Counter(qualite_source(r["url"]) for r in results)
+    print(f"     [SOURCING] {len(results)} sources — "
+          f"{_q.get('primaire', 0)} primaire(s), {_q.get('secondaire', 0)} secondaire(s), "
+          f"{_q.get('tertiaire', 0)} tertiaire(s)  |  " + " · ".join(rendement_axes))
+
+    # BUG CORRIGÉ (30/07), toujours valable : ne JAMAIS interrompre la boucle
+    # sur `len(results) >= max_results`. Les axes documentaires (juridique,
+    # audit, vérification, rubrique) passent APRÈS l'axe générique — s'arrêter
+    # au plafond revient à ne jamais les exécuter, ce qui était exactement le
+    # cas avant le 30/07 : le pipeline exigeait une source primaire tout en
+    # sautant la seule requête conçue pour en trouver une.
+    # On coupe donc UNIQUEMENT à la fin, après avoir joué tous les axes, et le
+    # tri par qualité (primaire d'abord) est fait par l'appelant.
     return results[:max_results]
 
 
@@ -6465,7 +6576,14 @@ def generer_article(item: dict, dry_run: bool, published: set, new_pub: set, dat
     # le correctif d'injection ne servait à rien. La recherche DDG ne coûte
     # AUCUN token Groq : élargir le vivier est gratuit, seule l'injection
     # dans le prompt est facturée, et elle reste bornée par BUDGET_MATIERE.
-    extra = duckduckgo_search(item["title"] + " " + cat, max_results=26)
+    # 26 → 45 (05/08) : on joue désormais 5 à 6 axes de recherche documentaire
+    # au lieu de 3 requêtes de corroboration, donc le vivier brut est plus
+    # large. Couper à 26 reviendrait à jeter les documents rapportés par les
+    # derniers axes — juridique, audit, vérification — c'est-à-dire exactement
+    # ceux qu'on cherchait à obtenir. Le tri par qualité juste après garde les
+    # meilleurs, et BUDGET_MATIERE borne ce qui part réellement dans le prompt :
+    # élargir ici ne coûte donc aucun token Groq.
+    extra = duckduckgo_search(item["title"] + " " + cat, max_results=45, categorie=cat)
     pubmed = pubmed_search(item["title"], max_results=4)
     # Fusionner sans doublons
     seen_urls = {s["url"] for s in extra}
