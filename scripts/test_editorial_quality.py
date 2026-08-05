@@ -1,13 +1,15 @@
 # -*- coding: utf-8 -*-
 import sys
+import tempfile
 import unittest
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
 from editorial_quality import (  # noqa: E402
-    ArticleRecord, Source, annotate_attributions, parse_article,
-    quality_issues, repeated_statement, same_event, timeline_conflict,
+    ArticleRecord, Source, annotate_attributions, improve_article_html,
+    parse_article, quality_issues, repeated_statement, same_event,
+    timeline_conflict,
 )
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -86,6 +88,72 @@ class EditorialQualityTests(unittest.TestCase):
         a.format = "breve"
         hard, _ = quality_issues(a)
         self.assertTrue(any("remplissage générique" in issue for issue in hard))
+
+    def test_html_citations_and_transparency_wording(self):
+        html = '''<!DOCTYPE html><html lang="fr"><head></head><body>
+        <p class="art__resume">Selon France Info et Le Monde, la mesure entre en vigueur lundi.</p>
+        <h2 class="art__h2">Les faits</h2><p>Selon France Info, le texte a été publié.</p>
+        <div class="art__ai-badge">✓ 2 sources vérifiées</div>
+        <div class="art__pourquoi">Le fact-check automatisé n'a relevé aucune anomalie : article publié tel que généré.</div>
+        <section class="sources"><ol>
+        <li><cite>France Info</cite><em>Titre A</em><a href="https://a.test">Lire</a></li>
+        <li><cite>Le Monde</cite><em>Titre B</em><a href="https://b.test">Lire</a></li>
+        </ol></section></body></html>'''
+        with tempfile.TemporaryDirectory() as tmp:
+            path = Path(tmp) / "test.html"
+            path.write_text(html, encoding="utf-8")
+            record = ArticleRecord(
+                path=path, slug="test", title="Test", lead="", facts="",
+                context="", nuances="", date_iso="2026-08-05",
+                sources=[
+                    Source("France Info", "Titre A", "https://a.test"),
+                    Source("Le Monde", "Titre B", "https://b.test"),
+                ],
+            )
+            improve_article_html(record)
+            result = path.read_text(encoding="utf-8")
+            self.assertIn('id="source-1"', result)
+            self.assertIn('href="#source-1"', result)
+            self.assertIn("2 sources consultées", result)
+            self.assertIn("aucun défaut bloquant", result)
+            self.assertNotIn("Selon France Info et Le Monde", result)
+
+    def test_generation_prompt_is_reinforced(self):
+        import types
+        from run_pipeline import EDITORIAL_ADDENDUM, _patch_groq_generation_prompt
+
+        captured = {}
+
+        class FakeCompletions:
+            def create(self, *args, **kwargs):
+                captured.update(kwargs)
+                return object()
+
+        class FakeChat:
+            completions = FakeCompletions()
+
+        class FakeClient:
+            chat = FakeChat()
+
+        fake_groq = types.ModuleType("groq")
+        fake_groq.Groq = lambda *args, **kwargs: FakeClient()
+        previous = sys.modules.get("groq")
+        try:
+            sys.modules["groq"] = fake_groq
+            _patch_groq_generation_prompt()
+            client = fake_groq.Groq(api_key="test")
+            client.chat.completions.create(messages=[{
+                "role": "system",
+                "content": "Tu es l'IA rédactrice de Les Faits, journal numérique français indépendant.",
+            }])
+            content = captured["messages"][0]["content"]
+            self.assertIn("CONSIGNE PREMIUM DE LISIBILITÉ", content)
+            self.assertIn(EDITORIAL_ADDENDUM.strip(), content)
+        finally:
+            if previous is None:
+                sys.modules.pop("groq", None)
+            else:
+                sys.modules["groq"] = previous
 
 
 if __name__ == "__main__":
