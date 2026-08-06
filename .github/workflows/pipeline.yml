@@ -127,9 +127,15 @@ jobs:
         if: steps.garde.outputs.passer != 'true'
         run: pip install -r requirements.txt
 
-      - name: Tester le garde éditorial
+      - name: Prévol qualité vitrine
         if: steps.garde.outputs.passer != 'true'
-        run: python scripts/test_editorial_quality.py
+        run: |
+          python -m py_compile scripts/run_pipeline.py scripts/showcase_quality.py
+          python scripts/test_editorial_quality.py
+          python scripts/test_editorial_depth.py
+          python scripts/test_run_pipeline.py
+          python scripts/test_quota_wait.py
+          python scripts/test_showcase_quality.py
 
       # ── 3. Récupérer les images existantes pour le dédup MD5 ────────────
       - name: Récupérer les images depuis lesfaits-site
@@ -170,9 +176,9 @@ jobs:
           GROQ_API_KEY_22:  ${{ secrets.GROQ_API_KEY_22 }}
           GROQ_API_KEY_23:  ${{ secrets.GROQ_API_KEY_23 }}
           PEXELS_API_KEY:   ${{ secrets.PEXELS_API_KEY }}
-          # Vérification 3 passes (fact-check + correction auto) — le pipeline
-          # fonctionne sans, avec statut "non_verifie" sur les articles
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          GROQ_WAIT_MAX_MINUTES: "150"
+          MAX_SHOWCASE_PUBLICATIONS: "2"
           PYTHONIOENCODING: utf-8
           TZ: Europe/Paris
         run: |
@@ -182,7 +188,7 @@ jobs:
             python scripts/run_pipeline.py
           fi
 
-      # ── 4. Commit dans le repo privé (sans déployer sur le site) ─────────
+      # ── 5. Commit dans le repo privé (sans déployer sur le site) ─────────
       - name: Sauvegarder les articles générés
         if: steps.garde.outputs.passer != 'true'
         env:
