@@ -42,20 +42,6 @@
     "statut_verification": "conforme_du_premier_coup"
   },
   {
-    "slug": "collision-lunaire-fusee-spacex",
-    "titre": "Collision lunaire d’une fusée SpaceX",
-    "categorie": "science",
-    "nb_sources": 3,
-    "nb_mots": 108,
-    "format": "breve",
-    "date": "5 août 2026, 15h05",
-    "resume": [
-      "Un incident spatial inédit se produit ce mercredi avec l'impact d'une fusée sur la Lune."
-    ],
-    "image_keyword": "space rocket crash",
-    "statut_verification": "conforme_du_premier_coup"
-  },
-  {
     "slug": "anomalie-immunitaire-infections-virales",
     "titre": "Inserm et Pasteur identifient anomalie immunitaire dans 10% des cas de pneumonie grave",
     "categorie": "sante",
@@ -212,21 +198,6 @@
     ],
     "image_keyword": "euro coins stack",
     "statut_verification": "conforme_du_premier_coup"
-  },
-  {
-    "slug": "eclipse-solaire-12-aout-france",
-    "titre": "Éclipse solaire du 12 août visible en France",
-    "categorie": "environnement",
-    "nb_sources": 4,
-    "nb_mots": 514,
-    "date": "2 août 2026, 05h59",
-    "resume": [
-      "Une éclipse solaire exceptionnelle se produira le 12 août, offrant aux Français une opportunité unique d'observer un phénomène rare, avec des précautions nécessaires pour la sécurité des observateurs.",
-      "Cette éclipse intervient dans un contexte de sensibilisation accrue aux phénomènes météorologiques extrêmes, qui peuvent avoir des impacts significatifs sur la santé publique, notamment en raison du changement climatique.",
-      "Les autorités et les experts mettent en garde contre les risques potentiels liés à l'observation de l'éclipse sans protection adéquate, soulignant la nécessité de prendre des mesures de sécurité pour profiter pleinement de cet événement astronomique."
-    ],
-    "image_keyword": "solar eclipse europe",
-    "statut_verification": "corrige_automatiquement"
   },
   {
     "slug": "eclipse-solaire-12-aout-2026",
