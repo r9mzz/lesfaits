@@ -9,13 +9,22 @@ from __future__ import annotations
 
 import copy
 import os
-import runpy
 import subprocess
 import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 PIPELINE = ROOT / "scripts" / "pipeline.py"
+
+# Le pipeline historique n'attend que 15 minutes quand toutes les clés Groq
+# sont temporairement au plafond TPD. Or le quota est une fenêtre glissante de
+# 24 h et les crons GitHub peuvent être décalés de plusieurs heures d'un jour à
+# l'autre : une clé consommée à 15 h la veille peut encore être bloquée lors
+# d'un départ à 13 h le lendemain. Le budget global de génération reste borné à
+# 4 h dans pipeline.py et le job GitHub à 5 h ; 150 minutes laissent donc encore
+# au moins 90 minutes pour produire quelques articles solides plutôt que rendre
+# immédiatement un lot vide.
+GROQ_WAIT_MAX_MINUTES = int(os.getenv("GROQ_WAIT_MAX_MINUTES", "150"))
 
 EDITORIAL_ADDENDUM = r"""
 
@@ -121,12 +130,48 @@ def _patch_groq_generation_prompt() -> None:
     groq.Groq = patched_groq
 
 
+def _prepared_pipeline_source() -> str:
+    """Prépare le pipeline historique avec une attente TPD adaptée aux crons.
+
+    Le remplacement reste volontairement strict : si le marqueur change ou est
+    dupliqué, le run échoue avant tout appel API au lieu d'exécuter une version
+    dont la protection quota serait ambiguë.
+    """
+    if not 15 <= GROQ_WAIT_MAX_MINUTES <= 180:
+        raise ValueError(
+            "GROQ_WAIT_MAX_MINUTES doit rester compris entre 15 et 180 minutes"
+        )
+
+    source = PIPELINE.read_text(encoding="utf-8")
+    marker = "ATTENTE_MAX_LIBERATION = 15 * 60"
+    if source.count(marker) != 1:
+        raise RuntimeError(
+            "Marqueur ATTENTE_MAX_LIBERATION introuvable ou dupliqué dans pipeline.py"
+        )
+
+    replacement = f"ATTENTE_MAX_LIBERATION = {GROQ_WAIT_MAX_MINUTES} * 60"
+    prepared = source.replace(marker, replacement, 1)
+    compile(prepared, str(PIPELINE), "exec")
+    print(
+        f"[PRÉVOL] Attente maximale d'une libération Groq : "
+        f"{GROQ_WAIT_MAX_MINUTES} min"
+    )
+    return prepared
+
+
 def _run_legacy_pipeline() -> None:
     old_argv0 = sys.argv[0]
     sys.argv[0] = str(PIPELINE)
+    namespace = {
+        "__name__": "__main__",
+        "__file__": str(PIPELINE),
+        "__package__": None,
+        "__cached__": None,
+    }
     try:
         try:
-            runpy.run_path(str(PIPELINE), run_name="__main__")
+            source = _prepared_pipeline_source()
+            exec(compile(source, str(PIPELINE), "exec"), namespace)
         except SystemExit as exc:
             if exc.code not in (None, 0):
                 raise
