@@ -26,6 +26,11 @@ PIPELINE = ROOT / "scripts" / "pipeline.py"
 # immédiatement un lot vide.
 GROQ_WAIT_MAX_MINUTES = int(os.getenv("GROQ_WAIT_MAX_MINUTES", "150"))
 
+# Mode démonstrateur : continuer à tester les candidats jusqu'à obtenir au plus
+# deux articles qui passent la grille stricte de showcase_quality.py. Ce plafond
+# porte sur les articles réellement acceptés, pas sur le nombre de tentatives.
+MAX_SHOWCASE_PUBLICATIONS = int(os.getenv("MAX_SHOWCASE_PUBLICATIONS", "2"))
+
 EDITORIAL_ADDENDUM = r"""
 
 CONSIGNE PREMIUM DE LISIBILITÉ — PRIORITÉ ABSOLUE :
@@ -130,33 +135,68 @@ def _patch_groq_generation_prompt() -> None:
     groq.Groq = patched_groq
 
 
-def _prepared_pipeline_source() -> str:
-    """Prépare le pipeline historique avec une attente TPD adaptée aux crons.
+def _replace_once(source: str, marker: str, replacement: str, label: str) -> str:
+    """Remplacement strict : jamais de patch silencieux sur une autre version."""
+    if source.count(marker) != 1:
+        raise RuntimeError(f"Marqueur {label} introuvable ou dupliqué dans pipeline.py")
+    return source.replace(marker, replacement, 1)
 
-    Le remplacement reste volontairement strict : si le marqueur change ou est
-    dupliqué, le run échoue avant tout appel API au lieu d'exécuter une version
-    dont la protection quota serait ambiguë.
+
+def _prepared_pipeline_source() -> str:
+    """Prépare le pipeline historique pour un run qualité-first.
+
+    Trois adaptations sont appliquées sans modifier le fichier historique :
+    attente du quota glissant, grille vitrine avant écriture HTML, puis arrêt
+    après le nombre demandé d'articles réellement acceptés.
     """
     if not 15 <= GROQ_WAIT_MAX_MINUTES <= 180:
         raise ValueError(
             "GROQ_WAIT_MAX_MINUTES doit rester compris entre 15 et 180 minutes"
         )
-
-    source = PIPELINE.read_text(encoding="utf-8")
-    marker = "ATTENTE_MAX_LIBERATION = 15 * 60"
-    if source.count(marker) != 1:
-        raise RuntimeError(
-            "Marqueur ATTENTE_MAX_LIBERATION introuvable ou dupliqué dans pipeline.py"
+    if not 1 <= MAX_SHOWCASE_PUBLICATIONS <= 3:
+        raise ValueError(
+            "MAX_SHOWCASE_PUBLICATIONS doit rester compris entre 1 et 3"
         )
 
-    replacement = f"ATTENTE_MAX_LIBERATION = {GROQ_WAIT_MAX_MINUTES} * 60"
-    prepared = source.replace(marker, replacement, 1)
-    compile(prepared, str(PIPELINE), "exec")
-    print(
-        f"[PRÉVOL] Attente maximale d'une libération Groq : "
-        f"{GROQ_WAIT_MAX_MINUTES} min"
+    source = PIPELINE.read_text(encoding="utf-8")
+    source = _replace_once(
+        source,
+        "ATTENTE_MAX_LIBERATION = 15 * 60",
+        f"ATTENTE_MAX_LIBERATION = {GROQ_WAIT_MAX_MINUTES} * 60",
+        "ATTENTE_MAX_LIBERATION",
     )
-    return prepared
+
+    html_marker = "        try:\n            html = build_article_html(art, date_pub)"
+    showcase_guard = """        from showcase_quality import validate_generated_article
+        _showcase_ok, _showcase_reasons = validate_generated_article(art, article_type)
+        if not _showcase_ok:
+            print("     [REJET VITRINE] " + " ; ".join(_showcase_reasons))
+            return False
+        print(
+            f"     [VITRINE] ✓ article admis : {art.get('nb_mots', 0)} mots, "
+            f"{len(art.get('sources') or [])} sources"
+        )
+
+        try:
+            html = build_article_html(art, date_pub)"""
+    source = _replace_once(source, html_marker, showcase_guard, "garde vitrine")
+
+    cap_marker = '                    published_topics.add(item.get("title", ""))'
+    cap_replacement = cap_marker + f"""
+                    if len(new_pub) >= {MAX_SHOWCASE_PUBLICATIONS}:
+                        print(
+                            "  [VITRINE] Objectif atteint : "
+                            f"{{len(new_pub)}} article(s) premium accepté(s)."
+                        )
+                        break"""
+    source = _replace_once(source, cap_marker, cap_replacement, "plafond vitrine")
+
+    compile(source, str(PIPELINE), "exec")
+    print(
+        f"[PRÉVOL] Attente Groq : {GROQ_WAIT_MAX_MINUTES} min ; "
+        f"objectif vitrine : {MAX_SHOWCASE_PUBLICATIONS} article(s) maximum"
+    )
+    return source
 
 
 def _run_legacy_pipeline() -> None:
