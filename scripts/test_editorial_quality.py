@@ -37,12 +37,30 @@ class EditorialQualityTests(unittest.TestCase):
         self.assertTrue(same_event(a, b))
 
     def test_real_spacex_regression(self):
-        first = ROOT / "articles" / "collision-lunaire-fusee-spacex.html"
-        second = ROOT / "articles" / "fusee-spacex-ecrase-lune.html"
-        if not first.exists() or not second.exists():
-            self.skipTest("articles de régression absents du corpus")
-        a = parse_article(first, {"format": "breve", "nb_mots": 108})
-        b = parse_article(second, {"format": "breve", "nb_mots": 149})
+        # Le premier article réel a été consolidé le 06/08 et son fichier est
+        # désormais un stub de redirection. Conserver ici les caractéristiques
+        # éditoriales du doublon d'origine rend la régression stable sans
+        # dépendre de l'état courant du corpus ni affaiblir le détecteur.
+        a = article(
+            "Collision lunaire d’une fusée SpaceX",
+            [
+                "https://example.com/impact-fusee-lune",
+                "https://media.test/collision-lunaire",
+            ],
+            body=(
+                "La fusée devait s’écraser mercredi. "
+                "Elle a percuté la Lune à plus de 8 500 kilomètres par heure."
+            ),
+            slug="collision-lunaire-fusee-spacex",
+        )
+        b = article(
+            "Fusée SpaceX s’écrase sur la Lune",
+            [
+                "https://example.com/impact-fusee-lune?utm_source=rss",
+                "https://media.test/fusee-spacex",
+            ],
+            slug="fusee-spacex-ecrase-lune",
+        )
         self.assertTrue(same_event(a, b))
         self.assertTrue(timeline_conflict(a.lead + " " + a.facts))
 
