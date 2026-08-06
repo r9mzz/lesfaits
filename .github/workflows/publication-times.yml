@@ -1,0 +1,71 @@
+name: Horodatage réel des publications
+
+on:
+  pull_request:
+    paths:
+      - "scripts/stamp_publication_times.py"
+      - "scripts/test_stamp_publication_times.py"
+      - ".github/workflows/publication-times.yml"
+  workflow_dispatch:
+  workflow_run:
+    workflows: ["Factuel — Déploiement site"]
+    types: [completed]
+
+permissions:
+  contents: read
+
+jobs:
+  tests:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Vérifier la syntaxe
+        run: python -m py_compile scripts/stamp_publication_times.py scripts/test_stamp_publication_times.py
+      - name: Tester l’horodatage public
+        run: python scripts/test_stamp_publication_times.py
+
+  stamp:
+    if: >-
+      github.event_name == 'workflow_dispatch' ||
+      (github.event_name == 'workflow_run' && github.event.workflow_run.conclusion == 'success')
+    needs: tests
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    concurrency:
+      group: publication-time-stamp
+      cancel-in-progress: false
+    steps:
+      - name: Checkout du moteur
+        uses: actions/checkout@v4
+        with:
+          ref: main
+
+      - name: Cloner le site public
+        env:
+          SITE_DEPLOY_TOKEN: ${{ secrets.SITE_DEPLOY_TOKEN }}
+        run: |
+          git clone https://x-access-token:${SITE_DEPLOY_TOKEN}@github.com/r9mzz/lesfaits-site.git /tmp/site
+
+      - name: Appliquer l’heure réelle du déploiement
+        run: |
+          PUBLISHED_AT=$(git -C /tmp/site show -s --format=%cI HEAD)
+          echo "Commit public horodaté : $PUBLISHED_AT"
+          python scripts/stamp_publication_times.py \
+            --site-dir /tmp/site \
+            --previous-ref HEAD~1 \
+            --published-at "$PUBLISHED_AT"
+
+      - name: Publier les horodatages corrigés
+        working-directory: /tmp/site
+        run: |
+          git config user.name "Factuel Bot"
+          git config user.email "bot@lesfaits.info"
+          git add -A
+          git diff --cached --quiet && echo "Aucun horaire à corriger." && exit 0
+          NB=$(git diff --cached --name-only --diff-filter=M -- articles/ | wc -l)
+          git commit -m "fix: heure réelle de publication — ${NB} article(s) aligné(s)"
+          git push
