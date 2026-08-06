@@ -52,6 +52,25 @@ CONSIGNE PREMIUM DE LISIBILITÉ — PRIORITÉ ABSOLUE :
 - La neutralité n'est pas l'abstention : tu peux écrire qu'une affirmation n'est pas étayée si une
   source de vérification ou les données fournies l'établissent explicitement, en attribuant ce constat.
 - N'ajoute aucun fait absent de la matière fournie. La précision prime toujours sur la longueur.
+
+MODE VITRINE — LA SORTIE DOIT POUVOIR ÊTRE PUBLIÉE SANS RÉSERVE :
+- Utilise AU MOINS 6 sources distinctes, réparties sur AU MOINS 5 domaines.
+  Privilégie au moins 1 source primaire et 2 médias de référence ; à défaut,
+  utilise au moins 5 médias de référence indépendants. Toutes les sources
+  présentes dans le tableau final doivent être réellement appelées par une note [n].
+- Le corps doit contenir au minimum 420 mots de faits, 180 mots de contexte et
+  130 mots de nuances, en plusieurs paragraphes. Si la matière ne permet pas
+  trois sections substantielles et réellement différentes, réponds uniquement
+  HORS_PERIMETRE au lieu de remplir ou d'étirer le texte.
+- Les trois intertitres éditoriaux sont obligatoires, spécifiques au sujet et
+  ancrés dans leur section. « Les faits », « Contexte », « À retenir » ou tout
+  autre libellé générique sont interdits.
+- L'angle_reponse doit être une vraie question de lecteur, précise et non
+  interchangeable. Le résumé doit comporter exactement trois phrases : fait,
+  enjeu, puis limite ou incertitude.
+- Répartis au moins 10 appels de notes [n] dans l'ensemble du texte. Une note
+  ne remplace pas la synthèse : plusieurs sources qui établissent le même fait
+  restent groupées sur une seule phrase.
 """
 
 
