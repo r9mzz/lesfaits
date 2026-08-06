@@ -392,6 +392,14 @@ a:hover .title-xl, a:hover .title-md, a:hover .title-sm { color: var(--blue-ink)
 .sources h3 { font-size: 9px; font-weight: 700; letter-spacing: 2.5px; color: var(--muted); margin-bottom: 14px; }
 .sources ol { padding-left: 18px; }
 .sources li { font-size: 12px; color: var(--muted); margin-bottom: 8px; line-height: 1.55; }
+/* Citations numérotées [n] dans le corps (05/08) — remplace l'attribution en
+   prose ("Selon X, D'après Y") par des notes de bas de page cliquables. */
+.cite { font-size: .68em; line-height: 0; }
+.cite a {
+  color: var(--blue-ink); text-decoration: none; font-weight: 700; padding: 0 1px;
+}
+.cite a:hover { text-decoration: underline; }
+.sources li:target { background: var(--light); border-radius: 4px; margin: 0 -6px 8px; padding: 4px 6px; }
 .sources li a { color: var(--blue); background-image: linear-gradient(var(--blue), var(--blue)); background-repeat: no-repeat; background-position: 0 100%; background-size: 0% 1px; transition: background-size .25s var(--ease); padding-bottom: 1px; }
 .sources li a:hover { background-size: 100% 1px; }
 

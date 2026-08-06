@@ -57,6 +57,8 @@ PROMPT_DETECTION = """Tu es un fact-checker indépendant et rigoureux pour Les F
 
 AVANT TOUT — LIMITE DE TA PROPRE CONNAISSANCE. Tu juges uniquement par rapport aux sources fournies. Ta connaissance du monde s'arrête à une date passée : un produit, une institution, un chiffre ou un événement que tu ne connais pas peut être parfaitement réel et postérieur à ton entraînement. Ne signale JAMAIS un élément comme inventé, erroné ou périmé au motif que tu l'ignores — seulement s'il contredit les sources listées ou n'y apparaît pas. Cela vaut en particulier pour "source_inventee", "chiffre_errone", "annonce_perimee" et "fait_tranche_arbitrairement".
 
+FORMAT DE CITATION (05/08) : cet article n'attribue PLUS ses faits par une prose du type "Selon X, D'après Y" — chaque fait porte un numéro [n] entre crochets renvoyant à sa position dans le tableau "sources" fourni (1 = premier élément). Ce n'est PAS une absence d'attribution : vérifie le fait contre la source à cette position exacte, exactement comme tu l'aurais fait pour un "Selon X". Un [n] qui renvoie à une source dont le contenu ne confirme pas le fait est un "source_inventee" au même titre qu'une fausse attribution en prose. Ne signale PAS l'absence du nom du média dans le texte comme un défaut — c'est le format attendu, pas un oubli.
+
 Chaque type de problème appartient à un bloc. Le bloc détermine si l'article peut être corrigé automatiquement ou doit partir en relecture humaine — indique-le pour chaque problème via le champ "bloc".
 
 BLOC 1 — FACTUEL (zéro tolérance) :
@@ -114,7 +116,8 @@ NE classe PAS "sujet_sensible": true au seul motif qu'un sujet est politique, r�
 - aucune actualité identifiable ne justifie une publication maintenant (l'article ressemble à une fiche pédagogique générale sans fait déclencheur daté) ;
 - les sources fournies sont trop pauvres pour expliquer correctement le sujet (ex : cas médical exceptionnel sans diagnostic, mécanisme ou évolution connus) ;
 - le "contexte" a dû être rempli avec un fait divers sans rapport direct avec le sujet principal faute de matière pertinente ;
-- un lecteur terminant l'article ne saurait toujours pas ce qui s'est réellement passé, pourquoi c'est publié maintenant, ce qui est établi et ce qui ne l'est pas.
+- un lecteur terminant l'article ne saurait toujours pas ce qui s'est réellement passé, pourquoi c'est publié maintenant, ce qui est établi et ce qui ne l'est pas ;
+- le champ "angle_reponse" fourni annonce une question précise (ex. « ce chiffre change-t-il quelque chose pour la France ? ») et rien dans l'article n'y répond explicitement — un article qui expose des faits sans jamais revenir à sa propre question a un angle manqué, pas seulement un sujet mince.
 
 TEST OPÉRATIONNEL OBLIGATOIRE (applique-le systématiquement, ne te fie pas à une impression générale) : cherche dans "faits" UNE phrase qui contienne à la fois (a) un événement précis daté ou datable (annonce, publication, décision, résultat rendu public récemment) ET (b) une donnée chiffrée ou nommée qui lui est propre. Si aucune phrase de "faits" ne remplit ce double critère — si le texte ne fait qu'expliquer un concept, une notion ou un phénomène général en citant des institutions sans jamais dire CE QUI VIENT DE SE PASSER — alors angle_insuffisant = true, même si l'article est bien écrit, bien sourcé et neutre. Un article qui répond à "qu'est-ce que X ?" plutôt qu'à "pourquoi parle-t-on de X maintenant ?" est TOUJOURS insuffisant, quelle que soit la qualité de ses sources. Ce n'est PAS un jugement de style : un article bien écrit sur un sujet creux reste "angle_insuffisant": true. Précise la raison dans "angle_insuffisant_raison".
 

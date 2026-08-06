@@ -1,5 +1,86 @@
 # Les Faits — lesfaits.info
 
+## RÉDACTION — angle, intertitres, citations numérotées (05/08, décision Nahil)
+
+Suite directe de l'audit Courrier de France : Nahil a validé les trois chantiers
+qui restaient ouverts, et demandé d'arrêter la brève comme format par défaut —
+« deux trois articles mais je veux de l'excellence, long, bien rédigé,
+intéressant ». Implémenté dans `SYSTEM_PROMPT` (articles complets uniquement,
+voir « Ce qui n'a PAS été touché » plus bas).
+
+### 1. `angle_reponse` — une question avant d'écrire
+
+Nouveau champ JSON, rempli AVANT le reste : la question précise, du point de
+vue du lecteur, à laquelle l'article va répondre (« ce chiffre change-t-il
+quelque chose pour la France ? », pas « que s'est-il passé ? »). Le
+fact-checker vérifie maintenant la congruence (extension du critère
+`angle_insuffisant`) : un article qui expose des faits sans jamais revenir à
+sa propre question est un angle manqué, même bien sourcé.
+
+### 2. Intertitres éditoriaux
+
+`titre_faits` / `titre_contexte` / `titre_nuances` remplacent en rendu les
+noms de fonction fixes (« Les faits », « Contexte », « Débats et nuances »).
+Repli sur ces libellés génériques si le champ est absent — articles
+antérieurs au 05/08, brèves (qui n'en produisent pas), ou omission du modèle.
+Ne touche à AUCUN garde-fou : ils opèrent tous sur `corps.faits/contexte/
+nuances` (le contenu), jamais sur ces nouveaux champs (le titre affiché).
+
+### 3. Citations numérotées — fin de l'attribution en prose
+
+Le corps ne contient plus « Selon Le Monde, RTBF et 20 Minutes » : chaque fait
+porte un `[n]` renvoyant au n-ième élément du tableau `sources`. Rendu par
+`_rendre_citations()` dans `build_article_html` en lien cliquable vers
+`<li id="source-n">` dans le bloc SOURCES.
+
+**Point d'attention géré** : la position `n` doit rester celle du tableau
+`sources` D'ORIGINE, jamais celle de `verified_sources` (liste filtrée sans
+URL valide) — sinon toute source filtrée décale les numéros de citation qui
+la suivent et casse tous les liens en aval. Résolu par `id(s)` (les objets
+sources ne sont jamais copiés entre les deux listes) plutôt que par un
+recomptage. Testé avec des sources filtrées en position 2 et 3 : les citations
+`[1]` et `[4]` pointent bien vers `id="source-1"` et `id="source-4"`, pas vers
+un décompte 1/2.
+
+**Garde-fou dédié** : `citations_hors_liste()` détecte un `[n]` sans source
+correspondante — même famille de défaut que `attributions_fantomes`, et
+rejoué après la passe 3 pour la même raison (voir le retrait du 03/08 : un
+défaut de ce type réintroduit par la correction et jamais revérifié après).
+Réparation déterministe par `strip_citations_invalides()` : retire le numéro,
+jamais la phrase entière (une citation mal reliée ne rend pas le fait faux).
+`verification.py` (`PROMPT_DETECTION`) est informé du nouveau format pour ne
+pas signaler l'absence de nom de média comme un défaut.
+
+### Le format brève n'est plus la colonne vertébrale
+
+`QUOTA_ARTICLES_LONGS` 4 → 30 (couvre la quasi-totalité de la sélection) :
+la brève avait été créée pour compenser un déficit de matière ; le sourcing
+par question (voir section précédente) répare une bonne part de ce déficit.
+La brève reste le SEUL filet de sécurité via la conversion automatique
+existante (`CONVERSION_BREVE_SI_COURT`) : un sujet qui n'atteint vraiment pas
+le plancher article bascule en brève au lieu d'être rejeté — elle n'est plus
+choisie par défaut, elle reste choisie par nécessité.
+
+`SEUILS_FORMAT["article"]["cible"]` 500 → 800 mots. Le PLANCHER reste 350 —
+ne jamais rejeter un article par ailleurs bon parce qu'un sujet précis avait
+moins de matière que la moyenne. Ne monter le plancher qu'après avoir mesuré
+que la nouvelle cible est tenue sans relance systématique.
+
+### Ce qui n'a PAS été touché — à faire si le résultat le justifie
+
+- **`SYSTEM_PROMPT_BREVE`** garde l'attribution groupée en prose (règle 6 du
+  02/08) : elle fonctionne pour ce format et n'a pas la place structurelle
+  pour des intertitres (pas de contexte/nuances à nommer). Ne pas lui
+  appliquer les citations numérotées sans mesurer d'abord si le format brève
+  survit à la baisse de `QUOTA_ARTICLES_LONGS`.
+- **`SYSTEM_PROMPT_DOSSIER_PORTRAIT` / `SYSTEM_PROMPT_DOSSIER_SCIENCE`** :
+  aucun `angle_reponse` ni intertitre éditorial. Rendu inchangé pour ces
+  formats (repli automatique sur les libellés génériques).
+- Aucune mesure réelle encore : le prochain run est le premier avec ces trois
+  changements. À lire en priorité — le taux de citations hors liste rejouées
+  après correction (`[RÉPARATION] … citation(s) hors liste`), et si la cible
+  de 800 mots est atteinte sans relance systématique.
+
 ## SOURCING PAR QUESTION — 05/08, le vrai écart avec la concurrence
 
 Nahil a trouvé **Le Courrier de France** (lecourrierdefrance.fr), autre journal

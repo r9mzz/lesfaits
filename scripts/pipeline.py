@@ -1434,6 +1434,7 @@ RÉPONDS UNIQUEMENT EN JSON VALIDE, sans texte avant ou après, sans bloc ```jso
 
 Format obligatoire :
 {
+  "angle_reponse": "UNE question précise, formulée du point de vue du LECTEUR, à laquelle tout l'article va répondre — pas le thème du sujet, la question qu'il se pose en le lisant. Exemple sur un afflux migratoire massif : « Ce chiffre change-t-il quelque chose pour la France ? », pas « Que s'est-il passé ? ». Cette question dicte tout ce qui suit : les intertitres, le choix des faits à développer, la conclusion. Un article qui ne fait que résumer un sujet sans y répondre a échoué, même s'il est bien écrit.",
   "titre": "Titre factuel informatif, 6 à 15 mots, sans exclamation ni question",
   "slug": "slug-kebab-case-descriptif-max-65-chars",
   "image_keyword": "3 mots EN ANGLAIS — paysage, bâtiment ou objet UNIQUEMENT, jamais de visages ni personnes (ex: 'wheat field france', 'hospital building', 'solar panels europe')",
@@ -1442,11 +1443,14 @@ Format obligatoire :
     "Phrase 2 : l'enjeu essentiel (qui/quand/pourquoi ça compte), avec des mots différents de la section 'contexte' (2 lignes min).",
     "Phrase 3 : nuance, limite ou débat en cours (2 lignes min)."
   ],
+  "titre_faits": "Intertitre ÉDITORIAL de la section 'faits' — 4 à 9 mots qui annoncent ce que cette section établit, pas un nom de fonction. JAMAIS 'Les faits'. Il doit servir 'angle_reponse' : ex. sur le chiffre d'un afflux migratoire, « Le chiffre brut, et ce qu'il recouvre réellement » plutôt que « Les faits ». Doit être compréhensible seul, sans lire le reste de l'article.",
   "corps": {
-    "faits": "MINIMUM 300 mots. C'est ICI que vit le détail complet, PAS dans le résumé : l'actualité immédiate et TOUTES ses données du jour — chiffres précis, décompositions, montants, dates, acteurs nommés, résultats quantitatifs, déclarations exactes avec attribution. RÈGLE ANTI-REDONDANCE : chaque phrase doit apporter une donnée que le résumé n'a PAS déjà donnée. Si 'faits' ne fait que reformuler le résumé, l'article échoue — développe, chiffre, détaille au-delà de l'accroche. NE JAMAIS inclure d'historique, d'évolution sur plusieurs années ni de comparaisons internationales — cela va exclusivement dans 'contexte'. Attribuer chaque donnée à son institution avec 'Selon [Institution]' ou 'D'après [Institution]'. JAMAIS d'URL dans le texte. Utiliser plusieurs paragraphes.",
+    "faits": "MINIMUM 450 mots — développe autant que la matière fournie le permet, ne t'arrête pas à 300 si les sources donnent plus. C'est ICI que vit le détail complet, PAS dans le résumé : l'actualité immédiate et TOUTES ses données du jour — chiffres précis, décompositions, montants, dates, acteurs nommés, résultats quantitatifs, déclarations exactes avec citation numérotée (voir FORMAT DE CITATION ci-dessous). RÈGLE ANTI-REDONDANCE : chaque phrase doit apporter une donnée que le résumé n'a PAS déjà donnée. Si 'faits' ne fait que reformuler le résumé, l'article échoue — développe, chiffre, détaille au-delà de l'accroche. NE JAMAIS inclure d'historique, d'évolution sur plusieurs années ni de comparaisons internationales — cela va exclusivement dans 'contexte'. JAMAIS d'URL dans le texte. Utiliser plusieurs paragraphes.",
     "contexte": "MINIMUM 200 mots. UNIQUEMENT de l'historique et de la mise en perspective DIRECTEMENT liés au sujet PRÉCIS de l'article — pas au thème général. RESTE CENTRÉ : n'élargis pas à des sujets connexes (budget global de l'État, modèle économique d'ensemble, politique générale du secteur) sauf s'ils sont INDISPENSABLES pour comprendre CE fait précis. Mieux vaut un contexte court et pertinent qu'un contexte large et dilué. Évolutions sur 5-10 ans, comparaisons, cadre réglementaire ou scientifique du sujet exact. NE JAMAIS reprendre les faits déjà énoncés dans 'faits'. Chiffres comparatifs obligatoires.",
     "nuances": "MINIMUM 150 mots. RÔLE EXCLUSIF — répondre à : « Qu'est-ce qu'un lecteur devrait savoir avant de tirer une conclusion ? ». UNIQUEMENT des informations NOUVELLES : limites, incertitudes, désaccords, points non encore établis, positions des acteurs. TOUTE projection ou hypothèse future ('pourrait être réduit', 'devrait augmenter', 'risque de') doit être ATTRIBUÉE PRÉCISÉMENT à qui l'énonce (annonce officielle, responsable nommé, rapport daté) — sinon RETIRE-la, ne l'invente jamais. INTERDIT de répéter, reformuler ou résumer un fait déjà présenté dans 'faits' ou 'contexte'. Limites méthodologiques, désaccords entre experts, ce que les données ne permettent pas de conclure."
   },
+  "titre_contexte": "Intertitre éditorial de 'contexte', même logique que 'titre_faits' — ex. « Un pic hors norme, une mécanique déjà vue » plutôt que « Contexte ».",
+  "titre_nuances": "Intertitre éditorial de 'nuances' — ex. « Ce que les vérifications en disent » ou « Ce qui reste établi, et ce qui ne l'est pas » plutôt que « Débats et nuances ». Doit annoncer une VRAIE tension ou incertitude présente dans le texte, jamais un intitulé générique interchangeable d'un article à l'autre.",
   "sources": [
     {"institution": "Nom exact institution", "titre": "Titre exact publication ou rapport", "date": "Date précise", "url": "URL FOURNIE DANS LES SOURCES SUPPLÉMENTAIRES UNIQUEMENT — si aucune URL n'a été fournie pour cette institution, mets null"}
   ],
@@ -1463,20 +1467,40 @@ Format obligatoire :
   }
 }
 
+FORMAT DE CITATION — NOTES NUMÉROTÉES, PAS D'ATTRIBUTION EN PROSE (05/08).
+Ce journal citait jusqu'ici « Selon Le Monde, RTBF et 20 Minutes, … » dans le
+corps du texte. Sur un article à 10-20 sources, ça empile les noms de médias
+et rend le texte illisible — c'est le défaut n°1 relevé par une revue externe.
+Le corps ne nomme donc PLUS aucune source : chaque fait vérifiable porte un
+numéro entre crochets renvoyant à sa position dans le tableau 'sources' (le
+1er élément du tableau = [1], le 2e = [2], etc.) :
+    « Le ministère de l'Intérieur espagnol parle de 50 000 entrées [1]. Le
+      gouvernement autonome de Ceuta avance 60 000 [2]. »
+Si PLUSIEURS sources rapportent le même fait, groupe leurs numéros à la fin de
+LA PHRASE UNIQUE qui le rapporte — jamais une phrase par source :
+    « L'incendie a touché un entrepôt classé Seveso, provoquant le
+      confinement de 30 000 habitants [1][3][5]. »
+Une phrase peut porter plusieurs faits distincts, chacun avec SON numéro au
+point où il est énoncé — ne rejette pas tous les numéros en fin de phrase si
+plusieurs faits différents s'y trouvent. Le nom d'un média ou d'une
+institution peut apparaître dans le texte SEULEMENT si le fait porte sur cet
+acteur lui-même (« Human Rights Watch estime que… », « l'Insee a révisé son
+estimation »), jamais comme simple attribution d'un chiffre.
+
 RÈGLES ABSOLUES — toute violation = article rejeté :
 1. MINIMUM 4 sources distinctes et citables. Si tu ne peux pas atteindre 4 sources réelles : réponds uniquement HORS_PERIMETRE
-2. Chaque donnée chiffrée DOIT être attribuée à son institution dans le corps : écrire "Selon [Institution], ..." — JAMAIS d'URL dans le corps du texte, les URLs sont réservées au tableau sources
+2. Chaque donnée chiffrée DOIT porter sa citation numérotée [n] au point où elle est énoncée (voir FORMAT DE CITATION) — JAMAIS d'URL dans le corps du texte, les URLs sont réservées au tableau sources
 3. Corps total : minimum 500 mots combinés (faits + contexte + nuances)
 4. Résumé : chaque phrase minimum 25 mots, concrète, avec au moins un fait mesurable. INTERDIT de commencer par une phrase générique du type "Ce sujet est un défi", "Cette découverte pourrait changer", "Il est essentiel de comprendre", "s'inscrit dans une dynamique" — entrer DIRECTEMENT dans le fait principal avec chiffres ou acteurs.
 5. Aucun adjectif évaluatif sans source (alarmant, historique, sans précédent, incroyable...)
-6. Aucune opinion. Aucun parti pris. Structure : "Selon X, ... / D'après Y, ..."
+6. Aucune opinion. Aucun parti pris. Chaque fait cité porte sa citation numérotée [n] (voir FORMAT DE CITATION) — jamais de nom de média dans le texte pour ça.
 7. Titre : 6-15 mots, informatif, factuel — il doit résumer l'essentiel de l'article
-8. Sources préférées : institutions officielles (INSEE, CNRS, INSERM, Eurostat, OMS, gouvernement), journaux de référence, publications peer-reviewed — MAIS uniquement si leur URL figure dans SOURCES DISPONIBLES. RÈGLE D'ATTRIBUTION : n'écris "Selon [Institution]" que si le fait attribué figure LITTÉRALEMENT dans l'extrait CONTENU fourni pour cette institution. Ne pas inventer, ne pas extrapoler depuis la mémoire d'entraînement. Si une institution que tu connais n'est pas dans la liste SOURCES DISPONIBLES, ne la cite JAMAIS dans le texte.
+8. Sources préférées : institutions officielles (INSEE, CNRS, INSERM, Eurostat, OMS, gouvernement), journaux de référence, publications peer-reviewed, textes de loi et jurisprudence, organismes de vérification — MAIS uniquement si leur URL figure dans SOURCES DISPONIBLES. RÈGLE DE CITATION : ne mets un numéro [n] sur un fait que si ce fait figure LITTÉRALEMENT dans l'extrait CONTENU fourni pour la source n. Ne pas inventer, ne pas extrapoler depuis la mémoire d'entraînement. Si une institution que tu connais n'est pas dans la liste SOURCES DISPONIBLES, ne l'ajoute PAS au tableau 'sources' et ne cite aucun numéro pour elle.
 9. Slug en français kebab-case, descriptif, max 65 caractères
 10. positions : génère ce bloc UNIQUEMENT si le sujet contient un véritable désaccord entre deux parties identifiables qui contestent ou défendent activement une même décision ou proposition — chacune avec une position EXPLICITEMENT attestée dans les sources (déclaration citée, vote enregistré, communiqué officiel). Critère opérationnel : deux camps avec des positions opposées ET défendables toutes les deux. INTERDIT si : acte institutionnel unilatéral sans opposition tracée (sanction disciplinaire, excommunication, condamnation judiciaire, décision administrative), décision technique, bilan statistique, découverte scientifique. Dans tous ces cas : verifie=false, acteurs=[]. Ne jamais inventer ou déduire une position. position = 0 (totalement favorable/consensuel) à 100 (totalement critique/opposé).
 11. Le résumé ('resume') et le corps ('faits') ne doivent JAMAIS contenir de phrases identiques ou quasi identiques (mêmes mots, même structure) : le résumé est une synthèse reformulée, pas un copier-coller déguisé du corps.
 12. Séparation stricte des registres : 'faits' = actualité immédiate uniquement (le fait du jour). 'contexte' = historique, évolution passée, comparaisons uniquement. Ne jamais mettre du contexte historique dans 'faits', ni redire les faits du jour dans 'contexte'.
-13. FUSION DES SOURCES OBLIGATOIRE : si plusieurs sources rapportent exactement la même information (même fait, même chiffre, même résultat), les fusionner en UNE SEULE phrase avec attribution groupée — ex : "Selon Pressesante, Doctissimo et Futura Sciences, [fait]". INTERDIT d'écrire une phrase par source pour le même fait. Une nouvelle source ne justifie une phrase propre que si elle apporte une information DIFFÉRENTE.
+13. FUSION DES SOURCES OBLIGATOIRE : si plusieurs sources rapportent exactement la même information (même fait, même chiffre, même résultat), les fusionner en UNE SEULE phrase avec les numéros groupés en fin de phrase — ex : "[fait] [2][5][7]". INTERDIT d'écrire une phrase par source pour le même fait. Une nouvelle source ne justifie une phrase propre que si elle apporte une information DIFFÉRENTE.
 14. CONTRÔLE QUALITÉ AVANT SOUMISSION — avant de finaliser le JSON, vérifier explicitement :
     a) Chaque section remplit-elle UNIQUEMENT son rôle (faits=actualité, contexte=historique/mise en perspective, nuances=limites/incertitudes) ?
     b) Une même idée apparaît-elle plusieurs fois ? Si oui, supprimer toutes les occurrences sauf la première.
@@ -1485,9 +1509,9 @@ RÈGLES ABSOLUES — toute violation = article rejeté :
     e) Plusieurs sources disent-elles la même chose ? Si oui, les fusionner.
     f) Une phrase peut-elle être supprimée sans perte d'information ? Si oui, la supprimer.
     Si l'un de ces contrôles échoue, corriger AVANT de soumettre le JSON.
-15. Chaque source citée dans le texte doit apporter un élément NOUVEAU (chiffre, angle, nuance). Ne JAMAIS répéter la même information sous plusieurs attributions successives. Maximum 3 attributions « Selon X » par section. RÈGLE DE SYNTHÈSE : quand plusieurs sources rapportent le même fait de façon identique ou quasi identique, les fusionner en UNE SEULE phrase de synthèse avec attribution groupée en fin de phrase. N'utiliser des attributions séparées que si les sources apportent des informations DIFFÉRENTES.
-    MAUVAIS (interdit) : « Selon Le Monde, le Vatican a excommunié six évêques. D'après Radio Lac, le Vatican a confirmé l'excommunication de ces six évêques. Selon France 24, le Vatican a confirmé l'excommunication de six évêques. »
-    BON (attendu) : « Le Vatican a confirmé l'excommunication de six évêques de la Fraternité Saint-Pie X, actant le schisme de ce mouvement avec Rome (Le Monde, France 24, Radio Lac). »
+15. Chaque source citée dans le texte doit apporter un élément NOUVEAU (chiffre, angle, nuance). Ne JAMAIS répéter la même information avec des numéros différents à chaque phrase. RÈGLE DE SYNTHÈSE : quand plusieurs sources rapportent le même fait de façon identique ou quasi identique, les fusionner en UNE SEULE phrase de synthèse avec les numéros groupés en fin de phrase. N'utiliser des phrases séparées que si les sources apportent des informations DIFFÉRENTES.
+    MAUVAIS (interdit) : « Le Vatican a excommunié six évêques [1]. Le Vatican a confirmé l'excommunication de ces six évêques [2]. Le Vatican a confirmé l'excommunication de six évêques [3]. »
+    BON (attendu) : « Le Vatican a confirmé l'excommunication de six évêques de la Fraternité Saint-Pie X, actant le schisme de ce mouvement avec Rome [1][2][3]. »
 16. ACTUALITÉ UNIQUEMENT : le sujet doit reposer sur un événement daté des dernières 48 heures (étude publiée, décision officielle, annonce, vote, incident). Un sujet intemporel ou encyclopédique sans événement déclencheur récent (ex: « la théorie de l'évolution », « le coucou, un oiseau stratège ») = réponds HORS_PERIMETRE.
 17. CADRAGES EMPRUNTÉS INTERDITS : ne jamais reprendre mot pour mot un jugement de valeur ou un cadrage éditorial présent dans une source (ex : "crise sans précédent", "modèle à bout de souffle", "tournant historique") comme s'il s'agissait d'un fait neutre. Si un tel cadrage est pertinent, l'attribuer explicitement : « Selon [Source], il s'agit d'une crise sans précédent. » Ne jamais présenter l'angle éditorial d'une source comme l'angle factuel de l'article.
 18. PAS D'EXTRAPOLATION NON SOURCÉE : n'écris jamais de projection ou de conséquence future ("cette mesure pourrait entraîner", "cela risque de", "on pourrait s'attendre à") sauf si une source listée formule explicitement cette projection. Si la conséquence n'est pas dans les extraits CONTENU, ne la mentionne pas.
@@ -1784,6 +1808,58 @@ def strip_attributions_invalides(art: dict) -> dict:
     return art
 
 
+_CITATION_RE = re.compile(r"\[(\d{1,2})\]")
+
+
+def strip_citations_invalides(art: dict) -> dict:
+    """Retire les [n] hors plage plutôt que la phrase entière — contrairement
+    à une attribution fantôme, un numéro de citation invalide ne rend pas la
+    phrase fausse, juste sa preuve mal reliée. Repli déterministe, sans appel
+    Groq, dans la même logique « réparer plutôt que rejeter » que
+    `strip_attributions_invalides`."""
+    nb_sources = len(art.get("sources") or [])
+
+    def _clean(texte: str) -> str:
+        return _CITATION_RE.sub(
+            lambda m: m.group(0) if 1 <= int(m.group(1)) <= nb_sources else "", texte
+        )
+
+    art = dict(art)
+    corps = dict(art.get("corps", {}) or {})
+    for field in ("faits", "contexte", "nuances"):
+        if field in corps and corps[field]:
+            corps[field] = re.sub(r"  +", " ", _clean(corps[field])).strip()
+    resume = art.get("resume")
+    if isinstance(resume, list):
+        art["resume"] = [re.sub(r"  +", " ", _clean(r)).strip() if isinstance(r, str) else r for r in resume]
+    elif isinstance(resume, str):
+        art["resume"] = re.sub(r"  +", " ", _clean(resume)).strip()
+    art["corps"] = corps
+    return art
+
+
+def citations_hors_liste(art: dict) -> list[str]:
+    """Format citation (05/08) : chaque [n] dans le corps doit renvoyer à un
+    élément RÉEL du tableau 'sources' (1 = premier élément). Un [n] hors
+    plage est une source fantôme au même titre qu'un « Selon X » inventé —
+    même famille de défaut que `attributions_fantomes`, mêmes conséquences si
+    on ne le rejoue pas après la passe de correction (voir le retrait du
+    03/08 : une attribution fantôme réintroduite par la correction avait été
+    publiée faute d'être revérifiée)."""
+    corps = art.get("corps", {}) or {}
+    texte = " ".join([
+        " ".join(art.get("resume", []) if isinstance(art.get("resume"), list) else [art.get("resume", "") or ""]),
+        corps.get("faits", ""), corps.get("contexte", ""), corps.get("nuances", ""),
+    ])
+    nb_sources = len(art.get("sources") or [])
+    hors_plage = sorted({int(n) for n in _CITATION_RE.findall(texte)
+                          if not (1 <= int(n) <= nb_sources)})
+    if not hors_plage:
+        return []
+    return [f"[{n}] ne correspond à aucune source (le tableau 'sources' en compte {nb_sources})"
+            for n in hors_plage]
+
+
 def attributions_fantomes(art: dict) -> list[str]:
     """Attributions « Selon X / D'après X » du corps qui ne correspondent à
     aucune source de la liste officielle, + formules vagues interdites."""
@@ -1938,8 +2014,14 @@ def faits_repetitifs(art: dict) -> list[str]:
 # changement. Une brève est plus courte, jamais moins sourcée.
 # ──────────────────────────────────────────────────────────────────────────────
 SEUILS_FORMAT = {
-    # cible : longueur demandée au prompt ; plancher : refus en dessous
-    "article": {"cible": 500, "plancher": 350, "sources": 3},
+    # cible : longueur demandée au prompt ; plancher : refus en dessous.
+    # cible article 500 → 800 (05/08, Nahil) : avec le sourcing par question,
+    # la matière disponible ne justifie plus un plafond bas — priorité à la
+    # profondeur. Le PLANCHER reste 350 : ne pas rejeter un article par
+    # ailleurs bon parce que la matière d'UN sujet précis était plus mince que
+    # la moyenne. Ne monter le plancher qu'après avoir mesuré, sur plusieurs
+    # runs, que la nouvelle cible est tenue sans relance systématique.
+    "article": {"cible": 800, "plancher": 350, "sources": 3},
     "breve":   {"cible": 130, "plancher": 100, "sources": 3},
 }
 
@@ -3032,6 +3114,7 @@ def generate(content: str, category_hint: str, extra_sources: list[dict] | None 
              fusion_feedback: list[str] | None = None,
              position_feedback: list[str] | None = None,
              temporel_feedback: list[str] | None = None,
+             citations_feedback: list[str] | None = None,
              article_type: str = "actu",
              previous_article: dict | None = None) -> dict:
 
@@ -3050,7 +3133,7 @@ def generate(content: str, category_hint: str, extra_sources: list[dict] | None 
     # Renvoyer les CONTENU complets à chaque relance (jusqu'à 4 appels par
     # article) multipliait le coût par ~4 et épuisait le quota Groq quotidien
     # après 2-3 articles à peine.
-    is_retry = bool(retry_feedback or repetition_feedback or intra_feedback or selon_feedback or expand_feedback or titre_feedback or cliches_feedback or intro_feedback or nuances_feedback or prospectif_feedback or fusion_feedback or temporel_feedback or position_feedback)
+    is_retry = bool(retry_feedback or repetition_feedback or intra_feedback or selon_feedback or expand_feedback or titre_feedback or cliches_feedback or intro_feedback or nuances_feedback or prospectif_feedback or fusion_feedback or temporel_feedback or position_feedback or citations_feedback)
     # La relance "expand" a besoin de matière source (le problème est que
     # l'article n'a pas assez puisé dedans), mais PAS des extraits intégraux :
     # run du 18/07 matin, 2 sujets perdus en « réponse tronquée » parce que le
@@ -3261,6 +3344,15 @@ def generate(content: str, category_hint: str, extra_sources: list[dict] | None 
             "(« les autorités doivent… », « il est urgent de… »). Dans « Débats et "
             "nuances », remplace ces injonctions par de vraies limites : ce qui reste "
             "inconnu, contesté ou non établi."
+        )
+
+    if citations_feedback:
+        user_msg += (
+            "\n\nCORRECTION OBLIGATOIRE (citations) — " + " ; ".join(citations_feedback[:6]) + ". "
+            "Chaque [n] dans le texte doit renvoyer au n-ième élément du tableau "
+            "'sources' que tu renvoies, rien d'autre. Corrige le numéro s'il visait "
+            "la bonne source à une position différente, ou retire la phrase si le "
+            "fait ne provient d'aucune source listée."
         )
 
     if temporel_feedback:
@@ -5110,17 +5202,30 @@ def build_article_html(art: dict, date_pub: str) -> str:
         d = s.get("date")
         return f' · {_esc(str(d))}' if d and str(d).strip().lower() not in ("none", "null", "") else ""
 
-    def _source_li(s):
+    def _source_li(s, n):
         # Le correcteur LLM peut renvoyer un objet source incomplet — un champ
         # manquant ne doit jamais faire planter le rendu (le crash arrivait
         # après génération + vérification + image : tout le quota perdu).
         institution = s.get("institution") or _media_name_from_url(s.get("url", ""), "") or "Source"
         titre = s.get("titre") or ""
         titre_html = f' · <em>{_esc(titre)}</em>' if titre else ""
-        return f'<li><cite>{_esc(institution)}</cite>{titre_html}{_source_date(s)}{_source_link(s)}</li>'
+        # id="source-N" : cible des liens de citation [n] insérés dans le
+        # corps par `_rendre_citations` — N = position dans le tableau
+        # 'sources' TEL QUE RENVOYÉ PAR LE MODÈLE, pas dans verified_sources
+        # (une source sans URL valide est filtrée du rendu mais garde sa
+        # position dans le texte : ne jamais renuméroter ici).
+        return f'<li id="source-{n}"><cite>{_esc(institution)}</cite>{titre_html}{_source_date(s)}{_source_link(s)}</li>'
+
+    # Position RÉELLE de chaque source dans le tableau d'origine (art["sources"]),
+    # pas son rang parmi les seules sources vérifiées : le modèle cite [n] par
+    # rapport au tableau complet, filtrer avant de numéroter décalerait tous
+    # les liens de citation après la première source sans URL.
+    toutes_sources = art.get("sources") or []
+    _pos_reelle = {id(s): i + 1 for i, s in enumerate(toutes_sources)}
 
     if verified_sources:
-        sources_li = "\n".join(_source_li(s) for s in verified_sources)
+        sources_li = "\n".join(_source_li(s, _pos_reelle.get(id(s), i + 1))
+                               for i, s in enumerate(verified_sources))
         sources_html = f'<section class="sources" aria-label="Sources"><h3>SOURCES</h3><ol>{sources_li}</ol></section>'
     else:
         sources_html = '<section class="sources sources--unverified" aria-label="Sources"><p style="color:#999;font-style:italic;font-size:.85rem;margin:0">Sources citées dans le texte — URLs non vérifiées directement.</p></section>'
@@ -5134,20 +5239,45 @@ def build_article_html(art: dict, date_pub: str) -> str:
     word_count = _mots_totaux(art)
     reading_time = max(1, round(word_count / 200))
 
-    faits    = _esc(art["corps"]["faits"]).replace("\n", "</p><p>")
-    contexte = _esc(art["corps"].get("contexte") or "").replace("\n", "</p><p>")
-    nuances  = _esc(art["corps"].get("nuances") or "").replace("\n", "</p><p>")
+    # Citations numérotées (05/08) : convertit les [n] laissés dans le texte
+    # en liens cliquables vers <li id="source-n"> dans le bloc SOURCES rendu
+    # plus haut. Appliqué APRÈS _esc() : [ ] et les chiffres ne sont jamais
+    # échappés par html.escape, la recherche est donc sûre sur du HTML déjà
+    # nettoyé. Un [n] hors plage (ne devrait plus arriver, voir
+    # `citations_hors_liste` / `strip_citations_invalides`) reste affiché en
+    # texte brut plutôt que de créer un lien mort.
+    def _rendre_citations(texte_echappe: str) -> str:
+        nb = len(toutes_sources)
+        return _CITATION_RE.sub(
+            lambda m: (f'<sup><a href="#source-{m.group(1)}" class="cite" '
+                       f'aria-label="Source {m.group(1)}">{m.group(1)}</a></sup>'
+                       if 1 <= int(m.group(1)) <= nb else m.group(0)),
+            texte_echappe,
+        )
+
+    faits    = _rendre_citations(_esc(art["corps"]["faits"])).replace("\n", "</p><p>")
+    contexte = _rendre_citations(_esc(art["corps"].get("contexte") or "")).replace("\n", "</p><p>")
+    nuances  = _rendre_citations(_esc(art["corps"].get("nuances") or "")).replace("\n", "</p><p>")
 
     # Une BRÈVE n'a ni « Contexte » ni « Débats et nuances » — on ne rend pas
     # des titres de section vides. Le format est affiché explicitement au
     # lecteur : il doit savoir qu'il lit le fait du jour et rien d'autre, pas
     # se demander si l'article a été tronqué.
     est_breve = (art.get("format") == "breve") or not (contexte.strip() or nuances.strip())
-    sections_html = f'<h2 class="art__h2">Les faits</h2><p>{faits}</p>'
+    # Intertitres ÉDITORIAUX (05/08) : le modèle renvoie titre_faits/
+    # titre_contexte/titre_nuances, propres au sujet, à la place des noms de
+    # fonction fixes ("Les faits", "Contexte", "Débats et nuances") — repli
+    # sur ces derniers si le champ est absent (articles antérieurs au 05/08,
+    # brèves qui n'en produisent pas, ou omission du modèle : ne jamais
+    # planter le rendu pour un champ éditorial manquant).
+    titre_faits    = _esc(art.get("titre_faits") or "").strip()    or "Les faits"
+    titre_contexte = _esc(art.get("titre_contexte") or "").strip() or "Contexte"
+    titre_nuances  = _esc(art.get("titre_nuances") or "").strip()  or "Débats et nuances"
+    sections_html = f'<h2 class="art__h2">{titre_faits}</h2><p>{faits}</p>'
     if contexte.strip():
-        sections_html += f'\n  <h2 class="art__h2">Contexte</h2><p>{contexte}</p>'
+        sections_html += f'\n  <h2 class="art__h2">{titre_contexte}</h2><p>{contexte}</p>'
     if nuances.strip():
-        sections_html += f'\n  <h2 class="art__h2">Débats et nuances</h2><p>{nuances}</p>'
+        sections_html += f'\n  <h2 class="art__h2">{titre_nuances}</h2><p>{nuances}</p>'
     format_badge = (
         '<span class="meta__sep" aria-hidden="true">·</span>'
         '<span class="art__format" title="Format court : le fait du jour, établi et sourcé, '
@@ -6760,6 +6890,7 @@ def generer_article(item: dict, dry_run: bool, published: set, new_pub: set, dat
         # combinés coûte 1 appel Groq au lieu de 3 — les relances en cascade
         # épuisaient le quota des 3 clés dès le 5e sujet du créneau.
         fantomes    = attributions_fantomes(art)
+        citations_pb = citations_hors_liste(art)
         repetitions = resume_repete_corps(art)
         intra       = faits_repetitifs(art)
         selon       = attributions_trop_repetitives(art)
@@ -6771,10 +6902,12 @@ def generer_article(item: dict, dry_run: bool, published: set, new_pub: set, dat
         fusion_pb   = sources_non_fusionnees(art)
         temporel_pb = incoherence_temporelle(art)
         position_pb = prise_de_position(art)
-        if fantomes or repetitions or intra or selon or titre_pb or cliches or intro_pb or nuances_pb or prospectif or fusion_pb or temporel_pb or position_pb:
+        if fantomes or citations_pb or repetitions or intra or selon or titre_pb or cliches or intro_pb or nuances_pb or prospectif or fusion_pb or temporel_pb or position_pb:
             details = []
             if fantomes:
                 details.append(f"{len(fantomes)} attribution(s) hors sources")
+            if citations_pb:
+                details.append(f"{len(citations_pb)} citation(s) [n] hors liste")
             if repetitions:
                 details.append(f"{len(repetitions)} phrase(s) du résumé quasi identiques au corps")
             if intra:
@@ -6827,6 +6960,7 @@ def generer_article(item: dict, dry_run: bool, published: set, new_pub: set, dat
             art = generate(content, cat, extra_sources=extra, rss_url=item.get("url"),
                            expand_feedback=_expand_combine,
                            retry_feedback=fantomes or None,
+                           citations_feedback=citations_pb or None,
                            repetition_feedback=repetitions or None,
                            intra_feedback=intra or None,
                            selon_feedback=selon or None,
@@ -7136,6 +7270,27 @@ def generer_article(item: dict, dry_run: bool, published: set, new_pub: set, dat
                           f"({', '.join(_fantomes_post[:3])}) — non publié")
                     return False
 
+            # ── CITATIONS [n] HORS LISTE APRÈS CORRECTION (05/08) ────────────
+            # Même faille que les attributions fantômes ci-dessus, nouvelle
+            # depuis le passage aux notes numérotées : la passe 3 réécrit la
+            # liste 'sources' ET peut décaler la position d'un élément — un
+            # [4] valide avant correction peut pointer sur la mauvaise source
+            # après. Réparation déterministe (retrait du numéro, pas de la
+            # phrase), rejet seulement si des citations invalides persistent.
+            _citations_post = citations_hors_liste(art)
+            if _citations_post:
+                _art_sans_citation_ko = strip_citations_invalides(art)
+                if not citations_hors_liste(_art_sans_citation_ko):
+                    art = _art_sans_citation_ko
+                    print(f"     [RÉPARATION] {len(_citations_post)} citation(s) hors liste "
+                          f"réintroduite(s) par la correction, numéro(s) retiré(s) : "
+                          f"{', '.join(_citations_post[:3])}")
+                else:
+                    print(f"     [REJET POST-CORRECTION] Citations hors liste après "
+                          f"correction et impossibles à retirer proprement "
+                          f"({', '.join(_citations_post[:3])}) — non publié")
+                    return False
+
             if faits_repetitifs(art) or resume_repete_corps(art):
                 _n_supp = _supprimer_phrases_dupliquees(art)
                 if _n_supp:
@@ -7419,21 +7574,24 @@ def run(dry_run=False, text_input=None, nb_max=36):
         # ~20 min (8 cycles de rate limit + relances) — 4 h + marge < 5 h.
         _pipeline_start = time.time()
         _BUDGET_SECONDES = 4 * 60 * 60  # 4 heures
-        # ── Répartition du quota entre formats (02/08) ───────────────────────
-        # Le créneau dispose d'environ 550 k tokens (1,1 M sur 24 h glissantes,
-        # partagés entre les deux runs). Un article long en coûte ~35 k menés au
-        # bout, une brève ~8-10 k. L'ancienne règle « tout le monde en article
-        # long » consommait donc tout le budget en 10-14 sujets, dont 1 à 2
-        # étaient publiés : les 20+ sujets suivants de la sélection n'étaient
-        # même jamais tentés.
-        # On paie désormais QUOTA_ARTICLES_LONGS articles complets — attribués
-        # aux sujets les mieux notés, puisque `selection` est déjà triée par
-        # score éditorial — et le reste du budget part en brèves, qui traitent
-        # 3 à 4 fois plus de sujets à quota égal.
-        # Ce nombre est le seul paramètre à bouger pour arbitrer entre
-        # profondeur et couverture. Le monter réduit mécaniquement le nombre de
-        # brèves possibles ; le descendre à 0 ferait un journal 100 % brèves.
-        QUOTA_ARTICLES_LONGS = 4
+        # ── Répartition du quota entre formats — revu le 05/08 (Nahil) ───────
+        # Le format brève (02/08) répondait à un déficit de MATIÈRE, pas à un
+        # choix éditorial : sur 150 mots de matière réelle, 500 mots demandés
+        # ne pouvaient produire que du remplissage. Depuis, le sourcing par
+        # question (05/08) va chercher du droit primaire, des séries
+        # statistiques et des organismes de vérification en plus des dépêches
+        # — la matière qui manquait est en grande partie revenue.
+        # Décision de Nahil : viser PEU d'articles, LONGS et EXCELLENTS,
+        # plutôt qu'un volume de brèves. QUOTA_ARTICLES_LONGS couvre donc la
+        # quasi-totalité de la sélection — la brève n'est plus le format par
+        # défaut, elle reste le SEUL filet de sécurité : la conversion
+        # automatique (`CONVERSION_BREVE_SI_COURT`, plus bas dans
+        # `generer_article`) continue de basculer un sujet qui n'atteint
+        # vraiment pas le plancher article, au lieu de le rejeter — un sujet
+        # ponctuellement mince n'est pas perdu, il change juste de format.
+        # Si le quota Groq redevient la vraie contrainte (moins de clés que
+        # prévu), redescendre ce nombre est le seul paramètre à bouger.
+        QUOTA_ARTICLES_LONGS = 30
         budget_formats = {"longs_restants": QUOTA_ARTICLES_LONGS}
         print(f"\n[GÉNÉRATION] budget : {QUOTA_ARTICLES_LONGS} article(s) long(s), "
               f"puis brèves sur les {max(0, len(selection) - QUOTA_ARTICLES_LONGS)} sujets suivants")
