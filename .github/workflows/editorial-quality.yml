@@ -7,12 +7,14 @@ on:
       - "scripts/apply_retirements.py"
       - "scripts/editorial_quality.py"
       - "scripts/editorial_depth.py"
+      - "scripts/showcase_quality.py"
       - "scripts/run_pipeline.py"
       - "scripts/test_retirements.py"
       - "scripts/test_editorial_quality.py"
       - "scripts/test_editorial_depth.py"
       - "scripts/test_run_pipeline.py"
       - "scripts/test_quota_wait.py"
+      - "scripts/test_showcase_quality.py"
       - ".github/workflows/pipeline.yml"
       - ".github/workflows/editorial-quality.yml"
   workflow_dispatch:
@@ -43,12 +45,14 @@ jobs:
           scripts/apply_retirements.py
           scripts/editorial_quality.py
           scripts/editorial_depth.py
+          scripts/showcase_quality.py
           scripts/run_pipeline.py
           scripts/test_retirements.py
           scripts/test_editorial_quality.py
           scripts/test_editorial_depth.py
           scripts/test_run_pipeline.py
           scripts/test_quota_wait.py
+          scripts/test_showcase_quality.py
 
       - name: Tests de non-régression éditoriale
         run: |
@@ -57,6 +61,7 @@ jobs:
           python scripts/test_editorial_depth.py
           python scripts/test_run_pipeline.py
           python scripts/test_quota_wait.py
+          python scripts/test_showcase_quality.py
 
       - name: Vérifier la lecture du corpus HTML
         run: |
