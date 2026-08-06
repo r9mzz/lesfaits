@@ -1,5 +1,46 @@
 # Les Faits — lesfaits.info
 
+## PIÈGE ÉVITÉ — leur page « logiciel libre » n'est pas un modèle à copier
+
+Nahil a partagé la page technique du Courrier de France (Debian, Caddy,
+CrowdSec, Poppler, faster-whisper…). Tentation immédiate : en publier une
+équivalente. **Écarté** : la moitié de leur liste décrit un serveur qu'ils
+opèrent eux-mêmes (OS, pare-feu, certificats) — nous sommes sur GitHub Pages,
+sans serveur à nous. Une page copiée aurait prétendu à une infrastructure
+qu'on n'a pas, exactement le genre de faux qu'on retire sur `corrections.html`.
+
+**Ce qui comptait dans cette page, ce n'était pas la lister nous aussi — c'est
+ce qu'elle révèle de LEUR architecture de collecte, pour combler un vrai
+écart chez nous :**
+
+- `Poppler` (lecture de PDF) → **implémenté le 05/08**, voir ci-dessous.
+- `faster-whisper` + `FFmpeg` (transcription locale de podcasts/conférences)
+  → PAS implémenté. Coût de calcul et de dépendances trop lourd pour le
+  budget de ce run (CPU du runner GitHub, quota Groq déjà la ressource rare).
+  À reconsidérer seulement si le gisement PDF ne suffit pas.
+- `curl` + `pandoc` (texte complet, pas juste un snippet) → on le fait déjà
+  depuis avant (`fetch_full_content`), rien à changer.
+
+### PDF officiels — le vrai trou comblé
+
+`fetch_full_content()` passait un PDF à BeautifulSoup comme si c'était du
+HTML — bruit ou chaîne vide, jamais exploité. Or les rapports de la Cour des
+comptes, du Sénat, de l'IGAS, des institutions européennes sont très souvent
+des PDF : exactement les documents que `_AXES_RECHERCHE` (05/08) est censé
+aller chercher. Sans extraction dédiée, ces liens ne servaient à rien.
+
+`_extraire_texte_pdf()` (pypdf, pur Python — aucun binaire poppler à
+installer sur le runner) détecte le PDF par Content-Type ou suffixe d'URL,
+lit les 25 premières pages (résumé exécutif + premiers constats chiffrés,
+borne le temps d'extraction sur un rapport de plusieurs centaines de pages).
+Échec d'import ou PDF corrompu/scanné sans couche texte → chaîne vide,
+JAMAIS d'exception qui ferait perdre le sujet entier.
+
+Non mesuré sur un run réel — le sandbox de développement n'a pas d'accès
+réseau vers ces domaines. Testé en isolant la logique d'intégration (bornage
+25 pages, résilience à l'échec d'import, non-régression du chemin HTML) avec
+un `PdfReader` simulé.
+
 ## PANNE DU 06/08 — run du matin perdu, run de l'après-midi bloqué 3h31 pour 0 article
 
 Deux runs, deux causes distinctes, aucune liée aux changements du 05/08.

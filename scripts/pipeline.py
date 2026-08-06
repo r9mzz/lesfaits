@@ -315,6 +315,43 @@ def _media_name_from_url(url: str, title_hint: str = "") -> str:
     return name or host
 
 
+def _extraire_texte_pdf(contenu: bytes) -> str:
+    """Texte d'un PDF officiel (rapport, arrêt, étude) — matière que le
+    pipeline n'atteignait jamais avant le 05/08.
+
+    Constat en lisant la page « logiciel libre » d'un confrère 100 % IA plus
+    étoffé que nous (Poppler dans leur pile) : nos sources DuckDuckGo pointent
+    régulièrement vers des PDF (Cour des comptes, Sénat, IGAS, institutions
+    européennes) — exactement les documents que le sourcing par question du
+    05/08 est censé aller chercher. Sans extraction dédiée, ces liens ne
+    servaient à rien : `fetch_full_content` passait le PDF brut à
+    BeautifulSoup comme si c'était du HTML, qui n'en tirait que du bruit ou
+    une chaîne vide. pypdf est pur Python — aucun binaire système requis,
+    contrairement à poppler/pdftotext, donc rien à installer sur le runner."""
+    try:
+        from pypdf import PdfReader
+        from io import BytesIO
+    except Exception:
+        # Volontairement large (pas seulement ImportError) : une dépendance
+        # de pypdf peut échouer à l'import pour des raisons d'environnement
+        # sans rapport avec le PDF lui-même — un sujet entier ne doit jamais
+        # se perdre pour ça, on repart avec un simple manque de matière.
+        return ""
+    try:
+        reader = PdfReader(BytesIO(contenu))
+        # Un rapport officiel peut faire des centaines de pages : on ne lit
+        # que le début, largement suffisant pour le résumé exécutif et les
+        # premiers constats chiffrés, et ça borne le temps d'extraction.
+        pages = reader.pages[:25]
+        texte = " ".join(p.extract_text() or "" for p in pages)
+        return re.sub(r"\s+", " ", texte).strip()
+    except Exception:
+        # PDF corrompu, chiffré ou scanné sans couche texte (image pure) :
+        # on ne fait pas d'OCR ici, on repart avec une chaîne vide plutôt que
+        # de faire planter l'enrichissement d'un sujet entier.
+        return ""
+
+
 def fetch_full_content(url: str) -> str:
     """Scrape le contenu complet d'un article depuis son URL.
     Refuse les éditeurs de presse protégés (droits voisins)."""
@@ -323,6 +360,9 @@ def fetch_full_content(url: str) -> str:
     try:
         r = requests.get(url, headers=HEADERS, timeout=15)
         r.raise_for_status()
+        content_type = (r.headers.get("Content-Type") or "").lower()
+        if "application/pdf" in content_type or url.lower().split("?")[0].endswith(".pdf"):
+            return _extraire_texte_pdf(r.content)[:8000]
         soup = BeautifulSoup(r.text, "html.parser")
 
         # Supprimer les éléments parasites

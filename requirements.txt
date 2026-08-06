@@ -9,3 +9,8 @@ lxml~=6.1.0
 Pillow~=12.2.0
 ddgs~=9.14.0
 tweepy~=4.16.0
+# pypdf~=5.1 (05/08) : lecture des rapports officiels au format PDF (Cour des
+# comptes, Sénat, Assemblée, IGAS, institutions européennes...). Pur Python,
+# aucun binaire système requis (contrairement à poppler/pdftotext) — tourne
+# tel quel sur le runner GitHub Actions.
+pypdf~=5.1.0
