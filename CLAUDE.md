@@ -1,5 +1,69 @@
 # Les Faits — lesfaits.info
 
+## PANNE DU 06/08 — run du matin perdu, run de l'après-midi bloqué 3h31 pour 0 article
+
+Deux runs, deux causes distinctes, aucune liée aux changements du 05/08.
+
+### Run du matin (03h32) : 151 articles générés, jamais publiés
+
+`git rebase origin/main` échouait immédiatement avec `error: cannot rebase:
+You have unstaged changes` — le commit contenant le travail restait local au
+runner, détruit à la fin du job. **Cause** : la commande `git add` de l'étape
+« Sauvegarder les articles générés » dans `pipeline.yml` listait
+`articles/ assets/ categories/ data/ index.html archive.html feed.xml
+sitemap.xml src/` — sans `breves.html` ni `favoris.html`, tous deux régénérés
+par `rebuild_index()` au même titre que `index.html`. Ils restaient modifiés
+mais NON STAGÉS après le commit, et bloquaient le rebase automatique.
+
+Même classe de bug que celui corrigé dans `deploy.yml` le 03-04/08
+(`breves.html` absent de sa liste blanche de copie) — mais ce sont deux
+mécanismes de publication différents (`git add` local vs `cp` vers le repo
+public), donc deux listes séparées, et seule celle de `deploy.yml` avait été
+corrigée.
+
+**Corrigé** : les deux fichiers ajoutés à la liste, et un filet de sécurité
+ajouté dans la boucle de retry (`git add -A` + `git commit --amend --no-edit`
+avant chaque nouvelle tentative de rebase) pour qu'un futur fichier généré
+oublié de la liste ne puisse plus reproduire ce blocage.
+
+### Run de l'après-midi (13h01) : 3h31, 0 article, annulé
+
+`generate()` a deux chemins d'échec sur épuisement de quota :
+- toutes les clés définitivement mortes → `QuotaJournalierEpuise` (type dédié,
+  rattrapé par `run()` qui arrête proprement la boucle) ;
+- des clés pas encore marquées mortes, mais dont les 8 cycles courts (62 s) de
+  nouvelle tentative échouent quand même → **`RuntimeError` nu**, jamais
+  rattrapé par le `except QuotaJournalierEpuise` de `run()`. Le sujet suivant
+  était alors tenté, retombait sur les MÊMES clés dans le même état, et
+  répétait l'attente — enchaîné pendant 3h31 sans produire un seul article,
+  jusqu'à l'annulation externe du job.
+
+Le problème est resté invisible avant le 05/08 parce que l'attente maximale
+avant abandon (`ATTENTE_MAX_LIBERATION`) était de 15 min ; une session
+parallèle l'a portée à 150 min via `GROQ_WAIT_MAX_MINUTES` (mode vitrine,
+`scripts/run_pipeline.py`) pour donner sa chance à un run tardif — ce qui a
+aussi multiplié par 10 le coût de chaque répétition du bug.
+
+**Corrigé** : le second chemin lève maintenant `QuotaJournalierEpuise` lui
+aussi. Si les 8 cycles courts n'ont rien débloqué juste après avoir déjà
+attendu jusqu'à `ATTENTE_MAX_LIBERATION` pour la meilleure clé, aucun sujet
+suivant n'ira mieux tant que la fenêtre glissante n'a pas bougé — le run
+s'arrête au lieu de tourner à vide.
+
+### Le « mode vitrine » découvert au passage (scripts/run_pipeline.py)
+
+Une session parallèle a construit, sans modifier `pipeline.py` directement,
+un point d'entrée qui l'enveloppe : patch du prompt de génération via un proxy
+sur le client `groq` (exigences éditoriales renforcées — 6+ sources sur 5+
+domaines, 420/180/130 mots par section, 10+ appels de citation, intertitres
+obligatoires), une grille de validation supplémentaire avant écriture HTML
+(`showcase_quality.py`), et un plafond dur sur le nombre d'articles
+RÉELLEMENT ACCEPTÉS (`MAX_SHOWCASE_PUBLICATIONS`, 2 par défaut) — le run
+s'arrête dès que ce nombre est atteint plutôt que d'épuiser la sélection.
+C'est la mise en œuvre de la demande de Nahil du 05/08 (« deux trois articles
+mais je veux de l'excellence »), construite en couche au-dessus de
+`SYSTEM_PROMPT` plutôt qu'en le réécrivant.
+
 ## RÉDACTION — angle, intertitres, citations numérotées (05/08, décision Nahil)
 
 Suite directe de l'audit Courrier de France : Nahil a validé les trois chantiers

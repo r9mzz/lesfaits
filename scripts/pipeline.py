@@ -3619,10 +3619,20 @@ def generate(content: str, category_hint: str, extra_sources: list[dict] | None 
         if raw is not None:
             break
     if raw is None:
-        if not [(k, l) for k, l in _all_keys if k and k not in _CLES_MORTES_JOUR]:
-            raise QuotaJournalierEpuise(
-                "Toutes les clés Groq ont épuisé leur quota journalier (TPD)")
-        raise RuntimeError(f"Quota Groq épuisé sur toutes les clés après {MAX_RETRY_CYCLES} cycles d'attente")
+        # BUG CORRIGÉ (07/08) : ce second cas remontait un RuntimeError NU,
+        # pas `QuotaJournalierEpuise` — `run()` ne le rattrape que par son
+        # `except Exception` générique, donc il ne casse PAS la boucle sur
+        # `selection` : le sujet suivant est tenté, retombe sur les MÊMES
+        # clés dans le même état, et répète l'attente. Constat du run du
+        # 06/08 après-midi : 3h31 à enchaîner ce cycle sujet après sujet,
+        # 0 article produit, jusqu'à l'annulation externe du job.
+        # Si les 8 cycles courts (62 s) de ce bloc n'ont rien débloqué juste
+        # après avoir déjà attendu jusqu'à ATTENTE_MAX_LIBERATION pour la
+        # meilleure clé disponible, aucun sujet suivant n'ira mieux tant que
+        # la fenêtre glissante n'a pas bougé — traiter ce cas comme le
+        # premier, pour que le run s'arrête au lieu de tourner à vide.
+        raise QuotaJournalierEpuise(
+            f"Quota Groq épuisé sur toutes les clés après {MAX_RETRY_CYCLES} cycles d'attente")
 
     # BUG CORRIGÉ (30/07) : le marqueur n'était cherché que dans les 60
     # PREMIERS caractères. Le prompt demande de répondre HORS_PERIMETRE quand

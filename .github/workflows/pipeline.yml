@@ -196,7 +196,20 @@ jobs:
         run: |
           git config user.name  "Factuel Bot"
           git config user.email "bot@factuel.fr"
-          git add articles/ assets/ categories/ data/ index.html archive.html feed.xml sitemap.xml src/ || true
+          # BUG CORRIGÉ (07/08) : cette liste ne contenait pas breves.html ni
+          # favoris.html, tous deux régénérés par rebuild_index() au même
+          # titre qu'index.html/archive.html. Ils restaient donc modifiés
+          # mais NON STAGÉS après le commit — et le rebase automatique
+          # ci-dessous échouait immédiatement sur "You have unstaged
+          # changes", perdant TOUT le run (151 articles le 06/08 au matin :
+          # commit fait, jamais poussé, détruit avec le runner). Même classe
+          # de bug que celle corrigée dans deploy.yml le 03-04/08 (breves.html
+          # absent de la liste blanche de copie) — deux mécanismes de
+          # publication différents, deux listes à tenir à jour séparément.
+          # Ceinture supplémentaire : `git add -A` en repli juste avant le
+          # rebase (voir plus bas) capture tout fichier généré futur qu'on
+          # oublierait encore d'ajouter ici.
+          git add articles/ assets/ categories/ data/ index.html archive.html breves.html favoris.html feed.xml sitemap.xml src/ || true
           git diff --cached --quiet && echo "Aucun nouvel article." && exit 0
           NB=$(git diff --cached --name-only | grep "^articles/" | wc -l)
           CRENEAU=$([ $(date +%H) -lt 12 ] && echo "matin" || echo "soir")
@@ -205,6 +218,14 @@ jobs:
           for i in 1 2 3 4 5; do
             if git push; then PUSHED=1; break; fi
             echo "Push rejeté (tentative $i) — rebase et nouvel essai..."
+            # Filet de sécurité : si UN AUTRE fichier généré manque encore à
+            # la liste ci-dessus (ou à une future liste), il traînerait ici
+            # en modification non stagée et ferait échouer `git rebase` avant
+            # même sa première étape ("You have unstaged changes") — c'est
+            # exactement ce qui a perdu le run du 06/08 matin. On le capture
+            # dans le commit existant plutôt que de le découvrir en prod.
+            git add -A
+            git diff --cached --quiet || git commit --amend --no-edit
             git fetch origin main
             # Conflits sur les fichiers générés (data/*.json, index, feed…) :
             # consigne du projet — prendre la version de main ("ours" pendant
