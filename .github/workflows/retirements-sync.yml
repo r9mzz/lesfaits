@@ -1,0 +1,82 @@
+name: Synchroniser les consolidations éditoriales
+
+on:
+  pull_request:
+    paths:
+      - "data/retirements.json"
+      - "scripts/apply_retirements.py"
+      - ".github/workflows/retirements-sync.yml"
+  push:
+    branches: [main]
+    paths:
+      - "data/retirements.json"
+      - "scripts/apply_retirements.py"
+      - ".github/workflows/retirements-sync.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: editorial-retirements-sync
+  cancel-in-progress: false
+
+jobs:
+  tests:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+      - run: pip install -r requirements.txt
+      - name: Tester les consolidations
+        run: python scripts/test_retirements.py
+
+  deploy:
+    if: github.event_name != 'pull_request'
+    needs: tests
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+      - run: pip install -r requirements.txt
+
+      - name: Appliquer les retraits et reconstruire le site
+        env:
+          GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          PYTHONIOENCODING: utf-8
+          TZ: Europe/Paris
+        run: python scripts/run_pipeline.py --rebuild
+
+      - name: Conserver la source corrigée
+        run: |
+          git config user.name "Factuel Bot"
+          git config user.email "bot@lesfaits.info"
+          git add articles/ categories/ data/ index.html archive.html breves.html feed.xml sitemap.xml
+          git diff --cached --quiet || git commit -m "chore: appliquer les consolidations éditoriales"
+          git push
+
+      - name: Synchroniser lesfaits-site
+        env:
+          SITE_DEPLOY_TOKEN: ${{ secrets.SITE_DEPLOY_TOKEN }}
+        run: |
+          git clone https://x-access-token:${SITE_DEPLOY_TOKEN}@github.com/r9mzz/lesfaits-site.git /tmp/site
+          cp -r articles/ categories/ data/ /tmp/site/
+          cp index.html archive.html breves.html feed.xml sitemap.xml /tmp/site/
+          cd /tmp/site
+          git config user.name "Factuel Bot"
+          git config user.email "bot@lesfaits.info"
+          git add -A
+          git diff --cached --quiet && exit 0
+          git commit -m "fix: synchroniser les consolidations éditoriales"
+          git push
