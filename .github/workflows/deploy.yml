@@ -77,6 +77,12 @@ jobs:
         if: steps.garde.outputs.passer != 'true'
         run: pip install -r requirements.txt
 
+      - name: Appliquer les consolidations éditoriales
+        if: ${{ steps.garde.outputs.passer != 'true' && github.event.inputs.dry_run != 'true' }}
+        env:
+          PYTHONIOENCODING: utf-8
+        run: python scripts/apply_retirements.py
+
       - name: Rebuild index + catégories + archive
         if: steps.garde.outputs.passer != 'true'
         env:
