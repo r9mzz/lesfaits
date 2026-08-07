@@ -11,7 +11,10 @@ import copy
 import os
 import subprocess
 import sys
+from contextlib import nullcontext
 from pathlib import Path
+
+from reserve_verification_quota import reserved_verification_quota
 
 ROOT = Path(__file__).resolve().parent.parent
 PIPELINE = ROOT / "scripts" / "pipeline.py"
@@ -227,13 +230,19 @@ def _run_legacy_pipeline() -> None:
         "__package__": None,
         "__cached__": None,
     }
+    # Pour une vraie génération, le module de vérification est chargé avec
+    # toutes les clés avant que les clés réservées soient masquées du pipeline
+    # de rédaction. Dry-run et rebuild ne consomment aucun quota.
+    real_generation = "--dry-run" not in sys.argv[1:] and "--rebuild" not in sys.argv[1:]
+    quota_scope = reserved_verification_quota() if real_generation else nullcontext()
     try:
-        try:
-            source = _prepared_pipeline_source()
-            exec(compile(source, str(PIPELINE), "exec"), namespace)
-        except SystemExit as exc:
-            if exc.code not in (None, 0):
-                raise
+        with quota_scope:
+            try:
+                source = _prepared_pipeline_source()
+                exec(compile(source, str(PIPELINE), "exec"), namespace)
+            except SystemExit as exc:
+                if exc.code not in (None, 0):
+                    raise
     finally:
         sys.argv[0] = old_argv0
 
