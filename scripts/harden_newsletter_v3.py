@@ -44,10 +44,32 @@ OLD_ARTICLE_COPY = (
 NEW_ARTICLE_COPY = (
     "Les nouvelles éditions, matin et soir, en un email par créneau. Gratuit. Sans pub."
 )
+ARTICLE_NL_BLOCK = (
+    '<div class="newsletter-block"><div><div class="newsletter-block__label">NEWSLETTER</div>'
+    '<div class="newsletter-block__text"><strong>Le résumé du jour dans votre boîte mail</strong>'
+    f'<span>{NEW_ARTICLE_COPY}</span></div></div>'
+    '<a class="newsletter-block__btn" href="/#newsletter">S\'abonner →</a></div>'
+)
+ARTICLE_NL_DUPLICATES_RE = re.compile(
+    rf'({re.escape(ARTICLE_NL_BLOCK)})(?:\s*{re.escape(ARTICLE_NL_BLOCK)})+',
+    re.S,
+)
+
+
+def _dedupe_article_newsletter_blocks(html: str) -> str:
+    """Réduit uniquement les blocs newsletter article identiques et consécutifs.
+
+    `patch_articles.py` peut réinjecter l'ancien libellé avant cette passe. Une
+    fois l'ancien texte converti en copie v3, deux blocs canoniques identiques
+    peuvent donc se retrouver côte à côte. La déduplication est volontairement
+    stricte : elle ne touche pas à des blocs différents ou non consécutifs.
+    """
+    return ARTICLE_NL_DUPLICATES_RE.sub(r"\1", html)
 
 
 def upgrade_html(html: str) -> str:
     html = html.replace(OLD_ARTICLE_COPY, NEW_ARTICLE_COPY)
+    html = _dedupe_article_newsletter_blocks(html)
     if 'id="nl-form"' not in html and "id='nl-form'" not in html:
         return html.replace("/src/newsletter.js?v=2", "/src/newsletter.js?v=3")
 
@@ -76,6 +98,8 @@ def validate_v3(path: Path, html: str) -> list[str]:
         errors.append(f"script newsletter v3 présent {script_count} fois")
     if OLD_ARTICLE_COPY in html:
         errors.append("ancien rythme uniquement du soir encore affiché")
+    if ARTICLE_NL_DUPLICATES_RE.search(html):
+        errors.append("bloc newsletter article dupliqué")
     if not has_form:
         return errors
 

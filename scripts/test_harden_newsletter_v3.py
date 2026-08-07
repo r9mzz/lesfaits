@@ -47,6 +47,27 @@ class NewsletterV3Tests(unittest.TestCase):
         self.assertEqual(once, twice)
         self.assertEqual(v3.validate_v3(Path("index.html"), twice), [])
 
+    def test_deduplicates_consecutive_article_blocks_after_copy_upgrade(self):
+        old_block = v3.ARTICLE_NL_BLOCK.replace(v3.NEW_ARTICLE_COPY, v3.OLD_ARTICLE_COPY)
+        page = (
+            '<html><head><script src="/src/newsletter.js?v=3" defer></script></head><body>'
+            + old_block + '\n' + v3.ARTICLE_NL_BLOCK + '<div class="art__related">x</div>'
+            + '</body></html>'
+        )
+        updated = v3.upgrade_html(page)
+        self.assertEqual(updated.count(v3.ARTICLE_NL_BLOCK), 1)
+        self.assertNotIn(v3.OLD_ARTICLE_COPY, updated)
+        self.assertEqual(v3.validate_v3(Path("articles/test.html"), updated), [])
+
+    def test_validation_rejects_duplicate_article_blocks(self):
+        page = (
+            '<html><head><script src="/src/newsletter.js?v=3" defer></script></head><body>'
+            + v3.ARTICLE_NL_BLOCK + '\n' + v3.ARTICLE_NL_BLOCK
+            + '</body></html>'
+        )
+        errors = v3.validate_v3(Path("articles/test.html"), page)
+        self.assertTrue(any("dupliqué" in error for error in errors))
+
     def test_directory_run_and_check(self):
         with tempfile.TemporaryDirectory() as tmp:
             root = Path(tmp)
