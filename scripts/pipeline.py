@@ -5829,10 +5829,15 @@ def rebuild_index():
     # Fenêtre glissante de 48h (23/07, retour Nahil : "à la une" doit se
     # renouveler chaque jour) — si moins de 4 articles publiés récemment
     # (créneau calme), on retombe sur les 15 derniers pour garder du choix.
+    # Les brèves ont leur propre fil (« EN BREF » + breves.html) : les laisser
+    # aussi dans la une/grille/liste les affichait DEUX fois sur l'accueil et
+    # laissait un format court occuper la place d'un article de fond.
+    articles_longs = [a for a in articles if a.get("format") != "breve"]
+
     _seuil_48h = datetime.now() - timedelta(hours=48)
-    fenetre_recente = [a for a in articles if (_d := _parse_date_pub(a.get("date", ""))) and _d >= _seuil_48h]
+    fenetre_recente = [a for a in articles_longs if (_d := _parse_date_pub(a.get("date", ""))) and _d >= _seuil_48h]
     if len(fenetre_recente) < 4:
-        fenetre_recente = articles[:15] if len(articles) > 15 else list(articles)
+        fenetre_recente = articles_longs[:15] if len(articles_longs) > 15 else list(articles_longs)
     fenetre_recente.sort(key=_interet, reverse=True)
 
     main_art  = fenetre_recente[0]
@@ -5846,12 +5851,12 @@ def rebuild_index():
     # (retour Nahil, 23/07 : exclure le hero faisait sauter un article plus
     # récent au profit d'un plus vieux). Le recoupement visuel avec "à la
     # une" est accepté.
-    grid_arts = _pick_diverse(articles, 6, set(), force_diversity=False)
+    grid_arts = _pick_diverse(articles_longs, 6, set(), force_diversity=False)
     used_grid = {main_art["slug"]}
     used_grid.update(a["slug"] for a in side_arts)
     used_grid.update(a["slug"] for a in grid_arts)
     # Liste "À lire aussi" : 6 articles diversifiés, excluant hero+side+grille
-    list_arts = _pick_diverse(articles, 6, used_grid)
+    list_arts = _pick_diverse(articles_longs, 6, used_grid)
 
     side_html  = "\n".join(side_card(a) for a in side_arts) if side_arts else ""
     grid_html  = "\n".join(mini_card(a) for a in grid_arts) if grid_arts else ""
