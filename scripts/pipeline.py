@@ -4494,6 +4494,12 @@ _ICO_LIST  = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke
 _ICO_INSTA = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1.2" fill="currentColor" stroke="none"/></svg>'
 _ICO_SPARK = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z"/><path d="M20 3v4m2-2h-4"/></svg>'
 _ICO_MAIL  = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 7l10 7 10-7"/></svg>'
+# Brèves — l'éclair, pictogramme du « flash info ». Ajouté le 07/08 : l'entrée
+# Brèves réutilisait `_ICO_LIST`, identique à « Tous les articles », donc deux
+# icônes rigoureusement identiques côte à côte dans le header (constat Nahil
+# sur capture). Un éclair anguleux ne se confond ni avec les lignes+points de
+# la liste, ni avec l'étoile arrondie de `_ICO_SPARK`, à 18 px comme au-delà.
+_ICO_FLASH = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 2 L4 13.5 h6.5 L11 22 l9 -11.5 h-6.5 z"/></svg>'
 
 HEADER_NAV_DESKTOP = (
     '<nav class="nav-expand-group" aria-label="Navigation principale">\n'
@@ -4511,7 +4517,7 @@ HEADER_NAV_DESKTOP = (
     '        </div>\n'
     '      </div>\n'
     '      <a class="nav-expand-item" href="/breves.html" aria-label="Brèves">'
-    + _ICO_LIST +
+    + _ICO_FLASH +
     '<span class="nav-expand-label">Brèves</span></a>\n'
     '      <a class="nav-expand-item" href="/archive.html" aria-label="Tous les articles">'
     + _ICO_LIST +
