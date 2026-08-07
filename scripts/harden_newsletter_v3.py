@@ -40,6 +40,7 @@ HINT_RE = re.compile(
     re.I | re.S,
 )
 FORM_OPEN_RE = re.compile(r'<form\b(?=[^>]*\bid=(["\'])nl-form\1)[^>]*>', re.I)
+CONSENT_INPUT_RE = re.compile(r'<input\b(?=[^>]*\bid=(["\'])nl-consent\1)[^>]*>', re.I)
 CANONICAL_HINT = (
     '<p class="nl-compact__hint" id="nl-hint">Éditions du matin et du soir, '
     'uniquement lorsqu’il y a de nouveaux articles. Toutes les rubriques sont incluses.</p>'
@@ -59,6 +60,13 @@ ARTICLE_NL_DUPLICATES_RE = re.compile(
     re.S,
 )
 
+# Contrat observé sur le formulaire Brevo hébergé : ces quatre champs seulement.
+BREVO_POST_FIELDS = frozenset({
+    "EMAIL",
+    "LESFAITS_VERIFICATION",
+    "email_address_check",
+    "locale",
+})
 HIDDEN_FIELDS = (
     ("LESFAITS_VERIFICATION", "1"),
     ("email_address_check", ""),
@@ -68,6 +76,22 @@ HIDDEN_FIELDS = (
 
 def _dedupe_article_newsletter_blocks(html: str) -> str:
     return ARTICLE_NL_DUPLICATES_RE.sub(r"\1", html)
+
+
+def _remove_attr(tag: str, name: str) -> str:
+    pattern = re.compile(
+        rf'\s+{re.escape(name)}(?:\s*=\s*(["\']).*?\1|\s*=\s*[^\s>]+)?',
+        re.I | re.S,
+    )
+    return pattern.sub("", tag)
+
+
+def _keep_consent_local_only(html: str) -> str:
+    """Le consentement reste obligatoire localement mais n'est pas posté à Brevo."""
+    def repl(match: re.Match[str]) -> str:
+        return _remove_attr(match.group(0), "name")
+
+    return CONSENT_INPUT_RE.sub(repl, html)
 
 
 def _ensure_native_form(html: str) -> str:
@@ -157,6 +181,7 @@ def upgrade_html(html: str) -> str:
         html,
         flags=re.I,
     )
+    html = _keep_consent_local_only(html)
     html = _ensure_native_form(html)
     html = _ensure_form_action_csp(html)
     return html
@@ -177,6 +202,24 @@ def _csp_allows_native_post(html: str) -> bool:
         if parts and parts[0].lower() == "form-action":
             return allowed in parts[1:]
     return False
+
+
+def _named_form_fields(html: str) -> set[str]:
+    opening = FORM_OPEN_RE.search(html)
+    if not opening:
+        return set()
+    end = html.find("</form>", opening.end())
+    if end == -1:
+        return set()
+    block = html[opening.end():end]
+    return {
+        match.group(2)
+        for match in re.finditer(
+            r'<(?:input|select|textarea|button)\b[^>]*\bname=(["\'])([^"\']+)\1',
+            block,
+            re.I | re.S,
+        )
+    }
 
 
 def validate_v3(path: Path, html: str) -> list[str]:
@@ -215,6 +258,17 @@ def validate_v3(path: Path, html: str) -> list[str]:
             errors.append(f"champ Brevo {name} absent")
     if not _csp_allows_native_post(html):
         errors.append("CSP form-action n'autorise pas Brevo")
+
+    fields = _named_form_fields(html)
+    if fields != BREVO_POST_FIELDS:
+        missing = sorted(BREVO_POST_FIELDS - fields)
+        extra = sorted(fields - BREVO_POST_FIELDS)
+        details = []
+        if missing:
+            details.append("manquants=" + ",".join(missing))
+        if extra:
+            details.append("inconnus=" + ",".join(extra))
+        errors.append("contrat POST Brevo non exact (" + "; ".join(details) + ")")
     return errors
 
 
