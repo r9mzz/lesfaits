@@ -7,9 +7,11 @@ on:
       - "scripts/generer_digest.py"
       - "scripts/run_newsletter.py"
       - "scripts/harden_newsletter.py"
+      - "scripts/audit_brevo_form.py"
       - "scripts/test_newsletter.py"
       - "scripts/test_run_newsletter.py"
       - "scripts/test_newsletter_campaigns.py"
+      - "scripts/test_audit_brevo_form.py"
       - "src/newsletter.js"
       - ".github/workflows/newsletter-repair.yml"
   workflow_run:
@@ -55,12 +57,15 @@ jobs:
             scripts/generer_digest.py \
             scripts/run_newsletter.py \
             scripts/harden_newsletter.py \
+            scripts/audit_brevo_form.py \
             scripts/test_newsletter.py \
             scripts/test_run_newsletter.py \
-            scripts/test_newsletter_campaigns.py
+            scripts/test_newsletter_campaigns.py \
+            scripts/test_audit_brevo_form.py
           python scripts/test_newsletter.py
           python scripts/test_run_newsletter.py
           python scripts/test_newsletter_campaigns.py
+          python scripts/test_audit_brevo_form.py
           node --check src/newsletter.js
 
       - name: Vérifier la configuration Brevo et le formulaire hébergé
@@ -73,22 +78,7 @@ jobs:
           PYTHONIOENCODING: utf-8
         run: |
           python scripts/run_newsletter.py --check-config
-          python - <<'PY'
-          import requests
-          from scripts.harden_newsletter import FORM_URL
-
-          response = requests.get(
-              FORM_URL,
-              headers={"User-Agent": "Mozilla/5.0 LesFaits-Newsletter-Audit/2.0"},
-              timeout=25,
-              allow_redirects=True,
-          )
-          if not 200 <= response.status_code < 400:
-              raise SystemExit(
-                  f"Formulaire Brevo inaccessible: HTTP {response.status_code}"
-              )
-          print(f"Formulaire Brevo accessible: HTTP {response.status_code}")
-          PY
+          python scripts/audit_brevo_form.py
 
       - name: Réparer les pages du dépôt source
         run: |
