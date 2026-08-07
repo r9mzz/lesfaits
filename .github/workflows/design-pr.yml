@@ -1,0 +1,89 @@
+name: Les Faits — Design Premium PR
+
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - 'src/premium.css'
+      - 'scripts/apply_premium_design.py'
+      - 'scripts/test_premium_design.py'
+      - 'data/premium-design.json'
+      - '.github/workflows/deploy.yml'
+      - '.github/workflows/design-pr.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: lesfaits-design-pr-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  design-quality:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: pip
+
+      - name: Dépendances
+        run: pip install -r requirements.txt
+
+      - name: Syntaxe
+        run: |
+          python -m py_compile \
+            scripts/apply_premium_design.py \
+            scripts/test_premium_design.py \
+            scripts/pipeline.py \
+            scripts/patch_articles.py \
+            scripts/check_seo.py \
+            scripts/generer_digest.py \
+            scripts/run_newsletter.py
+          node --check src/newsletter.js
+          node --check src/search-preview.js
+
+      - name: Reconstruire les gabarits
+        env:
+          PYTHONIOENCODING: utf-8
+          TZ: Europe/Paris
+        run: |
+          python scripts/pipeline.py --rebuild
+          python scripts/patch_articles.py
+          python scripts/harden_newsletter_v3.py
+          python scripts/harden_newsletter_v3.py --check
+
+      - name: Design Premium et compatibilité app
+        env:
+          PYTHONIOENCODING: utf-8
+        run: |
+          python scripts/test_premium_design.py
+          python scripts/apply_premium_design.py
+          python scripts/apply_premium_design.py --check
+          python scripts/check_seo.py
+
+      - name: Tests éditoriaux et pipeline
+        run: |
+          python scripts/test_editorial_quality.py
+          python scripts/test_editorial_depth.py
+          python scripts/test_run_pipeline.py
+          python scripts/test_quota_wait.py
+          python scripts/test_showcase_quality.py
+          python scripts/test_summarize_pipeline_log.py
+
+      - name: Tests newsletter sans Brevo
+        run: |
+          python scripts/test_newsletter.py
+          python scripts/test_run_newsletter.py
+          python scripts/test_newsletter_campaigns.py
+          python scripts/test_harden_newsletter_v3.py
+          python scripts/test_audit_brevo_form.py
