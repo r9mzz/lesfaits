@@ -15,6 +15,22 @@ Le digest est lancé **après un déploiement public réussi**, et non à une he
 fixe indépendante. Les lecteurs ne reçoivent ainsi pas de lien vers un article
 encore absent du site.
 
+## Lot réellement publié
+
+La matière d'une newsletter automatique ne dépend plus de l'heure technique de
+génération dans le dépôt source. Le workflow ouvre le commit du dépôt public
+`lesfaits-site` qui porte le créneau `07h00` ou `18h00`, puis extrait uniquement
+les fichiers `articles/*.html` réellement **ajoutés par ce commit**.
+
+Cette liste fermée est enregistrée dans `newsletter-slugs.txt`, validée avant
+tout appel Brevo, puis transmise au moteur. Une redirection de consolidation
+`noindex` est ignorée ; une vraie page ajoutée qui manquerait dans
+`data/search.json` bloque l'envoi au lieu de disparaître silencieusement.
+
+Ce mécanisme couvre notamment les crons GitHub retardés : un article généré
+plus tôt mais publié seulement au déploiement suivant reste inclus dans le bon
+digest.
+
 ## Attributs Brevo
 
 Le script valide et crée automatiquement les attributs manquants :
@@ -44,12 +60,15 @@ conservés afin de préserver leur choix et sont exclus de chaque audience.
 
 ## Idempotence
 
-Le nom d'une campagne contient la date et le créneau. Une campagne déjà envoyée,
-mise en file ou programmée ne peut pas être renvoyée par une relance du workflow.
+Le nom d'une campagne automatique contient la date, le créneau et les douze
+premiers caractères du commit public. Une relance du même déploiement ne peut
+pas renvoyer la campagne, tandis que deux vrais déploiements distincts le même
+jour et sur le même créneau restent distinguables.
 
-Les articles sont sélectionnés depuis le dernier digest réellement envoyé, avec
-un repli de 30 heures lors du premier lancement. Seuls les fichiers `articles/`
-ajoutés par Git sont pris en compte.
+Pendant la migration, une ancienne campagne nommée seulement par date/créneau
+est reconnue comme équivalente si son envoi a suivi immédiatement ce même
+commit public. Le dernier digest de l'ancien moteur (`nl-digest`) reste aussi
+pris en compte pour ne pas renvoyer l'historique lors du premier passage en v2.
 
 ## Contrôles
 
@@ -81,8 +100,18 @@ sans envoi :
 python scripts/run_newsletter.py --slot matin --dry-run
 ```
 
-Le workflow conserve pendant 14 jours `newsletter-preview.html` et le journal
-d'exécution.
+Aperçu d'un lot public exact :
+
+```bash
+python scripts/run_newsletter.py \
+  --slot matin \
+  --now 2026-08-07T07:00:00+02:00 \
+  --slugs-file newsletter-slugs.txt \
+  --dry-run
+```
+
+Le workflow conserve pendant 14 jours `newsletter-preview.html`,
+`newsletter-slugs.txt` et le journal d'exécution.
 
 ## Secrets GitHub
 

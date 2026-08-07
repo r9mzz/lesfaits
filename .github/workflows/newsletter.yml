@@ -62,44 +62,77 @@ jobs:
           python scripts/test_newsletter_campaigns.py
           node --check src/newsletter.js
 
-      - name: Déterminer le créneau réellement publié
-        id: slot
+      - name: Identifier le déploiement public et son lot exact
+        id: deployment
         env:
           EVENT_NAME: ${{ github.event_name }}
           INPUT_SLOT: ${{ inputs.slot }}
           SITE_DEPLOY_TOKEN: ${{ secrets.SITE_DEPLOY_TOKEN }}
         run: |
           set -euo pipefail
-          if [ "$EVENT_NAME" = "workflow_dispatch" ]; then
-            echo "value=${INPUT_SLOT:-matin}" >> "$GITHUB_OUTPUT"
-            exit 0
-          fi
-
-          # Les crons GitHub peuvent être retardés. On lit donc le dernier
-          # commit public portant explicitement 07h00 ou 18h00, en ignorant les
-          # commits techniques d'horodatage publiés juste après le déploiement.
-          git clone --depth=30 \
+          git clone --depth=40 \
             "https://x-access-token:${SITE_DEPLOY_TOKEN}@github.com/r9mzz/lesfaits-site.git" \
             /tmp/lesfaits-site
-          COMMIT=$(
-            git -C /tmp/lesfaits-site log -30 --pretty='%H%x09%s' \
-              | grep -m1 -E '— (07h00|18h00) —' || true
-          )
+
+          if [ "$EVENT_NAME" = "workflow_dispatch" ]; then
+            SLOT="${INPUT_SLOT:-matin}"
+            if [ "$SLOT" = "matin" ]; then
+              SLOT_MARKER='— 07h00 —'
+            else
+              SLOT_MARKER='— 18h00 —'
+            fi
+            COMMIT=$(
+              git -C /tmp/lesfaits-site log -40 --pretty='%H%x09%s' \
+                | grep -m1 -F -- "$SLOT_MARKER" || true
+            )
+          else
+            COMMIT=$(
+              git -C /tmp/lesfaits-site log -40 --pretty='%H%x09%s' \
+                | grep -m1 -E '— (07h00|18h00) —' || true
+            )
+            MESSAGE=$(printf '%s' "$COMMIT" | cut -f2-)
+            if printf '%s' "$MESSAGE" | grep -q -F -- '— 07h00 —'; then
+              SLOT=matin
+            elif printf '%s' "$MESSAGE" | grep -q -F -- '— 18h00 —'; then
+              SLOT=soir
+            else
+              SLOT=""
+            fi
+          fi
+
           SHA=$(printf '%s' "$COMMIT" | cut -f1)
           MESSAGE=$(printf '%s' "$COMMIT" | cut -f2-)
-          if printf '%s' "$MESSAGE" | grep -q '— 07h00 —'; then
-            SLOT=matin
-          elif printf '%s' "$MESSAGE" | grep -q '— 18h00 —'; then
-            SLOT=soir
-          else
-            echo "::error::Impossible d'identifier le créneau du dernier déploiement public."
-            git -C /tmp/lesfaits-site log -10 --pretty='%h %s'
+          if [ -z "$SHA" ] || [ -z "${SLOT:-}" ]; then
+            echo "::error::Impossible d'identifier le déploiement public demandé."
+            git -C /tmp/lesfaits-site log -12 --pretty='%h %s'
             exit 1
           fi
+
           PUBLISHED_AT=$(git -C /tmp/lesfaits-site show -s --format=%cI "$SHA")
-          echo "Créneau public détecté : $SLOT ($MESSAGE, $PUBLISHED_AT)"
+          git -C /tmp/lesfaits-site diff-tree \
+            --root --no-commit-id --name-only --diff-filter=A -r "$SHA" -- 'articles/*.html' \
+            | sed 's|^articles/||; s|\.html$||' \
+            | awk 'NF && !seen[$0]++' \
+            > "$GITHUB_WORKSPACE/newsletter-slugs.txt"
+
+          python - <<'PY'
+          from pathlib import Path
+          from scripts.run_newsletter import read_deployment_slugs
+
+          path = Path("newsletter-slugs.txt")
+          slugs = read_deployment_slugs(path)
+          print(f"Lot public validé : {len(slugs)} fichier(s) article ajouté(s).")
+          for slug in slugs:
+              print(f"  - {slug}")
+          PY
+
+          echo "Déploiement public : $SHA"
+          echo "Créneau : $SLOT"
+          echo "Message : $MESSAGE"
+          echo "Publié à : $PUBLISHED_AT"
           echo "value=$SLOT" >> "$GITHUB_OUTPUT"
           echo "published_at=$PUBLISHED_AT" >> "$GITHUB_OUTPUT"
+          echo "deployment_sha=$SHA" >> "$GITHUB_OUTPUT"
 
       - name: Générer et envoyer le digest
         env:
@@ -112,10 +145,12 @@ jobs:
           DRY_RUN: ${{ inputs.dry_run }}
         run: |
           set -euo pipefail
-          ARGS=(--slot "${{ steps.slot.outputs.value }}")
-          if [ -n "${{ steps.slot.outputs.published_at }}" ]; then
-            ARGS+=(--now "${{ steps.slot.outputs.published_at }}")
-          fi
+          ARGS=(
+            --slot "${{ steps.deployment.outputs.value }}"
+            --now "${{ steps.deployment.outputs.published_at }}"
+            --deployment-id "${{ steps.deployment.outputs.deployment_sha }}"
+            --slugs-file "$GITHUB_WORKSPACE/newsletter-slugs.txt"
+          )
           if [ "$DRY_RUN" = "true" ]; then
             ARGS+=(--dry-run)
           fi
@@ -124,24 +159,31 @@ jobs:
       - name: Résumé du contrôle
         if: always()
         run: |
+          COUNT=0
+          if [ -f newsletter-slugs.txt ]; then
+            COUNT=$(grep -cve '^[[:space:]]*$' newsletter-slugs.txt || true)
+          fi
           {
             echo "## Newsletter"
             echo ""
-            echo "- Créneau : ${{ steps.slot.outputs.value || 'non déterminé' }}"
+            echo "- Créneau : ${{ steps.deployment.outputs.value || 'non déterminé' }}"
+            echo "- Déploiement public : ${{ steps.deployment.outputs.deployment_sha || 'non déterminé' }}"
+            echo "- Fichiers article ajoutés au déploiement : ${COUNT}"
             if [ -f newsletter-preview.html ]; then
               echo "- Aperçu HTML : généré"
             else
-              echo "- Aperçu HTML : aucun nouvel article éligible"
+              echo "- Aperçu HTML : aucun article éligible"
             fi
           } >> "$GITHUB_STEP_SUMMARY"
 
-      - name: Conserver l'aperçu et le rapport
+      - name: Conserver l'aperçu, le lot et le rapport
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: newsletter-${{ steps.slot.outputs.value || 'controle' }}-${{ github.run_id }}
+          name: newsletter-${{ steps.deployment.outputs.value || 'controle' }}-${{ github.run_id }}
           path: |
             newsletter-preview.html
+            newsletter-slugs.txt
             newsletter-run.log
           if-no-files-found: ignore
           retention-days: 14
