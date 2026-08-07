@@ -7695,5 +7695,222 @@
     "etape": "detection",
     "erreur": "Quota Groq journalier épuisé sur toutes les clés (vérification)",
     "article_type": "breve"
+  },
+  {
+    "slug": "taux-de-chomage-en-france-augmentation",
+    "statut": "corrige_automatiquement",
+    "date": "2026-08-07T13:54:49",
+    "problemes_initiaux": 3,
+    "tentatives": 2,
+    "problemes_residuels_style": 0,
+    "rapport_initial": {
+      "conforme": false,
+      "sujet_sensible": false,
+      "sujet_sensible_raison": "",
+      "angle_insuffisant": false,
+      "angle_insuffisant_raison": "",
+      "nature_contenu": "actualite_factuelle",
+      "problemes": [
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "source_non_editoriale",
+          "phrase_exacte": "Le taux de chômage au sens du Bureau international du travail (BIT) a augmenté de 0,2 point à son niveau du quatrième trimestre 2025 et de 0,7 point à celui du premier trimestre 2025.",
+          "explication": "La source du BIT n'est pas fournie dans les sources autorisées, mais l'information est peut-être disponible via l'Insee."
+        },
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "Le nombre de chômeurs en France (hors Mayotte) au sens du Bureau international du travail (BIT) a augmenté de 68 000 par rapport au trimestre précédent, à 2,6 millions de personnes.",
+          "explication": "La source du BIT n'est pas fournie dans les sources autorisées."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "incoherence_inter_sections",
+          "phrase_exacte": "Selon l'Insee, le taux de chômage a augmenté de 0,2 point pour atteindre 8,3 % au deuxième trimestre.",
+          "explication": "Le taux de chômage au sens du BIT est de 8,1%, ce qui peut être considéré comme une incohérence avec le taux de 8,3% fourni par l'Insee."
+        }
+      ]
+    },
+    "article_type": "breve"
+  },
+  {
+    "slug": "taux-chomage-france-8-3",
+    "statut": "conforme_du_premier_coup",
+    "date": "2026-08-07T13:55:54",
+    "article_type": "breve"
+  },
+  {
+    "slug": "chomage-france-8-3-pourcent",
+    "statut": "erreur_verification",
+    "date": "2026-08-07T13:56:37",
+    "etape": "detection",
+    "erreur": "Expecting ',' delimiter: line 27 column 36 (char 1202)",
+    "article_type": "breve",
+    "avertissements_garde_fous": [
+      "resume_repete_corps",
+      "attributions_trop_repetitives"
+    ]
+  },
+  {
+    "slug": "mortalite-infantile-france-augmentation",
+    "statut": "rejete_sensible",
+    "date": "2026-08-07T13:59:51",
+    "sujet_sensible": true,
+    "raison": "l'article implique des mineurs (enfants) en tant que victimes d'une augmentation de la mortalité infantile",
+    "article_type": "breve",
+    "avertissements_garde_fous": [
+      "faits_repetitifs"
+    ]
+  },
+  {
+    "slug": "yan-diomande-rejoint-real-madrid",
+    "statut": "rejete_qualite",
+    "date": "2026-08-07T14:03:02",
+    "angle_insuffisant": true,
+    "raison": "L'article ne répond pas à la question posée dans 'angle_reponse' et ne fournit pas d'information sur l'impact du transfert de Yan Diomandé pour le football africain et le Real Madrid.",
+    "article_type": "breve"
+  },
+  {
+    "slug": "finlande-reensauvagement-defensif",
+    "statut": "corrige_automatiquement",
+    "date": "2026-08-07T14:04:32",
+    "problemes_initiaux": 3,
+    "tentatives": 1,
+    "problemes_residuels_style": 0,
+    "rapport_initial": {
+      "conforme": false,
+      "sujet_sensible": false,
+      "sujet_sensible_raison": "",
+      "angle_insuffisant": false,
+      "angle_insuffisant_raison": "",
+      "nature_contenu": "actualite_factuelle",
+      "problemes": [
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "fait_tranche_arbitrairement",
+          "phrase_exacte": "la Finlande a identifié 180 000 hectares de zones humides dont la restauration pourrait bénéficier à la défense contre les chars russes, ainsi qu'au climat et à la biodiversité.",
+          "explication": "Le fait que la restauration de ces zones humides puisse bénéficier à la défense contre les chars russes est présenté comme un fait établi, alors que cela pourrait être une hypothèse ou une stratégie en discussion."
+        },
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "source_non_editoriale",
+          "phrase_exacte": "Le Conseil d'État fournit des analyses sur les décisions du Tribunal des conflits, mais celles-ci ne sont pas directement liées à la question des tourbières et de la défense.",
+          "explication": "Le Conseil d'État n'est pas une source éditoriale, mais plutôt une institution gouvernementale, et son analyse n'est pas directement pertinente pour le sujet des tourbières et de la défense."
+        },
+        {
+          "bloc": 4,
+          "section": "faits",
+          "type": "redondance",
+          "phrase_exacte": "La Finlande a donc une approche globale pour la restauration de ces zones, avec des implications à la fois pour la défense et pour l'environnement.",
+          "explication": "Cette phrase répète l'idée déjà présente dans les phrases précédentes, sans apporter de nouvelle information."
+        }
+      ]
+    },
+    "article_type": "breve"
+  },
+  {
+    "slug": "mortalite-infantile-france-facteurs",
+    "statut": "rejete_sensible",
+    "date": "2026-08-07T14:05:11",
+    "sujet_sensible": true,
+    "raison": "l'article implique des mineurs (enfants) et porte sur une question de santé publique",
+    "article_type": "breve",
+    "avertissements_garde_fous": [
+      "resume_repete_corps"
+    ]
+  },
+  {
+    "slug": "sadhguru-gourou-numerique-isha",
+    "statut": "rejete_sensible",
+    "date": "2026-08-07T14:06:32",
+    "sujet_sensible": true,
+    "raison": "L'article implique une personne identifiée nommément (Sadhguru) et contient des critiques et des controverses à son égard",
+    "article_type": "breve",
+    "avertissements_garde_fous": [
+      "resume_repete_corps",
+      "faits_repetitifs"
+    ]
+  },
+  {
+    "slug": "meta-condamne-567-millions-dollars",
+    "statut": "rejete_sensible",
+    "date": "2026-08-07T14:08:33",
+    "sujet_sensible": true,
+    "raison": "l'article implique des mineurs victimes de harcèlement ou de cyberintimidation",
+    "article_type": "breve"
+  },
+  {
+    "slug": "tribunal-administratif-suspend-arrete-anti-burkini",
+    "statut": "rejete_sensible",
+    "date": "2026-08-07T14:09:42",
+    "sujet_sensible": true,
+    "raison": "l'article implique une affaire judiciaire en cours visant une décision administrative",
+    "article_type": "breve",
+    "avertissements_garde_fous": [
+      "faits_repetitifs"
+    ]
+  },
+  {
+    "slug": "les-prenoms-en-france-reflet-de-la-societe",
+    "statut": "rejete_qualite",
+    "date": "2026-08-07T14:11:35",
+    "angle_insuffisant": true,
+    "raison": "L'article ne contient pas de phrase liant un événement daté récent à une donnée chiffrée ou nommée qui lui est propre.",
+    "article_type": "breve",
+    "avertissements_garde_fous": [
+      "resume_repete_corps"
+    ]
+  },
+  {
+    "slug": "vie-microbienne-sous-terre",
+    "statut": "rejete_qualite",
+    "date": "2026-08-07T14:12:14",
+    "angle_insuffisant": true,
+    "raison": "L'article ne contient pas de phrase qui lie un événement daté récent à une donnée chiffrée ou nommée qui lui est propre",
+    "article_type": "breve"
+  },
+  {
+    "slug": "etude-posture-au-travail-et-etat-desprit",
+    "statut": "rejete_qualite",
+    "date": "2026-08-07T14:14:06",
+    "angle_insuffisant": true,
+    "raison": "L'article ne contient pas d'événement précis daté ou datable lié à une donnée chiffrée ou nommée",
+    "article_type": "breve",
+    "avertissements_garde_fous": [
+      "titre_de_mauvaise_qualite"
+    ]
+  },
+  {
+    "slug": "apple-watch-ultra-3-remise-24-pourcent",
+    "statut": "rejete_qualite",
+    "date": "2026-08-07T14:15:24",
+    "angle_insuffisant": true,
+    "raison": "L'article ne fournit pas d'information sur un événement précis daté ou datable lié à la remise de 24% sur l'Apple Watch Ultra 3",
+    "article_type": "actu"
+  },
+  {
+    "slug": "mortalite-infantile-france-hausse",
+    "statut": "rejete_sensible",
+    "date": "2026-08-07T14:16:21",
+    "sujet_sensible": true,
+    "raison": "L'article implique des mineurs (enfants) en tant que victimes de la mortalité infantile",
+    "article_type": "breve"
+  },
+  {
+    "slug": "guerre-etats-unis-iran-geants-petrole",
+    "statut": "rejete_qualite",
+    "date": "2026-08-07T14:17:33",
+    "tentative": 1,
+    "angle_insuffisant": true,
+    "raison": "L'article ne fournit pas d'information spécifique sur un événement récent lié à la guerre entre les États-Unis et l'Iran et à ses conséquences économiques sur les géants du pétrole.",
+    "article_type": "breve",
+    "avertissements_garde_fous": [
+      "resume_repete_corps"
+    ]
   }
 ]
