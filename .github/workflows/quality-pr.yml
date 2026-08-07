@@ -37,6 +37,7 @@ jobs:
             scripts/apply_retirements.py \
             scripts/apply_premium_design.py \
             scripts/normalize_publication_metadata.py \
+            scripts/normalize_visible_publication_time.py \
             scripts/normalize_source_metadata.py \
             scripts/normalize_corpus_indexing.py \
             scripts/check_site_integrity.py \
@@ -68,10 +69,12 @@ jobs:
       - name: Métadonnées et intégrité du site
         run: |
           python scripts/test_normalize_publication_metadata.py
+          python scripts/test_normalize_visible_publication_time.py
           python scripts/test_normalize_source_metadata.py
           python scripts/test_normalize_corpus_indexing.py
           python scripts/check_seo.py
           python scripts/normalize_publication_metadata.py --check
+          python scripts/normalize_visible_publication_time.py --check
           python scripts/normalize_source_metadata.py --check
           python scripts/normalize_corpus_indexing.py --check
           python scripts/check_site_integrity.py
