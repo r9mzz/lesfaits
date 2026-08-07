@@ -1,14 +1,14 @@
 # -*- coding: utf-8 -*-
 """Contrôle en lecture seule le formulaire d'inscription hébergé par Brevo.
 
-Le site envoie ses préférences directement vers ce formulaire public. Créer les
-attributs dans le compte Brevo ne suffit pas : le formulaire publié doit aussi
-contenir les champs correspondants, sinon l'interface Les Faits promettrait une
-personnalisation que Brevo pourrait ignorer.
+Le formulaire public Les Faits transmet uniquement les champs dont le contrat
+Brevo est vérifié : l'adresse email et le marqueur d'inscription. Les anciennes
+préférences de fréquence et de rubriques ne sont plus affichées aux nouveaux
+abonnés, car le formulaire Brevo publié ne les collecte pas.
 
 Ce script ne soumet rien et ne manipule aucun contact. Il télécharge seulement
 la page publique, inventorie les champs de formulaire et échoue explicitement
-si le contrat attendu n'est plus présent.
+si le contrat minimal attendu n'est plus présent.
 """
 from __future__ import annotations
 
@@ -21,19 +21,9 @@ import requests
 
 from harden_newsletter import FORM_URL
 
-CATEGORIES = (
-    "SOCIETE",
-    "SCIENCE",
-    "ECONOMIE",
-    "TECH",
-    "SANTE",
-    "ENVIRONNEMENT",
-)
 REQUIRED_FIELDS = frozenset({
     "EMAIL",
-    "FREQ",
     "LESFAITS_VERIFICATION",
-    *(f"CAT_{category}" for category in CATEGORIES),
 })
 
 
@@ -89,8 +79,8 @@ def validate_snapshot(
     missing = sorted(set(required_fields) - snapshot.fields)
     if missing:
         raise RuntimeError(
-            "Le formulaire Brevo publié ne collecte pas tous les champs affichés "
-            "sur Les Faits. Champs absents : " + ", ".join(missing)
+            "Le formulaire Brevo publié ne collecte plus les données minimales "
+            "utilisées par Les Faits. Champs absents : " + ", ".join(missing)
         )
 
 
@@ -98,7 +88,7 @@ def audit_form(url: str = FORM_URL, timeout: int = 25) -> FormSnapshot:
     response = requests.get(
         url,
         headers={
-            "User-Agent": "Mozilla/5.0 (compatible; LesFaits-Newsletter-Audit/3.0)",
+            "User-Agent": "Mozilla/5.0 (compatible; LesFaits-Newsletter-Audit/3.1)",
             "Accept": "text/html,application/xhtml+xml",
         },
         timeout=timeout,
@@ -120,7 +110,7 @@ def audit_form(url: str = FORM_URL, timeout: int = 25) -> FormSnapshot:
     validate_snapshot(snapshot)
     print(
         f"[BREVO FORM] HTTP {response.status_code}; {snapshot.form_count} formulaire(s); "
-        f"{len(snapshot.fields)} champ(s); contrat newsletter complet."
+        f"{len(snapshot.fields)} champ(s); contrat minimal complet."
     )
     print("[BREVO FORM] Champs contrôlés : " + ", ".join(sorted(REQUIRED_FIELDS)))
     return snapshot
