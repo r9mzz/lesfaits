@@ -56,6 +56,7 @@ class NewsletterV5Tests(unittest.TestCase):
         self.assertIn('hidden aria-hidden="true"', updated)
         self.assertEqual(v3._named_form_fields(updated), v3.BREVO_POST_FIELDS)
         self.assertTrue(v3._csp_allows_native_post(updated))
+        self.assertTrue(v3._csp_allows_hidden_response(updated))
 
     def test_upgrade_is_idempotent(self):
         once = v3.upgrade_html(OLD_PAGE)
@@ -121,16 +122,24 @@ class NewsletterV5Tests(unittest.TestCase):
         errors = v3.validate_v3(Path("index.html"), updated)
         self.assertTrue(any(v3.FRAME_NAME in error for error in errors))
 
-    def test_validation_rejects_missing_native_action_or_csp_permission(self):
+    def test_validation_rejects_missing_native_action_or_csp_permissions(self):
         updated = v3.upgrade_html(OLD_PAGE)
         broken_action = updated.replace(f'action="{v3.FORM_URL}"', 'action="/"')
         self.assertTrue(any("action=" in error for error in v3.validate_v3(Path("index.html"), broken_action)))
-        broken_csp = updated.replace(
+
+        broken_form_csp = updated.replace(
             f"form-action 'self' https://{v3.FORM_HOST}",
             "form-action 'self'",
             1,
         )
-        self.assertTrue(any("CSP form-action" in error for error in v3.validate_v3(Path("index.html"), broken_csp)))
+        self.assertTrue(any("CSP form-action" in error for error in v3.validate_v3(Path("index.html"), broken_form_csp)))
+
+        broken_frame_csp = updated.replace(
+            f"frame-src 'self' https://{v3.FORM_HOST}",
+            "frame-src 'self'",
+            1,
+        )
+        self.assertTrue(any("CSP frame-src" in error for error in v3.validate_v3(Path("index.html"), broken_frame_csp)))
 
     def test_browser_script_never_navigates_reader_to_brevo(self):
         script = (Path(__file__).resolve().parent.parent / "src" / "newsletter.js").read_text(encoding="utf-8")

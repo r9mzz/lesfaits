@@ -222,7 +222,8 @@ def _ensure_native_form(html: str) -> str:
     return html
 
 
-def _ensure_form_action_csp(html: str) -> str:
+def _ensure_brevo_csp(html: str) -> str:
+    """Autorise le POST et le chargement de sa réponse dans l'iframe cachée."""
     if not FORM_OPEN_RE.search(html):
         return html
     allowed = f"https://{FORM_HOST}"
@@ -233,18 +234,23 @@ def _ensure_form_action_csp(html: str) -> str:
             parts = raw.strip().split()
             if parts:
                 directives.append((parts[0], parts[1:]))
-        found = False
-        for i, (name, values) in enumerate(directives):
-            if name.lower() == "form-action":
+
+        for wanted, include_self in (("form-action", True), ("frame-src", True)):
+            found = False
+            for i, (name, values) in enumerate(directives):
+                if name.lower() != wanted:
+                    continue
                 found = True
-                if "'self'" not in values:
+                if include_self and "'self'" not in values:
                     values.insert(0, "'self'")
                 if allowed not in values:
                     values.append(allowed)
                 directives[i] = (name, values)
                 break
-        if not found:
-            directives.append(("form-action", ["'self'", allowed]))
+            if not found:
+                values = ["'self'", allowed] if include_self else [allowed]
+                directives.append((wanted, values))
+
         rendered = "; ".join(" ".join([name, *values]) for name, values in directives) + ";"
         return f"{match.group(1)}{match.group(3)}{rendered}{match.group(3)}{match.group(5)}"
 
@@ -262,29 +268,34 @@ def upgrade_html(html: str) -> str:
     html = _local_consent(html)
     html = _ensure_preferences_ui(html)
     html = _ensure_native_form(html)
-    html = _ensure_form_action_csp(html)
+    html = _ensure_brevo_csp(html)
     return html
 
 
 def harden_html(html: str) -> str:
-    # Une page déjà en v5 ne repasse pas par l'ancien normaliseur v2 : celui-ci
-    # réécrivait encore le libellé "Matin (~7h)" au deuxième passage. La v5 est
-    # ainsi réellement idempotente dès sa première génération.
     if f'data-newsletter-version="{VERSION}"' in html and SCRIPT_SRC in html:
         return upgrade_html(html)
     return upgrade_html(legacy.harden_html(html))
 
 
-def _csp_allows_native_post(html: str) -> bool:
+def _csp_allows_directive(html: str, directive: str) -> bool:
     csp = legacy.CSP_META_RE.search(html)
     if not csp:
         return False
     allowed = f"https://{FORM_HOST}"
     for raw in csp.group(4).split(";"):
         parts = raw.strip().split()
-        if parts and parts[0].lower() == "form-action":
+        if parts and parts[0].lower() == directive.lower():
             return allowed in parts[1:]
     return False
+
+
+def _csp_allows_native_post(html: str) -> bool:
+    return _csp_allows_directive(html, "form-action")
+
+
+def _csp_allows_hidden_response(html: str) -> bool:
+    return _csp_allows_directive(html, "frame-src")
 
 
 def _named_form_fields(html: str) -> set[str]:
@@ -342,6 +353,8 @@ def validate_v3(path: Path, html: str) -> list[str]:
         errors.append("consentement envoyé comme attribut Brevo")
     if not _csp_allows_native_post(html):
         errors.append("CSP form-action n'autorise pas Brevo")
+    if not _csp_allows_hidden_response(html):
+        errors.append("CSP frame-src n'autorise pas la réponse Brevo cachée")
 
     fields = _named_form_fields(html)
     if fields != BREVO_POST_FIELDS:
