@@ -168,10 +168,7 @@ def build_local_preview(
     return {"articles": count, "categories": len(by_category)}
 
 
-def deployment_campaign_name(
-    original,
-    deployment_id: str,
-):
+def deployment_campaign_name(original, deployment_id: str):
     short = deployment_id.lower()[:12]
 
     def build(run_now: dt.datetime, slot: str) -> str:
@@ -194,10 +191,9 @@ def _legacy_campaign_matches_deployment(
         or campaign.get("scheduledAt")
         or campaign.get("createdAt")
     )
-    # Le digest part après le commit public. Une tolérance de deux minutes
-    # absorbe les différences de précision d'horloge, sans confondre un autre
-    # déploiement plus tard dans le même créneau.
-    return bool(timestamp and timestamp >= published_at - dt.timedelta(minutes=2))
+    # Le digest part après le commit public. Une petite tolérance absorbe la
+    # précision des horloges sans confondre un autre déploiement plus tard.
+    return bool(timestamp and timestamp >= published_at - dt.timedelta(seconds=30))
 
 
 def main(argv: list[str] | None = None) -> int:
@@ -236,9 +232,11 @@ def main(argv: list[str] | None = None) -> int:
 
     exact_slugs = read_deployment_slugs(args.slugs_file) if args.slugs_file else None
     # Valider le lot AVANT le premier appel Brevo : une incohérence de publication
-    # doit échouer sans toucher aux contacts ni aux campagnes.
+    # doit échouer sans toucher aux contacts ni aux campagnes. Les redirections
+    # de consolidation sont retirées de la liste transmise au moteur historique.
     if exact_slugs is not None:
-        articles_for_deployment(exact_slugs)
+        deployment_articles = articles_for_deployment(exact_slugs)
+        exact_slugs = [str(article["slug"]) for article in deployment_articles]
 
     original_latest = digest.latest_sent_campaign_time
     original_recent = digest.recent_article_slugs
