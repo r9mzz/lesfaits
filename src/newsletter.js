@@ -2,68 +2,16 @@
 (function () {
   "use strict";
 
-  if (window.LFNewsletter && window.LFNewsletter.version >= 2) return;
+  if (window.LFNewsletter && window.LFNewsletter.version >= 3) return;
 
-  var VERSION = 2;
+  var VERSION = 3;
   var FORM_URL = "https://e6ad0381.sibforms.com/serve/MUIFAErfidn3h7DoaZcjIRh-48s1GoiE0vZOe_KG-skCwDznnQ2831i0IkHsSaXfUJ15hBl1CH3ElJVKdGDdXdxHpt6v7iX-hAlyWb0i0M7mtq6UhgJ9JJyCUhNwckwfxW8EUJkF_hkjb4qX8YSntlFraZFiCcgQhZ3PXsPvAcSa9oEyPOgeL1EtAB4akgMS-hz76NcGAUSqOt3L1w==";
-  var STORAGE_KEY = "lesfaits_newsletter_preferences_v2";
-  var CATEGORY_FIELDS = [
-    "CAT_SOCIETE",
-    "CAT_SCIENCE",
-    "CAT_ECONOMIE",
-    "CAT_TECH",
-    "CAT_SANTE",
-    "CAT_ENVIRONNEMENT"
-  ];
 
   function setMessage(form, text, kind) {
     var message = form.querySelector("#nl-msg, .nl-compact__msg");
     if (!message) return;
     message.textContent = text || "";
     message.className = "nl-compact__msg" + (kind ? " nl-compact__msg--" + kind : "");
-  }
-
-  function readPreferences(form) {
-    var selected = form.querySelector('input[name="FREQ"]:checked');
-    var categories = {};
-    CATEGORY_FIELDS.forEach(function (name) {
-      var input = form.querySelector('input[name="' + name + '"]');
-      categories[name] = !!(input && input.checked);
-    });
-    return {
-      frequency: selected ? selected.value : "both",
-      categories: categories
-    };
-  }
-
-  function savePreferences(form) {
-    try {
-      localStorage.setItem(STORAGE_KEY, JSON.stringify(readPreferences(form)));
-    } catch (_) {
-      /* Le stockage local est un confort, jamais une condition d'inscription. */
-    }
-  }
-
-  function restorePreferences(form) {
-    var saved = null;
-    try {
-      saved = JSON.parse(localStorage.getItem(STORAGE_KEY) || "null");
-    } catch (_) {
-      saved = null;
-    }
-    if (!saved || typeof saved !== "object") return;
-
-    var frequency = String(saved.frequency || "");
-    var radio = form.querySelector('input[name="FREQ"][value="' + frequency + '"]');
-    if (radio) radio.checked = true;
-
-    var categories = saved.categories || {};
-    CATEGORY_FIELDS.forEach(function (name) {
-      var input = form.querySelector('input[name="' + name + '"]');
-      if (input && Object.prototype.hasOwnProperty.call(categories, name)) {
-        input.checked = !!categories[name];
-      }
-    });
   }
 
   function enhanceForm(form) {
@@ -79,7 +27,6 @@
       email.setAttribute("spellcheck", "false");
       email.setAttribute("aria-describedby", "nl-msg nl-hint");
     }
-    restorePreferences(form);
   }
 
   function enhanceAll(root) {
@@ -95,27 +42,12 @@
     return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
   }
 
-  function makePayload(form, email) {
+  function makePayload(email) {
     var data = new FormData();
     data.append("EMAIL", email);
     data.append("LESFAITS_VERIFICATION", "1");
     data.append("email_address_check", "");
     data.append("locale", "fr");
-
-    CATEGORY_FIELDS.forEach(function (name) {
-      var input = form.querySelector('input[name="' + name + '"]');
-      data.append(name, input && input.checked ? "1" : "0");
-    });
-
-    var selected = form.querySelector('input[name="FREQ"]:checked');
-    var frequency = selected ? selected.value : "both";
-    data.append("FREQ", frequency);
-
-    // Compatibilité avec les anciens contacts tant que leur attribut historique
-    // ENVOI_MATIN existe encore. "both" n'est pas représentable par un booléen.
-    if (frequency === "morning") data.append("ENVOI_MATIN", "1");
-    if (frequency === "evening") data.append("ENVOI_MATIN", "0");
-
     return data;
   }
 
@@ -139,7 +71,6 @@
       return;
     }
 
-    savePreferences(form);
     var controller = typeof AbortController === "function" ? new AbortController() : null;
     var timeoutId = window.setTimeout(function () {
       if (controller) controller.abort();
@@ -159,18 +90,17 @@
       credentials: "omit",
       cache: "no-store",
       referrerPolicy: "strict-origin-when-cross-origin",
-      body: makePayload(form, email),
+      body: makePayload(email),
       signal: controller ? controller.signal : undefined
     }).then(function () {
       // Une réponse cross-origin no-cors est volontairement opaque : on sait
       // que la requête réseau est partie, pas que Brevo a accepté l'adresse.
       setMessage(
         form,
-        "Demande transmise à Brevo. Si l’adresse est valide, vous recevrez un email de confirmation. Vérifiez aussi vos spams.",
+        "Demande transmise à Brevo. Si l’adresse est valide, vous recevrez un email de confirmation. Après validation, les éditions du matin et du soir seront activées lorsqu’il y aura de nouveaux articles. Vérifiez aussi vos spams.",
         "ok"
       );
       form.reset();
-      restorePreferences(form);
     }).catch(function (error) {
       var timeout = error && error.name === "AbortError";
       setMessage(
@@ -199,15 +129,6 @@
     event.preventDefault();
     submit(form);
   }, true);
-
-  document.addEventListener("change", function (event) {
-    var form = event.target && event.target.closest
-      ? event.target.closest("form#nl-form")
-      : null;
-    if (form && (event.target.name === "FREQ" || CATEGORY_FIELDS.indexOf(event.target.name) !== -1)) {
-      savePreferences(form);
-    }
-  });
 
   if (document.readyState === "loading") {
     document.addEventListener("DOMContentLoaded", function () { enhanceAll(document); });

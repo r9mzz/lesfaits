@@ -6,9 +6,13 @@ on:
       - "scripts/generer_digest.py"
       - "scripts/run_newsletter.py"
       - "scripts/harden_newsletter.py"
+      - "scripts/harden_newsletter_v3.py"
+      - "scripts/audit_brevo_form.py"
       - "scripts/test_newsletter.py"
       - "scripts/test_run_newsletter.py"
       - "scripts/test_newsletter_campaigns.py"
+      - "scripts/test_harden_newsletter_v3.py"
+      - "scripts/test_audit_brevo_form.py"
       - "src/newsletter.js"
       - ".github/workflows/newsletter.yml"
       - ".github/workflows/newsletter-quality.yml"
@@ -39,15 +43,23 @@ jobs:
             scripts/generer_digest.py \
             scripts/run_newsletter.py \
             scripts/harden_newsletter.py \
+            scripts/harden_newsletter_v3.py \
+            scripts/audit_brevo_form.py \
             scripts/test_newsletter.py \
             scripts/test_run_newsletter.py \
-            scripts/test_newsletter_campaigns.py
+            scripts/test_newsletter_campaigns.py \
+            scripts/test_harden_newsletter_v3.py \
+            scripts/test_audit_brevo_form.py
           python scripts/test_newsletter.py
           python scripts/test_run_newsletter.py
           python scripts/test_newsletter_campaigns.py
+          python scripts/test_harden_newsletter_v3.py
+          python scripts/test_audit_brevo_form.py
           node --check src/newsletter.js
+      - name: Contrôler le formulaire Brevo réellement publié
+        run: python scripts/audit_brevo_form.py
       - name: Reconstruction et audit de toutes les pages
         run: |
-          python scripts/harden_newsletter.py
-          python scripts/harden_newsletter.py --check
+          python scripts/harden_newsletter_v3.py
+          python scripts/harden_newsletter_v3.py --check
           python scripts/check_seo.py

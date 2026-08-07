@@ -135,7 +135,7 @@ class RecipientTests(unittest.TestCase):
         refused = next(c for c in fake.contacts[9] if c["email"] == "refus@example.fr")
         self.assertEqual(refused["listUnsubscribed"], [9])
 
-    def test_required_attributes_are_created(self):
+    def test_required_attributes_are_created_for_legacy_contacts(self):
         fake = FakeBrevo()
         digest.ensure_contact_attributes(fake)
         created = dict(fake.created_attributes)
@@ -206,13 +206,17 @@ msgEl.textContent="Un email de confirmation vient de vous être envoyé";})();</
 
 
 class JavascriptContractTests(unittest.TestCase):
-    def test_browser_script_uses_honest_status_message(self):
+    def test_browser_script_uses_only_supported_brevo_fields(self):
         script = (ROOT / "src" / "newsletter.js").read_text(encoding="utf-8")
         self.assertIn("Demande transmise à Brevo", script)
         self.assertNotIn("Un email de confirmation vient de vous être envoyé", script)
-        self.assertIn('data.append("FREQ", frequency)', script)
-        self.assertIn('data.append(name, input && input.checked ? "1" : "0")', script)
-        self.assertNotIn("localStorage.setItem(STORAGE_KEY, email", script)
+        self.assertIn('data.append("EMAIL", email)', script)
+        self.assertIn('data.append("LESFAITS_VERIFICATION", "1")', script)
+        self.assertNotIn('data.append("FREQ"', script)
+        self.assertNotIn("CATEGORY_FIELDS", script)
+        self.assertNotIn("CAT_SOCIETE", script)
+        self.assertNotIn("localStorage", script)
+        self.assertIn("les éditions du matin et du soir", script)
 
 
 if __name__ == "__main__":
