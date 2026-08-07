@@ -35,6 +35,7 @@ jobs:
         run: |
           python -m py_compile \
             scripts/normalize_publication_metadata.py \
+            scripts/normalize_source_metadata.py \
             scripts/check_site_integrity.py \
             scripts/check_seo.py \
             scripts/run_pipeline.py \
@@ -50,8 +51,10 @@ jobs:
       - name: Métadonnées et intégrité du site
         run: |
           python scripts/test_normalize_publication_metadata.py
+          python scripts/test_normalize_source_metadata.py
           python scripts/check_seo.py
           python scripts/normalize_publication_metadata.py --check
+          python scripts/normalize_source_metadata.py --check
           python scripts/check_site_integrity.py
 
       - name: Pipeline éditorial
