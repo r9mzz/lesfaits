@@ -8,6 +8,11 @@ on:
       - 'scripts/apply_premium_design.py'
       - 'scripts/test_premium_design.py'
       - 'data/premium-design.json'
+      - 'data/retirements.json'
+      - 'scripts/apply_retirements.py'
+      - 'scripts/check_seo.py'
+      - 'scripts/check_site_integrity.py'
+      - 'scripts/normalize_corpus_indexing.py'
       - '.github/workflows/deploy.yml'
       - '.github/workflows/design-pr.yml'
   workflow_dispatch:
@@ -42,6 +47,7 @@ jobs:
       - name: Syntaxe
         run: |
           python -m py_compile \
+            scripts/apply_retirements.py \
             scripts/apply_premium_design.py \
             scripts/test_premium_design.py \
             scripts/pipeline.py \
@@ -57,6 +63,7 @@ jobs:
           PYTHONIOENCODING: utf-8
           TZ: Europe/Paris
         run: |
+          python scripts/apply_retirements.py
           python scripts/pipeline.py --rebuild
           python scripts/patch_articles.py
           python scripts/harden_newsletter_v3.py
