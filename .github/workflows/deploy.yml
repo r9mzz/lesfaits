@@ -2,11 +2,8 @@ name: Factuel — Déploiement site
 
 on:
   schedule:
-    # NOTE : les crons GitHub sont fréquemment retardés de 1 à 4h (le 02/07 le
-    # créneau de 05h00 UTC n'a jamais été exécuté ; la veille il est parti avec
-    # 3h50 de retard). On planifie donc 10 min avant l'heure cible sur une
-    # minute non ronde : au mieux la publication part à 06h50/17h50 Paris, avec
-    # le retard habituel elle reste proche de 07h/18h au lieu de 10h+.
+    # NOTE : les crons GitHub sont fréquemment retardés de 1 à 4h. On planifie
+    # dix minutes avant l'heure cible sur une minute non ronde.
     # Matin ~07h00 Paris — été (CEST UTC+2) : avril–octobre
     - cron: "50 4 * 4-10 *"
     # Matin ~07h00 Paris — hiver (CET UTC+1) : novembre–mars
@@ -28,9 +25,6 @@ on:
         default: 'false'
         type: boolean
 
-# Deux déploiements simultanés pourraient pousser des commits concurrents ou
-# des suppressions d'articles incohérentes sur lesfaits-site — en file, pas
-# annulés, pour ne jamais interrompre un déploiement déjà en cours.
 concurrency:
   group: factuel-deploy
   cancel-in-progress: false
@@ -48,14 +42,6 @@ jobs:
         with:
           fetch-depth: 1
 
-      # ── Garde-fou : ne pas redéployer un contenu identique ───────────────
-      # Un automate EXTERNE au dépôt déclenche deploy.yml à 04h00 ET 04h50 UTC
-      # chaque jour (constat 28/07, 5 jours consécutifs) — le second arrive
-      # 50 min après le premier, sans qu'aucune génération n'ait eu lieu entre
-      # les deux : il republie exactement le même contenu. On compare donc le
-      # SHA courant à celui du dernier déploiement réussi. Critère volontaire-
-      # ment fondé sur le contenu et non sur le temps : un déploiement ne doit
-      # JAMAIS être bloqué s'il a réellement des articles neufs à publier.
       - name: Ignorer si rien de neuf à déployer
         id: garde
         env:
@@ -123,12 +109,9 @@ jobs:
           SITE_DEPLOY_TOKEN: ${{ secrets.SITE_DEPLOY_TOKEN }}
           TZ: Europe/Paris
         run: |
-          # Fichier consommé par l'étape "Publier sur X" (vide si rien de neuf)
           : > "${GITHUB_WORKSPACE}/new_articles.txt"
-
           git clone https://x-access-token:${SITE_DEPLOY_TOKEN}@github.com/r9mzz/lesfaits-site.git /tmp/site
 
-          # Supprimer les articles retirés de la source
           PRIVATE_ARTICLES="${GITHUB_WORKSPACE}/articles"
           shopt -s nullglob
           for f in /tmp/site/articles/*.html; do
@@ -160,30 +143,20 @@ jobs:
           cp    methode.html          /tmp/site/ 2>/dev/null || true
           cp    a-propos.html         /tmp/site/ 2>/dev/null || true
           cp    corrections.html      /tmp/site/ 2>/dev/null || true
-          cp    404.html             /tmp/site/ 2>/dev/null || true
+          cp    404.html              /tmp/site/ 2>/dev/null || true
           cp    favoris.html          /tmp/site/ 2>/dev/null || true
           cp    confirmation.html     /tmp/site/ 2>/dev/null || true
           cp    desabonnement.html    /tmp/site/ 2>/dev/null || true
           cp -r src/                  /tmp/site/ 2>/dev/null || true
-          # L'app perso "Devenir" a été brièvement déployée le 18/07 puis
-          # retirée (aucun lien voulu avec lesfaits.info) — on purge le
-          # dossier du site à chaque déploiement pour garantir sa disparition.
           rm -rf /tmp/site/devenir
 
-          # GARDE-FOU (03/08) — les copies ci-dessus forment une LISTE BLANCHE,
-          # un fichier à la fois. Une nouvelle page à la racine est donc
-          # générée par --rebuild, validée par check_seo, puis JAMAIS publiée,
-          # sans que rien n'échoue : le déploiement se termine en succès et la
-          # page répond 404 en ligne. C'est exactement ce qui est arrivé à
-          # breves.html le 03/08. On vérifie donc que toute page HTML présente
-          # à la racine de la source est bien arrivée sur le site.
+          # Toute page HTML racine générée doit être présente dans le site.
           manquantes=""
           for f in *.html; do
             [ -f "/tmp/site/$f" ] || manquantes="$manquantes $f"
           done
           if [ -n "$manquantes" ]; then
             echo "::error::Page(s) générée(s) mais NON copiée(s) vers lesfaits-site :$manquantes"
-            echo "Ajouter un 'cp <fichier> /tmp/site/' dans .github/workflows/deploy.yml."
             exit 1
           fi
 
@@ -193,11 +166,28 @@ jobs:
           git add -A
           git diff --cached --quiet && echo "Aucun changement à déployer." && exit 0
 
-          NB=$(git diff --cached --name-only | grep "^articles/" | wc -l)
+          # Compter uniquement les créations. Les anciens articles reconstruits
+          # ne sont plus annoncés comme de nouvelles publications.
+          NB_NEW=$(git diff --cached --name-only --diff-filter=A -- articles/ | grep -E '\.html$' | wc -l | tr -d ' ')
+          NB_MOD=$(git diff --cached --name-only --diff-filter=M -- articles/ | grep -E '\.html$' | wc -l | tr -d ' ')
+          NB_DEL=$(git diff --cached --name-only --diff-filter=D -- articles/ | grep -E '\.html$' | wc -l | tr -d ' ')
           CRENEAU=$([ $(date +%H) -lt 12 ] && echo "07h00" || echo "18h00")
-          git commit -m "✦ ${NB} article(s) publiés — ${CRENEAU} — $(date +'%d/%m/%Y')"
 
-          # Slugs des articles AJOUTÉS par ce déploiement → pour la publication X
+          {
+            echo "## Déploiement public"
+            echo ""
+            echo "- Nouveaux articles : ${NB_NEW}"
+            echo "- Articles reconstruits : ${NB_MOD}"
+            echo "- Articles retirés : ${NB_DEL}"
+          } >> "$GITHUB_STEP_SUMMARY"
+
+          if [ "$NB_NEW" -gt 0 ]; then
+            MESSAGE="✦ ${NB_NEW} nouveau(x) article(s) publié(s) — ${CRENEAU} — $(date +'%d/%m/%Y')"
+          else
+            MESSAGE="chore: mise à jour du site — 0 nouvel article — ${CRENEAU} — $(date +'%d/%m/%Y')"
+          fi
+          git commit -m "$MESSAGE"
+
           git diff --name-only --diff-filter=A HEAD~1 HEAD -- articles/ \
             | sed 's|^articles/||; s|\.html$||' > "${GITHUB_WORKSPACE}/new_articles.txt" || true
 
@@ -206,8 +196,6 @@ jobs:
       - name: Sauvegarder les slugs pour publication X (07h00)
         if: ${{ steps.garde.outputs.passer != 'true' && github.event.inputs.dry_run != 'true' }}
         run: |
-          # Les slugs des nouveaux articles sont publiés sur X par post_x.yml
-          # à 07h00 Paris (05h00 UTC), séparément du déploiement.
           if [ -s "${GITHUB_WORKSPACE}/new_articles.txt" ]; then
             cp "${GITHUB_WORKSPACE}/new_articles.txt" data/pending_x_posts.txt
             git config user.name  "Factuel Bot"
