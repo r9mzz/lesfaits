@@ -1,0 +1,370 @@
+/* Les Faits — Direction artistique Premium 2026
+   Couche volontairement séparée du thème historique : retirer son <link>
+   restaure le rendu précédent sans réécrire la feuille de base. */
+
+:root {
+  --editorial-max: 1180px;
+  --reading-max: 780px;
+  --editorial-radius: 5px;
+  --editorial-rule: color-mix(in srgb, var(--ink) 18%, var(--rule));
+}
+
+/* App / iPhone : respecter les zones sûres sans pénaliser le navigateur. */
+body {
+  min-height: 100dvh;
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+  text-rendering: optimizeLegibility;
+}
+.header { padding-top: env(safe-area-inset-top, 0px); }
+.nav-mobile {
+  padding-top: calc(72px + env(safe-area-inset-top, 0px));
+  padding-bottom: calc(32px + env(safe-area-inset-bottom, 0px));
+}
+#back-top, .back-to-top {
+  bottom: calc(24px + env(safe-area-inset-bottom, 0px));
+}
+
+/* Identité : un seul logotype, plus affirmé et identique partout. */
+.brand__icon { display: none !important; }
+.brand__logotype {
+  font-size: 29px;
+  letter-spacing: -1.35px;
+}
+.header__inner {
+  max-width: var(--editorial-max);
+  min-height: 66px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+.wrap { max-width: var(--editorial-max); }
+
+/* Navigation éditoriale : moins « app SaaS », plus grand média. */
+.nav-expand-group { gap: 18px; }
+.nav-expand-item {
+  height: 38px;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  color: var(--muted);
+  overflow: visible;
+  position: relative;
+  transition: color .16s ease;
+}
+.nav-expand-item svg { display: none; }
+.nav-expand-label {
+  max-width: none;
+  opacity: 1;
+  overflow: visible;
+  transform: none;
+  padding-left: 0;
+  font-size: 11.5px;
+  font-weight: 650;
+  letter-spacing: .01em;
+}
+.nav-expand-item:hover,
+.nav-expand-item.open {
+  background: transparent;
+  border-color: transparent;
+  color: var(--ink);
+}
+.nav-expand-item:hover .nav-expand-label,
+.nav-expand-item.open .nav-expand-label {
+  max-width: none;
+  opacity: 1;
+  transform: none;
+  padding-left: 0;
+}
+.nav-expand-item::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 1px;
+  height: 1px;
+  background: var(--blue-ink);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform .18s ease;
+}
+.nav-expand-item:hover::after,
+.nav-expand-item.open::after { transform: scaleX(1); }
+.header__search { flex-basis: 290px; }
+.header__search-input {
+  background: transparent;
+  border-radius: 3px;
+  border-color: var(--rule);
+  min-height: 38px;
+}
+.header__search-input:focus { box-shadow: 0 0 0 2px color-mix(in srgb, var(--blue) 14%, transparent); }
+
+/* Manifeste plus discret : il soutient la marque sans concurrencer la Une. */
+.manifeste { padding-top: 12px; padding-bottom: 12px; }
+.manifeste__headline { font-size: 14px; letter-spacing: -.1px; }
+.manifeste__link { font-size: 11.5px; }
+
+/* Catégories : labels typographiques plutôt que multiplication des pilules. */
+.cat,
+.art__cat,
+.archive-item__cat {
+  background: transparent !important;
+  border-radius: 0;
+  padding: 0;
+  letter-spacing: 1.7px;
+}
+
+/* Une : hiérarchie immédiatement lisible. */
+.une { padding-top: 58px; }
+.une__label { margin-bottom: 16px; color: var(--ink); }
+.une__grid { grid-template-columns: minmax(0, 1.9fr) minmax(280px, .9fr); gap: 28px; }
+.une__main {
+  padding: 36px 40px 32px;
+  border-radius: var(--editorial-radius);
+  box-shadow: none;
+  border: 1px solid var(--editorial-rule);
+  transition: border-color .16s ease;
+}
+.une__main > img {
+  height: 310px !important;
+  filter: saturate(.94) contrast(1.02);
+}
+.une__main:hover {
+  transform: none;
+  box-shadow: none;
+  border-color: color-mix(in srgb, var(--blue-ink) 55%, var(--rule));
+}
+.une__main:active { transform: none; }
+.title-xl {
+  font-size: clamp(2.1rem, 3.4vw, 2.75rem);
+  line-height: 1.08;
+  letter-spacing: -1.15px;
+  margin-bottom: 18px;
+}
+.une__main .title-xl::before { margin-bottom: 18px; width: 44px; height: 2px; }
+.excerpt { font-size: 15.5px; line-height: 1.72; max-width: 66ch; }
+.une__side {
+  border-radius: var(--editorial-radius);
+  box-shadow: none;
+  border: 1px solid var(--editorial-rule);
+}
+.une__side-item { padding: 22px 22px 20px; }
+.une__side-item:hover { background: color-mix(in srgb, var(--white) 76%, var(--light)); }
+.title-md { font-size: 18.5px; line-height: 1.25; }
+
+/* Sections : davantage de respiration et moins de décoration. */
+.section { padding-top: 70px; }
+.section__head { margin-bottom: 16px; }
+.section__title { font-size: 10px; letter-spacing: 3.2px; }
+.section__rule { margin-bottom: 28px; }
+.grid3 { gap: 22px; }
+.card3 {
+  border-radius: var(--editorial-radius);
+  border: 1px solid var(--editorial-rule);
+  box-shadow: none;
+  animation: none;
+  transition: border-color .16s ease, background .16s ease;
+}
+.card3:hover {
+  transform: none;
+  box-shadow: none;
+  border-color: color-mix(in srgb, var(--blue-ink) 45%, var(--rule));
+}
+.card3:active { transform: none; }
+.card3__img { height: 176px; transition: none; filter: saturate(.94) contrast(1.02); }
+.card3:hover .card3__img { transform: none; }
+.card3__body { padding: 18px 20px 20px; }
+.title-sm { font-size: 17px; line-height: 1.32; }
+.list-grid {
+  border-radius: var(--editorial-radius);
+  box-shadow: none;
+  border: 1px solid var(--editorial-rule);
+}
+.list-item { animation: none; transition: background .16s ease; }
+.list-item:active { transform: none; }
+.list-item__num { font-family: Georgia, serif; font-weight: 400; }
+.js-reveal { opacity: 1; transform: none; transition: none; }
+
+/* Article : lecture magazine, plus ample et moins « carte ». */
+.art {
+  max-width: var(--reading-max);
+  padding-top: 62px;
+}
+.art__back { margin-bottom: 38px; }
+.art__title {
+  font-size: clamp(2.55rem, 5vw, 3.05rem);
+  line-height: 1.08;
+  letter-spacing: -1.35px;
+  margin-bottom: 18px;
+}
+.art__title::before { width: 46px; height: 2px; margin-bottom: 20px; }
+.art__meta { font-size: 11px; margin-bottom: 16px; }
+.art__hero,
+.article__hero {
+  border-radius: 3px;
+  box-shadow: none;
+}
+.art__resume,
+.art__lead {
+  font-size: 19px;
+  line-height: 1.72;
+  font-weight: 400;
+  margin-bottom: 38px;
+}
+.art__lead { border-left-width: 2px; }
+.art p,
+.art__body p {
+  font-size: 17.5px;
+  line-height: 1.82;
+  margin-bottom: 22px;
+}
+.art__h2 {
+  font-size: 25px;
+  line-height: 1.22;
+  margin: 56px 0 20px;
+  padding: 0 0 10px;
+  border-left: 0;
+  border-bottom: 1px solid var(--editorial-rule);
+  background: transparent;
+  border-radius: 0;
+  letter-spacing: -.35px;
+}
+.art__h2::before {
+  content: "";
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: var(--blue-ink);
+  margin-bottom: 10px;
+}
+.sources {
+  border-radius: 0;
+  box-shadow: none;
+  border-left: 0;
+  border-right: 0;
+  padding: 26px 0;
+}
+.sources li { font-size: 12.5px; line-height: 1.65; }
+.art__pourquoi {
+  background: transparent;
+  border-radius: 0;
+  border-left-width: 2px;
+  padding: 18px 0 18px 22px;
+}
+.art__related-card {
+  border-radius: var(--editorial-radius);
+  box-shadow: none;
+}
+.art__related-card:hover { transform: none; box-shadow: none; border-color: var(--blue-ink); }
+.share-btn { box-shadow: none; border-radius: 3px; }
+.share-btn:hover { transform: none; box-shadow: none; }
+.fav-btn { border-radius: 3px; }
+
+/* Archive et pages secondaires : même langage éditorial. */
+.archive-list { max-width: 820px; }
+.archive-item { border-radius: 0; padding-left: 0; padding-right: 0; }
+.archive-item:hover { background: transparent; }
+.archive-item__img { border-radius: 2px; }
+.archive-item:hover .archive-item__img { transform: none; }
+.filter-btn { border-radius: 3px; box-shadow: none; }
+.filter-btn.active, .filter-btn:hover { box-shadow: none; }
+
+/* Newsletter : conserve sa visibilité sans ressembler à un widget externe. */
+.nl-compact { padding-top: 48px; padding-bottom: 48px; }
+.nl-compact__inner {
+  border-radius: var(--editorial-radius);
+  box-shadow: none;
+  border-color: var(--editorial-rule);
+}
+.nl-compact__freq-opt,
+.nl-compact__cat { border-radius: 3px; }
+.newsletter-block { border-radius: var(--editorial-radius); }
+
+/* Footer plus « publication » que panneau de liens. */
+.footer { margin-top: 80px; }
+.footer__inner { max-width: var(--editorial-max); }
+.footer__bottom { max-width: var(--editorial-max); margin: 0 auto; }
+
+/* Tablette : préserver la hiérarchie sans comprimer la navigation. */
+@media (max-width: 1020px) {
+  .header__search { flex-basis: 230px; }
+  .nav-expand-group { gap: 12px; }
+  .nav-expand-label { font-size: 11px; }
+  .une__grid { grid-template-columns: minmax(0, 1.55fr) minmax(260px, 1fr); gap: 20px; }
+  .une__main > img { height: 280px !important; }
+}
+
+/* Sous 900 px, passer plus tôt au burger évite toute collision header. */
+@media (max-width: 900px) {
+  .nav-expand-group { display: none; }
+  .burger { display: flex; }
+  .header__search { flex: 1 1 auto; min-width: 0; max-width: 360px; }
+}
+
+/* Mobile / version app : tailles tactiles, rythme et safe areas. */
+@media (max-width: 768px) {
+  .header__inner {
+    min-height: 58px;
+    padding-left: 16px;
+    padding-right: 14px;
+  }
+  .brand__logotype { font-size: 24px; letter-spacing: -1px; }
+  .header__search-input { min-height: 40px; border-radius: 3px; }
+  .burger, .dark-toggle { min-width: 44px; min-height: 44px; }
+  .nav-mobile { width: min(320px, 88vw); }
+  .nav-mobile a { min-height: 46px; display: flex; align-items: center; }
+  .manifeste { padding-left: 16px; padding-right: 16px; }
+  .manifeste__headline { font-size: 13px; }
+  .une { padding-top: 34px; }
+  .une__grid { grid-template-columns: 1fr; gap: 18px; }
+  .une__main {
+    padding: 22px 20px 24px;
+    border-radius: 3px;
+  }
+  .une__main > img {
+    width: calc(100% + 40px) !important;
+    margin: -22px -20px 18px !important;
+    height: 220px !important;
+  }
+  .une__main > .title-xl {
+    font-size: clamp(1.72rem, 8vw, 2.05rem);
+    line-height: 1.08;
+  }
+  .excerpt { font-size: 15px; line-height: 1.68; }
+  .une__side { border-radius: 3px; }
+  .section { padding-top: 52px; }
+  .card3 { border-radius: 3px; }
+  .card3__img { height: 190px; }
+  .art {
+    max-width: 100%;
+    padding: 34px 18px calc(68px + env(safe-area-inset-bottom, 0px));
+  }
+  .art__back { margin-bottom: 28px; }
+  .art__title {
+    font-size: clamp(1.9rem, 9vw, 2.25rem);
+    line-height: 1.1;
+    letter-spacing: -.8px;
+  }
+  .art__resume,
+  .art__lead { font-size: 18px; line-height: 1.68; }
+  .art p,
+  .art__body p { font-size: 17px; line-height: 1.78; margin-bottom: 20px; }
+  .art__h2 { font-size: 22px; margin-top: 46px; }
+  .sources { padding-top: 22px; padding-bottom: 22px; }
+  .share-btn, .fav-btn { min-height: 44px; padding-left: 13px; padding-right: 13px; }
+  .footer { margin-top: 64px; }
+}
+
+@media (max-width: 420px) {
+  .header__inner { gap: 7px; }
+  .brand__logotype { font-size: 22px; }
+  .header__search-input { font-size: 11.5px; padding-left: 29px; }
+  .dark-toggle { min-width: 40px; padding-left: 6px; padding-right: 6px; }
+  .burger { min-width: 40px; }
+  .art { padding-left: 16px; padding-right: 16px; }
+  .art__title { font-size: 1.9rem; }
+}
+
+@media (display-mode: standalone) {
+  .header { background: color-mix(in srgb, var(--sand) 94%, transparent); }
+  .nav-mobile { overscroll-behavior: contain; }
+  .art, .wrap, .footer__inner { -webkit-tap-highlight-color: transparent; }
+}

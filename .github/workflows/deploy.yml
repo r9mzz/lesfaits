@@ -1,6 +1,14 @@
 name: Factuel — Déploiement site
 
 on:
+  push:
+    branches: [main]
+    paths:
+      - 'src/premium.css'
+      - 'scripts/apply_premium_design.py'
+      - 'scripts/test_premium_design.py'
+      - 'data/premium-design.json'
+      - '.github/workflows/deploy.yml'
   schedule:
     # NOTE : les crons GitHub sont fréquemment retardés de 1 à 4h. On planifie
     # dix minutes avant l'heure cible sur une minute non ronde.
@@ -106,6 +114,27 @@ jobs:
           python scripts/harden_newsletter_v3.py --check
           node --check src/newsletter.js
           node --check src/search-preview.js
+
+      - name: Appliquer le design Premium et le shell app
+        if: ${{ steps.garde.outputs.passer != 'true' && github.event.inputs.dry_run != 'true' }}
+        env:
+          PYTHONIOENCODING: utf-8
+        run: |
+          ENABLED=$(python - <<'PY'
+          import json
+          from pathlib import Path
+          cfg = json.loads(Path('data/premium-design.json').read_text(encoding='utf-8'))
+          print('true' if cfg.get('enabled') is True else 'false')
+          PY
+          )
+          if [ "$ENABLED" = "true" ]; then
+            python scripts/apply_premium_design.py
+            python scripts/apply_premium_design.py --check
+          else
+            python scripts/apply_premium_design.py --remove
+            python scripts/apply_premium_design.py --remove --check
+          fi
+          python scripts/test_premium_design.py
 
       - name: Test non-régression SEO (bloque le déploiement en cas d'échec)
         if: ${{ steps.garde.outputs.passer != 'true' && github.event.inputs.dry_run != 'true' }}
