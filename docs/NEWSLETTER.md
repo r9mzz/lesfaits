@@ -54,8 +54,14 @@ ajoutés par Git sont pris en compte.
 ## Contrôles
 
 ```bash
-python -m py_compile scripts/generer_digest.py scripts/harden_newsletter.py
+python -m py_compile \
+  scripts/generer_digest.py \
+  scripts/run_newsletter.py \
+  scripts/harden_newsletter.py \
+  scripts/test_newsletter.py \
+  scripts/test_run_newsletter.py
 python scripts/test_newsletter.py
+python scripts/test_run_newsletter.py
 node --check src/newsletter.js
 python scripts/harden_newsletter.py --check
 ```
@@ -63,13 +69,14 @@ python scripts/harden_newsletter.py --check
 Validation de la configuration Brevo sans campagne :
 
 ```bash
-python scripts/generer_digest.py --check-config
+python scripts/run_newsletter.py --check-config
 ```
 
-Aperçu sans modifier les listes ni envoyer :
+Aperçu local sans secret, sans appel Brevo, sans modification de contact et
+sans envoi :
 
 ```bash
-python scripts/generer_digest.py --slot matin --dry-run
+python scripts/run_newsletter.py --slot matin --dry-run
 ```
 
 Le workflow conserve pendant 14 jours `newsletter-preview.html` et le journal
