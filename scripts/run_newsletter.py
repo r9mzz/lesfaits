@@ -9,12 +9,19 @@ from __future__ import annotations
 
 import argparse
 import datetime as dt
-from pathlib import Path
 from zoneinfo import ZoneInfo
 
 import generer_digest as digest
 
 PARIS = ZoneInfo("Europe/Paris")
+
+
+def _preview_display_path() -> object:
+    """Retourne un chemin lisible, même si les tests utilisent un dossier temporaire."""
+    try:
+        return digest.PREVIEW_HTML.relative_to(digest.ROOT)
+    except ValueError:
+        return digest.PREVIEW_HTML
 
 
 def build_local_preview(slot: str, now: dt.datetime | None = None) -> dict[str, int]:
@@ -34,7 +41,7 @@ def build_local_preview(slot: str, now: dt.datetime | None = None) -> dict[str, 
     count = sum(len(items) for items in by_category.values())
     print(
         f"[DRY-RUN NEWSLETTER] {count} article(s), {len(by_category)} rubrique(s), "
-        f"aperçu={digest.PREVIEW_HTML.relative_to(digest.ROOT)}. Aucun appel Brevo."
+        f"aperçu={_preview_display_path()}. Aucun appel Brevo."
     )
     return {"articles": count, "categories": len(by_category)}
 
