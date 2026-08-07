@@ -63,11 +63,22 @@ def _remove_managed_markup(html: str) -> str:
     html = PREMIUM_LINK_RE.sub("\n", html)
     html = APP_META_RE.sub("\n", html)
     html = MANAGED_MANIFEST_RE.sub("\n", html)
-    # Évite l'accumulation de lignes vides après plusieurs bascules on/off.
     return re.sub(r"\n{3,}", "\n\n", html)
 
 
+def _already_complete(html: str) -> bool:
+    return (
+        len(PREMIUM_LINK_RE.findall(html)) == 1
+        and len(APP_META_RE.findall(html)) == 6
+        and MANIFEST_RE.search(html) is not None
+    )
+
+
 def _inject(html: str) -> str:
+    # Important : une seconde exécution doit être un vrai no-op byte pour byte.
+    if _already_complete(html):
+        return html
+
     html = _remove_managed_markup(html)
 
     style = BASE_STYLESHEET_RE.search(html)
