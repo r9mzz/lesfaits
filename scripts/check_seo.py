@@ -8,6 +8,7 @@ from check_site_integrity import run as check_site_integrity
 from normalize_corpus_indexing import run as normalize_corpus_indexing
 from normalize_publication_metadata import run as normalize_publication_metadata
 from normalize_source_metadata import run as normalize_source_metadata
+from normalize_visible_publication_time import run as normalize_visible_publication_time
 
 ROOT = Path(__file__).parent.parent
 
@@ -74,6 +75,7 @@ def _run_normalizer(label: str, fn) -> int:
 def main() -> int:
     failures = 0
     failures += _run_normalizer("Métadonnées publication", normalize_publication_metadata)
+    failures += _run_normalizer("Heures visibles", normalize_visible_publication_time)
     failures += _run_normalizer("Métadonnées sources", normalize_source_metadata)
     failures += _run_normalizer("Indexation corpus", normalize_corpus_indexing)
 
