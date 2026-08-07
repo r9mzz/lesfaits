@@ -91,12 +91,8 @@ class FrequencyTests(unittest.TestCase):
         self.assertTrue(digest.wants_slot(evening, "soir"))
 
     def test_legacy_and_missing_frequency(self):
-        self.assertEqual(
-            digest.frequency({"attributes": {"ENVOI_MATIN": True}}), "morning"
-        )
-        self.assertEqual(
-            digest.frequency({"attributes": {"ENVOI_MATIN": False}}), "evening"
-        )
+        self.assertEqual(digest.frequency({"attributes": {"ENVOI_MATIN": True}}), "morning")
+        self.assertEqual(digest.frequency({"attributes": {"ENVOI_MATIN": False}}), "evening")
         self.assertEqual(digest.frequency({"attributes": {}}), "both")
 
     def test_categories_default_to_all(self):
@@ -206,22 +202,28 @@ msgEl.textContent="Un email de confirmation vient de vous être envoyé";})();</
 
 
 class JavascriptContractTests(unittest.TestCase):
-    def test_browser_script_uses_native_brevo_post_without_opaque_success(self):
+    def test_browser_script_keeps_brevo_response_out_of_the_reader_tab(self):
         script = (ROOT / "src" / "newsletter.js").read_text(encoding="utf-8")
-        self.assertNotIn("Demande transmise à Brevo", script)
+        self.assertNotIn("Ouverture…", script)
+        self.assertNotIn("Transmission sécurisée vers Brevo", script)
         self.assertNotIn("Un email de confirmation vient de vous être envoyé", script)
         self.assertNotIn('mode: "no-cors"', script)
         self.assertNotIn("fetch(FORM_URL", script)
         self.assertIn('form.setAttribute("action", FORM_URL)', script)
         self.assertIn('form.setAttribute("method", "post")', script)
-        self.assertIn('form.setAttribute("enctype", "application/x-www-form-urlencoded")', script)
-        self.assertIn('ensureHidden(form, "LESFAITS_VERIFICATION", "1")', script)
-        self.assertIn('ensureHidden(form, "email_address_check", "")', script)
-        self.assertIn('ensureHidden(form, "locale", "fr")', script)
-        self.assertNotIn('data.append("FREQ"', script)
-        self.assertNotIn("CATEGORY_FIELDS", script)
-        self.assertNotIn("CAT_SOCIETE", script)
-        self.assertNotIn("localStorage", script)
+        self.assertIn('form.setAttribute("target", FRAME_NAME)', script)
+        self.assertIn('frame.hidden = true', script)
+        self.assertIn("Demande envoyée ✓ Vous restez sur Les Faits.", script)
+
+    def test_browser_script_persists_real_preference_values(self):
+        script = (ROOT / "src" / "newsletter.js").read_text(encoding="utf-8")
+        self.assertIn("CATEGORY_FIELDS", script)
+        self.assertIn("CAT_SOCIETE", script)
+        self.assertIn('input[name="LF_FREQ"]:checked', script)
+        self.assertIn('ensureHidden(form, "FREQ", readFrequency(form))', script)
+        self.assertIn('ensureHidden(form, name, categoryChecked(form, name) ? "1" : "0")', script)
+        self.assertIn("localStorage", script)
+        self.assertIn('consent.removeAttribute("name")', script)
 
 
 if __name__ == "__main__":
