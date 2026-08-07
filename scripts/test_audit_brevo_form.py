@@ -3,9 +3,14 @@ from __future__ import annotations
 
 import unittest
 
-from audit_brevo_form import REQUIRED_FIELDS, parse_form, validate_snapshot
+from audit_brevo_form import (
+    REQUIRED_FIELDS,
+    parse_form,
+    resolved_post_actions,
+    validate_snapshot,
+)
 
-
+TEST_URL = "https://e6ad0381.sibforms.com/serve/test"
 VALID_FORM = '''<!doctype html><html><body>
 <input name="OUTSIDE">
 <form action="/serve/test" method="post">
@@ -27,12 +32,14 @@ class HostedBrevoFormTests(unittest.TestCase):
         self.assertNotIn("OUTSIDE", snapshot.fields)
 
     def test_complete_minimal_contract_is_accepted(self):
-        validate_snapshot(parse_form(VALID_FORM))
+        snapshot = parse_form(VALID_FORM)
+        validate_snapshot(snapshot, base_url=TEST_URL)
+        self.assertEqual(resolved_post_actions(snapshot, TEST_URL), [TEST_URL])
 
     def test_missing_email_is_rejected(self):
         broken = VALID_FORM.replace('name="EMAIL"', 'name="EMAIL_ABSENT"')
         with self.assertRaisesRegex(RuntimeError, "EMAIL"):
-            validate_snapshot(parse_form(broken))
+            validate_snapshot(parse_form(broken), base_url=TEST_URL)
 
     def test_missing_verification_marker_is_rejected(self):
         broken = VALID_FORM.replace(
@@ -40,16 +47,30 @@ class HostedBrevoFormTests(unittest.TestCase):
             'name="VERIFICATION_ABSENTE"',
         )
         with self.assertRaisesRegex(RuntimeError, "LESFAITS_VERIFICATION"):
-            validate_snapshot(parse_form(broken))
+            validate_snapshot(parse_form(broken), base_url=TEST_URL)
 
     def test_get_only_form_is_rejected(self):
         broken = VALID_FORM.replace('method="post"', 'method="get"')
         with self.assertRaisesRegex(RuntimeError, "méthode POST"):
-            validate_snapshot(parse_form(broken))
+            validate_snapshot(parse_form(broken), base_url=TEST_URL)
+
+    def test_wrong_post_target_is_rejected(self):
+        broken = VALID_FORM.replace('/serve/test', '/serve/autre-formulaire')
+        with self.assertRaisesRegex(RuntimeError, "cible POST"):
+            validate_snapshot(parse_form(broken), base_url=TEST_URL)
+
+    def test_blank_action_resolves_to_current_form_url(self):
+        blank = VALID_FORM.replace('action="/serve/test"', 'action=""')
+        snapshot = parse_form(blank)
+        validate_snapshot(snapshot, base_url=TEST_URL)
+        self.assertEqual(resolved_post_actions(snapshot, TEST_URL), [TEST_URL])
 
     def test_page_without_form_is_rejected(self):
         with self.assertRaisesRegex(RuntimeError, "aucune balise"):
-            validate_snapshot(parse_form("<html><body>maintenance</body></html>"))
+            validate_snapshot(
+                parse_form("<html><body>maintenance</body></html>"),
+                base_url=TEST_URL,
+            )
 
 
 if __name__ == "__main__":
