@@ -115,7 +115,7 @@ body {
 /* Une : hiérarchie immédiatement lisible. */
 .une { padding-top: 58px; }
 .une__label { margin-bottom: 16px; color: var(--ink); }
-.une__grid { grid-template-columns: minmax(0, 1.9fr) minmax(280px, .9fr); gap: 28px; }
+.une__grid { display: grid; grid-template-columns: minmax(0, 1.9fr) minmax(280px, .9fr); gap: 28px; }
 .une__main {
   padding: 36px 40px 32px;
   border-radius: var(--editorial-radius);
@@ -124,6 +124,8 @@ body {
   transition: border-color .16s ease;
 }
 .une__main > img {
+  width: calc(100% + 80px) !important;
+  margin: -36px -40px 22px !important;
   height: 310px !important;
   filter: saturate(.94) contrast(1.02);
 }
