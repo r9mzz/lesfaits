@@ -308,7 +308,14 @@ pages_nav += ["index.html", "archive.html", "breves.html", "404.html"]
 pages_nav += [os.path.join("categories", f) for f in os.listdir("categories")
               if f.endswith(".html")] if os.path.isdir("categories") else []
 
+# Prévisualisation de recherche : même logique que les menus — le champ existe
+# sur toutes les pages, y compris les 170 articles jamais régénérés, donc le
+# script est injecté ici plutôt que dans les gabarits (qui n'atteindraient que
+# les pages neuves). `defer` : ne retarde pas le rendu ; CSP 'self' suffit.
+SEARCH_SCRIPT = '<script src="/src/search-preview.js?v=1" defer></script>'
+
 patched_nav = 0
+patched_search = 0
 for fn in pages_nav:
     if not os.path.exists(fn):
         continue
@@ -325,7 +332,16 @@ for fn in pages_nav:
         if actuel and actuel != ref:
             html = html.replace(actuel, ref, 1)
     if html != origine:
-        open(fn, "w", encoding="utf-8").write(html)
         patched_nav += 1
 
+    # Injection idempotente, uniquement si la page porte un champ de recherche.
+    if "search-preview.js" not in html and "header__search-input" in html:
+        if "</head>" in html:
+            html = html.replace("</head>", f"  {SEARCH_SCRIPT}\n</head>", 1)
+            patched_search += 1
+
+    if html != origine:
+        open(fn, "w", encoding="utf-8").write(html)
+
 print(f"{patched_nav} page(s) resynchronisée(s) sur les menus courants")
+print(f"{patched_search} page(s) dotée(s) de la prévisualisation de recherche")

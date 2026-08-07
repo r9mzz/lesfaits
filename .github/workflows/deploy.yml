@@ -105,6 +105,7 @@ jobs:
           python scripts/harden_newsletter_v3.py
           python scripts/harden_newsletter_v3.py --check
           node --check src/newsletter.js
+          node --check src/search-preview.js
 
       - name: Test non-régression SEO (bloque le déploiement en cas d'échec)
         if: ${{ steps.garde.outputs.passer != 'true' && github.event.inputs.dry_run != 'true' }}

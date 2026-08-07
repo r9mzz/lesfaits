@@ -107,6 +107,16 @@ textarea:focus-visible, [tabindex]:focus-visible {
 .brand__slogan { font-size: 10.5px; color: var(--muted); font-style: italic; font-weight: 400; }
 
 .header__search { flex: 0 1 360px; position: relative; }
+
+/* ── PRÉVISUALISATION DE RECHERCHE ── liste sous le champ du header */
+.search-preview { position: absolute; top: calc(100% + 6px); left: 0; right: 0; z-index: 300; background: var(--white); border: 1px solid var(--rule); border-radius: 10px; box-shadow: var(--shadow-card-hover); overflow: hidden; max-height: 60vh; overflow-y: auto; }
+.search-preview__item { display: grid; grid-template-columns: auto 1fr; align-items: center; gap: 10px; padding: 10px 12px; text-decoration: none; color: var(--ink); border-bottom: 1px solid var(--light); }
+.search-preview__item:last-of-type { border-bottom: none; }
+.search-preview__item:hover, .search-preview__item.is-active { background: var(--light); }
+.search-preview__titre { font-size: 13px; line-height: 1.4; overflow: hidden; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; }
+.search-preview__tous { display: block; padding: 10px 12px; font-size: 12px; font-weight: 600; color: var(--blue); text-decoration: none; border-top: 1px solid var(--rule); background: var(--sand); }
+.search-preview__tous:hover, .search-preview__tous.is-active { background: var(--light); }
+.search-preview__vide { padding: 14px 12px; font-size: 13px; color: var(--muted); }
 .header__search-input { width: 100%; padding: 7px 14px 7px 34px; font-size: 13px; border: 1px solid var(--rule); border-radius: 20px; background: var(--light); color: var(--ink); font-family: inherit; transition: border-color .15s, background .15s; }
 .header__search-input:focus { outline: none; border-color: var(--blue); background: var(--white); }
 [data-theme="dark"] .header__search-input { border-color: rgba(108,133,189,.24); }
