@@ -35,6 +35,7 @@ class NewsletterV4Tests(unittest.TestCase):
         self.assertNotIn('name="FREQ"', updated)
         self.assertNotIn('name="CAT_SANTE"', updated)
         self.assertNotIn('name="CAT_TECH"', updated)
+        self.assertNotIn('name="CONSENT"', updated)
         self.assertNotIn("Choisissez vos rubriques", updated)
         self.assertIn(v3.CANONICAL_HINT, updated)
         self.assertIn('data-newsletter-version="4"', updated)
@@ -46,6 +47,7 @@ class NewsletterV4Tests(unittest.TestCase):
         self.assertIn('name="LESFAITS_VERIFICATION" value="1"', updated)
         self.assertIn('name="email_address_check" value=""', updated)
         self.assertIn('name="locale" value="fr"', updated)
+        self.assertEqual(v3._named_form_fields(updated), v3.BREVO_POST_FIELDS)
         self.assertTrue(v3._csp_allows_native_post(updated))
 
     def test_upgrade_is_idempotent(self):
@@ -94,6 +96,14 @@ class NewsletterV4Tests(unittest.TestCase):
         errors = v3.validate_v3(Path("index.html"), updated)
         self.assertTrue(any("fréquence" in error for error in errors))
 
+    def test_validation_rejects_any_extra_post_field(self):
+        updated = v3.upgrade_html(OLD_PAGE).replace(
+            '<input type="hidden" name="locale" value="fr"/>',
+            '<input type="hidden" name="locale" value="fr"/><input name="CONSENT" value="1">',
+        )
+        errors = v3.validate_v3(Path("index.html"), updated)
+        self.assertTrue(any("contrat POST Brevo non exact" in error for error in errors))
+
     def test_validation_rejects_missing_native_action_or_csp_permission(self):
         updated = v3.upgrade_html(OLD_PAGE)
         broken_action = updated.replace(f'action="{v3.FORM_URL}"', 'action="/"')
@@ -117,6 +127,7 @@ class NewsletterV4Tests(unittest.TestCase):
         self.assertNotIn("fetch(FORM_URL", script)
         self.assertIn('form.setAttribute("action", FORM_URL)', script)
         self.assertIn('form.setAttribute("method", "post")', script)
+        self.assertIn('consent.removeAttribute("name")', script)
         self.assertIn("Aucun preventDefault", script)
 
 
