@@ -1,6 +1,6 @@
 /* Les Faits — Direction artistique Premium 2026
-   Couche volontairement séparée de style-base.css : supprimer ce fichier
-   (et l'import correspondant) restaure le rendu précédent à l'identique. */
+   Couche volontairement séparée du thème historique : retirer son <link>
+   restaure le rendu précédent sans réécrire la feuille de base. */
 
 :root {
   --editorial-max: 1180px;
@@ -290,6 +290,13 @@ body {
   .nav-expand-label { font-size: 11px; }
   .une__grid { grid-template-columns: minmax(0, 1.55fr) minmax(260px, 1fr); gap: 20px; }
   .une__main > img { height: 280px !important; }
+}
+
+/* Sous 900 px, passer plus tôt au burger évite toute collision header. */
+@media (max-width: 900px) {
+  .nav-expand-group { display: none; }
+  .burger { display: flex; }
+  .header__search { flex: 1 1 auto; min-width: 0; max-width: 360px; }
 }
 
 /* Mobile / version app : tailles tactiles, rythme et safe areas. */
