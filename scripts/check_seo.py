@@ -5,6 +5,7 @@ import sys
 from pathlib import Path
 
 from check_site_integrity import run as check_site_integrity
+from normalize_corpus_indexing import run as normalize_corpus_indexing
 from normalize_publication_metadata import run as normalize_publication_metadata
 from normalize_source_metadata import run as normalize_source_metadata
 
@@ -100,13 +101,14 @@ def _run_normalizer(label: str, fn) -> int:
 def main() -> int:
     failures = 0
 
-    # Les deux normalisations sont déterministes et n'inventent aucune donnée :
-    # elles réalignent uniquement des dérivés sur les informations déjà présentes
-    # dans le JSON-LD ou dans la liste de liens SOURCES de la page.
+    # Toutes ces normalisations sont déterministes : elles ne créent ni source,
+    # ni date, ni article. Elles alignent des surfaces dérivées sur les données
+    # déjà présentes dans le JSON-LD, le bloc SOURCES ou le manifeste public.
     failures += _run_normalizer(
         "Métadonnées publication", normalize_publication_metadata
     )
     failures += _run_normalizer("Métadonnées sources", normalize_source_metadata)
+    failures += _run_normalizer("Indexation corpus", normalize_corpus_indexing)
 
     targets = [ROOT / p for p in PAGES if (ROOT / p).exists()]
     articles = sorted((ROOT / "articles").glob("*.html"))
@@ -162,12 +164,17 @@ def main() -> int:
             print(f"    +{len(integrity_errors)-30} autre(s)")
         failures += 1
     else:
-        print("[SEO OK]   Intégrité globale : liens/assets/canonical/images/sources/IDs/newsletter")
+        print(
+            "[SEO OK]   Intégrité globale : liens/assets/canonical/images/"
+            "sources/IDs/newsletter/corpus"
+        )
 
     if failures:
         print(f"\n{failures} contrôle(s) en échec — déploiement bloqué.")
         return 1
-    print(f"\nToutes les vérifications passent ({len(targets)} pages SEO + corpus complet).")
+    print(
+        f"\nToutes les vérifications passent ({len(targets)} pages SEO + corpus complet)."
+    )
     return 0
 
 
