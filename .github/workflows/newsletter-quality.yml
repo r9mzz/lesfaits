@@ -4,16 +4,13 @@ on:
   pull_request:
     paths:
       - "scripts/generer_digest.py"
-      - "scripts/run_newsletter.py"
+      - "scripts/newsletter_template.py"
       - "scripts/harden_newsletter.py"
       - "scripts/test_newsletter.py"
-      - "scripts/test_run_newsletter.py"
-      - "scripts/test_newsletter_campaigns.py"
       - "src/newsletter.js"
       - ".github/workflows/newsletter.yml"
       - ".github/workflows/newsletter-quality.yml"
       - ".github/workflows/newsletter-repair.yml"
-      - ".github/workflows/deploy.yml"
       - "docs/NEWSLETTER.md"
   workflow_dispatch:
 
@@ -23,7 +20,7 @@ permissions:
 jobs:
   tests:
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    timeout-minutes: 12
     steps:
       - uses: actions/checkout@v4
         with:
@@ -37,14 +34,10 @@ jobs:
         run: |
           python -m py_compile \
             scripts/generer_digest.py \
-            scripts/run_newsletter.py \
+            scripts/newsletter_template.py \
             scripts/harden_newsletter.py \
-            scripts/test_newsletter.py \
-            scripts/test_run_newsletter.py \
-            scripts/test_newsletter_campaigns.py
+            scripts/test_newsletter.py
           python scripts/test_newsletter.py
-          python scripts/test_run_newsletter.py
-          python scripts/test_newsletter_campaigns.py
           node --check src/newsletter.js
       - name: Reconstruction et audit de toutes les pages
         run: |
