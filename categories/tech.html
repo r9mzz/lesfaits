@@ -34,6 +34,7 @@
   <script>
 (function(){var s=localStorage.getItem('theme'),d=s==='dark'||(s===null&&window.matchMedia('(prefers-color-scheme:dark)').matches);document.documentElement.setAttribute('data-theme',d?'dark':'light');})();
 </script>
+  <script src="/src/newsletter.js?v=2" defer></script>
 </head>
 <body>
 <div class="nav-overlay" id="nav-overlay" onclick="closeMenu()"></div>
@@ -330,14 +331,14 @@ document.addEventListener('DOMContentLoaded',function(){var btn=document.getElem
       <span class="nl-compact__label">NEWSLETTER</span>
       <span class="nl-compact__title">Le résumé du jour dans votre boîte mail</span>
     </div>
-    <form id="nl-form" novalidate>
+    <form id="nl-form" novalidate data-newsletter-version="2" aria-label="Inscription à la newsletter Les Faits">
       <div class="nl-compact__freq" role="group" aria-label="Fréquence de réception">
-        <label class="nl-compact__freq-opt"><input type="radio" name="FREQ" value="morning"/> Matin (~7h)</label>
-        <label class="nl-compact__freq-opt"><input type="radio" name="FREQ" value="evening"/> Soir (~18h)</label>
+        <label class="nl-compact__freq-opt"><input type="radio" name="FREQ" value="morning"/> Édition du matin</label>
+        <label class="nl-compact__freq-opt"><input type="radio" name="FREQ" value="evening"/> Édition du soir</label>
         <label class="nl-compact__freq-opt"><input type="radio" name="FREQ" value="both" checked/> Les deux</label>
       </div>
       <div class="nl-compact__row">
-        <input type="email" id="nl-email" name="EMAIL" class="nl-compact__input" placeholder="vous@exemple.fr" required autocomplete="email" aria-required="true"/>
+        <input type="email" id="nl-email" name="EMAIL" class="nl-compact__input" placeholder="vous@exemple.fr" required autocomplete="email" aria-required="true" inputmode="email" autocapitalize="none" spellcheck="false" aria-label="Adresse email" aria-describedby="nl-msg nl-hint"/>
         <button type="submit" class="nl-compact__btn" id="nl-btn">S'abonner →</button>
       </div>
       <div class="nl-compact__cats" role="group" aria-label="Rubriques">
@@ -348,49 +349,17 @@ document.addEventListener('DOMContentLoaded',function(){var btn=document.getElem
         <label class="nl-compact__cat nl-cat--sante"><input type="checkbox" name="CAT_SANTE" value="1"/><span class="nl-cat__dot" aria-hidden="true"></span>Santé</label>
         <label class="nl-compact__cat nl-cat--environnement"><input type="checkbox" name="CAT_ENVIRONNEMENT" value="1"/><span class="nl-cat__dot" aria-hidden="true"></span>Environnement</label>
       </div>
-      <p class="nl-compact__hint">Aucune sélection = toutes les rubriques.</p>
+      <p class="nl-compact__hint" id="nl-hint">Choisissez vos rubriques, ou laissez tout décoché pour tout recevoir.</p>
       <label class="nl-compact__consent">
-        <input type="checkbox" id="nl-consent" required aria-required="true"/>
-        <span>J'accepte de recevoir la newsletter et la <a href="confidentialite.html">politique de confidentialité</a>.</span>
+        <input type="checkbox" id="nl-consent" required aria-required="true" name="CONSENT"/>
+        <span>J’accepte de recevoir la newsletter Les Faits. <a href="/confidentialite.html">Politique de confidentialité</a>. Désabonnement possible à tout moment.</span>
       </label>
-      <p class="nl-compact__msg" id="nl-msg" role="alert" aria-live="polite"></p>
+      <p class="nl-compact__msg" id="nl-msg" role="status" aria-live="polite" aria-atomic="true"></p>
     </form>
+      <noscript><p class="nl-compact__hint" data-newsletter-noscript="1">JavaScript est désactivé. <a href="https://e6ad0381.sibforms.com/serve/MUIFAErfidn3h7DoaZcjIRh-48s1GoiE0vZOe_KG-skCwDznnQ2831i0IkHsSaXfUJ15hBl1CH3ElJVKdGDdXdxHpt6v7iX-hAlyWb0i0M7mtq6UhgJ9JJyCUhNwckwfxW8EUJkF_hkjb4qX8YSntlFraZFiCcgQhZ3PXsPvAcSa9oEyPOgeL1EtAB4akgMS-hz76NcGAUSqOt3L1w==" rel="noopener noreferrer">Ouvrir le formulaire sécurisé Brevo</a>.</p></noscript>
   </div>
 </section>
-<script>
-(function(){
-  var SIB_URL="https://e6ad0381.sibforms.com/serve/MUIFAErfidn3h7DoaZcjIRh-48s1GoiE0vZOe_KG-skCwDznnQ2831i0IkHsSaXfUJ15hBl1CH3ElJVKdGDdXdxHpt6v7iX-hAlyWb0i0M7mtq6UhgJ9JJyCUhNwckwfxW8EUJkF_hkjb4qX8YSntlFraZFiCcgQhZ3PXsPvAcSa9oEyPOgeL1EtAB4akgMS-hz76NcGAUSqOt3L1w==";
-  var form=document.getElementById("nl-form"),msgEl=document.getElementById("nl-msg"),btn=document.getElementById("nl-btn");
-  if(!form)return;
-  form.addEventListener("submit",function(e){
-    e.preventDefault();
-    msgEl.className="nl-compact__msg";msgEl.textContent="";
-    var email=(document.getElementById("nl-email").value||"").trim();
-    var consent=document.getElementById("nl-consent").checked;
-    if(!email||!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){msgEl.textContent="Veuillez saisir une adresse email valide.";msgEl.className="nl-compact__msg nl-compact__msg--err";return;}
-    if(!consent){msgEl.textContent="Veuillez accepter les conditions.";msgEl.className="nl-compact__msg nl-compact__msg--err";return;}
-    var data=new FormData();
-    data.append("EMAIL",email);
-    data.append("LESFAITS_VERIFICATION","1");
-    ["CAT_SOCIETE","CAT_SCIENCE","CAT_ECONOMIE","CAT_TECH","CAT_SANTE","CAT_ENVIRONNEMENT"].forEach(function(k){
-      var cb=form.querySelector('input[name="'+k+'"]');
-      if(cb&&cb.checked)data.append(k,"1");
-    });
-    var freqEl=form.querySelector('input[name="FREQ"]:checked');
-    data.append("FREQ",freqEl?freqEl.value:"both");
-    data.append("email_address_check","");
-    data.append("locale","fr");
-    btn.disabled=true;btn.textContent="Envoi…";
-    fetch(SIB_URL,{method:"POST",mode:"no-cors",body:data})
-    .then(function(){
-      msgEl.textContent="Un email de confirmation vient de vous être envoyé — cliquez sur le lien pour valider votre inscription (vérifiez vos spams).";
-      msgEl.className="nl-compact__msg nl-compact__msg--ok";form.reset();
-    })
-    .catch(function(){msgEl.textContent="Erreur réseau. Réessayez dans un instant.";msgEl.className="nl-compact__msg nl-compact__msg--err";})
-    .finally(function(){btn.disabled=false;btn.textContent="S'abonner →";});
-  });
-})();
-</script>
+
 
 <footer class="footer" role="contentinfo" aria-label="Pied de page">
   <div class="footer__inner">
