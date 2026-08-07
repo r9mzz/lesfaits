@@ -11,13 +11,13 @@ import normalize_publication_metadata as metadata
 ARTICLE = '''<!doctype html>
 <html lang="fr"><head>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","headline":"Test","datePublished":"2026-08-05T15:09:41+02:00","dateModified":"2026-08-06T10:11:12+02:00"}</script>
-</head><body><time datetime="2026-08-05">5 août 2026, 15h09</time></body></html>
+</head><body><div class="art__meta"><time datetime="2026-08-05">5 août 2026, 15h08</time></div></body></html>
 '''
 
 LEGACY_ARTICLE = '''<!doctype html>
 <html lang="fr"><head>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","headline":"Archive","datePublished":"2026-06-26","dateModified":"2026-06-26"}</script>
-</head><body><time datetime="2026-06-26">26 juin 2026, 19h42</time></body></html>
+</head><body><div class="art__meta"><time datetime="2026-06-26">26 juin 2026, 19h42</time></div></body></html>
 '''
 
 SITEMAP = '''<?xml version="1.0" encoding="UTF-8"?>
@@ -51,8 +51,14 @@ LEGACY_META = '''<div class="art__meta">
 
 
 def main() -> int:
+    assert metadata._visible_datetime(
+        metadata.dt.datetime.fromisoformat("2026-08-05T15:09:41+02:00")
+    ) == "5 août 2026, 15h09"
+
     injected = metadata._inject_legacy_time(
-        LEGACY_META, "2026-06-24T17:03:00+02:00"
+        LEGACY_META,
+        "2026-06-24T17:03:00+02:00",
+        "24 juin 2026, 17h03",
     )
     assert injected is not None
     assert (
@@ -90,8 +96,11 @@ def main() -> int:
             sitemap = (root / "sitemap.xml").read_text(encoding="utf-8")
             feed = (root / "feed.xml").read_text(encoding="utf-8")
 
-            assert 'datetime="2026-08-05T15:09:41+02:00"' in html
-            assert 'datetime="2026-06-26"' in legacy_html
+            assert (
+                '<time datetime="2026-08-05T15:09:41+02:00">5 août 2026, 15h09</time>'
+                in html
+            )
+            assert '<time datetime="2026-06-26">26 juin 2026, 19h42</time>' in legacy_html
             assert 'datetime="2026-06-26T00:00:00' not in legacy_html
             assert '<lastmod>2026-08-06</lastmod>' in sitemap
             assert '<lastmod>2026-06-26</lastmod>' in sitemap
@@ -102,6 +111,12 @@ def main() -> int:
             changed_check, failures_check = metadata.run(check=True)
             assert changed_check == 0, changed_check
             assert failures_check == [], failures_check
+
+            # Une régression purement visuelle doit aussi faire échouer le mode check.
+            broken = html.replace("5 août 2026, 15h09", "5 août 2026, 15h08")
+            (articles / "test-article.html").write_text(broken, encoding="utf-8")
+            _, visual_failures = metadata.run(check=True)
+            assert any("heure visible" in failure for failure in visual_failures)
 
         print("test_normalize_publication_metadata: OK")
         return 0

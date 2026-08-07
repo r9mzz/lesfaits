@@ -4,9 +4,14 @@
 
 Le JSON-LD ``NewsArticle`` est la source de vérité pour les dates. Les anciens
 articles qui n'ont conservé qu'un YYYY-MM-DD restent volontairement date-only :
-aucune heure n'est inventée. Le sitemap est, lui, un index sélectif du corpus ;
-on corrige les entrées qui existent sans réinscrire ici les fichiers historiques
-que le manifeste éditorial a déjà écartés.
+aucune heure n'est inventée. Pour les articles qui disposent d'un horodatage
+exact, la balise ``<time>`` est alignée à la fois dans son attribut ``datetime``
+et dans son libellé visible afin qu'une ancienne minute de génération ne reste
+pas affichée à côté de l'heure publique réelle.
+
+Le sitemap est un index sélectif du corpus ; on corrige les entrées qui existent
+sans réinscrire ici les fichiers historiques que le manifeste éditorial a déjà
+écartés.
 """
 from __future__ import annotations
 
@@ -31,7 +36,10 @@ JSONLD_RE = re.compile(
     r'<script\b[^>]*type=["\']application/ld\+json["\'][^>]*>(.*?)</script>',
     re.I | re.S,
 )
-TIME_RE = re.compile(r'(<time\b[^>]*\bdatetime=")[^"]*(")', re.I)
+TIME_ELEMENT_RE = re.compile(
+    r'(<time\b[^>]*\bdatetime=")([^"]*)("[^>]*>)(.*?)(</time>)',
+    re.I | re.S,
+)
 ART_META_RE = re.compile(
     r'(<div\b[^>]*class=["\'][^"\']*\bart__meta\b[^"\']*["\'][^>]*>)(.*?)(</div>)',
     re.I | re.S,
@@ -45,6 +53,21 @@ ITEM_RE = re.compile(r"(<item>.*?</item>)", re.I | re.S)
 LINK_RE = re.compile(r"<link>\s*([^<]+?)\s*</link>", re.I)
 PUBDATE_RE = re.compile(r"(<pubDate>)[^<]*(</pubDate>)", re.I)
 DATE_ONLY_RE = re.compile(r"^\d{4}-\d{2}-\d{2}$")
+
+FRENCH_MONTHS = (
+    "janvier",
+    "février",
+    "mars",
+    "avril",
+    "mai",
+    "juin",
+    "juillet",
+    "août",
+    "septembre",
+    "octobre",
+    "novembre",
+    "décembre",
+)
 
 
 @dataclass(frozen=True)
@@ -143,6 +166,14 @@ def _rfc2822_utc(value: dt.datetime) -> str:
     return email.utils.format_datetime(value.astimezone(dt.timezone.utc), usegmt=True)
 
 
+def _visible_datetime(value: dt.datetime) -> str:
+    """Retourne le libellé éditorial français à la minute près."""
+    return (
+        f"{value.day} {FRENCH_MONTHS[value.month - 1]} {value.year}, "
+        f"{value.hour:02d}h{value.minute:02d}"
+    )
+
+
 def _slug_from_article_url(url: str) -> str | None:
     if not url.startswith(BASE_ARTICLE_URL):
         return None
@@ -150,7 +181,9 @@ def _slug_from_article_url(url: str) -> str | None:
     return Path(name).stem if name.endswith(".html") else None
 
 
-def _inject_legacy_time(html: str, expected: str) -> str | None:
+def _inject_legacy_time(
+    html: str, expected: str, visible_text: str | None = None
+) -> str | None:
     block = ART_META_RE.search(html)
     if not block:
         return None
@@ -158,13 +191,45 @@ def _inject_legacy_time(html: str, expected: str) -> str | None:
     date_span = LEGACY_DATE_SPAN_RE.search(body)
     if not date_span:
         return None
+    label = visible_text if visible_text is not None else date_span.group(2)
     replacement = (
         date_span.group(1)
         + f'<time datetime="{expected}">'
-        + date_span.group(2)
+        + label
         + "</time>"
     )
     new_body = body[: date_span.start()] + replacement + body[date_span.end() :]
+    return html[: block.start(2)] + new_body + html[block.end(2) :]
+
+
+def _publication_time_element(html: str) -> tuple[re.Match[str], re.Match[str]] | None:
+    block = ART_META_RE.search(html)
+    if not block:
+        return None
+    time_match = TIME_ELEMENT_RE.search(block.group(2))
+    if not time_match:
+        return None
+    return block, time_match
+
+
+def _replace_publication_time(
+    html: str,
+    block: re.Match[str],
+    time_match: re.Match[str],
+    *,
+    expected_datetime: str,
+    expected_text: str | None,
+) -> str:
+    body = block.group(2)
+    text = time_match.group(4) if expected_text is None else expected_text
+    replacement = (
+        time_match.group(1)
+        + expected_datetime
+        + time_match.group(3)
+        + text
+        + time_match.group(5)
+    )
+    new_body = body[: time_match.start()] + replacement + body[time_match.end() :]
     return html[: block.start(2)] + new_body + html[block.end(2) :]
 
 
@@ -176,58 +241,83 @@ def normalize_article_times(
     for slug, meta in dates.items():
         path = ARTICLES_DIR / f"{slug}.html"
         html = path.read_text(encoding="utf-8", errors="replace")
-        expected = (
+        expected_datetime = (
             _iso(meta.published_exact)
             if meta.published_exact is not None
             else meta.published_date.isoformat()
         )
-        match = TIME_RE.search(html)
-        if not match:
+        expected_text = (
+            _visible_datetime(meta.published_exact)
+            if meta.published_exact is not None
+            else None
+        )
+
+        found = _publication_time_element(html)
+        if found is None:
             if check:
                 failures.append(f"{path.relative_to(ROOT)}: balise <time datetime> absente")
                 continue
-            injected = _inject_legacy_time(html, expected)
+            injected = _inject_legacy_time(html, expected_datetime, expected_text)
             if injected is None:
                 failures.append(
                     f"{path.relative_to(ROOT)}: <time> absent et date visible introuvable"
                 )
                 continue
             path.write_text(injected, encoding="utf-8")
-            html = injected
-            match = TIME_RE.search(html)
-            changed += 1
-
-        current_match = re.search(
-            r'<time\b[^>]*\bdatetime="([^"]*)"', match.group(0), re.I
-        )
-        current = current_match.group(1) if current_match else ""
-        if meta.published_exact is not None:
-            if current == expected:
-                continue
-            if check:
-                failures.append(
-                    f"{path.relative_to(ROOT)}: datetime={current!r}, attendu {expected!r}"
-                )
-                continue
-            html = TIME_RE.sub(
-                lambda m: m.group(1) + expected + m.group(2), html, count=1
-            )
-            path.write_text(html, encoding="utf-8")
             changed += 1
             continue
 
-        current_date = current[:10] if len(current) >= 10 else current
-        if current_date == expected:
+        block, time_match = found
+        current_datetime = time_match.group(2).strip()
+        current_text = time_match.group(4).strip()
+
+        if meta.published_exact is not None:
+            datetime_ok = current_datetime == expected_datetime
+            text_ok = current_text == expected_text
+            if datetime_ok and text_ok:
+                continue
+            if check:
+                if not datetime_ok:
+                    failures.append(
+                        f"{path.relative_to(ROOT)}: datetime={current_datetime!r}, "
+                        f"attendu {expected_datetime!r}"
+                    )
+                if not text_ok:
+                    failures.append(
+                        f"{path.relative_to(ROOT)}: heure visible={current_text!r}, "
+                        f"attendue {expected_text!r}"
+                    )
+                continue
+            updated = _replace_publication_time(
+                html,
+                block,
+                time_match,
+                expected_datetime=expected_datetime,
+                expected_text=expected_text,
+            )
+            path.write_text(updated, encoding="utf-8")
+            changed += 1
+            continue
+
+        current_date = (
+            current_datetime[:10] if len(current_datetime) >= 10 else current_datetime
+        )
+        if current_date == expected_datetime:
             continue
         if check:
             failures.append(
-                f"{path.relative_to(ROOT)}: date datetime={current!r}, attendu {expected!r}"
+                f"{path.relative_to(ROOT)}: date datetime={current_datetime!r}, "
+                f"attendu {expected_datetime!r}"
             )
             continue
-        html = TIME_RE.sub(
-            lambda m: m.group(1) + expected + m.group(2), html, count=1
+        updated = _replace_publication_time(
+            html,
+            block,
+            time_match,
+            expected_datetime=expected_datetime,
+            expected_text=None,
         )
-        path.write_text(html, encoding="utf-8")
+        path.write_text(updated, encoding="utf-8")
         changed += 1
     return changed, failures
 
