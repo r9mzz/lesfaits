@@ -13,7 +13,7 @@ on:
         type: choice
         options: ["matin", "soir"]
       dry_run:
-        description: "Générer et contrôler l'aperçu sans envoyer"
+        description: "Générer et contrôler l'aperçu sans envoyer ni contacter Brevo"
         required: false
         default: false
         type: boolean
@@ -52,9 +52,12 @@ jobs:
         run: |
           python -m py_compile \
             scripts/generer_digest.py \
+            scripts/run_newsletter.py \
             scripts/harden_newsletter.py \
-            scripts/test_newsletter.py
+            scripts/test_newsletter.py \
+            scripts/test_run_newsletter.py
           python scripts/test_newsletter.py
+          python scripts/test_run_newsletter.py
           node --check src/newsletter.js
 
       - name: Déterminer le créneau réellement publié
@@ -70,25 +73,25 @@ jobs:
             exit 0
           fi
 
-          # L'heure réelle d'exécution d'un cron GitHub peut être retardée de
-          # plusieurs heures. On ne déduit donc jamais le créneau de l'horloge :
-          # le dernier commit de déploiement public porte explicitement 07h00
-          # ou 18h00 dans son message.
-          git clone --depth=20 \
+          # Les crons GitHub peuvent être retardés. On lit donc le dernier
+          # commit public portant explicitement 07h00 ou 18h00, en ignorant les
+          # commits techniques d'horodatage publiés juste après le déploiement.
+          git clone --depth=30 \
             "https://x-access-token:${SITE_DEPLOY_TOKEN}@github.com/r9mzz/lesfaits-site.git" \
             /tmp/lesfaits-site
           COMMIT=$(
-            git -C /tmp/lesfaits-site log -20 --pretty='%H%x09%s' \
-              | grep -m1 -E 'article\(s\) publiés — (07h00|18h00)' || true
+            git -C /tmp/lesfaits-site log -30 --pretty='%H%x09%s' \
+              | grep -m1 -E '— (07h00|18h00) —' || true
           )
           SHA=$(printf '%s' "$COMMIT" | cut -f1)
           MESSAGE=$(printf '%s' "$COMMIT" | cut -f2-)
-          if printf '%s' "$MESSAGE" | grep -q '07h00'; then
+          if printf '%s' "$MESSAGE" | grep -q '— 07h00 —'; then
             SLOT=matin
-          elif printf '%s' "$MESSAGE" | grep -q '18h00'; then
+          elif printf '%s' "$MESSAGE" | grep -q '— 18h00 —'; then
             SLOT=soir
           else
             echo "::error::Impossible d'identifier le créneau du dernier déploiement public."
+            git -C /tmp/lesfaits-site log -10 --pretty='%h %s'
             exit 1
           fi
           PUBLISHED_AT=$(git -C /tmp/lesfaits-site show -s --format=%cI "$SHA")
@@ -114,7 +117,21 @@ jobs:
           if [ "$DRY_RUN" = "true" ]; then
             ARGS+=(--dry-run)
           fi
-          python scripts/generer_digest.py "${ARGS[@]}" 2>&1 | tee newsletter-run.log
+          python scripts/run_newsletter.py "${ARGS[@]}" 2>&1 | tee newsletter-run.log
+
+      - name: Résumé du contrôle
+        if: always()
+        run: |
+          {
+            echo "## Newsletter"
+            echo ""
+            echo "- Créneau : ${{ steps.slot.outputs.value || 'non déterminé' }}"
+            if [ -f newsletter-preview.html ]; then
+              echo "- Aperçu HTML : généré"
+            else
+              echo "- Aperçu HTML : aucun nouvel article éligible"
+            fi
+          } >> "$GITHUB_STEP_SUMMARY"
 
       - name: Conserver l'aperçu et le rapport
         if: always()
