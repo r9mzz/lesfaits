@@ -29,16 +29,19 @@ APP_META = (
     '<meta name="apple-mobile-web-app-title" content="Les Faits" data-lf-app="1"/>'
 )
 
+# Les regex de détection ne consomment volontairement AUCUN espace voisin.
+# Le rollback commence par retirer les séquences exactes injectées ; ainsi une
+# page qui possédait déjà son manifest revient byte-for-byte à son état initial.
 PREMIUM_LINK_RE = re.compile(
-    r"\s*<link\b[^>]*data-lf-premium=[\"']1[\"'][^>]*?/?>\s*",
+    r"<link\b[^>]*data-lf-premium=[\"']1[\"'][^>]*?/?>",
     re.IGNORECASE,
 )
 APP_META_RE = re.compile(
-    r"\s*<meta\b[^>]*data-lf-app=[\"']1[\"'][^>]*?/?>\s*",
+    r"<meta\b[^>]*data-lf-app=[\"']1[\"'][^>]*?/?>",
     re.IGNORECASE,
 )
 MANAGED_MANIFEST_RE = re.compile(
-    r"\s*<link\b[^>]*data-lf-app-manifest=[\"']1[\"'][^>]*?/?>\s*",
+    r"<link\b[^>]*data-lf-app-manifest=[\"']1[\"'][^>]*?/?>",
     re.IGNORECASE,
 )
 BASE_STYLESHEET_RE = re.compile(
@@ -60,10 +63,18 @@ def html_targets(root: Path) -> list[Path]:
 
 
 def _remove_managed_markup(html: str) -> str:
-    html = PREMIUM_LINK_RE.sub("\n", html)
-    html = APP_META_RE.sub("\n", html)
-    html = MANAGED_MANIFEST_RE.sub("\n", html)
-    return re.sub(r"\n{3,}", "\n\n", html)
+    # Retirer d'abord exactement les octets que _inject() ajoute. Ne jamais
+    # normaliser les blancs du document : ils appartiennent au rendu historique.
+    html = html.replace("\n  " + PREMIUM_LINK, "")
+    html = html.replace(APP_META + "\n  ", "")
+    html = html.replace("  " + MANAGED_MANIFEST + "\n", "")
+
+    # Repli défensif si une ancienne version du script avait laissé les balises
+    # sans leur indentation standard. On ne consomme ici aucun blanc adjacent.
+    html = PREMIUM_LINK_RE.sub("", html)
+    html = APP_META_RE.sub("", html)
+    html = MANAGED_MANIFEST_RE.sub("", html)
+    return html
 
 
 def _already_complete(html: str) -> bool:
