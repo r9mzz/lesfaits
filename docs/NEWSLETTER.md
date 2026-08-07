@@ -59,9 +59,11 @@ python -m py_compile \
   scripts/run_newsletter.py \
   scripts/harden_newsletter.py \
   scripts/test_newsletter.py \
-  scripts/test_run_newsletter.py
+  scripts/test_run_newsletter.py \
+  scripts/test_newsletter_campaigns.py
 python scripts/test_newsletter.py
 python scripts/test_run_newsletter.py
+python scripts/test_newsletter_campaigns.py
 node --check src/newsletter.js
 python scripts/harden_newsletter.py --check
 ```
