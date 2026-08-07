@@ -97,7 +97,7 @@
       // que la requête réseau est partie, pas que Brevo a accepté l'adresse.
       setMessage(
         form,
-        "Demande transmise à Brevo. Si l’adresse est valide, vous recevrez un email de confirmation. Après validation, l’édition du soir sera activée. Vérifiez aussi vos spams.",
+        "Demande transmise à Brevo. Si l’adresse est valide, vous recevrez un email de confirmation. Après validation, les éditions du matin et du soir seront activées lorsqu’il y aura de nouveaux articles. Vérifiez aussi vos spams.",
         "ok"
       );
       form.reset();
