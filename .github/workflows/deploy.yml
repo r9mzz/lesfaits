@@ -8,6 +8,8 @@ on:
       - 'scripts/apply_premium_design.py'
       - 'scripts/test_premium_design.py'
       - 'data/premium-design.json'
+      - 'scripts/normalize_publication_metadata.py'
+      - 'scripts/check_seo.py'
       - '.github/workflows/deploy.yml'
   schedule:
     # NOTE : les crons GitHub sont fréquemment retardés de 1 à 4h. On planifie
