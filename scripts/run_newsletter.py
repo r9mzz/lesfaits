@@ -4,6 +4,10 @@
 Le mode ``--dry-run`` ne contacte jamais Brevo et ne crée aucun attribut : il
 lit seulement le dépôt, construit l'aperçu HTML et s'arrête. Les envois réels
 sont délégués au moteur idempotent ``generer_digest``.
+
+La migration vers le moteur v2 conserve aussi la date du dernier digest envoyé
+par l'ancien moteur (tag ``nl-digest``), afin que le premier run v2 ne renvoie
+pas une seconde fois des articles déjà reçus.
 """
 from __future__ import annotations
 
@@ -14,6 +18,7 @@ from zoneinfo import ZoneInfo
 import generer_digest as digest
 
 PARIS = ZoneInfo("Europe/Paris")
+LEGACY_CAMPAIGN_TAGS = frozenset({digest.CAMPAIGN_TAG, "nl-digest"})
 
 
 def _preview_display_path() -> object:
@@ -22,6 +27,18 @@ def _preview_display_path() -> object:
         return digest.PREVIEW_HTML.relative_to(digest.ROOT)
     except ValueError:
         return digest.PREVIEW_HTML
+
+
+def latest_sent_campaign_time_compatible(client) -> dt.datetime | None:
+    """Dernier envoi v2 ou ancien, pour une transition sans doublon."""
+    latest: dt.datetime | None = None
+    for campaign in digest.list_campaigns(client, status="sent"):
+        if campaign.get("tag") not in LEGACY_CAMPAIGN_TAGS:
+            continue
+        sent = digest.parse_iso(campaign.get("sentDate") or campaign.get("scheduledAt"))
+        if sent and (latest is None or sent > latest):
+            latest = sent
+    return latest
 
 
 def build_local_preview(slot: str, now: dt.datetime | None = None) -> dict[str, int]:
@@ -67,7 +84,16 @@ def main(argv: list[str] | None = None) -> int:
         delegated.append("--check-config")
     if args.now:
         delegated.extend(["--now", args.now])
-    return digest.main(delegated)
+
+    # Le moteur lit ce symbole global au moment de construire la fenêtre de
+    # collecte. On le remplace seulement pendant cet appel, puis on restaure la
+    # fonction d'origine pour éviter tout effet de bord dans les tests/imports.
+    original = digest.latest_sent_campaign_time
+    digest.latest_sent_campaign_time = latest_sent_campaign_time_compatible
+    try:
+        return digest.main(delegated)
+    finally:
+        digest.latest_sent_campaign_time = original
 
 
 if __name__ == "__main__":
