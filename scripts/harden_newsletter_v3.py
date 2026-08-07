@@ -160,7 +160,6 @@ def _ensure_preferences_ui(html: str) -> str:
         pos = opening.end()
         html = html[:pos] + "\n      " + FREQ_BLOCK + html[pos:]
 
-    # Recalcule les positions après l'insertion du bloc de fréquence.
     opening = FORM_OPEN_RE.search(html)
     consent_label = CONSENT_LABEL_RE.search(html, opening.end() if opening else 0)
     message = MESSAGE_RE.search(html, opening.end() if opening else 0)
@@ -174,8 +173,7 @@ def _ensure_preferences_ui(html: str) -> str:
     else:
         return html
     payload = "      " + CATS_BLOCK + "\n      " + CANONICAL_HINT + "\n      "
-    html = html[:pos] + payload + html[pos:]
-    return html
+    return html[:pos] + payload + html[pos:]
 
 
 def _remove_hidden_field(html: str, name: str) -> str:
@@ -269,6 +267,11 @@ def upgrade_html(html: str) -> str:
 
 
 def harden_html(html: str) -> str:
+    # Une page déjà en v5 ne repasse pas par l'ancien normaliseur v2 : celui-ci
+    # réécrivait encore le libellé "Matin (~7h)" au deuxième passage. La v5 est
+    # ainsi réellement idempotente dès sa première génération.
+    if f'data-newsletter-version="{VERSION}"' in html and SCRIPT_SRC in html:
+        return upgrade_html(html)
     return upgrade_html(legacy.harden_html(html))
 
 
