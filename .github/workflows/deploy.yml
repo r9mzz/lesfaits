@@ -32,7 +32,7 @@ concurrency:
 jobs:
   deploy:
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    timeout-minutes: 12
     permissions:
       contents: write
 
@@ -96,6 +96,15 @@ jobs:
         env:
           PYTHONIOENCODING: utf-8
         run: python scripts/patch_articles.py
+
+      - name: Normaliser et auditer tous les formulaires newsletter
+        if: ${{ steps.garde.outputs.passer != 'true' && github.event.inputs.dry_run != 'true' }}
+        env:
+          PYTHONIOENCODING: utf-8
+        run: |
+          python scripts/harden_newsletter.py
+          python scripts/harden_newsletter.py --check
+          node --check src/newsletter.js
 
       - name: Test non-régression SEO (bloque le déploiement en cas d'échec)
         if: ${{ steps.garde.outputs.passer != 'true' && github.event.inputs.dry_run != 'true' }}

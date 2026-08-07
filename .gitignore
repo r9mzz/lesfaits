@@ -21,6 +21,10 @@ data/scheduler.log
 # Publié IDs (régénéré sur le serveur)
 data/published.json
 
+# Aperçu local/CI de la newsletter
+newsletter-preview.html
+newsletter-run.log
+
 # OS
 .DS_Store
 Thumbs.db

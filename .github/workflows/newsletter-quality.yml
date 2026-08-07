@@ -1,0 +1,50 @@
+name: Qualité newsletter
+
+on:
+  pull_request:
+    paths:
+      - "scripts/generer_digest.py"
+      - "scripts/run_newsletter.py"
+      - "scripts/harden_newsletter.py"
+      - "scripts/test_newsletter.py"
+      - "scripts/test_run_newsletter.py"
+      - "src/newsletter.js"
+      - ".github/workflows/newsletter.yml"
+      - ".github/workflows/newsletter-quality.yml"
+      - ".github/workflows/newsletter-repair.yml"
+      - ".github/workflows/deploy.yml"
+      - "docs/NEWSLETTER.md"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  tests:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+      - run: pip install requests
+      - name: Syntaxe et tests unitaires
+        run: |
+          python -m py_compile \
+            scripts/generer_digest.py \
+            scripts/run_newsletter.py \
+            scripts/harden_newsletter.py \
+            scripts/test_newsletter.py \
+            scripts/test_run_newsletter.py
+          python scripts/test_newsletter.py
+          python scripts/test_run_newsletter.py
+          node --check src/newsletter.js
+      - name: Reconstruction et audit de toutes les pages
+        run: |
+          python scripts/harden_newsletter.py
+          python scripts/harden_newsletter.py --check
+          python scripts/check_seo.py
