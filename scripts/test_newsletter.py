@@ -143,6 +143,12 @@ class RecipientTests(unittest.TestCase):
         for category in digest.CATEGORIES:
             self.assertEqual(created[f"CAT_{category.upper()}"], "boolean")
 
+    def test_dry_configuration_check_is_non_mutating(self):
+        fake = FakeBrevo()
+        with self.assertRaises(RuntimeError):
+            digest.ensure_contact_attributes(fake, create_missing=False)
+        self.assertEqual(fake.created_attributes, [])
+
 
 class EmailTests(unittest.TestCase):
     def test_dynamic_content_is_escaped_and_unsubscribe_kept(self):
@@ -162,6 +168,15 @@ class EmailTests(unittest.TestCase):
         self.assertIn("A &amp; B &lt; C", rendered)
         self.assertIn("{{ unsubscribe }}", rendered)
         self.assertIn("utm_source=newsletter", rendered)
+
+        second = dict(article, slug="test-2", titre="Deuxième article")
+        plural = digest.build_email(
+            {"tech": [article, second]},
+            now=dt.datetime(2026, 8, 7, 8, 0, tzinfo=PARIS),
+            slot="matin",
+        )
+        self.assertIn("2 nouveaux articles", plural)
+        self.assertNotIn("2 nouvels articles", plural)
 
 
 class HardenerTests(unittest.TestCase):
