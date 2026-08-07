@@ -1,42 +1,45 @@
-name: Factuel — Newsletter quotidienne
+name: Les Faits — Newsletter après publication
 
 on:
-  schedule:
-    # Matin ~08h00 Paris — été (CEST UTC+2)
-    - cron: "0 6 * 4-10 *"
-    # Matin ~08h00 Paris — hiver (CET UTC+1)
-    - cron: "0 7 * 11-12,1-3 *"
-    # Soir ~20h30 Paris — été (CEST UTC+2)
-    - cron: "30 18 * 4-10 *"
-    # Soir ~20h30 Paris — hiver (CET UTC+1)
-    - cron: "30 19 * 11-12,1-3 *"
+  workflow_run:
+    workflows: ["Factuel — Déploiement site"]
+    types: [completed]
   workflow_dispatch:
     inputs:
       slot:
-        description: "Créneau : matin ou soir"
-        required: false
+        description: "Créneau à envoyer"
+        required: true
         default: "matin"
         type: choice
         options: ["matin", "soir"]
+      dry_run:
+        description: "Générer et contrôler l'aperçu sans envoyer"
+        required: false
+        default: false
+        type: boolean
 
 concurrency:
-  group: factuel-newsletter
+  group: lesfaits-newsletter
   cancel-in-progress: false
+
+permissions:
+  contents: read
 
 jobs:
   newsletter:
+    if: >-
+      github.event_name == 'workflow_dispatch' ||
+      github.event.workflow_run.conclusion == 'success'
     runs-on: ubuntu-latest
-    timeout-minutes: 10
-    permissions:
-      contents: read
+    timeout-minutes: 20
 
     steps:
-      - name: Checkout (repo privé — contient articles + search.json)
+      - name: Checkout complet
         uses: actions/checkout@v4
         with:
-          fetch-depth: 50   # historique sur ~3 jours pour git log --since
+          fetch-depth: 0
 
-      - name: Set up Python
+      - name: Python 3.11
         uses: actions/setup-python@v5
         with:
           python-version: "3.11"
@@ -45,24 +48,74 @@ jobs:
       - name: Installer les dépendances
         run: pip install requests
 
-      - name: Déterminer le slot (matin/soir)
-        id: slot
+      - name: Tester toute la chaîne newsletter
         run: |
-          # workflow_dispatch → slot choisi manuellement
-          if [ -n "${{ github.event.inputs.slot }}" ]; then
-            echo "value=${{ github.event.inputs.slot }}" >> $GITHUB_OUTPUT
-          # cron du matin : 06h ou 07h UTC
-          elif [[ "$(date -u +%H)" -lt 12 ]]; then
-            echo "value=matin" >> $GITHUB_OUTPUT
-          else
-            echo "value=soir" >> $GITHUB_OUTPUT
+          python -m py_compile \
+            scripts/generer_digest.py \
+            scripts/harden_newsletter.py \
+            scripts/test_newsletter.py
+          python scripts/test_newsletter.py
+          node --check src/newsletter.js
+
+      - name: Déterminer le créneau réellement publié
+        id: slot
+        env:
+          EVENT_NAME: ${{ github.event_name }}
+          INPUT_SLOT: ${{ inputs.slot }}
+          SITE_DEPLOY_TOKEN: ${{ secrets.SITE_DEPLOY_TOKEN }}
+        run: |
+          set -euo pipefail
+          if [ "$EVENT_NAME" = "workflow_dispatch" ]; then
+            echo "value=${INPUT_SLOT:-matin}" >> "$GITHUB_OUTPUT"
+            exit 0
           fi
+
+          # L'heure réelle d'exécution d'un cron GitHub peut être retardée de
+          # plusieurs heures. On ne déduit donc jamais le créneau de l'horloge :
+          # le dernier commit de déploiement public porte explicitement 07h00
+          # ou 18h00 dans son message.
+          git clone --depth=20 \
+            "https://x-access-token:${SITE_DEPLOY_TOKEN}@github.com/r9mzz/lesfaits-site.git" \
+            /tmp/lesfaits-site
+          MESSAGE=$(
+            git -C /tmp/lesfaits-site log -20 --pretty=%s \
+              | grep -m1 -E 'article\(s\) publiés — (07h00|18h00)' || true
+          )
+          if printf '%s' "$MESSAGE" | grep -q '07h00'; then
+            SLOT=matin
+          elif printf '%s' "$MESSAGE" | grep -q '18h00'; then
+            SLOT=soir
+          else
+            echo "::error::Impossible d'identifier le créneau du dernier déploiement public."
+            exit 1
+          fi
+          echo "Créneau public détecté : $SLOT ($MESSAGE)"
+          echo "value=$SLOT" >> "$GITHUB_OUTPUT"
 
       - name: Générer et envoyer le digest
         env:
-          BREVO_API_KEY:      ${{ secrets.BREVO_API_KEY }}
-          BREVO_LIST_ID:      ${{ secrets.BREVO_LIST_ID }}
+          BREVO_API_KEY: ${{ secrets.BREVO_API_KEY }}
+          BREVO_LIST_ID: ${{ secrets.BREVO_LIST_ID }}
           BREVO_SENDER_EMAIL: ${{ secrets.BREVO_SENDER_EMAIL }}
-          PYTHONIOENCODING:   utf-8
+          BREVO_SENDER_NAME: "Les Faits"
+          PYTHONIOENCODING: utf-8
           TZ: Europe/Paris
-        run: python scripts/generer_digest.py --slot ${{ steps.slot.outputs.value }}
+          DRY_RUN: ${{ inputs.dry_run }}
+        run: |
+          set -euo pipefail
+          ARGS=(--slot "${{ steps.slot.outputs.value }}")
+          if [ "$DRY_RUN" = "true" ]; then
+            ARGS+=(--dry-run)
+          fi
+          python scripts/generer_digest.py "${ARGS[@]}" 2>&1 | tee newsletter-run.log
+
+      - name: Conserver l'aperçu et le rapport
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: newsletter-${{ steps.slot.outputs.value || 'controle' }}-${{ github.run_id }}
+          path: |
+            newsletter-preview.html
+            newsletter-run.log
+          if-no-files-found: ignore
+          retention-days: 14
