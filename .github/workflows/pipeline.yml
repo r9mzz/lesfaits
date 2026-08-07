@@ -63,16 +63,9 @@ jobs:
 
       # ── Garde-fou : ignorer un déclenchement trop rapproché ──────────────
       # Un automate EXTERNE au dépôt déclenche pipeline.yml à 15h00 ET 15h50
-      # UTC chaque jour (constat 28/07 : 6 jours consécutifs, à la minute
-      # près, en workflow_dispatch — rien dans ce dépôt ni dans les Routines
-      # Claude ne le fait). Le second run arrive 50 min après le premier,
-      # quand le quota Groq journalier est déjà consommé : vérifié les 25, 26
-      # et 27/07, il n'a JAMAIS publié un seul article et se contentait de
-      # commiter « draft 0 article(s) ». Le quota Groq est la ressource rare —
-      # le découper en 4 runs au lieu de 2 le vide avant le créneau du soir.
-      # On neutralise donc tout run démarrant moins de FENETRE_MIN après le
-      # précédent ; les deux crons légitimes (00h10 et 11h05 UTC) sont espacés
-      # de 11 h et ne sont jamais concernés.
+      # UTC chaque jour. Le second run arrive quand le quota Groq est déjà
+      # consommé. On neutralise donc les seuls workflow_dispatch trop proches ;
+      # les deux crons du dépôt passent toujours, même s'ils ont été retardés.
       - name: Ignorer si un run vient d'avoir lieu
         id: garde
         env:
@@ -81,12 +74,6 @@ jobs:
           EVENEMENT: ${{ github.event_name }}
         run: |
           FENETRE_MIN=120
-          # Les deux crons du dépôt (matin + après-midi) passent TOUJOURS.
-          # Sans cette exemption, un cron retardé par GitHub (retards de 1 à
-          # 4 h courants) qui tomberait juste après un déclenchement externe
-          # serait bloqué par lui — on perdrait le vrai run de l'après-midi à
-          # cause d'un run qui, lui, n'a rien fait. Seuls les déclenchements
-          # par API (workflow_dispatch) sont filtrés.
           if [ "$EVENEMENT" != "workflow_dispatch" ]; then
             echo "Run planifié ($EVENEMENT) — jamais filtré."
             echo "passer=false" >> "$GITHUB_OUTPUT"
@@ -109,7 +96,7 @@ jobs:
           ECART=$(( ($(date -u +%s) - PRECEDENT) / 60 ))
           echo "Dernier run il y a ${ECART} min (fenêtre : ${FENETRE_MIN} min)."
           if [ "$ECART" -lt "$FENETRE_MIN" ]; then
-            echo "::notice::Run ignoré — un run a déjà eu lieu il y a ${ECART} min. Relancer si vite ne publierait rien (quota Groq). Option « forcer » pour outrepasser."
+            echo "::notice::Run ignoré — un run a déjà eu lieu il y a ${ECART} min. Option « forcer » pour outrepasser."
             echo "passer=true" >> "$GITHUB_OUTPUT"
           else
             echo "passer=false" >> "$GITHUB_OUTPUT"
@@ -130,12 +117,13 @@ jobs:
       - name: Prévol qualité vitrine
         if: steps.garde.outputs.passer != 'true'
         run: |
-          python -m py_compile scripts/run_pipeline.py scripts/showcase_quality.py
+          python -m py_compile scripts/run_pipeline.py scripts/showcase_quality.py scripts/summarize_pipeline_log.py
           python scripts/test_editorial_quality.py
           python scripts/test_editorial_depth.py
           python scripts/test_run_pipeline.py
           python scripts/test_quota_wait.py
           python scripts/test_showcase_quality.py
+          python scripts/test_summarize_pipeline_log.py
 
       # ── 3. Récupérer les images existantes pour le dédup MD5 ────────────
       - name: Récupérer les images depuis lesfaits-site
@@ -182,11 +170,34 @@ jobs:
           PYTHONIOENCODING: utf-8
           TZ: Europe/Paris
         run: |
+          set -o pipefail
+          PIPELINE_LOG="${RUNNER_TEMP}/lesfaits-pipeline.log"
           if [ "${{ inputs.dry_run }}" = "true" ]; then
-            python scripts/run_pipeline.py --dry-run
+            python scripts/run_pipeline.py --dry-run 2>&1 | tee "$PIPELINE_LOG"
           else
-            python scripts/run_pipeline.py
+            python scripts/run_pipeline.py 2>&1 | tee "$PIPELINE_LOG"
           fi
+
+      - name: Résumer le run
+        if: always() && steps.garde.outputs.passer != 'true'
+        run: |
+          python scripts/summarize_pipeline_log.py \
+            --log "${RUNNER_TEMP}/lesfaits-pipeline.log" \
+            --json "${RUNNER_TEMP}/pipeline-report.json" \
+            --markdown "${RUNNER_TEMP}/pipeline-report.md"
+          cat "${RUNNER_TEMP}/pipeline-report.md" >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Conserver les diagnostics du run
+        if: always() && steps.garde.outputs.passer != 'true'
+        uses: actions/upload-artifact@v4
+        with:
+          name: pipeline-diagnostic-${{ github.run_id }}
+          path: |
+            ${{ runner.temp }}/lesfaits-pipeline.log
+            ${{ runner.temp }}/pipeline-report.json
+            ${{ runner.temp }}/pipeline-report.md
+          if-no-files-found: warn
+          retention-days: 14
 
       # ── 5. Commit dans le repo privé (sans déployer sur le site) ─────────
       - name: Sauvegarder les articles générés
@@ -196,47 +207,42 @@ jobs:
         run: |
           git config user.name  "Factuel Bot"
           git config user.email "bot@factuel.fr"
-          # BUG CORRIGÉ (07/08) : cette liste ne contenait pas breves.html ni
-          # favoris.html, tous deux régénérés par rebuild_index() au même
-          # titre qu'index.html/archive.html. Ils restaient donc modifiés
-          # mais NON STAGÉS après le commit — et le rebase automatique
-          # ci-dessous échouait immédiatement sur "You have unstaged
-          # changes", perdant TOUT le run (151 articles le 06/08 au matin :
-          # commit fait, jamais poussé, détruit avec le runner). Même classe
-          # de bug que celle corrigée dans deploy.yml le 03-04/08 (breves.html
-          # absent de la liste blanche de copie) — deux mécanismes de
-          # publication différents, deux listes à tenir à jour séparément.
-          # Ceinture supplémentaire : `git add -A` en repli juste avant le
-          # rebase (voir plus bas) capture tout fichier généré futur qu'on
-          # oublierait encore d'ajouter ici.
-          git add articles/ assets/ categories/ data/ index.html archive.html breves.html favoris.html feed.xml sitemap.xml src/ || true
-          git diff --cached --quiet && echo "Aucun nouvel article." && exit 0
-          NB=$(git diff --cached --name-only | grep "^articles/" | wc -l)
+          # Le runner part d'un checkout propre et .gitignore exclut secrets,
+          # caches et état local. `git add -A` évite désormais toute liste
+          # blanche fragile : aucune nouvelle page générée ne peut être oubliée.
+          git add -A
+          git diff --cached --quiet && echo "Aucun changement à sauvegarder." && exit 0
+
+          NB_NEW=$(git diff --cached --name-only --diff-filter=A -- articles/ | grep -E '\.html$' | wc -l | tr -d ' ')
+          NB_MOD=$(git diff --cached --name-only --diff-filter=M -- articles/ | grep -E '\.html$' | wc -l | tr -d ' ')
+          NB_DEL=$(git diff --cached --name-only --diff-filter=D -- articles/ | grep -E '\.html$' | wc -l | tr -d ' ')
           CRENEAU=$([ $(date +%H) -lt 12 ] && echo "matin" || echo "soir")
-          git commit -m "✦ draft ${NB} article(s) — créneau ${CRENEAU} — $(date +'%d/%m/%Y %H:%M')"
+
+          {
+            echo "## Fichiers réellement produits"
+            echo ""
+            echo "- Nouveaux articles : ${NB_NEW}"
+            echo "- Articles reconstruits : ${NB_MOD}"
+            echo "- Articles retirés : ${NB_DEL}"
+          } >> "$GITHUB_STEP_SUMMARY"
+
+          if [ "$NB_NEW" -gt 0 ]; then
+            MESSAGE="✦ draft ${NB_NEW} nouveau(x) article(s) — créneau ${CRENEAU} — $(date +'%d/%m/%Y %H:%M')"
+          else
+            MESSAGE="chore: synchronisation technique — 0 nouvel article — créneau ${CRENEAU} — $(date +'%d/%m/%Y %H:%M')"
+          fi
+          git commit -m "$MESSAGE"
+
           PUSHED=0
           for i in 1 2 3 4 5; do
             if git push; then PUSHED=1; break; fi
             echo "Push rejeté (tentative $i) — rebase et nouvel essai..."
-            # Filet de sécurité : si UN AUTRE fichier généré manque encore à
-            # la liste ci-dessus (ou à une future liste), il traînerait ici
-            # en modification non stagée et ferait échouer `git rebase` avant
-            # même sa première étape ("You have unstaged changes") — c'est
-            # exactement ce qui a perdu le run du 06/08 matin. On le capture
-            # dans le commit existant plutôt que de le découvrir en prod.
             git add -A
             git diff --cached --quiet || git commit --amend --no-edit
             git fetch origin main
-            # Conflits sur les fichiers générés (data/*.json, index, feed…) :
-            # consigne du projet — prendre la version de main ("ours" pendant
-            # un rebase = la branche amont), les articles nouveaux ne sont
-            # jamais en conflit (fichiers créés, pas modifiés).
             if ! git rebase origin/main; then
-              git checkout --ours -- data/ index.html archive.html feed.xml sitemap.xml categories/ 2>/dev/null || true
+              git checkout --ours -- data/ index.html archive.html breves.html favoris.html feed.xml sitemap.xml categories/ src/ 2>/dev/null || true
               git add -A
-              # --continue si le commit garde du contenu, --skip s'il est
-              # devenu vide (run à 0 article dont la seule modif était le
-              # fichier en conflit — rien à conserver dans ce cas).
               GIT_EDITOR=true git rebase --continue || git rebase --skip || { echo "Rebase impossible, abandon (commit conservé localement)."; git rebase --abort; break; }
             fi
             sleep 5
