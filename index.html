@@ -2,7 +2,7 @@
 <html lang="fr" data-theme="">
 <head>
   <meta charset="UTF-8"/>
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cloud.umami.is; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; connect-src 'self' https://cloud.umami.is https://api.web3forms.com https://e6ad0381.sibforms.com; base-uri 'self'; form-action 'self'; frame-ancestors 'none';"/>
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cloud.umami.is; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; connect-src 'self' https://cloud.umami.is https://api.web3forms.com https://e6ad0381.sibforms.com; base-uri 'self'; form-action 'self' https://e6ad0381.sibforms.com; frame-ancestors 'none';"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <meta name="description" content="Les Faits — Journal numérique français rédigé par IA. Juste les faits. Aucun parti pris."/>
   <meta property="og:title" content="Les Faits — Juste les faits. Aucun parti pris."/>
@@ -30,7 +30,7 @@
   <script>
 (function(){var s=localStorage.getItem('theme'),d=s==='dark'||(s===null&&window.matchMedia('(prefers-color-scheme:dark)').matches);document.documentElement.setAttribute('data-theme',d?'dark':'light');})();
 </script>
-  <script src="/src/newsletter.js?v=3" defer></script>
+  <script src="/src/newsletter.js?v=4" defer></script>
 </head>
 <body>
 <div class="nav-overlay" id="nav-overlay" onclick="closeMenu()"></div>
@@ -263,7 +263,10 @@ document.addEventListener('DOMContentLoaded',function(){var btn=document.getElem
       <span class="nl-compact__label">NEWSLETTER</span>
       <span class="nl-compact__title">Le résumé du jour dans votre boîte mail</span>
     </div>
-    <form id="nl-form" novalidate data-newsletter-version="3" aria-label="Inscription à la newsletter Les Faits">
+    <form id="nl-form" novalidate data-newsletter-version="4" aria-label="Inscription à la newsletter Les Faits" action="https://e6ad0381.sibforms.com/serve/MUIFAErfidn3h7DoaZcjIRh-48s1GoiE0vZOe_KG-skCwDznnQ2831i0IkHsSaXfUJ15hBl1CH3ElJVKdGDdXdxHpt6v7iX-hAlyWb0i0M7mtq6UhgJ9JJyCUhNwckwfxW8EUJkF_hkjb4qX8YSntlFraZFiCcgQhZ3PXsPvAcSa9oEyPOgeL1EtAB4akgMS-hz76NcGAUSqOt3L1w==" method="post" enctype="application/x-www-form-urlencoded">
+      <input type="hidden" name="LESFAITS_VERIFICATION" value="1"/>
+      <input type="hidden" name="email_address_check" value=""/>
+      <input type="hidden" name="locale" value="fr"/>
       <div class="nl-compact__row">
         <input type="email" id="nl-email" name="EMAIL" class="nl-compact__input" placeholder="vous@exemple.fr" required autocomplete="email" aria-required="true" inputmode="email" autocapitalize="none" spellcheck="false" aria-label="Adresse email" aria-describedby="nl-msg nl-hint"/>
         <button type="submit" class="nl-compact__btn" id="nl-btn">S'abonner →</button>
