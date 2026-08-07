@@ -2,13 +2,10 @@
 """Contrôle en lecture seule le formulaire d'inscription hébergé par Brevo.
 
 Le formulaire public Les Faits transmet uniquement les champs dont le contrat
-Brevo est vérifié : l'adresse email et le marqueur d'inscription. Les anciennes
-préférences de fréquence et de rubriques ne sont plus affichées aux nouveaux
-abonnés, car le formulaire Brevo publié ne les collecte pas.
-
-Ce script ne soumet rien et ne manipule aucun contact. Il télécharge seulement
-la page publique, inventorie les champs de formulaire et échoue explicitement
-si le contrat minimal attendu n'est plus présent.
+Brevo est vérifié. Ce script ne soumet rien et ne manipule aucun contact : il
+télécharge seulement la page publique, inventorie les formulaires/champs et
+vérifie aussi que la cible POST réellement publiée par Brevo correspond à
+l'URL utilisée par Les Faits.
 """
 from __future__ import annotations
 
@@ -16,6 +13,7 @@ import argparse
 from dataclasses import dataclass, field
 from html.parser import HTMLParser
 from typing import Iterable
+from urllib.parse import urljoin, urlparse
 
 import requests
 
@@ -66,16 +64,46 @@ def parse_form(html: str) -> FormSnapshot:
     return parser.snapshot
 
 
+def _same_form_endpoint(left: str, right: str) -> bool:
+    """Compare l'origine et le chemin d'une cible, sans dépendre d'un querystring."""
+    a = urlparse(left)
+    b = urlparse(right)
+    return (
+        a.scheme.lower() == b.scheme.lower() == "https"
+        and a.netloc.lower() == b.netloc.lower()
+        and a.path.rstrip("/") == b.path.rstrip("/")
+    )
+
+
+def resolved_post_actions(snapshot: FormSnapshot, base_url: str = FORM_URL) -> list[str]:
+    actions: list[str] = []
+    for method, action in zip(snapshot.methods, snapshot.actions):
+        if method != "post":
+            continue
+        actions.append(urljoin(base_url, action or base_url))
+    return actions
+
+
 def validate_snapshot(
     snapshot: FormSnapshot,
     required_fields: Iterable[str] = REQUIRED_FIELDS,
+    base_url: str = FORM_URL,
 ) -> None:
     if snapshot.form_count < 1:
         raise RuntimeError("Le formulaire Brevo public ne contient aucune balise <form>.")
-    if "post" not in snapshot.methods:
+
+    post_actions = resolved_post_actions(snapshot, base_url)
+    if not post_actions:
         raise RuntimeError(
             "Le formulaire Brevo public n'expose aucun formulaire en méthode POST."
         )
+
+    if not any(_same_form_endpoint(action, base_url) for action in post_actions):
+        raise RuntimeError(
+            "La cible POST publiée par Brevo ne correspond plus à l'URL utilisée "
+            "par Les Faits. Cible(s) observée(s) : " + ", ".join(post_actions)
+        )
+
     missing = sorted(set(required_fields) - snapshot.fields)
     if missing:
         raise RuntimeError(
@@ -88,7 +116,7 @@ def audit_form(url: str = FORM_URL, timeout: int = 25) -> FormSnapshot:
     response = requests.get(
         url,
         headers={
-            "User-Agent": "Mozilla/5.0 (compatible; LesFaits-Newsletter-Audit/3.1)",
+            "User-Agent": "Mozilla/5.0 (compatible; LesFaits-Newsletter-Audit/4.0)",
             "Accept": "text/html,application/xhtml+xml",
         },
         timeout=timeout,
@@ -107,12 +135,15 @@ def audit_form(url: str = FORM_URL, timeout: int = 25) -> FormSnapshot:
         raise RuntimeError("Réponse Brevo anormalement courte.")
 
     snapshot = parse_form(response.text)
-    validate_snapshot(snapshot)
+    validate_snapshot(snapshot, base_url=response.url)
+    actions = resolved_post_actions(snapshot, response.url)
     print(
         f"[BREVO FORM] HTTP {response.status_code}; {snapshot.form_count} formulaire(s); "
         f"{len(snapshot.fields)} champ(s); contrat minimal complet."
     )
-    print("[BREVO FORM] Champs contrôlés : " + ", ".join(sorted(REQUIRED_FIELDS)))
+    print("[BREVO FORM] Champs publiés : " + ", ".join(sorted(snapshot.fields)))
+    print("[BREVO FORM] Cible(s) POST : " + ", ".join(actions))
+    print("[BREVO FORM] Aucun formulaire soumis; audit GET uniquement.")
     return snapshot
 
 
