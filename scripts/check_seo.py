@@ -5,6 +5,7 @@ import sys
 from pathlib import Path
 
 from check_site_integrity import run as check_site_integrity
+from normalize_corpus_indexing import run as normalize_corpus_indexing
 from normalize_publication_metadata import run as normalize_publication_metadata
 from normalize_source_metadata import run as normalize_source_metadata
 
@@ -18,24 +19,10 @@ REQUIRED = {
     "description": r'<meta[^>]+name="description"',
     "lang=fr": r'<html[^>]+lang="fr"',
 }
-
-PAGES = [
-    "index.html",
-    "methode.html",
-    "contact.html",
-    "corrections.html",
-    "archive.html",
-    "breves.html",
-]
-
-# Classes volontairement utilisées comme hooks sans règle CSS propre : leur
-# apparence vient d'un style inline ou d'une classe parente.
+PAGES = ["index.html", "methode.html", "contact.html", "corrections.html", "archive.html", "breves.html"]
 CLASSES_HOOK_SANS_CSS = {
-    "meta__src",
-    "archive-row",
-    "audio-player__ctrl--stop",
-    "list-section",
-    "dossier-serie",  # legacy : vieux articles, plus produit par pipeline.py
+    "meta__src", "archive-row", "audio-player__ctrl--stop", "list-section",
+    "dossier-serie",
 }
 
 
@@ -51,34 +38,21 @@ def classes_sans_css(pages_html: list[Path], style_css: str) -> dict[str, list[s
             for sel in bloc_selecteur.split(","):
                 classes |= set(re.findall(r"\.([a-zA-Z0-9_-]+)", sel))
         return classes
-
     classes_globales = _classes_definies(style_css)
     manquantes: dict[str, list[str]] = {}
     for path in pages_html:
         html = path.read_text(encoding="utf-8", errors="replace")
         inline_css = "".join(re.findall(r"<style>(.*?)</style>", html, re.S))
-        classes_dispo = (
-            classes_globales
-            | _classes_definies(inline_css)
-            | CLASSES_HOOK_SANS_CSS
-        )
+        classes_dispo = classes_globales | _classes_definies(inline_css) | CLASSES_HOOK_SANS_CSS
         for classattr in re.findall(r'class="([^"]+)"', html):
             for css_class in classattr.split():
-                if (
-                    not css_class
-                    or css_class in classes_dispo
-                    or "+" in css_class
-                    or "${" in css_class
-                ):
+                if not css_class or css_class in classes_dispo or "+" in css_class or "${" in css_class:
                     continue
-                manquantes.setdefault(css_class, []).append(
-                    str(path.relative_to(ROOT))
-                )
+                manquantes.setdefault(css_class, []).append(str(path.relative_to(ROOT)))
     return manquantes
 
 
 def _run_normalizer(label: str, fn) -> int:
-    """Normalise puis revérifie ; retourne 1 en cas de défaut."""
     try:
         changed, errors = fn(check=False)
         if errors:
@@ -99,28 +73,19 @@ def _run_normalizer(label: str, fn) -> int:
 
 def main() -> int:
     failures = 0
-
-    # Les deux normalisations sont déterministes et n'inventent aucune donnée :
-    # elles réalignent uniquement des dérivés sur les informations déjà présentes
-    # dans le JSON-LD ou dans la liste de liens SOURCES de la page.
-    failures += _run_normalizer(
-        "Métadonnées publication", normalize_publication_metadata
-    )
+    failures += _run_normalizer("Métadonnées publication", normalize_publication_metadata)
     failures += _run_normalizer("Métadonnées sources", normalize_source_metadata)
+    failures += _run_normalizer("Indexation corpus", normalize_corpus_indexing)
 
     targets = [ROOT / p for p in PAGES if (ROOT / p).exists()]
     articles = sorted((ROOT / "articles").glob("*.html"))
     if articles:
-        targets.append(articles[0])
-        targets.append(articles[-1])
+        targets.extend([articles[0], articles[-1]])
 
     for path in targets:
         missing = check(path)
         if missing:
-            print(
-                f"[SEO FAIL] {path.relative_to(ROOT)} — manquant : "
-                f"{', '.join(missing)}"
-            )
+            print(f"[SEO FAIL] {path.relative_to(ROOT)} — manquant : {', '.join(missing)}")
             failures += 1
         else:
             print(f"[SEO OK]   {path.relative_to(ROOT)}")
@@ -131,11 +96,7 @@ def main() -> int:
         if re.search(r"·\s*None\s*[·<]", txt):
             none_hits.append(art.name)
     if none_hits:
-        print(
-            "[SEO FAIL] Champ date 'None' affiché dans : "
-            + ", ".join(none_hits[:5])
-            + (f" (+{len(none_hits)-5} autres)" if len(none_hits) > 5 else "")
-        )
+        print("[SEO FAIL] Champ date 'None' affiché dans : " + ", ".join(none_hits[:5]))
         failures += 1
 
     style_css_path = ROOT / "src" / "style.css"
@@ -144,13 +105,8 @@ def main() -> int:
         manquantes = classes_sans_css(targets + articles, style_css)
         if manquantes:
             print("\n[SEO FAIL] Classe(s) utilisée(s) sans CSS trouvée nulle part :")
-            for css_class, pages_touchees in sorted(
-                manquantes.items(), key=lambda x: -len(x[1])
-            ):
-                print(
-                    f"    .{css_class} — {len(pages_touchees)} page(s), "
-                    f"ex. {pages_touchees[0]}"
-                )
+            for css_class, pages_touchees in sorted(manquantes.items(), key=lambda x: -len(x[1])):
+                print(f"    .{css_class} — {len(pages_touchees)} page(s), ex. {pages_touchees[0]}")
             failures += 1
 
     integrity_errors = check_site_integrity()
@@ -162,7 +118,7 @@ def main() -> int:
             print(f"    +{len(integrity_errors)-30} autre(s)")
         failures += 1
     else:
-        print("[SEO OK]   Intégrité globale : liens/assets/canonical/images/sources/IDs/newsletter")
+        print("[SEO OK]   Intégrité globale : liens/assets/canonical/images/sources/IDs/newsletter/corpus")
 
     if failures:
         print(f"\n{failures} contrôle(s) en échec — déploiement bloqué.")

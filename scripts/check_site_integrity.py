@@ -4,10 +4,12 @@
 
 Le contrôle reste purement local : aucun média tiers n'est appelé. Il vérifie
 ce dont Les Faits est directement responsable avant publication : liens/assets
-locaux, canonicals, images, IDs, blocs newsletter et cohérence des sources.
+locaux, canonicals, images, IDs, blocs newsletter, sources et cohérence du
+corpus entre manifeste, recherche, sitemap, retraits et pages indexables.
 """
 from __future__ import annotations
 
+import json
 import re
 import sys
 from collections import Counter
@@ -17,14 +19,14 @@ from urllib.parse import unquote, urljoin, urlparse
 
 ROOT = Path(__file__).resolve().parent.parent
 SITE_BASE = "https://lesfaits.info/"
-VOID_TAGS = {
-    "area", "base", "br", "col", "embed", "hr", "img", "input", "link",
-    "meta", "param", "source", "track", "wbr",
-}
 CORE_STATIC = {
     "index.html", "archive.html", "breves.html", "methode.html",
     "a-propos.html", "contact.html", "corrections.html", "recherche.html",
 }
+NEWSARTICLE_RE = re.compile(
+    r'<script\b[^>]*type=["\']application/ld\+json["\'][^>]*>.*?'
+    r'["\']@type["\']\s*:\s*["\']NewsArticle["\'].*?</script>', re.I | re.S,
+)
 
 
 class PageParser(HTMLParser):
@@ -40,16 +42,11 @@ class PageParser(HTMLParser):
     def handle_starttag(self, tag: str, attrs_list: list[tuple[str, str | None]]) -> None:
         attrs = {k.lower(): v for k, v in attrs_list}
         tag = tag.lower()
-        value_id = attrs.get("id")
-        if value_id:
-            self.ids.append(value_id)
+        if attrs.get("id"):
+            self.ids.append(attrs["id"])
         if tag == "base" and attrs.get("href"):
             self.base_href = attrs["href"]
-        if (
-            tag == "link"
-            and (attrs.get("rel") or "").lower() == "canonical"
-            and attrs.get("href")
-        ):
+        if tag == "link" and (attrs.get("rel") or "").lower() == "canonical" and attrs.get("href"):
             self.canonicals.append(attrs["href"])
         if tag == "form" and attrs.get("id") == "nl-form":
             self.newsletter_forms += 1
@@ -73,12 +70,19 @@ def _pages() -> list[Path]:
     return sorted(set(pages))
 
 
+def _load_list(path: Path) -> list[dict]:
+    try:
+        value = json.loads(path.read_text(encoding="utf-8"))
+    except FileNotFoundError:
+        return []
+    if not isinstance(value, list):
+        raise RuntimeError(f"{path.relative_to(ROOT)} doit contenir une liste")
+    return [item for item in value if isinstance(item, dict)]
+
+
 def _is_external(value: str) -> bool:
     parsed = urlparse(value)
-    return (
-        parsed.scheme in {"http", "https", "mailto", "tel", "data"}
-        or value.startswith("//")
-    )
+    return parsed.scheme in {"http", "https", "mailto", "tel", "data"} or value.startswith("//")
 
 
 def _resolve_local(page: Path, base_href: str | None, value: str) -> Path | None:
@@ -107,18 +111,14 @@ def _expected_canonical(page: Path) -> str:
 
 
 def _indexable(html: str) -> bool:
-    robots = re.search(
-        r'<meta[^>]+name=["\']robots["\'][^>]*content=["\']([^"\']+)', html, re.I
-    )
+    robots = re.search(r'<meta[^>]+name=["\']robots["\'][^>]*content=["\']([^"\']+)', html, re.I)
     return not (robots and "noindex" in robots.group(1).lower())
 
 
 def _sources_block(html: str) -> str | None:
     match = re.search(
-        r'<(?:section|div)\b[^>]*class=["\'][^"\']*\bsources\b[^"\']*["\'][^>]*>'
-        r'(.*?)</(?:section|div)>',
-        html,
-        re.I | re.S,
+        r'<(?:section|div)\b[^>]*class=["\'][^"\']*\bsources\b[^"\']*["\'][^>]*>(.*?)</(?:section|div)>',
+        html, re.I | re.S,
     )
     return match.group(1) if match else None
 
@@ -154,10 +154,7 @@ def audit_page(page: Path) -> list[str]:
     if duplicates:
         failures.append(f"{rel}: id HTML dupliqué(s): {', '.join(duplicates[:8])}")
     if parser.newsletter_forms > 1:
-        failures.append(
-            f"{rel}: {parser.newsletter_forms} formulaires #nl-form (doublon newsletter)"
-        )
-
+        failures.append(f"{rel}: {parser.newsletter_forms} formulaires #nl-form (doublon newsletter)")
     missing_alt = sum(1 for alt in parser.img_alts if alt is None)
     if missing_alt:
         failures.append(f"{rel}: {missing_alt} image(s) sans attribut alt")
@@ -167,20 +164,12 @@ def audit_page(page: Path) -> list[str]:
         if target is not None and not target.exists():
             failures.append(f"{rel}: {tag}[{attr}] cassé -> {value}")
 
-    must_have_canonical = (
-        rel in CORE_STATIC
-        or rel.startswith("categories/")
-        or rel.startswith("articles/")
-    )
+    must_have_canonical = rel in CORE_STATIC or rel.startswith("categories/") or rel.startswith("articles/")
     if must_have_canonical and _indexable(html):
         if len(parser.canonicals) != 1:
-            failures.append(
-                f"{rel}: canonical attendu une fois, trouvé {len(parser.canonicals)}"
-            )
+            failures.append(f"{rel}: canonical attendu une fois, trouvé {len(parser.canonicals)}")
         elif parser.canonicals[0] != _expected_canonical(page):
-            failures.append(
-                f"{rel}: canonical={parser.canonicals[0]!r}, attendu {_expected_canonical(page)!r}"
-            )
+            failures.append(f"{rel}: canonical={parser.canonicals[0]!r}, attendu {_expected_canonical(page)!r}")
 
     if rel.startswith("articles/") and _indexable(html):
         block = _sources_block(html)
@@ -190,33 +179,93 @@ def audit_page(page: Path) -> list[str]:
             listed = len(re.findall(r"<li\b", block, re.I))
             urls = _source_urls(block)
             hosts = _source_hosts(urls)
-            declared_match = re.search(
-                r">\s*(\d+)\s+source(?:s)?\s*<", html, re.I
-            )
+            declared_match = re.search(r">\s*(\d+)\s+source(?:s)?\s*<", html, re.I)
             if declared_match and int(declared_match.group(1)) != listed:
-                failures.append(
-                    f"{rel}: {declared_match.group(1)} source(s) annoncée(s), {listed} listée(s)"
-                )
+                failures.append(f"{rel}: {declared_match.group(1)} source(s) annoncée(s), {listed} listée(s)")
             if listed == 0:
                 failures.append(f"{rel}: aucune source listée")
             for href in urls:
                 if not href.startswith(("http://", "https://")):
                     failures.append(f"{rel}: lien source non HTTP(S) -> {href}")
-
-            # Les vieux templates affichent une ligne "N sources distinctes"
-            # dans "Pourquoi cet article". Elle doit refléter les domaines
-            # réellement cités et ne jamais rester à 0 après une migration.
             distinct_match = re.search(
-                r'<strong>Sources\s*:</strong>\s*(\d+)\s+sources?\s+distinctes?',
-                html,
-                re.I,
+                r'<strong>Sources\s*:</strong>\s*(\d+)\s+sources?\s+distinctes?', html, re.I,
             )
             if distinct_match and int(distinct_match.group(1)) != len(hosts):
                 failures.append(
-                    f"{rel}: {distinct_match.group(1)} source(s) distincte(s) annoncée(s), "
-                    f"{len(hosts)} domaine(s) réellement cité(s)"
+                    f"{rel}: {distinct_match.group(1)} source(s) distincte(s) annoncée(s), {len(hosts)} domaine(s) réellement cité(s)"
                 )
+    return failures
 
+
+def audit_corpus() -> list[str]:
+    failures: list[str] = []
+    manifest_items = _load_list(ROOT / "data" / "articles.json")
+    search_items = _load_list(ROOT / "data" / "search.json")
+    retirement_items = _load_list(ROOT / "data" / "retirements.json")
+
+    manifest_list = [str(i.get("slug", "")).strip() for i in manifest_items]
+    manifest_list = [s for s in manifest_list if s]
+    if len(manifest_list) != len(set(manifest_list)):
+        duplicate_slugs = [s for s, n in Counter(manifest_list).items() if n > 1]
+        failures.append("data/articles.json: slug(s) dupliqué(s): " + ", ".join(duplicate_slugs[:10]))
+    active = set(manifest_list)
+    search = {str(i.get("slug", "")).strip() for i in search_items if str(i.get("slug", "")).strip()}
+    retired = {str(i.get("slug", "")).strip() for i in retirement_items if str(i.get("slug", "")).strip()}
+
+    overlap = active & retired
+    if overlap:
+        failures.append("slug(s) actifs et retirés simultanément: " + ", ".join(sorted(overlap)[:10]))
+
+    sitemap_path = ROOT / "sitemap.xml"
+    sitemap_text = sitemap_path.read_text(encoding="utf-8", errors="replace") if sitemap_path.exists() else ""
+    sitemap_slugs = set(re.findall(r'https://lesfaits\.info/articles/([^/<]+)\.html', sitemap_text, re.I))
+
+    missing_search = active - search
+    extra_search = search - active
+    missing_sitemap = active - sitemap_slugs
+    extra_sitemap = sitemap_slugs - active
+    if missing_search:
+        failures.append("recherche: article(s) actif(s) absent(s): " + ", ".join(sorted(missing_search)[:10]))
+    if extra_search:
+        failures.append("recherche: slug(s) hors manifeste: " + ", ".join(sorted(extra_search)[:10]))
+    if missing_sitemap:
+        failures.append("sitemap: article(s) actif(s) absent(s): " + ", ".join(sorted(missing_sitemap)[:10]))
+    if extra_sitemap:
+        failures.append("sitemap: article(s) hors manifeste: " + ", ".join(sorted(extra_sitemap)[:10]))
+
+    for slug in sorted(active):
+        path = ROOT / "articles" / f"{slug}.html"
+        if not path.exists():
+            failures.append(f"manifeste: fichier article absent pour {slug}")
+            continue
+        html = path.read_text(encoding="utf-8", errors="replace")
+        if not _indexable(html):
+            failures.append(f"manifeste: article actif noindex pour {slug}")
+
+    retirement_by_slug = {
+        str(item.get("slug", "")).strip(): item
+        for item in retirement_items if str(item.get("slug", "")).strip()
+    }
+    for slug, item in sorted(retirement_by_slug.items()):
+        target = str(item.get("redirect_to", "")).strip()
+        path = ROOT / "articles" / f"{slug}.html"
+        if slug in search or slug in sitemap_slugs:
+            failures.append(f"retrait: {slug} encore présent dans recherche/sitemap")
+        if not path.exists():
+            failures.append(f"retrait: stub absent pour {slug}")
+            continue
+        html = path.read_text(encoding="utf-8", errors="replace")
+        if _indexable(html):
+            failures.append(f"retrait: {slug} encore indexable")
+        expected = f"https://lesfaits.info/articles/{target}.html"
+        canonical = re.search(r'<link\b[^>]*rel=["\']canonical["\'][^>]*href=["\']([^"\']+)', html, re.I)
+        if not canonical or canonical.group(1) != expected:
+            failures.append(f"retrait: canonical incorrect pour {slug} -> {target}")
+
+    for path in sorted((ROOT / "articles").glob("*.html")):
+        html = path.read_text(encoding="utf-8", errors="replace")
+        if NEWSARTICLE_RE.search(html) and path.stem not in active and _indexable(html):
+            failures.append(f"corpus: NewsArticle hors manifeste encore indexable: {path.stem}")
     return failures
 
 
@@ -227,6 +276,7 @@ def run() -> list[str]:
     failures: list[str] = []
     for page in pages:
         failures.extend(audit_page(page))
+    failures.extend(audit_corpus())
     return failures
 
 
@@ -239,8 +289,7 @@ def main() -> int:
             print(f"[INTEGRITY FAIL] +{len(failures) - 80} autre(s)", file=sys.stderr)
         return 1
     print(
-        f"[INTEGRITY OK] {len(_pages())} page(s) vérifiée(s) : liens, assets, "
-        "canonical, images, sources, ids et newsletter."
+        f"[INTEGRITY OK] {len(_pages())} page(s) vérifiée(s) : liens, assets, canonical, images, sources, ids, newsletter et corpus public."
     )
     return 0
 
