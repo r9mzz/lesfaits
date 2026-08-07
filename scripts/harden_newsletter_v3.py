@@ -3,10 +3,10 @@
 """Normalise la newsletter v5.
 
 Objectifs :
-- restaurer les choix Matin / Soir / Les deux et les six rubriques ;
-- conserver un POST HTML natif vers Brevo, sans clé API côté navigateur ;
+- restaurer Matin / Soir / Les deux et les six rubriques ;
+- conserver un POST HTML natif vers Brevo, sans clé API dans le navigateur ;
 - envoyer la réponse technique Brevo dans une iframe cachée afin que le lecteur
-  ne quitte jamais Les Faits pour une page JSON ;
+  reste sur Les Faits au lieu d'atterrir sur une page JSON ;
 - garder le consentement local obligatoire et les blocs article dédupliqués.
 """
 from __future__ import annotations
@@ -26,7 +26,16 @@ FORM_HOST = legacy.FORM_HOST
 FRAME_NAME = "lf-newsletter-sink"
 
 FORM_OPEN_RE = re.compile(r'<form\b(?=[^>]*\bid=(["\'])nl-form\1)[^>]*>', re.I)
+ROW_RE = re.compile(
+    r'<div\b[^>]*class=(["\'])[^"\']*\bnl-compact__row\b[^"\']*\1[^>]*>',
+    re.I,
+)
+CONSENT_LABEL_RE = re.compile(
+    r'<label\b[^>]*class=(["\'])[^"\']*\bnl-compact__consent\b[^"\']*\1[^>]*>',
+    re.I,
+)
 CONSENT_INPUT_RE = re.compile(r'<input\b(?=[^>]*\bid=(["\'])nl-consent\1)[^>]*>', re.I)
+MESSAGE_RE = re.compile(r'<p\b(?=[^>]*\bid=(["\'])nl-msg\1)[^>]*>', re.I)
 FREQ_BLOCK_RE = re.compile(
     r'\s*<div\b[^>]*class=(["\'])[^"\']*\bnl-compact__freq\b[^"\']*\1[^>]*>.*?</div>',
     re.I | re.S,
@@ -36,24 +45,22 @@ CATS_BLOCK_RE = re.compile(
     re.I | re.S,
 )
 HINT_RE = re.compile(
-    r'<p\b(?=[^>]*class=(["\'])[^"\']*\bnl-compact__hint\b[^"\']*\1)'
+    r'\s*<p\b(?=[^>]*class=(["\'])[^"\']*\bnl-compact__hint\b[^"\']*\1)'
     r'(?![^>]*data-newsletter-noscript)[^>]*>.*?</p>',
     re.I | re.S,
 )
 SINK_RE = re.compile(
-    rf'\s*<iframe\b(?=[^>]*\bname=(["\']){re.escape(FRAME_NAME)}\1)[^>]*>\s*</iframe>',
+    rf'<iframe\b(?=[^>]*\bname=(["\']){re.escape(FRAME_NAME)}\1)[^>]*>\s*</iframe>',
     re.I | re.S,
 )
 
-FREQ_BLOCK = '''
-      <div class="nl-compact__freq" role="group" aria-label="Fréquence de réception">
+FREQ_BLOCK = '''<div class="nl-compact__freq" role="group" aria-label="Fréquence de réception">
         <label class="nl-compact__freq-opt"><input type="radio" name="LF_FREQ" value="morning"/> Matin (~7h)</label>
         <label class="nl-compact__freq-opt"><input type="radio" name="LF_FREQ" value="evening"/> Soir (~18h)</label>
         <label class="nl-compact__freq-opt"><input type="radio" name="LF_FREQ" value="both" checked/> Les deux</label>
       </div>'''
 
-CATS_BLOCK = '''
-      <div class="nl-compact__cats" role="group" aria-label="Rubriques à recevoir">
+CATS_BLOCK = '''<div class="nl-compact__cats" role="group" aria-label="Rubriques à recevoir">
         <label class="nl-compact__cat nl-cat--societe"><input type="checkbox" data-brevo-name="CAT_SOCIETE" value="1"/><span class="nl-cat__dot" aria-hidden="true"></span>Société</label>
         <label class="nl-compact__cat nl-cat--science"><input type="checkbox" data-brevo-name="CAT_SCIENCE" value="1"/><span class="nl-cat__dot" aria-hidden="true"></span>Science</label>
         <label class="nl-compact__cat nl-cat--economie"><input type="checkbox" data-brevo-name="CAT_ECONOMIE" value="1"/><span class="nl-cat__dot" aria-hidden="true"></span>Économie</label>
@@ -124,28 +131,63 @@ def _local_consent(html: str) -> str:
     return CONSENT_INPUT_RE.sub(lambda m: _remove_attr(m.group(0), "name"), html)
 
 
-def _remove_hidden_field(html: str, name: str) -> str:
-    return re.sub(
-        rf'\s*<input\b(?=[^>]*\btype=(["\'])hidden\1)(?=[^>]*\bname=(["\']){re.escape(name)}\2)[^>]*?/?>',
-        "",
-        html,
-        flags=re.I | re.S,
+def _preferences_are_canonical(html: str) -> bool:
+    freq_ok = all(
+        f'name="LF_FREQ" value="{value}"' in html
+        for value in ("morning", "evening", "both")
     )
+    cats_ok = all(f'data-brevo-name="{name}"' in html for name in CATEGORY_FIELDS)
+    return freq_ok and cats_ok and CANONICAL_HINT in html
 
 
 def _ensure_preferences_ui(html: str) -> str:
+    if _preferences_are_canonical(html):
+        return html
+
     html = FREQ_BLOCK_RE.sub("", html)
     html = CATS_BLOCK_RE.sub("", html)
-    row = re.search(r'<div\b[^>]*class=(["\'])[^"\']*\bnl-compact__row\b[^"\']*\1[^>]*>', html, re.I)
+    html = HINT_RE.sub("", html, count=1)
+
+    opening = FORM_OPEN_RE.search(html)
+    if not opening:
+        return html
+
+    row = ROW_RE.search(html, opening.end())
     if row:
-        html = html[:row.start()] + FREQ_BLOCK + "\n      " + html[row.start():]
-    if HINT_RE.search(html):
-        html = HINT_RE.sub(CATS_BLOCK + "\n      " + CANONICAL_HINT, html, count=1)
+        pos = row.start()
+        html = html[:pos] + "      " + FREQ_BLOCK + "\n      " + html[pos:]
+    else:
+        pos = opening.end()
+        html = html[:pos] + "\n      " + FREQ_BLOCK + html[pos:]
+
+    # Recalcule les positions après l'insertion du bloc de fréquence.
+    opening = FORM_OPEN_RE.search(html)
+    consent_label = CONSENT_LABEL_RE.search(html, opening.end() if opening else 0)
+    message = MESSAGE_RE.search(html, opening.end() if opening else 0)
+    form_end = html.find("</form>", opening.end() if opening else 0)
+    if consent_label:
+        pos = consent_label.start()
+    elif message:
+        pos = message.start()
+    elif form_end != -1:
+        pos = form_end
+    else:
+        return html
+    payload = "      " + CATS_BLOCK + "\n      " + CANONICAL_HINT + "\n      "
+    html = html[:pos] + payload + html[pos:]
     return html
 
 
+def _remove_hidden_field(html: str, name: str) -> str:
+    pattern = re.compile(
+        rf'<input\b(?=[^>]*\btype=(["\'])hidden\1)(?=[^>]*\bname=(["\']){re.escape(name)}\2)[^>]*?/?>\s*',
+        re.I | re.S,
+    )
+    return pattern.sub("", html)
+
+
 def _ensure_native_form(html: str) -> str:
-    if 'id="nl-form"' not in html and "id='nl-form'" not in html:
+    if not FORM_OPEN_RE.search(html):
         return html
 
     for name, _ in HIDDEN_FIELDS:
@@ -169,18 +211,21 @@ def _ensure_native_form(html: str) -> str:
         f'<input type="hidden" name="{name}" value="{value}"/>'
         for name, value in HIDDEN_FIELDS
     )
-    html = html[:opening.end()] + "\n      " + hidden + html[opening.end():]
+    html = html[:opening.end()] + "\n      " + hidden + "\n      " + html[opening.end():].lstrip()
 
-    html = SINK_RE.sub("", html)
-    form_end = html.find("</form>", opening.end())
-    if form_end != -1:
-        insert_at = form_end + len("</form>")
-        html = html[:insert_at] + "\n      " + SINK_HTML + html[insert_at:]
+    sinks = list(SINK_RE.finditer(html))
+    if len(sinks) != 1:
+        html = SINK_RE.sub("", html)
+        opening = FORM_OPEN_RE.search(html)
+        form_end = html.find("</form>", opening.end() if opening else 0)
+        if form_end != -1:
+            insert_at = form_end + len("</form>")
+            html = html[:insert_at] + "\n      " + SINK_HTML + html[insert_at:]
     return html
 
 
 def _ensure_form_action_csp(html: str) -> str:
-    if 'id="nl-form"' not in html and "id='nl-form'" not in html:
+    if not FORM_OPEN_RE.search(html):
         return html
     allowed = f"https://{FORM_HOST}"
 
@@ -214,7 +259,7 @@ def upgrade_html(html: str) -> str:
     html = html.replace(OLD_ARTICLE_COPY, NEW_ARTICLE_COPY)
     html = _dedupe_article_newsletter_blocks(html)
     html = SCRIPT_RE.sub(SCRIPT_SRC, html)
-    if 'id="nl-form"' not in html and "id='nl-form'" not in html:
+    if not FORM_OPEN_RE.search(html):
         return html
     html = _local_consent(html)
     html = _ensure_preferences_ui(html)
@@ -290,7 +335,7 @@ def validate_v3(path: Path, html: str) -> list[str]:
     for name in CATEGORY_FIELDS:
         if f'data-brevo-name="{name}"' not in html:
             errors.append(f"rubrique {name} absente")
-    if re.search(r'\bid=(["\'])nl-consent\1[^>]*\bname=', html, re.I):
+    if re.search(r'<input\b(?=[^>]*\bid=(["\'])nl-consent\1)(?=[^>]*\bname=)[^>]*>', html, re.I):
         errors.append("consentement envoyé comme attribut Brevo")
     if not _csp_allows_native_post(html):
         errors.append("CSP form-action n'autorise pas Brevo")
