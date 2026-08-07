@@ -1,21 +1,10 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""Newsletter Les Faits — digest Brevo fiable et idempotent.
-
-Principes:
-- aucun envoi en double pour un même créneau et une même date ;
-- uniquement les articles ajoutés depuis la dernière campagne envoyée ;
-- fréquences modernes FREQ=morning|evening|both, avec compatibilité ENVOI_MATIN ;
-- exclusions globales ET désabonnements de liste ;
-- synchronisation non destructive de la liste de diffusion ;
-- vérification des échecs partiels Brevo et des opérations asynchrones ;
-- erreur d'envoi = code de sortie non nul, jamais un faux succès.
-"""
+"""Newsletter Les Faits — audience Brevo fiable, vérifiée et idempotente."""
 from __future__ import annotations
 
 import argparse
 import datetime as dt
-import html
 import json
 import os
 import subprocess
@@ -24,56 +13,24 @@ import time
 from dataclasses import dataclass
 from pathlib import Path
 from typing import Any
-from urllib.parse import quote
-from zoneinfo import ZoneInfo
 
 import requests
 
-PARIS = ZoneInfo("Europe/Paris")
+from newsletter_template import CATEGORIES, PARIS, build_email, date_longue
+
 ROOT = Path(__file__).resolve().parent.parent
 SEARCH_JSON = ROOT / "data" / "search.json"
 PREVIEW_HTML = ROOT / "newsletter-preview.html"
-
 BREVO_API_BASE = "https://api.brevo.com/v3"
 BREVO_API_KEY = os.getenv("BREVO_API_KEY", "")
 BREVO_LIST_ID = os.getenv("BREVO_LIST_ID", "")
 BREVO_SENDER_EMAIL = os.getenv("BREVO_SENDER_EMAIL", "")
 BREVO_SENDER_NAME = os.getenv("BREVO_SENDER_NAME", "Les Faits")
-SITE_BASE = "https://lesfaits.info"
 DELIVERY_LIST_NAME = "Digest — Envoi du jour"
 CAMPAIGN_TAG = "nl-digest-v2"
-
-CATEGORIES = ("societe", "science", "economie", "tech", "sante", "environnement")
-CAT_LABELS = {
-    "societe": "Société",
-    "science": "Science",
-    "economie": "Économie",
-    "tech": "Tech",
-    "sante": "Santé",
-    "environnement": "Environnement",
-}
-CAT_COLORS = {
-    "societe": "#78716c",
-    "science": "#0891b2",
-    "economie": "#ea580c",
-    "tech": "#9333ea",
-    "sante": "#e11d48",
-    "environnement": "#16a34a",
-}
-MONTHS = (
-    "janvier", "février", "mars", "avril", "mai", "juin",
-    "juillet", "août", "septembre", "octobre", "novembre", "décembre",
-)
-WEEKDAYS = ("lundi", "mardi", "mercredi", "jeudi", "vendredi", "samedi", "dimanche")
-SUCCESS_CAMPAIGN_STATUSES = {"sent", "queued", "scheduled"}
+LEGACY_CAMPAIGN_TAGS = {"nl-digest"}
+SUCCESS_STATUSES = {"sent", "queued", "scheduled"}
 RETRYABLE_STATUS = {408, 425, 429, 500, 502, 503, 504}
-
-
-def _int_env(name: str, default: int) -> int:
-    try:
-        return int(os.getenv(name, str(default)))
-    except (TypeError, ValueError):
-        return default
 
 
 @dataclass
@@ -101,22 +58,16 @@ class Brevo:
         payload: dict[str, Any] | None = None,
     ) -> requests.Response:
         url = BREVO_API_BASE + path
-        last: requests.Response | None = None
         for attempt in range(1, self.attempts + 1):
             try:
                 response = self.session.request(
-                    method,
-                    url,
-                    params=params,
-                    json=payload,
-                    timeout=self.timeout,
+                    method, url, params=params, json=payload, timeout=self.timeout
                 )
             except requests.RequestException as exc:
                 if attempt == self.attempts:
                     raise RuntimeError(f"Brevo inaccessible: {exc}") from exc
                 time.sleep(min(2 ** attempt, 8))
                 continue
-            last = response
             if response.status_code in expected:
                 return response
             if response.status_code not in RETRYABLE_STATUS or attempt == self.attempts:
@@ -130,10 +81,7 @@ class Brevo:
             except ValueError:
                 delay = min(2 ** attempt, 10)
             time.sleep(max(1, delay))
-        raise RuntimeError(
-            f"Brevo {method} {path}: aucune réponse exploitable"
-            + (f" ({last.status_code})" if last else "")
-        )
+        raise RuntimeError(f"Brevo {method} {path}: échec après {self.attempts} essais")
 
     def json(self, method: str, path: str, **kwargs: Any) -> dict[str, Any]:
         response = self.request(method, path, **kwargs)
@@ -142,7 +90,7 @@ class Brevo:
         try:
             data = response.json()
         except ValueError as exc:
-            raise RuntimeError(f"Brevo {method} {path}: réponse JSON invalide") from exc
+            raise RuntimeError(f"Brevo {method} {path}: JSON invalide") from exc
         if not isinstance(data, dict):
             raise RuntimeError(f"Brevo {method} {path}: objet JSON attendu")
         return data
@@ -161,23 +109,15 @@ def parse_iso(value: Any) -> dt.datetime | None:
     return parsed.astimezone(PARIS)
 
 
-def date_longue(now: dt.datetime) -> str:
-    local = now.astimezone(PARIS)
-    return f"{WEEKDAYS[local.weekday()]} {local.day} {MONTHS[local.month - 1]} {local.year}"
-
-
 def campaign_name(now: dt.datetime, slot: str) -> str:
     return f"Les Faits | {now.astimezone(PARIS):%Y-%m-%d} | {slot}"
 
 
 def _git(*args: str) -> str:
-    result = subprocess.run(
+    return subprocess.run(
         ["git", "-C", str(ROOT), *args],
-        check=True,
-        text=True,
-        capture_output=True,
-    )
-    return result.stdout
+        check=True, text=True, capture_output=True,
+    ).stdout
 
 
 def list_campaigns(client: Brevo, *, status: str | None = None) -> list[dict[str, Any]]:
@@ -185,10 +125,7 @@ def list_campaigns(client: Brevo, *, status: str | None = None) -> list[dict[str
     offset = 0
     while True:
         params: dict[str, Any] = {
-            "type": "classic",
-            "limit": 100,
-            "offset": offset,
-            "sort": "desc",
+            "type": "classic", "limit": 100, "offset": offset, "sort": "desc"
         }
         if status:
             params["status"] = status
@@ -196,57 +133,51 @@ def list_campaigns(client: Brevo, *, status: str | None = None) -> list[dict[str
         batch = data.get("campaigns") or []
         if not isinstance(batch, list):
             raise RuntimeError("Brevo campagnes: liste invalide")
-        campaigns.extend(x for x in batch if isinstance(x, dict))
+        campaigns.extend(item for item in batch if isinstance(item, dict))
         if len(batch) < 100:
             return campaigns
         offset += 100
 
 
 def find_campaign(client: Brevo, name: str) -> dict[str, Any] | None:
-    for campaign in list_campaigns(client):
-        if campaign.get("name") == name:
-            return campaign
-    return None
+    return next(
+        (campaign for campaign in list_campaigns(client) if campaign.get("name") == name),
+        None,
+    )
 
 
 def latest_sent_campaign_time(client: Brevo) -> dt.datetime | None:
-    latest: dt.datetime | None = None
-    for campaign in list_campaigns(client, status="sent"):
-        if campaign.get("tag") != CAMPAIGN_TAG:
-            continue
-        sent = parse_iso(campaign.get("sentDate") or campaign.get("scheduledAt"))
-        if sent and (latest is None or sent > latest):
-            latest = sent
-    return latest
+    accepted_tags = {CAMPAIGN_TAG, *LEGACY_CAMPAIGN_TAGS}
+    dates = [
+        parsed
+        for campaign in list_campaigns(client, status="sent")
+        if campaign.get("tag") in accepted_tags
+        for parsed in [parse_iso(campaign.get("sentDate") or campaign.get("scheduledAt"))]
+        if parsed
+    ]
+    return max(dates) if dates else None
 
 
 def recent_article_slugs(since: dt.datetime | None) -> list[str]:
-    if since is None:
-        since = dt.datetime.now(PARIS) - dt.timedelta(hours=30)
-    since_utc = since.astimezone(dt.timezone.utc).isoformat(timespec="seconds")
+    since = since or (dt.datetime.now(PARIS) - dt.timedelta(hours=30))
     output = _git(
         "log",
-        f"--since={since_utc}",
-        "--name-only",
-        "--diff-filter=A",
-        "--pretty=format:",
-        "--",
-        "articles/",
+        f"--since={since.astimezone(dt.timezone.utc).isoformat(timespec='seconds')}",
+        "--name-only", "--diff-filter=A", "--pretty=format:", "--", "articles/",
     )
     slugs: list[str] = []
-    for raw in output.splitlines():
-        line = raw.strip()
-        if not (line.startswith("articles/") and line.endswith(".html")):
-            continue
-        slug = Path(line).stem
-        if slug and slug not in slugs:
-            slugs.append(slug)
+    for line in output.splitlines():
+        line = line.strip()
+        if line.startswith("articles/") and line.endswith(".html"):
+            slug = Path(line).stem
+            if slug and slug not in slugs:
+                slugs.append(slug)
     return slugs
 
 
 def load_articles(slugs: list[str]) -> list[dict[str, Any]]:
     if not SEARCH_JSON.exists():
-        raise RuntimeError(f"{SEARCH_JSON.relative_to(ROOT)} absent")
+        raise RuntimeError("data/search.json absent")
     try:
         raw = json.loads(SEARCH_JSON.read_text(encoding="utf-8"))
     except json.JSONDecodeError as exc:
@@ -255,22 +186,20 @@ def load_articles(slugs: list[str]) -> list[dict[str, Any]]:
         raise RuntimeError("data/search.json doit contenir une liste")
     index = {
         str(item.get("slug") or ""): item
-        for item in raw
-        if isinstance(item, dict) and item.get("slug")
+        for item in raw if isinstance(item, dict) and item.get("slug")
     }
-    articles = [index[slug] for slug in slugs if slug in index]
     missing = [slug for slug in slugs if slug not in index]
     if missing:
         raise RuntimeError(
-            f"{len(missing)} nouvel article absent de search.json; envoi annulé pour ne rien perdre"
+            f"{len(missing)} nouvel article absent de search.json; envoi annulé"
         )
-    return articles
+    return [index[slug] for slug in slugs]
 
 
 def boolish(value: Any) -> bool:
-    if value is True or value == 1:
-        return True
-    return str(value or "").strip().lower() in {"1", "true", "yes", "oui", "on"}
+    return value is True or value == 1 or str(value or "").strip().lower() in {
+        "1", "true", "yes", "oui", "on",
+    }
 
 
 def frequency(contact: dict[str, Any]) -> str:
@@ -300,18 +229,18 @@ def wants_slot(contact: dict[str, Any], slot: str) -> bool:
 
 def contact_categories(contact: dict[str, Any]) -> tuple[str, ...]:
     attrs = contact.get("attributes") or {}
-    chosen = tuple(
-        cat for cat in CATEGORIES if boolish(attrs.get(f"CAT_{cat.upper()}"))
+    selected = tuple(
+        category for category in CATEGORIES
+        if boolish(attrs.get(f"CAT_{category.upper()}"))
     )
-    return chosen or CATEGORIES
+    return selected or CATEGORIES
 
 
 def unsubscribed_from(contact: dict[str, Any], *list_ids: int) -> bool:
     if boolish(contact.get("emailBlacklisted")):
         return True
-    raw = contact.get("listUnsubscribed") or []
     try:
-        unsubscribed = {int(x) for x in raw}
+        unsubscribed = {int(value) for value in (contact.get("listUnsubscribed") or [])}
     except (TypeError, ValueError):
         unsubscribed = set()
     return any(int(list_id) in unsubscribed for list_id in list_ids)
@@ -322,86 +251,76 @@ def get_contacts_from_list(client: Brevo, list_id: int) -> list[dict[str, Any]]:
     offset = 0
     while True:
         data = client.json(
-            "GET",
-            f"/contacts/lists/{list_id}/contacts",
+            "GET", f"/contacts/lists/{list_id}/contacts",
             params={"limit": 500, "offset": offset, "sort": "asc"},
         )
         batch = data.get("contacts") or []
         if not isinstance(batch, list):
             raise RuntimeError("Brevo contacts: liste invalide")
-        contacts.extend(x for x in batch if isinstance(x, dict))
+        contacts.extend(item for item in batch if isinstance(item, dict))
         if len(batch) < 500:
             return contacts
         offset += 500
 
 
-def ensure_contact_attributes(client: Brevo) -> None:
-    required = {"FREQ": "text"}
-    required.update({f"CAT_{cat.upper()}": "boolean" for cat in CATEGORIES})
+def ensure_contact_attributes(client: Brevo, *, create_missing: bool = True) -> None:
+    required = {"FREQ": "text", **{
+        f"CAT_{category.upper()}": "boolean" for category in CATEGORIES
+    }}
 
     def read() -> dict[str, str]:
         data = client.json("GET", "/contacts/attributes")
         return {
             str(item.get("name") or "").upper(): str(item.get("type") or "").lower()
-            for item in data.get("attributes") or []
-            if isinstance(item, dict)
+            for item in (data.get("attributes") or []) if isinstance(item, dict)
         }
 
-    attrs = read()
+    attributes = read()
     for name, expected_type in required.items():
-        if name in attrs:
+        if name in attributes or not create_missing:
             continue
         client.request(
-            "POST",
-            f"/contacts/attributes/normal/{name}",
-            expected=(200, 201, 204),
-            payload={"type": expected_type},
+            "POST", f"/contacts/attributes/normal/{name}",
+            expected=(200, 201, 204), payload={"type": expected_type},
         )
-        print(f"[BREVO] Attribut {name} créé automatiquement ({expected_type}).")
+        print(f"[BREVO] Attribut {name} créé ({expected_type}).")
 
-    attrs = read()
-    missing = [name for name in required if name not in attrs]
+    attributes = read()
+    missing = [name for name in required if name not in attributes]
     wrong = [
-        f"{name}={attrs[name]}"
-        for name, expected in required.items()
-        if name in attrs and attrs[name] != expected
+        f"{name}={attributes[name]}" for name, expected in required.items()
+        if name in attributes and attributes[name] != expected
     ]
     if missing or wrong:
-        detail = []
+        details = []
         if missing:
-            detail.append("absents: " + ", ".join(missing))
+            details.append("absents: " + ", ".join(missing))
         if wrong:
-            detail.append("types incorrects: " + ", ".join(wrong))
-        raise RuntimeError(
-            "Configuration Brevo invalide (" + " ; ".join(detail) + "). "
-            "FREQ doit être un texte et les CAT_* des booléens."
-        )
+            details.append("types incorrects: " + ", ".join(wrong))
+        raise RuntimeError("Configuration Brevo invalide (" + " ; ".join(details) + ")")
 
 
 def get_or_create_delivery_list(client: Brevo, main_list_id: int) -> int:
     offset = 0
     while True:
         data = client.json(
-            "GET", "/contacts/lists", params={"limit": 50, "offset": offset, "sort": "desc"}
+            "GET", "/contacts/lists",
+            params={"limit": 50, "offset": offset, "sort": "desc"},
         )
-        lists = data.get("lists") or []
-        for item in lists:
+        batch = data.get("lists") or []
+        for item in batch:
             if isinstance(item, dict) and item.get("name") == DELIVERY_LIST_NAME:
                 return int(item["id"])
-        if len(lists) < 50:
+        if len(batch) < 50:
             break
         offset += 50
-
     main = client.json("GET", f"/contacts/lists/{main_list_id}")
-    folder_id = int(main["folderId"])
     created = client.json(
-        "POST",
-        "/contacts/lists",
-        expected=(200, 201),
-        payload={"name": DELIVERY_LIST_NAME, "folderId": folder_id},
+        "POST", "/contacts/lists", expected=(200, 201),
+        payload={"name": DELIVERY_LIST_NAME, "folderId": int(main["folderId"])},
     )
     list_id = int(created["id"])
-    print(f"[BREVO] Liste technique créée: {list_id}")
+    print(f"[BREVO] Liste technique créée: {list_id}.")
     return list_id
 
 
@@ -410,296 +329,83 @@ def wait_process(client: Brevo, process_id: Any, timeout_seconds: int = 90) -> N
         return
     deadline = time.monotonic() + timeout_seconds
     while time.monotonic() < deadline:
-        info = client.json("GET", f"/processes/{int(process_id)}")
-        status = str(info.get("status") or "").lower()
+        status = str(
+            client.json("GET", f"/processes/{int(process_id)}").get("status") or ""
+        ).lower()
         if status == "completed":
             return
         if status in {"failed", "error", "cancelled"}:
-            raise RuntimeError(f"Processus Brevo {process_id} terminé en échec ({status})")
+            raise RuntimeError(f"Processus Brevo {process_id} en échec ({status})")
         time.sleep(2)
     raise RuntimeError(f"Processus Brevo {process_id} non terminé après {timeout_seconds}s")
 
 
 def chunks(values: list[str], size: int = 100) -> list[list[str]]:
-    return [values[i:i + size] for i in range(0, len(values), size)]
+    return [values[index:index + size] for index in range(0, len(values), size)]
+
+
+def mutate_list(
+    client: Brevo, list_id: int, emails: list[str], operation: str
+) -> None:
+    for batch in chunks(emails):
+        data = client.json(
+            "POST", f"/contacts/lists/{list_id}/contacts/{operation}",
+            expected=(200, 201, 202, 204), payload={"emails": batch},
+        )
+        wait_process(client, data.get("processId"))
+        failures = data.get("failure") or []
+        if failures:
+            raise RuntimeError(
+                f"{operation}: {len(failures)} contact(s) en échec"
+            )
 
 
 def remove_from_list(client: Brevo, list_id: int, emails: list[str]) -> None:
-    for batch in chunks(emails):
-        data = client.json(
-            "POST",
-            f"/contacts/lists/{list_id}/contacts/remove",
-            expected=(200, 201, 202, 204),
-            payload={"emails": batch},
-        )
-        wait_process(client, data.get("processId"))
-        failed = data.get("failure") or []
-        if failed:
-            raise RuntimeError(f"Retrait liste incomplet: {len(failed)} échec(s)")
+    mutate_list(client, list_id, emails, "remove")
 
 
 def add_to_list(client: Brevo, list_id: int, emails: list[str]) -> None:
-    for batch in chunks(emails):
-        data = client.json(
-            "POST",
-            f"/contacts/lists/{list_id}/contacts/add",
-            expected=(200, 201, 202),
-            payload={"emails": batch},
-        )
-        wait_process(client, data.get("processId"))
-        failed = data.get("failure") or []
-        if failed:
-            raise RuntimeError(f"Ajout liste incomplet: {len(failed)} échec(s)")
+    mutate_list(client, list_id, emails, "add")
 
 
-def sync_delivery_list(
-    client: Brevo,
-    delivery_list_id: int,
-    target_emails: list[str],
-) -> None:
+def sync_delivery_list(client: Brevo, list_id: int, target_emails: list[str]) -> None:
     target = {email.lower() for email in target_emails}
-    current_contacts = get_contacts_from_list(client, delivery_list_id)
-
-    current_active: set[str] = set()
-    protected_unsubscribed: set[str] = set()
-    for contact in current_contacts:
-        email = str(contact.get("email") or "").strip().lower()
-        if not email:
-            continue
-        if unsubscribed_from(contact, delivery_list_id):
-            protected_unsubscribed.add(email)
-        else:
-            current_active.add(email)
-
-    # Ne jamais retirer les contacts désabonnés de la liste technique :
-    # Brevo conserve ainsi leur désabonnement spécifique à cette liste.
-    to_remove = sorted(current_active - target)
-    to_add = sorted(target - current_active - protected_unsubscribed)
-
+    current = get_contacts_from_list(client, list_id)
+    protected = {
+        str(contact.get("email") or "").strip().lower()
+        for contact in current
+        if contact.get("email") and unsubscribed_from(contact, list_id)
+    }
+    active = {
+        str(contact.get("email") or "").strip().lower()
+        for contact in current
+        if contact.get("email") and not unsubscribed_from(contact, list_id)
+    }
+    to_remove = sorted(active - target)
+    to_add = sorted(target - active - protected)
     if to_remove:
-        remove_from_list(client, delivery_list_id, to_remove)
+        remove_from_list(client, list_id, to_remove)
     if to_add:
-        add_to_list(client, delivery_list_id, to_add)
+        add_to_list(client, list_id, to_add)
 
-    # Vérification finale : les actifs doivent être exactement la cible moins
-    # les contacts qui ont explicitement refusé cette liste.
+    expected = target - protected
     for attempt in range(3):
-        final_contacts = get_contacts_from_list(client, delivery_list_id)
+        final = get_contacts_from_list(client, list_id)
         final_active = {
-            str(c.get("email") or "").strip().lower()
-            for c in final_contacts
-            if c.get("email") and not unsubscribed_from(c, delivery_list_id)
+            str(contact.get("email") or "").strip().lower()
+            for contact in final
+            if contact.get("email") and not unsubscribed_from(contact, list_id)
         }
-        expected = target - protected_unsubscribed
         if final_active == expected:
             print(
-                f"[BREVO] Liste de diffusion alignée: {len(final_active)} actif(s), "
-                f"{len(protected_unsubscribed)} désabonné(s) conservé(s)"
+                f"[BREVO] Audience alignée: {len(final_active)} actif(s), "
+                f"{len(protected)} désabonné(s) préservé(s)."
             )
             return
         time.sleep(2 ** attempt)
-    missing = sorted(expected - final_active)
-    extra = sorted(final_active - expected)
     raise RuntimeError(
-        f"Liste de diffusion incohérente après synchronisation "
-        f"(manquants={len(missing)}, excédents={len(extra)})"
-    )
-
-
-def _article_html(article: dict[str, Any], category: str) -> str:
-    slug = quote(str(article.get("slug") or ""), safe="-")
-    title = html.escape(str(article.get("titre") or "Article sans titre"))
-    excerpt = html.escape(str(article.get("excerpt") or "")[:260])
-    label = html.escape(CAT_LABELS[category])
-    color = CAT_COLORS[category]
-    url = (
-        f"{SITE_BASE}/articles/{slug}.html?utm_source=newsletter"
-        f"&utm_medium=email&utm_campaign=digest"
-    )
-    return f"""
-<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
-<tr><td style="padding:0 0 28px;">
-<div style="font-family:Arial,Helvetica,sans-serif;font-size:10px;font-weight:700;
-letter-spacing:2px;color:{color};text-transform:uppercase;margin-bottom:9px;">{label}</div>
-<h2 style="font-family:Georgia,Times New Roman,serif;font-size:20px;font-weight:normal;
-color:#262422;margin:0 0 9px;line-height:1.4;">{title}</h2>
-<p style="font-family:Arial,Helvetica,sans-serif;font-size:14px;color:#625f5b;
-line-height:1.65;margin:0 0 14px;">{excerpt}</p>
-<a href="{url}" style="font-family:Arial,Helvetica,sans-serif;font-size:13px;
-font-weight:700;color:{color};text-decoration:none;">Lire l’article&nbsp;→</a>
-</td></tr>
-<tr><td style="border-top:1px solid #e5e1da;height:24px;font-size:0;line-height:0;">&nbsp;</td></tr>
-</table>"""
-
-
-def _section_html(category: str, articles: list[dict[str, Any]]) -> str:
-    return "".join(_article_html(article, category) for article in articles)
-
-
-def build_email(
-    articles_by_category: dict[str, list[dict[str, Any]]],
-    *,
-    now: dt.datetime,
-    slot: str,
-) -> str:
-    conditional: list[str] = []
-    all_sections: list[str] = []
-    for category in CATEGORIES:
-        articles = articles_by_category.get(category) or []
-        if not articles:
-            continue
-        section = _section_html(category, articles)
-        conditional.append(
-            f"{{% if contact.CAT_{category.upper()} %}}\n{section}\n{{% endif %}}"
-        )
-        all_sections.append(section)
-
-    has_any = " or ".join(f"contact.CAT_{cat.upper()}" for cat in CATEGORIES)
-    content = (
-        f"{{% if {has_any} %}}\n{''.join(conditional)}\n"
-        f"{{% else %}}\n{''.join(all_sections)}\n{{% endif %}}"
-    )
-    total = sum(len(items) for items in articles_by_category.values())
-    category_count = sum(1 for items in articles_by_category.values() if items)
-    greeting = "Bonjour" if slot == "matin" else "Bonsoir"
-    intro = (
-        "Voici les nouveaux articles publiés depuis votre précédent digest, "
-        "classés selon les rubriques que vous avez choisies."
-    )
-    preview = html.escape(
-        f"{total} nouvel{'s' if total > 1 else ''} article{'s' if total > 1 else ''} "
-        f"dans votre sélection Les Faits."
-    )
-    date_text = html.escape(date_longue(now))
-    return f"""<!doctype html>
-<html lang="fr">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="x-apple-disable-message-reformatting">
-<title>Les Faits — {date_text}</title>
-</head>
-<body style="margin:0;padding:0;background:#f0ede6;-webkit-text-size-adjust:100%;">
-<div style="display:none;max-height:0;overflow:hidden;opacity:0;color:transparent;">{preview}</div>
-<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"
- style="background:#f0ede6;">
-<tr><td align="center" style="padding:30px 12px 48px;">
-<table role="presentation" width="600" cellpadding="0" cellspacing="0" border="0"
- style="width:100%;max-width:600px;">
-<tr><td style="background:#0b0f17;border-radius:10px 10px 0 0;padding:32px 36px 27px;">
-<div style="font-family:Georgia,Times New Roman,serif;font-size:31px;line-height:1;color:#fff;">
-<span style="font-weight:400;">les</span><span style="font-weight:700;">faits</span>
-</div>
-<p style="font-family:Arial,Helvetica,sans-serif;font-size:12px;color:#aab2c0;
-margin:18px 0 5px;letter-spacing:.04em;">Votre sélection du {date_text}</p>
-<p style="font-family:Arial,Helvetica,sans-serif;font-size:10px;color:#7f8998;margin:0;
-letter-spacing:.12em;text-transform:uppercase;">{total} article{'s' if total > 1 else ''} ·
-{category_count} rubrique{'s' if category_count > 1 else ''}</p>
-</td></tr>
-<tr><td style="background:#fff;padding:28px 36px 22px;border-bottom:1px solid #e8e3db;">
-<p style="font-family:Georgia,Times New Roman,serif;font-size:16px;color:#262422;
-line-height:1.7;margin:0;">{greeting},</p>
-<p style="font-family:Georgia,Times New Roman,serif;font-size:15px;color:#4a4744;
-line-height:1.7;margin:12px 0 0;">{intro}</p>
-</td></tr>
-<tr><td style="background:#fff;padding:26px 36px 4px;">{content}</td></tr>
-<tr><td style="background:#fff;padding:0 36px 34px;text-align:center;">
-<a href="{SITE_BASE}/?utm_source=newsletter&utm_medium=email"
-style="font-family:Arial,Helvetica,sans-serif;font-size:13px;color:#375a9e;
-text-decoration:none;font-weight:700;">Voir tous les articles sur lesfaits.info →</a>
-</td></tr>
-<tr><td style="background:#0b0f17;border-radius:0 0 10px 10px;padding:22px 30px;">
-<p style="font-family:Arial,Helvetica,sans-serif;font-size:11px;color:#9aa3b1;
-margin:0 0 9px;line-height:1.55;text-align:center;">
-Vous recevez cet email parce que vous avez confirmé votre inscription à Les Faits.
-</p>
-<p style="font-family:Arial,Helvetica,sans-serif;font-size:11px;margin:0;text-align:center;">
-<a href="{{{{ unsubscribe }}}}" style="color:#c7d4f0;text-decoration:underline;">Se désabonner</a>
-&nbsp;·&nbsp;
-<a href="{SITE_BASE}/confidentialite.html" style="color:#9aa3b1;text-decoration:none;">Vie privée</a>
-</p>
-</td></tr>
-</table>
-</td></tr>
-</table>
-</body>
-</html>"""
-
-
-def upsert_campaign(
-    client: Brevo,
-    *,
-    name: str,
-    subject: str,
-    html_content: str,
-    list_id: int,
-    preview_text: str,
-) -> tuple[int, str]:
-    existing = find_campaign(client, name)
-    if existing:
-        status = str(existing.get("status") or "").lower()
-        campaign_id = int(existing["id"])
-        if status in SUCCESS_CAMPAIGN_STATUSES:
-            return campaign_id, status
-        if status not in {"draft", ""}:
-            raise RuntimeError(
-                f"Campagne {campaign_id} déjà présente avec le statut inattendu {status!r}"
-            )
-        client.request(
-            "PUT",
-            f"/emailCampaigns/{campaign_id}",
-            expected=(200, 204),
-            payload={
-                "subject": subject,
-                "sender": {"name": BREVO_SENDER_NAME, "email": BREVO_SENDER_EMAIL},
-                "htmlContent": html_content,
-                "recipients": {"listIds": [list_id]},
-                "previewText": preview_text,
-                "tag": CAMPAIGN_TAG,
-            },
-        )
-        return campaign_id, "draft"
-
-    data = client.json(
-        "POST",
-        "/emailCampaigns",
-        expected=(200, 201),
-        payload={
-            "name": name,
-            "subject": subject,
-            "sender": {"name": BREVO_SENDER_NAME, "email": BREVO_SENDER_EMAIL},
-            "htmlContent": html_content,
-            "recipients": {"listIds": [list_id]},
-            "previewText": preview_text,
-            "tag": CAMPAIGN_TAG,
-            "replyTo": BREVO_SENDER_EMAIL,
-        },
-    )
-    return int(data["id"]), "draft"
-
-
-def send_and_confirm(client: Brevo, campaign_id: int) -> str:
-    client.request(
-        "POST",
-        f"/emailCampaigns/{campaign_id}/sendNow",
-        expected=(200, 201, 202, 204),
-    )
-    deadline = time.monotonic() + 75
-    last = ""
-    while time.monotonic() < deadline:
-        info = client.json(
-            "GET",
-            f"/emailCampaigns/{campaign_id}",
-            params={"excludeHtmlContent": "true"},
-        )
-        last = str(info.get("status") or "").lower()
-        if last in SUCCESS_CAMPAIGN_STATUSES:
-            return last
-        if last in {"archive", "cancelled"}:
-            break
-        time.sleep(3)
-    raise RuntimeError(
-        f"Campagne {campaign_id} non confirmée après envoi (statut={last or 'inconnu'})"
+        f"Audience incohérente (manquants={len(expected-final_active)}, "
+        f"excédents={len(final_active-expected)})"
     )
 
 
@@ -729,15 +435,76 @@ def build_recipients(
         seen.add(email)
         if unsubscribed_from(contact, main_list_id, delivery_list_id):
             stats["blacklisted_or_unsubscribed"] += 1
-            continue
-        if not wants_slot(contact, slot):
+        elif not wants_slot(contact, slot):
             stats["wrong_slot"] += 1
-            continue
-        if not (set(contact_categories(contact)) & active_categories):
+        elif not (set(contact_categories(contact)) & active_categories):
             stats["no_matching_category"] += 1
-            continue
-        recipients.append(email)
+        else:
+            recipients.append(email)
     return sorted(recipients), stats
+
+
+def upsert_campaign(
+    client: Brevo,
+    *,
+    name: str,
+    subject: str,
+    html_content: str,
+    list_id: int,
+    preview_text: str,
+) -> tuple[int, str]:
+    existing = find_campaign(client, name)
+    payload = {
+        "subject": subject,
+        "sender": {"name": BREVO_SENDER_NAME, "email": BREVO_SENDER_EMAIL},
+        "htmlContent": html_content,
+        "recipients": {"listIds": [list_id]},
+        "previewText": preview_text,
+        "tag": CAMPAIGN_TAG,
+        "replyTo": BREVO_SENDER_EMAIL,
+    }
+    if existing:
+        campaign_id = int(existing["id"])
+        status = str(existing.get("status") or "").lower()
+        if status in SUCCESS_STATUSES:
+            return campaign_id, status
+        if status not in {"", "draft"}:
+            raise RuntimeError(
+                f"Campagne {campaign_id} dans un état inattendu: {status!r}"
+            )
+        client.request(
+            "PUT", f"/emailCampaigns/{campaign_id}",
+            expected=(200, 204), payload=payload,
+        )
+        return campaign_id, "draft"
+    payload["name"] = name
+    created = client.json(
+        "POST", "/emailCampaigns", expected=(200, 201), payload=payload
+    )
+    return int(created["id"]), "draft"
+
+
+def send_and_confirm(client: Brevo, campaign_id: int) -> str:
+    client.request(
+        "POST", f"/emailCampaigns/{campaign_id}/sendNow",
+        expected=(200, 201, 202, 204),
+    )
+    deadline = time.monotonic() + 75
+    last = ""
+    while time.monotonic() < deadline:
+        info = client.json(
+            "GET", f"/emailCampaigns/{campaign_id}",
+            params={"excludeHtmlContent": "true"},
+        )
+        last = str(info.get("status") or "").lower()
+        if last in SUCCESS_STATUSES:
+            return last
+        if last in {"archive", "cancelled"}:
+            break
+        time.sleep(3)
+    raise RuntimeError(
+        f"Campagne {campaign_id} non confirmée (statut={last or 'inconnu'})"
+    )
 
 
 def validate_environment() -> int:
@@ -746,8 +513,7 @@ def validate_environment() -> int:
             ("BREVO_API_KEY", BREVO_API_KEY),
             ("BREVO_LIST_ID", BREVO_LIST_ID),
             ("BREVO_SENDER_EMAIL", BREVO_SENDER_EMAIL),
-        )
-        if not value
+        ) if not value
     ]
     if missing:
         raise RuntimeError("Secrets newsletter absents: " + ", ".join(missing))
@@ -764,26 +530,23 @@ def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument("--slot", choices=("matin", "soir"))
     parser.add_argument("--dry-run", action="store_true")
-    parser.add_argument(
-        "--check-config",
-        action="store_true",
-        help="Valider/créer les attributs et la liste technique Brevo sans envoyer.",
-    )
-    parser.add_argument("--now", help="ISO 8601, uniquement pour les tests/reprises contrôlées")
+    parser.add_argument("--check-config", action="store_true")
+    parser.add_argument("--now", help="Date ISO 8601 du déploiement public")
     args = parser.parse_args(argv)
 
     now = parse_iso(args.now) if args.now else dt.datetime.now(PARIS)
-    if now is None:
+    if not now:
         raise RuntimeError("--now doit être une date ISO 8601 valide")
-
     main_list_id = validate_environment()
     client = Brevo(BREVO_API_KEY)
-    ensure_contact_attributes(client)
+    ensure_contact_attributes(
+        client, create_missing=(args.check_config or not args.dry_run)
+    )
     if args.check_config:
-        delivery_list_id = get_or_create_delivery_list(client, main_list_id)
+        delivery_id = get_or_create_delivery_list(client, main_list_id)
         print(
-            f"[CONFIG NEWSLETTER] Attributs valides, liste principale={main_list_id}, "
-            f"liste de diffusion={delivery_list_id}."
+            f"[CONFIG NEWSLETTER] liste principale={main_list_id}, "
+            f"liste de diffusion={delivery_id}, attributs valides."
         )
         return 0
     if not args.slot:
@@ -791,42 +554,37 @@ def main(argv: list[str] | None = None) -> int:
 
     name = campaign_name(now, args.slot)
     existing = find_campaign(client, name)
-    if existing and str(existing.get("status") or "").lower() in SUCCESS_CAMPAIGN_STATUSES:
-        print(
-            f"[IDEMPOTENCE] {name} existe déjà "
-            f"(id={existing.get('id')}, statut={existing.get('status')}) — aucun doublon."
-        )
+    if existing and str(existing.get("status") or "").lower() in SUCCESS_STATUSES:
+        print(f"[IDEMPOTENCE] {name} déjà envoyé ou programmé — aucun doublon.")
         return 0
 
-    last_sent = latest_sent_campaign_time(client)
-    slugs = recent_article_slugs(last_sent)
-    articles = load_articles(slugs)
+    articles = load_articles(recent_article_slugs(latest_sent_campaign_time(client)))
     by_category: dict[str, list[dict[str, Any]]] = {}
     for article in articles:
         category = str(article.get("categorie") or "")
         if category in CATEGORIES:
             by_category.setdefault(category, []).append(article)
-
     if not by_category:
-        print("[NEWSLETTER] Aucun nouvel article éligible depuis le précédent envoi.")
+        print("[NEWSLETTER] Aucun nouvel article éligible depuis le dernier digest.")
         return 0
 
     html_content = build_email(by_category, now=now, slot=args.slot)
     PREVIEW_HTML.write_text(html_content, encoding="utf-8")
+    article_count = sum(map(len, by_category.values()))
     print(
-        f"[NEWSLETTER] {sum(map(len, by_category.values()))} article(s), "
-        f"{len(by_category)} rubrique(s), aperçu: {PREVIEW_HTML.name}"
+        f"[NEWSLETTER] {article_count} article(s), {len(by_category)} rubrique(s), "
+        f"aperçu={PREVIEW_HTML.name}."
     )
     if args.dry_run:
-        print("[DRY-RUN] Aucun contact modifié, aucune campagne envoyée.")
+        print("[DRY-RUN] Aucun contact ni campagne modifié.")
         return 0
 
-    delivery_list_id = get_or_create_delivery_list(client, main_list_id)
+    delivery_id = get_or_create_delivery_list(client, main_list_id)
     contacts = get_contacts_from_list(client, main_list_id)
     recipients, stats = build_recipients(
         contacts,
         main_list_id=main_list_id,
-        delivery_list_id=delivery_list_id,
+        delivery_list_id=delivery_id,
         slot=args.slot,
         active_categories=set(by_category),
     )
@@ -837,31 +595,25 @@ def main(argv: list[str] | None = None) -> int:
         f"{stats['no_matching_category']} sans rubrique active."
     )
     if not recipients:
-        print("[NEWSLETTER] Aucun destinataire éligible — aucun envoi.")
+        print("[NEWSLETTER] Aucun destinataire éligible.")
         return 0
 
-    sync_delivery_list(client, delivery_list_id, recipients)
-    subject = (
-        f"Les Faits — votre sélection du {date_longue(now)} "
-        f"({'matin' if args.slot == 'matin' else 'soir'})"
-    )
-    preview_text = (
-        f"{sum(map(len, by_category.values()))} nouvel"
-        f"{'s' if sum(map(len, by_category.values())) > 1 else ''} article"
-        f"{'s' if sum(map(len, by_category.values())) > 1 else ''} dans votre sélection."
-    )
+    sync_delivery_list(client, delivery_id, recipients)
+    article_label = "nouvel article" if article_count == 1 else "nouveaux articles"
     campaign_id, status = upsert_campaign(
         client,
         name=name,
-        subject=subject,
+        subject=(
+            f"Les Faits — votre sélection du {date_longue(now)} "
+            f"({args.slot})"
+        ),
         html_content=html_content,
-        list_id=delivery_list_id,
-        preview_text=preview_text,
+        list_id=delivery_id,
+        preview_text=f"{article_count} {article_label} dans votre sélection.",
     )
-    if status in SUCCESS_CAMPAIGN_STATUSES:
-        print(f"[IDEMPOTENCE] Campagne {campaign_id} déjà {status} — aucun renvoi.")
+    if status in SUCCESS_STATUSES:
+        print(f"[IDEMPOTENCE] Campagne {campaign_id} déjà {status}.")
         return 0
-
     final_status = send_and_confirm(client, campaign_id)
     print(
         f"[SUCCÈS] Campagne {campaign_id} {final_status}, "
