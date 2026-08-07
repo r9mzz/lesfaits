@@ -9,6 +9,7 @@ on:
       - "scripts/editorial_depth.py"
       - "scripts/showcase_quality.py"
       - "scripts/run_pipeline.py"
+      - "scripts/reserve_verification_quota.py"
       - "scripts/stamp_publication_times.py"
       - "scripts/summarize_pipeline_log.py"
       - "scripts/article_change_counts.py"
@@ -18,6 +19,7 @@ on:
       - "scripts/test_run_pipeline.py"
       - "scripts/test_quota_wait.py"
       - "scripts/test_showcase_quality.py"
+      - "scripts/test_reserve_verification_quota.py"
       - "scripts/test_stamp_publication_times.py"
       - "scripts/test_summarize_pipeline_log.py"
       - "scripts/test_article_change_counts.py"
@@ -55,6 +57,7 @@ jobs:
           scripts/editorial_depth.py
           scripts/showcase_quality.py
           scripts/run_pipeline.py
+          scripts/reserve_verification_quota.py
           scripts/stamp_publication_times.py
           scripts/summarize_pipeline_log.py
           scripts/article_change_counts.py
@@ -64,6 +67,7 @@ jobs:
           scripts/test_run_pipeline.py
           scripts/test_quota_wait.py
           scripts/test_showcase_quality.py
+          scripts/test_reserve_verification_quota.py
           scripts/test_stamp_publication_times.py
           scripts/test_summarize_pipeline_log.py
           scripts/test_article_change_counts.py
@@ -76,6 +80,7 @@ jobs:
           python scripts/test_run_pipeline.py
           python scripts/test_quota_wait.py
           python scripts/test_showcase_quality.py
+          python scripts/test_reserve_verification_quota.py
           python scripts/test_stamp_publication_times.py
           python scripts/test_summarize_pipeline_log.py
           python scripts/test_article_change_counts.py
