@@ -1,6 +1,13 @@
 name: Factuel — Déploiement site
 
 on:
+  push:
+    branches: [main]
+    paths:
+      - "src/newsletter.js"
+      - "scripts/harden_newsletter.py"
+      - "scripts/harden_newsletter_v3.py"
+      - ".github/workflows/deploy.yml"
   schedule:
     # NOTE : les crons GitHub sont fréquemment retardés de 1 à 4h. On planifie
     # dix minutes avant l'heure cible sur une minute non ronde.
