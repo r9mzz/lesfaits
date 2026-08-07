@@ -7,10 +7,12 @@ on:
       - "scripts/generer_digest.py"
       - "scripts/run_newsletter.py"
       - "scripts/harden_newsletter.py"
+      - "scripts/harden_newsletter_v3.py"
       - "scripts/audit_brevo_form.py"
       - "scripts/test_newsletter.py"
       - "scripts/test_run_newsletter.py"
       - "scripts/test_newsletter_campaigns.py"
+      - "scripts/test_harden_newsletter_v3.py"
       - "scripts/test_audit_brevo_form.py"
       - "src/newsletter.js"
       - ".github/workflows/newsletter-repair.yml"
@@ -57,14 +59,17 @@ jobs:
             scripts/generer_digest.py \
             scripts/run_newsletter.py \
             scripts/harden_newsletter.py \
+            scripts/harden_newsletter_v3.py \
             scripts/audit_brevo_form.py \
             scripts/test_newsletter.py \
             scripts/test_run_newsletter.py \
             scripts/test_newsletter_campaigns.py \
+            scripts/test_harden_newsletter_v3.py \
             scripts/test_audit_brevo_form.py
           python scripts/test_newsletter.py
           python scripts/test_run_newsletter.py
           python scripts/test_newsletter_campaigns.py
+          python scripts/test_harden_newsletter_v3.py
           python scripts/test_audit_brevo_form.py
           node --check src/newsletter.js
 
@@ -82,8 +87,8 @@ jobs:
 
       - name: Réparer les pages du dépôt source
         run: |
-          python scripts/harden_newsletter.py
-          python scripts/harden_newsletter.py --check
+          python scripts/harden_newsletter_v3.py
+          python scripts/harden_newsletter_v3.py --check
 
       - name: Sauvegarder les pages source corrigées
         run: |
@@ -95,16 +100,16 @@ jobs:
             echo "Source déjà conforme."
             exit 0
           fi
-          git commit -m "fix: normaliser les formulaires newsletter"
+          git commit -m "fix: normaliser la newsletter v3"
           for i in 1 2 3; do
             if git push; then exit 0; fi
             git fetch origin main
             if ! git rebase origin/main; then
               git rebase --abort || true
               git reset --hard origin/main
-              python scripts/harden_newsletter.py
+              python scripts/harden_newsletter_v3.py
               git add -A
-              git diff --cached --quiet || git commit -m "fix: normaliser les formulaires newsletter"
+              git diff --cached --quiet || git commit -m "fix: normaliser la newsletter v3"
             fi
             sleep 3
           done
@@ -121,8 +126,8 @@ jobs:
             /tmp/site
           mkdir -p /tmp/site/src
           cp src/newsletter.js /tmp/site/src/newsletter.js
-          python scripts/harden_newsletter.py --root /tmp/site
-          python scripts/harden_newsletter.py --root /tmp/site --check
+          python scripts/harden_newsletter_v3.py --root /tmp/site
+          python scripts/harden_newsletter_v3.py --root /tmp/site --check
           git -C /tmp/site config user.name "Factuel Bot"
           git -C /tmp/site config user.email "bot@lesfaits.info"
           git -C /tmp/site add -A
@@ -130,7 +135,7 @@ jobs:
             echo "Site public déjà conforme."
             exit 0
           fi
-          git -C /tmp/site commit -m "fix: fiabiliser la newsletter"
+          git -C /tmp/site commit -m "fix: fiabiliser la newsletter v3"
           for i in 1 2 3; do
             if git -C /tmp/site push; then exit 0; fi
             git -C /tmp/site pull --rebase
