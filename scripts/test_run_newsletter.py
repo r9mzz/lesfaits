@@ -42,6 +42,43 @@ class NewsletterRunnerTests(unittest.TestCase):
         build.assert_called_once()
         self.assertEqual(build.call_args.args[0], "soir")
 
+    def test_migration_uses_latest_legacy_or_v2_campaign(self):
+        campaigns = [
+            {
+                "tag": "nl-digest",
+                "sentDate": "2026-08-06T08:00:00+02:00",
+            },
+            {
+                "tag": digest.CAMPAIGN_TAG,
+                "sentDate": "2026-08-06T20:30:00+02:00",
+            },
+            {
+                "tag": "unrelated-campaign",
+                "sentDate": "2026-08-07T01:00:00+02:00",
+            },
+        ]
+        with patch.object(digest, "list_campaigns", return_value=campaigns):
+            latest = run_newsletter.latest_sent_campaign_time_compatible(object())
+        self.assertEqual(latest, dt.datetime(2026, 8, 6, 20, 30, tzinfo=PARIS))
+
+    def test_real_run_temporarily_installs_legacy_compatible_lookup(self):
+        original = digest.latest_sent_campaign_time
+
+        def fake_main(args):
+            self.assertIs(
+                digest.latest_sent_campaign_time,
+                run_newsletter.latest_sent_campaign_time_compatible,
+            )
+            self.assertEqual(args[:2], ["--slot", "matin"])
+            return 0
+
+        with patch.object(digest, "main", side_effect=fake_main):
+            self.assertEqual(
+                run_newsletter.main(["--slot", "matin", "--now", "2026-08-07T08:00:00+02:00"]),
+                0,
+            )
+        self.assertIs(digest.latest_sent_campaign_time, original)
+
 
 if __name__ == "__main__":
     unittest.main(verbosity=2)
