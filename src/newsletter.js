@@ -47,6 +47,14 @@
       email.setAttribute("spellcheck", "false");
       email.setAttribute("aria-describedby", "nl-msg nl-hint");
     }
+
+    /*
+     * Le consentement est obligatoire pour autoriser la soumission, mais ce
+     * n'est pas un champ du formulaire Brevo hébergé. Sans attribut name, il
+     * reste vérifiable côté Les Faits sans ajouter un paramètre inconnu au POST.
+     */
+    var consent = form.querySelector("#nl-consent");
+    if (consent) consent.removeAttribute("name");
   }
 
   function enhanceAll(root) {
