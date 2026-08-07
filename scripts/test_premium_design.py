@@ -22,6 +22,10 @@ def _assert_css_contract() -> None:
         ".art__h2",
         ".une__main",
         ".nav-expand-item svg { display: none; }",
+        "width: calc(100% + 80px) !important;",
+        "margin: -36px -40px 22px !important;",
+        "width: calc(100% + 40px) !important;",
+        "margin: -22px -20px 18px !important;",
         "@media (max-width: 768px)",
     )
     missing = [token for token in required if token not in css]
