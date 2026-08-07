@@ -5,10 +5,8 @@ on:
     branches: ["main"]
     paths:
       - "scripts/generer_digest.py"
-      - "scripts/run_newsletter.py"
       - "scripts/harden_newsletter.py"
       - "scripts/test_newsletter.py"
-      - "scripts/test_run_newsletter.py"
       - "src/newsletter.js"
       - ".github/workflows/newsletter-repair.yml"
   workflow_run:
@@ -52,13 +50,36 @@ jobs:
         run: |
           python -m py_compile \
             scripts/generer_digest.py \
-            scripts/run_newsletter.py \
             scripts/harden_newsletter.py \
-            scripts/test_newsletter.py \
-            scripts/test_run_newsletter.py
+            scripts/test_newsletter.py
           python scripts/test_newsletter.py
-          python scripts/test_run_newsletter.py
           node --check src/newsletter.js
+
+      - name: Vérifier la configuration Brevo et le formulaire hébergé
+        if: github.event_name == 'push' || github.event_name == 'workflow_dispatch'
+        env:
+          BREVO_API_KEY: ${{ secrets.BREVO_API_KEY }}
+          BREVO_LIST_ID: ${{ secrets.BREVO_LIST_ID }}
+          BREVO_SENDER_EMAIL: ${{ secrets.BREVO_SENDER_EMAIL }}
+          PYTHONIOENCODING: utf-8
+        run: |
+          python scripts/generer_digest.py --check-config
+          python - <<'PY'
+          import requests
+          from scripts.harden_newsletter import FORM_URL
+
+          response = requests.get(
+              FORM_URL,
+              headers={"User-Agent": "Mozilla/5.0 LesFaits-Newsletter-Audit/2.0"},
+              timeout=25,
+              allow_redirects=True,
+          )
+          if not 200 <= response.status_code < 400:
+              raise SystemExit(
+                  f"Formulaire Brevo inaccessible: HTTP {response.status_code}"
+              )
+          print(f"Formulaire Brevo accessible: HTTP {response.status_code}")
+          PY
 
       - name: Réparer les pages du dépôt source
         run: |
