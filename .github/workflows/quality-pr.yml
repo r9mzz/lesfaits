@@ -1,0 +1,75 @@
+name: Les Faits — Qualité PR
+
+on:
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: lesfaits-quality-pr-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  quality:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+
+      - name: Dépendances
+        run: pip install -r requirements.txt
+
+      - name: Syntaxe Python et JavaScript
+        run: |
+          python -m py_compile \
+            scripts/normalize_publication_metadata.py \
+            scripts/normalize_source_metadata.py \
+            scripts/check_site_integrity.py \
+            scripts/check_seo.py \
+            scripts/run_pipeline.py \
+            scripts/showcase_quality.py \
+            scripts/summarize_pipeline_log.py \
+            scripts/generer_digest.py \
+            scripts/run_newsletter.py \
+            scripts/harden_newsletter_v3.py \
+            scripts/audit_brevo_form.py
+          node --check src/newsletter.js
+          node --check src/search-preview.js
+
+      - name: Métadonnées et intégrité du site
+        run: |
+          python scripts/test_normalize_publication_metadata.py
+          python scripts/test_normalize_source_metadata.py
+          python scripts/check_seo.py
+          python scripts/normalize_publication_metadata.py --check
+          python scripts/normalize_source_metadata.py --check
+          python scripts/check_site_integrity.py
+
+      - name: Pipeline éditorial
+        run: |
+          python scripts/test_editorial_quality.py
+          python scripts/test_editorial_depth.py
+          python scripts/test_run_pipeline.py
+          python scripts/test_quota_wait.py
+          python scripts/test_showcase_quality.py
+          python scripts/test_summarize_pipeline_log.py
+
+      - name: Newsletter
+        run: |
+          python scripts/test_newsletter.py
+          python scripts/test_run_newsletter.py
+          python scripts/test_newsletter_campaigns.py
+          python scripts/test_harden_newsletter_v3.py
+          python scripts/test_audit_brevo_form.py
