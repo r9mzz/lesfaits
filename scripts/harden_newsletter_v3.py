@@ -6,8 +6,8 @@ Le formulaire Brevo public ne collecte actuellement que l'adresse et le
 marqueur d'inscription. Cette passe conserve le durcissement historique, puis
 retire des pages les choix de fréquence/rubriques qui n'étaient pas enregistrés.
 Les contacts possédant déjà des préférences explicites continuent d'être gérés
-par le moteur d'envoi ; les nouvelles inscriptions reçoivent l'édition du soir
-avec toutes les rubriques.
+par le moteur d'envoi ; les nouvelles inscriptions reçoivent par défaut les
+éditions du matin et du soir avec toutes les rubriques.
 """
 from __future__ import annotations
 
@@ -35,12 +35,19 @@ HINT_RE = re.compile(
     re.I | re.S,
 )
 CANONICAL_HINT = (
-    '<p class="nl-compact__hint" id="nl-hint">Une édition chaque soir, '
+    '<p class="nl-compact__hint" id="nl-hint">Éditions du matin et du soir, '
     'uniquement lorsqu’il y a de nouveaux articles. Toutes les rubriques sont incluses.</p>'
+)
+OLD_ARTICLE_COPY = (
+    "Chaque soir, les articles du jour en un email. Gratuit. Sans pub."
+)
+NEW_ARTICLE_COPY = (
+    "Les nouvelles éditions, matin et soir, en un email par créneau. Gratuit. Sans pub."
 )
 
 
 def upgrade_html(html: str) -> str:
+    html = html.replace(OLD_ARTICLE_COPY, NEW_ARTICLE_COPY)
     if 'id="nl-form"' not in html and "id='nl-form'" not in html:
         return html.replace("/src/newsletter.js?v=2", "/src/newsletter.js?v=3")
 
@@ -67,6 +74,8 @@ def validate_v3(path: Path, html: str) -> list[str]:
     script_count = len(re.findall(r'/src/newsletter\.js\?v=3', html, re.I))
     if "</head>" in html and script_count != 1:
         errors.append(f"script newsletter v3 présent {script_count} fois")
+    if OLD_ARTICLE_COPY in html:
+        errors.append("ancien rythme uniquement du soir encore affiché")
     if not has_form:
         return errors
 
@@ -79,7 +88,7 @@ def validate_v3(path: Path, html: str) -> list[str]:
     if "Choisissez vos rubriques" in html or "Aucune sélection" in html:
         errors.append("ancienne promesse de personnalisation encore visible")
     if CANONICAL_HINT not in html:
-        errors.append("rythme de l'édition du soir non expliqué")
+        errors.append("rythme matin et soir non expliqué")
     if 'data-newsletter-noscript="1"' not in html:
         errors.append("fallback sans JavaScript absent")
     return errors
