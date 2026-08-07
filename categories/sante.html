@@ -34,7 +34,7 @@
   <script>
 (function(){var s=localStorage.getItem('theme'),d=s==='dark'||(s===null&&window.matchMedia('(prefers-color-scheme:dark)').matches);document.documentElement.setAttribute('data-theme',d?'dark':'light');})();
 </script>
-  <script src="/src/newsletter.js?v=2" defer></script>
+  <script src="/src/newsletter.js?v=3" defer></script>
 </head>
 <body>
 <div class="nav-overlay" id="nav-overlay" onclick="closeMenu()"></div>
@@ -415,25 +415,12 @@ document.addEventListener('DOMContentLoaded',function(){var btn=document.getElem
       <span class="nl-compact__label">NEWSLETTER</span>
       <span class="nl-compact__title">Le résumé du jour dans votre boîte mail</span>
     </div>
-    <form id="nl-form" novalidate data-newsletter-version="2" aria-label="Inscription à la newsletter Les Faits">
-      <div class="nl-compact__freq" role="group" aria-label="Fréquence de réception">
-        <label class="nl-compact__freq-opt"><input type="radio" name="FREQ" value="morning"/> Édition du matin</label>
-        <label class="nl-compact__freq-opt"><input type="radio" name="FREQ" value="evening"/> Édition du soir</label>
-        <label class="nl-compact__freq-opt"><input type="radio" name="FREQ" value="both" checked/> Les deux</label>
-      </div>
+    <form id="nl-form" novalidate data-newsletter-version="3" aria-label="Inscription à la newsletter Les Faits">
       <div class="nl-compact__row">
         <input type="email" id="nl-email" name="EMAIL" class="nl-compact__input" placeholder="vous@exemple.fr" required autocomplete="email" aria-required="true" inputmode="email" autocapitalize="none" spellcheck="false" aria-label="Adresse email" aria-describedby="nl-msg nl-hint"/>
         <button type="submit" class="nl-compact__btn" id="nl-btn">S'abonner →</button>
       </div>
-      <div class="nl-compact__cats" role="group" aria-label="Rubriques">
-        <label class="nl-compact__cat nl-cat--societe"><input type="checkbox" name="CAT_SOCIETE" value="1"/><span class="nl-cat__dot" aria-hidden="true"></span>Société</label>
-        <label class="nl-compact__cat nl-cat--science"><input type="checkbox" name="CAT_SCIENCE" value="1"/><span class="nl-cat__dot" aria-hidden="true"></span>Science</label>
-        <label class="nl-compact__cat nl-cat--economie"><input type="checkbox" name="CAT_ECONOMIE" value="1"/><span class="nl-cat__dot" aria-hidden="true"></span>Économie</label>
-        <label class="nl-compact__cat nl-cat--tech"><input type="checkbox" name="CAT_TECH" value="1"/><span class="nl-cat__dot" aria-hidden="true"></span>Tech</label>
-        <label class="nl-compact__cat nl-cat--sante"><input type="checkbox" name="CAT_SANTE" value="1"/><span class="nl-cat__dot" aria-hidden="true"></span>Santé</label>
-        <label class="nl-compact__cat nl-cat--environnement"><input type="checkbox" name="CAT_ENVIRONNEMENT" value="1"/><span class="nl-cat__dot" aria-hidden="true"></span>Environnement</label>
-      </div>
-      <p class="nl-compact__hint" id="nl-hint">Choisissez vos rubriques, ou laissez tout décoché pour tout recevoir.</p>
+      <p class="nl-compact__hint" id="nl-hint">Éditions du matin et du soir, uniquement lorsqu’il y a de nouveaux articles. Toutes les rubriques sont incluses.</p>
       <label class="nl-compact__consent">
         <input type="checkbox" id="nl-consent" required aria-required="true" name="CONSENT"/>
         <span>J’accepte de recevoir la newsletter Les Faits. <a href="/confidentialite.html">Politique de confidentialité</a>. Désabonnement possible à tout moment.</span>
