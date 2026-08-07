@@ -273,3 +273,59 @@ for fn in STATIC_ROOT_PAGES:
     patched_static += 1
 
 print(f"{patched_static} page(s) statique(s) racine patchée(s) (lecteur audio persistant)")
+
+# ── Synchronisation des menus de navigation ───────────────────────────────────
+# Constat 07/08 : l'entrée « Brèves », ajoutée aux menus le 03/08, n'existait
+# que sur les 19 pages générées ou régénérées depuis. Les ~170 articles plus
+# anciens et les 9 pages statiques racine gardaient le menu figé à leur date de
+# création — sur mobile, la rubrique était donc inaccessible depuis la quasi-
+# totalité du site.
+#
+# La cause est structurelle : le menu est inséré à la GÉNÉRATION, et un article
+# n'est jamais régénéré une fois publié. Toute évolution de navigation aurait
+# donc le même sort. On resynchronise ici les deux menus (burger mobile et
+# barre desktop) sur la version canonique de pipeline.py, à chaque déploiement.
+#
+# Remplacement borné par les balises <nav …>…</nav> elles-mêmes : pas de regex
+# gourmande, pas de comptage de div — ces blocs n'imbriquent pas d'autre <nav>.
+from pipeline import BURGER_HTML, HEADER_NAV_DESKTOP  # noqa: E402
+
+def _bloc(html: str, ouvrant: str) -> str | None:
+    """Extrait `<nav class="…">…</nav>` à partir de son attribut de classe."""
+    i = html.find(ouvrant)
+    if i < 0:
+        return None
+    j = html.find("</nav>", i)
+    return html[i:j + 6] if j > 0 else None
+
+
+NAV_MOBILE_REF = _bloc(BURGER_HTML, '<nav class="nav-mobile"')
+NAV_DESKTOP_REF = _bloc(HEADER_NAV_DESKTOP + "</nav>", '<nav class="nav-expand-group"')
+
+pages_nav = [os.path.join("articles", f) for f in os.listdir("articles") if f.endswith(".html")]
+pages_nav += [f for f in STATIC_ROOT_PAGES if os.path.exists(f)]
+pages_nav += ["index.html", "archive.html", "breves.html", "404.html"]
+pages_nav += [os.path.join("categories", f) for f in os.listdir("categories")
+              if f.endswith(".html")] if os.path.isdir("categories") else []
+
+patched_nav = 0
+for fn in pages_nav:
+    if not os.path.exists(fn):
+        continue
+    html = open(fn, encoding="utf-8").read()
+    # Les stubs d'articles retirés n'ont pas de menu : ne pas leur en donner un.
+    if "LF_ARTICLE_RETIRE" in html:
+        continue
+    origine = html
+    for ouvrant, ref in (('<nav class="nav-mobile"', NAV_MOBILE_REF),
+                         ('<nav class="nav-expand-group"', NAV_DESKTOP_REF)):
+        if not ref:
+            continue
+        actuel = _bloc(html, ouvrant)
+        if actuel and actuel != ref:
+            html = html.replace(actuel, ref, 1)
+    if html != origine:
+        open(fn, "w", encoding="utf-8").write(html)
+        patched_nav += 1
+
+print(f"{patched_nav} page(s) resynchronisée(s) sur les menus courants")
