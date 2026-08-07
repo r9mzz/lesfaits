@@ -1,13 +1,15 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""Passe finale newsletter v3.
+"""Passe finale newsletter v4.
 
-Le formulaire Brevo public ne collecte actuellement que l'adresse et le
-marqueur d'inscription. Cette passe conserve le durcissement historique, puis
-retire des pages les choix de fréquence/rubriques qui n'étaient pas enregistrés.
-Les contacts possédant déjà des préférences explicites continuent d'être gérés
-par le moteur d'envoi ; les nouvelles inscriptions reçoivent par défaut les
-éditions du matin et du soir avec toutes les rubriques.
+Le formulaire Les Faits ne simule plus un succès via ``fetch(..., no-cors)``.
+Les pages sont préparées pour une vraie soumission HTML POST directement vers
+le formulaire Brevo public, avec l'encodage natif d'un formulaire navigateur.
+Brevo affiche ainsi lui-même le résultat réel de l'inscription ou une erreur.
+
+Cette passe conserve également la normalisation v3 : les préférences de
+fréquence/rubriques non collectées par le formulaire Brevo ne sont pas montrées
+aux nouveaux abonnés et les blocs newsletter article restent dédupliqués.
 """
 from __future__ import annotations
 
@@ -18,9 +20,12 @@ from pathlib import Path
 import harden_newsletter as legacy
 
 ROOT = Path(__file__).resolve().parent.parent
-SCRIPT_V2_RE = re.compile(
-    r'/src/newsletter\.js(?:\?v=2|\?[^"\']*)?', re.I
-)
+VERSION = "4"
+SCRIPT_RE = re.compile(r'/src/newsletter\.js(?:\?[^"\']*)?', re.I)
+SCRIPT_SRC = f"/src/newsletter.js?v={VERSION}"
+FORM_URL = legacy.FORM_URL
+FORM_HOST = legacy.FORM_HOST
+
 FREQ_BLOCK_RE = re.compile(
     r'\s*<div\b[^>]*class=(["\'])[^"\']*\bnl-compact__freq\b[^"\']*\1[^>]*>.*?</div>',
     re.I | re.S,
@@ -34,13 +39,12 @@ HINT_RE = re.compile(
     r'(?![^>]*data-newsletter-noscript)[^>]*>.*?</p>',
     re.I | re.S,
 )
+FORM_OPEN_RE = re.compile(r'<form\b(?=[^>]*\bid=(["\'])nl-form\1)[^>]*>', re.I)
 CANONICAL_HINT = (
     '<p class="nl-compact__hint" id="nl-hint">Éditions du matin et du soir, '
     'uniquement lorsqu’il y a de nouveaux articles. Toutes les rubriques sont incluses.</p>'
 )
-OLD_ARTICLE_COPY = (
-    "Chaque soir, les articles du jour en un email. Gratuit. Sans pub."
-)
+OLD_ARTICLE_COPY = "Chaque soir, les articles du jour en un email. Gratuit. Sans pub."
 NEW_ARTICLE_COPY = (
     "Les nouvelles éditions, matin et soir, en un email par créneau. Gratuit. Sans pub."
 )
@@ -55,34 +59,106 @@ ARTICLE_NL_DUPLICATES_RE = re.compile(
     re.S,
 )
 
+HIDDEN_FIELDS = (
+    ("LESFAITS_VERIFICATION", "1"),
+    ("email_address_check", ""),
+    ("locale", "fr"),
+)
+
 
 def _dedupe_article_newsletter_blocks(html: str) -> str:
-    """Réduit uniquement les blocs newsletter article identiques et consécutifs.
-
-    `patch_articles.py` peut réinjecter l'ancien libellé avant cette passe. Une
-    fois l'ancien texte converti en copie v3, deux blocs canoniques identiques
-    peuvent donc se retrouver côte à côte. La déduplication est volontairement
-    stricte : elle ne touche pas à des blocs différents ou non consécutifs.
-    """
     return ARTICLE_NL_DUPLICATES_RE.sub(r"\1", html)
+
+
+def _ensure_native_form(html: str) -> str:
+    if 'id="nl-form"' not in html and "id='nl-form'" not in html:
+        return html
+
+    def repl(match: re.Match[str]) -> str:
+        tag = match.group(0)
+        tag = legacy._set_attr(tag, "data-newsletter-version", VERSION)
+        tag = legacy._set_attr(tag, "action", FORM_URL)
+        tag = legacy._set_attr(tag, "method", "post")
+        tag = legacy._set_attr(tag, "enctype", "application/x-www-form-urlencoded")
+        return tag
+
+    html = FORM_OPEN_RE.sub(repl, html, count=1)
+
+    opening = FORM_OPEN_RE.search(html)
+    if not opening:
+        return html
+
+    hidden = []
+    for name, value in HIDDEN_FIELDS:
+        if not re.search(rf'\bname=(["\']){re.escape(name)}\1', html, re.I):
+            hidden.append(
+                f'<input type="hidden" name="{name}" value="{value}"/>'
+            )
+    if hidden:
+        insert_at = opening.end()
+        html = html[:insert_at] + "\n      " + "\n      ".join(hidden) + html[insert_at:]
+    return html
+
+
+def _ensure_form_action_csp(html: str) -> str:
+    if 'id="nl-form"' not in html and "id='nl-form'" not in html:
+        return html
+
+    allowed = f"https://{FORM_HOST}"
+
+    def replace(match: re.Match[str]) -> str:
+        content = re.sub(r"\s+", " ", match.group(4)).strip()
+        directives: list[tuple[str, list[str]]] = []
+        for raw in content.split(";"):
+            raw = raw.strip()
+            if not raw:
+                continue
+            parts = raw.split()
+            directives.append((parts[0], parts[1:]))
+
+        found = False
+        for i, (name, values) in enumerate(directives):
+            if name.lower() != "form-action":
+                continue
+            found = True
+            if "'self'" not in values:
+                values.insert(0, "'self'")
+            if allowed not in values:
+                values.append(allowed)
+            directives[i] = (name, values)
+            break
+        if not found:
+            directives.append(("form-action", ["'self'", allowed]))
+
+        rendered = "; ".join(
+            " ".join([name, *values]).strip() for name, values in directives
+        ) + ";"
+        return f"{match.group(1)}{match.group(3)}{rendered}{match.group(3)}{match.group(5)}"
+
+    if legacy.CSP_META_RE.search(html):
+        return legacy.CSP_META_RE.sub(replace, html, count=1)
+    return html
 
 
 def upgrade_html(html: str) -> str:
     html = html.replace(OLD_ARTICLE_COPY, NEW_ARTICLE_COPY)
     html = _dedupe_article_newsletter_blocks(html)
+    html = SCRIPT_RE.sub(SCRIPT_SRC, html)
+
     if 'id="nl-form"' not in html and "id='nl-form'" not in html:
-        return html.replace("/src/newsletter.js?v=2", "/src/newsletter.js?v=3")
+        return html
 
     html = FREQ_BLOCK_RE.sub("", html)
     html = CATS_BLOCK_RE.sub("", html)
     html = HINT_RE.sub(CANONICAL_HINT, html, count=1)
     html = re.sub(
-        r'data-newsletter-version=(["\'])2\1',
-        'data-newsletter-version="3"',
+        r'data-newsletter-version=(["\'])\d+\1',
+        f'data-newsletter-version="{VERSION}"',
         html,
         flags=re.I,
     )
-    html = SCRIPT_V2_RE.sub("/src/newsletter.js?v=3", html)
+    html = _ensure_native_form(html)
+    html = _ensure_form_action_csp(html)
     return html
 
 
@@ -90,12 +166,25 @@ def harden_html(html: str) -> str:
     return upgrade_html(legacy.harden_html(html))
 
 
+def _csp_allows_native_post(html: str) -> bool:
+    csp = legacy.CSP_META_RE.search(html)
+    if not csp:
+        return False
+    content = csp.group(4)
+    allowed = f"https://{FORM_HOST}"
+    for raw in content.split(";"):
+        parts = raw.strip().split()
+        if parts and parts[0].lower() == "form-action":
+            return allowed in parts[1:]
+    return False
+
+
 def validate_v3(path: Path, html: str) -> list[str]:
     errors: list[str] = []
     has_form = bool(re.search(r'\bid=(["\'])nl-form\1', html, re.I))
-    script_count = len(re.findall(r'/src/newsletter\.js\?v=3', html, re.I))
+    script_count = len(re.findall(re.escape(SCRIPT_SRC), html, re.I))
     if "</head>" in html and script_count != 1:
-        errors.append(f"script newsletter v3 présent {script_count} fois")
+        errors.append(f"script newsletter v{VERSION} présent {script_count} fois")
     if OLD_ARTICLE_COPY in html:
         errors.append("ancien rythme uniquement du soir encore affiché")
     if ARTICLE_NL_DUPLICATES_RE.search(html):
@@ -103,8 +192,8 @@ def validate_v3(path: Path, html: str) -> list[str]:
     if not has_form:
         return errors
 
-    if 'data-newsletter-version="3"' not in html:
-        errors.append("formulaire non marqué v3")
+    if f'data-newsletter-version="{VERSION}"' not in html:
+        errors.append(f"formulaire non marqué v{VERSION}")
     if re.search(r'\bname=(["\'])FREQ\1', html, re.I):
         errors.append("choix de fréquence non pris en charge encore visible")
     if re.search(r'\bname=(["\'])CAT_[A-Z_]+\1', html, re.I):
@@ -115,6 +204,17 @@ def validate_v3(path: Path, html: str) -> list[str]:
         errors.append("rythme matin et soir non expliqué")
     if 'data-newsletter-noscript="1"' not in html:
         errors.append("fallback sans JavaScript absent")
+    if f'action="{FORM_URL}"' not in html:
+        errors.append("action Brevo native absente")
+    if not re.search(r'<form\b[^>]*\bmethod=(["\'])post\1', html, re.I):
+        errors.append("méthode POST native absente")
+    if 'enctype="application/x-www-form-urlencoded"' not in html:
+        errors.append("encodage formulaire natif absent")
+    for name, _value in HIDDEN_FIELDS:
+        if not re.search(rf'\bname=(["\']){re.escape(name)}\1', html, re.I):
+            errors.append(f"champ Brevo {name} absent")
+    if not _csp_allows_native_post(html):
+        errors.append("CSP form-action n'autorise pas Brevo")
     return errors
 
 
@@ -135,10 +235,10 @@ def run(root: Path, *, check_only: bool = False) -> dict[str, int]:
     if failures:
         preview = "\n".join(f"  - {line}" for line in failures[:30])
         suffix = "" if len(failures) <= 30 else f"\n  … {len(failures) - 30} autre(s)"
-        raise RuntimeError(f"Audit newsletter v3 en échec:\n{preview}{suffix}")
+        raise RuntimeError(f"Audit newsletter v{VERSION} en échec:\n{preview}{suffix}")
 
     print(
-        f"[NEWSLETTER V3] {checked} page(s) contrôlée(s), "
+        f"[NEWSLETTER V{VERSION}] {checked} page(s) contrôlée(s), "
         f"{changed} page(s) mise(s) à jour."
     )
     return {"checked": checked, "changed": changed}
@@ -157,5 +257,5 @@ if __name__ == "__main__":
     try:
         raise SystemExit(main())
     except Exception as exc:
-        print(f"[ERREUR NEWSLETTER V3] {exc}")
+        print(f"[ERREUR NEWSLETTER V{VERSION}] {exc}")
         raise SystemExit(1)
