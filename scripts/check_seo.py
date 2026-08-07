@@ -8,6 +8,8 @@ import re
 import sys
 from pathlib import Path
 
+from normalize_publication_metadata import run as normalize_publication_metadata
+
 ROOT = Path(__file__).parent.parent
 
 # Balises requises par page (regex insensibles à l'ordre des attributs)
@@ -78,13 +80,36 @@ def classes_sans_css(pages_html: list[Path], style_css: str) -> dict[str, list[s
 
 
 def main() -> int:
+    failures = 0
+
+    # Un rebuild régénère feed.xml/sitemap.xml et les attributs <time>. Avant
+    # l'audit SEO, on les réaligne sur le JSON-LD NewsArticle, puis on vérifie
+    # que le résultat est strictement cohérent. Cela empêche qu'un rebuild
+    # technique republie artificiellement tout le corpus à la date du jour.
+    try:
+        changed, normalisation_errors = normalize_publication_metadata(check=False)
+        if normalisation_errors:
+            for error in normalisation_errors[:10]:
+                print(f"[SEO FAIL] Métadonnées publication — {error}")
+            failures += 1
+        else:
+            _, check_errors = normalize_publication_metadata(check=True)
+            if check_errors:
+                for error in check_errors[:10]:
+                    print(f"[SEO FAIL] Métadonnées publication — {error}")
+                failures += 1
+            else:
+                print(f"[SEO OK]   Métadonnées publication cohérentes ({changed} correction(s))")
+    except Exception as exc:
+        print(f"[SEO FAIL] Métadonnées publication — {exc}")
+        failures += 1
+
     targets = [ROOT / p for p in PAGES if (ROOT / p).exists()]
     articles = sorted((ROOT / "articles").glob("*.html"))
     if articles:
         targets.append(articles[0])
         targets.append(articles[-1])
 
-    failures = 0
     for path in targets:
         missing = check(path)
         # L'archive et certaines pages listes n'exigent pas og:image spécifique,
