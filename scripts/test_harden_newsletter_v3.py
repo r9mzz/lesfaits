@@ -100,7 +100,11 @@ class NewsletterV4Tests(unittest.TestCase):
         self.assertTrue(
             any("action Brevo" in error for error in v3.validate_v3(Path("index.html"), broken_action))
         )
-        broken_csp = updated.replace(f" https://{v3.FORM_HOST}", "", 1)
+        broken_csp = updated.replace(
+            f"form-action 'self' https://{v3.FORM_HOST}",
+            "form-action 'self'",
+            1,
+        )
         self.assertTrue(
             any("CSP form-action" in error for error in v3.validate_v3(Path("index.html"), broken_csp))
         )
