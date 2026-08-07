@@ -1,561 +1,878 @@
 #!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""Newsletter Les Faits — digest Brevo fiable et idempotent.
+
+Principes:
+- aucun envoi en double pour un même créneau et une même date ;
+- uniquement les articles ajoutés depuis la dernière campagne envoyée ;
+- fréquences modernes FREQ=morning|evening|both, avec compatibilité ENVOI_MATIN ;
+- exclusions globales ET désabonnements de liste ;
+- synchronisation non destructive de la liste de diffusion ;
+- vérification des échecs partiels Brevo et des opérations asynchrones ;
+- erreur d'envoi = code de sortie non nul, jamais un faux succès.
 """
-generer_digest.py — Newsletter personnalisée Les Faits (Brevo transactionnel).
+from __future__ import annotations
 
-Chaque abonné reçoit un email sur-mesure :
-  - uniquement les articles des rubriques qu'il a sélectionnées
-  - si aucune préférence définie → toutes les rubriques
-
-Fonctionnement :
-  1. Récupère les articles des 27 dernières heures (git log)
-  2. Récupère tous les contacts de la liste avec leurs attributs Brevo
-  3. Calcule les destinataires du jour (créneau matin/soir, désabonnés exclus,
-     rubriques choisies avec au moins un article aujourd'hui)
-  4. Resynchronise une liste Brevo temporaire ("Digest — Envoi du jour") avec
-     exactement ces destinataires
-  5. Crée puis envoie une campagne Brevo ciblant cette liste (blocs
-     conditionnels {% if %} pour la personnalisation par rubrique) — envoi en
-     campagne plutôt qu'en transactionnel pour que le désabonnement fonctionne
-     réellement (page personnalisée + retrait de liste), impossible à obtenir
-     via l'API transactionnelle /smtp/email
-
-Variables d'environnement (secrets GitHub) :
-  BREVO_API_KEY      — Clé API Brevo (v3)
-  BREVO_LIST_ID      — ID entier de la liste principale (ex : "3")
-  BREVO_SENDER_EMAIL — Adresse expéditeur vérifiée dans Brevo
-
-Attributs contact Brevo requis (booléens) :
-  CAT_SOCIETE · CAT_SCIENCE · CAT_ECONOMIE
-  CAT_TECH    · CAT_SANTE   · CAT_ENVIRONNEMENT
-"""
-
-import sys
-import os
-import json
-import subprocess
-import datetime
 import argparse
+import datetime as dt
+import html
+import json
+import os
+import subprocess
+import sys
+import time
+from dataclasses import dataclass
+from pathlib import Path
+from typing import Any
+from urllib.parse import quote
+from zoneinfo import ZoneInfo
 
 import requests
 
-# ── Configuration ──────────────────────────────────────────────────────────────
-BREVO_API_KEY      = os.environ.get("BREVO_API_KEY", "")
-BREVO_LIST_ID      = os.environ.get("BREVO_LIST_ID", "")
-BREVO_SENDER_EMAIL = os.environ.get("BREVO_SENDER_EMAIL", "")
-BREVO_SENDER_NAME  = "Les Faits"
-SITE_BASE          = "https://lesfaits.info"
-DATA_SEARCH        = "data/search.json"
-BREVO_API_BASE     = "https://api.brevo.com/v3"
+PARIS = ZoneInfo("Europe/Paris")
+ROOT = Path(__file__).resolve().parent.parent
+SEARCH_JSON = ROOT / "data" / "search.json"
+PREVIEW_HTML = ROOT / "newsletter-preview.html"
 
-HEADERS = {
-    "accept":       "application/json",
-    "content-type": "application/json",
-    "api-key":      BREVO_API_KEY,
-}
+BREVO_API_BASE = "https://api.brevo.com/v3"
+BREVO_API_KEY = os.getenv("BREVO_API_KEY", "")
+BREVO_LIST_ID = os.getenv("BREVO_LIST_ID", "")
+BREVO_SENDER_EMAIL = os.getenv("BREVO_SENDER_EMAIL", "")
+BREVO_SENDER_NAME = os.getenv("BREVO_SENDER_NAME", "Les Faits")
+SITE_BASE = "https://lesfaits.info"
+DELIVERY_LIST_NAME = "Digest — Envoi du jour"
+CAMPAIGN_TAG = "nl-digest-v2"
 
-CATEGORIES = ["societe", "science", "economie", "tech", "sante", "environnement"]
-
+CATEGORIES = ("societe", "science", "economie", "tech", "sante", "environnement")
 CAT_LABELS = {
-    "societe":       "Société",
-    "science":       "Science",
-    "economie":      "Économie",
-    "tech":          "Tech",
-    "sante":         "Santé",
+    "societe": "Société",
+    "science": "Science",
+    "economie": "Économie",
+    "tech": "Tech",
+    "sante": "Santé",
     "environnement": "Environnement",
 }
 CAT_COLORS = {
-    "societe":       "#78716c",
-    "science":       "#06b6d4",
-    "economie":      "#f97316",
-    "tech":          "#a855f7",
-    "sante":         "#f43f5e",
-    "environnement": "#22c55e",
+    "societe": "#78716c",
+    "science": "#0891b2",
+    "economie": "#ea580c",
+    "tech": "#9333ea",
+    "sante": "#e11d48",
+    "environnement": "#16a34a",
 }
-MOIS_FR  = {
-    "01": "janvier",   "02": "février",  "03": "mars",
-    "04": "avril",     "05": "mai",      "06": "juin",
-    "07": "juillet",   "08": "août",     "09": "septembre",
-    "10": "octobre",   "11": "novembre", "12": "décembre",
-}
-JOURS_FR = ["lundi", "mardi", "mercredi", "jeudi", "vendredi", "samedi", "dimanche"]
+MONTHS = (
+    "janvier", "février", "mars", "avril", "mai", "juin",
+    "juillet", "août", "septembre", "octobre", "novembre", "décembre",
+)
+WEEKDAYS = ("lundi", "mardi", "mercredi", "jeudi", "vendredi", "samedi", "dimanche")
+SUCCESS_CAMPAIGN_STATUSES = {"sent", "queued", "scheduled"}
+RETRYABLE_STATUS = {408, 425, 429, 500, 502, 503, 504}
 
 
-# ── Utilitaires ────────────────────────────────────────────────────────────────
+def _int_env(name: str, default: int) -> int:
+    try:
+        return int(os.getenv(name, str(default)))
+    except (TypeError, ValueError):
+        return default
 
-def date_longue() -> str:
-    t = datetime.date.today()
-    return f"{JOURS_FR[t.weekday()]} {t.day} {MOIS_FR[t.strftime('%m')]} {t.year}"
+
+@dataclass
+class Brevo:
+    api_key: str
+    attempts: int = 4
+    timeout: int = 25
+
+    def __post_init__(self) -> None:
+        self.session = requests.Session()
+        self.session.headers.update({
+            "accept": "application/json",
+            "content-type": "application/json",
+            "api-key": self.api_key,
+            "user-agent": "LesFaits-Newsletter/2.0",
+        })
+
+    def request(
+        self,
+        method: str,
+        path: str,
+        *,
+        expected: tuple[int, ...] = (200,),
+        params: dict[str, Any] | None = None,
+        payload: dict[str, Any] | None = None,
+    ) -> requests.Response:
+        url = BREVO_API_BASE + path
+        last: requests.Response | None = None
+        for attempt in range(1, self.attempts + 1):
+            try:
+                response = self.session.request(
+                    method,
+                    url,
+                    params=params,
+                    json=payload,
+                    timeout=self.timeout,
+                )
+            except requests.RequestException as exc:
+                if attempt == self.attempts:
+                    raise RuntimeError(f"Brevo inaccessible: {exc}") from exc
+                time.sleep(min(2 ** attempt, 8))
+                continue
+            last = response
+            if response.status_code in expected:
+                return response
+            if response.status_code not in RETRYABLE_STATUS or attempt == self.attempts:
+                body = response.text[:500].replace("\n", " ")
+                raise RuntimeError(
+                    f"Brevo {method} {path}: HTTP {response.status_code} — {body}"
+                )
+            retry_after = response.headers.get("retry-after")
+            try:
+                delay = float(retry_after) if retry_after else min(2 ** attempt, 10)
+            except ValueError:
+                delay = min(2 ** attempt, 10)
+            time.sleep(max(1, delay))
+        raise RuntimeError(
+            f"Brevo {method} {path}: aucune réponse exploitable"
+            + (f" ({last.status_code})" if last else "")
+        )
+
+    def json(self, method: str, path: str, **kwargs: Any) -> dict[str, Any]:
+        response = self.request(method, path, **kwargs)
+        if not response.content:
+            return {}
+        try:
+            data = response.json()
+        except ValueError as exc:
+            raise RuntimeError(f"Brevo {method} {path}: réponse JSON invalide") from exc
+        if not isinstance(data, dict):
+            raise RuntimeError(f"Brevo {method} {path}: objet JSON attendu")
+        return data
 
 
-def trouver_slugs_recents() -> list:
-    r = subprocess.run(
-        ["git", "log", "--since=27 hours ago", "--name-only",
-         "--diff-filter=A", "--pretty=format:", "--", "articles/"],
-        capture_output=True, text=True,
+def parse_iso(value: Any) -> dt.datetime | None:
+    raw = str(value or "").strip()
+    if not raw:
+        return None
+    try:
+        parsed = dt.datetime.fromisoformat(raw.replace("Z", "+00:00"))
+    except ValueError:
+        return None
+    if parsed.tzinfo is None:
+        parsed = parsed.replace(tzinfo=dt.timezone.utc)
+    return parsed.astimezone(PARIS)
+
+
+def date_longue(now: dt.datetime) -> str:
+    local = now.astimezone(PARIS)
+    return f"{WEEKDAYS[local.weekday()]} {local.day} {MONTHS[local.month - 1]} {local.year}"
+
+
+def campaign_name(now: dt.datetime, slot: str) -> str:
+    return f"Les Faits | {now.astimezone(PARIS):%Y-%m-%d} | {slot}"
+
+
+def _git(*args: str) -> str:
+    result = subprocess.run(
+        ["git", "-C", str(ROOT), *args],
+        check=True,
+        text=True,
+        capture_output=True,
     )
-    slugs = []
-    for line in r.stdout.splitlines():
-        line = line.strip()
-        if line.startswith("articles/") and line.endswith(".html"):
-            slug = line[len("articles/"):-len(".html")]
-            if slug and slug not in slugs:
-                slugs.append(slug)
+    return result.stdout
+
+
+def list_campaigns(client: Brevo, *, status: str | None = None) -> list[dict[str, Any]]:
+    campaigns: list[dict[str, Any]] = []
+    offset = 0
+    while True:
+        params: dict[str, Any] = {
+            "type": "classic",
+            "limit": 100,
+            "offset": offset,
+            "sort": "desc",
+        }
+        if status:
+            params["status"] = status
+        data = client.json("GET", "/emailCampaigns", params=params)
+        batch = data.get("campaigns") or []
+        if not isinstance(batch, list):
+            raise RuntimeError("Brevo campagnes: liste invalide")
+        campaigns.extend(x for x in batch if isinstance(x, dict))
+        if len(batch) < 100:
+            return campaigns
+        offset += 100
+
+
+def find_campaign(client: Brevo, name: str) -> dict[str, Any] | None:
+    for campaign in list_campaigns(client):
+        if campaign.get("name") == name:
+            return campaign
+    return None
+
+
+def latest_sent_campaign_time(client: Brevo) -> dt.datetime | None:
+    latest: dt.datetime | None = None
+    for campaign in list_campaigns(client, status="sent"):
+        if campaign.get("tag") != CAMPAIGN_TAG:
+            continue
+        sent = parse_iso(campaign.get("sentDate") or campaign.get("scheduledAt"))
+        if sent and (latest is None or sent > latest):
+            latest = sent
+    return latest
+
+
+def recent_article_slugs(since: dt.datetime | None) -> list[str]:
+    if since is None:
+        since = dt.datetime.now(PARIS) - dt.timedelta(hours=30)
+    since_utc = since.astimezone(dt.timezone.utc).isoformat(timespec="seconds")
+    output = _git(
+        "log",
+        f"--since={since_utc}",
+        "--name-only",
+        "--diff-filter=A",
+        "--pretty=format:",
+        "--",
+        "articles/",
+    )
+    slugs: list[str] = []
+    for raw in output.splitlines():
+        line = raw.strip()
+        if not (line.startswith("articles/") and line.endswith(".html")):
+            continue
+        slug = Path(line).stem
+        if slug and slug not in slugs:
+            slugs.append(slug)
     return slugs
 
 
-def charger_articles(slugs: list) -> list:
-    if not slugs or not os.path.exists(DATA_SEARCH):
-        return []
-    with open(DATA_SEARCH, encoding="utf-8") as f:
-        index = {a["slug"]: a for a in json.load(f)}
-    return [index[s] for s in slugs if s in index]
+def load_articles(slugs: list[str]) -> list[dict[str, Any]]:
+    if not SEARCH_JSON.exists():
+        raise RuntimeError(f"{SEARCH_JSON.relative_to(ROOT)} absent")
+    try:
+        raw = json.loads(SEARCH_JSON.read_text(encoding="utf-8"))
+    except json.JSONDecodeError as exc:
+        raise RuntimeError("data/search.json invalide") from exc
+    if not isinstance(raw, list):
+        raise RuntimeError("data/search.json doit contenir une liste")
+    index = {
+        str(item.get("slug") or ""): item
+        for item in raw
+        if isinstance(item, dict) and item.get("slug")
+    }
+    articles = [index[slug] for slug in slugs if slug in index]
+    missing = [slug for slug in slugs if slug not in index]
+    if missing:
+        raise RuntimeError(
+            f"{len(missing)} nouvel article absent de search.json; envoi annulé pour ne rien perdre"
+        )
+    return articles
 
 
-# ── Brevo : contacts ───────────────────────────────────────────────────────────
+def boolish(value: Any) -> bool:
+    if value is True or value == 1:
+        return True
+    return str(value or "").strip().lower() in {"1", "true", "yes", "oui", "on"}
 
-def get_contacts() -> list:
-    """Récupère tous les contacts actifs de la liste avec leurs attributs."""
-    contacts, offset = [], 0
+
+def frequency(contact: dict[str, Any]) -> str:
+    attrs = contact.get("attributes") or {}
+    raw = str(attrs.get("FREQ") or "").strip().lower()
+    aliases = {
+        "morning": "morning", "matin": "morning", "am": "morning",
+        "evening": "evening", "soir": "evening", "pm": "evening",
+        "both": "both", "les deux": "both", "deux": "both", "all": "both",
+    }
+    if raw in aliases:
+        return aliases[raw]
+    legacy = attrs.get("ENVOI_MATIN")
+    if legacy is True or boolish(legacy):
+        return "morning"
+    if legacy is False or str(legacy).strip().lower() in {"0", "false", "no", "non", "off"}:
+        return "evening"
+    return "both"
+
+
+def wants_slot(contact: dict[str, Any], slot: str) -> bool:
+    freq = frequency(contact)
+    return freq == "both" or (slot == "matin" and freq == "morning") or (
+        slot == "soir" and freq == "evening"
+    )
+
+
+def contact_categories(contact: dict[str, Any]) -> tuple[str, ...]:
+    attrs = contact.get("attributes") or {}
+    chosen = tuple(
+        cat for cat in CATEGORIES if boolish(attrs.get(f"CAT_{cat.upper()}"))
+    )
+    return chosen or CATEGORIES
+
+
+def unsubscribed_from(contact: dict[str, Any], *list_ids: int) -> bool:
+    if boolish(contact.get("emailBlacklisted")):
+        return True
+    raw = contact.get("listUnsubscribed") or []
+    try:
+        unsubscribed = {int(x) for x in raw}
+    except (TypeError, ValueError):
+        unsubscribed = set()
+    return any(int(list_id) in unsubscribed for list_id in list_ids)
+
+
+def get_contacts_from_list(client: Brevo, list_id: int) -> list[dict[str, Any]]:
+    contacts: list[dict[str, Any]] = []
+    offset = 0
     while True:
-        r = requests.get(
-            f"{BREVO_API_BASE}/contacts",
-            params={"listIds": BREVO_LIST_ID, "limit": 500, "offset": offset},
-            headers=HEADERS,
-            timeout=20,
+        data = client.json(
+            "GET",
+            f"/contacts/lists/{list_id}/contacts",
+            params={"limit": 500, "offset": offset, "sort": "asc"},
         )
-        if r.status_code != 200:
-            raise RuntimeError(f"Contacts Brevo {r.status_code}: {r.text[:200]}")
-        data  = r.json()
-        batch = data.get("contacts", [])
-        contacts.extend(batch)
+        batch = data.get("contacts") or []
+        if not isinstance(batch, list):
+            raise RuntimeError("Brevo contacts: liste invalide")
+        contacts.extend(x for x in batch if isinstance(x, dict))
         if len(batch) < 500:
-            break
+            return contacts
         offset += 500
-    return contacts
 
 
-def contact_a_des_prefs(contact: dict) -> bool:
-    """Vrai si au moins un attribut CAT_* est explicitement True."""
-    attrs = contact.get("attributes", {})
-    return any(attrs.get(f"CAT_{cat.upper()}") is True for cat in CATEGORIES)
+def ensure_contact_attributes(client: Brevo) -> None:
+    required = {"FREQ": "text"}
+    required.update({f"CAT_{cat.upper()}": "boolean" for cat in CATEGORIES})
 
+    def read() -> dict[str, str]:
+        data = client.json("GET", "/contacts/attributes")
+        return {
+            str(item.get("name") or "").upper(): str(item.get("type") or "").lower()
+            for item in data.get("attributes") or []
+            if isinstance(item, dict)
+        }
 
-def cats_du_contact(contact: dict) -> list:
-    """Rubriques sélectionnées. Retourne toutes si aucune préférence."""
-    attrs = contact.get("attributes", {})
-    cats  = [cat for cat in CATEGORIES if attrs.get(f"CAT_{cat.upper()}") is True]
-    return cats if cats else CATEGORIES
-
-
-# ── Génération HTML ────────────────────────────────────────────────────────────
-
-def _article_html(art: dict, couleur: str, label: str) -> str:
-    slug    = art["slug"]
-    titre   = art["titre"]
-    excerpt = (art.get("excerpt") or "")[:220]
-    url     = f"{SITE_BASE}/articles/{slug}.html"
-    return (
-        f'<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">'
-        f'<tr><td style="padding:0 0 32px;">'
-        # Catégorie
-        f'<div style="font-family:Arial,Helvetica,sans-serif;font-size:10px;font-weight:700;'
-        f'letter-spacing:2.5px;color:{couleur};text-transform:uppercase;margin-bottom:10px;">{label}</div>'
-        # Titre
-        f'<h2 style="font-family:Georgia,\'Times New Roman\',serif;font-size:20px;font-weight:normal;'
-        f'color:#3A3835;margin:0 0 10px;line-height:1.42;">{titre}</h2>'
-        # Extrait
-        f'<p style="font-family:Arial,Helvetica,sans-serif;font-size:14px;color:#6B6762;'
-        f'line-height:1.68;margin:0 0 16px;">{excerpt}</p>'
-        # Lien
-        f'<a href="{url}" style="font-family:Arial,Helvetica,sans-serif;font-size:13px;'
-        f'font-weight:700;color:{couleur};text-decoration:none;">Lire l\'article&nbsp;→</a>'
-        f'</td></tr>'
-        f'<tr><td style="border-bottom:1px solid #E5E1DA;margin-bottom:28px;">&nbsp;</td></tr>'
-        f'</table>'
-    )
-
-
-def _section_cat(cat: str, arts: list) -> str:
-    couleur = CAT_COLORS[cat]
-    label   = CAT_LABELS[cat]
-    return "\n".join(_article_html(a, couleur, label) for a in arts)
-
-
-def generer_template_html(articles_par_cat: dict, date_long: str, slot: str = "matin") -> str:
-    """
-    Template Brevo avec blocs conditionnels {% if contact.CAT_X %}.
-
-    Structure :
-    - Si l'abonné a des préférences → seules ses rubriques s'affichent
-    - Sinon ({% else %}) → toutes les rubriques s'affichent
-
-    La syntaxe {% if %} / {% else %} / {% endif %} est native à Brevo
-    et est résolue par contact au moment de l'envoi transactionnel.
-    """
-    # Sections conditionnelles (pour abonnés avec préférences)
-    cond_parts = []
-    for cat in CATEGORIES:
-        arts = articles_par_cat.get(cat, [])
-        if not arts:
+    attrs = read()
+    for name, expected_type in required.items():
+        if name in attrs:
             continue
-        attr = f"CAT_{cat.upper()}"
-        cond_parts.append(
-            f"{{% if contact.{attr} %}}\n{_section_cat(cat, arts)}\n{{% endif %}}"
+        client.request(
+            "POST",
+            f"/contacts/attributes/normal/{name}",
+            expected=(200, 201, 204),
+            payload={"type": expected_type},
         )
-    cond_html = "\n".join(cond_parts)
+        print(f"[BREVO] Attribut {name} créé automatiquement ({expected_type}).")
 
-    # Sections complètes (pour abonnés sans préférences)
-    all_html = "\n".join(
-        _section_cat(cat, arts)
-        for cat in CATEGORIES
-        for arts in [articles_par_cat.get(cat, [])]
-        if arts
+    attrs = read()
+    missing = [name for name in required if name not in attrs]
+    wrong = [
+        f"{name}={attrs[name]}"
+        for name, expected in required.items()
+        if name in attrs and attrs[name] != expected
+    ]
+    if missing or wrong:
+        detail = []
+        if missing:
+            detail.append("absents: " + ", ".join(missing))
+        if wrong:
+            detail.append("types incorrects: " + ", ".join(wrong))
+        raise RuntimeError(
+            "Configuration Brevo invalide (" + " ; ".join(detail) + "). "
+            "FREQ doit être un texte et les CAT_* des booléens."
+        )
+
+
+def get_or_create_delivery_list(client: Brevo, main_list_id: int) -> int:
+    offset = 0
+    while True:
+        data = client.json(
+            "GET", "/contacts/lists", params={"limit": 50, "offset": offset, "sort": "desc"}
+        )
+        lists = data.get("lists") or []
+        for item in lists:
+            if isinstance(item, dict) and item.get("name") == DELIVERY_LIST_NAME:
+                return int(item["id"])
+        if len(lists) < 50:
+            break
+        offset += 50
+
+    main = client.json("GET", f"/contacts/lists/{main_list_id}")
+    folder_id = int(main["folderId"])
+    created = client.json(
+        "POST",
+        "/contacts/lists",
+        expected=(200, 201),
+        payload={"name": DELIVERY_LIST_NAME, "folderId": folder_id},
+    )
+    list_id = int(created["id"])
+    print(f"[BREVO] Liste technique créée: {list_id}")
+    return list_id
+
+
+def wait_process(client: Brevo, process_id: Any, timeout_seconds: int = 90) -> None:
+    if not process_id:
+        return
+    deadline = time.monotonic() + timeout_seconds
+    while time.monotonic() < deadline:
+        info = client.json("GET", f"/processes/{int(process_id)}")
+        status = str(info.get("status") or "").lower()
+        if status == "completed":
+            return
+        if status in {"failed", "error", "cancelled"}:
+            raise RuntimeError(f"Processus Brevo {process_id} terminé en échec ({status})")
+        time.sleep(2)
+    raise RuntimeError(f"Processus Brevo {process_id} non terminé après {timeout_seconds}s")
+
+
+def chunks(values: list[str], size: int = 100) -> list[list[str]]:
+    return [values[i:i + size] for i in range(0, len(values), size)]
+
+
+def remove_from_list(client: Brevo, list_id: int, emails: list[str]) -> None:
+    for batch in chunks(emails):
+        data = client.json(
+            "POST",
+            f"/contacts/lists/{list_id}/contacts/remove",
+            expected=(200, 201, 202, 204),
+            payload={"emails": batch},
+        )
+        wait_process(client, data.get("processId"))
+        failed = data.get("failure") or []
+        if failed:
+            raise RuntimeError(f"Retrait liste incomplet: {len(failed)} échec(s)")
+
+
+def add_to_list(client: Brevo, list_id: int, emails: list[str]) -> None:
+    for batch in chunks(emails):
+        data = client.json(
+            "POST",
+            f"/contacts/lists/{list_id}/contacts/add",
+            expected=(200, 201, 202),
+            payload={"emails": batch},
+        )
+        wait_process(client, data.get("processId"))
+        failed = data.get("failure") or []
+        if failed:
+            raise RuntimeError(f"Ajout liste incomplet: {len(failed)} échec(s)")
+
+
+def sync_delivery_list(
+    client: Brevo,
+    delivery_list_id: int,
+    target_emails: list[str],
+) -> None:
+    target = {email.lower() for email in target_emails}
+    current_contacts = get_contacts_from_list(client, delivery_list_id)
+
+    current_active: set[str] = set()
+    protected_unsubscribed: set[str] = set()
+    for contact in current_contacts:
+        email = str(contact.get("email") or "").strip().lower()
+        if not email:
+            continue
+        if unsubscribed_from(contact, delivery_list_id):
+            protected_unsubscribed.add(email)
+        else:
+            current_active.add(email)
+
+    # Ne jamais retirer les contacts désabonnés de la liste technique :
+    # Brevo conserve ainsi leur désabonnement spécifique à cette liste.
+    to_remove = sorted(current_active - target)
+    to_add = sorted(target - current_active - protected_unsubscribed)
+
+    if to_remove:
+        remove_from_list(client, delivery_list_id, to_remove)
+    if to_add:
+        add_to_list(client, delivery_list_id, to_add)
+
+    # Vérification finale : les actifs doivent être exactement la cible moins
+    # les contacts qui ont explicitement refusé cette liste.
+    for attempt in range(3):
+        final_contacts = get_contacts_from_list(client, delivery_list_id)
+        final_active = {
+            str(c.get("email") or "").strip().lower()
+            for c in final_contacts
+            if c.get("email") and not unsubscribed_from(c, delivery_list_id)
+        }
+        expected = target - protected_unsubscribed
+        if final_active == expected:
+            print(
+                f"[BREVO] Liste de diffusion alignée: {len(final_active)} actif(s), "
+                f"{len(protected_unsubscribed)} désabonné(s) conservé(s)"
+            )
+            return
+        time.sleep(2 ** attempt)
+    missing = sorted(expected - final_active)
+    extra = sorted(final_active - expected)
+    raise RuntimeError(
+        f"Liste de diffusion incohérente après synchronisation "
+        f"(manquants={len(missing)}, excédents={len(extra)})"
     )
 
-    # Condition globale : a-t-il au moins un CAT_* ?
+
+def _article_html(article: dict[str, Any], category: str) -> str:
+    slug = quote(str(article.get("slug") or ""), safe="-")
+    title = html.escape(str(article.get("titre") or "Article sans titre"))
+    excerpt = html.escape(str(article.get("excerpt") or "")[:260])
+    label = html.escape(CAT_LABELS[category])
+    color = CAT_COLORS[category]
+    url = (
+        f"{SITE_BASE}/articles/{slug}.html?utm_source=newsletter"
+        f"&utm_medium=email&utm_campaign=digest"
+    )
+    return f"""
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+<tr><td style="padding:0 0 28px;">
+<div style="font-family:Arial,Helvetica,sans-serif;font-size:10px;font-weight:700;
+letter-spacing:2px;color:{color};text-transform:uppercase;margin-bottom:9px;">{label}</div>
+<h2 style="font-family:Georgia,Times New Roman,serif;font-size:20px;font-weight:normal;
+color:#262422;margin:0 0 9px;line-height:1.4;">{title}</h2>
+<p style="font-family:Arial,Helvetica,sans-serif;font-size:14px;color:#625f5b;
+line-height:1.65;margin:0 0 14px;">{excerpt}</p>
+<a href="{url}" style="font-family:Arial,Helvetica,sans-serif;font-size:13px;
+font-weight:700;color:{color};text-decoration:none;">Lire l’article&nbsp;→</a>
+</td></tr>
+<tr><td style="border-top:1px solid #e5e1da;height:24px;font-size:0;line-height:0;">&nbsp;</td></tr>
+</table>"""
+
+
+def _section_html(category: str, articles: list[dict[str, Any]]) -> str:
+    return "".join(_article_html(article, category) for article in articles)
+
+
+def build_email(
+    articles_by_category: dict[str, list[dict[str, Any]]],
+    *,
+    now: dt.datetime,
+    slot: str,
+) -> str:
+    conditional: list[str] = []
+    all_sections: list[str] = []
+    for category in CATEGORIES:
+        articles = articles_by_category.get(category) or []
+        if not articles:
+            continue
+        section = _section_html(category, articles)
+        conditional.append(
+            f"{{% if contact.CAT_{category.upper()} %}}\n{section}\n{{% endif %}}"
+        )
+        all_sections.append(section)
+
     has_any = " or ".join(f"contact.CAT_{cat.upper()}" for cat in CATEGORIES)
-
-    content_html = f"""
-    {{% if {has_any} %}}
-    {cond_html}
-    {{% else %}}
-    {all_html}
-    {{% endif %}}
-    """
-
-    nb_cats = len([c for c in CATEGORIES if articles_par_cat.get(c)])
-    nb_arts = sum(len(v) for v in articles_par_cat.values())
-    resume  = f"{nb_arts} article{'s' if nb_arts > 1 else ''}"
-
-    salutation  = "Bonjour" if slot == "matin" else "Bonsoir"
-    intro_texte = (
-        "Bonne journée en perspective. Voici ce que l'actualité a retenu ce matin — "
-        "triés selon vos rubriques, résumés avec soin. À lire avec votre café."
-        if slot == "matin" else
-        "L'actualité ne manque pas d'intérêt aujourd'hui. Voici ce que Les Faits a "
-        "retenu pour vous ce soir — selon les rubriques que vous suivez. Bonne lecture."
+    content = (
+        f"{{% if {has_any} %}}\n{''.join(conditional)}\n"
+        f"{{% else %}}\n{''.join(all_sections)}\n{{% endif %}}"
     )
-
-    return f"""<!DOCTYPE html>
+    total = sum(len(items) for items in articles_by_category.values())
+    category_count = sum(1 for items in articles_by_category.values() if items)
+    greeting = "Bonjour" if slot == "matin" else "Bonsoir"
+    intro = (
+        "Voici les nouveaux articles publiés depuis votre précédent digest, "
+        "classés selon les rubriques que vous avez choisies."
+    )
+    preview = html.escape(
+        f"{total} nouvel{'s' if total > 1 else ''} article{'s' if total > 1 else ''} "
+        f"dans votre sélection Les Faits."
+    )
+    date_text = html.escape(date_longue(now))
+    return f"""<!doctype html>
 <html lang="fr">
 <head>
-<meta charset="UTF-8"/>
-<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-<meta name="x-apple-disable-message-reformatting"/>
-<title>Les Faits — {date_long}</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="x-apple-disable-message-reformatting">
+<title>Les Faits — {date_text}</title>
 </head>
-<body style="margin:0;padding:0;background:#F0EDE6;-webkit-text-size-adjust:100%;">
-<!--[if mso]><center><table width="600"><tr><td><![endif]-->
+<body style="margin:0;padding:0;background:#f0ede6;-webkit-text-size-adjust:100%;">
+<div style="display:none;max-height:0;overflow:hidden;opacity:0;color:transparent;">{preview}</div>
 <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"
-       style="background:#F0EDE6;min-height:100%;">
-<tr><td align="center" style="padding:40px 16px 56px;">
-
-  <table role="presentation" width="600" cellpadding="0" cellspacing="0" border="0"
-         style="max-width:600px;width:100%;">
-
-    <!-- ░░ EN-TÊTE ░░ -->
-    <tr>
-      <td style="background:#3A3835;border-radius:8px 8px 0 0;padding:36px 40px 30px;">
-        <!-- Logo texte -->
-        <div style="margin-bottom:20px;">
-          <span style="font-family:Arial,Helvetica,sans-serif;font-size:30px;font-weight:300;
-                       color:#F0EDE6;letter-spacing:-0.5px;">les&nbsp;</span><span
-               style="font-family:Arial,Helvetica,sans-serif;font-size:30px;font-weight:700;
-                       color:#6C85BD;letter-spacing:-0.5px;">faits</span>
-        </div>
-        <!-- Date + résumé -->
-        <p style="font-family:Georgia,'Times New Roman',serif;font-size:16px;color:#B0A99F;
-                  line-height:1.5;margin:0 0 6px;">
-          Votre sélection du {date_long}
-        </p>
-        <p style="font-family:Arial,Helvetica,sans-serif;font-size:11px;color:#706A64;
-                  margin:0;letter-spacing:0.5px;text-transform:uppercase;">
-          {resume} · {nb_cats} rubrique{'s' if nb_cats > 1 else ''}
-        </p>
-      </td>
-    </tr>
-
-    <!-- ░░ INTRO ░░ -->
-    <tr>
-      <td style="background:#FAF9F6;padding:32px 40px 24px;border-bottom:1px solid #E8E3DB;">
-        <p style="font-family:Georgia,'Times New Roman',serif;font-size:16px;color:#3A3835;
-                  line-height:1.75;margin:0;">
-          {salutation},
-        </p>
-        <p style="font-family:Georgia,'Times New Roman',serif;font-size:15px;color:#4A4744;
-                  line-height:1.75;margin:14px 0 0;">
-          {intro_texte}
-        </p>
-      </td>
-    </tr>
-
-    <!-- ░░ ARTICLES ░░ -->
-    <tr>
-      <td style="background:#FAF9F6;padding:28px 40px 4px;">
-        {content_html}
-      </td>
-    </tr>
-
-    <!-- ░░ LIEN SITE ░░ -->
-    <tr>
-      <td style="background:#FAF9F6;padding:8px 40px 36px;text-align:center;">
-        <a href="{SITE_BASE}"
-           style="font-family:Arial,Helvetica,sans-serif;font-size:13px;color:#6C85BD;
-                  text-decoration:none;font-weight:600;">
-          Voir toute l'actualité sur lesfaits.info →
-        </a>
-      </td>
-    </tr>
-
-    <!-- ░░ PIED DE PAGE ░░ -->
-    <tr>
-      <td style="background:#3A3835;border-radius:0 0 8px 8px;padding:24px 40px;">
-        <p style="font-family:Arial,Helvetica,sans-serif;font-size:11px;color:#706A64;
-                  margin:0 0 10px;line-height:1.6;text-align:center;">
-          Vous recevez ce résumé parce que vous vous êtes abonné·e à
-          <a href="{SITE_BASE}" style="color:#9AA5BD;text-decoration:none;">Les Faits</a>.
-        </p>
-        <p style="font-family:Arial,Helvetica,sans-serif;font-size:11px;margin:0;text-align:center;">
-          <a href="{{{{ unsubscribe }}}}" style="color:#6C85BD;text-decoration:none;">Se désabonner</a>
-          &nbsp;·&nbsp;
-          <a href="{SITE_BASE}/confidentialite.html" style="color:#706A64;text-decoration:none;">Vie privée</a>
-        </p>
-      </td>
-    </tr>
-
-  </table>
+ style="background:#f0ede6;">
+<tr><td align="center" style="padding:30px 12px 48px;">
+<table role="presentation" width="600" cellpadding="0" cellspacing="0" border="0"
+ style="width:100%;max-width:600px;">
+<tr><td style="background:#0b0f17;border-radius:10px 10px 0 0;padding:32px 36px 27px;">
+<div style="font-family:Georgia,Times New Roman,serif;font-size:31px;line-height:1;color:#fff;">
+<span style="font-weight:400;">les</span><span style="font-weight:700;">faits</span>
+</div>
+<p style="font-family:Arial,Helvetica,sans-serif;font-size:12px;color:#aab2c0;
+margin:18px 0 5px;letter-spacing:.04em;">Votre sélection du {date_text}</p>
+<p style="font-family:Arial,Helvetica,sans-serif;font-size:10px;color:#7f8998;margin:0;
+letter-spacing:.12em;text-transform:uppercase;">{total} article{'s' if total > 1 else ''} ·
+{category_count} rubrique{'s' if category_count > 1 else ''}</p>
+</td></tr>
+<tr><td style="background:#fff;padding:28px 36px 22px;border-bottom:1px solid #e8e3db;">
+<p style="font-family:Georgia,Times New Roman,serif;font-size:16px;color:#262422;
+line-height:1.7;margin:0;">{greeting},</p>
+<p style="font-family:Georgia,Times New Roman,serif;font-size:15px;color:#4a4744;
+line-height:1.7;margin:12px 0 0;">{intro}</p>
+</td></tr>
+<tr><td style="background:#fff;padding:26px 36px 4px;">{content}</td></tr>
+<tr><td style="background:#fff;padding:0 36px 34px;text-align:center;">
+<a href="{SITE_BASE}/?utm_source=newsletter&utm_medium=email"
+style="font-family:Arial,Helvetica,sans-serif;font-size:13px;color:#375a9e;
+text-decoration:none;font-weight:700;">Voir tous les articles sur lesfaits.info →</a>
+</td></tr>
+<tr><td style="background:#0b0f17;border-radius:0 0 10px 10px;padding:22px 30px;">
+<p style="font-family:Arial,Helvetica,sans-serif;font-size:11px;color:#9aa3b1;
+margin:0 0 9px;line-height:1.55;text-align:center;">
+Vous recevez cet email parce que vous avez confirmé votre inscription à Les Faits.
+</p>
+<p style="font-family:Arial,Helvetica,sans-serif;font-size:11px;margin:0;text-align:center;">
+<a href="{{{{ unsubscribe }}}}" style="color:#c7d4f0;text-decoration:underline;">Se désabonner</a>
+&nbsp;·&nbsp;
+<a href="{SITE_BASE}/confidentialite.html" style="color:#9aa3b1;text-decoration:none;">Vie privée</a>
+</p>
 </td></tr>
 </table>
-<!--[if mso]></td></tr></table></center><![endif]-->
+</td></tr>
+</table>
 </body>
 </html>"""
 
 
-# ── Brevo : liste temporaire de destinataires du jour ──────────────────────────
-# Migration transactionnel → campagne (juillet 2026) : Brevo ne propose une
-# page de désabonnement personnalisée (redirection vers /desabonnement.html)
-# et un vrai retrait de liste au clic QUE pour les campagnes marketing, jamais
-# pour l'API transactionnelle /smtp/email utilisée jusqu'ici. La personnalisation
-# par rubrique (blocs {% if contact.CAT_X %}) fonctionne identiquement dans les
-# deux mécanismes — seul le transport change. Le filtrage par créneau (matin/
-# soir) et par rubriques actives du jour, qui se faisait contact par contact
-# côté Python, est reproduit en resynchronisant une liste Brevo dédiée
-# ("Digest — Envoi du jour") juste avant chaque envoi : vidée puis repeuplée
-# avec exactement les destinataires calculés pour ce run, avant de cibler
-# cette liste comme destinataire de la campagne.
-NOM_LISTE_ENVOI_JOUR = "Digest — Envoi du jour"
-_CHUNK = 100  # taille de lot prudente pour les appels contacts/lists (add/remove)
+def upsert_campaign(
+    client: Brevo,
+    *,
+    name: str,
+    subject: str,
+    html_content: str,
+    list_id: int,
+    preview_text: str,
+) -> tuple[int, str]:
+    existing = find_campaign(client, name)
+    if existing:
+        status = str(existing.get("status") or "").lower()
+        campaign_id = int(existing["id"])
+        if status in SUCCESS_CAMPAIGN_STATUSES:
+            return campaign_id, status
+        if status not in {"draft", ""}:
+            raise RuntimeError(
+                f"Campagne {campaign_id} déjà présente avec le statut inattendu {status!r}"
+            )
+        client.request(
+            "PUT",
+            f"/emailCampaigns/{campaign_id}",
+            expected=(200, 204),
+            payload={
+                "subject": subject,
+                "sender": {"name": BREVO_SENDER_NAME, "email": BREVO_SENDER_EMAIL},
+                "htmlContent": html_content,
+                "recipients": {"listIds": [list_id]},
+                "previewText": preview_text,
+                "tag": CAMPAIGN_TAG,
+            },
+        )
+        return campaign_id, "draft"
+
+    data = client.json(
+        "POST",
+        "/emailCampaigns",
+        expected=(200, 201),
+        payload={
+            "name": name,
+            "subject": subject,
+            "sender": {"name": BREVO_SENDER_NAME, "email": BREVO_SENDER_EMAIL},
+            "htmlContent": html_content,
+            "recipients": {"listIds": [list_id]},
+            "previewText": preview_text,
+            "tag": CAMPAIGN_TAG,
+            "replyTo": BREVO_SENDER_EMAIL,
+        },
+    )
+    return int(data["id"]), "draft"
 
 
-def _obtenir_ou_creer_liste_envoi_jour() -> int:
-    """Retrouve la liste temporaire par son nom, la crée si absente (même
-    dossier que la liste principale des abonnés)."""
-    r = requests.get(f"{BREVO_API_BASE}/contacts/lists", params={"limit": 50},
-                      headers=HEADERS, timeout=20)
-    if r.status_code != 200:
-        raise RuntimeError(f"Lecture des listes {r.status_code}: {r.text[:200]}")
-    for lst in r.json().get("lists", []):
-        if lst.get("name") == NOM_LISTE_ENVOI_JOUR:
-            return lst["id"]
-
-    # Dossier de la liste principale, pour ranger la liste temporaire au même endroit.
-    r = requests.get(f"{BREVO_API_BASE}/contacts/lists/{BREVO_LIST_ID}",
-                      headers=HEADERS, timeout=20)
-    if r.status_code != 200:
-        raise RuntimeError(f"Lecture liste principale {r.status_code}: {r.text[:200]}")
-    folder_id = r.json()["folderId"]
-
-    r = requests.post(f"{BREVO_API_BASE}/contacts/lists",
-                       json={"name": NOM_LISTE_ENVOI_JOUR, "folderId": folder_id},
-                       headers=HEADERS, timeout=20)
-    if r.status_code not in (200, 201):
-        raise RuntimeError(f"Création liste {r.status_code}: {r.text[:200]}")
-    lid = r.json()["id"]
-    print(f"  [BREVO] Liste « {NOM_LISTE_ENVOI_JOUR} » créée — id={lid}")
-    return lid
+def send_and_confirm(client: Brevo, campaign_id: int) -> str:
+    client.request(
+        "POST",
+        f"/emailCampaigns/{campaign_id}/sendNow",
+        expected=(200, 201, 202, 204),
+    )
+    deadline = time.monotonic() + 75
+    last = ""
+    while time.monotonic() < deadline:
+        info = client.json(
+            "GET",
+            f"/emailCampaigns/{campaign_id}",
+            params={"excludeHtmlContent": "true"},
+        )
+        last = str(info.get("status") or "").lower()
+        if last in SUCCESS_CAMPAIGN_STATUSES:
+            return last
+        if last in {"archive", "cancelled"}:
+            break
+        time.sleep(3)
+    raise RuntimeError(
+        f"Campagne {campaign_id} non confirmée après envoi (statut={last or 'inconnu'})"
+    )
 
 
-def _vider_liste(list_id: int) -> None:
-    r = requests.post(f"{BREVO_API_BASE}/contacts/lists/{list_id}/contacts/remove",
-                       json={"all": True}, headers=HEADERS, timeout=30)
-    if r.status_code not in (200, 201, 202, 204):
-        # Brevo renvoie 400 "already removed" si la liste est déjà vide — non fatal
-        if r.status_code == 400 and "already removed" in r.text:
-            return
-        raise RuntimeError(f"Vidage liste {r.status_code}: {r.text[:200]}")
+def build_recipients(
+    contacts: list[dict[str, Any]],
+    *,
+    main_list_id: int,
+    delivery_list_id: int,
+    slot: str,
+    active_categories: set[str],
+) -> tuple[list[str], dict[str, int]]:
+    recipients: list[str] = []
+    stats = {
+        "blacklisted_or_unsubscribed": 0,
+        "wrong_slot": 0,
+        "no_matching_category": 0,
+        "invalid_email": 0,
+    }
+    seen: set[str] = set()
+    for contact in contacts:
+        email = str(contact.get("email") or "").strip().lower()
+        if not email or "@" not in email:
+            stats["invalid_email"] += 1
+            continue
+        if email in seen:
+            continue
+        seen.add(email)
+        if unsubscribed_from(contact, main_list_id, delivery_list_id):
+            stats["blacklisted_or_unsubscribed"] += 1
+            continue
+        if not wants_slot(contact, slot):
+            stats["wrong_slot"] += 1
+            continue
+        if not (set(contact_categories(contact)) & active_categories):
+            stats["no_matching_category"] += 1
+            continue
+        recipients.append(email)
+    return sorted(recipients), stats
 
 
-def _peupler_liste(list_id: int, emails: list) -> None:
-    for i in range(0, len(emails), _CHUNK):
-        lot = emails[i:i + _CHUNK]
-        r = requests.post(f"{BREVO_API_BASE}/contacts/lists/{list_id}/contacts/add",
-                           json={"emails": lot}, headers=HEADERS, timeout=30)
-        if r.status_code not in (200, 201, 202):
-            raise RuntimeError(f"Ajout à la liste {r.status_code}: {r.text[:200]}")
-
-
-def preparer_liste_destinataires(emails: list) -> int:
-    """Vide et repeuple la liste temporaire avec exactement les destinataires
-    calculés pour ce run, retourne son id (pour cibler la campagne)."""
-    list_id = _obtenir_ou_creer_liste_envoi_jour()
-    _vider_liste(list_id)
-    _peupler_liste(list_id, emails)
-    print(f"  [BREVO] Liste « {NOM_LISTE_ENVOI_JOUR} » resynchronisée — {len(emails)} destinataire(s)")
+def validate_environment() -> int:
+    missing = [
+        name for name, value in (
+            ("BREVO_API_KEY", BREVO_API_KEY),
+            ("BREVO_LIST_ID", BREVO_LIST_ID),
+            ("BREVO_SENDER_EMAIL", BREVO_SENDER_EMAIL),
+        )
+        if not value
+    ]
+    if missing:
+        raise RuntimeError("Secrets newsletter absents: " + ", ".join(missing))
+    try:
+        list_id = int(BREVO_LIST_ID)
+    except ValueError as exc:
+        raise RuntimeError("BREVO_LIST_ID doit être un entier") from exc
+    if "@" not in BREVO_SENDER_EMAIL:
+        raise RuntimeError("BREVO_SENDER_EMAIL invalide")
     return list_id
 
 
-# ── Brevo : campagne email ──────────────────────────────────────────────────────
-# En plus du lien {{ unsubscribe }} dans le corps HTML — que Brevo peut, pour
-# une campagne, rediriger vers une page personnalisée (à configurer une seule
-# fois dans le compte : Campagnes > Modèles ou lors de la création manuelle
-# d'une campagne > Paramètres additionnels > page de désabonnement personnalisée
-# = /desabonnement.html) — on ajoute l'en-tête List-Unsubscribe (RFC 8058) pour
-# le bouton natif Gmail/Outlook/Yahoo, indépendant de ce réglage.
-
-def creer_et_envoyer_campagne(html_content: str, date_long: str, list_id: int) -> int:
-    """Crée une campagne ciblant la liste temporaire et l'envoie immédiatement.
-    Retourne l'id de la campagne."""
-    payload = {
-        "tag":            "nl-digest",
-        "name":           f"Digest {date_long} (auto)",
-        "subject":        f"Les Faits du {date_long} — votre sélection",
-        "sender":         {"name": BREVO_SENDER_NAME, "email": BREVO_SENDER_EMAIL},
-        "htmlContent":    html_content,
-        "recipients":     {"listIds": [list_id]},
-        "headers": {
-            "List-Unsubscribe": "<{{ unsubscribe }}>",
-            "List-Unsubscribe-Post": "List-Unsubscribe=One-Click",
-        },
-    }
-    r = requests.post(f"{BREVO_API_BASE}/emailCampaigns",
-                       json=payload, headers=HEADERS, timeout=20)
-    if r.status_code not in (200, 201):
-        raise RuntimeError(f"Création campagne {r.status_code}: {r.text[:300]}")
-    campaign_id = r.json()["id"]
-    print(f"  [BREVO] Campagne créée — id={campaign_id}")
-
-    r = requests.post(f"{BREVO_API_BASE}/emailCampaigns/{campaign_id}/sendNow",
-                       headers=HEADERS, timeout=20)
-    if r.status_code not in (200, 201, 202, 204):
-        raise RuntimeError(f"Envoi campagne {r.status_code}: {r.text[:300]}")
-    print(f"  [BREVO] Campagne {campaign_id} envoyée")
-    return campaign_id
-
-
-# ── Point d'entrée ─────────────────────────────────────────────────────────────
-
-def main() -> None:
+def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser()
-    parser.add_argument("--slot", choices=["matin", "soir"], default="matin",
-                        help="Créneau d'envoi : matin (ENVOI_MATIN=True) ou soir (ENVOI_MATIN=False)")
-    args = parser.parse_args()
-    slot = args.slot
+    parser.add_argument("--slot", choices=("matin", "soir"))
+    parser.add_argument("--dry-run", action="store_true")
+    parser.add_argument(
+        "--check-config",
+        action="store_true",
+        help="Valider/créer les attributs et la liste technique Brevo sans envoyer.",
+    )
+    parser.add_argument("--now", help="ISO 8601, uniquement pour les tests/reprises contrôlées")
+    args = parser.parse_args(argv)
 
-    print("=" * 62)
-    print(f"  Les Faits — Digest {slot.upper()}")
-    print("=" * 62)
+    now = parse_iso(args.now) if args.now else dt.datetime.now(PARIS)
+    if now is None:
+        raise RuntimeError("--now doit être une date ISO 8601 valide")
 
-    # Vérification des variables d'environnement
-    manquantes = [v for v, val in [
-        ("BREVO_API_KEY",      BREVO_API_KEY),
-        ("BREVO_LIST_ID",      BREVO_LIST_ID),
-        ("BREVO_SENDER_EMAIL", BREVO_SENDER_EMAIL),
-    ] if not val]
-    if manquantes:
-        for v in manquantes:
-            print(f"  [ERREUR] Variable manquante : {v}")
-        sys.exit(1)
+    main_list_id = validate_environment()
+    client = Brevo(BREVO_API_KEY)
+    ensure_contact_attributes(client)
+    if args.check_config:
+        delivery_list_id = get_or_create_delivery_list(client, main_list_id)
+        print(
+            f"[CONFIG NEWSLETTER] Attributs valides, liste principale={main_list_id}, "
+            f"liste de diffusion={delivery_list_id}."
+        )
+        return 0
+    if not args.slot:
+        parser.error("--slot est obligatoire hors --check-config")
 
-    # 1. Articles récents
-    slugs = trouver_slugs_recents()
-    print(f"\n  Articles (27h) : {len(slugs)}")
-    if not slugs:
-        print("  Aucun article publié — envoi annulé.\n" + "=" * 62)
-        return
+    name = campaign_name(now, args.slot)
+    existing = find_campaign(client, name)
+    if existing and str(existing.get("status") or "").lower() in SUCCESS_CAMPAIGN_STATUSES:
+        print(
+            f"[IDEMPOTENCE] {name} existe déjà "
+            f"(id={existing.get('id')}, statut={existing.get('status')}) — aucun doublon."
+        )
+        return 0
 
-    articles = charger_articles(slugs)
-    if not articles:
-        print("  Slugs introuvables dans search.json — envoi annulé.\n" + "=" * 62)
-        return
+    last_sent = latest_sent_campaign_time(client)
+    slugs = recent_article_slugs(last_sent)
+    articles = load_articles(slugs)
+    by_category: dict[str, list[dict[str, Any]]] = {}
+    for article in articles:
+        category = str(article.get("categorie") or "")
+        if category in CATEGORIES:
+            by_category.setdefault(category, []).append(article)
 
-    # Grouper par rubrique
-    articles_par_cat: dict = {}
-    for a in articles:
-        cat = a.get("categorie", "")
-        if cat in CATEGORIES:
-            articles_par_cat.setdefault(cat, []).append(a)
+    if not by_category:
+        print("[NEWSLETTER] Aucun nouvel article éligible depuis le précédent envoi.")
+        return 0
 
-    for cat, arts in articles_par_cat.items():
-        for a in arts:
-            print(f"    · [{CAT_LABELS[cat]}] {a['titre'][:55]}")
+    html_content = build_email(by_category, now=now, slot=args.slot)
+    PREVIEW_HTML.write_text(html_content, encoding="utf-8")
+    print(
+        f"[NEWSLETTER] {sum(map(len, by_category.values()))} article(s), "
+        f"{len(by_category)} rubrique(s), aperçu: {PREVIEW_HTML.name}"
+    )
+    if args.dry_run:
+        print("[DRY-RUN] Aucun contact modifié, aucune campagne envoyée.")
+        return 0
 
-    if not articles_par_cat:
-        print("  Aucune rubrique reconnue — envoi annulé.\n" + "=" * 62)
-        return
+    delivery_list_id = get_or_create_delivery_list(client, main_list_id)
+    contacts = get_contacts_from_list(client, main_list_id)
+    recipients, stats = build_recipients(
+        contacts,
+        main_list_id=main_list_id,
+        delivery_list_id=delivery_list_id,
+        slot=args.slot,
+        active_categories=set(by_category),
+    )
+    print(
+        f"[CONTACTS] {len(contacts)} total, {len(recipients)} destinataire(s), "
+        f"{stats['blacklisted_or_unsubscribed']} désabonné(s), "
+        f"{stats['wrong_slot']} autre créneau, "
+        f"{stats['no_matching_category']} sans rubrique active."
+    )
+    if not recipients:
+        print("[NEWSLETTER] Aucun destinataire éligible — aucun envoi.")
+        return 0
 
-    # 2. Contacts filtrés par slot
-    print("\n  Chargement des abonnés...")
-    contacts = get_contacts()
-    # matin → ENVOI_MATIN is True ; soir → ENVOI_MATIN is False ou non défini
-    def veux_ce_slot(c: dict) -> bool:
-        val = c.get("attributes", {}).get("ENVOI_MATIN")
-        if slot == "matin":
-            return val is True
-        else:
-            return val is not True  # False, None, ou absent → soir par défaut
-    # Un contact désabonné (clic sur le lien de désabonnement, quelle que soit
-    # la page affichée derrière) est marqué "emailBlacklisted": true par Brevo
-    # — ce champ n'était jamais vérifié ici, donc le désabonnement n'avait
-    # aucun effet concret sur les envois suivants malgré le clic.
-    desabonnes = sum(1 for c in contacts if c.get("emailBlacklisted"))
-    if desabonnes:
-        print(f"  Désabonnés exclus : {desabonnes}")
-    actifs = [c for c in contacts
-              if c.get("email") and not c.get("emailBlacklisted") and veux_ce_slot(c)]
-    print(f"  Abonnés slot={slot} : {len(actifs)}")
-    if not actifs:
-        print("  Liste vide — envoi annulé.\n" + "=" * 62)
-        return
+    sync_delivery_list(client, delivery_list_id, recipients)
+    subject = (
+        f"Les Faits — votre sélection du {date_longue(now)} "
+        f"({'matin' if args.slot == 'matin' else 'soir'})"
+    )
+    preview_text = (
+        f"{sum(map(len, by_category.values()))} nouvel"
+        f"{'s' if sum(map(len, by_category.values())) > 1 else ''} article"
+        f"{'s' if sum(map(len, by_category.values())) > 1 else ''} dans votre sélection."
+    )
+    campaign_id, status = upsert_campaign(
+        client,
+        name=name,
+        subject=subject,
+        html_content=html_content,
+        list_id=delivery_list_id,
+        preview_text=preview_text,
+    )
+    if status in SUCCESS_CAMPAIGN_STATUSES:
+        print(f"[IDEMPOTENCE] Campagne {campaign_id} déjà {status} — aucun renvoi.")
+        return 0
 
-    # 3. Exclure les abonnés dont aucune rubrique choisie n'a d'article aujourd'hui
-    # (la personnalisation par rubrique dans le HTML masque déjà ces sections,
-    # mais un abonné sans aucune rubrique active ne doit pas recevoir un email
-    # vide de contenu).
-    destinataires, ignores = [], 0
-    for contact in actifs:
-        cats_contact = cats_du_contact(contact)
-        if any(cat in articles_par_cat for cat in cats_contact):
-            destinataires.append(contact["email"])
-        else:
-            ignores += 1
-    if not destinataires:
-        print("  Aucun destinataire avec du contenu pertinent — envoi annulé.\n" + "=" * 62)
-        return
-
-    # 4. Template HTML
-    date_long    = date_longue()
-    html_content = generer_template_html(articles_par_cat, date_long, slot)
-
-    # 5. Resynchronisation de la liste temporaire + envoi en campagne
-    print(f"\n  Préparation de la liste de destinataires ({len(destinataires)})...")
-    list_id = preparer_liste_destinataires(destinataires)
-
-    print(f"\n  Envoi de la campagne...")
-    try:
-        creer_et_envoyer_campagne(html_content, date_long, list_id)
-        envoyes, erreurs = len(destinataires), 0
-    except Exception as e:
-        print(f"  [ERREUR] Envoi campagne échoué : {e}")
-        envoyes, erreurs = 0, len(destinataires)
-
-    print(f"\n  ── Résultat ──────────────────────────────────────────")
-    print(f"  Envoyés  : {envoyes}")
-    if ignores:
-        print(f"  Ignorés  : {ignores}  (rubriques sans articles aujourd'hui)")
-    if erreurs:
-        print(f"  Erreurs  : {erreurs}")
-    print("=" * 62)
+    final_status = send_and_confirm(client, campaign_id)
+    print(
+        f"[SUCCÈS] Campagne {campaign_id} {final_status}, "
+        f"{len(recipients)} destinataire(s)."
+    )
+    return 0
 
 
 if __name__ == "__main__":
-    main()
+    try:
+        raise SystemExit(main())
+    except Exception as exc:
+        print(f"[ERREUR NEWSLETTER] {exc}", file=sys.stderr)
+        raise SystemExit(1)
