@@ -4,10 +4,26 @@ on:
   push:
     branches: [main]
     paths:
-      - 'src/premium.css'
+      - 'articles/**'
+      - 'categories/**'
+      - 'assets/**'
+      - 'src/**'
+      - 'data/articles.json'
+      - 'data/retirements.json'
+      - 'data/premium-design.json'
+      - 'scripts/apply_retirements.py'
+      - 'scripts/patch_articles.py'
+      - 'scripts/harden_newsletter_v3.py'
       - 'scripts/apply_premium_design.py'
       - 'scripts/test_premium_design.py'
-      - 'data/premium-design.json'
+      - 'scripts/normalize_*.py'
+      - 'scripts/check_seo.py'
+      - 'scripts/check_site_integrity.py'
+      - '*.html'
+      - 'feed.xml'
+      - 'sitemap.xml'
+      - 'robots.txt'
+      - 'manifest.json'
       - '.github/workflows/deploy.yml'
   schedule:
     # NOTE : les crons GitHub sont fréquemment retardés de 1 à 4h. On planifie
