@@ -1,0 +1,115 @@
+name: Réparation newsletter
+
+on:
+  push:
+    branches: ["main"]
+    paths:
+      - "scripts/generer_digest.py"
+      - "scripts/harden_newsletter.py"
+      - "scripts/test_newsletter.py"
+      - "src/newsletter.js"
+      - ".github/workflows/newsletter-repair.yml"
+  workflow_run:
+    workflows:
+      - "Factuel — Génération articles"
+      - "Factuel — Déploiement site"
+    types: [completed]
+  workflow_dispatch:
+
+concurrency:
+  group: newsletter-repair
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  repair:
+    if: >-
+      github.event_name != 'workflow_run' ||
+      github.event.workflow_run.conclusion == 'success'
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+
+    steps:
+      - name: Checkout du moteur
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+
+      - name: Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+
+      - run: pip install requests
+
+      - name: Tester avant toute écriture
+        run: |
+          python -m py_compile \
+            scripts/generer_digest.py \
+            scripts/harden_newsletter.py \
+            scripts/test_newsletter.py
+          python scripts/test_newsletter.py
+          node --check src/newsletter.js
+
+      - name: Réparer les pages du dépôt source
+        run: |
+          python scripts/harden_newsletter.py
+          python scripts/harden_newsletter.py --check
+
+      - name: Sauvegarder les pages source corrigées
+        run: |
+          set -euo pipefail
+          git config user.name "Factuel Bot"
+          git config user.email "bot@lesfaits.info"
+          git add -A
+          if git diff --cached --quiet; then
+            echo "Source déjà conforme."
+            exit 0
+          fi
+          git commit -m "fix: normaliser les formulaires newsletter"
+          for i in 1 2 3; do
+            if git push; then exit 0; fi
+            git fetch origin main
+            if ! git rebase origin/main; then
+              git rebase --abort || true
+              git reset --hard origin/main
+              python scripts/harden_newsletter.py
+              git add -A
+              git diff --cached --quiet || git commit -m "fix: normaliser les formulaires newsletter"
+            fi
+            sleep 3
+          done
+          echo "::error::Impossible de pousser la réparation newsletter vers la source."
+          exit 1
+
+      - name: Réparer immédiatement le site public
+        env:
+          SITE_DEPLOY_TOKEN: ${{ secrets.SITE_DEPLOY_TOKEN }}
+        run: |
+          set -euo pipefail
+          git clone \
+            "https://x-access-token:${SITE_DEPLOY_TOKEN}@github.com/r9mzz/lesfaits-site.git" \
+            /tmp/site
+          mkdir -p /tmp/site/src
+          cp src/newsletter.js /tmp/site/src/newsletter.js
+          python scripts/harden_newsletter.py --root /tmp/site
+          python scripts/harden_newsletter.py --root /tmp/site --check
+          git -C /tmp/site config user.name "Factuel Bot"
+          git -C /tmp/site config user.email "bot@lesfaits.info"
+          git -C /tmp/site add -A
+          if git -C /tmp/site diff --cached --quiet; then
+            echo "Site public déjà conforme."
+            exit 0
+          fi
+          git -C /tmp/site commit -m "fix: fiabiliser la newsletter"
+          for i in 1 2 3; do
+            if git -C /tmp/site push; then exit 0; fi
+            git -C /tmp/site pull --rebase
+            sleep 3
+          done
+          echo "::error::Impossible de pousser la réparation newsletter vers le site public."
+          exit 1
