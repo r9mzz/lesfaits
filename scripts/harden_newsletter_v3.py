@@ -1,15 +1,13 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""Passe finale newsletter v4.
+"""Normalise la newsletter v5.
 
-Le formulaire Les Faits ne simule plus un succès via ``fetch(..., no-cors)``.
-Les pages sont préparées pour une vraie soumission HTML POST directement vers
-le formulaire Brevo public, avec l'encodage natif d'un formulaire navigateur.
-Brevo affiche ainsi lui-même le résultat réel de l'inscription ou une erreur.
-
-Cette passe conserve également la normalisation v3 : les préférences de
-fréquence/rubriques non collectées par le formulaire Brevo ne sont pas montrées
-aux nouveaux abonnés et les blocs newsletter article restent dédupliqués.
+Objectifs :
+- restaurer les choix Matin / Soir / Les deux et les six rubriques ;
+- conserver un POST HTML natif vers Brevo, sans clé API côté navigateur ;
+- envoyer la réponse technique Brevo dans une iframe cachée afin que le lecteur
+  ne quitte jamais Les Faits pour une page JSON ;
+- garder le consentement local obligatoire et les blocs article dédupliqués.
 """
 from __future__ import annotations
 
@@ -20,12 +18,15 @@ from pathlib import Path
 import harden_newsletter as legacy
 
 ROOT = Path(__file__).resolve().parent.parent
-VERSION = "4"
+VERSION = "5"
 SCRIPT_RE = re.compile(r'/src/newsletter\.js(?:\?[^"\']*)?', re.I)
 SCRIPT_SRC = f"/src/newsletter.js?v={VERSION}"
 FORM_URL = legacy.FORM_URL
 FORM_HOST = legacy.FORM_HOST
+FRAME_NAME = "lf-newsletter-sink"
 
+FORM_OPEN_RE = re.compile(r'<form\b(?=[^>]*\bid=(["\'])nl-form\1)[^>]*>', re.I)
+CONSENT_INPUT_RE = re.compile(r'<input\b(?=[^>]*\bid=(["\'])nl-consent\1)[^>]*>', re.I)
 FREQ_BLOCK_RE = re.compile(
     r'\s*<div\b[^>]*class=(["\'])[^"\']*\bnl-compact__freq\b[^"\']*\1[^>]*>.*?</div>',
     re.I | re.S,
@@ -39,16 +40,63 @@ HINT_RE = re.compile(
     r'(?![^>]*data-newsletter-noscript)[^>]*>.*?</p>',
     re.I | re.S,
 )
-FORM_OPEN_RE = re.compile(r'<form\b(?=[^>]*\bid=(["\'])nl-form\1)[^>]*>', re.I)
-CONSENT_INPUT_RE = re.compile(r'<input\b(?=[^>]*\bid=(["\'])nl-consent\1)[^>]*>', re.I)
+SINK_RE = re.compile(
+    rf'\s*<iframe\b(?=[^>]*\bname=(["\']){re.escape(FRAME_NAME)}\1)[^>]*>\s*</iframe>',
+    re.I | re.S,
+)
+
+FREQ_BLOCK = '''
+      <div class="nl-compact__freq" role="group" aria-label="Fréquence de réception">
+        <label class="nl-compact__freq-opt"><input type="radio" name="LF_FREQ" value="morning"/> Matin (~7h)</label>
+        <label class="nl-compact__freq-opt"><input type="radio" name="LF_FREQ" value="evening"/> Soir (~18h)</label>
+        <label class="nl-compact__freq-opt"><input type="radio" name="LF_FREQ" value="both" checked/> Les deux</label>
+      </div>'''
+
+CATS_BLOCK = '''
+      <div class="nl-compact__cats" role="group" aria-label="Rubriques à recevoir">
+        <label class="nl-compact__cat nl-cat--societe"><input type="checkbox" data-brevo-name="CAT_SOCIETE" value="1"/><span class="nl-cat__dot" aria-hidden="true"></span>Société</label>
+        <label class="nl-compact__cat nl-cat--science"><input type="checkbox" data-brevo-name="CAT_SCIENCE" value="1"/><span class="nl-cat__dot" aria-hidden="true"></span>Science</label>
+        <label class="nl-compact__cat nl-cat--economie"><input type="checkbox" data-brevo-name="CAT_ECONOMIE" value="1"/><span class="nl-cat__dot" aria-hidden="true"></span>Économie</label>
+        <label class="nl-compact__cat nl-cat--tech"><input type="checkbox" data-brevo-name="CAT_TECH" value="1"/><span class="nl-cat__dot" aria-hidden="true"></span>Tech</label>
+        <label class="nl-compact__cat nl-cat--sante"><input type="checkbox" data-brevo-name="CAT_SANTE" value="1"/><span class="nl-cat__dot" aria-hidden="true"></span>Santé</label>
+        <label class="nl-compact__cat nl-cat--environnement"><input type="checkbox" data-brevo-name="CAT_ENVIRONNEMENT" value="1"/><span class="nl-cat__dot" aria-hidden="true"></span>Environnement</label>
+      </div>'''
+
 CANONICAL_HINT = (
-    '<p class="nl-compact__hint" id="nl-hint">Éditions du matin et du soir, '
-    'uniquement lorsqu’il y a de nouveaux articles. Toutes les rubriques sont incluses.</p>'
+    '<p class="nl-compact__hint" id="nl-hint">Choisissez vos rubriques. '
+    'Aucune sélection = toutes les rubriques.</p>'
 )
+SINK_HTML = (
+    f'<iframe name="{FRAME_NAME}" title="Réponse d\'inscription newsletter" '
+    'hidden aria-hidden="true"></iframe>'
+)
+
+CATEGORY_FIELDS = (
+    "CAT_SOCIETE",
+    "CAT_SCIENCE",
+    "CAT_ECONOMIE",
+    "CAT_TECH",
+    "CAT_SANTE",
+    "CAT_ENVIRONNEMENT",
+)
+BREVO_POST_FIELDS = frozenset({
+    "EMAIL",
+    "LESFAITS_VERIFICATION",
+    "email_address_check",
+    "locale",
+    "FREQ",
+    *CATEGORY_FIELDS,
+})
+HIDDEN_FIELDS = (
+    ("LESFAITS_VERIFICATION", "1"),
+    ("email_address_check", ""),
+    ("locale", "fr"),
+    ("FREQ", "both"),
+    *((name, "0") for name in CATEGORY_FIELDS),
+)
+
 OLD_ARTICLE_COPY = "Chaque soir, les articles du jour en un email. Gratuit. Sans pub."
-NEW_ARTICLE_COPY = (
-    "Les nouvelles éditions, matin et soir, en un email par créneau. Gratuit. Sans pub."
-)
+NEW_ARTICLE_COPY = "Les nouvelles éditions, matin et soir, en un email par créneau. Gratuit. Sans pub."
 ARTICLE_NL_BLOCK = (
     '<div class="newsletter-block"><div><div class="newsletter-block__label">NEWSLETTER</div>'
     '<div class="newsletter-block__text"><strong>Le résumé du jour dans votre boîte mail</strong>'
@@ -56,21 +104,7 @@ ARTICLE_NL_BLOCK = (
     '<a class="newsletter-block__btn" href="/#newsletter">S\'abonner →</a></div>'
 )
 ARTICLE_NL_DUPLICATES_RE = re.compile(
-    rf'({re.escape(ARTICLE_NL_BLOCK)})(?:\s*{re.escape(ARTICLE_NL_BLOCK)})+',
-    re.S,
-)
-
-# Contrat observé sur le formulaire Brevo hébergé : ces quatre champs seulement.
-BREVO_POST_FIELDS = frozenset({
-    "EMAIL",
-    "LESFAITS_VERIFICATION",
-    "email_address_check",
-    "locale",
-})
-HIDDEN_FIELDS = (
-    ("LESFAITS_VERIFICATION", "1"),
-    ("email_address_check", ""),
-    ("locale", "fr"),
+    rf'({re.escape(ARTICLE_NL_BLOCK)})(?:\s*{re.escape(ARTICLE_NL_BLOCK)})+', re.S
 )
 
 
@@ -86,17 +120,36 @@ def _remove_attr(tag: str, name: str) -> str:
     return pattern.sub("", tag)
 
 
-def _keep_consent_local_only(html: str) -> str:
-    """Le consentement reste obligatoire localement mais n'est pas posté à Brevo."""
-    def repl(match: re.Match[str]) -> str:
-        return _remove_attr(match.group(0), "name")
+def _local_consent(html: str) -> str:
+    return CONSENT_INPUT_RE.sub(lambda m: _remove_attr(m.group(0), "name"), html)
 
-    return CONSENT_INPUT_RE.sub(repl, html)
+
+def _remove_hidden_field(html: str, name: str) -> str:
+    return re.sub(
+        rf'\s*<input\b(?=[^>]*\btype=(["\'])hidden\1)(?=[^>]*\bname=(["\']){re.escape(name)}\2)[^>]*?/?>',
+        "",
+        html,
+        flags=re.I | re.S,
+    )
+
+
+def _ensure_preferences_ui(html: str) -> str:
+    html = FREQ_BLOCK_RE.sub("", html)
+    html = CATS_BLOCK_RE.sub("", html)
+    row = re.search(r'<div\b[^>]*class=(["\'])[^"\']*\bnl-compact__row\b[^"\']*\1[^>]*>', html, re.I)
+    if row:
+        html = html[:row.start()] + FREQ_BLOCK + "\n      " + html[row.start():]
+    if HINT_RE.search(html):
+        html = HINT_RE.sub(CATS_BLOCK + "\n      " + CANONICAL_HINT, html, count=1)
+    return html
 
 
 def _ensure_native_form(html: str) -> str:
     if 'id="nl-form"' not in html and "id='nl-form'" not in html:
         return html
+
+    for name, _ in HIDDEN_FIELDS:
+        html = _remove_hidden_field(html, name)
 
     def repl(match: re.Match[str]) -> str:
         tag = match.group(0)
@@ -104,59 +157,52 @@ def _ensure_native_form(html: str) -> str:
         tag = legacy._set_attr(tag, "action", FORM_URL)
         tag = legacy._set_attr(tag, "method", "post")
         tag = legacy._set_attr(tag, "enctype", "application/x-www-form-urlencoded")
+        tag = legacy._set_attr(tag, "target", FRAME_NAME)
         return tag
 
     html = FORM_OPEN_RE.sub(repl, html, count=1)
-
     opening = FORM_OPEN_RE.search(html)
     if not opening:
         return html
 
-    hidden = []
-    for name, value in HIDDEN_FIELDS:
-        if not re.search(rf'\bname=(["\']){re.escape(name)}\1', html, re.I):
-            hidden.append(
-                f'<input type="hidden" name="{name}" value="{value}"/>'
-            )
-    if hidden:
-        insert_at = opening.end()
-        html = html[:insert_at] + "\n      " + "\n      ".join(hidden) + html[insert_at:]
+    hidden = "\n      ".join(
+        f'<input type="hidden" name="{name}" value="{value}"/>'
+        for name, value in HIDDEN_FIELDS
+    )
+    html = html[:opening.end()] + "\n      " + hidden + html[opening.end():]
+
+    html = SINK_RE.sub("", html)
+    form_end = html.find("</form>", opening.end())
+    if form_end != -1:
+        insert_at = form_end + len("</form>")
+        html = html[:insert_at] + "\n      " + SINK_HTML + html[insert_at:]
     return html
 
 
 def _ensure_form_action_csp(html: str) -> str:
     if 'id="nl-form"' not in html and "id='nl-form'" not in html:
         return html
-
     allowed = f"https://{FORM_HOST}"
 
     def replace(match: re.Match[str]) -> str:
-        content = re.sub(r"\s+", " ", match.group(4)).strip()
         directives: list[tuple[str, list[str]]] = []
-        for raw in content.split(";"):
-            raw = raw.strip()
-            if not raw:
-                continue
-            parts = raw.split()
-            directives.append((parts[0], parts[1:]))
-
+        for raw in re.sub(r"\s+", " ", match.group(4)).strip().split(";"):
+            parts = raw.strip().split()
+            if parts:
+                directives.append((parts[0], parts[1:]))
         found = False
         for i, (name, values) in enumerate(directives):
-            if name.lower() != "form-action":
-                continue
-            found = True
-            if "'self'" not in values:
-                values.insert(0, "'self'")
-            if allowed not in values:
-                values.append(allowed)
-            directives[i] = (name, values)
-            break
+            if name.lower() == "form-action":
+                found = True
+                if "'self'" not in values:
+                    values.insert(0, "'self'")
+                if allowed not in values:
+                    values.append(allowed)
+                directives[i] = (name, values)
+                break
         if not found:
             directives.append(("form-action", ["'self'", allowed]))
-
-        rendered = "; ".join(
-            " ".join([name, *values]).strip() for name, values in directives
-        ) + ";"
+        rendered = "; ".join(" ".join([name, *values]) for name, values in directives) + ";"
         return f"{match.group(1)}{match.group(3)}{rendered}{match.group(3)}{match.group(5)}"
 
     if legacy.CSP_META_RE.search(html):
@@ -168,20 +214,10 @@ def upgrade_html(html: str) -> str:
     html = html.replace(OLD_ARTICLE_COPY, NEW_ARTICLE_COPY)
     html = _dedupe_article_newsletter_blocks(html)
     html = SCRIPT_RE.sub(SCRIPT_SRC, html)
-
     if 'id="nl-form"' not in html and "id='nl-form'" not in html:
         return html
-
-    html = FREQ_BLOCK_RE.sub("", html)
-    html = CATS_BLOCK_RE.sub("", html)
-    html = HINT_RE.sub(CANONICAL_HINT, html, count=1)
-    html = re.sub(
-        r'data-newsletter-version=(["\'])\d+\1',
-        f'data-newsletter-version="{VERSION}"',
-        html,
-        flags=re.I,
-    )
-    html = _keep_consent_local_only(html)
+    html = _local_consent(html)
+    html = _ensure_preferences_ui(html)
     html = _ensure_native_form(html)
     html = _ensure_form_action_csp(html)
     return html
@@ -195,9 +231,8 @@ def _csp_allows_native_post(html: str) -> bool:
     csp = legacy.CSP_META_RE.search(html)
     if not csp:
         return False
-    content = csp.group(4)
     allowed = f"https://{FORM_HOST}"
-    for raw in content.split(";"):
+    for raw in csp.group(4).split(";"):
         parts = raw.strip().split()
         if parts and parts[0].lower() == "form-action":
             return allowed in parts[1:]
@@ -212,19 +247,20 @@ def _named_form_fields(html: str) -> set[str]:
     if end == -1:
         return set()
     block = html[opening.end():end]
-    return {
-        match.group(2)
-        for match in re.finditer(
+    names = {
+        m.group(2)
+        for m in re.finditer(
             r'<(?:input|select|textarea|button)\b[^>]*\bname=(["\'])([^"\']+)\1',
             block,
             re.I | re.S,
         )
     }
+    return {name for name in names if not name.startswith("LF_")}
 
 
 def validate_v3(path: Path, html: str) -> list[str]:
     errors: list[str] = []
-    has_form = bool(re.search(r'\bid=(["\'])nl-form\1', html, re.I))
+    has_form = bool(FORM_OPEN_RE.search(html))
     script_count = len(re.findall(re.escape(SCRIPT_SRC), html, re.I))
     if "</head>" in html and script_count != 1:
         errors.append(f"script newsletter v{VERSION} présent {script_count} fois")
@@ -235,27 +271,27 @@ def validate_v3(path: Path, html: str) -> list[str]:
     if not has_form:
         return errors
 
-    if f'data-newsletter-version="{VERSION}"' not in html:
-        errors.append(f"formulaire non marqué v{VERSION}")
-    if re.search(r'\bname=(["\'])FREQ\1', html, re.I):
-        errors.append("choix de fréquence non pris en charge encore visible")
-    if re.search(r'\bname=(["\'])CAT_[A-Z_]+\1', html, re.I):
-        errors.append("choix de rubrique non pris en charge encore visible")
-    if "Choisissez vos rubriques" in html or "Aucune sélection" in html:
-        errors.append("ancienne promesse de personnalisation encore visible")
-    if CANONICAL_HINT not in html:
-        errors.append("rythme matin et soir non expliqué")
-    if 'data-newsletter-noscript="1"' not in html:
-        errors.append("fallback sans JavaScript absent")
-    if f'action="{FORM_URL}"' not in html:
-        errors.append("action Brevo native absente")
-    if not re.search(r'<form\b[^>]*\bmethod=(["\'])post\1', html, re.I):
-        errors.append("méthode POST native absente")
-    if 'enctype="application/x-www-form-urlencoded"' not in html:
-        errors.append("encodage formulaire natif absent")
-    for name, _value in HIDDEN_FIELDS:
-        if not re.search(rf'\bname=(["\']){re.escape(name)}\1', html, re.I):
-            errors.append(f"champ Brevo {name} absent")
+    required_fragments = (
+        'data-newsletter-version="5"',
+        'name="LF_FREQ" value="morning"',
+        'name="LF_FREQ" value="evening"',
+        'name="LF_FREQ" value="both"',
+        CANONICAL_HINT,
+        f'target="{FRAME_NAME}"',
+        f'name="{FRAME_NAME}"',
+        'data-newsletter-noscript="1"',
+        f'action="{FORM_URL}"',
+        'method="post"',
+        'enctype="application/x-www-form-urlencoded"',
+    )
+    for fragment in required_fragments:
+        if fragment not in html:
+            errors.append("élément newsletter v5 absent : " + fragment[:80])
+    for name in CATEGORY_FIELDS:
+        if f'data-brevo-name="{name}"' not in html:
+            errors.append(f"rubrique {name} absente")
+    if re.search(r'\bid=(["\'])nl-consent\1[^>]*\bname=', html, re.I):
+        errors.append("consentement envoyé comme attribut Brevo")
     if not _csp_allows_native_post(html):
         errors.append("CSP form-action n'autorise pas Brevo")
 
@@ -268,7 +304,7 @@ def validate_v3(path: Path, html: str) -> list[str]:
             details.append("manquants=" + ",".join(missing))
         if extra:
             details.append("inconnus=" + ",".join(extra))
-        errors.append("contrat POST Brevo non exact (" + "; ".join(details) + ")")
+        errors.append("contrat POST newsletter non exact (" + "; ".join(details) + ")")
     return errors
 
 
@@ -285,16 +321,11 @@ def run(root: Path, *, check_only: bool = False) -> dict[str, int]:
         current = original if check_only else updated
         for error in validate_v3(path, current):
             failures.append(f"{path.relative_to(root)}: {error}")
-
     if failures:
         preview = "\n".join(f"  - {line}" for line in failures[:30])
         suffix = "" if len(failures) <= 30 else f"\n  … {len(failures) - 30} autre(s)"
         raise RuntimeError(f"Audit newsletter v{VERSION} en échec:\n{preview}{suffix}")
-
-    print(
-        f"[NEWSLETTER V{VERSION}] {checked} page(s) contrôlée(s), "
-        f"{changed} page(s) mise(s) à jour."
-    )
+    print(f"[NEWSLETTER V{VERSION}] {checked} page(s) contrôlée(s), {changed} page(s) mise(s) à jour.")
     return {"checked": checked, "changed": changed}
 
 
