@@ -3,10 +3,13 @@
 """Normalise les métadonnées temporelles dérivées des articles.
 
 Le JSON-LD ``NewsArticle`` est la source de vérité temporelle du dépôt :
-- ``datePublished`` alimente l'attribut ``datetime`` du <time> visible ;
+- pour les articles modernes, ``datePublished`` alimente l'attribut
+  ``datetime`` du <time> visible et le ``pubDate`` RSS ;
 - ``dateModified`` (ou ``datePublished`` à défaut) alimente le ``lastmod``
   article du sitemap ;
-- ``datePublished`` alimente le ``pubDate`` RSS.
+- pour les archives dont le JSON-LD ne contient volontairement qu'une date,
+  aucune heure n'est inventée : la date est contrôlée, l'heure existante est
+  laissée intacte.
 
 Cette étape évite qu'un simple rebuild fasse croire que tous les anciens
 articles viennent d'être publiés/modifiés. Le correcteur post-déploiement peut
@@ -40,13 +43,15 @@ TIME_RE = re.compile(r'(<time\b[^>]*\bdatetime=")[^"]*(")', re.IGNORECASE)
 ITEM_RE = re.compile(r"(<item>.*?</item>)", re.IGNORECASE | re.DOTALL)
 LINK_RE = re.compile(r"<link>\s*([^<]+?)\s*</link>", re.IGNORECASE)
 PUBDATE_RE = re.compile(r"(<pubDate>)[^<]*(</pubDate>)", re.IGNORECASE)
+DATE_ONLY_RE = re.compile(r"^\d{4}-\d{2}-\d{2}$")
 
 
 @dataclass(frozen=True)
 class ArticleDates:
     slug: str
-    published: dt.datetime
-    modified: dt.datetime
+    published_date: dt.date
+    published_exact: dt.datetime | None
+    modified_date: dt.date
 
 
 def _walk_json(value: Any) -> Iterable[dict[str, Any]]:
@@ -70,10 +75,30 @@ def _is_news_article(node: dict[str, Any]) -> bool:
     return False
 
 
-def _parse_iso(value: Any, *, path: Path, field: str) -> dt.datetime:
+def _parse_temporal(
+    value: Any,
+    *,
+    path: Path,
+    field: str,
+) -> tuple[dt.date, dt.datetime | None]:
+    """Retourne (date, datetime_exacte).
+
+    Les très vieux articles peuvent n'avoir conservé que YYYY-MM-DD. C'est
+    une information valide et volontairement moins précise : on ne complète
+    jamais par minuit ni par une heure reconstruite.
+    """
     raw = str(value or "").strip()
     if not raw:
         raise RuntimeError(f"{path.relative_to(ROOT)}: {field} absent")
+
+    if DATE_ONLY_RE.fullmatch(raw):
+        try:
+            return dt.date.fromisoformat(raw), None
+        except ValueError as exc:
+            raise RuntimeError(
+                f"{path.relative_to(ROOT)}: {field} date invalide ({raw!r})"
+            ) from exc
+
     try:
         parsed = dt.datetime.fromisoformat(raw.replace("Z", "+00:00"))
     except ValueError as exc:
@@ -82,9 +107,9 @@ def _parse_iso(value: Any, *, path: Path, field: str) -> dt.datetime:
         ) from exc
     if parsed.tzinfo is None:
         raise RuntimeError(
-            f"{path.relative_to(ROOT)}: {field} doit inclure un fuseau ({raw!r})"
+            f"{path.relative_to(ROOT)}: {field} datetime doit inclure un fuseau ({raw!r})"
         )
-    return parsed
+    return parsed.date(), parsed
 
 
 def article_dates(path: Path) -> ArticleDates | None:
@@ -100,10 +125,19 @@ def article_dates(path: Path) -> ArticleDates | None:
         for node in _walk_json(payload):
             if not _is_news_article(node):
                 continue
-            published = _parse_iso(node.get("datePublished"), path=path, field="datePublished")
+            published_date, published_exact = _parse_temporal(
+                node.get("datePublished"), path=path, field="datePublished"
+            )
             modified_raw = node.get("dateModified") or node.get("datePublished")
-            modified = _parse_iso(modified_raw, path=path, field="dateModified")
-            return ArticleDates(path.stem, published, modified)
+            modified_date, _ = _parse_temporal(
+                modified_raw, path=path, field="dateModified"
+            )
+            return ArticleDates(
+                slug=path.stem,
+                published_date=published_date,
+                published_exact=published_exact,
+                modified_date=modified_date,
+            )
     return None
 
 
@@ -134,33 +168,64 @@ def _slug_from_article_url(url: str) -> str | None:
     return Path(name).stem if name.endswith(".html") else None
 
 
-def normalize_article_times(dates: dict[str, ArticleDates], *, check: bool) -> tuple[int, list[str]]:
+def normalize_article_times(
+    dates: dict[str, ArticleDates], *, check: bool
+) -> tuple[int, list[str]]:
     changed = 0
     failures: list[str] = []
     for slug, meta in dates.items():
         path = ARTICLES_DIR / f"{slug}.html"
         html = path.read_text(encoding="utf-8", errors="replace")
         match = TIME_RE.search(html)
-        expected = _iso(meta.published)
         if not match:
             failures.append(f"{path.relative_to(ROOT)}: balise <time datetime> absente")
             continue
-        current_match = re.search(r'<time\b[^>]*\bdatetime="([^"]*)"', match.group(0), re.I)
+        current_match = re.search(
+            r'<time\b[^>]*\bdatetime="([^"]*)"', match.group(0), re.I
+        )
         current = current_match.group(1) if current_match else ""
-        if current == expected:
+
+        # Articles modernes : l'heure exacte existe, donc elle doit apparaître
+        # dans le HTML machine-readable au même niveau de précision.
+        if meta.published_exact is not None:
+            expected = _iso(meta.published_exact)
+            if current == expected:
+                continue
+            if check:
+                failures.append(
+                    f"{path.relative_to(ROOT)}: datetime={current!r}, attendu {expected!r}"
+                )
+                continue
+            html = TIME_RE.sub(
+                lambda m: m.group(1) + expected + m.group(2), html, count=1
+            )
+            path.write_text(html, encoding="utf-8")
+            changed += 1
+            continue
+
+        # Archives date-only : ne jamais inventer l'heure. Si une page legacy
+        # affiche déjà une heure humaine, on ne la transforme pas en prétendue
+        # heure structurée ; seule la date doit correspondre au JSON-LD.
+        expected_date = meta.published_date.isoformat()
+        current_date = current[:10] if len(current) >= 10 else current
+        if current_date == expected_date:
             continue
         if check:
             failures.append(
-                f"{path.relative_to(ROOT)}: datetime={current!r}, attendu {expected!r}"
+                f"{path.relative_to(ROOT)}: date datetime={current!r}, attendu {expected_date!r}"
             )
             continue
-        html = TIME_RE.sub(lambda m: m.group(1) + expected + m.group(2), html, count=1)
+        html = TIME_RE.sub(
+            lambda m: m.group(1) + expected_date + m.group(2), html, count=1
+        )
         path.write_text(html, encoding="utf-8")
         changed += 1
     return changed, failures
 
 
-def normalize_sitemap(dates: dict[str, ArticleDates], *, check: bool) -> tuple[int, list[str]]:
+def normalize_sitemap(
+    dates: dict[str, ArticleDates], *, check: bool
+) -> tuple[int, list[str]]:
     if not SITEMAP.exists():
         return 0, ["sitemap.xml absent"]
     xml = SITEMAP.read_text(encoding="utf-8", errors="replace")
@@ -177,7 +242,7 @@ def normalize_sitemap(dates: dict[str, ArticleDates], *, check: bool) -> tuple[i
         if not match:
             failures.append(f"sitemap.xml: URL article absente pour {slug}")
             continue
-        expected = meta.modified.date().isoformat()
+        expected = meta.modified_date.isoformat()
         current = match.group(2).strip()
         if current == expected:
             continue
@@ -194,7 +259,9 @@ def normalize_sitemap(dates: dict[str, ArticleDates], *, check: bool) -> tuple[i
     return changed, failures
 
 
-def normalize_feed(dates: dict[str, ArticleDates], *, check: bool) -> tuple[int, list[str]]:
+def normalize_feed(
+    dates: dict[str, ArticleDates], *, check: bool
+) -> tuple[int, list[str]]:
     if not FEED.exists():
         return 0, ["feed.xml absent"]
     xml = FEED.read_text(encoding="utf-8", errors="replace")
@@ -219,15 +286,28 @@ def normalize_feed(dates: dict[str, ArticleDates], *, check: bool) -> tuple[int,
         if not pub_match:
             failures.append(f"feed.xml: {slug} sans <pubDate>")
             return block
-        expected = _rfc2822_utc(meta.published)
-        current = block[pub_match.start(1) + len(pub_match.group(1)):pub_match.start(2)].strip()
+
+        # Sans heure structurée historique, on n'a aucune base fiable pour
+        # réécrire un RFC 2822. Le RSS legacy existant est donc conservé tel
+        # quel, plutôt que de fabriquer 00:00 ou une heure de rebuild.
+        if meta.published_exact is None:
+            return block
+
+        expected = _rfc2822_utc(meta.published_exact)
+        current = block[
+            pub_match.start(1) + len(pub_match.group(1)):pub_match.start(2)
+        ].strip()
         if current == expected:
             return block
         if check:
-            failures.append(f"feed.xml: {slug} pubDate={current!r}, attendu {expected!r}")
+            failures.append(
+                f"feed.xml: {slug} pubDate={current!r}, attendu {expected!r}"
+            )
             return block
         changed += 1
-        return PUBDATE_RE.sub(lambda m: m.group(1) + expected + m.group(2), block, count=1)
+        return PUBDATE_RE.sub(
+            lambda m: m.group(1) + expected + m.group(2), block, count=1
+        )
 
     updated = ITEM_RE.sub(replace_item, xml)
     if changed and not check:
@@ -239,7 +319,11 @@ def run(*, check: bool = False) -> tuple[int, list[str]]:
     dates = collect_dates()
     total_changed = 0
     failures: list[str] = []
-    for normalizer in (normalize_article_times, normalize_sitemap, normalize_feed):
+    for normalizer in (
+        normalize_article_times,
+        normalize_sitemap,
+        normalize_feed,
+    ):
         changed, errors = normalizer(dates, check=check)
         total_changed += changed
         failures.extend(errors)
