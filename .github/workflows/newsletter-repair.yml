@@ -5,8 +5,10 @@ on:
     branches: ["main"]
     paths:
       - "scripts/generer_digest.py"
+      - "scripts/run_newsletter.py"
       - "scripts/harden_newsletter.py"
       - "scripts/test_newsletter.py"
+      - "scripts/test_run_newsletter.py"
       - "src/newsletter.js"
       - ".github/workflows/newsletter-repair.yml"
   workflow_run:
@@ -50,9 +52,12 @@ jobs:
         run: |
           python -m py_compile \
             scripts/generer_digest.py \
+            scripts/run_newsletter.py \
             scripts/harden_newsletter.py \
-            scripts/test_newsletter.py
+            scripts/test_newsletter.py \
+            scripts/test_run_newsletter.py
           python scripts/test_newsletter.py
+          python scripts/test_run_newsletter.py
           node --check src/newsletter.js
 
       - name: Vérifier la configuration Brevo et le formulaire hébergé
@@ -61,9 +66,10 @@ jobs:
           BREVO_API_KEY: ${{ secrets.BREVO_API_KEY }}
           BREVO_LIST_ID: ${{ secrets.BREVO_LIST_ID }}
           BREVO_SENDER_EMAIL: ${{ secrets.BREVO_SENDER_EMAIL }}
+          BREVO_SENDER_NAME: "Les Faits"
           PYTHONIOENCODING: utf-8
         run: |
-          python scripts/generer_digest.py --check-config
+          python scripts/run_newsletter.py --check-config
           python - <<'PY'
           import requests
           from scripts.harden_newsletter import FORM_URL
