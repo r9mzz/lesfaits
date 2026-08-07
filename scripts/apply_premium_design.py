@@ -18,6 +18,7 @@ from pathlib import Path
 
 PREMIUM_HREF = "/src/premium.css?v=1"
 PREMIUM_LINK = f'<link rel="stylesheet" href="{PREMIUM_HREF}" data-lf-premium="1"/>'
+MANAGED_MANIFEST = '<link rel="manifest" href="/manifest.json" data-lf-app-manifest="1"/>'
 
 APP_META = (
     '<meta name="theme-color" content="#F0EDE6" media="(prefers-color-scheme: light)" data-lf-app="1"/>\n'
@@ -34,6 +35,10 @@ PREMIUM_LINK_RE = re.compile(
 )
 APP_META_RE = re.compile(
     r"\s*<meta\b[^>]*data-lf-app=[\"']1[\"'][^>]*?/?>\s*",
+    re.IGNORECASE,
+)
+MANAGED_MANIFEST_RE = re.compile(
+    r"\s*<link\b[^>]*data-lf-app-manifest=[\"']1[\"'][^>]*?/?>\s*",
     re.IGNORECASE,
 )
 BASE_STYLESHEET_RE = re.compile(
@@ -57,6 +62,7 @@ def html_targets(root: Path) -> list[Path]:
 def _remove_managed_markup(html: str) -> str:
     html = PREMIUM_LINK_RE.sub("\n", html)
     html = APP_META_RE.sub("\n", html)
+    html = MANAGED_MANIFEST_RE.sub("\n", html)
     # Évite l'accumulation de lignes vides après plusieurs bascules on/off.
     return re.sub(r"\n{3,}", "\n\n", html)
 
@@ -76,15 +82,18 @@ def _inject(html: str) -> str:
         html = html[:pos] + "  " + PREMIUM_LINK + "\n" + html[pos:]
 
     manifest = MANIFEST_RE.search(html)
-    if manifest:
-        pos = manifest.start()
-        html = html[:pos] + APP_META + "\n  " + html[pos:]
-    else:
+    if not manifest:
         head_end = HEAD_END_RE.search(html)
         if not head_end:
             raise RuntimeError("document HTML sans </head>")
         pos = head_end.start()
-        html = html[:pos] + APP_META + "\n" + html[pos:]
+        html = html[:pos] + "  " + MANAGED_MANIFEST + "\n" + html[pos:]
+        manifest = MANIFEST_RE.search(html)
+
+    if not manifest:
+        raise RuntimeError("impossible d'injecter le manifest")
+    pos = manifest.start()
+    html = html[:pos] + APP_META + "\n  " + html[pos:]
     return html
 
 
@@ -137,6 +146,8 @@ def check(root: Path, *, enabled: bool = True) -> list[str]:
                 failures.append(f"{rel}: lien premium encore présent")
             if meta_count:
                 failures.append(f"{rel}: meta app encore présente")
+            if MANAGED_MANIFEST_RE.search(html):
+                failures.append(f"{rel}: manifest géré encore présent")
     return failures
 
 
