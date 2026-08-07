@@ -11,10 +11,10 @@ Le JSON-LD ``NewsArticle`` est la source de vérité temporelle du dépôt :
   aucune heure n'est inventée : la date est contrôlée, l'heure existante est
   laissée intacte.
 
-Cette étape évite qu'un simple rebuild fasse croire que tous les anciens
-articles viennent d'être publiés/modifiés. Le correcteur post-déploiement peut
-ensuite continuer à aligner les *nouveaux* articles sur l'heure publique réelle
-sans avoir à réparer tout le corpus.
+Certains anciens templates affichaient la date dans un simple ``<span>``. Si
+la valeur structurée exacte existe déjà dans leur JSON-LD, cette étape remplace
+uniquement ce conteneur par un ``<time datetime=...>`` en conservant mot pour
+mot le texte visible.
 """
 from __future__ import annotations
 
@@ -40,6 +40,15 @@ JSONLD_RE = re.compile(
     re.IGNORECASE | re.DOTALL,
 )
 TIME_RE = re.compile(r'(<time\b[^>]*\bdatetime=")[^"]*(")', re.IGNORECASE)
+ART_META_RE = re.compile(
+    r'(<div\b[^>]*class=["\'][^"\']*\bart__meta\b[^"\']*["\'][^>]*>)(.*?)(</div>)',
+    re.IGNORECASE | re.DOTALL,
+)
+LEGACY_DATE_SPAN_RE = re.compile(
+    r'(<span\b[^>]*class=["\'][^"\']*\bmeta__sep\b[^"\']*["\'][^>]*>\s*·\s*</span>\s*)'
+    r'<span>([^<]*\b\d{4}\b[^<]*)</span>',
+    re.IGNORECASE,
+)
 ITEM_RE = re.compile(r"(<item>.*?</item>)", re.IGNORECASE | re.DOTALL)
 LINK_RE = re.compile(r"<link>\s*([^<]+?)\s*</link>", re.IGNORECASE)
 PUBDATE_RE = re.compile(r"(<pubDate>)[^<]*(</pubDate>)", re.IGNORECASE)
@@ -81,12 +90,7 @@ def _parse_temporal(
     path: Path,
     field: str,
 ) -> tuple[dt.date, dt.datetime | None]:
-    """Retourne (date, datetime_exacte).
-
-    Les très vieux articles peuvent n'avoir conservé que YYYY-MM-DD. C'est
-    une information valide et volontairement moins précise : on ne complète
-    jamais par minuit ni par une heure reconstruite.
-    """
+    """Retourne (date, datetime_exacte), sans fabriquer l'heure legacy."""
     raw = str(value or "").strip()
     if not raw:
         raise RuntimeError(f"{path.relative_to(ROOT)}: {field} absent")
@@ -168,6 +172,37 @@ def _slug_from_article_url(url: str) -> str | None:
     return Path(name).stem if name.endswith(".html") else None
 
 
+def _inject_legacy_time(html: str, expected: str) -> str | None:
+    """Convertit le span de date d'un ancien art__meta en <time>.
+
+    Le texte visible n'est jamais reconstruit : seule la balise sémantique est
+    changée. Cela rend l'opération sûre pour les vieux formats et accents.
+    """
+    block_match = ART_META_RE.search(html)
+    if not block_match:
+        return None
+    body = block_match.group(2)
+    date_span = LEGACY_DATE_SPAN_RE.search(body)
+    if not date_span:
+        return None
+    replacement = (
+        date_span.group(1)
+        + f'<time datetime="{expected}">'
+        + date_span.group(2)
+        + "</time>"
+    )
+    new_body = (
+        body[: date_span.start()]
+        + replacement
+        + body[date_span.end() :]
+    )
+    return (
+        html[: block_match.start(2)]
+        + new_body
+        + html[block_match.end(2) :]
+    )
+
+
 def normalize_article_times(
     dates: dict[str, ArticleDates], *, check: bool
 ) -> tuple[int, list[str]]:
@@ -177,18 +212,34 @@ def normalize_article_times(
         path = ARTICLES_DIR / f"{slug}.html"
         html = path.read_text(encoding="utf-8", errors="replace")
         match = TIME_RE.search(html)
+
+        expected = (
+            _iso(meta.published_exact)
+            if meta.published_exact is not None
+            else meta.published_date.isoformat()
+        )
+
         if not match:
-            failures.append(f"{path.relative_to(ROOT)}: balise <time datetime> absente")
-            continue
+            if check:
+                failures.append(f"{path.relative_to(ROOT)}: balise <time datetime> absente")
+                continue
+            injected = _inject_legacy_time(html, expected)
+            if injected is None:
+                failures.append(
+                    f"{path.relative_to(ROOT)}: balise <time> absente et date legacy introuvable dans art__meta"
+                )
+                continue
+            path.write_text(injected, encoding="utf-8")
+            html = injected
+            match = TIME_RE.search(html)
+            changed += 1
+
         current_match = re.search(
             r'<time\b[^>]*\bdatetime="([^"]*)"', match.group(0), re.I
         )
         current = current_match.group(1) if current_match else ""
 
-        # Articles modernes : l'heure exacte existe, donc elle doit apparaître
-        # dans le HTML machine-readable au même niveau de précision.
         if meta.published_exact is not None:
-            expected = _iso(meta.published_exact)
             if current == expected:
                 continue
             if check:
@@ -203,20 +254,18 @@ def normalize_article_times(
             changed += 1
             continue
 
-        # Archives date-only : ne jamais inventer l'heure. Si une page legacy
-        # affiche déjà une heure humaine, on ne la transforme pas en prétendue
-        # heure structurée ; seule la date doit correspondre au JSON-LD.
-        expected_date = meta.published_date.isoformat()
+        # Archive date-only : si une balise time plus précise existait déjà,
+        # on ne la tronque pas. Sa composante date doit seulement être juste.
         current_date = current[:10] if len(current) >= 10 else current
-        if current_date == expected_date:
+        if current_date == expected:
             continue
         if check:
             failures.append(
-                f"{path.relative_to(ROOT)}: date datetime={current!r}, attendu {expected_date!r}"
+                f"{path.relative_to(ROOT)}: date datetime={current!r}, attendu {expected!r}"
             )
             continue
         html = TIME_RE.sub(
-            lambda m: m.group(1) + expected_date + m.group(2), html, count=1
+            lambda m: m.group(1) + expected + m.group(2), html, count=1
         )
         path.write_text(html, encoding="utf-8")
         changed += 1
@@ -287,9 +336,6 @@ def normalize_feed(
             failures.append(f"feed.xml: {slug} sans <pubDate>")
             return block
 
-        # Sans heure structurée historique, on n'a aucune base fiable pour
-        # réécrire un RFC 2822. Le RSS legacy existant est donc conservé tel
-        # quel, plutôt que de fabriquer 00:00 ou une heure de rebuild.
         if meta.published_exact is None:
             return block
 
