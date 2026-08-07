@@ -1,5 +1,35 @@
 # Les Faits — lesfaits.info
 
+## IMAGES — la coupe par fenêtre attribue le gain mesuré au 30/07, pas au 05/08
+
+Mesure de la part d'images « étape 0 » (source institutionnelle propre à
+l'article, via `data-img-source`) faite par une session parallèle, revérifiée
+le 07/08 après synchro (23 commits de retard sur `origin/main` au moment de la
+mesure initiale — corrigé, `a85e056` et `d46f265` sont bien mergés).
+
+```
+                                              n    étape 0
+avant le 30/07                               130     19 %
+30/07 → 04/08  (réparation requête DDG seule) 15     33 %
+depuis le 05/08 (+ sourcing question + PDF)    4     25 %
+```
+
+**Le gain mesuré (19 % → 33 %) est entièrement dans la fenêtre où seule la
+réparation du 30/07 était active.** L'apport du sourcing par question et de
+l'extraction PDF (05/08) reste NON MESURÉ — n=4, ni confirmé ni infirmé. Ne pas
+créditer le 05/08 de ce gain ; ne pas non plus conclure qu'il n'apporte rien.
+Refaire cette coupe à trois fenêtres quand la fenêtre du 05/08 aura une
+quinzaine d'articles.
+
+**Affirmation retirée** : une mesure précédente disait les images de dernier
+recours (repli `pillow`) « entièrement disparues depuis le 30/07 ». Faux — un
+des 4 articles publiés depuis le 05/08 est en `pillow`. L'affirmation reposait
+sur n=15 et n'a pas tenu 4 articles de plus. Le fond (ces images sont devenues
+rares) reste vrai ; l'absolu ne l'était pas. Même travers que le run du matin
+compté 1/6 et les brèves comptées 3/10 plus tôt cette semaine — sur un petit n,
+ne jamais écrire « toujours »/« jamais », écrire la fraction et se souvenir
+qu'elle bougera.
+
 ## PIÈGE ÉVITÉ — leur page « logiciel libre » n'est pas un modèle à copier
 
 Nahil a partagé la page technique du Courrier de France (Debian, Caddy,
@@ -561,6 +591,19 @@ comme du bruit par le filtre anti-doublon.
 richesse documentaire : après quelques runs, ces couples permettront de savoir
 si un routage par `audit_matiere` ferait mieux que le routage par budget — avec
 des distributions relevées, jamais devinées.
+
+**⚠ CORRECTIF DU 07/08 — cette comparaison n'aura probablement jamais lieu dans
+les conditions prévues ci-dessus.** `QUOTA_ARTICLES_LONGS` est passé de 4 à 30
+le 05/08 (décision Nahil, voir « RÉDACTION — angle, intertitres, citations
+numérotées » plus haut) : la brève a cessé d'être le format par défaut avant
+que la fenêtre « format OUTILLÉ » (04/08 →) ait accumulé assez d'articles pour
+être lisible. Le repère resté valide est la fenêtre propre des 02-03/08 ci-dessus
+(0 correction sur 16 brèves contre 2 sur 4 actus, à consigne égale) — tout ce
+qui suit le 05/08 compare deux populations dont l'une (l'actu longue) a aussi
+changé de forme (citations numérotées, intertitres éditoriaux, angle_reponse),
+donc un écart mesuré après cette date ne peut plus être attribué au format seul
+ni même au « format outillé » isolément. Ne pas aller chercher dans les logs
+une comparaison brève/actu propre postérieure au 04/08 : elle n'existe pas.
 
 ## Test guerre/faits-divers/politique — CLOS le 31/07, NON CONCLUANT
 
