@@ -43,8 +43,24 @@ FEED = '''<?xml version="1.0" encoding="UTF-8"?>
 </channel></rss>
 '''
 
+LEGACY_META = '''<div class="art__meta">
+<span style="color:var(--blue);font-weight:600">5 sources</span>
+<span class="meta__sep">·</span><span>24 juin 2026, 17h03</span>
+<span class="meta__sep">·</span><span>Lecture : 3 min</span>
+</div>'''
+
 
 def main() -> int:
+    injected = metadata._inject_legacy_time(
+        LEGACY_META, "2026-06-24T17:03:00+02:00"
+    )
+    assert injected is not None
+    assert (
+        '<time datetime="2026-06-24T17:03:00+02:00">24 juin 2026, 17h03</time>'
+        in injected
+    )
+    assert "Lecture : 3 min" in injected
+
     old = (metadata.ROOT, metadata.ARTICLES_DIR, metadata.SITEMAP, metadata.FEED)
     try:
         with tempfile.TemporaryDirectory() as tmp:
