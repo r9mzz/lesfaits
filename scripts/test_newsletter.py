@@ -206,17 +206,22 @@ msgEl.textContent="Un email de confirmation vient de vous être envoyé";})();</
 
 
 class JavascriptContractTests(unittest.TestCase):
-    def test_browser_script_uses_only_supported_brevo_fields(self):
+    def test_browser_script_uses_native_brevo_post_without_opaque_success(self):
         script = (ROOT / "src" / "newsletter.js").read_text(encoding="utf-8")
-        self.assertIn("Demande transmise à Brevo", script)
+        self.assertNotIn("Demande transmise à Brevo", script)
         self.assertNotIn("Un email de confirmation vient de vous être envoyé", script)
-        self.assertIn('data.append("EMAIL", email)', script)
-        self.assertIn('data.append("LESFAITS_VERIFICATION", "1")', script)
+        self.assertNotIn('mode: "no-cors"', script)
+        self.assertNotIn("fetch(FORM_URL", script)
+        self.assertIn('form.setAttribute("action", FORM_URL)', script)
+        self.assertIn('form.setAttribute("method", "post")', script)
+        self.assertIn('form.setAttribute("enctype", "application/x-www-form-urlencoded")', script)
+        self.assertIn('ensureHidden(form, "LESFAITS_VERIFICATION", "1")', script)
+        self.assertIn('ensureHidden(form, "email_address_check", "")', script)
+        self.assertIn('ensureHidden(form, "locale", "fr")', script)
         self.assertNotIn('data.append("FREQ"', script)
         self.assertNotIn("CATEGORY_FIELDS", script)
         self.assertNotIn("CAT_SOCIETE", script)
         self.assertNotIn("localStorage", script)
-        self.assertIn("les éditions du matin et du soir", script)
 
 
 if __name__ == "__main__":
