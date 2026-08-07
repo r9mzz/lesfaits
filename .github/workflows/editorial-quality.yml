@@ -10,6 +10,8 @@ on:
       - "scripts/showcase_quality.py"
       - "scripts/run_pipeline.py"
       - "scripts/stamp_publication_times.py"
+      - "scripts/summarize_pipeline_log.py"
+      - "scripts/article_change_counts.py"
       - "scripts/test_retirements.py"
       - "scripts/test_editorial_quality.py"
       - "scripts/test_editorial_depth.py"
@@ -17,7 +19,10 @@ on:
       - "scripts/test_quota_wait.py"
       - "scripts/test_showcase_quality.py"
       - "scripts/test_stamp_publication_times.py"
+      - "scripts/test_summarize_pipeline_log.py"
+      - "scripts/test_article_change_counts.py"
       - ".github/workflows/pipeline.yml"
+      - ".github/workflows/deploy.yml"
       - ".github/workflows/publication-times.yml"
       - ".github/workflows/editorial-quality.yml"
   workflow_dispatch:
@@ -51,6 +56,8 @@ jobs:
           scripts/showcase_quality.py
           scripts/run_pipeline.py
           scripts/stamp_publication_times.py
+          scripts/summarize_pipeline_log.py
+          scripts/article_change_counts.py
           scripts/test_retirements.py
           scripts/test_editorial_quality.py
           scripts/test_editorial_depth.py
@@ -58,6 +65,8 @@ jobs:
           scripts/test_quota_wait.py
           scripts/test_showcase_quality.py
           scripts/test_stamp_publication_times.py
+          scripts/test_summarize_pipeline_log.py
+          scripts/test_article_change_counts.py
 
       - name: Tests de non-régression éditoriale
         run: |
@@ -68,6 +77,8 @@ jobs:
           python scripts/test_quota_wait.py
           python scripts/test_showcase_quality.py
           python scripts/test_stamp_publication_times.py
+          python scripts/test_summarize_pipeline_log.py
+          python scripts/test_article_change_counts.py
 
       - name: Vérifier la lecture du corpus HTML
         run: |
