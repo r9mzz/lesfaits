@@ -85,6 +85,12 @@ jobs:
         if: steps.garde.outputs.passer != 'true'
         run: pip install -r requirements.txt
 
+      - name: Appliquer les consolidations éditoriales
+        if: ${{ steps.garde.outputs.passer != 'true' && github.event.inputs.dry_run != 'true' }}
+        env:
+          PYTHONIOENCODING: utf-8
+        run: python scripts/apply_retirements.py
+
       - name: Rebuild index + catégories + archive
         if: steps.garde.outputs.passer != 'true'
         env:
@@ -189,7 +195,6 @@ jobs:
           cp -r src/                  /tmp/site/ 2>/dev/null || true
           rm -rf /tmp/site/devenir
 
-          # Toute page HTML racine générée doit être présente dans le site.
           manquantes=""
           for f in *.html; do
             [ -f "/tmp/site/$f" ] || manquantes="$manquantes $f"
@@ -205,8 +210,6 @@ jobs:
           git add -A
           git diff --cached --quiet && echo "Aucun changement à déployer." && exit 0
 
-          # Compter uniquement les créations. Les anciens articles reconstruits
-          # ne sont plus annoncés comme de nouvelles publications.
           NB_NEW=$(git diff --cached --name-only --diff-filter=A -- articles/ | grep -E '\.html$' | wc -l | tr -d ' ')
           NB_MOD=$(git diff --cached --name-only --diff-filter=M -- articles/ | grep -E '\.html$' | wc -l | tr -d ' ')
           NB_DEL=$(git diff --cached --name-only --diff-filter=D -- articles/ | grep -E '\.html$' | wc -l | tr -d ' ')
