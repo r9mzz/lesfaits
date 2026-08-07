@@ -1,10 +1,10 @@
-/* Les Faits — formulaire newsletter fiable (sans clé API côté navigateur). */
+/* Les Faits — formulaire newsletter Brevo avec soumission HTML native. */
 (function () {
   "use strict";
 
-  if (window.LFNewsletter && window.LFNewsletter.version >= 3) return;
+  if (window.LFNewsletter && window.LFNewsletter.version >= 4) return;
 
-  var VERSION = 3;
+  var VERSION = 4;
   var FORM_URL = "https://e6ad0381.sibforms.com/serve/MUIFAErfidn3h7DoaZcjIRh-48s1GoiE0vZOe_KG-skCwDznnQ2831i0IkHsSaXfUJ15hBl1CH3ElJVKdGDdXdxHpt6v7iX-hAlyWb0i0M7mtq6UhgJ9JJyCUhNwckwfxW8EUJkF_hkjb4qX8YSntlFraZFiCcgQhZ3PXsPvAcSa9oEyPOgeL1EtAB4akgMS-hz76NcGAUSqOt3L1w==";
 
   function setMessage(form, text, kind) {
@@ -14,13 +14,33 @@
     message.className = "nl-compact__msg" + (kind ? " nl-compact__msg--" + kind : "");
   }
 
+  function ensureHidden(form, name, value) {
+    var input = form.querySelector('input[type="hidden"][name="' + name + '"]');
+    if (!input) {
+      input = document.createElement("input");
+      input.type = "hidden";
+      input.name = name;
+      form.appendChild(input);
+    }
+    input.value = value;
+  }
+
   function enhanceForm(form) {
-    if (!form || form.dataset.newsletterReady === "1") return;
+    if (!form) return;
+
     form.dataset.newsletterReady = "1";
     form.setAttribute("data-newsletter-version", String(VERSION));
+    form.setAttribute("action", FORM_URL);
+    form.setAttribute("method", "post");
+    form.setAttribute("enctype", "application/x-www-form-urlencoded");
+
+    ensureHidden(form, "LESFAITS_VERIFICATION", "1");
+    ensureHidden(form, "email_address_check", "");
+    ensureHidden(form, "locale", "fr");
 
     var email = form.querySelector('input[type="email"]');
     if (email) {
+      email.setAttribute("name", "EMAIL");
       email.setAttribute("aria-label", "Adresse email");
       email.setAttribute("inputmode", "email");
       email.setAttribute("autocapitalize", "none");
@@ -42,92 +62,50 @@
     return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
   }
 
-  function makePayload(email) {
-    var data = new FormData();
-    data.append("EMAIL", email);
-    data.append("LESFAITS_VERIFICATION", "1");
-    data.append("email_address_check", "");
-    data.append("locale", "fr");
-    return data;
-  }
-
-  function submit(form) {
-    if (form.dataset.submitting === "1") return;
-
-    var emailInput = form.querySelector('input[type="email"]');
-    var consent = form.querySelector("#nl-consent");
-    var button = form.querySelector('button[type="submit"]');
-    var email = String((emailInput && emailInput.value) || "").trim();
-
-    setMessage(form, "", "");
-    if (!validEmail(emailInput)) {
-      setMessage(form, "Veuillez saisir une adresse email valide.", "err");
-      if (emailInput) emailInput.focus();
-      return;
-    }
-    if (!consent || !consent.checked) {
-      setMessage(form, "Veuillez accepter la politique de confidentialité.", "err");
-      if (consent) consent.focus();
-      return;
-    }
-
-    var controller = typeof AbortController === "function" ? new AbortController() : null;
-    var timeoutId = window.setTimeout(function () {
-      if (controller) controller.abort();
-    }, 15000);
-
-    form.dataset.submitting = "1";
-    form.setAttribute("aria-busy", "true");
-    var oldLabel = button ? button.textContent : "";
-    if (button) {
-      button.disabled = true;
-      button.textContent = "Envoi…";
-    }
-
-    fetch(FORM_URL, {
-      method: "POST",
-      mode: "no-cors",
-      credentials: "omit",
-      cache: "no-store",
-      referrerPolicy: "strict-origin-when-cross-origin",
-      body: makePayload(email),
-      signal: controller ? controller.signal : undefined
-    }).then(function () {
-      // Une réponse cross-origin no-cors est volontairement opaque : on sait
-      // que la requête réseau est partie, pas que Brevo a accepté l'adresse.
-      setMessage(
-        form,
-        "Demande transmise à Brevo. Si l’adresse est valide, vous recevrez un email de confirmation. Après validation, les éditions du matin et du soir seront activées lorsqu’il y aura de nouveaux articles. Vérifiez aussi vos spams.",
-        "ok"
-      );
-      form.reset();
-    }).catch(function (error) {
-      var timeout = error && error.name === "AbortError";
-      setMessage(
-        form,
-        timeout
-          ? "Le service d’inscription met trop de temps à répondre. Réessayez dans un instant."
-          : "La demande n’a pas pu être transmise. Vérifiez votre connexion puis réessayez.",
-        "err"
-      );
-    }).finally(function () {
-      window.clearTimeout(timeoutId);
-      form.dataset.submitting = "0";
-      form.removeAttribute("aria-busy");
-      if (button) {
-        button.disabled = false;
-        button.textContent = oldLabel || "S’abonner →";
-      }
-    });
-  }
-
   document.addEventListener("submit", function (event) {
     var form = event.target && event.target.closest
       ? event.target.closest("form#nl-form")
       : null;
     if (!form) return;
-    event.preventDefault();
-    submit(form);
+
+    enhanceForm(form);
+
+    var emailInput = form.querySelector('input[type="email"]');
+    var consent = form.querySelector("#nl-consent");
+    var button = form.querySelector('button[type="submit"]');
+
+    setMessage(form, "", "");
+
+    if (!validEmail(emailInput)) {
+      event.preventDefault();
+      setMessage(form, "Veuillez saisir une adresse email valide.", "err");
+      if (emailInput) emailInput.focus();
+      return;
+    }
+
+    if (!consent || !consent.checked) {
+      event.preventDefault();
+      setMessage(form, "Veuillez accepter la politique de confidentialité.", "err");
+      if (consent) consent.focus();
+      return;
+    }
+
+    /*
+     * Important : on NE fait volontairement aucun fetch() cross-origin ici.
+     * Une requête no-cors donne une réponse opaque et peut faire croire à tort
+     * que Brevo a accepté l'inscription. Le navigateur soumet donc le vrai
+     * formulaire HTML en POST application/x-www-form-urlencoded directement à
+     * Brevo. La page Brevo affichera elle-même le succès, le double opt-in ou
+     * une erreur éventuelle : aucun faux positif côté Les Faits.
+     */
+    form.dataset.submitting = "1";
+    form.setAttribute("aria-busy", "true");
+    setMessage(form, "Transmission sécurisée vers Brevo…", "");
+    if (button) {
+      button.disabled = true;
+      button.textContent = "Ouverture…";
+    }
+    /* Aucun preventDefault : la soumission native continue. */
   }, true);
 
   if (document.readyState === "loading") {
