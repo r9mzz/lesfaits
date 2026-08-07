@@ -15,6 +15,19 @@ Le digest est lancé **après un déploiement public réussi**, et non à une he
 fixe indépendante. Les lecteurs ne reçoivent ainsi pas de lien vers un article
 encore absent du site.
 
+## Contrat du formulaire Brevo
+
+Les attributs créés dans le compte ne suffisent pas : le formulaire Brevo
+réellement publié doit aussi exposer `EMAIL`, `FREQ`,
+`LESFAITS_VERIFICATION` et les six champs `CAT_*`. Sinon les préférences
+visibles sur Les Faits pourraient être ignorées par le prestataire.
+
+`scripts/audit_brevo_form.py` télécharge uniquement la page publique, sans
+soumettre d'adresse, inventorie les champs présents dans la balise `form` et
+bloque la CI ou l'envoi dès qu'un champ manque, que la page n'est plus en POST
+ou qu'elle devient inaccessible. Ce contrôle tourne sur chaque PR newsletter,
+avant chaque campagne et lors de la vérification de configuration Brevo.
+
 ## Lot réellement publié
 
 La matière d'une newsletter automatique ne dépend plus de l'heure technique de
@@ -77,12 +90,16 @@ python -m py_compile \
   scripts/generer_digest.py \
   scripts/run_newsletter.py \
   scripts/harden_newsletter.py \
+  scripts/audit_brevo_form.py \
   scripts/test_newsletter.py \
   scripts/test_run_newsletter.py \
-  scripts/test_newsletter_campaigns.py
+  scripts/test_newsletter_campaigns.py \
+  scripts/test_audit_brevo_form.py
 python scripts/test_newsletter.py
 python scripts/test_run_newsletter.py
 python scripts/test_newsletter_campaigns.py
+python scripts/test_audit_brevo_form.py
+python scripts/audit_brevo_form.py
 node --check src/newsletter.js
 python scripts/harden_newsletter.py --check
 ```
@@ -91,6 +108,7 @@ Validation de la configuration Brevo sans campagne :
 
 ```bash
 python scripts/run_newsletter.py --check-config
+python scripts/audit_brevo_form.py
 ```
 
 Aperçu local sans secret, sans appel Brevo, sans modification de contact et
