@@ -26,7 +26,8 @@ def _preview_display_path() -> object:
 
 def build_local_preview(slot: str, now: dt.datetime | None = None) -> dict[str, int]:
     now = (now or dt.datetime.now(PARIS)).astimezone(PARIS)
-    slugs = digest.recent_article_slugs(None)
+    since = now - dt.timedelta(hours=30)
+    slugs = digest.recent_article_slugs(since)
     articles = digest.load_articles(slugs)
     by_category: dict[str, list[dict]] = {}
     for article in articles:
