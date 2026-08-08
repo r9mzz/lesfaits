@@ -164,12 +164,37 @@ def _replace_once(source: str, marker: str, replacement: str, label: str) -> str
     return source.replace(marker, replacement, 1)
 
 
+def _apply_showcase_format_policy(source: str) -> str:
+    """Aligne le pipeline historique sur les formats admis par la vitrine.
+
+    La grille vitrine refuse explicitement les brèves. Les générer malgré tout
+    gaspille donc Groq + fact-check avant un rejet certain. En mode vitrine on
+    garde tous les candidats ACTU en format long et on interdit la conversion
+    automatique d'un article trop mince en brève : il est rejeté normalement,
+    puis le pipeline passe au candidat suivant. Aucun seuil de qualité ne bouge.
+    """
+    source = _replace_once(
+        source,
+        "CONVERSION_BREVE_SI_COURT = True",
+        "CONVERSION_BREVE_SI_COURT = False",
+        "conversion brève vitrine",
+    )
+    source = _replace_once(
+        source,
+        "QUOTA_ARTICLES_LONGS = 30",
+        "QUOTA_ARTICLES_LONGS = max(30, nb_max)",
+        "budget formats vitrine",
+    )
+    return source
+
+
 def _prepared_pipeline_source() -> str:
     """Prépare le pipeline historique pour un run qualité-first.
 
-    Trois adaptations sont appliquées sans modifier le fichier historique :
-    attente du quota glissant, grille vitrine avant écriture HTML, puis arrêt
-    après le nombre demandé d'articles réellement acceptés.
+    Quatre adaptations sont appliquées sans modifier le fichier historique :
+    attente du quota glissant, formats compatibles avec la grille vitrine,
+    grille vitrine avant écriture HTML, puis arrêt après le nombre demandé
+    d'articles réellement acceptés.
     """
     if not 15 <= GROQ_WAIT_MAX_MINUTES <= 180:
         raise ValueError(
@@ -181,6 +206,7 @@ def _prepared_pipeline_source() -> str:
         )
 
     source = PIPELINE.read_text(encoding="utf-8")
+    source = _apply_showcase_format_policy(source)
     source = _replace_once(
         source,
         "ATTENTE_MAX_LIBERATION = 15 * 60",
