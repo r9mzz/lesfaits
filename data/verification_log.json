@@ -7937,5 +7937,66 @@
     "avertissements_garde_fous": [
       "titre_de_mauvaise_qualite"
     ]
+  },
+  {
+    "slug": "taux-chomage-france",
+    "statut": "rejete_qualite",
+    "date": "2026-08-08T13:39:38",
+    "angle_insuffisant": true,
+    "raison": "L'article ne contient pas de phrase qui lie un événement daté récent à une donnée chiffrée ou nommée qui lui est propre dans la section 'faits'.",
+    "article_type": "breve"
+  },
+  {
+    "slug": "plainte-gabriel-attal-ingerence-numerique",
+    "statut": "rejete_sensible",
+    "date": "2026-08-08T13:40:20",
+    "sujet_sensible": true,
+    "raison": "l'article implique une affaire judiciaire en cours visant une personne nommée, Gabriel Attal",
+    "article_type": "breve"
+  },
+  {
+    "slug": "gabriel-attal-plainte-ingerence-etrangere",
+    "statut": "rejete_sensible",
+    "date": "2026-08-08T13:41:04",
+    "sujet_sensible": true,
+    "raison": "L'article implique une affaire judiciaire en cours visant une personne nommée, Gabriel Attal.",
+    "article_type": "breve"
+  },
+  {
+    "slug": "gabriel-attal-plainte-ingerence-etrangere",
+    "statut": "rejete_sensible",
+    "date": "2026-08-08T13:43:11",
+    "sujet_sensible": true,
+    "raison": "l'article implique une affaire pénale en cours visant une personne nommée",
+    "article_type": "breve",
+    "avertissements_garde_fous": [
+      "attributions_trop_repetitives",
+      "sources_non_fusionnees"
+    ]
+  },
+  {
+    "slug": "enquete-ouverte-apres-la-prise-a-partie-d-erik-tegner",
+    "statut": "rejete_sensible",
+    "date": "2026-08-08T13:44:48",
+    "sujet_sensible": true,
+    "raison": "L'article implique une personne identifiée nommément (Erik Tegnér) dans une affaire pénale en cours.",
+    "article_type": "breve"
+  },
+  {
+    "slug": "eclipses-sciences-europeennes-chine",
+    "statut": "rejete_qualite",
+    "date": "2026-08-08T13:48:20",
+    "angle_insuffisant": true,
+    "raison": "L'article ne répond pas à la question posée dans l'angle_reponse et ne fournit pas d'actualité identifiable justifiant une publication maintenant",
+    "article_type": "actu"
+  },
+  {
+    "slug": "projet-nouveau-pavillon-assemblee-nationale",
+    "statut": "conforme_du_premier_coup",
+    "date": "2026-08-08T13:50:38",
+    "article_type": "breve",
+    "avertissements_garde_fous": [
+      "resume_repete_corps"
+    ]
   }
 ]
