@@ -31,7 +31,12 @@ def main() -> int:
     finally:
         run_pipeline.GROQ_WAIT_MAX_MINUTES = original
 
-    print("Prévol quota : OK (150 min, borne haute protégée)")
+    workflow = (ROOT / ".github" / "workflows" / "pipeline.yml").read_text(encoding="utf-8")
+    assert "FENETRE_MIN=360" in workflow, "la fenêtre anti-run externe doit couvrir 6 heures"
+    assert "FENETRE_MIN=120" not in workflow, "l'ancienne fenêtre laissait partir un troisième run"
+    assert 'if [ "$FORCER" = "true" ]' in workflow, "une relance humaine forcée doit rester possible"
+
+    print("Prévol quota : OK (150 min, borne haute protégée ; anti-3e-run 360 min)")
     return 0
 
 
