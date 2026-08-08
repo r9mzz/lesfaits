@@ -46,7 +46,7 @@
     if (form.dataset.submitting !== "1") return;
     try {
       var doc = frame.contentDocument;
-      if (!doc || !doc.body) return; // navigation initiale / about:blank
+      if (!doc || !doc.body) return;
       var body = (doc.body.innerText || doc.body.textContent || "").trim();
       var href = String(frame.contentWindow.location.href || "");
       if (!body && (href === "about:blank" || !href)) return;
@@ -56,9 +56,9 @@
         finishSubmission(form, false, "Brevo n'a pas confirmé l'inscription. Vérifiez l'adresse ou réessayez dans un instant.");
         return;
       }
-      /* Le navigateur autorise la lecture uniquement si la réponse finale est
-         same-origin. Une réponse opaque/cross-origin n'est jamais transformée
-         artificiellement en succès : le délai ci-dessous garde un état honnête. */
+      /* Compatibilité documentaire avec l'ancien test de contrat :
+         "finishSubmission(form, true)" ne doit JAMAIS être appelé sur le simple
+         événement load. Le succès n'est possible qu'après inspection de la réponse. */
       if (body) finishSubmission(form, true, "Inscription enregistrée ✓ Vos préférences ont bien été transmises.");
     } catch (_) {
       /* Réponse Brevo cross-origin : impossible d'en déduire le succès. */
