@@ -7,6 +7,8 @@ on:
       - "src/newsletter.js"
       - "scripts/harden_newsletter.py"
       - "scripts/harden_newsletter_v3.py"
+      - "scripts/normalize_sitemap_lastmod.py"
+      - "scripts/test_sitemap_lastmod.py"
       - ".github/workflows/deploy.yml"
   schedule:
     # NOTE : les crons GitHub sont fréquemment retardés de 1 à 4h. On planifie
@@ -97,6 +99,14 @@ jobs:
           else
             python scripts/pipeline.py --rebuild
           fi
+
+      - name: Normaliser les dates réelles du sitemap
+        if: ${{ steps.garde.outputs.passer != 'true' && github.event.inputs.dry_run != 'true' }}
+        env:
+          PYTHONIOENCODING: utf-8
+        run: |
+          python scripts/normalize_sitemap_lastmod.py
+          python scripts/normalize_sitemap_lastmod.py --check
 
       - name: Patcher les articles (à lire aussi + disclaimer + newsletter + back-to-top)
         if: ${{ steps.garde.outputs.passer != 'true' && github.event.inputs.dry_run != 'true' }}
