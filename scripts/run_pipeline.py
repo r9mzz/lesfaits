@@ -76,6 +76,28 @@ MODE VITRINE — LA SORTIE DOIT POUVOIR ÊTRE PUBLIÉE SANS RÉSERVE :
   restent groupées sur une seule phrase.
 """
 
+# Formulations qui ont été mesurées dans les logs comme menant presque
+# systématiquement au rejet « sujet sensible » après avoir déjà consommé la
+# rédaction et le fact-check. Le préfiltre reste volontairement ciblé sur une
+# procédure judiciaire / une agression en cours : il ne bloque pas le mot
+# générique « enquête » afin de préserver les enquêtes scientifiques, sociales
+# ou statistiques parfaitement publiables.
+SENSITIVE_PREFILTER_TERMS = (
+    "plainte ",
+    "porte plainte",
+    "dépose plainte",
+    "depose plainte",
+    "enquête ouverte",
+    "enquete ouverte",
+    "enquête pénale",
+    "enquete penale",
+    "enquête judiciaire",
+    "enquete judiciaire",
+    "mise en examen",
+    "mis en examen",
+    "agression",
+)
+
 
 def _article_slugs(root: Path = ROOT) -> set[str]:
     articles_dir = root / "articles"
@@ -164,6 +186,23 @@ def _replace_once(source: str, marker: str, replacement: str, label: str) -> str
     return source.replace(marker, replacement, 1)
 
 
+def _apply_sensitive_topic_prefilter(source: str) -> str:
+    """Rejette avant génération les procédures déjà condamnées par le fact-check.
+
+    Le filtre historique possède déjà une BLACKLIST. On l'enrichit uniquement
+    pour le run vitrine avec les formulations observées dans les rejets réels du
+    8 août, au lieu de payer rédaction + vérification avant un rejet certain.
+    """
+    marker = "BLACKLIST = ["
+    additions = "".join(f'\n    {term!r},' for term in SENSITIVE_PREFILTER_TERMS)
+    return _replace_once(
+        source,
+        marker,
+        marker + additions,
+        "préfiltre sujets sensibles",
+    )
+
+
 def _apply_showcase_format_policy(source: str) -> str:
     """Aligne le pipeline historique sur les formats admis par la vitrine.
 
@@ -191,7 +230,8 @@ def _apply_showcase_format_policy(source: str) -> str:
 def _prepared_pipeline_source() -> str:
     """Prépare le pipeline historique pour un run qualité-first.
 
-    Quatre adaptations sont appliquées sans modifier le fichier historique :
+    Cinq adaptations sont appliquées sans modifier le fichier historique :
+    préfiltre des procédures sensibles déjà condamnées par la vérification,
     attente du quota glissant, formats compatibles avec la grille vitrine,
     grille vitrine avant écriture HTML, puis arrêt après le nombre demandé
     d'articles réellement acceptés.
@@ -206,6 +246,7 @@ def _prepared_pipeline_source() -> str:
         )
 
     source = PIPELINE.read_text(encoding="utf-8")
+    source = _apply_sensitive_topic_prefilter(source)
     source = _apply_showcase_format_policy(source)
     source = _replace_once(
         source,
