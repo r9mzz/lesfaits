@@ -1,12 +1,13 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""Remplace les lastmod artificiels des articles par leur dateModified réelle.
+"""Normalise les lastmod article du sitemap à partir des métadonnées publiées.
 
-Le générateur historique met la date du rebuild sur toutes les URL du sitemap.
-Pour les pages article, on utilise plutôt le JSON-LD NewsArticle déjà publié :
-`dateModified` en priorité, puis `datePublished` en secours. Ainsi un rebuild
-sans changement éditorial ne fait plus croire aux moteurs que tout le corpus a
-été modifié aujourd'hui.
+Le générateur historique applique la date du rebuild à tout le corpus. Pour
+chaque vraie page article, ce script utilise `dateModified` puis
+`datePublished` du JSON-LD NewsArticle ; les anciennes pages sans JSON-LD
+peuvent utiliser la date de leur balise `<time datetime>`. Les stubs de
+redirection `noindex` sont retirés du sitemap au lieu d'être présentés comme de
+vraies pages indexables.
 """
 from __future__ import annotations
 
@@ -17,15 +18,25 @@ from datetime import datetime
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
-SITEMAP = ROOT / "sitemap.xml"
-ARTICLES = ROOT / "articles"
 
+# Capture l'entrée complète afin de pouvoir supprimer proprement une redirection.
 URL_RE = re.compile(
-    r"(<url><loc>https://lesfaits\.info/articles/([^<]+)\.html</loc><lastmod>)([^<]+)(</lastmod>)"
+    r"\s*<url><loc>https://lesfaits\.info/articles/([^<]+)\.html</loc>"
+    r"<lastmod>([^<]+)</lastmod>(.*?)</url>",
+    re.I | re.S,
 )
 JSON_LD_RE = re.compile(
     r'<script\b[^>]*type=["\']application/ld\+json["\'][^>]*>(.*?)</script>',
     re.I | re.S,
+)
+TIME_RE = re.compile(
+    r'<time\b[^>]*\bdatetime=(["\'])(\d{4}-\d{2}-\d{2})(?:T[^"\']*)?\1',
+    re.I,
+)
+NOINDEX_RE = re.compile(r'<meta\b[^>]*\bname=(["\'])robots\1[^>]*\bcontent=(["\'])[^"\']*noindex', re.I)
+REDIRECT_RE = re.compile(
+    r'http-equiv=(["\'])refresh\1|window\.location(?:\.replace)?\s*\(|\bredirection\b|\bconsolid',
+    re.I,
 )
 
 
@@ -41,8 +52,13 @@ def _iso_date(value: object) -> str | None:
     return parsed.date().isoformat()
 
 
-def article_lastmod(path: Path) -> str | None:
+def article_metadata(path: Path) -> tuple[str | None, bool]:
+    """Retourne `(lastmod, est_redirection_noindex)` pour une page article."""
     html = path.read_text(encoding="utf-8", errors="replace")
+    is_redirect = bool(NOINDEX_RE.search(html) and REDIRECT_RE.search(html))
+    if is_redirect:
+        return None, True
+
     for block in JSON_LD_RE.findall(html):
         try:
             data = json.loads(block)
@@ -59,48 +75,74 @@ def article_lastmod(path: Path) -> str | None:
                 str(kind).lower() in {"newsarticle", "article"} for kind in kinds
             ):
                 continue
-            return _iso_date(obj.get("dateModified")) or _iso_date(obj.get("datePublished"))
-    return None
+            date = _iso_date(obj.get("dateModified")) or _iso_date(obj.get("datePublished"))
+            if date:
+                return date, False
+
+    # Compatibilité avec quelques anciennes vraies pages publiées avant le JSON-LD.
+    match = TIME_RE.search(html)
+    return (match.group(2) if match else None), False
 
 
 def normalize(root: Path = ROOT, *, check: bool = False) -> dict[str, int]:
     sitemap = root / "sitemap.xml"
     articles_dir = root / "articles"
     text = sitemap.read_text(encoding="utf-8")
-    seen = changed = missing = 0
+    seen = changed = removed = 0
+    missing_slugs: list[str] = []
 
     def replace(match: re.Match[str]) -> str:
-        nonlocal seen, changed, missing
+        nonlocal seen, changed, removed
         seen += 1
-        slug = match.group(2)
+        slug, current, tail = match.group(1), match.group(2), match.group(3)
         article = articles_dir / f"{slug}.html"
-        real = article_lastmod(article) if article.exists() else None
-        if not real:
-            missing += 1
+        if not article.exists():
+            missing_slugs.append(slug + " (fichier absent)")
             return match.group(0)
-        current = match.group(3)
-        if current != real:
-            changed += 1
-            return f"{match.group(1)}{real}{match.group(4)}"
-        return match.group(0)
+
+        real, is_redirect = article_metadata(article)
+        if is_redirect:
+            removed += 1
+            return ""
+        if not real:
+            missing_slugs.append(slug)
+            return match.group(0)
+        if current == real:
+            return match.group(0)
+
+        changed += 1
+        leading = "\n  " if match.group(0).startswith("\n") else ""
+        return (
+            f"{leading}<url><loc>https://lesfaits.info/articles/{slug}.html</loc>"
+            f"<lastmod>{real}</lastmod>{tail}</url>"
+        )
 
     updated = URL_RE.sub(replace, text)
     if seen == 0:
         raise RuntimeError("Aucune URL article trouvée dans sitemap.xml")
-    if missing:
+    if missing_slugs:
         raise RuntimeError(
-            f"{missing} article(s) du sitemap sans dateModified/datePublished exploitable"
+            f"{len(missing_slugs)} vraie(s) page(s) article sans date exploitable : "
+            + ", ".join(missing_slugs)
         )
-    if check and changed:
-        raise RuntimeError(f"sitemap.xml contient encore {changed} lastmod article artificiel(s)")
+    if check and (changed or removed):
+        raise RuntimeError(
+            f"sitemap.xml encore non normalisé: {changed} lastmod à corriger, "
+            f"{removed} redirection(s) à retirer"
+        )
     if not check and updated != text:
         sitemap.write_text(updated, encoding="utf-8")
 
     print(
-        f"[SITEMAP] {seen} article(s) contrôlé(s), {changed} lastmod corrigé(s), "
-        f"{missing} date(s) manquante(s)."
+        f"[SITEMAP] {seen} entrée(s) article contrôlée(s), {changed} lastmod corrigé(s), "
+        f"{removed} redirection(s) retirée(s), {len(missing_slugs)} date(s) manquante(s)."
     )
-    return {"articles": seen, "changed": changed, "missing": missing}
+    return {
+        "articles": seen,
+        "changed": changed,
+        "removed": removed,
+        "missing": len(missing_slugs),
+    }
 
 
 def main() -> int:
