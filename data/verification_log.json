@@ -7998,5 +7998,150 @@
     "avertissements_garde_fous": [
       "resume_repete_corps"
     ]
+  },
+  {
+    "slug": "taux-chomage-france-2026",
+    "statut": "corrige_automatiquement",
+    "date": "2026-08-08T17:03:15",
+    "problemes_initiaux": 3,
+    "tentatives": 1,
+    "problemes_residuels_style": 0,
+    "rapport_initial": {
+      "conforme": false,
+      "sujet_sensible": false,
+      "sujet_sensible_raison": "",
+      "angle_insuffisant": false,
+      "angle_insuffisant_raison": "",
+      "nature_contenu": "actualite_factuelle",
+      "problemes": [
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "source_derivee_comptee_comme_primaire",
+          "phrase_exacte": "Les données de l'Insee fournissent une vision détaillée de l'évolution du marché du travail en France.",
+          "explication": "La source 'Vie Publique | Marché du travail' est peut-être une reprise de l'information de l'Insee, ce qui ferait qu'il n'y a que deux sources primaires indépendantes."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "incoherence_inter_sections",
+          "phrase_exacte": "Selon l'Insee, le taux de chômage en France a augmenté de 0,2 point pour atteindre 8,3 % au deuxième trimestre.",
+          "explication": "Le résumé ne donne pas de chiffre, mais les faits donnent un chiffre précis, il faudrait vérifier si le résumé est cohérent avec les faits."
+        },
+        {
+          "bloc": 2,
+          "section": "sources",
+          "type": "compteur_incoherent",
+          "phrase_exacte": "nb_sources : 3",
+          "explication": "Le nombre de sources indépendantes est peut-être surestimé si certaines sources sont des reprises de l'information."
+        }
+      ]
+    },
+    "article_type": "breve"
+  },
+  {
+    "slug": "plainte-gabriel-attal-ingerence-numerique",
+    "statut": "rejete_sensible",
+    "date": "2026-08-08T17:04:21",
+    "sujet_sensible": true,
+    "raison": "l'article implique une affaire judiciaire en cours visant une personne nommée, Gabriel Attal",
+    "article_type": "breve",
+    "avertissements_garde_fous": [
+      "faits_repetitifs"
+    ]
+  },
+  {
+    "slug": "gabriel-attal-plainte-ingerence-etrangere",
+    "statut": "rejete_sensible",
+    "date": "2026-08-08T17:05:39",
+    "sujet_sensible": true,
+    "raison": "l'article implique une affaire judiciaire en cours visant une personne",
+    "article_type": "breve"
+  },
+  {
+    "slug": "enquete-ouverte-apres-agression-erik-tegner",
+    "statut": "rejete_sensible",
+    "date": "2026-08-08T17:07:03",
+    "sujet_sensible": true,
+    "raison": "l'article implique une affaire pénale en cours visant une personne",
+    "article_type": "breve"
+  },
+  {
+    "slug": "eclipses-sciences-chine-imperiale",
+    "statut": "rejete_qualite",
+    "date": "2026-08-08T17:09:08",
+    "angle_insuffisant": true,
+    "raison": "L'article ne répond pas à la question posée dans l'angle de réponse et ne fournit pas d'actualité identifiable pour justifier une publication maintenant",
+    "article_type": "actu"
+  },
+  {
+    "slug": "catherine-daste-pionniere-theatre-jeunes-morte",
+    "statut": "rejete_sensible",
+    "date": "2026-08-08T17:10:34",
+    "problemes_initiaux": 4,
+    "bloc5": [
+      "compteur_incoherent"
+    ],
+    "article_type": "breve"
+  },
+  {
+    "slug": "pavillon-assemblee-nationale-52-millions",
+    "statut": "rejete_qualite",
+    "date": "2026-08-08T17:13:16",
+    "problemes_initiaux": 3,
+    "tentatives": 3,
+    "problemes_restants": 4,
+    "bloquants_restants": 1,
+    "bloquants_types": [
+      "incoherence_inter_sections"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "incoherence_inter_sections",
+        "description": "Le coût du projet est mentionné dans les faits, mais il n'est pas clair si ce chiffre est confirmé par les sources ou s'il s'agit d'une estimation.",
+        "phrase": "Le coût du projet est estimé à 52,8 millions d'euros, selon les informations disponibles sur les sites de France Info, Europe1 et BFM TV."
+      }
+    ],
+    "types_restants": [
+      "fait_tranche_arbitrairement",
+      "incoherence_inter_sections",
+      "source_non_editoriale",
+      "redondance"
+    ],
+    "article_type": "breve",
+    "avertissements_garde_fous": [
+      "resume_repete_corps",
+      "faits_repetitifs"
+    ]
+  },
+  {
+    "slug": "pavillon-assemblee-nationale-53-millions",
+    "statut": "rejete_qualite",
+    "date": "2026-08-08T17:14:19",
+    "problemes_initiaux": 3,
+    "tentatives": 3,
+    "problemes_restants": 3,
+    "bloquants_restants": 1,
+    "bloquants_types": [
+      "incoherence_inter_sections"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "incoherence_inter_sections",
+        "description": "Le coût du projet est mentionné dans les faits, mais il n'est pas clair si ce chiffre est confirmé par les deux sources ou si les sources donnent des valeurs différentes.",
+        "phrase": "Selon Le Figaro et Le Monde, le projet de nouveau pavillon d'accueil de l'Assemblée nationale, estimé à 53 millions d'euros, a suscité une vive polémique en France."
+      }
+    ],
+    "types_restants": [
+      "incoherence_inter_sections",
+      "source_derivee_comptee_comme_primaire",
+      "angle_annonce_non_tenu"
+    ],
+    "article_type": "breve",
+    "avertissements_garde_fous": [
+      "resume_repete_corps"
+    ]
   }
 ]
