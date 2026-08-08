@@ -7,6 +7,7 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
 from run_pipeline import (  # noqa: E402
+    _apply_sensitive_topic_prefilter,
     _apply_showcase_format_policy,
     _article_slugs,
     _generated_article_paths,
@@ -58,6 +59,16 @@ class RunPipelineSafetyTests(unittest.TestCase):
             old.unlink()
 
             self.assertEqual(_generated_article_paths(before, root), set())
+
+    def test_sensitive_legal_topics_are_prefiltered_before_generation(self):
+        patched = _apply_sensitive_topic_prefilter("BLACKLIST = [\n    'fait divers',\n]\n")
+        for term in ("plainte ", "enquête ouverte", "mise en examen", "agression"):
+            self.assertIn(repr(term), patched)
+        self.assertNotIn(repr("enquête"), patched)
+
+    def test_sensitive_prefilter_fails_closed_if_pipeline_changes(self):
+        with self.assertRaises(RuntimeError):
+            _apply_sensitive_topic_prefilter("AUTRE_LISTE = []\n")
 
     def test_showcase_never_converts_long_article_to_brief(self):
         source = "CONVERSION_BREVE_SI_COURT = True\nQUOTA_ARTICLES_LONGS = 30\n"
