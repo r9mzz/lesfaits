@@ -63,9 +63,11 @@ jobs:
 
       # ── Garde-fou : ignorer un déclenchement trop rapproché ──────────────
       # Un automate EXTERNE au dépôt déclenche pipeline.yml à 15h00 ET 15h50
-      # UTC chaque jour. Le second run arrive quand le quota Groq est déjà
-      # consommé. On neutralise donc les seuls workflow_dispatch trop proches ;
-      # les deux crons du dépôt passent toujours, même s'ils ont été retardés.
+      # UTC chaque jour. Avec une fenêtre de 120 min, le premier déclenchement
+      # externe passait encore plusieurs heures après le cron du soir et créait
+      # un troisième run quotidien, consommant inutilement le quota glissant.
+      # Six heures couvrent ce chevauchement tout en laissant le bouton « forcer »
+      # disponible pour une relance humaine réellement volontaire.
       - name: Ignorer si un run vient d'avoir lieu
         id: garde
         env:
@@ -73,7 +75,7 @@ jobs:
           FORCER: ${{ inputs.forcer }}
           EVENEMENT: ${{ github.event_name }}
         run: |
-          FENETRE_MIN=120
+          FENETRE_MIN=360
           if [ "$EVENEMENT" != "workflow_dispatch" ]; then
             echo "Run planifié ($EVENEMENT) — jamais filtré."
             echo "passer=false" >> "$GITHUB_OUTPUT"
