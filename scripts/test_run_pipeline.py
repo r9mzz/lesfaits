@@ -6,7 +6,11 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
-from run_pipeline import _article_slugs, _generated_article_paths  # noqa: E402
+from run_pipeline import (  # noqa: E402
+    _apply_showcase_format_policy,
+    _article_slugs,
+    _generated_article_paths,
+)
 
 
 class RunPipelineSafetyTests(unittest.TestCase):
@@ -54,6 +58,24 @@ class RunPipelineSafetyTests(unittest.TestCase):
             old.unlink()
 
             self.assertEqual(_generated_article_paths(before, root), set())
+
+    def test_showcase_never_converts_long_article_to_brief(self):
+        source = "CONVERSION_BREVE_SI_COURT = True\nQUOTA_ARTICLES_LONGS = 30\n"
+        patched = _apply_showcase_format_policy(source)
+        self.assertIn("CONVERSION_BREVE_SI_COURT = False", patched)
+        self.assertNotIn("CONVERSION_BREVE_SI_COURT = True", patched)
+
+    def test_showcase_long_budget_covers_full_candidate_selection(self):
+        source = "CONVERSION_BREVE_SI_COURT = True\nQUOTA_ARTICLES_LONGS = 30\n"
+        patched = _apply_showcase_format_policy(source)
+        self.assertIn("QUOTA_ARTICLES_LONGS = max(30, nb_max)", patched)
+        self.assertNotIn("QUOTA_ARTICLES_LONGS = 30\n", patched)
+
+    def test_showcase_format_patch_fails_closed_if_pipeline_changes(self):
+        with self.assertRaises(RuntimeError):
+            _apply_showcase_format_policy("QUOTA_ARTICLES_LONGS = 30\n")
+        with self.assertRaises(RuntimeError):
+            _apply_showcase_format_policy("CONVERSION_BREVE_SI_COURT = True\n")
 
 
 if __name__ == "__main__":
