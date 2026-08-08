@@ -11,6 +11,8 @@ on:
       - "scripts/audit_brevo_attributes.py"
       - "scripts/normalize_sitemap_lastmod.py"
       - "scripts/test_sitemap_lastmod.py"
+      - "scripts/normalize_feed_pubdates.py"
+      - "scripts/test_feed_pubdates.py"
       - "scripts/test_newsletter.py"
       - "scripts/test_run_newsletter.py"
       - "scripts/test_newsletter_campaigns.py"
@@ -51,12 +53,15 @@ jobs:
             scripts/audit_brevo_attributes.py \
             scripts/normalize_sitemap_lastmod.py \
             scripts/test_sitemap_lastmod.py \
+            scripts/normalize_feed_pubdates.py \
+            scripts/test_feed_pubdates.py \
             scripts/test_newsletter.py \
             scripts/test_run_newsletter.py \
             scripts/test_newsletter_campaigns.py \
             scripts/test_harden_newsletter_v3.py \
             scripts/test_audit_brevo_form.py
           python scripts/test_sitemap_lastmod.py
+          python scripts/test_feed_pubdates.py
           python scripts/test_newsletter.py
           python scripts/test_run_newsletter.py
           python scripts/test_newsletter_campaigns.py
@@ -75,4 +80,6 @@ jobs:
           python scripts/harden_newsletter_v3.py --check
           python scripts/normalize_sitemap_lastmod.py
           python scripts/normalize_sitemap_lastmod.py --check
+          python scripts/normalize_feed_pubdates.py
+          python scripts/normalize_feed_pubdates.py --check
           python scripts/check_seo.py
