@@ -22,7 +22,7 @@ class SitemapLastmodTests(unittest.TestCase):
         (root / "sitemap.xml").write_text(
             '<?xml version="1.0"?><urlset>'
             '<url><loc>https://lesfaits.info/</loc><lastmod>2026-08-08</lastmod></url>'
-            '<url><loc>https://lesfaits.info/articles/exemple.html</loc><lastmod>2026-08-08</lastmod></url>'
+            '<url><loc>https://lesfaits.info/articles/exemple.html</loc><lastmod>2026-08-08</lastmod><changefreq>monthly</changefreq></url>'
             '</urlset>',
             encoding="utf-8",
         )
@@ -54,11 +54,36 @@ class SitemapLastmodTests(unittest.TestCase):
         finally:
             tmp.cleanup()
 
-    def test_missing_article_date_fails_closed(self):
+    def test_legacy_real_article_falls_back_to_visible_time(self):
         tmp, root = self._root()
         try:
-            (root / "articles" / "exemple.html").write_text('<html></html>', encoding="utf-8")
-            with self.assertRaises(RuntimeError):
+            legacy = '<html><body><time datetime="2026-07-31">31 juillet 2026</time></body></html>'
+            (root / "articles" / "exemple.html").write_text(legacy, encoding="utf-8")
+            sm.normalize(root)
+            text = (root / "sitemap.xml").read_text(encoding="utf-8")
+            self.assertIn('<lastmod>2026-07-31</lastmod>', text)
+        finally:
+            tmp.cleanup()
+
+    def test_noindex_redirect_is_removed_from_sitemap(self):
+        tmp, root = self._root()
+        try:
+            redirect = '''<html><head><meta name="robots" content="noindex, follow">
+<meta http-equiv="refresh" content="0;url=/articles/canonique.html"></head><body>Redirection</body></html>'''
+            (root / "articles" / "exemple.html").write_text(redirect, encoding="utf-8")
+            result = sm.normalize(root)
+            text = (root / "sitemap.xml").read_text(encoding="utf-8")
+            self.assertEqual(result["removed"], 1)
+            self.assertNotIn('/articles/exemple.html', text)
+            sm.normalize(root, check=True)
+        finally:
+            tmp.cleanup()
+
+    def test_missing_real_article_date_fails_closed_with_slug(self):
+        tmp, root = self._root()
+        try:
+            (root / "articles" / "exemple.html").write_text('<html><body>vraie page sans date</body></html>', encoding="utf-8")
+            with self.assertRaisesRegex(RuntimeError, "exemple"):
                 sm.normalize(root)
         finally:
             tmp.cleanup()
