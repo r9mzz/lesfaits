@@ -118,8 +118,12 @@ def normalize(root: Path = ROOT, *, check: bool = False) -> dict[str, int]:
         )
 
     updated = URL_RE.sub(replace, text)
-    if seen == 0:
-        raise RuntimeError("Aucune URL article trouvée dans sitemap.xml")
+    # Si le sitemap contient encore une URL /articles/ mais que la regexp n'en
+    # reconnaît aucune, c'est un changement de format qu'il faut bloquer. En
+    # revanche un sitemap sans aucun article est valide (par exemple après le
+    # retrait du seul stub de redirection dans un test ou un corpus vide).
+    if seen == 0 and "https://lesfaits.info/articles/" in text:
+        raise RuntimeError("Entrées article présentes mais format sitemap non reconnu")
     if missing_slugs:
         raise RuntimeError(
             f"{len(missing_slugs)} vraie(s) page(s) article sans date exploitable : "
