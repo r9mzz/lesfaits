@@ -7912,5 +7912,30 @@
     "avertissements_garde_fous": [
       "resume_repete_corps"
     ]
+  },
+  {
+    "slug": "taux-chomage-france-augmentation",
+    "statut": "conforme_du_premier_coup",
+    "date": "2026-08-08T04:21:29",
+    "article_type": "breve"
+  },
+  {
+    "slug": "enquete-ouverte-apres-agression-fondateur-frontieres-morbihan",
+    "statut": "rejete_sensible",
+    "date": "2026-08-08T04:22:52",
+    "sujet_sensible": true,
+    "raison": "l'article implique une affaire pénale en cours visant une personne",
+    "article_type": "breve"
+  },
+  {
+    "slug": "agression-erik-tegner-groix",
+    "statut": "rejete_sensible",
+    "date": "2026-08-08T04:25:45",
+    "sujet_sensible": true,
+    "raison": "l'article implique une personnalité médiatique dans une affaire pénale en cours",
+    "article_type": "breve",
+    "avertissements_garde_fous": [
+      "titre_de_mauvaise_qualite"
+    ]
   }
 ]
