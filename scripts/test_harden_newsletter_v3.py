@@ -27,11 +27,12 @@ OLD_PAGE = '''<!doctype html><html><head>
 </body></html>'''
 
 
-class NewsletterV5Tests(unittest.TestCase):
+class NewsletterV6Tests(unittest.TestCase):
     def test_upgrade_restores_preferences_and_keeps_reader_on_lesfaits(self):
         updated = v3.upgrade_html(OLD_PAGE)
-        self.assertIn('data-newsletter-version="5"', updated)
-        self.assertEqual(updated.count('/src/newsletter.js?v=5'), 1)
+        self.assertIn(f'data-newsletter-version="{v3.VERSION}"', updated)
+        self.assertEqual(updated.count(v3.SCRIPT_SRC), 1)
+        self.assertEqual(v3.VERSION, "6")
 
         for value in ("morning", "evening", "both"):
             self.assertIn(f'name="LF_FREQ" value="{value}"', updated)
@@ -74,12 +75,12 @@ class NewsletterV5Tests(unittest.TestCase):
         updated = v3.upgrade_html(page)
         self.assertEqual(updated.count(v3.ARTICLE_NL_BLOCK), 1)
         self.assertNotIn(v3.OLD_ARTICLE_COPY, updated)
-        self.assertIn('/src/newsletter.js?v=5', updated)
+        self.assertIn(v3.SCRIPT_SRC, updated)
         self.assertEqual(v3.validate_v3(Path("articles/test.html"), updated), [])
 
     def test_validation_rejects_duplicate_article_blocks(self):
         page = (
-            '<html><head><script src="/src/newsletter.js?v=5" defer></script></head><body>'
+            f'<html><head><script src="{v3.SCRIPT_SRC}" defer></script></head><body>'
             + v3.ARTICLE_NL_BLOCK + '\n' + v3.ARTICLE_NL_BLOCK
             + '</body></html>'
         )
