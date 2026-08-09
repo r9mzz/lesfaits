@@ -37,6 +37,11 @@
       var consent = form.querySelector("#nl-consent");
       if (email) email.value = "";
       if (consent) consent.checked = false;
+    } else if (completed === null) {
+      /* Troisième état : la demande est partie et Brevo a répondu, mais la
+       * réponse est illisible (autre domaine). Ni succès affirmé, ni échec
+       * annoncé — on décrit ce qui est réellement établi. */
+      setMessage(form, text || "Demande envoyée. Vérifiez votre boîte mail.", "info");
     } else {
       setMessage(form, text || "L'inscription n'a pas pu être confirmée. Réessayez dans un instant.", "err");
     }
@@ -46,7 +51,20 @@
     if (form.dataset.submitting !== "1") return;
     try {
       var doc = frame.contentDocument;
-      if (!doc || !doc.body) return;
+      /* Brevo sert sa réponse sur son propre domaine : le navigateur en
+       * interdit la lecture et `contentDocument` vaut null. Rester muet ici
+       * laissait le délai de 15 s expirer et affichait une ERREUR alors que
+       * l'inscription venait de réussir — c'est le faux négatif observé le
+       * 07/08. L'iframe a chargé : la requête est arrivée et Brevo a répondu.
+       * On l'annonce sans prétendre au succès, qu'on ne peut pas prouver.
+       * Régler la redirection Brevo sur /confirmation.html ramène la réponse
+       * sur notre domaine et rétablit la confirmation certaine. */
+      if (!doc) {
+        finishSubmission(form, null,
+          "Demande envoyée. Si l’adresse est valide, un lien de validation arrive dans votre boîte mail — pensez à vérifier les spams.");
+        return;
+      }
+      if (!doc.body) return;
       var body = (doc.body.innerText || doc.body.textContent || "").trim();
       var href = String(frame.contentWindow.location.href || "");
       if (!body && (href === "about:blank" || !href)) return;

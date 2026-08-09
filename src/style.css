@@ -1041,6 +1041,9 @@ a.card3,a.une__main,a.une__side-item,a.list-item,a.art__related-card,a.archive-i
 .nl-compact__msg { font-size: 11px; margin-top: 8px; line-height: 1.45; }
 .nl-compact__msg--ok  { color: var(--green); }
 .nl-compact__msg--err { color: var(--red); }
+/* État intermédiaire : demande transmise, réponse Brevo illisible (cross-origin).
+   Ni vert (succès non prouvé) ni rouge (rien n'a échoué) — neutre et informatif. */
+.nl-compact__msg--info { color: var(--blue); }
 @media (max-width: 600px) {
   .nl-compact__inner { padding: 16px; }
   .nl-compact__row { flex-direction: column; }
