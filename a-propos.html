@@ -21,7 +21,7 @@
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <link rel="manifest" href="/manifest.json">
   <script defer src="https://cloud.umami.is/script.js" data-website-id="8d68a78f-97ae-4c95-a955-5d3df758f7e2"></script>
-  <script src="/src/newsletter.js?v=5" defer></script>
+  <script src="/src/newsletter.js?v=6" defer></script>
 </head>
 <body>
 <script>(function(){var s=localStorage.getItem('theme');var d=s==='dark'||(s===null&&window.matchMedia('(prefers-color-scheme:dark)').matches);document.documentElement.setAttribute('data-theme',d?'dark':'light');})();</script>
@@ -146,7 +146,7 @@ document.addEventListener('DOMContentLoaded',function(){var btn=document.getElem
       <span class="nl-compact__label">NEWSLETTER</span>
       <span class="nl-compact__title">Le résumé du jour dans votre boîte mail</span>
     </div>
-    <form id="nl-form" novalidate data-newsletter-version="5" aria-label="Inscription à la newsletter Les Faits" action="https://e6ad0381.sibforms.com/serve/MUIFAErfidn3h7DoaZcjIRh-48s1GoiE0vZOe_KG-skCwDznnQ2831i0IkHsSaXfUJ15hBl1CH3ElJVKdGDdXdxHpt6v7iX-hAlyWb0i0M7mtq6UhgJ9JJyCUhNwckwfxW8EUJkF_hkjb4qX8YSntlFraZFiCcgQhZ3PXsPvAcSa9oEyPOgeL1EtAB4akgMS-hz76NcGAUSqOt3L1w==" method="post" enctype="application/x-www-form-urlencoded" target="lf-newsletter-sink">
+    <form id="nl-form" novalidate data-newsletter-version="6" aria-label="Inscription à la newsletter Les Faits" action="https://e6ad0381.sibforms.com/serve/MUIFAErfidn3h7DoaZcjIRh-48s1GoiE0vZOe_KG-skCwDznnQ2831i0IkHsSaXfUJ15hBl1CH3ElJVKdGDdXdxHpt6v7iX-hAlyWb0i0M7mtq6UhgJ9JJyCUhNwckwfxW8EUJkF_hkjb4qX8YSntlFraZFiCcgQhZ3PXsPvAcSa9oEyPOgeL1EtAB4akgMS-hz76NcGAUSqOt3L1w==" method="post" enctype="application/x-www-form-urlencoded" target="lf-newsletter-sink">
       <input type="hidden" name="LESFAITS_VERIFICATION" value="1"/>
       <input type="hidden" name="email_address_check" value=""/>
       <input type="hidden" name="locale" value="fr"/>
@@ -158,8 +158,8 @@ document.addEventListener('DOMContentLoaded',function(){var btn=document.getElem
       <input type="hidden" name="CAT_SANTE" value="0"/>
       <input type="hidden" name="CAT_ENVIRONNEMENT" value="0"/>
       <div class="nl-compact__freq" role="group" aria-label="Fréquence de réception">
-        <label class="nl-compact__freq-opt"><input type="radio" name="LF_FREQ" value="morning"/> Matin (~7h)</label>
-        <label class="nl-compact__freq-opt"><input type="radio" name="LF_FREQ" value="evening"/> Soir (~18h)</label>
+        <label class="nl-compact__freq-opt"><input type="radio" name="LF_FREQ" value="morning"/> Édition du matin</label>
+        <label class="nl-compact__freq-opt"><input type="radio" name="LF_FREQ" value="evening"/> Édition du soir</label>
         <label class="nl-compact__freq-opt"><input type="radio" name="LF_FREQ" value="both" checked/> Les deux</label>
       </div>
       <div class="nl-compact__row">
