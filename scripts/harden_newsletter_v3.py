@@ -1,13 +1,14 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""Normalise la newsletter v5.
+"""Normalise la newsletter v6.
 
 Objectifs :
 - restaurer Matin / Soir / Les deux et les six rubriques ;
 - conserver un POST HTML natif vers Brevo, sans clé API dans le navigateur ;
 - envoyer la réponse technique Brevo dans une iframe cachée afin que le lecteur
   reste sur Les Faits au lieu d'atterrir sur une page JSON ;
-- garder le consentement local obligatoire et les blocs article dédupliqués.
+- garder le consentement local obligatoire et les blocs article dédupliqués ;
+- aligner systématiquement le cache-busting HTML sur la version du script navigateur.
 """
 from __future__ import annotations
 
@@ -18,7 +19,7 @@ from pathlib import Path
 import harden_newsletter as legacy
 
 ROOT = Path(__file__).resolve().parent.parent
-VERSION = "5"
+VERSION = "6"
 SCRIPT_RE = re.compile(r'/src/newsletter\.js(?:\?[^"\']*)?', re.I)
 SCRIPT_SRC = f"/src/newsletter.js?v={VERSION}"
 FORM_URL = legacy.FORM_URL
@@ -331,7 +332,7 @@ def validate_v3(path: Path, html: str) -> list[str]:
         return errors
 
     required_fragments = (
-        'data-newsletter-version="5"',
+        f'data-newsletter-version="{VERSION}"',
         'name="LF_FREQ" value="morning"',
         'name="LF_FREQ" value="evening"',
         'name="LF_FREQ" value="both"',
@@ -345,7 +346,7 @@ def validate_v3(path: Path, html: str) -> list[str]:
     )
     for fragment in required_fragments:
         if fragment not in html:
-            errors.append("élément newsletter v5 absent : " + fragment[:80])
+            errors.append(f"élément newsletter v{VERSION} absent : " + fragment[:80])
     for name in CATEGORY_FIELDS:
         if f'data-brevo-name="{name}"' not in html:
             errors.append(f"rubrique {name} absente")
