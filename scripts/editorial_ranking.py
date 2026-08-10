@@ -69,8 +69,13 @@ def _clusters(candidats: list[dict], seuil: float = 0.34) -> list[list[int]]:
 
     Deux titres ne sont JAMAIS reliés sur un seul mot commun. L'IDF réduit le
     poids du vocabulaire omniprésent dans la collecte et conserve celui des
-    termes distinctifs. Le seuil 0,34 est celui utilisé dans la mesure réelle du
-    10/08/2026 et doit être retesté sur plusieurs journées avant tout changement.
+    termes distinctifs. Si tous les termes communs ont une IDF nulle (petit
+    corpus composé de titres quasi identiques), on retombe sur un cosinus
+    lexical non pondéré : cela évite un faux négatif mathématique sans autoriser
+    les rapprochements sur un mot unique.
+
+    Le seuil 0,34 est celui utilisé dans la mesure réelle du 10/08/2026 et doit
+    être retesté sur plusieurs journées avant tout changement.
     """
     toks = [_tokens(i.get("title", "")) for i in candidats]
     df: Counter[str] = Counter()
@@ -97,8 +102,14 @@ def _clusters(candidats: list[dict], seuil: float = 0.34) -> list[list[int]]:
             if len(communs) < 2:
                 continue
             numerateur = sum(idf.get(m, 0.0) for m in communs)
-            denominateur = math.sqrt(poids[a] * poids[b]) or 1.0
-            if numerateur / denominateur >= seuil:
+            if numerateur == 0.0:
+                similarite = len(communs) / (
+                    math.sqrt(len(toks[a]) * len(toks[b])) or 1.0
+                )
+            else:
+                denominateur = math.sqrt(poids[a] * poids[b]) or 1.0
+                similarite = numerateur / denominateur
+            if similarite >= seuil:
                 ra, rb = find(a), find(b)
                 if ra != rb:
                     parent[ra] = rb
