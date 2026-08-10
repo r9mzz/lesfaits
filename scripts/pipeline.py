@@ -7687,6 +7687,24 @@ def run(dry_run=False, text_input=None, nb_max=36):
         # ponctuellement mince n'est pas perdu, il change juste de format.
         # Si le quota Groq redevient la vraie contrainte (moins de clés que
         # prévu), redescendre ce nombre est le seul paramètre à bouger.
+        #
+        # ── Constat du 10/08 : la contrainte est REVENUE, non corrigée ici ───
+        # Quatre jours sans publication (dernier article : 05/08, 15h09). Ce 30
+        # supposait 23 clés ; il n'en reste 11 dans les secrets, dont 9 pour la
+        # rédaction et 2 réservées au fact-check (voir `diagnostic_cles_groq`).
+        # Les runs sélectionnent 34 sujets, en tentent 1 à 9, épuisent le quota
+        # et publient zéro — aucun n'atteint même la grille vitrine. La fenêtre
+        # glissante ne se recharge jamais : le run suivant démarre déjà à sec.
+        # Le plafond réellement appliqué n'est PAS ce 30 (voir ci-dessous), et
+        # le vrai levier est la restauration des 12 secrets manquants.
+        # ⚠ LIGNE SOUS CONTRAT — ne pas la réécrire sans lire `run_pipeline.py`.
+        # C'est le wrapper que lance le workflow, pas ce fichier directement :
+        # il patche le source à la volée et cherche cette affectation par sa
+        # chaîne littérale exacte (marqueur « budget formats vitrine »). La
+        # transformer en expression calculée fait échouer TOUT le pipeline au
+        # démarrage, et la citer dans un commentaire la rend « dupliquée » —
+        # les deux erreurs commises le 10/08. Le plafond effectivement appliqué
+        # se règle dans `run_pipeline.py`, pas ici.
         QUOTA_ARTICLES_LONGS = 30
         budget_formats = {"longs_restants": QUOTA_ARTICLES_LONGS}
         print(f"\n[GÉNÉRATION] budget : {QUOTA_ARTICLES_LONGS} article(s) long(s), "
