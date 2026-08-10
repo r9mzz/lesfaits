@@ -8143,5 +8143,82 @@
     "avertissements_garde_fous": [
       "resume_repete_corps"
     ]
+  },
+  {
+    "slug": "edgar-morin-pensee-complexe",
+    "statut": "rejete_qualite",
+    "date": "2026-08-10T13:57:22",
+    "angle_insuffisant": true,
+    "raison": "L'article ne répond pas à la question « Quel est l'héritage d'Edgar Morin pour les sciences humaines et sociales ? » de manière spécifique et ne fournit pas d'informations récentes ou d'actualité sur le sujet.",
+    "article_type": "actu"
+  },
+  {
+    "slug": "juillet-2026-mois-chaud-enregistre",
+    "statut": "rejete_qualite",
+    "date": "2026-08-10T13:58:24",
+    "angle_insuffisant": true,
+    "raison": "L'article ne répond pas à la question « Qu'est-ce que le début d'été 2026 nous révèle sur l'évolution du climat ? » et ne fournit pas d'information spécifique sur l'évolution du climat en 2026",
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "resume_repete_corps"
+    ]
+  },
+  {
+    "slug": "eclipses-solaires-chine-imperiale-xvii-siecle",
+    "statut": "corrige_automatiquement",
+    "date": "2026-08-10T14:00:22",
+    "problemes_initiaux": 5,
+    "tentatives": 2,
+    "problemes_residuels_style": 3,
+    "rapport_initial": {
+      "conforme": false,
+      "sujet_sensible": false,
+      "sujet_sensible_raison": "",
+      "angle_insuffisant": false,
+      "angle_insuffisant_raison": "",
+      "nature_contenu": "actualite_factuelle",
+      "problemes": [
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "D'après Astronoo, l'astronomie impériale chinoise a une longue histoire, avec des observations de phénomènes célestes remontant à plus de 3 000 ans [6].",
+          "explication": "La source [6] n'existe pas dans les sources autorisées fournies, Astronoo est bien présent mais pas avec ce numéro de source"
+        },
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "Selon BBC, les éclipses solaires sont encore aujourd'hui un phénomène important, avec une éclipse totale visible dans certaines régions du monde en 2026 [5].",
+          "explication": "La source [5] correspond à BBC, mais le contenu de la source ne mentionne pas les éclipses solaires comme un phénomène important avec une éclipse totale visible en 2026, cela nécessite une vérification"
+        },
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "Selon Pour la Science [4]. Les Chinois ont développé des méthodes pour calculer les éclipses, mais celles-ci étaient moins précises que les méthodes européennes.",
+          "explication": "La source [4] correspond à Pour la Science, mais le contenu de la source ne mentionne pas explicitement que les méthodes chinoises pour calculer les éclipses étaient moins précises que les méthodes européennes"
+        },
+        {
+          "bloc": 3,
+          "section": "contexte",
+          "type": "paraphrase_structurelle",
+          "phrase_exacte": "L'astronomie chinoise a une longue histoire, avec des observations de phénomènes célestes remontant à plus de 3 000 ans.",
+          "explication": "La phrase reprend la structure et l'essentiel du vocabulaire de la source Astronoo sans guillemets"
+        },
+        {
+          "bloc": 4,
+          "section": "contexte",
+          "type": "redondance",
+          "phrase_exacte": "Les Chinois ont développé des méthodes pour calculer les éclipses, mais celles-ci étaient moins précises que les méthodes européennes.",
+          "explication": "La phrase répète une idée déjà présente dans la section 'faits'"
+        }
+      ]
+    },
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "resume_repete_corps",
+      "faits_repetitifs"
+    ]
   }
 ]
