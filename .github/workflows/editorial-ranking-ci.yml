@@ -1,0 +1,26 @@
+name: Editorial ranking CI
+
+on:
+  pull_request:
+    paths:
+      - "scripts/editorial_ranking.py"
+      - "scripts/run_pipeline_v3.py"
+      - "scripts/test_editorial_ranking.py"
+      - ".github/workflows/editorial-ranking-ci.yml"
+      - ".github/workflows/pipeline.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  editorial-ranking:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Syntaxe
+        run: python -m py_compile scripts/editorial_ranking.py scripts/run_pipeline_v3.py scripts/test_editorial_ranking.py
+      - name: Tests déterministes
+        run: python scripts/test_editorial_ranking.py
