@@ -119,10 +119,11 @@ jobs:
       - name: Prévol qualité vitrine
         if: steps.garde.outputs.passer != 'true'
         run: |
-          python -m py_compile scripts/run_pipeline.py scripts/showcase_quality.py scripts/summarize_pipeline_log.py
+          python -m py_compile scripts/run_pipeline.py scripts/run_pipeline_v3.py scripts/editorial_ranking.py scripts/showcase_quality.py scripts/summarize_pipeline_log.py
           python scripts/test_editorial_quality.py
           python scripts/test_editorial_depth.py
           python scripts/test_run_pipeline.py
+          python scripts/test_editorial_ranking.py
           python scripts/test_quota_wait.py
           python scripts/test_showcase_quality.py
           python scripts/test_summarize_pipeline_log.py
@@ -163,9 +164,9 @@ jobs:
           set -o pipefail
           PIPELINE_LOG="${RUNNER_TEMP}/lesfaits-pipeline.log"
           if [ "${{ inputs.dry_run }}" = "true" ]; then
-            python scripts/run_pipeline.py --dry-run 2>&1 | tee "$PIPELINE_LOG"
+            python scripts/run_pipeline_v3.py --dry-run 2>&1 | tee "$PIPELINE_LOG"
           else
-            python scripts/run_pipeline.py 2>&1 | tee "$PIPELINE_LOG"
+            python scripts/run_pipeline_v3.py 2>&1 | tee "$PIPELINE_LOG"
           fi
 
       - name: Résumer le run
