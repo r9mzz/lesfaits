@@ -1232,6 +1232,37 @@ def _age_heures(date_str: str) -> float:
         return 48.0  # inconnu → considéré comme vieux
 
 
+_MOTS_GENERIQUES_CACHE: dict[int, frozenset] = {}
+DF_MOT_GENERIQUE = 3  # présent dans ≥3 titres publiés = vocabulaire de rubrique
+
+
+def _mots_generiques_corpus(published_topics: set) -> frozenset:
+    """Formes présentes dans au moins `DF_MOT_GENERIQUE` titres déjà publiés.
+
+    Calculé une fois par run (le même jeu de titres sert à tous les candidats),
+    mémoïsé sur l'identité du set — `score_editorial` est appelé des centaines
+    de fois par run et recalculer 140 titres à chaque appel serait absurde.
+    """
+    cle = id(published_topics)
+    if cle not in _MOTS_GENERIQUES_CACHE:
+        import unicodedata
+        from collections import Counter
+
+        def _formes(s: str) -> set[str]:
+            s = unicodedata.normalize("NFD", s or "")
+            s = "".join(c for c in s if unicodedata.category(c) != "Mn")
+            return set(w[:8] for w in s.lower().split() if len(w) > 5)
+
+        df: Counter = Counter()
+        for t in published_topics:
+            df.update(_formes(t))
+        _MOTS_GENERIQUES_CACHE.clear()  # un seul corpus vivant à la fois
+        _MOTS_GENERIQUES_CACHE[cle] = frozenset(
+            m for m, c in df.items() if c >= DF_MOT_GENERIQUE
+        )
+    return _MOTS_GENERIQUES_CACHE[cle]
+
+
 def score_editorial(item: dict, source_name: str, published_topics: set) -> tuple[int, list[str]]:
     """
     Calcule le score éditorial d'un item RSS selon le barème v2.
@@ -1401,10 +1432,27 @@ def score_editorial(item: dict, source_name: str, published_topics: set) -> tupl
         s = "".join(c for c in s if unicodedata.category(c) != "Mn")
         return set(w[:8] for w in s.lower().split() if len(w) > 5)
 
+    # ── Mots GÉNÉRIQUES du corpus : ignorés dans le test de doublon (10/08) ──
+    # Mesure sur une collecte réelle (619 items, 36 sources) : le barème place
+    # en tête des pièces de magazine mono-source, et COULE les faits les plus
+    # couverts de la journée — sur 12 grappes de ≥3 médias, 4 sont écartées par
+    # cette pénalité, dont Gaza/Trump (8 médias) et le détroit d'Ormuz.
+    # Le rapprochement se faisait sur des mots présents partout : « découverte »
+    # apparaît dans 12 des 140 titres publiés, « France » dans 12, « recherche »
+    # et « publique » dans 3. Partager « découverte » avec un article déjà
+    # publié ne dit rien du sujet — c'est du vocabulaire de rubrique.
+    # Distribution mesurée sur les 140 titres : 529 formes, dont 90 % dans UN
+    # seul titre et 3 % seulement dans 3 titres ou plus. Le seuil de 3 isole
+    # donc les 14 formes réellement génériques sans toucher au vocabulaire
+    # distinctif — « éclipse », « drones », « détroit » restent à DF=1.
+    # Ne PAS descendre ce seuil à 2 sans refaire la mesure : 54 formes (10 %)
+    # y passeraient, dont des mots parfaitement discriminants.
+    _generiques = _mots_generiques_corpus(published_topics)
+
     title_words = _norm_words(item["title"])
     for topic in published_topics:
         topic_words = _norm_words(topic)
-        shared = title_words & topic_words
+        shared = (title_words & topic_words) - _generiques
         overlap = len(shared)
         # Il faut DEUX mots communs pour conclure au doublon. La règle
         # précédente rejetait sur un seul mot dès qu'il faisait 8 caractères —
