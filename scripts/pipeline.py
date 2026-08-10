@@ -90,20 +90,32 @@ GROQ_CLES_CABLEES_VIDES: list[str] = [
 
 
 def diagnostic_cles_groq() -> None:
-    """Écrit la capacité réelle en tête de run, et alerte si des clés câblées
-    manquent. Diagnostic seul : n'interrompt rien, ne change aucune décision."""
+    """Écrit la capacité en tête de run, et alerte si une clé câblée manque.
+
+    ⚠ LE QUOTA GROQ EST PAR COMPTE, PAS PAR CLÉ (correctif du 10/08, Nahil).
+    Quatre clés créées sur un même compte se PARTAGENT ses 100 k tokens/jour :
+    elles valent 25 k chacune, pas 100 k. Ajouter des clés sur un compte déjà
+    utilisé n'ajoute donc AUCUNE capacité — c'est pourquoi 12 d'entre elles ont
+    été retirées le 10/08, sans perte. Ne jamais estimer la capacité en
+    multipliant le nombre de clés par 100 k : c'est le nombre de COMPTES
+    DISTINCTS qui compte, et le code ne peut pas le connaître depuis une clé.
+
+    Diagnostic seul : n'interrompt rien, ne change aucune décision.
+    """
     utilisables = len(GROQ_ALL_KEYS)
     manquantes = len(GROQ_CLES_CABLEES_VIDES)
-    cablees = utilisables + manquantes
-    print(f"[CLÉS GROQ] {utilisables} utilisable(s) sur {cablees} câblée(s) — "
-          f"capacité ≈ {utilisables * 100_000:,} tokens / 24 h glissantes".replace(",", " "))
+    print(f"[CLÉS GROQ] {utilisables} clé(s) utilisable(s) sur "
+          f"{utilisables + manquantes} câblée(s). Capacité réelle = "
+          f"100 k × nombre de COMPTES distincts (non déductible d'ici).")
     if manquantes:
         # ::warning:: remonte dans le résumé du run GitHub, pas seulement dans
-        # le journal — c'est ce qui manquait pour que la perte soit vue.
+        # le journal — c'est ce qui manquait pour qu'une perte soit vue.
+        # Ne se déclenche que sur un secret câblé ET absent : les clés
+        # volontairement retirées le sont AUSSI du workflow, donc pas d'alerte.
         print(f"::warning::{manquantes} clé(s) Groq câblée(s) dans pipeline.yml mais "
               f"ABSENTE(S) des secrets GitHub : {', '.join(GROQ_CLES_CABLEES_VIDES)}. "
-              f"Capacité réduite à {utilisables}/{cablees}. "
-              f"Créer les secrets manquants ou retirer les lignes correspondantes du workflow.")
+              f"Soit créer les secrets, soit retirer les lignes du workflow — "
+              f"une clé câblée et vide est silencieusement ignorée.")
 PEXELS_KEY     = os.getenv("PEXELS_API_KEY", "")
 PIXABAY_KEY    = os.getenv("PIXABAY_API_KEY", "")
 
@@ -7689,14 +7701,18 @@ def run(dry_run=False, text_input=None, nb_max=36):
         # prévu), redescendre ce nombre est le seul paramètre à bouger.
         #
         # ── Constat du 10/08 : la contrainte est REVENUE, non corrigée ici ───
-        # Quatre jours sans publication (dernier article : 05/08, 15h09). Ce 30
-        # supposait 23 clés ; il n'en reste 11 dans les secrets, dont 9 pour la
-        # rédaction et 2 réservées au fact-check (voir `diagnostic_cles_groq`).
-        # Les runs sélectionnent 34 sujets, en tentent 1 à 9, épuisent le quota
-        # et publient zéro — aucun n'atteint même la grille vitrine. La fenêtre
+        # Quatre jours sans publication (dernier article : 05/08, 15h09). Les
+        # runs sélectionnent 34 sujets, en tentent 1 à 9, épuisent le quota et
+        # publient zéro — aucun n'atteint même la grille vitrine. La fenêtre
         # glissante ne se recharge jamais : le run suivant démarre déjà à sec.
-        # Le plafond réellement appliqué n'est PAS ce 30 (voir ci-dessous), et
-        # le vrai levier est la restauration des 12 secrets manquants.
+        #
+        # La capacité n'a PAS baissé : le quota Groq est par COMPTE, pas par
+        # clé, donc les 23 clés d'avant valaient déjà ce que valent les 11
+        # d'aujourd'hui (voir `diagnostic_cles_groq`). C'est la DEMANDE qui a
+        # doublé le 05/08 — dernier jour de publication : ce plafond est passé
+        # de 4 à 30, la cible d'article de 500 à 800 mots, et la brève a cessé
+        # d'être le format par défaut. Un sujet coûte donc ~3× plus qu'avant.
+        # Le plafond réellement appliqué n'est PAS ce 30 (voir ci-dessous).
         # ⚠ LIGNE SOUS CONTRAT — ne pas la réécrire sans lire `run_pipeline.py`.
         # C'est le wrapper que lance le workflow, pas ce fichier directement :
         # il patche le source à la volée et cherche cette affectation par sa
