@@ -157,7 +157,7 @@ jobs:
           PEXELS_API_KEY:   ${{ secrets.PEXELS_API_KEY }}
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
           GROQ_WAIT_MAX_MINUTES: "150"
-          MAX_SHOWCASE_PUBLICATIONS: "2"
+          MAX_SHOWCASE_PUBLICATIONS: "1"
           PYTHONIOENCODING: utf-8
           TZ: Europe/Paris
         run: |
