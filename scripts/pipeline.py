@@ -2108,7 +2108,15 @@ SEUILS_FORMAT = {
     # ailleurs bon parce que la matière d'UN sujet précis était plus mince que
     # la moyenne. Ne monter le plancher qu'après avoir mesuré, sur plusieurs
     # runs, que la nouvelle cible est tenue sans relance systématique.
-    "article": {"cible": 800, "plancher": 350, "sources": 3},
+    # 800 → 600 (10/08) : la cible de 800 date du 05/08, dernier jour où le
+    # site a publié quelque chose. Depuis, chaque run entame 7 à 9 sujets, n'en
+    # mène AUCUN jusqu'à la grille vitrine et meurt sur le quota — la fenêtre
+    # glissante ne se recharge jamais, le run suivant démarre à sec. 600 mots
+    # reste au-dessus des 500 d'avant le 05/08, donc sans renoncer à la
+    # profondeur, mais rend une tentative finançable. Le plancher ne bouge pas.
+    # ⚠ Ce n'est PAS le correctif de fond : même finançables, les articles
+    # échouent sur le sujet et la matière, pas sur la longueur.
+    "article": {"cible": 600, "plancher": 350, "sources": 3},
     "breve":   {"cible": 130, "plancher": 100, "sources": 3},
 }
 
@@ -3640,7 +3648,7 @@ def generate(content: str, category_hint: str, extra_sources: list[dict] | None 
                 messages = messages + [{
                     "role": "user",
                     "content": ("Ta réponse précédente a été coupée car trop longue. "
-                                "Recommence en visant 800 mots de corps MAXIMUM au total : "
+                                "Recommence en visant 600 mots de corps MAXIMUM au total : "
                                 "va à l'essentiel, fusionne les redites, ta réponse JSON "
                                 "complète doit tenir en moins de 4000 tokens."),
                 }]
@@ -7725,11 +7733,31 @@ def run(dry_run=False, text_input=None, nb_max=36):
         budget_formats = {"longs_restants": QUOTA_ARTICLES_LONGS}
         print(f"\n[GÉNÉRATION] budget : {QUOTA_ARTICLES_LONGS} article(s) long(s), "
               f"puis brèves sur les {max(0, len(selection) - QUOTA_ARTICLES_LONGS)} sujets suivants")
+        # ── Réserve de quota : ne pas vider la fenêtre glissante (10/08) ─────
+        # Boucle de famine observée du 05 au 10/08 : chaque run entame des
+        # sujets jusqu'à l'épuisement total, n'en publie aucun, et laisse la
+        # fenêtre de 24 h à sec — le run suivant démarre sans rien et ne peut
+        # tenter que 1 à 2 sujets, qui meurent à leur tour. Quatre jours sans
+        # publication, alors que la capacité n'avait pas bougé.
+        # On plafonne donc les TENTATIVES, pas seulement les acceptations : le
+        # run s'arrête en laissant du quota, ce qui permet au suivant d'aller
+        # au bout de quelques sujets au lieu de mourir en route. Un sujet non
+        # tenté n'est pas perdu — il revient dans la sélection du run suivant.
+        # Calibré sur la mesure : les runs des 08-10/08 ont entamé 7 à 9 sujets
+        # avant l'épuisement, donc s'arrêter à 6 laisse une réserve réelle.
+        MAX_TENTATIVES_PAR_RUN = 6
+        _tentatives = 0
         for item in selection:
             elapsed = time.time() - _pipeline_start
             if elapsed > _BUDGET_SECONDES:
                 print(f"  [BUDGET] {elapsed/60:.1f} min écoulées — arrêt pour éviter le timeout GitHub (budget={_BUDGET_SECONDES//60} min)")
                 break
+            if _tentatives >= MAX_TENTATIVES_PAR_RUN:
+                print(f"  [RÉSERVE] {_tentatives} sujets tentés — arrêt volontaire pour "
+                      f"laisser du quota au créneau suivant. Les {len(selection) - _tentatives} "
+                      f"sujets restants repartiront dans la prochaine sélection.")
+                break
+            _tentatives += 1
             try:
                 _now_article = datetime.now()
                 date_pub = f"{_now_article.day} {MOIS[_now_article.month-1]} {_now_article.year}, {_now_article.strftime('%Hh%M')}"
