@@ -28,11 +28,29 @@ STOP = {
 }
 
 
+def _stem_token(token: str) -> str:
+    """Normalisation légère des flexions, volontairement conservatrice.
+
+    Elle absorbe surtout les accords/pluriels fréquents dans les titres
+    (``placée``/``place``, ``globes``/``globe``) sans transformer les mots en
+    racines agressives. Le clustering exige toujours au moins deux mots communs.
+    """
+    if len(token) > 5 and token.endswith("ees"):
+        return token[:-2]
+    if len(token) > 5 and token.endswith("ee"):
+        return token[:-1]
+    if len(token) > 5 and token.endswith("es"):
+        return token[:-1]
+    if len(token) > 5 and token.endswith(("s", "x")):
+        return token[:-1]
+    return token
+
+
 def _tokens(titre: str) -> set[str]:
     t = unicodedata.normalize("NFD", titre or "")
     t = "".join(c for c in t if unicodedata.category(c) != "Mn").lower()
     return {
-        m for m in re.findall(r"[a-z0-9]+", t)
+        _stem_token(m) for m in re.findall(r"[a-z0-9]+", t)
         if len(m) >= 4 and m not in STOP
     }
 
@@ -119,7 +137,10 @@ def rank_subjects(candidats: list[dict], seuil_cluster: float = 0.34) -> list[di
         items = [candidats[i] for i in groupe]
         medias = {_source_name(i) for i in items if _source_name(i) != "?"}
         nb_medias = max(1, len(medias))
-        representant = max(items, key=lambda i: (i.get("_score", -10_000), len(i.get("content", ""))))
+        representant = max(
+            items,
+            key=lambda i: (i.get("_score", -10_000), len(i.get("content", ""))),
+        )
         out = dict(representant)
         bonus = corroboration_bonus(nb_medias)
         out["_corroboration_medias"] = nb_medias
