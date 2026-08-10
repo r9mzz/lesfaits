@@ -69,6 +69,41 @@ GROQ_ALL_KEYS: list[tuple[str, str]] = (
     ([(GROQ_KEY, "clé 1")] if GROQ_KEY else [])
     + [(k, f"clé {i+2}") for i, k in enumerate(GROQ_KEYS_SECONDAIRES)]
 )
+
+# ── Clés CÂBLÉES mais ABSENTES des secrets (constat 10/08) ───────────────────
+# Quatre jours sans publication : le pipeline tournait sur 9 clés alors que
+# `pipeline.yml` en câble 23. Les secrets GROQ_API_KEY_7 à _18 n'existent plus.
+#
+# GitHub Actions passe `${{ secrets.X }}` d'un secret inexistant comme chaîne
+# VIDE, pas comme variable absente. Le filtre `if v` les écartait donc en
+# silence : capacité divisée par 2,5, aucun message, aucun échec. C'est ce qui
+# a permis à quatre jours de passer sans qu'on sache pourquoi.
+#
+# On distingue ici les trois états, ce que `os.environ` permet justement :
+#   absente de l'environnement → non câblée dans le workflow, normal
+#   présente mais vide         → CÂBLÉE ET MANQUANTE ← la panne silencieuse
+#   présente et non vide       → utilisable
+GROQ_CLES_CABLEES_VIDES: list[str] = [
+    nom for nom in (["GROQ_API_KEY"] + [f"GROQ_API_KEY_{i}" for i in range(2, 41)])
+    if nom in os.environ and not os.environ[nom].strip()
+]
+
+
+def diagnostic_cles_groq() -> None:
+    """Écrit la capacité réelle en tête de run, et alerte si des clés câblées
+    manquent. Diagnostic seul : n'interrompt rien, ne change aucune décision."""
+    utilisables = len(GROQ_ALL_KEYS)
+    manquantes = len(GROQ_CLES_CABLEES_VIDES)
+    cablees = utilisables + manquantes
+    print(f"[CLÉS GROQ] {utilisables} utilisable(s) sur {cablees} câblée(s) — "
+          f"capacité ≈ {utilisables * 100_000:,} tokens / 24 h glissantes".replace(",", " "))
+    if manquantes:
+        # ::warning:: remonte dans le résumé du run GitHub, pas seulement dans
+        # le journal — c'est ce qui manquait pour que la perte soit vue.
+        print(f"::warning::{manquantes} clé(s) Groq câblée(s) dans pipeline.yml mais "
+              f"ABSENTE(S) des secrets GitHub : {', '.join(GROQ_CLES_CABLEES_VIDES)}. "
+              f"Capacité réduite à {utilisables}/{cablees}. "
+              f"Créer les secrets manquants ou retirer les lignes correspondantes du workflow.")
 PEXELS_KEY     = os.getenv("PEXELS_API_KEY", "")
 PIXABAY_KEY    = os.getenv("PIXABAY_API_KEY", "")
 
@@ -7707,6 +7742,7 @@ if __name__ == "__main__":
     active_keys = len(GROQ_KEYS_SECONDAIRES)
     if active_keys:
         print(f"[INFO] {active_keys} clé(s) Groq de secours détectée(s) — bascule automatique si rate limit")
+    diagnostic_cles_groq()
 
     run(dry_run=args.dry_run, text_input=args.text)
 
