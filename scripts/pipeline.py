@@ -3307,6 +3307,15 @@ def generate(content: str, category_hint: str, extra_sources: list[dict] | None 
     # et citées est inchangé, seule la profondeur d'extrait injectée baisse.
     if article_type == "breve" and not is_retry:
         snippet_len = 380
+    # CORRECTIF 11/08 : l'étoffement d'un ARTICLE (pas une brève) doit recevoir
+    # PLUS de matière, jamais moins — c'est tout son but. Mesuré la nuit du
+    # 10-11/08 : 4 sujets sur 6 rejetés « toujours insuffisant après relance »
+    # à 270-306 mots, alors que la MATIÈRE disponible sur ces mêmes sujets
+    # faisait 6000-9500 caractères. Le snippet_len=450 hérité de l'économie
+    # brève du 18/07 affamait la relance précisément quand elle avait besoin
+    # de plus de contenu pour allonger le texte, pas moins.
+    if is_expand and article_type != "breve":
+        snippet_len = 700
     sources_block = ""
     # Noms lisibles dérivés des URLs — utilisés dans le prompt ET dans les règles d'attribution
     source_noms: list[str] = []
@@ -3345,6 +3354,9 @@ def generate(content: str, category_hint: str, extra_sources: list[dict] | None 
     content_len = 7000 if not is_retry else (2500 if is_expand else 1500)
     if article_type == "breve" and not is_retry:
         content_len = 2500
+    # Même correctif que snippet_len ci-dessus, même mesure du 11/08.
+    if is_expand and article_type != "breve":
+        content_len = 5000
 
     # Relance avec article précédent : le modèle CORRIGE l'article existant au
     # lieu de tout réécrire depuis des sources tronquées — sans ce bloc, les
