@@ -8255,5 +8255,40 @@
     "angle_insuffisant": true,
     "raison": "L'article ne répond pas à la question posée dans l'angle_reponse et ne fournit pas d'information sur ce qui rend cette offre particulièrement intéressante pour les consommateurs.",
     "article_type": "actu"
+  },
+  {
+    "slug": "edgar-morin-pensee-complexe",
+    "statut": "rejete_qualite",
+    "date": "2026-08-11T14:27:15",
+    "angle_insuffisant": true,
+    "raison": "L'article ne répond pas à la question « Quel est l'héritage d'Edgar Morin pour les sciences humaines et sociales ? » de manière spécifique et datée, mais plutôt en expliquant de manière générale sa pensée et son influence.",
+    "article_type": "actu"
+  },
+  {
+    "slug": "bachar-al-assad-condamne-a-mort-par-tribunal-syrien",
+    "statut": "rejete_sensible",
+    "date": "2026-08-11T14:28:18",
+    "sujet_sensible": true,
+    "raison": "l'article implique une affaire pénale en cours visant une personne",
+    "article_type": "breve",
+    "avertissements_garde_fous": [
+      "titre_de_mauvaise_qualite"
+    ]
+  },
+  {
+    "slug": "barre-son-samsung-en-promotion",
+    "statut": "rejete_qualite",
+    "date": "2026-08-11T14:30:42",
+    "angle_insuffisant": true,
+    "raison": "L'article ne contient pas d'événement daté récent lié à une donnée chiffrée ou nommée propre à cet événement",
+    "article_type": "breve"
+  },
+  {
+    "slug": "acer-aspire-go-15-pc-portable-rentree",
+    "statut": "rejete_qualite",
+    "date": "2026-08-11T14:32:04",
+    "angle_insuffisant": true,
+    "raison": "aucune actualité identifiable ne justifie une publication maintenant, l'article ressemble à une fiche pédagogique générale sans fait déclencheur daté",
+    "article_type": "breve"
   }
 ]
