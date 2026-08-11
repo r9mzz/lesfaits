@@ -7854,7 +7854,15 @@ def run(dry_run=False, text_input=None, nb_max=36):
         # tenté n'est pas perdu — il revient dans la sélection du run suivant.
         # Calibré sur la mesure : les runs des 08-10/08 ont entamé 7 à 9 sujets
         # avant l'épuisement, donc s'arrêter à 6 laisse une réserve réelle.
-        MAX_TENTATIVES_PAR_RUN = 6
+        # RELEVÉ le 11/08 (Nahil, priorité absolue : un seul article mais
+        # parfait, budget non contraignant) : le run du 11/08 12h24 a épuisé
+        # ses 6 tentatives sans succès (angle insuffisant ×2, sujet sensible,
+        # Ebola, troncature, conversion brève) alors que 35 sujets restaient
+        # disponibles après sélection. Le plafond de 6 protégeait le quota du
+        # run SUIVANT — utile en temps normal, contre-productif tant que
+        # l'objectif est un seul article réussi coûte que coûte. À rabaisser
+        # une fois la recette validée et le rythme normal repris.
+        MAX_TENTATIVES_PAR_RUN = 20
         _tentatives = 0
         for item in selection:
             elapsed = time.time() - _pipeline_start
