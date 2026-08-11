@@ -124,7 +124,14 @@ PIXABAY_KEY    = os.getenv("PIXABAY_API_KEY", "")
 # ══════════════════════════════════════════════════════════════════════════════
 
 # Nombre maximum d'articles retenus par flux à chaque run (voir fetch_rss).
-MAX_ITEMS_PAR_FLUX = 20
+# 8 → 20 le 28/07, puis 20 → 40 le 11/08. Mesure qui l'a motivé : à 20, la
+# quasi-totalité des flux rendaient EXACTEMENT 20 items — ils étaient donc tous
+# tronqués, et on ignorait systématiquement les mêmes articles (les plus
+# anciens du flux). On ne savait pas ce qu'on ne voyait pas.
+# Ce plafond ne coûte AUCUN token Groq : il n'élargit que le vivier où
+# `selectionner_meilleurs` puise ses candidats. Les appels DuckDuckGo, eux, ne
+# concernent que les 6 sujets réellement générés par run — donc inchangés.
+MAX_ITEMS_PAR_FLUX = 40
 
 RSS_SOURCES = [
     # Le Monde — rubriques thématiques
@@ -201,6 +208,36 @@ RSS_SOURCES = [
     {"name": "France Info Sciences", "url": "https://www.francetvinfo.fr/sciences.rss"},
     {"name": "INSERM presse",        "url": "https://presse.inserm.fr/feed/"},
     {"name": "IRD",                  "url": "https://www.ird.fr/rss.xml"},
+    # ── Institutions qui PUBLIENT elles-mêmes (11/08) ────────────────────────
+    # 69 % des articles publiés n'ont aucune source primaire, alors que
+    # `SOURCES_MAJEURES` valorise déjà l'OMS, la Commission et France Stratégie
+    # (+35) : elles n'étaient simplement jamais collectées. Elles ne pouvaient
+    # apparaître qu'en aval, si DuckDuckGo les trouvait.
+    #
+    # Ces trois-là sont les SEULES retenues sur 30 URL testées avec le parseur
+    # du pipeline (`scripts/test_flux_candidats.py`). Rendement mesuré avant
+    # ajout, jamais supposé :
+    #     OMS français          20 items →  5 candidats (dont un à 85 points,
+    #                                       très au-dessus du sommet actuel)
+    #     Commission européenne 20 items →  3 candidats
+    #     France Stratégie      10 items →  1 candidat
+    # Écartées faute de rendement : CNIL (0 candidat), Parlement européen (0),
+    # Autorité de la concurrence (1, un titre de formulaire), ANSES et INSEE
+    # (offres de stage). Injoignables ou URL fausses : Cour des comptes,
+    # Légifrance, Banque de France, Météo-France, INRAE, CEA, IGN, Pasteur,
+    # Défenseur des droits, ADEME, Vie publique, Assemblée nationale.
+    #
+    # ⚠ Testé depuis une machine ordinaire. Les WAF de `.gouv.fr` renvoient 403
+    # à l'IP des runners GitHub : surveiller `[RSS ERREUR]` sur France Stratégie
+    # au premier run, et le retirer s'il est bloqué. L'OMS et la Commission ne
+    # sont pas concernées.
+    #
+    # L'OMS est prise en FRANÇAIS : la version anglaise rendait 13 candidats
+    # mais `detect_category` et les lexiques de score ne fonctionnent que sur du
+    # français, les sujets auraient été mal classés.
+    {"name": "OMS",                  "url": "https://www.who.int/rss-feeds/news-french.xml"},
+    {"name": "Commission européenne", "url": "https://ec.europa.eu/commission/presscorner/api/rss?language=fr&pagesize=30"},
+    {"name": "France Stratégie",     "url": "https://www.strategie.gouv.fr/rss.xml"},
 ]
 
 HEADERS = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"}
@@ -1023,6 +1060,13 @@ _COMMERCE_RE = re.compile(
     # chère) — on ne matche que le vocabulaire marketing sans ambiguïté.
     r"|bons? plans?\b|\bpromos?\b|\ben promo\b|ventes? flash|prix cassés?"
     r"|meilleures? offres?|\d+\s*%\s*de\s*r[ée]duction|offre à saisir"
+    # Variantes relevées le 11/08 : « perd 38 % de son prix », « une offre à ne
+    # pas rater ». Le motif « perd X euros » ne couvrait que la devise, jamais
+    # le pourcentage, et « meilleures offres » ne couvrait pas « à ne pas
+    # rater/manquer ». Ce titre scorait 60 et occupait la 6e place du tri.
+    r"|(?:perd|chute de|baisse de)\s+\d+\s*%\s*(?:de\s+)?(?:son|le)\s+prix"
+    r"|prix\s+(?:chute|baisse|perd)\s+de\s+\d+\s*%"
+    r"|offres?\s+à\s+ne\s+pas\s+(?:rater|manquer)"
     r"|perd\s+\d+\s*(?:euros|€)"
     # "le Dell 16 Plus chute de 900 €" : même famille que "perd X euros"
     r"|chute\s+de\s+\d+\s*(?:euros|€)|baisse\s+de\s+\d+\s*(?:euros|€)"
