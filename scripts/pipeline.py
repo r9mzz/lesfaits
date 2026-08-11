@@ -1573,6 +1573,37 @@ def filtrer_et_classer(
     )
 
 
+# Procédure pénale visant une PERSONNE — à distinguer soigneusement du thème.
+# Le critère retenu par la charte depuis le 31/07 n'est pas le sujet (guerre,
+# justice, faits divers) mais la MISE EN CAUSE d'une personne. On ne liste donc
+# ici que du vocabulaire de procédure, jamais des thèmes : « corruption »,
+# « trafic » ou « violences » seuls désignent aussi bien un rapport de la Cour
+# des comptes qu'une affaire individuelle, et les inclure déclasserait des
+# sujets d'intérêt public parfaitement publiables.
+_PROCEDURE_PENALE_RE = re.compile(
+    r"\b(?:mis(?:e)? en examen|mis(?:e)? en cause|garde [àa] vue|"
+    r"information judiciaire|enqu[êe]te judiciaire|instruction judiciaire|"
+    r"soup[çc]onn[ée]|accus[ée] de|poursuivi(?:e)? pour|inculp[ée]|"
+    r"compara[îi]t|comparution|r[ée]quisitions?|proc[èe]s (?:de|du|de la|contre)|"
+    # `\d+` et non `\d` : sur « condamné à 18 mois », un `\d` unique laisse la
+    # frontière de mot tomber entre le 1 et le 8 et le motif échoue. Même piège
+    # de `\b` que celui trouvé dans le filtre commercial le 11/08.
+    r"condamn[ée] [àa] (?:\d+|de la prison|(?:une|la) peine|la perp[ée]tuit[ée]|mort)|"
+    r"plainte contre|"
+    r"mandat d'arr[êe]t|perquisition)\b",
+    re.IGNORECASE,
+)
+
+
+def _est_procedure_penale_personne(texte: str) -> int:
+    """1 si le texte relève d'une procédure pénale visant une personne, sinon 0.
+
+    Sert de CLÉ DE TRI (les 1 passent en fin de file), jamais de rejet. Retourne
+    un entier pour être utilisable directement comme clé de `sorted`.
+    """
+    return 1 if _PROCEDURE_PENALE_RE.search(texte or "") else 0
+
+
 def selectionner_meilleurs(
     candidats: list[dict],
     nb_max: int = 10,
@@ -1580,7 +1611,31 @@ def selectionner_meilleurs(
 ) -> list[dict]:
     """
     Sélectionne les nb_max meilleurs articles en respectant le quota par catégorie.
+
+    ── Déclassement des procédures pénales visant une personne (11/08) ───────
+    Mesure sur les 308 sujets tentés depuis juillet, avec leur verdict réel :
+
+        procédure pénale visant une personne   n=11   1 publié   10/10 « sensible »
+        catastrophe / épidémie (victimes)      n=31   7 publiés  23 %
+
+    La première catégorie est refusée par le fact-checker avec une constance
+    parfaite : la tenter, c'est dépenser une des 6 tentatives du run pour un
+    rejet certain. La seconde SE PUBLIE — une mesure antérieure qui mélangeait
+    les deux sous « vocabulaire de victimes » était trompeuse et concluait à
+    tort qu'il fallait aussi écarter les catastrophes et les épidémies.
+
+    On DÉCLASSE, on n'exclut pas : ces sujets restent dans le vivier et passent
+    en fin de file. Si les meilleurs sont épuisés, ils sont tentés quand même.
+    Un malus de score aurait été plus simple mais aurait valu exclusion — sous
+    le seuil de 20, un candidat moyen pénalisé disparaît du vivier.
     """
+    # `sorted` est stable : à statut égal l'ordre par score est préservé.
+    candidats = sorted(
+        candidats,
+        key=lambda i: _est_procedure_penale_personne(
+            f"{i.get('title', '')} {i.get('content', '')[:600]}"),
+    )
+
     selection = []
     compteur  = {}
 
