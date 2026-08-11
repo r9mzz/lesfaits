@@ -8236,5 +8236,24 @@
     "sujet_sensible": true,
     "raison": "L'article implique un mineur ou une personne vulnérable (un patient gravement brûlé dans un hôpital) et porte sur un incident grave en cours d'enquête",
     "article_type": "actu"
+  },
+  {
+    "slug": "bachar-al-assad-condamne-a-mort-par-tribunal-syrien",
+    "statut": "rejete_sensible",
+    "date": "2026-08-11T14:07:43",
+    "sujet_sensible": true,
+    "raison": "L'article implique une affaire pénale en cours visant une personne nommée, Bachar al-Assad.",
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "titre_de_mauvaise_qualite"
+    ]
+  },
+  {
+    "slug": "barre-son-samsung-hw-q935f-en-solde",
+    "statut": "rejete_qualite",
+    "date": "2026-08-11T14:12:11",
+    "angle_insuffisant": true,
+    "raison": "L'article ne répond pas à la question posée dans l'angle_reponse et ne fournit pas d'information sur ce qui rend cette offre particulièrement intéressante pour les consommateurs.",
+    "article_type": "actu"
   }
 ]
