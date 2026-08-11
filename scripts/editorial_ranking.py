@@ -8,14 +8,18 @@ conserve un représentant par événement et favorise les faits couverts par
 plusieurs rédactions indépendantes.
 
 Objectif : éviter qu'une pièce magazine mono-source bien rédigée devance une
-actualité du jour documentée simultanément par plusieurs médias.
+actualité du jour documentée simultanément par plusieurs médias, et éviter de
+repayer plusieurs runs de suite pour exactement le même sujet déjà rejeté.
 """
 from __future__ import annotations
 
+import json
 import math
 import re
 import unicodedata
 from collections import Counter, defaultdict
+from datetime import datetime, timedelta
+from pathlib import Path
 
 STOP = {
     "dans", "pour", "avec", "sans", "plus", "moins", "leur", "leurs",
@@ -27,14 +31,13 @@ STOP = {
     "peuvent", "annee", "annees", "france", "francais", "francaise",
 }
 
+ROOT = Path(__file__).resolve().parent.parent
+VERIFICATION_LOG = ROOT / "data" / "verification_log.json"
+REJECT_COOLDOWN_HOURS = 36
+
 
 def _stem_token(token: str) -> str:
-    """Normalisation légère des flexions, volontairement conservatrice.
-
-    Elle absorbe surtout les accords/pluriels fréquents dans les titres
-    (``placée``/``place``, ``globes``/``globe``) sans transformer les mots en
-    racines agressives. Le clustering exige toujours au moins deux mots communs.
-    """
+    """Normalisation légère des flexions, volontairement conservatrice."""
     if len(token) > 5 and token.endswith("ees"):
         return token[:-2]
     if len(token) > 5 and token.endswith("ee"):
@@ -55,6 +58,61 @@ def _tokens(titre: str) -> set[str]:
     }
 
 
+def _slugify_title(titre: str) -> str:
+    """Normalisation stricte titre→slug, utilisée uniquement pour le cooldown.
+
+    On exige une égalité exacte avec le slug rejeté : pas de similarité floue,
+    afin qu'une nouvelle actualité voisine ne soit jamais écartée par erreur.
+    """
+    t = unicodedata.normalize("NFD", titre or "")
+    t = "".join(c for c in t if unicodedata.category(c) != "Mn").lower()
+    t = re.sub(r"[^a-z0-9]+", "-", t).strip("-")
+    return t[:100]
+
+
+def _recent_rejected_slugs(
+    log_path: Path = VERIFICATION_LOG,
+    now: datetime | None = None,
+    cooldown_hours: int = REJECT_COOLDOWN_HOURS,
+) -> set[str]:
+    """Slugs rejetés récemment pour qualité ou sensibilité.
+
+    Le mécanisme est volontairement conservateur : seulement des rejets
+    explicites, seulement sur une fenêtre courte, et uniquement une égalité
+    exacte avec le titre normalisé du candidat courant.
+    """
+    if not log_path.exists():
+        return set()
+    try:
+        entries = json.loads(log_path.read_text(encoding="utf-8"))
+    except Exception:
+        return set()
+    if not isinstance(entries, list):
+        return set()
+
+    now = now or datetime.now()
+    cutoff = now - timedelta(hours=cooldown_hours)
+    out: set[str] = set()
+    for entry in entries:
+        if not isinstance(entry, dict):
+            continue
+        if entry.get("statut") not in {"rejete_qualite", "rejete_sensible"}:
+            continue
+        slug = str(entry.get("slug") or "").strip()
+        raw_date = str(entry.get("date") or "").strip()
+        if not slug or not raw_date:
+            continue
+        try:
+            when = datetime.fromisoformat(raw_date.replace("Z", "+00:00"))
+            if when.tzinfo is not None:
+                when = when.replace(tzinfo=None)
+        except ValueError:
+            continue
+        if when >= cutoff:
+            out.add(slug)
+    return out
+
+
 def _source_name(item: dict) -> str:
     return str(
         item.get("source_name")
@@ -73,9 +131,6 @@ def _clusters(candidats: list[dict], seuil: float = 0.34) -> list[list[int]]:
     corpus composé de titres quasi identiques), on retombe sur un cosinus
     lexical non pondéré : cela évite un faux négatif mathématique sans autoriser
     les rapprochements sur un mot unique.
-
-    Le seuil 0,34 est celui utilisé dans la mesure réelle du 10/08/2026 et doit
-    être retesté sur plusieurs journées avant tout changement.
     """
     toks = [_tokens(i.get("title", "")) for i in candidats]
     df: Counter[str] = Counter()
@@ -131,21 +186,31 @@ def corroboration_bonus(nb_medias: int) -> int:
     return 0
 
 
-def rank_subjects(candidats: list[dict], seuil_cluster: float = 0.34) -> list[dict]:
+def rank_subjects(
+    candidats: list[dict],
+    seuil_cluster: float = 0.34,
+    rejected_slugs: set[str] | None = None,
+) -> list[dict]:
     """Retourne UN représentant par sujet, trié par intérêt journalistique.
 
-    Le représentant est toujours l'article RSS du cluster qui avait déjà le
-    meilleur score éditorial historique. Le bonus multi-source ne modifie pas
-    ``_score`` : il est stocké séparément dans ``_selection_score`` afin de
-    garder un diagnostic transparent et de ne jamais faire croire qu'un seuil
-    de qualité a été franchi grâce au bonus.
+    Les sujets rejetés très récemment sont exclus uniquement si leur slug est
+    exactement celui obtenu à partir du titre courant. Ce cooldown économise le
+    quota sans élargir ni assouplir aucun critère éditorial.
     """
     if not candidats:
         return []
 
+    rejected_slugs = _recent_rejected_slugs() if rejected_slugs is None else rejected_slugs
+    admissibles = [
+        item for item in candidats
+        if _slugify_title(item.get("title", "")) not in rejected_slugs
+    ]
+    if not admissibles:
+        return []
+
     ranked: list[dict] = []
-    for groupe in _clusters(candidats, seuil_cluster):
-        items = [candidats[i] for i in groupe]
+    for groupe in _clusters(admissibles, seuil_cluster):
+        items = [admissibles[i] for i in groupe]
         medias = {_source_name(i) for i in items if _source_name(i) != "?"}
         nb_medias = max(1, len(medias))
         representant = max(
