@@ -8220,5 +8220,21 @@
       "resume_repete_corps",
       "faits_repetitifs"
     ]
+  },
+  {
+    "slug": "edgar-morin-pensee-complexe",
+    "statut": "rejete_qualite",
+    "date": "2026-08-11T04:27:52",
+    "angle_insuffisant": true,
+    "raison": "L'article ne répond pas à la question de l'actualité de l'héritage d'Edgar Morin pour les sciences humaines et sociales, mais plutôt à une question générale sur son héritage.",
+    "article_type": "actu"
+  },
+  {
+    "slug": "incendie-hopital-mans",
+    "statut": "rejete_sensible",
+    "date": "2026-08-11T04:29:03",
+    "sujet_sensible": true,
+    "raison": "L'article implique un mineur ou une personne vulnérable (un patient gravement brûlé dans un hôpital) et porte sur un incident grave en cours d'enquête",
+    "article_type": "actu"
   }
 ]
