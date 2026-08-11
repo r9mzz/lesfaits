@@ -1235,6 +1235,26 @@ def _age_heures(date_str: str) -> float:
 _MOTS_GENERIQUES_CACHE: dict[int, frozenset] = {}
 DF_MOT_GENERIQUE = 3  # présent dans ≥3 titres publiés = vocabulaire de rubrique
 
+# ── Poids du barème, extraits en constantes (10/08) ───────────────────────────
+# Ils étaient codés en dur dans `score_editorial`, donc impossibles à faire
+# varier pour mesurer leur effet. Les valeurs ci-dessous sont EXACTEMENT celles
+# d'avant : cette extraction ne change rien au comportement, elle rend
+# seulement le barème testable (`scripts/mesure_ab_bareme.py`).
+#
+# Ce qu'on cherche à corriger, mesuré le 10/08 sur 610 items : 10 grappes de
+# ≥3 médias sur 14 franchissent le seuil de sélection, mais UNE SEULE est
+# retenue — les faits majeurs passent le seuil puis perdent le classement
+# contre des pièces de magazine mono-source. Le +35 « source majeure » est une
+# prime au NOM DU MÉDIA, pas au sujet, et il domine tous les autres termes.
+PONDS_SOURCE_MAJEURE = 35
+PONDS_MEDIA_RECONNU = 15
+PONDS_ENJEU_FORT = 30
+PONDS_ENJEU_MOYEN = 15
+# Malus « aucun marqueur d'actualité » : ni chiffre, ni institution nommée, ni
+# enjeu public. Un texte qui n'a aucun des trois n'est presque jamais un fait
+# du jour. 0 = désactivé (comportement d'avant le 10/08).
+MALUS_SANS_SUBSTANCE = 0
+
 
 def _mots_generiques_corpus(published_topics: set) -> frozenset:
     """Formes présentes dans au moins `DF_MOT_GENERIQUE` titres déjà publiés.
@@ -1313,13 +1333,13 @@ def score_editorial(item: dict, source_name: str, published_topics: set) -> tupl
     # Source majeure (+35)
     is_majeure = any(s in src or s in text[:200] for s in SOURCES_MAJEURES)
     if is_majeure:
-        score += 35
-        reasons.append("+35 source majeure")
+        score += PONDS_SOURCE_MAJEURE
+        reasons.append(f"+{PONDS_SOURCE_MAJEURE} source majeure")
 
     # Source média reconnu (+15, non cumulable avec majeure)
     elif any(s in src for s in SOURCES_MEDIAS):
-        score += 15
-        reasons.append("+15 média reconnu")
+        score += PONDS_MEDIA_RECONNU
+        reasons.append(f"+{PONDS_MEDIA_RECONNU} média reconnu")
 
     # Mots-clés de confiance (+15)
     kw_hits = sum(1 for kw in KW_CONFIANCE if kw in text)
@@ -1388,11 +1408,20 @@ def score_editorial(item: dict, source_name: str, published_topics: set) -> tupl
     marqueurs_titre = set(m.group(0).lower() for m in _ENJEU_PUBLIC_RE.finditer(title_lower_brut))
     poids = len(marqueurs) + 2 * len(marqueurs_titre)
     if poids >= 4:
-        score += 30
-        reasons.append(f"+30 enjeu public fort (poids {poids} : {sorted(marqueurs)[:3]})")
+        score += PONDS_ENJEU_FORT
+        reasons.append(f"+{PONDS_ENJEU_FORT} enjeu public fort (poids {poids} : {sorted(marqueurs)[:3]})")
     elif poids >= 2:
-        score += 15
-        reasons.append(f"+15 enjeu public (poids {poids} : {sorted(marqueurs)[:3]})")
+        score += PONDS_ENJEU_MOYEN
+        reasons.append(f"+{PONDS_ENJEU_MOYEN} enjeu public (poids {poids} : {sorted(marqueurs)[:3]})")
+
+    # Malus « aucun marqueur d'actualité » : ni chiffre, ni institution nommée,
+    # ni enjeu public. Composé uniquement de signaux déjà calculés ci-dessus —
+    # aucun nouveau détecteur, donc rien de nouveau à calibrer. Désactivé par
+    # défaut (MALUS_SANS_SUBSTANCE = 0).
+    if MALUS_SANS_SUBSTANCE and nb_chiffres == 0 and not a_institution and poids == 0:
+        score -= MALUS_SANS_SUBSTANCE
+        reasons.append(f"-{MALUS_SANS_SUBSTANCE} aucun marqueur d'actualité "
+                       f"(0 chiffre, 0 institution, 0 enjeu public)")
 
     # ── MALUS DIVERTISSEMENT / CULTURE-SPECTACLE ────────────────────────────
     # Rétrogradation, pas rejet : un festival ou une série peuvent avoir une
