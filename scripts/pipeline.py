@@ -1003,8 +1003,17 @@ _COMMERCE_RE = re.compile(
     # euros » (26/07) — alors que la variante « à moins de 10 € » était bien
     # rejetée. Les motifs « perd/chute de X euros » plus bas, écrits ensuite,
     # géraient déjà le mot ; l'incohérence a survécu à l'élargissement du 26/07.
-    r"(?:à partir de|dès|seulement|au prix de|(?:à\s+)?moins de)\s*\d+[.,]?\d*\s*(?:€|euros?)\b"
-    r"|\d+[.,]\d{2}\s*(?:€|euros?)\b\s*(?:chez|sur)\b"
+    #
+    # ── 11/08 : le « € » était accepté MAIS INERTE ──────────────────────────
+    # `(?:€|euros?)\b` : après « euros » le « s » crée une frontière de mot,
+    # mais « € » est non-alphanumérique et ce qui le suit l'est rarement
+    # (virgule, espace, fin de titre) — donc `\b` échouait et TOUT prix écrit
+    # avec le symbole passait au travers. Mesuré le 11/08 : « À moins de
+    # 400 €, ce PC portable Acer tombe à pic » a consommé une des six
+    # tentatives du run, générée en entier avant d'être rejetée pour « angle
+    # insuffisant ». La frontière est désormais portée par le mot seul.
+    r"(?:à partir de|dès|seulement|au prix de|(?:à\s+)?moins de)\s*\d+[.,]?\d*\s*(?:€|euros?\b)"
+    r"|\d+[.,]\d{2}\s*(?:€|euros?\b)\s*(?:chez|sur)\b"
     r"|chez\s+(?:cdiscount|amazon|aliexpress|rakuten|darty|boulanger|leclerc|carrefour|lidl|aldi|action)"
     r"|(?:cdiscount|aliexpress|rakuten)\b"
     r"|^\d+\s+\w+.{0,40}\b(?:lidl|aldi|action|cdiscount|amazon)\b"
