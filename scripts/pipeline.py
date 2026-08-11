@@ -3344,7 +3344,18 @@ def generate(content: str, category_hint: str, extra_sources: list[dict] | None 
     # brève du 18/07 affamait la relance précisément quand elle avait besoin
     # de plus de contenu pour allonger le texte, pas moins.
     if is_expand and article_type != "breve":
-        snippet_len = 700
+        snippet_len = 550
+    # CORRECTIF 2 (même run, 11/08) : 5000/700 avec les 10 sources déclenchait
+    # des troncatures à max_tokens (un article tombé à 44 mots/0 source après
+    # récupération de JSON partiel — pire que le problème d'origine). Le calcul
+    # avait sous-estimé le coût réel en tokens. On revient à un budget proche
+    # du total qui ne tronquait PAS (content 2500 + 10×450 ≈ 7000 car.), en
+    # reportant le gain sur la PROFONDEUR par source plutôt que sur leur
+    # NOMBRE : 7 sources à 550 car. + 3200 de contenu principal ≈ 7050 car.,
+    # quasi identique en volume total, donc même risque de troncature que
+    # l'ancienne version qui ne tronquait pas.
+    if is_expand and article_type != "breve" and len(real_sources) > 7:
+        real_sources = real_sources[:7]
     sources_block = ""
     # Noms lisibles dérivés des URLs — utilisés dans le prompt ET dans les règles d'attribution
     source_noms: list[str] = []
@@ -3385,7 +3396,7 @@ def generate(content: str, category_hint: str, extra_sources: list[dict] | None 
         content_len = 2500
     # Même correctif que snippet_len ci-dessus, même mesure du 11/08.
     if is_expand and article_type != "breve":
-        content_len = 5000
+        content_len = 3200
 
     # Relance avec article précédent : le modèle CORRIGE l'article existant au
     # lieu de tout réécrire depuis des sources tronquées — sans ce bloc, les
