@@ -2845,19 +2845,60 @@ _SITUATION_ACTIVE_RE = re.compile(
 )
 
 # Domaine sensible par nature (santé épidémique active, sécurité, judiciaire)
-_DOMAINE_SENSIBLE_RE = re.compile(
+# ── Domaines sensibles : SCINDÉS le 11/08 (décision Nahil) ───────────────────
+# Ces deux listes ne formaient qu'un seul motif, combiné à `_SITUATION_ACTIVE_RE`
+# pour un rejet déterministe. Conséquence : toute épidémie « en cours » était
+# refusée avant même le fact-check — c'est ce qui a tué la brève Ebola du 11/08,
+# sur « domaine sensible ('Ebola') + situation active ('en cours') ».
+#
+# Or le critère de la charte, affiné le 31/07, n'est PAS le thème mais la mise
+# en cause de PERSONNES. Le fact-checker lui-même l'écrit : « NE classe pas
+# sujet_sensible au seul motif qu'un sujet est politique, réglementaire,
+# diplomatique ou économique ». Une épidémie sans personne mise en cause ni
+# mineur impliqué n'entre dans aucun de ses trois critères — le blocage
+# déterministe était donc PLUS strict que la règle qu'il était censé appliquer.
+#
+# Le volet SANITAIRE ne déclenche donc plus de rejet ici. Il reste couvert par
+# `sujet_sante_sans_source_officielle`, qui exige une source institutionnelle
+# (INSERM, OMS, Santé publique France, ANSES, ANSM, Pasteur, .gouv.fr) et
+# envoie l'article en modération à défaut. C'est ce filet — une exigence de
+# SOURCE plutôt qu'un veto sur le THÈME — qui rend l'ouverture tenable.
+#
+# Le volet PÉNAL/SÉCURITÉ garde le rejet déterministe : il vise des personnes
+# nommées, et la mesure du 11/08 est sans appel — 10 rejets sur 10.
+_DOMAINE_SANITAIRE_RE = re.compile(
     r"\b(?:ebola|marburg|lassa|h5n1|grippe aviaire|variole|rougeole|"
-    r"m[ée]ningite|choléra|cholera|botulisme|listeria|"
-    r"terrorisme|attentat|prise d.otage|enlèvement|"
+    r"m[ée]ningite|choléra|cholera|botulisme|listeria)\b",
+    re.IGNORECASE,
+)
+_DOMAINE_SENSIBLE_RE = re.compile(
+    r"\b(?:terrorisme|attentat|prise d.otage|enlèvement|"
     r"mis en examen|garde [àa] vue|perquisition|mandat d.arr[eê]t)\b",
     re.IGNORECASE,
 )
 
 # Mineur impliqué
+# ── Mineur impliqué — motif RÉPARÉ le 11/08 ──────────────────────────────────
+# La version précédente terminait par `(?:victim|bless|tu[ée]|agress)\b` : des
+# RADICAUX TRONQUÉS suivis d'une frontière de mot. Après « bless » vient « é »,
+# un caractère de mot — la frontière n'existe donc pas et le motif échouait.
+# Échappaient de ce fait à la protection la plus sensible du pipeline :
+#     « Un collégien blessé lors d'une agression »
+#     « Une lycéenne victime de harcèlement »
+#     « Un élève blessé dans la cour »
+#     « Un adolescent de 16 ans tué dans une rixe »   (titre réel, 4 médias)
+# Troisième occurrence du même piège dans la même journée (filtre commercial,
+# procédure pénale, ici) : ne JAMAIS faire suivre un radical tronqué de `\b`,
+# écrire `radical\w*`.
+#
+# La forme « adolescent de N ans tué/blessé » est ajoutée : c'est la tournure
+# de presse la plus courante et elle n'était couverte par aucune branche.
 _MINEUR_RE = re.compile(
-    r"\b(?:mineur|enfant (?:victime|concern|impliqu|d[ée]c[ée]d|bless)|"
-    r"adolescent (?:victim|mis en|concern|d[ée]c[ée]d)|"
-    r"(?:coll[ée]gien|lyc[ée]en|[ée]l[èe]ve)[^.]{0,30}(?:victim|bless|tu[ée]|agress))\b",
+    r"\bmineur\w*"
+    r"|\benfant\w*\s+(?:victim|concern|impliqu|d[ée]c[ée]d|bless|tu[ée]|agress)\w*"
+    r"|\badolescent\w*\s+(?:victim|concern|impliqu|d[ée]c[ée]d|bless|tu[ée]|agress|mis\w*\s+en)\w*"
+    r"|\badolescent\w*\s+de\s+\d+\s+ans[^.]{0,20}(?:victim|bless|tu[ée]|agress|d[ée]c[ée]d)\w*"
+    r"|(?:\bcoll[ée]gien|\blyc[ée]en|\b[ée]l[èe]ve)\w*[^.]{0,30}(?:victim|bless|tu[ée]|agress|d[ée]c[ée]d)\w*",
     re.IGNORECASE,
 )
 
@@ -2876,6 +2917,10 @@ def _est_rejete_sensible_deterministe(art: dict) -> tuple[bool, str]:
     if _MINEUR_RE.search(texte):
         return True, "mineur impliqué détecté"
 
+    # Volet pénal / sécurité uniquement : le volet sanitaire a été retiré de ce
+    # veto le 11/08 (voir `_DOMAINE_SANITAIRE_RE`). Une épidémie en cours passe
+    # désormais au fact-check, et reste soumise à l'exigence de source
+    # officielle de `sujet_sante_sans_source_officielle`.
     domaine = _DOMAINE_SENSIBLE_RE.search(texte)
     actif   = _SITUATION_ACTIVE_RE.search(texte)
     if domaine and actif:
