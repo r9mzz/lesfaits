@@ -70,11 +70,18 @@ class RunPipelineSafetyTests(unittest.TestCase):
         with self.assertRaises(RuntimeError):
             _apply_sensitive_topic_prefilter("AUTRE_LISTE = []\n")
 
-    def test_showcase_never_converts_long_article_to_brief(self):
+    def test_showcase_laisse_la_conversion_en_breve_active(self):
+        """Inversion assumée du 10/08 : la vitrine ne coupe PLUS la conversion.
+
+        Elle la coupait parce que la grille refusait les brèves. Depuis que la
+        grille les accepte (showcase_quality._valider_breve), la couper revenait
+        à jeter les textes de 270-300 mots que le modèle produit réellement —
+        quatre jours sans publication à partir du 05/08.
+        """
         source = "CONVERSION_BREVE_SI_COURT = True\nQUOTA_ARTICLES_LONGS = 30\n"
         patched = _apply_showcase_format_policy(source)
-        self.assertIn("CONVERSION_BREVE_SI_COURT = False", patched)
-        self.assertNotIn("CONVERSION_BREVE_SI_COURT = True", patched)
+        self.assertIn("CONVERSION_BREVE_SI_COURT = True", patched)
+        self.assertNotIn("CONVERSION_BREVE_SI_COURT = False", patched)
 
     def test_showcase_long_budget_covers_full_candidate_selection(self):
         source = "CONVERSION_BREVE_SI_COURT = True\nQUOTA_ARTICLES_LONGS = 30\n"
@@ -83,10 +90,12 @@ class RunPipelineSafetyTests(unittest.TestCase):
         self.assertNotIn("QUOTA_ARTICLES_LONGS = 30\n", patched)
 
     def test_showcase_format_patch_fails_closed_if_pipeline_changes(self):
-        with self.assertRaises(RuntimeError):
-            _apply_showcase_format_policy("QUOTA_ARTICLES_LONGS = 30\n")
+        # Le marqueur de budget reste patché : son absence doit toujours faire
+        # échouer le prévol plutôt que produire un pipeline à moitié adapté.
         with self.assertRaises(RuntimeError):
             _apply_showcase_format_policy("CONVERSION_BREVE_SI_COURT = True\n")
+        with self.assertRaises(RuntimeError):
+            _apply_showcase_format_policy("AUCUN_MARQUEUR = 0\n")
 
 
 if __name__ == "__main__":

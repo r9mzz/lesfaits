@@ -206,18 +206,23 @@ def _apply_sensitive_topic_prefilter(source: str) -> str:
 def _apply_showcase_format_policy(source: str) -> str:
     """Aligne le pipeline historique sur les formats admis par la vitrine.
 
-    La grille vitrine refuse explicitement les brèves. Les générer malgré tout
-    gaspille donc Groq + fact-check avant un rejet certain. En mode vitrine on
-    garde tous les candidats ACTU en format long et on interdit la conversion
-    automatique d'un article trop mince en brève : il est rejeté normalement,
-    puis le pipeline passe au candidat suivant. Aucun seuil de qualité ne bouge.
+    ── 10/08 : la conversion en brève est RÉTABLIE ──────────────────────────
+    Cette fonction désactivait la conversion parce que la grille vitrine
+    refusait les brèves. Mesure sur 24 générations : le modèle rend 271, 278,
+    300, 306 mots quand on lui en demande 600 — quatre sur quatre dans la même
+    bande, c'est le plafond de matière des sources, pas de la variance. Avec le
+    plancher article à 350 et la conversion coupée, ces textes étaient rejetés :
+    quatre jours sans publication à partir du 05/08, et zéro article n'a jamais
+    atteint la grille vitrine sur la période.
+
+    `showcase_quality.validate_generated_article` accepte désormais le format
+    brève avec sa propre grille (140 mots chapeau + faits, chapeau d'une
+    phrase, 4 URL et 3 domaines, même hiérarchie de sources). Un texte de
+    280 mots n'est pas un article de 600 raté, c'est une brève réussie — et la
+    mesure du 03/08 lui donne raison : 0 correction sur 25 brèves contre 2 sur
+    5 actus. Le quota d'articles longs reste inchangé : la brève n'est qu'un
+    filet, pas le format par défaut.
     """
-    source = _replace_once(
-        source,
-        "CONVERSION_BREVE_SI_COURT = True",
-        "CONVERSION_BREVE_SI_COURT = False",
-        "conversion brève vitrine",
-    )
     source = _replace_once(
         source,
         "QUOTA_ARTICLES_LONGS = 30",

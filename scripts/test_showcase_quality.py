@@ -92,10 +92,61 @@ class ShowcaseQualityTests(unittest.TestCase):
         self.assertTrue(ok, reasons)
         self.assertEqual(reasons, [])
 
-    def test_brief_is_not_a_showcase_article(self):
+    def test_article_long_soumis_comme_breve_est_refuse(self):
+        """Un ARTICLE présenté comme brève est refusé — mais sur ses défauts de
+        brève, plus au motif « format exclu ».
+
+        Depuis le 10/08 la vitrine accepte le format brève (voir
+        MIN_WORDS_BREVE) : le refus ne doit donc plus porter sur le format
+        lui-même, mais sur ce qui, dans ce texte, n'est pas une brève —
+        contexte et nuances remplis, chapeau en trois phrases.
+        """
         ok, reasons = validate_generated_article(valid_article(), "breve")
         self.assertFalse(ok)
-        self.assertTrue(any("format" in reason for reason in reasons))
+        self.assertFalse(any("format" in r and "exclu" in r for r in reasons),
+                         f"le format brève ne doit plus être exclu : {reasons}")
+        self.assertTrue(any("contexte" in r for r in reasons), reasons)
+        self.assertTrue(any("phrase" in r for r in reasons), reasons)
+
+    def test_breve_vitrine_conforme_est_acceptee(self):
+        """Le cas qui a coûté quatre jours de silence : un texte de ~280 mots,
+        rejeté comme article trop court, doit passer comme brève."""
+        breve = {
+            "titre": "Sécheresse : des restrictions d'eau sur 70 % du territoire français",
+            "resume": ["Le ministère de la transition écologique a placé 70 % du "
+                       "territoire sous restrictions d'eau au 9 août, un niveau "
+                       "jamais atteint à cette date depuis 2003."],
+            "corps": {
+                "faits": (
+                    "Selon le ministère de la transition écologique [1], le Bureau de "
+                    "recherches géologiques et minières [2] et Météo-France [3], "
+                    "soixante-dix pour cent du territoire métropolitain est soumis à au "
+                    "moins un arrêté de restriction d'eau au 9 août 2026. Quarante-deux "
+                    "départements sont placés en situation de crise, le niveau le plus "
+                    "élevé, contre dix-neuf à la même date en 2025. Les prélèvements "
+                    "agricoles y sont interdits en journée et les usages domestiques non "
+                    "prioritaires suspendus. Les nappes phréatiques affichent un niveau "
+                    "inférieur à la normale sur les trois quarts des points de mesure. "
+                    "Le déficit de précipitations atteint quarante pour cent depuis le "
+                    "mois de mars sur le pourtour méditerranéen. Les préfectures "
+                    "concernées doivent réexaminer les arrêtés toutes les deux semaines "
+                    "jusqu'au retour à la normale, précise le ministère."
+                ),
+                "contexte": "",
+                "nuances": "",
+            },
+            "sources": [
+                {"institution": "Ministère de la transition écologique",
+                 "url": "https://www.ecologie.gouv.fr/secheresse-2026"},
+                {"institution": "BRGM", "url": "https://www.brgm.fr/nappes-aout-2026"},
+                {"institution": "Météo-France", "url": "https://meteofrance.fr/bilan-aout"},
+                {"institution": "Le Monde", "url": "https://www.lemonde.fr/planete/secheresse"},
+            ],
+            "nb_sources": 4,
+        }
+        ok, reasons = validate_generated_article(breve, "breve")
+        self.assertTrue(ok, reasons)
+        self.assertEqual(reasons, [])
 
     def test_short_sourcing_is_rejected(self):
         art = valid_article()
