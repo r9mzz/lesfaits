@@ -124,7 +124,7 @@ jobs:
             | awk 'NF && !seen[$0]++' \
             > "$GITHUB_WORKSPACE/newsletter-slugs.txt"
 
-          python - <<'PY'
+          PYTHONPATH="$GITHUB_WORKSPACE/scripts:$GITHUB_WORKSPACE" python - <<'PY'
           from pathlib import Path
           from scripts.run_newsletter import read_deployment_slugs
 
