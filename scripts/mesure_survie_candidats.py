@@ -66,6 +66,7 @@ def main() -> int:
     for nom in {i["_source"] for i in items}:
         lot = [dict(i) for i in items if i["_source"] == nom]
         candidats += P.filtrer_et_classer(lot, nom, published_topics, seuil_score=20)
+    candidats.sort(key=lambda c: c['_score'], reverse=True)
     selection = P.selectionner_meilleurs(candidats, nb_max=34)
     print(f"sélection réelle : {len(selection)} sujets sur {len(items)} collectés\n")
 

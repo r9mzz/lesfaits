@@ -67,6 +67,7 @@ def evaluer(items, published_topics, grappes_tokens, cfg):
     for nom in {i["_source"] for i in items}:
         lot = [dict(i) for i in items if i["_source"] == nom]
         candidats += P.filtrer_et_classer(lot, nom, published_topics, seuil_score=20)
+    candidats.sort(key=lambda c: c['_score'], reverse=True)
     sel = P.selectionner_meilleurs(candidats, nb_max=34)
 
     # combien de grappes ≥3 médias sont RETENUES (pas juste au-dessus du seuil)
