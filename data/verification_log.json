@@ -8309,5 +8309,181 @@
     "avertissements_garde_fous": [
       "resume_repete_corps"
     ]
+  },
+  {
+    "slug": "edgar-morin-pensee-complexe",
+    "statut": "rejete_qualite",
+    "date": "2026-08-12T13:57:31",
+    "angle_insuffisant": true,
+    "raison": "L'article ne répond pas à la question « Quel est l'héritage d'Edgar Morin pour les sciences sociales ? » de manière spécifique et ne fournit pas d'informations récentes sur son héritage.",
+    "article_type": "actu"
+  },
+  {
+    "slug": "mortalite-infantile-france-hausse",
+    "statut": "rejete_sensible",
+    "date": "2026-08-12T14:00:00",
+    "sujet_sensible": true,
+    "raison": "l'article implique des enfants (mortalité infantile) et porte sur une question de santé publique",
+    "article_type": "breve"
+  },
+  {
+    "slug": "loi-amnistie-liban",
+    "statut": "rejete_qualite",
+    "date": "2026-08-12T14:00:36",
+    "angle_insuffisant": true,
+    "raison": "L'article ne contient pas de phrase liant un événement daté récent à une donnée chiffrée ou nommée qui lui est propre.",
+    "article_type": "breve",
+    "avertissements_garde_fous": [
+      "resume_repete_corps"
+    ]
+  },
+  {
+    "slug": "ia-generatives-vulnerables",
+    "statut": "rejete_qualite",
+    "date": "2026-08-12T14:05:19",
+    "angle_insuffisant": true,
+    "raison": "aucune actualité identifiable ne justifie une publication maintenant, l'article ressemble à une fiche pédagogique générale sans fait déclencheur daté",
+    "article_type": "breve"
+  },
+  {
+    "slug": "eclipses-sciences-chine-imperiale",
+    "statut": "rejete_qualite",
+    "date": "2026-08-12T14:06:53",
+    "angle_insuffisant": true,
+    "raison": "L'article ne répond pas à la question « Comment les éclipses ont-elles influencé l'adoption des sciences européennes en Chine impériale ? » de manière satisfaisante et ne fournit pas d'information datée ou d'événement récent qui justifie la publication maintenant.",
+    "article_type": "actu"
+  },
+  {
+    "slug": "canicule-france-vigilance-orange",
+    "statut": "corrige_automatiquement",
+    "date": "2026-08-12T14:08:20",
+    "problemes_initiaux": 4,
+    "tentatives": 1,
+    "problemes_residuels_style": 0,
+    "rapport_initial": {
+      "conforme": false,
+      "sujet_sensible": false,
+      "sujet_sensible_raison": "",
+      "angle_insuffisant": false,
+      "angle_insuffisant_raison": "",
+      "nature_contenu": "actualite_factuelle",
+      "problemes": [
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "source_non_editoriale",
+          "phrase_exacte": "Les écoles et les lieux de travail sont également touchés, avec des fermetures et des restrictions.",
+          "explication": "La source de cette information n'est pas clairement indiquée et pourrait ne pas être une source éditoriale."
+        },
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "Météo-France a émis une vigilance orange pour fortes chaleurs pour ces départements.",
+          "explication": "Météo-France n'est pas explicitement mentionnée comme source dans les sources autorisées, mais il est probable que les sources comme Le Monde ou Le Parisien citent Météo-France."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "fait_tranche_arbitrairement",
+          "phrase_exacte": "Les températures élevées posent des risques pour la santé, notamment pour les personnes âgées et les enfants.",
+          "explication": "Cette affirmation est générale et ne précise pas quelles sont les sources de cette information."
+        },
+        {
+          "bloc": 2,
+          "section": "sources",
+          "type": "compteur_incoherent",
+          "phrase_exacte": "",
+          "explication": "Le nombre de sources indépendantes est peut-être surestimé, car certaines sources pourraient ne faire que reprendre les informations d'autres sources."
+        }
+      ]
+    },
+    "article_type": "breve"
+  },
+  {
+    "slug": "canicules-france-villes-rechauffement",
+    "statut": "rejete_sensible",
+    "date": "2026-08-12T14:09:49",
+    "problemes_initiaux": 2,
+    "tentative": 1,
+    "bloc5": true,
+    "article_type": "breve",
+    "avertissements_garde_fous": [
+      "prise_de_position"
+    ]
+  },
+  {
+    "slug": "eclipse-solaire-lunettes-protection",
+    "statut": "corrige_automatiquement",
+    "date": "2026-08-12T14:10:22",
+    "problemes_initiaux": 2,
+    "tentatives": 1,
+    "problemes_residuels_style": 0,
+    "rapport_initial": {
+      "conforme": false,
+      "sujet_sensible": false,
+      "sujet_sensible_raison": "",
+      "angle_insuffisant": false,
+      "angle_insuffisant_raison": "",
+      "nature_contenu": "actualite_factuelle",
+      "problemes": [
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "source_derivee_comptee_comme_primaire",
+          "phrase_exacte": "Selon Le Monde, les achats de lunettes de protection ont fortement augmenté à l'approche de l'éclipse solaire du 12 août.",
+          "explication": "La source est comptée deux fois dans les sources autorisées, ce qui peut fausser le nombre de sources indépendantes."
+        },
+        {
+          "bloc": 2,
+          "section": "sources",
+          "type": "compteur_incoherent",
+          "phrase_exacte": "nb_sources: 4",
+          "explication": "Le nombre de sources distinctes est inférieur au nombre indiqué, car certaines sources sont identiques."
+        }
+      ]
+    },
+    "article_type": "breve",
+    "avertissements_garde_fous": [
+      "resume_repete_corps"
+    ]
+  },
+  {
+    "slug": "ete-2026-records-de-chaleur",
+    "statut": "rejete_qualite",
+    "date": "2026-08-12T14:13:01",
+    "problemes_initiaux": 2,
+    "tentatives": 3,
+    "problemes_restants": 3,
+    "bloquants_restants": 1,
+    "bloquants_types": [
+      "niveau_preuve_insuffisant"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "niveau_preuve_insuffisant",
+        "description": "L'article présente un résultat scientifique sans préciser le stade de la recherche ou les limites de l'étude.",
+        "phrase": "Selon Le Monde, les scientifiques mettent en avant la nécessité d'une adaptation aux impacts du changement climatique, qui affectent déjà plusieurs régions du monde, avec des conséquences telles que des sécheresses histo"
+      }
+    ],
+    "types_restants": [
+      "niveau_preuve_insuffisant",
+      "formule_vague",
+      "cadrage_emprunte"
+    ],
+    "article_type": "breve",
+    "avertissements_garde_fous": [
+      "faits_repetitifs",
+      "prise_de_position"
+    ]
+  },
+  {
+    "slug": "risques-securite-cartes-sim",
+    "statut": "rejete_qualite",
+    "date": "2026-08-12T14:13:49",
+    "angle_insuffisant": true,
+    "raison": "L'article ne contient pas de phrase qui lie un événement daté récent à une donnée chiffrée ou nommée qui lui est propre.",
+    "article_type": "breve"
   }
 ]
