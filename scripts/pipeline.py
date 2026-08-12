@@ -582,6 +582,90 @@ def qualite_source(url: str) -> str:
     return "tertiaire"
 
 
+# ── Juge de pertinence documentaire ──────────────────────────────────────────
+# Question FERMÉE et vérifiable : « ce document traite-t-il du sujet précis de
+# l'article ? » — à ne pas confondre avec « ce sujet mérite-t-il un article ? »,
+# jugement éditorial dont le backtest du 12/08 a rendu 50 %, soit le hasard.
+#
+# Petit modèle assumé : la réponse tient en un mot. Faire juger la pertinence
+# par le modèle qui rédige coûterait le prix d'un article pour une question à
+# trois issues.
+JUGE_SOURCES_MODELE = os.getenv("JUGE_SOURCES_MODELE", "") or "llama-3.1-8b-instant"
+# Nombre de sources examinées, dans l'ordre de qualité déjà établi. Les 45
+# résultats bruts ne partent pas tous dans le prompt : juger la queue serait
+# payer pour classer ce qui ne sera pas lu.
+JUGE_SOURCES_MAX = int(os.getenv("JUGE_SOURCES_MAX", "10"))
+
+_PROMPT_PERTINENCE = """Tu vérifies si un document peut servir de source à un article de presse.
+
+On te donne le TITRE de l'article, puis un DOCUMENT (institution, titre, URL).
+
+Question unique : ce document traite-t-il du sujet PRÉCIS de l'article, ou
+seulement de son thème général ?
+
+Réponds PERTINENTE si le document porte sur l'événement, l'étude, la décision
+ou le chiffre précis annoncé par le titre de l'article.
+
+Réponds GENERALE si le document ne traite que du thème large — une fiche
+encyclopédique, une page « données » permanente, un portail de rubrique, un
+dossier de fond — sans porter sur le fait précis de l'article.
+
+Réponds HORS_SUJET si le document parle d'autre chose.
+
+Un seul mot : PERTINENTE, GENERALE ou HORS_SUJET."""
+
+
+def juger_pertinence_sources(titre: str, sources: list) -> bool:
+    """Annote `sources` d'un `_pertinence` et dit si le jugement a eu lieu.
+
+    NE LÈVE JAMAIS et ne bloque jamais : sans clé, sans réseau, sur erreur API
+    ou sur réponse inattendue, la fonction renonce et laisse les sources telles
+    quelles — l'appelant retombe alors sur le tri par qualité seul. Perdre un
+    article entier parce qu'un juge auxiliaire a échoué serait absurde : il
+    améliore le classement, il n'est pas indispensable à la publication.
+    """
+    if os.getenv("JUGE_SOURCES", "1") == "0" or not titre or not sources:
+        return False
+    if not GROQ_ALL_KEYS:
+        return False
+    try:
+        client = Groq(api_key=GROQ_ALL_KEYS[0][0])
+    except Exception as e:  # noqa: BLE001
+        print(f"     [PERTINENCE] juge indisponible ({type(e).__name__}) — tri par qualité seul")
+        return False
+
+    juges = 0
+    for s in sources[:JUGE_SOURCES_MAX]:
+        url = s.get("url", "")
+        descriptif = (f"institution : {s.get('institution') or _media_name_from_url(url, '') or 'Source'}\n"
+                      f"titre du document : {s.get('titre') or s.get('title') or ''}\n"
+                      f"adresse : {urlparse(url).netloc}{urlparse(url).path}")
+        try:
+            r = client.chat.completions.create(
+                model=JUGE_SOURCES_MODELE,
+                messages=[{"role": "system", "content": _PROMPT_PERTINENCE},
+                          {"role": "user",
+                           "content": f"ARTICLE : {titre}\n\nDOCUMENT :\n{descriptif}"}],
+                temperature=0, max_tokens=6)
+            mot = (r.choices[0].message.content or "").strip().upper()
+        except Exception as e:  # noqa: BLE001
+            # Une seule erreur suffit à renoncer : en rate limit, insister sur
+            # dix sources ferait attendre le run entier pour un simple tri.
+            print(f"     [PERTINENCE] interrompu ({type(e).__name__}) — "
+                  f"{juges} source(s) jugée(s), tri par qualité pour le reste")
+            break
+        if "HORS" in mot:
+            s["_pertinence"] = "hors_sujet"
+        elif "GENERALE" in mot or "GÉNÉRALE" in mot:
+            s["_pertinence"] = "generale"
+        elif "PERTINENTE" in mot:
+            s["_pertinence"] = "pertinente"
+        else:
+            continue  # réponse inattendue : on ne classe pas au hasard
+        juges += 1
+    return juges > 0
+
+
 def bilan_qualite_sources(sources: list) -> dict:
     """Compte les sources par niveau de qualité (domaines distincts uniquement)."""
     domaines_vus = {"primaire": set(), "secondaire": set(), "tertiaire": set()}
@@ -7251,6 +7335,50 @@ def generer_article(item: dict, dry_run: bool, published: set, new_pub: set, dat
         extra,
         key=lambda s: _QUALITE_RANG.get(qualite_source(s.get("url", "")), 3)
     )
+
+    # PERTINENCE DOCUMENTAIRE (12/08) — la qualité du DOMAINE ne dit pas si le
+    # document parle du sujet. C'est tout le défaut de
+    # `articles/rougeole-antiviral-etude.html` : six sources sérieuses, dont la
+    # fiche « Rougeole » de l'OMS et la page « Données » de Santé publique
+    # France, sur un article qui annonce un antiviral précis. Toutes primaires,
+    # aucune ne traitant le sujet.
+    #
+    # Backtest du 12/08 (`scripts/test_juge_sources.py`, 60 paires) :
+    #
+    #                            PERTINENTE  GENERALE  HORS_SUJET
+    #   source ↔ SON article         20         10          0
+    #   source ↔ article étranger     0         19         11
+    #
+    # Les deux zéros sont le résultat : jamais une vraie source déclarée hors
+    # sujet, jamais une source étrangère déclarée pertinente. Sur le cas
+    # d'école, le juge garde la seule source d'origine et écarte les cinq pages
+    # permanentes.
+    #
+    # ⚠ ON TRIE, ON NE JETTE PAS. La règle « n'accepter que PERTINENTE » perd
+    # jusqu'à 33 % des sources citées ; avec une médiane de 4 sources par
+    # article et un plancher de publication à 3, elle échangerait un problème
+    # de qualité contre un problème de quantité. Le juge REHAUSSE les documents
+    # qui traitent le sujet, il n'en supprime aucun.
+    _pertinence = juger_pertinence_sources(sujet.get("title", ""), extra)
+    _RANG_PERTINENCE = {"pertinente": 0, "generale": 1, "": 1, "hors_sujet": 2}
+    if _pertinence:
+        extra = sorted(
+            extra,
+            key=lambda s: (_RANG_PERTINENCE.get(s.get("_pertinence", ""), 1),
+                           _QUALITE_RANG.get(qualite_source(s.get("url", "")), 3))
+        )
+        _n_pert = sum(1 for s in extra if s.get("_pertinence") == "pertinente")
+        print(f"     [PERTINENCE] {_n_pert} source(s) traitant le sujet précis, "
+              f"{sum(1 for s in extra if s.get('_pertinence') == 'generale')} générale(s), "
+              f"{sum(1 for s in extra if s.get('_pertinence') == 'hors_sujet')} hors sujet")
+        # AVERTISSEMENT seulement, pas un rejet — le taux réel de « zéro source
+        # pertinente » n'a jamais été mesuré sur un run complet, et la règle du
+        # projet interdit de rendre bloquant un contrôle dont on ignore le taux
+        # de déclenchement. À rendre bloquant quand quelques runs l'auront
+        # chiffré : c'est exactement le cas rougeole.
+        if _n_pert == 0:
+            print("     [PERTINENCE] AUCUNE source ne traite le sujet précis du "
+                  "titre — cas « rougeole », article probablement creux")
 
     # Plafond d'injection : un BUDGET DE MATIÈRE, pas un nombre de sources.
     #

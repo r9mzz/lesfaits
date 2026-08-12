@@ -207,14 +207,79 @@ exactement la réserve scientifique que la section doit contenir.
   16 % au lieu des 40 % de phrases attribuées consécutives comptées à la main.
   L'écart venait de l'extraction des noms, pas du seuil de série.
 
+### JUGE DE PERTINENCE — implémenté le 12/08, en TRI et pas en filtre
+
+Le levier n°1 de l'audit est traité. `juger_pertinence_sources()` interroge un
+petit modèle (`llama-3.1-8b-instant`) sur une question fermée et vérifiable :
+« ce document traite-t-il du sujet PRÉCIS de l'article, ou seulement de son
+thème général ? » Les sources sont ensuite triées pertinence d'abord, qualité
+de domaine ensuite.
+
+**Backtest avant implémentation** (`scripts/test_juge_sources.py`, 60 paires,
+référence construite sans étiquetage humain : chaque source réellement citée
+présentée avec son article puis avec un article étranger) :
+
+```
+                            PERTINENTE   GENERALE   HORS_SUJET
+source ↔ SON article            20          10           0      (n=30)
+source ↔ article étranger        0          19          11      (n=30)
+```
+
+**Les deux zéros sont le résultat** : jamais une vraie source déclarée hors
+sujet, jamais une source étrangère déclarée pertinente. Sur le cas d'école
+rougeole, le juge garde la seule source d'origine (Sciences et Avenir) et
+écarte les cinq pages permanentes (OMS, Inserm, Pasteur, 2× Santé publique
+France).
+
+⚠ **ON TRIE, ON NE JETTE PAS.** La règle « n'accepter que PERTINENTE » perdrait
+jusqu'à 33 % des sources citées ; avec une médiane de 4 sources par article et
+un plancher de publication à 3, elle échangerait un problème de qualité contre
+un problème de quantité. Ce 33 % est d'ailleurs un PLAFOND : une partie de ces
+sources « perdues » sont des pages génériques que le juge a raison d'écarter —
+même contamination de la référence que pour le juge de sujet.
+
+Le cas « zéro source pertinente » est journalisé en AVERTISSEMENT
+(`[PERTINENCE]`), pas en rejet : son taux réel n'a jamais été mesuré sur un run
+complet. **À rendre bloquant quand quelques runs l'auront chiffré** — c'est
+exactement le cas rougeole.
+
+Innocuité verrouillée par `scripts/test_pertinence_sources.py` : sans clé, sans
+réseau, sur erreur API ou réponse inattendue, le juge renonce et laisse le tri
+par qualité. Il renonce dès la PREMIÈRE erreur (en rate limit, insister sur dix
+sources ferait attendre le run entier pour un simple tri), ne supprime jamais
+une source, et s'éteint avec `JUGE_SOURCES=0`. Plafond `JUGE_SOURCES_MAX = 10`
+sources jugées : les 45 résultats bruts ne partent pas tous dans le prompt,
+juger la queue serait payer pour classer ce qui ne sera pas lu. Surcoût estimé
+~7 % d'un article.
+
+### RÉSULTAT NÉGATIF — juge de SUJET, ne pas retenter tel quel
+
+`scripts/test_juge_sujet.py` demandait au même petit modèle « ce sujet
+mérite-t-il un article ? », sur 184 sujets étiquetés par l'issue réelle de leur
+vérification (84 `angle_insuffisant`, 100 menés au bout). **50 % de justesse sur
+un échantillon équilibré, soit exactement le hasard.**
+
+Deux enseignements, le second plus important que le premier :
+
+- le juge ne voyait que le titre reconstitué depuis le slug (« Cxmt levee de
+  fonds asie »), sans accents ni ponctuation — handicap réel ;
+- **la référence elle-même est fausse.** Parmi les « bons articles » que le juge
+  a écartés figurent « Obsessed fest prime video romcom » (l'événement marketing
+  Amazon qui a motivé `_PR_MARQUE_RE`) et « Nettoyage toilettes erreurs ». Ces
+  sujets ne sont pas étiquetés bons, ils sont étiquetés « le fact-checker ne les
+  a pas signalés creux ». Le juge avait raison contre l'étiquette.
+
+La différence avec le juge de sources est structurelle et vaut pour toute
+tentative future : « ce document traite-t-il de ce sujet ? » est une question
+FACTUELLE, avec une bonne réponse qu'un humain peut trancher ; « ce sujet
+mérite-t-il un article ? » est un jugement éditorial non vérifiable. Refaire ce
+test proprement suppose de construire une référence à la main, sujet par sujet.
+
 ### Non fait, et pourquoi
 
-- **Pertinence des sources** (refuser une page permanente qui ne traite pas le
-  sujet de l'article) : c'est le levier le plus important de tout cet audit, et
-  il n'est pas implémenté. Il demande de distinguer un document daté d'une page
-  thématique, ce qui ne se déduit pas de l'URL seule de façon fiable.
 - **Abandon avant génération quand le sujet du titre n'est documenté nulle
-  part** : dépend du point précédent.
+  part** : le juge de pertinence fournit désormais le signal (`[PERTINENCE] 0
+  source`), il reste à en faire un rejet une fois le taux mesuré.
 - **Contrôle « article sans aucune date »** (37 % du corpus) : à ajouter en
   avertissement d'abord.
 - **Analyse du Courrier de France** : le domaine est bloqué par la politique
