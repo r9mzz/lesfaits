@@ -1,5 +1,114 @@
 # Les Faits — lesfaits.info
 
+## AUDIT DU CORPUS PUBLIÉ — 12/08, ce que valent réellement nos articles
+
+Demande de Nahil : « nos articles ne sont même pas bien et pas intéressants ».
+Audit des **161 articles longs publiés** (relecture du HTML, pas des journaux
+de run). Tout ce qui suit est MESURÉ.
+
+### Ce que dit le corpus
+
+```
+domaines les plus cités   Le Monde 58 · Futura-Sciences 45 · Sciences et Avenir 24
+                          franceinfo 18 · Le Figaro 16 · Wikipédia 10 · Inserm 13
+médiane                   4 sources/article  (confrère mesuré le 05/08 : 21)
+densité factuelle         < 1 chiffre / 100 mots
+articles SANS aucune date 60 / 161  (37 %)
+redondance                médiane 10,5 % de 5-grammes répétés ; 116/161 > 3 %
+longueur                  médiane 499 mots ; 0 / 161 atteint la cible de 800
+sources listées jamais    médiane 20 % des sources ne sont pas nommées dans
+nommées dans le corps     le corps de l'article
+```
+
+**Nous écrivons à partir de reprises de presse et de vulgarisation, pas de
+documents.** L'Inserm arrive derrière Wikipédia dans nos sources. Le déficit
+de matière que le format brève avait été créé pour absorber est là, entier :
+le sourcing par question du 05/08 n'a jamais tourné sur un run complet (le
+pipeline s'est arrêté le jour même), donc **rien de ce constat n'infirme ni ne
+confirme les changements du 05/08** — il décrit le corpus d'AVANT.
+
+### Taux de déclenchement des garde-fous sur les articles PUBLIÉS
+
+Tous ces contrôles sont rejoués après la passe 3, mais uniquement en
+AVERTISSEMENT (`_CONTROLES_AVERTISSEMENT`) : ils n'ont donc bloqué ni réparé
+aucun des articles ci-dessous.
+
+```
+faits_repetitifs                107 / 161  (66 %)
+attributions_trop_repetitives    95 / 161  (59 %)
+sources_non_fusionnees           31 / 161  (19 %)   ← 16 % avant correctif
+prise_de_position                21 / 161  (13 %)   ←  6 % avant correctif
+cliches_ia                       10 / 161  ( 6 %)
+nuances_vagues                    1 / 161  ( 1 %)
+```
+
+**Deux tiers des articles publiés déclenchent le détecteur de répétitions.**
+C'est le chiffre à traiter en priorité, et il n'est PAS corrigé ici : il
+demande de décider si ces avertissements doivent devenir bloquants ou
+réparables, ce qui coûte du quota et n'a pas été tranché.
+
+### Corrigé le 12/08 — la détection d'attribution était borgne
+
+Cas d'école : `articles/rougeole-antiviral-etude.html`. Le titre promet un
+antiviral à l'étude ; l'antiviral apparaît une fois, sans nom, sans
+laboratoire, sans résultat. Le reste est une fiche encyclopédique sur la
+rougeole, écrite à partir de pages permanentes (fiche « Rougeole » de l'OMS,
+page « Données » de Santé publique France) qui ne parlent pas du sujet.
+
+Deux angles morts dans `_sources_attribuees`, tous deux réparés et testés
+(`scripts/test_attribution_empilement.py`) :
+
+- **le nom précédé d'un article n'était pas vu** (« Selon le WHO », « d'après
+  le Pasteur ») — le motif exigeait une majuscule juste après « Selon ». La
+  phrase comptait comme NON attribuée et cassait la série de consécutives ;
+- **un nom à mot minuscule interne était tronqué** (« Santé publique France »
+  → « Santé »), si bien qu'un même organisme apparaissait sous plusieurs noms
+  et gonflait le compte de sources DISTINCTES.
+
+`MIN_SOURCES_DISTINCTES_EMPILEES = 2` remplace l'exigence de 4 sources
+distinctes : le défaut le plus courant est la MÊME source étalée sur des
+phrases consécutives (trois phrases d'affilée attribuées à Futura Sciences
+dans `volcan-inconnu-sicile`), pas quatre sources différentes. Seuils mesurés
+avant de choisir, et les 5 articles gagnés relus un par un — 5 vrais défauts,
+aucun faux positif. La variante « série de 3 phrases » (30 % du corpus) a été
+écartée : précision > rappel sur un garde-fou à relance.
+
+`prise_de_position` couvre désormais « il est essentiel/crucial/primordial/
+indispensable de… » (7 %), qui laissait passer « Il est essentiel de renforcer
+la vigilance » — la moitié de la section « Débats et nuances » de l'article
+rougeole. **`important` (50 % du corpus) et `nécessaire` (12 %) délibérément
+exclus** : le premier est le connecteur déjà écarté de `cliches_ia` le 28/07,
+le second attrape « il est nécessaire de poursuivre les recherches », qui est
+exactement la réserve scientifique que la section doit contenir.
+
+### Deux affirmations à ne PAS reprendre — vérifiées et fausses
+
+- « Santé publique France est comptée deux fois, donc l'article n'a pas
+  6 sources mais 5 » : faux dans ce qui compte. `bilan_qualite_sources`
+  dédoublonne DÉJÀ par domaine (vérifié : deux URLs santepubliquefrance.fr +
+  une who.int → 2 primaires, pas 3). La règle « ≥1 primaire OU ≥2 secondaires »
+  n'est pas trompée. Seul l'affichage liste deux documents distincts, ce qui
+  est exact.
+- « le détecteur d'empilement ne déclenche pas » : il déclenchait, mais sur
+  16 % au lieu des 40 % de phrases attribuées consécutives comptées à la main.
+  L'écart venait de l'extraction des noms, pas du seuil de série.
+
+### Non fait, et pourquoi
+
+- **Pertinence des sources** (refuser une page permanente qui ne traite pas le
+  sujet de l'article) : c'est le levier le plus important de tout cet audit, et
+  il n'est pas implémenté. Il demande de distinguer un document daté d'une page
+  thématique, ce qui ne se déduit pas de l'URL seule de façon fiable.
+- **Abandon avant génération quand le sujet du titre n'est documenté nulle
+  part** : dépend du point précédent.
+- **Contrôle « article sans aucune date »** (37 % du corpus) : à ajouter en
+  avertissement d'abord.
+- **Analyse du Courrier de France** : le domaine est bloqué par la politique
+  réseau du sandbox (403 du proxy sur CONNECT, sept chemins essayés). Aucune
+  analyse n'a pu être faite ; ne pas reconstruire leurs articles de mémoire.
+  Voies possibles : allowlist du proxy, ou un job GitHub Actions jetable qui
+  récupère le HTML en artefact (même mécanisme que `check_feeds.yml`).
+
 ## IMAGES — la coupe par fenêtre attribue le gain mesuré au 30/07, pas au 05/08
 
 Mesure de la part d'images « étape 0 » (source institutionnelle propre à

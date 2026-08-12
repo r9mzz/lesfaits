@@ -9,7 +9,7 @@ Usage:
     python pipeline.py --text "..."     # article depuis texte libre
 """
 
-import os, re, json, time, hashlib, argparse, sys
+import os, re, json, time, hashlib, argparse, sys, unicodedata
 from collections import Counter
 from datetime import datetime, timedelta
 from zoneinfo import ZoneInfo
@@ -2331,9 +2331,41 @@ _ATTRIB_VERBES = (
 )
 # Un nom de source : 1 à 3 mots commençant par une majuscule ou un chiffre
 # (« Le Monde », « BFM TV », « 01net », « Universfreebox »).
-_NOM_SOURCE = r"(?:[A-ZÀ-ÖØ-Þ0-9][\wÀ-ÖØ-öø-ÿ’'\-]*)(?:\s+[A-ZÀ-ÖØ-Þ0-9][\wÀ-ÖØ-öø-ÿ’'\-]*){0,2}"
+#
+# AUDIT 12/08 — deux angles morts mesurés sur les 161 articles publiés, qui
+# faisaient tomber la détection d'empilement à 13 % là où le comptage manuel
+# des phrases attribuées consécutives en trouve 40 % :
+#
+#  1. le nom précédé d'un ARTICLE n'était pas vu. « Selon le WHO », « D'après
+#     le Pasteur » : après « Selon », le motif exigeait une majuscule, or il
+#     rencontrait « le ». Aucune capture — donc une phrase pourtant attribuée
+#     comptait comme non attribuée, ce qui CASSAIT la série de consécutives.
+#  2. un nom contenant un mot en minuscule était TRONQUÉ à son premier mot :
+#     « D'après Santé publique France » ne rendait que « Santé ». Le même
+#     organisme apparaissait alors sous plusieurs noms selon la phrase, ce qui
+#     gonflait artificiellement le compte de sources DISTINCTES ici, et le
+#     faussait ailleurs.
+#
+# Cas d'école : articles/rougeole-antiviral-etude.html — 5 phrases attribuées
+# d'affilée dans « Les faits », 0 détectée avant ce correctif.
+#
+# Le mot en minuscule n'est accepté qu'ENTRE deux mots capitalisés (« Santé
+# publique France »), et jamais s'il s'agit d'une conjonction : sans cette
+# exclusion, « Selon Le Monde et Le Figaro » se capturerait comme le nom
+# unique « Le Monde et Le », fusionnant deux sources distinctes en une.
+_MOT_MAJ = r"[A-ZÀ-ÖØ-Þ0-9][\wÀ-ÖØ-öø-ÿ’'\-]*"
+_MOT_LIAISON = r"(?!(?:et|ou|avec|puis|selon|mais|dont|qui|que)\s)[a-zà-öø-ÿ][\wÀ-ÖØ-öø-ÿ’'\-]*"
+# Queue en minuscules des noms d'institutions françaises : « Cour des comptes »,
+# « Défenseur des droits », « Autorité de la concurrence ». Elle n'est acceptée
+# qu'introduite par de/des/du/d', ce qui la borne — sans cette contrainte, le
+# motif continuerait à avaler la phrase après le nom.
+_QUEUE_INSTIT = r"(?:\s+(?:des?|du|d['’])\s*[a-zà-öø-ÿ][\wÀ-ÖØ-öø-ÿ’'\-]*){0,2}"
+_NOM_SOURCE = rf"{_MOT_MAJ}(?:\s+(?:{_MOT_LIAISON}\s+)?{_MOT_MAJ}){{0,2}}{_QUEUE_INSTIT}"
+# Article ou préposition facultatif devant le nom (« selon le WHO »,
+# « d'après l'Inserm », « selon la Cour des comptes »).
+_DET_SOURCE = r"(?:l['’]|le\s+|la\s+|les\s+|du\s+|des\s+|de\s+la\s+)?"
 _ATTRIB_TOUTE_FORME_RE = re.compile(
-    rf"(?:[Ss]elon|[Dd]['’]après)\s+({_NOM_SOURCE})"
+    rf"(?:[Ss]elon|[Dd]['’]après)\s+{_DET_SOURCE}({_NOM_SOURCE})"
     rf"|({_NOM_SOURCE})\s+(?:{_ATTRIB_VERBES})\b"
     rf"|(?:{_ATTRIB_VERBES})\s+({_NOM_SOURCE})"
 )
@@ -2347,12 +2379,55 @@ _FAUX_NOMS = {
 # Au-delà de ce nombre de phrases consécutives portant chacune une source
 # DIFFÉRENTE, on considère l'empilement caractérisé.
 MAX_SOURCES_EMPILEES = 4
+# Nombre de sources DISTINCTES qu'il faut voir dans cette série pour parler
+# d'empilement.
+#
+# MESURE 12/08 sur les 161 articles longs publiés, taux de déclenchement :
+#
+#   série >=4 phrases   sources distinctes >=4   26 / 161  (16 %)   ← avant
+#   série >=4 phrases   sources distinctes >=3   30 / 161  (19 %)
+#   série >=4 phrases   sources distinctes >=2   31 / 161  (19 %)   ← retenu
+#   série >=3 phrases   sources distinctes >=2   49 / 161  (30 %)   ← écarté
+#
+# Exiger 4 sources distinctes ratait le défaut le plus courant : la MÊME source
+# étalée sur plusieurs phrases consécutives au lieu d'être fusionnée en une
+# (« Selon le CERN, … D'après le CERN, … » ; trois phrases d'affilée attribuées
+# à Futura Sciences dans volcan-inconnu-sicile). C'est la règle 1 (une idée =
+# une apparition) autant que la règle 10, et le lecteur y lit exactement le
+# même défaut : un paragraphe qui avance par empilement d'attributions.
+#
+# Les 5 articles gagnés par ce passage de 4 à 2 ont été relus un par un : les
+# 5 sont de vrais défauts, aucun faux positif. Le passage à une série de 3
+# phrases a en revanche été écarté — 30 % du corpus pour un défaut à relance
+# corrective, et la règle du projet est « précision > rappel » sur ces
+# garde-fous, le quota Groq étant la ressource rare.
+MIN_SOURCES_DISTINCTES_EMPILEES = 2
+
+
+def nom_source_normalise(nom: str) -> str:
+    """Clé de comparaison de deux noms de sources : accents, casse, espaces et
+    ponctuation retirés.
+
+    AUDIT 12/08 — un même organisme apparaît sous plusieurs orthographes selon
+    l'endroit où le modèle l'a repris : « Santepubliquefrance » (repris du nom
+    de domaine) et « Santé publique France » (repris du texte) cohabitent dans
+    un même article — mesuré sur articles/rougeole-antiviral-etude.html, où il
+    est ainsi compté DEUX fois dans les 6 sources affichées au lecteur. Toute
+    comparaison de noms de sources doit passer par cette clé, jamais par une
+    égalité de chaînes."""
+    sans_accent = unicodedata.normalize("NFD", nom.lower())
+    sans_accent = "".join(c for c in sans_accent if unicodedata.category(c) != "Mn")
+    return re.sub(r"[^a-z0-9]+", "", sans_accent)
 
 
 def _sources_attribuees(phrase: str) -> set:
     """Noms de sources auxquels une phrase attribue explicitement un fait,
-    toutes formes confondues (« selon X », « X indique », « indique X »)."""
-    noms = set()
+    toutes formes confondues (« selon X », « X indique », « indique X »).
+
+    Dédoublonne sur `nom_source_normalise` : deux orthographes du même
+    organisme dans une même phrase ne comptent que pour UNE source, sans quoi
+    le seuil d'empilement se franchit tout seul sur une source unique."""
+    par_cle: dict[str, str] = {}
     for m in _ATTRIB_TOUTE_FORME_RE.finditer(phrase):
         nom = (m.group(1) or m.group(2) or m.group(3) or "").strip()
         if not nom:
@@ -2360,8 +2435,15 @@ def _sources_attribuees(phrase: str) -> set:
         premier = nom.split()[0].lower().strip("’'")
         if premier in _FAUX_NOMS or len(nom) < 2:
             continue
-        noms.add(nom)
-    return noms
+        cle = nom_source_normalise(nom)
+        if not cle:
+            continue
+        # À clé égale, on garde la forme la plus complète (« Santé publique
+        # France » plutôt que « Santé »), c'est elle qui sera montrée au modèle
+        # dans le message de relance.
+        if len(nom) > len(par_cle.get(cle, "")):
+            par_cle[cle] = nom
+    return set(par_cle.values())
 
 
 # ── Incohérence temporelle titre ↔ faits ─────────────────────────────────────
@@ -2425,6 +2507,29 @@ _PRISE_DE_POSITION_RE = re.compile(
     r"les entreprises|la communaut[ée] internationale|les d[ée]cideurs|les industriels|"
     r"les institutions)\s+(?:\w+\s+){0,3}?doi(?:t|vent)\b"
     r"|\bil est (?:urgent|imp[ée]ratif) (?:de|d['’]|que)\b"
+    # AUDIT 12/08 — « Il est essentiel de renforcer la vigilance et les mesures
+    # de prévention » constituait à elle seule la moitié de la section « Débats
+    # et nuances » de articles/rougeole-antiviral-etude.html : une injonction du
+    # journal, publiée, non détectée. Même famille que « urgent/impératif », qui
+    # était déjà couverte.
+    #
+    # Mesuré sur les 161 articles longs publiés :
+    #   essentiel|crucial|primordial|indispensable         12 / 161  ( 7 %)  ← retenu
+    #   + nécessaire                                       20 / 161  (12 %)  ← écarté
+    #   + important                                        80 / 161  (50 %)  ← écarté
+    #
+    # « important » est le piège déjà documenté le 28/07 sur cliches_ia :
+    # « il est important de noter que » est un connecteur français courant, pas
+    # une prise de position. « nécessaire » est écarté pour une raison propre au
+    # sujet : « il est nécessaire de poursuivre les recherches » est la réserve
+    # scientifique standard, exactement ce que « Débats et nuances » doit
+    # contenir — le motif punirait le bon comportement.
+    #
+    # Les verbes de MONSTRATION (noter, rappeler, souligner, comprendre…) sont
+    # exclus : « il est essentiel de comprendre la différence entre X et Y »
+    # explique, il ne réclame rien.
+    r"|\bil est (?:essentiel|crucial|primordial|indispensable)\s+(?:de|d['’])\s+"
+    r"(?!noter|rappeler|souligner|pr[ée]ciser|comprendre|distinguer|garder|retenir)"
     r"|n[ée]cessit(?:e|ant) une (?:action|r[ée]ponse|intervention) (?:urgente|imm[ée]diate)"
     r"|\bdoi(?:t|vent) (?:prendre des mesures|agir|intervenir|r[ée]guler|l[ée]gif[ée]rer)\b",
     re.IGNORECASE,
@@ -2457,21 +2562,26 @@ def sources_non_fusionnees(art: dict) -> list[str]:
     for section in ("faits", "contexte", "nuances"):
         texte = str(corps.get(section, "") or "")
         phrases = [p for p in re.split(r"(?<=[.!?])\s+", texte) if p.strip()]
-        serie_noms: set = set()
+        serie_noms: dict[str, str] = {}
         serie_len = 0
         for ph in phrases:
             noms = _sources_attribuees(ph)
             if noms:
                 serie_len += 1
-                serie_noms |= noms
+                # Dédoublonnage par clé normalisée : « Santepubliquefrance » et
+                # « Santé publique France » sont le même organisme, et une
+                # source unique répétée n'est PAS un empilement.
+                for n in noms:
+                    serie_noms.setdefault(nom_source_normalise(n), n)
             else:
                 serie_len = 0
-                serie_noms = set()
-            if serie_len >= MAX_SOURCES_EMPILEES and len(serie_noms) >= MAX_SOURCES_EMPILEES:
+                serie_noms = {}
+            if (serie_len >= MAX_SOURCES_EMPILEES
+                    and len(serie_noms) >= MIN_SOURCES_DISTINCTES_EMPILEES):
                 feedback.append(
                     f"section « {section} » : {serie_len} phrases consécutives "
                     f"attribuées chacune à une source différente "
-                    f"({', '.join(sorted(serie_noms)[:6])}) — fusionner celles "
+                    f"({', '.join(sorted(serie_noms.values())[:6])}) — fusionner celles "
                     f"qui rapportent le même fait en UNE phrase à attribution groupée"
                 )
                 break
