@@ -138,19 +138,25 @@ def _gen_anthropic(api_key, messages, max_tokens=8000):
 
 pipeline._groq_call = _gen_anthropic
 
-# Patcher vérification pour compter les appels
-_verif_orig = verification._anthropic_call
+# Patcher vérification pour compter les appels.
+#
+# `verification._anthropic_call` n'existe plus : le compte Anthropic a été
+# abandonné en juillet 2026 (décision de Nahil, plus de crédits) et la
+# vérification tourne sur Groq. L'accès direct à cet attribut faisait planter
+# ce script sur un AttributeError À L'IMPORT — donc avant toute action utile,
+# et pour tout le monde. Constat du 12/08 en passant la suite de tests en
+# revue. On ne patche que si la fonction existe encore.
+_verif_orig = getattr(verification, "_anthropic_call", None)
 
+if _verif_orig is not None:
+    def _verif_compte(*a, **k):
+        global _n_verif
+        if _total() >= MAX_ANTHROPIC:
+            raise BudgetAtteint(f"Plafond {MAX_ANTHROPIC} appels atteint")
+        _n_verif += 1
+        return _verif_orig(*a, **k)
 
-def _verif_compte(*a, **k):
-    global _n_verif
-    if _total() >= MAX_ANTHROPIC:
-        raise BudgetAtteint(f"Plafond {MAX_ANTHROPIC} appels atteint")
-    _n_verif += 1
-    return _verif_orig(*a, **k)
-
-
-verification._anthropic_call = _verif_compte
+    verification._anthropic_call = _verif_compte
 
 # ── Guard mtime — publication impossible ─────────────────────────────────────
 # On enregistre les mtimes de TOUS les fichiers qui constitueraient une

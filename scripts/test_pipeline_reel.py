@@ -78,19 +78,28 @@ def _gen_anthropic(api_key, messages, max_tokens=8000):
 _groq_call_orig = pipeline._groq_call
 
 # ── Patch vérification : compteur d'appels ────────────────────────────────────
-_verif_orig = verification._anthropic_call
+#
+# `verification._anthropic_call` n'existe plus depuis l'abandon du compte
+# Anthropic (juillet 2026) : la vérification tourne sur Groq. L'accès direct
+# faisait échouer ce fichier À L'IMPORT sur un AttributeError, ce qui le
+# rendait rouge en permanence dans la suite — un échec permanent finit par
+# être ignoré, et c'est ainsi qu'on rate le jour où il signale un vrai défaut.
+#
+# ⚠ Ce fichier n'est PAS un test unitaire : c'est un harnais d'intégration qui
+# consomme du quota réel et exige un accès réseau. Il ne peut pas passer dans
+# le sandbox de développement, et ne doit être lancé que délibérément.
+_verif_orig = getattr(verification, "_anthropic_call", None)
 
+if _verif_orig is not None:
+    def _verif_compte(*a, **k):
+        global _n_verif
+        if _total() >= MAX_ANTHROPIC:
+            raise BudgetAtteint(f"Plafond {MAX_ANTHROPIC} appels atteint")
+        _n_verif += 1
+        print(f"  [API verif #{_n_verif}] passe vérification…", flush=True)
+        return _verif_orig(*a, **k)
 
-def _verif_compte(*a, **k):
-    global _n_verif
-    if _total() >= MAX_ANTHROPIC:
-        raise BudgetAtteint(f"Plafond {MAX_ANTHROPIC} appels atteint")
-    _n_verif += 1
-    print(f"  [API verif #{_n_verif}] passe vérification…", flush=True)
-    return _verif_orig(*a, **k)
-
-
-verification._anthropic_call = _verif_compte
+    verification._anthropic_call = _verif_compte
 
 # ── Patch enqueue_moderation : capture les problèmes sans écrire en prod ─────
 _captured_moderation: list[dict] = []
