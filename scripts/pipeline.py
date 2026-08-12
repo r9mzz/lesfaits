@@ -628,6 +628,20 @@ def juger_pertinence_sources(titre: str, sources: list) -> bool:
         return False
     if not GROQ_ALL_KEYS:
         return False
+    # Les limites Groq (TPM comme TPD) sont PAR MODÈLE : voir `_TPM_PAR_MODELE`,
+    # qui donne 12 000 tokens/min au 70b et 6 000 au 8b — deux compteurs
+    # distincts. Le juge tourne donc sur un stock que le rédacteur n'utilise
+    # pas, et son coût contre le budget de génération est nul.
+    #
+    # Cette propriété disparaît si le juge est pointé sur le modèle de
+    # rédaction : il se met alors à consommer le quota qui bloque déjà les runs
+    # (les 7 comptes étaient à 90-99 % du TPD le 12/08), et rien ne le
+    # signalerait. On refuse plutôt que de le faire en silence.
+    if JUGE_SOURCES_MODELE == GROQ_MODEL:
+        print(f"     [PERTINENCE] juge désactivé : il utiliserait {GROQ_MODEL}, "
+              f"le modèle de rédaction, et mangerait son quota. "
+              f"Régler JUGE_SOURCES_MODELE sur un petit modèle distinct.")
+        return False
     try:
         client = Groq(api_key=GROQ_ALL_KEYS[0][0])
     except Exception as e:  # noqa: BLE001

@@ -249,8 +249,27 @@ par qualité. Il renonce dès la PREMIÈRE erreur (en rate limit, insister sur d
 sources ferait attendre le run entier pour un simple tri), ne supprime jamais
 une source, et s'éteint avec `JUGE_SOURCES=0`. Plafond `JUGE_SOURCES_MAX = 10`
 sources jugées : les 45 résultats bruts ne partent pas tous dans le prompt,
-juger la queue serait payer pour classer ce qui ne sera pas lu. Surcoût estimé
-~7 % d'un article.
+juger la queue serait payer pour classer ce qui ne sera pas lu.
+
+**Le surcoût contre le budget de génération est NUL, pas de ~7 %.** Une
+première estimation raisonnait en jetons comme s'ils étaient fongibles : ils ne
+le sont pas. Les limites Groq sont PAR MODÈLE — `_TPM_PAR_MODELE` donne 12 000
+tokens/min au 70b et 6 000 au 8b, deux compteurs distincts. Le juge puise donc
+dans un stock que le rédacteur n'utilise pas, ce qui compte d'autant plus les
+jours où les comptes sont à 90-99 % du TPD sur le 70b. ⚠ Inférence forte, non
+encore observée : la table par modèle prouve la séparation du TPM, la même
+structure vaut chez Groq pour le TPD mais aucun refus sur le 8b ne l'a confirmé
+chez nous. Vérifiable gratuitement au prochain run — un refus sur le juge
+nommera `llama-3.1-8b-instant` dans le corps d'erreur.
+
+Cette propriété disparaît si le juge est pointé sur le modèle de rédaction : il
+mangerait alors le quota qui bloque déjà les runs, en silence. Le juge REFUSE
+donc de démarrer quand `JUGE_SOURCES_MODELE == GROQ_MODEL`, et le dit.
+
+Le tri et la fenêtre TPM sont COMPLÉMENTAIRES, pas redondants : réduire la
+fenêtre change combien de matière passe, le tri change laquelle. À budget large
+les sources passent toutes quel que soit l'ordre ; à budget serré, l'ordre EST
+la sélection — le tri devient structurant exactement là où la place manque.
 
 ### RÉSULTAT NÉGATIF — juge de SUJET, ne pas retenter tel quel
 

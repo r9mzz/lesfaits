@@ -105,6 +105,17 @@ simule = poser(["PERTINENTE"])
 verifie("un titre vide n'appelle pas le modèle",
         P.juger_pertinence_sources("", srcs) is False and simule.appels == 0)
 
+# Les limites Groq sont PAR MODÈLE (voir `_TPM_PAR_MODELE`) : le juge sur un
+# petit modèle ne prend rien au budget du rédacteur. Cette propriété disparaît
+# si on le pointe sur le modèle de rédaction — il mangerait alors le quota qui
+# bloque déjà les runs, sans que rien ne le signale.
+_modele_orig = P.JUGE_SOURCES_MODELE
+P.JUGE_SOURCES_MODELE = P.GROQ_MODEL
+simule = poser(["PERTINENTE"])
+verifie("le juge refuse d'utiliser le modèle de rédaction",
+        P.juger_pertinence_sources(TITRE, [dict(SOURCES[0])]) is False and simule.appels == 0)
+P.JUGE_SOURCES_MODELE = _modele_orig
+
 # Réponse inattendue : ne pas classer au hasard vaut mieux que classer faux.
 srcs = [dict(SOURCES[0])]
 poser(["PEUT-ÊTRE"])
