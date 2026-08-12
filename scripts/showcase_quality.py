@@ -23,6 +23,35 @@ MIN_WORDS = {
 MIN_SOURCES = 6
 MIN_DISTINCT_DOMAINS = 5
 
+# ── Grille BRÈVE (10/08) ─────────────────────────────────────────────────────
+# Mesuré sur 24 générations : le modèle rend 271, 278, 300, 306 mots quand on
+# lui en demande 600 (800 jusqu'au 10/08). Quatre articles sur quatre dans la
+# même bande étroite — ce n'est pas de la variance, c'est le plafond de matière
+# des sources. Avec le plancher article à 350 et la conversion en brève
+# DÉSACTIVÉE en mode vitrine, ces textes étaient rejetés : d'où quatre jours
+# sans publication à partir du 05/08.
+#
+# Un texte de 280 mots n'est pas un article de 600 mots raté, c'est une brève
+# réussie. On l'accepte donc COMME BRÈVE, avec une grille propre au format —
+# pas la grille article assouplie. Ce qui suit est exigeant à sa mesure :
+#   · chapeau + faits ≥ 140 mots au TOTAL, et faits ≥ 110. Calibré sur les
+#     brèves réellement publiées les 02-05/08, qui font 114, 120, 149, 156,
+#     159, 164 et 182 mots (chapeau + faits) : le seuil garde les deux tiers
+#     supérieurs et écarte les ébauches. Un premier seuil à 150 sur « faits »
+#     SEUL était une erreur — il aurait rejeté la quasi-totalité des brèves
+#     issues de conversion, qui rendent 125 à 160 mots au total ;
+#   · chapeau d'UNE phrase, ≥ 20 mots, conforme au SYSTEM_PROMPT_BREVE ;
+#   · contexte et nuances VIDES — c'est la définition du format, pas une
+#     dispense : une brève qui les remplit n'est pas une brève ;
+#   · 4 URLs et 3 domaines distincts, au-dessus des 3 sources de la charte,
+#     en dessous des 6/5 exigés d'un article de 760 mots ;
+#   · même hiérarchie de sources et même contrôle de dépêche recyclée que
+#     l'article : plus court ne veut pas dire moins sourcé.
+MIN_WORDS_BREVE = {"total": 140, "faits": 110, "resume": 20}
+MIN_SOURCES_BREVE = 4
+MIN_DISTINCT_DOMAINS_BREVE = 3
+MIN_CITATIONS_BREVE = 3
+
 _GENERIC_HEADINGS = {
     "les faits", "faits", "contexte", "le contexte", "debat et nuances",
     "debats et nuances", "nuances", "les nuances", "ce qu il faut savoir",
@@ -175,6 +204,85 @@ def _source_title_similarity(sources: list[dict]) -> float:
     return sum(ratios) / len(ratios) if ratios else 0.0
 
 
+def _valider_breve(art: dict) -> tuple[bool, list[str]]:
+    """Grille vitrine du format BRÈVE — exigeante à sa mesure, pas allégée.
+
+    Les contrôles partagés avec l'article sont conservés à l'identique :
+    hiérarchie des sources, détection de dépêche recyclée, remplissage,
+    cohérence du compteur, citations numérotées dans le texte. Seuls changent
+    les seuils de longueur et de structure, parce que le format n'a ni
+    contexte, ni nuances, ni angle-question.
+    """
+    reasons: list[str] = []
+
+    title = str(art.get("titre") or "").strip()
+    tw = _word_count(title)
+    if not 6 <= tw <= 15 or title.endswith(("?", "!")):
+        reasons.append(f"titre non vitrine ({tw} mots ou ponctuation inadéquate)")
+
+    resume = art.get("resume") or []
+    resume_list = resume if isinstance(resume, list) else [resume]
+    if len(resume_list) != 1:
+        reasons.append(f"chapeau de brève : {len(resume_list)} phrase(s) au lieu d'une")
+    resume_text = " ".join(str(x) for x in resume_list).strip()
+    if _word_count(resume_text) < MIN_WORDS_BREVE["resume"]:
+        reasons.append(f"chapeau trop court ({_word_count(resume_text)} mots, "
+                       f"minimum {MIN_WORDS_BREVE['resume']})")
+
+    body = art.get("corps") or {}
+    facts = str(body.get("faits") or "").strip()
+    mots_faits = _word_count(facts)
+    mots_total = mots_faits + _word_count(resume_text)
+    if mots_faits < MIN_WORDS_BREVE["faits"]:
+        reasons.append(f"faits trop court ({mots_faits} mots, "
+                       f"minimum vitrine {MIN_WORDS_BREVE['faits']})")
+    if mots_total < MIN_WORDS_BREVE["total"]:
+        reasons.append(f"brève trop courte ({mots_total} mots chapeau + faits, "
+                       f"minimum vitrine {MIN_WORDS_BREVE['total']})")
+    # Une brève qui remplit contexte/nuances n'est pas une brève : le rendu HTML
+    # ne les affiche pas, le lecteur ne les verrait jamais.
+    for cle in ("contexte", "nuances"):
+        if str(body.get(cle) or "").strip():
+            reasons.append(f"une brève ne doit pas remplir « {cle} »")
+
+    if _FILLER_RE.search(resume_text + " " + facts):
+        reasons.append("formule générique ou remplissage détecté")
+    if _max_cross_similarity(resume_text, facts) >= 0.84:
+        reasons.append("le chapeau répète presque la première phrase des faits")
+
+    sources = [s for s in (art.get("sources") or []) if isinstance(s, dict)]
+    urls = [u for u in (_canonical_url(s.get("url") or "") for s in sources) if u]
+    distinct_urls = set(urls)
+    domains = {_host(u) for u in distinct_urls if _host(u)}
+    if len(distinct_urls) < MIN_SOURCES_BREVE:
+        reasons.append(f"sourcing trop court ({len(distinct_urls)} URL distinctes, "
+                       f"minimum {MIN_SOURCES_BREVE})")
+    if len(domains) < MIN_DISTINCT_DOMAINS_BREVE:
+        reasons.append(f"sourcing trop concentré ({len(domains)} domaines distincts)")
+
+    q = {"primaire": 0, "secondaire": 0, "tertiaire": 0}
+    for u in distinct_urls:
+        q[_source_quality(u)] += 1
+    if not (q["primaire"] >= 1 or q["secondaire"] >= 2):
+        reasons.append(f"hiérarchie des sources insuffisante "
+                       f"({q['primaire']} primaire, {q['secondaire']} secondaires)")
+    similarite = _source_title_similarity(sources)
+    if similarite >= 0.80 and q["primaire"] == 0:
+        reasons.append(f"sources probablement dérivées d'une même dépêche ({similarite:.0%})")
+
+    citations = [int(n) for n in re.findall(r"\[(\d+)\]", resume_text + " " + facts)]
+    if any(n < 1 or n > len(sources) for n in citations):
+        reasons.append("citation numérotée hors de la liste des sources")
+    if len(citations) < MIN_CITATIONS_BREVE:
+        reasons.append(f"maillage de citations trop faible ({len(citations)} appels de note)")
+
+    declared = art.get("nb_sources")
+    if declared is not None and int(declared or 0) != len(sources):
+        reasons.append(f"compteur de sources incohérent ({declared} déclaré, {len(sources)} listées)")
+
+    return not reasons, reasons
+
+
 def validate_generated_article(art: dict, article_type: str) -> tuple[bool, list[str]]:
     """Valide un article final avant son écriture sur disque.
 
@@ -183,6 +291,8 @@ def validate_generated_article(art: dict, article_type: str) -> tuple[bool, list
     recherchée. Le pipeline poursuit simplement avec le candidat suivant.
     """
     reasons: list[str] = []
+    if article_type == "breve":
+        return _valider_breve(art)
     if article_type != "actu":
         reasons.append(f"format {article_type!r} exclu du lot vitrine")
         return False, reasons

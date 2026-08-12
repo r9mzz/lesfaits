@@ -8220,5 +8220,94 @@
       "resume_repete_corps",
       "faits_repetitifs"
     ]
+  },
+  {
+    "slug": "edgar-morin-pensee-complexe",
+    "statut": "rejete_qualite",
+    "date": "2026-08-11T04:27:52",
+    "angle_insuffisant": true,
+    "raison": "L'article ne répond pas à la question de l'actualité de l'héritage d'Edgar Morin pour les sciences humaines et sociales, mais plutôt à une question générale sur son héritage.",
+    "article_type": "actu"
+  },
+  {
+    "slug": "incendie-hopital-mans",
+    "statut": "rejete_sensible",
+    "date": "2026-08-11T04:29:03",
+    "sujet_sensible": true,
+    "raison": "L'article implique un mineur ou une personne vulnérable (un patient gravement brûlé dans un hôpital) et porte sur un incident grave en cours d'enquête",
+    "article_type": "actu"
+  },
+  {
+    "slug": "bachar-al-assad-condamne-a-mort-par-tribunal-syrien",
+    "statut": "rejete_sensible",
+    "date": "2026-08-11T14:07:43",
+    "sujet_sensible": true,
+    "raison": "L'article implique une affaire pénale en cours visant une personne nommée, Bachar al-Assad.",
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "titre_de_mauvaise_qualite"
+    ]
+  },
+  {
+    "slug": "barre-son-samsung-hw-q935f-en-solde",
+    "statut": "rejete_qualite",
+    "date": "2026-08-11T14:12:11",
+    "angle_insuffisant": true,
+    "raison": "L'article ne répond pas à la question posée dans l'angle_reponse et ne fournit pas d'information sur ce qui rend cette offre particulièrement intéressante pour les consommateurs.",
+    "article_type": "actu"
+  },
+  {
+    "slug": "edgar-morin-pensee-complexe",
+    "statut": "rejete_qualite",
+    "date": "2026-08-11T14:27:15",
+    "angle_insuffisant": true,
+    "raison": "L'article ne répond pas à la question « Quel est l'héritage d'Edgar Morin pour les sciences humaines et sociales ? » de manière spécifique et datée, mais plutôt en expliquant de manière générale sa pensée et son influence.",
+    "article_type": "actu"
+  },
+  {
+    "slug": "bachar-al-assad-condamne-a-mort-par-tribunal-syrien",
+    "statut": "rejete_sensible",
+    "date": "2026-08-11T14:28:18",
+    "sujet_sensible": true,
+    "raison": "l'article implique une affaire pénale en cours visant une personne",
+    "article_type": "breve",
+    "avertissements_garde_fous": [
+      "titre_de_mauvaise_qualite"
+    ]
+  },
+  {
+    "slug": "barre-son-samsung-en-promotion",
+    "statut": "rejete_qualite",
+    "date": "2026-08-11T14:30:42",
+    "angle_insuffisant": true,
+    "raison": "L'article ne contient pas d'événement daté récent lié à une donnée chiffrée ou nommée propre à cet événement",
+    "article_type": "breve"
+  },
+  {
+    "slug": "acer-aspire-go-15-pc-portable-rentree",
+    "statut": "rejete_qualite",
+    "date": "2026-08-11T14:32:04",
+    "angle_insuffisant": true,
+    "raison": "aucune actualité identifiable ne justifie une publication maintenant, l'article ressemble à une fiche pédagogique générale sans fait déclencheur daté",
+    "article_type": "breve"
+  },
+  {
+    "slug": "edgar-morin-pensee-complexe",
+    "statut": "rejete_qualite",
+    "date": "2026-08-11T14:44:38",
+    "angle_insuffisant": true,
+    "raison": "L'article ne répond pas à la question de l'actualité de l'héritage d'Edgar Morin, mais plutôt à une question générale sur son héritage.",
+    "article_type": "actu"
+  },
+  {
+    "slug": "bachar-al-assad-condamne-a-mort-par-contumace",
+    "statut": "rejete_sensible",
+    "date": "2026-08-11T14:45:28",
+    "sujet_sensible": true,
+    "raison": "L'article implique une affaire pénale en cours visant une personne, Bachar al-Assad.",
+    "article_type": "breve",
+    "avertissements_garde_fous": [
+      "resume_repete_corps"
+    ]
   }
 ]

@@ -130,6 +130,11 @@ def selection_actuelle(items: list[dict]) -> list[dict]:
     for src_nom in {i["_source"] for i in items}:
         lot = [i for i in items if i["_source"] == src_nom]
         candidats += P.filtrer_et_classer(lot, src_nom, published_topics, seuil_score=20)
+    # Le pipeline trie GLOBALEMENT par score avant de sélectionner
+    # (pipeline.py, `tous_candidats.sort(...)`). Omettre ce tri fait
+    # mesurer un ordre qui n'existe pas — erreur commise le 11/08 sur
+    # toutes les mesures de sélection de la session.
+    candidats.sort(key=lambda c: c['_score'], reverse=True)
     return P.selectionner_meilleurs(candidats, nb_max=34)
 
 

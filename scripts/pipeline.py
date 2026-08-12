@@ -124,7 +124,14 @@ PIXABAY_KEY    = os.getenv("PIXABAY_API_KEY", "")
 # ══════════════════════════════════════════════════════════════════════════════
 
 # Nombre maximum d'articles retenus par flux à chaque run (voir fetch_rss).
-MAX_ITEMS_PAR_FLUX = 20
+# 8 → 20 le 28/07, puis 20 → 40 le 11/08. Mesure qui l'a motivé : à 20, la
+# quasi-totalité des flux rendaient EXACTEMENT 20 items — ils étaient donc tous
+# tronqués, et on ignorait systématiquement les mêmes articles (les plus
+# anciens du flux). On ne savait pas ce qu'on ne voyait pas.
+# Ce plafond ne coûte AUCUN token Groq : il n'élargit que le vivier où
+# `selectionner_meilleurs` puise ses candidats. Les appels DuckDuckGo, eux, ne
+# concernent que les 6 sujets réellement générés par run — donc inchangés.
+MAX_ITEMS_PAR_FLUX = 40
 
 RSS_SOURCES = [
     # Le Monde — rubriques thématiques
@@ -201,6 +208,36 @@ RSS_SOURCES = [
     {"name": "France Info Sciences", "url": "https://www.francetvinfo.fr/sciences.rss"},
     {"name": "INSERM presse",        "url": "https://presse.inserm.fr/feed/"},
     {"name": "IRD",                  "url": "https://www.ird.fr/rss.xml"},
+    # ── Institutions qui PUBLIENT elles-mêmes (11/08) ────────────────────────
+    # 69 % des articles publiés n'ont aucune source primaire, alors que
+    # `SOURCES_MAJEURES` valorise déjà l'OMS, la Commission et France Stratégie
+    # (+35) : elles n'étaient simplement jamais collectées. Elles ne pouvaient
+    # apparaître qu'en aval, si DuckDuckGo les trouvait.
+    #
+    # Ces trois-là sont les SEULES retenues sur 30 URL testées avec le parseur
+    # du pipeline (`scripts/test_flux_candidats.py`). Rendement mesuré avant
+    # ajout, jamais supposé :
+    #     OMS français          20 items →  5 candidats (dont un à 85 points,
+    #                                       très au-dessus du sommet actuel)
+    #     Commission européenne 20 items →  3 candidats
+    #     France Stratégie      10 items →  1 candidat
+    # Écartées faute de rendement : CNIL (0 candidat), Parlement européen (0),
+    # Autorité de la concurrence (1, un titre de formulaire), ANSES et INSEE
+    # (offres de stage). Injoignables ou URL fausses : Cour des comptes,
+    # Légifrance, Banque de France, Météo-France, INRAE, CEA, IGN, Pasteur,
+    # Défenseur des droits, ADEME, Vie publique, Assemblée nationale.
+    #
+    # ⚠ Testé depuis une machine ordinaire. Les WAF de `.gouv.fr` renvoient 403
+    # à l'IP des runners GitHub : surveiller `[RSS ERREUR]` sur France Stratégie
+    # au premier run, et le retirer s'il est bloqué. L'OMS et la Commission ne
+    # sont pas concernées.
+    #
+    # L'OMS est prise en FRANÇAIS : la version anglaise rendait 13 candidats
+    # mais `detect_category` et les lexiques de score ne fonctionnent que sur du
+    # français, les sujets auraient été mal classés.
+    {"name": "OMS",                  "url": "https://www.who.int/rss-feeds/news-french.xml"},
+    {"name": "Commission européenne", "url": "https://ec.europa.eu/commission/presscorner/api/rss?language=fr&pagesize=30"},
+    {"name": "France Stratégie",     "url": "https://www.strategie.gouv.fr/rss.xml"},
 ]
 
 HEADERS = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"}
@@ -1003,8 +1040,17 @@ _COMMERCE_RE = re.compile(
     # euros » (26/07) — alors que la variante « à moins de 10 € » était bien
     # rejetée. Les motifs « perd/chute de X euros » plus bas, écrits ensuite,
     # géraient déjà le mot ; l'incohérence a survécu à l'élargissement du 26/07.
-    r"(?:à partir de|dès|seulement|au prix de|(?:à\s+)?moins de)\s*\d+[.,]?\d*\s*(?:€|euros?)\b"
-    r"|\d+[.,]\d{2}\s*(?:€|euros?)\b\s*(?:chez|sur)\b"
+    #
+    # ── 11/08 : le « € » était accepté MAIS INERTE ──────────────────────────
+    # `(?:€|euros?)\b` : après « euros » le « s » crée une frontière de mot,
+    # mais « € » est non-alphanumérique et ce qui le suit l'est rarement
+    # (virgule, espace, fin de titre) — donc `\b` échouait et TOUT prix écrit
+    # avec le symbole passait au travers. Mesuré le 11/08 : « À moins de
+    # 400 €, ce PC portable Acer tombe à pic » a consommé une des six
+    # tentatives du run, générée en entier avant d'être rejetée pour « angle
+    # insuffisant ». La frontière est désormais portée par le mot seul.
+    r"(?:à partir de|dès|seulement|au prix de|(?:à\s+)?moins de)\s*\d+[.,]?\d*\s*(?:€|euros?\b)"
+    r"|\d+[.,]\d{2}\s*(?:€|euros?\b)\s*(?:chez|sur)\b"
     r"|chez\s+(?:cdiscount|amazon|aliexpress|rakuten|darty|boulanger|leclerc|carrefour|lidl|aldi|action)"
     r"|(?:cdiscount|aliexpress|rakuten)\b"
     r"|^\d+\s+\w+.{0,40}\b(?:lidl|aldi|action|cdiscount|amazon)\b"
@@ -1014,6 +1060,13 @@ _COMMERCE_RE = re.compile(
     # chère) — on ne matche que le vocabulaire marketing sans ambiguïté.
     r"|bons? plans?\b|\bpromos?\b|\ben promo\b|ventes? flash|prix cassés?"
     r"|meilleures? offres?|\d+\s*%\s*de\s*r[ée]duction|offre à saisir"
+    # Variantes relevées le 11/08 : « perd 38 % de son prix », « une offre à ne
+    # pas rater ». Le motif « perd X euros » ne couvrait que la devise, jamais
+    # le pourcentage, et « meilleures offres » ne couvrait pas « à ne pas
+    # rater/manquer ». Ce titre scorait 60 et occupait la 6e place du tri.
+    r"|(?:perd|chute de|baisse de)\s+\d+\s*%\s*(?:de\s+)?(?:son|le)\s+prix"
+    r"|prix\s+(?:chute|baisse|perd)\s+de\s+\d+\s*%"
+    r"|offres?\s+à\s+ne\s+pas\s+(?:rater|manquer)"
     r"|perd\s+\d+\s*(?:euros|€)"
     # "le Dell 16 Plus chute de 900 €" : même famille que "perd X euros"
     r"|chute\s+de\s+\d+\s*(?:euros|€)|baisse\s+de\s+\d+\s*(?:euros|€)"
@@ -1235,6 +1288,26 @@ def _age_heures(date_str: str) -> float:
 _MOTS_GENERIQUES_CACHE: dict[int, frozenset] = {}
 DF_MOT_GENERIQUE = 3  # présent dans ≥3 titres publiés = vocabulaire de rubrique
 
+# ── Poids du barème, extraits en constantes (10/08) ───────────────────────────
+# Ils étaient codés en dur dans `score_editorial`, donc impossibles à faire
+# varier pour mesurer leur effet. Les valeurs ci-dessous sont EXACTEMENT celles
+# d'avant : cette extraction ne change rien au comportement, elle rend
+# seulement le barème testable (`scripts/mesure_ab_bareme.py`).
+#
+# Ce qu'on cherche à corriger, mesuré le 10/08 sur 610 items : 10 grappes de
+# ≥3 médias sur 14 franchissent le seuil de sélection, mais UNE SEULE est
+# retenue — les faits majeurs passent le seuil puis perdent le classement
+# contre des pièces de magazine mono-source. Le +35 « source majeure » est une
+# prime au NOM DU MÉDIA, pas au sujet, et il domine tous les autres termes.
+PONDS_SOURCE_MAJEURE = 35
+PONDS_MEDIA_RECONNU = 15
+PONDS_ENJEU_FORT = 30
+PONDS_ENJEU_MOYEN = 15
+# Malus « aucun marqueur d'actualité » : ni chiffre, ni institution nommée, ni
+# enjeu public. Un texte qui n'a aucun des trois n'est presque jamais un fait
+# du jour. 0 = désactivé (comportement d'avant le 10/08).
+MALUS_SANS_SUBSTANCE = 0
+
 
 def _mots_generiques_corpus(published_topics: set) -> frozenset:
     """Formes présentes dans au moins `DF_MOT_GENERIQUE` titres déjà publiés.
@@ -1313,13 +1386,13 @@ def score_editorial(item: dict, source_name: str, published_topics: set) -> tupl
     # Source majeure (+35)
     is_majeure = any(s in src or s in text[:200] for s in SOURCES_MAJEURES)
     if is_majeure:
-        score += 35
-        reasons.append("+35 source majeure")
+        score += PONDS_SOURCE_MAJEURE
+        reasons.append(f"+{PONDS_SOURCE_MAJEURE} source majeure")
 
     # Source média reconnu (+15, non cumulable avec majeure)
     elif any(s in src for s in SOURCES_MEDIAS):
-        score += 15
-        reasons.append("+15 média reconnu")
+        score += PONDS_MEDIA_RECONNU
+        reasons.append(f"+{PONDS_MEDIA_RECONNU} média reconnu")
 
     # Mots-clés de confiance (+15)
     kw_hits = sum(1 for kw in KW_CONFIANCE if kw in text)
@@ -1388,11 +1461,20 @@ def score_editorial(item: dict, source_name: str, published_topics: set) -> tupl
     marqueurs_titre = set(m.group(0).lower() for m in _ENJEU_PUBLIC_RE.finditer(title_lower_brut))
     poids = len(marqueurs) + 2 * len(marqueurs_titre)
     if poids >= 4:
-        score += 30
-        reasons.append(f"+30 enjeu public fort (poids {poids} : {sorted(marqueurs)[:3]})")
+        score += PONDS_ENJEU_FORT
+        reasons.append(f"+{PONDS_ENJEU_FORT} enjeu public fort (poids {poids} : {sorted(marqueurs)[:3]})")
     elif poids >= 2:
-        score += 15
-        reasons.append(f"+15 enjeu public (poids {poids} : {sorted(marqueurs)[:3]})")
+        score += PONDS_ENJEU_MOYEN
+        reasons.append(f"+{PONDS_ENJEU_MOYEN} enjeu public (poids {poids} : {sorted(marqueurs)[:3]})")
+
+    # Malus « aucun marqueur d'actualité » : ni chiffre, ni institution nommée,
+    # ni enjeu public. Composé uniquement de signaux déjà calculés ci-dessus —
+    # aucun nouveau détecteur, donc rien de nouveau à calibrer. Désactivé par
+    # défaut (MALUS_SANS_SUBSTANCE = 0).
+    if MALUS_SANS_SUBSTANCE and nb_chiffres == 0 and not a_institution and poids == 0:
+        score -= MALUS_SANS_SUBSTANCE
+        reasons.append(f"-{MALUS_SANS_SUBSTANCE} aucun marqueur d'actualité "
+                       f"(0 chiffre, 0 institution, 0 enjeu public)")
 
     # ── MALUS DIVERTISSEMENT / CULTURE-SPECTACLE ────────────────────────────
     # Rétrogradation, pas rejet : un festival ou une série peuvent avoir une
@@ -1535,6 +1617,37 @@ def filtrer_et_classer(
     )
 
 
+# Procédure pénale visant une PERSONNE — à distinguer soigneusement du thème.
+# Le critère retenu par la charte depuis le 31/07 n'est pas le sujet (guerre,
+# justice, faits divers) mais la MISE EN CAUSE d'une personne. On ne liste donc
+# ici que du vocabulaire de procédure, jamais des thèmes : « corruption »,
+# « trafic » ou « violences » seuls désignent aussi bien un rapport de la Cour
+# des comptes qu'une affaire individuelle, et les inclure déclasserait des
+# sujets d'intérêt public parfaitement publiables.
+_PROCEDURE_PENALE_RE = re.compile(
+    r"\b(?:mis(?:e)? en examen|mis(?:e)? en cause|garde [àa] vue|"
+    r"information judiciaire|enqu[êe]te judiciaire|instruction judiciaire|"
+    r"soup[çc]onn[ée]|accus[ée] de|poursuivi(?:e)? pour|inculp[ée]|"
+    r"compara[îi]t|comparution|r[ée]quisitions?|proc[èe]s (?:de|du|de la|contre)|"
+    # `\d+` et non `\d` : sur « condamné à 18 mois », un `\d` unique laisse la
+    # frontière de mot tomber entre le 1 et le 8 et le motif échoue. Même piège
+    # de `\b` que celui trouvé dans le filtre commercial le 11/08.
+    r"condamn[ée] [àa] (?:\d+|de la prison|(?:une|la) peine|la perp[ée]tuit[ée]|mort)|"
+    r"plainte contre|"
+    r"mandat d'arr[êe]t|perquisition)\b",
+    re.IGNORECASE,
+)
+
+
+def _est_procedure_penale_personne(texte: str) -> int:
+    """1 si le texte relève d'une procédure pénale visant une personne, sinon 0.
+
+    Sert de CLÉ DE TRI (les 1 passent en fin de file), jamais de rejet. Retourne
+    un entier pour être utilisable directement comme clé de `sorted`.
+    """
+    return 1 if _PROCEDURE_PENALE_RE.search(texte or "") else 0
+
+
 def selectionner_meilleurs(
     candidats: list[dict],
     nb_max: int = 10,
@@ -1542,7 +1655,31 @@ def selectionner_meilleurs(
 ) -> list[dict]:
     """
     Sélectionne les nb_max meilleurs articles en respectant le quota par catégorie.
+
+    ── Déclassement des procédures pénales visant une personne (11/08) ───────
+    Mesure sur les 308 sujets tentés depuis juillet, avec leur verdict réel :
+
+        procédure pénale visant une personne   n=11   1 publié   10/10 « sensible »
+        catastrophe / épidémie (victimes)      n=31   7 publiés  23 %
+
+    La première catégorie est refusée par le fact-checker avec une constance
+    parfaite : la tenter, c'est dépenser une des 6 tentatives du run pour un
+    rejet certain. La seconde SE PUBLIE — une mesure antérieure qui mélangeait
+    les deux sous « vocabulaire de victimes » était trompeuse et concluait à
+    tort qu'il fallait aussi écarter les catastrophes et les épidémies.
+
+    On DÉCLASSE, on n'exclut pas : ces sujets restent dans le vivier et passent
+    en fin de file. Si les meilleurs sont épuisés, ils sont tentés quand même.
+    Un malus de score aurait été plus simple mais aurait valu exclusion — sous
+    le seuil de 20, un candidat moyen pénalisé disparaît du vivier.
     """
+    # `sorted` est stable : à statut égal l'ordre par score est préservé.
+    candidats = sorted(
+        candidats,
+        key=lambda i: _est_procedure_penale_personne(
+            f"{i.get('title', '')} {i.get('content', '')[:600]}"),
+    )
+
     selection = []
     compteur  = {}
 
@@ -2862,19 +2999,60 @@ _SITUATION_ACTIVE_RE = re.compile(
 )
 
 # Domaine sensible par nature (santé épidémique active, sécurité, judiciaire)
-_DOMAINE_SENSIBLE_RE = re.compile(
+# ── Domaines sensibles : SCINDÉS le 11/08 (décision Nahil) ───────────────────
+# Ces deux listes ne formaient qu'un seul motif, combiné à `_SITUATION_ACTIVE_RE`
+# pour un rejet déterministe. Conséquence : toute épidémie « en cours » était
+# refusée avant même le fact-check — c'est ce qui a tué la brève Ebola du 11/08,
+# sur « domaine sensible ('Ebola') + situation active ('en cours') ».
+#
+# Or le critère de la charte, affiné le 31/07, n'est PAS le thème mais la mise
+# en cause de PERSONNES. Le fact-checker lui-même l'écrit : « NE classe pas
+# sujet_sensible au seul motif qu'un sujet est politique, réglementaire,
+# diplomatique ou économique ». Une épidémie sans personne mise en cause ni
+# mineur impliqué n'entre dans aucun de ses trois critères — le blocage
+# déterministe était donc PLUS strict que la règle qu'il était censé appliquer.
+#
+# Le volet SANITAIRE ne déclenche donc plus de rejet ici. Il reste couvert par
+# `sujet_sante_sans_source_officielle`, qui exige une source institutionnelle
+# (INSERM, OMS, Santé publique France, ANSES, ANSM, Pasteur, .gouv.fr) et
+# envoie l'article en modération à défaut. C'est ce filet — une exigence de
+# SOURCE plutôt qu'un veto sur le THÈME — qui rend l'ouverture tenable.
+#
+# Le volet PÉNAL/SÉCURITÉ garde le rejet déterministe : il vise des personnes
+# nommées, et la mesure du 11/08 est sans appel — 10 rejets sur 10.
+_DOMAINE_SANITAIRE_RE = re.compile(
     r"\b(?:ebola|marburg|lassa|h5n1|grippe aviaire|variole|rougeole|"
-    r"m[ée]ningite|choléra|cholera|botulisme|listeria|"
-    r"terrorisme|attentat|prise d.otage|enlèvement|"
+    r"m[ée]ningite|choléra|cholera|botulisme|listeria)\b",
+    re.IGNORECASE,
+)
+_DOMAINE_SENSIBLE_RE = re.compile(
+    r"\b(?:terrorisme|attentat|prise d.otage|enlèvement|"
     r"mis en examen|garde [àa] vue|perquisition|mandat d.arr[eê]t)\b",
     re.IGNORECASE,
 )
 
 # Mineur impliqué
+# ── Mineur impliqué — motif RÉPARÉ le 11/08 ──────────────────────────────────
+# La version précédente terminait par `(?:victim|bless|tu[ée]|agress)\b` : des
+# RADICAUX TRONQUÉS suivis d'une frontière de mot. Après « bless » vient « é »,
+# un caractère de mot — la frontière n'existe donc pas et le motif échouait.
+# Échappaient de ce fait à la protection la plus sensible du pipeline :
+#     « Un collégien blessé lors d'une agression »
+#     « Une lycéenne victime de harcèlement »
+#     « Un élève blessé dans la cour »
+#     « Un adolescent de 16 ans tué dans une rixe »   (titre réel, 4 médias)
+# Troisième occurrence du même piège dans la même journée (filtre commercial,
+# procédure pénale, ici) : ne JAMAIS faire suivre un radical tronqué de `\b`,
+# écrire `radical\w*`.
+#
+# La forme « adolescent de N ans tué/blessé » est ajoutée : c'est la tournure
+# de presse la plus courante et elle n'était couverte par aucune branche.
 _MINEUR_RE = re.compile(
-    r"\b(?:mineur|enfant (?:victime|concern|impliqu|d[ée]c[ée]d|bless)|"
-    r"adolescent (?:victim|mis en|concern|d[ée]c[ée]d)|"
-    r"(?:coll[ée]gien|lyc[ée]en|[ée]l[èe]ve)[^.]{0,30}(?:victim|bless|tu[ée]|agress))\b",
+    r"\bmineur\w*"
+    r"|\benfant\w*\s+(?:victim|concern|impliqu|d[ée]c[ée]d|bless|tu[ée]|agress)\w*"
+    r"|\badolescent\w*\s+(?:victim|concern|impliqu|d[ée]c[ée]d|bless|tu[ée]|agress|mis\w*\s+en)\w*"
+    r"|\badolescent\w*\s+de\s+\d+\s+ans[^.]{0,20}(?:victim|bless|tu[ée]|agress|d[ée]c[ée]d)\w*"
+    r"|(?:\bcoll[ée]gien|\blyc[ée]en|\b[ée]l[èe]ve)\w*[^.]{0,30}(?:victim|bless|tu[ée]|agress|d[ée]c[ée]d)\w*",
     re.IGNORECASE,
 )
 
@@ -2893,6 +3071,10 @@ def _est_rejete_sensible_deterministe(art: dict) -> tuple[bool, str]:
     if _MINEUR_RE.search(texte):
         return True, "mineur impliqué détecté"
 
+    # Volet pénal / sécurité uniquement : le volet sanitaire a été retiré de ce
+    # veto le 11/08 (voir `_DOMAINE_SANITAIRE_RE`). Une épidémie en cours passe
+    # désormais au fact-check, et reste soumise à l'exigence de source
+    # officielle de `sujet_sante_sans_source_officielle`.
     domaine = _DOMAINE_SENSIBLE_RE.search(texte)
     actif   = _SITUATION_ACTIVE_RE.search(texte)
     if domaine and actif:
@@ -3417,6 +3599,26 @@ def generate(content: str, category_hint: str, extra_sources: list[dict] | None 
     # et citées est inchangé, seule la profondeur d'extrait injectée baisse.
     if article_type == "breve" and not is_retry:
         snippet_len = 380
+    # CORRECTIF 11/08 : l'étoffement d'un ARTICLE (pas une brève) doit recevoir
+    # PLUS de matière, jamais moins — c'est tout son but. Mesuré la nuit du
+    # 10-11/08 : 4 sujets sur 6 rejetés « toujours insuffisant après relance »
+    # à 270-306 mots, alors que la MATIÈRE disponible sur ces mêmes sujets
+    # faisait 6000-9500 caractères. Le snippet_len=450 hérité de l'économie
+    # brève du 18/07 affamait la relance précisément quand elle avait besoin
+    # de plus de contenu pour allonger le texte, pas moins.
+    if is_expand and article_type != "breve":
+        snippet_len = 550
+    # CORRECTIF 2 (même run, 11/08) : 5000/700 avec les 10 sources déclenchait
+    # des troncatures à max_tokens (un article tombé à 44 mots/0 source après
+    # récupération de JSON partiel — pire que le problème d'origine). Le calcul
+    # avait sous-estimé le coût réel en tokens. On revient à un budget proche
+    # du total qui ne tronquait PAS (content 2500 + 10×450 ≈ 7000 car.), en
+    # reportant le gain sur la PROFONDEUR par source plutôt que sur leur
+    # NOMBRE : 7 sources à 550 car. + 3200 de contenu principal ≈ 7050 car.,
+    # quasi identique en volume total, donc même risque de troncature que
+    # l'ancienne version qui ne tronquait pas.
+    if is_expand and article_type != "breve" and len(real_sources) > 7:
+        real_sources = real_sources[:7]
     sources_block = ""
     # Noms lisibles dérivés des URLs — utilisés dans le prompt ET dans les règles d'attribution
     source_noms: list[str] = []
@@ -3455,6 +3657,9 @@ def generate(content: str, category_hint: str, extra_sources: list[dict] | None 
     content_len = 7000 if not is_retry else (2500 if is_expand else 1500)
     if article_type == "breve" and not is_retry:
         content_len = 2500
+    # Même correctif que snippet_len ci-dessus, même mesure du 11/08.
+    if is_expand and article_type != "breve":
+        content_len = 3200
 
     # Relance avec article précédent : le modèle CORRIGE l'article existant au
     # lieu de tout réécrire depuis des sources tronquées — sans ce bloc, les
@@ -7903,7 +8108,15 @@ def run(dry_run=False, text_input=None, nb_max=36):
         # tenté n'est pas perdu — il revient dans la sélection du run suivant.
         # Calibré sur la mesure : les runs des 08-10/08 ont entamé 7 à 9 sujets
         # avant l'épuisement, donc s'arrêter à 6 laisse une réserve réelle.
-        MAX_TENTATIVES_PAR_RUN = 6
+        # RELEVÉ le 11/08 (Nahil, priorité absolue : un seul article mais
+        # parfait, budget non contraignant) : le run du 11/08 12h24 a épuisé
+        # ses 6 tentatives sans succès (angle insuffisant ×2, sujet sensible,
+        # Ebola, troncature, conversion brève) alors que 35 sujets restaient
+        # disponibles après sélection. Le plafond de 6 protégeait le quota du
+        # run SUIVANT — utile en temps normal, contre-productif tant que
+        # l'objectif est un seul article réussi coûte que coûte. À rabaisser
+        # une fois la recette validée et le rythme normal repris.
+        MAX_TENTATIVES_PAR_RUN = 20
         _tentatives = 0
         for item in selection:
             elapsed = time.time() - _pipeline_start
