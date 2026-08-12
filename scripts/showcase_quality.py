@@ -34,23 +34,37 @@ MIN_DISTINCT_DOMAINS = 5
 # Un texte de 280 mots n'est pas un article de 600 mots raté, c'est une brève
 # réussie. On l'accepte donc COMME BRÈVE, avec une grille propre au format —
 # pas la grille article assouplie. Ce qui suit est exigeant à sa mesure :
-#   · chapeau + faits ≥ 140 mots au TOTAL, et faits ≥ 110. Calibré sur les
-#     brèves réellement publiées les 02-05/08, qui font 114, 120, 149, 156,
-#     159, 164 et 182 mots (chapeau + faits) : le seuil garde les deux tiers
-#     supérieurs et écarte les ébauches. Un premier seuil à 150 sur « faits »
-#     SEUL était une erreur — il aurait rejeté la quasi-totalité des brèves
-#     issues de conversion, qui rendent 125 à 160 mots au total ;
-#   · chapeau d'UNE phrase, ≥ 20 mots, conforme au SYSTEM_PROMPT_BREVE ;
+#   · chapeau + faits ≥ 125 mots au TOTAL, faits ≥ 100, chapeau ≥ 15.
+#     RECALIBRÉ le 12/08 sur les 12 brèves réellement publiées, mesurées une à
+#     une plutôt qu'estimées :
+#         chapeau   min 15   médiane 20   max 50
+#         faits     min 95   médiane 119  max 149
+#         total     min 111  médiane 146  max 182
+#     Les seuils précédents (20 / 110 / 140) rejetaient SIX de ces douze brèves
+#     — la moitié de ce que le journal avait jugé publiable — pendant que le
+#     site ne publiait plus rien depuis sept jours. Erreur de calibrage de ma
+#     part : je les avais posés sur le haut de la distribution en croyant les
+#     poser « à la mesure du format ». Les seuils actuels écartent le tiers
+#     inférieur et gardent les huit meilleures ;
+#   · chapeau d'UNE phrase, conforme au SYSTEM_PROMPT_BREVE. La conversion
+#     depuis un article ne garde que la première phrase du chapeau à trois
+#     phrases — c'est elle qui entre dans le fait principal (règle 4). Cela
+#     retire 30 à 35 mots au total, ce que les seuils ci-dessus intègrent ;
 #   · contexte et nuances VIDES — c'est la définition du format, pas une
 #     dispense : une brève qui les remplit n'est pas une brève ;
-#   · 4 URLs et 3 domaines distincts, au-dessus des 3 sources de la charte,
-#     en dessous des 6/5 exigés d'un article de 760 mots ;
+#   · 3 URLs et 3 domaines distincts — la charte exige 3 sources pour la brève
+#     comme pour l'article ; exiger davantage ici serait plus strict qu'elle ;
 #   · même hiérarchie de sources et même contrôle de dépêche recyclée que
 #     l'article : plus court ne veut pas dire moins sourcé.
-MIN_WORDS_BREVE = {"total": 140, "faits": 110, "resume": 20}
-MIN_SOURCES_BREVE = 4
+MIN_WORDS_BREVE = {"total": 125, "faits": 100, "resume": 15}
+# 4 → 3 (12/08). La charte exige 3 sources pour une brève ET pour un article ;
+# exiger 4 ici était plus strict que la charte elle-même, sans mesure pour le
+# justifier. Deux sujets du run du 12/08 ont été refusés sur « 3 URL distinctes,
+# minimum 4 » alors qu'ils respectaient la règle éditoriale. La hiérarchie des
+# sources (≥1 primaire OU ≥2 secondaires) reste, elle, inchangée : c'est elle
+# qui protège la qualité, pas le compte brut.
+MIN_SOURCES_BREVE = 3
 MIN_DISTINCT_DOMAINS_BREVE = 3
-MIN_CITATIONS_BREVE = 3
 
 _GENERIC_HEADINGS = {
     "les faits", "faits", "contexte", "le contexte", "debat et nuances",
@@ -270,11 +284,15 @@ def _valider_breve(art: dict) -> tuple[bool, list[str]]:
     if similarite >= 0.80 and q["primaire"] == 0:
         reasons.append(f"sources probablement dérivées d'une même dépêche ({similarite:.0%})")
 
+    # Les citations numérotées [n] sont le format des ARTICLES (05/08). Une
+    # brève NATIVE attribue en prose (« Selon X, Y et Z », règle 6 de
+    # SYSTEM_PROMPT_BREVE) et n'en contient légitimement aucune. Exiger un
+    # minimum d'appels de note imposait donc à un des deux chemins le style de
+    # l'autre — deux refus sur « 0 appels de note » le 12/08. On vérifie que
+    # celles qui existent sont valides, on n'en exige pas un nombre.
     citations = [int(n) for n in re.findall(r"\[(\d+)\]", resume_text + " " + facts)]
     if any(n < 1 or n > len(sources) for n in citations):
         reasons.append("citation numérotée hors de la liste des sources")
-    if len(citations) < MIN_CITATIONS_BREVE:
-        reasons.append(f"maillage de citations trop faible ({len(citations)} appels de note)")
 
     declared = art.get("nb_sources")
     if declared is not None and int(declared or 0) != len(sources):

@@ -235,7 +235,17 @@ RSS_SOURCES = [
     # L'OMS est prise en FRANÇAIS : la version anglaise rendait 13 candidats
     # mais `detect_category` et les lexiques de score ne fonctionnent que sur du
     # français, les sujets auraient été mal classés.
-    {"name": "OMS",                  "url": "https://www.who.int/rss-feeds/news-french.xml"},
+    # OMS RETIRÉE le 12/08 après un seul run. Elle répond 200 depuis une
+    # machine ordinaire — testée avec les en-têtes du pipeline, sans en-tête et
+    # avec un UA navigateur, 306 ko à chaque fois — mais renvoie 400 depuis le
+    # runner GitHub. Blocage par IP, donc rien à corriger côté code : c'est le
+    # cas documenté « il faut remplacer la source, changer d'adresse n'y change
+    # rien ». Une source morte coûte jusqu'à 12 s de timeout par run.
+    # C'était la meilleure prise de la journée du 11/08 (un candidat à 85
+    # points, très au-dessus du reste) : si une adresse OMS accessible depuis un
+    # datacenter est trouvée un jour, elle vaut la peine d'être retentée — mais
+    # via `check_feeds.py`, qui teste DEPUIS le runner. La tester d'ici ne
+    # prouve rien, c'est exactement l'erreur que ce commentaire documente.
     {"name": "Commission européenne", "url": "https://ec.europa.eu/commission/presscorner/api/rss?language=fr&pagesize=30"},
     {"name": "France Stratégie",     "url": "https://www.strategie.gouv.fr/rss.xml"},
 ]
@@ -2342,6 +2352,30 @@ def _reduire_en_breve(art: dict) -> None:
     corps["contexte"] = ""
     corps["nuances"] = ""
     art["positions"] = {"verifie": False, "label_gauche": "", "label_droite": "", "acteurs": []}
+
+    # ── Chapeau ramené à UNE phrase (12/08) ──────────────────────────────────
+    # Oubli de la version initiale : on vidait les sections mais on gardait le
+    # chapeau en TROIS phrases du format article. Or « chapeau d'une phrase »
+    # est la définition même de la brève, et la grille vitrine le contrôle.
+    # Constat sur le run du 12/08 : les DEUX seuls sujets à avoir atteint la
+    # grille ont été refusés sur « chapeau de brève : 3 phrase(s) au lieu
+    # d'une ». Le correctif de la veille menait enfin les articles jusqu'à la
+    # grille — pour les faire buter sur un défaut que la conversion introduisait
+    # elle-même.
+    # On garde la PREMIÈRE phrase : dans le format article c'est celle qui entre
+    # directement dans le fait principal (règle 4 du SYSTEM_PROMPT), les deux
+    # suivantes portant l'enjeu et la nuance, hors périmètre d'une brève.
+    resume = art.get("resume") or []
+    if isinstance(resume, str):
+        resume = [resume]
+    if len(resume) > 1:
+        art["resume"] = [str(resume[0])]
+    elif len(resume) == 1:
+        # Une seule entrée mais plusieurs phrases dedans : même défaut, autre
+        # forme. On coupe à la fin de la première.
+        phrases = re.split(r"(?<=[.!?])\s+", str(resume[0]).strip())
+        if len(phrases) > 1:
+            art["resume"] = [phrases[0]]
 
 
 def _mots_totaux(art: dict) -> int:
