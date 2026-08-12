@@ -1058,19 +1058,40 @@ de perdre le sujet). Site statique déployé sur GitHub Pages via le repo
 - Workflows : `pipeline.yml` (génération ~01h05/13h05 Paris, très en avance car
   les crons GitHub ont 1-4 h de retard), `deploy.yml` (mise en ligne ~07h/18h),
   `post_x.yml`, `newsletter.yml` (Brevo), `check_feeds.yml` (diagnostic RSS).
-- **Un automate EXTERNE au dépôt** déclenche `pipeline.yml` à 15h00 et 15h50
-  UTC et `deploy.yml` à 04h00 et 04h50 UTC, tous les jours à la minute près
-  (constat 28/07, 5-6 jours consécutifs, en `workflow_dispatch` sur le compte
-  de Nahil). Il n'est ni dans ce dépôt ni dans les Routines Claude — donc
-  impossible à couper depuis le code. Ses effets sont neutralisés par deux
-  garde-fous (`scripts/dernier_run.py`) : `pipeline.yml` ignore un
-  `workflow_dispatch` démarrant moins de 2 h après le précédent — les deux
-  crons du dépôt (matin + après-midi) ne sont JAMAIS filtrés, sinon un cron
-  retardé par GitHub tombant après un déclenchement externe serait bloqué par
-  lui et on perdrait le vrai run ; `deploy.yml` ignore
-  un déploiement dont le SHA est déjà en ligne (critère de CONTENU, jamais de
-  temps : ne jamais bloquer un déploiement qui a du neuf). Option `forcer`
-  dans les deux cas. **À terme, il faut retrouver et couper cet automate.**
+- **L'« automate externe » est IDENTIFIÉ depuis le 12/08 : c'est cron-job.org**,
+  sur le compte de Nahil, quatre tâches nommées « Lesfaits ». Elles appellent
+  l'API GitHub en `workflow_dispatch` avec un jeton personnel, pour contourner
+  le retard de 1 à 4 h des crons GitHub. Horaires affichés en heure de Paris,
+  d'où la conversion qui avait brouillé la piste :
+
+  | tâche | Paris | UTC | cible |
+  |---|---|---|---|
+  | Génération matin | 17h00 | 15h00 | `pipeline.yml` |
+  | Génération soir | 17h50 | 15h50 | `pipeline.yml` |
+  | Déploiement matin | 06h00 | 04h00 | `deploy.yml` |
+  | Déploiement soir | 06h50 | 04h50 | `deploy.yml` |
+
+  **Ne PAS les supprimer.** Avec la fenêtre de garde portée à 360 min, elles se
+  comportent comme un filet de sécurité qui ne se déclenche que quand il sert :
+  un jour normal, le cron GitHub a déjà tourné, la tâche est ignorée en 8 s
+  (vérifié sur le run du 11/08 15h00 — toutes les étapes réelles « skipped »,
+  zéro token consommé) ; un jour où GitHub ne déclenche rien, le dernier run
+  date de plus de 6 h et la tâche sauve le run. Piste « Routines Claude »
+  définitivement écartée — liste vérifiée le 12/08, dix entrées, toutes des
+  rappels ponctuels de juillet déjà tirés.
+
+  Les garde-fous restent nécessaires et ne changent pas
+  (`scripts/dernier_run.py`) : `pipeline.yml` ignore un `workflow_dispatch`
+  démarrant moins de 360 min après le précédent — les crons du dépôt (matin +
+  après-midi) ne sont JAMAIS filtrés, sinon un cron retardé par GitHub tombant
+  après un déclenchement externe serait bloqué par lui et on perdrait le vrai
+  run ; `deploy.yml` ignore un déploiement dont le SHA est déjà en ligne
+  (critère de CONTENU, jamais de temps : ne jamais bloquer un déploiement qui a
+  du neuf). Option `forcer` dans les deux cas.
+
+  ⚠ Ces tâches utilisent un jeton d'accès personnel GitHub. Si les
+  déclenchements externes cessent un jour sans explication, vérifier d'abord
+  son expiration — pas le code.
 - Les articles affichent l'heure RÉELLE de génération (changement du 22/07,
   Nahil — avant cette date, l'heure affichée était arrondie au créneau
   07h00/18h00, jamais la génération technique ; ce n'est plus le cas).
