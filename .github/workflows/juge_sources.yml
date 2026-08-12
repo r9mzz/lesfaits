@@ -1,0 +1,66 @@
+name: Backtest — juge de sources
+
+# Un petit modèle sait-il dire qu'une source ne parle pas du sujet de
+# l'article ? C'est le levier n°1 de l'audit du 12/08, et le seul non
+# implémenté : refuser une page permanente (fiche « Rougeole » de l'OMS) sur un
+# article qui annonce un antiviral précis.
+#
+# Contrairement au juge de SUJET (test rendu à 50 %, soit le hasard), la
+# question posée ici est factuelle et a une bonne réponse vérifiable par un
+# humain. La référence de l'épreuve A est construite sans étiquetage manuel.
+#
+# N'écrit RIEN dans le dépôt, ne publie rien, ne touche pas au pipeline.
+# Déclenchement manuel uniquement — il consomme du quota Groq, et c'est le
+# seul but du bouton : décider en connaissance de cause.
+
+on:
+  workflow_dispatch:
+    inputs:
+      limite:
+        description: "Nombre de paires par épreuve"
+        required: false
+        default: "60"
+        type: string
+      modele:
+        description: "Modèle Groq à interroger"
+        required: false
+        default: "llama-3.1-8b-instant"
+        type: string
+
+# Jamais deux backtests en parallèle : ils se disputeraient le même quota et
+# se feraient mutuellement passer pour lents.
+concurrency:
+  group: juge-sujet
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+
+jobs:
+  backtest:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+
+      - name: Installer les dépendances
+        run: pip install -r requirements.txt
+
+      - name: Juger les sujets
+        env:
+          PYTHONIOENCODING: utf-8
+          TZ: Europe/Paris
+          JUGE_MODELE: ${{ inputs.modele }}
+          # Une clé secondaire de préférence : le backtest ne doit pas assécher
+          # celle que la génération utilisera au prochain run.
+          GROQ_API_KEY: ${{ secrets.GROQ_API_KEY_2 || secrets.GROQ_API_KEY }}
+        run: python scripts/test_juge_sources.py --limite "${{ inputs.limite }}"
