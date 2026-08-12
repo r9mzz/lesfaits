@@ -1,5 +1,53 @@
 # Les Faits — lesfaits.info
 
+## VEILLE CONTINUE — phase 1 lancée le 12/08, NE DÉCIDE RIEN
+
+Idée de Nahil : arrêter de choisir un sujet sur une PHOTO deux fois par jour,
+observer les flux en continu, et n'écrire que ce qui a prouvé son intérêt.
+
+**Pourquoi c'est la bonne cible** : 64 % de nos rejets qualité sont
+`angle_insuffisant` — le goulot est la SÉLECTION, pas la rédaction. Et ça rend
+enfin exploitable la piste écrite ici depuis le 01/08 (« quand 8 flux sur 36
+couvrent le même fait, c'est le signal d'importance le plus fiable
+disponible ») : ce signal est **inutilisable sur une photo**, puisqu'à 3 h du
+matin une dépêche tombée il y a dix minutes n'a été reprise par personne et
+ressemble à un sujet mort. C'est le TEMPS qui les sépare.
+
+`scripts/veille.py` + `.github/workflows/veille.yml` (cron horaire) :
+
+- **coût zéro token Groq** — uniquement la lecture des flux RSS ;
+- **n'influence AUCUNE décision** : le pipeline ne lit pas `data/veille.json`,
+  et rien d'autre non plus. Étanchéité verrouillée par un test ;
+- le journal garde **chaque item séparément** avec `premiere_vue`,
+  `derniere_vue`, `passages` et la liste des flux qui l'ont repris. Le
+  regroupement en « événements » est **recalculé à chaque rapport, jamais
+  stocké** : on peut donc changer d'algorithme plus tard et le rejouer sur les
+  données déjà collectées, sans rien recollecter. C'est tout l'intérêt de
+  séparer la collecte de l'analyse ;
+- fenêtre glissante de 72 h, URLs canonisées (le tracking `?xtor=RSS-16` ne
+  doit pas créer un item neuf — sinon la persistance mesurée serait toujours
+  nulle, variante du bug du 30/07).
+
+**Ce qu'il faut lire après quelques jours, et rien d'autre pour l'instant :**
+`python scripts/veille.py --rapport` affiche la distribution du nombre de flux
+distincts par événement et celle de la persistance en heures. **La question
+est : cette distribution est-elle assez étalée pour qu'un seuil ait un sens,
+ou tout est-il à 1 flux ?** Si tout est à 1, l'idée ne tient pas et il ne faut
+pas la rafistoler. Ne fixer aucun seuil avant d'avoir vu ces distributions —
+c'est exactement la règle violée trois fois de suite sur le filtre anti-doublon.
+
+⚠ Le regroupement par mots de titre est **provisoire et assumé comme tel**. Il
+a échoué trois fois (26/07, 28/07, 02/08) et ne doit pas devenir la décision
+finale ; il ne sert ici qu'à afficher des ordres de grandeur. Limite connue et
+verrouillée par un test : la troncature à 8 caractères ne rapproche pas
+« antillais » de « antilles ».
+
+⚠ Non testé sur un passage réel — le sandbox n'a pas d'accès réseau vers les
+domaines des flux (403 du proxy). Toute la logique d'accumulation est couverte
+par `scripts/test_veille.py` avec un `fetch_rss` simulé ; seule la lecture HTTP
+elle-même ne l'est pas. **Le premier passage sur le runner GitHub est donc la
+première exécution réelle : lire sa sortie avant de bâtir dessus.**
+
 ## AUDIT DU CORPUS PUBLIÉ — 12/08, ce que valent réellement nos articles
 
 Demande de Nahil : « nos articles ne sont même pas bien et pas intéressants ».
