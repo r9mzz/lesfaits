@@ -154,41 +154,50 @@ def main() -> int:
     random.shuffle(paires)
 
     print(f"ÉPREUVE A — discrimination, {len(paires)} paires, modèle {MODELE}")
-    bon_liee = bon_deliee = rate_liee = rate_deliee = sans = 0
+    # Répartition COMPLÈTE des trois verdicts de chaque côté. La première
+    # version de ce test ne comptait « réussi » sur une paire déliée que le
+    # verdict HORS_SUJET, en acceptant GENERALE du côté lié : deux règles
+    # différentes pour la même sortie, donc un pourcentage global qui ne
+    # mesurait rien. C'est la répartition brute qui permet de choisir la règle
+    # d'exploitation, pas l'inverse.
+    from collections import Counter
+    rep = {True: Counter(), False: Counter()}
+    sans = 0
     for i, (titre, src, liee) in enumerate(paires, 1):
         v = juger(client, titre, src)
         if v is None:
             sans += 1
             continue
-        # Sur une paire DÉLIÉE, « GENERALE » est un demi-échec : le juge n'a pas
-        # vu que le document parlait d'autre chose. On ne compte comme réussite
-        # que HORS_SUJET.
-        if liee:
-            bon_liee += v in ("PERTINENTE", "GENERALE")
-            rate_liee += v == "HORS_SUJET"
-        else:
-            bon_deliee += v == "HORS_SUJET"
-            rate_deliee += v != "HORS_SUJET"
+        rep[liee][v] += 1
         if i % 20 == 0:
             print(f"  {i}/{len(paires)}")
 
-    n_liee, n_deliee = bon_liee + rate_liee, bon_deliee + rate_deliee
     print("\n" + "=" * 66)
-    print("ÉPREUVE A — le juge distingue-t-il une source de son sujet ?")
+    print("ÉPREUVE A — répartition des verdicts")
     print("=" * 66)
-    if n_liee:
-        print(f"  source AVEC son article, reconnue liée   : {bon_liee}/{n_liee} "
-              f"({100 * bon_liee / n_liee:.0f} %)")
-    if n_deliee:
-        print(f"  source AVEC un article étranger, rejetée : {bon_deliee}/{n_deliee} "
-              f"({100 * bon_deliee / n_deliee:.0f} %)")
-    total = n_liee + n_deliee
-    if total:
-        print(f"  justesse globale : {100 * (bon_liee + bon_deliee) / total:.0f} % "
-              f"({sans} sans verdict)")
-        print("\n  Repère : 50 % = hasard. Sous 80 %, inutilisable — cette épreuve"
-              "\n  est la plus facile des deux, un juge qui échoue ici échouera"
-              "\n  a fortiori sur la distinction fine de l'épreuve B.")
+    print(f"  {'':<26}{'PERTINENTE':>12}{'GENERALE':>11}{'HORS_SUJET':>12}")
+    for liee, libelle in ((True, "source ↔ SON article"), (False, "source ↔ article étranger")):
+        c = rep[liee]
+        n = sum(c.values()) or 1
+        print(f"  {libelle:<26}{c['PERTINENTE']:>12}{c['GENERALE']:>11}{c['HORS_SUJET']:>12}"
+              f"   (n={n})")
+
+    # Règle d'exploitation envisagée : on écarte tout ce qui n'est pas
+    # PERTINENTE. C'est celle qui répare le défaut de l'article rougeole.
+    garde_liee = rep[True]["PERTINENTE"]
+    n_liee = sum(rep[True].values()) or 1
+    ecarte_deliee = sum(rep[False].values()) - rep[False]["PERTINENTE"]
+    n_deliee = sum(rep[False].values()) or 1
+    print("\n  Si la règle est « on n'accepte que PERTINENTE » :")
+    print(f"    vraies sources conservées      : {garde_liee}/{n_liee} "
+          f"({100 * garde_liee / n_liee:.0f} %)")
+    print(f"    sources étrangères écartées    : {ecarte_deliee}/{n_deliee} "
+          f"({100 * ecarte_deliee / n_deliee:.0f} %)")
+    print(f"    ⚠ vraies sources perdues       : {n_liee - garde_liee}"
+          f"  ({100 * (n_liee - garde_liee) / n_liee:.0f} %)")
+    print(f"  ({sans} paires sans verdict exploitable)")
+    print("\n  LECTURE : le chiffre qui décide est celui des vraies sources")
+    print("  perdues. Un article publié sur 3 sources n'en a pas à sacrifier.")
 
     # ── ÉPREUVE B ────────────────────────────────────────────────────────────
     cas = next((a for a in arts if a["slug"] == "rougeole-antiviral-etude"), None)
