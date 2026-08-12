@@ -155,6 +155,21 @@ grappes = V.regrouper({
 verifie("limite documentée : antillais / antilles ne se rejoignent pas",
         sorted(c["n_items"] for c in grappes) == [1, 1])
 
+# Pas de chaînage transitif. Sur le premier passage réel (902 items), le
+# regroupement par composantes connexes produisait des grappes de 59 articles
+# sans rapport, créditées de 20 flux : les chiffres du haut du classement, les
+# seuls intéressants, étaient les plus faux. Ici B partage 2 mots avec A et 2
+# mots avec C, mais A et C n'ont rien en commun — ils ne doivent PAS finir
+# ensemble.
+grappes = V.regrouper({
+    "a": faux("Séisme en Colombie : le bilan monte à 240 morts", "A"),
+    "b": faux("Séisme en Colombie : les secours cherchent des survivants", "B"),
+    "c": faux("Les secours cherchent des survivants après l’avalanche en Savoie", "C"),
+})
+verifie("le chaînage transitif est coupé",
+        max(c["n_items"] for c in grappes) <= 2,
+        f"(obtenu : {sorted(c['n_items'] for c in grappes)})")
+
 # ── 6. Le pipeline n'est pas touché ──────────────────────────────────────────
 # Garantie centrale de la phase 1 : la veille observe, elle ne décide rien.
 print("\n6. Étanchéité avec le pipeline")

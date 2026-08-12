@@ -42,11 +42,48 @@ finale ; il ne sert ici qu'à afficher des ordres de grandeur. Limite connue et
 verrouillée par un test : la troncature à 8 caractères ne rapproche pas
 « antillais » de « antilles ».
 
-⚠ Non testé sur un passage réel — le sandbox n'a pas d'accès réseau vers les
-domaines des flux (403 du proxy). Toute la logique d'accumulation est couverte
-par `scripts/test_veille.py` avec un `fetch_rss` simulé ; seule la lecture HTTP
-elle-même ne l'est pas. **Le premier passage sur le runner GitHub est donc la
-première exécution réelle : lire sa sortie avant de bâtir dessus.**
+### Premier passage réel — 12/08 00h32 UTC, 902 items
+
+```
+                                    n grappes    part
+1 seul flux                            472       88 %
+2 flux                                  36        7 %
+3 à 4 flux                              15        3 %
+5 à 7 flux                               7        1 %
+8 flux et plus                           7        1 %
+```
+
+**La distribution est étalée : un seuil a du sens.** 88 % du bruit ne sera
+jamais repris par personne, et une trentaine d'événements par passage sortent
+à 3 flux ou plus. C'est le premier critère de sélection mesuré dont ce projet
+dispose — le barème `score_editorial` n'a jamais noté que la forme.
+
+La persistance en heures ne veut encore rien dire (un seul passage, tout est à
+0 h) : c'est la mesure à relire dans deux ou trois jours.
+
+**Défaut trouvé et corrigé sur ce premier passage** : le regroupement par
+composantes connexes chaînait de proche en proche (A rejoint B, B rejoint C) et
+produisait des grappes de 59 articles sans rapport, créditées de 20 flux. Les
+7 grappes de tête étaient toutes des blobs — **les chiffres les plus
+intéressants du rapport étaient donc les plus faux**. Remplacé par un
+regroupement par CHEF DE FILE : un item ne rejoint une grappe que s'il partage
+2 mots distinctifs avec le premier item de cette grappe, jamais avec un membre
+quelconque. Après correction, le classement montre une vraie une : séisme en
+Colombie (9 flux), Ebola en RDC (8), offensive de Trump sur la vaccination (9),
+canicule (6), condamnation d'Assad (6).
+
+Ce correctif a été rejoué **sur les données déjà collectées, sans recollecter
+un seul flux** — c'est exactement ce que permet le stockage des items bruts, et
+la raison de ne jamais figer le regroupement dans le journal.
+
+⚠ Le regroupement reste imparfait : la grappe « éclipse solaire » compte encore
+30 items et mélange des angles différents. Ne pas fonder un seuil sur le haut
+de la distribution sans regarder le contenu des grappes concernées.
+
+⚠ Le sandbox de développement n'a pas d'accès réseau vers les domaines des
+flux (403 du proxy) : la veille ne peut y être vérifiée que par
+`scripts/test_veille.py` (fetch_rss simulé). Tout passage réel doit être
+déclenché sur le runner GitHub.
 
 ## AUDIT DU CORPUS PUBLIÉ — 12/08, ce que valent réellement nos articles
 

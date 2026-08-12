@@ -213,30 +213,30 @@ def regrouper(items: dict) -> list[dict]:
     """
     bruyants = _mots_bruyants(items)
     cles = {k: (mots_cles(v.get("titre", "")) - bruyants) for k, v in items.items()}
-    parent: dict = {}
 
-    def racine(x):
-        while parent.get(x, x) != x:
-            parent[x] = parent.get(parent[x], parent[x])
-            x = parent[x]
-        return x
-
-    liste = list(items)
-    index = defaultdict(list)
-    for k in liste:
-        for m in cles[k]:
-            index[m].append(k)
-    for _, groupe in index.items():
-        for autre in groupe[1:]:
-            a, b = racine(groupe[0]), racine(autre)
-            # Deux mots distinctifs partagés, jamais un seul : sur les titres
-            # publiés, un seul mot commun rejetait 49 % des paires (28/07).
-            if a != b and len(cles[groupe[0]] & cles[autre]) >= 2:
-                parent[b] = a
-
-    grappes = defaultdict(list)
-    for k in liste:
-        grappes[racine(k)].append(k)
+    # ⚠ PAS d'union-find ici, et c'est le résultat d'une mesure, pas un choix
+    # de style. Le premier passage réel (12/08, 902 items) a été regroupé par
+    # composantes connexes : A rejoint B, B rejoint C, et de proche en proche
+    # 59 articles sans rapport se retrouvaient dans un même « événement »
+    # crédité de 20 flux distincts. Les 7 grappes de tête étaient toutes des
+    # blobs, donc les chiffres les plus intéressants du rapport — ceux du haut
+    # du classement — étaient précisément les plus faux.
+    #
+    # Regroupement par CHEF DE FILE : un item ne rejoint une grappe que s'il
+    # partage 2 mots distinctifs avec le PREMIER item de cette grappe, jamais
+    # avec un membre quelconque. La transitivité est ainsi coupée : la grappe
+    # ne peut pas dériver loin de ce qu'elle décrivait au départ.
+    grappes: dict = {}
+    for k in items:
+        rejoint = None
+        for chef in grappes:
+            if len(cles[k] & cles[chef]) >= 2:
+                rejoint = chef
+                break
+        if rejoint is None:
+            grappes[k] = [k]
+        else:
+            grappes[rejoint].append(k)
 
     out = []
     for membres in grappes.values():
