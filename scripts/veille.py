@@ -238,21 +238,50 @@ def regrouper(items: dict) -> list[dict]:
         else:
             grappes[rejoint].append(k)
 
+    maintenant = datetime.now(timezone.utc)
     out = []
     for membres in grappes.values():
         flux, premiere, derniere = set(), None, None
+        apparitions = []
         for k in membres:
             v = items[k]
             flux.update(v.get("flux", []))
             p, d = _parse(v.get("premiere_vue")), _parse(v.get("derniere_vue"))
+            if p:
+                apparitions.append(p)
             premiere = p if premiere is None or (p and p < premiere) else premiere
             derniere = d if derniere is None or (d and d > derniere) else derniere
         heures = (derniere - premiere).total_seconds() / 3600 if premiere and derniere else 0
+
+        # DÉLAI DE CONFIRMATION — la mesure qui décide si attendre coûte cher.
+        #
+        # Objection de Nahil (12/08) : « lundi tous les journaux parlent du
+        # séisme, nous on en parle samedi ». Attendre qu'un sujet soit confirmé
+        # par plusieurs reprises n'a de sens que si cette confirmation arrive en
+        # HEURES, pas en jours. Personne ne connaît ce délai — on le mesure
+        # plutôt que d'en débattre.
+        #
+        # Défini comme l'écart entre la 1re et la 3e apparition de la grappe :
+        # c'est le temps qu'il aurait fallu attendre pour publier sur un critère
+        # « au moins 3 reprises ». Vaut None sous 3 items — rien à mesurer.
+        delai = None
+        if len(apparitions) >= 3:
+            tri = sorted(apparitions)
+            delai = round((tri[2] - tri[0]).total_seconds() / 3600, 1)
+
+        # ÂGE — l'autre moitié du problème. Un sujet peut être largement
+        # confirmé ET trop vieux pour être publié. Les deux critères sont
+        # indépendants et devront être exigés ENSEMBLE le jour où la sélection
+        # sera branchée dessus.
+        age = round((maintenant - premiere).total_seconds() / 3600, 1) if premiere else 0
+
         out.append({
             "titre": items[membres[0]].get("titre", ""),
             "n_items": len(membres),
             "n_flux": len(flux),
             "heures": round(heures, 1),
+            "delai_confirmation": delai,
+            "age_h": age,
             "categorie": items[membres[0]].get("categorie_teaser", ""),
         })
     return sorted(out, key=lambda c: (-c["n_flux"], -c["n_items"]))
@@ -291,12 +320,35 @@ def rapport(journal: dict) -> None:
     _histo([c["heures"] for c in grappes], (0, 1, 6, 24),
            "PERSISTANCE : heures entre première et dernière apparition")
 
+    # Le coût réel d'attendre. Si ce délai se compte en heures, exiger une
+    # confirmation ne nous met pas en retard ; s'il se compte en jours, l'idée
+    # doit être abandonnée ou le seuil abaissé. C'est la mesure qui tranche.
+    delais = [c["delai_confirmation"] for c in grappes
+              if c["delai_confirmation"] is not None]
+    if delais:
+        _histo(delais, (0, 1, 3, 6, 12, 24),
+               "DÉLAI DE CONFIRMATION : heures entre la 1re et la 3e reprise")
+        print(f"    médiane : {sorted(delais)[len(delais) // 2]:.1f} h "
+              f"sur {len(delais)} événements")
+    else:
+        print("\n  DÉLAI DE CONFIRMATION : pas encore mesurable "
+              "(il faut plusieurs passages espacés).")
+
     interessants = [c for c in grappes if c["n_flux"] >= 3]
     print(f"\n  Événements repris par >=3 flux : {len(interessants)} / {len(grappes)}")
+
+    # Confirmé ET frais : les deux critères doivent tenir ENSEMBLE. Un séisme
+    # largement repris mais vieux de trois jours est un sujet manqué, pas un
+    # sujet à écrire.
+    for age_max in (12, 24, 48):
+        n = sum(1 for c in interessants if c["age_h"] <= age_max)
+        print(f"    dont apparus il y a moins de {age_max:>2} h : {n}")
+
     print("\n  Tête de classement (repris par le plus de flux) :")
     for c in grappes[:15]:
-        print(f"    {c['n_flux']:>2} flux · {c['heures']:>5.1f} h · "
-              f"{c['categorie']:<12} {c['titre'][:64]}")
+        conf = f"{c['delai_confirmation']:>4.1f}h" if c["delai_confirmation"] is not None else "   —"
+        print(f"    {c['n_flux']:>2} flux · confirmé en {conf} · âge {c['age_h']:>5.1f} h · "
+              f"{c['categorie']:<12} {c['titre'][:52]}")
 
     par_cat = Counter(c["categorie"] for c in interessants)
     if par_cat:

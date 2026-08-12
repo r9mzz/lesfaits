@@ -46,20 +46,49 @@ verrouillée par un test : la troncature à 8 caractères ne rapproche pas
 
 ```
                                     n grappes    part
-1 seul flux                            472       88 %
-2 flux                                  36        7 %
-3 à 4 flux                              15        3 %
-5 à 7 flux                               7        1 %
-8 flux et plus                           7        1 %
+1 seul flux                            459       80 %
+2 flux                                  65       11 %
+3 à 4 flux                              33        6 %
+5 à 7 flux                              13        2 %
+8 flux et plus                           5        1 %
 ```
 
-**La distribution est étalée : un seuil a du sens.** 88 % du bruit ne sera
-jamais repris par personne, et une trentaine d'événements par passage sortent
-à 3 flux ou plus. C'est le premier critère de sélection mesuré dont ce projet
+⚠ Ces chiffres sont ceux du regroupement CORRIGÉ (575 grappes). Une première
+version de ce tableau donnait 88 % / 7 % / 3 % / 1 % / 1 % sur 537 grappes :
+elle avait été calculée avec le regroupement par composantes connexes, celui
+qui produisait les blobs décrits plus bas. **Ne pas reprendre ces valeurs-là.**
+
+**La distribution est étalée : un seuil a du sens.** 80 % du bruit ne sera
+jamais repris par personne, et 51 événements par passage sortent à 3 flux ou
+plus. C'est le premier critère de sélection mesuré dont ce projet
 dispose — le barème `score_editorial` n'a jamais noté que la forme.
 
 La persistance en heures ne veut encore rien dire (un seul passage, tout est à
 0 h) : c'est la mesure à relire dans deux ou trois jours.
+
+### Le délai de confirmation — objection de Nahil, et la mesure qui y répond
+
+« Lundi tous les journaux parlent du séisme, nous on en parle samedi. »
+Attendre qu'un sujet soit confirmé n'a de sens que si la confirmation arrive
+en HEURES. Le rapport mesure donc `delai_confirmation` : l'écart entre la 1re
+et la 3e apparition d'une grappe, c'est-à-dire le temps qu'il aurait fallu
+attendre pour publier sur un critère « au moins 3 reprises ».
+
+Deux critères INDÉPENDANTS, à exiger ensemble le jour où la sélection sera
+branchée : `n_flux` (le sujet compte) ET `age_h` (il est encore d'actualité).
+Un séisme largement repris mais vieux de trois jours est un sujet manqué, pas
+un sujet à écrire — le rapport affiche déjà le décompte des événements
+confirmés apparus il y a moins de 12 / 24 / 48 h.
+
+⚠ Sur un seul passage, `delai_confirmation` et `age_h` valent 0 pour tout le
+monde : tous les items ont été vus au même instant. **Ces deux mesures ne
+veulent rien dire avant plusieurs passages espacés** — ne pas les interpréter
+avant le 13/08.
+
+Rappel de cadrage à opposer à l'objection : le pipeline ne tourne que deux
+fois par jour (~2 h et ~14 h Paris), donc une info tombée à 4 h attend déjà
+dix heures aujourd'hui, sans veille. La veille ne crée pas ce retard, elle
+comble le trou entre deux runs.
 
 **Défaut trouvé et corrigé sur ce premier passage** : le regroupement par
 composantes connexes chaînait de proche en proche (A rejoint B, B rejoint C) et
