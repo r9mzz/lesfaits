@@ -102,6 +102,31 @@ with tempfile.TemporaryDirectory() as d:
     verifie("l'item hors fenêtre est purgé", "https://a.fr/vieux" not in j["items"])
     verifie("l'item récent est conservé", len(j["items"]) == 1)
 
+    # Fenêtre courte pour les items qu'aucun autre flux n'a repris : 80 % du
+    # journal, et ils ne peuvent plus franchir aucun seuil de confirmation.
+    # Ceux repris par >=2 flux gardent la fenêtre complète et restent
+    # rejouables si le regroupement change.
+    entre_deux = (datetime.now(timezone.utc)
+                  - timedelta(hours=V.FENETRE_HEURES_ISOLE + 2)).isoformat(timespec="seconds")
+    j["items"]["https://a.fr/isole"] = {
+        "titre": "Repris par personne", "flux": ["Flux A"], "premiere_vue": entre_deux,
+        "derniere_vue": entre_deux, "passages": 1, "date_pub": "", "categorie_teaser": "societe"}
+    j["items"]["https://a.fr/repris"] = {
+        "titre": "Repris par deux flux", "flux": ["Flux A", "Flux B"],
+        "premiere_vue": entre_deux, "derniere_vue": entre_deux, "passages": 2,
+        "date_pub": "", "categorie_teaser": "societe"}
+    V.enregistrer(j)
+    with FluxSimules({"Flux A": []}):
+        j = V.collecter(V.charger())
+    verifie("l'item isolé de plus de 24 h est purgé", "https://a.fr/isole" not in j["items"])
+    verifie("l'item repris par 2 flux est conservé", "https://a.fr/repris" in j["items"])
+
+    # Le format compact (sans indentation) doit rester relisable par
+    # `charger()` — sinon chaque passage repartirait à vide en silence.
+    V.enregistrer(j)
+    verifie("le journal compact se relit sans perte",
+            V.charger()["items"].keys() == j["items"].keys())
+
     # ── 4. Journal corrompu ──────────────────────────────────────────────────
     print("\n4. Résilience")
     V.JOURNAL.write_text("{ceci n'est pas du JSON", encoding="utf-8")

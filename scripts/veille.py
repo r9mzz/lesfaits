@@ -48,6 +48,27 @@ JOURNAL = Path(__file__).resolve().parent.parent / "data" / "veille.json"
 # (il est commité à chaque passage).
 FENETRE_HEURES = 72
 
+# Fenêtre RACCOURCIE pour les items qu'aucun autre flux n'a repris.
+#
+# Mesuré au premier passage : 80 % des items restent à un seul flux. Les
+# conserver 72 h fait grossir un fichier commité 24 fois par jour — projection
+# à fenêtre pleine : plusieurs mégaoctets, soit des centaines de mégaoctets
+# d'historique git par mois, pour du bruit que personne ne relira jamais.
+#
+# Un item qu'aucun autre flux n'a repris en 24 h ne sera pas repris après :
+# il ne peut plus franchir aucun seuil de confirmation. On le purge donc plus
+# tôt. Tout ce qui a été repris par au moins deux flux — c'est-à-dire tout ce
+# qui peut compter — garde la fenêtre complète, et reste donc rejouable si on
+# change d'algorithme de regroupement plus tard.
+#
+# ⚠ « Repris par deux flux » se juge au niveau de la GRAPPE, jamais de l'item.
+# Le champ `flux` d'un item ne liste que les flux publiant CETTE URL exacte,
+# ce qui est rare : quand neuf rédactions couvrent un séisme, ce sont neuf URLs
+# différentes, chacune vue par un seul flux. Un critère par item purgerait donc
+# 96 % du journal — mesuré — y compris l'intégralité du séisme. C'est le
+# regroupement qui porte le signal, et c'est lui qu'il faut interroger ici.
+FENETRE_HEURES_ISOLE = 24
+
 # Paramètres de tracking à retirer de l'URL avant d'en faire une clé. Sans ça,
 # la même dépêche reprise avec un `?xtor=RSS-16` compte comme un item neuf —
 # c'est le bug déjà rencontré le 30/07 (« En Gironde, 80 hectares » vu deux
@@ -113,7 +134,10 @@ def charger() -> dict:
 def enregistrer(journal: dict) -> None:
     JOURNAL.parent.mkdir(parents=True, exist_ok=True)
     tmp = JOURNAL.with_suffix(".json.tmp")
-    tmp.write_text(json.dumps(journal, ensure_ascii=False, indent=1),
+    # Écriture compacte : le fichier est réécrit et commité toutes les heures,
+    # l'indentation coûte 12 % de volume à chaque fois pour un fichier que
+    # personne ne lit à la main (`--rapport` est là pour ça).
+    tmp.write_text(json.dumps(journal, ensure_ascii=False, separators=(",", ":")),
                    encoding="utf-8")
     tmp.replace(JOURNAL)
 
@@ -159,11 +183,27 @@ def collecter(journal: dict) -> dict:
                     enr["flux"].append(it["source_name"])
 
     limite = maintenant - timedelta(hours=FENETRE_HEURES)
+    limite_isole = maintenant - timedelta(hours=FENETRE_HEURES_ISOLE)
     avant = len(items)
-    journal["items"] = {
-        k: v for k, v in items.items()
-        if _parse(v.get("derniere_vue")) and _parse(v["derniere_vue"]) >= limite
-    }
+
+    # Flux distincts de la GRAPPE à laquelle appartient chaque item — voir
+    # l'avertissement sur FENETRE_HEURES_ISOLE.
+    flux_grappe: dict[str, int] = {}
+    for membres in _grouper_membres(items).values():
+        n = len({f for k in membres for f in items[k].get("flux", [])})
+        for k in membres:
+            flux_grappe[k] = n
+
+    def a_garder(cle: str, v: dict) -> bool:
+        vue = _parse(v.get("derniere_vue"))
+        if not vue:
+            # Enregistrement sans date exploitable : on le laisse sortir plutôt
+            # que de le garder indéfiniment faute de pouvoir le dater.
+            return False
+        seuil = limite if flux_grappe.get(cle, 1) >= 2 else limite_isole
+        return vue >= seuil
+
+    journal["items"] = {k: v for k, v in items.items() if a_garder(k, v)}
     purges = avant - len(journal["items"])
 
     journal.setdefault("passages", []).append({
@@ -201,6 +241,43 @@ def _mots_bruyants(items: dict, plafond: float = 0.10) -> set:
     return {m for m, n in df.items() if n > seuil}
 
 
+def _grouper_membres(items: dict, cles: dict | None = None) -> dict[str, list[str]]:
+    """Grappes d'items, sous la forme {clé du chef de file: [clés des membres]}.
+
+    Partagé par `regrouper` (analyse) et par la purge de `collecter` : les deux
+    doivent voir exactement les mêmes grappes, sinon la purge jetterait des
+    items que le rapport compte encore.
+
+    ⚠ PAS d'union-find, et c'est le résultat d'une mesure, pas un choix de
+    style. Le premier passage réel (12/08, 902 items) a été regroupé par
+    composantes connexes : A rejoint B, B rejoint C, et de proche en proche
+    59 articles sans rapport se retrouvaient dans un même « événement » crédité
+    de 20 flux distincts. Les 7 grappes de tête étaient toutes des blobs, donc
+    les chiffres les plus intéressants du rapport — ceux du haut du classement
+    — étaient précisément les plus faux.
+
+    Regroupement par CHEF DE FILE : un item ne rejoint une grappe que s'il
+    partage 2 mots distinctifs avec le PREMIER item de cette grappe, jamais
+    avec un membre quelconque. La transitivité est ainsi coupée : la grappe ne
+    peut pas dériver loin de ce qu'elle décrivait au départ.
+    """
+    if cles is None:
+        bruyants = _mots_bruyants(items)
+        cles = {k: (mots_cles(v.get("titre", "")) - bruyants) for k, v in items.items()}
+    grappes: dict[str, list[str]] = {}
+    for k in items:
+        rejoint = None
+        for chef in grappes:
+            if len(cles[k] & cles[chef]) >= 2:
+                rejoint = chef
+                break
+        if rejoint is None:
+            grappes[k] = [k]
+        else:
+            grappes[rejoint].append(k)
+    return grappes
+
+
 def regrouper(items: dict) -> list[dict]:
     """Regroupe les items en événements présumés.
 
@@ -214,29 +291,7 @@ def regrouper(items: dict) -> list[dict]:
     bruyants = _mots_bruyants(items)
     cles = {k: (mots_cles(v.get("titre", "")) - bruyants) for k, v in items.items()}
 
-    # ⚠ PAS d'union-find ici, et c'est le résultat d'une mesure, pas un choix
-    # de style. Le premier passage réel (12/08, 902 items) a été regroupé par
-    # composantes connexes : A rejoint B, B rejoint C, et de proche en proche
-    # 59 articles sans rapport se retrouvaient dans un même « événement »
-    # crédité de 20 flux distincts. Les 7 grappes de tête étaient toutes des
-    # blobs, donc les chiffres les plus intéressants du rapport — ceux du haut
-    # du classement — étaient précisément les plus faux.
-    #
-    # Regroupement par CHEF DE FILE : un item ne rejoint une grappe que s'il
-    # partage 2 mots distinctifs avec le PREMIER item de cette grappe, jamais
-    # avec un membre quelconque. La transitivité est ainsi coupée : la grappe
-    # ne peut pas dériver loin de ce qu'elle décrivait au départ.
-    grappes: dict = {}
-    for k in items:
-        rejoint = None
-        for chef in grappes:
-            if len(cles[k] & cles[chef]) >= 2:
-                rejoint = chef
-                break
-        if rejoint is None:
-            grappes[k] = [k]
-        else:
-            grappes[rejoint].append(k)
+    grappes = _grouper_membres(items, cles)
 
     maintenant = datetime.now(timezone.utc)
     out = []
