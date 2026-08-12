@@ -8485,5 +8485,85 @@
     "angle_insuffisant": true,
     "raison": "L'article ne contient pas de phrase qui lie un événement daté récent à une donnée chiffrée ou nommée qui lui est propre.",
     "article_type": "breve"
+  },
+  {
+    "slug": "edgar-morin-pensee-complexe",
+    "statut": "rejete_qualite",
+    "date": "2026-08-12T14:49:01",
+    "angle_insuffisant": true,
+    "raison": "L'article ne répond pas à la question « Quel est l'héritage d'Edgar Morin pour les sciences humaines et sociales ? » de manière spécifique et datée, mais plutôt explique de manière générale sa pensée complexe et son influence.",
+    "article_type": "actu"
+  },
+  {
+    "slug": "mortalite-infantile-france-hausse",
+    "statut": "rejete_sensible",
+    "date": "2026-08-12T14:49:56",
+    "sujet_sensible": true,
+    "raison": "l'article implique des mineurs (enfants) et porte sur une question de santé publique",
+    "article_type": "breve"
+  },
+  {
+    "slug": "ia-genératives-vulnérables",
+    "statut": "rejete_qualite",
+    "date": "2026-08-12T14:54:10",
+    "angle_insuffisant": true,
+    "raison": "L'article ne contient pas de phrase qui lie un événement daté récent à une donnée chiffrée ou nommée qui lui est propre.",
+    "article_type": "breve"
+  },
+  {
+    "slug": "eclipses-sciences-chine-impériale",
+    "statut": "rejete_qualite",
+    "date": "2026-08-12T14:56:32",
+    "angle_insuffisant": true,
+    "raison": "L'article ne répond pas à la question posée dans l'angle_reponse et ne fournit pas d'actualité identifiable pour justifier une publication maintenant",
+    "article_type": "actu"
+  },
+  {
+    "slug": "canicules-france-villes-face-defi-climatique",
+    "statut": "rejete_qualite",
+    "date": "2026-08-12T14:59:46",
+    "tentative": 2,
+    "angle_insuffisant": true,
+    "raison": "L'article ne contient pas de phrase qui lie un événement daté récent à une donnée chiffrée ou nommée qui lui est propre.",
+    "article_type": "breve"
+  },
+  {
+    "slug": "eclipse-solaire-12-aout-2026",
+    "statut": "rejete_qualite",
+    "date": "2026-08-12T15:01:35",
+    "angle_insuffisant": true,
+    "raison": "L'article ne contient pas de phrase qui lie un événement daté récent à une donnée chiffrée ou nommée qui lui est propre, et ne répond pas à la question de savoir pourquoi l'éclipse solaire du 12 août 2026 est importante maintenant.",
+    "article_type": "breve",
+    "avertissements_garde_fous": [
+      "faits_repetitifs",
+      "prise_de_position"
+    ]
+  },
+  {
+    "slug": "explosion-cambrienne-excrements",
+    "statut": "rejete_qualite",
+    "date": "2026-08-12T15:19:21",
+    "angle_insuffisant": true,
+    "raison": "L'article ne fournit pas d'information sur un événement récent ou une découverte spécifique liée à l'explosion cambrienne, mais plutôt une explication générale du phénomène.",
+    "article_type": "breve"
+  },
+  {
+    "slug": "juillet-2026-mois-chaud-enregistre",
+    "statut": "erreur_verification",
+    "date": "2026-08-12T16:10:10",
+    "etape": "detection",
+    "erreur": "Quota Groq journalier épuisé sur toutes les clés (vérification)",
+    "article_type": "breve",
+    "avertissements_garde_fous": [
+      "faits_repetitifs"
+    ]
+  },
+  {
+    "slug": "cartes-sim-faille-securite",
+    "statut": "erreur_verification",
+    "date": "2026-08-12T16:20:27",
+    "etape": "detection",
+    "erreur": "Quota Groq journalier épuisé sur toutes les clés (vérification)",
+    "article_type": "breve"
   }
 ]
