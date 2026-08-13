@@ -1,0 +1,69 @@
+name: Backtest — juge de regroupement
+
+# Un petit modèle sait-il dire que deux titres parlent du même événement ?
+#
+# Notre regroupement compare des mots de titres tronqués à 8 caractères :
+# « antillais » ne rejoint pas « antilles », et la grappe « éclipse » mélange
+# 30 articles d'angles différents. La question posée ici est fermée et
+# factuelle — la famille où le juge de sources a réussi, pas celle du juge de
+# sujet qui demandait un avis éditorial et s'est écrasé à 50 %.
+#
+# L'épreuve A utilise une référence NON CIRCULAIRE (deux titres au hasard ne
+# décrivent quasiment jamais le même fait) ; l'épreuve B mesure notre propre
+# taux de blobs plutôt que le juge.
+#
+# N'écrit RIEN dans le dépôt, ne publie rien, ne touche pas au pipeline.
+# Déclenchement manuel uniquement — il consomme du quota Groq, et c'est le
+# seul but du bouton : décider en connaissance de cause.
+
+on:
+  workflow_dispatch:
+    inputs:
+      limite:
+        description: "Nombre de paires par épreuve"
+        required: false
+        default: "60"
+        type: string
+      modele:
+        description: "Modèle Groq à interroger"
+        required: false
+        default: "llama-3.1-8b-instant"
+        type: string
+
+# Jamais deux backtests en parallèle : ils se disputeraient le même quota et
+# se feraient mutuellement passer pour lents.
+concurrency:
+  group: juge-sujet
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+
+jobs:
+  backtest:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+
+      - name: Installer les dépendances
+        run: pip install -r requirements.txt
+
+      - name: Juger les sujets
+        env:
+          PYTHONIOENCODING: utf-8
+          TZ: Europe/Paris
+          JUGE_MODELE: ${{ inputs.modele }}
+          # Une clé secondaire de préférence : le backtest ne doit pas assécher
+          # celle que la génération utilisera au prochain run.
+          GROQ_API_KEY: ${{ secrets.GROQ_API_KEY_2 || secrets.GROQ_API_KEY }}
+        run: python scripts/test_juge_grappes.py --limite "${{ inputs.limite }}"
