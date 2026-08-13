@@ -8565,5 +8565,103 @@
     "etape": "detection",
     "erreur": "Quota Groq journalier épuisé sur toutes les clés (vérification)",
     "article_type": "breve"
+  },
+  {
+    "slug": "arctique-etude-annulee",
+    "statut": "rejete_qualite",
+    "date": "2026-08-13T15:17:47",
+    "tentative": 1,
+    "angle_insuffisant": true,
+    "raison": "L'article ne contient pas de phrase qui lie un événement daté récent à une donnée chiffrée ou nommée qui lui est propre.",
+    "article_type": "breve",
+    "avertissements_garde_fous": [
+      "faits_repetitifs"
+    ],
+    "titre": "L'administration Trump annule une étude sur l'Arctique",
+    "n_sources": 5,
+    "n_mots": 158,
+    "titre_rss": "L'administration Trump annule une étude sur l'Arctique, les chercheurs dénoncent une nouvelle attaque contre la science du climat aux Etats-Unis",
+    "matiere_faits_distincts": 11,
+    "matiere_redondance": 0.72,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10
+  },
+  {
+    "slug": "boeing-condamne-a-verser-29-millions",
+    "statut": "rejete_sensible",
+    "date": "2026-08-13T15:21:15",
+    "sujet_sensible": true,
+    "raison": "l'article implique une affaire judiciaire en cours visant une entreprise et des personnes",
+    "article_type": "breve",
+    "titre": "Boeing condamné à verser 29 millions de dollars",
+    "n_sources": 10,
+    "n_mots": 190,
+    "titre_rss": "Boeing condamné à verser 29 millions de dollars à la famille d’une victime du crash en 2019 du 737 MAX",
+    "matiere_faits_distincts": 844,
+    "matiere_redondance": 0.39,
+    "matiere_donnees_chiffrees": 5,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "n_sources_pertinentes": 10
+  },
+  {
+    "slug": "annee-blanche-economie-gouvernement",
+    "statut": "rejete_qualite",
+    "date": "2026-08-13T15:22:42",
+    "tentative": 1,
+    "angle_insuffisant": true,
+    "raison": "L'article ne contient pas de phrase qui lie un événement daté récent à une donnée chiffrée ou nommée qui lui est propre.",
+    "article_type": "breve",
+    "avertissements_garde_fous": [
+      "resume_repete_corps",
+      "sources_non_fusionnees"
+    ],
+    "titre": "Le gouvernement français étudie une année blanche pour 2026",
+    "n_sources": 3,
+    "n_mots": 123,
+    "titre_rss": "Impôts sur le revenu, pensions de retraite... En quoi consisterait une «année blanche», cette piste d’économie explosive qui revient dans le débat ?",
+    "matiere_faits_distincts": 1267,
+    "matiere_redondance": 0.01,
+    "matiere_donnees_chiffrees": 5,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "n_sources_pertinentes": 6
+  },
+  {
+    "slug": "maree-noire-oman",
+    "statut": "rejete_sensible",
+    "date": "2026-08-13T15:24:33",
+    "problemes_initiaux": 3,
+    "bloc5": [
+      "diffamation_potentielle"
+    ],
+    "article_type": "breve",
+    "titre": "Marée noire au large d'Oman : 800 000 barils de pétrole menacent une réserve naturelle",
+    "n_sources": 9,
+    "n_mots": 99,
+    "titre_rss": "Une marée noire au large d'Oman dans une réserve naturelle maritime protégée a atteint les côtes du pays",
+    "matiere_faits_distincts": 672,
+    "matiere_redondance": 0.21,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 9,
+    "n_sources_trouvees": 9,
+    "n_sources_pertinentes": 9
+  },
+  {
+    "slug": "los-angeles-lakers-rachetes-12-5-milliards",
+    "statut": "conforme_du_premier_coup",
+    "date": "2026-08-13T15:26:00",
+    "article_type": "breve",
+    "titre": "Les Los Angeles Lakers rachetés pour 12,5 milliards de dollars",
+    "n_sources": 3,
+    "n_mots": 137,
+    "titre_rss": "NBA : les Los Angeles Lakers vont être rachetés pour 12,5 milliards de dollars",
+    "matiere_faits_distincts": 871,
+    "matiere_redondance": 0.1,
+    "matiere_donnees_chiffrees": 4,
+    "n_sources_injectees": 8,
+    "n_sources_trouvees": 8,
+    "n_sources_pertinentes": 8
   }
 ]
