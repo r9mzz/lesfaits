@@ -1,10 +1,16 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""Normalise les `pubDate` RSS avec la vraie `datePublished` des articles.
+"""Normalise les dates du RSS à partir des vraies métadonnées de publication.
 
-Le générateur historique utilisait l'heure du rebuild pour chaque entrée, ce qui
-faisait remonter artificiellement tout le flux à chaque déploiement. La source
-de vérité est le JSON-LD NewsArticle de la page publique.
+Le générateur historique utilisait l'heure du rebuild pour chaque `pubDate`, ce
+qui faisait remonter artificiellement tout le flux à chaque déploiement. La
+source de vérité des articles est le JSON-LD NewsArticle de la page publique.
+
+`lastBuildDate` est également réécrit avec une horloge UTC explicite. Le build
+s'exécute avec `TZ=Europe/Paris`; utiliser une heure locale puis lui ajouter
+`+0000` décale artificiellement le flux de deux heures en été. Ici, l'instant de
+rebuild est toujours produit avec `datetime.now(timezone.utc)` puis sérialisé en
+RFC 2822/GMT.
 """
 from __future__ import annotations
 
@@ -22,6 +28,9 @@ LINK_RE = re.compile(
     r"<link>https://lesfaits\.info/articles/([^<]+)\.html</link>", re.I
 )
 PUBDATE_RE = re.compile(r"(<pubDate>)(.*?)(</pubDate>)", re.I | re.S)
+LAST_BUILD_RE = re.compile(
+    r"(<lastBuildDate>)(.*?)(</lastBuildDate>)", re.I | re.S
+)
 JSON_LD_RE = re.compile(
     r'<script\b[^>]*type=["\']application/ld\+json["\'][^>]*>(.*?)</script>',
     re.I | re.S,
@@ -69,7 +78,12 @@ def rfc2822(value: dt.datetime) -> str:
     return email.utils.format_datetime(value.astimezone(dt.timezone.utc), usegmt=True)
 
 
-def normalize(root: Path = ROOT, *, check: bool = False) -> dict[str, int]:
+def normalize(
+    root: Path = ROOT,
+    *,
+    check: bool = False,
+    build_time: dt.datetime | None = None,
+) -> dict[str, int]:
     feed = root / "feed.xml"
     articles = root / "articles"
     text = feed.read_text(encoding="utf-8")
@@ -110,13 +124,49 @@ def normalize(root: Path = ROOT, *, check: bool = False) -> dict[str, int]:
             f"{len(missing)} entrée(s) RSS sans datePublished exploitable : "
             + ", ".join(missing)
         )
+
+    last_build = LAST_BUILD_RE.search(updated)
+    if not last_build:
+        raise RuntimeError("feed.xml ne contient pas de lastBuildDate")
+
+    build_changed = 0
+    current_build = last_build.group(2).strip()
+    try:
+        parsed_build = email.utils.parsedate_to_datetime(current_build)
+    except (TypeError, ValueError):
+        parsed_build = None
+
+    if check:
+        if parsed_build is None or parsed_build.utcoffset() != dt.timedelta(0):
+            raise RuntimeError("lastBuildDate n'est pas une date UTC RFC 2822 valide")
+    else:
+        instant = build_time or dt.datetime.now(dt.timezone.utc)
+        if instant.tzinfo is None:
+            instant = instant.replace(tzinfo=dt.timezone.utc)
+        expected_build = rfc2822(instant)
+        if current_build != expected_build:
+            build_changed = 1
+            updated = LAST_BUILD_RE.sub(
+                lambda m: f"{m.group(1)}{expected_build}{m.group(3)}",
+                updated,
+                count=1,
+            )
+
     if check and changed:
         raise RuntimeError(f"feed.xml contient encore {changed} pubDate artificielle(s)")
     if not check and updated != text:
         feed.write_text(updated, encoding="utf-8")
 
-    print(f"[RSS] {seen} entrée(s) contrôlée(s), {changed} pubDate corrigée(s).")
-    return {"items": seen, "changed": changed, "missing": len(missing)}
+    print(
+        f"[RSS] {seen} entrée(s) contrôlée(s), {changed} pubDate corrigée(s), "
+        f"{build_changed} lastBuildDate corrigée(s)."
+    )
+    return {
+        "items": seen,
+        "changed": changed,
+        "build_changed": build_changed,
+        "missing": len(missing),
+    }
 
 
 def main() -> int:
