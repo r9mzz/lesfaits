@@ -71,11 +71,39 @@ def _patch_subject_level_selection(source: str) -> str:
     return source[: matches[0].start()] + replacement + source[matches[0].end() :]
 
 
+def _patch_post_generation_cooldown(source: str) -> str:
+    """Évite un second fact-check d'un article qui régénère le même slug rejeté.
+
+    Le préfiltre amont compare le titre RSS au slug historique et reste
+    volontairement strict. Ce second garde-fou intervient après génération,
+    lorsque le slug exact est enfin connu. Il ne bloque qu'une égalité exacte
+    avec un rejet récent et ne change aucun seuil éditorial.
+    """
+    marker = "    art = _extract_json(raw)\n"
+    if source.count(marker) != 1:
+        raise RuntimeError(
+            "Marqueur post-génération introuvable ou dupliqué dans pipeline.py"
+        )
+    replacement = marker + '''
+    # Cooldown exact POST-GÉNÉRATION : le titre RSS peut différer du slug que
+    # le rédacteur génère. On contrôle donc aussi le slug final avant de payer
+    # le fact-check. C'est ce qui empêche un même slug rejeté de repartir au
+    # vérificateur au run suivant sans risquer de masquer une actualité voisine.
+    from editorial_ranking import _recent_rejected_slugs
+    _slug_final = str(art.get("slug") or "").strip()
+    if _slug_final and _slug_final in _recent_rejected_slugs():
+        print(f"     [COOLDOWN REJET] slug déjà rejeté récemment : {_slug_final}")
+        raise ValueError("HORS_PERIMETRE: slug déjà rejeté récemment")
+'''
+    return source.replace(marker, replacement, 1)
+
+
 def _prepared_pipeline_source_v3() -> str:
     source = _original_prepared_pipeline_source()
     source = _patch_subject_level_selection(source)
+    source = _patch_post_generation_cooldown(source)
     compile(source, str(legacy.PIPELINE), "exec")
-    print("[PRÉVOL V3] classement au niveau du sujet activé")
+    print("[PRÉVOL V3] classement au niveau du sujet + cooldown post-génération activés")
     return source
 
 
