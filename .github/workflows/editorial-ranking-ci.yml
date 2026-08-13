@@ -6,6 +6,7 @@ on:
       - "scripts/editorial_ranking.py"
       - "scripts/run_pipeline_v3.py"
       - "scripts/test_editorial_ranking.py"
+      - "scripts/test_run_pipeline_v3.py"
       - ".github/workflows/editorial-ranking-ci.yml"
       - ".github/workflows/pipeline.yml"
 
@@ -21,6 +22,8 @@ jobs:
         with:
           python-version: "3.11"
       - name: Syntaxe
-        run: python -m py_compile scripts/editorial_ranking.py scripts/run_pipeline_v3.py scripts/test_editorial_ranking.py
+        run: python -m py_compile scripts/editorial_ranking.py scripts/run_pipeline_v3.py scripts/test_editorial_ranking.py scripts/test_run_pipeline_v3.py
       - name: Tests déterministes
-        run: python scripts/test_editorial_ranking.py
+        run: |
+          python scripts/test_editorial_ranking.py
+          python scripts/test_run_pipeline_v3.py
