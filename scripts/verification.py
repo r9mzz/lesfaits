@@ -497,7 +497,8 @@ def enqueue_moderation(art: dict, rapport_initial: dict, rapport_final: dict):
 # ══════════════════════════════════════════════════════════════════════════════
 
 def verifier_article(art: dict, article_type: str = "actu",
-                     avertissements: list | None = None) -> tuple[dict, str]:
+                     avertissements: list | None = None,
+                     contexte: dict | None = None) -> tuple[dict, str]:
     """
     Applique les passes 2 (détection) et 3 (correction) sur un article généré.
     Retourne (article_final, statut).
@@ -514,6 +515,36 @@ def verifier_article(art: dict, article_type: str = "actu",
     _type_detail = {"article_type": article_type}
     if avertissements:
         _type_detail["avertissements_garde_fous"] = list(avertissements)
+
+    # ── INSTRUMENTATION DU VERDICT (13/08) ───────────────────────────────────
+    # `verification_log.json` contient 119 rejets `angle insuffisant` contre
+    # 108 passages : une référence ÉTIQUETÉE, indépendante du regroupement et
+    # du barème, payée depuis des semaines — le fact-checker lit l'article
+    # fini, il n'a jamais vu une grappe. C'est la seule référence non
+    # circulaire dont dispose ce projet.
+    #
+    # Elle est pourtant inexploitable en l'état : le seul champ persisté est le
+    # SLUG. Un Bayes naïf sur les mots du slug rend 59 % contre 53 % pour la
+    # classe majoritaire — du bruit, parce que `explosion-cambrienne-excrements`
+    # a perdu la date, le déclencheur, les chiffres et la couverture, c'est-à-
+    # dire tout ce qui sépare une actualité d'un sujet de magazine.
+    #
+    # On persiste donc, au moment du verdict, ce que le pipeline sait déjà.
+    # Coût : zéro token, zéro appel réseau, quelques centaines d'octets. Trois
+    # runs et les 227 étiquettes deviennent testables.
+    _type_detail["titre"] = str(art.get("titre") or "")[:200]
+    _srcs = art.get("sources") or []
+    _type_detail["n_sources"] = len(_srcs) if isinstance(_srcs, list) else 0
+    _corps = art.get("corps") or {}
+    _type_detail["n_mots"] = len(re.findall(
+        r"[\w’'-]+",
+        " ".join([str(art.get("resume") or "")]
+                 + [str(v) for v in _corps.values() if isinstance(v, str)])))
+    if contexte:
+        # Ce que seul l'appelant connaît : richesse documentaire mesurée par
+        # `audit_matiere`, taille de la grappe de veille, rendement du
+        # sourcing. Jamais bloquant, jamais lu par le pipeline — diagnostic.
+        _type_detail.update({k: v for k, v in contexte.items() if v is not None})
 
     if not GROQ_KEYS:
         # Pas de clé → comportement historique, tracé comme non vérifié

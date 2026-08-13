@@ -7855,8 +7855,23 @@ def generer_article(item: dict, dry_run: bool, published: set, new_pub: set, dat
             return False
 
         # ── Passes 2/3 : fact-check + correction automatique ──
+        # `contexte` : ce que seul le pipeline connaît au moment du verdict, et
+        # qui manquait pour exploiter les 227 étiquettes de
+        # `verification_log.json` (voir l'instrumentation dans
+        # `verification.py`). Diagnostic seul — rien ne le relit.
+        _contexte_verdict = {
+            "titre_rss": str(item.get("title") or "")[:200],
+            "matiere_faits_distincts": _audit.get("faits_distincts"),
+            "matiere_redondance": round(_audit.get("redondance", 0), 3),
+            "matiere_donnees_chiffrees": _audit.get("donnees_chiffrees"),
+            "n_sources_injectees": len(_retenues),
+            "n_sources_trouvees": len(extra),
+            "n_sources_pertinentes": sum(
+                1 for s in extra if s.get("_pertinence") == "pertinente") or None,
+        }
         art, statut_verif = verifier_article(art, article_type=article_type,
-                                            avertissements=avertissements)
+                                            avertissements=avertissements,
+                                            contexte=_contexte_verdict)
         if statut_verif in ("rejete_sensible", "rejete_qualite"):
             # Messages déjà affichés dans verifier_article
             return False
