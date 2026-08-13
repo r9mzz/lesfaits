@@ -84,6 +84,23 @@ class EditorialQualityTests(unittest.TestCase):
         )
         self.assertTrue(repeated_statement(text))
 
+    def test_repeated_statement_ignores_le_nom_du_sujet(self):
+        """Nommer deux fois le sujet n'est pas une redite.
+
+        Ces deux phrases ne partagent que le nom propre et un syntagme de
+        thème. Avant le 13/08 elles suffisaient à un rejet dur : le 5-gramme
+        « le cheval blanc d uffington » ne porte que deux mots de fond, les
+        trois autres étant des articles absents de `_STOPWORDS`. Le contrôle
+        rejetait ainsi 96 % des articles publiés.
+        """
+        text = (
+            "La conservation du patrimoine culturel est un défi pour les géoglyphes "
+            "anciens comme le cheval blanc d'Uffington. "
+            "Le cheval blanc d'Uffington est un géoglyphe situé dans l'Oxfordshire, "
+            "en Angleterre, qui date d'environ trois mille ans."
+        )
+        self.assertFalse(repeated_statement(text))
+
     def test_numbered_attribution(self):
         sources = [
             Source("France Info", "Titre A", "https://a.test"),

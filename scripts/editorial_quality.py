@@ -189,7 +189,28 @@ def repeated_statement(text: str) -> bool:
         if compact in seen:
             return True
         seen.add(compact)
-        words = [w for w in re.findall(r"[a-z0-9]+", compact) if w not in _STOPWORDS]
+        # `len(w) >= 4` : MÊME filtre que `significant_tokens` vingt lignes plus
+        # haut. Sans lui, `_STOPWORDS` ne retire rien d'utile ici — la liste a
+        # été écrite pour du bruit ÉDITORIAL (jours, mois, « article »,
+        # « résultat », « France ») et ne contient aucun mot-outil : ni « le »,
+        # ni « la », ni « de », ni « des », ni « qui ». Un 5-gramme se remplissait
+        # donc d'articles autour de deux mots de fond, et n'importe quel texte
+        # nommant son sujet deux fois déclenchait un rejet dur :
+        #
+        #     « le cheval blanc d uffington »      → 2 mots de fond
+        #     « la conservation du patrimoine culturel » → 3
+        #     « de prevention et de lutte »        → 2
+        #
+        # Mesuré le 13/08 sur les 49 articles en ligne proprement analysés :
+        # le contrôle en rejetait 47, soit 96 % — dont 37 actus sur 37. Il a été
+        # ajouté le 06/08, au lendemain de la dernière publication du site, et
+        # aucun article ne l'avait atteint avant le 13/08 : la brève Lakers,
+        # écrite puis supprimée après avoir passé le fact-check et la grille
+        # vitrine. Avec ce filtre : 22 % de rejets, les quatre vraies redites
+        # du corpus (moustiques, volcan, moustique-tigre, one-health) toujours
+        # attrapées, et le test unitaire d'origine inchangé.
+        words = [w for w in re.findall(r"[a-z0-9]+", compact)
+                 if len(w) >= 4 and w not in _STOPWORDS]
         current = {tuple(words[i:i + 5]) for i in range(max(0, len(words) - 4))}
         if current & ngrams_seen:
             return True
