@@ -160,6 +160,49 @@ def main() -> int:
         for t1, t2 in desaccords[:8]:
             print(f"    · {t1[:58]}\n      {t2[:58]}")
 
+    # ── ÉPREUVE D — RÉFÉRENCE POSITIVE ───────────────────────────────────────
+    # Le premier passage de ce test (13/08) n'a mesuré que la capacité à dire
+    # NON : 30/30 sur des paires au hasard, 27/30 dans nos grappes. Un juge qui
+    # répondrait NON à tout obtiendrait exactement ces scores. Il manquait donc
+    # la moitié de la mesure — et sans elle, brancher le juge ferait éclater
+    # toutes les grappes en articles isolés, détruisant le signal.
+    #
+    # Référence positive : les grappes les plus reprises (>=8 flux distincts).
+    # Quand quatorze rédactions couvrent le séisme en Colombie, il n'y a pas
+    # d'ambiguïté sur le fait qu'il s'agit d'un seul événement. C'est la
+    # référence la plus sûre dont on dispose sans étiquetage humain.
+    grosses = [m for m in grappes.values()
+               if len(m) >= 2
+               and len({f for k in m for f in items[k].get("flux", [])}) >= 8]
+    paires_grosses = []
+    for m in grosses:
+        for _ in range(3):
+            a, b = random.sample(m, 2)
+            ta, tb = items[a].get("titre", ""), items[b].get("titre", "")
+            if ta and tb and ta != tb and (ta, tb) not in paires_grosses:
+                paires_grosses.append((ta, tb))
+    paires_grosses = paires_grosses[:args.limite]
+
+    print(f"\nÉPREUVE D — {len(paires_grosses)} paires dans les grappes à >=8 flux")
+    print("  Ces grappes sont presque certainement de vrais événements uniques.")
+    print("  Un juge qui répond NON ici est trop sévère et inutilisable.\n")
+    cd = Counter()
+    separes = []
+    for t1, t2 in paires_grosses:
+        v = juger(client, t1, t2)
+        cd[v or "—"] += 1
+        if v == "NON":
+            separes.append((t1, t2))
+    nd = sum(v for k, v in cd.items() if k in ("OUI", "NON")) or 1
+    print(f"  OUI (même événement reconnu) : {cd['OUI']}/{nd} ({100 * cd['OUI'] / nd:.0f} %)")
+    print(f"  NON                          : {cd['NON']}/{nd} ({100 * cd['NON'] / nd:.0f} %)")
+    if separes:
+        print("\n  Paires de grosses grappes que le juge sépare :")
+        for t1, t2 in separes[:6]:
+            print(f"    · {t1[:58]}\n      {t2[:58]}")
+    print("\n  LECTURE : sous ~70 % de OUI ici, le juge est trop sévère —")
+    print("  le brancher éclaterait les vraies grappes et détruirait le signal.")
+
     # ── ÉPREUVE C — cas connus ───────────────────────────────────────────────
     print("\nÉPREUVE C — cas dont on connaît déjà la réponse")
     connus = [
