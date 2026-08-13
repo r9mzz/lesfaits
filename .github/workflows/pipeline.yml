@@ -116,6 +116,28 @@ jobs:
         if: steps.garde.outputs.passer != 'true'
         run: pip install -r requirements.txt
 
+      # ── Noms indéfinis : la classe d'erreur qui a coûté deux jours ────────
+      # Le 13/08, `juger_pertinence_sources(sujet.get(...))` a été poussé alors
+      # que le paramètre s'appelle `item`. `NameError` sur le PREMIER sujet des
+      # deux runs suivants, avant toute génération — et le repli interne du
+      # juge ne pouvait rien y faire, l'erreur survenant en évaluant l'argument,
+      # donc avant l'appel. Aucun test unitaire ne voit ça : ils exercent la
+      # fonction, jamais son site d'appel.
+      #
+      # py_compile ne détecte PAS un nom indéfini (la syntaxe est valide).
+      # pyflakes le fait en une seconde, sans réseau et sans quota. On ne
+      # bloque que sur cette famille : les autres avertissements (imports
+      # inutilisés…) sont nombreux et sans conséquence à l'exécution.
+      - name: Noms indéfinis (pyflakes)
+        if: steps.garde.outputs.passer != 'true'
+        run: |
+          pip install --quiet pyflakes
+          if python -m pyflakes scripts/*.py | grep -i "undefined name"; then
+            echo "::error::Nom indéfini détecté — le run échouerait à l'exécution."
+            exit 1
+          fi
+          echo "Aucun nom indéfini."
+
       - name: Prévol qualité vitrine
         if: steps.garde.outputs.passer != 'true'
         run: |

@@ -623,6 +623,20 @@ def juger_pertinence_sources(titre: str, sources: list) -> bool:
     quelles — l'appelant retombe alors sur le tri par qualité seul. Perdre un
     article entier parce qu'un juge auxiliaire a échoué serait absurde : il
     améliore le classement, il n'est pas indispensable à la publication.
+
+    ⚠ LEÇON DU 13/08, À NE PAS OUBLIER : ce repli n'a PAS protégé le pipeline.
+    Le site d'appel passait `sujet.get("title")` alors que le paramètre de
+    `generer_article` s'appelle `item` — un `NameError` levé en ÉVALUANT
+    l'argument, donc avant même d'entrer ici. Deux runs morts sur le premier
+    sujet, deux jours sans publication.
+
+    Les quatre angles couverts par `test_pertinence_sources.py` (pas de clé,
+    pas de réseau, erreur d'API, réponse inattendue) étaient les bons ; le
+    cinquième — l'appel ne part jamais — ne pouvait par construction être vu
+    par aucun d'eux. **Un garde-fou interne ne protège jamais son propre site
+    d'appel.** Tester une fonction en isolation ne dit rien de son intégration :
+    c'est `pyflakes` sur tout `scripts/`, ajouté en CI le 13/08, qui attrape
+    cette classe d'erreur — en une seconde et sans quota.
     """
     if os.getenv("JUGE_SOURCES", "1") == "0" or not titre or not sources:
         return False
@@ -7373,7 +7387,12 @@ def generer_article(item: dict, dry_run: bool, published: set, new_pub: set, dat
     # article et un plancher de publication à 3, elle échangerait un problème
     # de qualité contre un problème de quantité. Le juge REHAUSSE les documents
     # qui traitent le sujet, il n'en supprime aucun.
-    _pertinence = juger_pertinence_sources(sujet.get("title", ""), extra)
+    # `item`, pas `sujet` : le paramètre de `generer_article` s'appelle `item`.
+    # La faute de frappe d'origine a tué les runs des 12/08 soir et 13/08 sur
+    # le PREMIER sujet, avant toute génération, deux jours de publication
+    # perdus — voir l'avertissement sur le site d'appel dans
+    # `juger_pertinence_sources`.
+    _pertinence = juger_pertinence_sources(item.get("title", ""), extra)
     _RANG_PERTINENCE = {"pertinente": 0, "generale": 1, "": 1, "hors_sujet": 2}
     if _pertinence:
         extra = sorted(
