@@ -1756,7 +1756,40 @@ _PROCEDURE_PENALE_RE = re.compile(
     # de `\b` que celui trouvé dans le filtre commercial le 11/08.
     r"condamn[ée] [àa] (?:\d+|de la prison|(?:une|la) peine|la perp[ée]tuit[ée]|mort)|"
     r"plainte contre|"
-    r"mandat d'arr[êe]t|perquisition)\b",
+    r"mandat d'arr[êe]t|perquisition|"
+    # ── Ce qui PRÉCÈDE la procédure (14/08) ─────────────────────────────────
+    # Les motifs ci-dessus ne voient que le vocabulaire judiciaire une fois la
+    # procédure nommée. Or le fil RSS livre d'abord le décès, et la procédure
+    # n'est nommée que plus tard : le 14/08, « Une femme retrouvée morte dans
+    # la chaufferie d'un hôpital » a été classée 1re sur 156 candidats, a
+    # consommé une génération entière (~40 k tokens) et a été rejetée
+    # `sujet_sensible` — « affaire pénale en cours visant une personne ». Le
+    # même événement occupait aussi la 3e place sous un autre titre.
+    #
+    # Mesuré sur les 610 items du corpus gelé : 2,8 % → 3,8 % de déclassements,
+    # soit 6 items de plus, tous corrects (un père écroué, deux enquêtes du
+    # parquet, un magistrat du parquet). Vérifié sur le classement réel du
+    # 14/08 : déclasse les n°1 et n°3, NE TOUCHE PAS la brève Insee publiée.
+    #
+    # Rappel : ceci reste une CLÉ DE TRI, jamais un rejet (cf.
+    # `selectionner_meilleurs`). Ces sujets restent dans le vivier et sont
+    # tentés si les meilleurs sont épuisés.
+    # PAS de « meurtre », « homicide », « assassinat », « féminicide » : ce sont
+    # des THÈMES, pas des procédures, et la règle en tête de ce bloc les exclut
+    # explicitement. Essayés le 14/08, ils déclassaient « Le nombre d'homicides
+    # recensés par le ministère de l'Intérieur » — une statistique publique,
+    # soit exactement le sujet d'intérêt public à garder en tête de file. Les
+    # affaires individuelles restent prises par « mis en examen », « parquet
+    # de… » ou « retrouvé mort », qui décrivent une procédure ou un cas précis.
+    r"d[ée]c[èe]s suspect|mort suspecte|"
+    r"ouverture d['’]une enqu[êe]te|enqu[êe]tes? (?:ouverte|confi[ée]e)"
+    r")\b"
+    # Radicaux TRONQUÉS : jamais suivis de `\b`, la frontière échouerait sur la
+    # lettre suivante (« retrouvée », « retrouvés »). Groupe séparé pour cette
+    # seule raison.
+    r"|(?:retrouv[ée]{1,2}s? (?:mort|sans vie)"
+    r"|corps (?:sans vie|retrouv|d[ée]couvert)"
+    r"|parquet (?:de |du |saisi|a ouvert|ouvre))",
     re.IGNORECASE,
 )
 

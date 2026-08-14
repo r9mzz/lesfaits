@@ -105,5 +105,50 @@ for label, art, rejet_attendu, moderation_attendue in CAS_COUCHE3:
     if rejet:
         print(f"           motif : {motif}")
 
+# ── 3. Déclassement pénal : ce qui PRÉCÈDE la procédure (14/08) ─────────────
+# `_PROCEDURE_PENALE_RE` ne voyait que le vocabulaire judiciaire une fois la
+# procédure nommée. Le 14/08, « Une femme retrouvée morte dans la chaufferie
+# d'un hôpital » a donc été classée 1re sur 156 candidats et a consommé une
+# génération entière pour un rejet `sujet_sensible` certain.
+#
+# Ce motif est une CLÉ DE TRI, jamais un rejet : la moitié « ne doit pas »
+# compte donc autant que l'autre. Un déclassement de trop, et un sujet
+# d'intérêt public part en fin de file sans qu'aucun log ne le signale.
+PENAL_DOIT = [
+    "Une femme a été retrouvée morte dans la chaufferie d'un hôpital",
+    "Deux hommes retrouvés morts dans un appartement",
+    "Le corps sans vie d'un homme découvert dans la Seine",
+    "Décès suspect d'une patiente : le parquet de Créteil saisi",
+    "Dans les Vosges, ouverture d'une enquête après la mort d'un randonneur",
+    "Le parquet de Paris ouvre une enquête sur des soupçons d'ingérence",
+    "Un homme mis en examen pour meurtre",
+    "Condamné à 18 mois de prison pour fraude",
+]
+# Thèmes, statistiques publiques et adjectifs : à garder en tête de file.
+# « meurtrière » est le piège symétrique de celui du 11/08 — une frontière de
+# mot manquante ferait déclasser une canicule.
+PENAL_NE_DOIT_PAS = [
+    "L'Insee confirme une inflation à 2,1 % en France sur un an en juillet",
+    "Une canicule meurtrière frappe le sud de l'Europe",
+    "La vague de chaleur la plus meurtrière depuis 2003",
+    "Le nombre d'homicides recensés par le ministère de l'Intérieur en 2025",
+    "Rapport de la Cour des comptes sur la corruption dans les marchés publics",
+    "Enquête de l'Insee sur les conditions de vie des ménages",
+    "Ce que les sciences sociales doivent à Edgar Morin",
+]
+
+print("\n=== 3. DÉCLASSEMENT PÉNAL — cas individuel oui, thème non ===")
+for titre in PENAL_DOIT:
+    trouve = bool(P._PROCEDURE_PENALE_RE.search(titre))
+    if not trouve:
+        ok = False
+    print(f"  {'OK   ' if trouve else 'ÉCHEC'}  déclassé : {titre[:62]}")
+for titre in PENAL_NE_DOIT_PAS:
+    m = P._PROCEDURE_PENALE_RE.search(titre)
+    if m:
+        ok = False
+    print(f"  {'OK   ' if not m else 'ÉCHEC'}  gardé    : {titre[:62]}"
+          + (f"  → faux positif sur « {m.group(0)} »" if m else ""))
+
 print("\n" + ("TOUS CONFORMES" if ok else "RÉGRESSION"))
 sys.exit(0 if ok else 1)
