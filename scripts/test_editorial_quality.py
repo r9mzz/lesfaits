@@ -193,3 +193,29 @@ class EditorialQualityTests(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main(verbosity=2)
+
+def test_recompte_sources_affichees():
+    """Le compteur annoncé au lecteur doit valoir le nombre d'entrées RÉELLEMENT
+    rendues sous l'article (défaut du 14/08 : en-tête à « 0 sources » sur un
+    article qui en affichait quatre, avec leurs liens)."""
+    from editorial_quality import _recompter_sources_affichees as recompter
+    html = ('<span>0 sources</span><span class="art__verify-item">✓ 0 sources consultées</span>'
+            '<ol><li id="source-1">a</li><li id="source-2">b</li>'
+            '<li id="source-3">c</li><li id="source-4">d</li></ol>')
+    out = recompter(html)
+    assert "4 sources</span>" in out, out
+    assert "✓ 4 sources consultées" in out, out
+    assert "0 source" not in out, out
+
+    # Un seul document : accord au singulier.
+    un = recompter('<span>0 sources</span><ol><li id="source-1">a</li></ol>')
+    assert "1 source</span>" in un, un
+
+    # Bloc « URLs non vérifiées » : aucune entrée rendue, on ne touche à rien.
+    sans = '<span>0 sources</span><section class="sources sources--unverified"></section>'
+    assert recompter(sans) == sans
+
+
+if __name__ == "__main__":
+    test_recompte_sources_affichees()
+    print("  OK   recompte des sources affichées")

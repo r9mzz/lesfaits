@@ -450,7 +450,45 @@ def improve_article_html(article: ArticleRecord) -> None:
         r"\1 publications consultées — \2 médias de référence",
         html,
     )
+    html = _recompter_sources_affichees(html)
     article.path.write_text(html, encoding="utf-8")
+
+
+# Nombre de sources annoncé au lecteur — recompté sur le HTML FINAL.
+#
+# Défaut trouvé le 14/08 sur `articles/inflation-france-juillet-2026.html`, le
+# premier article publié après neuf jours d'arrêt : l'en-tête annonçait
+# « 0 sources » et « ✓ 0 sources consultées » alors que le bloc SOURCES en
+# affichait quatre, avec leurs liens, et que les renvois [1] et [3] du corps
+# pointaient correctement dessus.
+#
+# Cause : deux étapes successives et une seule des deux met à jour. Le compteur
+# est figé par `build_article_html` à partir des sources qui passaient alors le
+# filtre d'URL ; le bloc SOURCES est ensuite réparé plus loin dans la chaîne.
+# L'article devient juste, le chiffre reste faux.
+#
+# On ne cherche donc plus à synchroniser deux états : on compte les entrées
+# RÉELLEMENT rendues (`<li id="source-N">`), après toutes les réécritures.
+# C'est la seule valeur que le lecteur peut vérifier lui-même en comptant la
+# liste sous l'article — et sur un journal dont l'argument est de montrer ses
+# sources, un compteur qui ment est plus grave qu'une source manquante.
+_LI_SOURCE_RE = re.compile(r'<li[^>]*\bid="source-\d+"')
+
+
+def _recompter_sources_affichees(html: str) -> str:
+    n = len(_LI_SOURCE_RE.findall(html))
+    if n == 0:
+        return html  # bloc « URLs non vérifiées » : rien à recompter
+    pluriel = "s" if n > 1 else ""
+    html = re.sub(r"\b\d+\s+sources?\s+consultées?\b", f"{n} source{pluriel} consultée{pluriel}", html)
+    html = re.sub(r"\b\d+\s+sources?\s+vérifiées?\b", f"{n} source{pluriel} vérifiée{pluriel}", html)
+    # En-tête de l'article : « N sources · <date> ». Ancré sur le séparateur
+    # pour ne pas toucher aux mentions de sources dans le CORPS du texte.
+    html = re.sub(r"\b\d+\s+sources?(?=</span>)", f"{n} source{pluriel}", html)
+    html = re.sub(r"\b\d+\s+sources?\s+distinctes?\b", f"{n} source{pluriel} distincte{pluriel}", html)
+    html = re.sub(r"\b\d+\s+publications?\s+consultées?\b",
+                  f"{n} publication{pluriel} consultée{pluriel}", html)
+    return html
 
 
 def process_generated_articles(root: Path | None = None) -> dict:
