@@ -8663,5 +8663,177 @@
     "n_sources_injectees": 8,
     "n_sources_trouvees": 8,
     "n_sources_pertinentes": 8
+  },
+  {
+    "slug": "etude-arctique-annulee-trump",
+    "statut": "rejete_qualite",
+    "date": "2026-08-14T04:46:26",
+    "tentative": 1,
+    "angle_insuffisant": true,
+    "raison": "L'article ne fournit pas d'information spécifique sur un événement récent lié à l'annulation de l'étude arctique, mais plutôt une explication générale sur l'importance de ces études.",
+    "article_type": "breve",
+    "avertissements_garde_fous": [
+      "faits_repetitifs",
+      "cliches_ia"
+    ],
+    "titre": "Étude arctique annulée par l'administration Trump",
+    "n_sources": 3,
+    "n_mots": 140,
+    "titre_rss": "L'administration Trump annule une étude sur l'Arctique, les chercheurs dénoncent une nouvelle attaque contre la science du climat aux Etats-Unis",
+    "matiere_faits_distincts": 11,
+    "matiere_redondance": 0.72,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10
+  },
+  {
+    "slug": "enquete-csf-2023-outre-mer",
+    "statut": "rejete_qualite",
+    "date": "2026-08-14T04:50:02",
+    "problemes_initiaux": 5,
+    "tentatives": 3,
+    "problemes_restants": 3,
+    "bloquants_restants": 1,
+    "bloquants_types": [
+      "niveau_preuve_insuffisant"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "niveau_preuve_insuffisant",
+        "description": "Le stade de la recherche n'apparaît pas dans le résumé ni à côté du résultat principal, ce qui est nécessaire pour évaluer la portée des résultats.",
+        "phrase": "L'enquête CSF-2023 a été menée entre mai 2023 et janvier 2024, avec un échantillon représentatif de 10 259 personnes âgées de 15 à 89 ans, interrogées par téléphone et internet, comme indiqué sur le site de l'Inserm."
+      }
+    ],
+    "types_restants": [
+      "niveau_preuve_insuffisant",
+      "source_non_editoriale",
+      "redondance"
+    ],
+    "article_type": "actu",
+    "titre": "Premiers résultats de l'enquête CSF-2023 dans les Outre-Mer",
+    "n_sources": 6,
+    "n_mots": 389,
+    "titre_rss": "Premiers résultats de l’enquête CSF-2023 dans les Outre-Mer : focus sur la Guyane, la Martinique, la Guadeloupe et La Réunion",
+    "matiere_faits_distincts": 901,
+    "matiere_redondance": 0.07,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 9,
+    "n_sources_trouvees": 9,
+    "n_sources_pertinentes": 2
+  },
+  {
+    "slug": "grace-presidentielle-yann-vezilier-mali",
+    "statut": "rejete_sensible",
+    "date": "2026-08-14T04:51:04",
+    "sujet_sensible": true,
+    "raison": "l'article implique une affaire pénale en cours visant une personne",
+    "article_type": "breve",
+    "titre": "Grâce présidentielle pour l'agent de la DGSE Yann Vézilier au Mali",
+    "n_sources": 7,
+    "n_mots": 109,
+    "titre_rss": "Yann Vézilier, l’agent de la DGSE condamné au Mali à vingt ans de prison, a été gracié",
+    "matiere_faits_distincts": 745,
+    "matiere_redondance": 0.1,
+    "matiere_donnees_chiffrees": 2,
+    "n_sources_injectees": 9,
+    "n_sources_trouvees": 9,
+    "n_sources_pertinentes": 9
+  },
+  {
+    "slug": "asteroide-ryugu-secrets-origines",
+    "statut": "rejete_qualite",
+    "date": "2026-08-14T04:56:19",
+    "angle_insuffisant": true,
+    "raison": "L'article ne contient pas d'événement daté récent lié à une donnée chiffrée ou nommée propre à cet événement",
+    "article_type": "breve",
+    "titre": "L'astéroïde Ryugu et les secrets de nos origines",
+    "n_sources": 4,
+    "n_mots": 127,
+    "titre_rss": "L’image qui a stupéfié le monde : ce tas de roches spatiales cache les traces de nos origines",
+    "matiere_faits_distincts": 758,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 4,
+    "n_sources_injectees": 8,
+    "n_sources_trouvees": 8,
+    "n_sources_pertinentes": 3
+  },
+  {
+    "slug": "secheresse-france-pluies-extremes-afrique-est",
+    "statut": "rejete_qualite",
+    "date": "2026-08-14T04:58:42",
+    "angle_insuffisant": true,
+    "raison": "L'article ne fournit pas d'information spécifique sur un événement récent lié à la sécheresse en France ou aux pluies extrêmes en Afrique de l'Est, et ne relie pas clairement ces phénomènes à des données chiffrées ou nommées récentes.",
+    "article_type": "breve",
+    "titre": "Sécheresse en France et pluies extrêmes en Afrique de l'Est",
+    "n_sources": 7,
+    "n_mots": 167,
+    "titre_rss": "Sécheresse en France et pluies extrêmes à 10 000 km : ce que cache ce grand écart climatique",
+    "matiere_faits_distincts": 1190,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "n_sources_pertinentes": 6
+  },
+  {
+    "slug": "eclipse-solaire-12-aout",
+    "statut": "corrige_automatiquement",
+    "date": "2026-08-14T04:59:15",
+    "problemes_initiaux": 4,
+    "tentatives": 1,
+    "problemes_residuels_style": 5,
+    "rapport_initial": {
+      "conforme": false,
+      "sujet_sensible": false,
+      "sujet_sensible_raison": "",
+      "angle_insuffisant": false,
+      "angle_insuffisant_raison": "",
+      "nature_contenu": "actualite_factuelle",
+      "problemes": [
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "Des funambules ont profité de l'occasion pour réaliser des prouesses exceptionnelles, comme celui qui a évolué au-dessus du vide pendant l'éclipse solaire.",
+          "explication": "La source 'National Geographic' est utilisée pour décrire un funambule, mais elle date de 2017 et ne concerne pas l'éclipse solaire du 12 août."
+        },
+        {
+          "bloc": 2,
+          "section": "nuances",
+          "type": "source_inventee",
+          "phrase_exacte": "D'après Lemediaen442, il y a eu une pénurie de lunettes de protection et des arnaques ont été signalées.",
+          "explication": "La source 'Lemediaen442' n'est pas une source autorisée pour les informations sur les arnaques et la pénurie de lunettes de protection."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "fait_tranche_arbitrairement",
+          "phrase_exacte": "L'éclipse solaire du 12 août a commencé entre 19 h 19 et 19 h 31 selon les régions, avec un maximum atteint entre 20 h 14 et 20 h 27.",
+          "explication": "Les heures de début et de maximum de l'éclipse solaire ne sont pas précisées pour chaque région, ce qui peut prêter à confusion."
+        },
+        {
+          "bloc": 4,
+          "section": "contexte",
+          "type": "redondance",
+          "phrase_exacte": "L'éclipse solaire du 12 août n'est pas un événement unique, mais fait partie d'une série d'éclipses solaires qui se produisent régulièrement.",
+          "explication": "Cette phrase répète l'information déjà présente dans les faits et n'apporte pas de nouveau contenu."
+        }
+      ]
+    },
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "faits_repetitifs"
+    ],
+    "titre": "Éclipse solaire du 12 août : un événement astronomique exceptionnel",
+    "n_sources": 5,
+    "n_mots": 364,
+    "titre_rss": "Funambules : sur le fil de l'éclipse",
+    "matiere_faits_distincts": 707,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 7,
+    "n_sources_trouvees": 7,
+    "n_sources_pertinentes": 6
   }
 ]
