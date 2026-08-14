@@ -416,6 +416,73 @@ def rapport(journal: dict) -> None:
     print("  C'est cette réponse qui décide si l'idée tient, pas une intuition.\n")
 
 
+def signal_editorial(urls: list[str]) -> dict[str, dict]:
+    """Signal d'importance du journal de veille, pour une liste d'URLs.
+
+    ── PHASE 2, 14/08 : la veille cesse d'être purement passive ──────────────
+
+    Ce qui est rendu est EXACT, pas heuristique. L'appariement se fait par URL
+    canonique — les candidats du pipeline viennent des mêmes flux que la
+    veille, donc leur URL est littéralement une clé du journal. Aucun
+    rapprochement approximatif n'intervient ici.
+
+    Les deux mesures rendues sont per-item et ne dépendent d'AUCUN
+    regroupement :
+
+      passages       — nombre de passages horaires où l'article était encore
+                       dans son flux ;
+      heures_visible — durée entre la première et la dernière vue.
+
+    C'est un choix de conception, pas un repli. Le nombre de rédactions qui
+    couvrent un fait serait un signal plus riche, mais il exige de regrouper
+    les articles, et le backtest du 13/08 a montré que notre regroupement
+    fusionne des sujets sans rapport. Or un regroupement erroné GONFLE ce
+    compteur : un seuil haut y est donc PLUS exposé qu'un seuil bas, pas
+    moins. Bâtir la sélection dessus reviendrait à faire confiance à la mesure
+    la plus fragile au moment précis où elle décide.
+
+    La persistance dit la même chose autrement : un fait qui compte reste dans
+    les fils plusieurs heures, un communiqué disparaît au passage suivant. Elle
+    se lit sur un item isolé, sans jamais rien rapprocher.
+
+    `n_flux_grappe` est rendu pour être JOURNALISÉ, jamais pour décider :
+    quelques runs diront lequel des deux signaux prédit réellement la
+    publication, et c'est cette mesure qui tranchera.
+
+    Ne lève jamais : journal absent, illisible ou vide → dictionnaire vide, et
+    l'appelant retombe sur son barème d'origine.
+    """
+    try:
+        journal = charger()
+        items = journal.get("items", {})
+        if not items:
+            return {}
+        grappes = _grouper_membres(items)
+        flux_par_cle = {}
+        for membres in grappes.values():
+            n = len({f for k in membres for f in items[k].get("flux", [])})
+            for k in membres:
+                flux_par_cle[k] = n
+        maintenant = datetime.now(timezone.utc)
+        out: dict[str, dict] = {}
+        for url in urls:
+            cle = url_canonique(url)
+            v = items.get(cle)
+            if not v:
+                continue
+            p, d = _parse(v.get("premiere_vue")), _parse(v.get("derniere_vue"))
+            out[url] = {
+                "passages": int(v.get("passages", 1)),
+                "heures_visible": round((d - p).total_seconds() / 3600, 1) if p and d else 0.0,
+                "age_h": round((maintenant - p).total_seconds() / 3600, 1) if p else 0.0,
+                "n_flux_grappe": flux_par_cle.get(cle, 1),
+            }
+        return out
+    except Exception as e:  # noqa: BLE001
+        print(f"[VEILLE] signal indisponible ({type(e).__name__}) — barème d'origine")
+        return {}
+
+
 def main() -> int:
     ap = argparse.ArgumentParser(description=__doc__)
     ap.add_argument("--rapport", action="store_true",

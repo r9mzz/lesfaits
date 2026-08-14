@@ -13,11 +13,38 @@ disponible ») : ce signal est **inutilisable sur une photo**, puisqu'à 3 h du
 matin une dépêche tombée il y a dix minutes n'a été reprise par personne et
 ressemble à un sujet mort. C'est le TEMPS qui les sépare.
 
+**PHASE 2 BRANCHÉE LE 14/08** — la veille alimente désormais la sélection, via
+`signal_editorial()`. Ce qui a été branché, et surtout ce qui ne l'a PAS été :
+
+- **on utilise la PERSISTANCE, pas le nombre de rédactions.** Un fait qui
+  compte reste plusieurs heures dans les fils, un communiqué disparaît au
+  passage suivant. Cette valeur se lit sur un item ISOLÉ, appariée par URL
+  canonique — l'URL du candidat est littéralement une clé du journal, aucun
+  rapprochement approximatif n'intervient ;
+- **le nombre de rédactions est journalisé, jamais utilisé.** Il serait plus
+  riche, mais il exige le regroupement, et le backtest du 13/08 a montré que
+  celui-ci fusionne des sujets sans rapport. ⚠ Un regroupement erroné GONFLE ce
+  compteur : un seuil HAUT y est donc PLUS exposé qu'un seuil bas, pas moins.
+  C'est l'inverse de l'intuition, et c'est ce qui a fait écarter la première
+  conception. Quelques runs diront lequel des deux signaux prédit la
+  publication ;
+- **DEUX conditions, jamais la persistance seule.** `heures_visible` grandit
+  mécaniquement avec l'âge : une page permanente laissée trois jours dans un
+  flux atteindrait le palier maximum. Mesuré sur 2 908 items — persistant ET
+  récent : 737 ; persistant MAIS vieux : 1 156. Sans la borne
+  `VEILLE_AGE_MAX_H = 36`, le bonus irait à une majorité de faux positifs ;
+- **BONUS, jamais malus.** Un candidat absent du journal garde son score
+  d'origine : la veille ne peut qu'ajouter de l'information, jamais en retirer
+  à un sujet qu'elle n'a pas vu. Journal absent, illisible ou vide → aucun
+  signal, aucune exception, barème d'origine.
+
 `scripts/veille.py` + `.github/workflows/veille.yml` (cron horaire) :
 
 - **coût zéro token Groq** — uniquement la lecture des flux RSS ;
-- **n'influence AUCUNE décision** : le pipeline ne lit pas `data/veille.json`,
-  et rien d'autre non plus. Étanchéité verrouillée par un test ;
+- **n'écrit que son journal et ne consomme aucun jeton** — propriété
+  verrouillée par un test. (L'étanchéité « le pipeline ne lit pas
+  data/veille.json » était la garantie de la PHASE 1 ; elle est levée depuis le
+  14/08, remplacée par les garanties ci-dessus.) ;
 - le journal garde **chaque item séparément** avec `premiere_vue`,
   `derniere_vue`, `passages` et la liste des flux qui l'ont repris. Le
   regroupement en « événements » est **recalculé à chaque rapport, jamais

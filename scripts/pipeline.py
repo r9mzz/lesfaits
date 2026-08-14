@@ -1803,6 +1803,14 @@ def _est_procedure_penale_personne(texte: str) -> int:
     return 1 if _PROCEDURE_PENALE_RE.search(texte or "") else 0
 
 
+# Âge maximum d'un sujet pour que la persistance lui vaille un bonus. Au-delà,
+# l'article n'est plus une actualité même s'il traîne encore dans les fils —
+# voir la mesure dans `selectionner_meilleurs`. Le pipeline tournant deux fois
+# par jour, 36 h laissent passer deux créneaux : un sujet monté dans la nuit
+# reste éligible au run du lendemain soir.
+VEILLE_AGE_MAX_H = 36
+
+
 def selectionner_meilleurs(
     candidats: list[dict],
     nb_max: int = 10,
@@ -1828,11 +1836,77 @@ def selectionner_meilleurs(
     Un malus de score aurait été plus simple mais aurait valu exclusion — sous
     le seuil de 20, un candidat moyen pénalisé disparaît du vivier.
     """
+    # ── SIGNAL DE VEILLE — phase 2, 14/08 ────────────────────────────────────
+    # Le barème note la FORME d'un candidat : source connue, fraîcheur,
+    # longueur, densité de chiffres. Rien n'y mesure si le fait COMPTE. C'est
+    # la cause mesurée du goulot — 64 % des rejets qualité sont des sujets
+    # jugés creux, après ~35 000 jetons dépensés.
+    #
+    # La veille apporte enfin cette mesure, et on la branche sur ce qu'elle a
+    # d'EXACT : la persistance d'un article dans les fils. Un fait qui compte y
+    # reste plusieurs heures ; un communiqué disparaît au passage suivant.
+    # Cette valeur se lit sur un item isolé, appariée par URL canonique, sans
+    # aucun rapprochement approximatif.
+    #
+    # On n'utilise DÉLIBÉRÉMENT pas le nombre de rédactions couvrant le fait,
+    # qui serait pourtant plus riche : il exige de regrouper les articles, et
+    # le backtest du 13/08 a montré que notre regroupement fusionne des sujets
+    # sans rapport. Un regroupement erroné GONFLE ce compteur — un seuil haut y
+    # est donc plus exposé qu'un seuil bas. Il est journalisé, pas utilisé :
+    # quelques runs diront lequel des deux prédit la publication.
+    #
+    # BONUS, jamais malus. Un candidat absent du journal (flux ajouté depuis,
+    # dépêche parue entre deux passages, veille jamais lancée) garde son score
+    # d'origine : la veille ne peut qu'ajouter de l'information, jamais en
+    # retirer à un sujet qu'elle n'a pas vu.
+    try:
+        from veille import signal_editorial
+        _sig = signal_editorial([i.get("url", "") for i in candidats if i.get("url")])
+    except Exception as e:  # noqa: BLE001
+        print(f"     [VEILLE] signal indisponible ({type(e).__name__}) — barème seul")
+        _sig = {}
+
+    if _sig:
+        _vus = 0
+        for i in candidats:
+            s = _sig.get(i.get("url", ""))
+            if not s:
+                continue
+            _vus += 1
+            # DEUX conditions, jamais la persistance seule.
+            #
+            # `heures_visible` grandit mécaniquement avec l'âge : une page
+            # permanente laissée trois jours dans un flux atteindrait le palier
+            # maximum sans rien avoir d'une actualité — précisément le sujet de
+            # magazine que le fact-checker recale ensuite pour « angle
+            # insuffisant ». Mesuré sur les 2 908 items du journal :
+            #
+            #   persistant (>=6 h) ET récent (<=36 h)   737    ← signal
+            #   persistant MAIS vieux                  1156    ← bruit
+            #
+            # Sans la borne d'âge, le bonus irait à une majorité de faux
+            # positifs. C'est la règle « confirmé ET frais » établie le 13/08,
+            # appliquée ici pour la première fois.
+            #
+            # Paliers volontairement grossiers : la mesure est jeune (70 h), et
+            # un barème fin sur des données jeunes est une précision inventée.
+            h = s["heures_visible"]
+            bonus = 0 if s["age_h"] > VEILLE_AGE_MAX_H else 25 if h >= 6 else 15 if h >= 2 else 0
+            i["_score"] = i.get("_score", 0) + bonus
+            i["_veille"] = s
+            if bonus:
+                i.setdefault("_reasons", []).append(
+                    f"veille : visible {h:.0f} h (+{bonus})")
+        print(f"     [VEILLE] {_vus}/{len(candidats)} candidats retrouvés dans le journal, "
+              f"{sum(1 for i in candidats if i.get('_veille', {}).get('heures_visible', 0) >= 6)} "
+              f"persistants (>=6 h)")
+
     # `sorted` est stable : à statut égal l'ordre par score est préservé.
     candidats = sorted(
         candidats,
-        key=lambda i: _est_procedure_penale_personne(
+        key=lambda i: (_est_procedure_penale_personne(
             f"{i.get('title', '')} {i.get('content', '')[:600]}"),
+            -i.get("_score", 0)),
     )
 
     selection = []

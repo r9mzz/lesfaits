@@ -195,8 +195,13 @@ verifie("le chaînage transitif est coupé",
         max(c["n_items"] for c in grappes) <= 2,
         f"(obtenu : {sorted(c['n_items'] for c in grappes)})")
 
-# ── 6. Le pipeline n'est pas touché ──────────────────────────────────────────
-# Garantie centrale de la phase 1 : la veille observe, elle ne décide rien.
+# ── 6. Étanchéité, et ce qui a changé en phase 2 ─────────────────────────────
+# Phase 1 (12/08) : la veille observait sans rien décider, et un test
+# verrouillait le fait que le pipeline ne la lisait pas. Phase 2 (14/08) : elle
+# alimente désormais la sélection via `signal_editorial`. Ce qui reste
+# verrouillé, c'est ce qui doit l'être — elle n'écrit que son journal, ne
+# consomme aucun jeton, et ne peut que BONIFIER un candidat, jamais le
+# pénaliser ni le supprimer.
 print("\n6. Étanchéité avec le pipeline")
 verifie("veille.py n'écrit que dans data/veille.json",
         "veille.json" in str(V.JOURNAL))
@@ -206,6 +211,40 @@ verifie("aucun appel Groq dans la veille",
 verifie("la veille ne modifie aucun attribut du pipeline",
         " P." not in source.replace("import pipeline as P", "")
         or all(f"P.{a} =" not in source for a in ("RSS_SOURCES", "fetch_rss", "SYSTEM_PROMPT")))
+
+# ── 7. Signal éditorial (phase 2) ────────────────────────────────────────────
+print("\n7. Signal éditorial rendu au pipeline")
+h_now = datetime.now(timezone.utc)
+
+
+def _item(heures_visible, age_h, flux=("A",)):
+    p = (h_now - timedelta(hours=age_h)).isoformat(timespec="seconds")
+    d = (h_now - timedelta(hours=age_h - heures_visible)).isoformat(timespec="seconds")
+    return {"titre": "T", "flux": list(flux), "premiere_vue": p, "derniere_vue": d,
+            "passages": 3, "date_pub": "", "categorie_teaser": "societe"}
+
+
+with tempfile.TemporaryDirectory() as d:
+    V.JOURNAL = Path(d) / "veille.json"
+    V.enregistrer({"items": {
+        "https://a.fr/persistant-recent": _item(8, 10),
+        "https://a.fr/eclair": _item(0.5, 1),
+    }, "passages": []})
+
+    sig = V.signal_editorial(["https://www.a.fr/persistant-recent?utm_source=x",
+                              "https://a.fr/eclair", "https://a.fr/jamais-vu"])
+    verifie("appariement par URL canonique, tracking et www ignorés",
+            "https://www.a.fr/persistant-recent?utm_source=x" in sig)
+    verifie("une URL inconnue n'est pas inventée", "https://a.fr/jamais-vu" not in sig)
+    s_p = sig["https://www.a.fr/persistant-recent?utm_source=x"]
+    verifie("la persistance est mesurée", s_p["heures_visible"] >= 7.5,
+            f"(obtenu : {s_p['heures_visible']})")
+    verifie("l'âge est mesuré", 9 <= s_p["age_h"] <= 11, f"(obtenu : {s_p['age_h']})")
+
+    # Journal absent : aucun signal, aucune exception — le pipeline garde son
+    # barème d'origine.
+    V.JOURNAL = Path(d) / "inexistant.json"
+    verifie("journal absent → signal vide, sans exception", V.signal_editorial(["x"]) == {})
 
 print()
 if echecs:
