@@ -2615,6 +2615,71 @@ def _mots_totaux(art: dict) -> int:
     return mots
 
 
+def _supprimer_phrases_identiques(art: dict) -> int:
+    """Retire les phrases répétées MOT POUR MOT dans l'article.
+
+    Variante stricte de `_supprimer_phrases_dupliquees`, destinée au chemin
+    COMMUN de publication — donc appliquée à tous les articles, corrigés ou
+    validés du premier coup.
+
+    Mesuré le 15/08 sur les 161 articles longs publiés : 43 contiennent une
+    phrase entière dupliquée à l'identique. Exemple réellement en ligne, deux
+    fois dans le même article :
+
+        « La gestion sanitaire des vagues de chaleur est un enjeu important
+          pour les autorités de santé. »
+
+    La comparaison ignore la casse, les accents, la ponctuation et les espaces
+    — « Selon l'Insee, X. » et « Selon l’Insee, X ! » sont la même phrase — mais
+    RIEN d'autre. Deux phrases qui disent la même chose avec des mots
+    différents sont conservées : les traiter relève de la réécriture, pas d'une
+    réparation déterministe, et c'est précisément là que la variante permissive
+    fait des dégâts quand on l'applique partout.
+
+    La PREMIÈRE occurrence est toujours gardée, dans l'ordre de lecture
+    (résumé → faits → contexte → nuances). Le résumé n'est jamais modifié : il
+    sert de référence, une phrase du corps qui le recopie mot pour mot saute.
+    """
+    def _cle(p: str) -> str:
+        s = unicodedata.normalize("NFD", p.lower())
+        s = "".join(c for c in s if unicodedata.category(c) != "Mn")
+        return re.sub(r"[^a-z0-9]+", "", s)
+
+    corps = art.get("corps", {}) or {}
+    resume = art.get("resume") or []
+    if isinstance(resume, str):
+        resume = [resume]
+    vues = set()
+    for r in resume:
+        for p in re.split(r"(?<=[.!?])\s+", str(r or "")):
+            if len(p.strip()) > 40:
+                vues.add(_cle(p))
+
+    n_supp = 0
+    for section in ("faits", "contexte", "nuances"):
+        texte = corps.get(section, "") or ""
+        conservees = []
+        for p in re.split(r"(?<=[.!?])\s+", texte):
+            p = p.strip()
+            if not p:
+                continue
+            # Les phrases courtes (transitions, énoncés d'une poignée de mots)
+            # ne sont pas dédoublonnées : une répétition y est souvent
+            # légitime, et le risque de couper du sens dépasse le gain.
+            if len(p) <= 40:
+                conservees.append(p)
+                continue
+            k = _cle(p)
+            if k in vues:
+                n_supp += 1
+                continue
+            vues.add(k)
+            conservees.append(p)
+        if n_supp:
+            corps[section] = " ".join(conservees)
+    return n_supp
+
+
 def _supprimer_phrases_dupliquees(art: dict) -> int:
     """Réparation déterministe post-correction : supprime, dans le corps,
     toute phrase quasi identique à une phrase déjà conservée plus haut dans
@@ -8143,6 +8208,59 @@ def generer_article(item: dict, dry_run: bool, published: set, new_pub: set, dat
         # article sur le bannissement de Huawei des réseaux télécoms (28/07) et
         # un article sur la CAN féminine (26/07). Repli sur la catégorie issue
         # du RSS si le texte généré ne déclenche aucun mot-clé.
+        # ── Dédoublonnage FINAL, quel que soit le statut de vérification ─────
+        #
+        # Mesuré le 15/08 sur les 161 articles longs publiés : 107 déclenchent
+        # `faits_repetitifs`, et **43 contiennent une phrase entière dupliquée
+        # mot pour mot**. Exemple réellement en ligne, deux fois à l'identique
+        # dans le même article :
+        #
+        #   « La gestion sanitaire des vagues de chaleur est un enjeu important
+        #     pour les autorités de santé. »
+        #
+        # La réparation existait pourtant depuis le 18/07 — mais elle vivait
+        # dans la branche `if statut_verif == "corrige_automatiquement"`. Un
+        # article validé du PREMIER coup ne passait donc jamais dessus, et
+        # c'est le cas le plus fréquent aujourd'hui. Le nettoyage était réservé
+        # aux articles qu'on avait dû corriger, c'est-à-dire précisément à ceux
+        # qui en avaient le moins besoin une fois corrigés.
+        #
+        # Le placer ici, dans le chemin COMMUN, le rend inconditionnel. Il est
+        # déterministe, ne coûte aucun jeton, et ne peut que RETIRER une
+        # répétition littérale — jamais réécrire une phrase ni en inventer une.
+        #
+        # Le plancher de mots est revérifié juste après : si supprimer les
+        # doublons fait passer l'article sous le seuil, c'est que la
+        # duplication masquait un article creux, et il n'est pas publié. C'est
+        # la stratégie « réparer, pas éradiquer » (Nahil, 18/07), appliquée
+        # cette fois à tous les articles.
+        # ⚠ On appelle ici la variante STRICTE, pas
+        # `_supprimer_phrases_dupliquees`. Cette dernière traite les phrases
+        # « quasi identiques » (3 quintuplets communs, ou 62 % de similarité) —
+        # seuils tolérables sur les seuls articles corrigés, mais destructeurs
+        # appliqués à tous : mesuré sur le corpus, elle nettoie 131 articles
+        # sur 161 en retirant 154 mots en médiane, et sur
+        # `bulle-froide-atlantique` elle supprime 3 des 4 phrases de
+        # « Contexte » — dont des phrases qui ne sont pas des doublons mais
+        # simplement proches, deux énoncés sur l'AMOC dépassant facilement
+        # 62 % de similarité.
+        #
+        # Un seuil calibré pour un cas rare devient un massacre appliqué au cas
+        # général. On ne retient donc que l'indiscutable : la phrase répétée
+        # MOT POUR MOT, qu'aucune relecture ne défendrait.
+        _n_dup = _supprimer_phrases_identiques(art)
+        if _n_dup:
+            print(f"     [RÉPARATION] {_n_dup} phrase(s) répétée(s) mot pour mot "
+                  f"supprimée(s) (statut « {statut_verif} »)")
+            _mots_apres_dedup = _mots_totaux(art)
+            _plancher = SEUILS_FORMAT.get(
+                "breve" if article_type == "breve" else "article", {}).get("plancher", 0)
+            if _plancher and _mots_apres_dedup < _plancher:
+                print(f"     [REJET] {_mots_apres_dedup} mots après retrait des "
+                      f"doublons (plancher {_plancher}) — la duplication masquait "
+                      f"un article creux, non publié")
+                return False
+
         _corps_cat = art.get("corps", {}) or {}
         _resume_cat = art.get("resume", "")
         if isinstance(_resume_cat, list):
