@@ -8835,5 +8835,114 @@
     "n_sources_injectees": 7,
     "n_sources_trouvees": 7,
     "n_sources_pertinentes": 6
+  },
+  {
+    "slug": "femme-retrouvee-morte-hopital-val-de-marne",
+    "statut": "rejete_sensible",
+    "date": "2026-08-14T13:54:08",
+    "sujet_sensible": true,
+    "raison": "l'article implique une affaire pénale en cours visant une personne (la femme retrouvée morte) et une enquête judiciaire",
+    "article_type": "breve",
+    "avertissements_garde_fous": [
+      "resume_repete_corps"
+    ],
+    "titre": "Femme retrouvée morte dans la chaufferie d'un hôpital du Val-de-Marne",
+    "n_sources": 3,
+    "n_mots": 163,
+    "titre_rss": "Une femme a été retrouvée morte dans la chaufferie d’un hôpital du Val-de-Marne",
+    "matiere_faits_distincts": 383,
+    "matiere_redondance": 0.09,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10
+  },
+  {
+    "slug": "edgar-morin-pensee-complexe",
+    "statut": "rejete_qualite",
+    "date": "2026-08-14T13:56:05",
+    "angle_insuffisant": true,
+    "raison": "L'article ne répond pas à la question « Quel est l'héritage d'Edgar Morin pour les sciences humaines et sociales ? » de manière spécifique et datée, mais plutôt présente une vue générale de son œuvre et de son influence.",
+    "article_type": "actu",
+    "titre": "Edgar Morin, père de la pensée complexe",
+    "n_sources": 4,
+    "n_mots": 473,
+    "titre_rss": "Ce que les sciences sociales doivent à Edgar Morin",
+    "matiere_faits_distincts": 788,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "n_sources_pertinentes": 1
+  },
+  {
+    "slug": "etude-arctique-annulee",
+    "statut": "corrige_automatiquement",
+    "date": "2026-08-14T13:57:06",
+    "problemes_initiaux": 4,
+    "tentatives": 3,
+    "problemes_residuels_style": 3,
+    "rapport_initial": {
+      "conforme": false,
+      "sujet_sensible": false,
+      "sujet_sensible_raison": "",
+      "angle_insuffisant": false,
+      "angle_insuffisant_raison": "",
+      "nature_contenu": "actualite_factuelle",
+      "problemes": [
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "fait_tranche_arbitrairement",
+          "phrase_exacte": "Les chercheurs dénoncent une nouvelle attaque contre la science du climat aux États-Unis.",
+          "explication": "La phrase présente une interprétation des chercheurs comme un fait établi, sans attribution explicite."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "niveau_preuve_insuffisant",
+          "phrase_exacte": "L'étude sur l'Arctique était considérée comme un rapport de référence pour comprendre les impacts du changement climatique dans la région.",
+          "explication": "La phrase ne précise pas le niveau de preuve ou les limites de l'étude, ce qui est essentiel pour comprendre son importance."
+        },
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "source_non_editoriale",
+          "phrase_exacte": "Selon France Info, le dernier rapport en date, publié en 2025, faisait état d'une région confrontée à son année la plus chaude jamais enregistrée.",
+          "explication": "La source utilisée est un article de presse, mais il n'est pas clair si l'information provient d'une source primaire ou d'une étude scientifique."
+        },
+        {
+          "bloc": 4,
+          "section": "contexte",
+          "type": "section_gonflee",
+          "phrase_exacte": "",
+          "explication": "La section 'contexte' est vide, ce qui pourrait indiquer un manque de contexte ou de mise en perspective."
+        }
+      ]
+    },
+    "article_type": "breve",
+    "titre": "L'administration Trump annule une étude sur l'Arctique",
+    "n_sources": 3,
+    "n_mots": 115,
+    "titre_rss": "L'administration Trump annule une étude sur l'Arctique, les chercheurs dénoncent une nouvelle attaque contre la science du climat aux Etats-Unis",
+    "matiere_faits_distincts": 11,
+    "matiere_redondance": 0.72,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10
+  },
+  {
+    "slug": "inflation-france-juillet-2026",
+    "statut": "conforme_du_premier_coup",
+    "date": "2026-08-14T13:57:49",
+    "article_type": "breve",
+    "titre": "Inflation à 2,1% en France sur un an en juillet",
+    "n_sources": 4,
+    "n_mots": 215,
+    "titre_rss": "L’Insee confirme une inflation à 2,1 % en France sur un an en juillet",
+    "matiere_faits_distincts": 653,
+    "matiere_redondance": 0.03,
+    "matiere_donnees_chiffrees": 2,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10
   }
 ]
