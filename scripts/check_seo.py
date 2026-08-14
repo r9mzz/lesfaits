@@ -65,7 +65,22 @@ def classes_sans_css(pages_html: list[Path], style_css: str) -> dict[str, list[s
     manquantes: dict[str, list[str]] = {}
     for path in pages_html:
         html = path.read_text(encoding="utf-8", errors="replace")
-        inline_css = "".join(re.findall(r"<style>(.*?)</style>", html, re.S))
+        # `<style[^>]*>` et non `<style>` : la balise porte souvent un attribut.
+        #
+        # Défaut du 14/08 — ce garde-fou a bloqué le déploiement du premier
+        # article publié après neuf jours d'arrêt, en signalant `.cite-ref`
+        # « sans CSS trouvée nulle part ». La règle existait pourtant bien dans
+        # la page, injectée par la couche vitrine dans un
+        # `<style id="lf-citations">` : le motif exigeait une balise nue et ne
+        # la voyait pas.
+        #
+        # Ce n'était donc pas une classe non stylée mais un angle mort du
+        # contrôle — et il aurait bloqué TOUS les futurs articles à citations
+        # numérotées, format par défaut depuis le 05/08. La bonne correction
+        # est ici, jamais dans `CLASSES_HOOK_SANS_CSS` : y inscrire `.cite-ref`
+        # aurait fait taire l'alerte en laissant le contrôle aveugle à toute
+        # feuille inline portant un attribut.
+        inline_css = "".join(re.findall(r"<style[^>]*>(.*?)</style>", html, re.S))
         classes_dispo = classes_globales | _classes_definies(inline_css) | CLASSES_HOOK_SANS_CSS
         for classattr in re.findall(r'class="([^"]+)"', html):
             for c in classattr.split():
