@@ -12,7 +12,6 @@ import re
 import sys
 
 import run_pipeline as legacy
-import verification as verification_module
 
 
 _original_prepared_pipeline_source = legacy._prepared_pipeline_source
@@ -31,6 +30,8 @@ def _patch_verification_evidence_scope() -> None:
     Le patch ne retire que le faux critère de phase/stade lorsqu'il n'existe pas
     par nature.
     """
+    import verification as verification_module
+
     old = (
         '- niveau_preuve_insuffisant : article médical ou scientifique qui présente un résultat d\'essai comme une efficacité acquise. '
         'Est un problème si l\'une de ces conditions est vraie : (a) le stade de la recherche (phase 1/1b/2/3, préclinique, étude observationnelle) '
