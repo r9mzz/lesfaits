@@ -1912,13 +1912,47 @@ def selectionner_meilleurs(
     selection = []
     compteur  = {}
 
+    # UN SEUL SUJET PAR ÉVÉNEMENT DANS UN MÊME RUN.
+    #
+    # Constat du 14/08, en rejouant la sélection sur les 863 dépêches du jour :
+    # la censure par le Conseil constitutionnel de l'interdiction des réseaux
+    # sociaux aux moins de 15 ans occupait SIX des onze premières places, sous
+    # six titres différents — « Les Sages ont censuré », « le Conseil
+    # constitutionnel censure », « l'interdiction s'effondre »… Sur un run à six
+    # tentatives, c'était le run entier consacré à un seul fait, et six articles
+    # quasi identiques publiés dans la même heure.
+    #
+    # Le filtre anti-doublon historique ne pouvait pas les voir : il compare les
+    # MOTS DES TITRES, et six rédactions couvrant la même décision écrivent six
+    # titres sans mot distinctif commun. C'est le quatrième défaut de cette
+    # famille depuis juillet, et CLAUDE.md interdit d'en tenter un cinquième
+    # rustinage par les titres.
+    #
+    # La veille, elle, les compte DÉJÀ ensemble : elle les a regroupés. Le
+    # pipeline ne le savait pas parce qu'il ne le lui demandait pas. On lui
+    # demande.
+    #
+    # ⚠ Le regroupement est imparfait et documenté comme tel. Ici, cela n'a
+    # PAS la même gravité qu'ailleurs : un regroupement trop large ne fait que
+    # reporter un sujet au run suivant, jamais publier un doublon. Le risque est
+    # borné du bon côté — c'est ce qui rend ce branchement acceptable alors
+    # qu'on refuse d'utiliser le même regroupement pour le bonus de score.
+    grappes_vues: set = set()
+
     for item in candidats:
         if len(selection) >= nb_max:
             break
         cat = item.get("_cat", "societe")
         if compteur.get(cat, 0) >= QUOTA_PAR_CATEGORIE.get(cat, quota_cat):
             continue
+        _grappe = (item.get("_veille") or {}).get("grappe")
+        if _grappe and _grappe in grappes_vues:
+            print(f"     [DOUBLON RUN] même événement déjà retenu — "
+                  f"« {item.get('title', '')[:64]} »")
+            continue
         selection.append(item)
+        if _grappe:
+            grappes_vues.add(_grappe)
         compteur[cat] = compteur.get(cat, 0) + 1
 
     return selection

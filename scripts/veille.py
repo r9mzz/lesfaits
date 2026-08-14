@@ -458,11 +458,12 @@ def signal_editorial(urls: list[str]) -> dict[str, dict]:
         if not items:
             return {}
         grappes = _grouper_membres(items)
-        flux_par_cle = {}
-        for membres in grappes.values():
+        flux_par_cle, chef_par_cle = {}, {}
+        for chef, membres in grappes.items():
             n = len({f for k in membres for f in items[k].get("flux", [])})
             for k in membres:
                 flux_par_cle[k] = n
+                chef_par_cle[k] = chef
         maintenant = datetime.now(timezone.utc)
         out: dict[str, dict] = {}
         for url in urls:
@@ -472,6 +473,11 @@ def signal_editorial(urls: list[str]) -> dict[str, dict]:
                 continue
             p, d = _parse(v.get("premiere_vue")), _parse(v.get("derniere_vue"))
             out[url] = {
+                # Identifiant de la grappe : sert au pipeline à ne pas retenir
+                # DEUX sujets du même événement dans un même run (14/08 — six
+                # dépêches sur la censure de l'interdiction des réseaux sociaux
+                # occupaient six des onze premières places).
+                "grappe": chef_par_cle.get(cle, cle),
                 "passages": int(v.get("passages", 1)),
                 "heures_visible": round((d - p).total_seconds() / 3600, 1) if p and d else 0.0,
                 "age_h": round((maintenant - p).total_seconds() / 3600, 1) if p else 0.0,
