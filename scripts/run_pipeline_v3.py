@@ -17,6 +17,41 @@ import run_pipeline as legacy
 _original_prepared_pipeline_source = legacy._prepared_pipeline_source
 
 
+def _patch_verification_evidence_scope() -> None:
+    """Restreint le contrôle « stade de recherche » aux études qui en ont un.
+
+    Retour du run du 14/08 : une enquête démographique descriptive CSF-2023 a
+    été rejetée trois fois parce que le fact-checker exigeait une « phase » ou
+    un « stade de recherche ». Cette exigence a du sens pour un essai médical,
+    préclinique ou une étude d'efficacité, pas pour une enquête de population.
+
+    On ne désactive aucun contrôle de preuve : une enquête doit toujours donner
+    sa population, sa période, son échantillon et ses limites méthodologiques.
+    Le patch ne retire que le faux critère de phase/stade lorsqu'il n'existe pas
+    par nature.
+    """
+    import verification as verification_module
+
+    old = (
+        '- niveau_preuve_insuffisant : article médical ou scientifique qui présente un résultat d\'essai comme une efficacité acquise. '
+        'Est un problème si l\'une de ces conditions est vraie : (a) le stade de la recherche (phase 1/1b/2/3, préclinique, étude observationnelle) '
+        'n\'apparaît NI dans le résumé NI à côté du résultat principal alors que la source le précise ;'
+    )
+    new = (
+        '- niveau_preuve_insuffisant : article médical ou scientifique qui présente un résultat expérimental ou d\'efficacité avec un niveau de preuve plus fort que celui des sources. '
+        'Est un problème si l\'une de ces conditions est vraie : (a) POUR UN ESSAI, UNE ÉTUDE CLINIQUE, PRÉCLINIQUE OU D\'EFFICACITÉ, le stade de la recherche '
+        '(phase 1/1b/2/3, préclinique, observationnelle) n\'apparaît NI dans le résumé NI à côté du résultat principal alors que la source le précise. '
+        'NE PAS appliquer ce critère de « stade/phase » à une enquête descriptive, démographique, sociologique ou statistique qui n\'a pas de phase par nature ; '
+        'dans ce cas, contrôler à la place la population étudiée, la période, la taille/constitution de l\'échantillon et les limites méthodologiques ;'
+    )
+    prompt = verification_module.PROMPT_DETECTION
+    if prompt.count(old) != 1:
+        raise RuntimeError(
+            "Règle niveau_preuve_insuffisant introuvable ou dupliquée dans PROMPT_DETECTION"
+        )
+    verification_module.PROMPT_DETECTION = prompt.replace(old, new, 1)
+
+
 def _patch_subject_level_selection(source: str) -> str:
     pattern = re.compile(
         r"def selectionner_meilleurs\(\n"
@@ -111,4 +146,5 @@ legacy._prepared_pipeline_source = _prepared_pipeline_source_v3
 
 
 if __name__ == "__main__":
+    _patch_verification_evidence_scope()
     sys.exit(legacy.main())
