@@ -114,7 +114,32 @@ def test_la_reservation_suit_le_tpm_du_modele():
     assert reste > 2000
 
 
+def test_le_prompt_systeme_ne_grossit_pas_en_silence():
+    """Chaque règle ajoutée au prompt retire de la place pour écrire.
+
+    Le 15/08, une consigne de mise en paragraphes — utile, la consigne manquait
+    vraiment — a coûté +470 tokens sur une fenêtre déjà à zéro, sans que rien ne
+    le signale. C'est la panne silencieuse : le prompt grandit, la complétion
+    rétrécit, et personne ne fait le lien avec les articles tronqués.
+
+    Ce plafond n'interdit pas d'enrichir le prompt. Il oblige à le faire
+    SCIEMMENT : relever la constante ci-dessous est une décision, et le diff dit
+    combien de tokens d'écriture ont été échangés contre la nouvelle règle.
+    """
+    plafond = 6_700   # tokens — état du 15/08 : 6 601
+    _tpm = P._TPM_PAR_MODELE_GEN.get(P.GROQ_MODEL, 12_000)
+    for nom, prompt in (("actu", P.SYSTEM_PROMPT), ("brève", P.SYSTEM_PROMPT_BREVE)):
+        cout = int(len(prompt) / 3.3)
+        assert cout <= plafond, (
+            f"le prompt système {nom} pèse {cout} tokens (plafond {plafond}), "
+            f"soit {cout / _tpm:.0%} de la fenêtre de {_tpm} — autant de moins "
+            "pour écrire l'article. Si l'ajout est justifié, relever le plafond "
+            "dans ce test en disant ce qu'on échange."
+        )
+
+
 if __name__ == "__main__":
+    test_le_prompt_systeme_ne_grossit_pas_en_silence()
     test_configuration_nominale_laisse_de_quoi_ecrire()
     test_le_sujet_bien_source_n_est_pas_puni()
     test_le_nombre_de_sources_n_est_jamais_reduit()

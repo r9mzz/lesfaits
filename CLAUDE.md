@@ -187,6 +187,43 @@ calculé À REBOURS depuis la fenêtre, pour garantir 2 000 tokens d'écriture
 Après correctif : 1 940 à 2 340 tokens d'écriture dans tous les cas mesurés,
 contre 200 avant.
 
+### Le plancher du prompt contredisait la section devenue facultative
+
+Relevé par une session parallèle juste après le correctif « nuances
+conditionnelles » : `nuances` pouvait rester vide, mais les RÈGLES ABSOLUES
+exigeaient toujours « minimum 500 mots combinés (faits + contexte + nuances) »,
+sous la mention « toute violation = article rejeté ». **Une section facultative
+dans une somme obligatoire : la contrainte d'invention n'était pas supprimée,
+elle était déplacée sur `faits` et `contexte`.** Dont les minima propres
+disaient déjà 450 + 200 = 650, soit plus que les 500 exigés.
+
+Et l'arithmétique était de toute façon impossible : les premiers jets mesurés
+sur les runs réels font 235 à 333 mots. Même défaut que celui consigné au
+commentaire du budget de matière du 30/07 — « on demandait 500 mots sans
+extrapoler à partir de 300 ; le modèle s'arrêtait court, c'était la bonne
+réponse à une consigne impossible » — rejoué un cran plus haut.
+
+Aligné sur le plancher qui rejette RÉELLEMENT
+(`SEUILS_FORMAT["article"]["plancher"] = 350`), cible 800 rappelée, et les
+`MINIMUM n mots` des sections passés en `VISE n mots`. **Aucun garde-fou n'est
+touché** : le plancher de publication, l'étoffement et le rejet sous 350 mots
+sont inchangés. C'est le prompt qui cesse de réclamer ce que le budget interdit.
+Verrouillé par `scripts/test_nuances_conditionnelles.py` (section 5), qui lit
+le seuil dans `SEUILS_FORMAT` plutôt que de le recopier.
+
+### La croissance du prompt système est désormais une décision, pas un effet de bord
+
+Le 15/08, une consigne de mise en paragraphes — utile, elle manquait vraiment —
+a coûté **+470 tokens** sur une fenêtre déjà à zéro, sans que rien ne le
+signale. Tant que la fenêtre n'est pas une contrainte vérifiée, chaque bonne
+idée ajoutée au prompt retire silencieusement de la place à l'écriture, et
+personne ne fait le lien avec les articles tronqués.
+
+`test_fenetre_ecriture.py` plafonne donc le prompt système en tokens. Ce n'est
+pas une interdiction d'enrichir : relever le plafond est permis, mais devient
+un geste explicite, et le diff dit combien de tokens d'écriture ont été
+échangés contre la nouvelle règle.
+
 ⚠ **Ce que le correctif ne règle PAS, et qu'il faut lire dans le journal.** À
 12 000 tokens de fenêtre on ne peut pas avoir les deux : `[FENÊTRE] ⚠ plancher
 atteint` signale les sujets où la matière a été coupée jusqu'au plancher et où
