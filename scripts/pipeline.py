@@ -2012,6 +2012,15 @@ Ligne éditoriale absolue : "Juste les faits. Aucun parti pris."
 
 RÉPONDS UNIQUEMENT EN JSON VALIDE, sans texte avant ou après, sans bloc ```json.
 
+⚠ PARAGRAPHES — MÉCANISME OBLIGATOIRE (11/08) : dans "faits", "contexte" et
+"nuances", insère un caractère de saut de ligne (\n) entre chaque paragraphe.
+C'est le SEUL moyen technique de séparer visuellement les paragraphes à
+l'affichage — un texte de plus de 3-4 phrases sans aucun \n s'affiche comme UN
+SEUL bloc ininterrompu, illisible, quel que soit le nombre de phrases ou leur
+qualité individuelle. Découpe par IDÉE : un paragraphe = un fait principal ou
+un groupe de faits liés, jamais une simple liste de phrases juxtaposées sans
+lien. Une section de 450 mots tient normalement en 3 à 5 paragraphes.
+
 Format obligatoire :
 {
   "angle_reponse": "UNE question précise, formulée du point de vue du LECTEUR, à laquelle tout l'article va répondre — pas le thème du sujet, la question qu'il se pose en le lisant. Exemple sur un afflux migratoire massif : « Ce chiffre change-t-il quelque chose pour la France ? », pas « Que s'est-il passé ? ». Cette question dicte tout ce qui suit : les intertitres, le choix des faits à développer, la conclusion. Un article qui ne fait que résumer un sujet sans y répondre a échoué, même s'il est bien écrit.",
