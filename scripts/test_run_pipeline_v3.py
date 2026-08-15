@@ -118,11 +118,16 @@ def save(art, article_type):
         return True
 '''
     original = v3._original_prepared_pipeline_source
+    original_sources = v3._patch_trusted_sources
     try:
         v3._original_prepared_pipeline_source = lambda: source
+        # Le sourcing étendu possède son propre test structurel ; ici on isole
+        # la propriété « V3 ne remplace jamais la sélection native ».
+        v3._patch_trusted_sources = lambda text: text
         patched = v3._prepared_pipeline_source_v3()
     finally:
         v3._original_prepared_pipeline_source = original
+        v3._patch_trusted_sources = original_sources
 
     assert "SIGNAL_VEILLE_CANONIQUE" in patched
     assert patched.count("def selectionner_meilleurs") == 1
