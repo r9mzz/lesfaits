@@ -14,9 +14,13 @@ V3 ne conserve que les adaptations qui ne redéfinissent pas le classement :
 - intégrité des sources des brèves qui utilisent des notes numérotées ;
 - extension conservatrice du sourcing vers davantage de sources primaires et
   de rédactions internationales de référence ;
-- cohérence runtime du plancher conditionnel de « Débats et nuances » ;
-- arrêt avant génération lorsque le juge a examiné tout son lot et ne trouve
-  aucune source traitant le sujet précis.
+- cohérence runtime du plancher conditionnel de « Débats et nuances ».
+
+L'arrêt avant génération quand le juge n'a trouvé aucune source traitant le
+sujet précis vit maintenant NATIVEMENT dans pipeline.py (15/08) — l'ancien
+patch par marqueur ici a été retiré : il dupliquait le comportement en le
+couplant à une chaîne de caractères exacte, invisible au merge git, et a
+cassé `main` le jour même où un autre commit a reformulé ce message.
 
 Avant chaque vrai run, V3 rejoue aussi les tests déterministes de ses propres
 adaptations. Ainsi le code exécuté en production ne dépend pas seulement d'une
@@ -40,7 +44,6 @@ _RUNTIME_REGRESSION_TESTS = (
     "test_run_pipeline_v3.py",
     "test_trusted_source_expansion.py",
     "test_verification_scope.py",
-    "test_zero_precise_sources_gate.py",
 )
 
 
@@ -183,46 +186,14 @@ def _patch_breve_source_integrity(source: str) -> str:
     return source.replace(marker, replacement, 1)
 
 
-def _patch_zero_precise_sources_abort(source: str) -> str:
-    """Évite de payer une génération quand le lot jugé ne contient aucune preuve précise.
-
-    Le juge peut s'interrompre en cas d'erreur API. On ne bloque donc que s'il a
-    effectivement classé tout le lot qu'il devait examiner. Un jugement partiel
-    conserve le comportement historique et ne tue jamais un sujet par défaut.
-    """
-    marker = '''        if _n_pert == 0:
-            print("     [PERTINENCE] AUCUNE source ne traite le sujet précis du "
-                  "titre — cas « rougeole », article probablement creux")
-'''
-    if source.count(marker) != 1:
-        raise RuntimeError("Marqueur zéro source précise introuvable ou dupliqué dans pipeline.py")
-    replacement = '''        _n_judged = sum(
-            1 for s in extra
-            if s.get("_pertinence") in {"pertinente", "generale", "hors_sujet"}
-        )
-        _expected_judged = min(JUGE_SOURCES_MAX, len(extra))
-        if _n_pert == 0:
-            print("     [PERTINENCE] AUCUNE source ne traite le sujet précis du "
-                  "titre — cas « rougeole », article probablement creux")
-            if _expected_judged > 0 and _n_judged >= _expected_judged:
-                print("     [PERTINENCE] lot entièrement jugé sans source précise — sujet ignoré avant génération")
-                return False
-'''
-    return source.replace(marker, replacement, 1)
-
 
 def _prepared_pipeline_source_v3() -> str:
     source = _original_prepared_pipeline_source()
     source = _patch_post_generation_cooldown(source)
     source = _patch_breve_source_integrity(source)
     source = _patch_trusted_sources(source)
-    # Les tests unitaires de sélection utilisent volontairement un mini-pipeline
-    # sans juge de pertinence. Le garde ne s'applique que lorsque ce juge existe ;
-    # si le juge existe mais que son bloc change, le patch reste fail-closed.
-    if "def juger_pertinence_sources" in source:
-        source = _patch_zero_precise_sources_abort(source)
     compile(source, str(legacy.PIPELINE), "exec")
-    print("[PRÉVOL V3] sélection native pipeline.py + cooldown post-génération + intégrité sources brèves + sourcing fiable étendu + preuve précise activés")
+    print("[PRÉVOL V3] sélection native pipeline.py + cooldown post-génération + intégrité sources brèves + sourcing fiable étendu")
     return source
 
 

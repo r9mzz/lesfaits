@@ -7530,6 +7530,23 @@ def audit_matiere(sources: list[dict], snippet_len: int = 950) -> dict:
     }
 
 
+def _lot_entierement_juge_sans_source_precise(extra: list[dict], juge_max: int) -> bool:
+    """True seulement si le juge a examiné tout le lot attendu et n'a trouvé
+    aucune source traitant le sujet précis. Un jugement interrompu en cours
+    de lot (erreur API — voir `juger_pertinence_sources`) laisse des sources
+    sans clé `_pertinence` du tout ; dans ce cas on retourne False plutôt que
+    de rejeter un sujet jamais vraiment évalué (15/08, revue croisée — un
+    ancien patch dupliquait cette logique dans run_pipeline_v3.py, couplé par
+    une chaîne de caractères exacte au texte du print(), et a cassé `main`
+    le jour où ce texte a changé)."""
+    n_judged = sum(
+        1 for s in extra
+        if s.get("_pertinence") in {"pertinente", "generale", "hors_sujet"}
+    )
+    expected_judged = min(juge_max, len(extra))
+    return expected_judged > 0 and n_judged >= expected_judged
+
+
 def generer_article(item: dict, dry_run: bool, published: set, new_pub: set, date_pub: str,
                     published_topics: set | None = None,
                     budget_formats: dict | None = None) -> bool:
@@ -7683,10 +7700,22 @@ def generer_article(item: dict, dry_run: bool, published: set, new_pub: set, dat
         # sujet forcées dans le texte. Rejeter ici évite de payer une
         # génération complète (~35 k tokens) pour un article structurellement
         # voué à ce défaut.
+        #
+        # PRUDENCE AJOUTÉE (15/08, revue croisée) : le juge peut s'interrompre
+        # en cours de lot (erreur API — voir `juger_pertinence_sources`), et
+        # renoncer laisse alors des sources SANS `_pertinence` du tout. Sans
+        # cette garde, un lot interrompu après avoir jugé 2 sources sur 10,
+        # toutes deux « générale », rejetterait un sujet pourtant jamais
+        # vraiment évalué. On ne bloque donc que si le lot attendu a été
+        # entièrement jugé — un jugement partiel garde le comportement
+        # d'avant (avertissement seul, aucun rejet).
         if _n_pert == 0:
-            print("     [REJET] AUCUNE source ne traite le sujet précis du "
-                  "titre — rejet définitif (cas « rougeole »/« inflation »)")
-            return False
+            if _lot_entierement_juge_sans_source_precise(extra, JUGE_SOURCES_MAX):
+                print("     [REJET] AUCUNE source ne traite le sujet précis du "
+                      "titre — rejet définitif (cas « rougeole »/« inflation »)")
+                return False
+            print("     [PERTINENCE] AUCUNE source pertinente, mais jugement "
+                  "partiel — sujet conservé (avertissement seul)")
 
     # Plafond d'injection : un BUDGET DE MATIÈRE, pas un nombre de sources.
     #
