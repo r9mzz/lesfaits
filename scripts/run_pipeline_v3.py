@@ -205,8 +205,8 @@ def _patch_zero_precise_sources_abort(source: str) -> str:
             print("     [PERTINENCE] AUCUNE source ne traite le sujet précis du "
                   "titre — cas « rougeole », article probablement creux")
             if _expected_judged > 0 and _n_judged >= _expected_judged:
-                print("     [PERTINENCE] lot entièrement jugé sans source précise — arrêt avant génération")
-                raise ValueError("HORS_PERIMETRE: aucune source ne traite le sujet précis")
+                print("     [PERTINENCE] lot entièrement jugé sans source précise — sujet ignoré avant génération")
+                return False
 '''
     return source.replace(marker, replacement, 1)
 

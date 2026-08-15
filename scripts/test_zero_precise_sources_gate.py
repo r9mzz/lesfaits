@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-"""Non-régression : ne pas générer si tout le lot jugé est seulement général."""
+"""Non-régression : un sujet sans preuve précise est ignoré sans tuer le run."""
 from __future__ import annotations
 
 from run_pipeline_v3 import _patch_zero_precise_sources_abort
@@ -34,14 +34,9 @@ def _run(extra):
     return ns["f"](extra)
 
 
-def test_full_judged_batch_without_precise_source_is_rejected():
+def test_full_judged_batch_without_precise_source_is_skipped_cleanly():
     extra = [{"_pertinence": "generale"} for _ in range(10)]
-    try:
-        _run(extra)
-    except ValueError as exc:
-        assert "aucune source ne traite le sujet précis" in str(exc)
-        return
-    raise AssertionError("10/10 sources générales doivent arrêter la génération")
+    assert _run(extra) is False
 
 
 def test_partial_judgment_never_blocks():
@@ -54,11 +49,21 @@ def test_one_precise_source_keeps_generation():
     assert _run(extra) == "generation"
 
 
+def test_rejected_subject_does_not_abort_following_subject():
+    batches = [
+        [{"_pertinence": "generale"} for _ in range(10)],
+        [{"_pertinence": "pertinente"}] + [{"_pertinence": "generale"} for _ in range(9)],
+    ]
+    results = [_run(batch) for batch in batches]
+    assert results == [False, "generation"]
+
+
 def main():
-    test_full_judged_batch_without_precise_source_is_rejected()
+    test_full_judged_batch_without_precise_source_is_skipped_cleanly()
     test_partial_judgment_never_blocks()
     test_one_precise_source_keeps_generation()
-    print("OK — zéro source précise bloqué uniquement après jugement complet")
+    test_rejected_subject_does_not_abort_following_subject()
+    print("OK — zéro source précise ignore le sujet sans interrompre le run")
 
 
 if __name__ == "__main__":
