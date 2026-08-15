@@ -18,17 +18,48 @@ V3 ne conserve que les adaptations qui ne redéfinissent pas le classement :
 - arrêt avant génération lorsque le juge a examiné tout son lot et ne trouve
   aucune source traitant le sujet précis.
 
+Avant chaque vrai run, V3 rejoue aussi les tests déterministes de ses propres
+adaptations. Ainsi le code exécuté en production ne dépend pas seulement d'une
+CI passée : les garde-fous qui transforment réellement ``pipeline.py`` sont
+revérifiés dans le même checkout, juste avant le lancement.
+
 Aucun seuil éditorial, quota, garde factuelle ou garde vitrine n'est abaissé.
 """
 from __future__ import annotations
 
+import subprocess
 import sys
+from pathlib import Path
 
 import run_pipeline as legacy
 from trusted_source_expansion import patch_pipeline_source as _patch_trusted_sources
 
 
 _original_prepared_pipeline_source = legacy._prepared_pipeline_source
+_RUNTIME_REGRESSION_TESTS = (
+    "test_run_pipeline_v3.py",
+    "test_trusted_source_expansion.py",
+    "test_verification_scope.py",
+    "test_zero_precise_sources_gate.py",
+)
+
+
+def _run_runtime_regressions() -> None:
+    """Rejoue les garde-fous V3 dans le checkout exact qui va produire."""
+    scripts_dir = Path(__file__).resolve().parent
+    for test_name in _RUNTIME_REGRESSION_TESTS:
+        test_path = scripts_dir / test_name
+        if not test_path.exists():
+            raise RuntimeError(f"Prévol V3 incomplet : test absent {test_name}")
+        subprocess.run(
+            [sys.executable, str(test_path)],
+            cwd=str(scripts_dir),
+            check=True,
+        )
+    print(
+        "[PRÉVOL V3] garde-fous runtime revérifiés : "
+        + ", ".join(_RUNTIME_REGRESSION_TESTS)
+    )
 
 
 def _patch_verification_evidence_scope() -> None:
@@ -199,6 +230,7 @@ legacy._prepared_pipeline_source = _prepared_pipeline_source_v3
 
 
 if __name__ == "__main__":
+    _run_runtime_regressions()
     _patch_verification_evidence_scope()
     _patch_conditional_nuances_runtime()
     sys.exit(legacy.main())
