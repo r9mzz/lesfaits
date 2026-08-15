@@ -1,0 +1,27 @@
+name: Precise source gate CI
+
+on:
+  pull_request:
+    paths:
+      - "scripts/run_pipeline_v3.py"
+      - "scripts/test_zero_precise_sources_gate.py"
+      - ".github/workflows/precise-source-gate-ci.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  precise-source-gate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Installer les dépendances
+        run: pip install -r requirements.txt
+      - name: Syntaxe
+        run: python -m py_compile scripts/run_pipeline_v3.py scripts/test_zero_precise_sources_gate.py
+      - name: Test déterministe
+        run: python scripts/test_zero_precise_sources_gate.py
