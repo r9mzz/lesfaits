@@ -82,7 +82,45 @@ alors que la fonction appelée était couverte par quatre tests. C'est `pyflakes
 qui attrape cette classe d'erreur, et il est désormais bloquant dans
 `pipeline.yml`.
 
-## 8. Ce qui est en cours, et ce qu'il ne faut pas doubler
+## 8. Ajouter des sources — le piège qui annule tout le travail
+
+**Un nouveau domaine doit être inscrit dans `_DOMAINES_PRIMAIRES` ou
+`_DOMAINES_SECONDAIRES` (`scripts/pipeline.py`), sinon il ne vaut rien.**
+
+La règle de publication est « au moins 1 source primaire OU 2 secondaires
+indépendantes ». Un domaine absent de ces listes compte **tertiaire**, quel que
+soit son sérieux : la Cour des comptes non déclarée pèse autant que Wikipédia.
+Le pipeline ira chercher l'excellente source, la citera… et le contrôle
+l'ignorera. Panne silencieuse, aucun message d'erreur.
+
+⚠ Ces listes sont **distinctes de `_SOURCE_DOMAINS`** (choix d'image et droits
+voisins, 4 entrées). Modifier l'une ne modifie pas l'autre. État actuel :
+60 domaines primaires, 45 secondaires, 38 flux RSS.
+
+**Ne jamais ajouter un flux sans mesurer son rendement réel.** La vague
+d'ajouts du 19/07 comptait 13 flux morts sur 14, ajoutés sans test — mesuré le
+28/07. Le sandbox de développement n'a PAS d'accès réseau vers ces domaines :
+une URL ne peut donc pas y être validée. Utiliser `scripts/check_feeds.py` via
+`.github/workflows/check_feeds.yml`, qui mesure depuis le runner GitHub.
+
+Trois pièges relevés le 28/07, tous vérifiés :
+
+- un **403** sur `.gouv.fr`, Les Échos, 20 Minutes ou la Banque de France est
+  un blocage WAF sur l'IP du runner, pas une mauvaise URL. Changer d'adresse
+  n'y change rien : il faut remplacer la source ;
+- un flux qui répond **200 avec 0 article** est le pire cas, parce qu'il est
+  invisible dans les logs. Trois causes possibles, que seule l'inspection du
+  contenu brut départage : page HTML servie à la place du flux, flux réellement
+  vide, ou format non reconnu par le parseur (les flux **Atom** utilisent
+  `<entry>` et non `<item>` — The Conversation était muette depuis son ajout) ;
+- une source morte coûte jusqu'à **12 s de timeout par run** pour zéro article.
+
+Enfin : élargir le vivier ne sert à rien si la matière n'entre pas dans le
+prompt. Ce qui part au rédacteur est borné par `BUDGET_MATIERE`, et l'ordre
+d'injection est décidé par la qualité de domaine puis par le juge de
+pertinence. Une source de plus, mal classée, ne sera jamais lue.
+
+## 9. Ce qui est en cours, et ce qu'il ne faut pas doubler
 
 À la mi-août : la veille continue alimente la sélection (persistance des sujets
 dans les fils, dédoublonnage par événement), un juge de pertinence des sources
