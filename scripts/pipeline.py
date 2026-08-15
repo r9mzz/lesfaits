@@ -7669,14 +7669,24 @@ def generer_article(item: dict, dry_run: bool, published: set, new_pub: set, dat
         print(f"     [PERTINENCE] {_n_pert} source(s) traitant le sujet précis, "
               f"{sum(1 for s in extra if s.get('_pertinence') == 'generale')} générale(s), "
               f"{sum(1 for s in extra if s.get('_pertinence') == 'hors_sujet')} hors sujet")
-        # AVERTISSEMENT seulement, pas un rejet — le taux réel de « zéro source
-        # pertinente » n'a jamais été mesuré sur un run complet, et la règle du
-        # projet interdit de rendre bloquant un contrôle dont on ignore le taux
-        # de déclenchement. À rendre bloquant quand quelques runs l'auront
-        # chiffré : c'est exactement le cas rougeole.
+        # RENDU BLOQUANT le 11/08 (Nahil) : taux mesuré à 5/11 sujets sur deux
+        # runs instrumentés (~45 %), largement au-dessus du seuil de ~10 % qui
+        # sert de repère dans ce projet pour juger un motif trop large. Preuve
+        # concrète : l'article inflation du 11/08 (Insee/Banque de
+        # France/BCE/Vie Publique/Sénat, 5 organisations distinctes dans
+        # « faits » — AUCUN autre article publié n'en cite plus d'une). Le
+        # log de son run montrait exactement ce cas : 0 source pertinente, 9
+        # générales — le prompt exige ≥4 sources citées, donc le modèle a cité
+        # les pages permanentes qui ne parlaient PAS du chiffre de juillet
+        # pour remplir le quota. Ce n'est pas un défaut de style (l'enchaînement
+        # « info d'info d'info ») mais une CONSÉQUENCE MÉCANIQUE de sources hors
+        # sujet forcées dans le texte. Rejeter ici évite de payer une
+        # génération complète (~35 k tokens) pour un article structurellement
+        # voué à ce défaut.
         if _n_pert == 0:
-            print("     [PERTINENCE] AUCUNE source ne traite le sujet précis du "
-                  "titre — cas « rougeole », article probablement creux")
+            print("     [REJET] AUCUNE source ne traite le sujet précis du "
+                  "titre — rejet définitif (cas « rougeole »/« inflation »)")
+            return False
 
     # Plafond d'injection : un BUDGET DE MATIÈRE, pas un nombre de sources.
     #
