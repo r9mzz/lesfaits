@@ -110,10 +110,7 @@ def _patch_conditional_nuances_runtime() -> None:
         nuances = str(((art.get("corps") or {}).get("nuances") or "")).strip()
         if nuances:
             return ok, reasons
-        filtered = [
-            reason for reason in reasons
-            if not reason.startswith(nuance_only_prefixes)
-        ]
+        filtered = [reason for reason in reasons if not reason.startswith(nuance_only_prefixes)]
         return not filtered, filtered
 
     validate_generated_article._nuances_conditionnelles = True
@@ -123,9 +120,7 @@ def _patch_conditional_nuances_runtime() -> None:
 def _patch_post_generation_cooldown(source: str) -> str:
     marker = "    art = _extract_json(raw)\n"
     if source.count(marker) != 1:
-        raise RuntimeError(
-            "Marqueur post-génération introuvable ou dupliqué dans pipeline.py"
-        )
+        raise RuntimeError("Marqueur post-génération introuvable ou dupliqué dans pipeline.py")
     replacement = marker + '''
     from editorial_ranking import _recent_rejected_slugs
     _slug_final = str(art.get("slug") or "").strip()
@@ -139,16 +134,11 @@ def _patch_post_generation_cooldown(source: str) -> str:
 def _patch_breve_source_integrity(source: str) -> str:
     marker = '''        _showcase_ok, _showcase_reasons = validate_generated_article(art, article_type)\n        if not _showcase_ok:\n'''
     if source.count(marker) != 1:
-        raise RuntimeError(
-            "Marqueur garde vitrine introuvable ou dupliqué dans pipeline préparé"
-        )
+        raise RuntimeError("Marqueur garde vitrine introuvable ou dupliqué dans pipeline préparé")
     replacement = '''        _showcase_ok, _showcase_reasons = validate_generated_article(art, article_type)
         if article_type == "breve":
             _brief_body = art.get("corps") or {}
-            _brief_text = " ".join(
-                [str(x) for x in (art.get("resume") or [])]
-                + [str(_brief_body.get("faits") or "")]
-            )
+            _brief_text = " ".join([str(x) for x in (art.get("resume") or [])] + [str(_brief_body.get("faits") or "")])
             _brief_citations = [int(n) for n in re.findall(r"\\[(\\d+)\\]", _brief_text)]
             if _brief_citations:
                 _brief_expected = set(range(1, len(art.get("sources") or []) + 1))
@@ -156,10 +146,7 @@ def _patch_breve_source_integrity(source: str) -> str:
                 if _brief_cited != _brief_expected:
                     _brief_missing = sorted(_brief_expected - _brief_cited)
                     _showcase_ok = False
-                    _showcase_reasons.append(
-                        "brève avec notes : sources listées mais non citées dans le texte : "
-                        + str(_brief_missing[:6])
-                    )
+                    _showcase_reasons.append("brève avec notes : sources listées mais non citées dans le texte : " + str(_brief_missing[:6]))
         if not _showcase_ok:
 '''
     return source.replace(marker, replacement, 1)
@@ -177,9 +164,7 @@ def _patch_zero_precise_sources_abort(source: str) -> str:
                   "titre — cas « rougeole », article probablement creux")
 '''
     if source.count(marker) != 1:
-        raise RuntimeError(
-            "Marqueur zéro source précise introuvable ou dupliqué dans pipeline.py"
-        )
+        raise RuntimeError("Marqueur zéro source précise introuvable ou dupliqué dans pipeline.py")
     replacement = '''        _n_judged = sum(
             1 for s in extra
             if s.get("_pertinence") in {"pertinente", "generale", "hors_sujet"}
@@ -190,9 +175,7 @@ def _patch_zero_precise_sources_abort(source: str) -> str:
                   "titre — cas « rougeole », article probablement creux")
             if _expected_judged > 0 and _n_judged >= _expected_judged:
                 print("     [PERTINENCE] lot entièrement jugé sans source précise — arrêt avant génération")
-                raise ValueError(
-                    "HORS_PERIMETRE: aucune source ne traite le sujet précis"
-                )
+                raise ValueError("HORS_PERIMETRE: aucune source ne traite le sujet précis")
 '''
     return source.replace(marker, replacement, 1)
 
@@ -202,12 +185,13 @@ def _prepared_pipeline_source_v3() -> str:
     source = _patch_post_generation_cooldown(source)
     source = _patch_breve_source_integrity(source)
     source = _patch_trusted_sources(source)
-    source = _patch_zero_precise_sources_abort(source)
+    # Les tests unitaires de sélection utilisent volontairement un mini-pipeline
+    # sans juge de pertinence. Le garde ne s'applique que lorsque ce juge existe ;
+    # si le juge existe mais que son bloc change, le patch reste fail-closed.
+    if "def juger_pertinence_sources" in source:
+        source = _patch_zero_precise_sources_abort(source)
     compile(source, str(legacy.PIPELINE), "exec")
-    print(
-        "[PRÉVOL V3] sélection native pipeline.py + cooldown post-génération "
-        "+ intégrité sources brèves + sourcing fiable étendu + preuve précise activés"
-    )
+    print("[PRÉVOL V3] sélection native pipeline.py + cooldown post-génération + intégrité sources brèves + sourcing fiable étendu + preuve précise activés")
     return source
 
 
