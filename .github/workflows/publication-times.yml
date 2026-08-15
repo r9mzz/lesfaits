@@ -5,6 +5,8 @@ on:
     paths:
       - "scripts/stamp_publication_times.py"
       - "scripts/test_stamp_publication_times.py"
+      - "scripts/repair_jsonld_modified_dates.py"
+      - "scripts/test_repair_jsonld_modified_dates.py"
       - ".github/workflows/publication-times.yml"
   workflow_dispatch:
   workflow_run:
@@ -24,9 +26,16 @@ jobs:
         with:
           python-version: "3.11"
       - name: Vérifier la syntaxe
-        run: python -m py_compile scripts/stamp_publication_times.py scripts/test_stamp_publication_times.py
+        run: |
+          python -m py_compile \
+            scripts/stamp_publication_times.py \
+            scripts/test_stamp_publication_times.py \
+            scripts/repair_jsonld_modified_dates.py \
+            scripts/test_repair_jsonld_modified_dates.py
       - name: Tester l’horodatage public
-        run: python scripts/test_stamp_publication_times.py
+        run: |
+          python scripts/test_stamp_publication_times.py
+          python scripts/test_repair_jsonld_modified_dates.py
 
   stamp:
     if: >-
@@ -58,6 +67,8 @@ jobs:
             --site-dir /tmp/site \
             --previous-ref HEAD~1 \
             --published-at "$PUBLISHED_AT"
+          python scripts/repair_jsonld_modified_dates.py --site-dir /tmp/site
+          python scripts/repair_jsonld_modified_dates.py --site-dir /tmp/site --check
 
       - name: Publier les horodatages corrigés
         working-directory: /tmp/site
