@@ -187,6 +187,25 @@ calculé À REBOURS depuis la fenêtre, pour garantir 2 000 tokens d'écriture
 Après correctif : 1 940 à 2 340 tokens d'écriture dans tous les cas mesurés,
 contre 200 avant.
 
+### ⚠ À LIRE AVANT D'INTERPRÉTER LE PROCHAIN `[MATIÈRE]` — écrit AVANT le run
+
+La réservation d'écriture fait tomber la profondeur d'extrait injectée de 950 à
+300 caractères dans la configuration nominale, soit **−68 %**. La ligne
+`[MATIÈRE]` (faits distincts, redondance, données chiffrées) est calculée sur
+ces extraits : **elle va s'effondrer mécaniquement au prochain run.** Les 810 /
+1 142 / 1 267 faits distincts relevés le 12/08 ne seront comparables à rien.
+
+**Ce n'est PAS une régression du sourcing.** Le nombre de sources trouvées,
+contrôlées et citées est inchangé — c'est verrouillé par un test. Seule la
+profondeur LUE par le rédacteur baisse, parce qu'à 12 000 tokens de fenêtre on
+ne peut pas à la fois tout lire et avoir la place d'écrire.
+
+Écrit avant le run et non après, précisément pour ne pas refaire l'erreur qui a
+coûté trois semaines : la brièveté des articles a été attribuée au modèle alors
+qu'elle venait du budget. Une chute de `[MATIÈRE]` lue sans ce paragraphe serait
+mal attribuée de la même façon. Toute comparaison de richesse documentaire doit
+donc couper le corpus au 15/08, comme on l'a fait au 30/07 pour les images.
+
 ### Le plancher du prompt contredisait la section devenue facultative
 
 Relevé par une session parallèle juste après le correctif « nuances
