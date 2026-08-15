@@ -10,7 +10,8 @@ correctifs au runtime.
 
 V3 ne conserve que les adaptations qui ne redéfinissent pas le classement :
 - portée correcte du contrôle de niveau de preuve ;
-- cooldown exact post-génération sur un slug déjà rejeté récemment.
+- cooldown exact post-génération sur un slug déjà rejeté récemment ;
+- intégrité des sources des brèves qui utilisent des notes numérotées.
 
 Aucun seuil éditorial, quota, garde factuelle ou garde vitrine n'est abaissé.
 """
@@ -86,14 +87,59 @@ def _patch_post_generation_cooldown(source: str) -> str:
     return source.replace(marker, replacement, 1)
 
 
+def _patch_breve_source_integrity(source: str) -> str:
+    """Refuse une brève à notes numérotées qui affiche des sources inutilisées.
+
+    Une brève native peut légitimement attribuer ses sources en prose et ne
+    contenir aucune note [n]. En revanche, quand des notes numérotées existent,
+    la liste SOURCES doit correspondre exactement aux sources effectivement
+    appelées. Le 14/08, une brève inflation affichait quatre sources alors que
+    seules les notes [1] et [3] apparaissaient : le compteur et la hiérarchie
+    de sourcing donnaient alors une impression de preuve supérieure au texte.
+
+    Ce garde-fou ne demande aucune nouvelle source et n'abaisse aucun seuil :
+    il refuse seulement un état incohérent déjà objectivement observable.
+    """
+    marker = '''        _showcase_ok, _showcase_reasons = validate_generated_article(art, article_type)\n        if not _showcase_ok:\n'''
+    if source.count(marker) != 1:
+        raise RuntimeError(
+            "Marqueur garde vitrine introuvable ou dupliqué dans pipeline préparé"
+        )
+    replacement = '''        _showcase_ok, _showcase_reasons = validate_generated_article(art, article_type)
+        if article_type == "breve":
+            _brief_body = art.get("corps") or {}
+            _brief_text = " ".join(
+                [str(x) for x in (art.get("resume") or [])]
+                + [str(_brief_body.get("faits") or "")]
+            )
+            _brief_citations = [int(n) for n in re.findall(r"\\[(\\d+)\\]", _brief_text)]
+            if _brief_citations:
+                _brief_expected = set(range(1, len(art.get("sources") or []) + 1))
+                _brief_cited = set(_brief_citations)
+                if _brief_cited != _brief_expected:
+                    _brief_missing = sorted(_brief_expected - _brief_cited)
+                    _showcase_ok = False
+                    _showcase_reasons.append(
+                        "brève avec notes : sources listées mais non citées dans le texte : "
+                        + str(_brief_missing[:6])
+                    )
+        if not _showcase_ok:
+'''
+    return source.replace(marker, replacement, 1)
+
+
 def _prepared_pipeline_source_v3() -> str:
     source = _original_prepared_pipeline_source()
     # IMPORTANT : ne jamais remplacer selectionner_meilleurs ici. Le classement
     # canonique vit dans pipeline.py et doit rester identique entre le code lu,
     # les tests et le cron réellement exécuté.
     source = _patch_post_generation_cooldown(source)
+    source = _patch_breve_source_integrity(source)
     compile(source, str(legacy.PIPELINE), "exec")
-    print("[PRÉVOL V3] sélection native pipeline.py + cooldown post-génération activés")
+    print(
+        "[PRÉVOL V3] sélection native pipeline.py + cooldown post-génération "
+        "+ intégrité sources brèves activés"
+    )
     return source
 
 
