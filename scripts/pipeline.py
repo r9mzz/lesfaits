@@ -2021,6 +2021,20 @@ qualité individuelle. Découpe par IDÉE : un paragraphe = un fait principal ou
 un groupe de faits liés, jamais une simple liste de phrases juxtaposées sans
 lien. Une section de 450 mots tient normalement en 3 à 5 paragraphes.
 
+⚠ VARIÉTÉ DE PHRASE — INTERDICTION DE LA CHAÎNE MONOTONE (15/08) : jamais plus
+de 2 phrases consécutives construites sur le moule "[Acteur] a/ont [verbe]"
+(ex. « L'Insee a confirmé… », « La Banque de France a dressé… », « Le Conseil
+a décidé… », « Le Sénat a abordé… » à la suite = interdit, même avec des
+verbes différents à chaque fois). Ce ne sont pas des reformulations, c'est une
+scansion répétitive qui rend le texte illisible même quand chaque phrase est
+correcte. Alterne les attaques de phrase : le CHIFFRE en tête (« 2,1 %, c'est
+le niveau atteint par… »), une subordonnée (« Alors que les prix du gaz
+grimpent de 10,3 %, … »), ou la fusion de deux faits liés dans UNE phrase au
+lieu de deux phrases séparées sur le même acteur. Si deux faits proviennent de
+la même famille (deux composantes d'un même chiffre, deux décisions du même
+organisme), regroupe-les dans une seule phrase plutôt que d'en faire deux
+phrases consécutives identiques en structure.
+
 Format obligatoire :
 {
   "angle_reponse": "UNE question précise, formulée du point de vue du LECTEUR, à laquelle tout l'article va répondre — pas le thème du sujet, la question qu'il se pose en le lisant. Exemple sur un afflux migratoire massif : « Ce chiffre change-t-il quelque chose pour la France ? », pas « Que s'est-il passé ? ». Cette question dicte tout ce qui suit : les intertitres, le choix des faits à développer, la conclusion. Un article qui ne fait que résumer un sujet sans y répondre a échoué, même s'il est bien écrit.",
