@@ -1,0 +1,44 @@
+name: Runtime preflight V3 CI
+
+on:
+  pull_request:
+    paths:
+      - "scripts/run_pipeline_v3.py"
+      - "scripts/test_runtime_preflight_v3.py"
+      - "scripts/test_run_pipeline_v3.py"
+      - "scripts/test_trusted_source_expansion.py"
+      - "scripts/test_verification_scope.py"
+      - "scripts/test_zero_precise_sources_gate.py"
+      - ".github/workflows/runtime-preflight-v3-ci.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  runtime-preflight-v3:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Installer les dépendances
+        run: pip install -r requirements.txt
+      - name: Syntaxe
+        run: >-
+          python -m py_compile
+          scripts/run_pipeline_v3.py
+          scripts/test_runtime_preflight_v3.py
+          scripts/test_run_pipeline_v3.py
+          scripts/test_trusted_source_expansion.py
+          scripts/test_verification_scope.py
+          scripts/test_zero_precise_sources_gate.py
+      - name: Vérifier le verrou runtime
+        run: python scripts/test_runtime_preflight_v3.py
+      - name: Rejouer exactement la suite runtime V3
+        run: |
+          python scripts/test_run_pipeline_v3.py
+          python scripts/test_trusted_source_expansion.py
+          python scripts/test_verification_scope.py
+          python scripts/test_zero_precise_sources_gate.py
