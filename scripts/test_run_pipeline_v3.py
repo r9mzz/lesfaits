@@ -1,7 +1,10 @@
 # -*- coding: utf-8 -*-
 """Tests déterministes des adaptations V3 sans appel réseau ni Groq."""
 import run_pipeline_v3 as v3
-from run_pipeline_v3 import _patch_post_generation_cooldown
+from run_pipeline_v3 import (
+    _patch_breve_source_integrity,
+    _patch_post_generation_cooldown,
+)
 
 
 def test_post_generation_cooldown_is_inserted_once():
@@ -29,14 +32,58 @@ def b():
     raise AssertionError("Un marqueur dupliqué doit faire échouer le prévol")
 
 
-def test_v3_preserves_native_subject_selection():
-    """V3 ne doit plus écraser ``selectionner_meilleurs`` de pipeline.py.
+def test_breve_with_numbered_notes_must_use_every_listed_source():
+    source = '''def save(art, article_type):
+        _showcase_ok, _showcase_reasons = validate_generated_article(art, article_type)
+        if not _showcase_ok:
+            return False
+        return True
+'''
+    patched = _patch_breve_source_integrity(source)
+    assert "brève avec notes : sources listées mais non citées" in patched
+    assert "_brief_cited != _brief_expected" in patched
+    compile(patched, "synthetic_showcase_guard.py", "exec")
 
-    Régression du 14/08 : la sélection native avait reçu le signal exact de
-    veille et la règle « un événement par run », mais V3 remplaçait ensuite la
-    fonction entière par l'ancien clustering de titres. Le code relu et le code
-    réellement exécuté divergeaient silencieusement.
-    """
+    namespace = {
+        "re": __import__("re"),
+        "validate_generated_article": lambda art, article_type: (True, []),
+    }
+    exec(patched, namespace)
+    art = {
+        "resume": ["Inflation confirmée [1]."],
+        "corps": {"faits": "La hausse atteint un nouveau niveau [3]."},
+        "sources": [{}, {}, {}, {}],
+    }
+    assert namespace["save"](art, "breve") is False, (
+        "Une brève qui liste quatre sources mais n'appelle que [1] et [3] doit être refusée"
+    )
+
+
+def test_native_breve_without_numbered_notes_remains_allowed():
+    source = '''def save(art, article_type):
+        _showcase_ok, _showcase_reasons = validate_generated_article(art, article_type)
+        if not _showcase_ok:
+            return False
+        return True
+'''
+    patched = _patch_breve_source_integrity(source)
+    namespace = {
+        "re": __import__("re"),
+        "validate_generated_article": lambda art, article_type: (True, []),
+    }
+    exec(patched, namespace)
+    art = {
+        "resume": ["Selon l'Insee, l'inflation accélère en juillet."],
+        "corps": {"faits": "Reuters et France Info détaillent la même publication."},
+        "sources": [{}, {}, {}],
+    }
+    assert namespace["save"](art, "breve") is True, (
+        "Une brève native attribuée en prose ne doit pas être forcée au format [n]"
+    )
+
+
+def test_v3_preserves_native_subject_selection():
+    """V3 ne doit plus écraser ``selectionner_meilleurs`` de pipeline.py."""
     source = '''
 QUOTA_CATEGORIE = 6
 
@@ -62,6 +109,13 @@ def generer():
     raw = "{}"
     art = _extract_json(raw)
     return art
+
+
+def save(art, article_type):
+        _showcase_ok, _showcase_reasons = validate_generated_article(art, article_type)
+        if not _showcase_ok:
+            return False
+        return True
 '''
     original = v3._original_prepared_pipeline_source
     try:
@@ -74,13 +128,16 @@ def generer():
     assert patched.count("def selectionner_meilleurs") == 1
     assert "selectionner_sujets" not in patched
     assert "[COOLDOWN REJET]" in patched
+    assert "_brief_cited != _brief_expected" in patched
 
 
 def main():
     test_post_generation_cooldown_is_inserted_once()
     test_patch_refuses_ambiguous_marker()
+    test_breve_with_numbered_notes_must_use_every_listed_source()
+    test_native_breve_without_numbered_notes_remains_allowed()
     test_v3_preserves_native_subject_selection()
-    print("OK — V3 conserve la sélection native et le cooldown exact")
+    print("OK — V3 sélection native, cooldown exact et intégrité sources brèves")
 
 
 if __name__ == "__main__":
