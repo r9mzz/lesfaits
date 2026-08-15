@@ -11,7 +11,9 @@ correctifs au runtime.
 V3 ne conserve que les adaptations qui ne redéfinissent pas le classement :
 - portée correcte du contrôle de niveau de preuve ;
 - cooldown exact post-génération sur un slug déjà rejeté récemment ;
-- intégrité des sources des brèves qui utilisent des notes numérotées.
+- intégrité des sources des brèves qui utilisent des notes numérotées ;
+- extension conservatrice du sourcing vers davantage de sources primaires et
+  de rédactions internationales de référence.
 
 Aucun seuil éditorial, quota, garde factuelle ou garde vitrine n'est abaissé.
 """
@@ -20,6 +22,7 @@ from __future__ import annotations
 import sys
 
 import run_pipeline as legacy
+from trusted_source_expansion import patch_pipeline_source as _patch_trusted_sources
 
 
 _original_prepared_pipeline_source = legacy._prepared_pipeline_source
@@ -135,10 +138,11 @@ def _prepared_pipeline_source_v3() -> str:
     # les tests et le cron réellement exécuté.
     source = _patch_post_generation_cooldown(source)
     source = _patch_breve_source_integrity(source)
+    source = _patch_trusted_sources(source)
     compile(source, str(legacy.PIPELINE), "exec")
     print(
         "[PRÉVOL V3] sélection native pipeline.py + cooldown post-génération "
-        "+ intégrité sources brèves activés"
+        "+ intégrité sources brèves + sourcing fiable étendu activés"
     )
     return source
 
