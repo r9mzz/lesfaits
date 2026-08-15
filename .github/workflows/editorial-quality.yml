@@ -4,6 +4,7 @@ on:
   pull_request:
     paths:
       - "data/retirements.json"
+      - "scripts/pipeline.py"
       - "scripts/apply_retirements.py"
       - "scripts/editorial_quality.py"
       - "scripts/editorial_depth.py"
@@ -15,6 +16,7 @@ on:
       - "scripts/stamp_publication_times.py"
       - "scripts/summarize_pipeline_log.py"
       - "scripts/article_change_counts.py"
+      - "scripts/test_pipeline_editorial_prompt_contract.py"
       - "scripts/test_retirements.py"
       - "scripts/test_editorial_quality.py"
       - "scripts/test_editorial_depth.py"
@@ -56,6 +58,7 @@ jobs:
       - name: Vérifier la syntaxe
         run: >-
           python -m py_compile
+          scripts/pipeline.py
           scripts/apply_retirements.py
           scripts/editorial_quality.py
           scripts/editorial_depth.py
@@ -67,6 +70,7 @@ jobs:
           scripts/stamp_publication_times.py
           scripts/summarize_pipeline_log.py
           scripts/article_change_counts.py
+          scripts/test_pipeline_editorial_prompt_contract.py
           scripts/test_retirements.py
           scripts/test_editorial_quality.py
           scripts/test_editorial_depth.py
@@ -82,6 +86,7 @@ jobs:
 
       - name: Tests de non-régression éditoriale
         run: |
+          python scripts/test_pipeline_editorial_prompt_contract.py
           python scripts/test_retirements.py
           python scripts/test_editorial_quality.py
           python scripts/test_editorial_depth.py
