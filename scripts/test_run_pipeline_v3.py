@@ -3,6 +3,7 @@
 import run_pipeline_v3 as v3
 from run_pipeline_v3 import (
     _patch_breve_source_integrity,
+    _patch_conditional_nuances_runtime,
     _patch_post_generation_cooldown,
 )
 
@@ -82,6 +83,50 @@ def test_native_breve_without_numbered_notes_remains_allowed():
     )
 
 
+def test_conditional_nuances_align_prompt_and_showcase_without_lowering_other_gates():
+    """Une section vide est admise, mais aucun autre défaut vitrine ne disparaît."""
+    import showcase_quality as showcase
+
+    original_addendum = v3.legacy.EDITORIAL_ADDENDUM
+    original_validate = showcase.validate_generated_article
+    try:
+        # Simule exactement les refus que l'ancienne grille émet pour une
+        # section nuances vide, plus un défaut indépendant qui doit survivre.
+        def fake_validate(art, article_type):
+            return False, [
+                "nuances trop court (0 mots, minimum vitrine 130)",
+                "nuances insuffisamment aéré (0 paragraphe(s))",
+                "nuances trop proches du reste (0% de matière nouvelle)",
+                "intertitre nuances absent, générique ou non ancré dans la section",
+                "section nuances sans citation numérotée",
+                "total trop court (700 mots, minimum vitrine 760)",
+            ]
+
+        showcase.validate_generated_article = fake_validate
+        _patch_conditional_nuances_runtime()
+
+        assert "Le minimum TOTAL de 760 mots reste obligatoire" in v3.legacy.EDITORIAL_ADDENDUM
+        assert "sinon elle reste VIDE" in v3.legacy.EDITORIAL_ADDENDUM
+        assert "130 mots de nuances" not in v3.legacy.EDITORIAL_ADDENDUM
+
+        ok, reasons = showcase.validate_generated_article(
+            {"corps": {"nuances": ""}}, "actu"
+        )
+        assert ok is False
+        assert reasons == ["total trop court (700 mots, minimum vitrine 760)"], reasons
+
+        # Si les nuances existent, les contrôles propres à la section restent
+        # entièrement actifs : aucune baisse de garde pour un texte présent.
+        ok, reasons = showcase.validate_generated_article(
+            {"corps": {"nuances": "Une réserve sourcée existe."}}, "actu"
+        )
+        assert ok is False
+        assert any(r.startswith("nuances trop court") for r in reasons)
+    finally:
+        v3.legacy.EDITORIAL_ADDENDUM = original_addendum
+        showcase.validate_generated_article = original_validate
+
+
 def test_v3_preserves_native_subject_selection():
     """V3 ne doit plus écraser ``selectionner_meilleurs`` de pipeline.py."""
     source = '''
@@ -141,8 +186,9 @@ def main():
     test_patch_refuses_ambiguous_marker()
     test_breve_with_numbered_notes_must_use_every_listed_source()
     test_native_breve_without_numbered_notes_remains_allowed()
+    test_conditional_nuances_align_prompt_and_showcase_without_lowering_other_gates()
     test_v3_preserves_native_subject_selection()
-    print("OK — V3 sélection native, cooldown exact et intégrité sources brèves")
+    print("OK — V3 sélection native, cooldown, sources brèves et nuances conditionnelles")
 
 
 if __name__ == "__main__":
