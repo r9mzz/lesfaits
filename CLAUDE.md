@@ -141,6 +141,87 @@ flux (403 du proxy) : la veille ne peut y être vérifiée que par
 `scripts/test_veille.py` (fetch_rss simulé). Tout passage réel doit être
 déclenché sur le runner GitHub.
 
+## FAMINE DE COMPLÉTION — mesurée le 15/08, corrigée. C'est la vraie cause des troncatures
+
+Mesure hors ligne, sans un jeton dépensé : on intercepte les messages
+réellement construits par `generate()` et on applique le calcul de
+`_groq_call` (`max_tokens = tpm − marge − prompt`, plancher 200).
+
+```
+sources × extrait   contenu    prompt (tokens)   reste pour ÉCRIRE
+10 × 950 car.        7 000         12 893              200
+10 × 950 car.        3 000         11 681              200
+ 8 × 950 car.        7 000         12 226              200
+10 × 400 car.        7 000         11 227              273
+ 8 × 400 car.        2 000          9 377            2 123
+```
+
+**Dans la configuration nominale, le rédacteur disposait de 200 tokens pour
+écrire un article JSON qui en demande ~2 000.** La complétion était coupée par
+construction. C'est le 2e motif de perte du tunnel (34 sujets, ~323 k tokens,
+mesuré le 28/07), traité jusqu'ici comme un caprice du modèle.
+
+**L'effet était INVERSÉ par rapport à l'intuition : plus le sourcing était
+riche, moins il restait de place pour écrire.** Un sujet bien documenté était
+donc PLUS exposé qu'un sujet pauvre. C'est aussi ce qui rendait le verdict
+instable d'une tentative à l'autre — même sujet, autres longueurs d'extraits,
+issue opposée. Le « verdict erratique » n'était pas éditorial.
+
+**Correctif (réservation d'écriture, `generate()`)** : le budget de matière est
+calculé À REBOURS depuis la fenêtre, pour garantir 2 000 tokens d'écriture
+(1 200 pour une brève). Trois propriétés verrouillées par
+`scripts/test_fenetre_ecriture.py` :
+
+- **le NOMBRE de sources injectées n'est jamais réduit** — seule la PROFONDEUR
+  des extraits baisse (même arbitrage que le 18/07). Couper des sources ferait
+  échouer « ≥1 primaire OU ≥2 secondaires » sur des sujets valides : ce serait
+  affaiblir un contrôle pour tenir un budget ;
+- **les extraits sont coupés AVANT le contenu source principal**, jamais
+  l'inverse : ce contenu est l'événement unique sur lequel la règle d'ancrage
+  fait reposer l'article. Planchers 300 car. par extrait, 2 500 pour le contenu ;
+- **tout est écrit en fonction du TPM du modèle, jamais en dur**
+  (`_TPM_PAR_MODELE_GEN`, hissée au niveau module pour que `generate()` et
+  `_groq_call` lisent la même table). Le jour où le compte passe en offre
+  payante, la fenêtre s'élargit et la coupe cesse d'elle-même. Rien à re-régler.
+
+Après correctif : 1 940 à 2 340 tokens d'écriture dans tous les cas mesurés,
+contre 200 avant.
+
+⚠ **Ce que le correctif ne règle PAS, et qu'il faut lire dans le journal.** À
+12 000 tokens de fenêtre on ne peut pas avoir les deux : `[FENÊTRE] ⚠ plancher
+atteint` signale les sujets où la matière a été coupée jusqu'au plancher et où
+il reste malgré tout moins que la cible. **Le prompt système pèse 6 356 tokens,
+soit plus de la moitié de la fenêtre.** Les deux seules issues sont une fenêtre
+plus large (offre payante) ou un prompt système plus court — et le raccourcir
+revient à retirer des règles éditoriales, ce qu'aucun agent ne décide seul.
+
+## RÉSULTAT NÉGATIF — ne PAS allonger le cooldown des rejets `angle_insuffisant`
+
+Proposition écartée après mesure (15/08) : porter `REJECT_COOLDOWN_HOURS` de 36
+à 7 jours pour cesser de repayer la génération d'un sujet déjà jugé creux.
+
+Mesure sur le journal (les dates y sont, la question était mesurable) : **83
+sujets rejetés sur `angle_insuffisant`, 6 publiés plus tard**, avec des délais
+de 0,1 · 0,4 · 0,9 · 0,9 · 2,0 · 10,0 jours.
+
+```
+cooldown 36 h (actuel) : tue 4 des 6 retours gagnants
+cooldown 7 jours       : en tue 5 sur 6
+```
+
+Comptabilité complète : 7 jours éviteraient 9 tentatives perdues de plus
+(~360 k tokens ≈ 0,5–0,7 article espéré) contre **un article certain perdu**.
+Le troc est perdant. `REJECT_COOLDOWN_HOURS = 36` reste inchangé.
+
+⚠ Le résultat le plus intéressant est ailleurs : **4 des 6 retours gagnants
+surviennent en moins de 24 h.** À cette échelle le monde n'a pas changé — c'est
+le VERDICT qui a changé, même sujet, autre génération, jugement opposé. Rapproché
+de la famine de complétion ci-dessus, c'est probablement la même histoire : un
+modèle qui n'a que 200 tokens pour écrire produit un résumé générique, et rate
+le critère quel que soit le sujet. `angle_insuffisant` n'est donc pas
+uniquement un défaut de sélection ; une part est un tirage sur la génération.
+Réserves : n=6, biais de sélection, six appariements de slugs vérifiés à la main.
+
 ## AUDIT DU CORPUS PUBLIÉ — 12/08, ce que valent réellement nos articles
 
 Demande de Nahil : « nos articles ne sont même pas bien et pas intéressants ».
