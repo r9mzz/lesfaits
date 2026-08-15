@@ -44,6 +44,7 @@ _RUNTIME_REGRESSION_TESTS = (
     "test_run_pipeline_v3.py",
     "test_trusted_source_expansion.py",
     "test_verification_scope.py",
+    "test_pertinence_bloquant.py",
 )
 
 

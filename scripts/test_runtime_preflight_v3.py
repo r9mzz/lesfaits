@@ -11,7 +11,7 @@ EXPECTED = {
     "test_run_pipeline_v3.py",
     "test_trusted_source_expansion.py",
     "test_verification_scope.py",
-    "test_zero_precise_sources_gate.py",
+    "test_pertinence_bloquant.py",
 }
 
 
