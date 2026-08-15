@@ -243,6 +243,37 @@ pas une interdiction d'enrichir : relever le plafond est permis, mais devient
 un geste explicite, et le diff dit combien de tokens d'écriture ont été
 échangés contre la nouvelle règle.
 
+### Le taux de change entre une règle et un article — à citer avant tout ajout au prompt
+
+Où vont réellement les 6 601 tokens du prompt système (mesuré) :
+
+```
+RÈGLES ABSOLUES numérotées        4 325 tk    66 %
+schéma JSON (champs)              1 610 tk    24 %
+rôle, charte, format de citation    666 tk    10 %
+```
+
+**Deux tiers du prompt sont la charte éditoriale elle-même.** Il n'y a pas de
+gras à retirer : réduire, c'est arbitrer sur le protocole. L'hypothèse « les
+règles doublées par un garde-fou déterministe en aval sont récupérables » a été
+testée et réfutée — sources ≥ 4, plancher de mots, adjectifs évaluatifs,
+citation `[n]`, anti-redondance pèsent ensemble 304 tokens, soit 4,6 %. Payées
+deux fois, oui ; ce n'est pas un levier.
+
+Ce qui manquait à toutes ces décisions, c'était un PRIX. Au ratio observé sur
+les complétions ayant réellement produit un article publiable (1 423 tk → 449
+mots, 1 505 tk → 623 mots, soit 2,4 à 3,2 tokens par mot rendu) :
+
+> **100 tokens ajoutés au prompt ≈ 30 à 40 mots que l'article ne pourra plus
+> contenir.**
+
+La question n'est donc plus « payer ou se saborder », mais « cette règle
+vaut-elle 30 mots d'article ? ». Repères mesurés : la consigne de mise en
+paragraphes du 15/08 a coûté 470 tokens (~150 mots), la règle 3 du plancher
+conditionnel 61 tokens (~20 mots). Les deux se défendent à ce prix ; on ne le
+connaissait pas. ⚠ Ce taux vaut pour une fenêtre de 12 000 tokens : il change
+si le compte passe en offre payante.
+
 ⚠ **Ce que le correctif ne règle PAS, et qu'il faut lire dans le journal.** À
 12 000 tokens de fenêtre on ne peut pas avoir les deux : `[FENÊTRE] ⚠ plancher
 atteint` signale les sujets où la matière a été coupée jusqu'au plancher et où

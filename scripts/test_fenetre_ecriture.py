@@ -125,6 +125,11 @@ def test_le_prompt_systeme_ne_grossit_pas_en_silence():
     Ce plafond n'interdit pas d'enrichir le prompt. Il oblige à le faire
     SCIEMMENT : relever la constante ci-dessous est une décision, et le diff dit
     combien de tokens d'écriture ont été échangés contre la nouvelle règle.
+
+    Taux de change mesuré (voir CLAUDE.md) : 100 tokens ajoutés au prompt
+    valent 30 à 40 mots que l'article ne pourra plus contenir. La question à se
+    poser en relevant le plafond est donc « cette règle vaut-elle 30 mots
+    d'article ? » — elle a souvent une bonne réponse, mais elle doit être posée.
     """
     plafond = 6_700   # tokens — état du 15/08 : 6 601
     _tpm = P._TPM_PAR_MODELE_GEN.get(P.GROQ_MODEL, 12_000)
