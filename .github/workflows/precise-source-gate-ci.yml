@@ -3,8 +3,10 @@ name: Precise source gate CI
 on:
   pull_request:
     paths:
+      - "scripts/pipeline.py"
       - "scripts/run_pipeline_v3.py"
-      - "scripts/test_zero_precise_sources_gate.py"
+      - "scripts/test_pertinence_bloquant.py"
+      - "scripts/test_precise_source_gate_ci_contract.py"
       - ".github/workflows/precise-source-gate-ci.yml"
 
 permissions:
@@ -22,6 +24,8 @@ jobs:
       - name: Installer les dépendances
         run: pip install -r requirements.txt
       - name: Syntaxe
-        run: python -m py_compile scripts/run_pipeline_v3.py scripts/test_zero_precise_sources_gate.py
-      - name: Test déterministe
-        run: python scripts/test_zero_precise_sources_gate.py
+        run: python -m py_compile scripts/pipeline.py scripts/run_pipeline_v3.py scripts/test_pertinence_bloquant.py scripts/test_precise_source_gate_ci_contract.py
+      - name: Test déterministe du garde natif
+        run: python scripts/test_pertinence_bloquant.py
+      - name: Contrat CI
+        run: python scripts/test_precise_source_gate_ci_contract.py
