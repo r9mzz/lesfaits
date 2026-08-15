@@ -381,6 +381,23 @@ def detecter(art: dict, article_type: str = "actu") -> dict:
               .replace("{SOURCES}", _sources_block(art)))
     if article_type == "breve":
         prompt = PREAMBULE_BREVE + prompt
+    elif not str((art.get("corps") or {}).get("nuances", "") or "").strip():
+        # Règle 29 du SYSTEM_PROMPT (15/08) : « Débats et nuances » n'a de
+        # longueur imposée que si les sources contiennent des limites, des
+        # incertitudes ou des désaccords ATTESTÉS. Sinon la section doit rester
+        # VIDE — c'est la bonne réponse, pas un manquement.
+        #
+        # Sans ce préambule, le fact-checker signalerait l'absence comme un
+        # défaut et la correction la remplirait de généralités : exactement le
+        # comportement qu'on vient de supprimer côté rédaction. Deux étapes qui
+        # se contredisent produisent le pire des deux.
+        prompt = ("PRÉCISION DE FORMAT : la section « Débats et nuances » de cet "
+                  "article est VIDE, et c'est VOULU — les sources fournies ne "
+                  "contenaient aucune limite, incertitude ou critique attestée. Ne "
+                  "signale PAS cette absence comme un défaut, ne demande PAS de la "
+                  "remplir, et n'invente aucune réserve pour la combler. Juge "
+                  "l'article sur ce qu'il affirme, pas sur cette section absente.\n\n"
+                  ) + prompt
     # Groq compte prompt + max_tokens réservés dans la limite TPM (12 000) :
     # avec 8000 réservés, une détection à prompt ~4 400 tokens dépassait le
     # plafond en un seul appel (413 "Requested 12366") et ne pouvait JAMAIS

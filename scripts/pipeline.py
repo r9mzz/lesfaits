@@ -742,6 +742,24 @@ _AXES_UNIVERSELS = (
     ("vérification",
      "vérification site:factuel.afp.com OR site:lemonde.fr OR site:newtral.es "
      "OR site:fullfact.org"),
+    # ── CONTRADICTION (15/08) ────────────────────────────────────────────────
+    # Les quatre axes ci-dessus demandent tous QUI ÉTABLIT le fait. Aucun ne
+    # demande QUI LE CONTESTE. Un article sourcé uniquement par ce qui va dans
+    # son sens n'est pas neutre : il est unanime par construction, et son
+    # unanimité est un artefact de la requête, pas un état du débat.
+    #
+    # C'est aussi la cause matérielle d'un défaut mesuré : « Débats et
+    # nuances » doit contenir limites, incertitudes et désaccords. Quand la
+    # recherche n'a rapporté aucun désaccord, la section se remplit de
+    # généralités — « il est essentiel de renforcer la vigilance ». On ne
+    # demandait simplement jamais au moteur de les trouver.
+    #
+    # Le vocabulaire est volontairement celui du DÉSACCORD ARGUMENTÉ (critiques,
+    # limites, réserves, contestation) et non celui de la polémique : on cherche
+    # l'objection étayée d'un chercheur, d'une ONG ou d'une autorité, pas la
+    # réaction indignée. Coût : une requête DuckDuckGo, zéro token Groq.
+    ("contradiction",
+     "critiques OR limites OR réserves OR contestation OR \"remis en cause\""),
 )
 
 # Axes supplémentaires selon la rubrique — c'est ce qui distingue une recherche
@@ -862,7 +880,34 @@ def duckduckgo_search(query: str, max_results: int = 8, categorie: str = "") -> 
     # sautant la seule requête conçue pour en trouver une.
     # On coupe donc UNIQUEMENT à la fin, après avoir joué tous les axes, et le
     # tri par qualité (primaire d'abord) est fait par l'appelant.
-    return results[:max_results]
+    #
+    # ── MAIS COUPER PAR ORDRE D'ARRIVÉE REPRODUISAIT LE MÊME BUG (15/08) ─────
+    # `results[:max_results]` tronque dans l'ordre où les axes ont été joués.
+    # L'axe générique passe en premier et rapporte le plus, si bien que les
+    # DERNIERS axes se faisaient couper les premiers — exactement le défaut du
+    # 30/07, déplacé de la boucle vers la troncature. L'ajout d'un cinquième
+    # axe (« contradiction », 15/08), placé en fin de liste, l'aurait rendu
+    # inopérant sans qu'aucun message ne le signale.
+    #
+    # On sert donc les axes À TOUR DE RÔLE : chacun place son meilleur
+    # résultat, puis son deuxième, et ainsi de suite jusqu'au plafond. L'ordre
+    # interne à chaque axe est préservé, aucun axe ne peut être vidé par un
+    # autre, et un axe peu productif ne bloque personne — sa file s'épuise et
+    # les autres continuent.
+    if len(results) <= max_results:
+        return results
+    files: dict[str, list] = {}
+    for r in results:
+        files.setdefault(r.get("_axe", "?"), []).append(r)
+    equitable, i = [], 0
+    while len(equitable) < max_results and any(len(f) > i for f in files.values()):
+        for f in files.values():
+            if i < len(f):
+                equitable.append(f[i])
+                if len(equitable) >= max_results:
+                    break
+        i += 1
+    return equitable
 
 
 def pubmed_search(query_en: str, max_results: int = 4, min_year: int = 2022) -> list[dict]:
@@ -1982,7 +2027,7 @@ Format obligatoire :
   "corps": {
     "faits": "MINIMUM 450 mots — développe autant que la matière fournie le permet, ne t'arrête pas à 300 si les sources donnent plus. C'est ICI que vit le détail complet, PAS dans le résumé : l'actualité immédiate et TOUTES ses données du jour — chiffres précis, décompositions, montants, dates, acteurs nommés, résultats quantitatifs, déclarations exactes avec citation numérotée (voir FORMAT DE CITATION ci-dessous). RÈGLE ANTI-REDONDANCE : chaque phrase doit apporter une donnée que le résumé n'a PAS déjà donnée. Si 'faits' ne fait que reformuler le résumé, l'article échoue — développe, chiffre, détaille au-delà de l'accroche. NE JAMAIS inclure d'historique, d'évolution sur plusieurs années ni de comparaisons internationales — cela va exclusivement dans 'contexte'. JAMAIS d'URL dans le texte. Utiliser plusieurs paragraphes.",
     "contexte": "MINIMUM 200 mots. UNIQUEMENT de l'historique et de la mise en perspective DIRECTEMENT liés au sujet PRÉCIS de l'article — pas au thème général. RESTE CENTRÉ : n'élargis pas à des sujets connexes (budget global de l'État, modèle économique d'ensemble, politique générale du secteur) sauf s'ils sont INDISPENSABLES pour comprendre CE fait précis. Mieux vaut un contexte court et pertinent qu'un contexte large et dilué. Évolutions sur 5-10 ans, comparaisons, cadre réglementaire ou scientifique du sujet exact. NE JAMAIS reprendre les faits déjà énoncés dans 'faits'. Chiffres comparatifs obligatoires.",
-    "nuances": "MINIMUM 150 mots. RÔLE EXCLUSIF — répondre à : « Qu'est-ce qu'un lecteur devrait savoir avant de tirer une conclusion ? ». UNIQUEMENT des informations NOUVELLES : limites, incertitudes, désaccords, points non encore établis, positions des acteurs. TOUTE projection ou hypothèse future ('pourrait être réduit', 'devrait augmenter', 'risque de') doit être ATTRIBUÉE PRÉCISÉMENT à qui l'énonce (annonce officielle, responsable nommé, rapport daté) — sinon RETIRE-la, ne l'invente jamais. INTERDIT de répéter, reformuler ou résumer un fait déjà présenté dans 'faits' ou 'contexte'. Limites méthodologiques, désaccords entre experts, ce que les données ne permettent pas de conclure."
+    "nuances": "150 mots SI LES SOURCES CONTIENNENT DE QUOI LES ÉCRIRE — sinon, chaîne VIDE (voir la règle du plancher conditionnel). RÔLE EXCLUSIF — répondre à : « Qu'est-ce qu'un lecteur devrait savoir avant de tirer une conclusion ? ». UNIQUEMENT des informations NOUVELLES : limites, incertitudes, désaccords, points non encore établis, positions des acteurs. TOUTE projection ou hypothèse future ('pourrait être réduit', 'devrait augmenter', 'risque de') doit être ATTRIBUÉE PRÉCISÉMENT à qui l'énonce (annonce officielle, responsable nommé, rapport daté) — sinon RETIRE-la, ne l'invente jamais. INTERDIT de répéter, reformuler ou résumer un fait déjà présenté dans 'faits' ou 'contexte'. Limites méthodologiques, désaccords entre experts, ce que les données ne permettent pas de conclure."
   },
   "titre_contexte": "Intertitre éditorial de 'contexte', même logique que 'titre_faits' — ex. « Un pic hors norme, une mécanique déjà vue » plutôt que « Contexte ».",
   "titre_nuances": "Intertitre éditorial de 'nuances' — ex. « Ce que les vérifications en disent » ou « Ce qui reste établi, et ce qui ne l'est pas » plutôt que « Débats et nuances ». Doit annoncer une VRAIE tension ou incertitude présente dans le texte, jamais un intitulé générique interchangeable d'un article à l'autre.",
@@ -2073,7 +2118,12 @@ Vérifier le PAYS et l'entité concernés : une source portant sur un État homo
     MAUVAIS : « L'IA d'Anthropic a révélé que ses modèles avaient accédé à des systèmes. »
     BON : « Anthropic a révélé que ses modèles avaient accédé à des systèmes. »
     En revanche, une action TECHNIQUE effectivement décrite par les sources s'attribue bien au système : « le modèle a accédé aux systèmes », « l'algorithme a classé 12 000 dossiers » sont corrects. La distinction est entre ce qu'un système FAIT (technique, attribuable) et ce qu'une organisation DIT ou DÉCIDE (jamais attribuable au système).
-    Cette confusion n'est pas une facilité de style : elle transforme un incident opérationnel en récit d'intention, et elle est d'autant plus grave dans un article qui porte justement sur le comportement d'un système."""
+    Cette confusion n'est pas une facilité de style : elle transforme un incident opérationnel en récit d'intention, et elle est d'autant plus grave dans un article qui porte justement sur le comportement d'un système.
+
+29. PLANCHER CONDITIONNEL DE « DÉBATS ET NUANCES » — NE JAMAIS COMBLER. Cette section n'a de longueur imposée que si les sources fournies contiennent réellement des limites, des incertitudes, des désaccords ou des critiques ATTESTÉS. Si elles n'en contiennent aucun, renvoie une chaîne VIDE pour 'nuances' : c'est la bonne réponse, elle ne sera pas comptée comme un défaut, et la section ne sera pas affichée au lecteur.
+    N'écris JAMAIS une limite que tu déduis toi-même, une précaution d'usage ('des recherches supplémentaires sont nécessaires' quand aucune source ne le dit), ni une injonction ('il est essentiel de renforcer la vigilance').
+    Une section vide est honnête. Une section remplie de généralités affirme au lecteur qu'un débat existe alors que rien ne l'atteste : c'est une invention, au même titre qu'un chiffre inventé.
+"""
 
 # ──────────────────────────────────────────────────────────────────────────────
 # PROMPT BRÈVE (02/08)
