@@ -3,6 +3,7 @@ name: Runtime preflight V3 CI
 on:
   pull_request:
     paths:
+      - "feed.xml"
       - "scripts/run_pipeline_v3.py"
       - "scripts/test_runtime_preflight_v3.py"
       - "scripts/test_run_pipeline_v3.py"
@@ -11,6 +12,7 @@ on:
       - "scripts/test_pertinence_bloquant.py"
       - "scripts/normalize_feed_pubdates.py"
       - "scripts/test_feed_pubdates.py"
+      - "scripts/test_feed_current_state.py"
       - "scripts/test_runtime_feed_pubdates_v3.py"
       - "scripts/test_runtime_preflight_ci_contract.py"
       - ".github/workflows/runtime-preflight-v3-ci.yml"
@@ -40,6 +42,7 @@ jobs:
           scripts/test_pertinence_bloquant.py
           scripts/normalize_feed_pubdates.py
           scripts/test_feed_pubdates.py
+          scripts/test_feed_current_state.py
           scripts/test_runtime_feed_pubdates_v3.py
           scripts/test_runtime_preflight_ci_contract.py
       - name: Vérifier le verrou runtime
@@ -49,6 +52,7 @@ jobs:
       - name: Vérifier la normalisation des dates RSS
         run: |
           python scripts/test_feed_pubdates.py
+          python scripts/test_feed_current_state.py
           python scripts/test_runtime_feed_pubdates_v3.py
       - name: Rejouer exactement la suite runtime V3
         run: |
