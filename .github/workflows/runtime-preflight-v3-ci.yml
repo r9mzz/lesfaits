@@ -9,6 +9,9 @@ on:
       - "scripts/test_trusted_source_expansion.py"
       - "scripts/test_verification_scope.py"
       - "scripts/test_pertinence_bloquant.py"
+      - "scripts/normalize_feed_pubdates.py"
+      - "scripts/test_feed_pubdates.py"
+      - "scripts/test_runtime_feed_pubdates_v3.py"
       - "scripts/test_runtime_preflight_ci_contract.py"
       - ".github/workflows/runtime-preflight-v3-ci.yml"
 
@@ -35,14 +38,22 @@ jobs:
           scripts/test_trusted_source_expansion.py
           scripts/test_verification_scope.py
           scripts/test_pertinence_bloquant.py
+          scripts/normalize_feed_pubdates.py
+          scripts/test_feed_pubdates.py
+          scripts/test_runtime_feed_pubdates_v3.py
           scripts/test_runtime_preflight_ci_contract.py
       - name: Vérifier le verrou runtime
         run: python scripts/test_runtime_preflight_v3.py
       - name: Vérifier le contrat CI du prévol
         run: python scripts/test_runtime_preflight_ci_contract.py
+      - name: Vérifier la normalisation des dates RSS
+        run: |
+          python scripts/test_feed_pubdates.py
+          python scripts/test_runtime_feed_pubdates_v3.py
       - name: Rejouer exactement la suite runtime V3
         run: |
           python scripts/test_run_pipeline_v3.py
           python scripts/test_trusted_source_expansion.py
           python scripts/test_verification_scope.py
           python scripts/test_pertinence_bloquant.py
+          python scripts/test_runtime_feed_pubdates_v3.py
