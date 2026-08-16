@@ -14,7 +14,8 @@ V3 ne conserve que les adaptations qui ne redéfinissent pas le classement :
 - intégrité des sources des brèves qui utilisent des notes numérotées ;
 - extension conservatrice du sourcing vers davantage de sources primaires et
   de rédactions internationales de référence ;
-- cohérence runtime du plancher conditionnel de « Débats et nuances ».
+- cohérence runtime du plancher conditionnel de « Débats et nuances » ;
+- normalisation newsletter v6 après toute reconstruction réellement exécutée.
 
 L'arrêt avant génération quand le juge n'a trouvé aucune source traitant le
 sujet précis vit maintenant NATIVEMENT dans pipeline.py (15/08) — l'ancien
@@ -45,6 +46,7 @@ _RUNTIME_REGRESSION_TESTS = (
     "test_trusted_source_expansion.py",
     "test_verification_scope.py",
     "test_pertinence_bloquant.py",
+    "test_runtime_newsletter_v3.py",
 )
 
 
@@ -187,6 +189,25 @@ def _patch_breve_source_integrity(source: str) -> str:
     return source.replace(marker, replacement, 1)
 
 
+def _normalize_newsletter_after_runtime() -> dict[str, int]:
+    """Normalise la vitrine après le dernier rebuild du runtime, avant le commit.
+
+    ``pipeline.py`` contient encore le gabarit historique de newsletter. Les
+    workflows de réparation le remettaient en v6 APRES le push, créant une
+    régression temporaire et un second commit même lorsqu'aucun article n'avait
+    été publié. Ici on réutilise la normalisation canonique existante dans le
+    même processus, une fois que tous les rebuilds de ``legacy.main`` sont finis.
+    """
+    from harden_newsletter_v3 import run as normalize_newsletter
+
+    root = Path(__file__).resolve().parent.parent
+    result = normalize_newsletter(root)
+    print(
+        f"[RUNTIME V3] newsletter v6 normalisée avant sauvegarde : "
+        f"{result['changed']} page(s) corrigée(s)"
+    )
+    return result
+
 
 def _prepared_pipeline_source_v3() -> str:
     source = _original_prepared_pipeline_source()
@@ -205,4 +226,7 @@ if __name__ == "__main__":
     _run_runtime_regressions()
     _patch_verification_evidence_scope()
     _patch_conditional_nuances_runtime()
-    sys.exit(legacy.main())
+    _exit_code = legacy.main()
+    if "--dry-run" not in sys.argv[1:]:
+        _normalize_newsletter_after_runtime()
+    sys.exit(_exit_code)
