@@ -8944,5 +8944,27 @@
     "matiere_donnees_chiffrees": 2,
     "n_sources_injectees": 10,
     "n_sources_trouvees": 10
+  },
+  {
+    "slug": "baisse-tarifs-achat-surplus-solaire-france-2026",
+    "statut": "rejete_qualite",
+    "date": "2026-08-16T13:43:09",
+    "angle_insuffisant": true,
+    "raison": "L'article ne contient pas de phrase liant un événement daté récent à une donnée chiffrée ou nommée qui lui est propre.",
+    "article_type": "breve",
+    "avertissements_garde_fous": [
+      "resume_repete_corps",
+      "attributions_trop_repetitives"
+    ],
+    "titre": "Baisse des tarifs d'achat du surplus solaire en France en 2026",
+    "n_sources": 3,
+    "n_mots": 115,
+    "titre_rss": "Les solutions de stockage et de gestion intelligente remettent en lumière l’autoconsommation du photovoltaïque résidentiel",
+    "matiere_faits_distincts": 1143,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 5,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "n_sources_pertinentes": 1
   }
 ]
