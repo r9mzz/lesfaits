@@ -15,6 +15,7 @@ V3 ne conserve que les adaptations qui ne redéfinissent pas le classement :
 - extension conservatrice du sourcing vers davantage de sources primaires et
   de rédactions internationales de référence ;
 - cohérence runtime du plancher conditionnel de « Débats et nuances » ;
+- restauration des vraies dates de publication RSS après le dernier rebuild ;
 - normalisation newsletter v6 après toute reconstruction réellement exécutée.
 
 L'arrêt avant génération quand le juge n'a trouvé aucune source traitant le
@@ -46,6 +47,7 @@ _RUNTIME_REGRESSION_TESTS = (
     "test_trusted_source_expansion.py",
     "test_verification_scope.py",
     "test_pertinence_bloquant.py",
+    "test_runtime_feed_pubdates_v3.py",
     "test_runtime_newsletter_v3.py",
 )
 
@@ -189,6 +191,27 @@ def _patch_breve_source_integrity(source: str) -> str:
     return source.replace(marker, replacement, 1)
 
 
+def _normalize_feed_after_runtime() -> dict[str, int]:
+    """Restaure les vraies ``pubDate`` RSS après le dernier rebuild du runtime.
+
+    Le générateur historique date chaque entrée RSS avec l'heure du rebuild.
+    Sans cette étape, même un run technique à zéro article fait remonter tout le
+    corpus comme s'il venait d'être publié. La source de vérité reste le
+    ``datePublished`` JSON-LD de chaque article ; ``lastBuildDate`` garde, lui,
+    l'instant réel du rebuild. La normalisation se fait avant la sauvegarde du
+    checkout, comme les autres réparations runtime V3.
+    """
+    from normalize_feed_pubdates import normalize as normalize_feed
+
+    root = Path(__file__).resolve().parent.parent
+    result = normalize_feed(root)
+    print(
+        f"[RUNTIME V3] dates RSS normalisées avant sauvegarde : "
+        f"{result['changed']} pubDate corrigée(s)"
+    )
+    return result
+
+
 def _normalize_newsletter_after_runtime() -> dict[str, int]:
     """Normalise la vitrine après le dernier rebuild du runtime, avant le commit.
 
@@ -228,5 +251,6 @@ if __name__ == "__main__":
     _patch_conditional_nuances_runtime()
     _exit_code = legacy.main()
     if "--dry-run" not in sys.argv[1:]:
+        _normalize_feed_after_runtime()
         _normalize_newsletter_after_runtime()
     sys.exit(_exit_code)
