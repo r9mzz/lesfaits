@@ -19,6 +19,25 @@ def test_runtime_preflight_ci_tracks_native_precise_source_gate() -> None:
     )
 
 
+def test_runtime_preflight_ci_tracks_rss_runtime_normalization() -> None:
+    text = WORKFLOW.read_text(encoding="utf-8")
+
+    normalizer = "scripts/normalize_feed_pubdates.py"
+    semantic_test = "scripts/test_feed_pubdates.py"
+    runtime_test = "scripts/test_runtime_feed_pubdates_v3.py"
+
+    assert text.count(normalizer) >= 2, (
+        "la CI doit surveiller et compiler le normaliseur des dates RSS"
+    )
+    assert text.count(semantic_test) >= 3, (
+        "la CI doit surveiller, compiler et exécuter le test sémantique des dates RSS"
+    )
+    assert text.count(runtime_test) >= 4, (
+        "la CI doit surveiller, compiler et exécuter le verrou de câblage RSS du runtime"
+    )
+
+
 if __name__ == "__main__":
     test_runtime_preflight_ci_tracks_native_precise_source_gate()
+    test_runtime_preflight_ci_tracks_rss_runtime_normalization()
     print("OK: contrat CI du prévol runtime V3")
