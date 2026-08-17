@@ -25,6 +25,10 @@ on:
         description: "Modèle à sonder (défaut : celui de production)"
         required: false
         default: "openai/gpt-oss-120b"
+      modele_sonde:
+        description: "Modèle dont on mesure la taille de requête acceptée"
+        required: false
+        default: "groq/compound"
 
 jobs:
   check:
@@ -68,6 +72,17 @@ jobs:
               echo "  ❌ $m  (absent de l'API)"
             fi
           done
+
+      # Répond à la contradiction du 17/08 : l'API annonce pour groq/compound
+      # une fenêtre de 131 072 tokens et 70 000/minute, et il a pourtant refusé
+      # nos 40 requêtes de ~17 000 tokens avec « 413 Request Entity Too Large ».
+      # Les chiffres publiés disent que ça devrait passer. On mesure au lieu de
+      # supposer : requêtes de taille croissante, on relève où le refus tombe.
+      - name: Taille de requête réellement acceptée
+        env:
+          K1: ${{ secrets.GROQ_API_KEY }}
+          MODELE: ${{ inputs.modele_sonde || 'groq/compound' }}
+        run: python3 scripts/sonde_taille_requete.py
 
       - name: Tester chaque clé
         env:
