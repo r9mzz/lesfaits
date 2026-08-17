@@ -489,6 +489,79 @@ def signal_editorial(urls: list[str]) -> dict[str, dict]:
         return {}
 
 
+def sources_evenement(url: str, plafond: int = 8) -> list[dict]:
+    """Les AUTRES reprises du même événement, telles que la veille les a vues.
+
+    ── L'ÉVÉNEMENT COMME UNITÉ, 17/08 ────────────────────────────────────────
+
+    Jusqu'ici le pipeline notait des dépêches une par une : quand neuf
+    rédactions couvraient le même fait, il en retenait une et jetait les huit
+    autres comme des doublons. Or ces huit-là sont deux choses à la fois — le
+    signal d'importance (déjà exploité par `signal_editorial`) ET la matière :
+    huit angles, huit jeux de citations, huit détails que la dépêche retenue
+    n'a pas.
+
+    On les rend donc comme sources CANDIDATES. Trois bornes, délibérées :
+
+    - **candidates, pas retenues.** Elles rejoignent le vivier de
+      `duckduckgo_search` et passent ensuite par les MÊMES filtres que tout le
+      reste — domaines non citables, qualité de source, juge de pertinence,
+      `BUDGET_MATIERE`. Aucun chemin privilégié ;
+    - **elles ne remplacent aucune recherche.** Ce sont des reprises de presse,
+      donc secondaires au mieux : elles ne comblent pas le déficit de sources
+      PRIMAIRES, qui reste l'affaire des axes documentaires du 05/08. Ne pas
+      attendre d'elles ce qu'elles ne peuvent pas donner ;
+    - **plafonnées**, parce qu'une grappe erronée peut compter 30 items (le cas
+      « éclipse solaire » du 12/08). Au-delà de `plafond`, on n'ajoute rien : le
+      regroupement reste provisoire et ne doit pas décider seul du sourcing.
+
+    Ne lève jamais : journal absent, illisible, URL inconnue → liste vide.
+    """
+    try:
+        journal = charger()
+        items = journal.get("items", {})
+        cle = url_canonique(url)
+        if cle not in items:
+            return []
+        membres = None
+        for chef, m in _grouper_membres(items).items():
+            if cle in m:
+                membres = m
+                break
+        if not membres or len(membres) < 2:
+            return []
+        # ⚠ RÉSULTAT NÉGATIF, 17/08 — ne pas retenter le filtrage par titre ici.
+        # Les grappes contiennent du hors-sujet : « Au Japon, des pluies
+        # diluviennes » dans celle du séisme en Colombie, « Trump exfiltré en
+        # secret » dans celle de son offensive sur les vaccins. Réancrer la
+        # règle des 2 mots distinctifs sur le CANDIDAT plutôt que sur le chef de
+        # grappe a été essayé et NE FILTRE RIEN : « pluies au Japon » partage
+        # « morts » et « moins » avec « 132 morts après le séisme ». Ce sont des
+        # mots courants que `_mots_bruyants` ne coupe pas au seuil de 10 %.
+        #
+        # C'est le même échec que les trois rustinages du filtre anti-doublon
+        # (26/07, 28/07, 02/08) : le discriminant n'existe pas dans les titres.
+        # On s'en remet donc à l'instrument qui a été MESURÉ sur cette question
+        # exacte — le juge de pertinence, dont le backtest du 12/08 n'a jamais
+        # déclaré pertinente une source étrangère (0 sur 30). Le hors-sujet
+        # arrive donc en queue de tri et n'entre pas dans le prompt.
+        out = []
+        for k in membres:
+            if k == cle or len(out) >= plafond:
+                continue
+            v = items[k]
+            out.append({
+                "title": v.get("titre", ""),
+                "url": k,
+                "snippet": "",
+                "institution": (v.get("flux") or [""])[0],
+            })
+        return out
+    except Exception as e:  # noqa: BLE001
+        print(f"[VEILLE] reprises indisponibles ({type(e).__name__})")
+        return []
+
+
 def main() -> int:
     ap = argparse.ArgumentParser(description=__doc__)
     ap.add_argument("--rapport", action="store_true",

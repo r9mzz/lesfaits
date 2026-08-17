@@ -251,3 +251,42 @@ if echecs:
     print(f"ÉCHEC — {len(echecs)} test(s) : {', '.join(echecs)}")
     sys.exit(1)
 print("Tous les tests passent.")
+
+
+# ── L'ÉVÉNEMENT COMME UNITÉ (17/08) ───────────────────────────────────────
+def test_sources_evenement():
+    """Les reprises d'un même fait sont rendues comme sources candidates."""
+    import veille as V
+    journal = {"items": {
+        "https://a.fr/seisme": {
+            "titre": "Au moins 132 morts après le séisme en Colombie",
+            "flux": ["Le Monde"], "premiere_vue": "2026-08-17T09:00:00+00:00",
+            "derniere_vue": "2026-08-17T11:00:00+00:00", "passages": 3},
+        "https://b.fr/seisme-colombie": {
+            "titre": "Séisme en Colombie : les recherches continuent",
+            "flux": ["France 24"], "premiere_vue": "2026-08-17T09:00:00+00:00",
+            "derniere_vue": "2026-08-17T11:00:00+00:00", "passages": 3},
+        "https://c.fr/autre": {
+            "titre": "Le Sénat adopte le budget rectificatif",
+            "flux": ["Sénat"], "premiere_vue": "2026-08-17T09:00:00+00:00",
+            "derniere_vue": "2026-08-17T11:00:00+00:00", "passages": 3},
+    }}
+    vrai = V.charger
+    V.charger = lambda: journal
+    try:
+        r = V.sources_evenement("https://a.fr/seisme")
+        urls = {x["url"] for x in r}
+        assert "https://b.fr/seisme-colombie" in urls, "la reprise du même fait manque"
+        assert "https://a.fr/seisme" not in urls, "le candidat se cite lui-même"
+        assert "https://c.fr/autre" not in urls, "un sujet sans rapport a été rattaché"
+        assert all(x.get("institution") for x in r), "le flux d'origine doit être rendu"
+        # URL inconnue du journal : aucune reprise, jamais d'exception.
+        assert V.sources_evenement("https://inconnu.fr/x") == []
+        # Plafond respecté.
+        assert len(V.sources_evenement("https://a.fr/seisme", plafond=0)) == 0
+    finally:
+        V.charger = vrai
+    print("OK — reprises d'un même événement rendues comme sources candidates")
+
+
+test_sources_evenement()

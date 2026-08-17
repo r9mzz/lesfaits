@@ -7808,6 +7808,37 @@ def generer_article(item: dict, dry_run: bool, published: set, new_pub: set, dat
             extra.append(p)
             seen_urls.add(p["url"])
 
+    # LES REPRISES DU MÊME ÉVÉNEMENT (17/08) — quand neuf rédactions couvrent
+    # le même fait, le pipeline en retenait une et jetait les huit autres comme
+    # des doublons. Ce sont pourtant huit angles et huit jeux de détails que la
+    # dépêche retenue n'a pas. La veille les connaît déjà : les rendre coûte
+    # zéro requête et zéro token.
+    #
+    # ⚠ Ce sont des reprises de PRESSE : secondaires au mieux, jamais primaires.
+    # Elles ne comblent pas le déficit de sources primaires — c'est l'affaire
+    # des axes documentaires du 05/08 — et elles entrent comme CANDIDATES, donc
+    # elles subissent les mêmes filtres que tout le reste (domaines non
+    # citables, qualité, juge de pertinence, BUDGET_MATIERE). Aucun passe-droit.
+    try:
+        import veille as _veille
+        # Plafond volontairement bas au premier branchement : les grappes
+        # contiennent du hors-sujet et le juge de pertinence ne note que les 10
+        # premières sources après tri. En ajouter huit d'un coup pousserait des
+        # documents non jugés dans le prompt. Quatre, puis on mesure.
+        _reprises = [r for r in _veille.sources_evenement(item.get("url", ""), plafond=4)
+                     if r["url"] not in seen_urls and _est_source_citables(r["url"])]
+    except Exception as _e:  # noqa: BLE001
+        print(f"     [ÉVÉNEMENT] reprises indisponibles ({type(_e).__name__})")
+        _reprises = []
+    if _reprises:
+        for r in _reprises:
+            full = "" if _est_presse_protegee(r["url"]) else fetch_full_content(r["url"])
+            r["snippet"] = full[:8000] if len(full) > 500 else (r.get("title") or "")
+            extra.append(r)
+            seen_urls.add(r["url"])
+        print(f"     [ÉVÉNEMENT] {len(_reprises)} reprise(s) du même fait "
+              f"ajoutée(s) au vivier (vues par la veille)")
+
     # Enrichissement : remplacer les snippets DDG (~200 car.) par le contenu
     # complet scrapé pour les sources non protégées par droits voisins.
     for src in extra:

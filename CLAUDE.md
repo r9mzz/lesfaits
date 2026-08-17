@@ -331,6 +331,59 @@ le critère quel que soit le sujet. `angle_insuffisant` n'est donc pas
 uniquement un défaut de sélection ; une part est un tirage sur la génération.
 Réserves : n=6, biais de sélection, six appariements de slugs vérifiés à la main.
 
+## L'ÉVÉNEMENT COMME UNITÉ — branché le 17/08, à mesurer au prochain run
+
+La piste ouverte le 01/08 (« clusteriser les items RSS par événement au lieu de
+les dédupliquer ») est enfin exploitée pour ce qu'elle apporte EN PLUS du signal
+d'importance : la MATIÈRE. Quand neuf rédactions couvrent le même fait, le
+pipeline en retenait une et jetait les huit autres comme des doublons — alors
+que ce sont huit angles et huit jeux de détails que la dépêche retenue n'a pas.
+
+`veille.sources_evenement(url)` rend ces reprises comme sources CANDIDATES,
+pour zéro requête et zéro token (la veille les a déjà lues). Trois bornes :
+
+- **candidates, pas retenues** : elles rejoignent le vivier de
+  `duckduckgo_search` et subissent les mêmes filtres (domaines non citables,
+  qualité de domaine, juge de pertinence, `BUDGET_MATIERE`). Aucun passe-droit ;
+- **elles ne comblent pas le déficit de PRIMAIRES** : ce sont des reprises de
+  presse, secondaires au mieux. Ne pas attendre d'elles ce que seuls les axes
+  documentaires du 05/08 peuvent donner ;
+- **plafond 4 au premier branchement**, parce que le juge de pertinence ne note
+  que les 10 premières sources après tri : en ajouter huit d'un coup pousserait
+  des documents NON JUGÉS dans le prompt.
+
+### ⚠ RÉSULTAT NÉGATIF — ne pas filtrer les reprises par leur titre
+
+Les grappes contiennent du hors-sujet : « Au Japon, des pluies diluviennes »
+dans celle du séisme en Colombie, « Trump exfiltré en secret » dans celle de son
+offensive sur les vaccins. Tentative de réancrer la règle des 2 mots
+distinctifs sur le CANDIDAT plutôt que sur le chef de grappe : **elle ne filtre
+rien** — « pluies au Japon » partage « morts » et « moins » avec « 132 morts
+après le séisme », deux mots courants que `_mots_bruyants` ne coupe pas au seuil
+de 10 %.
+
+C'est le même échec que les trois rustinages du filtre anti-doublon (26/07,
+28/07, 02/08) : **le discriminant n'existe pas dans les titres.** On s'en remet
+donc à l'instrument mesuré sur cette question exacte — le juge de pertinence,
+dont le backtest du 12/08 n'a jamais déclaré pertinente une source étrangère
+(0 sur 30). Le hors-sujet arrive en queue de tri et n'entre pas dans le prompt.
+
+## POIDS DE LA VEILLE — la mesure est branchée, la décision attend les runs
+
+Le bonus de persistance vaut au maximum +25, soit moins que « source longue +
+média connu ». C'est probablement trop peu : c'est le SEUL signal du barème qui
+parle du sujet et non de son emballage. Mais rien n'était enregistré, donc rien
+n'était mesurable.
+
+Depuis le 17/08, `verification_log.json` porte `veille_heures_visible`,
+`veille_passages`, `veille_age_h` et `veille_n_flux_grappe` à côté de l'issue.
+`python scripts/analyser_veille_issue.py` croise les deux.
+
+**La question, et rien d'autre : le taux d'aboutissement monte-t-il avec la
+persistance ou le nombre de flux ?** Si oui, le bonus mérite plus de poids ; si
+les colonnes sont plates, il n'en mérite pas. Ne fixer aucun seuil avant que ces
+colonnes soient lisibles — et se souvenir qu'à n < 30 tout écart est du bruit.
+
 ## ACHARNEMENT — mesuré et bloqué le 17/08. Un quota entier dépensé à re-condamner
 
 Le point 4 des « deux premiers travaux à faire » du 01/08 est enfin traité, avec
