@@ -36,6 +36,19 @@ on:
         required: false
         default: "false"
         type: boolean
+      modele:
+        # Essai contrôlé d'un modèle, SANS toucher au défaut des runs
+        # programmés — c'est toute la différence avec la variable de dépôt
+        # `vars.GROQ_MODEL_OVERRIDE`, qui s'appliquerait à tous les runs
+        # suivants. Sert à répondre par la mesure à une question qu'on ne peut
+        # pas trancher par supposition : par exemple, `groq/compound` est un
+        # système agentique doté d'outils côté serveur — va-t-il chercher des
+        # faits ABSENTS des extraits fournis, ce qu'interdit la règle 5 de la
+        # charte ? Vide = comportement inchangé.
+        description: "Modèle Groq pour cet essai seulement (ex : groq/compound)"
+        required: false
+        default: ""
+        type: string
 
 # Empêche deux exécutions simultanées (cron + déclenchement manuel qui se
 # chevauchent) de pousser des commits concurrents sur le même dépôt — mises
@@ -192,7 +205,10 @@ jobs:
           # les sources minimales dépassent la fenêtre et le format long ne peut
           # PAS tourner, quelle que soit la profondeur d'extrait. Les brèves
           # passent. Vérifier `_TPM_PAR_MODELE` avant de changer cette valeur.
-          GROQ_MODEL_OVERRIDE: ${{ vars.GROQ_MODEL_OVERRIDE }}
+          # L'entrée manuelle prime sur la variable de dépôt : elle ne vaut que
+          # pour CE déclenchement, donc un essai ne peut pas laisser le journal
+          # sur un modèle non validé.
+          GROQ_MODEL_OVERRIDE: ${{ inputs.modele || vars.GROQ_MODEL_OVERRIDE }}
           PYTHONIOENCODING: utf-8
           TZ: Europe/Paris
         run: |
