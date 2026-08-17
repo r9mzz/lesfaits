@@ -42,9 +42,13 @@ from pathlib import Path
 # Groq a arrêté llama-3.3-70b-versatile le 16/08/2026 sur les offres free et
 # developer. Le runner de production passe toujours par ce point d'entrée V3 :
 # on force donc ici le remplaçant officiel avant que ``pipeline.py`` ne soit
-# exécuté. Une valeur explicite fournie par l'environnement reste prioritaire
-# pour permettre un test A/B ou une migration future sans changer le code.
-os.environ.setdefault("GROQ_MODEL_OVERRIDE", "openai/gpt-oss-120b")
+# exécuté. Une valeur explicite NON VIDE fournie par l'environnement reste
+# prioritaire pour permettre un test A/B ou une migration future sans changer
+# le code. GitHub Actions exporte toutefois les expressions vides comme une
+# variable présente avec valeur "" : ``setdefault`` ne la remplaçait pas et
+# réactivait alors le modèle retiré. On traite donc vide/blanc comme absent.
+if not os.environ.get("GROQ_MODEL_OVERRIDE", "").strip():
+    os.environ["GROQ_MODEL_OVERRIDE"] = "openai/gpt-oss-120b"
 
 import run_pipeline as legacy
 from trusted_source_expansion import patch_pipeline_source as _patch_trusted_sources
