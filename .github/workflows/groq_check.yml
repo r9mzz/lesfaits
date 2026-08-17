@@ -33,7 +33,10 @@ on:
 jobs:
   check:
     runs-on: ubuntu-latest
-    timeout-minutes: 5
+    # La sonde de taille attend 65 s entre essais pour mesurer une minute vierge.
+    # Selon le point de rupture et la dichotomie, elle peut dépasser largement
+    # 5 minutes ; 30 minutes aligne ce workflow sur groq_taille.yml.
+    timeout-minutes: 30
     steps:
       # Ce workflow n'avait pas de checkout : il ne faisait que du curl. La
       # sonde de taille de requête est un script du dépôt, il lui faut donc
@@ -61,11 +64,6 @@ jobs:
           liste=$(curl -s https://api.groq.com/openai/v1/models \
             -H "Authorization: Bearer $K1")
           echo "--- ids servis, avec leur FENÊTRE réelle ---"
-          # `context_window` est le chiffre qui manquait le 17/08 : l'essai de
-          # groq/compound est mort 40 fois sur « 413 Request Entity Too Large »
-          # alors que la grille tarifaire annonce 70 000 TPM. Le TPM est un
-          # débit par minute ; la fenêtre est la taille maximale d'UNE requête.
-          # Les deux n'ont rien à voir, et c'est la seconde qui rejette.
           echo "$liste" > /tmp/groq_models.json
           python3 -c 'import json,sys; d=json.load(open("/tmp/groq_models.json")); print("  %-34s%10s%12s" % ("modele","fenetre","sortie max")); [print("  %-34s%10s%12s" % (m.get("id","?"), m.get("context_window") or "?", m.get("max_completion_tokens") or "?")) for m in sorted(d.get("data",[]), key=lambda x: x.get("id",""))]' \
             || echo "  (lecture JSON impossible)"
@@ -147,11 +145,6 @@ jobs:
                 echo "clé $i : ❌ 429 journalier sans chiffres — $(echo "$msg" | head -c 200)"
               fi
             elif [ "$code" = "429" ]; then
-              # CORPS BRUT (17/08) : le pipeline classe ces 429 en « rate limit »
-              # sans jamais journaliser le message. Trois diagnostics bloqués
-              # dessus — les runs muets des 15 et 16/08, puis l'échec de
-              # gpt-oss-120b au test A/B. Sans le texte de Groq, impossible de
-              # distinguer un TPM d'une limite propre au modèle ou au palier.
               echo "clé $i : ⏳ 429 — BRUT : $(echo "$msg" | head -c 400)"
             else
               echo "clé $i : ⚠ HTTP $code — $(echo "$msg" | grep -o '"message":"[^"]*"' | head -c 200)"
