@@ -20,6 +20,11 @@ name: Groq — Test état des clés
 # manuel reste disponible pour un contrôle ponctuel.
 on:
   workflow_dispatch:
+    inputs:
+      modele:
+        description: "Modèle à sonder (défaut : celui de production)"
+        required: false
+        default: "openai/gpt-oss-120b"
 
 jobs:
   check:
@@ -83,8 +88,10 @@ jobs:
           K21: ${{ secrets.GROQ_API_KEY_21 }}
           K22: ${{ secrets.GROQ_API_KEY_22 }}
           K23: ${{ secrets.GROQ_API_KEY_23 }}
+          MODELE: ${{ inputs.modele }}
         run: |
-          echo "=== $(date -u +'%Y-%m-%d %H:%M UTC') ==="
+          MODELE="${MODELE:-openai/gpt-oss-120b}"
+          echo "=== $(date -u +'%Y-%m-%d %H:%M UTC') · modèle sondé : $MODELE ==="
           # ⚠ LEÇON DU 18/07 : Groq décompte du quota journalier (TPD) la
           # RÉSERVATION max_tokens, pas la consommation réelle — une sonde à
           # max_tokens=10000 a coûté 10 000 tokens de quota par clé (soldes
@@ -97,7 +104,7 @@ jobs:
             if [ -z "$key" ]; then echo "clé $i : (absente)"; continue; fi
             body=$(curl -s -w "\n%{http_code}" https://api.groq.com/openai/v1/chat/completions \
               -H "Authorization: Bearer $key" -H "Content-Type: application/json" \
-              -d '{"model":"llama-3.3-70b-versatile","max_tokens":1,"messages":[{"role":"user","content":"Réponds uniquement : ok"}]}')
+              -d "{\"model\":\"$MODELE\",\"max_tokens\":1,\"messages\":[{\"role\":\"user\",\"content\":\"Réponds uniquement : ok\"}]}")
             code=$(echo "$body" | tail -1)
             msg=$(echo "$body" | head -1 | head -c 500)
             if [ "$code" = "200" ]; then
@@ -112,7 +119,12 @@ jobs:
                 echo "clé $i : ❌ 429 journalier sans chiffres — $(echo "$msg" | head -c 200)"
               fi
             elif [ "$code" = "429" ]; then
-              echo "clé $i : ⏳ 429 limite par MINUTE (réessayer dans 60 s) — $(echo "$msg" | grep -o '"message":"[^"]*"' | head -c 150)"
+              # CORPS BRUT (17/08) : le pipeline classe ces 429 en « rate limit »
+              # sans jamais journaliser le message. Trois diagnostics bloqués
+              # dessus — les runs muets des 15 et 16/08, puis l'échec de
+              # gpt-oss-120b au test A/B. Sans le texte de Groq, impossible de
+              # distinguer un TPM d'une limite propre au modèle ou au palier.
+              echo "clé $i : ⏳ 429 — BRUT : $(echo "$msg" | head -c 400)"
             else
               echo "clé $i : ⚠ HTTP $code — $(echo "$msg" | grep -o '"message":"[^"]*"' | head -c 200)"
             fi
