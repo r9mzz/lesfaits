@@ -16,6 +16,17 @@ import sys
 import urllib.error
 import urllib.request
 
+# Le log d'étape n'est pas toujours récupérable via l'API (fenêtre de tail
+# bornée). On écrit donc AUSSI dans le résumé du run, qui l'est toujours.
+_RESUME = os.getenv("GITHUB_STEP_SUMMARY")
+
+
+def dire(ligne: str) -> None:
+    print(ligne, flush=True)
+    if _RESUME:
+        with open(_RESUME, "a", encoding="utf-8") as f:
+            f.write(ligne + "\n")
+
 MODELE = os.getenv("MODELE", "groq/compound")
 CLE = os.getenv("K1", "")
 TAILLES = [1_000, 2_000, 4_000, 6_000, 8_000, 12_000, 16_000, 24_000, 32_000]
@@ -24,8 +35,8 @@ if not CLE:
     print("GROQ_API_KEY absente")
     sys.exit(1)
 
-print(f"=== {MODELE} — taille de requête réellement acceptée ===")
-print(f"  {'tokens ~':>9}  {'car.':>8}  résultat")
+dire(f"=== {MODELE} — taille de requête réellement acceptée ===")
+dire(f"  {'tokens ~':>9}  {'car.':>8}  résultat")
 dernier_ok = 0
 for n in TAILLES:
     corps = json.dumps({
@@ -38,17 +49,17 @@ for n in TAILLES:
         headers={"Authorization": f"Bearer {CLE}", "Content-Type": "application/json"})
     try:
         with urllib.request.urlopen(req, timeout=90) as r:
-            print(f"  {n:>9}  {len(corps):>8}  OK ({r.status})")
+            dire(f"  {n:>9}  {len(corps):>8}  OK ({r.status})")
             dernier_ok = n
     except urllib.error.HTTPError as e:
         detail = e.read().decode()[:180]
-        print(f"  {n:>9}  {len(corps):>8}  REFUS {e.code} — {detail}")
+        dire(f"  {n:>9}  {len(corps):>8}  REFUS {e.code} — {detail}")
         break
     except Exception as e:  # noqa: BLE001
-        print(f"  {n:>9}  {len(corps):>8}  {type(e).__name__}: {e}")
+        dire(f"  {n:>9}  {len(corps):>8}  {type(e).__name__}: {e}")
         break
 
-print()
-print(f"  Dernière taille acceptée : ~{dernier_ok} tokens.")
-print(f"  Pour mémoire, notre prompt de génération nominal fait ~13 400 tokens,")
-print(f"  et le prompt système seul en fait 6 893.")
+dire("")
+dire(f"  Dernière taille acceptée : ~{dernier_ok} tokens.")
+dire(f"  Pour mémoire, notre prompt de génération nominal fait ~13 400 tokens,")
+dire(f"  et le prompt système seul en fait 6 893.")
