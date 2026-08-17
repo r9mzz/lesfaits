@@ -1,0 +1,112 @@
+name: Groq — Plafond de taille par requête
+
+# POURQUOI CE DIAGNOSTIC (17/08)
+# L'essai de `groq/compound` est mort 40 fois sur « 413 Request Entity Too
+# Large », et le corps de l'erreur ne porte AUCUN chiffre — contrairement aux
+# 413 de juillet qui annonçaient « TPM Limit 12000 ». Deux explications ont été
+# avancées et les deux sont fausses :
+#   - « c'est le TPM »          → la grille annonce 70 000 pour compound,
+#                                 nos requêtes en font ~12 000 ;
+#   - « c'est la fenêtre »      → `context_window` vaut 131 072, soit seize
+#                                 fois nos requêtes.
+# Donc le plafond réel n'est ni l'un ni l'autre, ou aucun des deux n'a la
+# valeur annoncée. On arrête de supposer : on le MESURE.
+#
+# MÉTHODE — échelle croissante avec `max_tokens: 1`, arrêt au premier 413,
+# puis dichotomie entre la dernière taille acceptée et la première refusée.
+# Le coût est négligeable : la réservation de sortie vaut 1 token, et une
+# requête refusée n'est pas facturée. Une seule clé est utilisée pour ne pas
+# disperser la mesure sur des comptes aux soldes différents.
+#
+# ⚠ Ne PAS transformer ce diagnostic en cron : il envoie de gros prompts, et
+# les tokens d'ENTRÉE comptent, eux, quand la requête est acceptée.
+
+on:
+  workflow_dispatch:
+    inputs:
+      modele:
+        description: "Modèle à sonder"
+        required: false
+        default: "groq/compound"
+        type: string
+
+jobs:
+  taille:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Chercher le plafond par dichotomie
+        env:
+          K1: ${{ secrets.GROQ_API_KEY }}
+          MODELE: ${{ inputs.modele }}
+        run: |
+          MODELE="${MODELE:-groq/compound}"
+          echo "=== $(date -u +'%Y-%m-%d %H:%M UTC') · modèle : $MODELE ==="
+          if [ -z "$K1" ]; then echo "GROQ_API_KEY absente"; exit 1; fi
+
+          # Remplissage en FRANÇAIS : la tokenisation d'un texte réel n'est pas
+          # celle d'une répétition de « aaa ». On vise ~3,3 caractères par token,
+          # le ratio utilisé partout dans pipeline.py.
+          # Pas de heredoc : indenté dans un bloc `run: |`, son délimiteur de
+          # fermeture ne retombe pas en colonne 1 et le YAML casse. Écrit en
+          # `python3 -c` sur une ligne, qui n'a pas ce défaut.
+          essai () {
+            n_tokens=$1
+            n_chars=$(( n_tokens * 33 / 10 ))
+            python3 -c 'import json,sys; n=int(sys.argv[1]); p="Le rapport publie mardi par l institut detaille la hausse observee sur douze mois dans les principaux secteurs. "; t=(p*(n//len(p)+1))[:n]; print(json.dumps({"model":sys.argv[2],"max_tokens":1,"messages":[{"role":"user","content":t}]}))' \
+              "$n_chars" "$MODELE" > /tmp/payload.json
+            code=$(curl -s -o /tmp/rep.json -w "%{http_code}" \
+              https://api.groq.com/openai/v1/chat/completions \
+              -H "Authorization: Bearer $K1" -H "Content-Type: application/json" \
+              --data-binary @/tmp/payload.json)
+            echo "$code"
+          }
+
+          echo
+          echo "--- échelle croissante (max_tokens=1) ---"
+          dernier_ok=0
+          premier_ko=0
+          for n in 1000 2000 4000 8000 12000 16000 24000 32000 64000 100000; do
+            code=$(essai "$n")
+            if [ "$code" = "200" ]; then
+              echo "  ${n} tokens : ✅ 200"
+              dernier_ok=$n
+            else
+              detail=$(head -c 200 /tmp/rep.json)
+              echo "  ${n} tokens : ❌ HTTP $code — $detail"
+              premier_ko=$n
+              break
+            fi
+            sleep 3
+          done
+
+          echo
+          if [ "$premier_ko" = "0" ]; then
+            echo "AUCUN refus jusqu'à ${dernier_ok} tokens — le plafond est au-dessus."
+            exit 0
+          fi
+          if [ "$dernier_ok" = "0" ]; then
+            echo "Refusé dès la plus petite taille — le problème n'est pas la taille."
+            exit 0
+          fi
+
+          echo "--- dichotomie entre ${dernier_ok} (ok) et ${premier_ko} (refusé) ---"
+          bas=$dernier_ok
+          haut=$premier_ko
+          while [ $(( haut - bas )) -gt 500 ]; do
+            milieu=$(( (bas + haut) / 2 ))
+            code=$(essai "$milieu")
+            if [ "$code" = "200" ]; then
+              echo "  ${milieu} tokens : ✅ 200"
+              bas=$milieu
+            else
+              echo "  ${milieu} tokens : ❌ HTTP $code"
+              haut=$milieu
+            fi
+            sleep 3
+          done
+
+          echo
+          echo "=== PLAFOND : entre ${bas} et ${haut} tokens de prompt ==="
+          echo "Pour mémoire : prompt système actu 6 893 · requête actu ~11 900 ·"
+          echo "requête brève ~5 300 (voir CLAUDE.md, taux de change des règles)."
