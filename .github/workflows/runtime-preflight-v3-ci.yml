@@ -4,6 +4,7 @@ on:
   pull_request:
     paths:
       - "feed.xml"
+      - "sitemap.xml"
       - "scripts/run_pipeline_v3.py"
       - "scripts/test_runtime_preflight_v3.py"
       - "scripts/test_run_pipeline_v3.py"
@@ -14,6 +15,9 @@ on:
       - "scripts/test_feed_pubdates.py"
       - "scripts/test_feed_current_state.py"
       - "scripts/test_runtime_feed_pubdates_v3.py"
+      - "scripts/normalize_sitemap_lastmod.py"
+      - "scripts/test_sitemap_lastmod.py"
+      - "scripts/test_runtime_sitemap_v3.py"
       - "scripts/test_runtime_preflight_ci_contract.py"
       - ".github/workflows/runtime-preflight-v3-ci.yml"
 
@@ -44,6 +48,9 @@ jobs:
           scripts/test_feed_pubdates.py
           scripts/test_feed_current_state.py
           scripts/test_runtime_feed_pubdates_v3.py
+          scripts/normalize_sitemap_lastmod.py
+          scripts/test_sitemap_lastmod.py
+          scripts/test_runtime_sitemap_v3.py
           scripts/test_runtime_preflight_ci_contract.py
       - name: Vérifier le verrou runtime
         run: python scripts/test_runtime_preflight_v3.py
@@ -54,6 +61,10 @@ jobs:
           python scripts/test_feed_pubdates.py
           python scripts/test_feed_current_state.py
           python scripts/test_runtime_feed_pubdates_v3.py
+      - name: Vérifier la normalisation des dates sitemap
+        run: |
+          python scripts/test_sitemap_lastmod.py
+          python scripts/test_runtime_sitemap_v3.py
       - name: Rejouer exactement la suite runtime V3
         run: |
           python scripts/test_run_pipeline_v3.py
@@ -61,3 +72,4 @@ jobs:
           python scripts/test_verification_scope.py
           python scripts/test_pertinence_bloquant.py
           python scripts/test_runtime_feed_pubdates_v3.py
+          python scripts/test_runtime_sitemap_v3.py

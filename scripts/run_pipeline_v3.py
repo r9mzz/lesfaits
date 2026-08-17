@@ -16,6 +16,7 @@ V3 ne conserve que les adaptations qui ne redéfinissent pas le classement :
   de rédactions internationales de référence ;
 - cohérence runtime du plancher conditionnel de « Débats et nuances » ;
 - restauration des vraies dates de publication RSS après le dernier rebuild ;
+- restauration des vrais ``lastmod`` article du sitemap après le dernier rebuild ;
 - normalisation newsletter v6 après toute reconstruction réellement exécutée.
 
 L'arrêt avant génération quand le juge n'a trouvé aucune source traitant le
@@ -48,6 +49,7 @@ _RUNTIME_REGRESSION_TESTS = (
     "test_verification_scope.py",
     "test_pertinence_bloquant.py",
     "test_runtime_feed_pubdates_v3.py",
+    "test_runtime_sitemap_v3.py",
     "test_runtime_newsletter_v3.py",
 )
 
@@ -212,6 +214,25 @@ def _normalize_feed_after_runtime() -> dict[str, int]:
     return result
 
 
+def _normalize_sitemap_after_runtime() -> dict[str, int]:
+    """Restaure les vrais ``lastmod`` article après le dernier rebuild.
+
+    Le générateur historique applique la date du rebuild à toutes les entrées
+    article du sitemap, y compris lorsqu'aucun article n'a changé. On réutilise
+    donc le normaliseur canonique juste avant la sauvegarde afin que chaque
+    article conserve la date portée par ses métadonnées publiées.
+    """
+    from normalize_sitemap_lastmod import normalize as normalize_sitemap
+
+    root = Path(__file__).resolve().parent.parent
+    result = normalize_sitemap(root)
+    print(
+        f"[RUNTIME V3] lastmod sitemap normalisés avant sauvegarde : "
+        f"{result['changed']} date(s) corrigée(s), {result['removed']} redirection(s) retirée(s)"
+    )
+    return result
+
+
 def _normalize_newsletter_after_runtime() -> dict[str, int]:
     """Normalise la vitrine après le dernier rebuild du runtime, avant le commit.
 
@@ -252,5 +273,6 @@ if __name__ == "__main__":
     _exit_code = legacy.main()
     if "--dry-run" not in sys.argv[1:]:
         _normalize_feed_after_runtime()
+        _normalize_sitemap_after_runtime()
         _normalize_newsletter_after_runtime()
     sys.exit(_exit_code)
