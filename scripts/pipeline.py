@@ -612,7 +612,13 @@ dossier de fond — sans porter sur le fait précis de l'article.
 
 Réponds HORS_SUJET si le document parle d'autre chose.
 
-Un seul mot : PERTINENTE, GENERALE ou HORS_SUJET."""
+On te donne PLUSIEURS documents numérotés. Réponds une ligne par document, dans
+l'ordre, au format exact « n: VERDICT » — rien d'autre, aucune explication.
+
+Exemple pour trois documents :
+1: PERTINENTE
+2: GENERALE
+3: HORS_SUJET"""
 
 
 def juger_pertinence_sources(titre: str, sources: list) -> bool:
@@ -656,41 +662,77 @@ def juger_pertinence_sources(titre: str, sources: list) -> bool:
               f"le modèle de rédaction, et mangerait son quota. "
               f"Régler JUGE_SOURCES_MODELE sur un petit modèle distinct.")
         return False
+    # UN SEUL APPEL POUR TOUTES LES SOURCES (17/08). La première version posait
+    # une question par source — jusqu'à 10 appels par sujet, tous sur
+    # `GROQ_ALL_KEYS[0]`, jamais sur la rotation. Compté sur un run à 20 sujets :
+    #
+    #   génération + vérification   ~72 appels, répartis sur 6 clés  → ~12/clé
+    #   juge de pertinence         ~200 appels, TOUS sur la clé 1    → ~200
+    #                                                                  ───────
+    #   clé 1, par run                                                 ~212
+    #
+    # Le plafond gratuit est de 250 requêtes/jour et 30/minute : un run passait,
+    # deux non — et il y en a deux ou trois de programmés. Le juge aurait donc
+    # fait tomber le run sur un plafond de REQUÊTES au moment précis où le
+    # passage à `groq/compound` supprime le plafond de TOKENS.
+    #
+    # Le groupage ramène ~200 appels à ~20 et supprime au passage la répétition
+    # du prompt système dix fois par sujet. Le tour de clé suit le sujet, ce qui
+    # répartit enfin la charge.
     try:
-        client = Groq(api_key=GROQ_ALL_KEYS[0][0])
+        _cle = GROQ_ALL_KEYS[abs(hash(titre)) % len(GROQ_ALL_KEYS)][0]
+        client = Groq(api_key=_cle)
     except Exception as e:  # noqa: BLE001
         print(f"     [PERTINENCE] juge indisponible ({type(e).__name__}) — tri par qualité seul")
         return False
 
-    juges = 0
-    for s in sources[:JUGE_SOURCES_MAX]:
+    lot = list(sources[:JUGE_SOURCES_MAX])
+    blocs = []
+    for i, s in enumerate(lot, 1):
         url = s.get("url", "")
-        descriptif = (f"institution : {s.get('institution') or _media_name_from_url(url, '') or 'Source'}\n"
-                      f"titre du document : {s.get('titre') or s.get('title') or ''}\n"
-                      f"adresse : {urlparse(url).netloc}{urlparse(url).path}")
-        try:
-            r = client.chat.completions.create(
-                model=JUGE_SOURCES_MODELE,
-                messages=[{"role": "system", "content": _PROMPT_PERTINENCE},
-                          {"role": "user",
-                           "content": f"ARTICLE : {titre}\n\nDOCUMENT :\n{descriptif}"}],
-                temperature=0, max_tokens=6)
-            mot = (r.choices[0].message.content or "").strip().upper()
-        except Exception as e:  # noqa: BLE001
-            # Une seule erreur suffit à renoncer : en rate limit, insister sur
-            # dix sources ferait attendre le run entier pour un simple tri.
-            print(f"     [PERTINENCE] interrompu ({type(e).__name__}) — "
-                  f"{juges} source(s) jugée(s), tri par qualité pour le reste")
-            break
+        blocs.append(
+            f"--- DOCUMENT {i} ---\n"
+            f"institution : {s.get('institution') or _media_name_from_url(url, '') or 'Source'}\n"
+            f"titre du document : {s.get('titre') or s.get('title') or ''}\n"
+            f"adresse : {urlparse(url).netloc}{urlparse(url).path}")
+    try:
+        r = client.chat.completions.create(
+            model=JUGE_SOURCES_MODELE,
+            messages=[{"role": "system", "content": _PROMPT_PERTINENCE},
+                      {"role": "user",
+                       "content": f"ARTICLE : {titre}\n\n" + "\n".join(blocs)}],
+            temperature=0, max_tokens=12 * len(lot) + 20)
+        reponse = (r.choices[0].message.content or "").strip().upper()
+    except Exception as e:  # noqa: BLE001
+        # On renonce sans insister : le juge n'est qu'un tri, il ne doit jamais
+        # faire attendre un run.
+        print(f"     [PERTINENCE] interrompu ({type(e).__name__}) — tri par qualité seul")
+        return False
+
+    # Lecture par NUMÉRO, jamais par position dans la réponse : un modèle qui
+    # saute une ligne ou en ajoute une décalerait tous les verdicts suivants et
+    # attribuerait à chaque source celui de sa voisine — silencieusement.
+    juges = 0
+    for ligne in reponse.splitlines():
+        m = re.match(r"\s*(\d+)\s*[:.\)-]\s*(.+)", ligne)
+        if not m:
+            continue
+        idx = int(m.group(1)) - 1
+        if not 0 <= idx < len(lot):
+            continue
+        mot = m.group(2)
         if "HORS" in mot:
-            s["_pertinence"] = "hors_sujet"
+            lot[idx]["_pertinence"] = "hors_sujet"
         elif "GENERALE" in mot or "GÉNÉRALE" in mot:
-            s["_pertinence"] = "generale"
+            lot[idx]["_pertinence"] = "generale"
         elif "PERTINENTE" in mot:
-            s["_pertinence"] = "pertinente"
+            lot[idx]["_pertinence"] = "pertinente"
         else:
             continue  # réponse inattendue : on ne classe pas au hasard
         juges += 1
+    if juges < len(lot):
+        print(f"     [PERTINENCE] {juges}/{len(lot)} source(s) classée(s) — "
+              f"les autres restent triées par qualité")
     return juges > 0
 
 

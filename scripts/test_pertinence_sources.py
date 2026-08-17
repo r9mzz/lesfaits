@@ -42,8 +42,13 @@ class ClientSimule:
         self.appels += 1
         if self.panne:
             raise RuntimeError("rate limit simulé")
-        mot = self.verdicts.pop(0) if self.verdicts else "PERTINENTE"
-        msg = type("M", (), {"content": mot})()
+        # Le juge pose désormais UNE question pour tout le lot et attend une
+        # ligne « n: VERDICT » par document (17/08 — 10 appels par sujet, tous
+        # sur la clé 1, mettaient le RPD 250 en danger).
+        n = len(self.verdicts) or 1
+        lignes = [f"{i}: {(self.verdicts.pop(0) if self.verdicts else 'PERTINENTE')}"
+                  for i in range(1, n + 1)]
+        msg = type("M", (), {"content": "\n".join(lignes)})()
         return type("R", (), {"choices": [type("Ch", (), {"message": msg})()]})()
 
 
@@ -128,8 +133,44 @@ verifie("une réponse inattendue ne produit aucune annotation",
 beaucoup = [dict(SOURCES[0]) for _ in range(30)]
 simule = poser(["GENERALE"] * 30)
 P.juger_pertinence_sources(TITRE, beaucoup)
-verifie(f"le plafond limite à {P.JUGE_SOURCES_MAX} appels",
-        simule.appels == P.JUGE_SOURCES_MAX, f"(appels : {simule.appels})")
+verifie("un seul appel suffit pour tout le lot", simule.appels == 1,
+        f"(appels : {simule.appels})")
+verifie(f"le plafond borne à {P.JUGE_SOURCES_MAX} sources jugées",
+        sum(1 for x in beaucoup if "_pertinence" in x) <= P.JUGE_SOURCES_MAX,
+        f"(jugées : {sum(1 for x in beaucoup if '_pertinence' in x)})")
+
+# ── Le décalage de numérotation, défaut le plus dangereux du groupage ──────
+# Si on lisait les verdicts par POSITION dans la réponse, un modèle qui saute
+# une ligne attribuerait à chaque source le verdict de sa voisine, sans que
+# rien ne le signale. On lit donc le numéro que le modèle a écrit.
+class ClientLacunaire(ClientSimule):
+    def create(self, **kwargs):
+        self.appels += 1
+        msg = type("M", (), {"content": "1: HORS_SUJET\n3: PERTINENTE"})()
+        return type("R", (), {"choices": [type("Ch", (), {"message": msg})()]})()
+
+trois = [dict(SOURCES[0]), dict(SOURCES[1]), dict(SOURCES[0])]
+simule = ClientLacunaire([])
+P.Groq = lambda **kw: simule
+P.juger_pertinence_sources(TITRE, trois)
+verifie("une ligne manquante ne décale pas les verdicts",
+        trois[0].get("_pertinence") == "hors_sujet"
+        and "_pertinence" not in trois[1]
+        and trois[2].get("_pertinence") == "pertinente",
+        f"(obtenu : {[x.get('_pertinence') for x in trois]})")
+
+# Un numéro hors bornes ne doit jamais écrire hors de la liste.
+class ClientDelirant(ClientSimule):
+    def create(self, **kwargs):
+        self.appels += 1
+        msg = type("M", (), {"content": "0: PERTINENTE\n99: PERTINENTE"})()
+        return type("R", (), {"choices": [type("Ch", (), {"message": msg})()]})()
+
+deux = [dict(SOURCES[0]), dict(SOURCES[1])]
+P.Groq = lambda **kw: ClientDelirant([])
+verifie("un numéro hors bornes est ignoré",
+        P.juger_pertinence_sources(TITRE, deux) is False
+        and not any("_pertinence" in x for x in deux))
 
 P.Groq = _GROQ_ORIG
 print()

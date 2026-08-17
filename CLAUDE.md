@@ -352,6 +352,33 @@ réservation bute sur notre propre plafond, plus sur la fenêtre. Et le TPD est
 affiché « — » : plus de plafond journalier, donc plus de famine de quota — la
 contrainte qui structure ce projet depuis un mois.
 
+### Le plafond de REQUÊTES remplace le plafond de tokens — corrigé avant le test
+
+Relevé par une session parallèle sur les logs réels, et exact. La génération et
+le fact-check ne sont pas le problème (3,6 à 5,5 appels par sujet, répartis sur
+la rotation de clés). **C'est le juge de pertinence** : il posait une question
+PAR SOURCE, jusqu'à 10 par sujet, et toujours sur `GROQ_ALL_KEYS[0]` — jamais
+sur la rotation.
+
+```
+run à 20 sujets     génération + vérification   ~72 appels sur 6 clés → ~12/clé
+                    juge de pertinence         ~200 appels sur la clé 1
+                                                                        ───────
+                    clé 1                                                ~212
+```
+
+Pour un plafond gratuit de **250 requêtes/jour et 30/minute**, un run passait,
+deux non — et il y en a deux ou trois de programmés. Le juge aurait fait tomber
+les runs sur un plafond de REQUÊTES au moment précis où `groq/compound` supprime
+le plafond de TOKENS.
+
+Corrigé le 17/08 : **un seul appel pour tout le lot** (~200 → ~20 requêtes), et
+le tour de clé suit le sujet. Économise en prime le prompt système répété dix
+fois. Deux pièges du groupage verrouillés par `test_pertinence_sources.py` :
+les verdicts sont lus par le NUMÉRO que le modèle écrit et jamais par leur
+position (une ligne sautée décalerait tous les verdicts suivants, en silence),
+et un numéro hors bornes est ignoré.
+
 ⚠ **DEUX RÉSERVES, à lever par un run contrôlé et non par supposition :**
 
 - **ce n'est pas un modèle nu.** `groq/compound` est le système agentique de
