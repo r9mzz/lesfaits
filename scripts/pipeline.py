@@ -3991,6 +3991,27 @@ _TPM_PAR_MODELE_GEN = {
     "openai/gpt-oss-20b": 8_000,
     "qwen/qwen3.6-27b": 8_000,
     "llama-3.1-8b-instant": 6_000,
+    # Relevé sur la grille « Free Plan Limits » de Groq le 17/08, après le
+    # retrait de llama-3.3-70b : ce sont les DEUX seules entrées de l'offre
+    # gratuite dont la fenêtre laisse tourner le format long. 70 000 TPM, et
+    # surtout TPD affiché « — » : aucun plafond journalier.
+    #
+    #   modèle                    TPM     prompt nominal   reste pour ÉCRIRE
+    #   llama-3.3-70b (retiré)  12 000       10 021             1 479
+    #   gpt-oss-120b / qwen      8 000       10 021               200
+    #   groq/compound           70 000       13 355             3 500
+    #
+    # À 70 000, la matière n'est plus coupée du tout (prompt complet, 10 × 950
+    # caractères) et la réservation bute sur NOTRE plafond, plus sur la fenêtre.
+    #
+    # ⚠ AVANT DE LES CHOISIR — ce ne sont pas des modèles nus mais le système
+    # agentique de Groq, qui dispose d'outils côté serveur (recherche web).
+    # Un modèle qui peut aller chercher un fait ailleurs peut introduire dans
+    # l'article une information ABSENTE des extraits fournis : c'est la règle 5
+    # de la charte, celle sur laquelle tout le reste repose. À vérifier sur un
+    # run contrôlé avant d'en faire le modèle par défaut, jamais à supposer.
+    "groq/compound": 70_000,
+    "groq/compound-mini": 70_000,
 }
 
 # Tout ce qu'un prompt de génération porte en dehors du prompt système, du

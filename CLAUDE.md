@@ -331,6 +331,46 @@ le critère quel que soit le sujet. `angle_insuffisant` n'est donc pas
 uniquement un défaut de sélection ; une part est un tirage sur la génération.
 Réserves : n=6, biais de sélection, six appariements de slugs vérifiés à la main.
 
+## GROQ A RETIRÉ NOTRE MODÈLE — 17/08. Ce que la grille gratuite permet encore
+
+`llama-3.3-70b-versatile` n'est plus servi (404 sur les 17 sujets du run de
+11h34). Grille « Free Plan Limits » relevée le 17/08, mesurée contre notre
+prompt réel :
+
+```
+modèle                     TPM      TPD    prompt nominal   reste pour ÉCRIRE
+llama-3.3-70b (retiré)   12 000   100 k       10 021             1 479
+gpt-oss-120b / 20b        8 000   200 k       10 021               200
+qwen/qwen3.6-27b          8 000   200 k       10 021               200
+groq/compound            70 000     —         13 355             3 500
+groq/compound-mini       70 000     —         13 355             3 500
+```
+
+**`groq/compound` est la seule entrée de l'offre gratuite qui laisse tourner le
+format long.** À 70 000 TPM la matière n'est plus coupée du tout et la
+réservation bute sur notre propre plafond, plus sur la fenêtre. Et le TPD est
+affiché « — » : plus de plafond journalier, donc plus de famine de quota — la
+contrainte qui structure ce projet depuis un mois.
+
+⚠ **DEUX RÉSERVES, à lever par un run contrôlé et non par supposition :**
+
+- **ce n'est pas un modèle nu.** `groq/compound` est le système agentique de
+  Groq, avec des outils côté serveur (recherche web). Un modèle qui peut aller
+  chercher un fait ailleurs peut introduire dans l'article une information
+  ABSENTE des extraits fournis — c'est la règle 5 de la charte, celle sur
+  laquelle tout le reste repose. À vérifier explicitement ;
+- **RPD 250 et RPM 30.** Un run à 17 sujets consomme génération + relances +
+  3 passes de fact-check : le plafond de requêtes remplace le plafond de tokens
+  comme ressource rare. À mesurer au premier run.
+
+Décision de Nahil (17/08), à ne pas re-discuter : **la brève est un complément
+pour les actualités qui ne tiennent pas un article, jamais la base du site.**
+La voie « tout en brèves », qui tournerait sur les modèles à 8 000 TPM, est
+donc écartée.
+
+`GROQ_MODEL_OVERRIDE` est désormais transmis par `pipeline.yml` : changer de
+modèle est une variable de dépôt, plus un commit.
+
 ## L'ÉVÉNEMENT COMME UNITÉ — branché le 17/08, à mesurer au prochain run
 
 La piste ouverte le 01/08 (« clusteriser les items RSS par événement au lieu de
