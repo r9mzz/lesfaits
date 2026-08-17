@@ -34,9 +34,17 @@ Aucun seuil éditorial, quota, garde factuelle ou garde vitrine n'est abaissé.
 """
 from __future__ import annotations
 
+import os
 import subprocess
 import sys
 from pathlib import Path
+
+# Groq a arrêté llama-3.3-70b-versatile le 16/08/2026 sur les offres free et
+# developer. Le runner de production passe toujours par ce point d'entrée V3 :
+# on force donc ici le remplaçant officiel avant que ``pipeline.py`` ne soit
+# exécuté. Une valeur explicite fournie par l'environnement reste prioritaire
+# pour permettre un test A/B ou une migration future sans changer le code.
+os.environ.setdefault("GROQ_MODEL_OVERRIDE", "openai/gpt-oss-120b")
 
 import run_pipeline as legacy
 from trusted_source_expansion import patch_pipeline_source as _patch_trusted_sources
@@ -51,6 +59,7 @@ _RUNTIME_REGRESSION_TESTS = (
     "test_runtime_feed_pubdates_v3.py",
     "test_runtime_sitemap_v3.py",
     "test_runtime_newsletter_v3.py",
+    "test_runtime_groq_model_v3.py",
 )
 
 
