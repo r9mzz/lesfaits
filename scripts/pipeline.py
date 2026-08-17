@@ -1745,6 +1745,73 @@ def _titre_norme(titre: str) -> str:
     return " ".join(re.findall(r"\w+", t))[:70]
 
 
+# ── ACHARNEMENT SUR UN SUJET DÉJÀ CONDAMNÉ ────────────────────────────────
+# Mesuré le 17/08 sur `verification_log.json` : 11 sujets totalisent 42
+# générations complètes, dont 31 sont des REPRISES d'un sujet déjà rejeté sur
+# `angle_insuffisant` — soit ~1,1 M tokens, un quota journalier entier, dépensé
+# à re-condamner. Le record : « nouvelles addictions » 11 fois, Edgar Morin 7
+# fois en 5 jours.
+#
+# ⚠ Le seuil est mesuré, pas choisi. Les deux retours gagnants connus (un sujet
+# rejeté puis publié plus tard) ont demandé 1 et 3 rejets préalables. Bloquer
+# dès la 2e tentative les tuerait tous les deux ; bloquer à partir de la 3e
+# économise 20 générations (~700 k tokens) et n'en coûte qu'un. C'est ce troc-là
+# qui est retenu.
+#
+# ⚠ Levier DISTINCT de celui écarté le 15/08. Celui-là proposait d'allonger
+# `REJECT_COOLDOWN_HOURS` (36 h) et tuait 5 des 6 premières reprises, qui sont
+# souvent gagnantes — refusé après mesure. Ici on ne touche pas à la première
+# reprise : on arrête l'acharnement au-delà. Ne pas confondre les deux.
+ACHARNEMENT_MIN_REJETS = 2      # bloque à partir de la (n+1)e tentative
+ACHARNEMENT_FENETRE_J = 7       # au-delà, le sujet peut revenir avec un angle neuf
+
+
+def _sujets_condamnes(maintenant: datetime | None = None) -> set[str]:
+    """Sujets rejetés au moins `ACHARNEMENT_MIN_REJETS` fois sur l'angle.
+
+    ⚠ Appariement par ÉGALITÉ EXACTE de titre normalisé, jamais par similarité.
+    Le rapprochement approximatif de titres a été rustiné trois fois (26/07,
+    28/07, 02/08) et s'est révélé faux chaque fois : sur 161 titres publiés,
+    aucun critère ne sépare le vrai doublon du faux positif. Un blocage ici est
+    coûteux (le sujet ne sera plus jamais tenté de la fenêtre), donc on n'accepte
+    que la certitude.
+
+    La clé est le `titre_rss` journalisé depuis le 14/08, à défaut le slug
+    généré. Ne JAMAIS utiliser `item["id"]` : c'est un md5 d'URL, et une même
+    dépêche reprise par un autre flux ou republiée avec un paramètre de tracking
+    donne un id différent (bug du 30/07).
+
+    Ne lève jamais : journal absent ou illisible → ensemble vide, aucun blocage.
+    """
+    try:
+        chemin = Path("data/verification_log.json")
+        if not chemin.exists():
+            return set()
+        entrees = json.loads(chemin.read_text(encoding="utf-8"))
+        if not isinstance(entrees, list):
+            return set()
+        limite = (maintenant or datetime.now()) - timedelta(days=ACHARNEMENT_FENETRE_J)
+        compte: Counter = Counter()
+        for e in entrees:
+            if not isinstance(e, dict) or not e.get("angle_insuffisant"):
+                continue
+            try:
+                quand = datetime.fromisoformat(str(e.get("date", "")).replace("Z", "+00:00"))
+                if quand.tzinfo is not None:
+                    quand = quand.replace(tzinfo=None)
+            except ValueError:
+                continue
+            if quand < limite:
+                continue
+            cle = _titre_norme(e.get("titre_rss") or "") or _titre_norme(e.get("slug") or "")
+            if cle:
+                compte[cle] += 1
+        return {k for k, n in compte.items() if n >= ACHARNEMENT_MIN_REJETS}
+    except Exception as exc:  # noqa: BLE001
+        print(f"  [ACHARNEMENT] journal illisible ({type(exc).__name__}) — aucun blocage")
+        return set()
+
+
 def filtrer_et_classer(
     items: list[dict],
     source_name: str,
@@ -1983,10 +2050,18 @@ def selectionner_meilleurs(
     # borné du bon côté — c'est ce qui rend ce branchement acceptable alors
     # qu'on refuse d'utiliser le même regroupement pour le bonus de score.
     grappes_vues: set = set()
+    condamnes = _sujets_condamnes()
+    if condamnes:
+        print(f"     [ACHARNEMENT] {len(condamnes)} sujet(s) rejeté(s) "
+              f"≥{ACHARNEMENT_MIN_REJETS} fois sur l'angle — non retentés")
 
     for item in candidats:
         if len(selection) >= nb_max:
             break
+        if _titre_norme(item.get("title", "")) in condamnes:
+            print(f"     [ACHARNEMENT] déjà condamné {ACHARNEMENT_MIN_REJETS}× — "
+                  f"« {item.get('title', '')[:64]} »")
+            continue
         cat = item.get("_cat", "societe")
         if compteur.get(cat, 0) >= QUOTA_PAR_CATEGORIE.get(cat, quota_cat):
             continue

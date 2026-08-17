@@ -331,6 +331,46 @@ le critère quel que soit le sujet. `angle_insuffisant` n'est donc pas
 uniquement un défaut de sélection ; une part est un tirage sur la génération.
 Réserves : n=6, biais de sélection, six appariements de slugs vérifiés à la main.
 
+## ACHARNEMENT — mesuré et bloqué le 17/08. Un quota entier dépensé à re-condamner
+
+Le point 4 des « deux premiers travaux à faire » du 01/08 est enfin traité, avec
+la clé qu'il recommandait (`_titre_norme`, jamais `item["id"]`).
+
+Mesure sur `verification_log.json` : **11 sujets totalisent 42 générations
+complètes, dont 31 sont des reprises d'un sujet déjà rejeté sur
+`angle_insuffisant`** — ~1,1 M tokens, un quota journalier entier. Record :
+« nouvelles addictions » 11 fois, Edgar Morin 7 fois en 5 jours, l'INSERM
+magazine n°69 6 fois.
+
+⚠ **Le seuil est mesuré, pas choisi.** Les deux retours gagnants identifiables
+(sujet rejeté puis publié plus tard) ont demandé **1 et 3** rejets préalables :
+
+```
+bloquer dès la 2e tentative : tue les DEUX retours gagnants
+bloquer dès la 3e           : économise 20 générations (~700 k tokens), en coûte 1
+```
+
+`ACHARNEMENT_MIN_REJETS = 2` (donc blocage à la 3e tentative),
+`ACHARNEMENT_FENETRE_J = 7` — au-delà, le sujet peut revenir avec un angle neuf.
+
+⚠ **Levier DISTINCT de celui écarté plus haut**, ne pas les confondre : le
+résultat négatif du 15/08 portait sur l'allongement de `REJECT_COOLDOWN_HOURS`,
+qui tue la PREMIÈRE reprise — souvent gagnante. Ici la première reprise reste
+intacte ; on arrête seulement l'acharnement au-delà.
+
+Ce qui rendait le blocage impossible jusqu'ici : la sélection ne connaît que le
+titre RSS, alors que le journal ne portait que le slug GÉNÉRÉ — même décalage de
+vocabulaire que le défaut A du filtre anti-doublon. C'est le champ `titre_rss`,
+journalisé depuis le 14/08 via le contexte de vérification, qui rend
+l'appariement exact possible. Le cooldown de `editorial_ranking.py` existait et
+était testé, mais n'était branché qu'APRÈS génération (`run_pipeline_v3.py`) :
+il économisait le fact-check, jamais les ~35 k tokens de rédaction.
+
+Verrouillé par `scripts/test_acharnement.py` : égalité EXACTE de titre normalisé
+(aucun rapprochement approximatif — il a échoué trois fois), seuls les rejets
+portant `angle_insuffisant` comptent (une panne de quota ne condamne pas un
+sujet), et journal absent ou illisible → aucun blocage.
+
 ## AUDIT DU CORPUS PUBLIÉ — 12/08, ce que valent réellement nos articles
 
 Demande de Nahil : « nos articles ne sont même pas bien et pas intéressants ».
