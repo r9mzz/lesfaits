@@ -49,9 +49,15 @@ jobs:
           if [ -z "$K1" ]; then echo "GROQ_API_KEY absente"; exit 1; fi
           liste=$(curl -s https://api.groq.com/openai/v1/models \
             -H "Authorization: Bearer $K1")
-          echo "--- ids servis par l'API ---"
-          echo "$liste" | grep -oE '"id"[[:space:]]*:[[:space:]]*"[^"]+"' \
-            | sed -E 's/.*"([^"]+)"$/  \1/' | sort
+          echo "--- ids servis, avec leur FENÊTRE réelle ---"
+          # `context_window` est le chiffre qui manquait le 17/08 : l'essai de
+          # groq/compound est mort 40 fois sur « 413 Request Entity Too Large »
+          # alors que la grille tarifaire annonce 70 000 TPM. Le TPM est un
+          # débit par minute ; la fenêtre est la taille maximale d'UNE requête.
+          # Les deux n'ont rien à voir, et c'est la seconde qui rejette.
+          echo "$liste" > /tmp/groq_models.json
+          python3 -c 'import json,sys; d=json.load(open("/tmp/groq_models.json")); print("  %-34s%10s%12s" % ("modele","fenetre","sortie max")); [print("  %-34s%10s%12s" % (m.get("id","?"), m.get("context_window") or "?", m.get("max_completion_tokens") or "?")) for m in sorted(d.get("data",[]), key=lambda x: x.get("id",""))]' \
+            || echo "  (lecture JSON impossible)"
           echo
           echo "--- modèles que le code connaît (pipeline.py) ---"
           for m in llama-3.3-70b-versatile openai/gpt-oss-120b openai/gpt-oss-20b \
