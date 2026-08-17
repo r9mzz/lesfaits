@@ -35,6 +35,13 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 5
     steps:
+      # Ce workflow n'avait pas de checkout : il ne faisait que du curl. La
+      # sonde de taille de requête est un script du dépôt, il lui faut donc
+      # les fichiers — sans ça, « No such file or directory » et rien n'est
+      # mesuré (échec du run de 22h43 le 17/08).
+      - name: Checkout
+        uses: actions/checkout@v4
+
       # AJOUTÉ LE 17/08 — le run de 11h34 est mort 17 fois de suite sur
       # « 404 : The model `llama-3.3-70b-versatile` does not exist or you do not
       # have access to it ». Groq a retiré le modèle de génération ET de
