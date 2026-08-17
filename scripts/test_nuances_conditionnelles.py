@@ -93,5 +93,26 @@ verifie("à plafond serré, chaque axe reste représenté", len(axes_retenus) ==
 verifie("l'ordre d'arrivée seul aurait tout donné au générique",
         {r["_axe"] for r in faux[:12]} == {"générique"})
 
+# ── 5. Le plancher total ne doit pas ressusciter la contrainte retirée ──
+# Défaut relevé le 15/08 par une session parallèle : « nuances » est devenu
+# conditionnel, mais 250 lignes plus loin les RÈGLES ABSOLUES exigeaient encore
+# « minimum 500 mots combinés (faits + contexte + nuances) », sous la mention
+# « toute violation = article rejeté ». Une section facultative dans une somme
+# obligatoire, c'est la contrainte d'invention déplacée d'une section à l'autre,
+# pas supprimée. Le plancher du prompt doit être celui qui rejette réellement
+# (SEUILS_FORMAT["article"]["plancher"] = 350), jamais un chiffre plus haut.
+print("\n5. Plancher total cohérent avec le garde-fou")
+_plancher = P.SEUILS_FORMAT["article"]["plancher"]
+verifie("le prompt n'exige plus 500 mots combinés",
+        "minimum 500 mots combinés" not in P.SYSTEM_PROMPT)
+verifie(f"le prompt annonce le plancher réel ({_plancher})",
+        f"{_plancher} mots combinés" in P.SYSTEM_PROMPT)
+verifie("aucune section n'impose un MINIMUM en mots",
+        "MINIMUM 450 mots" not in P.SYSTEM_PROMPT
+        and "MINIMUM 200 mots" not in P.SYSTEM_PROMPT
+        and "MINIMUM 150 mots" not in P.SYSTEM_PROMPT)
+verifie("la somme des cibles de section n'excède plus le plancher exigé",
+        450 + 200 > _plancher)
+
 print()
 sys.exit(1 if echecs else 0)

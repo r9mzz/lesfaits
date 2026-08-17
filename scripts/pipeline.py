@@ -2048,8 +2048,8 @@ Format obligatoire :
   ],
   "titre_faits": "Intertitre ÉDITORIAL de la section 'faits' — 4 à 9 mots qui annoncent ce que cette section établit, pas un nom de fonction. JAMAIS 'Les faits'. Il doit servir 'angle_reponse' : ex. sur le chiffre d'un afflux migratoire, « Le chiffre brut, et ce qu'il recouvre réellement » plutôt que « Les faits ». Doit être compréhensible seul, sans lire le reste de l'article.",
   "corps": {
-    "faits": "MINIMUM 450 mots — développe autant que la matière fournie le permet, ne t'arrête pas à 300 si les sources donnent plus. C'est ICI que vit le détail complet, PAS dans le résumé : l'actualité immédiate et TOUTES ses données du jour — chiffres précis, décompositions, montants, dates, acteurs nommés, résultats quantitatifs, déclarations exactes avec citation numérotée (voir FORMAT DE CITATION ci-dessous). RÈGLE ANTI-REDONDANCE : chaque phrase doit apporter une donnée que le résumé n'a PAS déjà donnée. Si 'faits' ne fait que reformuler le résumé, l'article échoue — développe, chiffre, détaille au-delà de l'accroche. NE JAMAIS inclure d'historique, d'évolution sur plusieurs années ni de comparaisons internationales — cela va exclusivement dans 'contexte'. JAMAIS d'URL dans le texte. Utiliser plusieurs paragraphes.",
-    "contexte": "MINIMUM 200 mots. UNIQUEMENT de l'historique et de la mise en perspective DIRECTEMENT liés au sujet PRÉCIS de l'article — pas au thème général. RESTE CENTRÉ : n'élargis pas à des sujets connexes (budget global de l'État, modèle économique d'ensemble, politique générale du secteur) sauf s'ils sont INDISPENSABLES pour comprendre CE fait précis. Mieux vaut un contexte court et pertinent qu'un contexte large et dilué. Évolutions sur 5-10 ans, comparaisons, cadre réglementaire ou scientifique du sujet exact. NE JAMAIS reprendre les faits déjà énoncés dans 'faits'. Chiffres comparatifs obligatoires.",
+    "faits": "VISE 450 mots — autant que la matière le permet, jamais plus qu'elle n'en porte. C'est ICI que vit le détail complet, PAS dans le résumé : l'actualité immédiate et TOUTES ses données du jour — chiffres précis, décompositions, montants, dates, acteurs nommés, résultats quantitatifs, déclarations exactes avec citation numérotée (voir FORMAT DE CITATION ci-dessous). RÈGLE ANTI-REDONDANCE : chaque phrase doit apporter une donnée que le résumé n'a PAS déjà donnée. Si 'faits' ne fait que reformuler le résumé, l'article échoue — développe, chiffre, détaille au-delà de l'accroche. NE JAMAIS inclure d'historique, d'évolution sur plusieurs années ni de comparaisons internationales — cela va exclusivement dans 'contexte'. JAMAIS d'URL dans le texte. Utiliser plusieurs paragraphes.",
+    "contexte": "VISE 200 mots, sans élargir le sujet pour y arriver. UNIQUEMENT de l'historique et de la mise en perspective DIRECTEMENT liés au sujet PRÉCIS de l'article — pas au thème général. RESTE CENTRÉ : n'élargis pas à des sujets connexes (budget global de l'État, modèle économique d'ensemble, politique générale du secteur) sauf s'ils sont INDISPENSABLES pour comprendre CE fait précis. Mieux vaut un contexte court et pertinent qu'un contexte large et dilué. Évolutions sur 5-10 ans, comparaisons, cadre réglementaire ou scientifique du sujet exact. NE JAMAIS reprendre les faits déjà énoncés dans 'faits'. Chiffres comparatifs obligatoires.",
     "nuances": "150 mots SI LES SOURCES CONTIENNENT DE QUOI LES ÉCRIRE — sinon, chaîne VIDE (voir la règle du plancher conditionnel). RÔLE EXCLUSIF — répondre à : « Qu'est-ce qu'un lecteur devrait savoir avant de tirer une conclusion ? ». UNIQUEMENT des informations NOUVELLES : limites, incertitudes, désaccords, points non encore établis, positions des acteurs. TOUTE projection ou hypothèse future ('pourrait être réduit', 'devrait augmenter', 'risque de') doit être ATTRIBUÉE PRÉCISÉMENT à qui l'énonce (annonce officielle, responsable nommé, rapport daté) — sinon RETIRE-la, ne l'invente jamais. INTERDIT de répéter, reformuler ou résumer un fait déjà présenté dans 'faits' ou 'contexte'. Limites méthodologiques, désaccords entre experts, ce que les données ne permettent pas de conclure."
   },
   "titre_contexte": "Intertitre éditorial de 'contexte', même logique que 'titre_faits' — ex. « Un pic hors norme, une mécanique déjà vue » plutôt que « Contexte ».",
@@ -2093,7 +2093,7 @@ estimation »), jamais comme simple attribution d'un chiffre.
 RÈGLES ABSOLUES — toute violation = article rejeté :
 1. MINIMUM 4 sources distinctes et citables. Si tu ne peux pas atteindre 4 sources réelles : réponds uniquement HORS_PERIMETRE
 2. Chaque donnée chiffrée DOIT porter sa citation numérotée [n] au point où elle est énoncée (voir FORMAT DE CITATION) — JAMAIS d'URL dans le corps du texte, les URLs sont réservées au tableau sources
-3. Corps total : minimum 500 mots combinés (faits + contexte + nuances)
+3. Corps total : plancher ABSOLU 350 mots combinés, cible 800 si la matière le porte. Ne JAMAIS atteindre un volume en répétant, en généralisant ou en comblant : 380 mots établis valent mieux que 800 dont 300 sont du remplissage. Matière insuffisante pour 350 : HORS_PERIMETRE
 4. Résumé : chaque phrase minimum 25 mots, concrète, avec au moins un fait mesurable. INTERDIT de commencer par une phrase générique du type "Ce sujet est un défi", "Cette découverte pourrait changer", "Il est essentiel de comprendre", "s'inscrit dans une dynamique" — entrer DIRECTEMENT dans le fait principal avec chiffres ou acteurs.
 5. Aucun adjectif évaluatif sans source (alarmant, historique, sans précédent, incroyable...)
 6. Aucune opinion. Aucun parti pris. Chaque fait cité porte sa citation numérotée [n] (voir FORMAT DE CITATION) — jamais de nom de média dans le texte pour ça.
@@ -3904,6 +3904,29 @@ def _reponse_degeneree(raw: str) -> bool:
     return suspects > len(raw) * 0.10
 
 
+# Plafond TPM propre à chaque modèle (constat du 21/07 : gpt-oss-120b n'a que
+# 8K TPM contre 12K pour Llama 3.3 — utiliser le plafond de Llama sur gpt-oss
+# produisait un 413 à 0 token traité, à chaque appel, quel que soit le quota
+# journalier restant). Hissé au niveau module le 15/08 : la réservation
+# d'écriture de `generate()` doit lire la MÊME table que `_groq_call`, sinon
+# elle réserve contre une fenêtre qui n'est pas celle de l'appel réel.
+_TPM_PAR_MODELE_GEN = {
+    "llama-3.3-70b-versatile": 12_000,
+    "openai/gpt-oss-120b": 8_000,
+    "openai/gpt-oss-20b": 8_000,
+    "qwen/qwen3.6-27b": 8_000,
+    "llama-3.1-8b-instant": 6_000,
+}
+
+# Tout ce qu'un prompt de génération porte en dehors du prompt système, du
+# contenu principal et des extraits de sources : en-tête d'attribution, bloc
+# d'ancrage sur un événement unique, rappels d'attribution, consigne finale.
+# Mesuré le 15/08 sur les messages réellement construits (~5 000 caractères,
+# arrondi au-dessus pour ne jamais SOUS-estimer le prompt : sous-estimer
+# reviendrait à réserver moins d'écriture qu'annoncé).
+_SURCOUT_PROMPT_CHARS = 3800
+
+
 def _groq_call(api_key: str, messages: list, max_tokens: int = 3500) -> str:
     """Appelle Groq avec la clé donnée. Lève une exception en cas d'erreur.
 
@@ -3924,18 +3947,9 @@ def _groq_call(api_key: str, messages: list, max_tokens: int = 3500) -> str:
     # La limite TPM compte prompt + max_tokens RÉSERVÉS, pas les tokens
     # réellement produits : prompt lourd + réservation généreuse = 413
     # « Request too large » systématique, quel que soit le quota restant.
-    # Plafond TPM propre à chaque modèle (constat du 21/07 : gpt-oss-120b n'a
-    # que 8K TPM contre 12K pour Llama 3.3 — utiliser le plafond de Llama sur
-    # gpt-oss produisait un 413 à 0 token traité, à chaque appel, quel que
-    # soit le quota journalier restant).
-    _TPM_PAR_MODELE = {
-        "llama-3.3-70b-versatile": 12_000,
-        "openai/gpt-oss-120b": 8_000,
-        "openai/gpt-oss-20b": 8_000,
-        "qwen/qwen3.6-27b": 8_000,
-        "llama-3.1-8b-instant": 6_000,
-    }
-    tpm = _TPM_PAR_MODELE.get(GROQ_MODEL, 12_000)
+    # Table hissée au niveau module (voir `_TPM_PAR_MODELE_GEN`) pour que la
+    # réservation d'écriture de `generate()` raisonne sur la même fenêtre.
+    tpm = _TPM_PAR_MODELE_GEN.get(GROQ_MODEL, 12_000)
     marge_securite = 500
     prompt_estime = int(sum(len(m.get("content", "")) for m in messages) / 3.3)
     disponible = tpm - marge_securite - prompt_estime
@@ -4044,30 +4058,35 @@ def generate(content: str, category_hint: str, extra_sources: list[dict] | None 
     # l'ancienne version qui ne tronquait pas.
     if is_expand and article_type != "breve" and len(real_sources) > 7:
         real_sources = real_sources[:7]
-    sources_block = ""
-    # Noms lisibles dérivés des URLs — utilisés dans le prompt ET dans les règles d'attribution
-    source_noms: list[str] = []
-    if real_sources:
-        sources_block = "\n\nSOURCES DISPONIBLES — LISTE FERMÉE :\n"
-        sources_block += (
-            "RÈGLE ABSOLUE : pour tout « Selon X » ou « D'après X » dans le texte, "
-            "X doit être EXACTEMENT l'une des valeurs NOM_SOURCE listées ci-dessous. "
-            "Interdit : utiliser 'SOURCE 1', 'SOURCE 2', un nom de domaine, "
-            "un média mentionné À L'INTÉRIEUR d'un extrait, ou tout nom connu par ailleurs.\n\n"
-        )
-        for i, s in enumerate(real_sources, 1):
-            snippet  = s.get("snippet") or ""
-            nom      = _media_name_from_url(s["url"], s.get("title", "")) or s.get("title", "Source")
-            source_noms.append(nom)
-            sources_block += f"--- SOURCE {i} ---\n"
-            sources_block += f"NOM_SOURCE : {nom}\n"
-            sources_block += f"URL        : {s['url']}\n"
-            if snippet:
-                sources_block += f"CONTENU    :\n{snippet[:snippet_len]}\n"
-            else:
-                sources_block += "CONTENU    : (pas de contenu disponible)\n"
-            sources_block += f"--- FIN SOURCE {i} ({nom}) ---\n\n"
+    # Construction du bloc sources isolée dans une fonction : elle doit pouvoir
+    # être REJOUÉE avec un `slen` plus court si la fenêtre d'écriture n'y suffit
+    # pas (voir la réservation d'écriture, plus bas).
+    def _bloc_sources(slen: int) -> tuple[str, list[str]]:
+        bloc = ""
+        noms: list[str] = []
+        if real_sources:
+            bloc = "\n\nSOURCES DISPONIBLES — LISTE FERMÉE :\n"
+            bloc += (
+                "RÈGLE ABSOLUE : pour tout « Selon X » ou « D'après X » dans le texte, "
+                "X doit être EXACTEMENT l'une des valeurs NOM_SOURCE listées ci-dessous. "
+                "Interdit : utiliser 'SOURCE 1', 'SOURCE 2', un nom de domaine, "
+                "un média mentionné À L'INTÉRIEUR d'un extrait, ou tout nom connu par ailleurs.\n\n"
+            )
+            for i, s in enumerate(real_sources, 1):
+                snippet  = s.get("snippet") or ""
+                nom      = _media_name_from_url(s["url"], s.get("title", "")) or s.get("title", "Source")
+                noms.append(nom)
+                bloc += f"--- SOURCE {i} ---\n"
+                bloc += f"NOM_SOURCE : {nom}\n"
+                bloc += f"URL        : {s['url']}\n"
+                if snippet:
+                    bloc += f"CONTENU    :\n{snippet[:slen]}\n"
+                else:
+                    bloc += "CONTENU    : (pas de contenu disponible)\n"
+                bloc += f"--- FIN SOURCE {i} ({nom}) ---\n\n"
+        return bloc, noms
 
+    sources_block, source_noms = _bloc_sources(snippet_len)
     noms_autorises = " | ".join(f'"{n}"' for n in source_noms) if source_noms else "(aucune)"
 
     # Règle d'attribution en TÊTE du message (avant le contenu) pour maximiser
@@ -4086,6 +4105,77 @@ def generate(content: str, category_hint: str, extra_sources: list[dict] | None 
     if is_expand and article_type != "breve":
         content_len = 3200
 
+    # ── RÉSERVATION D'ÉCRITURE ────────────────────────────────────────────
+    # Mesuré hors ligne le 15/08, sans consommer un jeton, en interceptant les
+    # messages réellement construits ici :
+    #
+    #   sources × extrait   contenu    prompt (tokens)   reste pour ÉCRIRE
+    #   10 × 950 car.        7 000         12 893              200
+    #   10 × 950 car.        3 000         11 681              200
+    #    8 × 950 car.        7 000         12 226              200
+    #   10 × 400 car.        7 000         11 227              273
+    #    8 × 400 car.        2 000          9 377            2 123
+    #
+    # `_groq_call` calcule `max_tokens = tpm - marge - prompt`, avec un
+    # PLANCHER à 200. Dans la configuration nominale (10 sources × 950 + 7 000
+    # caractères de contenu), ce plancher est atteint : la réservation tombe à
+    # 200 tokens, quand un article JSON de 800 mots en demande ~2 000. La
+    # complétion est alors coupée par construction — c'est la troncature qui
+    # était le 2e motif de perte du tunnel (34 sujets, ~323 k tokens, mesuré
+    # le 28/07) et on la traitait comme un caprice du modèle.
+    #
+    # ⚠ L'effet est INVERSÉ par rapport à l'intuition : plus le sourcing est
+    # riche, moins il reste de place pour écrire. Un sujet bien documenté était
+    # donc PLUS exposé qu'un sujet pauvre. Ça rend aussi le verdict instable
+    # d'une tentative à l'autre — même sujet, autre longueur d'extraits, autre
+    # issue — ce qui ressemblait à un jugement éditorial erratique.
+    #
+    # Le correctif ne touche AUCUN garde-fou et ne retire AUCUNE source : le
+    # nombre de sources trouvées, contrôlées et citées est inchangé, seule la
+    # PROFONDEUR d'extrait injectée baisse — même arbitrage que celui validé
+    # le 18/07 pour l'étoffement. On ne descend jamais sous `_SLEN_PLANCHER` :
+    # en dessous, l'extrait ne porte plus de fait attribuable et le remède
+    # serait pire que le mal (rejet en HORS_PERIMETRE).
+    #
+    # Écrit en fonction du TPM du modèle, jamais en dur : le jour où le compte
+    # passe en offre payante, la fenêtre s'élargit et cette coupe cesse d'elle-
+    # même de s'appliquer. Rien à re-régler.
+    _reserve = 1200 if article_type == "breve" else 2000
+    _SLEN_PLANCHER = 300
+    _tpm = _TPM_PAR_MODELE_GEN.get(GROQ_MODEL, 12_000)
+    _sys_len = len(_select_prompt(article_type))
+
+    def _prompt_tokens(clen: int, slen: int) -> int:
+        bloc, _ = _bloc_sources(slen)
+        # Tout ce qui n'est ni le contenu ni les extraits (en-têtes, règles
+        # d'ancrage, rappels) est constant : on le mesure en différentiel.
+        return int((_sys_len + len(bloc) + min(len(content), clen)
+                    + _SURCOUT_PROMPT_CHARS) / 3.3)
+
+    _place = _tpm - 500 - _prompt_tokens(content_len, snippet_len)
+    if _place < _reserve:
+        _avant = (content_len, snippet_len)
+        # Ordre de coupe : les EXTRAITS d'abord, le CONTENU SOURCE PRINCIPAL
+        # en dernier. Ce contenu est l'événement unique sur lequel la règle
+        # d'ancrage fait reposer tout l'article ; l'amputer en premier
+        # reviendrait à retirer le fait du jour pour garder la mise en
+        # perspective. Plancher à 2 500 caractères pour la même raison.
+        while _place < _reserve and (snippet_len > _SLEN_PLANCHER or content_len > 2500):
+            if snippet_len > _SLEN_PLANCHER:
+                snippet_len = max(_SLEN_PLANCHER, snippet_len - 100)
+            else:
+                content_len = max(2500, content_len - 500)
+            _place = _tpm - 500 - _prompt_tokens(content_len, snippet_len)
+        sources_block, source_noms = _bloc_sources(snippet_len)
+        noms_autorises = " | ".join(f'"{n}"' for n in source_noms) if source_noms else "(aucune)"
+        print(f"     [FENÊTRE] matière réduite pour garder de quoi écrire : "
+              f"contenu {_avant[0]}→{content_len} car., extraits {_avant[1]}→{snippet_len} car. "
+              f"· réservation d'écriture {_place} tokens (cible {_reserve})", flush=True)
+        if _place < _reserve:
+            print(f"     [FENÊTRE] ⚠ plancher atteint : {_place} tokens seulement pour écrire "
+                  f"— le prompt système ({int(_sys_len / 3.3)} tokens) occupe l'essentiel "
+                  f"de la fenêtre de {_tpm}", flush=True)
+
     # Relance avec article précédent : le modèle CORRIGE l'article existant au
     # lieu de tout réécrire depuis des sources tronquées — sans ce bloc, les
     # extraits raccourcis (200 chars) déclenchaient la règle HORS_PERIMETRE
@@ -4102,7 +4192,7 @@ def generate(content: str, category_hint: str, extra_sources: list[dict] | None 
 
     regle_5 = (
         "" if (is_retry and previous_article) else
-        "6. Si les extraits disponibles ne fournissent pas assez de faits précis pour 500 mots sans inventer, "
+        "6. Si les extraits disponibles ne fournissent pas assez de faits précis pour 350 mots sans inventer, "
         "réponds uniquement HORS_PERIMETRE.\n"
     )
     instruction_finale = (

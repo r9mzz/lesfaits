@@ -141,6 +141,174 @@ flux (403 du proxy) : la veille ne peut y être vérifiée que par
 `scripts/test_veille.py` (fetch_rss simulé). Tout passage réel doit être
 déclenché sur le runner GitHub.
 
+## FAMINE DE COMPLÉTION — mesurée le 15/08, corrigée. C'est la vraie cause des troncatures
+
+Mesure hors ligne, sans un jeton dépensé : on intercepte les messages
+réellement construits par `generate()` et on applique le calcul de
+`_groq_call` (`max_tokens = tpm − marge − prompt`, plancher 200).
+
+```
+sources × extrait   contenu    prompt (tokens)   reste pour ÉCRIRE
+10 × 950 car.        7 000         12 893              200
+10 × 950 car.        3 000         11 681              200
+ 8 × 950 car.        7 000         12 226              200
+10 × 400 car.        7 000         11 227              273
+ 8 × 400 car.        2 000          9 377            2 123
+```
+
+**Dans la configuration nominale, le rédacteur disposait de 200 tokens pour
+écrire un article JSON qui en demande ~2 000.** La complétion était coupée par
+construction. C'est le 2e motif de perte du tunnel (34 sujets, ~323 k tokens,
+mesuré le 28/07), traité jusqu'ici comme un caprice du modèle.
+
+**L'effet était INVERSÉ par rapport à l'intuition : plus le sourcing était
+riche, moins il restait de place pour écrire.** Un sujet bien documenté était
+donc PLUS exposé qu'un sujet pauvre. C'est aussi ce qui rendait le verdict
+instable d'une tentative à l'autre — même sujet, autres longueurs d'extraits,
+issue opposée. Le « verdict erratique » n'était pas éditorial.
+
+**Correctif (réservation d'écriture, `generate()`)** : le budget de matière est
+calculé À REBOURS depuis la fenêtre, pour garantir 2 000 tokens d'écriture
+(1 200 pour une brève). Trois propriétés verrouillées par
+`scripts/test_fenetre_ecriture.py` :
+
+- **le NOMBRE de sources injectées n'est jamais réduit** — seule la PROFONDEUR
+  des extraits baisse (même arbitrage que le 18/07). Couper des sources ferait
+  échouer « ≥1 primaire OU ≥2 secondaires » sur des sujets valides : ce serait
+  affaiblir un contrôle pour tenir un budget ;
+- **les extraits sont coupés AVANT le contenu source principal**, jamais
+  l'inverse : ce contenu est l'événement unique sur lequel la règle d'ancrage
+  fait reposer l'article. Planchers 300 car. par extrait, 2 500 pour le contenu ;
+- **tout est écrit en fonction du TPM du modèle, jamais en dur**
+  (`_TPM_PAR_MODELE_GEN`, hissée au niveau module pour que `generate()` et
+  `_groq_call` lisent la même table). Le jour où le compte passe en offre
+  payante, la fenêtre s'élargit et la coupe cesse d'elle-même. Rien à re-régler.
+
+Après correctif : 1 940 à 2 340 tokens d'écriture dans tous les cas mesurés,
+contre 200 avant.
+
+### ⚠ À LIRE AVANT D'INTERPRÉTER LE PROCHAIN `[MATIÈRE]` — écrit AVANT le run
+
+La réservation d'écriture fait tomber la profondeur d'extrait injectée de 950 à
+300 caractères dans la configuration nominale, soit **−68 %**. La ligne
+`[MATIÈRE]` (faits distincts, redondance, données chiffrées) est calculée sur
+ces extraits : **elle va s'effondrer mécaniquement au prochain run.** Les 810 /
+1 142 / 1 267 faits distincts relevés le 12/08 ne seront comparables à rien.
+
+**Ce n'est PAS une régression du sourcing.** Le nombre de sources trouvées,
+contrôlées et citées est inchangé — c'est verrouillé par un test. Seule la
+profondeur LUE par le rédacteur baisse, parce qu'à 12 000 tokens de fenêtre on
+ne peut pas à la fois tout lire et avoir la place d'écrire.
+
+Écrit avant le run et non après, précisément pour ne pas refaire l'erreur qui a
+coûté trois semaines : la brièveté des articles a été attribuée au modèle alors
+qu'elle venait du budget. Une chute de `[MATIÈRE]` lue sans ce paragraphe serait
+mal attribuée de la même façon. Toute comparaison de richesse documentaire doit
+donc couper le corpus au 15/08, comme on l'a fait au 30/07 pour les images.
+
+### Le plancher du prompt contredisait la section devenue facultative
+
+Relevé par une session parallèle juste après le correctif « nuances
+conditionnelles » : `nuances` pouvait rester vide, mais les RÈGLES ABSOLUES
+exigeaient toujours « minimum 500 mots combinés (faits + contexte + nuances) »,
+sous la mention « toute violation = article rejeté ». **Une section facultative
+dans une somme obligatoire : la contrainte d'invention n'était pas supprimée,
+elle était déplacée sur `faits` et `contexte`.** Dont les minima propres
+disaient déjà 450 + 200 = 650, soit plus que les 500 exigés.
+
+Et l'arithmétique était de toute façon impossible : les premiers jets mesurés
+sur les runs réels font 235 à 333 mots. Même défaut que celui consigné au
+commentaire du budget de matière du 30/07 — « on demandait 500 mots sans
+extrapoler à partir de 300 ; le modèle s'arrêtait court, c'était la bonne
+réponse à une consigne impossible » — rejoué un cran plus haut.
+
+Aligné sur le plancher qui rejette RÉELLEMENT
+(`SEUILS_FORMAT["article"]["plancher"] = 350`), cible 800 rappelée, et les
+`MINIMUM n mots` des sections passés en `VISE n mots`. **Aucun garde-fou n'est
+touché** : le plancher de publication, l'étoffement et le rejet sous 350 mots
+sont inchangés. C'est le prompt qui cesse de réclamer ce que le budget interdit.
+Verrouillé par `scripts/test_nuances_conditionnelles.py` (section 5), qui lit
+le seuil dans `SEUILS_FORMAT` plutôt que de le recopier.
+
+### La croissance du prompt système est désormais une décision, pas un effet de bord
+
+Le 15/08, une consigne de mise en paragraphes — utile, elle manquait vraiment —
+a coûté **+470 tokens** sur une fenêtre déjà à zéro, sans que rien ne le
+signale. Tant que la fenêtre n'est pas une contrainte vérifiée, chaque bonne
+idée ajoutée au prompt retire silencieusement de la place à l'écriture, et
+personne ne fait le lien avec les articles tronqués.
+
+`test_fenetre_ecriture.py` plafonne donc le prompt système en tokens. Ce n'est
+pas une interdiction d'enrichir : relever le plafond est permis, mais devient
+un geste explicite, et le diff dit combien de tokens d'écriture ont été
+échangés contre la nouvelle règle.
+
+### Le taux de change entre une règle et un article — à citer avant tout ajout au prompt
+
+Où vont réellement les 6 601 tokens du prompt système (mesuré) :
+
+```
+RÈGLES ABSOLUES numérotées        4 325 tk    66 %
+schéma JSON (champs)              1 610 tk    24 %
+rôle, charte, format de citation    666 tk    10 %
+```
+
+**Deux tiers du prompt sont la charte éditoriale elle-même.** Il n'y a pas de
+gras à retirer : réduire, c'est arbitrer sur le protocole. L'hypothèse « les
+règles doublées par un garde-fou déterministe en aval sont récupérables » a été
+testée et réfutée — sources ≥ 4, plancher de mots, adjectifs évaluatifs,
+citation `[n]`, anti-redondance pèsent ensemble 304 tokens, soit 4,6 %. Payées
+deux fois, oui ; ce n'est pas un levier.
+
+Ce qui manquait à toutes ces décisions, c'était un PRIX. Au ratio observé sur
+les complétions ayant réellement produit un article publiable (1 423 tk → 449
+mots, 1 505 tk → 623 mots, soit 2,4 à 3,2 tokens par mot rendu) :
+
+> **100 tokens ajoutés au prompt ≈ 30 à 40 mots que l'article ne pourra plus
+> contenir.**
+
+La question n'est donc plus « payer ou se saborder », mais « cette règle
+vaut-elle 30 mots d'article ? ». Repères mesurés : la consigne de mise en
+paragraphes du 15/08 a coûté 470 tokens (~150 mots), la règle 3 du plancher
+conditionnel 61 tokens (~20 mots). Les deux se défendent à ce prix ; on ne le
+connaissait pas. ⚠ Ce taux vaut pour une fenêtre de 12 000 tokens : il change
+si le compte passe en offre payante.
+
+⚠ **Ce que le correctif ne règle PAS, et qu'il faut lire dans le journal.** À
+12 000 tokens de fenêtre on ne peut pas avoir les deux : `[FENÊTRE] ⚠ plancher
+atteint` signale les sujets où la matière a été coupée jusqu'au plancher et où
+il reste malgré tout moins que la cible. **Le prompt système pèse 6 356 tokens,
+soit plus de la moitié de la fenêtre.** Les deux seules issues sont une fenêtre
+plus large (offre payante) ou un prompt système plus court — et le raccourcir
+revient à retirer des règles éditoriales, ce qu'aucun agent ne décide seul.
+
+## RÉSULTAT NÉGATIF — ne PAS allonger le cooldown des rejets `angle_insuffisant`
+
+Proposition écartée après mesure (15/08) : porter `REJECT_COOLDOWN_HOURS` de 36
+à 7 jours pour cesser de repayer la génération d'un sujet déjà jugé creux.
+
+Mesure sur le journal (les dates y sont, la question était mesurable) : **83
+sujets rejetés sur `angle_insuffisant`, 6 publiés plus tard**, avec des délais
+de 0,1 · 0,4 · 0,9 · 0,9 · 2,0 · 10,0 jours.
+
+```
+cooldown 36 h (actuel) : tue 4 des 6 retours gagnants
+cooldown 7 jours       : en tue 5 sur 6
+```
+
+Comptabilité complète : 7 jours éviteraient 9 tentatives perdues de plus
+(~360 k tokens ≈ 0,5–0,7 article espéré) contre **un article certain perdu**.
+Le troc est perdant. `REJECT_COOLDOWN_HOURS = 36` reste inchangé.
+
+⚠ Le résultat le plus intéressant est ailleurs : **4 des 6 retours gagnants
+surviennent en moins de 24 h.** À cette échelle le monde n'a pas changé — c'est
+le VERDICT qui a changé, même sujet, autre génération, jugement opposé. Rapproché
+de la famine de complétion ci-dessus, c'est probablement la même histoire : un
+modèle qui n'a que 200 tokens pour écrire produit un résumé générique, et rate
+le critère quel que soit le sujet. `angle_insuffisant` n'est donc pas
+uniquement un défaut de sélection ; une part est un tirage sur la génération.
+Réserves : n=6, biais de sélection, six appariements de slugs vérifiés à la main.
+
 ## AUDIT DU CORPUS PUBLIÉ — 12/08, ce que valent réellement nos articles
 
 Demande de Nahil : « nos articles ne sont même pas bien et pas intéressants ».
