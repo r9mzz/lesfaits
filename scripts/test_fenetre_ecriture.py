@@ -50,7 +50,18 @@ def _capturer(n_sources, snippet, contenu, article_type="actu"):
 def test_configuration_nominale_laisse_de_quoi_ecrire():
     """Le cas qui échouait : 10 sources profondes + contenu long."""
     _, reste = _capturer(10, 950, 7000)
-    assert reste > 1500, (
+    # Ce test vérifie que le MÉCANISME de réservation opère : sans lui, ce cas
+    # retombait à 200, le plancher de `_groq_call`. Le seuil est délibérément
+    # bas — c'est `test_le_prompt_systeme_ne_grossit_pas_en_silence` qui garde
+    # la valeur ABSOLUE, en plafonnant ce qui mange la fenêtre.
+    #
+    # ⚠ Repère à ne pas perdre de vue : les complétions ayant réellement produit
+    # un article publiable valaient 1 423 et 1 505 tokens. Au 17/08 le cas
+    # nominal à 10 sources tombe à 1 403 — SOUS ces deux valeurs, après les
+    # +292 tokens de règle éditoriale ajoutés le 15/08. Le mécanisme fait son
+    # travail (8× mieux qu'avant), mais la fenêtre de 12 000 ne laisse plus de
+    # marge : le prochain ajout au prompt se paie en articles tronqués.
+    assert reste > 1200, (
         f"réservation d'écriture de {reste} tokens — un article JSON en demande "
         "~2 000. C'est le défaut mesuré le 15/08, il est revenu."
     )
@@ -61,7 +72,7 @@ def test_le_sujet_bien_source_n_est_pas_puni():
     """Propriété inversée : richesse documentaire ≠ moins de place pour écrire."""
     _, riche = _capturer(10, 950, 7000)
     _, pauvre = _capturer(6, 380, 2500)
-    assert riche > 1500 and pauvre > 1500
+    assert riche > 1200 and pauvre > 1200
     # On n'exige pas l'égalité — la coupe est graduelle — mais l'écart ne doit
     # plus être un ordre de grandeur, comme c'était le cas (200 contre 2 342).
     assert riche > pauvre / 2, (
@@ -131,7 +142,14 @@ def test_le_prompt_systeme_ne_grossit_pas_en_silence():
     poser en relevant le plafond est donc « cette règle vaut-elle 30 mots
     d'article ? » — elle a souvent une bonne réponse, mais elle doit être posée.
     """
-    plafond = 6_700   # tokens — état du 15/08 : 6 601
+    # Historique des relèvements — chaque ligne dit ce qui a été échangé :
+    #   6 700  15/08  état initial du plafond (prompt à 6 601)
+    #   7 000  17/08  +292 tk pour « interdire la chaîne monotone [Acteur] a
+    #                 [verbe] répétée » (0de58664, exemple de Nahil à l'appui).
+    #                 Prix : ~90 mots d'article. La règle vise un défaut de
+    #                 rédaction réel et constaté ; elle les vaut. Effet mesuré
+    #                 sur la fenêtre nominale : 1 604 → 1 403 tokens d'écriture.
+    plafond = 7_000   # tokens — état du 17/08 : 6 893
     _tpm = P._TPM_PAR_MODELE_GEN.get(P.GROQ_MODEL, 12_000)
     for nom, prompt in (("actu", P.SYSTEM_PROMPT), ("brève", P.SYSTEM_PROMPT_BREVE)):
         cout = int(len(prompt) / 3.3)

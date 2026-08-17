@@ -274,6 +274,28 @@ conditionnel 61 tokens (~20 mots). Les deux se défendent à ce prix ; on ne le
 connaissait pas. ⚠ Ce taux vaut pour une fenêtre de 12 000 tokens : il change
 si le compte passe en offre payante.
 
+### Premier relèvement du plafond — et ce qu'il coûte (17/08)
+
+Le plafond s'est déclenché au premier merge, ce qui est exactement son rôle. La
+règle « interdire la chaîne monotone [Acteur] a [verbe] répétée » (`0de58664`,
+ajoutée sur `main` le 15/08 sur un exemple de Nahil) pèse **+292 tokens**, soit
+~90 mots d'article. Elle vise un défaut de rédaction réel et constaté : elle les
+vaut. Plafond relevé de 6 700 à 7 000, l'échange écrit dans le test.
+
+⚠ **Mais la marge est maintenant épuisée, et c'est le chiffre à retenir :**
+
+```
+complétions ayant réellement produit un article publiable   1 423 / 1 505 tk
+fenêtre nominale (10 sources) après correctif, au 15/08             1 604 tk
+fenêtre nominale après la règle du 15/08, mesurée au 17/08          1 403 tk
+```
+
+Le cas nominal est repassé **SOUS** les deux seules complétions publiables
+connues. Le mécanisme de réservation fonctionne (8× mieux que les 200 tokens
+d'origine), mais il ne crée pas de place : il en redistribue. **Le prochain
+ajout au prompt se paiera en articles tronqués**, pas en marge rognée. Les deux
+issues restent la fenêtre payante ou l'arbitrage sur le protocole.
+
 ⚠ **Ce que le correctif ne règle PAS, et qu'il faut lire dans le journal.** À
 12 000 tokens de fenêtre on ne peut pas avoir les deux : `[FENÊTRE] ⚠ plancher
 atteint` signale les sujets où la matière a été coupée jusqu'au plancher et où
