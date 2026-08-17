@@ -37,7 +37,26 @@ def test_runtime_preflight_ci_tracks_rss_runtime_normalization() -> None:
     )
 
 
+def test_runtime_preflight_ci_tracks_sitemap_runtime_normalization() -> None:
+    text = WORKFLOW.read_text(encoding="utf-8")
+
+    normalizer = "scripts/normalize_sitemap_lastmod.py"
+    semantic_test = "scripts/test_sitemap_lastmod.py"
+    runtime_test = "scripts/test_runtime_sitemap_v3.py"
+
+    assert text.count(normalizer) >= 2, (
+        "la CI doit surveiller et compiler le normaliseur des lastmod sitemap"
+    )
+    assert text.count(semantic_test) >= 3, (
+        "la CI doit surveiller, compiler et exécuter le test sémantique du sitemap"
+    )
+    assert text.count(runtime_test) >= 4, (
+        "la CI doit surveiller, compiler et exécuter le verrou de câblage sitemap du runtime"
+    )
+
+
 if __name__ == "__main__":
     test_runtime_preflight_ci_tracks_native_precise_source_gate()
     test_runtime_preflight_ci_tracks_rss_runtime_normalization()
+    test_runtime_preflight_ci_tracks_sitemap_runtime_normalization()
     print("OK: contrat CI du prévol runtime V3")
