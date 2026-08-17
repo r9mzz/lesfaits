@@ -180,6 +180,19 @@ jobs:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
           GROQ_WAIT_MAX_MINUTES: "150"
           MAX_SHOWCASE_PUBLICATIONS: "1"
+          # Trappe de sortie, raccordée le 17/08. `pipeline.py` lit déjà
+          # GROQ_MODEL_OVERRIDE depuis toujours (ligne 57) mais ce workflow ne la
+          # transmettait pas : la trappe existait sans être branchée. Le jour où
+          # Groq a retiré `llama-3.3-70b-versatile`, changer de modèle exigeait
+          # un commit, une revue et un merge — alors qu'une variable de dépôt
+          # suffit. Vide = le défaut codé dans pipeline.py s'applique.
+          #
+          # ⚠ Le TPM dépend du modèle et conditionne le FORMAT, pas seulement la
+          # vitesse : à 8 000 TPM, le prompt système actu (~6 900 tokens) plus
+          # les sources minimales dépassent la fenêtre et le format long ne peut
+          # PAS tourner, quelle que soit la profondeur d'extrait. Les brèves
+          # passent. Vérifier `_TPM_PAR_MODELE` avant de changer cette valeur.
+          GROQ_MODEL_OVERRIDE: ${{ vars.GROQ_MODEL_OVERRIDE }}
           PYTHONIOENCODING: utf-8
           TZ: Europe/Paris
         run: |

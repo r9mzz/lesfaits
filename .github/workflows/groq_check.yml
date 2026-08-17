@@ -26,6 +26,38 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 5
     steps:
+      # AJOUTÉ LE 17/08 — le run de 11h34 est mort 17 fois de suite sur
+      # « 404 : The model `llama-3.3-70b-versatile` does not exist or you do not
+      # have access to it ». Groq a retiré le modèle de génération ET de
+      # fact-check. Sept runs se sont terminés en « succès » avec zéro article
+      # avant qu'on le voie, parce que l'erreur est attrapée par sujet et que le
+      # workflow sort en code 0.
+      #
+      # On ne pouvait pas choisir un remplaçant : rien ne listait les modèles
+      # réellement servis. Cette étape le fait avec un GET, donc À COÛT NUL en
+      # tokens — contrairement à la sonde ci-dessous, qui consomme du TPD.
+      - name: Modèles réellement disponibles
+        env:
+          K1: ${{ secrets.GROQ_API_KEY }}
+        run: |
+          echo "=== $(date -u +'%Y-%m-%d %H:%M UTC') ==="
+          if [ -z "$K1" ]; then echo "GROQ_API_KEY absente"; exit 1; fi
+          liste=$(curl -s https://api.groq.com/openai/v1/models \
+            -H "Authorization: Bearer $K1")
+          echo "--- ids servis par l'API ---"
+          echo "$liste" | grep -oE '"id"[[:space:]]*:[[:space:]]*"[^"]+"' \
+            | sed -E 's/.*"([^"]+)"$/  \1/' | sort
+          echo
+          echo "--- modèles que le code connaît (pipeline.py) ---"
+          for m in llama-3.3-70b-versatile openai/gpt-oss-120b openai/gpt-oss-20b \
+                   qwen/qwen3.6-27b llama-3.1-8b-instant; do
+            if echo "$liste" | grep -q "\"$m\""; then
+              echo "  ✅ $m"
+            else
+              echo "  ❌ $m  (absent de l'API)"
+            fi
+          done
+
       - name: Tester chaque clé
         env:
           K1: ${{ secrets.GROQ_API_KEY }}
