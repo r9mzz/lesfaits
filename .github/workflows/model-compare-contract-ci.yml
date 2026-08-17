@@ -1,0 +1,30 @@
+name: Model compare contract
+
+on:
+  pull_request:
+    paths:
+      - "scripts/test_model_compare.py"
+      - "scripts/test_model_compare_exit_contract.py"
+      - ".github/workflows/model-compare-contract-ci.yml"
+  push:
+    branches: [main]
+    paths:
+      - "scripts/test_model_compare.py"
+      - "scripts/test_model_compare_exit_contract.py"
+      - ".github/workflows/model-compare-contract-ci.yml"
+
+jobs:
+  contract:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+      - run: pip install -r requirements.txt
+      - name: Vérifier que le comparatif ne peut pas être faux-vert
+        run: |
+          python -m py_compile scripts/test_model_compare.py scripts/test_model_compare_exit_contract.py
+          cd scripts
+          python test_model_compare_exit_contract.py
