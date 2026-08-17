@@ -1,14 +1,9 @@
 """
-Test comparatif A/B (21/07) : llama-3.3-70b-versatile vs openai/gpt-oss-120b.
+Test comparatif A/B : modèles Groq sur les mêmes sujets et sources réelles.
 
-Objectif : le second modèle offre 200K tokens/jour par clé contre 100K pour
-le premier — un doublement de capacité gratuit SI la qualité tient. Ce
-script génère les MÊMES sujets, avec les MÊMES sources réelles, une fois
-par modèle, pour une comparaison équitable. Ne touche à aucun fichier de
-production (n'écrit rien dans articles/ ni data/) — sortie en JSON sur
-stdout pour copier-coller vers une revue externe (ChatGPT ou autre).
-
-Usage : python scripts/test_model_compare.py
+Le workflow doit être rouge si une comparaison n'a pas réellement abouti :
+un test A/B marqué « succès » alors que les générations ont échoué est un faux
+signal opérationnel et éditorial.
 """
 import json
 import os
@@ -35,14 +30,14 @@ def collecter_sujets(n: int) -> list[dict]:
             scored = p.filtrer_et_classer([item], src["name"], published_topics, seuil_score=20)
             if scored:
                 candidats.extend(scored)
-        if len(candidats) >= n * 5:  # assez de matière pour choisir les meilleurs
+        if len(candidats) >= n * 5:
             break
     candidats.sort(key=lambda x: x["_score"], reverse=True)
     return candidats[:n]
 
 
 def generer_avec_modele(item: dict, modele: str) -> dict:
-    p.GROQ_MODEL = modele  # override direct de la constante module
+    p.GROQ_MODEL = modele
     cat = p.detect_category(item["content"])
     extra = p.duckduckgo_search(item["title"], max_results=8)
     try:
@@ -52,11 +47,16 @@ def generer_avec_modele(item: dict, modele: str) -> dict:
         return {"ok": False, "erreur": f"{type(e).__name__}: {e}"}
 
 
-def main():
+def main() -> int:
     sujets = collecter_sujets(NB_SUJETS)
     print(f"\n{len(sujets)} sujet(s) sélectionné(s) pour le test\n{'='*70}")
 
+    if not sujets:
+        print("[ÉCHEC] aucun sujet sélectionné : comparaison impossible")
+        return 1
+
     resultats = []
+    echecs = 0
     for i, item in enumerate(sujets, 1):
         print(f"\n### SUJET {i} : {item['title'][:70]}\n")
         par_modele = {}
@@ -73,13 +73,18 @@ def main():
                     "nb_sources": art.get("nb_sources"),
                 }, ensure_ascii=False, indent=2))
             else:
+                echecs += 1
                 print(f"[ÉCHEC] {res['erreur']}")
             print()
         resultats.append({"sujet": item["title"], "resultats": par_modele})
 
     print("=" * 70)
     print(f"Test terminé — {len(resultats)} sujet(s) x {len(MODELES)} modèle(s)")
+    if echecs:
+        print(f"[ÉCHEC GLOBAL] {echecs} génération(s) sur {len(resultats) * len(MODELES)} ont échoué")
+        return 1
+    return 0
 
 
 if __name__ == "__main__":
-    main()
+    raise SystemExit(main())
