@@ -8352,6 +8352,19 @@ def generer_article(item: dict, dry_run: bool, published: set, new_pub: set, dat
             "n_sources_pertinentes": sum(
                 1 for s in extra if s.get("_pertinence") == "pertinente") or None,
         }
+        # Signal de veille, journalisé À CÔTÉ de l'issue. C'est la mesure
+        # annoncée le 14/08 et jamais branchée : « quelques runs diront lequel
+        # des deux signaux prédit la publication ». Sans ça, la veille alimente
+        # la sélection depuis trois jours sans qu'on puisse dire si elle sert.
+        # Diagnostic seul — rien ne le relit, aucune décision n'en dépend.
+        _v = item.get("_veille") or {}
+        if _v:
+            _contexte_verdict.update({
+                "veille_heures_visible": _v.get("heures_visible"),
+                "veille_passages": _v.get("passages"),
+                "veille_age_h": _v.get("age_h"),
+                "veille_n_flux_grappe": _v.get("n_flux_grappe"),
+            })
         art, statut_verif = verifier_article(art, article_type=article_type,
                                             avertissements=avertissements,
                                             contexte=_contexte_verdict)
