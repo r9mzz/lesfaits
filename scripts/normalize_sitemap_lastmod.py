@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""Normalise les lastmod article du sitemap à partir des métadonnées publiées.
+"""Normalise les ``lastmod`` du sitemap après un rebuild du site.
 
 Le générateur historique applique la date du rebuild à tout le corpus. Pour
 chaque vraie page article, ce script utilise `dateModified` puis
@@ -8,14 +8,23 @@ chaque vraie page article, ce script utilise `dateModified` puis
 peuvent utiliser la date de leur balise `<time datetime>`. Les stubs de
 redirection `noindex` sont retirés du sitemap au lieu d'être présentés comme de
 vraies pages indexables.
+
+Pour les URL hors ``/articles/`` (accueil, archive, pages statiques et
+catégories), le rebuild peut aussi avancer artificiellement ``lastmod`` alors
+que le fichier HTML correspondant n'a pas changé. Dans le checkout Git utilisé
+par le runtime, on restaure alors le ``lastmod`` du sitemap commité dans HEAD.
+Si la page HTML a réellement changé depuis HEAD, on conserve au contraire la
+nouvelle date produite par le rebuild.
 """
 from __future__ import annotations
 
 import argparse
 import json
 import re
+import subprocess
 from datetime import datetime
 from pathlib import Path
+from urllib.parse import unquote, urlparse
 
 ROOT = Path(__file__).resolve().parent.parent
 
@@ -23,6 +32,10 @@ ROOT = Path(__file__).resolve().parent.parent
 URL_RE = re.compile(
     r"\s*<url><loc>https://lesfaits\.info/articles/([^<]+)\.html</loc>"
     r"<lastmod>([^<]+)</lastmod>(.*?)</url>",
+    re.I | re.S,
+)
+ALL_URL_RE = re.compile(
+    r"(<url><loc>(https://lesfaits\.info/[^<]*)</loc><lastmod>)([^<]+)(</lastmod>.*?</url>)",
     re.I | re.S,
 )
 JSON_LD_RE = re.compile(
@@ -84,6 +97,85 @@ def article_metadata(path: Path) -> tuple[str | None, bool]:
     return (match.group(2) if match else None), False
 
 
+def _committed_sitemap(root: Path) -> str | None:
+    """Lit ``HEAD:sitemap.xml`` ; retourne None hors d'un checkout Git exploitable."""
+    proc = subprocess.run(
+        ["git", "-C", str(root), "show", "HEAD:sitemap.xml"],
+        capture_output=True,
+        text=True,
+        encoding="utf-8",
+        errors="replace",
+        check=False,
+    )
+    return proc.stdout if proc.returncode == 0 and proc.stdout else None
+
+
+def _page_for_url(root: Path, url: str) -> Path | None:
+    parsed = urlparse(url)
+    if parsed.netloc.lower() != "lesfaits.info":
+        return None
+    rel = unquote(parsed.path).lstrip("/") or "index.html"
+    if rel.startswith("articles/") or rel.endswith("/") or ".." in Path(rel).parts:
+        return None
+    candidate = (root / rel).resolve()
+    try:
+        candidate.relative_to(root.resolve())
+    except ValueError:
+        return None
+    return candidate if candidate.is_file() else None
+
+
+def _unchanged_from_head(root: Path, page: Path) -> bool | None:
+    """True si la page suivie est identique à HEAD, False si elle a changé."""
+    try:
+        rel = page.resolve().relative_to(root.resolve()).as_posix()
+    except ValueError:
+        return None
+    proc = subprocess.run(
+        ["git", "-C", str(root), "diff", "--quiet", "HEAD", "--", rel],
+        stdout=subprocess.DEVNULL,
+        stderr=subprocess.DEVNULL,
+        check=False,
+    )
+    if proc.returncode == 0:
+        return True
+    if proc.returncode == 1:
+        return False
+    return None
+
+
+def _lastmods_by_url(text: str) -> dict[str, str]:
+    return {match.group(2): match.group(3) for match in ALL_URL_RE.finditer(text)}
+
+
+def _restore_unchanged_non_article_lastmods(root: Path, text: str) -> tuple[str, int, int]:
+    """Restaure le lastmod HEAD des pages hors articles qui n'ont pas changé."""
+    committed = _committed_sitemap(root)
+    if not committed:
+        return text, 0, 0
+    previous = _lastmods_by_url(committed)
+    seen = changed = 0
+
+    def replace(match: re.Match[str]) -> str:
+        nonlocal seen, changed
+        prefix, url, current, suffix = match.groups()
+        if urlparse(url).path.startswith("/articles/"):
+            return match.group(0)
+        page = _page_for_url(root, url)
+        if not page:
+            return match.group(0)
+        seen += 1
+        if _unchanged_from_head(root, page) is not True:
+            return match.group(0)
+        old = previous.get(url)
+        if not old or old == current:
+            return match.group(0)
+        changed += 1
+        return f"{prefix}{old}{suffix}"
+
+    return ALL_URL_RE.sub(replace, text), seen, changed
+
+
 def normalize(root: Path = ROOT, *, check: bool = False) -> dict[str, int]:
     sitemap = root / "sitemap.xml"
     articles_dir = root / "articles"
@@ -129,23 +221,30 @@ def normalize(root: Path = ROOT, *, check: bool = False) -> dict[str, int]:
             f"{len(missing_slugs)} vraie(s) page(s) article sans date exploitable : "
             + ", ".join(missing_slugs)
         )
-    if check and (changed or removed):
+
+    updated, non_articles, non_article_changed = _restore_unchanged_non_article_lastmods(
+        root, updated
+    )
+    if check and (changed or removed or non_article_changed):
         raise RuntimeError(
-            f"sitemap.xml encore non normalisé: {changed} lastmod à corriger, "
-            f"{removed} redirection(s) à retirer"
+            f"sitemap.xml encore non normalisé: {changed} lastmod article à corriger, "
+            f"{removed} redirection(s) à retirer, {non_article_changed} lastmod hors article à restaurer"
         )
     if not check and updated != text:
         sitemap.write_text(updated, encoding="utf-8")
 
     print(
-        f"[SITEMAP] {seen} entrée(s) article contrôlée(s), {changed} lastmod corrigé(s), "
-        f"{removed} redirection(s) retirée(s), {len(missing_slugs)} date(s) manquante(s)."
+        f"[SITEMAP] {seen} entrée(s) article contrôlée(s), {changed} lastmod article corrigé(s), "
+        f"{removed} redirection(s) retirée(s), {len(missing_slugs)} date(s) manquante(s), "
+        f"{non_articles} page(s) hors article contrôlée(s), {non_article_changed} lastmod restauré(s)."
     )
     return {
         "articles": seen,
         "changed": changed,
         "removed": removed,
         "missing": len(missing_slugs),
+        "non_articles": non_articles,
+        "non_article_changed": non_article_changed,
     }
 
 
