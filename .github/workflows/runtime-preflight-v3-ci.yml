@@ -7,6 +7,7 @@ on:
       - "sitemap.xml"
       - "scripts/pipeline.py"
       - "scripts/run_pipeline_v3.py"
+      - "scripts/provider_runtime_guard.py"
       - "scripts/test_runtime_preflight_v3.py"
       - "scripts/test_run_pipeline_v3.py"
       - "scripts/test_trusted_source_expansion.py"
@@ -14,6 +15,7 @@ on:
       - "scripts/test_pertinence_bloquant.py"
       - "scripts/test_runtime_newsletter_v3.py"
       - "scripts/test_runtime_groq_model_v3.py"
+      - "scripts/test_provider_runtime_guard.py"
       - "scripts/normalize_feed_pubdates.py"
       - "scripts/test_feed_pubdates.py"
       - "scripts/test_feed_current_state.py"
@@ -44,6 +46,7 @@ jobs:
           python -m py_compile
           scripts/pipeline.py
           scripts/run_pipeline_v3.py
+          scripts/provider_runtime_guard.py
           scripts/test_runtime_preflight_v3.py
           scripts/test_run_pipeline_v3.py
           scripts/test_trusted_source_expansion.py
@@ -51,6 +54,7 @@ jobs:
           scripts/test_pertinence_bloquant.py
           scripts/test_runtime_newsletter_v3.py
           scripts/test_runtime_groq_model_v3.py
+          scripts/test_provider_runtime_guard.py
           scripts/normalize_feed_pubdates.py
           scripts/test_feed_pubdates.py
           scripts/test_feed_current_state.py
@@ -84,3 +88,4 @@ jobs:
           python scripts/test_runtime_sitemap_v3.py
           python scripts/test_runtime_newsletter_v3.py
           python scripts/test_runtime_groq_model_v3.py
+          python scripts/test_provider_runtime_guard.py
