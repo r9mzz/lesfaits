@@ -54,7 +54,15 @@ BASE_URL = "https://lesfaits.info"
 # Modèle de génération — extrait en constante (21/07) pour permettre un test
 # comparatif A/B sans dupliquer le pipeline (voir scripts/test_model_compare.py).
 # Le comportement par défaut est strictement inchangé.
-GROQ_MODEL     = os.getenv("GROQ_MODEL_OVERRIDE", "") or "llama-3.3-70b-versatile"
+# ── MODÈLES PAR DÉFAUT, SOLIDAIRES DU FOURNISSEUR ──────────────────────────
+# Un nom de modèle n'a de sens que chez le fournisseur qui le sert. Basculer
+# `LLM_BASE_URL` sans changer les noms produit un 404 sur CHAQUE appel — c'est
+# ce qui a tué les runs des 15-17/08 quand Groq a retiré llama-3.3-70b sans
+# préavis, et ça se reproduirait à l'identique en pointant Mistral avec des
+# noms Groq. Les défauts suivent donc la base d'API, et restent surchargeables.
+_MISTRAL = "mistral.ai" in os.getenv("LLM_BASE_URL", "")
+GROQ_MODEL     = (os.getenv("GROQ_MODEL_OVERRIDE", "")
+                  or ("mistral-large-latest" if _MISTRAL else "llama-3.3-70b-versatile"))
 GROQ_KEY       = os.getenv("GROQ_API_KEY", "")
 # Liste dynamique (23/07, Nahil : 23 clés après nettoyage à 1 clé/compte) :
 # GROQ_API_KEY_2 à GROQ_API_KEY_N, N ajustable sans toucher au code — il suffit d'ajouter le
@@ -605,7 +613,8 @@ def qualite_source(url: str) -> str:
 # Petit modèle assumé : la réponse tient en un mot. Faire juger la pertinence
 # par le modèle qui rédige coûterait le prix d'un article pour une question à
 # trois issues.
-JUGE_SOURCES_MODELE = os.getenv("JUGE_SOURCES_MODELE", "") or "openai/gpt-oss-20b"
+JUGE_SOURCES_MODELE = (os.getenv("JUGE_SOURCES_MODELE", "")
+                       or ("mistral-small-latest" if _MISTRAL else "openai/gpt-oss-20b"))
 # `llama-3.1-8b-instant` a été retiré par Groq le 17/08 en même temps que le
 # modèle de rédaction : le juge est tombé sur NotFoundError aux 20 sujets du
 # run de 18h58. `openai/gpt-oss-20b` est servi (vérifié sur GET /models) et

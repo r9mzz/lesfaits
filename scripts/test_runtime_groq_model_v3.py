@@ -31,12 +31,58 @@ def main() -> None:
         "Le test du modèle Groq doit être rejoué par le prévol runtime V3."
     )
 
-    assert 'JUGE_SOURCES_MODELE = os.getenv("JUGE_SOURCES_MODELE", "") or "openai/gpt-oss-20b"' in pipeline, (
-        "Le juge de pertinence doit utiliser par défaut openai/gpt-oss-20b, pas un modèle Groq retiré."
-    )
-    assert 'JUGE_SOURCES_MODELE = os.getenv("JUGE_SOURCES_MODELE", "") or "llama-3.1-8b-instant"' not in pipeline, (
+    # ⚠ Ce contrôle portait sur le TEXTE de la ligne, pas sur son effet. Il a
+    # donc cassé le 18/08 quand les défauts sont devenus solidaires du
+    # fournisseur — alors même que la propriété qu'il protège était intacte.
+    # Un test qui lit le code source interdit toute réécriture, y compris
+    # correcte ; on vérifie donc le COMPORTEMENT, par import réel.
+    assert 'llama-3.1-8b-instant"' not in pipeline.split("JUGE_SOURCES_MODELE")[1][:200], (
         "Le modèle retiré llama-3.1-8b-instant ne doit jamais redevenir le défaut du juge."
     )
+
+    import importlib
+    import os as _os
+    import sys as _sys
+
+    _sys.path.insert(0, str(HERE))
+    _os.environ.setdefault("GROQ_API_KEY", "x")
+
+    def _defauts(base_url: str) -> tuple[str, str]:
+        _anc = _os.environ.get("LLM_BASE_URL")
+        if base_url:
+            _os.environ["LLM_BASE_URL"] = base_url
+        else:
+            _os.environ.pop("LLM_BASE_URL", None)
+        try:
+            for m in ("pipeline",):
+                _sys.modules.pop(m, None)
+            mod = importlib.import_module("pipeline")
+            return mod.GROQ_MODEL, mod.JUGE_SOURCES_MODELE
+        finally:
+            if _anc is None:
+                _os.environ.pop("LLM_BASE_URL", None)
+            else:
+                _os.environ["LLM_BASE_URL"] = _anc
+            _sys.modules.pop("pipeline", None)
+
+    _red, _juge = _defauts("")
+    assert "llama-3.1-8b-instant" not in _juge, (
+        "Le modèle retiré ne doit jamais être le défaut du juge."
+    )
+    assert _juge != _red, (
+        "Le juge doit rester DISTINCT du modèle de rédaction : sinon il puise "
+        "dans le quota qui bloque déjà les runs, et le garde-fou le refuse."
+    )
+
+    # Un nom de modèle n'a de sens que chez le fournisseur qui le sert : pointer
+    # Mistral avec des noms Groq produit un 404 sur chaque appel, soit la panne
+    # des 15-17/08 dans l'autre sens.
+    _red_m, _juge_m = _defauts("https://api.mistral.ai/v1")
+    assert "mistral" in _red_m and "mistral" in _juge_m, (
+        f"Sous Mistral, les défauts restent des modèles Groq ({_red_m}, {_juge_m}) "
+        "— chaque appel échouerait en 404."
+    )
+    assert _juge_m != _red_m, "Juge et rédacteur doivent rester distincts sous tout fournisseur."
     assert '"groq/compound": 8_000' in pipeline, (
         "Le plafond runtime de groq/compound doit rester aligné sur le compteur servi gpt-oss-120b à 8 000 TPM."
     )

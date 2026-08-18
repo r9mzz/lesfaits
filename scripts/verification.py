@@ -14,7 +14,13 @@ import sys
 
 import verification_legacy as _verification
 
-_MODEL = os.getenv("GROQ_MODEL_OVERRIDE", "").strip() or "openai/gpt-oss-120b"
+# Le défaut suit le fournisseur : un nom de modèle Groq envoyé à Mistral produit
+# un 404 sur chaque vérification, donc zéro article publié — la panne exacte des
+# 15-17/08, dans l'autre sens.
+_BASE_POUR_DEFAUT = os.getenv("LLM_BASE_URL", "")
+_MODEL = (os.getenv("GROQ_MODEL_OVERRIDE", "").strip()
+          or ("mistral-large-latest" if "mistral.ai" in _BASE_POUR_DEFAUT
+              else "openai/gpt-oss-120b"))
 _BASE_URL = os.getenv("LLM_BASE_URL", "").strip()
 _LLM_KEY = os.getenv("LLM_API_KEY", "").strip()
 

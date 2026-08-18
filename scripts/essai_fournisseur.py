@@ -69,6 +69,20 @@ def main() -> int:
             p._groq_call = vrai
 
         corps = art.get("corps") or {}
+        # ⚠ Le corps peut manquer alors que la génération a « réussi » : le JSON
+        # est alors mal lu, pas mal écrit, et l'erreur est silencieuse. Sans la
+        # réponse BRUTE on ne peut que supposer — ce qui a déjà coûté deux
+        # diagnostics faux cette semaine. On l'affiche donc dès que le corps
+        # manque, en montrant la zone de rupture plutôt que le début du texte.
+        if not corps:
+            t = brut.get("texte", "")
+            print(f"[BRUT] {len(t)} caractères — corps absent, voici le texte réel :")
+            import re as _re
+            m = _re.search(r'"corps"', t)
+            if m:
+                print(f"[BRUT] zone « corps » : {t[m.start():m.start() + 700]!r}")
+            else:
+                print(f"[BRUT] aucune clé \"corps\" dans la réponse. Fin : {t[-500:]!r}")
         mots = {k: len(str(v).split()) for k, v in corps.items()}
         total = sum(mots.values())
         print(json.dumps({
