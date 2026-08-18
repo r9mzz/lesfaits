@@ -1,16 +1,17 @@
 name: Test A/B — comparaison modèle Groq
 
 # Déclenchement manuel uniquement — test ponctuel, n'écrit rien en
-# production (aucun fichier articles/ ni data/ modifié). Compare
-# llama-3.3-70b-versatile (actuel, 100K TPD) à openai/gpt-oss-120b
-# (candidat, 200K TPD) sur les mêmes sujets et sources réelles du jour.
+# production (aucun fichier articles/ ni data/ modifié). Par défaut, compare
+# deux modèles Groq encore utilisés par le runtime : openai/gpt-oss-20b et
+# openai/gpt-oss-120b. Un fournisseur OpenAI-compatible peut être testé en
+# renseignant explicitement sa base et au moins deux modèles compatibles.
 on:
   workflow_dispatch:
     inputs:
       modeles:
         description: "Modèles à comparer, séparés par des virgules"
         required: false
-        default: "mistral-large-latest"
+        default: "openai/gpt-oss-20b,openai/gpt-oss-120b"
         type: string
       base_url:
         # Vide = Groq. Renseigner bascule le test sur un service compatible
