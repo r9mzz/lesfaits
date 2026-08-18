@@ -4,7 +4,9 @@ on:
   pull_request:
     paths:
       - "scripts/stamp_publication_times.py"
+      - "scripts/run_publication_times.py"
       - "scripts/test_stamp_publication_times.py"
+      - "scripts/test_publication_time_legacy_rebuild.py"
       - "scripts/repair_jsonld_modified_dates.py"
       - "scripts/test_repair_jsonld_modified_dates.py"
       - "scripts/test_publication_times_workflow_contract.py"
@@ -30,13 +32,16 @@ jobs:
         run: |
           python -m py_compile \
             scripts/stamp_publication_times.py \
+            scripts/run_publication_times.py \
             scripts/test_stamp_publication_times.py \
+            scripts/test_publication_time_legacy_rebuild.py \
             scripts/repair_jsonld_modified_dates.py \
             scripts/test_repair_jsonld_modified_dates.py \
             scripts/test_publication_times_workflow_contract.py
       - name: Tester l’horodatage public
         run: |
           python scripts/test_stamp_publication_times.py
+          python scripts/test_publication_time_legacy_rebuild.py
           python scripts/test_repair_jsonld_modified_dates.py
           python scripts/test_publication_times_workflow_contract.py
 
@@ -78,7 +83,7 @@ jobs:
         run: |
           PUBLISHED_AT=$(git -C /tmp/site show -s --format=%cI HEAD)
           echo "Commit public horodaté : $PUBLISHED_AT"
-          python scripts/stamp_publication_times.py \
+          python scripts/run_publication_times.py \
             --site-dir /tmp/site \
             --previous-ref HEAD~1 \
             --published-at "$PUBLISHED_AT"
