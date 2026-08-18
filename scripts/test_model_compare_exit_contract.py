@@ -1,9 +1,35 @@
 """Régression : un A/B incomplet ne doit jamais terminer vert."""
+from pathlib import Path
+import re
+
 import test_model_compare as m
+
+
+ROOT = Path(__file__).resolve().parent.parent
+WORKFLOW = ROOT / ".github" / "workflows" / "model_compare.yml"
 
 
 def _sujet():
     return {"title": "Sujet test", "content": "contenu", "url": "https://example.test"}
+
+
+def test_workflow_default_est_une_vraie_comparaison():
+    """Le bouton « Run workflow » doit fonctionner sans éditer les inputs.
+
+    Le script refuse volontairement moins de deux modèles. Le workflow ne doit
+    donc jamais fournir un seul modèle par défaut, ni réintroduire le modèle
+    Groq retiré qui ferait échouer la comparaison par construction.
+    """
+    text = WORKFLOW.read_text(encoding="utf-8")
+    block = re.search(
+        r"modeles:\s*.*?default:\s*[\"']([^\"']+)[\"']",
+        text,
+        re.S,
+    )
+    assert block, "input modeles/default introuvable dans model_compare.yml"
+    modeles = [x.strip() for x in block.group(1).split(",") if x.strip()]
+    assert len(modeles) >= 2, f"workflow A/B invalide par défaut : {modeles}"
+    assert "llama-3.3-70b-versatile" not in modeles, "modèle Groq retiré réintroduit"
 
 
 def test_un_seul_modele_rend_le_run_rouge():
@@ -58,6 +84,7 @@ def test_toutes_generations_ok_rend_le_run_vert():
 
 
 if __name__ == "__main__":
+    test_workflow_default_est_une_vraie_comparaison()
     test_un_seul_modele_rend_le_run_rouge()
     test_echec_generation_rend_le_run_rouge()
     test_toutes_generations_ok_rend_le_run_vert()
