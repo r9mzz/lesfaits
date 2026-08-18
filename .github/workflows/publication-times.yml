@@ -7,6 +7,7 @@ on:
       - "scripts/test_stamp_publication_times.py"
       - "scripts/repair_jsonld_modified_dates.py"
       - "scripts/test_repair_jsonld_modified_dates.py"
+      - "scripts/test_publication_times_workflow_contract.py"
       - ".github/workflows/publication-times.yml"
   workflow_dispatch:
   workflow_run:
@@ -31,11 +32,13 @@ jobs:
             scripts/stamp_publication_times.py \
             scripts/test_stamp_publication_times.py \
             scripts/repair_jsonld_modified_dates.py \
-            scripts/test_repair_jsonld_modified_dates.py
+            scripts/test_repair_jsonld_modified_dates.py \
+            scripts/test_publication_times_workflow_contract.py
       - name: Tester l’horodatage public
         run: |
           python scripts/test_stamp_publication_times.py
           python scripts/test_repair_jsonld_modified_dates.py
+          python scripts/test_publication_times_workflow_contract.py
 
   stamp:
     if: >-
@@ -59,7 +62,19 @@ jobs:
         run: |
           git clone https://x-access-token:${SITE_DEPLOY_TOKEN}@github.com/r9mzz/lesfaits-site.git /tmp/site
 
+      - name: Détecter les nouveaux articles du déploiement
+        id: nouveaux
+        run: |
+          NB_NEW=$(git -C /tmp/site diff --name-only --diff-filter=A HEAD~1 HEAD -- 'articles/*.html' | wc -l | tr -d ' ')
+          echo "count=$NB_NEW" >> "$GITHUB_OUTPUT"
+          if [ "$NB_NEW" -eq 0 ]; then
+            echo "Aucun nouvel article dans le dernier déploiement public — horodatage inutile."
+          else
+            echo "$NB_NEW nouvel article(s) à horodater."
+          fi
+
       - name: Appliquer l’heure réelle du déploiement
+        if: steps.nouveaux.outputs.count != '0'
         run: |
           PUBLISHED_AT=$(git -C /tmp/site show -s --format=%cI HEAD)
           echo "Commit public horodaté : $PUBLISHED_AT"
@@ -71,6 +86,7 @@ jobs:
           python scripts/repair_jsonld_modified_dates.py --site-dir /tmp/site --check
 
       - name: Publier les horodatages corrigés
+        if: steps.nouveaux.outputs.count != '0'
         working-directory: /tmp/site
         run: |
           git config user.name "Factuel Bot"
