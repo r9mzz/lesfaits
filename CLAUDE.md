@@ -331,6 +331,52 @@ le critère quel que soit le sujet. `angle_insuffisant` n'est donc pas
 uniquement un défaut de sélection ; une part est un tirage sur la génération.
 Réserves : n=6, biais de sélection, six appariements de slugs vérifiés à la main.
 
+## LE CORPS DE L'ARTICLE ÉTAIT PERDU À LA LECTURE — 18/08, et c'était notre faute
+
+Premier essai réel de Mistral. Le modèle se connecte, accepte des prompts de
+8 400 tokens (refusés chez Groq) et écrit un français propre — mais l'article
+revient sans `corps` ni `sources` :
+
+```
+clés rendues : titre · resume · angle_reponse · slug · titre_faits · image_keyword
+[TOKENS] prompt=8183 completion=1583 total=9766 fin=stop réservé=3500
+```
+
+**`fin=stop` : rien n'a été coupé.** Le modèle avait 3 500 tokens réservés, en a
+produit 1 583, et s'est arrêté de lui-même. Or les six champs affichés pèsent
+~250 tokens. **1 300 tokens avaient été écrits puis perdus entre le modèle et
+`_extract_json`.**
+
+### La cause, reproduite hors ligne en trois lignes
+
+La norme JSON interdit un saut de ligne LITTÉRAL dans une chaîne : il doit être
+écrit `\n`. Or le prompt exige depuis le 15/08 une **mise en paragraphes** du
+corps — on demandait donc au modèle de produire exactement ce qui casse notre
+lecture. Llama 3.3 échappait ces sauts de ligne, Mistral les écrit tels quels.
+
+```
+json.loads(article_avec_saut_de_ligne)  →  Invalid control character
+repli sur le dernier préfixe parsable   →  corps et sources perdus, en silence
+```
+
+⚠ **Ce n'était donc ni un défaut de Mistral ni un problème de fenêtre.** C'est
+un bug de notre extracteur, resté invisible deux mois parce qu'un seul modèle
+l'avait jamais alimenté. Le diagnostic n'a été possible qu'après avoir
+journalisé `finish_reason` : sans lui, « coupé » et « jamais écrit » ont le
+même symptôme et appellent des correctifs opposés.
+
+### Correctif
+
+`_echapper_controles_json()` échappe les caractères de contrôle bruts À
+L'INTÉRIEUR des chaînes, en suivant l'état « dans une chaîne ou non » et en
+tenant compte des guillemets échappés. Un `replace` global corromprait la mise
+en forme du document JSON lui-même.
+
+Verrouillé par `scripts/test_json_sauts_de_ligne.py` : le corps revient, **les
+paragraphes sont préservés** (c'est tout l'intérêt de la consigne du 15/08), un
+JSON déjà valide reste lisible, `\"` ne décale pas le suivi d'état, et le
+chemin complet de `generate()` rend bien un corps non vide.
+
 ## LE FOURNISSEUR EST DEVENU UNE VARIABLE — 18/08, prêt, en attente d'une clé
 
 Groq a retiré notre modèle sans préavis et ses modèles restants plafonnent à
