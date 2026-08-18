@@ -131,7 +131,9 @@ class LegacyRebuildPublicationTimeTests(unittest.TestCase):
             html = (site / "articles" / f"{slug}.html").read_text(encoding="utf-8")
             self.assertIn(f'<time datetime="{old_iso}">{old_display}</time>', html)
             self.assertIn(f'"datePublished":"{old_iso}"', html)
-            self.assertNotIn(rebuilt_iso, html)
+            # Le rebuild est une vraie modification : dateModified peut rester
+            # à l'heure du rebuild. Seule datePublished doit être restaurée.
+            self.assertIn(f'"dateModified":"{rebuilt_iso}"', html)
 
             feed = (site / "feed.xml").read_text(encoding="utf-8")
             self.assertIn("Fri, 14 Aug 2026 11:57:51 GMT", feed)
