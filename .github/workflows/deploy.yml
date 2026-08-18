@@ -194,6 +194,14 @@ jobs:
           cd /tmp/site
           git config user.name  "Factuel Bot"
           git config user.email "bot@factuel.fr"
+
+          # Re-normaliser le sitemap face au HEAD du dépôt public : le dépôt
+          # source peut différer du dernier HTML déjà servi sans changement réel
+          # côté production. Cette seconde passe préserve alors les lastmod publics
+          # des pages qui restent byte-identiques dans lesfaits-site.
+          python "${GITHUB_WORKSPACE}/scripts/normalize_sitemap_lastmod.py" --root /tmp/site
+          python "${GITHUB_WORKSPACE}/scripts/normalize_sitemap_lastmod.py" --root /tmp/site --check
+
           git add -A
           git diff --cached --quiet && echo "Aucun changement à déployer." && exit 0
 
