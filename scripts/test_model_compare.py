@@ -1,9 +1,9 @@
 """
-Test comparatif A/B : modèles Groq sur les mêmes sujets et sources réelles.
+Test comparatif A/B : modèles sur les mêmes sujets et sources réelles.
 
 Le workflow doit être rouge si une comparaison n'a pas réellement abouti :
-un test A/B marqué « succès » alors que les générations ont échoué est un faux
-signal opérationnel et éditorial.
+un test A/B marqué « succès » alors que les générations ont échoué — ou qu'un
+seul modèle a été exécuté — est un faux signal opérationnel et éditorial.
 """
 import json
 import os
@@ -55,6 +55,13 @@ def generer_avec_modele(item: dict, modele: str) -> dict:
 
 
 def main() -> int:
+    if len(MODELES) < 2:
+        print(
+            f"[ÉCHEC] comparaison A/B impossible : {len(MODELES)} modèle(s) configuré(s), "
+            "il en faut au moins deux"
+        )
+        return 1
+
     sujets = collecter_sujets(NB_SUJETS)
     print(f"\n{len(sujets)} sujet(s) sélectionné(s) pour le test\n{'='*70}")
 
