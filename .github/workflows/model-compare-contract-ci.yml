@@ -5,6 +5,7 @@ on:
     paths:
       - "scripts/test_model_compare.py"
       - "scripts/test_model_compare_exit_contract.py"
+      - "scripts/test_model_compare_single_model_regression.py"
       - ".github/workflows/model_compare.yml"
       - ".github/workflows/model-compare-contract-ci.yml"
   push:
@@ -12,6 +13,7 @@ on:
     paths:
       - "scripts/test_model_compare.py"
       - "scripts/test_model_compare_exit_contract.py"
+      - "scripts/test_model_compare_single_model_regression.py"
       - ".github/workflows/model_compare.yml"
       - ".github/workflows/model-compare-contract-ci.yml"
 
@@ -27,6 +29,7 @@ jobs:
       - run: pip install -r requirements.txt
       - name: Vérifier que le comparatif ne peut pas être faux-vert
         run: |
-          python -m py_compile scripts/test_model_compare.py scripts/test_model_compare_exit_contract.py
+          python -m py_compile scripts/test_model_compare.py scripts/test_model_compare_exit_contract.py scripts/test_model_compare_single_model_regression.py
           cd scripts
           python test_model_compare_exit_contract.py
+          python test_model_compare_single_model_regression.py
