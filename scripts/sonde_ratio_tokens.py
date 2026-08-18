@@ -20,13 +20,10 @@ tokenisation n'a rien à voir — et on demande à Groq ce qu'il compte.
 attente, la sonde consomme le budget qu'elle mesure (erreur du 17/08, qui avait
 « trouvé » un plafond de 2 500 qui n'était que le reliquat de sa propre minute).
 """
-import json
 import os
 import re
 import sys
 import time
-import urllib.error
-import urllib.request
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 os.environ.setdefault("GROQ_API_KEY", "x")
@@ -74,21 +71,24 @@ def messages_reels(n_sources, snippet, contenu, article_type="actu"):
 
 
 def compte_reel(msgs):
-    """Ce que Groq compte. 200 → usage.prompt_tokens ; 413 → « Requested N »."""
-    corps = json.dumps({"model": MODELE, "max_tokens": 1, "messages": msgs}).encode()
-    req = urllib.request.Request(
-        "https://api.groq.com/openai/v1/chat/completions", data=corps,
-        headers={"Authorization": f"Bearer {CLE}", "Content-Type": "application/json"})
+    """Ce que Groq compte. Accepté → usage.prompt_tokens ; refusé → « Requested N ».
+
+    ⚠ On passe par la bibliothèque `groq` et non par un appel HTTP nu : un
+    POST sans les en-têtes attendus est bloqué par Cloudflare en 403
+    « error code: 1010 », et on mesure alors le pare-feu, pas le modèle.
+    """
+    from groq import Groq
     try:
-        with urllib.request.urlopen(req, timeout=120) as r:
-            d = json.loads(r.read())
-            return d.get("usage", {}).get("prompt_tokens"), "accepté"
-    except urllib.error.HTTPError as e:
-        txt = e.read().decode()
+        r = Groq(api_key=CLE).chat.completions.create(
+            model=MODELE, max_tokens=1, messages=msgs)
+        return r.usage.prompt_tokens, "accepté"
+    except Exception as e:  # noqa: BLE001
+        txt = str(e)
         m = re.search(r"Requested (\d+)", txt)
         if m:
-            return int(m.group(1)) - 1, f"refusé {e.code}"
-        return None, f"refusé {e.code} — {txt[:120]}"
+            # « Requested » compte le prompt PLUS la réservation de sortie (1).
+            return int(m.group(1)) - 1, "refusé (plafond)"
+        return None, f"refusé — {txt[:130]}"
 
 
 if not CLE:
@@ -99,10 +99,14 @@ dire(f"=== Ratio caractères/token RÉEL — modèle {MODELE} ===")
 dire("")
 dire(f"  {'config':<28}{'caract.':>9}{'estimé':>9}{'RÉEL':>8}{'car/tk':>8}  issue")
 
+# ⚠ Les deux variantes « actu » d'une première version rendaient exactement le
+# même prompt : la réservation d'écriture ramène déjà la matière à ses
+# planchers dans les deux cas. On mesure donc ce qui part RÉELLEMENT, et on
+# fait varier le nombre de sources pour obtenir plusieurs points de mesure.
 CONFIGS = [
-    ("brève 6×380 / 2500", 6, 380, 2500, "breve"),
-    ("nominal 10×950 / 7000", 10, 950, 7000, "actu"),
-    ("planchers 10×300 / 2500", 10, 300, 2500, "actu"),
+    ("brève 6 sources", 6, 380, 2500, "breve"),
+    ("article 4 sources", 4, 950, 7000, "actu"),
+    ("article 10 sources", 10, 950, 7000, "actu"),
 ]
 ratios = []
 for libelle, n, snip, clen, typ in CONFIGS:
