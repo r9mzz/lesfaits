@@ -1,6 +1,9 @@
 from pathlib import Path
+import re
 
-WORKFLOW = Path(__file__).resolve().parents[1] / ".github" / "workflows" / "runtime-preflight-v3-ci.yml"
+ROOT = Path(__file__).resolve().parents[1]
+WORKFLOW = ROOT / ".github" / "workflows" / "runtime-preflight-v3-ci.yml"
+RUNTIME = ROOT / "scripts" / "run_pipeline_v3.py"
 
 
 def test_runtime_preflight_ci_tracks_native_precise_source_gate() -> None:
@@ -55,8 +58,33 @@ def test_runtime_preflight_ci_tracks_sitemap_runtime_normalization() -> None:
     )
 
 
+def test_runtime_preflight_ci_matches_runtime_regression_suite() -> None:
+    workflow = WORKFLOW.read_text(encoding="utf-8")
+    runtime = RUNTIME.read_text(encoding="utf-8")
+
+    block = re.search(
+        r"_RUNTIME_REGRESSION_TESTS\s*=\s*\((.*?)\)\n\n",
+        runtime,
+        flags=re.S,
+    )
+    assert block, "suite _RUNTIME_REGRESSION_TESTS introuvable dans run_pipeline_v3.py"
+    tests = re.findall(r'"([^"]+\.py)"', block.group(1))
+    assert tests, "suite runtime V3 vide"
+
+    for test_name in tests:
+        path = f"scripts/{test_name}"
+        assert workflow.count(path) >= 3, (
+            f"la CI doit surveiller, compiler et exécuter le même test que le runtime : {path}"
+        )
+
+    assert workflow.count("scripts/pipeline.py") >= 2, (
+        "pipeline.py est exécuté par le runtime : la CI de prévol doit le surveiller et le compiler"
+    )
+
+
 if __name__ == "__main__":
     test_runtime_preflight_ci_tracks_native_precise_source_gate()
     test_runtime_preflight_ci_tracks_rss_runtime_normalization()
     test_runtime_preflight_ci_tracks_sitemap_runtime_normalization()
+    test_runtime_preflight_ci_matches_runtime_regression_suite()
     print("OK: contrat CI du prévol runtime V3")
