@@ -44,14 +44,36 @@ def collecter_sujets(n: int) -> list[dict]:
 
 
 def generer_avec_modele(item: dict, modele: str) -> dict:
+    """Génère, et CAPTURE la réponse brute du modèle.
+
+    Sans le brut, on ne peut pas départager deux pannes opposées. Le 18/08,
+    Mistral a rendu `fin=stop` (donc rien n'a été coupé) et 1 583 tokens de
+    complétion, alors que le JSON extrait ne portait que six champs courts —
+    environ 250 tokens. Les 1 300 tokens manquants ont donc été ÉCRITS puis
+    perdus quelque part entre le modèle et `_extract_json`. C'est un défaut
+    d'extraction, pas de rédaction, et les deux n'appellent pas le même
+    correctif.
+    """
     p.GROQ_MODEL = modele
+    brut = {}
+    _vrai = p._groq_call
+
+    def _capture(*a, **kw):
+        r = _vrai(*a, **kw)
+        brut["texte"] = r
+        return r
+
+    p._groq_call = _capture
     cat = p.detect_category(item["content"])
     extra = p.duckduckgo_search(item["title"], max_results=8)
     try:
         art = p.generate(item["content"], cat, extra_sources=extra, rss_url=item.get("url"))
-        return {"ok": True, "article": art}
+        return {"ok": True, "article": art, "brut": brut.get("texte", "")}
     except Exception as e:
-        return {"ok": False, "erreur": f"{type(e).__name__}: {e}"}
+        return {"ok": False, "erreur": f"{type(e).__name__}: {e}",
+                "brut": brut.get("texte", "")}
+    finally:
+        p._groq_call = _vrai
 
 
 def main() -> int:
