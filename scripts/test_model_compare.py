@@ -80,12 +80,28 @@ def main() -> int:
             par_modele[modele] = res
             if res["ok"]:
                 art = res["article"]
+                # Affichage détaillé : le premier essai Mistral (18/08) rendait
+                # « corps: null », ce qui ne dit pas s'il manque vraiment ou si
+                # le modèle l'a rangé sous une autre clé. Sans les clés brutes
+                # et le compte de mots, impossible de trancher entre « le
+                # fournisseur écrit mal » et « il ne respecte pas notre schéma
+                # JSON » — deux problèmes très différents, l'un rédhibitoire,
+                # l'autre réparable en une ligne de prompt.
+                corps = art.get("corps") or {}
+                mots = {k: len(str(v).split()) for k, v in corps.items()} if isinstance(corps, dict) else {}
                 print(json.dumps({
+                    "clés rendues": sorted(art.keys()),
                     "titre": art.get("titre"),
+                    "angle_reponse": art.get("angle_reponse"),
                     "resume": art.get("resume"),
-                    "corps": art.get("corps"),
-                    "nb_sources": art.get("nb_sources"),
+                    "mots par section": mots,
+                    "mots corps total": sum(mots.values()),
+                    "sources citées": len(art.get("sources") or []),
                 }, ensure_ascii=False, indent=2))
+                for _sec in ("faits", "contexte", "nuances"):
+                    _t = (corps or {}).get(_sec) or ""
+                    if _t:
+                        print(f"\n--- {_sec.upper()} ({len(str(_t).split())} mots) ---\n{_t}")
             else:
                 echecs += 1
                 print(f"[ÉCHEC] {res['erreur']}")
