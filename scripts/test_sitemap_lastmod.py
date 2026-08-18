@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 from __future__ import annotations
 
+import subprocess
 import tempfile
 import unittest
 from pathlib import Path
@@ -28,18 +29,71 @@ class SitemapLastmodTests(unittest.TestCase):
         )
         return tmp, root
 
-    def test_uses_date_modified_and_keeps_static_urls(self):
+    def test_uses_date_modified_and_keeps_static_urls_outside_git(self):
         tmp, root = self._root()
         try:
             result = sm.normalize(root)
             text = (root / "sitemap.xml").read_text(encoding="utf-8")
             self.assertEqual(result["changed"], 1)
+            self.assertEqual(result["non_article_changed"], 0)
             self.assertIn(
                 '<loc>https://lesfaits.info/articles/exemple.html</loc><lastmod>2026-08-06</lastmod>',
                 text,
             )
             self.assertIn('<loc>https://lesfaits.info/</loc><lastmod>2026-08-08</lastmod>', text)
             sm.normalize(root, check=True)
+        finally:
+            tmp.cleanup()
+
+    def test_zero_article_rebuild_restores_unchanged_non_article_lastmod(self):
+        """Un rebuild ne doit pas antidater fictivement toutes les pages du site."""
+        tmp = tempfile.TemporaryDirectory()
+        root = Path(tmp.name)
+        try:
+            (root / "articles").mkdir()
+            (root / "categories").mkdir()
+            (root / "articles" / "exemple.html").write_text(ARTICLE, encoding="utf-8")
+            (root / "index.html").write_text("accueil stable", encoding="utf-8")
+            (root / "archive.html").write_text("archive avant", encoding="utf-8")
+            (root / "categories" / "science.html").write_text("science stable", encoding="utf-8")
+            initial = (
+                '<?xml version="1.0"?><urlset>'
+                '<url><loc>https://lesfaits.info/</loc><lastmod>2026-08-17</lastmod></url>'
+                '<url><loc>https://lesfaits.info/archive.html</loc><lastmod>2026-08-17</lastmod></url>'
+                '<url><loc>https://lesfaits.info/categories/science.html</loc><lastmod>2026-08-17</lastmod></url>'
+                '<url><loc>https://lesfaits.info/articles/exemple.html</loc><lastmod>2026-08-06</lastmod><changefreq>monthly</changefreq></url>'
+                '</urlset>'
+            )
+            (root / "sitemap.xml").write_text(initial, encoding="utf-8")
+
+            subprocess.run(["git", "init"], cwd=root, check=True, capture_output=True)
+            subprocess.run(["git", "config", "user.email", "test@example.invalid"], cwd=root, check=True)
+            subprocess.run(["git", "config", "user.name", "Regression Test"], cwd=root, check=True)
+            subprocess.run(["git", "add", "."], cwd=root, check=True)
+            subprocess.run(["git", "commit", "-m", "baseline"], cwd=root, check=True, capture_output=True)
+
+            # Simule le rebuild historique : tout le hors-article passe au jour
+            # courant, mais seule archive.html a réellement changé.
+            rebuilt = initial.replace("2026-08-17", "2026-08-18")
+            (root / "sitemap.xml").write_text(rebuilt, encoding="utf-8")
+            (root / "archive.html").write_text("archive réellement modifiée", encoding="utf-8")
+
+            result = sm.normalize(root)
+            text = (root / "sitemap.xml").read_text(encoding="utf-8")
+            self.assertEqual(result["non_article_changed"], 2)
+            self.assertIn('<loc>https://lesfaits.info/</loc><lastmod>2026-08-17</lastmod>', text)
+            self.assertIn(
+                '<loc>https://lesfaits.info/categories/science.html</loc><lastmod>2026-08-17</lastmod>',
+                text,
+            )
+            self.assertIn(
+                '<loc>https://lesfaits.info/archive.html</loc><lastmod>2026-08-18</lastmod>',
+                text,
+            )
+            self.assertIn(
+                '<loc>https://lesfaits.info/articles/exemple.html</loc><lastmod>2026-08-06</lastmod>',
+                text,
+            )
         finally:
             tmp.cleanup()
 
