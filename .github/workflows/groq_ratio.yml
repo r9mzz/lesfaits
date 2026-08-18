@@ -39,7 +39,7 @@ jobs:
           python-version: "3.11"
 
       - name: Installer les dépendances
-        run: pip install -q groq beautifulsoup4 requests lxml pypdf
+        run: pip install -q -r requirements.txt || pip install -q groq beautifulsoup4 requests lxml pypdf python-dotenv
 
       - name: Mesurer le ratio sur nos prompts réels
         env:
