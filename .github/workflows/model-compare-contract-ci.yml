@@ -5,12 +5,14 @@ on:
     paths:
       - "scripts/test_model_compare.py"
       - "scripts/test_model_compare_exit_contract.py"
+      - ".github/workflows/model_compare.yml"
       - ".github/workflows/model-compare-contract-ci.yml"
   push:
     branches: [main]
     paths:
       - "scripts/test_model_compare.py"
       - "scripts/test_model_compare_exit_contract.py"
+      - ".github/workflows/model_compare.yml"
       - ".github/workflows/model-compare-contract-ci.yml"
 
 jobs:
