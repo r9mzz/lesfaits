@@ -5,12 +5,15 @@ on:
     paths:
       - "feed.xml"
       - "sitemap.xml"
+      - "scripts/pipeline.py"
       - "scripts/run_pipeline_v3.py"
       - "scripts/test_runtime_preflight_v3.py"
       - "scripts/test_run_pipeline_v3.py"
       - "scripts/test_trusted_source_expansion.py"
       - "scripts/test_verification_scope.py"
       - "scripts/test_pertinence_bloquant.py"
+      - "scripts/test_runtime_newsletter_v3.py"
+      - "scripts/test_runtime_groq_model_v3.py"
       - "scripts/normalize_feed_pubdates.py"
       - "scripts/test_feed_pubdates.py"
       - "scripts/test_feed_current_state.py"
@@ -39,12 +42,15 @@ jobs:
       - name: Syntaxe
         run: >-
           python -m py_compile
+          scripts/pipeline.py
           scripts/run_pipeline_v3.py
           scripts/test_runtime_preflight_v3.py
           scripts/test_run_pipeline_v3.py
           scripts/test_trusted_source_expansion.py
           scripts/test_verification_scope.py
           scripts/test_pertinence_bloquant.py
+          scripts/test_runtime_newsletter_v3.py
+          scripts/test_runtime_groq_model_v3.py
           scripts/normalize_feed_pubdates.py
           scripts/test_feed_pubdates.py
           scripts/test_feed_current_state.py
@@ -76,3 +82,5 @@ jobs:
           python scripts/test_pertinence_bloquant.py
           python scripts/test_runtime_feed_pubdates_v3.py
           python scripts/test_runtime_sitemap_v3.py
+          python scripts/test_runtime_newsletter_v3.py
+          python scripts/test_runtime_groq_model_v3.py
