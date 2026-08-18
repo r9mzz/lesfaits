@@ -77,26 +77,17 @@ def generer_avec_modele(item: dict, modele: str) -> dict:
 
 
 def main() -> int:
-    # ⚠ Ce garde-fou exigeait DEUX modèles, et son intention est juste : un « A/B »
-    # à un seul modèle ne compare rien, et un run vert sans comparaison est
-    # exactement le faux positif qu'il a été ajouté pour empêcher.
-    #
-    # Mais depuis le 17/08 il n'y a plus de témoin : Groq a retiré
-    # llama-3.3-70b-versatile, et aucun modèle Groq survivant ne peut porter le
-    # format long (plafond de 8 000 tokens par requête, mesuré). Exiger un
-    # second modèle rendrait donc l'outil inutilisable au moment précis où il
-    # sert — évaluer un fournisseur de remplacement.
-    #
-    # Un seul modèle est donc accepté, mais l'essai est nommé pour ce qu'il est :
-    # une VÉRIFICATION, pas une comparaison. L'intention du garde-fou est
-    # préservée ailleurs — un échec de génération fait toujours sortir en
-    # code 1 (voir la fin de cette fonction).
-    mode = "COMPARAISON A/B" if len(MODELES) >= 2 else "VÉRIFICATION d'un seul modèle"
-    print(f"[MODE] {mode} — {', '.join(MODELES)}")
+    # Un comparatif A/B n'a de sens qu'avec au moins deux modèles. Un run à un
+    # seul modèle peut être utile comme diagnostic fournisseur, mais il ne doit
+    # pas emprunter ce workflow ni pouvoir rendre ce comparatif vert.
     if len(MODELES) < 2:
-        print("       Aucun témoin : ce test dit si le modèle produit un article "
-              "conforme, PAS s'il écrit mieux qu'un autre.")
+        print(
+            f"[ÉCHEC] comparaison A/B impossible : {len(MODELES)} modèle(s) configuré(s), "
+            "il en faut au moins deux"
+        )
+        return 1
 
+    print(f"[MODE] COMPARAISON A/B — {', '.join(MODELES)}")
     sujets = collecter_sujets(NB_SUJETS)
     print(f"\n{len(sujets)} sujet(s) sélectionné(s) pour le test\n{'='*70}")
 
