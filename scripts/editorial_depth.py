@@ -227,7 +227,7 @@ def generate_headings(article: ArticleRecord) -> dict[str, str]:
     user = json.dumps({"titre_article": article.title, "sections": sections}, ensure_ascii=False)
 
     try:
-        from groq import Groq
+        from pipeline import _client
     except Exception:
         return {}
 
@@ -235,7 +235,7 @@ def generate_headings(article: ArticleRecord) -> dict[str, str]:
     last_error: Exception | None = None
     for key in keys:
         try:
-            response = Groq(api_key=key).chat.completions.create(
+            response = _client(key).chat.completions.create(
                 model=model,
                 messages=[{"role": "system", "content": system}, {"role": "user", "content": user}],
                 temperature=0.15,

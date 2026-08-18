@@ -14,3 +14,4 @@ tweepy~=4.16.0
 # aucun binaire système requis (contrairement à poppler/pdftotext) — tourne
 # tel quel sur le runner GitHub Actions.
 pypdf~=5.1.0
+openai>=1.0

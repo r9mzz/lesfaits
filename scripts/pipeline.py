@@ -70,6 +70,21 @@ GROQ_ALL_KEYS: list[tuple[str, str]] = (
     + [(k, f"clé {i+2}") for i, k in enumerate(GROQ_KEYS_SECONDAIRES)]
 )
 
+# ── UNE SEULE CLÉ, QUAND LE FOURNISSEUR CHANGE ──────────────────────────────
+# Les 11 clés Groq existent pour contourner un plafond journalier de 100 k
+# tokens PAR COMPTE. Un fournisseur dont le palier gratuit accorde 1 milliard
+# de tokens par mois n'a pas ce problème : une clé suffit, et en ouvrir onze
+# n'apporterait rien.
+#
+# `LLM_API_KEY` remplace donc la liste entière quand elle est définie. Tout le
+# reste du code continue de lire `GROQ_ALL_KEYS` — rotation, marquage des clés
+# mortes, tour de clé du juge de pertinence : rien à réécrire, et une liste
+# d'un seul élément traverse ces mécanismes sans cas particulier (l'index de
+# rotation `hash % len` vaut alors toujours 0).
+LLM_API_KEY = os.getenv("LLM_API_KEY", "").strip()
+if LLM_API_KEY:
+    GROQ_ALL_KEYS = [(LLM_API_KEY, "clé fournisseur")]
+
 # ── Clés CÂBLÉES mais ABSENTES des secrets (constat 10/08) ───────────────────
 # Quatre jours sans publication : le pipeline tournait sur 9 clés alors que
 # `pipeline.yml` en câble 23. Les secrets GROQ_API_KEY_7 à _18 n'existent plus.
@@ -686,7 +701,7 @@ def juger_pertinence_sources(titre: str, sources: list) -> bool:
     # répartit enfin la charge.
     try:
         _cle = GROQ_ALL_KEYS[abs(hash(titre)) % len(GROQ_ALL_KEYS)][0]
-        client = Groq(api_key=_cle)
+        client = _client(_cle)
     except Exception as e:  # noqa: BLE001
         print(f"     [PERTINENCE] juge indisponible ({type(e).__name__}) — tri par qualité seul")
         return False
@@ -3969,6 +3984,38 @@ ATTENTE_MAX_LIBERATION = 15 * 60
 _ROTATION_APPELS = [0]  # compteur global — départ tournant dans la liste des clés
 
 
+
+# ── CHOIX DU FOURNISSEUR ───────────────────────────────────────────────────
+# Groq a retiré `llama-3.3-70b-versatile` le 17/08 sans préavis, et ses modèles
+# restants plafonnent à 8 000 tokens par requête — sous la taille d'un prompt
+# d'article. Le fournisseur est donc devenu une variable, pas une constante.
+#
+# Tous ces services parlent le protocole OpenAI. Le SDK `groq` ne peut pourtant
+# pas les viser : il code en dur le chemin `/openai/v1/chat/completions`, si
+# bien qu'une `base_url` pointée sur Mistral produirait
+# `https://api.mistral.ai/v1/openai/v1/…`. On passe donc par le client `openai`
+# dès qu'une base est fournie, et les appels restent identiques au caractère
+# près — même `.chat.completions.create(...)`, mêmes paramètres.
+#
+#   LLM_BASE_URL vide                      → Groq, comportement inchangé
+#   LLM_BASE_URL=https://api.mistral.ai/v1 → Mistral
+#
+# ⚠ Changer de fournisseur ne garantit RIEN sur la qualité rédactionnelle : le
+# prompt système, ses règles numérotées et la sortie JSON ont été calibrés deux
+# mois sur Llama 3.3. Mesurer avec `model_compare.yml` avant d'engager la
+# production — c'est exactement l'erreur commise le 17/08 avec `groq/compound`,
+# validé sur une fenêtre puis démenti par le premier run réel.
+LLM_BASE_URL = os.getenv("LLM_BASE_URL", "").strip()
+
+
+def _client(api_key: str):
+    """Client de complétion, Groq par défaut, tout service compatible sinon."""
+    if LLM_BASE_URL:
+        from openai import OpenAI
+        return OpenAI(api_key=api_key, base_url=LLM_BASE_URL)
+    return Groq(api_key=api_key)
+
+
 def _est_quota_journalier(err: str) -> bool:
     e = err.lower()
     return "per day" in e or "tpd" in e or "tokens per day" in e or "requests per day" in e or "rpd" in e
@@ -4087,6 +4134,16 @@ _TPM_PAR_MODELE_GEN = {
     # et n'y échappe pas. Déclarer 70 000 a fait envoyer des requêtes de
     # 17 000 tokens, refusées 40 fois sur 40 en « 413 Request Entity Too
     # Large ». C'est la cause des zéro article du run de 18h58.
+    # Mistral, palier gratuit : 500 000 tokens/minute et 1 milliard/mois — soit
+    # 62 fois la fenêtre de Groq. Nos requêtes d'article (~11 900 tokens) y
+    # pèsent 2 % : la réservation d'écriture ne coupe alors plus rien, ce qui
+    # est le but. ⚠ Un modèle ABSENT de cette table retombe sur 12 000 par
+    # défaut, ce qui ferait couper la matière pour rien — ajouter toute
+    # nouvelle référence ici.
+    "mistral-large-latest": 500_000,
+    "mistral-medium-latest": 500_000,
+    "mistral-small-latest": 500_000,
+    "open-mistral-nemo": 500_000,
     "groq/compound": 8_000,
     "groq/compound-mini": 8_000,
 }
@@ -4116,7 +4173,7 @@ def _groq_call(api_key: str, messages: list, max_tokens: int = 3500) -> str:
     (finish_reason='length') : le JSON est invalide par construction —
     3 sujets perdus ainsi les 15-16/07, dont deux fois le même.
     """
-    client = Groq(api_key=api_key)
+    client = _client(api_key)
     # La limite TPM compte prompt + max_tokens RÉSERVÉS, pas les tokens
     # réellement produits : prompt lourd + réservation généreuse = 413
     # « Request too large » systématique, quel que soit le quota restant.

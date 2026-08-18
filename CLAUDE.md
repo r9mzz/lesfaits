@@ -331,6 +331,78 @@ le critère quel que soit le sujet. `angle_insuffisant` n'est donc pas
 uniquement un défaut de sélection ; une part est un tirage sur la génération.
 Réserves : n=6, biais de sélection, six appariements de slugs vérifiés à la main.
 
+## LE FOURNISSEUR EST DEVENU UNE VARIABLE — 18/08, prêt, en attente d'une clé
+
+Groq a retiré notre modèle sans préavis et ses modèles restants plafonnent à
+8 000 tokens par requête, sous la taille d'un prompt d'article. Le fournisseur
+ne peut donc plus être une constante.
+
+Comparaison des paliers GRATUITS, relevée le 18/08 :
+
+```
+                    TPM        requêtes           plafond global
+Groq              8 000    30/min · 1 000/j      200 k tokens/j
+Mistral         500 000    1/s = 60/min          1 milliard/mois
+Gemini       ~1 000 000    15/min · 250-1 500/j  (Flash seulement)
+```
+
+**Mistral offre 62 fois la fenêtre actuelle** : nos requêtes d'article
+(~11 900 tokens) y pèsent 2 %. Le mur des 8 000 disparaît, gratuitement.
+
+**Mistral plutôt que Gemini**, pour trois raisons mesurables :
+
+- **le débit de requêtes.** Un run complet fait ~272 appels. À 15/min chez
+  Gemini, c'est 18 minutes de plancher incompressible, et son plafond
+  journalier de 250 requêtes peut être crevé par un seul run. Mistral à 60/min
+  encaisse sans y penser ;
+- **le français.** Pour un journal francophone dont le fact-checker rejette sur
+  des tournures, ce n'est pas du chauvinisme ;
+- **les données.** Le palier gratuit de Gemini autorise Google à réutiliser ce
+  qui transite. Peu grave ici — on n'envoie que du RSS public — mais à savoir.
+
+### Ce qui a été branché, et pourquoi c'est si petit
+
+Ces services parlent tous le protocole OpenAI. ⚠ Le SDK `groq` ne peut pourtant
+PAS les viser : il code en dur le chemin `/openai/v1/chat/completions`, si bien
+qu'une `base_url` pointée sur Mistral produirait
+`https://api.mistral.ai/v1/openai/v1/…`. D'où le client `openai`, ajouté aux
+dépendances, derrière un unique `_client(api_key)`.
+
+```
+LLM_BASE_URL vide                       → Groq, comportement inchangé
+LLM_BASE_URL=https://api.mistral.ai/v1  → Mistral
+LLM_API_KEY définie                     → remplace les 11 clés par une seule
+```
+
+Trois constructions de client, deux imports, une ligne de dépendances. Les
+appels `.chat.completions.create(...)` sont identiques au caractère près.
+
+Trois adaptations, chacune verrouillée par `scripts/test_fournisseur.py` :
+
+- **la table des fenêtres** reçoit les entrées Mistral. Un modèle absent
+  retomberait sur 12 000 et ferait couper la matière pour rien ;
+- **la lecture des 429** (`_delai_liberation`, `_tpd_restant`) repose sur le
+  texte de Groq (« Limit X, Used Y », « try again in … »). Vérifié : sur un
+  message d'un autre fournisseur, ces fonctions rendent `None` au lieu de
+  lever ;
+- **les 11 clés deviennent une.** Elles n'existaient que pour contourner un
+  plafond journalier par compte ; un service à 1 milliard/mois n'a pas ce
+  problème. La rotation traverse une liste d'un seul élément sans cas
+  particulier.
+
+### ⚠ CE QUI N'EST PAS GARANTI, et l'erreur à ne pas refaire
+
+**Changer de fournisseur ne dit RIEN de la qualité rédactionnelle.** Le prompt
+système, ses règles numérotées et la sortie JSON ont été calibrés deux mois sur
+Llama 3.3. C'est exactement l'erreur du 17/08 avec `groq/compound` : une
+fenêtre validée, une conclusion tirée, et un premier run réel qui la dément.
+
+Mesurer avec `model_compare.yml` — qui prend un modèle en paramètre et tourne
+sur deux sujets réels sans rien écrire en production — AVANT d'engager quoi que
+ce soit.
+
+Il ne manque qu'une clé sur console.mistral.ai, dans le secret `LLM_API_KEY`.
+
 ## GROQ A RETIRÉ NOTRE MODÈLE — 17/08. Ce que la grille gratuite permet encore
 
 `llama-3.3-70b-versatile` n'est plus servi (404 sur les 17 sujets du run de

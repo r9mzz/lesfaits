@@ -36,6 +36,14 @@ on:
         required: false
         default: "false"
         type: boolean
+      base_url:
+        # Essai contrôlé d'un FOURNISSEUR, même logique que `modele` : ne vaut
+        # que pour ce déclenchement, donc un essai ne peut pas laisser la
+        # production sur un service non validé.
+        description: "Base API pour cet essai (ex : https://api.mistral.ai/v1)"
+        required: false
+        default: ""
+        type: string
       modele:
         # Essai contrôlé d'un modèle, SANS toucher au défaut des runs
         # programmés — c'est toute la différence avec la variable de dépôt
@@ -209,6 +217,17 @@ jobs:
           # pour CE déclenchement, donc un essai ne peut pas laisser le journal
           # sur un modèle non validé.
           GROQ_MODEL_OVERRIDE: ${{ inputs.modele || vars.GROQ_MODEL_OVERRIDE }}
+          # Fournisseur — vide = Groq, comportement inchangé. Renseigner
+          # LLM_BASE_URL (variable de dépôt) et LLM_API_KEY (secret) bascule
+          # l'ensemble des appels sur un service compatible OpenAI, sans
+          # toucher au code. Le palier gratuit de Mistral accorde 500 000
+          # tokens/minute contre 8 000 chez Groq : le mur qui empêche le format
+          # long depuis le 17/08 disparaît. ⚠ La qualité rédactionnelle, elle,
+          # n'est PAS garantie par ce changement — le prompt a été calibré deux
+          # mois sur Llama. Mesurer avec model_compare.yml avant d'engager la
+          # production.
+          LLM_BASE_URL: ${{ inputs.base_url || vars.LLM_BASE_URL }}
+          LLM_API_KEY: ${{ secrets.LLM_API_KEY }}
           PYTHONIOENCODING: utf-8
           TZ: Europe/Paris
         run: |
