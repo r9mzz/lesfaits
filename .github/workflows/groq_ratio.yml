@@ -1,0 +1,49 @@
+name: Groq — Ratio caractères/token réel
+
+# POURQUOI (18/08)
+# `pipeline.py` estime la taille d'une requête en divisant les caractères par
+# 3,3. Ce ratio n'a jamais été vérifié, et les sondes de taille montrent qu'il
+# est faux : Groq a répondu « Limit 8000, Requested 8204 » à une requête que
+# notre formule chiffrait à 12 000.
+#
+# L'enjeu n'est pas cosmétique. `_groq_call` calcule
+# `max_tokens = plafond − marge − estimation` : une estimation gonflée rend ce
+# calcul négatif et fait retomber la réservation d'écriture sur son plancher de
+# 200 tokens, alors qu'il reste réellement de la place. C'est le mécanisme de la
+# famine de complétion, dont la cause avait été mal attribuée.
+#
+# Ce diagnostic construit les VRAIS messages de generate() et demande à Groq ce
+# qu'il compte. Coût : trois requêtes à max_tokens=1.
+
+on:
+  workflow_dispatch:
+    inputs:
+      modele:
+        description: "Modèle sur lequel mesurer le ratio"
+        required: false
+        default: "openai/gpt-oss-120b"
+        type: string
+
+jobs:
+  ratio:
+    runs-on: ubuntu-latest
+    # 65 s entre essais : le plafond est un débit par minute.
+    timeout-minutes: 20
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Installer les dépendances
+        run: pip install -q groq beautifulsoup4 requests lxml pypdf
+
+      - name: Mesurer le ratio sur nos prompts réels
+        env:
+          K1: ${{ secrets.GROQ_API_KEY }}
+          GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
+          MODELE: ${{ inputs.modele }}
+        run: python3 scripts/sonde_ratio_tokens.py
