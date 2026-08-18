@@ -4026,6 +4026,28 @@ def _reponse_degeneree(raw: str) -> bool:
     return suspects > len(raw) * 0.10
 
 
+# Combien de caractères pèse un token dans NOS prompts — mesuré le 18/08, pas
+# supposé. Le pipeline utilisait 3,3 depuis l'origine, sans que ce chiffre ait
+# jamais été confronté à l'API. Mesure sur les messages réellement construits
+# par `generate()`, en lisant `usage.prompt_tokens` renvoyé par Groq :
+#
+#   configuration        caractères   estimé à 3,3   RÉEL   car./token
+#   brève 6 sources         18 502        5 606      4 872     3,80
+#   article 4 sources       30 938        9 375      7 874     3,93
+#   article 10 sources      34 132       10 343      8 768     3,89
+#
+# Valeur retenue : 3,8 — la mesure la plus BASSE, pas la moyenne. Surestimer un
+# peu le prompt ne coûte que de la marge ; le sous-estimer ferait réserver plus
+# de sortie qu'il n'en reste et produirait un 413 certain, c'est-à-dire un sujet
+# perdu. L'asymétrie des conséquences commande l'arrondi.
+#
+# ⚠ Ce ratio dépend de la LANGUE et du contenu : du JSON et des URLs se
+# tokenisent moins bien que de la prose. Il a été mesuré sur nos prompts réels
+# et sur `openai/gpt-oss-120b` ; le revérifier avec `groq_ratio.yml` en cas de
+# changement de modèle ou de refonte du prompt.
+_CHARS_PAR_TOKEN = 3.8
+
+
 # Plafond TPM propre à chaque modèle (constat du 21/07 : gpt-oss-120b n'a que
 # 8K TPM contre 12K pour Llama 3.3 — utiliser le plafond de Llama sur gpt-oss
 # produisait un 413 à 0 token traité, à chaque appel, quel que soit le quota
@@ -4102,7 +4124,7 @@ def _groq_call(api_key: str, messages: list, max_tokens: int = 3500) -> str:
     # réservation d'écriture de `generate()` raisonne sur la même fenêtre.
     tpm = _TPM_PAR_MODELE_GEN.get(GROQ_MODEL, 12_000)
     marge_securite = 500
-    prompt_estime = int(sum(len(m.get("content", "")) for m in messages) / 3.3)
+    prompt_estime = int(sum(len(m.get("content", "")) for m in messages) / _CHARS_PAR_TOKEN)
     disponible = tpm - marge_securite - prompt_estime
     # Pas de plancher qui dépasserait le budget réel (même piège corrigé le
     # 21/07 côté repêchage TPD) : mieux vaut une réservation honnête, quitte
@@ -4301,7 +4323,7 @@ def generate(content: str, category_hint: str, extra_sources: list[dict] | None 
         # Tout ce qui n'est ni le contenu ni les extraits (en-têtes, règles
         # d'ancrage, rappels) est constant : on le mesure en différentiel.
         return int((_sys_len + len(bloc) + min(len(content), clen)
-                    + _SURCOUT_PROMPT_CHARS) / 3.3)
+                    + _SURCOUT_PROMPT_CHARS) / _CHARS_PAR_TOKEN)
 
     _place = _tpm - 500 - _prompt_tokens(content_len, snippet_len)
     if _place < _reserve:
@@ -4324,7 +4346,7 @@ def generate(content: str, category_hint: str, extra_sources: list[dict] | None 
               f"· réservation d'écriture {_place} tokens (cible {_reserve})", flush=True)
         if _place < _reserve:
             print(f"     [FENÊTRE] ⚠ plancher atteint : {_place} tokens seulement pour écrire "
-                  f"— le prompt système ({int(_sys_len / 3.3)} tokens) occupe l'essentiel "
+                  f"— le prompt système ({int(_sys_len / _CHARS_PAR_TOKEN)} tokens) occupe l'essentiel "
                   f"de la fenêtre de {_tpm}", flush=True)
 
     # Relance avec article précédent : le modèle CORRIGE l'article existant au
@@ -4690,7 +4712,7 @@ def generate(content: str, category_hint: str, extra_sources: list[dict] | None 
                         # 429 « per day » peut venir d'une requête trop grosse
                         # pour le solde restant, pas d'une clé vide.
                         restant = _tpd_restant(err)
-                        prompt_est = int(sum(len(m.get("content", "")) for m in messages) / 3.3)
+                        prompt_est = int(sum(len(m.get("content", "")) for m in messages) / _CHARS_PAR_TOKEN)
                         # Constat du 21/07 : marge de 2200 + plancher de
                         # réservation à 1500 pouvaient exiger un solde réel
                         # bien supérieur à ce qu'exprimait la condition (le

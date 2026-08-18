@@ -373,6 +373,42 @@ tarifaire n'est pas une propriété du modèle demandé, c'est celle du modèle
 servi. Seul le corps d'erreur de l'API le dit — d'où l'intérêt de le
 journaliser brut, ce que fait `groq_check.yml` depuis le 17/08.
 
+### Le ratio caractères/token était faux depuis l'origine — mesuré le 18/08
+
+`pipeline.py` estimait la taille d'une requête en divisant les caractères par
+**3,3**, valeur jamais confrontée à l'API en deux mois. Mesure sur les messages
+réellement construits par `generate()`, en lisant `usage.prompt_tokens` :
+
+```
+configuration        caractères   estimé à 3,3   RÉEL   car./token   issue
+brève 6 sources         18 502        5 606      4 872     3,80      accepté
+article 4 sources       30 938        9 375      7 874     3,93      accepté
+article 10 sources      34 132       10 343      8 768     3,89      refusé
+```
+
+**Le ratio réel est 3,87 ; nous surestimions donc le prompt de 17 %.** Corrigé à
+`_CHARS_PAR_TOKEN = 3.8` — la mesure la plus BASSE, pas la moyenne : surestimer
+un peu ne coûte que de la marge, sous-estimer ferait réserver plus de sortie
+qu'il n'en reste et produirait un 413 certain, donc un sujet perdu.
+
+Effet mesuré sur la réservation d'écriture, à fenêtre de 12 000 :
+
+```
+avec 3,3   1 403 tokens pour écrire
+avec 3,8   2 160 tokens pour écrire
+```
+
+⚠ **Ce correctif ne rouvre PAS la voie gratuite**, et il ne faut pas le lire
+ainsi. À 8 000 TPM, même à 4 sources et matière aux planchers, le prompt réel
+vaut ~7 900 sur 8 000 : il ne reste qu'une centaine de tokens pour écrire. Le
+prompt système pèse à lui seul **5 782 tokens, soit 72 % du budget**. La
+correction du ratio rend le calcul HONNÊTE et rend ~750 tokens sur toute fenêtre
+plus large ; elle ne déplace pas le mur.
+
+⚠ Le ratio dépend de la langue et du contenu — JSON et URLs se tokenisent moins
+bien que la prose. Le revérifier avec `groq_ratio.yml` en cas de changement de
+modèle ou de refonte du prompt.
+
 ### L'arithmétique qui ferme la voie gratuite pour le format long
 
 Mesuré avec la matière déjà réduite à TOUS ses planchers (10 sources × 300

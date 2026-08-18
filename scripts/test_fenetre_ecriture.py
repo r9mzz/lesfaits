@@ -25,7 +25,7 @@ def _capturer(n_sources, snippet, contenu, article_type="actu"):
 
     def faux_groq(api_key, messages, max_tokens=3500):
         tpm = P._TPM_PAR_MODELE_GEN.get(P.GROQ_MODEL, 12_000)
-        prompt = int(sum(len(m.get("content", "")) for m in messages) / 3.3)
+        prompt = int(sum(len(m.get("content", "")) for m in messages) / P._CHARS_PAR_TOKEN)
         vus.append((prompt, max(200, min(max_tokens, tpm - 500 - prompt))))
         raise RuntimeError("interception — aucun appel réseau")
 
@@ -152,7 +152,7 @@ def test_le_prompt_systeme_ne_grossit_pas_en_silence():
     plafond = 7_000   # tokens — état du 17/08 : 6 893
     _tpm = P._TPM_PAR_MODELE_GEN.get(P.GROQ_MODEL, 12_000)
     for nom, prompt in (("actu", P.SYSTEM_PROMPT), ("brève", P.SYSTEM_PROMPT_BREVE)):
-        cout = int(len(prompt) / 3.3)
+        cout = int(len(prompt) / P._CHARS_PAR_TOKEN)
         assert cout <= plafond, (
             f"le prompt système {nom} pèse {cout} tokens (plafond {plafond}), "
             f"soit {cout / _tpm:.0%} de la fenêtre de {_tpm} — autant de moins "

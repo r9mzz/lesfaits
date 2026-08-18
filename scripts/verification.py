@@ -45,6 +45,13 @@ GROQ_KEYS = [k for k in (
     + [os.getenv(f"GROQ_API_KEY_{i}", "") for i in range(2, 41)]
 ) if k]
 GROQ_MODEL = "llama-3.3-70b-versatile"
+
+# Mesuré le 18/08 sur nos prompts réels (voir `_CHARS_PAR_TOKEN` dans
+# pipeline.py, qui porte le tableau de mesure). 3,3 était la valeur d'origine,
+# jamais confrontée à l'API : elle surestimait le prompt de 17 %, ce qui faisait
+# retomber la réservation de sortie sur son plancher alors qu'il restait de la
+# place. Valeur prudente — sous-estimer produirait un 413 certain.
+_CHARS_PAR_TOKEN = 3.8
 GROQ_URL = "https://api.groq.com/openai/v1/chat/completions"
 
 
@@ -215,7 +222,7 @@ def _llm_call(prompt: str, max_tokens: int = 6000) -> str:
     # rejeter l'appel en 413 quel que soit le quota restant. On plafonne donc
     # la réservation à ce que la fenêtre laisse après le prompt (~3,3 car/token
     # en français, marge de sécurité incluse dans le plafond 11 500).
-    prompt_estime = int(len(prompt) / 3.3)
+    prompt_estime = int(len(prompt) / _CHARS_PAR_TOKEN)
     max_tokens = max(1500, min(max_tokens, 11_500 - prompt_estime))
     MAX_CYCLES, WAIT = 2, 62
     last_err = None
@@ -246,7 +253,7 @@ def _llm_call(prompt: str, max_tokens: int = 6000) -> str:
                     # une fois avec une réservation taillée dessus.
                     m = re.search(r"Limit (\d+), Used (\d+)", r.text)
                     restant = (int(m.group(1)) - int(m.group(2))) if m else None
-                    prompt_est = int(len(prompt) / 3.3)
+                    prompt_est = int(len(prompt) / _CHARS_PAR_TOKEN)
                     # Même correctif que pipeline.py (21/07) : marge + plancher
                     # de réservation qui pouvait dépasser ce que la marge
                     # garantissait, empêchant tout repêchage en pratique.
