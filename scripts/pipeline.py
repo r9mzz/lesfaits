@@ -590,7 +590,12 @@ def qualite_source(url: str) -> str:
 # Petit modèle assumé : la réponse tient en un mot. Faire juger la pertinence
 # par le modèle qui rédige coûterait le prix d'un article pour une question à
 # trois issues.
-JUGE_SOURCES_MODELE = os.getenv("JUGE_SOURCES_MODELE", "") or "llama-3.1-8b-instant"
+JUGE_SOURCES_MODELE = os.getenv("JUGE_SOURCES_MODELE", "") or "openai/gpt-oss-20b"
+# `llama-3.1-8b-instant` a été retiré par Groq le 17/08 en même temps que le
+# modèle de rédaction : le juge est tombé sur NotFoundError aux 20 sujets du
+# run de 18h58. `openai/gpt-oss-20b` est servi (vérifié sur GET /models) et
+# convient : la tâche demande UN mot de réponse, pas de raisonnement long.
+# Il reste distinct du modèle de rédaction, ce que le garde-fou exige.
 # Nombre de sources examinées, dans l'ordre de qualité déjà établi. Les 45
 # résultats bruts ne partent pas tous dans le prompt : juger la queue serait
 # payer pour classer ce qui ne sera pas lu.
@@ -4052,8 +4057,16 @@ _TPM_PAR_MODELE_GEN = {
     # l'article une information ABSENTE des extraits fournis : c'est la règle 5
     # de la charte, celle sur laquelle tout le reste repose. À vérifier sur un
     # run contrôlé avant d'en faire le modèle par défaut, jamais à supposer.
-    "groq/compound": 70_000,
-    "groq/compound-mini": 70_000,
+    # ⚠ 8 000, PAS les 70 000 de la grille tarifaire. Mesuré le 17/08 : Groq
+    # facture `groq/compound` sur le compteur d'`openai/gpt-oss-120b`, comme
+    # le dit son propre refus — « Rate limit reached for model
+    # openai/gpt-oss-120b … on tokens per minute (TPM): Limit 8000 ». Compound
+    # n'est pas un modèle mais un système bâti dessus : il hérite du plafond
+    # et n'y échappe pas. Déclarer 70 000 a fait envoyer des requêtes de
+    # 17 000 tokens, refusées 40 fois sur 40 en « 413 Request Entity Too
+    # Large ». C'est la cause des zéro article du run de 18h58.
+    "groq/compound": 8_000,
+    "groq/compound-mini": 8_000,
 }
 
 # Tout ce qu'un prompt de génération porte en dehors du prompt système, du

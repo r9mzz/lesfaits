@@ -352,6 +352,58 @@ réservation bute sur notre propre plafond, plus sur la fenêtre. Et le TPD est
 affiché « — » : plus de plafond journalier, donc plus de famine de quota — la
 contrainte qui structure ce projet depuis un mois.
 
+### ⚠ RÉSULTAT NÉGATIF, 17/08 — `groq/compound` ne rachète RIEN. Mesuré, pas déduit
+
+Le refus de Groq le dit lui-même, et c'est la seule source qui fasse foi :
+
+```
+429 — Rate limit reached for model `openai/gpt-oss-120b`
+      … service tier `on_demand` on tokens per minute (TPM): Limit 8000
+```
+
+**Groq facture `groq/compound` sur le compteur d'`openai/gpt-oss-120b`.**
+Compound n'est pas un modèle : c'est un système bâti dessus, il hérite du
+plafond de 8 000 TPM et n'y échappe pas. Les 70 000 de la grille tarifaire ne
+décrivent rien de ce qui nous rejette. C'est la cause des 40 refus « 413
+Request Entity Too Large » du run de 18h58, et donc de ses zéro article.
+
+⚠ **Erreur de méthode à ne pas refaire : j'ai choisi un modèle sur son TPM
+sans vérifier sur quel compteur il est facturé.** Le TPM affiché par une grille
+tarifaire n'est pas une propriété du modèle demandé, c'est celle du modèle
+servi. Seul le corps d'erreur de l'API le dit — d'où l'intérêt de le
+journaliser brut, ce que fait `groq_check.yml` depuis le 17/08.
+
+### L'arithmétique qui ferme la voie gratuite pour le format long
+
+Mesuré avec la matière déjà réduite à TOUS ses planchers (10 sources × 300
+caractères, contenu principal 2 500) :
+
+```
+pour tenir sous 8 000 TPM en gardant 2 000 tokens d'écriture
+   prompt système maximum admissible    2 176 tokens
+   prompt système actuel (actu)         6 893 tokens
+   prompt système actuel (BRÈVE)        2 693 tokens  ← ne rentre déjà pas
+```
+
+Il faudrait couper **68 % de la charte** et on serait *encore* au-dessus du
+prompt de brève. **Le format long n'est pas difficile sur l'offre gratuite : il
+est arithmétiquement impossible, même charte démantelée.** Ne pas rouvrir cette
+piste sans un TPM supérieur — c'est une contrainte de plafond, pas d'écriture.
+
+Corollaire, à ne pas contourner en douce : sur l'offre gratuite, seules les
+brèves passent. Or la décision de Nahil du 17/08 est que **la brève est un
+complément, jamais la base du site**. Pointer `GROQ_MODEL` sur un modèle servi
+sans le dire reviendrait à faire de la brève la base par la porte de service.
+Ce choix appartient à Nahil et Roméo.
+
+### Le juge de pertinence était mort lui aussi
+
+`llama-3.1-8b-instant` a été retiré en même temps que le modèle de rédaction :
+`[PERTINENCE] interrompu (NotFoundError)` sur les 20 sujets du run de 18h58.
+Rebranché sur `openai/gpt-oss-20b`, servi et vérifié — la tâche demande UN mot
+de réponse, pas de raisonnement long, et le modèle reste distinct de celui de
+rédaction, ce que le garde-fou exige.
+
 ### Le plafond de REQUÊTES remplace le plafond de tokens — corrigé avant le test
 
 Relevé par une session parallèle sur les logs réels, et exact. La génération et
