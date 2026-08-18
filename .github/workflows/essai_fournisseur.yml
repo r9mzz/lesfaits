@@ -1,0 +1,61 @@
+name: Essai d'un fournisseur — vérification, pas comparaison
+
+# POURQUOI UN WORKFLOW SÉPARÉ (18/08)
+# `model_compare.yml` exige DEUX modèles, et il a raison : un comparatif à un
+# seul modèle ne compare rien, et un run vert sans comparaison est un faux
+# positif. Ce garde-fou a été rétabli volontairement, il ne doit pas être
+# contourné.
+#
+# Mais depuis que Groq a retiré llama-3.3-70b-versatile, il n'existe plus de
+# témoin. La question posée n'est donc plus « lequel écrit le mieux ? » mais
+# « ce fournisseur produit-il un article conforme à notre schéma ? ». C'est une
+# vérification, elle a son propre outil et son propre nom.
+#
+# N'écrit rien en production : ni articles/, ni data/.
+
+on:
+  workflow_dispatch:
+    inputs:
+      modele:
+        description: "Modèle à essayer (ex : mistral-large-latest)"
+        required: true
+        default: "mistral-large-latest"
+        type: string
+      base_url:
+        description: "Base API — vide = Groq (ex : https://api.mistral.ai/v1)"
+        required: false
+        default: ""
+        type: string
+      nb_sujets:
+        description: "Nombre de sujets réels à traiter"
+        required: false
+        default: "2"
+        type: string
+
+jobs:
+  essai:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+
+      - name: Installer les dépendances
+        run: pip install -r requirements.txt
+
+      - name: Essayer le fournisseur
+        env:
+          GROQ_API_KEY:     ${{ secrets.GROQ_API_KEY }}
+          LLM_API_KEY:      ${{ secrets.LLM_API_KEY }}
+          LLM_BASE_URL:     ${{ inputs.base_url }}
+          MODELE_ESSAI:     ${{ inputs.modele }}
+          NB_SUJETS:        ${{ inputs.nb_sujets }}
+          PYTHONIOENCODING: utf-8
+          TZ: Europe/Paris
+        run: python scripts/essai_fournisseur.py
