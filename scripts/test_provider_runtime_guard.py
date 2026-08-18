@@ -1,9 +1,10 @@
-"""Régression : base et clé LLM externes doivent être configurées ensemble."""
+"""Régression : configuration fournisseur atomique et modèle runtime cohérent."""
 from provider_runtime_guard import validate_provider_env
 
 
 def expect_ok(env):
     validate_provider_env(env)
+    return env
 
 
 def expect_fail(env):
@@ -22,7 +23,23 @@ expect_ok({"LLM_BASE_URL": "", "LLM_API_KEY": ""})
 expect_ok({"LLM_BASE_URL": "   ", "LLM_API_KEY": "   "})
 
 # Fournisseur externe correctement configuré.
-expect_ok({"LLM_BASE_URL": "https://api.mistral.ai/v1", "LLM_API_KEY": "secret"})
+mistral = expect_ok({
+    "LLM_BASE_URL": "https://api.mistral.ai/v1",
+    "LLM_API_KEY": "secret",
+    # Reproduit exactement le fallback injecté trop tôt par run_pipeline_v3.py.
+    "GROQ_MODEL_OVERRIDE": "openai/gpt-oss-120b",
+})
+assert mistral["GROQ_MODEL_OVERRIDE"] == "mistral-large-latest", (
+    "Le prévol doit remplacer le fallback Groq injecté par V3 quand la base est Mistral."
+)
+
+# Un override Mistral explicite reste prioritaire.
+custom = expect_ok({
+    "LLM_BASE_URL": "https://api.mistral.ai/v1",
+    "LLM_API_KEY": "secret",
+    "GROQ_MODEL_OVERRIDE": "mistral-medium-latest",
+})
+assert custom["GROQ_MODEL_OVERRIDE"] == "mistral-medium-latest"
 
 # Base externe activée mais secret absent/vide.
 expect_fail({"LLM_BASE_URL": "https://api.mistral.ai/v1"})
