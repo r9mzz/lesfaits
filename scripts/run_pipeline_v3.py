@@ -286,6 +286,10 @@ if __name__ == "__main__":
     _exit_code = legacy.main()
     if "--dry-run" not in sys.argv[1:]:
         _normalize_feed_after_runtime()
-        _normalize_sitemap_after_runtime()
+        # La newsletter doit être normalisée AVANT le sitemap : le rebuild
+        # historique peut modifier temporairement ces HTML, puis ce passage les
+        # remet exactement à leur état canonique. Le sitemap peut alors décider
+        # correctement si une page hors article a réellement changé depuis HEAD.
         _normalize_newsletter_after_runtime()
+        _normalize_sitemap_after_runtime()
     sys.exit(_exit_code)
