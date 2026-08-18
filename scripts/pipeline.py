@@ -4193,11 +4193,18 @@ def _groq_call(api_key: str, messages: list, max_tokens: int = 3500) -> str:
         temperature=0.1,
         messages=messages,
     )
+    choice = response.choices[0]
     u = response.usage
     if u:
+        # `finish_reason` est le seul moyen de distinguer deux pannes qui se
+        # ressemblent : une complétion COUPÉE au plafond (« length ») et un
+        # modèle qui s'arrête de lui-même en ayant omis des champs (« stop »).
+        # Le 18/08, Mistral a rendu 1 540 tokens mais un JSON sans `corps` ni
+        # `sources` : sans ce champ, impossible de dire si le texte a été
+        # tronqué ou jamais écrit — deux diagnostics opposés.
         print(f"     [TOKENS] prompt={u.prompt_tokens} completion={u.completion_tokens} "
-              f"total={u.total_tokens}", flush=True)
-    choice = response.choices[0]
+              f"total={u.total_tokens} fin={getattr(choice, 'finish_reason', '?')} "
+              f"réservé={max_tokens}", flush=True)
     if getattr(choice, "finish_reason", None) == "length":
         raise TronqueError(f"complétion coupée à {max_tokens} tokens",
                            contenu=(choice.message.content or ""))

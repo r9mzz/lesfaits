@@ -100,6 +100,14 @@ def main() -> int:
                 # fournisseur écrit mal » et « il ne respecte pas notre schéma
                 # JSON » — deux problèmes très différents, l'un rédhibitoire,
                 # l'autre réparable en une ligne de prompt.
+                # Le 18/08, Mistral a rendu un JSON amputé de `corps` et de
+                # `sources`. Sans le texte BRUT, on ne peut pas dire s'il a été
+                # tronqué en transit, mal réparé par _reparer_json_tronque, ou
+                # jamais écrit. On garde donc une trace du brut.
+                _brut = res.get("brut") or ""
+                if _brut:
+                    print(f"[BRUT] {len(_brut)} caractères · début : {_brut[:120]!r}")
+                    print(f"[BRUT] fin : {_brut[-160:]!r}")
                 corps = art.get("corps") or {}
                 mots = {k: len(str(v).split()) for k, v in corps.items()} if isinstance(corps, dict) else {}
                 print(json.dumps({
