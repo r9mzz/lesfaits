@@ -6,6 +6,20 @@ name: Test A/B — comparaison modèle Groq
 # (candidat, 200K TPD) sur les mêmes sujets et sources réelles du jour.
 on:
   workflow_dispatch:
+    inputs:
+      modeles:
+        description: "Modèles à comparer, séparés par des virgules"
+        required: false
+        default: "mistral-large-latest"
+        type: string
+      base_url:
+        # Vide = Groq. Renseigner bascule le test sur un service compatible
+        # OpenAI — sans toucher à la production, ce workflow n'écrit aucun
+        # fichier.
+        description: "Base API (ex : https://api.mistral.ai/v1)"
+        required: false
+        default: ""
+        type: string
 
 jobs:
   compare:
@@ -51,6 +65,9 @@ jobs:
           GROQ_API_KEY_21:  ${{ secrets.GROQ_API_KEY_21 }}
           GROQ_API_KEY_22:  ${{ secrets.GROQ_API_KEY_22 }}
           GROQ_API_KEY_23:  ${{ secrets.GROQ_API_KEY_23 }}
+          MODELES_TEST:     ${{ inputs.modeles }}
+          LLM_BASE_URL:     ${{ inputs.base_url }}
+          LLM_API_KEY:      ${{ secrets.LLM_API_KEY }}
           PYTHONIOENCODING: utf-8
           TZ: Europe/Paris
         run: python scripts/test_model_compare.py

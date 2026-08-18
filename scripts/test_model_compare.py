@@ -12,7 +12,14 @@ import sys
 sys.path.insert(0, os.path.dirname(__file__))
 import pipeline as p
 
-MODELES = ["llama-3.3-70b-versatile", "openai/gpt-oss-120b"]
+# Modèles à comparer — paramétrables depuis le workflow. La liste était codée
+# en dur sur deux modèles Groq, dont `llama-3.3-70b-versatile` que Groq a retiré
+# le 17/08 : l'outil ne pouvait donc plus rien comparer. Il sert désormais à
+# répondre à la seule question qui reste ouverte sur un changement de
+# fournisseur — celui-ci écrit-il aussi bien ? — et le prompt système, ses
+# règles numérotées et la sortie JSON ont été calibrés deux mois sur Llama.
+MODELES = [m.strip() for m in os.getenv(
+    "MODELES_TEST", "llama-3.3-70b-versatile,openai/gpt-oss-120b").split(",") if m.strip()]
 NB_SUJETS = 2
 
 
