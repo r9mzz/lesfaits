@@ -1,0 +1,25 @@
+name: Verification provider contract
+
+on:
+  pull_request:
+    paths:
+      - "scripts/verification.py"
+      - "scripts/verification_legacy.py"
+      - "scripts/test_verification_provider.py"
+      - ".github/workflows/verification-provider-ci.yml"
+  workflow_dispatch:
+
+jobs:
+  verification-provider:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Installer dépendances minimales
+        run: pip install requests
+      - name: Compiler
+        run: python -m py_compile scripts/verification.py scripts/verification_legacy.py scripts/test_verification_provider.py
+      - name: Tester alignement fournisseur
+        run: python scripts/test_verification_provider.py
