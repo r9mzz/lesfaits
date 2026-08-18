@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 """Contrat CI du workflow d'horodatage public.
 
-Un déploiement sans création d'article ne doit pas lancer la passe
-d'horodatage : elle ne ferait que rafraîchir des métadonnées techniques comme
-``feed.xml:lastBuildDate`` et créerait un faux changement de publication.
+Une passe d'horodatage est inutile si aucun article n'a changé, mais elle reste
+obligatoire lorsqu'un article existant est reconstruit : le rebuild peut sinon
+réintroduire son heure de génération et écraser son heure publique historique.
 """
 from __future__ import annotations
 
@@ -18,24 +18,30 @@ def main() -> int:
     text = WORKFLOW.read_text(encoding="utf-8")
 
     required = [
-        "Détecter les nouveaux articles du déploiement",
-        "git -C /tmp/site diff --name-only --diff-filter=A HEAD~1 HEAD -- 'articles/*.html'",
-        'echo "count=$NB_NEW" >> "$GITHUB_OUTPUT"',
-        "if: steps.nouveaux.outputs.count != '0'",
+        "Détecter les articles touchés par le déploiement",
+        "git -C /tmp/site diff --name-only --diff-filter=AM HEAD~1 HEAD -- 'articles/*.html'",
+        'echo "count=$NB_ARTICLES" >> "$GITHUB_OUTPUT"',
+        "if: steps.articles.outputs.count != '0'",
         "scripts/test_publication_times_workflow_contract.py",
     ]
     missing = [needle for needle in required if needle not in text]
     if missing:
         raise AssertionError(
-            "workflow d'horodatage sans garde 0 nouvel article : " + ", ".join(missing)
+            "workflow d'horodatage sans garde sur les articles ajoutés/reconstruits : "
+            + ", ".join(missing)
         )
 
-    if text.count("if: steps.nouveaux.outputs.count != '0'") < 2:
+    if "--diff-filter=A HEAD~1 HEAD -- 'articles/*.html'" in text:
         raise AssertionError(
-            "la génération ET la publication des horodatages doivent être bloquées sans nouvel article"
+            "le garde ne doit pas regarder seulement les créations : un article reconstruit peut perdre son heure publique"
         )
 
-    print("OK: aucun horodatage public n'est lancé quand le déploiement n'ajoute aucun article")
+    if text.count("if: steps.articles.outputs.count != '0'") < 2:
+        raise AssertionError(
+            "la génération ET la publication des horodatages doivent être bloquées seulement si aucun article n'a changé"
+        )
+
+    print("OK: les articles ajoutés ou reconstruits déclenchent la réparation d'horodatage")
     return 0
 
 

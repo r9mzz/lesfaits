@@ -62,19 +62,19 @@ jobs:
         run: |
           git clone https://x-access-token:${SITE_DEPLOY_TOKEN}@github.com/r9mzz/lesfaits-site.git /tmp/site
 
-      - name: Détecter les nouveaux articles du déploiement
-        id: nouveaux
+      - name: Détecter les articles touchés par le déploiement
+        id: articles
         run: |
-          NB_NEW=$(git -C /tmp/site diff --name-only --diff-filter=A HEAD~1 HEAD -- 'articles/*.html' | wc -l | tr -d ' ')
-          echo "count=$NB_NEW" >> "$GITHUB_OUTPUT"
-          if [ "$NB_NEW" -eq 0 ]; then
-            echo "Aucun nouvel article dans le dernier déploiement public — horodatage inutile."
+          NB_ARTICLES=$(git -C /tmp/site diff --name-only --diff-filter=AM HEAD~1 HEAD -- 'articles/*.html' | wc -l | tr -d ' ')
+          echo "count=$NB_ARTICLES" >> "$GITHUB_OUTPUT"
+          if [ "$NB_ARTICLES" -eq 0 ]; then
+            echo "Aucun article ajouté ou reconstruit dans le dernier déploiement public — horodatage inutile."
           else
-            echo "$NB_NEW nouvel article(s) à horodater."
+            echo "$NB_ARTICLES article(s) ajouté(s) ou reconstruit(s) à contrôler."
           fi
 
       - name: Appliquer l’heure réelle du déploiement
-        if: steps.nouveaux.outputs.count != '0'
+        if: steps.articles.outputs.count != '0'
         run: |
           PUBLISHED_AT=$(git -C /tmp/site show -s --format=%cI HEAD)
           echo "Commit public horodaté : $PUBLISHED_AT"
@@ -86,7 +86,7 @@ jobs:
           python scripts/repair_jsonld_modified_dates.py --site-dir /tmp/site --check
 
       - name: Publier les horodatages corrigés
-        if: steps.nouveaux.outputs.count != '0'
+        if: steps.articles.outputs.count != '0'
         working-directory: /tmp/site
         run: |
           git config user.name "Factuel Bot"
