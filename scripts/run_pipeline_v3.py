@@ -39,6 +39,8 @@ import subprocess
 import sys
 from pathlib import Path
 
+from provider_runtime_guard import validate_provider_env
+
 # Groq a arrêté llama-3.3-70b-versatile le 16/08/2026 sur les offres free et
 # developer. Le runner de production passe toujours par ce point d'entrée V3 :
 # on force donc ici le remplaçant officiel avant que ``pipeline.py`` ne soit
@@ -49,6 +51,12 @@ from pathlib import Path
 # réactivait alors le modèle retiré. On traite donc vide/blanc comme absent.
 if not os.environ.get("GROQ_MODEL_OVERRIDE", "").strip():
     os.environ["GROQ_MODEL_OVERRIDE"] = "openai/gpt-oss-120b"
+
+# Une base externe sans clé dédiée ferait utiliser les clés Groq existantes
+# contre un autre fournisseur et ne casserait qu'au premier appel réseau.
+# Refuser cette configuration ici maintient l'échec dans le prévol, avant toute
+# collecte, consommation de quota ou génération.
+validate_provider_env()
 
 import run_pipeline as legacy
 from trusted_source_expansion import patch_pipeline_source as _patch_trusted_sources
@@ -64,6 +72,7 @@ _RUNTIME_REGRESSION_TESTS = (
     "test_runtime_sitemap_v3.py",
     "test_runtime_newsletter_v3.py",
     "test_runtime_groq_model_v3.py",
+    "test_provider_runtime_guard.py",
 )
 
 
