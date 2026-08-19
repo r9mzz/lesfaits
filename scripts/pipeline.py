@@ -24,6 +24,7 @@ from bs4 import BeautifulSoup
 from dotenv import load_dotenv
 
 # Vérification éditoriale 3 passes (Groq Llama 3.3) — inactive sans clé Groq
+from json_robuste import _echapper_controles_json
 from verification import verifier_article
 from html import escape as _esc
 
@@ -3856,48 +3857,9 @@ def sujet_sante_sans_source_officielle(art: dict) -> bool:
     return True
 
 
-def _echapper_controles_json(texte: str) -> str:
-    """Échappe les caractères de contrôle bruts À L'INTÉRIEUR des chaînes JSON.
-
-    ── DÉFAUT TROUVÉ LE 18/08, et il vient de NOUS ───────────────────────────
-
-    La norme JSON (RFC 8259) interdit un saut de ligne littéral dans une
-    chaîne : il doit être écrit `\n`. Or le prompt exige depuis le 15/08 une
-    MISE EN PARAGRAPHES du corps de l'article — on demande donc explicitement
-    au modèle de produire ce qui casse notre propre lecture.
-
-    Llama 3.3 échappait ces sauts de ligne ; Mistral les écrit tels quels. La
-    conséquence est silencieuse et coûteuse : `json.loads` échoue, le repli
-    remonte jusqu'au dernier préfixe parsable, et l'article revient amputé de
-    `corps` et de `sources`. Mesuré sur l'essai Mistral du 18/08 —
-    `fin=stop`, 1 583 tokens produits, ~250 tokens récupérés : le texte avait
-    été écrit, il était perdu à la lecture.
-
-    On ne peut pas se contenter d'un `replace("\n", "\\n")` global : cela
-    corromprait la mise en forme du JSON lui-même. On suit donc l'état
-    « dans une chaîne ou non », en tenant compte des guillemets échappés.
-    """
-    out = []
-    dans_chaine = False
-    echappe = False
-    for c in texte:
-        if echappe:
-            out.append(c)
-            echappe = False
-            continue
-        if c == "\\":
-            out.append(c)
-            echappe = dans_chaine
-            continue
-        if c == '"':
-            dans_chaine = not dans_chaine
-            out.append(c)
-            continue
-        if dans_chaine and c in "\n\r\t":
-            out.append({"\n": "\\n", "\r": "\\r", "\t": "\\t"}[c])
-            continue
-        out.append(c)
-    return "".join(out)
+# `_echapper_controles_json` vit dans `json_robuste.py` depuis le 19/08 :
+# le fact-checker en a besoin AUSSI, et un correctif ne doit plus profiter à un
+# seul des deux lecteurs de JSON. L'alias garde les appels existants intacts.
 
 
 def _reparer_json_tronque(texte: str):

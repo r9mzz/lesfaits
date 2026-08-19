@@ -100,4 +100,43 @@ verifie("generate() rend un corps non vide",
         f"({str(art2)[:80]})")
 
 print()
+
+
+# ── 6. Le FACT-CHECKER lit le même JSON que la génération ────────────────────
+#
+# Le correctif du 18/08 n'avait été posé que sur `pipeline.py`. Le run du 19/08
+# a payé cette asymétrie : `[VERIF] Erreur API détection (Expecting ','
+# delimiter…)` trois fois, statut `erreur_verification`, donc rejet — des
+# articles ayant passé TOUTE la chaîne éditoriale, perdus faute de pouvoir lire
+# le verdict qui les concernait. Le rapport de vérification est de la prose
+# longue : c'est le texte le plus exposé aux sauts de ligne littéraux.
+print("\n6. Le fact-checker lit le JSON aussi bien que la génération")
+
+import verification_legacy as V  # noqa: E402
+
+_RAPPORT = '''```json
+{"problemes": [{"type": "chiffre_errone", "description": "Le résumé dit 42 %,
+alors que la source [1] dit 47 %.
+
+Second paragraphe de l'explication."}], "conforme": false}
+```'''
+_rap = V._extract_json(_RAPPORT)
+assert _rap["problemes"][0]["type"] == "chiffre_errone"
+assert "\n" in _rap["problemes"][0]["description"], (
+    "les sauts de ligne du rapport doivent être PRÉSERVÉS, pas supprimés"
+)
+print("  OK   rapport de fact-check avec sauts de ligne littéraux : lu")
+
+_sans_balise = '{"conforme": true, "note": "ligne un\nligne deux"} puis du texte'
+assert V._extract_json(_sans_balise)["note"] == "ligne un\nligne deux"
+print("  OK   même parade sur le chemin sans balises ```")
+
+# La fonction doit être LA MÊME des deux côtés : c'est ce partage qui empêche
+# qu'un correctif ne profite qu'à un seul lecteur, comme entre le 18 et le 19/08.
+assert V._echapper_controles_json is P._echapper_controles_json, (
+    "génération et vérification n'échappent plus le JSON avec la même fonction"
+)
+print("  OK   génération et vérification partagent la même fonction")
+
+
 sys.exit(1 if echecs else 0)

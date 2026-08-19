@@ -31,6 +31,7 @@ import os, re, json, time
 from datetime import datetime
 from pathlib import Path
 
+from json_robuste import _echapper_controles_json
 import requests
 
 ROOT = Path(__file__).parent.parent
@@ -310,9 +311,21 @@ def _llm_call(prompt: str, max_tokens: int = 6000) -> str:
 
 
 def _extract_json(text: str) -> dict:
+    """⚠ 19/08 — le fact-checker souffrait du même défaut que la génération.
+
+    La norme JSON interdit un saut de ligne LITTÉRAL dans une chaîne. Mistral
+    en écrit — et le rapport de vérification est fait de longues explications
+    en prose, donc il en écrit beaucoup. Résultat mesuré sur le run du 19/08 :
+    `Expecting ',' delimiter`, statut `erreur_verification`, et trois articles
+    ayant passé toute la chaîne éditoriale perdus faute de pouvoir LIRE le
+    verdict qui les concernait.
+
+    Le correctif du 18/08 n'avait été appliqué qu'à `pipeline.py`. La fonction
+    est désormais partagée (`json_robuste.py`) pour que ça ne se reproduise pas.
+    """
     m = re.search(r"```(?:json)?\s*(\{.*\})\s*```", text, re.DOTALL)
     if m:
-        return json.loads(m.group(1))
+        return json.loads(_echapper_controles_json(m.group(1)))
     start = text.find("{")
     if start == -1:
         raise ValueError("Pas de JSON dans la réponse")
@@ -342,7 +355,7 @@ def _extract_json(text: str) -> dict:
                 break
     if end == -1:
         raise ValueError("JSON tronqué ou incomplet dans la réponse (max_tokens atteint ?)")
-    return json.loads(text[start:end])
+    return json.loads(_echapper_controles_json(text[start:end]))
 
 
 def _sources_block(art: dict) -> str:
