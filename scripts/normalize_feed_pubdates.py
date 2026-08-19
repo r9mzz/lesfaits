@@ -4,7 +4,9 @@
 
 Le générateur historique utilisait l'heure du rebuild pour chaque `pubDate`, ce
 qui faisait remonter artificiellement tout le flux à chaque déploiement. La
-source de vérité des articles est le JSON-LD NewsArticle de la page publique.
+source de vérité ordinaire des articles est le JSON-LD NewsArticle de la page
+publique. Les rares heures publiques historiquement perdues sont réparées avant
+la normalisation via ``repair_publication_time_overrides``.
 
 `lastBuildDate` est également réécrit avec une horloge UTC explicite. Le build
 s'exécute avec `TZ=Europe/Paris`; utiliser une heure locale puis lui ajouter
@@ -20,6 +22,8 @@ import email.utils
 import json
 import re
 from pathlib import Path
+
+import repair_publication_time_overrides as canonical_times
 
 ROOT = Path(__file__).resolve().parent.parent
 
@@ -84,6 +88,11 @@ def normalize(
     check: bool = False,
     build_time: dt.datetime | None = None,
 ) -> dict[str, int]:
+    # Répare d'abord les rares cas où l'heure de génération a déjà remplacé
+    # l'heure du premier commit public. En mode --check, cette étape reste
+    # strictement en lecture seule et échoue si l'état n'est pas canonique.
+    canonical_times.apply(root, check=check)
+
     feed = root / "feed.xml"
     articles = root / "articles"
     text = feed.read_text(encoding="utf-8")
