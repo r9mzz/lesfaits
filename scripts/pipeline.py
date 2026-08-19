@@ -4254,12 +4254,37 @@ def _groq_call(api_key: str, messages: list, max_tokens: int = 3500) -> str:
     # 21/07 côté repêchage TPD) : mieux vaut une réservation honnête, quitte
     # à risquer une troncature déjà gérée séparément, qu'un 413 certain.
     max_tokens = max(200, min(max_tokens, disponible))
-    response = client.chat.completions.create(
-        model=GROQ_MODEL,
-        max_tokens=max_tokens,
-        temperature=0.1,
-        messages=messages,
-    )
+    # ── JSON CONTRAINT À LA SOURCE — 19/08, mesuré hors ligne ───────────────
+    #
+    # Le rédacteur CITE des déclarations : il produit donc des guillemets
+    # DOUBLES à l'intérieur de ses chaînes JSON, ce que la norme interdit sans
+    # échappement. Effet mesuré sur le vrai chemin de `generate()`, même
+    # article, un seul guillemet de différence :
+    #
+    #     citation sans guillemets  →  648 mots, faits + contexte + nuances
+    #     citation avec guillemets  →   17 mots, contexte et nuances PERDUS
+    #
+    # Le repli de `_extract_json` récupère le dernier préfixe parsable : il
+    # rend donc un article amputé, SANS erreur. C'est l'origine des « Premier
+    # jet à 104 / 118 / 137 mots » lus comme « Mistral écrit court », puis
+    # convertis en brève et rejetés. Même mécanisme que le 18/08 (corps perdu
+    # à la lecture), autre caractère.
+    #
+    # On ne répare pas après coup — rien ne distingue un guillemet ouvrant
+    # d'un guillemet de citation. On contraint la sortie, comme pour le
+    # fact-checker. Repli si le fournisseur refuse l'option : une
+    # optimisation ne doit jamais coûter un sujet.
+    _params = dict(model=GROQ_MODEL, max_tokens=max_tokens,
+                   temperature=0.1, messages=messages)
+    try:
+        response = client.chat.completions.create(
+            response_format={"type": "json_object"}, **_params)
+    except Exception as _e:
+        if "response_format" not in str(_e) and "json_object" not in str(_e):
+            raise
+        print("     [GÉNÉRATION] `response_format` refusé par le fournisseur — "
+              "repli sur le mode texte")
+        response = client.chat.completions.create(**_params)
     choice = response.choices[0]
     u = response.usage
     if u:
@@ -4919,7 +4944,19 @@ def generate(content: str, category_hint: str, extra_sources: list[dict] | None 
     # en « Pas de JSON dans la réponse », c'est-à-dire en panne technique.
     # C'était en réalité un verdict éditorial correct, mal classé. On cherche
     # donc le marqueur dans toute réponse dépourvue de JSON.
-    if "HORS_PERIMETRE" in raw[:60] or ("{" not in raw and "HORS_PERIMETRE" in raw):
+    # ⚠ 19/08 — le mode JSON change la FORME de cette réponse, pas son sens.
+    # Le prompt dit « réponds uniquement HORS_PERIMETRE » (règles 1, 3, 16) :
+    # c'est la porte de sortie éditoriale quand les sources ne suffisent pas.
+    # En mode `json_object` le modèle ne PEUT plus répondre en texte brut — il
+    # emballe le marqueur, par exemple {"reponse": "HORS_PERIMETRE"}. Le test
+    # sur les 60 premiers caractères le manquerait dès que l'emballage est un
+    # peu bavard, et un refus éditorial correct serait alors compté en panne
+    # technique — exactement le défaut corrigé le 30/07, réintroduit par le
+    # changement de mode. On reconnaît donc le marqueur dans toute réponse
+    # COURTE ou dépourvue de corps rédigé, quelle que soit son enveloppe.
+    _sans_corps = '"corps"' not in raw
+    if "HORS_PERIMETRE" in raw and ("HORS_PERIMETRE" in raw[:60]
+                                    or _sans_corps or len(raw) < 600):
         raise ValueError(raw.strip()[:120])
 
     # Extraire le JSON robustement (le modèle peut ajouter du texte avant/après)
