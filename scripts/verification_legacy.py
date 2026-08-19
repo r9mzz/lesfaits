@@ -211,6 +211,55 @@ _CLES_MORTES_JOUR: set = set()
 _VERIF_TOKENS = [0]
 
 
+# ── MODE JSON GARANTI PAR LE FOURNISSEUR — 19/08 ─────────────────────────────
+#
+# Le run 32269618946 a montré que l'échappement des caractères de contrôle
+# (correctif du matin) ne couvre PAS le défaut réel :
+#
+#     Invalid control character   → saut de ligne littéral   (corrigé)
+#     Expecting ',' delimiter     → GUILLEMET DOUBLE non échappé dans la chaîne
+#
+# Ce sont deux défauts distincts, et c'est le second qui coûte les articles :
+# le fact-checker cite l'article qu'il analyse (« la phrase "X" contredit… »),
+# donc il produit des guillemets à l'intérieur de ses chaînes JSON. Réparer ça
+# à la main est un jeu de devinettes — un guillemet peut ouvrir une chaîne ou
+# être du texte, et rien dans le flux ne le dit.
+#
+# On ne répare donc pas : on demande au fournisseur de ne plus produire de JSON
+# invalide. Mistral comme Groq acceptent `response_format={"type":
+# "json_object"}`, qui contraint le décodage. Les deux prompts contiennent le
+# mot « JSON », condition posée par ces API.
+#
+# Repli obligatoire : un fournisseur qui ne connaît pas ce paramètre répond 400.
+# On le détecte, on retient l'information pour le processus, et on refait
+# l'appel sans — jamais de sujet perdu à cause d'une option d'optimisation.
+_JSON_MODE = [True]
+
+
+def _corps_requete(prompt: str, max_tokens: int) -> dict:
+    corps = {
+        "model": GROQ_MODEL,
+        "max_tokens": max_tokens,
+        "messages": [{"role": "user", "content": prompt}],
+        "temperature": 0.2,
+    }
+    if _JSON_MODE[0]:
+        corps["response_format"] = {"type": "json_object"}
+    return corps
+
+
+def _sans_json_mode(reponse) -> bool:
+    """Le 400 vient-il du paramètre `response_format` ?"""
+    if reponse.status_code != 400 or not _JSON_MODE[0]:
+        return False
+    if "response_format" not in reponse.text and "json_object" not in reponse.text:
+        return False
+    _JSON_MODE[0] = False
+    print("     [VERIF] `response_format` refusé par le fournisseur — "
+          "repli sur le mode texte pour ce processus")
+    return True
+
+
 def _llm_call(prompt: str, max_tokens: int = 6000) -> str:
     """Appel Groq avec rotation des clés + attente sur rate limit — même
     stratégie que la génération (pipeline.py), mais avec moins de patience
@@ -232,18 +281,13 @@ def _llm_call(prompt: str, max_tokens: int = 6000) -> str:
         if not cles_vivantes:
             raise RuntimeError("Quota Groq journalier épuisé sur toutes les clés (vérification)")
         for key in cles_vivantes:
-            r = requests.post(
-                GROQ_URL,
-                headers={"Authorization": f"Bearer {key}",
-                         "content-type": "application/json"},
-                json={
-                    "model": GROQ_MODEL,
-                    "max_tokens": max_tokens,
-                    "messages": [{"role": "user", "content": prompt}],
-                    "temperature": 0.2,
-                },
-                timeout=180,
-            )
+            _entetes = {"Authorization": f"Bearer {key}",
+                        "content-type": "application/json"}
+            r = requests.post(GROQ_URL, headers=_entetes,
+                              json=_corps_requete(prompt, max_tokens), timeout=180)
+            if _sans_json_mode(r):
+                r = requests.post(GROQ_URL, headers=_entetes,
+                                  json=_corps_requete(prompt, max_tokens), timeout=180)
             if r.status_code == 429:
                 corps = r.text.lower()
                 if "per day" in corps or "tpd" in corps or "rpd" in corps:
@@ -266,12 +310,7 @@ def _llm_call(prompt: str, max_tokens: int = 6000) -> str:
                             GROQ_URL,
                             headers={"Authorization": f"Bearer {key}",
                                      "content-type": "application/json"},
-                            json={
-                                "model": GROQ_MODEL,
-                                "max_tokens": reservation,
-                                "messages": [{"role": "user", "content": prompt}],
-                                "temperature": 0.2,
-                            },
+                            json=_corps_requete(prompt, reservation),
                             timeout=180,
                         )
                         if r2.status_code == 200:
