@@ -944,6 +944,29 @@ def duckduckgo_search(query: str, max_results: int = 8, categorie: str = "") -> 
           f"{_q.get('primaire', 0)} primaire(s), {_q.get('secondaire', 0)} secondaire(s), "
           f"{_q.get('tertiaire', 0)} tertiaire(s)  |  " + " · ".join(rendement_axes))
 
+    # ── SIGNAL D'ÉPUISEMENT DE LA RECHERCHE — 19/08 ─────────────────────────
+    # Quand l'axe générique rapporte et que TOUS les axes documentaires
+    # rendent zéro, ce n'est pas que les documents n'existent pas : c'est que
+    # le moteur ne répond plus. Mesuré ce jour-là — même code, même journée,
+    # quatre runs enchaînés :
+    #
+    #   10h49   générique +16 · officiel +16 · contrôle/audit +16 · vérif +11
+    #   18h52   générique +11 · officiel  +0 · contrôle/audit  +0 · vérif  +0
+    #
+    # Conséquence directe : 20-27 sources au lieu de 100, 0 primaire au lieu
+    # de 60, et six sujets rejetés sur « ≥1 primaire OU ≥2 secondaires » —
+    # un rejet de SOURCING lu comme un rejet ÉDITORIAL.
+    #
+    # C'est le renversement à retenir depuis le passage à Mistral : le jeton
+    # n'est plus la ressource rare, la RECHERCHE l'est. Ce message ne décide
+    # rien, il empêche seulement une mauvaise attribution — la même erreur qui
+    # a coûté trois semaines sur la brièveté des articles.
+    _axes_docs = [a for a in rendement_axes if not a.startswith("générique")]
+    if _axes_docs and all(a.endswith("+0") for a in _axes_docs):
+        print("     [SOURCING] ⚠ TOUS les axes documentaires rendent 0 — moteur de "
+              "recherche probablement limité (runs trop rapprochés). Un rejet de "
+              "qualité de sources qui suit N'EST PAS un verdict éditorial.")
+
     # BUG CORRIGÉ (30/07), toujours valable : ne JAMAIS interrompre la boucle
     # sur `len(results) >= max_results`. Les axes documentaires (juridique,
     # audit, vérification, rubrique) passent APRÈS l'axe générique — s'arrêter
