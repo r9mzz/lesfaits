@@ -10370,5 +10370,493 @@
     "veille_passages": 9,
     "veille_age_h": 8.5,
     "veille_n_flux_grappe": 2
+  },
+  {
+    "slug": "groupe-cesi-impact-economique-campus-france",
+    "statut": "rejete_sensible",
+    "date": "2026-08-19T20:56:30",
+    "problemes_initiaux": 8,
+    "bloc5": [
+      "diffamation_potentielle"
+    ],
+    "article_type": "breve",
+    "titre": "Le groupe Cesi génère un milliard d'euros de PIB annuel en France",
+    "n_sources": 3,
+    "n_mots": 163,
+    "titre_rss": "Un campus, combien ça rapporte ? Le poids économique insoupçonné des universités pour les territoires",
+    "matiere_faits_distincts": 1115,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "n_sources_pertinentes": 2,
+    "veille_heures_visible": 35.8,
+    "veille_passages": 35,
+    "veille_age_h": 36.0,
+    "veille_n_flux_grappe": 1
+  },
+  {
+    "slug": "piratage-fisc-mathilde-panot-demande-commission-enquete",
+    "statut": "rejete_qualite",
+    "date": "2026-08-19T21:01:10",
+    "problemes_initiaux": 14,
+    "tentatives": 3,
+    "problemes_restants": 8,
+    "bloquants_restants": 1,
+    "bloquants_types": [
+      "annonce_perimee"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "annonce_perimee",
+        "description": "Le résumé présente la proposition comme une possibilité future (« pourrait permettre »), alors que les faits précisent que la proposition a déjà été déposée le 8 juillet 2024. Le résumé doit refléter l'état le plus récen",
+        "phrase": "La proposition, désormais entre les mains de la Conférence des présidents de l'Assemblée nationale, pourrait permettre, si elle est approuvée, d'auditionner des responsables et d'accéder à des documents administratifs, c"
+      }
+    ],
+    "types_restants": [
+      "annonce_perimee",
+      "acteur_mis_en_cause_sans_reponse",
+      "acteur_mis_en_cause_sans_reponse",
+      "source_derivee_comptee_comme_primaire",
+      "compteur_incoherent",
+      "cadrage_emprunte",
+      "contexte_hors_sujet",
+      "extrapolation"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "faits_repetitifs"
+    ],
+    "titre": "Piratage du fisc : Mathilde Panot demande une commission d'enquête",
+    "n_sources": 3,
+    "n_mots": 451,
+    "titre_rss": "Mathilde Panot demande une commission d'enquête parlementaire face à une situation \"extrêmement grave\"",
+    "matiere_faits_distincts": 379,
+    "matiere_redondance": 0.03,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "n_sources_pertinentes": 1,
+    "veille_heures_visible": 10.0,
+    "veille_passages": 11,
+    "veille_age_h": 10.1,
+    "veille_n_flux_grappe": 6
+  },
+  {
+    "slug": "onu-2026-premiere-femme-secretaire-generale-candidatures",
+    "statut": "rejete_qualite",
+    "date": "2026-08-19T21:17:00",
+    "problemes_initiaux": 22,
+    "tentatives": 3,
+    "problemes_restants": 14,
+    "bloquants_restants": 4,
+    "bloquants_types": [
+      "annonce_perimee",
+      "accusation_presentee_comme_fait",
+      "accusation_presentee_comme_fait",
+      "accusation_presentee_comme_fait"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "annonce_perimee",
+        "description": "Le résumé présente le processus comme déjà engagé (« a engagé ») alors que les faits indiquent qu'aucune candidature officielle n’a été confirmée et que les discussions portent sur des critères généraux, sans événement d",
+        "phrase": "En août 2026, l’Organisation des Nations unies a engagé le processus de sélection de son ou sa prochain·e secrétaire général·e, avec une décision attendue avant la fin de l’année pour succéder à António Guterres."
+      },
+      {
+        "bloc": 1,
+        "type": "accusation_presentee_comme_fait",
+        "description": "La phrase présente comme un fait établi (« a historiquement limité la diversité ») ce qui est une analyse ou une conclusion de The Conversation (source [1]). La source attribue cette interprétation à des observateurs, ma",
+        "phrase": "les cinq membres permanents du Conseil de sécurité, disposant d’un droit de veto, jouent un rôle déterminant dans le choix final, une dynamique qui a historiquement limité la diversité des profils retenus."
+      },
+      {
+        "bloc": 1,
+        "type": "accusation_presentee_comme_fait",
+        "description": "La phrase généralise une interprétation (« a souvent conduit à privilégier ») sans attribution à une source. The Conversation (source [1]) évoque cette dynamique, mais l'article la présente comme un fait neutre.",
+        "phrase": "Cette dynamique a souvent conduit à privilégier des candidat·es perçus comme consensuels."
+      },
+      {
+        "bloc": 1,
+        "type": "accusation_presentee_comme_fait",
+        "description": "La phrase reprend une analyse de The Conversation (source [1]), mais l'article ne signale pas explicitement que cette interprétation (« peut favoriser », « peut aussi exclure ») est celle de la source. Elle est présentée",
+        "phrase": "Ce système, toujours selon The Conversation, peut favoriser des profils perçus comme neutres ou consensuels, mais il peut aussi exclure des personnalités jugées trop alignées sur certaines positions géopolitiques."
+      }
+    ],
+    "types_restants": [
+      "annonce_perimee",
+      "fait_tranche_arbitrairement",
+      "accusation_presentee_comme_fait",
+      "accusation_presentee_comme_fait",
+      "accusation_presentee_comme_fait",
+      "extrapolation",
+      "source_derivee_comptee_comme_primaire",
+      "cadrage_emprunte",
+      "cadrage_emprunte",
+      "redondance",
+      "section_gonflee",
+      "faux_debat",
+      "angle_annonce_non_tenu",
+      "angle_annonce_non_tenu"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "faits_repetitifs",
+      "titre_de_mauvaise_qualite"
+    ],
+    "titre": "ONU 2026 : vers une première femme secrétaire générale ?",
+    "n_sources": 4,
+    "n_mots": 897,
+    "titre_rss": "À la tête de l’ONU, l’heure d’une femme a-t-elle enfin sonné ?",
+    "matiere_faits_distincts": 1133,
+    "matiere_redondance": 0.01,
+    "matiere_donnees_chiffrees": 2,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "n_sources_pertinentes": 4,
+    "veille_heures_visible": 125.4,
+    "veille_passages": 114,
+    "veille_age_h": 125.6,
+    "veille_n_flux_grappe": 1
+  },
+  {
+    "slug": "canicules-2026-7300-morts-exces-france-depuis-mai",
+    "statut": "rejete_qualite",
+    "date": "2026-08-19T21:25:24",
+    "problemes_initiaux": 11,
+    "tentatives": 3,
+    "problemes_restants": 11,
+    "bloquants_restants": 2,
+    "bloquants_types": [
+      "chiffre_errone",
+      "incoherence_inter_sections"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [3] (La Croix) indique « plus de 1 240 morts en excès », et non exactement 1 243. Le chiffre est arrondi dans la source et ne doit pas être présenté comme exact.",
+        "phrase": "La deuxième vague, du 3 au 22 juillet 2026, a été associée à 1 243 décès en excès selon les données consolidées de Santé publique France."
+      },
+      {
+        "bloc": 1,
+        "type": "incoherence_inter_sections",
+        "description": "La source [5] (Courrier picard) n'existe pas dans la liste des sources fournies (seulement 4 sources, numérotées de 1 à 4). Le chiffre de 1 300 décès en excès est attribué à une source inexistante, créant une incohérence",
+        "phrase": "Pour la période de mai à juin, un premier bilan publié fin juin par le Courrier picard faisait état de 1 300 décès en excès, couvrant les deux premières vagues sans distinction précise. Ce chiffre est inclus dans le tota"
+      }
+    ],
+    "types_restants": [
+      "chiffre_errone",
+      "incoherence_inter_sections",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_derivee_comptee_comme_primaire",
+      "compteur_incoherent",
+      "contexte_hors_sujet",
+      "contexte_hors_sujet",
+      "redondance",
+      "extrapolation"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "resume_repete_corps",
+      "faits_repetitifs"
+    ],
+    "titre": "Canicules 2026 : 7 300 morts en excès en France depuis mai",
+    "n_sources": 7,
+    "n_mots": 519,
+    "titre_rss": "Canicules : déjà 7.300 morts en excès en France en 2026",
+    "matiere_faits_distincts": 952,
+    "matiere_redondance": 0.12,
+    "matiere_donnees_chiffrees": 11,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "n_sources_pertinentes": 8,
+    "veille_heures_visible": 2.1,
+    "veille_passages": 3,
+    "veille_age_h": 2.2,
+    "veille_n_flux_grappe": 1
+  },
+  {
+    "slug": "lecornu-anssi-unite-cyber-piratage-dgfip-2026",
+    "statut": "rejete_qualite",
+    "date": "2026-08-19T21:44:55",
+    "problemes_initiaux": 18,
+    "tentatives": 3,
+    "problemes_restants": 16,
+    "bloquants_restants": 4,
+    "bloquants_types": [
+      "annonce_perimee",
+      "annonce_perimee",
+      "incoherence_inter_sections",
+      "niveau_preuve_insuffisant"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "annonce_perimee",
+        "description": "Le résumé présente la création de l'unité cyber comme une décision déjà prise (« a adressé une demande formelle »), alors que les sources [2][3] indiquent que les modalités pratiques restent à préciser et que la demande ",
+        "phrase": "Cette décision intervient après le piratage de la Direction générale des finances publiques (DGFiP), révélé plus tôt dans le mois."
+      },
+      {
+        "bloc": 1,
+        "type": "annonce_perimee",
+        "description": "La phrase présente la demande comme un fait accompli (« a adressé une demande formelle »), mais les sources [2][3] précisent que les contours de l'unité (effectifs, budget, articulation) ne sont pas encore définis et que",
+        "phrase": "Le 18 août 2026, le Premier ministre Sébastien Lecornu a adressé une demande formelle à l'Agence nationale de la sécurité des systèmes d'information (ANSSI) pour constituer une « unité cyber » dédiée à la protection des "
+      },
+      {
+        "bloc": 1,
+        "type": "incoherence_inter_sections",
+        "description": "Le résumé et les faits citent le même chiffre (37 % des incidents en 2025), mais le résumé omet la précision « sans que cette proportion ne soit comparée à d'autres pays européens » présente dans les faits, ce qui pourra",
+        "phrase": "Clubic souligne que le secteur public a été la cible de 37 % des incidents signalés à l'ANSSI en 2025, selon les données officielles de l'agence [4]."
+      },
+      {
+        "bloc": 1,
+        "type": "niveau_preuve_insuffisant",
+        "description": "La source [4] (Clubic) ne précise pas si les données de l'ANSSI incluent une méthodologie détaillée (période exacte, définition des « incidents », taille de l'échantillon), ni si la progression de 28 % à 37 % est statist",
+        "phrase": "Selon les données de l'ANSSI relayées par Clubic, le secteur public a concentré 37 % des incidents signalés en 2025, contre 28 % en 2024, marquant une progression significative [4]."
+      }
+    ],
+    "types_restants": [
+      "annonce_perimee",
+      "annonce_perimee",
+      "incoherence_inter_sections",
+      "niveau_preuve_insuffisant",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "extrapolation",
+      "source_derivee_comptee_comme_primaire",
+      "compteur_incoherent",
+      "acteur_mis_en_cause_sans_reponse",
+      "cadrage_emprunte",
+      "cadrage_emprunte",
+      "contexte_hors_sujet",
+      "section_gonflee",
+      "redondance"
+    ],
+    "article_type": "actu",
+    "titre": "Sébastien Lecornu demande à l'ANSSI une unité cyber dédiée après le piratage de la DGFiP",
+    "n_sources": 5,
+    "n_mots": 782,
+    "titre_rss": "Piratage du fisc : Lecornu veut une \"nouvelle unité\" pour lutter contre les cyberattaques",
+    "matiere_faits_distincts": 596,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "n_sources_pertinentes": 3,
+    "veille_heures_visible": 2.1,
+    "veille_passages": 3,
+    "veille_age_h": 2.2,
+    "veille_n_flux_grappe": 4
+  },
+  {
+    "slug": "canicule-2026-france-7300-morts-record-duree",
+    "statut": "rejete_qualite",
+    "date": "2026-08-19T21:51:09",
+    "problemes_initiaux": 14,
+    "tentatives": 3,
+    "problemes_restants": 12,
+    "bloquants_restants": 5,
+    "bloquants_types": [
+      "chiffre_errone",
+      "incoherence_inter_sections",
+      "annonce_perimee",
+      "niveau_preuve_insuffisant",
+      "source_inventee"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "Le résumé présente le chiffre de 7 300 décès comme lié aux vagues de chaleur, alors que la source [1] précise qu'il s'agit d'une surmortalité toutes causes confondues, sans imputation directe à la canicule.",
+        "phrase": "L'été 2026 enregistre un bilan provisoire de 7 300 décès excédentaires toutes causes confondues, liés aux vagues de chaleur, selon les autorités sanitaires citées par France 24."
+      },
+      {
+        "bloc": 1,
+        "type": "incoherence_inter_sections",
+        "description": "Les chiffres de 7 300 (France 24 [1]) et 6 000 (Le Nouvel Obs [2]) décès excédentaires pour des périodes partiellement chevauchantes ne sont pas réconciliés dans l'article, qui ne précise pas si les 6 000 sont inclus dan",
+        "phrase": "Un bilan provisoire de 7 300 décès excédentaires toutes causes confondues, liés aux vagues de chaleur de l'été 2026, a été communiqué par les autorités sanitaires le 19 août 2026, selon France 24 [1]. Ce chiffre inclut 1"
+      },
+      {
+        "bloc": 1,
+        "type": "annonce_perimee",
+        "description": "Le chiffre de 52 jours de vagues de chaleur est présenté comme un fait établi, alors que l'article précise lui-même que ce chiffre n'est pas explicitement confirmé par la source [1].",
+        "phrase": "La France a enregistré 52 jours de vagues de chaleur depuis mi-juin 2026, un record depuis le début des relevés en 1947. En 2022, année marquée par trois vagues de chaleur, le cumul s'élevait à 33 jours, soit 19 jours de"
+      },
+      {
+        "bloc": 1,
+        "type": "niveau_preuve_insuffisant",
+        "description": "L'article présente des hypothèses (conditions de travail en extérieur ou logements mal isolés) comme des explications possibles de la surmortalité chez les moins de 65 ans, alors que la source [2] précise que ces hypothè",
+        "phrase": "Selon les premières analyses de Santé publique France rapportées par Le Nouvel Obs, cette surmortalité chez les moins de 65 ans pourrait être liée à des conditions de travail en extérieur ou à des logements mal isolés, b"
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "La source [2] (Le Nouvel Obs) est citée pour un chiffre attribué à Santé publique France, mais la source [2] elle-même ne confirme pas explicitement que ce chiffre de 6 000 provient de Santé publique France. L'attributio",
+        "phrase": "Le Nouvel Obs, citant Santé publique France, évoque un bilan de 6 000 décès excédentaires pour les vagues de chaleur de juin et juillet [2]."
+      }
+    ],
+    "types_restants": [
+      "chiffre_errone",
+      "incoherence_inter_sections",
+      "annonce_perimee",
+      "niveau_preuve_insuffisant",
+      "extrapolation",
+      "source_inventee",
+      "source_derivee_comptee_comme_primaire",
+      "cadrage_emprunte",
+      "paraphrase_structurelle",
+      "redondance",
+      "section_gonflee",
+      "extrapolation"
+    ],
+    "article_type": "actu",
+    "titre": "Canicule 2026 : 7 300 morts et un record de durée en France",
+    "n_sources": 4,
+    "n_mots": 534,
+    "titre_rss": "La canicule en France a fait au moins 7 300 morts, selon un bilan encore provisoire",
+    "matiere_faits_distincts": 1050,
+    "matiere_redondance": 0.09,
+    "matiere_donnees_chiffrees": 9,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "n_sources_pertinentes": 2,
+    "veille_heures_visible": 4.9,
+    "veille_passages": 6,
+    "veille_age_h": 5.0,
+    "veille_n_flux_grappe": 12
+  },
+  {
+    "slug": "petrobras-detecte-indices-petrole-large-amazonie",
+    "statut": "rejete_sensible",
+    "date": "2026-08-19T21:54:09",
+    "problemes_initiaux": 8,
+    "bloc5": [
+      "acteur_mis_en_cause_sans_reponse"
+    ],
+    "article_type": "breve",
+    "titre": "Petrobras détecte des indices de pétrole au large de l'Amazonie",
+    "n_sources": 7,
+    "n_mots": 153,
+    "titre_rss": "Pétrole détecté au large de l'Amazonie : un \"passeport pour l'avenir\" selon Lula",
+    "matiere_faits_distincts": 587,
+    "matiere_redondance": 0.23,
+    "matiere_donnees_chiffrees": 2,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "n_sources_pertinentes": 10,
+    "veille_heures_visible": 31.2,
+    "veille_passages": 30,
+    "veille_age_h": 31.4,
+    "veille_n_flux_grappe": 7
+  },
+  {
+    "slug": "vih-france-5100-diagnostics-2024-depistage-tardif-ist",
+    "statut": "rejete_qualite",
+    "date": "2026-08-19T22:00:59",
+    "problemes_initiaux": 12,
+    "tentatives": 3,
+    "problemes_restants": 11,
+    "bloquants_restants": 6,
+    "bloquants_types": [
+      "chiffre_errone",
+      "chiffre_errone",
+      "annonce_perimee",
+      "niveau_preuve_insuffisant",
+      "niveau_preuve_insuffisant",
+      "incoherence_inter_sections"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "Le résumé indique '97 % des personnes vivant avec le VIH et suivies en France' pour 2023, alors que la source [1] précise '97 % avaient une charge virale indétectable' pour les personnes sous traitement antirétroviral (s",
+        "phrase": "En 2023, 97 % des personnes vivant avec le VIH et suivies en France avaient une charge virale indétectable, un taux stable depuis 2020, tandis que les diagnostics de syphilis chez les femmes ont enregistré une hausse mar"
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La phrase indique '97 % avaient une charge virale indétectable' sans préciser que ce taux concerne uniquement les personnes sous traitement antirétroviral (96 % des 94 % diagnostiquées), ce qui peut laisser penser à une ",
+        "phrase": "En 2023, environ 94 % des 181 000 personnes vivant avec le VIH en France étaient diagnostiquées, dont 96 % sous traitement antirétroviral. Parmi elles, 97 % avaient une charge virale indétectable, un taux stable depuis 2"
+      },
+      {
+        "bloc": 1,
+        "type": "annonce_perimee",
+        "description": "Le résumé présente les données 2024 comme 'préliminaires', alors que la source [1] est un rapport publié en décembre 2025, donc postérieur à 2024. Les données 2024 devraient être présentées comme définitives ou consolidé",
+        "phrase": "Les données préliminaires de Santé publique France pour 2024 indiquent qu’environ 43 % des découvertes de séropositivité ont été réalisées à un stade tardif, un taux qui reste préoccupant malgré les progrès en matière de"
+      },
+      {
+        "bloc": 1,
+        "type": "niveau_preuve_insuffisant",
+        "description": "La phrase mentionne des 'tendances suggérant une progression' sans préciser les limites méthodologiques ou la nature préliminaire des données 2024, alors que la source [1] insiste sur le caractère non consolidé des donné",
+        "phrase": "Les jeunes de moins de 25 ans représentent une part croissante des nouveaux cas, avec des tendances suggérant une progression depuis 2020, bien que les données définitives pour 2024 ne soient pas encore consolidées [1]."
+      },
+      {
+        "bloc": 1,
+        "type": "niveau_preuve_insuffisant",
+        "description": "La phrase présente la hausse de la syphilis chez les femmes comme un fait établi pour 2024, alors que la source [1] ne fournit pas de données consolidées pour cette année et souligne le caractère préliminaire des tendanc",
+        "phrase": "Les diagnostics d’IST ont continué d’augmenter en 2024, avec une hausse marquée de la syphilis chez les femmes, particulièrement dans les DROM, où le risque de transmission materno-fœtale est accru [1]."
+      },
+      {
+        "bloc": 1,
+        "type": "incoherence_inter_sections",
+        "description": "Le chiffre de '97 %' dans le contexte est incohérent avec le résumé, qui présente ce taux comme une proportion globale des personnes vivant avec le VIH (et non des personnes sous traitement). Les deux sections doivent dé",
+        "phrase": "En 2023, environ 94 % des 181 000 personnes vivant avec le VIH en France étaient diagnostiquées, dont 96 % sous traitement antirétroviral. Parmi elles, 97 % avaient une charge virale indétectable, un taux stable depuis 2"
+      }
+    ],
+    "types_restants": [
+      "chiffre_errone",
+      "chiffre_errone",
+      "annonce_perimee",
+      "niveau_preuve_insuffisant",
+      "niveau_preuve_insuffisant",
+      "incoherence_inter_sections",
+      "source_derivee_comptee_comme_primaire",
+      "compteur_incoherent",
+      "extrapolation",
+      "redondance",
+      "section_gonflee"
+    ],
+    "article_type": "actu",
+    "titre": "VIH en France : 5 100 diagnostics en 2024, dont 43 % à un stade tardif",
+    "n_sources": 4,
+    "n_mots": 583,
+    "titre_rss": "Journée mondiale de lutte contre le sida 2025 : promouvoir la prévention pour lutter contre la transmission du VIH et des IST",
+    "matiere_faits_distincts": 1303,
+    "matiere_redondance": 0.12,
+    "matiere_donnees_chiffrees": 4,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "n_sources_pertinentes": 5,
+    "veille_heures_visible": 34.0,
+    "veille_passages": 33,
+    "veille_age_h": 34.1,
+    "veille_n_flux_grappe": 3
+  },
+  {
+    "slug": "lanceur-alerte-bain-exil-business-schools-2024",
+    "statut": "rejete_sensible",
+    "date": "2026-08-19T22:07:13",
+    "problemes_initiaux": 11,
+    "tentative": 3,
+    "bloc5": true,
+    "article_type": "actu",
+    "titre": "Athol Williams, lanceur d'alerte de Bain, en exil depuis 2021 sans emploi stable",
+    "n_sources": 4,
+    "n_mots": 563,
+    "titre_rss": "Lanceurs d’alerte en exil : pourquoi les business schools ont une responsabilité à assumer",
+    "matiere_faits_distincts": 1122,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "n_sources_pertinentes": 2,
+    "veille_heures_visible": 107.9,
+    "veille_passages": 100,
+    "veille_age_h": 108.1,
+    "veille_n_flux_grappe": 1
   }
 ]
