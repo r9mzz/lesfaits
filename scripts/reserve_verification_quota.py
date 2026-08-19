@@ -58,6 +58,24 @@ def reserved_verification_quota(
     """Masque temporairement les clés réservées au pipeline de rédaction."""
     reserve_count = _configured_count(reserve_count)
     entries = _key_entries()
+    # ⚠ 19/08 — la réservation n'a de sens QUE sur la rotation Groq. Elle
+    # existe pour qu'un run long ne vide pas les 11 clés avant le fact-check,
+    # problème propre à un plafond JOURNALIER PAR COMPTE. Quand `LLM_API_KEY`
+    # est définie, le pipeline entier tourne sur un fournisseur unique avec une
+    # seule clé : il n'y a rien à répartir.
+    #
+    # Et ce n'était pas seulement inutile, c'était la panne : la réservation
+    # écrase `verification.GROQ_KEYS` avec les clés GROQ, qui partaient ensuite
+    # vers l'URL Mistral. D'où `Groq 401: {"detail":"Invalid API Key"}` sur les
+    # 22 vérifications du run du 19/08 — génération réussie, zéro publication,
+    # le fail-closed faisant correctement son travail sur une panne d'auth
+    # entièrement fabriquée par nous. La génération, elle, lisait bien
+    # LLM_API_KEY : d'où l'asymétrie qui rendait le diagnostic contre-intuitif.
+    if os.getenv("LLM_API_KEY", "").strip():
+        print("[PRÉVOL] Fournisseur unique (LLM_API_KEY) — pas de réservation "
+              "de clés : la rotation Groq ne s'applique pas")
+        yield {"enabled": False, "reserved": 0, "writer_keys": len(entries)}
+        return
     if reserve_count == 0 or len(entries) < MIN_WRITER_KEYS + reserve_count:
         yield {
             "enabled": False,

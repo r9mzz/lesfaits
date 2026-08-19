@@ -72,3 +72,30 @@ class ReservedVerificationQuotaTests(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main(verbosity=2)
+
+
+class ProviderUniqueTest(unittest.TestCase):
+    """La réservation ne doit JAMAIS écraser la clé du fournisseur unique.
+
+    Panne du 19/08 : `verification.GROQ_KEYS` recevait les clés Groq, qui
+    partaient vers l'URL Mistral — 401 sur chaque vérification, 32 articles
+    écrits, zéro publié. La réservation protège un quota journalier PAR COMPTE
+    Groq ; sur un fournisseur à clé unique, elle n'a rien à répartir.
+    """
+
+    def test_llm_api_key_desactive_la_reservation(self):
+        fake = types.SimpleNamespace(GROQ_KEYS=["cle-fournisseur"])
+        env = {f"GROQ_API_KEY_{i}": f"groq{i}" for i in range(2, 9)}
+        env["GROQ_API_KEY"] = "groq1"
+        env["LLM_API_KEY"] = "cle-fournisseur"
+        with patch.dict(os.environ, env, clear=False):
+            with reserved_verification_quota(2, verification_module=fake) as info:
+                self.assertFalse(info["enabled"])
+                self.assertEqual(fake.GROQ_KEYS, ["cle-fournisseur"])
+                # Les clés Groq ne doivent pas non plus être retirées de
+                # l'environnement : rien n'est à masquer au rédacteur.
+                self.assertEqual(os.getenv("GROQ_API_KEY"), "groq1")
+
+
+if __name__ == "__main__":
+    unittest.main()
