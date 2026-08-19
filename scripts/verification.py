@@ -132,7 +132,10 @@ print(f"     [VERIF-AUTH] cible={_verification.GROQ_URL} · modèle={_MODEL} · 
       f"clés={len(_verification.GROQ_KEYS)} · "
       f"source={'LLM_API_KEY' if _LLM_KEY else 'GROQ_API_KEY*'} · "
       f"{_empreinte(_verification.GROQ_KEYS[0]) if _verification.GROQ_KEYS else 'AUCUNE'}",
-      flush=True)
+      # ⚠ stderr, pas stdout : `test_verification_provider.py` capture la sortie
+      # standard d'un sous-processus pour lire la résolution du fournisseur.
+      # Une ligne de diagnostic sur stdout la casse — mesuré, pas supposé.
+      file=sys.stderr, flush=True)
 
 # Important : renvoyer le vrai module historique, pas une copie de ses symboles.
 # Les fonctions importées conservent ainsi leurs globals, et
