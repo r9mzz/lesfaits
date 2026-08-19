@@ -1606,8 +1606,26 @@ DF_MOT_GENERIQUE = 3  # présent dans ≥3 titres publiés = vocabulaire de rubr
 # prime au NOM DU MÉDIA, pas au sujet, et il domine tous les autres termes.
 PONDS_SOURCE_MAJEURE = 35
 PONDS_MEDIA_RECONNU = 15
-PONDS_ENJEU_FORT = 30
-PONDS_ENJEU_MOYEN = 15
+# ── RÉÉQUILIBRAGE MESURÉ DU 19/08 ────────────────────────────────────────────
+# Demande de Nahil : « le campus ne doit pas être premier, il faut privilégier
+# les vrais sujets d'actualité ». Mesuré avant de toucher quoi que ce soit —
+# ventilation du poids réellement distribué sur les 153 titres publiés :
+#
+#     FORME (source, média, fraîcheur, longueur, chiffres)   94,2 %
+#     SUJET (enjeu public, divertissement, adresse lecteur)    5,8 %
+#
+# Le cas d'école le dit seul : « Un campus, combien ça rapporte ? » tire 35 de
+# ses 50 points du seul fait qu'Ouest-France l'a publié. Être repris par un
+# grand titre ne dit RIEN de l'importance du sujet.
+#
+# ⚠ On MONTE le sujet, on ne baisse PAS la forme, et c'est délibéré. Baisser
+# « source majeure » ne coûte rien sur le corpus publié (149/153 passent le
+# seuil dans les deux cas) — mais ces articles-là sont très au-dessus du seuil,
+# alors que les candidats RSS s'y serrent : 73 % des rejets sont déjà « score
+# sous le seuil (20) ». Rétrécir le vivier est un effet que le corpus publié ne
+# peut pas mesurer. Un bonus, lui, ne peut qu'élargir.
+PONDS_ENJEU_FORT = 45
+PONDS_ENJEU_MOYEN = 25
 # Malus « aucun marqueur d'actualité » : ni chiffre, ni institution nommée, ni
 # enjeu public. Un texte qui n'a aucun des trois n'est presque jamais un fait
 # du jour. 0 = désactivé (comportement d'avant le 10/08).
@@ -1791,6 +1809,23 @@ def score_editorial(item: dict, source_name: str, published_topics: set) -> tupl
     elif _DIVERTISSEMENT_RE.search(debut):
         score -= 15
         reasons.append("-15 divertissement/culture-spectacle (contenu)")
+
+    # ── MALUS « TITRE EN QUESTION » — 19/08 ─────────────────────────────────
+    # Notre propre charte (règle 6) interdit à NOS titres d'être une question,
+    # et `titre_de_mauvaise_qualite` le fait respecter — mais uniquement sur le
+    # titre GÉNÉRÉ, jamais sur le candidat RSS qu'on choisit de traiter. On
+    # s'interdisait donc une forme tout en la choisissant comme sujet.
+    #
+    # « Un campus, combien ça rapporte ? » en est le cas d'école : c'est la
+    # grammaire du magazine, pas celle d'une dépêche. Mesuré sur les 153
+    # articles publiés : 0 titre en question. Le malus ne peut rétrograder
+    # aucun sujet du type de ceux qu'on a jugé bon de publier.
+    #
+    # Rétrogradation et non rejet : une question peut coiffer une vraie
+    # enquête, et le bonus d'enjeu public la relève alors sans difficulté.
+    if "?" in item["title"]:
+        score -= 20
+        reasons.append("-20 titre en question (forme magazine, interdite par la charte)")
 
     # ── MALUS « ADRESSE AU LECTEUR SANS ENJEU » — 19/08 ─────────────────────
     # Constat de Nahil sur le run 241 : « 300 000 € dorment sur ce site et

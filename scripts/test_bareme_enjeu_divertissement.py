@@ -140,6 +140,62 @@ def test_l_adresse_au_lecteur_est_penalisee_SEULEMENT_sans_enjeu():
     assert service > putaclic
 
 
+
+def test_un_titre_en_question_est_retrograde():
+    """Notre charte (règle 6) interdit à NOS titres d'être une question.
+
+    `titre_de_mauvaise_qualite` le fait respecter — mais seulement sur le titre
+    GÉNÉRÉ, jamais sur le candidat RSS qu'on choisit de traiter. On s'interdisait
+    une forme tout en la choisissant comme sujet.
+
+    Mesuré : 0 titre en question sur les 153 articles publiés. Le malus ne peut
+    rétrograder aucun sujet du type de ceux qu'on a jugé bon de publier.
+    """
+    _, raisons = _score("Un campus, combien ça rapporte ? Le poids économique du CESI",
+                        "Le CESI a publié une étude sur son impact économique local.",
+                        "Ouest-France")
+    assert any("question" in x for x in raisons), raisons
+
+
+def test_le_vrai_sujet_d_actualite_passe_devant_le_communique():
+    """Demande de Nahil : « le campus ne doit pas être premier ».
+
+    Cas mesurés le 19/08, avant : campus 85, canicules 57, Arctique 55,
+    piratage 52. Le campus tirait 35 de ses 50 points du seul fait
+    qu'Ouest-France l'avait publié — être repris par un grand titre ne dit RIEN
+    de l'importance du sujet.
+    """
+    pad = (" Le detail de l affaire est rapporte par plusieurs redactions et les "
+           "elements connus sont precises.") * 4
+    def sc(t, c, src):
+        return P.score_editorial(
+            {"title": t, "content": c + pad, "link": "https://x.fr/a"}, src, set())[0]
+
+    campus = sc("Un campus, combien ça rapporte ? Le poids économique du CESI",
+                "Le CESI a publié une étude sur son impact économique local.",
+                "Ouest-France")
+    canicule = sc("Canicules : déjà 7.300 morts en excès en France",
+                  "Santé publique France publie son bilan de mortalité.", "Le Monde")
+    arctique = sc("Annulation d'un rapport sur l'Arctique : les scientifiques s'inquiètent",
+                  "Le rapport annuel sur le climat arctique a été annulé.", "Le Monde")
+    assert canicule > campus and arctique > campus, (
+        f"campus {campus} tient encore devant canicule {canicule} / "
+        f"Arctique {arctique}")
+
+
+def test_le_poids_du_SUJET_ne_redescend_pas_sous_la_forme_sans_decision():
+    """Ventilation mesurée sur les 153 titres publiés : 94,2 % FORME / 5,8 %
+    SUJET avant le 19/08, 90,8 / 9,2 après.
+
+    Ce test ne fige pas un ratio idéal — personne ne sait ce qu'il vaut. Il
+    empêche un retour SILENCIEUX à l'état d'avant : le barème avait dérivé
+    jusqu'à ne plus noter que l'emballage, et rien ne le signalait.
+    """
+    assert P.PONDS_ENJEU_FORT >= 45 and P.PONDS_ENJEU_MOYEN >= 25, (
+        f"le bonus d'enjeu public est retombé à {P.PONDS_ENJEU_FORT} / "
+        f"{P.PONDS_ENJEU_MOYEN} : le barème renote la forme plus que le sujet")
+
+
 if __name__ == "__main__":
     test_une_cyberattaque_massive_vaut_un_bonus_d_enjeu_public()
     test_le_materiel_de_jeu_et_le_cinema_sont_retrogrades()
@@ -148,4 +204,7 @@ if __name__ == "__main__":
     test_les_pluriels_ne_sont_plus_manques()
     test_le_pluriel_n_ouvre_pas_la_porte_aux_faux_positifs()
     test_l_adresse_au_lecteur_est_penalisee_SEULEMENT_sans_enjeu()
+    test_un_titre_en_question_est_retrograde()
+    test_le_vrai_sujet_d_actualite_passe_devant_le_communique()
+    test_le_poids_du_SUJET_ne_redescend_pas_sous_la_forme_sans_decision()
     print("OK — le barème sépare l'intérêt public du divertissement")
