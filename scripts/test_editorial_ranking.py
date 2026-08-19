@@ -1,6 +1,11 @@
 # -*- coding: utf-8 -*-
 """Tests déterministes du classement éditorial au niveau du sujet."""
-from editorial_ranking import rank_subjects, selectionner_sujets
+import json
+import tempfile
+from datetime import datetime
+from pathlib import Path
+
+from editorial_ranking import _recent_rejected_slugs, rank_subjects, selectionner_sujets
 
 
 def _item(title, source, score, cat="societe", content="x" * 200):
@@ -61,6 +66,29 @@ def test_recent_exact_rejection_is_not_retried():
     assert [i["title"] for i in ranked] == ["Sécheresse agricole dans le sud-ouest"]
 
 
+def test_rejected_rss_title_is_not_retried_when_generated_slug_differs():
+    titre_rss = "À la tête de l’ONU, l’heure d’une femme a-t-elle enfin sonné ?"
+    with tempfile.TemporaryDirectory() as tmp:
+        log_path = Path(tmp) / "verification_log.json"
+        log_path.write_text(
+            json.dumps([
+                {
+                    "slug": "onu-2026-premiere-femme-secretaire-generale",
+                    "titre_rss": titre_rss,
+                    "statut": "rejete_qualite",
+                    "date": "2026-08-19T04:00:37",
+                }
+            ]),
+            encoding="utf-8",
+        )
+        rejected = _recent_rejected_slugs(
+            log_path=log_path,
+            now=datetime.fromisoformat("2026-08-19T21:00:00"),
+        )
+    ranked = rank_subjects([_item(titre_rss, "A", 45)], rejected_slugs=rejected)
+    assert ranked == [], "Le même item RSS rejeté ne doit pas repayer une génération sous un autre slug"
+
+
 def test_cooldown_never_uses_fuzzy_topic_similarity():
     candidats = [
         _item("Edgar Morin et un colloque scientifique publié mardi", "A", 45),
@@ -101,6 +129,7 @@ def main():
     test_one_subject_one_representative()
     test_no_single_word_false_cluster()
     test_recent_exact_rejection_is_not_retried()
+    test_rejected_rss_title_is_not_retried_when_generated_slug_differs()
     test_cooldown_never_uses_fuzzy_topic_similarity()
     test_category_quotas_are_preserved()
     print("OK — editorial_ranking")

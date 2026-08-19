@@ -61,8 +61,9 @@ def _tokens(titre: str) -> set[str]:
 def _slugify_title(titre: str) -> str:
     """Normalisation stricte titre→slug, utilisée uniquement pour le cooldown.
 
-    On exige une égalité exacte avec le slug rejeté : pas de similarité floue,
-    afin qu'une nouvelle actualité voisine ne soit jamais écartée par erreur.
+    On exige une égalité exacte avec le slug rejeté ou le titre RSS rejeté :
+    pas de similarité floue, afin qu'une nouvelle actualité voisine ne soit
+    jamais écartée par erreur.
     """
     t = unicodedata.normalize("NFD", titre or "")
     t = "".join(c for c in t if unicodedata.category(c) != "Mn").lower()
@@ -75,11 +76,17 @@ def _recent_rejected_slugs(
     now: datetime | None = None,
     cooldown_hours: int = REJECT_COOLDOWN_HOURS,
 ) -> set[str]:
-    """Slugs rejetés récemment pour qualité ou sensibilité.
+    """Identifiants exacts de sujets rejetés récemment.
 
-    Le mécanisme est volontairement conservateur : seulement des rejets
+    Le journal contient le slug généré par le rédacteur mais aussi, lorsque le
+    pipeline l'a conservé, le ``titre_rss`` du candidat d'origine. Le préfiltre
+    travaille avant génération : comparer uniquement le titre RSS courant au
+    slug généré pouvait donc rater exactement le même item si le rédacteur avait
+    choisi un slug différent. On conserve les deux formes normalisées.
+
+    Le mécanisme reste volontairement conservateur : seulement des rejets
     explicites, seulement sur une fenêtre courte, et uniquement une égalité
-    exacte avec le titre normalisé du candidat courant.
+    exacte. Aucune similarité floue n'est utilisée.
     """
     if not log_path.exists():
         return set()
@@ -99,8 +106,9 @@ def _recent_rejected_slugs(
         if entry.get("statut") not in {"rejete_qualite", "rejete_sensible"}:
             continue
         slug = str(entry.get("slug") or "").strip()
+        titre_rss = str(entry.get("titre_rss") or "").strip()
         raw_date = str(entry.get("date") or "").strip()
-        if not slug or not raw_date:
+        if not raw_date or (not slug and not titre_rss):
             continue
         try:
             when = datetime.fromisoformat(raw_date.replace("Z", "+00:00"))
@@ -109,7 +117,10 @@ def _recent_rejected_slugs(
         except ValueError:
             continue
         if when >= cutoff:
-            out.add(slug)
+            if slug:
+                out.add(slug)
+            if titre_rss:
+                out.add(_slugify_title(titre_rss))
     return out
 
 
@@ -193,9 +204,9 @@ def rank_subjects(
 ) -> list[dict]:
     """Retourne UN représentant par sujet, trié par intérêt journalistique.
 
-    Les sujets rejetés très récemment sont exclus uniquement si leur slug est
-    exactement celui obtenu à partir du titre courant. Ce cooldown économise le
-    quota sans élargir ni assouplir aucun critère éditorial.
+    Les sujets rejetés très récemment sont exclus uniquement si le titre RSS
+    courant correspond exactement à un identifiant exact connu du rejet. Ce
+    cooldown économise le quota sans élargir ni assouplir aucun critère éditorial.
     """
     if not candidats:
         return []
