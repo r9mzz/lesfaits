@@ -9,6 +9,9 @@ on:
       - "scripts/test_publication_time_legacy_rebuild.py"
       - "scripts/repair_jsonld_modified_dates.py"
       - "scripts/test_repair_jsonld_modified_dates.py"
+      - "scripts/repair_publication_time_overrides.py"
+      - "scripts/normalize_feed_pubdates.py"
+      - "scripts/test_feed_pubdates.py"
       - "scripts/test_publication_times_workflow_contract.py"
       - ".github/workflows/publication-times.yml"
   workflow_dispatch:
@@ -37,12 +40,16 @@ jobs:
             scripts/test_publication_time_legacy_rebuild.py \
             scripts/repair_jsonld_modified_dates.py \
             scripts/test_repair_jsonld_modified_dates.py \
+            scripts/repair_publication_time_overrides.py \
+            scripts/normalize_feed_pubdates.py \
+            scripts/test_feed_pubdates.py \
             scripts/test_publication_times_workflow_contract.py
       - name: Tester l’horodatage public
         run: |
           python scripts/test_stamp_publication_times.py
           python scripts/test_publication_time_legacy_rebuild.py
           python scripts/test_repair_jsonld_modified_dates.py
+          python scripts/test_feed_pubdates.py
           python scripts/test_publication_times_workflow_contract.py
 
   stamp:
