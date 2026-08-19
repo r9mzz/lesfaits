@@ -88,10 +88,11 @@ def normalize(
     check: bool = False,
     build_time: dt.datetime | None = None,
 ) -> dict[str, int]:
-    # Répare d'abord les rares cas où l'heure de génération a déjà remplacé
-    # l'heure du premier commit public. En mode --check, cette étape reste
-    # strictement en lecture seule et échoue si l'état n'est pas canonique.
-    canonical_times.apply(root, check=check)
+    # La réparation est une étape de normalisation, jamais une opération de
+    # contrôle. Le mode --check reste strictement en lecture seule ; lors d'un
+    # déploiement, l'appel normal précède déjà immédiatement le --check.
+    if not check:
+        canonical_times.apply(root)
 
     feed = root / "feed.xml"
     articles = root / "articles"
