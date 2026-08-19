@@ -1248,9 +1248,29 @@ _PR_MARQUE_RE = re.compile(
 # pas ce que Les Faits cherche à traiter. On rétrograde plutôt que d'exclure :
 # un festival peut avoir une portée réelle (financement public, polémique).
 _DIVERTISSEMENT_RE = re.compile(
-    r"\b(?:s[ée]rie|saison \d|[ée]pisode|casting|acteur|actrice|r[ée]alisateur"
+    # ⚠ « épisode » NU a été retiré le 19/08 : en français il désigne aussi un
+    # épisode épidémique, caniculaire ou pluvieux. Mesuré sur les 153 articles
+    # publiés — son unique déclenchement était « Hantavirus : l'OMS déclare la
+    # fin de l'épisode lié au navire de croisière », qui écopait de −30. Le
+    # malus frappait donc exactement les sujets d'intérêt public que le barème
+    # doit faire remonter. `épisode \d` garde le sens sériel voulu.
+    r"\b(?:s[ée]rie|saison \d|[ée]pisode \d|casting|acteur|actrice|r[ée]alisateur"
     r"|box[- ]office|blockbuster|spin[- ]off|reboot|tr[ai]iler"
-    r"|album|clip|tourn[ée]e|concert|festival|jeu vid[ée]o|streaming)\b",
+    r"|album|clip|tourn[ée]e|concert|festival|jeu vid[ée]o|streaming"
+    # ── 19/08 : le cinéma et le matériel de jeu manquaient ──────────────────
+    # Constat de Nahil sur le run 241 : « Dune 3 : voici ce que vous allez
+    # rater » et « Votre setup mérite mieux : ce casque gaming » sortaient à
+    # 50-60 points, à égalité avec le piratage du fisc (678 000 contribuables).
+    # Le motif ne connaissait que la série télé et le « jeu vidéo » écrit en
+    # toutes lettres — ni « film », ni « cinéma », ni « gaming ».
+    # Mesuré AVANT ajout sur les 153 articles publiés : 2 déclenchements
+    # (1 %), et ce sont précisément les deux qu'on veut rétrograder —
+    # « Obsessed Fest » d'Amazon Prime Video (l'article qui a motivé
+    # `_PR_MARQUE_RE`) et l'adaptation de L'Odyssée par Nolan.
+    # Reste une RÉTROGRADATION, jamais un rejet : un film peut avoir une
+    # portée réelle, et le bonus d'enjeu public la lui rend.
+    r"|film|cin[ée]ma|long[- ]m[ée]trage|bande[- ]annonce|gaming|console"
+    r"|manga|s[ée]rie t[ée]l[ée]|plateforme de streaming)\b",
     re.IGNORECASE,
 )
 
@@ -1267,7 +1287,16 @@ _ENJEU_PUBLIC_RE = re.compile(
     r"|h[ôo]pital|[ée]cole|logement|transport|[ée]nergie|climat|pollution"
     r"|[ée]missions|biodiversit[ée]|s[ée]cheresse|canicule"
     r"|essai clinique|vaccin|[ée]pid[ée]mie|mortalit[ée]|pr[ée]valence"
-    r"|ch[ôo]mage|salaire|pouvoir d'achat|in[ée]galit[ée]s|pauvret[ée])\b",
+    r"|ch[ôo]mage|salaire|pouvoir d'achat|in[ée]galit[ée]s|pauvret[ée]"
+    # ── 19/08 : tout le champ cyber/données personnelles manquait ───────────
+    # « Piratage du fisc : 678 000 contribuables » ne déclenchait AUCUN
+    # marqueur d'enjeu public — ni dans le titre, ni dans le corps. Une
+    # atteinte aux données de centaines de milliers de personnes est
+    # pourtant exactement ce que ce bonus est censé faire remonter.
+    # Mesuré AVANT ajout sur les 153 articles publiés : 1 déclenchement (1 %).
+    r"|piratage|pirat[ée]|cyberattaque|cyber[- ]?s[ée]curit[ée]"
+    r"|donn[ée]es personnelles|fuite de donn[ée]es|violation de donn[ée]es"
+    r"|ran[çc]ongiciel|ransomware|rgpd)\b",
     re.IGNORECASE,
 )
 
