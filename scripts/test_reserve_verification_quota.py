@@ -69,9 +69,20 @@ class ReservedVerificationQuotaTests(unittest.TestCase):
             with reserved_verification_quota(6, fake):
                 pass
 
-
-if __name__ == "__main__":
-    unittest.main(verbosity=2)
+    def test_blank_llm_api_key_keeps_groq_reservation_enabled(self):
+        env = {
+            "GROQ_API_KEY": "writer-1",
+            "GROQ_API_KEY_2": "writer-2",
+            "GROQ_API_KEY_3": "writer-3",
+            "GROQ_API_KEY_4": "check-1",
+            "GROQ_API_KEY_5": "check-2",
+            "LLM_API_KEY": "   ",
+        }
+        fake = types.SimpleNamespace(GROQ_KEYS=[])
+        with patch.dict(os.environ, env, clear=True):
+            with reserved_verification_quota(2, fake) as state:
+                self.assertTrue(state["enabled"])
+                self.assertEqual(fake.GROQ_KEYS[:2], ["check-1", "check-2"])
 
 
 class ProviderUniqueTest(unittest.TestCase):
@@ -88,7 +99,7 @@ class ProviderUniqueTest(unittest.TestCase):
         env = {f"GROQ_API_KEY_{i}": f"groq{i}" for i in range(2, 9)}
         env["GROQ_API_KEY"] = "groq1"
         env["LLM_API_KEY"] = "cle-fournisseur"
-        with patch.dict(os.environ, env, clear=False):
+        with patch.dict(os.environ, env, clear=True):
             with reserved_verification_quota(2, verification_module=fake) as info:
                 self.assertFalse(info["enabled"])
                 self.assertEqual(fake.GROQ_KEYS, ["cle-fournisseur"])
@@ -98,4 +109,4 @@ class ProviderUniqueTest(unittest.TestCase):
 
 
 if __name__ == "__main__":
-    unittest.main()
+    unittest.main(verbosity=2)
