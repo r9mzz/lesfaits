@@ -6,6 +6,12 @@ uniquement la même résolution fournisseur/modèle que ``pipeline.py`` puis
 expose le module historique comme ``verification``. Ainsi les fonctions du
 fact-checker gardent leurs globals et les patches runtime V3 continuent de
 modifier le vrai ``PROMPT_DETECTION``.
+
+Sécurité de publication : une vérification indisponible ne doit jamais être
+interprétée comme un feu vert. Le moteur historique conservait un comportement
+fail-open (``erreur_verification`` / ``non_verifie`` publiables). Le wrapper
+fournisseur transforme désormais ces états en rejet qualité, sans modifier les
+seuils éditoriaux ni le contenu de l'article.
 """
 from __future__ import annotations
 
@@ -32,6 +38,42 @@ if _BASE_URL:
     _verification.GROQ_URL = _BASE_URL.rstrip("/") + "/chat/completions"
 else:
     _verification.GROQ_URL = "https://api.groq.com/openai/v1/chat/completions"
+
+# Le moteur historique publiait explicitement en cas d'échec API de détection
+# (et pouvait aussi publier après une erreur de correction si aucun bloquant
+# n'était encore connu). Avec un fournisseur invalide, le run du 19/08 a produit
+# une série de 401 tout en journalisant « publié sans vérification ». La règle de
+# sécurité est désormais simple : si le fact-check n'a pas abouti, l'article ne
+# peut pas être publié automatiquement.
+_verification._provider_original_verifier_article = _verification.verifier_article
+
+
+def _provider_fail_closed_verifier_article(*args, **kwargs):
+    article, statut = _verification._provider_original_verifier_article(*args, **kwargs)
+    if statut in {"erreur_verification", "non_verifie"}:
+        slug = article.get("slug", "?") if isinstance(article, dict) else "?"
+        print(
+            f"     [REJET QUALITÉ] vérification indisponible ({statut}) — "
+            "publication automatique interdite"
+        )
+        try:
+            _verification._log(
+                slug,
+                "rejete_qualite",
+                {
+                    "raison": "verification_indisponible",
+                    "statut_verification_initial": statut,
+                },
+            )
+        except Exception:
+            # La journalisation ne doit jamais transformer un rejet sûr en
+            # nouvelle erreur de runtime.
+            pass
+        return article, "rejete_qualite"
+    return article, statut
+
+
+_verification.verifier_article = _provider_fail_closed_verifier_article
 
 # Important : renvoyer le vrai module historique, pas une copie de ses symboles.
 # Les fonctions importées conservent ainsi leurs globals, et
