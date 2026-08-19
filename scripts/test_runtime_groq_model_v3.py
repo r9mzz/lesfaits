@@ -83,12 +83,20 @@ def main() -> None:
         "— chaque appel échouerait en 404."
     )
     assert _juge_m != _red_m, "Juge et rédacteur doivent rester distincts sous tout fournisseur."
-    assert '"groq/compound": 8_000' in pipeline, (
-        "Le plafond runtime de groq/compound doit rester aligné sur le compteur servi gpt-oss-120b à 8 000 TPM."
-    )
-    assert '"groq/compound-mini": 8_000' in pipeline, (
-        "Le plafond runtime de groq/compound-mini doit rester à 8 000 TPM tant qu'aucune mesure contraire n'est validée."
-    )
+    # ⚠ 19/08 — ces deux contrôles lisaient le TEXTE SOURCE de pipeline.py.
+    # La table des fenêtres a déménagé dans `fenetres_modeles.py` (le
+    # fact-checker en a besoin aussi, il portait la valeur Groq en dur) et le
+    # test a cassé alors que la propriété protégée était intacte. On lit
+    # désormais la VALEUR, pas la ligne de code : elle survit à un
+    # déplacement, à un reformatage, et dit ce qu'on veut vraiment garantir.
+    from fenetres_modeles import _TPM_PAR_MODELE_GEN
+
+    for _m in ("groq/compound", "groq/compound-mini"):
+        assert _TPM_PAR_MODELE_GEN.get(_m) == 8_000, (
+            f"Le plafond runtime de {_m} doit rester aligné sur le compteur "
+            "réellement servi (gpt-oss-120b, 8 000 TPM) : les 70 000 de la "
+            "grille tarifaire ne décrivent pas ce qui nous rejette."
+        )
 
     print("OK — modèles Groq runtime, juge de pertinence et plafonds TPM verrouillés")
 

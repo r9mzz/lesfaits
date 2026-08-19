@@ -31,6 +31,7 @@ import os, re, json, time
 from datetime import datetime
 from pathlib import Path
 
+from fenetres_modeles import FENETRE_PAR_DEFAUT, _TPM_PAR_MODELE_GEN
 from json_robuste import _echapper_controles_json
 import requests
 
@@ -273,7 +274,23 @@ def _llm_call(prompt: str, max_tokens: int = 6000) -> str:
     # la réservation à ce que la fenêtre laisse après le prompt (~3,3 car/token
     # en français, marge de sécurité incluse dans le plafond 11 500).
     prompt_estime = int(len(prompt) / _CHARS_PAR_TOKEN)
-    max_tokens = max(1500, min(max_tokens, 11_500 - prompt_estime))
+    # ⚠ 19/08 — cette borne portait 11 500 EN DUR, c'est-à-dire la fenêtre de
+    # Groq, dans un pipeline qui tourne désormais sur Mistral (500 000). Effet
+    # mesuré sur les prompts réels des runs du jour :
+    #
+    #     correction, prompt 5 200 tk  →  4 500 accordés   (demandé 4 500)
+    #     correction, prompt 7 300 tk  →  4 200 accordés   ⚠ raboté
+    #     correction, prompt 9 000 tk  →  2 500 accordés   ⚠ raboté
+    #
+    # Or le correcteur réécrit l'article ENTIER plus sa liste de sources : à
+    # 2 500 tokens il tronque, le JSON devient invalide, et ça ressort en
+    # « Erreur API correction » — vu deux fois le 19/08, sur les articles les
+    # plus longs précisément. Même effet inversé que la famine de complétion du
+    # 15/08 : plus l'article est riche, plus on l'étrangle.
+    #
+    # La fenêtre se lit maintenant dans la table PARTAGÉE avec la génération.
+    _fenetre = _TPM_PAR_MODELE_GEN.get(GROQ_MODEL, FENETRE_PAR_DEFAUT)
+    max_tokens = max(1500, min(max_tokens, _fenetre - 500 - prompt_estime))
     MAX_CYCLES, WAIT = 2, 62
     last_err = None
     for cycle in range(MAX_CYCLES):
