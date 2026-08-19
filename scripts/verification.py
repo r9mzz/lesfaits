@@ -39,6 +39,46 @@ if _BASE_URL:
 else:
     _verification.GROQ_URL = "https://api.groq.com/openai/v1/chat/completions"
 
+# Le run du 19/08 a montré une asymétrie réelle entre génération et
+# vérification : la génération savait continuer avec une autre clé Groq, mais le
+# fact-checker historique levait immédiatement sur le premier 401/403. Une seule
+# clé révoquée en tête de liste rendait donc TOUTE vérification indisponible,
+# même lorsque des clés suivantes restaient valides. On conserve le fail-closed
+# si aucune clé ne fonctionne, mais on écarte désormais seulement la clé dont
+# l'authentification a réellement échoué puis on réessaie avec la suivante.
+_verification._provider_original_llm_call = _verification._llm_call
+
+
+def _provider_auth_rotating_llm_call(*args, **kwargs):
+    while True:
+        try:
+            return _verification._provider_original_llm_call(*args, **kwargs)
+        except RuntimeError as exc:
+            message = str(exc)
+            if not (message.startswith("Groq 401:") or message.startswith("Groq 403:")):
+                raise
+
+            mortes = getattr(_verification, "_CLES_MORTES_JOUR", set())
+            vivantes = [k for k in _verification.GROQ_KEYS if k not in mortes]
+            if not vivantes:
+                raise
+
+            cle_invalide = vivantes[0]
+            _verification.GROQ_KEYS = [
+                k for k in _verification.GROQ_KEYS if k != cle_invalide
+            ]
+            print(
+                "     [VERIF] clé refusée par authentification (401/403) — "
+                "retirée de la rotation pour ce processus"
+            )
+            if not _verification.GROQ_KEYS:
+                raise RuntimeError(
+                    "Aucune clé de vérification valide après erreur d'authentification"
+                ) from exc
+
+
+_verification._llm_call = _provider_auth_rotating_llm_call
+
 # Le moteur historique publiait explicitement en cas d'échec API de détection
 # (et pouvait aussi publier après une erreur de correction si aucun bloquant
 # n'était encore connu). Avec un fournisseur invalide, le run du 19/08 a produit
