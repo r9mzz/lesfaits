@@ -1293,9 +1293,20 @@ _DIVERTISSEMENT_RE = re.compile(
     # Reste une RÉTROGRADATION, jamais un rejet : un film peut avoir une
     # portée réelle, et le bonus d'enjeu public la lui rend.
     r"|film|cin[ée]ma|long[- ]m[ée]trage|bande[- ]annonce|gaming|console"
-    r"|manga|s[ée]rie t[ée]l[ée]|plateforme de streaming)\b",
+    # ⚠ 19/08 : `)\b` manquait TOUS les pluriels — « séries », « films »,
+    # « concerts » ne déclenchaient rien. Même classe que le bug singulier/
+    # pluriel du filtre anti-doublon (26/07), et la même leçon : ne jamais
+    # s'en remettre à une correspondance de mot strict en français.
+    r"|manga|s[ée]rie t[ée]l[ée]|plateforme de streaming)s?\b",
     re.IGNORECASE,
 )
+
+# Titre qui interpelle le lecteur au lieu de rapporter un fait. N'a de valeur
+# de signal QUE combiné à l'absence d'enjeu public — voir le commentaire au
+# point d'application dans `score_editorial`.
+_ADRESSE_LECTEUR_RE = re.compile(
+    r"\b(?:votre|vos|vous)\b|\bje\b|\bn'importe qui\b", re.IGNORECASE)
+
 
 # ── Enjeu public : le signal POSITIF qui manquait au barème ──────────────────
 # Le barème ne récompensait que des propriétés de forme (source connue,
@@ -1304,7 +1315,7 @@ _DIVERTISSEMENT_RE = re.compile(
 # Ce bonus est ce qui doit faire remonter un rapport de la Cour des comptes
 # au-dessus d'un communiqué de plateforme de streaming.
 _ENJEU_PUBLIC_RE = re.compile(
-    r"\b(?:d[ée]cret|loi\b|r[ée]forme|r[ée]glementation|directive|jugement"
+    r"\b(?:d[ée]cret|loi|r[ée]forme|r[ée]glementation|directive|jugement"
     r"|condamn[ée]|amende|enqu[êe]te|rapport|audit|plainte|proc[èe]s"
     r"|budget|financement|subvention|imp[ôo]t|taxe|cotisation|retraite"
     r"|h[ôo]pital|[ée]cole|logement|transport|[ée]nergie|climat|pollution"
@@ -1319,7 +1330,10 @@ _ENJEU_PUBLIC_RE = re.compile(
     # Mesuré AVANT ajout sur les 153 articles publiés : 1 déclenchement (1 %).
     r"|piratage|pirat[ée]|cyberattaque|cyber[- ]?s[ée]curit[ée]"
     r"|donn[ée]es personnelles|fuite de donn[ée]es|violation de donn[ée]es"
-    r"|ran[çc]ongiciel|ransomware|rgpd)\b",
+    # ⚠ 19/08 : sans `s?`, « site des impôts » ne déclenchait RIEN — c'est
+    # littéralement pourquoi « Piratage du fisc : 678 000 contribuables » est
+    # sorti à 52 points. Onze mots du barème mesurés, onze pluriels manqués.
+    r"|ran[çc]ongiciel|ransomware|rgpd)s?\b",
     re.IGNORECASE,
 )
 
@@ -1777,6 +1791,23 @@ def score_editorial(item: dict, source_name: str, published_topics: set) -> tupl
     elif _DIVERTISSEMENT_RE.search(debut):
         score -= 15
         reasons.append("-15 divertissement/culture-spectacle (contenu)")
+
+    # ── MALUS « ADRESSE AU LECTEUR SANS ENJEU » — 19/08 ─────────────────────
+    # Constat de Nahil sur le run 241 : « 300 000 € dorment sur ce site et
+    # n'importe qui peut les réclamer » et « Un été au Groenland : je… »
+    # tenaient le milieu de tableau. Ces titres ne rapportent pas un fait, ils
+    # interpellent — c'est la grammaire du putaclic, pas celle d'une dépêche.
+    #
+    # ⚠ CONDITIONNÉ À L'ABSENCE D'ENJEU PUBLIC, et c'est tout l'intérêt.
+    # Mesuré sur les 153 articles publiés : 1 seul titre s'adresse au lecteur,
+    # « Changements au 1er août pour votre budget » — un article de SERVICE sur
+    # des mesures publiques, parfaitement légitime. Un malus sec l'aurait
+    # rétrogradé à tort. Il porte « budget », donc un marqueur d'enjeu, donc il
+    # est épargné : le défaut visé n'est pas le « vous », c'est le « vous »
+    # SANS rien d'autre. Taux de déclenchement sur le corpus publié : 0/153.
+    if poids == 0 and _ADRESSE_LECTEUR_RE.search(item["title"]):
+        score -= 25
+        reasons.append("-25 s'adresse au lecteur sans enjeu public identifié")
 
     # ── MALUS SPORT-SPECTACLE / LIFESTYLE ────────────────────────────────────
     if _SPORT_LIFESTYLE_RE.search(item["title"]):
