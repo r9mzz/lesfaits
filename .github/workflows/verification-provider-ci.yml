@@ -12,6 +12,7 @@ on:
       - "scripts/test_verification_auth_rotation.py"
       - "scripts/test_reserve_verification_quota.py"
       - "scripts/test_json_sauts_de_ligne.py"
+      - "scripts/test_json_mode_verification.py"
       - "scripts/test_verification_json_ci_contract.py"
       - ".github/workflows/verification-provider-ci.yml"
   workflow_dispatch:
@@ -38,6 +39,7 @@ jobs:
           scripts/test_verification_auth_rotation.py
           scripts/test_reserve_verification_quota.py
           scripts/test_json_sauts_de_ligne.py
+          scripts/test_json_mode_verification.py
           scripts/test_verification_json_ci_contract.py
       - name: Tester alignement fournisseur et sécurité de publication
         run: |
@@ -46,4 +48,5 @@ jobs:
           python scripts/test_verification_auth_rotation.py
           python scripts/test_reserve_verification_quota.py
           python scripts/test_json_sauts_de_ligne.py
+          python scripts/test_json_mode_verification.py
           python scripts/test_verification_json_ci_contract.py
