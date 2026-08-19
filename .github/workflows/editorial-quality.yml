@@ -29,6 +29,8 @@ on:
       - "scripts/test_stamp_publication_times.py"
       - "scripts/test_summarize_pipeline_log.py"
       - "scripts/test_article_change_counts.py"
+      - "scripts/test_bareme_enjeu_divertissement.py"
+      - "scripts/test_bareme_selection_ci_contract.py"
       - ".github/workflows/pipeline.yml"
       - ".github/workflows/deploy.yml"
       - ".github/workflows/publication-times.yml"
@@ -83,6 +85,8 @@ jobs:
           scripts/test_stamp_publication_times.py
           scripts/test_summarize_pipeline_log.py
           scripts/test_article_change_counts.py
+          scripts/test_bareme_enjeu_divertissement.py
+          scripts/test_bareme_selection_ci_contract.py
 
       - name: Tests de non-régression éditoriale
         run: |
@@ -99,6 +103,8 @@ jobs:
           python scripts/test_stamp_publication_times.py
           python scripts/test_summarize_pipeline_log.py
           python scripts/test_article_change_counts.py
+          python scripts/test_bareme_enjeu_divertissement.py
+          python scripts/test_bareme_selection_ci_contract.py
 
       - name: Vérifier la lecture du corpus HTML
         run: |
