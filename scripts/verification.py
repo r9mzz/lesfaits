@@ -115,6 +115,25 @@ def _provider_fail_closed_verifier_article(*args, **kwargs):
 
 _verification.verifier_article = _provider_fail_closed_verifier_article
 
+# ── DIAGNOSTIC D'AUTHENTIFICATION (19/08) ─────────────────────────────────
+# Le run de 23h22 a généré 32 articles avec Mistral puis les a TOUS perdus sur
+# « Groq 401: {"detail":"Invalid API Key"} » au fact-check. Le format `detail`
+# est celui de Mistral : la requête arrivait donc bien chez lui, avec une clé
+# qu'il refusait — alors que la génération, qui lit la MÊME variable, passait.
+#
+# Sans savoir quelle clé part réellement, on ne peut que supposer, et le
+# protocole refuse de publier sans vérification : 32 articles écrits, zéro
+# publié. Cette ligne dit la provenance et l'empreinte de la clé, jamais la clé.
+def _empreinte(k: str) -> str:
+    return f"{k[:4]}…{k[-3:]} ({len(k)} car.)" if len(k) > 8 else "(vide ou trop courte)"
+
+
+print(f"     [VERIF-AUTH] cible={_verification.GROQ_URL} · modèle={_MODEL} · "
+      f"clés={len(_verification.GROQ_KEYS)} · "
+      f"source={'LLM_API_KEY' if _LLM_KEY else 'GROQ_API_KEY*'} · "
+      f"{_empreinte(_verification.GROQ_KEYS[0]) if _verification.GROQ_KEYS else 'AUCUNE'}",
+      flush=True)
+
 # Important : renvoyer le vrai module historique, pas une copie de ses symboles.
 # Les fonctions importées conservent ainsi leurs globals, et
 # run_pipeline_v3._patch_verification_evidence_scope() modifie bien le prompt
