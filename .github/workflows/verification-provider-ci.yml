@@ -7,6 +7,7 @@ on:
       - "scripts/verification_legacy.py"
       - "scripts/test_verification_provider.py"
       - "scripts/test_verification_fail_closed.py"
+      - "scripts/test_verification_auth_rotation.py"
       - ".github/workflows/verification-provider-ci.yml"
   workflow_dispatch:
 
@@ -21,8 +22,9 @@ jobs:
       - name: Installer dépendances minimales
         run: pip install requests
       - name: Compiler
-        run: python -m py_compile scripts/verification.py scripts/verification_legacy.py scripts/test_verification_provider.py scripts/test_verification_fail_closed.py
+        run: python -m py_compile scripts/verification.py scripts/verification_legacy.py scripts/test_verification_provider.py scripts/test_verification_fail_closed.py scripts/test_verification_auth_rotation.py
       - name: Tester alignement fournisseur et sécurité de publication
         run: |
           python scripts/test_verification_provider.py
           python scripts/test_verification_fail_closed.py
+          python scripts/test_verification_auth_rotation.py
