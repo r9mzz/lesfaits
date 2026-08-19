@@ -31,6 +31,8 @@ on:
       - "scripts/test_article_change_counts.py"
       - "scripts/test_bareme_enjeu_divertissement.py"
       - "scripts/test_bareme_selection_ci_contract.py"
+      - "scripts/test_json_generation_guillemets.py"
+      - "scripts/test_json_generation_ci_contract.py"
       - ".github/workflows/pipeline.yml"
       - ".github/workflows/deploy.yml"
       - ".github/workflows/publication-times.yml"
@@ -87,6 +89,8 @@ jobs:
           scripts/test_article_change_counts.py
           scripts/test_bareme_enjeu_divertissement.py
           scripts/test_bareme_selection_ci_contract.py
+          scripts/test_json_generation_guillemets.py
+          scripts/test_json_generation_ci_contract.py
 
       - name: Tests de non-régression éditoriale
         run: |
@@ -105,6 +109,8 @@ jobs:
           python scripts/test_article_change_counts.py
           python scripts/test_bareme_enjeu_divertissement.py
           python scripts/test_bareme_selection_ci_contract.py
+          python scripts/test_json_generation_guillemets.py
+          python scripts/test_json_generation_ci_contract.py
 
       - name: Vérifier la lecture du corpus HTML
         run: |
