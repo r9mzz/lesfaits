@@ -178,6 +178,13 @@
   }
 
   function demarrer() {
+    // La page de résultats (/recherche.html) a déjà son propre champ dédié
+    // (#search-input) et affiche les résultats complets sous lui. Y activer
+    // AUSSI la prévisualisation sur le champ du header duplique l'affichage
+    // et le fait recouvrir le titre « Résultats » quand une valeur y est
+    // encore tapée (17/08, capture Nahil) — sur cette page précise, le champ
+    // du header garde son comportement d'origine (Entrée → recherche.html).
+    if (document.getElementById("search-input")) return;
     [].forEach.call(document.querySelectorAll(".header__search-input"), init);
   }
 

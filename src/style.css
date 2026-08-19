@@ -110,7 +110,13 @@ textarea:focus-visible, [tabindex]:focus-visible {
 
 /* ── PRÉVISUALISATION DE RECHERCHE ── liste sous le champ du header */
 .search-preview { position: absolute; top: calc(100% + 6px); left: 0; right: 0; z-index: 300; background: var(--white); border: 1px solid var(--rule); border-radius: 10px; box-shadow: var(--shadow-card-hover); overflow: hidden; max-height: 60vh; overflow-y: auto; }
-.search-preview__item { display: grid; grid-template-columns: auto 1fr; align-items: center; gap: 10px; padding: 10px 12px; text-decoration: none; color: var(--ink); border-bottom: 1px solid var(--light); }
+/* Colonne badge en largeur FIXE, pas "auto" : une rubrique longue
+   (ENVIRONNEMENT, 13 lettres) réclamait sinon toute la largeur disponible
+   dans CETTE ligne précise (chaque item est son propre grid, une ligne ne
+   partage pas ses colonnes avec les autres) et écrasait le titre à côté,
+   invisible en pratique (17/08, capture Nahil). */
+.search-preview__item { display: grid; grid-template-columns: 78px 1fr; align-items: center; gap: 10px; padding: 10px 12px; text-decoration: none; color: var(--ink); border-bottom: 1px solid var(--light); }
+.search-preview__item .cat { white-space: normal; line-height: 1.3; text-align: center; }
 .search-preview__item:last-of-type { border-bottom: none; }
 .search-preview__item:hover, .search-preview__item.is-active { background: var(--light); }
 .search-preview__titre { font-size: 13px; line-height: 1.4; overflow: hidden; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; }
@@ -850,10 +856,10 @@ a:hover .title-xl, a:hover .title-md, a:hover .title-sm { color: var(--blue-ink)
 .methode__stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; }
 .nous-suivre__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
 .nav-mobile a {
-  font-size: 15px;
+  font-size: 14px;
   font-weight: 500;
   color: var(--ink);
-  padding: 12px 0;
+  padding: 9px 0;
   border-bottom: 1px solid var(--rule);
   opacity: .75;
 }
