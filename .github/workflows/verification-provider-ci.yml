@@ -5,11 +5,14 @@ on:
     paths:
       - "scripts/verification.py"
       - "scripts/verification_legacy.py"
+      - "scripts/json_robuste.py"
       - "scripts/reserve_verification_quota.py"
       - "scripts/test_verification_provider.py"
       - "scripts/test_verification_fail_closed.py"
       - "scripts/test_verification_auth_rotation.py"
       - "scripts/test_reserve_verification_quota.py"
+      - "scripts/test_json_sauts_de_ligne.py"
+      - "scripts/test_verification_json_ci_contract.py"
       - ".github/workflows/verification-provider-ci.yml"
   workflow_dispatch:
 
@@ -28,14 +31,19 @@ jobs:
           python -m py_compile
           scripts/verification.py
           scripts/verification_legacy.py
+          scripts/json_robuste.py
           scripts/reserve_verification_quota.py
           scripts/test_verification_provider.py
           scripts/test_verification_fail_closed.py
           scripts/test_verification_auth_rotation.py
           scripts/test_reserve_verification_quota.py
+          scripts/test_json_sauts_de_ligne.py
+          scripts/test_verification_json_ci_contract.py
       - name: Tester alignement fournisseur et sécurité de publication
         run: |
           python scripts/test_verification_provider.py
           python scripts/test_verification_fail_closed.py
           python scripts/test_verification_auth_rotation.py
           python scripts/test_reserve_verification_quota.py
+          python scripts/test_json_sauts_de_ligne.py
+          python scripts/test_verification_json_ci_contract.py
