@@ -6,6 +6,7 @@ on:
       - "scripts/verification.py"
       - "scripts/verification_legacy.py"
       - "scripts/json_robuste.py"
+      - "scripts/fenetres_modeles.py"
       - "scripts/reserve_verification_quota.py"
       - "scripts/test_verification_provider.py"
       - "scripts/test_verification_fail_closed.py"
@@ -13,6 +14,8 @@ on:
       - "scripts/test_reserve_verification_quota.py"
       - "scripts/test_json_sauts_de_ligne.py"
       - "scripts/test_json_mode_verification.py"
+      - "scripts/test_fenetre_correcteur.py"
+      - "scripts/test_fenetres_modeles_ci_contract.py"
       - "scripts/test_verification_json_ci_contract.py"
       - ".github/workflows/verification-provider-ci.yml"
   workflow_dispatch:
@@ -33,6 +36,7 @@ jobs:
           scripts/verification.py
           scripts/verification_legacy.py
           scripts/json_robuste.py
+          scripts/fenetres_modeles.py
           scripts/reserve_verification_quota.py
           scripts/test_verification_provider.py
           scripts/test_verification_fail_closed.py
@@ -40,6 +44,8 @@ jobs:
           scripts/test_reserve_verification_quota.py
           scripts/test_json_sauts_de_ligne.py
           scripts/test_json_mode_verification.py
+          scripts/test_fenetre_correcteur.py
+          scripts/test_fenetres_modeles_ci_contract.py
           scripts/test_verification_json_ci_contract.py
       - name: Tester alignement fournisseur et sécurité de publication
         run: |
@@ -49,4 +55,6 @@ jobs:
           python scripts/test_reserve_verification_quota.py
           python scripts/test_json_sauts_de_ligne.py
           python scripts/test_json_mode_verification.py
+          python scripts/test_fenetre_correcteur.py
+          python scripts/test_fenetres_modeles_ci_contract.py
           python scripts/test_verification_json_ci_contract.py
