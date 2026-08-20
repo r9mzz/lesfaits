@@ -61,9 +61,16 @@ verifie("trois événements distincts → trois retenus",
 
 # Un candidat que la veille n'a pas vu ne doit jamais être écarté à ce titre :
 # le bonus comme le dédoublonnage ne peuvent qu'AJOUTER de l'information.
-inconnus = [cand("Sujet A jamais vu par la veille"),
-            cand("Sujet B jamais vu par la veille"),
-            cand("Sujet C jamais vu par la veille")]
+# ⚠ 20/08 — ces trois titres étaient « Sujet A / B / C jamais vu par la
+# veille ». Ils partageaient donc « jamais » et « veille », et le filtre de
+# DIVERSITÉ ajouté ce jour les a écartés — non pas à cause de la veille, mais
+# parce qu'ils se ressemblaient littéralement. La fixture mesurait un artefact
+# d'elle-même. Trois sujets réellement distincts, comme le seraient de vrais
+# candidats, rendent au test ce qu'il prétend vérifier : l'absence de signal de
+# veille n'écarte personne.
+inconnus = [cand("Le Honduras place 80 % de son territoire en alerte"),
+            cand("Apple ouvre son App Store aux règles européennes"),
+            cand("Un trou noir géant conforte la théorie d'Einstein")]
 verifie("sans signal de veille, aucun candidat n'est écarté",
         len(P.selectionner_meilleurs(inconnus, nb_max=6)) == 3)
 

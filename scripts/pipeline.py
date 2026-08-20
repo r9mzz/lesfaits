@@ -2244,6 +2244,7 @@ def selectionner_meilleurs(
     # borné du bon côté — c'est ce qui rend ce branchement acceptable alors
     # qu'on refuse d'utiliser le même regroupement pour le bonus de score.
     grappes_vues: set = set()
+    titres_retenus: list[str] = []
     condamnes = _sujets_condamnes()
     if condamnes:
         print(f"     [ACHARNEMENT] {len(condamnes)} sujet(s) rejeté(s) "
@@ -2264,7 +2265,45 @@ def selectionner_meilleurs(
             print(f"     [DOUBLON RUN] même événement déjà retenu — "
                   f"« {item.get('title', '')[:64]} »")
             continue
+        # ── DIVERSITÉ DE LA UNE — 20/08, constat de Nahil ───────────────────
+        # « Avec plusieurs runs sur plusieurs jours, on a tout le temps les
+        # mêmes sujets, alors qu'il se passe des milliers de choses par jour. »
+        # Mesuré sur les 47 tentatives du 20/08 : 21 % canicule, 13 % piratage
+        # du fisc — 34 % du budget d'un jour sur DEUX événements, pendant que
+        # l'Ukraine, Apple/UE, la loi spéciale budgétaire et l'Arctique
+        # attendaient.
+        #
+        # Le rééquilibrage du barème a AGGRAVÉ ça mécaniquement : les dix
+        # dépêches d'un même gros sujet d'intérêt public montent toutes
+        # ensemble. Le filtre par grappe de veille ne les rattrape pas — les
+        # grappes se scindent (mesuré : 3 doublons attrapés sur 20).
+        #
+        # ⚠ CE N'EST PAS UNE QUATRIÈME HEURISTIQUE ANTI-DOUBLON. Les trois
+        # tentatives de 26/07, 28/07 et 02/08 visaient à REJETER un candidat
+        # définitivement, et échouaient parce que le discriminant n'est pas
+        # dans les titres (revérifié ce jour : le partage de CHIFFRES n'attrape
+        # qu'une paire sur dix). Ici on ne rejette rien : on REPORTE au run
+        # suivant, et le commentaire du filtre par grappe dit déjà pourquoi
+        # c'est acceptable — « un regroupement trop large ne fait que reporter
+        # un sujet, jamais publier un doublon. Le risque est borné du bon
+        # côté. » Un sujet écarté ici revient au créneau suivant s'il compte
+        # encore.
+        #
+        # Seuil 2 mesuré sur les titres réels du 20/08 : 6 sujets écartés sur
+        # 35, et le haut de liste passe de « quatre canicules » à canicule,
+        # piratage, Einstein, Moyen-Orient, Apple, Arctique, Ebola, Honduras.
+        # À 1 mot partagé on écarterait la moitié du vivier — trop.
+        _mots_item = _mots_distinctifs(item.get("title", ""))
+        _proche = next((t for t in titres_retenus
+                        if len(_mots_item & _mots_distinctifs(t)) >= DIVERSITE_MOTS_COMMUNS),
+                       None)
+        if _proche:
+            print(f"     [DIVERSITÉ] sujet voisin déjà retenu, reporté au run suivant — "
+                  f"« {item.get('title', '')[:56]} » ≈ « {_proche[:40]} »")
+            continue
+
         selection.append(item)
+        titres_retenus.append(item.get("title", ""))
         if _grappe:
             grappes_vues.add(_grappe)
         compteur[cat] = compteur.get(cat, 0) + 1
@@ -8100,6 +8139,32 @@ def audit_matiere(sources: list[dict], snippet_len: int = 950) -> dict:
         "redondance": round(redondants / total, 2) if total else 0.0,
         "donnees_chiffrees": len(chiffres),
     }
+
+
+# Deux sujets d'un même événement ne doivent pas occuper deux des 20 places
+# d'un run. Seuil mesuré sur les titres réels du 20/08 : à 2 mots distinctifs
+# partagés, 6 sujets écartés sur 35 et une une réellement variée ; à 1 mot, la
+# moitié du vivier disparaît.
+DIVERSITE_MOTS_COMMUNS = 2
+_DIVERSITE_STOP = {"pour", "dans", "avec", "les", "des", "une", "que", "qui",
+                   "sur", "plus", "son", "sont", "ont", "ete", "aux", "par",
+                   "est", "apres", "leur", "cette", "deja", "entre", "contre",
+                   "selon", "comme", "tout", "tous", "toute", "faire", "aussi"}
+
+
+def _mots_distinctifs(titre: str) -> set[str]:
+    """Mots > 4 lettres, sans accents, tronqués à 8 caractères.
+
+    ⚠ La troncature absorbe les variantes singulier/pluriel — leçon du 26/07 :
+    « néandertaliens » et « néandertalien » ne se rejoignaient pas en
+    comparaison stricte. Elle ne rapproche PAS « antillais » d'« antilles »,
+    limite connue et assumée : ce filtre ne prétend pas identifier un
+    événement, seulement éviter d'empiler deux dépêches jumelles.
+    """
+    t = unicodedata.normalize("NFD", (titre or "").lower())
+    t = "".join(c for c in t if unicodedata.category(c) != "Mn")
+    return {w[:8] for w in re.findall(r"[a-z]+", t)
+            if len(w) > 4 and w not in _DIVERSITE_STOP}
 
 
 def _lot_entierement_juge_sans_source_precise(extra: list[dict], juge_max: int) -> bool:
