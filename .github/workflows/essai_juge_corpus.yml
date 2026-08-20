@@ -1,0 +1,48 @@
+name: Juge — relecture de nos meilleurs articles
+
+# Départage les deux lectures possibles des rejets depuis le passage à Mistral :
+# le rédacteur commet-il de vraies erreurs, ou le juge est-il plus sévère ?
+# On ne peut pas trancher sur les runs, puisqu'on a changé le rédacteur ET le
+# juge en même temps. Ce job tient le TEXTE fixe : il fait relire par le juge
+# actuel des articles écrits par Llama et déjà publiés.
+#
+# N'ÉCRIT RIEN — aucun article créé, modifié ou republié, aucun commit.
+# Coût : ~25 appels de détection, soit une fraction d'un run de génération.
+on:
+  workflow_dispatch:
+    inputs:
+      max:
+        description: "Limiter l'échantillon (0 = tout le lot)"
+        required: false
+        default: "0"
+        type: string
+
+jobs:
+  juge:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: pip install -r requirements.txt
+      - name: Relire nos meilleurs articles avec le juge actuel
+        env:
+          GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
+          LLM_BASE_URL: ${{ vars.LLM_BASE_URL }}
+          LLM_API_KEY: ${{ secrets.LLM_API_KEY }}
+          GROQ_MODEL_OVERRIDE: ${{ vars.GROQ_MODEL_OVERRIDE }}
+          PYTHONIOENCODING: utf-8
+        run: |
+          ARGS=""
+          if [ "${{ inputs.max }}" != "0" ] && [ -n "${{ inputs.max }}" ]; then
+            ARGS="--max ${{ inputs.max }}"
+          fi
+          python scripts/essai_juge_corpus.py $ARGS 2>&1 | tee "${RUNNER_TEMP}/juge.log"
+          {
+            echo '## Relecture de nos meilleurs articles'
+            echo '```'
+            tail -40 "${RUNNER_TEMP}/juge.log"
+            echo '```'
+          } >> "$GITHUB_STEP_SUMMARY"
