@@ -213,6 +213,7 @@ def main() -> int:
     print("=" * 76)
 
     total_pb, recales, lus = 0, 0, 0
+    echecs: list[tuple[str, str]] = []
     motifs: dict[str, int] = {}
     for slug in slugs:
         art = lire_article(slug)
@@ -220,12 +221,19 @@ def main() -> int:
             print(f"\n  {slug[:52]:54} (illisible — ignoré)")
             continue
         fmt = format_publie(slug)
-        lus += 1
         try:
             rapport = V.detecter(art, article_type=fmt)
         except Exception as e:  # noqa: BLE001
-            print(f"\n  {slug[:52]:54} ERREUR {type(e).__name__}: {str(e)[:60]}")
+            # ⚠ NE PAS compter cet article. Première version : `lus` était
+            # incrémenté AVANT l'appel, si bien que 21 échecs d'API sur 22 ont
+            # produit « 0/22 de nos MEILLEURS articles seraient recalés » —
+            # une conclusion nette et entièrement fausse. Un instrument de
+            # mesure qui confond « aucun problème » et « aucune réponse » est
+            # pire que pas d'instrument du tout.
+            echecs.append((slug, f"{type(e).__name__}: {str(e)[:70]}"))
+            print(f"\n  ⚠ ERREUR  {slug[:44]:46} {type(e).__name__}: {str(e)[:60]}")
             continue
+        lus += 1
         pbs = rapport.get("problemes") or []
         blocs = [p for p in pbs if p.get("gravite") in ("bloquant", "majeur")]
         total_pb += len(pbs)
@@ -238,9 +246,16 @@ def main() -> int:
         for p in blocs[:2]:
             print(f"        └ {p.get('type')} : {str(p.get('description'))[:88]}")
 
+    if echecs:
+        print(f"\n  ⚠ {len(echecs)} article(s) n'ont PAS pu être jugés — ils sont")
+        print("    exclus du calcul, jamais comptés comme validés.")
+        print(f"    Première cause : {echecs[0][1]}")
     if not lus:
-        print("\nAucun article lisible — rien à conclure.")
-        return 0
+        print("\n" + "=" * 76)
+        print("AUCUN article n'a pu être jugé — ce run ne dit RIEN sur le juge.")
+        print("Ne pas lire ce résultat comme « le juge valide tout ».")
+        print("=" * 76)
+        return 1
 
     print("\n" + "=" * 76)
     print(f"RÉSULTAT : {recales}/{lus} de nos MEILLEURS articles seraient recalés")

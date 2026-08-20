@@ -32,7 +32,14 @@ jobs:
           GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
           LLM_BASE_URL: ${{ vars.LLM_BASE_URL }}
           LLM_API_KEY: ${{ secrets.LLM_API_KEY }}
-          GROQ_MODEL_OVERRIDE: ${{ vars.GROQ_MODEL_OVERRIDE }}
+          # ⚠ GROQ_MODEL_OVERRIDE n'est VOLONTAIREMENT pas transmis. Le premier
+          # essai l'a passé et la variable de dépôt porte un nom de modèle GROQ
+          # (`openai/gpt-oss-120b`), envoyé tel quel à Mistral :
+          #     Groq 400: {"object":"error","message":"Invalid model: openai…"}
+          # 21 des 22 relectures ont échoué. Sans override, le shim choisit le
+          # défaut du fournisseur — `mistral-large-latest`, exactement le juge
+          # que les runs de génération ont réellement utilisé. C'est ce juge-là
+          # qu'on veut mesurer, pas un autre.
           PYTHONIOENCODING: utf-8
         run: |
           ARGS=""
