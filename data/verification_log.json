@@ -13106,5 +13106,206 @@
     "veille_passages": 31,
     "veille_age_h": 33.9,
     "veille_n_flux_grappe": 1
+  },
+  {
+    "slug": "igf-rapport-risques-loi-finances-speciale-2027",
+    "statut": "rejete_qualite",
+    "date": "2026-08-20T22:28:30",
+    "problemes_initiaux": 10,
+    "tentatives": 3,
+    "problemes_restants": 11,
+    "bloquants_restants": 3,
+    "bloquants_types": [
+      "annonce_perimee",
+      "niveau_preuve_insuffisant",
+      "accusation_presentee_comme_fait"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "annonce_perimee",
+        "description": "Le résumé présente la prolongation comme une hypothèse future (« priverait »), alors que le corps de l'article (section « faits ») décrit le rapport de l'IGF comme déjà publié et confirmant ces risques (état actuel, non ",
+        "phrase": "Un rapport de l'Inspection générale des finances (IGF), publié le 20 août 2026, confirme que la prolongation en 2027 de la loi de finances spéciale adoptée le 26 décembre 2025 priverait l'État et les collectivités territ"
+      },
+      {
+        "bloc": 1,
+        "type": "niveau_preuve_insuffisant",
+        "description": "L'article présente ces risques comme des conclusions établies du rapport de l'IGF, sans préciser si ces éléments sont des hypothèses, des scénarios modélisés, ou des constats étayés par des données. La source [1] (Le Mon",
+        "phrase": "Le rapport de l'IGF met en avant plusieurs risques concrets : l'impossibilité de moduler les impôts ou de mettre en place des mesures sociales ciblées, des outils nécessaires pour ajuster la politique économique."
+      },
+      {
+        "bloc": 1,
+        "type": "accusation_presentee_comme_fait",
+        "description": "L'article présente comme un fait établi (« ne confirme pas explicitement ») une interprétation de l'avis du Conseil d'État, sans citer la source [4] pour étayer cette affirmation. Cela relève d'une conclusion de la rédac",
+        "phrase": "Le Conseil d'État a rendu un avis en août 2026 sur les modalités d'application d'une loi spéciale, mais son contenu exact ne confirme pas explicitement l'absence de consultation du Haut Conseil des finances publiques."
+      }
+    ],
+    "types_restants": [
+      "annonce_perimee",
+      "source_inventee",
+      "niveau_preuve_insuffisant",
+      "accusation_presentee_comme_fait",
+      "source_derivee_comptee_comme_primaire",
+      "compteur_incoherent",
+      "cadrage_emprunte",
+      "redondance",
+      "contexte_hors_sujet",
+      "faux_debat",
+      "extrapolation"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "faits_repetitifs"
+    ],
+    "titre": "Budget 2027 : l'IGF alerte sur des risques majeurs en cas de loi spéciale prolongée",
+    "n_sources": 4,
+    "n_mots": 631,
+    "titre_rss": "Absence de budget et loi spéciale prolongée : l’inspection générale des finances alerte sur des « risques majeurs »",
+    "matiere_faits_distincts": 453,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "n_sources_pertinentes": 3,
+    "veille_heures_visible": 2.9,
+    "veille_passages": 4,
+    "veille_age_h": 3.6,
+    "veille_n_flux_grappe": 4
+  },
+  {
+    "slug": "logement-etudiant-60-pourcent-annonces-non-conformes",
+    "statut": "rejete_sensible",
+    "date": "2026-08-20T22:35:27",
+    "problemes_initiaux": 15,
+    "tentative": 1,
+    "bloc5": true,
+    "article_type": "actu",
+    "titre": "Logement étudiant : 60 % des annonces non conformes à la loi",
+    "n_sources": 6,
+    "n_mots": 574,
+    "titre_rss": "Logements : pour les étudiants, un monde sans toit ni loi",
+    "matiere_faits_distincts": 757,
+    "matiere_redondance": 0.05,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "n_sources_pertinentes": 3,
+    "veille_heures_visible": 2.0,
+    "veille_passages": 3,
+    "veille_age_h": 2.7,
+    "veille_n_flux_grappe": 1
+  },
+  {
+    "slug": "groupe-cesi-impact-economique-1-milliard-euros-emplois",
+    "statut": "erreur_verification",
+    "date": "2026-08-20T22:44:18",
+    "etape": "detection",
+    "erreur": "JSON tronqué ou incomplet dans la réponse (max_tokens atteint ?)",
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "resume_repete_corps"
+    ],
+    "titre": "Le groupe Cesi génère 1 milliard d'euros de PIB annuel et 36 000 emplois",
+    "n_sources": 6,
+    "n_mots": 502,
+    "titre_rss": "Un campus, combien ça rapporte ? Le poids économique insoupçonné des universités pour les territoires",
+    "matiere_faits_distincts": 882,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 3,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "n_sources_pertinentes": 3,
+    "veille_heures_visible": 60.7,
+    "veille_passages": 57,
+    "veille_age_h": 61.4,
+    "veille_n_flux_grappe": 1
+  },
+  {
+    "slug": "groupe-cesi-impact-economique-1-milliard-euros-emplois",
+    "statut": "rejete_qualite",
+    "date": "2026-08-20T22:44:18",
+    "raison": "verification_indisponible",
+    "statut_verification_initial": "erreur_verification"
+  },
+  {
+    "slug": "rdc-70000-doses-vaccin-ervebo-souche-bundibugyo-ebola",
+    "statut": "rejete_qualite",
+    "date": "2026-08-20T22:50:28",
+    "problemes_initiaux": 13,
+    "tentatives": 3,
+    "problemes_restants": 11,
+    "bloquants_restants": 2,
+    "bloquants_types": [
+      "niveau_preuve_insuffisant",
+      "niveau_preuve_insuffisant"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "niveau_preuve_insuffisant",
+        "description": "La phrase ne précise pas le stade des études précliniques (in vitro, modèle animal) ni leurs limites méthodologiques, alors que la source [2] (WHO Ebola outbreak - DRC 2026) détaille probablement ces éléments. Le niveau ",
+        "phrase": "Selon l'OMS, des études précliniques en laboratoire ont suggéré une possible réactivité croisée d'Ervebo, mais ces résultats n'ont pas été confirmés par des essais cliniques chez l'humain [1][2]."
+      },
+      {
+        "bloc": 1,
+        "type": "niveau_preuve_insuffisant",
+        "description": "Même problème que ci-dessus : absence de détails sur le stade des études précliniques (ex. : modèle animal spécifique) ou leurs limites, alors que la source [2] les précise probablement.",
+        "phrase": "Selon l'OMS, des études précliniques en laboratoire ont montré une possible réactivité croisée, mais ces résultats n'ont pas encore été validés par des essais cliniques chez l'humain, lesquels sont actuellement en cours "
+      }
+    ],
+    "types_restants": [
+      "niveau_preuve_insuffisant",
+      "niveau_preuve_insuffisant",
+      "chronologie_confuse",
+      "contexte_hors_sujet",
+      "extrapolation",
+      "source_derivee_comptee_comme_primaire",
+      "compteur_incoherent",
+      "cadrage_emprunte",
+      "redondance",
+      "section_gonflee",
+      "section_gonflee"
+    ],
+    "article_type": "actu",
+    "titre": "RDC : 70 000 doses de vaccin Ervebo contre une souche non ciblée",
+    "n_sources": 5,
+    "n_mots": 454,
+    "titre_rss": "Ebola en RDC : l’OMS déploie 70 000 doses du vaccin Ervebo",
+    "matiere_faits_distincts": 885,
+    "matiere_redondance": 0.02,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "n_sources_pertinentes": 4,
+    "veille_heures_visible": 6.6,
+    "veille_passages": 21,
+    "veille_age_h": 7.3,
+    "veille_n_flux_grappe": 3
+  },
+  {
+    "slug": "piratage-site-impots-donnees-sensibles-failles-etat",
+    "statut": "rejete_qualite",
+    "date": "2026-08-20T22:55:51",
+    "tentative": 2,
+    "angle_insuffisant": true,
+    "raison": "Aucune phrase dans la section \"faits\" ne combine un événement précis daté ou datable avec une donnée chiffrée ou nommée qui lui est propre. L'article décrit des signalements parlementaires et des alertes génériques sans fournir de détails concrets sur un piratage avéré, des données exposées ou des mesures spécifiques annoncées. Il répond à \"qu'est-ce que ces signalements révèlent ?\" plutôt qu'à \"pourquoi en parle-t-on maintenant ?\" ou \"quelles failles ont été confirmées ?\".",
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "titre_de_mauvaise_qualite"
+    ],
+    "titre": "Piratage des impôts : des données sensibles exposées et des questions sur la protection de l'État",
+    "n_sources": 8,
+    "n_mots": 543,
+    "titre_rss": "Piratage du site des impôts : la cybersécurité de l’Etat est une affaire de volonté politique",
+    "matiere_faits_distincts": 1152,
+    "matiere_redondance": 0.02,
+    "matiere_donnees_chiffrees": 2,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "n_sources_pertinentes": 3,
+    "veille_heures_visible": 6.6,
+    "veille_passages": 7,
+    "veille_age_h": 7.3,
+    "veille_n_flux_grappe": 8
   }
 ]
