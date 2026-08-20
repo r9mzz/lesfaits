@@ -1,0 +1,50 @@
+name: Nuances conditionnelles contract
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - "scripts/pipeline.py"
+      - "scripts/test_nuances_conditionnelles.py"
+      - "scripts/test_nuances_conditionnelles_ci_contract.py"
+      - ".github/workflows/nuances-conditionnelles-ci.yml"
+  pull_request:
+    paths:
+      - "scripts/pipeline.py"
+      - "scripts/test_nuances_conditionnelles.py"
+      - "scripts/test_nuances_conditionnelles_ci_contract.py"
+      - ".github/workflows/nuances-conditionnelles-ci.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  tests:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+
+      - name: Installer les dépendances
+        run: pip install -r requirements.txt
+
+      - name: Vérifier la syntaxe
+        run: >-
+          python -m py_compile
+          scripts/pipeline.py
+          scripts/test_nuances_conditionnelles.py
+          scripts/test_nuances_conditionnelles_ci_contract.py
+
+      - name: Tester le contrat des nuances conditionnelles
+        run: |
+          python scripts/test_nuances_conditionnelles.py
+          python scripts/test_nuances_conditionnelles_ci_contract.py
