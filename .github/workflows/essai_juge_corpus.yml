@@ -6,6 +6,10 @@ name: Juge — relecture de nos meilleurs articles
 # juge en même temps. Ce job tient le TEXTE fixe : il fait relire par le juge
 # actuel des articles écrits par Llama et déjà publiés.
 #
+# Les deux populations sont rapportées séparément :
+# - conformes_du_premier_coup = baseline historique zéro problème ;
+# - meilleures actus longues = contrôle distinct, problèmes initiaux possibles.
+#
 # N'ÉCRIT RIEN — aucun article créé, modifié ou republié, aucun commit.
 # Coût : ~25 appels de détection, soit une fraction d'un run de génération.
 on:
@@ -46,7 +50,7 @@ jobs:
           if [ "${{ inputs.max }}" != "0" ] && [ -n "${{ inputs.max }}" ]; then
             ARGS="--max ${{ inputs.max }}"
           fi
-          python scripts/essai_juge_corpus.py $ARGS 2>&1 | tee "${RUNNER_TEMP}/juge.log"
+          python scripts/essai_juge_corpus_v2.py $ARGS 2>&1 | tee "${RUNNER_TEMP}/juge.log"
           {
             echo '## Relecture de nos meilleurs articles'
             echo '```'
