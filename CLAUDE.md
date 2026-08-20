@@ -1,5 +1,70 @@
 # Les Faits — lesfaits.info
 
+## LE JUGE A DURCI, PAS LA RÉDACTION — mesuré le 20/08, ça change la cible
+
+Depuis le passage à Mistral les runs finissent sur `[REJET QUALITÉ] N
+bloquant(s) après 3 passes`. Deux lectures tenaient debout et appelaient des
+correctifs OPPOSÉS : le rédacteur commet de vraies erreurs (→ corriger le
+prompt), ou le juge est plus sévère (→ discuter ses seuils). Impossible de
+trancher sur les runs : on a changé le rédacteur ET le juge d'un coup, la même
+erreur de méthode que la comparaison brève/actu après le 05/08.
+
+`scripts/essai_juge_corpus_v2.py` + `essai_juge_corpus.yml` tiennent la
+variable manquante fixe — le TEXTE. Le juge actuel relit des articles écrits
+par Llama, déjà publiés. Rien n'est écrit ni republié.
+
+```
+                                        recalés   problèmes/article   baseline
+GROUPE A  conformes du premier coup       3 / 4          11,8          ZÉRO
+GROUPE B  meilleures actus longues        4 / 4          12,8          faible
+```
+
+**Sept de nos huit meilleurs articles seraient rejetés aujourd'hui**, sur un
+texte que le fact-checker de l'époque avait déclaré sans le moindre défaut.
+Le juge Mistral relève 11 à 13 problèmes là où Llama en trouvait 0 — mesure
+stable sur quatre passages successifs.
+
+**Conclusion : la rédaction Mistral n'est pas en cause.** Ne PAS partir
+réécrire le prompt de génération sur la foi des rejets ; c'est l'échelle du
+juge qui a changé. ⚠ n = 8, et l'échantillon est biaisé par construction (ce
+sont les articles qu'un juge a déjà validés) — c'est voulu, on cherchait un
+écart FLAGRANT, pas un taux. 7/8 en est un.
+
+⚠ **Ce résultat ne dit PAS que le juge a tort.** Ses motifs dominants
+(`annonce_perimee`, `source_inventee`, `chiffre_errone`) visent des défauts
+réels, et la charte dit qu'on préfère ne rien publier. La question ouverte,
+qui appartient à Nahil et Roméo, est : ces reproches sont-ils fondés article
+par article ? Un juge sévère qui a raison reste un bon juge. Relire à la main
+quelques descriptions avant de toucher au moindre seuil.
+
+### ⚠ QUATRE VERDICTS FAUX AVANT LE BON — la leçon vaut plus que le résultat
+
+Ce test a affiché « 0 recalé » quatre fois de suite, à chaque fois net,
+lisible, et faux, pour trois causes différentes :
+
+1. `lus` incrémenté AVANT l'appel : 21 échecs d'API comptés comme autant
+   d'articles validés ;
+2. filtre sur un champ `gravite` que le rapport ne porte pas → liste de
+   bloquants vide en permanence ;
+3. le workflow exécutait `essai_juge_corpus_v2.py` pendant que les correctifs
+   étaient appliqués à `essai_juge_corpus.py` — deux sessions, deux fichiers.
+
+**Un instrument qui confond « aucun problème » et « aucune réponse » est pire
+que pas d'instrument** : il produit une conclusion actionnable à partir de
+rien. C'est la même famille que `finish_reason` (18/08) et que les deux bugs
+JSON — deux causes opposées, un seul symptôme.
+
+Trois règles qui en sortent, valables pour tout futur script de mesure :
+- **ne jamais réimplémenter une règle de décision** : appeler
+  `_problemes_bloquants` du pipeline, comme on partage `json_robuste` et
+  `fenetres_modeles` ;
+- **compter les échecs à part, jamais dans le dénominateur**, et refuser de
+  conclure quand rien n'a été mesuré (sortie en code 1) ;
+- **afficher le CONTRÔLE de l'instrument** à côté du résultat : ici la
+  distribution (bloc, type) réellement rendue, et une alerte si le champ
+  `bloc` manque — il est rempli par le MODÈLE, pas par le code, donc il ne
+  peut pas être présumé.
+
 ## VEILLE CONTINUE — phase 1 lancée le 12/08, NE DÉCIDE RIEN
 
 Idée de Nahil : arrêter de choisir un sujet sur une PHOTO deux fois par jour,
