@@ -625,6 +625,10 @@ JUGE_SOURCES_MODELE = (os.getenv("JUGE_SOURCES_MODELE", "")
 # résultats bruts ne partent pas tous dans le prompt : juger la queue serait
 # payer pour classer ce qui ne sera pas lu.
 JUGE_SOURCES_MAX = int(os.getenv("JUGE_SOURCES_MAX", "10"))
+# Plancher de sources PERTINENTES exigé avant de payer une génération. Aligné
+# sur le plancher de PUBLICATION (charte règle 7 : 3 sources citées minimum) —
+# ce n'est pas un seuil inventé, c'est le même nombre, appliqué en amont.
+PERTINENCE_MIN_POUR_GENERER = 3
 
 _PROMPT_PERTINENCE = """Tu vérifies si un document peut servir de source à un article de presse.
 
@@ -8277,6 +8281,40 @@ def generer_article(item: dict, dry_run: bool, published: set, new_pub: set, dat
                 return False
             print("     [PERTINENCE] AUCUNE source pertinente, mais jugement "
                   "partiel — sujet conservé (avertissement seul)")
+        # ── SEUIL PORTÉ À 3 — mesuré le 20/08 ───────────────────────────────
+        # Le run 252 a produit deux articles de 665 et 724 mots, bien écrits,
+        # rejetés parce qu'ils ne citaient que 2 sources. Le log dit pourquoi :
+        # « [PERTINENCE] 2 sources traitant le sujet précis, 0 générale,
+        # 8 hors sujet ». Le rédacteur a fait ce qu'il fallait — il a refusé
+        # de citer les 8 sources hors sujet — et c'est le plancher de
+        # publication (3 sources, charte règle 7) qui l'a recalé.
+        #
+        # Ce n'est pas un aléa, c'est MÉCANIQUE : on ne peut pas citer
+        # honnêtement 3 sources quand 2 seulement traitent le sujet. Soit le
+        # modèle triche en citant du hors-sujet (le défaut « inflation » du
+        # 11/08, corrigé par le seuil 0), soit il est honnête et se fait
+        # rejeter. Les deux issues coûtent une génération complète.
+        #
+        # Mesuré sur les 92 sujets instrumentés du journal :
+        #
+        #     1-2 sources pertinentes : 46 sujets →  0 mené au bout  (0 %)
+        #     3 et plus               : 46 sujets →  2 menés au bout (4 %)
+        #
+        # Le seuil n'est donc PAS choisi : il est aligné sur le plancher de
+        # publication que ces sujets ne peuvent pas atteindre. ~1,6 M tokens
+        # de génération économisés sur la période, zéro article publié perdu.
+        #
+        # ⚠ Même prudence que pour le seuil 0 : un lot partiellement jugé ne
+        # déclenche rien. Et le juge peut être éteint (JUGE_SOURCES=0), auquel
+        # cas aucune source ne porte `_pertinence` et le garde-fou se tait.
+        elif _n_pert < PERTINENCE_MIN_POUR_GENERER:
+            if _lot_entierement_juge_sans_source_precise(extra, JUGE_SOURCES_MAX):
+                print(f"     [REJET] {_n_pert} source(s) seulement traitent le sujet "
+                      f"précis (plancher de publication : 3 citées) — génération "
+                      f"évitée, sujet structurellement voué au rejet")
+                return False
+            print(f"     [PERTINENCE] {_n_pert} source(s) pertinente(s), mais "
+                  "jugement partiel — sujet conservé (avertissement seul)")
 
     # Plafond d'injection : un BUDGET DE MATIÈRE, pas un nombre de sources.
     #
