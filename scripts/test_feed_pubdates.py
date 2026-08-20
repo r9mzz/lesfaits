@@ -3,6 +3,7 @@ from __future__ import annotations
 
 import datetime as dt
 import json
+import subprocess
 import tempfile
 import unittest
 from pathlib import Path
@@ -50,6 +51,13 @@ class FeedPubDateTests(unittest.TestCase):
         )
         return tmp, root
 
+    def _init_git(self, root: Path) -> None:
+        subprocess.run(["git", "init", "-q", str(root)], check=True)
+        subprocess.run(["git", "-C", str(root), "config", "user.email", "test@example.com"], check=True)
+        subprocess.run(["git", "-C", str(root), "config", "user.name", "Test"], check=True)
+        subprocess.run(["git", "-C", str(root), "add", "."], check=True)
+        subprocess.run(["git", "-C", str(root), "commit", "-qm", "baseline"], check=True)
+
     def test_restores_article_pubdate_and_rewrites_build_date_in_utc(self):
         tmp, root = self._root()
         try:
@@ -74,6 +82,37 @@ class FeedPubDateTests(unittest.TestCase):
             self.assertIn("14 août 2026, 15h40", (root / "index.html").read_text(encoding="utf-8"))
             self.assertIn("14 août 2026, 15h40", (root / "categories" / "economie.html").read_text(encoding="utf-8"))
             rss.normalize(root, check=True)
+        finally:
+            tmp.cleanup()
+
+    def test_zero_article_run_preserves_last_build_but_article_change_advances_it(self):
+        tmp, root = self._root()
+        try:
+            # Canonicalise d'abord les fixtures, puis fige cet état dans HEAD.
+            baseline_time = dt.datetime(2026, 8, 19, 20, 7, 14, tzinfo=dt.timezone.utc)
+            rss.normalize(root, build_time=baseline_time)
+            self._init_git(root)
+            original = (root / "feed.xml").read_text(encoding="utf-8")
+            self.assertIn(
+                '<lastBuildDate>Wed, 19 Aug 2026 20:07:14 GMT</lastBuildDate>',
+                original,
+            )
+
+            future = dt.datetime(2026, 8, 20, 2, 15, 59, tzinfo=dt.timezone.utc)
+            no_article = rss.normalize(root, build_time=future)
+            after_no_article = (root / "feed.xml").read_text(encoding="utf-8")
+            self.assertEqual(no_article["build_changed"], 0)
+            self.assertEqual(after_no_article, original)
+
+            article = root / "articles" / "exemple.html"
+            article.write_text(article.read_text(encoding="utf-8") + "\n<!-- modification réelle -->\n", encoding="utf-8")
+            with_article = rss.normalize(root, build_time=future)
+            after_article = (root / "feed.xml").read_text(encoding="utf-8")
+            self.assertEqual(with_article["build_changed"], 1)
+            self.assertIn(
+                '<lastBuildDate>Thu, 20 Aug 2026 02:15:59 GMT</lastBuildDate>',
+                after_article,
+            )
         finally:
             tmp.cleanup()
 
