@@ -10858,5 +10858,1068 @@
     "veille_passages": 100,
     "veille_age_h": 108.1,
     "veille_n_flux_grappe": 1
+  },
+  {
+    "slug": "deces-exces-canicule-juillet-2026-sante-publique-france",
+    "statut": "rejete_qualite",
+    "date": "2026-08-20T02:45:39",
+    "problemes_initiaux": 15,
+    "tentatives": 3,
+    "problemes_restants": 11,
+    "bloquants_restants": 5,
+    "bloquants_types": [
+      "chiffre_errone",
+      "annonce_perimee",
+      "niveau_preuve_insuffisant",
+      "incoherence_inter_sections",
+      "source_inventee"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "Le résumé présente le chiffre de 5 764 décès en excès comme une estimation préliminaire relayée par Vie Publique, mais la source [1] ne précise pas explicitement que ce chiffre émane de Santé publique France, ce qui est ",
+        "phrase": "Une estimation préliminaire relayée par Vie Publique le 24 juillet 2026 fait état de 5 764 décès en excès en France lors du deuxième épisode caniculaire de juillet 2026, sans préciser si ce chiffre émane directement de S"
+      },
+      {
+        "bloc": 1,
+        "type": "annonce_perimee",
+        "description": "Le résumé présente l'estimation comme préliminaire et non confirmée, ce qui est correct, mais le titre et le résumé ne reflètent pas clairement que l'attribution définitive des décès à la chaleur nécessitera une analyse ",
+        "phrase": "Une estimation préliminaire relayée par Vie Publique le 24 juillet 2026 fait état de 5 764 décès en excès en France lors du deuxième épisode caniculaire de juillet 2026, sans préciser si ce chiffre émane directement de S"
+      },
+      {
+        "bloc": 1,
+        "type": "niveau_preuve_insuffisant",
+        "description": "L'article mentionne que l'attribution définitive nécessitera une analyse détaillée des certificats de décès, mais ne précise pas les limites méthodologiques de l'estimation préliminaire (ex : taille de l'échantillon, pér",
+        "phrase": "Santé publique France, contactée pour clarification, indique que l’attribution définitive de ces décès à la canicule nécessitera une analyse détaillée des certificats de décès."
+      },
+      {
+        "bloc": 1,
+        "type": "incoherence_inter_sections",
+        "description": "Le résumé mentionne que l'épisode a touché 43 départements et 40 % de la population métropolitaine, mais cette information n'est pas explicitement confirmée par la source [1] dans les faits. La source [1] ne précise pas ",
+        "phrase": "Cet épisode, survenu du 15 au 22 juillet 2026 après une première vague de chaleur du 5 au 8 juillet, a touché 43 départements, représentant environ 40 % de la population métropolitaine."
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "La source [1] (Vie Publique) ne mentionne pas explicitement que Santé publique France a été contactée pour clarification. Cette information n'apparaît dans aucune des sources autorisées.",
+        "phrase": "Santé publique France, contactée pour clarification, indique que l’attribution définitive de ces décès à la canicule nécessitera une analyse détaillée des certificats de décès."
+      }
+    ],
+    "types_restants": [
+      "chiffre_errone",
+      "annonce_perimee",
+      "niveau_preuve_insuffisant",
+      "incoherence_inter_sections",
+      "source_inventee",
+      "source_derivee_comptee_comme_primaire",
+      "cadrage_emprunte",
+      "redondance",
+      "redondance",
+      "redondance",
+      "contexte_hors_sujet"
+    ],
+    "article_type": "actu",
+    "titre": "1 243 décès en excès lors de la canicule de juillet 2026",
+    "n_sources": 5,
+    "n_mots": 461,
+    "titre_rss": "Pendant la canicule du début du mois de juillet, \"1 243 décès en excès\" ont été recensés, annonce Santé publique France",
+    "matiere_faits_distincts": 1073,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 6,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "n_sources_pertinentes": 2,
+    "veille_heures_visible": 9.6,
+    "veille_passages": 11,
+    "veille_age_h": 10.8,
+    "veille_n_flux_grappe": 10
+  },
+  {
+    "slug": "7300-morts-exces-canicules-france-2026-bilan-provisoire",
+    "statut": "rejete_qualite",
+    "date": "2026-08-20T02:51:03",
+    "problemes_initiaux": 13,
+    "tentatives": 3,
+    "problemes_restants": 10,
+    "bloquants_restants": 3,
+    "bloquants_types": [
+      "annonce_perimee",
+      "niveau_preuve_insuffisant",
+      "chiffre_errone"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "annonce_perimee",
+        "description": "Le résumé présente le bilan comme potentiellement évolutif (« pourrait encore évoluer »), alors que la source [1] (Vie Publique) le qualifie de « provisoire » sans mentionner une troisième vague en cours comme facteur d'",
+        "phrase": "Ce bilan, publié avant la fin de la troisième vague de chaleur en cours depuis fin juillet, pourrait encore évoluer."
+      },
+      {
+        "bloc": 1,
+        "type": "niveau_preuve_insuffisant",
+        "description": "La source [1] (Vie Publique) précise les limites méthodologiques, mais l'article ne détaille pas les critères de la période de référence, la taille de l'échantillon, ou les limites spécifiques des modèles statistiques ut",
+        "phrase": "Ce chiffre, établi selon des méthodes statistiques comparant la mortalité observée à une mortalité attendue sur une période de référence, ne permet pas d'attribuer avec certitude chaque décès à la canicule seule, comme l"
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [2] (Sénat) mentionne les plans canicule, mais elle ne lie pas explicitement leur mise en place à la canicule de 2003 ni ne précise que 15 000 décès en excès y sont associés. L'article attribue ce chiffre à la ",
+        "phrase": "À la suite de cet événement, la France a mis en place des plans canicule incluant des systèmes d'alerte et des mesures de prévention ciblées, comme l'a rappelé Virginie Schwarz."
+      }
+    ],
+    "types_restants": [
+      "annonce_perimee",
+      "niveau_preuve_insuffisant",
+      "fait_tranche_arbitrairement",
+      "chiffre_errone",
+      "source_derivee_comptee_comme_primaire",
+      "compteur_incoherent",
+      "cadrage_emprunte",
+      "contexte_hors_sujet",
+      "extrapolation",
+      "faux_debat"
+    ],
+    "article_type": "actu",
+    "titre": "7 300 morts en excès liés aux canicules en France depuis mai 2026",
+    "n_sources": 5,
+    "n_mots": 601,
+    "titre_rss": "Canicules : déjà 7.300 morts en excès en France en 2026",
+    "matiere_faits_distincts": 873,
+    "matiere_redondance": 0.01,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "n_sources_pertinentes": 2,
+    "veille_heures_visible": 6.8,
+    "veille_passages": 8,
+    "veille_age_h": 8.0,
+    "veille_n_flux_grappe": 1
+  },
+  {
+    "slug": "lecornu-unite-cyber-piratage-ficoba-1-2-million-comptes",
+    "statut": "rejete_qualite",
+    "date": "2026-08-20T02:56:34",
+    "problemes_initiaux": 12,
+    "tentatives": 3,
+    "problemes_restants": 12,
+    "bloquants_restants": 4,
+    "bloquants_types": [
+      "annonce_perimee",
+      "annonce_perimee",
+      "accusation_presentee_comme_fait",
+      "source_inventee"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "annonce_perimee",
+        "description": "Le résumé présente la création de l'unité comme une officialisation récente (« a officialisé »), alors que la source [1] (France 24) utilise le futur (« veut une nouvelle unité »), indiquant que la mesure est annoncée ma",
+        "phrase": "Le 19 août 2026, le Premier ministre Sébastien Lecornu a officialisé la création d'une unité spécialisée au sein de l'Agence nationale de la sécurité des systèmes d'information (ANSSI) pour renforcer la protection des do"
+      },
+      {
+        "bloc": 1,
+        "type": "annonce_perimee",
+        "description": "La source [1] (France 24) indique que l'exécutif « veut une nouvelle unité », ce qui suggère une annonce de projet, non une création effective. Le verbe « a annoncé » dans l'article est trompeur, car il présente la mesur",
+        "phrase": "Le 19 août 2026, le Premier ministre Sébastien Lecornu a annoncé la création d'une « nouvelle unité cyber » au sein de l’Agence nationale de la sécurité des systèmes d’information (ANSSI), visant à renforcer la protectio"
+      },
+      {
+        "bloc": 1,
+        "type": "accusation_presentee_comme_fait",
+        "description": "La qualification de « défaillance gravissime » et la demande de sanctions sont présentées comme des faits, alors qu'il s'agit d'une opinion et d'une requête du député, non d'un constat établi. La source [2] (question écr",
+        "phrase": "Dans sa question écrite, le député Hadrien Clouet a qualifié l’incident du FICOBA de « défaillance gravissime » et a demandé des sanctions contre les responsables potentiels [2]."
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "La source [1] (France 24) ne mentionne pas explicitement que l'ANSSI a été interrogée et n'a pas répondu. Cette information n'est pas confirmée par les sources autorisées.",
+        "phrase": "Interrogée par France 24, l’ANSSI n’a pas répondu aux demandes de précisions sur ces points."
+      }
+    ],
+    "types_restants": [
+      "annonce_perimee",
+      "annonce_perimee",
+      "chronologie_confuse",
+      "acteur_mis_en_cause_sans_reponse",
+      "accusation_presentee_comme_fait",
+      "source_inventee",
+      "acteur_mis_en_cause_sans_reponse",
+      "paraphrase_structurelle",
+      "redondance",
+      "extrapolation",
+      "angle_annonce_non_tenu",
+      "angle_annonce_non_tenu"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "resume_repete_corps",
+      "faits_repetitifs"
+    ],
+    "titre": "Lecornu ordonne une unité cyber après le vol de données fiscales de 1,2 million de comptes",
+    "n_sources": 6,
+    "n_mots": 525,
+    "titre_rss": "Piratage du fisc : Lecornu veut une \"nouvelle unité\" pour lutter contre les cyberattaques",
+    "matiere_faits_distincts": 1066,
+    "matiere_redondance": 0.02,
+    "matiere_donnees_chiffrees": 2,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "n_sources_pertinentes": 2,
+    "veille_heures_visible": 6.8,
+    "veille_passages": 8,
+    "veille_age_h": 8.0,
+    "veille_n_flux_grappe": 4
+  },
+  {
+    "slug": "lecornu-unite-urgence-cyberattaques-etat-finances-publiques",
+    "statut": "rejete_qualite",
+    "date": "2026-08-20T03:02:17",
+    "problemes_initiaux": 10,
+    "tentatives": 3,
+    "problemes_restants": 10,
+    "bloquants_restants": 2,
+    "bloquants_types": [
+      "annonce_perimee",
+      "incoherence_inter_sections"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "annonce_perimee",
+        "description": "Le résumé présente la demande comme une action déjà formulée (« a formulé »), alors que les faits précisent qu'il s'agit d'une demande en cours sans détails opérationnels ni confirmation de création. La source [1] (Franc",
+        "phrase": "Le 23 octobre 2025, le gouvernement a formulé une demande de création d'une « équipe de contact » destinée à intervenir en urgence en cas de cyberattaque contre les systèmes d'information de l'État, notamment ceux de la "
+      },
+      {
+        "bloc": 1,
+        "type": "incoherence_inter_sections",
+        "description": "Le résumé lie implicitement les 1 366 incidents confirmés en 2025 à la demande d'unité, alors que les faits et nuances précisent que le Panorama de l'ANSSI [4] ne confirme pas ce lien (« sans préciser si ces événements o",
+        "phrase": "Cette initiative, rapportée par France Info [1], intervient alors que l'Agence nationale de la sécurité des systèmes d'information (ANSSI) a recensé 3 586 événements de sécurité en 2025, dont 1 366 incidents confirmés af"
+      }
+    ],
+    "types_restants": [
+      "annonce_perimee",
+      "incoherence_inter_sections",
+      "chronologie_confuse",
+      "acteur_mis_en_cause_sans_reponse",
+      "source_derivee_comptee_comme_primaire",
+      "compteur_incoherent",
+      "cadrage_emprunte",
+      "contexte_hors_sujet",
+      "redondance",
+      "section_gonflee"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "faits_repetitifs",
+      "nuances_vagues"
+    ],
+    "titre": "Sébastien Lecornu demande une unité d'urgence contre les cyberattaques ciblant l'État",
+    "n_sources": 5,
+    "n_mots": 425,
+    "titre_rss": "Piratage du fisc : Sébastien Lecornu demande la formation d'une \"nouvelle unité\" pour lutter contre les cyberattaques visant le système d'information de l'Etat",
+    "matiere_faits_distincts": 753,
+    "matiere_redondance": 0.01,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "n_sources_pertinentes": 2,
+    "veille_heures_visible": 7.8,
+    "veille_passages": 9,
+    "veille_age_h": 9.0,
+    "veille_n_flux_grappe": 9
+  },
+  {
+    "slug": "canicules-2026-7300-deces-en-exces-depuis-mai",
+    "statut": "rejete_qualite",
+    "date": "2026-08-20T03:07:41",
+    "problemes_initiaux": 13,
+    "tentatives": 3,
+    "problemes_restants": 10,
+    "bloquants_restants": 3,
+    "bloquants_types": [
+      "chiffre_errone",
+      "incoherence_inter_sections",
+      "annonce_perimee"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "Le résumé présente le chiffre de 7 300 décès comme un bilan provisoire supérieur à ceux des étés précédents, mais la source [1] (Le Monde) indique que ce chiffre est arrêté au 19 août et ne couvre pas encore l'intégralit",
+        "phrase": "7 300 décès en excès ont été enregistrés depuis fin mai 2026, un bilan provisoire supérieur à ceux des étés précédents à la même période [1]."
+      },
+      {
+        "bloc": 1,
+        "type": "incoherence_inter_sections",
+        "description": "Le résumé et les faits présentent tous deux le chiffre de 5 764 décès pour le deuxième épisode caniculaire, mais le résumé ne précise pas que ce chiffre est calculé par comparaison avec les moyennes saisonnières et inclu",
+        "phrase": "Le deuxième épisode caniculaire, du 17 juin au 2 juillet 2026, a touché 92 départements et 98,5 % de la population hexagonale, entraînant un excès de 5 764 décès, selon Vie Publique [2]."
+      },
+      {
+        "bloc": 1,
+        "type": "annonce_perimee",
+        "description": "La phrase présente le chiffre de 7 300 décès comme un bilan provisoire qui 'pourrait évoluer', alors que la source [1] (Le Monde) indique que les données sont arrêtées au 19 août et que le bilan pourrait être révisé. Le ",
+        "phrase": "Ce chiffre, arrêté au 19 août, ne couvre pas encore l'intégralité du mois d'août, traditionnellement propice aux vagues de chaleur, et pourrait donc évoluer, comme l'indique Le Monde [1]."
+      }
+    ],
+    "types_restants": [
+      "chiffre_errone",
+      "incoherence_inter_sections",
+      "annonce_perimee",
+      "chronologie_confuse",
+      "source_derivee_comptee_comme_primaire",
+      "compteur_incoherent",
+      "cadrage_emprunte",
+      "redondance",
+      "section_gonflee",
+      "faux_debat"
+    ],
+    "article_type": "actu",
+    "titre": "Canicules 2026 : 7 300 décès en excès depuis fin mai",
+    "n_sources": 5,
+    "n_mots": 398,
+    "titre_rss": "Canicules : une vague moins meurtrière en juillet, dans un été déjà hors norme",
+    "matiere_faits_distincts": 971,
+    "matiere_redondance": 0.01,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "n_sources_pertinentes": 1,
+    "veille_heures_visible": 6.8,
+    "veille_passages": 8,
+    "veille_age_h": 8.0,
+    "veille_n_flux_grappe": 4
+  },
+  {
+    "slug": "etoile-s301-relativite-generale-trou-noir-voie-lactee",
+    "statut": "rejete_qualite",
+    "date": "2026-08-20T03:12:06",
+    "problemes_initiaux": 9,
+    "tentatives": 3,
+    "problemes_restants": 12,
+    "bloquants_restants": 2,
+    "bloquants_types": [
+      "niveau_preuve_insuffisant",
+      "accusation_presentee_comme_fait"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "niveau_preuve_insuffisant",
+        "description": "La source [1] ne précise pas le stade de l'étude (observationnelle, phase de validation, etc.), ni les limites méthodologiques exactes (ex : taille de l'échantillon, durée de suivi, incertitudes de mesure). L'article ome",
+        "phrase": "Les données recueillies entre 2017 et 2018 ont révélé deux phénomènes clés : un décalage vers le rouge gravitationnel et une précession orbitale. Selon l'équipe internationale utilisant Gravity, ces observations sont com"
+      },
+      {
+        "bloc": 1,
+        "type": "accusation_presentee_comme_fait",
+        "description": "Cette affirmation est présentée comme un fait établi, alors que la source [1] la décrit comme un défi théorique ou une limite *selon les physiciens*. L'article omet l'attribution à une communauté scientifique spécifique.",
+        "phrase": "La théorie d'Einstein ne décrit pas les phénomènes se produisant au cœur d'un trou noir, où la courbure de l'espace-temps devient infinie, un problème connu sous le nom de singularité."
+      }
+    ],
+    "types_restants": [
+      "fait_tranche_arbitrairement",
+      "fait_tranche_arbitrairement",
+      "niveau_preuve_insuffisant",
+      "fait_tranche_arbitrairement",
+      "accusation_presentee_comme_fait",
+      "contexte_hors_sujet",
+      "source_derivee_comptee_comme_primaire",
+      "compteur_incoherent",
+      "cadrage_emprunte",
+      "section_gonflee",
+      "redondance",
+      "angle_annonce_non_tenu"
+    ],
+    "article_type": "actu",
+    "titre": "L'étoile S301 valide la relativité générale près du trou noir central",
+    "n_sources": 3,
+    "n_mots": 538,
+    "titre_rss": "« Un test décisif de la théorie d’Einstein » : le trou noir géant de la Voie lactée fait tourbillonner l'espace-temps !",
+    "matiere_faits_distincts": 942,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 3,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "n_sources_pertinentes": 2,
+    "veille_heures_visible": 7.8,
+    "veille_passages": 9,
+    "veille_age_h": 9.0,
+    "veille_n_flux_grappe": 1
+  },
+  {
+    "slug": "onu-condamne-propos-ben-gvir-gaza",
+    "statut": "rejete_sensible",
+    "date": "2026-08-20T03:14:59",
+    "sujet_sensible": true,
+    "raison": "L'article porte sur des déclarations et des actions liées à un conflit armé impliquant des accusations de violations des droits humains et des conséquences humanitaires graves, avec des références à des morts d'enfants et des frappes militaires.",
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "resume_repete_corps"
+    ],
+    "titre": "L'ONU condamne les propos de Ben Gvir sur Gaza",
+    "n_sources": 4,
+    "n_mots": 488,
+    "titre_rss": "Guerre au Moyen-Orient : enquête israélienne sur la mort d’un enfant à Gaza… Le bilan du mercredi 19 août",
+    "matiere_faits_distincts": 967,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "n_sources_pertinentes": 2,
+    "veille_heures_visible": 16.6,
+    "veille_passages": 18,
+    "veille_age_h": 17.7,
+    "veille_n_flux_grappe": 11
+  },
+  {
+    "slug": "apple-dma-ouverture-applications-tierces-europe",
+    "statut": "rejete_qualite",
+    "date": "2026-08-20T03:20:47",
+    "problemes_initiaux": 9,
+    "tentatives": 3,
+    "problemes_restants": 11,
+    "bloquants_restants": 3,
+    "bloquants_types": [
+      "annonce_perimee",
+      "incoherence_inter_sections",
+      "source_inventee"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "annonce_perimee",
+        "description": "Le résumé présente l'engagement comme une annonce à venir (« prévoit que les utilisateurs pourront à terme »), alors que les faits décrivent la prise d'acte par la Commission européenne le 19 août 2026 comme un événement",
+        "phrase": "Cet engagement, annoncé le 19 août 2026, prévoit que les utilisateurs européens pourront à terme télécharger des applications en dehors de l'App Store, une pratique auparavant interdite par les conditions d'utilisation d"
+      },
+      {
+        "bloc": 1,
+        "type": "incoherence_inter_sections",
+        "description": "Le résumé et les faits ne sont pas cohérents sur le statut de l'annonce : le résumé la présente comme une annonce (« annoncé le 19 août 2026 »), tandis que les faits la décrivent comme un engagement déjà acté par la Comm",
+        "phrase": "Cet engagement, annoncé le 19 août 2026, prévoit que les utilisateurs européens pourront à terme télécharger des applications en dehors de l'App Store, une pratique auparavant interdite par les conditions d'utilisation d"
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "Les sources [3] et [5] ne fournissent pas d'informations sur les pratiques d'Apple avant l'entrée en vigueur du DMA. La source [3] (Le Monde) traite de l'engagement récent d'Apple, et la source [5] (Europa) concerne les ",
+        "phrase": "Avant l'entrée en vigueur du DMA, Apple imposait une distribution exclusive via son App Store et un système de paiement intégré, prélevant une commission pouvant atteindre 30 % sur les transactions [3][5]."
+      }
+    ],
+    "types_restants": [
+      "annonce_perimee",
+      "incoherence_inter_sections",
+      "acteur_mis_en_cause_sans_reponse",
+      "source_derivee_comptee_comme_primaire",
+      "compteur_incoherent",
+      "source_inventee",
+      "cadrage_emprunte",
+      "extrapolation",
+      "extrapolation",
+      "faux_debat",
+      "redondance"
+    ],
+    "article_type": "actu",
+    "titre": "Apple lève les restrictions sur les applications tierces en Europe",
+    "n_sources": 7,
+    "n_mots": 585,
+    "titre_rss": "Apple consent à respecter les règles européennes sur les marchés numériques",
+    "matiere_faits_distincts": 1135,
+    "matiere_redondance": 0.01,
+    "matiere_donnees_chiffrees": 4,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "n_sources_pertinentes": 6,
+    "veille_heures_visible": 20.4,
+    "veille_passages": 26,
+    "veille_age_h": 21.6,
+    "veille_n_flux_grappe": 3
+  },
+  {
+    "slug": "canicule-2026-france-7300-morts-exces-bilan-provisoire-record",
+    "statut": "rejete_qualite",
+    "date": "2026-08-20T03:25:18",
+    "problemes_initiaux": 10,
+    "tentatives": 3,
+    "problemes_restants": 10,
+    "bloquants_restants": 4,
+    "bloquants_types": [
+      "chiffre_errone",
+      "incoherence_inter_sections",
+      "niveau_preuve_insuffisant",
+      "annonce_perimee"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "Le résumé mentionne '52 jours de canicule depuis mi-juin', mais les sources (France 24, RFI) parlent de '52 jours de vagues de chaleur depuis mi-juin' sans préciser si tous ces jours sont des canicules. La distinction en",
+        "phrase": "L’été 2026 totalise 52 jours de canicule depuis mi-juin, un record absolu depuis 1947."
+      },
+      {
+        "bloc": 1,
+        "type": "incoherence_inter_sections",
+        "description": "Le chiffre de 7 300 décès en excès est présenté comme incluant 300 décès en mai et 6 000 en juin-juillet (soit 6 300 au total), mais le résumé et le titre mentionnent 7 300 sans préciser cette répartition. Cela crée une ",
+        "phrase": "Le 19 août 2026, Santé publique France a publié un bilan provisoire faisant état de 7 300 décès en excès toutes causes confondues en France métropolitaine lors des vagues de chaleur de 2026."
+      },
+      {
+        "bloc": 1,
+        "type": "niveau_preuve_insuffisant",
+        "description": "L'article ne précise pas que les 7 300 décès sont un excès de mortalité 'toutes causes confondues' dans le titre ou le résumé, ce qui pourrait laisser penser qu'il s'agit de décès directement imputables à la chaleur. Le ",
+        "phrase": "Santé publique France indique que ces chiffres concernent « toutes causes confondues » et que la part des décès directement attribuables à la chaleur ne sera établie qu’après des analyses épidémiologiques approfondies."
+      },
+      {
+        "bloc": 1,
+        "type": "annonce_perimee",
+        "description": "Le résumé présente le bilan comme un fait établi ('enregistre'), alors que les sources (France 24, RFI, Le Nouvel Obs) insistent sur son caractère provisoire et à affiner. Le terme 'enregistre' est trop définitif pour un",
+        "phrase": "La France enregistre 7 300 décès en excès toutes causes confondues lors des vagues de chaleur de 2026, selon un bilan provisoire publié par Santé publique France et relayé par plusieurs médias le 19 août."
+      }
+    ],
+    "types_restants": [
+      "chiffre_errone",
+      "incoherence_inter_sections",
+      "niveau_preuve_insuffisant",
+      "annonce_perimee",
+      "source_derivee_comptee_comme_primaire",
+      "compteur_incoherent",
+      "paraphrase_structurelle",
+      "contexte_hors_sujet",
+      "redondance",
+      "section_gonflee"
+    ],
+    "article_type": "actu",
+    "titre": "Canicule 2026 en France : 7 300 morts en excès, un bilan provisoire record",
+    "n_sources": 8,
+    "n_mots": 561,
+    "titre_rss": "La canicule en France a fait au moins 7 300 morts, selon un bilan encore provisoire",
+    "matiere_faits_distincts": 981,
+    "matiere_redondance": 0.05,
+    "matiere_donnees_chiffrees": 3,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "n_sources_pertinentes": 7,
+    "veille_heures_visible": 9.6,
+    "veille_passages": 11,
+    "veille_age_h": 10.8,
+    "veille_n_flux_grappe": 12
+  },
+  {
+    "slug": "impact-economique-cesi-campus-france-milliard-euros",
+    "statut": "rejete_qualite",
+    "date": "2026-08-20T03:30:37",
+    "problemes_initiaux": 12,
+    "tentatives": 3,
+    "problemes_restants": 15,
+    "bloquants_restants": 7,
+    "bloquants_types": [
+      "chiffre_errone",
+      "annonce_perimee",
+      "niveau_preuve_insuffisant",
+      "niveau_preuve_insuffisant",
+      "accusation_presentee_comme_fait",
+      "source_inventee",
+      "source_inventee"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "Le résumé attribue les chiffres (950 millions d'euros, 36 000 emplois) directement à l'analyse relayée par L'Express, mais la source citée (L'Express) ne confirme pas ces chiffres comme étant ceux de l'analyse du groupe ",
+        "phrase": "Une analyse relayée par L'Express en 2024 évalue à 950 millions d'euros par an la contribution des 26 campus du groupe Cesi au produit intérieur brut français, avec un soutien à 36 000 emplois directs et indirects."
+      },
+      {
+        "bloc": 1,
+        "type": "annonce_perimee",
+        "description": "Le résumé présente le retour sur investissement comme une estimation déjà réalisée (« aurait produit »), alors que la source (L'Express) indique que ces chiffres sont des projections ou des estimations méthodologiques, n",
+        "phrase": "En Normandie, un investissement régional de 3,3 millions d'euros dans le campus de Rouen en 2020 aurait produit un retour estimé à 100 millions d'euros sur cinq ans, selon la même analyse."
+      },
+      {
+        "bloc": 1,
+        "type": "niveau_preuve_insuffisant",
+        "description": "L'article ne précise pas les limites méthodologiques de l'analyse (taille de l'échantillon, période d'analyse, hypothèses de calcul), alors que la source (L'Express) souligne explicitement l'absence de détails sur ces as",
+        "phrase": "Selon une analyse relayée par L'Express en 2024, le groupe Cesi, qui regroupe 26 campus d'écoles d'ingénieurs en France, contribue à hauteur de 950 millions d'euros au produit intérieur brut (PIB) annuel français. Cette "
+      },
+      {
+        "bloc": 1,
+        "type": "niveau_preuve_insuffisant",
+        "description": "L'article ne détaille pas la méthode de calcul du retour sur investissement, alors que la source (L'Express) indique explicitement que cette méthode n'est pas précisée. Le ratio de trente fois la mise initiale est présen",
+        "phrase": "En Normandie, un investissement régional de 3,3 millions d'euros dans le campus de Rouen en 2020 aurait généré un retour financier estimé à 100 millions d'euros sur cinq ans, selon la même analyse."
+      },
+      {
+        "bloc": 1,
+        "type": "accusation_presentee_comme_fait",
+        "description": "La phrase présente la justification des analyses par le Cesi comme un fait neutre, alors qu'il s'agit d'une déclaration d'intérêt de la part du directeur général. Cette position devrait être attribuée explicitement à Jea",
+        "phrase": "Jean-Marc Ogier, directeur général de Cesi, a déclaré, selon L'Express, que ces campus « jouent un rôle clé dans l'accompagnement des entreprises locales et bénéficient aux territoires », une position utilisée par l'étab"
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "L'article attribue les chiffres (950 millions d'euros, 36 000 emplois) à une « analyse relayée par L'Express », mais la source citée (L'Express) ne confirme pas ces chiffres pour le groupe Cesi. Elle évoque des études si",
+        "phrase": "Selon une analyse relayée par L'Express en 2024, le groupe Cesi, qui regroupe 26 campus d'écoles d'ingénieurs en France, contribue à hauteur de 950 millions d'euros au produit intérieur brut (PIB) annuel français."
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "Le résumé attribue les chiffres à une analyse relayée par L'Express, mais la source citée ne confirme pas ces chiffres pour le groupe Cesi. Elle mentionne des études similaires sans les quantifier pour cet établissement.",
+        "phrase": "Une analyse relayée par L'Express en 2024 évalue à 950 millions d'euros par an la contribution des 26 campus du groupe Cesi au produit intérieur brut français, avec un soutien à 36 000 emplois directs et indirects."
+      }
+    ],
+    "types_restants": [
+      "chiffre_errone",
+      "annonce_perimee",
+      "niveau_preuve_insuffisant",
+      "niveau_preuve_insuffisant",
+      "accusation_presentee_comme_fait",
+      "fait_tranche_arbitrairement",
+      "source_inventee",
+      "source_inventee",
+      "source_derivee_comptee_comme_primaire",
+      "compteur_incoherent",
+      "contexte_hors_sujet",
+      "redondance",
+      "section_gonflee",
+      "extrapolation",
+      "angle_annonce_non_tenu"
+    ],
+    "article_type": "actu",
+    "titre": "Le groupe Cesi génère un milliard d'euros de PIB annuel et 36 000 emplois",
+    "n_sources": 4,
+    "n_mots": 501,
+    "titre_rss": "Un campus, combien ça rapporte ? Le poids économique insoupçonné des universités pour les territoires",
+    "matiere_faits_distincts": 860,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 3,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "n_sources_pertinentes": 1,
+    "veille_heures_visible": 40.6,
+    "veille_passages": 40,
+    "veille_age_h": 41.8,
+    "veille_n_flux_grappe": 1
+  },
+  {
+    "slug": "piratage-impots-2026-lecornu-reconnait-vulnerabilite-ministeres",
+    "statut": "rejete_qualite",
+    "date": "2026-08-20T03:36:09",
+    "problemes_initiaux": 14,
+    "tentatives": 3,
+    "problemes_restants": 11,
+    "bloquants_restants": 4,
+    "bloquants_types": [
+      "chiffre_errone",
+      "chiffre_errone",
+      "incoherence_inter_sections",
+      "accusation_presentee_comme_fait"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "Le résumé attribue à la source [5] une baisse de 18 % des incidents signalés (1 666 à 1 366), mais la source [5] (Panorama de la cybermenace 2025) indique dans le corps de l'article que le nombre total d'événements trait",
+        "phrase": "Selon le *Panorama de la cybermenace 2025* de l’ANSSI, la baisse de 18 % des incidents signalés en 2025 par rapport à 2024 (passant de 1 666 à 1 366) s’explique par une amélioration des capacités de détection, sans indiq"
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La phrase est correcte en apparence, mais elle reprend le chiffre du résumé sans préciser que la baisse de 18 % ne concerne que les incidents confirmés (1 666 en 2024 vs 1 366 en 2025), et non les événements totaux (3 58",
+        "phrase": "En 2025, l’agence a traité 3 586 événements de sécurité, dont 1 366 incidents confirmés, marquant une baisse de 18 % des incidents par rapport à 2024 (où 1 666 incidents avaient été recensés)."
+      },
+      {
+        "bloc": 1,
+        "type": "incoherence_inter_sections",
+        "description": "La source [5] (Panorama de la cybermenace 2025) ne fournit pas de chiffre précis de +12 % pour l'augmentation de la complexité des rançongiciels. Ce chiffre n'apparaît pas dans les sources autorisées, ce qui crée une inc",
+        "phrase": "Par exemple, le rapport souligne que les attaques par rançongiciels ont augmenté de 12 % en complexité technique entre 2024 et 2025, malgré la baisse globale des incidents signalés."
+      },
+      {
+        "bloc": 1,
+        "type": "accusation_presentee_comme_fait",
+        "description": "La phrase présente les vulnérabilités comme un fait établi, alors que les sources [2], [3] et [4] (questions écrites du Sénat et de l'Assemblée nationale) ne font que documenter des incidents sans conclure explicitement ",
+        "phrase": "Ces deux incidents, survenus à moins d’un an d’intervalle, illustrent des vulnérabilités distinctes mais récurrentes dans les systèmes administratifs."
+      }
+    ],
+    "types_restants": [
+      "chiffre_errone",
+      "chiffre_errone",
+      "incoherence_inter_sections",
+      "accusation_presentee_comme_fait",
+      "acteur_mis_en_cause_sans_reponse",
+      "acteur_mis_en_cause_sans_reponse",
+      "source_derivee_comptee_comme_primaire",
+      "cadrage_emprunte",
+      "redondance",
+      "extrapolation",
+      "section_gonflee"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "nuances_vagues"
+    ],
+    "titre": "Piratage des impôts en 2026 : Lecornu reconnaît que peu de ministères sont protégés",
+    "n_sources": 7,
+    "n_mots": 576,
+    "titre_rss": "Piratage du site des impôts : « Peu de ministères sont au niveau requis » pour faire face aux cyberattaques, reconnaît Sébastien Lecornu",
+    "matiere_faits_distincts": 1010,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "n_sources_pertinentes": 3,
+    "veille_heures_visible": 7.8,
+    "veille_passages": 9,
+    "veille_age_h": 9.0,
+    "veille_n_flux_grappe": 4
+  },
+  {
+    "slug": "supercentenaires-systeme-immunitaire-modifie-etude",
+    "statut": "rejete_qualite",
+    "date": "2026-08-20T03:42:04",
+    "problemes_initiaux": 12,
+    "tentatives": 3,
+    "problemes_restants": 11,
+    "bloquants_restants": 4,
+    "bloquants_types": [
+      "niveau_preuve_insuffisant",
+      "niveau_preuve_insuffisant",
+      "incoherence_inter_sections",
+      "source_inventee"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "niveau_preuve_insuffisant",
+        "description": "La source [1] (*Sciences et Avenir*) ne précise pas le stade de l'étude (observationnelle) ni ses limites méthodologiques dans le résumé, alors que l'article insiste sur une « adaptation biologique » sans rappeler explic",
+        "phrase": "Selon *Sciences et Avenir*, cette particularité pourrait suggérer une adaptation biologique, mais les auteurs de l'étude soulignent que les mécanismes moléculaires restent à identifier et qu'aucun lien de causalité avec "
+      },
+      {
+        "bloc": 1,
+        "type": "niveau_preuve_insuffisant",
+        "description": "L'article ne précise pas les limites méthodologiques de l'étude (effectif, biais de sélection, absence de randomisation) alors que la source [1] les mentionne probablement (non vérifiable ici, mais le format exige de les",
+        "phrase": "Une étude observationnelle publiée en 2023, citée par *Sciences et Avenir*, rapporte que les supercentenaires — définis comme les personnes ayant atteint ou dépassé l’âge de 110 ans — présentent une composition distincte"
+      },
+      {
+        "bloc": 1,
+        "type": "incoherence_inter_sections",
+        "description": "Le chiffre de 21 000 centenaires en 2010 n'apparaît pas dans la source [4] (Insee), qui ne fournit que les données de 1970 (1 100) et 2021 (27 500). L'ajout d'une valeur intermédiaire non sourcée crée une incohérence.",
+        "phrase": "En France, le nombre de centenaires est passé d’environ 1 100 en 1970 à 21 000 en 2010, puis à 27 500 en 2021, selon les données de l’Insee."
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "Aucune des sources autorisées ne mentionne Jeanne Calment ou ne confirme ce statut de « doyenne vérifiée de l’humanité ».",
+        "phrase": "Jeanne Calment, décédée en 1997 à l’âge de 122 ans, reste la doyenne vérifiée de l’humanité."
+      }
+    ],
+    "types_restants": [
+      "niveau_preuve_insuffisant",
+      "niveau_preuve_insuffisant",
+      "incoherence_inter_sections",
+      "compteur_incoherent",
+      "source_inventee",
+      "source_derivee_comptee_comme_primaire",
+      "cadrage_emprunte",
+      "redondance",
+      "section_gonflee",
+      "extrapolation",
+      "faux_debat"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "titre_de_mauvaise_qualite"
+    ],
+    "titre": "Les supercentenaires ont un système immunitaire modifié selon une étude récente",
+    "n_sources": 4,
+    "n_mots": 596,
+    "titre_rss": "Les supercentenaires ont une immunité optimisée",
+    "matiere_faits_distincts": 1180,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 9,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "n_sources_pertinentes": 1,
+    "veille_heures_visible": 7.8,
+    "veille_passages": 9,
+    "veille_age_h": 9.0,
+    "veille_n_flux_grappe": 1
+  },
+  {
+    "slug": "defi-bitcoin-portefeuille-400000-euros-krackpot-io",
+    "statut": "rejete_qualite",
+    "date": "2026-08-20T03:48:10",
+    "problemes_initiaux": 9,
+    "tentatives": 3,
+    "problemes_restants": 14,
+    "bloquants_restants": 4,
+    "bloquants_types": [
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "annonce_perimee"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "Le résumé indique 300 000 €, mais la source [1] (Numerama) précise que le portefeuille contient 7,1 bitcoins, et le montant en euros n'est pas mentionné dans la source. Le cours actuel n'est pas fourni dans les sources a",
+        "phrase": "Le site Krackpot.io propose le Bitcoin Puzzle #71, un portefeuille public contenant 7,1 bitcoins, soit environ 300 000 € au cours actuel, accessible via une attaque par force brute depuis un navigateur."
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [1] ne mentionne pas la conversion en euros (300 000 €). Le chiffre de 7,1 bitcoins est correct, mais la conversion en euros n'est pas sourcée.",
+        "phrase": "Le site Krackpot.io propose le Bitcoin Puzzle #71, un portefeuille public contenant 7,1 bitcoins, soit environ 300 000 € au cours actuel, comme l'indique Numerama dans son article du 18 août 2026 [1]."
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [1] ne précise pas la répartition des bitcoins (6 pour le gagnant, 1,1 pour le développeur). Cette information n'est pas confirmée par la source citée.",
+        "phrase": "En cas de succès, le gagnant recevrait 6 bitcoins, tandis que le développeur du site en conserverait 1,1 bitcoin, comme le détaille Numerama [1]."
+      },
+      {
+        "bloc": 1,
+        "type": "annonce_perimee",
+        "description": "La source [1] date du 18 août 2026 et ne précise pas si le défi est toujours actif à cette date. L'article présente cette information comme actuelle, mais la source ne le confirme pas explicitement.",
+        "phrase": "Selon les informations disponibles en août 2026, le défi reste actif et le portefeuille n'a pas encore été vidé."
+      }
+    ],
+    "types_restants": [
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "annonce_perimee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_derivee_comptee_comme_primaire",
+      "compteur_incoherent",
+      "cadrage_emprunte",
+      "redondance",
+      "section_gonflee"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "resume_repete_corps"
+    ],
+    "titre": "Un défi Bitcoin propose 400 000 € à qui crackera un portefeuille en ligne",
+    "n_sources": 4,
+    "n_mots": 506,
+    "titre_rss": "300 000 € dorment sur ce site et n’importe quel internaute peut tenter de les gagner",
+    "matiere_faits_distincts": 1132,
+    "matiere_redondance": 0.02,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "n_sources_pertinentes": 1,
+    "veille_heures_visible": 12.9,
+    "veille_passages": 14,
+    "veille_age_h": 14.1,
+    "veille_n_flux_grappe": 1
+  },
+  {
+    "slug": "infarctus-avc-signes-avant-coureurs-etude-cohorte",
+    "statut": "rejete_qualite",
+    "date": "2026-08-20T03:56:59",
+    "problemes_initiaux": 12,
+    "tentatives": 3,
+    "problemes_restants": 11,
+    "bloquants_restants": 3,
+    "bloquants_types": [
+      "chiffre_errone",
+      "niveau_preuve_insuffisant",
+      "niveau_preuve_insuffisant"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "Le résumé présente le chiffre de 99 % sans mentionner les limites méthodologiques (définition des facteurs de risque, représentativité de la cohorte) alors que la source [1] (Futura Sciences) ne détaille pas ces limites,",
+        "phrase": "Une étude observationnelle, relayée par Futura Sciences, a analysé les données d'une cohorte de plus de neuf millions d'adultes. Selon cette étude, 99 % des infarctus du myocarde et des accidents vasculaires cérébraux (A"
+      },
+      {
+        "bloc": 1,
+        "type": "niveau_preuve_insuffisant",
+        "description": "L'étude est observationnelle et ses limites méthodologiques (définition des facteurs de risque, représentativité de la cohorte) ne sont pas détaillées dans la source [1], ce qui est signalé dans l'article. Le stade de l'",
+        "phrase": "Selon cette étude, 99 % des infarctus du myocarde et des accidents vasculaires cérébraux (AVC) seraient précédés d'au moins un facteur de risque identifiable parmi quatre : hypertension, diabète, hypercholestérolémie ou "
+      },
+      {
+        "bloc": 1,
+        "type": "niveau_preuve_insuffisant",
+        "description": "Bien que les limites soient mentionnées, elles le sont dans une phrase séparée et non à côté du résultat principal (99 %), ce qui ne suffit pas à prévenir une surinterprétation. Les limites doivent être intégrées à la pr",
+        "phrase": "Cependant, l'étude ne détaille pas ses limites méthodologiques, telles que la définition précise des facteurs de risque ou la représentativité de la cohorte, ce qui invite à interpréter ces résultats avec prudence."
+      }
+    ],
+    "types_restants": [
+      "chiffre_errone",
+      "fait_tranche_arbitrairement",
+      "niveau_preuve_insuffisant",
+      "niveau_preuve_insuffisant",
+      "source_derivee_comptee_comme_primaire",
+      "compteur_incoherent",
+      "source_derivee_comptee_comme_primaire",
+      "cadrage_emprunte",
+      "redondance",
+      "extrapolation",
+      "section_gonflee"
+    ],
+    "article_type": "actu",
+    "titre": "Infarctus et AVC précédés de signes dans 99 % des cas étudiés",
+    "n_sources": 5,
+    "n_mots": 532,
+    "titre_rss": "Contrairement à ce qu'on pense, les infarctus surviendraient très rarement sans signal préalable",
+    "matiere_faits_distincts": 1428,
+    "matiere_redondance": 0.01,
+    "matiere_donnees_chiffrees": 10,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "n_sources_pertinentes": 2,
+    "veille_heures_visible": 14.7,
+    "veille_passages": 16,
+    "veille_age_h": 15.9,
+    "veille_n_flux_grappe": 1
+  },
+  {
+    "slug": "annulation-rapport-arctique-administration-trump",
+    "statut": "rejete_qualite",
+    "date": "2026-08-20T04:02:59",
+    "problemes_initiaux": 12,
+    "tentatives": 3,
+    "problemes_restants": 17,
+    "bloquants_restants": 3,
+    "bloquants_types": [
+      "annonce_perimee",
+      "accusation_presentee_comme_fait",
+      "accusation_presentee_comme_fait"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "annonce_perimee",
+        "description": "Le résumé présente la décision comme une annonce à venir (« ne serait pas publié »), alors que les faits confirment que la NOAA a déjà confirmé la suspension (« Un porte-parole de la NOAA a confirmé cette semaine que la ",
+        "phrase": "Selon des scientifiques cités par *Sciences et Avenir*, cette décision, justifiée par des « priorités gouvernementales réévaluées », suscite des interrogations quant à l'accès à une synthèse actualisée des données climat"
+      },
+      {
+        "bloc": 1,
+        "type": "accusation_presentee_comme_fait",
+        "description": "Le résumé attribue la décision à l'« administration Trump » sans guillemets ni source directe, alors que la source [1] (Sciences et Avenir) formule cela comme une interprétation (« l'administration Trump s'attaque encore",
+        "phrase": "Selon des scientifiques cités par *Sciences et Avenir*, cette décision, justifiée par des « priorités gouvernementales réévaluées », suscite des interrogations quant à l'accès à une synthèse actualisée des données climat"
+      },
+      {
+        "bloc": 1,
+        "type": "accusation_presentee_comme_fait",
+        "description": "Les craintes des scientifiques sont présentées comme un fait établi (« réduise la visibilité ») plutôt que comme une opinion attribuée. La source [1] (Sciences et Avenir) les formule comme des inquiétudes, pas comme des ",
+        "phrase": "Plusieurs scientifiques, cités par *Sciences et Avenir*, ont exprimé des préoccupations quant aux motivations derrière cette décision. Ils craignent que l'absence d'une synthèse annuelle ne réduise la visibilité des impa"
+      }
+    ],
+    "types_restants": [
+      "annonce_perimee",
+      "accusation_presentee_comme_fait",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "accusation_presentee_comme_fait",
+      "acteur_mis_en_cause_sans_reponse",
+      "source_derivee_comptee_comme_primaire",
+      "faux_debat",
+      "cadrage_emprunte",
+      "cadrage_emprunte",
+      "cadrage_emprunte",
+      "contexte_hors_sujet",
+      "redondance",
+      "section_gonflee",
+      "jugement_de_valeur",
+      "extrapolation"
+    ],
+    "article_type": "actu",
+    "titre": "L'administration Trump annule un rapport majeur sur l'Arctique",
+    "n_sources": 4,
+    "n_mots": 397,
+    "titre_rss": "Annulation d'un rapport sur l'Arctique : Trump s'attaque encore à la science du climat",
+    "matiere_faits_distincts": 985,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "n_sources_pertinentes": 1,
+    "veille_heures_visible": 159.0,
+    "veille_passages": 136,
+    "veille_age_h": 160.2,
+    "veille_n_flux_grappe": 4
+  },
+  {
+    "slug": "ebola-rdc-5000-cas-propagation-acceleree",
+    "statut": "rejete_qualite",
+    "date": "2026-08-20T04:12:01",
+    "problemes_initiaux": 14,
+    "tentatives": 3,
+    "problemes_restants": 11,
+    "bloquants_restants": 5,
+    "bloquants_types": [
+      "chiffre_errone",
+      "annonce_perimee",
+      "incoherence_inter_sections",
+      "niveau_preuve_insuffisant",
+      "source_inventee"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "Le résumé attribue les chiffres à Europa (source [8]), mais le rapport d'Europa du 19 août 2026 (source [8]) ne confirme pas explicitement ces chiffres exacts (3 207 cas confirmés et 1 440 décès). Ces chiffres sont détai",
+        "phrase": "La République démocratique du Congo (RDC) recense 3 207 cas confirmés d'Ebola et 1 440 décès cumulés depuis le début de l'épidémie, selon les données du rapport du Centre européen de prévention et de contrôle des maladie"
+      },
+      {
+        "bloc": 1,
+        "type": "annonce_perimee",
+        "description": "Le résumé présente la situation comme actuelle (« devance encore », « risques accrus »), alors que le rapport de l'UN du 13 août 2026 (source [6]) décrit une amélioration du suivi des contacts mais souligne des défis per",
+        "phrase": "Bien que le suivi des contacts couvre désormais plus de 90 % des personnes exposées, l'épidémie devance encore les capacités de détection, avec des risques accrus de propagation, notamment en raison de mouvements de popu"
+      },
+      {
+        "bloc": 1,
+        "type": "incoherence_inter_sections",
+        "description": "Les chiffres de 76 nouveaux cas et 52 décès pour les 15-16 août 2026 ne sont pas attribués à une source précise dans la liste fournie. Aucune des sources autorisées ne confirme explicitement ces données pour cette périod",
+        "phrase": "Entre le 15 et le 16 août 2026, 76 nouveaux cas et 52 décès ont été signalés, illustrant une transmission active du virus Bundibugyo ebolavirus (BDBV), une souche rare associée à des taux de létalité élevés."
+      },
+      {
+        "bloc": 1,
+        "type": "niveau_preuve_insuffisant",
+        "description": "L'article présente une « réduction de la transmission » comme un résultat établi, alors que la source Europa (source [8]) indique que l'impact global de la vaccination reste « en cours d'analyse ». Le niveau de preuve es",
+        "phrase": "Selon Europa, les premières évaluations suggèrent une réduction de la transmission dans les zones où la couverture vaccinale est élevée, bien que son impact global sur la courbe épidémique reste en cours d'analyse."
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "L'article du *BMJ* (source [5]) est cité pour confirmer le chiffre de 15 % des cas concernant les personnels de santé, mais cette source ne fournit pas explicitement ce pourcentage. Le *BMJ* traite des risques pour les s",
+        "phrase": "15 % des cas enregistrés concernent des personnels de santé, une vulnérabilité persistante malgré le renforcement des mesures de protection, comme le souligne également un article du *BMJ* daté du 10 juin 2026."
+      }
+    ],
+    "types_restants": [
+      "chiffre_errone",
+      "annonce_perimee",
+      "incoherence_inter_sections",
+      "niveau_preuve_insuffisant",
+      "source_derivee_comptee_comme_primaire",
+      "source_inventee",
+      "compteur_incoherent",
+      "paraphrase_structurelle",
+      "redondance",
+      "contexte_hors_sujet",
+      "extrapolation"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "resume_repete_corps"
+    ],
+    "titre": "Ebola en RDC : 5 000 cas et une propagation qui s'accélère",
+    "n_sources": 9,
+    "n_mots": 574,
+    "titre_rss": "En RDC, l'épidémie d'Ebola est loin d'être \"maîtrisée\"",
+    "matiere_faits_distincts": 1105,
+    "matiere_redondance": 0.02,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "n_sources_pertinentes": 6,
+    "veille_heures_visible": 9.6,
+    "veille_passages": 11,
+    "veille_age_h": 10.8,
+    "veille_n_flux_grappe": 14
   }
 ]
