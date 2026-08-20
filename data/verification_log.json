@@ -12493,5 +12493,618 @@
     "veille_passages": 19,
     "veille_age_h": 20.0,
     "veille_n_flux_grappe": 3
+  },
+  {
+    "slug": "cyberattaque-sfr-donnees-2-millions-abonnes-fibre-exposees",
+    "statut": "rejete_qualite",
+    "date": "2026-08-20T20:43:28",
+    "problemes_initiaux": 14,
+    "tentatives": 3,
+    "problemes_restants": 12,
+    "bloquants_restants": 3,
+    "bloquants_types": [
+      "annonce_perimee",
+      "accusation_presentee_comme_fait",
+      "accusation_presentee_comme_fait"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "annonce_perimee",
+        "description": "Le résumé présente la cyberattaque comme un événement déjà confirmé avec une exfiltration potentielle, alors que les faits précisent que la revendication n'est pas confirmée par SFR ou les autorités.",
+        "phrase": "Le 20 août 2026, SFR a confirmé avoir subi une cyberattaque ayant conduit à l'exfiltration potentielle de données personnelles concernant ses abonnés à la fibre optique, selon une revendication non confirmée par l'opérat"
+      },
+      {
+        "bloc": 1,
+        "type": "accusation_presentee_comme_fait",
+        "description": "La revendication du groupe ZeroBytes est présentée comme un fait, alors qu'elle n'est pas confirmée par SFR ou les autorités. Elle devrait être attribuée explicitement au groupe ZeroBytes.",
+        "phrase": "Un groupe se faisant appeler ZeroBytes a revendiqué cette attaque et affirmé avoir exfiltré des données personnelles concernant 2,1 millions d'abonnés à la fibre optique."
+      },
+      {
+        "bloc": 1,
+        "type": "accusation_presentee_comme_fait",
+        "description": "Le résumé reprend l'hypothèse de Libération sans préciser que ces informations ne sont pas confirmées par SFR ou les autorités, ce qui en fait une accusation présentée comme un fait.",
+        "phrase": "D'après Libération, les données concernées pourraient inclure des informations permettant d'identifier les clients, mais SFR n'a pas précisé leur nature exacte ni la période d'extraction."
+      }
+    ],
+    "types_restants": [
+      "annonce_perimee",
+      "accusation_presentee_comme_fait",
+      "accusation_presentee_comme_fait",
+      "fait_tranche_arbitrairement",
+      "compteur_incoherent",
+      "source_derivee_comptee_comme_primaire",
+      "contexte_hors_sujet",
+      "formule_vague",
+      "section_gonflee",
+      "redondance",
+      "jugement_de_valeur",
+      "jugement_de_valeur"
+    ],
+    "article_type": "actu",
+    "titre": "Cyberattaque chez SFR : 2,1 millions d'abonnés à la fibre exposés",
+    "n_sources": 4,
+    "n_mots": 405,
+    "titre_rss": "L’opérateur SFR victime d’une cyberattaque, des données personnelles de 2,1 millions d’abonnés à la fibre dans la nature",
+    "matiere_faits_distincts": 983,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "n_sources_pertinentes": 2,
+    "veille_heures_visible": 6.0,
+    "veille_passages": 6,
+    "veille_age_h": 7.1,
+    "veille_n_flux_grappe": 5
+  },
+  {
+    "slug": "fuite-donnees-red-by-sfr-informations-exposees",
+    "statut": "rejete_sensible",
+    "date": "2026-08-20T20:48:40",
+    "problemes_initiaux": 10,
+    "tentative": 3,
+    "bloc5": true,
+    "article_type": "actu",
+    "titre": "Fuite de données chez Red by SFR : nature des informations exposées",
+    "n_sources": 5,
+    "n_mots": 481,
+    "titre_rss": "Nouvelle fuite de données en France : Red by SFR alerte ses clients",
+    "matiere_faits_distincts": 961,
+    "matiere_redondance": 0.04,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "n_sources_pertinentes": 2,
+    "veille_heures_visible": 4.6,
+    "veille_passages": 5,
+    "veille_age_h": 5.6,
+    "veille_n_flux_grappe": 13
+  },
+  {
+    "slug": "canicule-2026-france-7300-morts-exces-bilan-provisoire",
+    "statut": "rejete_qualite",
+    "date": "2026-08-20T20:56:16",
+    "problemes_initiaux": 14,
+    "tentatives": 3,
+    "problemes_restants": 15,
+    "bloquants_restants": 6,
+    "bloquants_types": [
+      "chiffre_errone",
+      "incoherence_inter_sections",
+      "annonce_perimee",
+      "chiffre_errone",
+      "incoherence_inter_sections",
+      "source_inventee"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "Le résumé attribue le chiffre de 7 300 décès en excès à Santé publique France via Sciences et Avenir, mais la source [1] (Sciences et Avenir) indique que ce chiffre est un bilan provisoire *attribué à* Santé publique Fra",
+        "phrase": "Un bilan provisoire publié le 13 août 2026 par Sciences et Avenir, citant Santé publique France, fait état de 7 300 décès en excès en France depuis mai 2026, liés aux vagues de chaleur."
+      },
+      {
+        "bloc": 1,
+        "type": "incoherence_inter_sections",
+        "description": "Le résumé mentionne un excès de mortalité *significatif* pour le deuxième épisode caniculaire (17 juin au 2 juillet), mais la source [2] (Vie Publique) indique un chiffre précis de 5 764 décès en excès pour cet épisode. ",
+        "phrase": "Le deuxième épisode caniculaire, survenu du 17 juin au 2 juillet, a contribué à ce bilan avec un excès de mortalité significatif, selon Vie Publique."
+      },
+      {
+        "bloc": 1,
+        "type": "annonce_perimee",
+        "description": "Le résumé présente le chiffre de 7 300 décès comme un bilan *provisoire* susceptible d'être révisé à la hausse, mais la source [1] (Sciences et Avenir) ne précise pas explicitement que ce chiffre est susceptible d'augmen",
+        "phrase": "Ce chiffre, qui pourrait être révisé à la hausse, reflète une surmortalité statistique sans attribution directe de chaque décès à la canicule."
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [1] (Sciences et Avenir) attribue le chiffre de 7 300 décès en excès à Santé publique France, mais ne confirme pas que ce chiffre couvre *depuis mai 2026*. La source [2] (Vie Publique) mentionne 5 764 décès en ",
+        "phrase": "Un bilan provisoire publié par Sciences et Avenir le 13 août 2026, attribuant ses données à Santé publique France, recense 7 300 décès en excès en France depuis mai 2026."
+      },
+      {
+        "bloc": 1,
+        "type": "incoherence_inter_sections",
+        "description": "Le corps de l'article mentionne que le deuxième épisode caniculaire s'est déroulé *du 17 juin au 2 juillet*, mais la source [2] (Vie Publique) indique que cet épisode s'est déroulé *du 17 juin au 2 juillet*, tandis que l",
+        "phrase": "Le deuxième épisode caniculaire, du 17 juin au 2 juillet, a été particulièrement intense. Météo-France a placé 68 départements en vigilance rouge canicule le 25 juin, un niveau record depuis la création du dispositif en "
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "La méthodologie statistique attribuée à Santé publique France n'est pas explicitement décrite dans les sources fournies. Aucune des sources ne détaille cette méthodologie, ce qui en fait une affirmation non sourcée.",
+        "phrase": "Le calcul des décès en excès repose sur une méthodologie statistique comparant la mortalité observée à une mortalité attendue, basée sur les moyennes des années précédentes. Cette approche, utilisée par Santé publique Fr"
+      }
+    ],
+    "types_restants": [
+      "chiffre_errone",
+      "incoherence_inter_sections",
+      "annonce_perimee",
+      "chiffre_errone",
+      "incoherence_inter_sections",
+      "source_inventee",
+      "contexte_hors_sujet",
+      "source_derivee_comptee_comme_primaire",
+      "source_derivee_comptee_comme_primaire",
+      "source_inventee",
+      "source_non_editoriale",
+      "compteur_incoherent",
+      "extrapolation",
+      "extrapolation",
+      "section_gonflee"
+    ],
+    "article_type": "actu",
+    "titre": "7 300 morts en excès liés aux canicules en France depuis mai 2026",
+    "n_sources": 9,
+    "n_mots": 665,
+    "titre_rss": "Canicules : déjà 7.300 morts en excès en France en 2026",
+    "matiere_faits_distincts": 881,
+    "matiere_redondance": 0.04,
+    "matiere_donnees_chiffrees": 4,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "n_sources_pertinentes": 3,
+    "veille_heures_visible": 24.9,
+    "veille_passages": 23,
+    "veille_age_h": 26.0,
+    "veille_n_flux_grappe": 5
+  },
+  {
+    "slug": "canicule-2026-18500-morts-allemagne-espagne",
+    "statut": "rejete_qualite",
+    "date": "2026-08-20T20:59:02",
+    "angle_insuffisant": true,
+    "raison": "L'article ne répond pas à la question posée dans 'angle_reponse' ('Combien de vies la canicule de cet été a-t-elle coûtées en Europe, et quelles mesures pourraient éviter ces décès ?'). Il fournit des chiffres pour l'Allemagne et l'Espagne, mais ne propose aucune mesure concrète sourcée pour réduire l'impact des canicules. De plus, le titre et le résumé mentionnent '18 500 morts en Allemagne et Espagne' sans préciser que ce chiffre est la somme de deux bilans nationaux distincts (14 000 + 4 500), ce qui pourrait induire en erreur. Enfin, aucune phrase dans 'faits' ne combine un événement précis daté (ex. publication d'un bilan) avec une donnée chiffrée propre à cet événement pour justifier une publication maintenant.",
+    "article_type": "actu",
+    "titre": "Canicule 2026 : 18 500 morts en Allemagne et Espagne",
+    "n_sources": 6,
+    "n_mots": 356,
+    "titre_rss": "Canicule : 14 000 morts liées à la chaleur recensées cet été en Allemagne, près de 4 500 en Espagne",
+    "matiere_faits_distincts": 1070,
+    "matiere_redondance": 0.04,
+    "matiere_donnees_chiffrees": 2,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "n_sources_pertinentes": 2,
+    "veille_heures_visible": 7.9,
+    "veille_passages": 13,
+    "veille_age_h": 9.0,
+    "veille_n_flux_grappe": 11
+  },
+  {
+    "slug": "resiliencearc-plateforme-open-source-resilience-climatique-entreprises",
+    "statut": "rejete_qualite",
+    "date": "2026-08-20T21:05:09",
+    "problemes_initiaux": 12,
+    "tentatives": 3,
+    "problemes_restants": 11,
+    "bloquants_restants": 4,
+    "bloquants_types": [
+      "annonce_perimee",
+      "niveau_preuve_insuffisant",
+      "niveau_preuve_insuffisant",
+      "accusation_presentee_comme_fait"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "annonce_perimee",
+        "description": "Le résumé présente le lancement de ResilienceArc comme un événement à venir (« a lancé »), alors que les sources (notamment Novethic du 20 août 2026) décrivent l'événement comme déjà survenu. Le titre et le résumé doiven",
+        "phrase": "Le 20 août 2026, une coalition d'experts a lancé ResilienceArc, une plateforme gratuite et open source destinée à aider les entreprises à évaluer et renforcer leur résilience climatique."
+      },
+      {
+        "bloc": 1,
+        "type": "niveau_preuve_insuffisant",
+        "description": "La source [3] (Europa, 22 avril 2025) mentionne bien plus de 1 000 indicateurs, mais ne précise pas leur stade de développement, leur harmonisation ou leur applicabilité immédiate. L'article ne signale pas ces limites mé",
+        "phrase": "ResilienceArc s'appuie sur une base de données de plus de 1 000 indicateurs recensés en 2023 pour évaluer la résilience climatique, comme le détaille Europa."
+      },
+      {
+        "bloc": 1,
+        "type": "niveau_preuve_insuffisant",
+        "description": "La source [1] (Novethic) décrit des fonctionnalités, mais ne précise pas si les recommandations sont validées scientifiquement ou simplement suggérées par la plateforme. L'article ne mentionne pas cette absence de valida",
+        "phrase": "Parmi les fonctionnalités concrètes offertes par la plateforme, Novethic souligne la possibilité pour les entreprises de : [...] Accéder à des recommandations adaptées à leur profil de risque, basées sur les indicateurs "
+      },
+      {
+        "bloc": 1,
+        "type": "accusation_presentee_comme_fait",
+        "description": "La phrase présente comme un fait établi (« pourrait limiter la confiance ») une hypothèse non sourcée. La source [1] (Novethic) évoque des limites, mais ne confirme pas un impact sur la confiance des utilisateurs. Il s'a",
+        "phrase": "Cette absence de détails sur les processus de contrôle et d'actualisation des données pourrait limiter la confiance des utilisateurs dans la fiabilité de l'outil à long terme."
+      }
+    ],
+    "types_restants": [
+      "annonce_perimee",
+      "niveau_preuve_insuffisant",
+      "niveau_preuve_insuffisant",
+      "accusation_presentee_comme_fait",
+      "source_derivee_comptee_comme_primaire",
+      "compteur_incoherent",
+      "paraphrase_structurelle",
+      "cadrage_emprunte",
+      "redondance",
+      "extrapolation",
+      "section_gonflee"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "attributions_trop_repetitives"
+    ],
+    "titre": "Lancement de ResilienceArc, une plateforme open source pour la résilience climatique",
+    "n_sources": 6,
+    "n_mots": 621,
+    "titre_rss": "ResilienceArc propose un outil pour accélérer la résilience climatique des entreprises",
+    "matiere_faits_distincts": 981,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "n_sources_pertinentes": 2,
+    "veille_heures_visible": 7.0,
+    "veille_passages": 7,
+    "veille_age_h": 8.0,
+    "veille_n_flux_grappe": 2
+  },
+  {
+    "slug": "ete-2026-crises-climatiques-bilan-politique-ecologistes",
+    "statut": "rejete_sensible",
+    "date": "2026-08-20T21:08:34",
+    "problemes_initiaux": 13,
+    "bloc5": [
+      "acteur_mis_en_cause_sans_reponse"
+    ],
+    "article_type": "actu",
+    "titre": "Crises climatiques de l'été 2026 : un bilan politique mitigé pour les écologistes",
+    "n_sources": 6,
+    "n_mots": 637,
+    "titre_rss": "Malgré les incendies et les canicules, les Écologistes peinent à imposer leurs idées",
+    "matiere_faits_distincts": 1127,
+    "matiere_redondance": 0.04,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "n_sources_pertinentes": 1,
+    "veille_heures_visible": 12.9,
+    "veille_passages": 13,
+    "veille_age_h": 13.9,
+    "veille_n_flux_grappe": 2
+  },
+  {
+    "slug": "gel-pensions-retraites-aides-proposition-lescure",
+    "statut": "rejete_sensible",
+    "date": "2026-08-20T21:12:35",
+    "problemes_initiaux": 12,
+    "tentative": 1,
+    "bloc5": true,
+    "article_type": "actu",
+    "titre": "Retraites : Lescure évoque un gel ciblé des pensions pour réduire le déficit",
+    "n_sources": 8,
+    "n_mots": 521,
+    "titre_rss": "Retraites : le gel des pensions, le pari à haut risque de Roland Lescure",
+    "matiere_faits_distincts": 1252,
+    "matiere_redondance": 0.01,
+    "matiere_donnees_chiffrees": 4,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "n_sources_pertinentes": 2,
+    "veille_heures_visible": 12.9,
+    "veille_passages": 13,
+    "veille_age_h": 13.9,
+    "veille_n_flux_grappe": 2
+  },
+  {
+    "slug": "rapport-igf-risques-loi-finances-speciale-2027",
+    "statut": "rejete_qualite",
+    "date": "2026-08-20T21:18:52",
+    "problemes_initiaux": 14,
+    "tentatives": 3,
+    "problemes_restants": 11,
+    "bloquants_restants": 3,
+    "bloquants_types": [
+      "chiffre_errone",
+      "incoherence_inter_sections",
+      "niveau_preuve_insuffisant"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "Le résumé attribue au FMI une projection de déficit public à 5 % du PIB en 2026, mais le corps de l'article (faits) et la source [6] (Fiscal Monitor d'avril 2026) ne mentionnent que la dette publique à 100 % du PIB en 20",
+        "phrase": "Le FMI projette un déficit public à 5 % du PIB en 2026 et une dette publique atteignant 100 % du PIB d'ici 2029, selon son *Fiscal Monitor* d'avril 2026."
+      },
+      {
+        "bloc": 1,
+        "type": "incoherence_inter_sections",
+        "description": "Le résumé présente les risques liés à la prolongation en 2027 comme une conséquence de la procédure appliquée pour le budget 2026, alors que le corps de l'article (faits) précise que l'IGF évoque des risques pour une pro",
+        "phrase": "Selon le rapport IGF, cette procédure, appliquée pour le budget 2026 adopté le 20 février 2026, pourrait entraîner des tensions avec les collectivités locales et réduire la visibilité sur les dépenses prioritaires."
+      },
+      {
+        "bloc": 1,
+        "type": "niveau_preuve_insuffisant",
+        "description": "L'article présente les « risques majeurs » comme un constat établi par l'IGF, mais la source [1] (*Le Monde*) précise que ces alertes sont qualitatives et ne s'appuient sur aucune modélisation économique ou scénario pros",
+        "phrase": "Dans son rapport, l'IGF évoque des « risques majeurs » liés à un nouveau report en 2027, sans les quantifier ni les détailler."
+      }
+    ],
+    "types_restants": [
+      "chiffre_errone",
+      "incoherence_inter_sections",
+      "niveau_preuve_insuffisant",
+      "redondance",
+      "redondance",
+      "source_derivee_comptee_comme_primaire",
+      "source_derivee_comptee_comme_primaire",
+      "compteur_incoherent",
+      "contexte_hors_sujet",
+      "section_gonflee",
+      "faux_debat"
+    ],
+    "article_type": "actu",
+    "titre": "Rapport IGF 2026 : une loi de finances spéciale prolongée en 2027 ferait peser des risques budgétaires",
+    "n_sources": 7,
+    "n_mots": 485,
+    "titre_rss": "Absence de budget et loi spéciale prolongée : l’inspection générale des finances alerte sur des « risques majeurs »",
+    "matiere_faits_distincts": 911,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "n_sources_pertinentes": 4,
+    "veille_heures_visible": 0.9,
+    "veille_passages": 2,
+    "veille_age_h": 2.0,
+    "veille_n_flux_grappe": 3
+  },
+  {
+    "slug": "logement-etudiant-prix-records-annonces-non-conformes-2026",
+    "statut": "rejete_qualite",
+    "date": "2026-08-20T21:24:41",
+    "problemes_initiaux": 13,
+    "tentatives": 3,
+    "problemes_restants": 11,
+    "bloquants_restants": 3,
+    "bloquants_types": [
+      "chiffre_errone",
+      "niveau_preuve_insuffisant",
+      "accusation_presentee_comme_fait"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "Le résumé présente le chiffre de 60 % comme une estimation indicative, mais la source citée (Libération) précise que ce chiffre est une estimation sans méthodologie détaillée, ce qui n'est pas reflété avec la même pruden",
+        "phrase": "Une enquête publiée par Libération le 20 août 2026 indique que jusqu'à 60 % des annonces de logements étudiants pourraient ne pas respecter la réglementation, sans fournir de méthodologie détaillée ni de critères précis "
+      },
+      {
+        "bloc": 1,
+        "type": "niveau_preuve_insuffisant",
+        "description": "Le résumé ne précise pas que le chiffre de 60 % est une estimation indicative sans méthodologie détaillée, ce qui sous-estime le niveau d'incertitude par rapport à la source.",
+        "phrase": "Une enquête publiée par Libération le 20 août 2026 indique que jusqu'à 60 % des annonces de logements étudiants pourraient ne pas respecter la réglementation, sans fournir de méthodologie détaillée ni de critères précis "
+      },
+      {
+        "bloc": 1,
+        "type": "accusation_presentee_comme_fait",
+        "description": "L'article présente ce chiffre comme un constat, alors que la source (Libération) le qualifie d'estimation indicative sans méthodologie détaillée, ce qui en fait une accusation ou une conclusion non étayée plutôt qu'un fa",
+        "phrase": "Selon cette enquête, jusqu'à 60 % des annonces de logements destinés aux étudiants pourraient ne pas respecter la réglementation."
+      }
+    ],
+    "types_restants": [
+      "chiffre_errone",
+      "niveau_preuve_insuffisant",
+      "accusation_presentee_comme_fait",
+      "acteur_mis_en_cause_sans_reponse",
+      "source_derivee_comptee_comme_primaire",
+      "redondance",
+      "contexte_hors_sujet",
+      "cadrage_emprunte",
+      "redondance",
+      "extrapolation",
+      "faux_debat"
+    ],
+    "article_type": "actu",
+    "titre": "Logement étudiant : des prix records et 60 % d'annonces non conformes",
+    "n_sources": 4,
+    "n_mots": 793,
+    "titre_rss": "Logements : pour les étudiants, un monde sans toit ni loi",
+    "matiere_faits_distincts": 870,
+    "matiere_redondance": 0.05,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "n_sources_pertinentes": 2,
+    "veille_heures_visible": 0.0,
+    "veille_passages": 1,
+    "veille_age_h": 1.0,
+    "veille_n_flux_grappe": 1
+  },
+  {
+    "slug": "europe-chips-act-objectifs-production-semi-conducteurs",
+    "statut": "rejete_sensible",
+    "date": "2026-08-20T21:32:46",
+    "problemes_initiaux": 10,
+    "tentative": 1,
+    "bloc5": true,
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "titre_de_mauvaise_qualite"
+    ],
+    "titre": "L'Europe lance son plan pour réduire sa dépendance aux puces étrangères",
+    "n_sources": 6,
+    "n_mots": 520,
+    "titre_rss": "Une brève histoire des puces",
+    "matiere_faits_distincts": 757,
+    "matiere_redondance": 0.01,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "n_sources_pertinentes": 2,
+    "veille_heures_visible": 8.8,
+    "veille_passages": 9,
+    "veille_age_h": 9.9,
+    "veille_n_flux_grappe": 1
+  },
+  {
+    "slug": "chine-premier-atterrissage-fusee-reutilisable-landspace",
+    "statut": "rejete_qualite",
+    "date": "2026-08-20T21:38:57",
+    "problemes_initiaux": 16,
+    "tentatives": 3,
+    "problemes_restants": 12,
+    "bloquants_restants": 3,
+    "bloquants_types": [
+      "annonce_perimee",
+      "annonce_perimee",
+      "accusation_presentee_comme_fait"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "annonce_perimee",
+        "description": "Le résumé présente l'annonce comme un événement à venir (« a annoncé le 19 janvier avoir réussi »), alors que les sources (SpaceNews et Xinhua) soulignent que cette annonce n'est pas validée par des données indépendantes",
+        "phrase": "La start-up chinoise LandSpace a annoncé le 19 janvier avoir réussi l'atterrissage du premier étage de sa fusée Zhuque-3 lors d'un test suborbital, une première pour une entreprise privée du pays selon ses déclarations, "
+      },
+      {
+        "bloc": 1,
+        "type": "annonce_perimee",
+        "description": "Le titre présente l'atterrissage comme un fait accompli (« avoir réussi »), alors que les sources indiquent qu'aucune confirmation indépendante n'a été publiée et que l'annonce reste à valider. Cela constitue une présent",
+        "phrase": "LandSpace annonce avoir réussi l'atterrissage d'un étage de fusée réutilisable en Chine"
+      },
+      {
+        "bloc": 1,
+        "type": "accusation_presentee_comme_fait",
+        "description": "L'article présente cette affirmation comme un fait, alors qu'elle émane uniquement de LandSpace et n'est pas validée par des sources indépendantes. La source SpaceNews souligne d'ailleurs que cette affirmation reste à co",
+        "phrase": "LandSpace affirme que cette performance placerait l'entreprise parmi les rares acteurs capables de récupérer des étages de fusée."
+      }
+    ],
+    "types_restants": [
+      "annonce_perimee",
+      "annonce_perimee",
+      "accusation_presentee_comme_fait",
+      "acteur_mis_en_cause_sans_reponse",
+      "fait_tranche_arbitrairement",
+      "source_derivee_comptee_comme_primaire",
+      "formule_vague",
+      "source_derivee_comptee_comme_primaire",
+      "cadrage_emprunte",
+      "redondance",
+      "extrapolation",
+      "faux_debat"
+    ],
+    "article_type": "actu",
+    "titre": "La Chine réussit son premier atterrissage de fusée réutilisable",
+    "n_sources": 3,
+    "n_mots": 520,
+    "titre_rss": "Une start-up chinoise entre dans le club très fermé des entreprises privées capables de lancer des fusées réutilisables",
+    "matiere_faits_distincts": 724,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "n_sources_pertinentes": 1,
+    "veille_heures_visible": 7.0,
+    "veille_passages": 9,
+    "veille_age_h": 8.0,
+    "veille_n_flux_grappe": 2
+  },
+  {
+    "slug": "s301-etoile-plus-rapide-voie-lactee-25000-km-seconde",
+    "statut": "rejete_qualite",
+    "date": "2026-08-20T21:47:51",
+    "problemes_initiaux": 10,
+    "tentatives": 3,
+    "problemes_restants": 9,
+    "bloquants_restants": 3,
+    "bloquants_types": [
+      "annonce_perimee",
+      "niveau_preuve_insuffisant",
+      "niveau_preuve_insuffisant"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "annonce_perimee",
+        "description": "Le résumé présente la détection comme une observation préliminaire (« ont permis de détecter »), mais les sources [2] et [4] (France 24 et Science) décrivent déjà cette observation comme un résultat établi, bien que néce",
+        "phrase": "Des observations préliminaires ont permis de détecter S301, une étoile dont la vitesse est estimée à 25 000 kilomètres par seconde lors de son passage au plus près de Sagittarius A*, le trou noir supermassif au centre de"
+      },
+      {
+        "bloc": 1,
+        "type": "niveau_preuve_insuffisant",
+        "description": "L'article ne précise pas que la vitesse de 25 000 km/s est une estimation préliminaire nécessitant des observations complémentaires pour être validée, sans mentionner les limites méthodologiques (ex : incertitudes de mes",
+        "phrase": "Cette vitesse, qui correspond à environ 8 % de la vitesse de la lumière, est présentée comme une détection inédite pour une étoile dans notre galaxie, mais elle doit encore être confirmée par des vérifications supplément"
+      },
+      {
+        "bloc": 1,
+        "type": "niveau_preuve_insuffisant",
+        "description": "L'article présente la méthode comme une possibilité théorique sans préciser que la source [2] souligne son caractère non validé et les défis techniques associés (ex : précision des instruments, modélisation des effets re",
+        "phrase": "La trajectoire de S301 pourrait, selon Science [2], permettre une mesure directe de la rotation de Sagittarius A*, un paramètre jusqu’ici difficile à observer. Cependant, cette méthode reste à valider, et les scientifiqu"
+      }
+    ],
+    "types_restants": [
+      "annonce_perimee",
+      "niveau_preuve_insuffisant",
+      "niveau_preuve_insuffisant",
+      "fait_tranche_arbitrairement",
+      "source_derivee_comptee_comme_primaire",
+      "compteur_incoherent",
+      "cadrage_emprunte",
+      "redondance",
+      "extrapolation"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "resume_repete_corps"
+    ],
+    "titre": "S301, l'étoile la plus rapide de la Voie lactée détectée à 25 000 km/s",
+    "n_sources": 4,
+    "n_mots": 521,
+    "titre_rss": "L’étoile la plus rapide de la Voie lactée fonce à 25.000 km/s autour d’un trou noir",
+    "matiere_faits_distincts": 874,
+    "matiere_redondance": 0.01,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "n_sources_pertinentes": 2,
+    "veille_heures_visible": 1.9,
+    "veille_passages": 3,
+    "veille_age_h": 3.0,
+    "veille_n_flux_grappe": 1
+  },
+  {
+    "slug": "infarctus-avc-facteurs-risque-etude-cohorte-9-millions",
+    "statut": "rejete_qualite",
+    "date": "2026-08-20T21:55:17",
+    "tentative": 1,
+    "angle_insuffisant": true,
+    "raison": "L'article ne répond pas à la question posée dans 'angle_reponse' ('Quels sont les facteurs de risque identifiables avant un infarctus ou un AVC, et dans quelle mesure permettent-ils de prévenir ces accidents ?'). Il décrit des facteurs de risque généraux et des statistiques, mais n'explique pas comment ces facteurs permettent une prévention effective, ni ne cite de données précises sur leur impact préventif. De plus, aucune actualité datée récente (ex : publication d'une étude, annonce d'une mesure) ne justifie la publication maintenant : les sources et faits cités sont soit génériques (OMS), soit datés de 2020 ou projetés en 2026 (loi Neuder).",
+    "article_type": "actu",
+    "titre": "99 % des infarctus et AVC précédés d'au moins un facteur de risque",
+    "n_sources": 5,
+    "n_mots": 519,
+    "titre_rss": "Contrairement à ce qu'on pense, les infarctus surviendraient très rarement sans signal préalable",
+    "matiere_faits_distincts": 1385,
+    "matiere_redondance": 0.01,
+    "matiere_donnees_chiffrees": 5,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "n_sources_pertinentes": 1,
+    "veille_heures_visible": 32.8,
+    "veille_passages": 31,
+    "veille_age_h": 33.9,
+    "veille_n_flux_grappe": 1
   }
 ]
