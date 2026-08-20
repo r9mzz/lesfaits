@@ -2797,6 +2797,44 @@ def reportage_invente(art: dict) -> list[str]:
     return trouve
 
 
+_DATE_DANS_TEXTE_RE = re.compile(
+    r"\b\d{1,2}(?:er)?\s+(?:janvier|f[ée]vrier|mars|avril|mai|juin|juillet|ao[ûu]t"
+    r"|septembre|octobre|novembre|d[ée]cembre)\b"
+    r"|\b(?:19|20)\d\d\b"
+    r"|\b(?:hier|avant-hier|ce\s+(?:lundi|mardi|mercredi|jeudi|vendredi|samedi|dimanche|matin|midi|soir))\b"
+    r"|\b(?:lundi|mardi|mercredi|jeudi|vendredi|samedi|dimanche)\s+\d{1,2}\b",
+    re.IGNORECASE,
+)
+
+
+def article_sans_date(art: dict) -> list[str]:
+    """Aucun repère temporel dans le corps — le lecteur ne peut pas situer le fait.
+
+    ── MESURÉ LE 20/08, sur les 174 articles publiés ─────────────────────────
+
+        juin  35 %   ·   juillet  47 %   ·   août  50 %   ·   ensemble 43 %
+
+    Cas d'école : « L'Inserm rapporte que TROIS NOUVELLES ÉTUDES montrent des
+    associations… » — aucune date, aucune année. Le lecteur ne sait pas si le
+    fait date de la semaine ou de 2019, sur un site dont l'argument est la
+    vérifiabilité.
+
+    ⚠ AVERTISSEMENT SEUL, et c'est la mesure qui l'impose. À 43 % du corpus on
+    est très au-dessus des ~10 % au-delà desquels ce projet juge un motif trop
+    large : le rendre bloquant rejetterait près d'un article sur deux, et le
+    brancher sur la relance corrective ferait payer un aller-retour Groq à
+    presque chaque sujet. « Précision > rappel sur les garde-fous à relance. »
+
+    Journalisé pour que la distribution existe. Le rendre bloquant plus tard
+    supposera d'avoir d'abord fait BAISSER le taux côté prompt — pas l'inverse.
+    """
+    corps = art.get("corps") or {}
+    textes = [corps.get(k, "") or "" for k in ("faits", "contexte", "nuances")]
+    if any(_DATE_DANS_TEXTE_RE.search(t) for t in textes):
+        return []
+    return ["aucun repère temporel dans le corps de l'article"]
+
+
 def attributions_fantomes(art: dict) -> list[str]:
     """Attributions « Selon X / D'après X » du corps qui ne correspondent à
     aucune source de la liste officielle, + formules vagues interdites."""
@@ -8595,6 +8633,12 @@ def generer_article(item: dict, dry_run: bool, published: set, new_pub: set, dat
                 ("sources_non_fusionnees", sources_non_fusionnees, "Sources toujours empilées une phrase par source"),
                 ("incoherence_temporelle", incoherence_temporelle, "Titre au futur pour un événement déjà survenu"),
                 ("prise_de_position", prise_de_position, "Prise de position persistante"),
+                # 20/08 — 43 % du corpus publié ne porte AUCUNE date dans son
+                # corps (juin 35 %, juillet 47 %, août 50 % : stable, aucune
+                # amélioration). Avertissement seul : à ce taux, bloquer
+                # rejetterait un article sur deux et relancer coûterait un
+                # aller-retour Groq à presque chaque sujet.
+                ("article_sans_date", article_sans_date, "Aucune date dans le corps"),
             ]
             for _nom, _fn, _libelle in _CONTROLES_AVERTISSEMENT:
                 if _fn(art):
