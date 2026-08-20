@@ -8,11 +8,12 @@ source de vérité ordinaire des articles est le JSON-LD NewsArticle de la page
 publique. Les rares heures publiques historiquement perdues sont réparées avant
 la normalisation via ``repair_publication_time_overrides``.
 
-`lastBuildDate` est également réécrit avec une horloge UTC explicite. Le build
-s'exécute avec `TZ=Europe/Paris`; utiliser une heure locale puis lui ajouter
-`+0000` décale artificiellement le flux de deux heures en été. Ici, l'instant de
-rebuild est toujours produit avec `datetime.now(timezone.utc)` puis sérialisé en
-RFC 2822/GMT.
+`lastBuildDate` n'est avancé que lorsqu'un article HTML a réellement été ajouté,
+modifié ou retiré depuis `HEAD`. Un run technique à zéro article peut reconstruire
+le RSS et nécessiter la réparation des `pubDate`, mais ne doit pas annoncer une
+nouvelle construction éditoriale. Hors d'un checkout Git exploitable, on conserve
+le comportement historique et on met `lastBuildDate` à jour. L'instant de rebuild
+est produit avec `datetime.now(timezone.utc)` puis sérialisé en RFC 2822/GMT.
 """
 from __future__ import annotations
 
@@ -21,6 +22,7 @@ import datetime as dt
 import email.utils
 import json
 import re
+import subprocess
 from pathlib import Path
 
 import repair_publication_time_overrides as canonical_times
@@ -52,6 +54,31 @@ def _parse_iso(value: object) -> dt.datetime | None:
     if parsed.tzinfo is None:
         parsed = parsed.replace(tzinfo=dt.timezone.utc)
     return parsed
+
+
+def _articles_changed_since_head(root: Path) -> bool | None:
+    """Retourne si `articles/` diffère de HEAD, ou None si Git est indisponible.
+
+    Le runtime reconstruit plusieurs fichiers même lorsqu'il ne publie rien.
+    `git diff --quiet HEAD -- articles/` permet de distinguer ce bruit technique
+    d'un vrai changement éditorial, en couvrant ajouts, modifications et retraits.
+    Un état Git non exploitable ne doit pas rendre l'outil inutilisable hors CI :
+    le caller retombera alors sur le comportement historique (mise à jour).
+    """
+    try:
+        proc = subprocess.run(
+            ["git", "-C", str(root), "diff", "--quiet", "HEAD", "--", "articles/"],
+            stdout=subprocess.DEVNULL,
+            stderr=subprocess.DEVNULL,
+            check=False,
+        )
+    except (OSError, subprocess.SubprocessError):
+        return None
+    if proc.returncode == 0:
+        return False
+    if proc.returncode == 1:
+        return True
+    return None
 
 
 def article_published_at(path: Path) -> dt.datetime | None:
@@ -87,6 +114,7 @@ def normalize(
     *,
     check: bool = False,
     build_time: dt.datetime | None = None,
+    update_last_build: bool | None = None,
 ) -> dict[str, int]:
     # La réparation est une étape de normalisation, jamais une opération de
     # contrôle. Le mode --check reste strictement en lecture seule ; lors d'un
@@ -150,17 +178,27 @@ def normalize(
         if parsed_build is None or parsed_build.utcoffset() != dt.timedelta(0):
             raise RuntimeError("lastBuildDate n'est pas une date UTC RFC 2822 valide")
     else:
-        instant = build_time or dt.datetime.now(dt.timezone.utc)
-        if instant.tzinfo is None:
-            instant = instant.replace(tzinfo=dt.timezone.utc)
-        expected_build = rfc2822(instant)
-        if current_build != expected_build:
-            build_changed = 1
-            updated = LAST_BUILD_RE.sub(
-                lambda m: f"{m.group(1)}{expected_build}{m.group(3)}",
-                updated,
-                count=1,
-            )
+        if update_last_build is None:
+            git_change = _articles_changed_since_head(root)
+            # Hors checkout Git (tests unitaires, outil lancé sur une copie),
+            # conserver le comportement historique est le choix le plus sûr.
+            update_last_build = True if git_change is None else git_change
+
+        if update_last_build:
+            instant = build_time or dt.datetime.now(dt.timezone.utc)
+            if instant.tzinfo is None:
+                instant = instant.replace(tzinfo=dt.timezone.utc)
+            expected_build = rfc2822(instant)
+            if current_build != expected_build:
+                build_changed = 1
+                updated = LAST_BUILD_RE.sub(
+                    lambda m: f"{m.group(1)}{expected_build}{m.group(3)}",
+                    updated,
+                    count=1,
+                )
+        elif parsed_build is None or parsed_build.utcoffset() != dt.timedelta(0):
+            # Ne jamais préserver silencieusement une métadonnée déjà invalide.
+            raise RuntimeError("lastBuildDate n'est pas une date UTC RFC 2822 valide")
 
     if check and changed:
         raise RuntimeError(f"feed.xml contient encore {changed} pubDate artificielle(s)")
