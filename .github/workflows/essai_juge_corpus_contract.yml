@@ -17,6 +17,8 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.11'
+      - name: Installer les dépendances du runtime
+        run: pip install -r requirements.txt
       - name: Compiler le diagnostic
         run: python -m py_compile scripts/essai_juge_corpus.py scripts/essai_juge_corpus_v2.py scripts/test_essai_juge_corpus_v2.py
       - name: Tester les populations et le fail-closed

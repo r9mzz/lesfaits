@@ -16,7 +16,7 @@ class DiagnosticPopulationTest(unittest.TestCase):
         fake_verification = types.SimpleNamespace(
             GROQ_MODEL="mistral-large-latest",
             detecter=lambda art, article_type="actu": {
-                "problemes": ([{"type": "chiffre_errone", "gravite": "majeur"}]
+                "problemes": ([{"type": "chiffre_errone", "bloc": 1}]
                               if art["titre"] == "actu-b" else [])
             },
         )
@@ -46,7 +46,31 @@ class DiagnosticPopulationTest(unittest.TestCase):
         self.assertIn("GROUPE B: 1/1 recalé(s)", texte)
         self.assertIn("problemes_initiaux non nuls possibles", texte)
         self.assertIn("sévérité du juge se lit d'abord sur le GROUPE A", texte)
+        self.assertIn("bloc    1", texte)
+        self.assertIn("chiffre_errone", texte)
         self.assertNotIn("fact-checker de l'époque en avait trouvé ZÉRO", texte)
+
+    def test_source_inventee_sans_gravite_est_bloquante(self) -> None:
+        fake_verification = types.SimpleNamespace(
+            detecter=lambda art, article_type="actu": {
+                "problemes": [{"type": "source_inventee", "bloc": 2}]
+            }
+        )
+        article = {
+            "titre": "x",
+            "resume": ["r"],
+            "corps": {"faits": "f", "contexte": "", "nuances": ""},
+            "sources": [{"url": "https://example.test", "titre": "s", "institution": ""}],
+        }
+        with (
+            patch.object(diag.base, "lire_article", return_value=article),
+            patch.object(diag.base, "format_publie", return_value="actu"),
+            contextlib.redirect_stdout(io.StringIO()),
+        ):
+            mesure = diag.mesurer(["x"], "test", fake_verification)
+        self.assertEqual(mesure.lus, 1)
+        self.assertEqual(mesure.recales, 1)
+        self.assertEqual(mesure.problemes, 1)
 
     def test_aucune_reponse_api_ne_donne_pas_un_faux_vert(self) -> None:
         def boom(*args, **kwargs):
