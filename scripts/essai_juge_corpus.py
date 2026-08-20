@@ -215,6 +215,7 @@ def main() -> int:
 
     total_pb, recales, lus = 0, 0, 0
     echecs: list[tuple[str, str]] = []
+    paires: dict[tuple, int] = {}
     motifs: dict[str, int] = {}
     for slug in slugs:
         art = lire_article(slug)
@@ -248,6 +249,16 @@ def main() -> int:
         # jour où ses seuils changent, ce test suit sans qu'on y pense — même
         # raison que le partage de `json_robuste` et de `fenetres_modeles`.
         blocs = _verif_legacy._problemes_bloquants(pbs)
+        # ⚠ DIAGNOSTIC OBLIGATOIRE avant de lire « 0 recalé ». Le champ `bloc`
+        # est rempli PAR LE MODÈLE (le prompt le lui demande), pas par le code.
+        # Un juge qui ne le renseignerait pas, ou qui classerait `source_inventee`
+        # ailleurs qu'en bloc 2, rendrait `_problemes_bloquants` vide en
+        # permanence — et « 0 recalé » redeviendrait un artefact, le troisième
+        # de ce test. On relève donc la distribution (bloc, type) réellement
+        # rendue, pour que le verdict soit vérifiable et non supposé.
+        for _p in pbs:
+            paires[(_p.get("bloc"), _p.get("type"))] = \
+                paires.get((_p.get("bloc"), _p.get("type")), 0) + 1
         total_pb += len(pbs)
         recales += 1 if blocs else 0
         for p in pbs:
