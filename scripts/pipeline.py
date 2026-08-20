@@ -2398,6 +2398,14 @@ institution peut apparaître dans le texte SEULEMENT si le fait porte sur cet
 acteur lui-même (« Human Rights Watch estime que… », « l'Insee a révisé son
 estimation »), jamais comme simple attribution d'un chiffre.
 
+CE QUI FAIT REJETER UN ARTICLE — les SIX seuls motifs bloquants du fact-checker. Relis-les avant d'écrire : tout le reste n'est qu'un avertissement, ceux-là sont éliminatoires.
+  1. chiffre_errone — un chiffre qui ne correspond pas à ce que dit la source citée, ou dont la réserve (arrêté à telle date, périmètre partiel, méthode d'estimation) a été détachée en cours de route.
+  2. annonce_perimee — un projet, une demande ou une intention présentés comme accomplis. La source écrit « veut », « demande », « envisage » : n'écris pas « a créé », « a annoncé la création », « a officialisé ».
+  3. niveau_preuve_insuffisant — un résultat d'essai présenté comme une efficacité acquise. Si la source dit « préliminaire », « exploratoire », « phase 2 », « provisoire », ces mots doivent apparaître à côté du résultat, dans le résumé ET dans les faits.
+  4. incoherence_inter_sections — le même chiffre ou le même fait énoncé différemment entre le résumé, les faits et les nuances. Vérifie que le résumé ne dit pas plus que les faits.
+  5. accusation_presentee_comme_fait — la qualification d'un député, d'une ONG, d'un syndicat ou d'un audit reprise comme un constat de la rédaction. Écris « le député X qualifie de… », « le syndicat Y affirme… », jamais la formule nue.
+  6. source_inventee — une institution, un média ou un document cités alors qu'ils ne figurent pas dans SOURCES DISPONIBLES.
+
 RÈGLES ABSOLUES — toute violation = article rejeté :
 1. MINIMUM 4 sources distinctes et citables. Si tu ne peux pas atteindre 4 sources réelles : réponds uniquement HORS_PERIMETRE
 2. Chaque donnée chiffrée DOIT porter sa citation numérotée [n] au point où elle est énoncée (voir FORMAT DE CITATION) — JAMAIS d'URL dans le corps du texte, les URLs sont réservées au tableau sources
@@ -4521,7 +4529,26 @@ def generate(content: str, category_hint: str, extra_sources: list[dict] | None 
     # (voir duckduckgo_search) — une hypothèse, une mesure à la fois.
     # 950 car. ≈ 2-3 paragraphes : suffisant pour ancrer des faits précis
     # sans dépasser le budget Groq (déjà rate-limité en continu, voir logs).
-    snippet_len = 950 if not is_retry else (450 if is_expand else 200)
+    # ── PROFONDEUR DE LECTURE — relevée le 20/08 sous Mistral ───────────────
+    # Constat de Nahil, en comparant avec Le Courrier de France : leur article
+    # sur le piratage du fisc cite CINQ sources, moins que nos dix, et fait
+    # ~1 000 mots. La différence n'est pas le nombre de sources, c'est ce qu'ils
+    # LISENT de chacune — la page entière, quand nous n'injections que
+    # 950 caractères, soit ~150 mots. On ne peut pas écrire 900 mots à partir
+    # de 150 mots de matière par source : la brièveté de nos articles était une
+    # contrainte d'entrée, pas un défaut de rédaction.
+    #
+    # Ce plafond de 950 a été fixé pour la fenêtre de 12 000 tokens de Groq. Il
+    # est devenu absurde sous Mistral (500 000 TPM, contexte 128 k) — même
+    # famille que les clés réservées, la borne 11 500 du correcteur et l'arrêt
+    # à 20 sujets : trois valeurs d'un fournisseur qu'on a quitté.
+    #
+    # La profondeur suit donc la FENÊTRE du modèle réellement servi, jamais une
+    # constante. La réservation d'écriture (voir plus bas) reste seule juge :
+    # elle rabotera si le prompt devient trop gros, comme elle le faisait déjà.
+    _fenetre_gen = _TPM_PAR_MODELE_GEN.get(GROQ_MODEL, 12_000)
+    _profond = _fenetre_gen >= 100_000
+    snippet_len = (4000 if _profond else 950) if not is_retry else (450 if is_expand else 200)
     # BRÈVE (02/08) : c'est ICI que se fait l'essentiel de l'économie de quota.
     # Une brève de 130 mots n'a pas besoin de 10 extraits de 950 caractères —
     # elle a besoin du fait du jour, que les premières lignes de chaque source
@@ -4591,7 +4618,10 @@ def generate(content: str, category_hint: str, extra_sources: list[dict] | None 
         f"d'un extrait, ou tout média connu par ailleurs mais absent de la liste ci-dessus.\n\n"
     )
 
-    content_len = 7000 if not is_retry else (2500 if is_expand else 1500)
+    # Même raison que snippet_len : 7 000 caractères de contenu principal était
+    # le maximum tenable dans 12 000 tokens. Sur une fenêtre large, l'article
+    # d'origine peut être lu en entier.
+    content_len = (20000 if _profond else 7000) if not is_retry else (2500 if is_expand else 1500)
     if article_type == "breve" and not is_retry:
         content_len = 2500
     # Même correctif que snippet_len ci-dessus, même mesure du 11/08.
@@ -9416,7 +9446,17 @@ def run(dry_run=False, text_input=None, nb_max=36):
         # run SUIVANT — utile en temps normal, contre-productif tant que
         # l'objectif est un seul article réussi coûte que coûte. À rabaisser
         # une fois la recette validée et le rythme normal repris.
-        MAX_TENTATIVES_PAR_RUN = 20
+        # ⚠ 20/08 — ce plafond « laisse du quota au créneau suivant ». Il
+        # protégeait le TPD de 100 000 tokens de Groq, partagé entre deux runs
+        # sur une fenêtre glissante de 24 h. Mistral offre 1 milliard de tokens
+        # par mois : un run de 20 sujets en consomme ~400 000, soit 0,04 %.
+        # Le plafond n'économise plus rien et coûte des sujets — constat de
+        # Nahil : « je ne veux pas quelques sujets de plus, je veux TOUS les
+        # sujets ». Sur une fenêtre large on tente donc toute la sélection ;
+        # le vrai garde-fou reste `_BUDGET_SECONDES`, qui protège du timeout
+        # GitHub et qui, lui, est une contrainte réelle.
+        MAX_TENTATIVES_PAR_RUN = (
+            999 if _TPM_PAR_MODELE_GEN.get(GROQ_MODEL, 12_000) >= 100_000 else 20)
         _tentatives = 0
         for item in selection:
             elapsed = time.time() - _pipeline_start
