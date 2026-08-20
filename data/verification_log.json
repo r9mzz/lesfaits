@@ -13307,5 +13307,360 @@
     "veille_passages": 7,
     "veille_age_h": 7.3,
     "veille_n_flux_grappe": 8
+  },
+  {
+    "slug": "loi-finances-speciale-2027-risques-igf",
+    "statut": "rejete_qualite",
+    "date": "2026-08-21T00:31:59",
+    "problemes_initiaux": 11,
+    "tentatives": 3,
+    "problemes_restants": 7,
+    "bloquants_restants": 2,
+    "bloquants_types": [
+      "annonce_perimee",
+      "niveau_preuve_insuffisant"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "annonce_perimee",
+        "description": "Le résumé présente l'adoption du budget 2026 comme un événement à venir (« toujours en discussion »), alors que les faits précisent que le gouvernement utilise le rapport pour justifier une adoption rapide, sans indiquer",
+        "phrase": "Un rapport de l'Inspection générale des finances (IGF), publié le 20 août 2026, a été utilisé par le gouvernement pour justifier l'adoption rapide du budget 2026, toujours en discussion au Parlement à cette date."
+      },
+      {
+        "bloc": 1,
+        "type": "niveau_preuve_insuffisant",
+        "description": "L'article présente les « risques majeurs » comme des constats établis, alors que la source [1] (Le Monde) indique que le rapport ne fournit ni données quantitatives ni modélisations spécifiques pour étayer ces risques. L",
+        "phrase": "Le rapport de l'IGF souligne que cette loi, bien que nécessaire en 2025, comporte des « risques majeurs » en cas de reconduction au-delà de son cadre temporaire [1]. Selon le rapport, ces risques incluent une perte de vi"
+      }
+    ],
+    "types_restants": [
+      "annonce_perimee",
+      "niveau_preuve_insuffisant",
+      "redondance",
+      "contexte_hors_sujet",
+      "compteur_incoherent",
+      "section_gonflee",
+      "faux_debat"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "faits_repetitifs",
+      "titre_de_mauvaise_qualite"
+    ],
+    "titre": "Loi de finances spéciale prolongée : l'IGF alerte sur des risques financiers",
+    "n_sources": 9,
+    "n_mots": 638,
+    "titre_rss": "Absence de budget et loi spéciale prolongée : l’inspection générale des finances alerte sur des « risques majeurs »",
+    "matiere_faits_distincts": 835,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "n_sources_pertinentes": 4,
+    "veille_heures_visible": 4.9,
+    "veille_passages": 6,
+    "veille_age_h": 5.7,
+    "veille_n_flux_grappe": 3
+  },
+  {
+    "slug": "bilan-provisoire-morts-exces-canicule-france-2026",
+    "statut": "rejete_qualite",
+    "date": "2026-08-21T00:39:01",
+    "problemes_initiaux": 12,
+    "tentatives": 3,
+    "problemes_restants": 11,
+    "bloquants_restants": 4,
+    "bloquants_types": [
+      "chiffre_errone",
+      "incoherence_inter_sections",
+      "niveau_preuve_insuffisant",
+      "chiffre_errone"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [1] (Sciences et Avenir) ne précise pas explicitement que le chiffre de 7 300 morts en excès concerne l'année 2026 dans son intégralité ou plusieurs épisodes. L'article ajoute une interprétation non confirmée p",
+        "phrase": "Sciences et Avenir mentionne par ailleurs un bilan provisoire de 7 300 morts en excès pour l'année 2026, sans préciser si ce total inclut uniquement cet épisode ou plusieurs vagues de chaleur [1]."
+      },
+      {
+        "bloc": 1,
+        "type": "incoherence_inter_sections",
+        "description": "Le résumé ne précise pas que le chiffre de 36,2 % concerne spécifiquement la période du 17 juin au 2 juillet, contrairement à la section « faits » qui le mentionne explicitement. Cela crée une incohérence sur le périmètr",
+        "phrase": "Ce chiffre, qui représente une surmortalité de 36,2 % par rapport aux variations saisonnières habituelles, a été calculé en comparant la mortalité observée à une mortalité attendue sur la base de modèles statistiques."
+      },
+      {
+        "bloc": 1,
+        "type": "niveau_preuve_insuffisant",
+        "description": "La source [6] (Vie Publique, chronologie des canicules) ne fournit pas de données spécifiques sur l'étendue géographique des vagues de chaleur de 2026. L'article généralise sans preuve sourcée.",
+        "phrase": "Les données de Santé publique France montrent que les vagues de chaleur de 2026 ont affecté la quasi-totalité du territoire hexagonal, illustrant l'évolution des risques climatiques en France."
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [6] (Vie Publique, chronologie des canicules) ne mentionne pas explicitement le chiffre de 2 816 décès en excès pour la canicule de juin 2022. Ce chiffre n'est pas confirmé par les extraits fournis.",
+        "phrase": "En 2022, une canicule survenue en juin avait déjà causé 2 816 décès en excès, selon les estimations de Santé publique France, un précédent qui souligne l'aggravation des épisodes estivaux [6]."
+      }
+    ],
+    "types_restants": [
+      "chiffre_errone",
+      "incoherence_inter_sections",
+      "source_inventee",
+      "niveau_preuve_insuffisant",
+      "chiffre_errone",
+      "compteur_incoherent",
+      "source_derivee_comptee_comme_primaire",
+      "cadrage_emprunte",
+      "redondance",
+      "contexte_hors_sujet",
+      "extrapolation"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "resume_repete_corps"
+    ],
+    "titre": "7 300 morts en excès liés aux canicules en France depuis mai 2026",
+    "n_sources": 6,
+    "n_mots": 498,
+    "titre_rss": "Canicules : déjà 7.300 morts en excès en France en 2026",
+    "matiere_faits_distincts": 996,
+    "matiere_redondance": 0.05,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "n_sources_pertinentes": 4,
+    "veille_heures_visible": 28.9,
+    "veille_passages": 27,
+    "veille_age_h": 29.7,
+    "veille_n_flux_grappe": 5
+  },
+  {
+    "slug": "logement-etudiant-penurie-rentree-2026",
+    "statut": "rejete_qualite",
+    "date": "2026-08-21T00:46:03",
+    "problemes_initiaux": 12,
+    "tentatives": 3,
+    "problemes_restants": 10,
+    "bloquants_restants": 4,
+    "bloquants_types": [
+      "chiffre_errone",
+      "chiffre_errone",
+      "annonce_perimee",
+      "accusation_presentee_comme_fait"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "Le rapport du Sénat de 2025 indique que le nombre d'étudiants en 2025 est de 2,9 millions, pas en 2026. L'article extrapole à 2026 sans source pour cette année précise.",
+        "phrase": "En 2026, 2,9 millions d'étudiants sont inscrits dans l'enseignement supérieur en France, selon le rapport d'information du Sénat publié en 2025, tandis que les résidences CROUS ne proposent que 380 000 places."
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "Le chiffre de 2,9 millions d'étudiants est attribué à 2025 dans la source, pas à 2026. L'article utilise ce chiffre pour 2026 sans justification.",
+        "phrase": "le nombre d'étudiants inscrits dans l'enseignement supérieur en France est passé de 2,5 millions en 2015 à 2,9 millions en 2025, tandis que les résidences gérées par les Centres régionaux des œuvres universitaires et sco"
+      },
+      {
+        "bloc": 1,
+        "type": "annonce_perimee",
+        "description": "Le résumé et le titre présentent la crise comme persistante en 2026, mais la hausse des loyers de 4,5 % en septembre 2024 est déjà survenue. L'article ne précise pas si cette hausse a eu un impact durable en 2026, ce qui",
+        "phrase": "Les loyers en résidence universitaire, gelés entre 2020 et 2024, ont connu une hausse de 4,5 % en septembre 2024, comme l'a confirmé une question écrite adressée au gouvernement en novembre 2024."
+      },
+      {
+        "bloc": 1,
+        "type": "accusation_presentee_comme_fait",
+        "description": "Les témoignages rapportés par Libération sont présentés comme des faits établis (« compétition intense », « loyers élevés », « clauses contractuelles jugées désavantageuses »), alors qu'ils ne sont pas quantifiés ni étay",
+        "phrase": "Libération, dans un article publié en août 2026, rapporte des témoignages d'étudiants décrivant une « compétition intense » pour accéder à un logement, nécessitant de multiplier les candidatures et les garanties. Le jour"
+      }
+    ],
+    "types_restants": [
+      "chiffre_errone",
+      "chiffre_errone",
+      "annonce_perimee",
+      "source_inventee",
+      "accusation_presentee_comme_fait",
+      "source_derivee_comptee_comme_primaire",
+      "compteur_incoherent",
+      "cadrage_emprunte",
+      "redondance",
+      "section_gonflee"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "titre_de_mauvaise_qualite",
+      "cliches_ia"
+    ],
+    "titre": "Logement étudiant : une rentrée sous le signe de la pénurie",
+    "n_sources": 7,
+    "n_mots": 603,
+    "titre_rss": "Logements : pour les étudiants, un monde sans toit ni loi",
+    "matiere_faits_distincts": 1050,
+    "matiere_redondance": 0.01,
+    "matiere_donnees_chiffrees": 2,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "n_sources_pertinentes": 3,
+    "veille_heures_visible": 4.0,
+    "veille_passages": 5,
+    "veille_age_h": 4.8,
+    "veille_n_flux_grappe": 1
+  },
+  {
+    "slug": "impact-economique-campus-cesi-pib-emplois",
+    "statut": "rejete_qualite",
+    "date": "2026-08-21T00:56:19",
+    "problemes_initiaux": 16,
+    "tentatives": 3,
+    "problemes_restants": 15,
+    "bloquants_restants": 6,
+    "bloquants_types": [
+      "chiffre_errone",
+      "niveau_preuve_insuffisant",
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "accusation_presentee_comme_fait"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "Le résumé présente cette estimation comme un fait établi (« évoquée par L'Express »), alors que la source [1] ne fournit aucune donnée précise ni méthodologie pour la confirmer, ce qui en fait une extrapolation non sourc",
+        "phrase": "En Normandie, le campus de Rouen a fait l'objet d'un investissement en 2020, avec une estimation de richesse générée évoquée par L'Express comme s'élevant à « plusieurs dizaines de millions d'euros » sur cinq ans, bien q"
+      },
+      {
+        "bloc": 1,
+        "type": "niveau_preuve_insuffisant",
+        "description": "Le résumé ne précise pas que l'étude du cabinet Utopies (source [1]) manque de transparence méthodologique, ce qui est pourtant souligné dans les nuances et les faits. L'absence de détails sur la méthodologie est un prob",
+        "phrase": "Selon L'Express, l'étude évoque des retombées économiques significatives, mais sans fournir de chiffres précis ni détailler sa méthodologie, ce qui limite l'évaluation de la robustesse des résultats."
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [1] ne fournit aucun chiffre précis pour les salaires ou les dépenses étudiantes, contrairement à ce que suggère la formulation « estimés à plusieurs millions d'euros annuels ». Le fait est présenté comme quant",
+        "phrase": "les salaires versés au personnel des campus, estimés à plusieurs millions d'euros annuels, ainsi que les dépenses des étudiants dans les commerces environnants, bien que ces montants ne soient pas précisés [1]."
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [1] ne donne ni chiffre exact ni méthodologie pour étayer « plusieurs milliers d’emplois ». L'article présente cette estimation comme un fait établi alors qu'elle n'est pas vérifiable, ce qui constitue une exag",
+        "phrase": "L'Express cite l'étude pour indiquer que l’activité du groupe Cesi soutiendrait indirectement « plusieurs milliers d’emplois », sans fournir de chiffre exact ni de méthodologie permettant de vérifier cette estimation [1]"
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [1] ne fournit aucune donnée précise pour cette estimation, qui est présentée comme un fait dans l'article alors qu'elle n'est pas étayée.",
+        "phrase": "une estimation de richesse produite évoquée par L'Express comme atteignant « plusieurs dizaines de millions d’euros » sur cinq ans."
+      },
+      {
+        "bloc": 1,
+        "type": "accusation_presentee_comme_fait",
+        "description": "La phrase présente les résultats de l'étude comme un fait établi (« une démonstration ») alors qu'ils sont attribués au groupe Cesi, qui les utilise à des fins de communication. L'article ne précise pas que cette présent",
+        "phrase": "Les résultats de l’étude du cabinet Utopies, relayés par L'Express, sont présentés par le groupe Cesi comme une démonstration de son impact économique local."
+      }
+    ],
+    "types_restants": [
+      "chiffre_errone",
+      "niveau_preuve_insuffisant",
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "accusation_presentee_comme_fait",
+      "acteur_mis_en_cause_sans_reponse",
+      "source_derivee_comptee_comme_primaire",
+      "compteur_incoherent",
+      "cadrage_emprunte",
+      "cadrage_emprunte",
+      "redondance",
+      "redondance",
+      "section_gonflee",
+      "faux_debat"
+    ],
+    "article_type": "actu",
+    "titre": "Les campus Cesi génèrent un milliard d'euros de PIB annuel",
+    "n_sources": 6,
+    "n_mots": 555,
+    "titre_rss": "Un campus, combien ça rapporte ? Le poids économique insoupçonné des universités pour les territoires",
+    "matiere_faits_distincts": 1112,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "n_sources_pertinentes": 3,
+    "veille_heures_visible": 62.7,
+    "veille_passages": 59,
+    "veille_age_h": 63.5,
+    "veille_n_flux_grappe": 1
+  },
+  {
+    "slug": "parc-des-princes-impraticable-canicule-juin-2026",
+    "statut": "rejete_qualite",
+    "date": "2026-08-21T01:02:15",
+    "problemes_initiaux": 13,
+    "tentatives": 3,
+    "problemes_restants": 11,
+    "bloquants_restants": 4,
+    "bloquants_types": [
+      "annonce_perimee",
+      "niveau_preuve_insuffisant",
+      "chiffre_errone",
+      "chiffre_errone"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "annonce_perimee",
+        "description": "Le résumé présente ces solutions comme en cours d'expérimentation (« expérimentent »), alors que le corps de l'article (« Les faits ») indique que ces solutions sont déjà en phase de test (« Des solutions alternatives so",
+        "phrase": "Les clubs professionnels expérimentent des solutions techniques pour adapter leurs pelouses aux vagues de chaleur, telles que des systèmes de refroidissement souterrain ou des gazons hybrides."
+      },
+      {
+        "bloc": 1,
+        "type": "niveau_preuve_insuffisant",
+        "description": "L'article ne précise pas le stade de validation scientifique ou économique de ces solutions (phase de test, absence de garantie), alors que la source [1] (*Libération*) souligne explicitement que leur efficacité et leur ",
+        "phrase": "Des solutions alternatives sont en phase de test, notamment des systèmes de refroidissement par circulation d'eau souterraine et l'utilisation de gazons hybrides, combinant espèces naturelles et fibres synthétiques."
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [1] (*Libération*) ne fournit aucun chiffre précis concernant la perte de surface de gazon au stade Matmut Atlantique. Ce chiffre (30 %) n'apparaît pas dans les extraits fournis et ne peut donc pas être attribu",
+        "phrase": "Par exemple, le stade Matmut Atlantique à Bordeaux avait enregistré une perte de 30 % de sa surface de gazon naturel en juillet 2025, nécessitant un regarnissage complet avant le début de la saison suivante."
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [1] (*Libération*) ne mentionne aucun chiffre précis concernant le coût d'installation des systèmes de refroidissement souterrain. Ces montants (150 000 à 300 000 euros) ne figurent pas dans les extraits fourni",
+        "phrase": "Selon des experts cités par le journal, le coût d'installation d'un système de refroidissement souterrain varie entre 150 000 et 300 000 euros pour un stade de taille moyenne, en fonction de la complexité du réseau hydra"
+      }
+    ],
+    "types_restants": [
+      "annonce_perimee",
+      "niveau_preuve_insuffisant",
+      "chiffre_errone",
+      "chiffre_errone",
+      "source_inventee",
+      "source_derivee_comptee_comme_primaire",
+      "compteur_incoherent",
+      "paraphrase_structurelle",
+      "contexte_hors_sujet",
+      "section_gonflee",
+      "extrapolation"
+    ],
+    "article_type": "actu",
+    "titre": "Parc des Princes impraticable après la canicule de juin 2026",
+    "n_sources": 7,
+    "n_mots": 466,
+    "titre_rss": "«Le climat, c’est notre plus grand défi» : après un été caniculaire, le coup de chaud des jardiniers des clubs de foot",
+    "matiere_faits_distincts": 1201,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "n_sources_pertinentes": 5,
+    "veille_heures_visible": 4.0,
+    "veille_passages": 5,
+    "veille_age_h": 4.8,
+    "veille_n_flux_grappe": 1
   }
 ]
