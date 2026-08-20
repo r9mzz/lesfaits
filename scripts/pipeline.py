@@ -2743,6 +2743,49 @@ def citations_hors_liste(art: dict) -> list[str]:
             for n in hors_plage]
 
 
+# ── ACTE DE REPORTAGE INVENTÉ — 20/08 ────────────────────────────────────────
+# « Santé publique France, CONTACTÉE POUR CLARIFICATION, indique que… »
+#
+# Cette phrase est sortie d'un brouillon Mistral le 20/08. Elle décrit un acte
+# de journalisme qui n'a pas eu lieu : ce journal n'appelle personne, il lit
+# des flux RSS et des pages web. C'est une fabrication qui ne porte pas sur le
+# FAIT mais sur NOTRE MÉTHODE — donc sur la seule chose que le site demande au
+# lecteur de croire, et que la section « Pourquoi cet article a été publié »
+# revendique explicitement (« il n'y a jamais de relecture humaine »).
+#
+# Plus grave qu'une attribution fantôme, et non réparable : retirer « contactée
+# pour clarification » laisserait une déclaration attribuée à un organisme qui
+# n'a rien déclaré. Rejet sec, comme les contrôles légaux.
+#
+# Mesuré avant ajout, comme la règle du projet l'impose : 0 occurrence sur les
+# 177 articles publiés, 2 dans le journal, toutes deux du 20/08 — c'est un
+# risque APPARU avec le nouveau rédacteur, pas un défaut historique.
+_REPORTAGE_INVENTE_RE = re.compile(
+    r"contact[ée]e?s?\s+(?:pour\s+(?:clarification|pr[ée]cision)|par\s+(?:notre|la\s+r[ée]daction))"
+    r"|(?:jointe?|interrog[ée]e?s?|sollicit[ée]e?s?)\s+par\s+(?:notre|la\s+r[ée]daction)"
+    r"|notre\s+r[ée]daction"
+    r"|nous\s+(?:avons|a)\s+(?:contact|joint|interrog|sollicit)",
+    re.IGNORECASE,
+)
+
+
+def reportage_invente(art: dict) -> list[str]:
+    """Phrases prétendant un acte de reportage que le pipeline n'accomplit pas."""
+    trouve = []
+    corps = art.get("corps") or {}
+    resume = art.get("resume")
+    textes = [corps.get(k, "") for k in ("faits", "contexte", "nuances")]
+    if isinstance(resume, list):
+        textes += [r for r in resume if isinstance(r, str)]
+    elif isinstance(resume, str):
+        textes.append(resume)
+    for t in textes:
+        for m in _REPORTAGE_INVENTE_RE.finditer(t or ""):
+            deb = max(0, m.start() - 60)
+            trouve.append(" ".join(t[deb:m.end() + 60].split()))
+    return trouve
+
+
 def attributions_fantomes(art: dict) -> list[str]:
     """Attributions « Selon X / D'après X » du corps qui ne correspondent à
     aucune source de la liste officielle, + formules vagues interdites."""
@@ -8786,6 +8829,18 @@ def generer_article(item: dict, dry_run: bool, published: set, new_pub: set, dat
                           f"correction et impossibles à retirer proprement "
                           f"({', '.join(_fantomes_post[:3])}) — non publié")
                     return False
+
+            # ── ACTE DE REPORTAGE INVENTÉ APRÈS CORRECTION (20/08) ───────────
+            # Rejoué ici pour la raison inscrite dans le tableau du 03/08 : la
+            # passe 3 réécrit le texte et peut réintroduire ce qu'elle avait
+            # nettoyé. Aucune réparation possible — retirer « contactée pour
+            # clarification » laisserait une déclaration attribuée à un
+            # organisme qui n'a rien déclaré. Rejet sec, comme le contrôle légal.
+            _reportage = reportage_invente(art)
+            if _reportage:
+                print(f"     [REJET] acte de reportage inventé — ce journal ne "
+                      f"contacte personne : « {_reportage[0][:110]} »")
+                return False
 
             # ── CITATIONS [n] HORS LISTE APRÈS CORRECTION (05/08) ────────────
             # Même faille que les attributions fantômes ci-dessus, nouvelle
