@@ -205,6 +205,7 @@ def main() -> int:
         return 0
 
     import verification as V
+    import verification_legacy as _verif_legacy
     modele = getattr(V, "GROQ_MODEL", "?")
     print("=" * 76)
     print(f"RELECTURE DE NOS MEILLEURS ARTICLES — juge actuel : {modele}")
@@ -235,7 +236,18 @@ def main() -> int:
             continue
         lus += 1
         pbs = rapport.get("problemes") or []
-        blocs = [p for p in pbs if p.get("gravite") in ("bloquant", "majeur")]
+        # ⚠ NE PAS réinventer la règle de blocage. Première version : filtre sur
+        # un champ `gravite` que le rapport ne porte PAS — donc zéro bloquant
+        # sur les 20 articles, et un « 0/22 recalés » aussi faux que celui de
+        # l'essai précédent, pour une raison différente. Deux fois de suite,
+        # mon instrument a inventé sa propre définition et rendu un verdict net.
+        #
+        # Le pipeline décide avec `_problemes_bloquants` (croisement bloc+type,
+        # affiné le 31/07 après revue éditoriale externe). On appelle SA
+        # fonction : c'est la seule façon de mesurer la décision réelle, et le
+        # jour où ses seuils changent, ce test suit sans qu'on y pense — même
+        # raison que le partage de `json_robuste` et de `fenetres_modeles`.
+        blocs = _verif_legacy._problemes_bloquants(pbs)
         total_pb += len(pbs)
         recales += 1 if blocs else 0
         for p in pbs:
