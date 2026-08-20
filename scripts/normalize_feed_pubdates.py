@@ -2,20 +2,19 @@
 # -*- coding: utf-8 -*-
 """Normalise les dates du RSS à partir des vraies métadonnées de publication.
 
-Le générateur historique utilisait l'heure du rebuild pour chaque `pubDate`, ce
-qui faisait remonter artificiellement tout le flux à chaque déploiement. La
+Le générateur historique utilisait l'heure du rebuild pour chaque ``pubDate``,
+ce qui faisait remonter artificiellement tout le flux à chaque déploiement. La
 source de vérité ordinaire des articles est le JSON-LD NewsArticle de la page
 publique. Les rares heures publiques historiquement perdues sont réparées avant
 la normalisation via ``repair_publication_time_overrides``.
 
-`lastBuildDate` n'est avancé que lorsqu'un article HTML a réellement été ajouté,
-modifié ou retiré depuis `HEAD`. Sur un run technique à zéro article, la valeur
-est restaurée depuis le `feed.xml` de `HEAD` : il ne suffit pas de « préserver »
-la valeur courante, car le feed copié depuis le dépôt source peut déjà contenir
-une heure de rebuild artificiellement avancée. Hors d'un checkout Git exploitable,
-on conserve le comportement historique et on met `lastBuildDate` à jour.
-L'instant de rebuild est produit avec `datetime.now(timezone.utc)` puis sérialisé
-en RFC 2822/GMT.
+``lastBuildDate`` n'est avancé que lorsque l'ensemble des articles publiés a
+réellement changé depuis ``HEAD`` : ajout, retrait ou renommage. Une simple
+réécriture technique d'un HTML article existant pendant un rebuild ne constitue
+pas une publication et ne doit donc pas rafraîchir le flux. Sur un run à zéro
+article, la valeur est restaurée depuis le ``feed.xml`` de ``HEAD``. Hors d'un
+checkout Git exploitable, on conserve le comportement historique et on met
+``lastBuildDate`` à jour.
 """
 from __future__ import annotations
 
@@ -59,13 +58,13 @@ def _parse_iso(value: object) -> dt.datetime | None:
 
 
 def _articles_changed_since_head(root: Path) -> bool | None:
-    """Retourne si `articles/` diffère de HEAD, y compris les fichiers non suivis.
+    """Détecte une vraie variation de l'ensemble ``articles/*.html``.
 
-    Le runtime crée les nouveaux articles avant de les ajouter à Git : un simple
-    ``git diff`` ne voit donc pas ces fichiers non suivis. ``git status --porcelain``
-    couvre à la fois ajouts non suivis, modifications et retraits sans dépendre de
-    l'index. Un état Git non exploitable renvoie ``None`` afin que le caller garde
-    le comportement historique hors checkout Git.
+    Un rebuild peut marquer des articles existants ``M`` dans le worktree sans
+    créer, retirer ni renommer aucune publication. Ce bruit ne doit pas avancer
+    ``lastBuildDate``. Les statuts qui changent l'ensemble publié (``??``, A, D,
+    R ou C) restent en revanche significatifs. Un état Git inexploitable renvoie
+    ``None`` pour conserver le repli historique du caller.
     """
     try:
         proc = subprocess.run(
@@ -74,7 +73,7 @@ def _articles_changed_since_head(root: Path) -> bool | None:
                 "-C",
                 str(root),
                 "status",
-                "--porcelain",
+                "--porcelain=v1",
                 "--untracked-files=all",
                 "--",
                 "articles/",
@@ -87,16 +86,24 @@ def _articles_changed_since_head(root: Path) -> bool | None:
         return None
     if proc.returncode != 0:
         return None
-    return bool(proc.stdout.strip())
+
+    for line in proc.stdout.splitlines():
+        if len(line) < 3:
+            continue
+        status = line[:2]
+        # Fichier nouveau non suivi.
+        if status == "??":
+            return True
+        # Ajout / retrait / renommage / copie dans l'index ou le worktree.
+        # Les simples M (rebuild technique d'un fichier déjà publié) sont
+        # volontairement ignorés : ils ne changent pas l'ensemble des URLs RSS.
+        if any(flag in status for flag in ("A", "D", "R", "C")):
+            return True
+    return False
 
 
 def _head_last_build_date(root: Path) -> str | None:
-    """Lit le `lastBuildDate` réellement versionné dans `HEAD:feed.xml`.
-
-    Cette valeur est la référence à restaurer lorsque les articles publics sont
-    inchangés. Le feed présent dans le worktree peut venir d'être copié depuis un
-    autre dépôt et porter déjà une heure de rebuild artificielle.
-    """
+    """Lit le ``lastBuildDate`` réellement versionné dans ``HEAD:feed.xml``."""
     try:
         proc = subprocess.run(
             ["git", "-C", str(root), "show", "HEAD:feed.xml"],
@@ -156,9 +163,6 @@ def normalize(
     build_time: dt.datetime | None = None,
     update_last_build: bool | None = None,
 ) -> dict[str, int]:
-    # La réparation est une étape de normalisation, jamais une opération de
-    # contrôle. Le mode --check reste strictement en lecture seule ; lors d'un
-    # déploiement, l'appel normal précède déjà immédiatement le --check.
     if not check:
         canonical_times.apply(root)
 
@@ -218,11 +222,8 @@ def normalize(
         if parsed_build is None or parsed_build.utcoffset() != dt.timedelta(0):
             raise RuntimeError("lastBuildDate n'est pas une date UTC RFC 2822 valide")
     else:
-        git_change: bool | None = None
         if update_last_build is None:
             git_change = _articles_changed_since_head(root)
-            # Hors checkout Git (tests unitaires, outil lancé sur une copie),
-            # conserver le comportement historique est le choix le plus sûr.
             update_last_build = True if git_change is None else git_change
 
         if update_last_build:
@@ -238,9 +239,6 @@ def normalize(
                     count=1,
                 )
         else:
-            # Dans un checkout Git sans changement d'article, restaurer la valeur
-            # du HEAD public. La valeur courante peut déjà avoir été avancée par le
-            # rebuild/copie du dépôt source avant l'appel de ce normaliseur.
             head_build = _head_last_build_date(root)
             if head_build is not None:
                 if current_build != head_build:
@@ -251,7 +249,6 @@ def normalize(
                         count=1,
                     )
             elif parsed_build is None or parsed_build.utcoffset() != dt.timedelta(0):
-                # Ne jamais préserver silencieusement une métadonnée déjà invalide.
                 raise RuntimeError("lastBuildDate n'est pas une date UTC RFC 2822 valide")
 
     if check and changed:
