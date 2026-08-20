@@ -88,7 +88,6 @@ class FeedPubDateTests(unittest.TestCase):
     def test_zero_article_run_preserves_last_build_and_untracked_article_advances_it(self):
         tmp, root = self._root()
         try:
-            # Canonicalise d'abord les fixtures, puis fige cet état dans HEAD.
             baseline_time = dt.datetime(2026, 8, 19, 20, 7, 14, tzinfo=dt.timezone.utc)
             rss.normalize(root, build_time=baseline_time)
             self._init_git(root)
@@ -104,8 +103,6 @@ class FeedPubDateTests(unittest.TestCase):
             self.assertEqual(no_article["build_changed"], 0)
             self.assertEqual(after_no_article, original)
 
-            # Le vrai runtime crée d'abord le fichier article, encore non suivi.
-            # Ce cas doit compter comme une publication et avancer lastBuildDate.
             (root / "articles" / "nouveau.html").write_text(ARTICLE, encoding="utf-8")
             with_new_article = rss.normalize(root, build_time=future)
             after_article = (root / "feed.xml").read_text(encoding="utf-8")
@@ -114,6 +111,32 @@ class FeedPubDateTests(unittest.TestCase):
                 '<lastBuildDate>Thu, 20 Aug 2026 02:15:59 GMT</lastBuildDate>',
                 after_article,
             )
+        finally:
+            tmp.cleanup()
+
+    def test_rebuild_only_modified_existing_article_does_not_advance_last_build(self):
+        tmp, root = self._root()
+        try:
+            baseline_time = dt.datetime(2026, 8, 20, 2, 15, 59, tzinfo=dt.timezone.utc)
+            rss.normalize(root, build_time=baseline_time)
+            self._init_git(root)
+            original_feed = (root / "feed.xml").read_text(encoding="utf-8")
+
+            # Reproduit le défaut observé en production : le rebuild touche un
+            # HTML déjà publié, mais aucun article n'est créé, retiré ou renommé.
+            article = root / "articles" / "exemple.html"
+            article.write_text(article.read_text(encoding="utf-8") + "\n<!-- rebuild technique -->\n", encoding="utf-8")
+            self.assertIn(" M articles/exemple.html", subprocess.run(
+                ["git", "-C", str(root), "status", "--porcelain", "--", "articles/"],
+                text=True, capture_output=True, check=True,
+            ).stdout)
+
+            result = rss.normalize(
+                root,
+                build_time=dt.datetime(2026, 8, 20, 13, 5, 51, tzinfo=dt.timezone.utc),
+            )
+            self.assertEqual(result["build_changed"], 0)
+            self.assertEqual((root / "feed.xml").read_text(encoding="utf-8"), original_feed)
         finally:
             tmp.cleanup()
 
@@ -129,9 +152,6 @@ class FeedPubDateTests(unittest.TestCase):
                 original,
             )
 
-            # Reproduit le déploiement : le feed du dépôt source est copié dans le
-            # checkout public avec une heure déjà avancée, mais articles/ est
-            # strictement identique au HEAD public.
             copied = original.replace(
                 '<lastBuildDate>Thu, 20 Aug 2026 04:50:38 GMT</lastBuildDate>',
                 '<lastBuildDate>Thu, 20 Aug 2026 05:12:40 GMT</lastBuildDate>',
