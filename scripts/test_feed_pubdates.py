@@ -117,6 +117,37 @@ class FeedPubDateTests(unittest.TestCase):
         finally:
             tmp.cleanup()
 
+    def test_zero_article_run_restores_head_last_build_after_external_feed_copy(self):
+        tmp, root = self._root()
+        try:
+            baseline_time = dt.datetime(2026, 8, 20, 4, 50, 38, tzinfo=dt.timezone.utc)
+            rss.normalize(root, build_time=baseline_time)
+            self._init_git(root)
+            original = (root / "feed.xml").read_text(encoding="utf-8")
+            self.assertIn(
+                '<lastBuildDate>Thu, 20 Aug 2026 04:50:38 GMT</lastBuildDate>',
+                original,
+            )
+
+            # Reproduit le déploiement : le feed du dépôt source est copié dans le
+            # checkout public avec une heure déjà avancée, mais articles/ est
+            # strictement identique au HEAD public.
+            copied = original.replace(
+                '<lastBuildDate>Thu, 20 Aug 2026 04:50:38 GMT</lastBuildDate>',
+                '<lastBuildDate>Thu, 20 Aug 2026 05:12:40 GMT</lastBuildDate>',
+            )
+            (root / "feed.xml").write_text(copied, encoding="utf-8")
+
+            result = rss.normalize(
+                root,
+                build_time=dt.datetime(2026, 8, 20, 5, 12, 40, tzinfo=dt.timezone.utc),
+            )
+            restored = (root / "feed.xml").read_text(encoding="utf-8")
+            self.assertEqual(result["build_changed"], 1)
+            self.assertEqual(restored, original)
+        finally:
+            tmp.cleanup()
+
     def test_missing_date_fails_closed(self):
         tmp, root = self._root()
         try:

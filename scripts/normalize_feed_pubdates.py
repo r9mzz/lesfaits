@@ -9,11 +9,13 @@ publique. Les rares heures publiques historiquement perdues sont réparées avan
 la normalisation via ``repair_publication_time_overrides``.
 
 `lastBuildDate` n'est avancé que lorsqu'un article HTML a réellement été ajouté,
-modifié ou retiré depuis `HEAD`. Un run technique à zéro article peut reconstruire
-le RSS et nécessiter la réparation des `pubDate`, mais ne doit pas annoncer une
-nouvelle construction éditoriale. Hors d'un checkout Git exploitable, on conserve
-le comportement historique et on met `lastBuildDate` à jour. L'instant de rebuild
-est produit avec `datetime.now(timezone.utc)` puis sérialisé en RFC 2822/GMT.
+modifié ou retiré depuis `HEAD`. Sur un run technique à zéro article, la valeur
+est restaurée depuis le `feed.xml` de `HEAD` : il ne suffit pas de « préserver »
+la valeur courante, car le feed copié depuis le dépôt source peut déjà contenir
+une heure de rebuild artificiellement avancée. Hors d'un checkout Git exploitable,
+on conserve le comportement historique et on met `lastBuildDate` à jour.
+L'instant de rebuild est produit avec `datetime.now(timezone.utc)` puis sérialisé
+en RFC 2822/GMT.
 """
 from __future__ import annotations
 
@@ -86,6 +88,37 @@ def _articles_changed_since_head(root: Path) -> bool | None:
     if proc.returncode != 0:
         return None
     return bool(proc.stdout.strip())
+
+
+def _head_last_build_date(root: Path) -> str | None:
+    """Lit le `lastBuildDate` réellement versionné dans `HEAD:feed.xml`.
+
+    Cette valeur est la référence à restaurer lorsque les articles publics sont
+    inchangés. Le feed présent dans le worktree peut venir d'être copié depuis un
+    autre dépôt et porter déjà une heure de rebuild artificielle.
+    """
+    try:
+        proc = subprocess.run(
+            ["git", "-C", str(root), "show", "HEAD:feed.xml"],
+            text=True,
+            capture_output=True,
+            check=False,
+        )
+    except (OSError, subprocess.SubprocessError):
+        return None
+    if proc.returncode != 0:
+        return None
+    match = LAST_BUILD_RE.search(proc.stdout)
+    if not match:
+        return None
+    value = match.group(2).strip()
+    try:
+        parsed = email.utils.parsedate_to_datetime(value)
+    except (TypeError, ValueError):
+        return None
+    if parsed is None or parsed.utcoffset() != dt.timedelta(0):
+        return None
+    return value
 
 
 def article_published_at(path: Path) -> dt.datetime | None:
@@ -185,6 +218,7 @@ def normalize(
         if parsed_build is None or parsed_build.utcoffset() != dt.timedelta(0):
             raise RuntimeError("lastBuildDate n'est pas une date UTC RFC 2822 valide")
     else:
+        git_change: bool | None = None
         if update_last_build is None:
             git_change = _articles_changed_since_head(root)
             # Hors checkout Git (tests unitaires, outil lancé sur une copie),
@@ -203,9 +237,22 @@ def normalize(
                     updated,
                     count=1,
                 )
-        elif parsed_build is None or parsed_build.utcoffset() != dt.timedelta(0):
-            # Ne jamais préserver silencieusement une métadonnée déjà invalide.
-            raise RuntimeError("lastBuildDate n'est pas une date UTC RFC 2822 valide")
+        else:
+            # Dans un checkout Git sans changement d'article, restaurer la valeur
+            # du HEAD public. La valeur courante peut déjà avoir été avancée par le
+            # rebuild/copie du dépôt source avant l'appel de ce normaliseur.
+            head_build = _head_last_build_date(root)
+            if head_build is not None:
+                if current_build != head_build:
+                    build_changed = 1
+                    updated = LAST_BUILD_RE.sub(
+                        lambda m: f"{m.group(1)}{head_build}{m.group(3)}",
+                        updated,
+                        count=1,
+                    )
+            elif parsed_build is None or parsed_build.utcoffset() != dt.timedelta(0):
+                # Ne jamais préserver silencieusement une métadonnée déjà invalide.
+                raise RuntimeError("lastBuildDate n'est pas une date UTC RFC 2822 valide")
 
     if check and changed:
         raise RuntimeError(f"feed.xml contient encore {changed} pubDate artificielle(s)")
