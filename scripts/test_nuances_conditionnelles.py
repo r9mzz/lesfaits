@@ -38,16 +38,22 @@ verifie("le plancher de 150 mots n'est plus inconditionnel",
         "MINIMUM 150 mots" not in P.SYSTEM_PROMPT)
 verifie("la chaîne vide est explicitement autorisée",
         "chaîne VIDE" in P.SYSTEM_PROMPT)
-verifie("la règle 29 énonce le plancher conditionnel",
-        "29. PLANCHER CONDITIONNEL" in P.SYSTEM_PROMPT)
+# ⚠ 20/08 — ce contrôle exigeait « 29. PLANCHER CONDITIONNEL », donc le NUMÉRO
+# de la règle. L'ajout de la règle de fidélité au temps et à la modalité a
+# décalé la numérotation et cassé le test alors que la règle protégée était
+# intacte. Troisième test du projet à verrouiller une forme plutôt qu'un fond
+# (après le TPM lu dans le texte source et la table des fenêtres déplacée).
+# On vérifie donc la PRÉSENCE de la règle, quel que soit son rang.
+verifie("le prompt énonce le plancher conditionnel",
+        "PLANCHER CONDITIONNEL" in P.SYSTEM_PROMPT)
 verifie("l'invention d'une limite est interdite nommément",
         "il est essentiel de renforcer la vigilance" in P.SYSTEM_PROMPT)
 
 # Les dossiers sont suspendus depuis le 03/08 : on ne touche pas à leurs
 # prompts, et surtout on ne les modifie pas « pour la cohérence ».
 verifie("les prompts dossier restent inchangés",
-        "29. PLANCHER" not in P.SYSTEM_PROMPT_DOSSIER_SCIENCE
-        and "29. PLANCHER" not in P.SYSTEM_PROMPT_DOSSIER_PORTRAIT)
+        "PLANCHER CONDITIONNEL" not in P.SYSTEM_PROMPT_DOSSIER_SCIENCE
+        and "PLANCHER CONDITIONNEL" not in P.SYSTEM_PROMPT_DOSSIER_PORTRAIT)
 
 print("\n2. Rendu d'une section vide")
 art = {"titre": "T", "slug": "t-vide", "resume": "Un fait daté et chiffré.",
