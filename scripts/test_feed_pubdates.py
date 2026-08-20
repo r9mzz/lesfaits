@@ -85,7 +85,7 @@ class FeedPubDateTests(unittest.TestCase):
         finally:
             tmp.cleanup()
 
-    def test_zero_article_run_preserves_last_build_but_article_change_advances_it(self):
+    def test_zero_article_run_preserves_last_build_and_untracked_article_advances_it(self):
         tmp, root = self._root()
         try:
             # Canonicalise d'abord les fixtures, puis fige cet état dans HEAD.
@@ -104,11 +104,12 @@ class FeedPubDateTests(unittest.TestCase):
             self.assertEqual(no_article["build_changed"], 0)
             self.assertEqual(after_no_article, original)
 
-            article = root / "articles" / "exemple.html"
-            article.write_text(article.read_text(encoding="utf-8") + "\n<!-- modification réelle -->\n", encoding="utf-8")
-            with_article = rss.normalize(root, build_time=future)
+            # Le vrai runtime crée d'abord le fichier article, encore non suivi.
+            # Ce cas doit compter comme une publication et avancer lastBuildDate.
+            (root / "articles" / "nouveau.html").write_text(ARTICLE, encoding="utf-8")
+            with_new_article = rss.normalize(root, build_time=future)
             after_article = (root / "feed.xml").read_text(encoding="utf-8")
-            self.assertEqual(with_article["build_changed"], 1)
+            self.assertEqual(with_new_article["build_changed"], 1)
             self.assertIn(
                 '<lastBuildDate>Thu, 20 Aug 2026 02:15:59 GMT</lastBuildDate>',
                 after_article,

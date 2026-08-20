@@ -57,28 +57,35 @@ def _parse_iso(value: object) -> dt.datetime | None:
 
 
 def _articles_changed_since_head(root: Path) -> bool | None:
-    """Retourne si `articles/` diffère de HEAD, ou None si Git est indisponible.
+    """Retourne si `articles/` diffère de HEAD, y compris les fichiers non suivis.
 
-    Le runtime reconstruit plusieurs fichiers même lorsqu'il ne publie rien.
-    `git diff --quiet HEAD -- articles/` permet de distinguer ce bruit technique
-    d'un vrai changement éditorial, en couvrant ajouts, modifications et retraits.
-    Un état Git non exploitable ne doit pas rendre l'outil inutilisable hors CI :
-    le caller retombera alors sur le comportement historique (mise à jour).
+    Le runtime crée les nouveaux articles avant de les ajouter à Git : un simple
+    ``git diff`` ne voit donc pas ces fichiers non suivis. ``git status --porcelain``
+    couvre à la fois ajouts non suivis, modifications et retraits sans dépendre de
+    l'index. Un état Git non exploitable renvoie ``None`` afin que le caller garde
+    le comportement historique hors checkout Git.
     """
     try:
         proc = subprocess.run(
-            ["git", "-C", str(root), "diff", "--quiet", "HEAD", "--", "articles/"],
-            stdout=subprocess.DEVNULL,
-            stderr=subprocess.DEVNULL,
+            [
+                "git",
+                "-C",
+                str(root),
+                "status",
+                "--porcelain",
+                "--untracked-files=all",
+                "--",
+                "articles/",
+            ],
+            text=True,
+            capture_output=True,
             check=False,
         )
     except (OSError, subprocess.SubprocessError):
         return None
-    if proc.returncode == 0:
-        return False
-    if proc.returncode == 1:
-        return True
-    return None
+    if proc.returncode != 0:
+        return None
+    return bool(proc.stdout.strip())
 
 
 def article_published_at(path: Path) -> dt.datetime | None:
