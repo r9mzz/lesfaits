@@ -11921,5 +11921,577 @@
     "veille_passages": 11,
     "veille_age_h": 10.8,
     "veille_n_flux_grappe": 14
+  },
+  {
+    "slug": "canicule-2026-7300-morts-exces-france-depuis-mai",
+    "statut": "rejete_qualite",
+    "date": "2026-08-20T13:45:57",
+    "problemes_initiaux": 10,
+    "tentatives": 3,
+    "problemes_restants": 12,
+    "bloquants_restants": 4,
+    "bloquants_types": [
+      "annonce_perimee",
+      "incoherence_inter_sections",
+      "niveau_preuve_insuffisant",
+      "niveau_preuve_insuffisant"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "annonce_perimee",
+        "description": "Le résumé présente la troisième vague de chaleur comme un événement déjà survenu (« a connu »), alors que dans les faits, il est précisé que « Les données définitives sur cet épisode ne sont pas encore consolidées » [1],",
+        "phrase": "La France a connu une troisième vague de chaleur exceptionnelle fin juillet 2026, qualifiée par Météo-France comme l'une des plus longues jamais enregistrées, avec des températures dépassant 40°C pendant plus de dix jour"
+      },
+      {
+        "bloc": 1,
+        "type": "incoherence_inter_sections",
+        "description": "La source [1] (Sciences et Avenir) ne mentionne pas Météo-France comme source de cette description. L'attribution à Météo-France n'est pas confirmée par les sources fournies, ce qui crée une incohérence entre les section",
+        "phrase": "Fin juillet 2026, une troisième vague de chaleur a touché le pays, décrite par Météo-France comme l'une des plus longues jamais observées. Des températures supérieures à 40°C ont été enregistrées pendant plus de dix jour"
+      },
+      {
+        "bloc": 1,
+        "type": "niveau_preuve_insuffisant",
+        "description": "La source [4] (Vie Publique) ne mentionne pas explicitement la mission d'information du Sénat sur la canicule de juin 2026. L'attribution de cette conclusion à la mission du Sénat n'est pas confirmée par les sources four",
+        "phrase": "La mission d'information du Sénat sur la canicule de juin 2026 souligne que les vagues de chaleur sont devenues plus fréquentes et plus intenses. Vie Publique indique que les épisodes caniculaires surviennent désormais p"
+      },
+      {
+        "bloc": 1,
+        "type": "niveau_preuve_insuffisant",
+        "description": "La source [5] n'existe pas dans la liste des sources fournies. L'étude de Santé publique France n'est pas citée parmi les sources autorisées, ce qui rend cette affirmation non vérifiable.",
+        "phrase": "Les personnes âgées de plus de 75 ans représentent 70 % des décès enregistrés lors des épisodes caniculaires, comme l'a révélé une étude de Santé publique France publiée en 2023, mais les données spécifiques à 2026 ne se"
+      }
+    ],
+    "types_restants": [
+      "annonce_perimee",
+      "incoherence_inter_sections",
+      "source_inventee",
+      "niveau_preuve_insuffisant",
+      "source_inventee",
+      "niveau_preuve_insuffisant",
+      "source_derivee_comptee_comme_primaire",
+      "compteur_incoherent",
+      "cadrage_emprunte",
+      "extrapolation",
+      "section_gonflee",
+      "contexte_hors_sujet"
+    ],
+    "article_type": "actu",
+    "titre": "Canicule 2026 : 7 300 morts en excès en France depuis mai",
+    "n_sources": 5,
+    "n_mots": 555,
+    "titre_rss": "Canicules : déjà 7.300 morts en excès en France en 2026",
+    "matiere_faits_distincts": 699,
+    "matiere_redondance": 0.05,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "n_sources_pertinentes": 4,
+    "veille_heures_visible": 18.9,
+    "veille_passages": 18,
+    "veille_age_h": 19.0,
+    "veille_n_flux_grappe": 5
+  },
+  {
+    "slug": "eelv-echec-relayer-crise-climatique-ete-2026-incendies",
+    "statut": "rejete_qualite",
+    "date": "2026-08-20T13:50:21",
+    "angle_insuffisant": true,
+    "raison": "Aucune phrase dans la section 'faits' ne combine un événement précis daté ou datable avec une donnée chiffrée ou nommée qui lui soit propre et récente (été 2026). L'article explique un phénomène général (l'échec d'EELV à capitaliser sur les crises climatiques) sans ancrage factuel récent et identifiable. La question de l'angle ('Les crises climatiques de l'été 2026 ont-elles permis aux écologistes français de faire avancer leurs propositions politiques ?') n'est pas répondue par des faits concrets datés de l'été 2026, mais par des analyses générales et des constats institutionnels sans temporalité claire.",
+    "article_type": "actu",
+    "titre": "EELV n'a pas capitalisé sur les 6 millions d'hectares brûlés en Europe cet été",
+    "n_sources": 4,
+    "n_mots": 706,
+    "titre_rss": "Malgré les incendies et les canicules, les Écologistes peinent à imposer leurs idées",
+    "matiere_faits_distincts": 1227,
+    "matiere_redondance": 0.02,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "n_sources_pertinentes": 3,
+    "veille_heures_visible": 6.8,
+    "veille_passages": 8,
+    "veille_age_h": 6.9,
+    "veille_n_flux_grappe": 6
+  },
+  {
+    "slug": "non-revalorisation-pensions-retraites-aisees-lescure",
+    "statut": "rejete_qualite",
+    "date": "2026-08-20T13:57:14",
+    "problemes_initiaux": 13,
+    "tentatives": 3,
+    "problemes_restants": 13,
+    "bloquants_restants": 4,
+    "bloquants_types": [
+      "chiffre_errone",
+      "annonce_perimee",
+      "annonce_perimee",
+      "source_inventee"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "Le chiffre de 14 % des dépenses publiques est correct, mais la source [10] (rapport annuel du gouvernement 2024) ne précise pas que ce poste est 'majeur' ou 'examiné dans le cadre de la revue des dépenses publiques' — ce",
+        "phrase": "Les pensions de retraite, qui représentent 14 % des dépenses publiques en 2024 d'après le rapport annuel du gouvernement, constituent un poste majeur examiné dans le cadre de la revue des dépenses publiques."
+      },
+      {
+        "bloc": 1,
+        "type": "annonce_perimee",
+        "description": "La phrase présente la mesure comme une piste 'étudiée' (à venir), mais la source [1] (*L'Express*) décrit une déclaration déjà faite par Roland Lescure. Le titre et le résumé devraient refléter que la déclaration est déj",
+        "phrase": "Roland Lescure, ministre de l'Économie, a déclaré mi-août 2025 dans *L'Express* qu'il étudiait la possibilité de ne pas revaloriser les pensions des retraités aisés en fonction de l'inflation, présentant cette piste comm"
+      },
+      {
+        "bloc": 1,
+        "type": "annonce_perimee",
+        "description": "Même problème que ci-dessus : la déclaration est présentée comme une étude en cours (« étudier »), alors que la source [1] confirme qu'elle a déjà été faite.",
+        "phrase": "Le ministre de l'Économie, Roland Lescure, a déclaré mi-août 2025 dans *L'Express* étudier la possibilité de ne pas revaloriser les pensions des retraités aisés en fonction de l'inflation, qualifiant cette mesure de cont"
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "La source [10] est citée pour le rapport annuel du gouvernement 2024, mais cette source n'apparaît pas dans la liste des sources autorisées. La seule source Gouv listée est l'enquête annuelle auprès des caisses de retrai",
+        "phrase": "D'après le rapport annuel du gouvernement sur les retraites publié en 2024, les pensions de retraite représentaient 14 % des dépenses publiques cette année-là, un poste de dépense significatif dans le budget de l'État [1"
+      }
+    ],
+    "types_restants": [
+      "chiffre_errone",
+      "annonce_perimee",
+      "annonce_perimee",
+      "acteur_mis_en_cause_sans_reponse",
+      "source_derivee_comptee_comme_primaire",
+      "compteur_incoherent",
+      "source_inventee",
+      "paraphrase_structurelle",
+      "cadrage_emprunte",
+      "redondance",
+      "section_gonflee",
+      "faux_debat",
+      "acteur_mis_en_cause_sans_reponse"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "faits_repetitifs",
+      "nuances_vagues"
+    ],
+    "titre": "Roland Lescure propose une non-revalorisation des pensions aisées",
+    "n_sources": 8,
+    "n_mots": 502,
+    "titre_rss": "Retraites : le gel des pensions, le pari à haut risque de Roland Lescure",
+    "matiere_faits_distincts": 1250,
+    "matiere_redondance": 0.01,
+    "matiere_donnees_chiffrees": 2,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "n_sources_pertinentes": 6,
+    "veille_heures_visible": 6.8,
+    "veille_passages": 8,
+    "veille_age_h": 6.9,
+    "veille_n_flux_grappe": 2
+  },
+  {
+    "slug": "frappes-russes-kiev-16-morts-infrastructures-civiles-detruites",
+    "statut": "rejete_sensible",
+    "date": "2026-08-20T14:03:58",
+    "sujet_sensible": true,
+    "raison": "conflit armé en cours impliquant des frappes sur des infrastructures civiles et des victimes, dont des mineurs (hôpital pédiatrique et crèche mentionnés)",
+    "article_type": "actu",
+    "titre": "Frappes russes sur Kiev : 16 morts et des infrastructures civiles détruites",
+    "n_sources": 3,
+    "n_mots": 490,
+    "titre_rss": "EN DIRECT, guerre en Ukraine : le bilan continue de s’alourdir à Kiev et dans sa région après les attaques russes de la nuit",
+    "matiere_faits_distincts": 574,
+    "matiere_redondance": 0.01,
+    "matiere_donnees_chiffrees": 2,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "n_sources_pertinentes": 4,
+    "veille_heures_visible": 2.8,
+    "veille_passages": 4,
+    "veille_age_h": 2.8,
+    "veille_n_flux_grappe": 9
+  },
+  {
+    "slug": "secheresse-honduras-80-pourcent-territoire-alerte-rouge",
+    "statut": "rejete_qualite",
+    "date": "2026-08-20T14:14:30",
+    "problemes_initiaux": 12,
+    "tentatives": 3,
+    "problemes_restants": 11,
+    "bloquants_restants": 3,
+    "bloquants_types": [
+      "chiffre_errone",
+      "niveau_preuve_insuffisant",
+      "annonce_perimee"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "Le résumé attribue à RFI [1] des pertes agricoles estimées à 30 %, mais la source [1] (RFI) ne mentionne pas ce chiffre. Ce chiffre apparaît dans les 'faits' attribué au ministère hondurien de l'Agriculture relayé par RF",
+        "phrase": "les précipitations ont été inférieures de 40 % à la moyenne historique depuis le début de l'année 2026 dans les départements du sud, entraînant des pénuries d'eau et des pertes agricoles estimées à 30 % des cultures vivr"
+      },
+      {
+        "bloc": 1,
+        "type": "niveau_preuve_insuffisant",
+        "description": "L'article présente une estimation de pertes agricoles (30 %) sans préciser la méthodologie, ce qui est une limite majeure non signalée dans le corps du texte. La source [1] (RFI) ne fournit pas non plus cette méthodologi",
+        "phrase": "Le ministère a précisé que ces pertes pourraient atteindre 30 % des récoltes dans les zones les plus touchées, sans fournir de méthodologie détaillée pour cette estimation."
+      },
+      {
+        "bloc": 1,
+        "type": "annonce_perimee",
+        "description": "Le titre et le résumé présentent l'annonce comme une mesure à venir (« annonce placer »), alors que les 'faits' décrivent l'événement comme déjà survenu (« a annoncé »). Le titre et le résumé doivent refléter l'état le p",
+        "phrase": "Le 20 août 2026, le gouvernement hondurien a annoncé placer 80 % de son territoire en état d'alerte rouge en réponse à une sécheresse prolongée, comme l'a rapporté RFI en citant les autorités nationales [1]."
+      }
+    ],
+    "types_restants": [
+      "chiffre_errone",
+      "niveau_preuve_insuffisant",
+      "annonce_perimee",
+      "fait_tranche_arbitrairement",
+      "source_derivee_comptee_comme_primaire",
+      "formule_vague",
+      "cadrage_emprunte",
+      "contexte_hors_sujet",
+      "section_gonflee",
+      "redondance",
+      "extrapolation"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "resume_repete_corps"
+    ],
+    "titre": "Sécheresse au Honduras : 80 % du territoire en alerte rouge",
+    "n_sources": 4,
+    "n_mots": 559,
+    "titre_rss": "Le Honduras place 80% de son territoire en état d'alerte face à une sécheresse aggravée",
+    "matiere_faits_distincts": 1008,
+    "matiere_redondance": 0.06,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "n_sources_pertinentes": 1,
+    "veille_heures_visible": 4.6,
+    "veille_passages": 6,
+    "veille_age_h": 4.7,
+    "veille_n_flux_grappe": 2
+  },
+  {
+    "slug": "moustique-tigre-recul-estival-retour-automne",
+    "statut": "rejete_qualite",
+    "date": "2026-08-20T14:20:17",
+    "problemes_initiaux": 11,
+    "tentatives": 3,
+    "problemes_restants": 11,
+    "bloquants_restants": 4,
+    "bloquants_types": [
+      "annonce_perimee",
+      "incoherence_inter_sections",
+      "niveau_preuve_insuffisant",
+      "chiffre_errone"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "annonce_perimee",
+        "description": "Le résumé présente comme une possibilité future (« pourraient entraîner ») un événement que le corps de l'article décrit comme déjà observé (« pourrait provoquer une diminution temporaire des signalements »). La source [",
+        "phrase": "Les conditions climatiques de l’été 2026, marquées par une sécheresse prolongée et des températures élevées, pourraient entraîner une diminution temporaire des signalements de moustiques-tigres en France métropolitaine, "
+      },
+      {
+        "bloc": 1,
+        "type": "incoherence_inter_sections",
+        "description": "Le résumé affirme que « les œufs résistants à la sécheresse peuvent éclore » comme un fait établi, alors que la source [2] (Anses) précise que les œufs « peuvent survivre plusieurs mois en l’absence d’eau et éclore dès q",
+        "phrase": "Cette baisse, qui perturbe le cycle de reproduction de l’espèce en asséchant les gîtes larvaires, ne remet pas en cause son implantation durable : l’Anses souligne que les œufs résistants à la sécheresse peuvent éclore d"
+      },
+      {
+        "bloc": 1,
+        "type": "niveau_preuve_insuffisant",
+        "description": "L'article présente le « risque d’épidémies locales » comme un constat, alors que la source [5] (rapport Anses 2024) le formule comme une possibilité non quantifiée (« ne peut être exclu »). Le niveau de preuve est insuff",
+        "phrase": "le rapport de l’Anses de juillet 2024 indique que « le risque d’épidémies locales ne peut être exclu » en raison de l’implantation étendue de l’espèce, sans toutefois fournir de données chiffrées sur les transmissions au"
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [3] (Ministère de la Santé) ne fournit pas de données pour 2015, 2019 ou 2020 dans les informations accessibles. L'article cite ces chiffres sans confirmation dans les sources autorisées, ce qui constitue une e",
+        "phrase": "en 2015, il était présent dans 42 départements, puis dans 58 en 2019 et 67 en 2020, selon les cartes du Ministère de la Santé [3]."
+      }
+    ],
+    "types_restants": [
+      "annonce_perimee",
+      "incoherence_inter_sections",
+      "niveau_preuve_insuffisant",
+      "chiffre_errone",
+      "chronologie_confuse",
+      "source_derivee_comptee_comme_primaire",
+      "compteur_incoherent",
+      "extrapolation",
+      "redondance",
+      "section_gonflee",
+      "angle_annonce_non_tenu"
+    ],
+    "article_type": "actu",
+    "titre": "Moustique-tigre en France : recul estival avant un retour annoncé",
+    "n_sources": 5,
+    "n_mots": 435,
+    "titre_rss": "Le reflux en trompe-l’œil des moustiques-tigres sous l’effet de la chaleur et de la sécheresse",
+    "matiere_faits_distincts": 1043,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 4,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "n_sources_pertinentes": 1,
+    "veille_heures_visible": 6.8,
+    "veille_passages": 8,
+    "veille_age_h": 6.9,
+    "veille_n_flux_grappe": 1
+  },
+  {
+    "slug": "etats-unis-annulation-rapport-arctique-2025-trump",
+    "statut": "rejete_sensible",
+    "date": "2026-08-20T14:30:53",
+    "problemes_initiaux": 12,
+    "tentative": 3,
+    "bloc5": true,
+    "article_type": "actu",
+    "titre": "États-Unis : le rapport 2025 sur l'Arctique annulé par Trump",
+    "n_sources": 5,
+    "n_mots": 493,
+    "titre_rss": "Annulation d'un rapport sur l'Arctique : Trump s'attaque encore à la science du climat",
+    "matiere_faits_distincts": 939,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "n_sources_pertinentes": 1,
+    "veille_heures_visible": 171.1,
+    "veille_passages": 146,
+    "veille_age_h": 171.2,
+    "veille_n_flux_grappe": 3
+  },
+  {
+    "slug": "sante-sexuelle-outre-mer-resultats-enquete-csf-2023",
+    "statut": "rejete_sensible",
+    "date": "2026-08-20T14:37:57",
+    "problemes_initiaux": 10,
+    "tentative": 2,
+    "bloc5": true,
+    "article_type": "actu",
+    "titre": "Santé sexuelle en Outre-mer : les premiers résultats de l’enquête CSF-2023",
+    "n_sources": 4,
+    "n_mots": 602,
+    "titre_rss": "Premiers résultats de l’enquête CSF-2023 dans les Outre-Mer : focus sur la Guyane, la Martinique, la Guadeloupe et La Réunion",
+    "matiere_faits_distincts": 1217,
+    "matiere_redondance": 0.02,
+    "matiere_donnees_chiffrees": 10,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "n_sources_pertinentes": 1,
+    "veille_heures_visible": 203.0,
+    "veille_passages": 155,
+    "veille_age_h": 203.1,
+    "veille_n_flux_grappe": 2
+  },
+  {
+    "slug": "onu-condamne-propos-ben-gvir-tueries-gaza",
+    "statut": "rejete_sensible",
+    "date": "2026-08-20T14:42:29",
+    "sujet_sensible": true,
+    "raison": "L'article porte sur une affaire impliquant des accusations de crimes de guerre et de génocide, avec des mineurs (enfants palestiniens) comme victimes, et des déclarations controversées d'un ministre israélien.",
+    "article_type": "actu",
+    "titre": "L'ONU condamne les propos de Ben Gvir sur les tueries à Gaza",
+    "n_sources": 5,
+    "n_mots": 546,
+    "titre_rss": "Guerre au Moyen-Orient : enquête israélienne sur la mort d’un enfant à Gaza… Le bilan du mercredi 19 août",
+    "matiere_faits_distincts": 997,
+    "matiere_redondance": 0.03,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "n_sources_pertinentes": 3,
+    "veille_heures_visible": 28.6,
+    "veille_passages": 28,
+    "veille_age_h": 28.7,
+    "veille_n_flux_grappe": 10
+  },
+  {
+    "slug": "infarctus-avc-signes-avant-coureurs-etude-9-millions-adultes",
+    "statut": "rejete_qualite",
+    "date": "2026-08-20T14:51:07",
+    "problemes_initiaux": 13,
+    "tentatives": 3,
+    "problemes_restants": 10,
+    "bloquants_restants": 4,
+    "bloquants_types": [
+      "chiffre_errone",
+      "chiffre_errone",
+      "niveau_preuve_insuffisant",
+      "incoherence_inter_sections"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "Le chiffre de 19,8 millions de décès en 2022 est correct, mais la source [3] (OMS) indique que 85 % de ces décès sont attribuables aux infarctus du myocarde et aux AVC, et non que 85 % des décès *par maladies cardiovascu",
+        "phrase": "Les maladies cardiovasculaires, responsables de 19,8 millions de décès en 2022 selon l’Organisation mondiale de la santé (OMS), restent la première cause de mortalité mondiale. Bien que les facteurs de risque modifiables"
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "Même erreur que ci-dessus : la source [3] indique que 85 % des décès par MCV sont dus aux infarctus et AVC, et non que 85 % des 19,8 millions de décès *totaux* sont des infarctus/AVC. La formulation suggère à tort que 85",
+        "phrase": "Les maladies cardiovasculaires (MCV) demeurent la première cause de mortalité mondiale, avec 19,8 millions de décès enregistrés en 2022, dont 85 % attribuables à des infarctus du myocarde et des AVC, selon les estimation"
+      },
+      {
+        "bloc": 1,
+        "type": "niveau_preuve_insuffisant",
+        "description": "L'article ne précise pas que l'étude [1] est observationnelle (basée sur des dossiers médicaux électroniques), ce qui limite sa capacité à établir un lien de causalité. La source [1] souligne explicitement ces limites mé",
+        "phrase": "Une étude publiée dans le *Journal of the American Heart Association* et analysant les dossiers médicaux électroniques de neuf millions d’adultes a révélé qu’environ 85 % des infarctus du myocarde et des accidents vascul"
+      },
+      {
+        "bloc": 1,
+        "type": "incoherence_inter_sections",
+        "description": "La source [3] (OMS) indique que les MCV sont responsables de **plus de 30 %** des décès mondiaux, et non de 32 % précisément. Ce chiffre n'est pas cohérent avec le reste de l'article, qui cite 19,8 millions de décès par ",
+        "phrase": "En 2022, l’OMS estimait que les MCV étaient responsables de 32 % des décès dans le monde, avec une prévalence particulièrement élevée chez les personnes âgées de 50 ans et plus."
+      }
+    ],
+    "types_restants": [
+      "chiffre_errone",
+      "chiffre_errone",
+      "niveau_preuve_insuffisant",
+      "incoherence_inter_sections",
+      "source_derivee_comptee_comme_primaire",
+      "cadrage_emprunte",
+      "redondance",
+      "redondance",
+      "contexte_hors_sujet",
+      "extrapolation"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "resume_repete_corps"
+    ],
+    "titre": "Presque tous les infarctus et AVC précédés de signes avant-coureurs",
+    "n_sources": 3,
+    "n_mots": 376,
+    "titre_rss": "Contrairement à ce qu'on pense, les infarctus surviendraient très rarement sans signal préalable",
+    "matiere_faits_distincts": 764,
+    "matiere_redondance": 0.02,
+    "matiere_donnees_chiffrees": 4,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "n_sources_pertinentes": 4,
+    "veille_heures_visible": 26.8,
+    "veille_passages": 26,
+    "veille_age_h": 26.8,
+    "veille_n_flux_grappe": 1
+  },
+  {
+    "slug": "athol-williams-lanceur-alerte-bain-business-schools-reinsertion",
+    "statut": "rejete_sensible",
+    "date": "2026-08-20T14:55:03",
+    "problemes_initiaux": 19,
+    "bloc5": [
+      "affaire_en_cours_presentee_comme_fait"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "faits_repetitifs",
+      "titre_de_mauvaise_qualite"
+    ],
+    "titre": "Athol Williams, lanceur d’alerte de Bain, en exil : les business schools comme solution ?",
+    "n_sources": 3,
+    "n_mots": 554,
+    "titre_rss": "Lanceurs d’alerte en exil : pourquoi les business schools ont une responsabilité à assumer",
+    "matiere_faits_distincts": 941,
+    "matiere_redondance": 0.14,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "n_sources_pertinentes": 2,
+    "veille_heures_visible": 124.7,
+    "veille_passages": 115,
+    "veille_age_h": 124.8,
+    "veille_n_flux_grappe": 1
+  },
+  {
+    "slug": "lecornu-ministeres-cyberattaques-piratage-impots-2026",
+    "statut": "rejete_qualite",
+    "date": "2026-08-20T15:05:49",
+    "problemes_initiaux": 12,
+    "tentatives": 3,
+    "problemes_restants": 13,
+    "bloquants_restants": 5,
+    "bloquants_types": [
+      "chiffre_errone",
+      "incoherence_inter_sections",
+      "chiffre_errone",
+      "niveau_preuve_insuffisant",
+      "accusation_presentee_comme_fait"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "Le résumé attribue à l'ANSSI [5] un chiffre de 1 366 incidents confirmés, mais la source [5] mentionne 3 586 événements de sécurité enregistrés en 2025, dont 1 366 incidents confirmés (sans précision d'année pour ces der",
+        "phrase": "Dans son *Panorama de la cybermenace 2025*, l'ANSSI indique que 1 366 incidents ont été confirmés, dont 218 concernant des collectivités territoriales, sans préciser l'année exacte de ces incidents."
+      },
+      {
+        "bloc": 1,
+        "type": "incoherence_inter_sections",
+        "description": "Le résumé présente la reconnaissance des vulnérabilités comme une conséquence directe du piratage du site des impôts, alors que le corps de l'article (section \"faits\") ne lie pas explicitement ces deux événements dans la",
+        "phrase": "Le 19 août 2026, le ministre des Armées, Sébastien Lecornu, a reconnu dans un courrier à l'ANSSI que \"peu de ministères\" atteignent le niveau de protection requis contre les cyberattaques, suite au piratage du site des i"
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [5] indique que ces 3 586 événements incluent des signalements de tentatives d'intrusion, des alertes et des incidents confirmés, sans préciser que tous ces événements datent de 2025. L'article présente ce chif",
+        "phrase": "Selon le *Panorama de la cybermenace 2025* publié par l'ANSSI, 3 586 événements de sécurité ont été enregistrés en 2025 [5]."
+      },
+      {
+        "bloc": 1,
+        "type": "niveau_preuve_insuffisant",
+        "description": "L'article présente cette affirmation comme un constat établi par l'ANSSI, mais la source [5] ne précise pas le niveau de preuve ou la méthodologie derrière cette analyse (observation, modélisation, cas documentés). Le te",
+        "phrase": "Le *Panorama* souligne que les attaquants exploitent fréquemment des failles dans des équipements peu supervisés et adaptent leurs stratégies pour contourner les dispositifs de détection."
+      },
+      {
+        "bloc": 1,
+        "type": "accusation_presentee_comme_fait",
+        "description": "L'article présente les vulnérabilités comme un fait établi, alors que les sources [2] et [3] ne font que relayer des questions parlementaires (donc des accusations ou des demandes d'éclaircissements), sans confirmation o",
+        "phrase": "Les fuites de données récentes, comme celles du FICOBA et de Pajemploi, ont mis en lumière des vulnérabilités dans la sécurisation des systèmes hébergeant des informations sensibles."
+      }
+    ],
+    "types_restants": [
+      "chiffre_errone",
+      "incoherence_inter_sections",
+      "chiffre_errone",
+      "niveau_preuve_insuffisant",
+      "accusation_presentee_comme_fait",
+      "acteur_mis_en_cause_sans_reponse",
+      "source_derivee_comptee_comme_primaire",
+      "formule_vague",
+      "cadrage_emprunte",
+      "contexte_hors_sujet",
+      "section_gonflee",
+      "faux_debat",
+      "angle_annonce_non_tenu"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "titre_de_mauvaise_qualite",
+      "nuances_vagues"
+    ],
+    "titre": "Lecornu reconnaît que peu de ministères résistent aux cyberattaques après le piratage des impôts",
+    "n_sources": 8,
+    "n_mots": 666,
+    "titre_rss": "Piratage du site des impôts : « Peu de ministères sont au niveau requis » pour faire face aux cyberattaques, reconnaît Sébastien Lecornu",
+    "matiere_faits_distincts": 1207,
+    "matiere_redondance": 0.05,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "n_sources_pertinentes": 3,
+    "veille_heures_visible": 19.9,
+    "veille_passages": 19,
+    "veille_age_h": 20.0,
+    "veille_n_flux_grappe": 3
   }
 ]
