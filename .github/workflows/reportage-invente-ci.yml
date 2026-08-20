@@ -1,0 +1,50 @@
+name: Reportage inventé contract
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - "scripts/pipeline.py"
+      - "scripts/test_reportage_invente.py"
+      - "scripts/test_reportage_invente_ci_contract.py"
+      - ".github/workflows/reportage-invente-ci.yml"
+  pull_request:
+    paths:
+      - "scripts/pipeline.py"
+      - "scripts/test_reportage_invente.py"
+      - "scripts/test_reportage_invente_ci_contract.py"
+      - ".github/workflows/reportage-invente-ci.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  tests:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+
+      - name: Installer les dépendances
+        run: pip install -r requirements.txt
+
+      - name: Vérifier la syntaxe
+        run: >-
+          python -m py_compile
+          scripts/pipeline.py
+          scripts/test_reportage_invente.py
+          scripts/test_reportage_invente_ci_contract.py
+
+      - name: Vérifier le garde reportage inventé
+        run: |
+          python scripts/test_reportage_invente.py
+          python scripts/test_reportage_invente_ci_contract.py
