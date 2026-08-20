@@ -297,6 +297,25 @@ def main() -> int:
     print("     Mistral qui produit ces défauts. C'est le prompt qu'il faut")
     print("     adapter, en commençant par les marqueurs d'incertitude.")
     print()
+    # ── CONTRÔLE DE L'INSTRUMENT ────────────────────────────────────────────
+    # Sans ceci, « 0 recalé » n'est pas un résultat : c'est peut-être un champ
+    # manquant. La règle de blocage croise le TYPE et le champ `bloc` — et ce
+    # champ est rempli PAR LE MODÈLE, le prompt le lui demande. Ce test a déjà
+    # rendu deux « 0 recalé » faux pour deux raisons différentes ; on affiche
+    # donc de quoi vérifier le troisième au lieu de le croire.
+    sans_bloc = sum(v for (b, _), v in paires.items() if b is None)
+    print("\n  CONTRÔLE — distribution (bloc, type) réellement rendue par le juge :")
+    if sans_bloc:
+        print(f"    ⚠ {sans_bloc} problème(s) SANS champ `bloc` : la règle de blocage")
+        print("      ne peut pas s'y appliquer. « 0 recalé » serait un ARTEFACT.")
+    _BLOQUANTS = {(1, t) for t in ("chiffre_errone", "incoherence_inter_sections",
+                                   "annonce_perimee", "niveau_preuve_insuffisant",
+                                   "accusation_presentee_comme_fait")} | {(2, "source_inventee")}
+    for (b, t), v in sorted(paires.items(), key=lambda kv: -kv[1])[:12]:
+        print(f"    bloc {str(b):>4}  {str(t):38} {v:3}"
+              f"{'  ← BLOQUANT' if (b, t) in _BLOQUANTS else ''}")
+    print()
+
     print("  ⚠ n est petit et l'échantillon est BIAISÉ par construction : ce sont")
     print("  les articles qu'un juge a déjà validés. C'est voulu — on cherche un")
     print("  écart FLAGRANT, pas un taux. Un résultat serré ne conclut rien.")
