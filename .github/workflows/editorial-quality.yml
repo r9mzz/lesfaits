@@ -27,6 +27,8 @@ on:
       - "scripts/test_trusted_source_expansion.py"
       - "scripts/test_quota_wait.py"
       - "scripts/test_showcase_quality.py"
+      - "scripts/test_grille_vitrine_calibrage.py"
+      - "scripts/test_showcase_calibration_ci_contract.py"
       - "scripts/test_reserve_verification_quota.py"
       - "scripts/test_stamp_publication_times.py"
       - "scripts/test_summarize_pipeline_log.py"
@@ -66,6 +68,8 @@ on:
       - "scripts/test_trusted_source_expansion.py"
       - "scripts/test_quota_wait.py"
       - "scripts/test_showcase_quality.py"
+      - "scripts/test_grille_vitrine_calibrage.py"
+      - "scripts/test_showcase_calibration_ci_contract.py"
       - "scripts/test_reserve_verification_quota.py"
       - "scripts/test_stamp_publication_times.py"
       - "scripts/test_summarize_pipeline_log.py"
@@ -127,6 +131,8 @@ jobs:
           scripts/test_trusted_source_expansion.py
           scripts/test_quota_wait.py
           scripts/test_showcase_quality.py
+          scripts/test_grille_vitrine_calibrage.py
+          scripts/test_showcase_calibration_ci_contract.py
           scripts/test_reserve_verification_quota.py
           scripts/test_stamp_publication_times.py
           scripts/test_summarize_pipeline_log.py
@@ -150,6 +156,8 @@ jobs:
           python scripts/test_trusted_source_expansion.py
           python scripts/test_quota_wait.py
           python scripts/test_showcase_quality.py
+          python scripts/test_grille_vitrine_calibrage.py
+          python scripts/test_showcase_calibration_ci_contract.py
           python scripts/test_reserve_verification_quota.py
           python scripts/test_stamp_publication_times.py
           python scripts/test_summarize_pipeline_log.py
