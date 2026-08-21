@@ -14201,5 +14201,447 @@
     "date": "2026-08-21T03:04:36",
     "raison": "verification_indisponible",
     "statut_verification_initial": "erreur_verification"
+  },
+  {
+    "slug": "pelouse-parc-des-princes-impraticable-canicule-juin-2026",
+    "statut": "rejete_qualite",
+    "date": "2026-08-21T04:10:16",
+    "problemes_initiaux": 13,
+    "tentatives": 3,
+    "problemes_restants": 16,
+    "bloquants_restants": 6,
+    "bloquants_types": [
+      "annonce_perimee",
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "annonce_perimee",
+        "description": "Le résumé présente comme à venir (« a étudié des mesures d'urgence ») un événement que le corps de l'article décrit comme déjà survenu (« la pelouse du Parc des Princes [...] a montré des signes de dégradation »). La sou",
+        "phrase": "Lors des épisodes caniculaires de l'été 2026, le Paris Saint-Germain a étudié des mesures d'urgence pour adapter ses entraînements au Parc des Princes, où la pelouse présentait des signes de dégradation en raison de temp"
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [1] (Libération) ne fournit pas de données chiffrées précises sur l'augmentation des coûts de réparation (15 à 20 %). L'extrait disponible ne mentionne pas ces pourcentages, qui sont donc inventés ou extrapolés",
+        "phrase": "avec des coûts de réparation en hausse de 15 à 20 % par rapport à 2023, selon les données communiquées par plusieurs mairies [1]."
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [2] (audition de Météo-France au Sénat) ne fournit pas ces chiffres précis (3,4 et 1,7 épisodes caniculaires par an). L'extrait disponible ne contient pas ces statistiques, qui sont donc absentes de la source c",
+        "phrase": "Météo-France relève que la France a connu en moyenne 3,4 épisodes caniculaires par an entre 2010 et 2020, contre 1,7 entre 1980 et 2000 [2]."
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [2] (audition de Météo-France) ne mentionne pas une augmentation des coûts d'entretien de 25 à 30 %. Ce chiffre n'apparaît pas dans les extraits fournis.",
+        "phrase": "augmentant les coûts d'entretien de 25 à 30 % depuis 2020 [2]."
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [1] (Libération) ne fournit pas de fourchette de coûts (500 000 à 1 million d'euros par stade). Ce chiffre n'est pas présent dans les extraits disponibles.",
+        "phrase": "de l'ordre de 500 000 à 1 million d'euros par stade, et des ajustements techniques pour s'adapter aux conditions locales, comme le souligne Libération [1]."
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [3] (question écrite n° 6542) ne mentionne pas ce pourcentage (40 %). L'extrait disponible ne contient pas cette statistique.",
+        "phrase": "40 % des communes de moins de 10 000 habitants n'ont pas encore intégré ces enjeux dans leurs budgets, faute de subventions suffisantes [3]."
+      }
+    ],
+    "types_restants": [
+      "annonce_perimee",
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "source_inventee",
+      "contexte_hors_sujet",
+      "source_derivee_comptee_comme_primaire",
+      "source_non_editoriale",
+      "compteur_incoherent",
+      "cadrage_emprunte",
+      "faux_debat",
+      "acteur_mis_en_cause_sans_reponse",
+      "section_gonflee",
+      "extrapolation"
+    ],
+    "article_type": "actu",
+    "titre": "Juin 2026 : la pelouse du Parc des Princes impraticable après 40 °C pendant plusieurs jours",
+    "n_sources": 8,
+    "n_mots": 505,
+    "titre_rss": "«Le climat, c’est notre plus grand défi» : après un été caniculaire, le coup de chaud des jardiniers des clubs de foot",
+    "matiere_faits_distincts": 1425,
+    "matiere_redondance": 0.01,
+    "matiere_donnees_chiffrees": 2,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "n_sources_pertinentes": 5,
+    "veille_heures_visible": 8.1,
+    "veille_passages": 8,
+    "veille_age_h": 8.3,
+    "veille_n_flux_grappe": 1
+  },
+  {
+    "slug": "gel-partiel-pensions-retraites-deficit-public-2027",
+    "statut": "rejete_qualite",
+    "date": "2026-08-21T04:20:33",
+    "problemes_initiaux": 14,
+    "tentatives": 3,
+    "problemes_restants": 12,
+    "bloquants_restants": 4,
+    "bloquants_types": [
+      "annonce_perimee",
+      "chiffre_errone",
+      "incoherence_inter_sections",
+      "niveau_preuve_insuffisant"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "annonce_perimee",
+        "description": "Le résumé et le titre présentent la proposition comme une discussion en cours (« discute », « relancé »), mais la source [1] (L'Express) indique que cette mesure est déjà en discussion à Bercy, ce qui suggère un état plu",
+        "phrase": "Roland Lescure, ministre de l'Économie, a relancé mi-août l'idée d'une « indexation plus modérée » des pensions pour les retraités aisés, dans le cadre de la préparation du budget 2027."
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [5] (Comptes de la protection sociale) indique bien 14 % pour 2025, mais le résumé mentionne « projeté à 14 % » alors que le corps de l'article utilise « estimées à 14 % ». Le terme « projeté » dans le résumé i",
+        "phrase": "Les dépenses de retraite, estimées à 14 % des dépenses publiques en 2025 selon les Comptes de la protection sociale [5], sont directement visées par cette revue des dépenses."
+      },
+      {
+        "bloc": 1,
+        "type": "incoherence_inter_sections",
+        "description": "Le chiffre de 14 % pour 2025 est cohérent avec celui mentionné dans les « faits », mais le résumé indique que les dépenses de retraite « représentent 14 % des dépenses publiques en 2025 », sans préciser s'il s'agit d'une",
+        "phrase": "Selon les Comptes de la protection sociale, ces dépenses sont passées de 13,5 % des dépenses publiques en 2020 à 13,8 % en 2023, puis à 14 % en 2025, confirmant une augmentation progressive sur la période [5]."
+      },
+      {
+        "bloc": 1,
+        "type": "niveau_preuve_insuffisant",
+        "description": "L'article présente une estimation d'économistes sans préciser leur identité, leur méthodologie, ni les sources de leurs calculs. La source [1] (L'Express) ne fournit pas non plus ces détails, ce qui rend l'affirmation in",
+        "phrase": "Selon L'Express, certains économistes estiment que l'impact financier d'une telle mesure pourrait être limité, sans que ces estimations ne soient confirmées par des données officielles [1]."
+      }
+    ],
+    "types_restants": [
+      "annonce_perimee",
+      "chiffre_errone",
+      "source_inventee",
+      "incoherence_inter_sections",
+      "niveau_preuve_insuffisant",
+      "source_derivee_comptee_comme_primaire",
+      "compteur_incoherent",
+      "cadrage_emprunte",
+      "contexte_hors_sujet",
+      "section_gonflee",
+      "angle_annonce_non_tenu",
+      "faux_debat"
+    ],
+    "article_type": "actu",
+    "titre": "Roland Lescure évoque un gel partiel des pensions des retraités aisés",
+    "n_sources": 6,
+    "n_mots": 532,
+    "titre_rss": "Retraites : le gel des pensions, le pari à haut risque de Roland Lescure",
+    "matiere_faits_distincts": 985,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "n_sources_pertinentes": 3,
+    "veille_heures_visible": 21.0,
+    "veille_passages": 20,
+    "veille_age_h": 21.2,
+    "veille_n_flux_grappe": 2
+  },
+  {
+    "slug": "impact-economique-campus-cesi-territoires",
+    "statut": "rejete_sensible",
+    "date": "2026-08-21T04:23:36",
+    "problemes_initiaux": 14,
+    "bloc5": [
+      "acteur_mis_en_cause_sans_reponse"
+    ],
+    "article_type": "actu",
+    "titre": "Les campus du Cesi génèrent un milliard d'euros de PIB annuel en France",
+    "n_sources": 5,
+    "n_mots": 553,
+    "titre_rss": "Un campus, combien ça rapporte ? Le poids économique insoupçonné des universités pour les territoires",
+    "matiere_faits_distincts": 1014,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "n_sources_pertinentes": 3,
+    "veille_heures_visible": 66.8,
+    "veille_passages": 62,
+    "veille_age_h": 67.0,
+    "veille_n_flux_grappe": 1
+  },
+  {
+    "slug": "cfdt-culture-conteste-choix-budgetaires-culture-democratie",
+    "statut": "rejete_qualite",
+    "date": "2026-08-21T04:29:41",
+    "problemes_initiaux": 10,
+    "tentatives": 3,
+    "problemes_restants": 12,
+    "bloquants_restants": 3,
+    "bloquants_types": [
+      "accusation_presentee_comme_fait",
+      "accusation_presentee_comme_fait",
+      "accusation_presentee_comme_fait"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "accusation_presentee_comme_fait",
+        "description": "La phrase présente comme un fait établi les risques avancés par la CFDT-Culture, sans attribution explicite à la source (tribune syndicale).",
+        "phrase": "Selon le syndicat, ces choix risquent d'affaiblir la transmission d'une mémoire collective et d'accentuer les inégalités territoriales d'accès à la culture, un enjeu déjà identifié dans les débats publics français."
+      },
+      {
+        "bloc": 1,
+        "type": "accusation_presentee_comme_fait",
+        "description": "Le risque d'aggravation est présenté comme un constat, alors qu'il s'agit d'une crainte exprimée par la CFDT-Culture, non attribuée comme telle.",
+        "phrase": "La tribune met en avant le risque d'une aggravation des inégalités territoriales, un sujet récurrent dans les débats sur la culture en France."
+      },
+      {
+        "bloc": 1,
+        "type": "accusation_presentee_comme_fait",
+        "description": "Les 'conséquences sociales et politiques' et le 'recul pour le secteur' sont des interprétations du syndicat, présentées comme des faits sans attribution claire.",
+        "phrase": "Le texte ne détaille pas les mesures budgétaires contestées ni les montants concernés. Il se concentre sur les conséquences sociales et politiques, présentées par le syndicat comme un recul pour le secteur."
+      }
+    ],
+    "types_restants": [
+      "accusation_presentee_comme_fait",
+      "accusation_presentee_comme_fait",
+      "accusation_presentee_comme_fait",
+      "contexte_hors_sujet",
+      "source_derivee_comptee_comme_primaire",
+      "compteur_incoherent",
+      "source_non_editoriale",
+      "cadrage_emprunte",
+      "cadrage_emprunte",
+      "section_gonflee",
+      "faux_debat",
+      "redondance"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "titre_de_mauvaise_qualite"
+    ],
+    "titre": "CFDT-Culture critique l'impact démocratique des budgets culturels",
+    "n_sources": 4,
+    "n_mots": 376,
+    "titre_rss": "« Derrière les crédits de la culture se joue la capacité de la France à transmettre une histoire commune »",
+    "matiere_faits_distincts": 345,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "n_sources_pertinentes": 3,
+    "veille_heures_visible": 9.0,
+    "veille_passages": 9,
+    "veille_age_h": 9.2,
+    "veille_n_flux_grappe": 2
+  },
+  {
+    "slug": "athol-williams-lanceur-alerte-bain-exil-corruption-etat",
+    "statut": "rejete_qualite",
+    "date": "2026-08-21T04:42:56",
+    "problemes_initiaux": 17,
+    "tentatives": 3,
+    "problemes_restants": 16,
+    "bloquants_restants": 2,
+    "bloquants_types": [
+      "chiffre_errone",
+      "chiffre_errone"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source citée (Vie Publique, 2026) n'est pas le Défenseur des droits, et aucune des sources fournies ne mentionne explicitement un rapport du Défenseur des droits couvrant la période 2024-2025 avec ce chiffre de 62 %. ",
+        "phrase": "Le rapport du Défenseur des droits, couvrant la période 2024-2025, indique que 62 % des lanceurs d’alerte ayant signalé des violations ont subi des représailles, sans que des données précises sur les secteurs ou les type"
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "Le chiffre de 62 % est attribué à un rapport du Défenseur des droits, qui n'apparaît pas dans les sources fournies. La source Vie Publique (2026) ne confirme pas ce chiffre ni cette attribution.",
+        "phrase": "Selon ce rapport, 62 % des lanceurs d’alerte ayant signalé des violations en France ont subi des discriminations dans l’emploi, bien que les données ne permettent pas de distinguer les secteurs ou les types de représaill"
+      }
+    ],
+    "types_restants": [
+      "chiffre_errone",
+      "source_inventee",
+      "chiffre_errone",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_derivee_comptee_comme_primaire",
+      "source_derivee_comptee_comme_primaire",
+      "compteur_incoherent",
+      "cadrage_emprunte",
+      "contexte_hors_sujet",
+      "section_gonflee",
+      "angle_annonce_non_tenu"
+    ],
+    "article_type": "actu",
+    "titre": "Athol Williams, lanceur d’alerte de Bain, en exil après avoir révélé une corruption d’État",
+    "n_sources": 5,
+    "n_mots": 542,
+    "titre_rss": "Lanceurs d’alerte en exil : pourquoi les business schools ont une responsabilité à assumer",
+    "matiere_faits_distincts": 932,
+    "matiere_redondance": 0.01,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "n_sources_pertinentes": 7,
+    "veille_heures_visible": 138.9,
+    "veille_passages": 127,
+    "veille_age_h": 139.1,
+    "veille_n_flux_grappe": 1
+  },
+  {
+    "slug": "ebola-rdc-2300-morts-en-trois-mois",
+    "statut": "rejete_qualite",
+    "date": "2026-08-21T05:12:00",
+    "problemes_initiaux": 12,
+    "tentatives": 3,
+    "problemes_restants": 12,
+    "bloquants_restants": 4,
+    "bloquants_types": [
+      "chiffre_errone",
+      "chiffre_errone",
+      "niveau_preuve_insuffisant",
+      "accusation_presentee_comme_fait"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "Le chiffre de 2 000 décès n'est pas confirmé par la source [6] (UN, 14 août 2026), qui indique un rythme de mortalité d'une personne toutes les 30 minutes sans donner ce total. Le titre de l'article mentionne également '",
+        "phrase": "La République démocratique du Congo (RDC) fait face à sa dix-septième épidémie d'Ebola depuis 1976, avec plus de 2 000 décès enregistrés au 14 août 2026, selon les Nations Unies."
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [6] (UN, 14 août 2026) ne confirme pas ce chiffre de 2 000 morts. Elle mentionne un rythme de mortalité ('une personne toutes les 30 minutes') sans total cumulé.",
+        "phrase": "En République démocratique du Congo (RDC), l'épidémie d'Ebola a causé la mort de plus de 2 000 personnes au 14 août 2026, selon les Nations Unies [6]."
+      },
+      {
+        "bloc": 1,
+        "type": "niveau_preuve_insuffisant",
+        "description": "La source [3] (*The Lancet*, 13 juin 2026) ne précise pas le niveau de preuve ou les limites méthodologiques de cette affirmation sur la propagation active dans les zones de conflit. L'article généralise sans indiquer si",
+        "phrase": "Selon *The Lancet*, le virus circule dans plusieurs zones de santé de cette province, avec une propagation particulièrement active dans les territoires touchés par des conflits armés [3]."
+      },
+      {
+        "bloc": 1,
+        "type": "accusation_presentee_comme_fait",
+        "description": "Cette phrase présente la défiance comme un fait établi, alors que la source [3] (*The Lancet*) l'attribue à des observations ou des analyses. Elle devrait être reformulée en « Selon *The Lancet*, la défiance des populati",
+        "phrase": "La défiance des populations aggrave la situation."
+      }
+    ],
+    "types_restants": [
+      "chiffre_errone",
+      "chiffre_errone",
+      "source_inventee",
+      "niveau_preuve_insuffisant",
+      "accusation_presentee_comme_fait",
+      "acteur_mis_en_cause_sans_reponse",
+      "source_derivee_comptee_comme_primaire",
+      "compteur_incoherent",
+      "contexte_hors_sujet",
+      "cadrage_emprunte",
+      "redondance",
+      "extrapolation"
+    ],
+    "article_type": "actu",
+    "titre": "RDC : l'épidémie d'Ebola tue 2 300 personnes en trois mois",
+    "n_sources": 9,
+    "n_mots": 845,
+    "titre_rss": "Ebola en RDC : l'épidémie \"tue une personne toutes les 30 minutes\"",
+    "matiere_faits_distincts": 1092,
+    "matiere_redondance": 0.01,
+    "matiere_donnees_chiffrees": 2,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "n_sources_pertinentes": 5,
+    "veille_heures_visible": 87.9,
+    "veille_passages": 81,
+    "veille_age_h": 88.1,
+    "veille_n_flux_grappe": 13
+  },
+  {
+    "slug": "piratage-fisc-reunion-crise-lecornu-attaque-sophistiquee-2026",
+    "statut": "rejete_qualite",
+    "date": "2026-08-21T05:18:16",
+    "problemes_initiaux": 12,
+    "tentatives": 3,
+    "problemes_restants": 10,
+    "bloquants_restants": 3,
+    "bloquants_types": [
+      "annonce_perimee",
+      "niveau_preuve_insuffisant",
+      "niveau_preuve_insuffisant"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "annonce_perimee",
+        "description": "Le résumé présente la réunion de crise comme un événement à venir (« a convoqué »), alors que les faits la décrivent comme déjà survenue (« a convoqué une réunion de crise le 16 août 2026 »). La source [2] confirme que l",
+        "phrase": "Une cyberattaque ciblant les systèmes de la Direction générale des finances publiques (DGFiP) a été détectée le 15 août 2026. Le gouvernement, par la voix de Sébastien Lecornu, a convoqué une réunion de crise le 16 août "
+      },
+      {
+        "bloc": 1,
+        "type": "niveau_preuve_insuffisant",
+        "description": "La source [3] précise que le résultat (50 % des participants) est issu d'un contexte simulé et non d'une évaluation opérationnelle, mais l'article ne mentionne pas explicitement cette limitation dans la phrase citée, ce ",
+        "phrase": "L’exercice REMPAR25, organisé par l’ANSSI en septembre 2025, avait révélé que lors des simulations de crise cyber, 50 % des participants manquaient d’expertise pour gérer de tels incidents, un résultat issu d’un contexte"
+      },
+      {
+        "bloc": 1,
+        "type": "niveau_preuve_insuffisant",
+        "description": "L'article mentionne bien que le constat est limité au cadre de l'exercice, mais la phrase précédente (« 5 680 professionnels pour simuler un scénario de « black-out numérique » ») ne précise pas explicitement que les rés",
+        "phrase": "Les résultats ont mis en évidence des difficultés de coordination entre acteurs publics et privés, ainsi qu’un manque d’expertise chez la moitié des participants pour répondre à une crise cyber, un constat limité au cadr"
+      }
+    ],
+    "types_restants": [
+      "annonce_perimee",
+      "niveau_preuve_insuffisant",
+      "niveau_preuve_insuffisant",
+      "source_derivee_comptee_comme_primaire",
+      "compteur_incoherent",
+      "contexte_hors_sujet",
+      "redondance",
+      "faux_debat",
+      "section_gonflee",
+      null
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "faits_repetitifs"
+    ],
+    "titre": "Piratage du fisc en août 2026 : Lecornu convoque une réunion de crise après une attaque sophistiquée",
+    "n_sources": 5,
+    "n_mots": 517,
+    "titre_rss": "Piratage du fisc : l’exécutif rattrapé par l’ampleur du risque numérique",
+    "matiere_faits_distincts": 996,
+    "matiere_redondance": 0.01,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "n_sources_pertinentes": 3,
+    "veille_heures_visible": 6.9,
+    "veille_passages": 7,
+    "veille_age_h": 7.1,
+    "veille_n_flux_grappe": 1
   }
 ]
