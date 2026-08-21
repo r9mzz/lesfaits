@@ -13662,5 +13662,544 @@
     "veille_passages": 5,
     "veille_age_h": 4.8,
     "veille_n_flux_grappe": 1
+  },
+  {
+    "slug": "logement-etudiant-60-pour-cent-annonces-non-conformes",
+    "statut": "rejete_qualite",
+    "date": "2026-08-21T01:39:41",
+    "problemes_initiaux": 14,
+    "tentatives": 3,
+    "problemes_restants": 13,
+    "bloquants_restants": 5,
+    "bloquants_types": [
+      "chiffre_errone",
+      "niveau_preuve_insuffisant",
+      "incoherence_inter_sections",
+      "annonce_perimee",
+      "niveau_preuve_insuffisant"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "Le résumé présente le chiffre de 60 % comme un constat établi, alors que la source [1] (Libération) souligne explicitement que la méthodologie de l'échantillon (taille et représentativité non détaillées) limite la généra",
+        "phrase": "Une analyse publiée le 20 août 2026 par Libération, fondée sur un échantillon d'annonces de logements étudiants, indique que 60 % des offres examinées ne respecteraient pas la réglementation en vigueur."
+      },
+      {
+        "bloc": 1,
+        "type": "niveau_preuve_insuffisant",
+        "description": "Le résumé ne mentionne pas les limites méthodologiques de l'analyse de Libération (source [1]) concernant la représentativité de l'échantillon, alors que ces limites sont explicitement citées dans le corps de l'article. ",
+        "phrase": "Cette situation s'inscrit dans un contexte de pénurie persistante, où l'offre de logements en résidence universitaire, stable à environ 200 000 places pour l’année 2026-2027 selon les données des CROUS, reste largement i"
+      },
+      {
+        "bloc": 1,
+        "type": "incoherence_inter_sections",
+        "description": "Le corps de l'article mentionne les limites méthodologiques de l'analyse de Libération, mais le résumé et le titre présentent le chiffre de 60 % comme un fait établi sans ces nuances. Les deux sections ne sont pas cohére",
+        "phrase": "Libération souligne cependant que la méthodologie de l’échantillon, dont la taille et la représentativité ne sont pas détaillées, limite la généralisation de ce chiffre à l’ensemble du marché [1]."
+      },
+      {
+        "bloc": 1,
+        "type": "annonce_perimee",
+        "description": "Le résumé présente le montant de la bourse (601,80 euros) comme une donnée actuelle pour 2026, alors que la source [2] (Vie Publique) date de juillet 2025 et ne précise pas si ce montant est toujours valable en 2026. Auc",
+        "phrase": "En 2026, le montant maximal d’une bourse sur critères sociaux s’élève à 601,80 euros par mois, tandis que les loyers pour un studio de 20 m² peuvent atteindre 850 euros dans des villes comme Paris, illustrant l'écart ent"
+      },
+      {
+        "bloc": 1,
+        "type": "niveau_preuve_insuffisant",
+        "description": "L'article présente ces irrégularités comme des faits établis, mais la source [1] (Libération) ne détaille pas les critères utilisés pour juger de la disproportion des loyers ou du caractère abusif des clauses. Ces appréc",
+        "phrase": "L’analyse de Libération met en évidence des irrégularités dans les annonces, telles que des surfaces inférieures aux normes légales (moins de 9 m² pour une chambre individuelle), des loyers jugés disproportionnés par rap"
+      }
+    ],
+    "types_restants": [
+      "chiffre_errone",
+      "niveau_preuve_insuffisant",
+      "incoherence_inter_sections",
+      "annonce_perimee",
+      "niveau_preuve_insuffisant",
+      "extrapolation",
+      "acteur_mis_en_cause_sans_reponse",
+      "faux_debat",
+      "cadrage_emprunte",
+      "redondance",
+      "section_gonflee",
+      "contexte_hors_sujet",
+      "jugement_de_valeur"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "resume_repete_corps"
+    ],
+    "titre": "Logement étudiant : 60 % des annonces non conformes à la loi",
+    "n_sources": 5,
+    "n_mots": 711,
+    "titre_rss": "Logements : pour les étudiants, un monde sans toit ni loi",
+    "matiere_faits_distincts": 969,
+    "matiere_redondance": 0.05,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "n_sources_pertinentes": 3,
+    "veille_heures_visible": 5.0,
+    "veille_passages": 6,
+    "veille_age_h": 5.8,
+    "veille_n_flux_grappe": 1
+  },
+  {
+    "slug": "eelv-echec-politique-ete-2026-incendies-gironde",
+    "statut": "rejete_sensible",
+    "date": "2026-08-21T01:44:13",
+    "problemes_initiaux": 14,
+    "tentative": 1,
+    "bloc5": true,
+    "article_type": "actu",
+    "titre": "EELV n'a pas fait adopter ses mesures malgré 42 000 hectares brûlés en Gironde",
+    "n_sources": 4,
+    "n_mots": 736,
+    "titre_rss": "Malgré les incendies et les canicules, les Écologistes peinent à imposer leurs idées",
+    "matiere_faits_distincts": 1027,
+    "matiere_redondance": 0.02,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "n_sources_pertinentes": 3,
+    "veille_heures_visible": 17.8,
+    "veille_passages": 18,
+    "veille_age_h": 18.7,
+    "veille_n_flux_grappe": 2
+  },
+  {
+    "slug": "canicule-2026-pelouses-ecoles-temperatures-records",
+    "statut": "rejete_qualite",
+    "date": "2026-08-21T01:53:18",
+    "problemes_initiaux": 12,
+    "tentatives": 3,
+    "problemes_restants": 16,
+    "bloquants_restants": 2,
+    "bloquants_types": [
+      "annonce_perimee",
+      "accusation_presentee_comme_fait"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "annonce_perimee",
+        "description": "Le résumé présente les auditions parlementaires de juillet 2026 comme un événement à venir ou en cours, alors que les « faits » les décrivent comme déjà survenues (ex. : audition de Météo-France le 7 juillet 2026). Le ré",
+        "phrase": "Les auditions parlementaires de juillet 2026 ont révélé des retards dans la réponse des pouvoirs publics, tandis que les solutions comme la rénovation thermique des bâtiments publics se heurtent à des contraintes budgéta"
+      },
+      {
+        "bloc": 1,
+        "type": "accusation_presentee_comme_fait",
+        "description": "L'article présente cette accusation comme un fait établi (« a été jugée tardive ») sans l'attribuer explicitement à Mme Espagnac ou à une source. Il s'agit d'une conclusion d'acteur reformulée en constat neutre.",
+        "phrase": "La réponse des pouvoirs publics a été jugée tardive par plusieurs députés, notamment Mme Frédérique Espagnac, qui a souligné lors de sa question au Sénat le 2 juillet 2026 que les collectivités territoriales avaient dû g"
+      }
+    ],
+    "types_restants": [
+      "annonce_perimee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "accusation_presentee_comme_fait",
+      "compteur_incoherent",
+      "source_derivee_comptee_comme_primaire",
+      "compteur_incoherent",
+      "redondance",
+      "faux_debat",
+      "acteur_mis_en_cause_sans_reponse"
+    ],
+    "article_type": "actu",
+    "titre": "Canicule 2026 : pelouses de foot et écoles face à des températures records",
+    "n_sources": 10,
+    "n_mots": 583,
+    "titre_rss": "«Le climat, c’est notre plus grand défi» : après un été caniculaire, le coup de chaud des jardiniers des clubs de foot",
+    "matiere_faits_distincts": 1301,
+    "matiere_redondance": 0.01,
+    "matiere_donnees_chiffrees": 2,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "n_sources_pertinentes": 6,
+    "veille_heures_visible": 5.0,
+    "veille_passages": 6,
+    "veille_age_h": 5.8,
+    "veille_n_flux_grappe": 1
+  },
+  {
+    "slug": "rdc-70000-doses-vaccin-ervebo-souche-bundibugyo",
+    "statut": "rejete_qualite",
+    "date": "2026-08-21T01:59:03",
+    "problemes_initiaux": 9,
+    "tentatives": 3,
+    "problemes_restants": 10,
+    "bloquants_restants": 6,
+    "bloquants_types": [
+      "niveau_preuve_insuffisant",
+      "niveau_preuve_insuffisant",
+      "annonce_perimee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "niveau_preuve_insuffisant",
+        "description": "Le résumé présente les études précliniques comme suggérant une 'possible protection croisée' sans préciser explicitement que ces résultats proviennent de modèles animaux ou de laboratoire, ce qui est un niveau de preuve ",
+        "phrase": "Des études précliniques, menées en laboratoire et sur des modèles animaux, suggèrent une possible protection croisée d'Ervebo contre la souche Bundibugyo. Cependant, l'Organisation mondiale de la Santé (OMS) souligne qu'"
+      },
+      {
+        "bloc": 1,
+        "type": "niveau_preuve_insuffisant",
+        "description": "Bien que la phrase mentionne que l'hypothèse n'a pas été validée chez l'humain, elle ne précise pas explicitement que les études précliniques concernent des modèles animaux ou des tests en laboratoire, ce qui est un nive",
+        "phrase": "Des études précliniques, réalisées en laboratoire et sur des modèles animaux, indiquent une possible protection croisée, mais l'OMS précise que cette hypothèse n'a pas été validée chez l'humain à ce jour [3][5]."
+      },
+      {
+        "bloc": 1,
+        "type": "annonce_perimee",
+        "description": "Le résumé présente l'essai clinique comme 'en préparation', alors que les sources [3] et [5] ne permettent pas de confirmer si cet essai a effectivement débuté ou s'il est toujours en phase de préparation. Si l'essai est",
+        "phrase": "Un essai clinique impliquant 20 000 participants est en préparation en RDC pour évaluer cette hypothèse, selon les sources de l'OMS [3]."
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "La source [5] est citée mais n'apparaît pas dans la liste des sources autorisées fournies.",
+        "phrase": "Des études précliniques, réalisées en laboratoire et sur des modèles animaux, indiquent une possible protection croisée, mais l'OMS précise que cette hypothèse n'a pas été validée chez l'humain à ce jour [3][5]."
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "La source [5] est citée mais n'apparaît pas dans la liste des sources autorisées fournies.",
+        "phrase": "Cependant, l'Organisation mondiale de la Santé (OMS) souligne qu'aucune donnée clinique ne confirme cette efficacité chez l'humain à ce stade [3][5]. Un essai clinique impliquant 20 000 participants est en préparation en"
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "La source [5] est citée mais n'apparaît pas dans la liste des sources autorisées fournies.",
+        "phrase": "L'efficacité d'Ervebo contre la souche Bundibugyo n'a pas été démontrée chez l'humain. Les études précliniques, incluant des tests en laboratoire et sur des modèles animaux, suggèrent une possible protection croisée, mai"
+      }
+    ],
+    "types_restants": [
+      "niveau_preuve_insuffisant",
+      "niveau_preuve_insuffisant",
+      "annonce_perimee",
+      "redondance",
+      "extrapolation",
+      "compteur_incoherent",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "contexte_hors_sujet"
+    ],
+    "article_type": "actu",
+    "titre": "RDC : 70 000 doses de vaccin Ervebo face à une souche non ciblée",
+    "n_sources": 7,
+    "n_mots": 571,
+    "titre_rss": "Ebola en RDC : l’OMS déploie 70 000 doses du vaccin Ervebo",
+    "matiere_faits_distincts": 1101,
+    "matiere_redondance": 0.03,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "n_sources_pertinentes": 5,
+    "veille_heures_visible": 9.6,
+    "veille_passages": 30,
+    "veille_age_h": 10.4,
+    "veille_n_flux_grappe": 3
+  },
+  {
+    "slug": "piratage-impots-2026-678000-contribuables-failles-techniques",
+    "statut": "rejete_qualite",
+    "date": "2026-08-21T02:08:06",
+    "problemes_initiaux": 13,
+    "tentatives": 3,
+    "problemes_restants": 9,
+    "bloquants_restants": 3,
+    "bloquants_types": [
+      "chiffre_errone",
+      "incoherence_inter_sections",
+      "accusation_presentee_comme_fait"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [2] (Question écrite n° 13264) ne mentionne pas explicitement le chiffre de 1,2 million de comptes compromis pour le FICOBA. Elle évoque une 'consultation illégale' sans préciser ce chiffre, qui apparaît en rev",
+        "phrase": "En janvier 2026, une consultation illégale du Fichier national des comptes bancaires (FICOBA) a été signalée, avec des données de 1,2 million de comptes potentiellement compromises, d'après une question écrite parlementa"
+      },
+      {
+        "bloc": 1,
+        "type": "incoherence_inter_sections",
+        "description": "Le résumé attribue ce chiffre à la source [4], mais le corps de l'article (section 'faits') ne confirme pas que la source [4] (Question écrite n° 15644) donne cette fourchette de 12 à 18 millions. La source [4] est citée",
+        "phrase": "En avril 2026, l'Agence nationale des titres sécurisés (ANTS) a fait état d'une cyberattaque ayant conduit à l'exfiltration de 12 à 18 millions de lignes de données, selon une question écrite du 2 juin 2026."
+      },
+      {
+        "bloc": 1,
+        "type": "accusation_presentee_comme_fait",
+        "description": "La phrase présente l'usurpation d'identifiants comme un fait établi (« aurait résulté »), alors que la source [2] utilise le conditionnel (« aurait résulté ») et ne confirme pas définitivement cette hypothèse. L'article ",
+        "phrase": "La responsabilité des attaques varie selon les cas. Dans celui du FICOBA, la question écrite n° 13264 indique que l'intrusion aurait résulté de l'usurpation des identifiants d'un fonctionnaire extérieur à la DGFiP, ce qu"
+      }
+    ],
+    "types_restants": [
+      "chiffre_errone",
+      "incoherence_inter_sections",
+      "contexte_hors_sujet",
+      "accusation_presentee_comme_fait",
+      "source_derivee_comptee_comme_primaire",
+      "compteur_incoherent",
+      "angle_annonce_non_tenu",
+      "redondance",
+      "section_gonflee"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "faits_repetitifs"
+    ],
+    "titre": "Piratage des impôts en 2026 : 678 000 contribuables exposés, des failles techniques et des retards dans l'alerte",
+    "n_sources": 7,
+    "n_mots": 526,
+    "titre_rss": "Piratage du site des impôts : la cybersécurité de l’Etat est une affaire de volonté politique",
+    "matiere_faits_distincts": 1100,
+    "matiere_redondance": 0.05,
+    "matiere_donnees_chiffrees": 4,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "n_sources_pertinentes": 4,
+    "veille_heures_visible": 9.6,
+    "veille_passages": 10,
+    "veille_age_h": 10.4,
+    "veille_n_flux_grappe": 8
+  },
+  {
+    "slug": "athol-williams-lanceur-alerte-bain-exil-afrique-du-sud",
+    "statut": "rejete_sensible",
+    "date": "2026-08-21T02:20:38",
+    "problemes_initiaux": 15,
+    "tentative": 1,
+    "bloc5": true,
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "faits_repetitifs"
+    ],
+    "titre": "Athol Williams, lanceur d'alerte de Bain, en exil après avoir révélé la corruption en Afrique du Sud",
+    "n_sources": 4,
+    "n_mots": 753,
+    "titre_rss": "Lanceurs d’alerte en exil : pourquoi les business schools ont une responsabilité à assumer",
+    "matiere_faits_distincts": 1005,
+    "matiere_redondance": 0.1,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "n_sources_pertinentes": 4,
+    "veille_heures_visible": 135.8,
+    "veille_passages": 125,
+    "veille_age_h": 136.6,
+    "veille_n_flux_grappe": 1
+  },
+  {
+    "slug": "budget-2026-lecornu-dement-coupes-apl-rsa",
+    "statut": "rejete_qualite",
+    "date": "2026-08-21T02:39:41",
+    "tentative": 3,
+    "perte_substance": true,
+    "section": "contexte",
+    "mots_avant": 114,
+    "mots_apres": 0,
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "resume_repete_corps",
+      "faits_repetitifs"
+    ],
+    "titre": "Budget 2026 : le gouvernement dément des coupes dans les APL et le RSA",
+    "n_sources": 6,
+    "n_mots": 491,
+    "titre_rss": "Suppression des APL, gel du RSA… Sébastien Lecornu dément certaines des rumeurs d’économies dans le budget 2027",
+    "matiere_faits_distincts": 1013,
+    "matiere_redondance": 0.02,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "n_sources_pertinentes": 4,
+    "veille_heures_visible": 6.9,
+    "veille_passages": 8,
+    "veille_age_h": 7.7,
+    "veille_n_flux_grappe": 8
+  },
+  {
+    "slug": "ebola-rdc-epidemie-rythme-deces-inedit",
+    "statut": "rejete_qualite",
+    "date": "2026-08-21T02:46:47",
+    "problemes_initiaux": 13,
+    "tentatives": 3,
+    "problemes_restants": 9,
+    "bloquants_restants": 4,
+    "bloquants_types": [
+      "chiffre_errone",
+      "niveau_preuve_insuffisant",
+      "incoherence_inter_sections",
+      "chiffre_errone"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "Le résumé attribue ce chiffre aux Nations Unies [1], mais la source [1] indique que le rythme d'un décès toutes les 30 minutes est une moyenne calculée sur la période de trois mois, et non une donnée brute fournie par l'",
+        "phrase": "La propagation du virus, identifié comme la souche Bundibugyo, atteint une cadence moyenne d'un décès toutes les 30 minutes sur la période de trois mois écoulée, un rythme jamais observé lors des précédentes flambées, d'"
+      },
+      {
+        "bloc": 1,
+        "type": "niveau_preuve_insuffisant",
+        "description": "La source [3] (BMJ) mentionne des essais cliniques en cours, mais ne précise pas le stade (phase 2) ni la date des résultats préliminaires. L'article ajoute des détails non confirmés par la source citée.",
+        "phrase": "Selon le BMJ, des essais cliniques de phase 2 sont en cours pour évaluer des traitements expérimentaux contre la souche Bundibugyo, avec des résultats préliminaires attendus d'ici fin 2026, mais aucun vaccin n'est encore"
+      },
+      {
+        "bloc": 1,
+        "type": "incoherence_inter_sections",
+        "description": "Le taux de létalité de 47 % est mentionné dans les faits, mais la source [2] (OMS) ne fournit pas explicitement ce chiffre dans les extraits disponibles. Il n'est pas possible de vérifier si ce taux correspond bien aux d",
+        "phrase": "Les données de l'Organisation mondiale de la Santé (OMS) révèlent un taux de létalité de 47 % parmi les 4 660 cas confirmés."
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [4] (Banque mondiale) ne mentionne pas l'épidémie de 2018 ni son taux de létalité. Ce chiffre n'est pas vérifiable via les sources fournies.",
+        "phrase": "En 2018, une épidémie causée par la souche Zaïre avait été déclarée terminée après 54 jours, avec un taux de létalité de 66 %, selon un rapport de la Banque mondiale."
+      }
+    ],
+    "types_restants": [
+      "chiffre_errone",
+      "niveau_preuve_insuffisant",
+      "incoherence_inter_sections",
+      "chiffre_errone",
+      "source_inventee",
+      "compteur_incoherent",
+      "source_derivee_comptee_comme_primaire",
+      "formule_vague",
+      "extrapolation"
+    ],
+    "article_type": "actu",
+    "titre": "Ebola en RDC : un décès toutes les 30 minutes, un rythme inédit",
+    "n_sources": 6,
+    "n_mots": 647,
+    "titre_rss": "Ebola en RDC : l'épidémie \"tue une personne toutes les 30 minutes\"",
+    "matiere_faits_distincts": 1181,
+    "matiere_redondance": 0.01,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "n_sources_pertinentes": 3,
+    "veille_heures_visible": 84.7,
+    "veille_passages": 79,
+    "veille_age_h": 85.6,
+    "veille_n_flux_grappe": 13
+  },
+  {
+    "slug": "vaccin-arn-melanome-merck-moderna-resultats-essai-phase-3",
+    "statut": "rejete_qualite",
+    "date": "2026-08-21T03:00:46",
+    "problemes_initiaux": 13,
+    "tentatives": 3,
+    "problemes_restants": 11,
+    "bloquants_restants": 5,
+    "bloquants_types": [
+      "niveau_preuve_insuffisant",
+      "niveau_preuve_insuffisant",
+      "niveau_preuve_insuffisant",
+      "chiffre_errone",
+      "incoherence_inter_sections"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "niveau_preuve_insuffisant",
+        "description": "La source [1] (The Lancet) ne précise pas la phase de l'essai clinique, mais l'article présente cette absence comme un manque de précision des sources plutôt que comme une omission de l'article. Cependant, le résumé ne m",
+        "phrase": "Les données partagées ne permettent pas encore d'évaluer l'efficacité, la tolérance ou les effets secondaires du vaccin, et l'essai clinique, dont la phase n'est pas précisée par les sources disponibles, se poursuit."
+      },
+      {
+        "bloc": 1,
+        "type": "niveau_preuve_insuffisant",
+        "description": "L'article mentionne que The Lancet ne fournit aucun détail sur la phase de l'essai ou ses critères d'évaluation, mais cette information n'est pas reprise dans le résumé ou le titre, ce qui pourrait laisser penser que ces",
+        "phrase": "The Lancet décrit le principe des vaccins thérapeutiques comme mRNA-4157, qui utilisent des antigènes tumoraux pour induire une réponse immunitaire ciblée contre les cellules cancéreuses, mais ne fournit aucun détail spé"
+      },
+      {
+        "bloc": 1,
+        "type": "niveau_preuve_insuffisant",
+        "description": "L'article omet de préciser que ces informations (nombre de participants, mesures de survie, effets secondaires) sont absentes des sources, ce qui pourrait laisser croire à une omission de l'article plutôt qu'à un manque ",
+        "phrase": "Cependant, les sources disponibles ne mentionnent ni le nombre de participants, ni les mesures de survie sans progression ou globale, ni les effets secondaires observés à ce stade."
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [2] (Santé publique France) ne précise pas explicitement que plus de 80 % des mélanomes sont liés à une exposition excessive aux UV. Ce chiffre n'apparaît pas dans les extraits fournis, et son attribution à cet",
+        "phrase": "Santé publique France précise que plus de 80 % des mélanomes sont liés à une exposition excessive aux UV, qu'ils soient naturels ou artificiels, et que le risque est particulièrement élevé chez les personnes ayant subi d"
+      },
+      {
+        "bloc": 1,
+        "type": "incoherence_inter_sections",
+        "description": "Cette phrase indique que l'incidence a presque triplé, alors que le résumé mentionne qu'elle a presque doublé. Ces deux affirmations sont incompatibles et ne sont pas réconciliées dans l'article.",
+        "phrase": "L'incidence du mélanome a presque triplé entre 1990 et 2020, une augmentation attribuable à une exposition accrue aux ultraviolets (UV), à une meilleure détection et à des diagnostics plus précoces."
+      }
+    ],
+    "types_restants": [
+      "niveau_preuve_insuffisant",
+      "niveau_preuve_insuffisant",
+      "niveau_preuve_insuffisant",
+      "acteur_mis_en_cause_sans_reponse",
+      "chiffre_errone",
+      "fait_tranche_arbitrairement",
+      "incoherence_inter_sections",
+      "source_derivee_comptee_comme_primaire",
+      "paraphrase_structurelle",
+      "redondance",
+      "section_gonflee"
+    ],
+    "article_type": "actu",
+    "titre": "Vaccin à ARN contre le mélanome : Merck et Moderna annoncent des résultats d'essai",
+    "n_sources": 4,
+    "n_mots": 548,
+    "titre_rss": "Cancer de la peau : bientôt un vaccin ?",
+    "matiere_faits_distincts": 1198,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 2,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "n_sources_pertinentes": 3,
+    "veille_heures_visible": 3.7,
+    "veille_passages": 5,
+    "veille_age_h": 4.6,
+    "veille_n_flux_grappe": 4
+  },
+  {
+    "slug": "mortalité-france-2024-baisse-taux-standardise-causes-deces",
+    "statut": "erreur_verification",
+    "date": "2026-08-21T03:04:36",
+    "etape": "detection",
+    "erreur": "JSON tronqué ou incomplet dans la réponse (max_tokens atteint ?)",
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "faits_repetitifs"
+    ],
+    "titre": "Mortalité en France en 2024 : 641 046 décès, baisse du taux standardisé",
+    "n_sources": 4,
+    "n_mots": 615,
+    "titre_rss": "Grandes causes de décès en France : tendances et causes associées en 2024",
+    "matiere_faits_distincts": 1037,
+    "matiere_redondance": 0.03,
+    "matiere_donnees_chiffrees": 2,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "n_sources_pertinentes": 3,
+    "veille_heures_visible": 214.0,
+    "veille_passages": 165,
+    "veille_age_h": 214.9,
+    "veille_n_flux_grappe": 1
+  },
+  {
+    "slug": "mortalité-france-2024-baisse-taux-standardise-causes-deces",
+    "statut": "rejete_qualite",
+    "date": "2026-08-21T03:04:36",
+    "raison": "verification_indisponible",
+    "statut_verification_initial": "erreur_verification"
   }
 ]
