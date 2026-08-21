@@ -14643,5 +14643,715 @@
     "veille_passages": 7,
     "veille_age_h": 7.1,
     "veille_n_flux_grappe": 1
+  },
+  {
+    "slug": "boohoo-amende-promotions-trompeuses-dgccrf-france",
+    "statut": "corrige_automatiquement",
+    "date": "2026-08-21T14:02:30",
+    "problemes_initiaux": 9,
+    "tentatives": 2,
+    "problemes_residuels_style": 6,
+    "rapport_initial": {
+      "conforme": false,
+      "sujet_sensible": false,
+      "sujet_sensible_raison": "",
+      "angle_insuffisant": false,
+      "angle_insuffisant_raison": "",
+      "nature_contenu": "actualite_factuelle",
+      "problemes": [
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "accusation_presentee_comme_fait",
+          "phrase_exacte": "L’enquête a également mis en évidence des irrégularités dans l’étiquetage des matériaux. Des termes comme « cuir » ou « daim » étaient utilisés pour des produits synthétiques, une pratique interdite en France [5].",
+          "explication": "La phrase présente comme un fait établi une pratique interdite, alors que cela relève d'une constatation de la DGCCRF (accusation administrative). Elle devrait être attribuée explicitement à la DGCCRF ou reformulée en « selon la DGCCRF » pour éviter de transformer une accusation en constat neutre."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "acteur_mis_en_cause_sans_reponse",
+          "phrase_exacte": "Boohoo a accepté cette sanction, proposée avec l’accord du procureur de la République de Paris [5].",
+          "explication": "L'article ne rapporte aucune réponse ou position de Boohoo sur les accusations, ni n'indique explicitement que sa réaction n'était pas disponible dans les sources consultées."
+        },
+        {
+          "bloc": 2,
+          "section": "contexte",
+          "type": "source_derivee_comptee_comme_primaire",
+          "phrase_exacte": "En septembre 2025, Pretty Little Thing, une autre marque du groupe Boohoo, avait été condamnée à une amende de 1,3 million d’euros pour des réductions fictives et des hausses de prix déguisées, selon Capital [11].",
+          "explication": "La source [11] (Capital) est une reprise d'une information déjà relayée par un média secondaire. Aucune source primaire (document officiel de la DGCCRF ou décision de justice) n'est citée pour cette condamnation, et les autres sources listées ne mentionnent pas cet événement. Les sources secondaires ne se comptent pas comme des confirmations indépendantes."
+        },
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "compteur_incoherent",
+          "phrase_exacte": "La Direction générale de la concurrence, de la consommation et de la répression des fraudes (DGCCRF) a infligé une amende de 2,33 millions d’euros à Boohoo, plateforme britannique de vente en ligne de vêtements, pour des pratiques commerciales trompeuses [2][5][7].",
+          "explication": "Le champ \"nb_sources\" indique 8 sources, mais seules 7 sont listées dans le tableau \"sources\". De plus, les sources [2], [5] et [7] sont utilisées ici, mais [5] (Leprogres) et [7] (Zonebourse) sont des reprises des autres médias sans apport distinct, ce qui fausse le compte de sources indépendantes."
+        },
+        {
+          "bloc": 3,
+          "section": "resume",
+          "type": "cadrage_emprunte",
+          "phrase_exacte": "Cette sanction s’inscrit dans une série de contrôles renforcés contre la fast-fashion, mais les techniques de promotions fictives persistent chez d’autres acteurs du secteur.",
+          "explication": "L'expression \"contrôles renforcés contre la fast-fashion\" et \"techniques de promotions fictives persistent\" introduisent un cadrage éditorial (jugement de valeur sur l'efficacité des contrôles et la généralisation des pratiques) sans attribution à une source. Cela devrait être reformulé factuellement ou attribué explicitement."
+        },
+        {
+          "bloc": 4,
+          "section": "nuances",
+          "type": "extrapolation",
+          "phrase_exacte": "Par ailleurs, cette sanction ne préjuge pas d’éventuelles actions en justice de la part de consommateurs lésés, qui pourraient engager des recours individuels pour obtenir réparation.",
+          "explication": "L'article anticipe des conséquences futures (recours individuels) sans source explicite pour étayer cette possibilité. Aucune des sources fournies ne mentionne cette éventualité."
+        },
+        {
+          "bloc": 4,
+          "section": "nuances",
+          "type": "redondance",
+          "phrase_exacte": "La DGCCRF souligne que les consommateurs doivent rester vigilants face aux promotions en ligne, car les techniques de réductions fictives persistent chez d’autres acteurs du secteur [5].",
+          "explication": "Cette phrase répète une idée déjà exprimée dans le résumé (« les techniques de promotions fictives persistent chez d’autres acteurs du secteur ») sans apporter de fait nouveau ou distinct."
+        },
+        {
+          "bloc": 4,
+          "section": "contexte",
+          "type": "contexte_hors_sujet",
+          "phrase_exacte": "La DGCCRF rappelle que les consommateurs peuvent signaler des pratiques suspectes via la plateforme SignalConso, un outil mis en place pour renforcer la transparence dans les transactions commerciales. Les contrôles portent notamment sur le respect des règles encadrant les promotions, comme l’obligation d’afficher un prix de référence valable.",
+          "explication": "Cette information, bien que vraie, est générique et ne porte pas spécifiquement sur le sujet de l'article (la condamnation de Boohoo). Elle n'éclaire pas directement les pratiques sanctionnées ou le contexte de cette affaire précise."
+        },
+        {
+          "bloc": 4,
+          "section": "positions",
+          "type": "faux_debat",
+          "phrase_exacte": "\"positions\": {\"verifie\": false, \"label_gauche\": \"\", \"label_droite\": \"\", \"acteurs\": []}",
+          "explication": "La section \"positions\" est vide, ce qui simule un équilibre ou un débat inexistant. Une condamnation administrative ou judiciaire n'a qu'un seul camp (la décision de l'autorité), et présenter une section \"positions\" sans contenu est trompeur."
+        }
+      ]
+    },
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "resume_repete_corps"
+    ],
+    "titre": "Boohoo condamné à 2,33 millions d'euros pour promotions mensongères",
+    "n_sources": 8,
+    "n_mots": 461,
+    "titre_rss": "Le site de vente de vêtements Boohoo condamné à une amende de 2,33 millions d’euros",
+    "matiere_faits_distincts": 821,
+    "matiere_redondance": 0.06,
+    "matiere_donnees_chiffrees": 6,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "n_sources_pertinentes": 4,
+    "veille_heures_visible": 24.0,
+    "veille_passages": 44,
+    "veille_age_h": 24.3,
+    "veille_n_flux_grappe": 6
+  },
+  {
+    "slug": "enquete-eras-2026-prevention-vih-hsh-comportements-sexuels",
+    "statut": "rejete_qualite",
+    "date": "2026-08-21T14:10:23",
+    "problemes_initiaux": 11,
+    "tentatives": 3,
+    "problemes_restants": 7,
+    "bloquants_restants": 2,
+    "bloquants_types": [
+      "chiffre_errone",
+      "niveau_preuve_insuffisant"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "Le chiffre de 42 % est correctement attribué à la source [1], mais le résumé ne précise pas que ce chiffre concerne les découvertes de séropositivité *déclarées*, ce qui pourrait induire une confusion avec un taux de pré",
+        "phrase": "En 2021, les hommes ayant des rapports sexuels avec des hommes représentaient 42 % des découvertes de séropositivité déclarées en France, selon les données de Santé publique France [1]."
+      },
+      {
+        "bloc": 1,
+        "type": "niveau_preuve_insuffisant",
+        "description": "L'article ne mentionne pas les limites méthodologiques précises de l'étude Ascodocpsy [7] (biais de déclaration, représentativité de l'échantillon) dans cette section, alors que la source [7] les souligne explicitement. ",
+        "phrase": "Par exemple, une analyse des enquêtes ERAS menée par Ascodocpsy en 2024 indique que « la pratique du chemsex était rapportée par 5 % des répondants lors de leur dernier rapport sexuel et par 12 % au cours des six dernier"
+      }
+    ],
+    "types_restants": [
+      "chiffre_errone",
+      "niveau_preuve_insuffisant",
+      "source_derivee_comptee_comme_primaire",
+      "compteur_incoherent",
+      "paraphrase_structurelle",
+      "redondance",
+      "contexte_hors_sujet"
+    ],
+    "article_type": "actu",
+    "titre": "Enquête ERAS 2026 : comprendre les pratiques sexuelles pour mieux prévenir le VIH",
+    "n_sources": 9,
+    "n_mots": 514,
+    "titre_rss": "Enquête « Rapport au sexe » (ERAS) 2026 à destination des hommes ayant des rapports sexuels avec des hommes",
+    "matiere_faits_distincts": 805,
+    "matiere_redondance": 0.17,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "n_sources_pertinentes": 6,
+    "veille_heures_visible": 3.7,
+    "veille_passages": 5,
+    "veille_age_h": 4.0,
+    "veille_n_flux_grappe": 1
+  },
+  {
+    "slug": "gel-partiel-retraites-2027-proposition-gouvernement",
+    "statut": "rejete_qualite",
+    "date": "2026-08-21T14:19:35",
+    "problemes_initiaux": 12,
+    "tentatives": 3,
+    "problemes_restants": 12,
+    "bloquants_restants": 3,
+    "bloquants_types": [
+      "annonce_perimee",
+      "chiffre_errone",
+      "source_inventee"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "annonce_perimee",
+        "description": "Le résumé présente la mesure comme une proposition à l'étude (« suscite des critiques », « Matignon doit rendre ses arbitrages »), alors que les sources [4] et [8] citent explicitement Roland Lescure comme ayant déjà « r",
+        "phrase": "Cette mesure, présentée par le ministre de l’Économie comme un moyen de contribuer à la réduction du déficit public, suscite des critiques sur son équité et son impact économique, alors que Matignon doit rendre ses arbit"
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [4] (Moneyvox) ne mentionne pas explicitement les chiffres de 5,3 % et 4,8 % dans les extraits fournis. De plus, la source [8] (LCP) ne cite pas la CNAV comme origine de ces données. Les chiffres sont donc attr",
+        "phrase": "En août 2023, le gouvernement avait revalorisé les pensions de base de 5,3 % pour compenser l’inflation, selon les annonces officielles rapportées par *Moneyvox* [4]. Cette revalorisation faisait suite à une hausse de 4,"
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "La source [10] (Lejdd) n'est pas listée dans les sources autorisées fournies. Elle est donc inventée dans le contexte des sources disponibles.",
+        "phrase": "*Lejdd* qualifie la mesure de « lâcheté politique » et d’« erreur économique », arguant que, selon le journal, les retraités contribuent significativement à l’économie via leurs dépenses de consommation [10]."
+      }
+    ],
+    "types_restants": [
+      "annonce_perimee",
+      "source_inventee",
+      "source_inventee",
+      "chiffre_errone",
+      "chronologie_confuse",
+      "source_derivee_comptee_comme_primaire",
+      "compteur_incoherent",
+      "source_inventee",
+      "cadrage_emprunte",
+      "contexte_hors_sujet",
+      "faux_debat",
+      "acteur_mis_en_cause_sans_reponse"
+    ],
+    "article_type": "actu",
+    "titre": "Gel partiel des retraites : ce que propose le gouvernement pour 2027",
+    "n_sources": 7,
+    "n_mots": 514,
+    "titre_rss": "Retraites : le gel des pensions, le pari à haut risque de Roland Lescure",
+    "matiere_faits_distincts": 867,
+    "matiere_redondance": 0.06,
+    "matiere_donnees_chiffrees": 3,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "n_sources_pertinentes": 7,
+    "veille_heures_visible": 30.8,
+    "veille_passages": 29,
+    "veille_age_h": 31.2,
+    "veille_n_flux_grappe": 2
+  },
+  {
+    "slug": "ebola-rdc-2500-morts-progression-exponentielle-onu",
+    "statut": "rejete_qualite",
+    "date": "2026-08-21T14:27:17",
+    "problemes_initiaux": 12,
+    "tentatives": 3,
+    "problemes_restants": 9,
+    "bloquants_restants": 3,
+    "bloquants_types": [
+      "chiffre_errone",
+      "incoherence_inter_sections",
+      "niveau_preuve_insuffisant"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "Le résumé attribue à la source [1] une affirmation sur six provinces, mais la source autorisée correspondante (Le Monde, 21/08/2026) ne mentionne pas explicitement six provinces dans les extraits fournis. Le chiffre de s",
+        "phrase": "La zone touchée couvre désormais six provinces, où l’insécurité et la défiance d’une partie de la population entravent les opérations de riposte, comme l’a indiqué le coordinateur onusien Julien Harneis [1]."
+      },
+      {
+        "bloc": 1,
+        "type": "incoherence_inter_sections",
+        "description": "La source [1] (Le Monde, 21/08/2026) ne confirme pas explicitement le chiffre de six provinces ni la comparaison avec la superficie de la France. Ces éléments proviennent d'une autre source (Le Monde, 13/08/2026), ce qui",
+        "phrase": "La zone touchée s’étend désormais sur six provinces, une superficie comparable à celle de la France, selon les données de l’ONU [1]."
+      },
+      {
+        "bloc": 1,
+        "type": "niveau_preuve_insuffisant",
+        "description": "L'article présente les essais cliniques comme exploratoires sans préciser le stade (phase 1/2/3) ni les limites méthodologiques (effectif, randomisation, durée de suivi), alors que ces éléments sont essentiels pour évalu",
+        "phrase": "Aucun vaccin ou traitement spécifique n’est homologué contre la souche Bundibugyo d’Ebola, responsable de cette épidémie [1]. Des essais cliniques exploratoires sont en cours pour évaluer l’efficacité potentielle de 70 0"
+      }
+    ],
+    "types_restants": [
+      "chiffre_errone",
+      "incoherence_inter_sections",
+      "niveau_preuve_insuffisant",
+      "source_derivee_comptee_comme_primaire",
+      "source_non_editoriale",
+      "contexte_hors_sujet",
+      "compteur_incoherent",
+      "section_gonflee",
+      "redondance"
+    ],
+    "article_type": "actu",
+    "titre": "Ebola en RDC dépasse 2 500 morts et progresse de façon exponentielle",
+    "n_sources": 8,
+    "n_mots": 704,
+    "titre_rss": "Ebola en RDC : l’épidémie progresse « de façon exponentielle » et dépasse 2 500 morts, alerte l’ONU",
+    "matiere_faits_distincts": 785,
+    "matiere_redondance": 0.12,
+    "matiere_donnees_chiffrees": 5,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "n_sources_pertinentes": 4,
+    "veille_heures_visible": 0.0,
+    "veille_passages": 2,
+    "veille_age_h": 0.4,
+    "veille_n_flux_grappe": 11
+  },
+  {
+    "slug": "sante-sexuelle-outre-mer-enquete-csf-2023-resultats",
+    "statut": "rejete_qualite",
+    "date": "2026-08-21T14:33:21",
+    "problemes_initiaux": 13,
+    "tentatives": 3,
+    "problemes_restants": 4,
+    "bloquants_restants": 3,
+    "bloquants_types": [
+      "niveau_preuve_insuffisant",
+      "niveau_preuve_insuffisant",
+      "niveau_preuve_insuffisant"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "niveau_preuve_insuffisant",
+        "description": "Le stade de la recherche (résultats préliminaires, exploratoires) n'est pas rappelé à côté du résultat principal, alors que la source [2] insiste sur leur caractère non définitif et nécessitant des analyses complémentair",
+        "phrase": "Ces données, les premières à couvrir ces territoires de manière représentative, mettent en lumière des évolutions notables, notamment chez les jeunes générations. Selon les résultats exploratoires de l’Inserm, l’âge médi"
+      },
+      {
+        "bloc": 1,
+        "type": "niveau_preuve_insuffisant",
+        "description": "Le caractère auto-déclaré et préliminaire des données n'est pas suffisamment mis en avant pour alerter sur leur fiabilité limitée, alors que la source [2] souligne explicitement ce point.",
+        "phrase": "Les violences sexuelles seraient déclarées plus fréquemment par les jeunes femmes de 15 à 24 ans (12 % en Guyane et 8 % à La Réunion), mais ces chiffres, issus d’auto-déclarations, appellent des investigations supplément"
+      },
+      {
+        "bloc": 1,
+        "type": "niveau_preuve_insuffisant",
+        "description": "Le conditionnel et les limites méthodologiques (données à confirmer) ne sont pas assez soulignés, alors que la source [2] insiste sur leur caractère préliminaire.",
+        "phrase": "La couverture vaccinale contre l’hépatite B et les papillomavirus humains (HPV) serait inférieure aux objectifs nationaux dans les quatre DROM, avec des taux estimés entre 30 % et 50 % selon les territoires, mais ces don"
+      }
+    ],
+    "types_restants": [
+      "niveau_preuve_insuffisant",
+      "niveau_preuve_insuffisant",
+      "niveau_preuve_insuffisant",
+      "fait_tranche_arbitrairement"
+    ],
+    "article_type": "actu",
+    "titre": "Santé sexuelle dans les Outre-mer : ce que dit l’enquête CSF-2023",
+    "n_sources": 8,
+    "n_mots": 660,
+    "titre_rss": "Premiers résultats de l’enquête CSF-2023 dans les Outre-Mer : focus sur la Guyane, la Martinique, la Guadeloupe et La Réunion",
+    "matiere_faits_distincts": 812,
+    "matiere_redondance": 0.08,
+    "matiere_donnees_chiffrees": 2,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "n_sources_pertinentes": 5,
+    "veille_heures_visible": 227.0,
+    "veille_passages": 175,
+    "veille_age_h": 227.4,
+    "veille_n_flux_grappe": 3
+  },
+  {
+    "slug": "golfech-arret-production-nucleaire-canicule-ete-2026",
+    "statut": "rejete_qualite",
+    "date": "2026-08-21T14:57:06",
+    "problemes_initiaux": 14,
+    "tentatives": 3,
+    "problemes_restants": 12,
+    "bloquants_restants": 4,
+    "bloquants_types": [
+      "annonce_perimee",
+      "niveau_preuve_insuffisant",
+      "accusation_presentee_comme_fait",
+      "source_inventee"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "annonce_perimee",
+        "description": "Le résumé présente les arrêts comme un fait passé (« a enregistré »), mais la source [4] (Economiematin) date du 10 août 2026 et décrit un événement en cours (« Golfech arrêtée quatre fois en deux mois »), sans préciser ",
+        "phrase": "La centrale nucléaire de Golfech a enregistré quatre arrêts entre juin et août 2026 en raison des températures élevées de la Garonne, dépassant les seuils réglementaires fixés par un arrêté préfectoral de 2006 [4]."
+      },
+      {
+        "bloc": 1,
+        "type": "niveau_preuve_insuffisant",
+        "description": "La source [1] (Le Monde) mentionne des tests en cours sans préciser leur stade (phase, méthodologie, effectif, limites), ni si les résultats sont préliminaires ou définitifs. L'article omet ces détails, donnant l'impress",
+        "phrase": "Selon *Le Monde*, l'Institut de radioprotection et de sûreté nucléaire (IRSN) mène des tests renforcés sur les diesels de secours, dont le rendement pourrait baisser avec la hausse des températures. Ces tests, en cours d"
+      },
+      {
+        "bloc": 1,
+        "type": "accusation_presentee_comme_fait",
+        "description": "La phrase attribue une opinion à *La Croix* (« estime que »), mais la reformule comme un constat neutre (« soulèvent des questions ») dans le résumé. Le cadrage éditorial de *La Croix* est présenté comme une réalité obje",
+        "phrase": "*La Croix* estime que la multiplication des arrêts et modulations de production interroge sur la capacité du nucléaire à assurer un approvisionnement stable face au réchauffement climatique."
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "La source [5] (La Croix, 18/08/2026) est citée pour une estimation (« estime que »), mais son extrait fourni ne contient pas cette affirmation. Le lien entre [5] et cette phrase est inventé.",
+        "phrase": "EDF assure que la sûreté des installations n'est pas compromise, mais *La Croix* estime que ces arrêts climatiques soulèvent des questions sur la résilience du modèle énergétique [1][5]."
+      }
+    ],
+    "types_restants": [
+      "annonce_perimee",
+      "niveau_preuve_insuffisant",
+      "chronologie_confuse",
+      "accusation_presentee_comme_fait",
+      "source_derivee_comptee_comme_primaire",
+      "compteur_incoherent",
+      "source_non_editoriale",
+      "source_inventee",
+      "cadrage_emprunte",
+      "contexte_hors_sujet",
+      "section_gonflee",
+      "redondance"
+    ],
+    "article_type": "actu",
+    "titre": "Centrale de Golfech arrêtée quatre fois en deux mois à cause des canicules",
+    "n_sources": 7,
+    "n_mots": 589,
+    "titre_rss": "Nucléaire : visualisez l’impact des canicules sur la production des centrales françaises",
+    "matiere_faits_distincts": 1271,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "n_sources_pertinentes": 3,
+    "veille_heures_visible": 18.9,
+    "veille_passages": 35,
+    "veille_age_h": 19.2,
+    "veille_n_flux_grappe": 6
+  },
+  {
+    "slug": "ebola-rdc-70000-doses-ervebo-souche-bundibugyo",
+    "statut": "rejete_sensible",
+    "date": "2026-08-21T15:04:05",
+    "problemes_initiaux": 12,
+    "bloc5": [
+      "acteur_mis_en_cause_sans_reponse"
+    ],
+    "article_type": "actu",
+    "titre": "Ebola en RDC : 70 000 doses d'Ervebo face à une souche non ciblée",
+    "n_sources": 8,
+    "n_mots": 464,
+    "titre_rss": "Ebola en RDC : l’OMS déploie 70 000 doses du vaccin Ervebo",
+    "matiere_faits_distincts": 1203,
+    "matiere_redondance": 0.11,
+    "matiere_donnees_chiffrees": 3,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "n_sources_pertinentes": 7,
+    "veille_heures_visible": 22.5,
+    "veille_passages": 54,
+    "veille_age_h": 22.9,
+    "veille_n_flux_grappe": 3
+  },
+  {
+    "slug": "chine-evergrande-fondateur-condamne-perpetuite-fraude",
+    "statut": "rejete_sensible",
+    "date": "2026-08-21T15:12:16",
+    "problemes_initiaux": 17,
+    "bloc5": [
+      "acteur_mis_en_cause_sans_reponse"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "resume_repete_corps",
+      "titre_de_mauvaise_qualite"
+    ],
+    "titre": "Chine : le fondateur d'Evergrande condamné à perpétuité pour fraude",
+    "n_sources": 6,
+    "n_mots": 589,
+    "titre_rss": "Xu Jiayin, l’ex-patron chinois du géant de l’immobilier Evergrande, condamné à la prison à vie",
+    "matiere_faits_distincts": 770,
+    "matiere_redondance": 0.27,
+    "matiere_donnees_chiffrees": 3,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "n_sources_pertinentes": 5,
+    "veille_heures_visible": 20.8,
+    "veille_passages": 32,
+    "veille_age_h": 21.2,
+    "veille_n_flux_grappe": 13
+  },
+  {
+    "slug": "canicules-incendies-france-absence-reponse-politique",
+    "statut": "rejete_qualite",
+    "date": "2026-08-21T15:20:10",
+    "angle_insuffisant": true,
+    "raison": "Aucune phrase dans la section 'faits' ne combine un événement précis daté ou datable (ex : annonce, décision, résultat) avec une donnée chiffrée ou nommée qui lui soit propre. L'article décrit des tendances générales et des réactions politiques sans ancrage factuel précis et daté pour 2026. L'angle annoncé ('Pourquoi les responsables politiques français n’abordent-ils pas frontalement l’urgence climatique malgré les événements extrêmes de l’été 2026 ?') n'est pas traité par des faits concrets et sourcés répondant à cette question.",
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "faits_repetitifs",
+      "attributions_trop_repetitives"
+    ],
+    "titre": "Canicules et incendies en France : l’absence de réponse politique face à l’urgence climatique",
+    "n_sources": 9,
+    "n_mots": 611,
+    "titre_rss": "Malgré un été marqué par les canicules, les incendies et la sécheresse, les responsables politiques incapables de répondre à l’urgence climatique",
+    "matiere_faits_distincts": 1130,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 2,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "n_sources_pertinentes": 5,
+    "veille_heures_visible": 6.8,
+    "veille_passages": 8,
+    "veille_age_h": 7.1,
+    "veille_n_flux_grappe": 5
+  },
+  {
+    "slug": "nasa-echec-mission-sauvetage-telescope-swift",
+    "statut": "rejete_qualite",
+    "date": "2026-08-21T15:31:24",
+    "problemes_initiaux": 12,
+    "tentatives": 3,
+    "problemes_restants": 9,
+    "bloquants_restants": 1,
+    "bloquants_types": [
+      "annonce_perimee"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "annonce_perimee",
+        "description": "Le résumé présente comme une estimation future (« pourrait priver ») un fait déjà acté par les sources (l'échec de la mission et la désintégration inévitable), alors que les sources décrivent la désintégration comme une ",
+        "phrase": "Numerama estime que la désintégration de Swift pourrait priver les astrophysiciens d'un instrument dédié à l'observation de phénomènes cosmiques parmi les plus énergétiques de l'Univers [4]."
+      }
+    ],
+    "types_restants": [
+      "annonce_perimee",
+      "acteur_mis_en_cause_sans_reponse",
+      "source_derivee_comptee_comme_primaire",
+      "compteur_incoherent",
+      "cadrage_emprunte",
+      "cadrage_emprunte",
+      "redondance",
+      "contexte_hors_sujet",
+      "extrapolation"
+    ],
+    "article_type": "actu",
+    "titre": "La NASA échoue à rehausser l'orbite du télescope Swift",
+    "n_sources": 6,
+    "n_mots": 549,
+    "titre_rss": "La Nasa échoue à sauver le télescope Swift",
+    "matiere_faits_distincts": 737,
+    "matiere_redondance": 0.16,
+    "matiere_donnees_chiffrees": 3,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "n_sources_pertinentes": 9,
+    "veille_heures_visible": 25.9,
+    "veille_passages": 24,
+    "veille_age_h": 26.2,
+    "veille_n_flux_grappe": 5
+  },
+  {
+    "slug": "landspace-premier-atterrissage-terrestre-fusee-chinoise",
+    "statut": "rejete_qualite",
+    "date": "2026-08-21T15:39:29",
+    "problemes_initiaux": 2,
+    "tentatives": 3,
+    "problemes_restants": 10,
+    "bloquants_restants": 4,
+    "bloquants_types": [
+      "annonce_perimee",
+      "niveau_preuve_insuffisant",
+      "source_inventee",
+      "source_inventee"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "annonce_perimee",
+        "description": "Le résumé présente la réduction des coûts comme un objectif futur (« s'inscrit dans les efforts »), alors que les faits précisent que LandSpace elle-même qualifie ces projections de « sans garantie de faisabilité » et qu",
+        "phrase": "Cette performance technique, similaire à celles déjà réalisées par les Américains SpaceX et Blue Origin, s'inscrit dans les efforts de réduction des coûts de lancement, bien que LandSpace précise que ces objectifs relève"
+      },
+      {
+        "bloc": 1,
+        "type": "niveau_preuve_insuffisant",
+        "description": "L'article présente ces projections comme des objectifs (« envisage », « prévoit ») sans rappeler explicitement dans cette phrase que la source [5] les qualifie de « projections exploratoires sans garantie de faisabilité ",
+        "phrase": "Selon LandSpace, l’entreprise envisage jusqu’à 20 vols par étage et prévoit de faire revoler un booster récupéré d’ici six mois, dans le cadre de projections exploratoires sans garantie de faisabilité technique, comme le"
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "Les sources [3] (Lalibre) et [5] (Eurasiatimes) ne fournissent pas explicitement les dates des premiers atterrissages de SpaceX et Blue Origin. Ces dates ne figurent pas dans les extraits fournis des sources autorisées, ",
+        "phrase": "SpaceX a réussi son premier atterrissage en décembre 2015, tandis que Blue Origin a accompli cette performance en novembre 2016 [3][5]."
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "Les sources [3] (Lalibre) et [5] (Eurasiatimes) ne mentionnent pas cet événement (récupération par Longue Marche-10B en juillet 2026). Cette information n'apparaît pas dans les extraits fournis, donc elle relève d'une so",
+        "phrase": "La Chine avait déjà franchi une étape similaire en juillet 2026, un mois avant LandSpace, en récupérant le premier étage d’une fusée Longue Marche-10B, mais sur une barge en mer [3][5]."
+      }
+    ],
+    "types_restants": [
+      "annonce_perimee",
+      "niveau_preuve_insuffisant",
+      "source_derivee_comptee_comme_primaire",
+      "compteur_incoherent",
+      "source_inventee",
+      "source_inventee",
+      "cadrage_emprunte",
+      "redondance",
+      "redondance",
+      "faux_debat"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "titre_de_mauvaise_qualite"
+    ],
+    "titre": "LandSpace réussit le premier atterrissage terrestre d'une fusée chinoise",
+    "n_sources": 5,
+    "n_mots": 407,
+    "titre_rss": "Une start-up chinoise entre dans le club très fermé des entreprises privées capables de lancer des fusées réutilisables",
+    "matiere_faits_distincts": 1161,
+    "matiere_redondance": 0.12,
+    "matiere_donnees_chiffrees": 3,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "n_sources_pertinentes": 7,
+    "veille_heures_visible": 24.9,
+    "veille_passages": 25,
+    "veille_age_h": 25.3,
+    "veille_n_flux_grappe": 2
+  },
+  {
+    "slug": "vol-donnees-medicales-alaxione-6-millions-patients",
+    "statut": "rejete_sensible",
+    "date": "2026-08-21T15:52:52",
+    "sujet_sensible": true,
+    "raison": "affaire pénale en cours (cyberattaque et vol de données médicales) impliquant des personnes physiques (patients) et une entreprise (Alaxione), avec des risques d'usurpation d'identité et d'escroqueries",
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "resume_repete_corps"
+    ],
+    "titre": "6,8 millions de données médicales volées chez Alaxione, dont des numéros de Sécurité sociale",
+    "n_sources": 9,
+    "n_mots": 573,
+    "titre_rss": "Des millions de données médicales volées à la plateforme privée Alaxione au cours d'une cyberattaque revendiquée",
+    "matiere_faits_distincts": 903,
+    "matiere_redondance": 0.01,
+    "matiere_donnees_chiffrees": 4,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "n_sources_pertinentes": 5,
+    "veille_heures_visible": 17.9,
+    "veille_passages": 24,
+    "veille_age_h": 18.3,
+    "veille_n_flux_grappe": 7
+  },
+  {
+    "slug": "attaque-russe-kiev-16-morts-ecole-hopital-touches",
+    "statut": "rejete_sensible",
+    "date": "2026-08-21T16:01:24",
+    "sujet_sensible": true,
+    "raison": "L'article porte sur une attaque militaire en cours impliquant des victimes civiles et des tensions régionales, avec des implications géopolitiques sensibles.",
+    "article_type": "actu",
+    "titre": "Attaque russe sur Kiev : 16 morts, une école et un hôpital touchés",
+    "n_sources": 4,
+    "n_mots": 592,
+    "titre_rss": "Guerre en Ukraine : Kiev bombardée, un drone s'écrase en Roumanie... Le point sur l'attaque nocturne de la Russie",
+    "matiere_faits_distincts": 715,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 2,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "n_sources_pertinentes": 6,
+    "veille_heures_visible": 27.7,
+    "veille_passages": 26,
+    "veille_age_h": 28.1,
+    "veille_n_flux_grappe": 11
+  },
+  {
+    "slug": "dette-americaine-40000-milliards-cap-symbolique-franchi",
+    "statut": "rejete_qualite",
+    "date": "2026-08-21T16:09:32",
+    "problemes_initiaux": 15,
+    "tentatives": 3,
+    "problemes_restants": 12,
+    "bloquants_restants": 4,
+    "bloquants_types": [
+      "annonce_perimee",
+      "incoherence_inter_sections",
+      "niveau_preuve_insuffisant",
+      "accusation_presentee_comme_fait"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "annonce_perimee",
+        "description": "Le résumé présente le franchissement du seuil comme un événement à venir ou récent (« atteint en août 2026 »), alors que les faits précisent que le département du Trésor a annoncé ce dépassement le 19 août 2026, ce qui i",
+        "phrase": "Ce niveau record, atteint en août 2026, s’inscrit dans une trajectoire de hausse continue depuis 2017, où la dette s’élevait à 19 950 milliards de dollars [2][3]."
+      },
+      {
+        "bloc": 1,
+        "type": "incoherence_inter_sections",
+        "description": "Le résumé attribue à la RTS une explication de l'augmentation de la dette liée à la pandémie, mais les faits et le contexte précisent que la RTS indique que la part exacte des dépenses pandémiques dans cette hausse n'est",
+        "phrase": "Selon la RTS, cette augmentation s’explique en partie par les dépenses engagées pour faire face à la pandémie de Covid-19, sans que leur part exacte dans cette hausse ne soit précisée [2]."
+      },
+      {
+        "bloc": 1,
+        "type": "niveau_preuve_insuffisant",
+        "description": "L'article présente une conséquence potentielle (« pourrait entraîner ») sans préciser les hypothèses, les modèles ou les données sous-jacentes mentionnés par les économistes cités dans la source [1]. La source ne fournit",
+        "phrase": "Selon des économistes cités par ce média, cette trajectoire pourrait entraîner une hausse du coût des intérêts, alourdissant le déficit et rendant les États-Unis plus vulnérables aux chocs économiques [1]."
+      },
+      {
+        "bloc": 1,
+        "type": "accusation_presentee_comme_fait",
+        "description": "L'article présente l'estimation des analystes comme un fait établi (« une crise immédiate reste peu probable ») plutôt que comme une opinion ou une analyse attribuée. La formulation donne l'impression d'une certitude, al",
+        "phrase": "D’autres analystes, également mentionnés par Le Monde, estiment que tant que les marchés continuent de financer la dette américaine, une crise immédiate reste peu probable [1]."
+      }
+    ],
+    "types_restants": [
+      "annonce_perimee",
+      "incoherence_inter_sections",
+      "niveau_preuve_insuffisant",
+      "accusation_presentee_comme_fait",
+      "acteur_mis_en_cause_sans_reponse",
+      "source_derivee_comptee_comme_primaire",
+      "compteur_incoherent",
+      "cadrage_emprunte",
+      "redondance",
+      "section_gonflee",
+      "extrapolation",
+      "faux_debat"
+    ],
+    "article_type": "actu",
+    "titre": "Dette américaine à 40 000 milliards de dollars, un cap symbolique franchi",
+    "n_sources": 4,
+    "n_mots": 569,
+    "titre_rss": "La dette des États-Unis franchit le seuil des 40 000 milliards de dollars",
+    "matiere_faits_distincts": 701,
+    "matiere_redondance": 0.12,
+    "matiere_donnees_chiffrees": 14,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "n_sources_pertinentes": 9,
+    "veille_heures_visible": 14.9,
+    "veille_passages": 14,
+    "veille_age_h": 15.3,
+    "veille_n_flux_grappe": 10
   }
 ]
