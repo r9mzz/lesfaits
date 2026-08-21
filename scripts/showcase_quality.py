@@ -14,11 +14,50 @@ import unicodedata
 from difflib import SequenceMatcher
 from urllib.parse import urlsplit, urlunsplit
 
+# ── RECALIBRAGE DU 21/08 — même erreur que la grille brève, même correctif ───
+# Ces seuils rejetaient 140 articles publiés sur 140. Mesuré, pas supposé : le
+# `total` de la vitrine est faits+contexte+nuances, CHAPEAU EXCLU (Boohoo,
+# run 258 : 461 mots au journal, 435 comptés ici). Sur cette grandeur exacte,
+# les 140 articles longs du corpus, sections mesurées une à une :
+#
+#              min   p33  médiane   max   ancien seuil
+#     faits     48   135     150    345      420
+#     contexte  25   106     119    185      180
+#     nuances   16    91     104    172      130
+#     total    158   327     372    670      760
+#
+# Le MAXIMUM jamais atteint par ce site est 670 mots, contre un seuil de 760 :
+# la grille était inatteignable par construction, pas exigeante. Un article
+# passait donc tout le protocole — génération, relances, garde-fous, fact-check
+# 3 passes — pour mourir sur un seuil que rien n'avait jamais franchi.
+#
+# C'est EXACTEMENT le défaut corrigé le 12/08 sur la grille brève, dont le
+# commentaire ci-dessous dit « je les avais posés sur le haut de la
+# distribution en croyant les poser à la mesure du format ». Le même calibrage
+# est repris ici : on écarte le tiers inférieur, on garde le reste.
+#
+# `total` = 400 (décision de Nahil, 21/08). Le nombre tombe au-dessus de la
+# médiane mesurée : il garde le TIERS SUPÉRIEUR du corpus (36 %), ce qui est
+# sélectif sans être impossible. Les minima de section sont posés au 33e
+# percentile ; ils ne coûtent que 2 points de plus (36 % → 34 %), donc ils
+# disciplinent la répartition sans devenir un second couperet.
+#
+# ⚠ Ce recalibrage NE TOUCHE À AUCUN autre critère de la vitrine : hiérarchie
+# des sources, citations réellement appelées dans le texte, intertitres ancrés,
+# nouveauté du contexte et des nuances, dépêche recyclée, chapeau ≥ 65 mots
+# (déjà tenu par 85 % du corpus) restent inchangés. Boohoo échouait aussi sur
+# « 0 primaire » et « sources listées mais non citées [2,3,5,7] » — ces
+# reproches-là sont fondés et continuent de rejeter.
+#
+# ⚠ À MESURER AU PROCHAIN RUN, écrit avant et non après : la longueur cesse
+# d'être le couperet, donc les rejets vitrine vont se déplacer vers les
+# critères de SOURCING et de CITATION. Si le prochain run rejette encore tout,
+# lire le motif — ce ne sera plus le même problème, et le remède non plus.
 MIN_WORDS = {
-    "faits": 420,
-    "contexte": 180,
-    "nuances": 130,
-    "total": 760,
+    "faits": 135,
+    "contexte": 106,
+    "nuances": 91,
+    "total": 400,
 }
 MIN_SOURCES = 6
 MIN_DISTINCT_DOMAINS = 5
