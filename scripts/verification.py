@@ -15,6 +15,7 @@ seuils éditoriaux ni le contenu de l'article.
 """
 from __future__ import annotations
 
+import copy
 import os
 import sys
 
@@ -78,6 +79,28 @@ def _provider_auth_rotating_llm_call(*args, **kwargs):
 
 
 _verification._llm_call = _provider_auth_rotating_llm_call
+
+# La liste ``sources`` est l'espace d'adressage des citations [n]. Le correcteur
+# réécrit un JSON complet et pouvait donc, même sans consigne, supprimer,
+# réordonner ou remplacer cette liste. La passe de vérification suivante voyait
+# alors un autre tableau : une citation [5] parfaitement valide avant correction
+# devenait soudain « source_inventee ». Les sources autorisées sont une entrée du
+# contrôle, pas une sortie éditable du LLM : elles restent strictement immuables
+# pendant toutes les passes. Les corrections peuvent retirer une citation du
+# texte ou ajuster ``nb_sources``, mais jamais changer l'identité ni l'ordre de
+# la liste qui donne leur sens aux numéros [n].
+_verification._provider_original_corriger = _verification.corriger
+
+
+def _provider_sources_immutables_corriger(art: dict, *args, **kwargs):
+    sources_originales = copy.deepcopy(art.get("sources", [])) if isinstance(art, dict) else []
+    corrige = _verification._provider_original_corriger(art, *args, **kwargs)
+    if isinstance(corrige, dict):
+        corrige["sources"] = sources_originales
+    return corrige
+
+
+_verification.corriger = _provider_sources_immutables_corriger
 
 # Le moteur historique publiait explicitement en cas d'échec API de détection
 # (et pouvait aussi publier après une erreur de correction si aucun bloquant
