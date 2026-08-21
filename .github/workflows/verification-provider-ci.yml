@@ -20,6 +20,7 @@ on:
       - "scripts/test_verification_json_ci_contract.py"
       - "scripts/test_juge_symetrie.py"
       - "scripts/test_verification_symetrie_ci_contract.py"
+      - "scripts/test_verification_sources_immutables.py"
       - ".github/workflows/verification-provider-ci.yml"
   pull_request:
     paths:
@@ -39,6 +40,7 @@ on:
       - "scripts/test_verification_json_ci_contract.py"
       - "scripts/test_juge_symetrie.py"
       - "scripts/test_verification_symetrie_ci_contract.py"
+      - "scripts/test_verification_sources_immutables.py"
       - ".github/workflows/verification-provider-ci.yml"
   workflow_dispatch:
 
@@ -71,6 +73,7 @@ jobs:
           scripts/test_verification_json_ci_contract.py
           scripts/test_juge_symetrie.py
           scripts/test_verification_symetrie_ci_contract.py
+          scripts/test_verification_sources_immutables.py
       - name: Tester alignement fournisseur et sécurité de publication
         run: |
           python scripts/test_verification_provider.py
@@ -84,3 +87,4 @@ jobs:
           python scripts/test_verification_json_ci_contract.py
           python scripts/test_juge_symetrie.py
           python scripts/test_verification_symetrie_ci_contract.py
+          python scripts/test_verification_sources_immutables.py
