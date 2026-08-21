@@ -1337,7 +1337,26 @@ _ENJEU_PUBLIC_RE = re.compile(
     # ⚠ 19/08 : sans `s?`, « site des impôts » ne déclenchait RIEN — c'est
     # littéralement pourquoi « Piratage du fisc : 678 000 contribuables » est
     # sorti à 52 points. Onze mots du barème mesurés, onze pluriels manqués.
-    r"|ran[çc]ongiciel|ransomware|rgpd)s?\b",
+    r"|ran[çc]ongiciel|ransomware|rgpd"
+    # ── 21/08 : la procédure JUDICIAIRE manquait, seul son résultat comptait ─
+    # `enquête`, `procès`, `jugement`, `condamné` étaient là ; `arrestation`,
+    # `mandat d'arrêt`, `parquet`, `extradition` non. Un fait judiciaire ne
+    # déclenchait donc le bonus qu'une fois jugé — jamais au moment où il est
+    # une actualité. « Nord Stream : arrestation d'un ex-commandant ukrainien
+    # soupçonné d'avoir saboté le gazoduc » sortait à 15 points, sous le seuil
+    # de sélection (20), sans aucun marqueur d'enjeu public.
+    # Ajoutées avec les infrastructures critiques, cibles des mêmes affaires.
+    # Mesuré AVANT ajout, comme l'exige la règle du projet : 0 déclenchement
+    # sur les 153 articles publiés (0 %, très en dessous du plafond de ~10 %
+    # au-delà duquel un motif est jugé trop large) et 24 titres sur les 3 157
+    # du vivier `veille.json` (0,8 %) — dont l'enquête du parquet de Paris sur
+    # l'ingérence russe visant Édouard Philippe et Gabriel Attal, et celle sur
+    # le piratage du fisc. Aucun de ces termes n'entre en collision avec la
+    # BLACKLIST : les affaires mettant en cause des personnes (Crépol) restent
+    # rejetées en amont, le bonus ne peut pas les repêcher.
+    r"|arrestation|mandat d'arr[êe]t|parquet|extradition"
+    r"|sabotage|sabot[ée]|infrastructure critique|gazoduc|c[âa]ble sous-marin"
+    r")s?\b",
     re.IGNORECASE,
 )
 
@@ -1675,8 +1694,15 @@ def score_editorial(item: dict, source_name: str, published_topics: set) -> tupl
     score   = 0
 
     # ── REJETS IMMÉDIATS ─────────────────────────────────────────────────────
+    # Frontière de mot AU DÉBUT du terme, jamais à la fin. Mesuré sur les
+    # 3 157 items de data/veille.json : la correspondance en sous-chaîne nue
+    # rejetait « sabotage des gazoducs Nord Stream » sur le mot « otage »
+    # (5 items, tous le même sujet majeur). Une frontière des DEUX côtés
+    # (\botage\b) casserait en revanche les pluriels et les accords, qui sont
+    # de VRAIS positifs : « bombardements » (6), « inculpée », « meurtres ».
+    # Ancrer le début seul récupère les 5 faux positifs et n'en perd aucun.
     for kw in BLACKLIST:
-        if kw in text:
+        if re.search(r"\b" + re.escape(kw), text):
             return -1, [f"Blacklist : '{kw}'"]
 
     # Contenu commercial déguisé : prix + enseigne = article promotionnel
@@ -1700,13 +1726,38 @@ def score_editorial(item: dict, source_name: str, published_topics: set) -> tupl
     # Ce n'est pas un assouplissement : la matière de l'article ne vient pas
     # du teaser RSS mais des sources recherchées ensuite (jusqu'à 26), et tous
     # les contrôles de fond restent inchangés.
-    _seuil_contenu = 300
-    _src_connue = (any(s in src or s in text[:200] for s in SOURCES_MAJEURES)
-                   or any(s in src for s in SOURCES_MEDIAS))
-    if _est_presse_protegee(item.get("url", "")) or _src_connue:
-        _seuil_contenu = 140
+    #
+    # ⚠ 21/08 — CE SEUIL N'EST PLUS UN TEST DE SUBSTANCE, IL EST DEVENU UN
+    # GARDE-FOU DE TITRE NU. Il avait été écrit comme un PROXY de substance à
+    # une époque où aucun test de fond n'existait en aval. Ce n'est plus vrai :
+    # `PERTINENCE_MIN_POUR_GENERER = 3` exige désormais 3 sources jugées
+    # pertinentes AVANT de payer une génération, `bilan_qualite_sources` exige
+    # ≥1 primaire OU ≥2 secondaires, et `audit_matiere` mesure la richesse
+    # documentaire réelle. La longueur du TEASER ne mesure aucun de ces trois
+    # faits — elle mesure la générosité du flux, ce que le commentaire
+    # ci-dessus reconnaissait déjà sans en tirer la conséquence.
+    #
+    # Ce que le rejet dur coûtait, mesuré et non supposé : « Angélique Kidjo,
+    # première chanteuse africaine étoilée sur le Walk of Fame » (129 car.) et
+    # « Nord Stream : un ex-commandant arrêté » sortaient à -1, éliminés AVANT
+    # tout barème. Sur le dernier run, `[REJETS]` compte 123 candidats (16,4 %)
+    # sur ce seul motif.
+    #
+    # Le seuil devient donc un garde-fou contre l'item VIDE (un titre RSS sans
+    # chapeau, dont on ne peut rien juger), pas contre l'item bref. Au-dessus,
+    # la brièveté n'est plus un rejet : elle est déjà sanctionnée par le barème
+    # de longueur ci-dessous (`+15/+10/+5 source riche/moyenne/courte`), qui
+    # laisse un teaser court à 0 point de matière. Un sujet bref DOIT donc
+    # gagner ses points ailleurs — enjeu public, substance chiffrée, source
+    # primaire — au lieu d'être éliminé sans être noté.
+    #
+    # ⚠ À MESURER AU PROCHAIN RUN, avant d'aller plus loin : les 123 candidats
+    # rendus au vivier passent-ils le seuil de sélection (20) ou tombent-ils
+    # d'eux-mêmes ? S'ils entrent en masse sans jamais être publiés, c'est le
+    # BARÈME qu'il faut resserrer, pas ce seuil qu'il faut remonter.
+    _seuil_contenu = 80
     if len(item["content"]) < _seuil_contenu:
-        return -1, [f"Contenu trop court : {len(item['content'])} chars (min {_seuil_contenu})"]
+        return -1, [f"Contenu quasi vide : {len(item['content'])} chars (min {_seuil_contenu})"]
 
     # ── BARÈME POSITIF ───────────────────────────────────────────────────────
 
