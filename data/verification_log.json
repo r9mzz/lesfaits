@@ -16229,5 +16229,707 @@
     "veille_passages": 9,
     "veille_age_h": 9.1,
     "veille_n_flux_grappe": 1
+  },
+  {
+    "slug": "protection-civile-cyberattaque-donnees-voles-mars-2026",
+    "statut": "rejete_qualite",
+    "date": "2026-08-22T13:36:02",
+    "problemes_initiaux": 11,
+    "tentatives": 3,
+    "problemes_restants": 9,
+    "bloquants_restants": 3,
+    "bloquants_types": [
+      "annonce_perimee",
+      "niveau_preuve_insuffisant",
+      "accusation_presentee_comme_fait"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "annonce_perimee",
+        "description": "Le résumé présente l'annonce comme un événement à venir (« a annoncé »), alors que le corps de l'article (« L’organisation a indiqué que cette attaque avait potentiellement visé des données personnelles ») et la source [",
+        "phrase": "Le 21 août 2026, la Protection civile a annoncé avoir été victime d’une cyberattaque en mars 2026, selon un article de 20 Minutes publié à cette date [1]."
+      },
+      {
+        "bloc": 1,
+        "type": "niveau_preuve_insuffisant",
+        "description": "La source [1] mentionne une augmentation de 40 % des tentatives de cyberintrusions, mais ne précise pas si ce chiffre provient d'un rapport annuel d'activité de la Protection civile ou d'une autre source. L'article attri",
+        "phrase": "En 2025, soit un an avant cette attaque, la Protection civile avait déjà signalé une augmentation de 40 % des tentatives de cyberintrusions ciblant ses systèmes, selon son rapport annuel d’activité cité par 20 Minutes [1"
+      },
+      {
+        "bloc": 1,
+        "type": "accusation_presentee_comme_fait",
+        "description": "Le résumé présente les risques (chantage, usurpation d'identité) comme des conséquences génériques des cyberattaques, sans attribution claire à la Protection civile. La source [1] indique que ces risques *peuvent* existe",
+        "phrase": "L’organisation n’a pas précisé la nature des informations potentiellement concernées ni le nombre de personnes affectées. Selon la Protection civile, les cyberattaques de ce type peuvent exposer les victimes à des risque"
+      }
+    ],
+    "types_restants": [
+      "annonce_perimee",
+      "niveau_preuve_insuffisant",
+      "accusation_presentee_comme_fait",
+      "source_derivee_comptee_comme_primaire",
+      "contexte_hors_sujet",
+      "compteur_incoherent",
+      "redondance",
+      "section_gonflee",
+      "angle_annonce_non_tenu"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "faits_repetitifs",
+      "titre_de_mauvaise_qualite"
+    ],
+    "titre": "Protection civile : des données personnelles volées lors d'une cyberattaque en mars",
+    "n_sources": 4,
+    "n_mots": 507,
+    "titre_rss": "Cyberattaque : La Protection civile victime (elle aussi) d’un vol de données en mars",
+    "matiere_faits_distincts": 833,
+    "matiere_redondance": 0.01,
+    "matiere_donnees_chiffrees": 3,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "n_sources_pertinentes": 3,
+    "veille_heures_visible": 16.7,
+    "veille_passages": 17,
+    "veille_age_h": 16.7,
+    "veille_n_flux_grappe": 5
+  },
+  {
+    "slug": "canicule-juin-2026-2025-deces-supplementaires-semaine",
+    "statut": "rejete_qualite",
+    "date": "2026-08-22T13:41:41",
+    "problemes_initiaux": 15,
+    "tentatives": 3,
+    "problemes_restants": 8,
+    "bloquants_restants": 3,
+    "bloquants_types": [
+      "chiffre_errone",
+      "chiffre_errone",
+      "incoherence_inter_sections"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "Le résumé indique une hausse de 29,7 % pour les 45 ans ou plus, mais la source [1] (Point de situation de Santé publique France) précise que cette hausse concerne les 75 ans ou plus, pas les 45 ans ou plus. Le chiffre +2",
+        "phrase": "Lors du pic de mortalité, entre le 22 et le 28 juin, les décès ont augmenté de 29,1 % par rapport à la semaine précédente, avec une hausse particulièrement marquée chez les 45 ans ou plus (+29,7 %) et à domicile (+91 %) "
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [1] attribue la hausse de 29,7 % aux 75 ans ou plus, pas aux 45 ans ou plus. Le chiffre est donc erroné pour la tranche d'âge indiquée.",
+        "phrase": "Cette hausse concerne principalement les personnes âgées de 45 ans ou plus, avec une progression de 29,7 % (+2 001 décès) [1][2]."
+      },
+      {
+        "bloc": 1,
+        "type": "incoherence_inter_sections",
+        "description": "Le résumé indique que les Pays de la Loire ont une hausse de +62 %, mais dans la section 'faits', la hausse pour les Pays de la Loire est de +62 % (soit +178 décès), tandis que la source [1] précise que cette hausse est ",
+        "phrase": "Les régions Île-de-France (+62,8 %) et Pays de la Loire (+62 %) ont été les plus touchées lors de ce pic."
+      }
+    ],
+    "types_restants": [
+      "chiffre_errone",
+      "chiffre_errone",
+      "incoherence_inter_sections",
+      "source_derivee_comptee_comme_primaire",
+      "compteur_incoherent",
+      "redondance",
+      "redondance",
+      "faux_debat"
+    ],
+    "article_type": "actu",
+    "titre": "Canicule de juin 2026 : 2 025 décès supplémentaires en une semaine",
+    "n_sources": 5,
+    "n_mots": 667,
+    "titre_rss": "Point de situation sur la mortalité toutes causes confondues  sur la période du 22 au 28 juin 2026",
+    "matiere_faits_distincts": 815,
+    "matiere_redondance": 0.04,
+    "matiere_donnees_chiffrees": 5,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "n_sources_pertinentes": 3,
+    "veille_heures_visible": 27.6,
+    "veille_passages": 28,
+    "veille_age_h": 27.7,
+    "veille_n_flux_grappe": 1
+  },
+  {
+    "slug": "ebola-rdc-2500-morts-propagation-exponentielle-obstacles",
+    "statut": "rejete_qualite",
+    "date": "2026-08-22T13:50:25",
+    "problemes_initiaux": 12,
+    "tentatives": 3,
+    "problemes_restants": 9,
+    "bloquants_restants": 4,
+    "bloquants_types": [
+      "niveau_preuve_insuffisant",
+      "niveau_preuve_insuffisant",
+      "annonce_perimee",
+      "incoherence_inter_sections"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "niveau_preuve_insuffisant",
+        "description": "La source [2] (UN) qualifie les recherches d'« exploratoires » sans préciser le stade (phase 1/2/3) ni l'efficacité, et la source [7] (*The Guardian*) ne fournit pas non plus ces détails. L'article présente ces recherche",
+        "phrase": "Des recherches pour un vaccin contre la souche Bundibugyo sont en cours, mais leur stade et leur efficacité restent non précisés par les sources disponibles [2][7]."
+      },
+      {
+        "bloc": 1,
+        "type": "niveau_preuve_insuffisant",
+        "description": "L'article reprend correctement l'absence de détails sur le stade des essais, mais la source [2] (UN) utilise le terme « exploratoires » pour décrire ces recherches, ce qui n'est pas reflété dans cette phrase. Le niveau d",
+        "phrase": "Concernant les recherches pour un vaccin contre le Bundibugyo, les sources disponibles ne précisent ni le stade des essais (phase 1, 2 ou 3) ni leur efficacité potentielle."
+      },
+      {
+        "bloc": 1,
+        "type": "annonce_perimee",
+        "description": "Le résumé présente la propagation comme une situation actuelle (« s'accélère »), alors que la source [2] (UN, 21 août 2026) ne précise pas si le rythme de décès a évolué depuis la déclaration du 14 août 2026. Le chapeau ",
+        "phrase": "L'ONU indique que la propagation s'accélère dans plusieurs provinces, avec un rythme de décès qualifié d'« sans précédent » en août 2026, tandis que les équipes médicales font face à des zones de conflit, un manque de fi"
+      },
+      {
+        "bloc": 1,
+        "type": "incoherence_inter_sections",
+        "description": "Les sources [1] (Le Monde) et [3] (France 24) du 21 août 2026 reprennent la déclaration du 14 août 2026 sans confirmer que la tendance « se poursuit » ni préciser si le rythme de décès a évolué. L'article présente cette ",
+        "phrase": "Le 14 août 2026, le coordinateur humanitaire de l’ONU, Julien Harneis, avait déclaré que l’épidémie progressait « de façon exponentielle », avec un décès enregistré en moyenne toutes les 30 minutes, un rythme qualifié d'"
+      }
+    ],
+    "types_restants": [
+      "niveau_preuve_insuffisant",
+      "niveau_preuve_insuffisant",
+      "annonce_perimee",
+      "incoherence_inter_sections",
+      "source_derivee_comptee_comme_primaire",
+      "compteur_incoherent",
+      "paraphrase_structurelle",
+      "redondance",
+      "section_gonflee"
+    ],
+    "article_type": "actu",
+    "titre": "Ebola en RDC : 2 500 morts et une propagation hors de contrôle",
+    "n_sources": 7,
+    "n_mots": 460,
+    "titre_rss": "Ebola en RDC : l’épidémie progresse « de façon exponentielle » et dépasse 2 500 morts, alerte l’ONU",
+    "matiere_faits_distincts": 805,
+    "matiere_redondance": 0.07,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "n_sources_pertinentes": 3,
+    "veille_heures_visible": 23.9,
+    "veille_passages": 37,
+    "veille_age_h": 24.0,
+    "veille_n_flux_grappe": 13
+  },
+  {
+    "slug": "paris-arbres-chute-feuilles-ete-2026-canicule-secheresse",
+    "statut": "corrige_automatiquement",
+    "date": "2026-08-22T13:55:44",
+    "problemes_initiaux": 11,
+    "tentatives": 3,
+    "problemes_residuels_style": 9,
+    "rapport_initial": {
+      "conforme": false,
+      "sujet_sensible": false,
+      "sujet_sensible_raison": "",
+      "angle_insuffisant": false,
+      "angle_insuffisant_raison": "",
+      "nature_contenu": "actualite_factuelle",
+      "problemes": [
+        {
+          "bloc": 1,
+          "section": "titre",
+          "type": "chiffre_errone",
+          "phrase_exacte": "Paris : 35 % des arbres d'alignement touchés par la chute précoce des feuilles en août 2026",
+          "explication": "Le titre annonce que 35 % des arbres d'alignement sont touchés par la chute précoce des feuilles, alors que la source [4] (Sudradio) indique que 35 % des alignements parisiens sont composés de platanes, une espèce résistante, et non que 35 % des arbres sont touchés."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "incoherence_inter_sections",
+          "phrase_exacte": "Laurent Chadirac, expert au service de l’arbre et des bois de la ville, indique que 35 % des alignements parisiens sont composés de platanes, une espèce particulièrement résistante à la chaleur et capable de se régénérer rapidement après une chute de feuilles [4].",
+          "explication": "Le chiffre de 35 % est présenté comme une proportion d'arbres touchés dans le titre et le résumé, alors qu'il désigne en réalité la part des alignements composés de platanes (une espèce résistante) dans les faits."
+        },
+        {
+          "bloc": 1,
+          "section": "resume",
+          "type": "annonce_perimee",
+          "phrase_exacte": "Les experts estiment que les conséquences sur la santé des arbres ne seront visibles qu’au printemps 2027, et que certaines espèces résistent mieux que d’autres.",
+          "explication": "Le résumé présente les conséquences comme futures (« ne seront visibles qu’au printemps 2027 »), alors que les faits décrivent un phénomène déjà observable en août 2026 (chute des feuilles, brunissement)."
+        },
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "Laurent Chadirac, expert au service de l’arbre et des bois de la ville, indique que 35 % des alignements parisiens sont composés de platanes [...] [4].",
+          "explication": "La source [4] (Sudradio) ne mentionne pas explicitement Laurent Chadirac ni cette statistique de 35 % des alignements composés de platanes. Aucun extrait fourni ne confirme cette attribution."
+        },
+        {
+          "bloc": 2,
+          "section": "contexte",
+          "type": "contexte_hors_sujet",
+          "phrase_exacte": "Les canicules et les sécheresses estivales deviennent plus fréquentes en France en raison du changement climatique, comme le rappelle Wikipédia [6].",
+          "explication": "La source [6] (Wikipédia) est une page générale sur les canicules, sans lien spécifique avec les arbres parisiens ou leur stress hydrique. Elle n'éclaire pas directement le sujet de l'article."
+        },
+        {
+          "bloc": 2,
+          "section": "contexte",
+          "type": "source_derivee_comptee_comme_primaire",
+          "phrase_exacte": "Les sources utilisées incluent Sciences et Avenir, Sudradio, MétéoFrance et Wikipédia, comptabilisées comme 4 sources distinctes.",
+          "explication": "Sciences et Avenir [1] et Sudradio [3] reprennent visiblement la même information (même titre d'article), ce qui en fait des sources dérivées d'un même contenu. Elles ne devraient pas être comptées comme deux sources indépendantes."
+        },
+        {
+          "bloc": 2,
+          "section": "global",
+          "type": "compteur_incoherent",
+          "phrase_exacte": "\"nb_sources\": 4",
+          "explication": "Le compteur indique 4 sources, mais Sciences et Avenir [1] et Sudradio [3] sont des reprises d'une même information, réduisant le nombre de sources indépendantes effectives à 3 (MétéoFrance, Wikipédia, et une seule des deux sources médiatiques)."
+        },
+        {
+          "bloc": 3,
+          "section": "contexte",
+          "type": "cadrage_emprunte",
+          "phrase_exacte": "Les canicules et les sécheresses estivales deviennent plus fréquentes en France en raison du changement climatique, comme le rappelle Wikipédia [6].",
+          "explication": "Le cadrage « deviennent plus fréquentes en raison du changement climatique » est un jugement de valeur ou une interprétation, présenté comme un fait neutre sans attribution explicite à une source spécifique."
+        },
+        {
+          "bloc": 4,
+          "section": "contexte",
+          "type": "redondance",
+          "phrase_exacte": "Les arbres en ville jouent un rôle crucial dans la régulation des températures, en réduisant les effets des îlots de chaleur urbains. Cependant, leur exposition à des conditions extrêmes les rend particulièrement vulnérables.",
+          "explication": "Cette phrase répète une idée déjà présente dans les faits (« menace les effets rafraîchissants des arbres en ville ») sans apporter d'information nouvelle."
+        },
+        {
+          "bloc": 4,
+          "section": "nuances",
+          "type": "section_gonflee",
+          "phrase_exacte": "Si la chute précoce des feuilles est un mécanisme de survie naturel, ses conséquences à long terme restent incertaines.",
+          "explication": "La section « nuances » se limite à reformuler des éléments déjà présents dans les faits (mécanisme de survie, incertitudes) sans apporter de perspective ou de fait distinct sourcé."
+        },
+        {
+          "bloc": 4,
+          "section": "resume",
+          "type": "extrapolation",
+          "phrase_exacte": "Ce mécanisme, bien que naturel, menace les effets rafraîchissants des arbres en ville, poussant la municipalité à diversifier les essences plantées pour s’adapter au climat.",
+          "explication": "L'article affirme que la diversification des essences est une réponse à la menace sur les effets rafraîchissants, sans que cette causalité soit explicitement sourcée (aucune source ne lie directement ces deux éléments)."
+        }
+      ]
+    },
+    "article_type": "actu",
+    "titre": "Paris : 35 % des arbres d'alignement touchés par la chute précoce des feuilles en août 2026",
+    "n_sources": 4,
+    "n_mots": 557,
+    "titre_rss": "Canicule et sécheresse : les arbres de Paris sous pression",
+    "matiere_faits_distincts": 752,
+    "matiere_redondance": 0.03,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "n_sources_pertinentes": 3,
+    "veille_heures_visible": 22.4,
+    "veille_passages": 23,
+    "veille_age_h": 22.5,
+    "veille_n_flux_grappe": 6
+  },
+  {
+    "slug": "canicule-juin-2026-maladies-chroniques-traitements-adaptation",
+    "statut": "rejete_qualite",
+    "date": "2026-08-22T14:01:59",
+    "problemes_initiaux": 13,
+    "tentatives": 3,
+    "problemes_restants": 12,
+    "bloquants_restants": 3,
+    "bloquants_types": [
+      "annonce_perimee",
+      "annonce_perimee",
+      "accusation_presentee_comme_fait"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "annonce_perimee",
+        "description": "Le résumé présente comme une actualité récente (« voient leur état se dégrader ») un fait décrit dans *Le Monde* daté du 22 août 2026, soit deux mois après la canicule de juin 2026. La source [1] est rétrospective et non",
+        "phrase": "D’après des professionnels de santé cités par *Le Monde*, ces patients voient leur état se dégrader sous l’effet de la chaleur, et l’adaptation de certains traitements, comme les diurétiques ou les neuroleptiques, peut s"
+      },
+      {
+        "bloc": 1,
+        "type": "annonce_perimee",
+        "description": "L'article du *Monde* est postérieur à la canicule (22 août 2026) et ne peut donc décrire des effets observés *pendant* l'épisode de juin 2026. La source [1] est utilisée pour un fait présenté comme contemporain, alors qu",
+        "phrase": "Selon un article du *Monde* publié le 22 août 2026, les personnes atteintes de maladies chroniques, notamment l’insuffisance cardiaque, rénale ou les troubles psychiatriques, voient leur capacité à réguler leur températu"
+      },
+      {
+        "bloc": 1,
+        "type": "accusation_presentee_comme_fait",
+        "description": "La phrase présente comme un constat factuel (« n’étaient pas opérationnels ») une observation attribuée à la ministre, sans préciser qu'il s'agit de *son* constat ou de *sa* critique. Cela équivaut à une accusation refor",
+        "phrase": "La ministre de la Santé a constaté que les registres municipaux des personnes fragiles, prévus pour être activés du 1er juin au 31 août dans le cadre du plan canicule, n’étaient pas opérationnels au début de cette vague "
+      }
+    ],
+    "types_restants": [
+      "annonce_perimee",
+      "annonce_perimee",
+      "accusation_presentee_comme_fait",
+      "acteur_mis_en_cause_sans_reponse",
+      "chronologie_confuse",
+      "source_derivee_comptee_comme_primaire",
+      "compteur_incoherent",
+      "contexte_hors_sujet",
+      "cadrage_emprunte",
+      "redondance",
+      "faux_debat",
+      "angle_annonce_non_tenu"
+    ],
+    "article_type": "actu",
+    "titre": "Canicule de juin 2026 : 9 décès et des traitements chroniques difficiles à ajuster",
+    "n_sources": 7,
+    "n_mots": 508,
+    "titre_rss": "La canicule, piège silencieux pour les personnes atteintes de maladies chroniques",
+    "matiere_faits_distincts": 837,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 2,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "n_sources_pertinentes": 7,
+    "veille_heures_visible": 7.6,
+    "veille_passages": 36,
+    "veille_age_h": 7.7,
+    "veille_n_flux_grappe": 4
+  },
+  {
+    "slug": "7300-morts-exces-canicules-france-2026-bilan-provisoire",
+    "statut": "rejete_qualite",
+    "date": "2026-08-22T14:10:39",
+    "problemes_initiaux": 9,
+    "tentatives": 3,
+    "problemes_restants": 10,
+    "bloquants_restants": 3,
+    "bloquants_types": [
+      "chiffre_errone",
+      "incoherence_inter_sections",
+      "annonce_perimee"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "Le résumé attribue le chiffre de 7 300 décès en excès aux 'épisodes de chaleur', alors que les sources [1][2][3][4] précisent que ces chiffres sont calculés sur la base des données de mortalité 'toutes causes confondues'",
+        "phrase": "La France a enregistré plus de 7 300 décès en excès entre mai et le 22 juillet 2026 lors des épisodes de chaleur, selon un bilan provisoire rapporté par plusieurs médias le 19 août."
+      },
+      {
+        "bloc": 1,
+        "type": "incoherence_inter_sections",
+        "description": "La phrase attribue explicitement les 7 300 décès en excès 'lors des épisodes de chaleur', alors que les sources [1][2][3][4] indiquent que ces chiffres ne permettent pas d'établir un lien de causalité direct avec la chal",
+        "phrase": "Entre mai et le 22 juillet 2026, plus de 7 300 décès en excès ont été recensés en France lors des épisodes de chaleur, selon un bilan provisoire rapporté par Sciences et Avenir, RFI, France 24 et Courrierinternational le"
+      },
+      {
+        "bloc": 1,
+        "type": "annonce_perimee",
+        "description": "Le résumé présente la surmortalité comme un constat définitif ('marque une surmortalité significative'), alors que les sources [1][2][3][4] et la section 'nuances' précisent que le bilan est 'provisoire' et soumis à des ",
+        "phrase": "Ce décompte, qui concerne principalement les personnes âgées, marque une surmortalité significative."
+      }
+    ],
+    "types_restants": [
+      "chiffre_errone",
+      "incoherence_inter_sections",
+      "annonce_perimee",
+      "source_derivee_comptee_comme_primaire",
+      "compteur_incoherent",
+      "redondance",
+      "redondance",
+      "fait_tranche_arbitrairement",
+      "fait_tranche_arbitrairement",
+      "section_gonflee"
+    ],
+    "article_type": "actu",
+    "titre": "7 300 morts en excès liés aux canicules en France depuis mai 2026",
+    "n_sources": 6,
+    "n_mots": 540,
+    "titre_rss": "Canicules : déjà 7.300 morts en excès en France en 2026",
+    "matiere_faits_distincts": 698,
+    "matiere_redondance": 0.02,
+    "matiere_donnees_chiffrees": 4,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "n_sources_pertinentes": 5,
+    "veille_heures_visible": 66.8,
+    "veille_passages": 62,
+    "veille_age_h": 66.8,
+    "veille_n_flux_grappe": 4
+  },
+  {
+    "slug": "senat-bei-financement-armes-munitions-europeennes",
+    "statut": "rejete_qualite",
+    "date": "2026-08-22T14:17:37",
+    "problemes_initiaux": 11,
+    "tentatives": 3,
+    "problemes_restants": 10,
+    "bloquants_restants": 4,
+    "bloquants_types": [
+      "annonce_perimee",
+      "accusation_presentee_comme_fait",
+      "niveau_preuve_insuffisant",
+      "incoherence_inter_sections"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "annonce_perimee",
+        "description": "Le résumé présente l'adoption de la résolution comme un événement à venir (« demandant à la BEI »), alors que la section 'faits' décrit l'événement comme déjà survenu (« Le 8 juillet 2026, le Sénat a adopté la propositio",
+        "phrase": "Le 8 juillet 2026, le Sénat a adopté une résolution européenne demandant à la Banque européenne d'investissement (BEI) d'étendre ses financements aux armes et munitions produites par les industries de défense européennes"
+      },
+      {
+        "bloc": 1,
+        "type": "accusation_presentee_comme_fait",
+        "description": "Le résumé présente l'opinion des sénateurs (« pourraient être surmontées ») comme un constat factuel, sans attribution explicite. Il doit être reformulé pour clarifier qu'il s'agit d'une position des sénateurs, pas d'un ",
+        "phrase": "Selon les sénateurs, les réticences de la BEI, liées à son modèle économique et aux critères ESG, pourraient être surmontées grâce à des évolutions récentes dans les régulations et les attentes des investisseurs [1]."
+      },
+      {
+        "bloc": 1,
+        "type": "niveau_preuve_insuffisant",
+        "description": "L'article présente l'idée que les craintes de la BEI « pourraient être exagérées » sans préciser que cette affirmation repose sur une opinion des sénateurs, sans preuve ou analyse étayée dans les sources fournies. Les so",
+        "phrase": "Selon les sénateurs, les craintes de la BEI, liées à des risques pour son modèle économique et à la perte d'investisseurs sensibles aux critères ESG, pourraient être exagérées."
+      },
+      {
+        "bloc": 1,
+        "type": "incoherence_inter_sections",
+        "description": "La section 'contexte' présente l'exclusion des armes par la BEI comme un fait établi, alors que la section 'nuances' précise que cette exclusion nécessiterait une modification des statuts de la BEI, ce qui n'est pas enco",
+        "phrase": "Cependant, la BEI maintient une exclusion totale pour les armes et les munitions, justifiée par des préoccupations liées à son modèle économique et à ses engagements en matière de finance durable [1]."
+      }
+    ],
+    "types_restants": [
+      "annonce_perimee",
+      "accusation_presentee_comme_fait",
+      "niveau_preuve_insuffisant",
+      "fait_tranche_arbitrairement",
+      "incoherence_inter_sections",
+      "source_derivee_comptee_comme_primaire",
+      "compteur_incoherent",
+      "faux_debat",
+      "acteur_mis_en_cause_sans_reponse",
+      "angle_annonce_non_tenu"
+    ],
+    "article_type": "actu",
+    "titre": "Le Sénat pousse la BEI à financer les armes et munitions européennes",
+    "n_sources": 4,
+    "n_mots": 632,
+    "titre_rss": "Armes et munitions produites par les industries européennes de la défense - Rapport n° 879",
+    "matiere_faits_distincts": 488,
+    "matiere_redondance": 0.15,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "n_sources_pertinentes": 5,
+    "veille_heures_visible": 250.9,
+    "veille_passages": 207,
+    "veille_age_h": 251.0,
+    "veille_n_flux_grappe": 7
+  },
+  {
+    "slug": "foret-fontainebleau-reouverture-partielle-apres-incendie",
+    "statut": "rejete_qualite",
+    "date": "2026-08-22T14:25:07",
+    "problemes_initiaux": 8,
+    "tentatives": 3,
+    "problemes_restants": 10,
+    "bloquants_restants": 3,
+    "bloquants_types": [
+      "annonce_perimee",
+      "annonce_perimee",
+      "source_inventee"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "annonce_perimee",
+        "description": "Le titre et le résumé présentent la réouverture comme une annonce à venir (« rouvre 80 % de son massif au public ce samedi »), alors que le corps de l'article décrit l'événement comme déjà survenu (« a rouvert ce samedi ",
+        "phrase": "La forêt de Fontainebleau a rouvert ce samedi après avoir été partiellement ravagée par un incendie en juillet."
+      },
+      {
+        "bloc": 1,
+        "type": "annonce_perimee",
+        "description": "Le résumé utilise le passé composé (« a rouvert ») mais maintient la formulation « comme l'a annoncé vendredi », ce qui crée une confusion sur l'état de l'événement (annoncé vs. effectif). Les sources [2] et [4] confirme",
+        "phrase": "La forêt de Fontainebleau, touchée par un incendie historique en juillet, a rouvert 80 % de son massif au public ce samedi, comme l'a annoncé vendredi le préfet délégué Benoît Kaplan, selon *La Croix* [2]."
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "La source [4] (*Le Monde*) ne mentionne pas explicitement les panneaux d'affichage ou une invitation à les consulter. Cette information n'apparaît pas dans les extraits fournis des sources autorisées.",
+        "phrase": "Les visiteurs sont invités à consulter les panneaux d'affichage pour connaître les restrictions en vigueur, précise *Le Monde* [4]."
+      }
+    ],
+    "types_restants": [
+      "annonce_perimee",
+      "annonce_perimee",
+      "chronologie_confuse",
+      "source_inventee",
+      "source_derivee_comptee_comme_primaire",
+      "compteur_incoherent",
+      "paraphrase_structurelle",
+      "redondance",
+      "redondance",
+      "faux_debat"
+    ],
+    "article_type": "actu",
+    "titre": "Fontainebleau rouvre à 80 % après l'incendie de juillet",
+    "n_sources": 4,
+    "n_mots": 670,
+    "titre_rss": "Incendie : une partie de la forêt de Fontainebleau rouverte au public à partir de samedi",
+    "matiere_faits_distincts": 443,
+    "matiere_redondance": 0.01,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "n_sources_pertinentes": 4,
+    "veille_heures_visible": 19.8,
+    "veille_passages": 20,
+    "veille_age_h": 19.8,
+    "veille_n_flux_grappe": 6
+  },
+  {
+    "slug": "stars-and-stripes-licenciements-pentagone-independance-editoriale",
+    "statut": "rejete_sensible",
+    "date": "2026-08-22T14:37:25",
+    "problemes_initiaux": 10,
+    "tentative": 2,
+    "bloc5": true,
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "faits_repetitifs"
+    ],
+    "titre": "Stars and Stripes : trois licenciements qui secouent la presse militaire américaine",
+    "n_sources": 10,
+    "n_mots": 566,
+    "titre_rss": "L’indépendance d’un journal militaire américain « Stars and Stripes » menacée après le licenciement de deux responsables éditoriaux par le Pentagone",
+    "matiere_faits_distincts": 716,
+    "matiere_redondance": 0.09,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "n_sources_pertinentes": 7,
+    "veille_heures_visible": 9.8,
+    "veille_passages": 11,
+    "veille_age_h": 9.9,
+    "veille_n_flux_grappe": 4
+  },
+  {
+    "slug": "ia-generative-creativite-agences-competences-2025",
+    "statut": "rejete_qualite",
+    "date": "2026-08-22T14:47:15",
+    "problemes_initiaux": 13,
+    "tentatives": 3,
+    "problemes_restants": 11,
+    "bloquants_restants": 4,
+    "bloquants_types": [
+      "niveau_preuve_insuffisant",
+      "niveau_preuve_insuffisant",
+      "accusation_presentee_comme_fait",
+      "accusation_presentee_comme_fait"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "niveau_preuve_insuffisant",
+        "description": "Le résumé présente l'intuition comme une compétence clé sans mentionner explicitement que le rapport la qualifie d'« analyse sans preuve expérimentale », ce qui minimise le niveau de preuve réel fourni par la source.",
+        "phrase": "L'intuition, décrite comme un jugement holistique difficilement reproductible par l'IA, présentée comme une analyse sans preuve expérimentale [Sénat]."
+      },
+      {
+        "bloc": 1,
+        "type": "niveau_preuve_insuffisant",
+        "description": "L'article ne précise pas que cette affirmation est qualifiée par la source comme une « analyse sans preuve expérimentale », ce qui en réduit le niveau de preuve.",
+        "phrase": "L'intuition, définie dans le rapport comme un jugement holistique et affectivement chargé, est présentée comme une compétence difficilement reproductible par les modèles algorithmiques actuels."
+      },
+      {
+        "bloc": 1,
+        "type": "accusation_presentee_comme_fait",
+        "description": "Le résumé présente comme un constat factuel (« peinent à transgresser les normes établies ») ce qui est une conclusion du rapport, sans attribution explicite à la source dans la formulation.",
+        "phrase": "Selon ce document, cette technologie interroge la place de la créativité humaine, tout en soulignant que les modèles actuels peinent à transgresser les normes établies ou à proposer des stratégies disruptives, comme le p"
+      },
+      {
+        "bloc": 1,
+        "type": "accusation_presentee_comme_fait",
+        "description": "La phrase présente comme un fait établi (« limite leur capacité ») une conclusion du rapport, sans reformuler explicitement que c'est une analyse du Sénat.",
+        "phrase": "Selon le rapport du Sénat du 9 juillet 2025, les modèles d'IA générative reflètent les consensus présents dans leurs données d'entraînement, ce qui, d'après le document, limite leur capacité à proposer des stratégies dis"
+      }
+    ],
+    "types_restants": [
+      "niveau_preuve_insuffisant",
+      "niveau_preuve_insuffisant",
+      "accusation_presentee_comme_fait",
+      "accusation_presentee_comme_fait",
+      "compteur_incoherent",
+      "source_derivee_comptee_comme_primaire",
+      "cadrage_emprunte",
+      "contexte_hors_sujet",
+      "contexte_hors_sujet",
+      "redondance",
+      "faux_debat"
+    ],
+    "article_type": "actu",
+    "titre": "L'IA générative transforme la créativité en agence sans la remplacer",
+    "n_sources": 3,
+    "n_mots": 850,
+    "titre_rss": "L’IA ne tue pas la créativité en agence, elle la transforme",
+    "matiere_faits_distincts": 1121,
+    "matiere_redondance": 0.02,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "n_sources_pertinentes": 5,
+    "veille_heures_visible": 23.9,
+    "veille_passages": 24,
+    "veille_age_h": 24.0,
+    "veille_n_flux_grappe": 1
+  },
+  {
+    "slug": "s301-etoile-record-vitesse-trou-noir-voie-lactee",
+    "statut": "rejete_qualite",
+    "date": "2026-08-22T14:57:00",
+    "problemes_initiaux": 9,
+    "tentatives": 3,
+    "problemes_restants": 10,
+    "bloquants_restants": 2,
+    "bloquants_types": [
+      "annonce_perimee",
+      "incoherence_inter_sections"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "annonce_perimee",
+        "description": "Le résumé présente la découverte comme récente (« découverte en août 2026 »), mais les sources [3] (ESO) et les autres sources secondaires décrivent déjà l'étoile comme observée et ses caractéristiques mesurées, sans men",
+        "phrase": "Une étoile nommée S301, découverte en août 2026, détient le record de vitesse dans notre galaxie en frôlant le trou noir central à 25 000 km/s, selon l'Observatoire européen austral (ESO) [3]."
+      },
+      {
+        "bloc": 1,
+        "type": "incoherence_inter_sections",
+        "description": "Le chiffre de 8,3 % de la vitesse de la lumière est mentionné dans le corps de l'article, mais il n'apparaît pas dans le résumé, qui se contente de citer 25 000 km/s sans cette précision. Bien que ce ne soit pas une cont",
+        "phrase": "Lors de son passage au plus près de Sagittarius A*, le trou noir supermassif situé au centre galactique, elle atteint 25 000 kilomètres par seconde, soit 8,3 % de la vitesse de la lumière, selon l'Observatoire européen a"
+      }
+    ],
+    "types_restants": [
+      "annonce_perimee",
+      "incoherence_inter_sections",
+      "fait_tranche_arbitrairement",
+      "fait_tranche_arbitrairement",
+      "source_derivee_comptee_comme_primaire",
+      "compteur_incoherent",
+      "paraphrase_structurelle",
+      "cadrage_emprunte",
+      "redondance",
+      "contexte_hors_sujet"
+    ],
+    "article_type": "actu",
+    "titre": "S301, l'étoile record qui défie les lois de la physique stellaire",
+    "n_sources": 9,
+    "n_mots": 622,
+    "titre_rss": "L’étoile la plus rapide de la Voie lactée fonce à 25.000 km/s autour d’un trou noir",
+    "matiere_faits_distincts": 776,
+    "matiere_redondance": 0.26,
+    "matiere_donnees_chiffrees": 2,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "n_sources_pertinentes": 6,
+    "veille_heures_visible": 43.8,
+    "veille_passages": 42,
+    "veille_age_h": 43.8,
+    "veille_n_flux_grappe": 2
   }
 ]
