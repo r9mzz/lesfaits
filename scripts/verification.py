@@ -40,6 +40,20 @@ if _BASE_URL:
 else:
     _verification.GROQ_URL = "https://api.groq.com/openai/v1/chat/completions"
 
+# Le run du 22/08 a montré un faux positif déterministe de chronologie : le juge
+# a classé ``annonce_perimee`` le simple fait qu'un article publié le 22 août
+# décrive rétrospectivement des effets observés pendant la canicule de juin.
+# La date de publication d'une source n'interdit évidemment pas qu'elle rapporte
+# un événement antérieur. ``annonce_perimee`` reste bloquant quand le TEXTE de
+# l'article présente comme futur un événement que les sources établissent comme
+# déjà survenu ; on corrige uniquement la confusion « source postérieure = récit
+# impossible ». Aucun seuil éditorial n'est modifié.
+_RETROSPECTIVE_SOURCE_RULE = """
+⚠ CHRONOLOGIE DES SOURCES — une source publiée APRÈS un événement peut parfaitement le décrire rétrospectivement. La seule différence entre la date de publication de la source et la date de l'événement n'est JAMAIS, à elle seule, un motif ``annonce_perimee`` ou ``chronologie_confuse``. Signale ``annonce_perimee`` uniquement si le TEXTE DE L'ARTICLE présente comme futur, actuel ou définitif un état que les extraits fournis établissent explicitement comme déjà survenu, terminé, dépassé ou provisoire. Ne déduis jamais qu'une source « ne peut pas décrire » un événement antérieur simplement parce qu'elle a été publiée plus tard.
+""".strip()
+if _RETROSPECTIVE_SOURCE_RULE not in _verification.PROMPT_DETECTION:
+    _verification.PROMPT_DETECTION += "\n\n" + _RETROSPECTIVE_SOURCE_RULE
+
 # Le run du 19/08 a montré une asymétrie réelle entre génération et
 # vérification : la génération savait continuer avec une autre clé Groq, mais le
 # fact-checker historique levait immédiatement sur le premier 401/403. Une seule
