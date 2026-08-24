@@ -227,7 +227,17 @@ jobs:
           # mois sur Llama. Mesurer avec model_compare.yml avant d'engager la
           # production.
           LLM_BASE_URL: ${{ inputs.base_url || vars.LLM_BASE_URL }}
+          # ⚠ CHAQUE CLÉ DOIT ÊTRE CÂBLÉE ICI, une par une. Un secret qui
+          # existe dans le dépôt mais qui n'est pas listé dans ce bloc
+          # N'ATTEINT PAS le processus : le code lirait LLM_API_KEY_2 dans un
+          # environnement où elle n'existe pas et tournerait sur une seule clé,
+          # sans que rien ne le signale. C'est le défaut du 10/08 côté Groq —
+          # « le pipeline tournait sur 9 clés alors que pipeline.yml en câble
+          # 23 », quatre jours sans publication. Ajouter une clé au dépôt sans
+          # ajouter sa ligne ici ne sert donc à rien.
           LLM_API_KEY: ${{ secrets.LLM_API_KEY }}
+          LLM_API_KEY_2: ${{ secrets.LLM_API_KEY_2 }}
+          LLM_API_KEY_3: ${{ secrets.LLM_API_KEY_3 }}
           PYTHONIOENCODING: utf-8
           TZ: Europe/Paris
         run: |
@@ -247,6 +257,40 @@ jobs:
             --json "${RUNNER_TEMP}/pipeline-report.json" \
             --markdown "${RUNNER_TEMP}/pipeline-report.md"
           cat "${RUNNER_TEMP}/pipeline-report.md" >> "$GITHUB_STEP_SUMMARY"
+
+      # ── PANNE D'AUTHENTIFICATION : ne JAMAIS finir en vert ────────────────
+      # Les 23 et 24/08, deux runs ont tourné 43 et 59 minutes en produisant 73
+      # refus « 402 Check your subscription », zéro article, zéro ligne de
+      # journal — et un job GitHub VERT à chaque fois. Trois jours perdus sans
+      # qu'aucun signal n'existe : c'est la même famille que le flux RSS qui
+      # répond 200 avec 0 article, le pire cas parce qu'il est invisible.
+      #
+      # Un run qui n'obtient AUCUNE réponse du modèle n'est pas un run sobre,
+      # c'est une panne. On la distingue du run éditorialement stérile (zéro
+      # article publié parce que rien n'a passé les contrôles), qui reste un
+      # SUCCÈS selon la charte — d'où le critère : des refus d'auth ET aucune
+      # génération menée à bien.
+      - name: Alerter si le fournisseur a tout refusé
+        if: always() && steps.garde.outputs.passer != 'true'
+        run: |
+          LOG="${RUNNER_TEMP}/lesfaits-pipeline.log"
+          [ -f "$LOG" ] || exit 0
+          REFUS=$(grep -cE "Error code: (401|402|429)" "$LOG" || true)
+          OK=$(grep -cE "\[TOKENS\] prompt=" "$LOG" || true)
+          echo "Refus d'authentification/quota : ${REFUS} · générations abouties : ${OK}"
+          if [ "$REFUS" -gt 0 ] && [ "$OK" -eq 0 ]; then
+            echo "::error::Fournisseur injoignable — ${REFUS} refus, aucune génération. Vérifier les clés et le quota sur le fournisseur."
+            {
+              echo ""
+              echo "## ⛔ Panne fournisseur"
+              echo ""
+              echo "- Refus (401/402/429) : ${REFUS}"
+              echo "- Générations abouties : ${OK}"
+              echo ""
+              echo "Ce run n'a produit AUCUN appel modèle réussi. Ce n'est pas un run stérile, c'est une panne d'accès."
+            } >> "$GITHUB_STEP_SUMMARY"
+            exit 1
+          fi
 
       - name: Conserver les diagnostics du run
         if: always() && steps.garde.outputs.passer != 'true'
