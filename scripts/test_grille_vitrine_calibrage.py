@@ -5,9 +5,10 @@ sur 140, le maximum jamais atteint par le site étant 670 mots. Un article
 franchissait tout le protocole — génération, relances, garde-fous, fact-check
 3 passes — pour mourir sur un seuil que rien n'avait jamais atteint.
 
-Ce test ne fige pas les valeurs : il vérifie la PROPRIÉTÉ qui manquait, à
-savoir qu'un seuil de publication reste atteignable par la production réelle.
-Figer 400 le rendrait cassant au prochain arbitrage éditorial, pour rien.
+Ce test ne fige pas les valeurs de longueur : il vérifie la PROPRIÉTÉ qui
+manquait, à savoir qu'un seuil de publication reste atteignable par la
+production réelle. Les minima de sourcing, eux, ont un plancher éditorial
+historique explicite : ils ne doivent jamais être abaissés pour faire du volume.
 """
 import showcase_quality as S
 
@@ -24,12 +25,7 @@ CORPUS = {           # min   p33  médiane   max
 
 
 def test_chaque_seuil_est_atteignable():
-    """Aucun seuil ne doit dépasser le MAXIMUM jamais produit par le site.
-
-    C'est la propriété violée avant le 21/08, et elle est plus forte qu'un
-    simple « le seuil est bas » : un seuil au-dessus du maximum observé ne
-    sélectionne pas les meilleurs articles, il les rejette tous.
-    """
+    """Aucun seuil ne doit dépasser le MAXIMUM jamais produit par le site."""
     for cle, (_, _, _, maxi) in CORPUS.items():
         seuil = S.MIN_WORDS[cle]
         assert seuil <= maxi, (
@@ -38,24 +34,14 @@ def test_chaque_seuil_est_atteignable():
 
 
 def test_le_total_reste_selectif():
-    """La vitrine doit trancher, pas tout laisser passer.
-
-    Borne basse : au-dessus du 33e percentile, sinon elle cesse de filtrer.
-    C'est le calibrage retenu le 12/08 pour la grille brève (« écarter le
-    tiers inférieur »), repris ici pour l'article.
-    """
+    """La vitrine doit trancher, pas tout laisser passer."""
     assert S.MIN_WORDS["total"] >= CORPUS["total"][1], (
         "seuil total sous le tiers inférieur du corpus : la vitrine ne "
         "sélectionne plus rien")
 
 
 def test_les_sections_ne_contredisent_pas_le_total():
-    """faits+contexte+nuances ne peut pas exiger plus que le total.
-
-    Une somme de minima supérieure au minimum du total rend le seuil `total`
-    décoratif : c'est la somme qui décide, en silence. Même famille de défaut
-    que le plancher de prompt du 15/08 — une contrainte déplacée ailleurs.
-    """
+    """faits+contexte+nuances ne peut pas exiger plus que le total."""
     somme = sum(S.MIN_WORDS[k] for k in ("faits", "contexte", "nuances"))
     assert somme <= S.MIN_WORDS["total"], (
         f"sections {somme} mots > total {S.MIN_WORDS['total']} : le seuil "
@@ -63,13 +49,23 @@ def test_les_sections_ne_contredisent_pas_le_total():
 
 
 def test_les_criteres_non_longueur_sont_intacts():
-    """Le recalibrage ne desserre QUE la longueur.
-
-    Boohoo échouait aussi sur « 0 primaire » et « sources listées mais non
-    citées » — ces reproches sont fondés et doivent continuer de rejeter.
-    """
+    """Le recalibrage ne desserre QUE la longueur."""
     assert S.MIN_SOURCES == 6
     assert S.MIN_DISTINCT_DOMAINS == 5
+
+
+def test_le_sourcing_ne_peut_pas_etre_abaisse_pour_faire_du_volume():
+    """Régression du 24/08 : 6/5 avait été abaissé à 3/3 pour élargir la vitrine.
+
+    Le mandat d'exploitation interdit explicitement cette stratégie. Les minima
+    historiques 6 sources / 5 domaines sont donc des planchers, pas des cibles
+    qu'un recalibrage de volume peut réduire.
+    """
+    assert S.MIN_SOURCES >= 6, (
+        f"MIN_SOURCES={S.MIN_SOURCES}: sous le plancher éditorial historique 6")
+    assert S.MIN_DISTINCT_DOMAINS >= 5, (
+        f"MIN_DISTINCT_DOMAINS={S.MIN_DISTINCT_DOMAINS}: sous le plancher historique 5")
+    assert S.MIN_DISTINCT_DOMAINS <= S.MIN_SOURCES
 
 
 if __name__ == "__main__":
