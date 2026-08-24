@@ -39,6 +39,8 @@ on:
       - "scripts/test_json_generation_ci_contract.py"
       - "scripts/test_citations_ponctuation.py"
       - "scripts/test_citations_ponctuation_ci_contract.py"
+      - "scripts/test_acharnement_editorial.py"
+      - "scripts/test_acharnement_editorial_ci_contract.py"
       - "scripts/test_editorial_quality_main_push_ci_contract.py"
       - ".github/workflows/pipeline.yml"
       - ".github/workflows/deploy.yml"
@@ -80,6 +82,8 @@ on:
       - "scripts/test_json_generation_ci_contract.py"
       - "scripts/test_citations_ponctuation.py"
       - "scripts/test_citations_ponctuation_ci_contract.py"
+      - "scripts/test_acharnement_editorial.py"
+      - "scripts/test_acharnement_editorial_ci_contract.py"
       - "scripts/test_editorial_quality_main_push_ci_contract.py"
       - ".github/workflows/pipeline.yml"
       - ".github/workflows/deploy.yml"
@@ -143,6 +147,8 @@ jobs:
           scripts/test_json_generation_ci_contract.py
           scripts/test_citations_ponctuation.py
           scripts/test_citations_ponctuation_ci_contract.py
+          scripts/test_acharnement_editorial.py
+          scripts/test_acharnement_editorial_ci_contract.py
           scripts/test_editorial_quality_main_push_ci_contract.py
 
       - name: Tests de non-régression éditoriale
@@ -168,6 +174,8 @@ jobs:
           python scripts/test_json_generation_ci_contract.py
           python scripts/test_citations_ponctuation.py
           python scripts/test_citations_ponctuation_ci_contract.py
+          python scripts/test_acharnement_editorial.py
+          python scripts/test_acharnement_editorial_ci_contract.py
           python scripts/test_editorial_quality_main_push_ci_contract.py
 
       - name: Vérifier la lecture du corpus HTML
