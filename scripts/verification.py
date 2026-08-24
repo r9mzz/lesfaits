@@ -20,6 +20,7 @@ import os
 import sys
 
 import verification_legacy as _verification
+from cles_fournisseur import cles_fournisseur
 
 # Le défaut suit le fournisseur : un nom de modèle Groq envoyé à Mistral produit
 # un 404 sur chaque vérification, donc zéro article publié — la panne exacte des
@@ -29,11 +30,16 @@ _MODEL = (os.getenv("GROQ_MODEL_OVERRIDE", "").strip()
           or ("mistral-large-latest" if "mistral.ai" in _BASE_POUR_DEFAUT
               else "openai/gpt-oss-120b"))
 _BASE_URL = os.getenv("LLM_BASE_URL", "").strip()
-_LLM_KEY = os.getenv("LLM_API_KEY", "").strip()
+# Même résolution que la génération, au caractère près : `LLM_API_KEY` plus
+# `LLM_API_KEY_2..N`. Le 401 du 19/08 venait de deux listes de clés
+# divergentes entre génération et fact-check ; une seule fonction partagée
+# rend ce défaut impossible à reproduire.
+_LLM_KEYS = cles_fournisseur()
+_LLM_KEY = _LLM_KEYS[0] if _LLM_KEYS else ""
 
 _verification.GROQ_MODEL = _MODEL
-if _LLM_KEY:
-    _verification.GROQ_KEYS = [_LLM_KEY]
+if _LLM_KEYS:
+    _verification.GROQ_KEYS = list(_LLM_KEYS)
 
 if _BASE_URL:
     _verification.GROQ_URL = _BASE_URL.rstrip("/") + "/chat/completions"

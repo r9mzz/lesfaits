@@ -24,6 +24,7 @@ from bs4 import BeautifulSoup
 from dotenv import load_dotenv
 
 # Vérification éditoriale 3 passes (Groq Llama 3.3) — inactive sans clé Groq
+from cles_fournisseur import cles_fournisseur
 from json_robuste import _echapper_controles_json
 from verification import verifier_article
 from html import escape as _esc
@@ -79,20 +80,28 @@ GROQ_ALL_KEYS: list[tuple[str, str]] = (
     + [(k, f"clé {i+2}") for i, k in enumerate(GROQ_KEYS_SECONDAIRES)]
 )
 
-# ── UNE SEULE CLÉ, QUAND LE FOURNISSEUR CHANGE ──────────────────────────────
-# Les 11 clés Groq existent pour contourner un plafond journalier de 100 k
-# tokens PAR COMPTE. Un fournisseur dont le palier gratuit accorde 1 milliard
-# de tokens par mois n'a pas ce problème : une clé suffit, et en ouvrir onze
-# n'apporterait rien.
+# ── LES CLÉS DU FOURNISSEUR — hypothèse du 18/08 DÉMENTIE le 22/08 ──────────
+# Ce bloc affirmait : « un fournisseur dont le palier gratuit accorde 1
+# milliard de tokens par mois n'a pas ce problème : une clé suffit, et en
+# ouvrir onze n'apporterait rien. » C'était faux.
 #
-# `LLM_API_KEY` remplace donc la liste entière quand elle est définie. Tout le
-# reste du code continue de lire `GROQ_ALL_KEYS` — rotation, marquage des clés
-# mortes, tour de clé du juge de pertinence : rien à réécrire, et une liste
-# d'un seul élément traverse ces mécanismes sans cas particulier (l'index de
-# rotation `hash % len` vaut alors toujours 0).
-LLM_API_KEY = os.getenv("LLM_API_KEY", "").strip()
-if LLM_API_KEY:
-    GROQ_ALL_KEYS = [(LLM_API_KEY, "clé fournisseur")]
+# Run du 22/08 : quota épuisé aux TROIS QUARTS du run (402 « Check your
+# subscription » à la ligne 892 sur 1234). Runs des 23 et 24 : 73 refus, zéro
+# ligne produite, et un job GitHub vert à chaque fois. Le nombre de clés n'est
+# pas une propriété du fournisseur, c'est une variable d'exploitation — la même
+# leçon que pour Groq le 10/08.
+#
+# `LLM_API_KEY`, `LLM_API_KEY_2`, `LLM_API_KEY_3`, … remplacent donc la liste
+# entière. Tout le reste du code continue de lire `GROQ_ALL_KEYS` — rotation,
+# marquage des clés mortes, tour de clé du juge de pertinence : rien à
+# réécrire. La résolution est PARTAGÉE avec `verification.py` via
+# `cles_fournisseur` : la panne du 19/08 (401 sur le fact-check) venait
+# exactement de deux résolutions divergentes entre les deux côtés.
+LLM_API_KEYS = cles_fournisseur()
+LLM_API_KEY = LLM_API_KEYS[0] if LLM_API_KEYS else ""
+if LLM_API_KEYS:
+    GROQ_ALL_KEYS = [(k, f"clé fournisseur {i}")
+                     for i, k in enumerate(LLM_API_KEYS, 1)]
 
 # ── Clés CÂBLÉES mais ABSENTES des secrets (constat 10/08) ───────────────────
 # Quatre jours sans publication : le pipeline tournait sur 9 clés alors que

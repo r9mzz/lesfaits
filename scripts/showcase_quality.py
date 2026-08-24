@@ -59,8 +59,37 @@ MIN_WORDS = {
     "nuances": 91,
     "total": 400,
 }
-MIN_SOURCES = 6
-MIN_DISTINCT_DOMAINS = 5
+# ── 24/08 : la vitrine exigeait ce que la porte de pertinence rend impossible ─
+# Décision de Nahil après mesure. Les deux portes se contredisaient :
+#
+#   PERTINENCE_MIN_POUR_GENERER = 3  laisse passer un sujet à 3 sources jugées
+#                                     pertinentes ;
+#   MIN_SOURCES = 6                   exigeait ensuite 6 sources CITÉES.
+#
+# Mesuré sur les 163 articles de l'ère Mistral : médiane 5 sources citées, mais
+# médiane 3 sources PERTINENTES, et 32 articles seulement (20 %) disposent de
+# 6 sources pertinentes. Dans 80 % des cas il n'y a pas 6 sources honnêtes à
+# citer. Pour atteindre 6, le rédacteur devrait citer du hors-sujet — c'est
+# exactement le défaut « inflation » corrigé le 11/08. La grille récompensait
+# donc le comportement que la porte de pertinence a été construite pour
+# empêcher, et rejetait le rédacteur honnête (Boohoo, run 258 : 4 sources ;
+# arbres de Paris, run 262 : 4 sources).
+#
+# 3 aligne la vitrine sur la charte (règle 7, 3 sources minimum) : la vitrine
+# cesse d'être plus stricte que la règle éditoriale sur ce point précis, comme
+# la grille brève a cessé de l'être le 12/08 pour la même raison.
+MIN_SOURCES = 3
+
+# ⚠ CONSÉQUENCE ARITHMÉTIQUE, à ne pas oublier en touchant à MIN_SOURCES : le
+# nombre de domaines distincts ne peut JAMAIS dépasser le nombre de sources.
+# Laisser 5 ici avec MIN_SOURCES = 3 aurait gardé la porte fermée en silence —
+# un article à 3 sources aurait échoué sur « sourcing trop concentré » sans que
+# rien n'indique que c'est un seuil devenu impossible à satisfaire. Même
+# famille de défaut que la somme des sections supérieure au total (21/08).
+# Aligné sur MIN_SOURCES : trois sources doivent venir de trois domaines
+# distincts, ce qui reste le vrai garde-fou (trois reprises d'une même dépêche
+# ne valent pas trois sources).
+MIN_DISTINCT_DOMAINS = 3
 
 # ── Grille BRÈVE (10/08) ─────────────────────────────────────────────────────
 # Mesuré sur 24 générations : le modèle rend 271, 278, 300, 306 mots quand on
