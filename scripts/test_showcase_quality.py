@@ -8,7 +8,6 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
-import showcase_quality
 from showcase_quality import validate_generated_article  # noqa: E402
 
 
@@ -150,16 +149,9 @@ class ShowcaseQualityTests(unittest.TestCase):
         self.assertEqual(reasons, [])
 
     def test_short_sourcing_is_rejected(self):
-        # Le compte est DÉRIVÉ du seuil, jamais écrit en dur : ce test figeait
-        # « 4 sources = trop court », vrai tant que MIN_SOURCES valait 6, faux
-        # depuis qu'il vaut 3. Quatrième test du projet à verrouiller une
-        # valeur plutôt que la propriété qu'elle sert (après le TPM lu dans le
-        # texte source, la table des fenêtres déplacée et le numéro de règle).
-        # La propriété protégée est : un article SOUS le seuil est rejeté.
-        manquant = showcase_quality.MIN_SOURCES - 1
         art = valid_article()
-        art["sources"] = art["sources"][:manquant]
-        art["nb_sources"] = manquant
+        art["sources"] = art["sources"][:4]
+        art["nb_sources"] = 4
         ok, reasons = validate_generated_article(art, "actu")
         self.assertFalse(ok)
         self.assertTrue(any("sourcing trop court" in reason for reason in reasons))

@@ -62,24 +62,14 @@ def test_les_sections_ne_contredisent_pas_le_total():
         "total ne décide plus de rien")
 
 
-def test_les_domaines_ne_depassent_jamais_les_sources():
-    """Piège arithmétique : on ne peut pas avoir 5 domaines avec 3 sources.
+def test_les_criteres_non_longueur_sont_intacts():
+    """Le recalibrage ne desserre QUE la longueur.
 
-    Le 24/08, MIN_SOURCES passe de 6 à 3. Laisser MIN_DISTINCT_DOMAINS à 5
-    aurait gardé la porte fermée EN SILENCE — l'article aurait échoué sur
-    « sourcing trop concentré » sans que rien n'indique un seuil devenu
-    impossible. Même famille que la somme des sections supérieure au total.
+    Boohoo échouait aussi sur « 0 primaire » et « sources listées mais non
+    citées » — ces reproches sont fondés et doivent continuer de rejeter.
     """
-    assert S.MIN_DISTINCT_DOMAINS <= S.MIN_SOURCES
-    assert S.MIN_DISTINCT_DOMAINS_BREVE <= S.MIN_SOURCES_BREVE
-
-
-def test_la_vitrine_nest_jamais_plus_stricte_que_la_charte():
-    """La charte (règle 7) exige 3 sources. La vitrine ne peut pas en exiger
-    moins, et exiger DAVANTAGE l'oppose à la porte de pertinence : celle-ci
-    laisse passer un sujet à 3 sources pertinentes, mesure faite (médiane 3,
-    et 20 % seulement des articles disposent de 6 sources pertinentes)."""
-    assert S.MIN_SOURCES >= 3, "sous la charte"
+    assert S.MIN_SOURCES == 6
+    assert S.MIN_DISTINCT_DOMAINS == 5
 
 
 if __name__ == "__main__":
