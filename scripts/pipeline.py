@@ -2349,8 +2349,19 @@ def selectionner_meilleurs(
                         if len(_mots_item & _mots_distinctifs(t)) >= DIVERSITE_MOTS_COMMUNS),
                        None)
         if _proche:
+            # ⚠ AFFICHER LES MOTS QUI ONT DÉCIDÉ, pas seulement les deux titres.
+            # La comparaison porte sur le titre COMPLET, l'affichage le coupait
+            # à 56 caractères : impossible de dire, en relisant un log, si
+            # « éducation nationale » ≈ « Muséum national » est un vrai doublon
+            # ou le quatrième faux positif d'une heuristique de titres qui a
+            # déjà échoué trois fois (26/07, 28/07, 02/08). Une décision de
+            # rejet qu'on ne peut pas auditer est une décision qu'on ne peut
+            # pas corriger — même règle que « afficher le CONTRÔLE de
+            # l'instrument à côté du résultat ». Coût : zéro token.
+            _communs = sorted(_mots_item & _mots_distinctifs(_proche))
             print(f"     [DIVERSITÉ] sujet voisin déjà retenu, reporté au run suivant — "
-                  f"« {item.get('title', '')[:56]} » ≈ « {_proche[:40]} »")
+                  f"mots communs {_communs} — "
+                  f"« {item.get('title', '')[:56]} » ≈ « {_proche[:56]} »")
             continue
 
         selection.append(item)
