@@ -39,6 +39,7 @@ import subprocess
 import sys
 from pathlib import Path
 
+from modele_fournisseur import MODELE_REDACTION_GROQ, est_mistral
 from provider_runtime_guard import validate_provider_env
 
 # Groq a arrêté llama-3.3-70b-versatile le 16/08/2026 sur les offres free et
@@ -49,8 +50,16 @@ from provider_runtime_guard import validate_provider_env
 # le code. GitHub Actions exporte toutefois les expressions vides comme une
 # variable présente avec valeur "" : ``setdefault`` ne la remplaçait pas et
 # réactivait alors le modèle retiré. On traite donc vide/blanc comme absent.
-if not os.environ.get("GROQ_MODEL_OVERRIDE", "").strip():
-    os.environ["GROQ_MODEL_OVERRIDE"] = "openai/gpt-oss-120b"
+# ⚠ 24/08 : ce garde-fou ne doit s'appliquer QUE si Groq sert réellement.
+# Écrit le 16/08, il était juste alors ; depuis la bascule sur Mistral il
+# envoyait un nom de modèle GROQ à l'API MISTRAL — relevé sur le run 273, où
+# LLM_BASE_URL pointe sur api.mistral.ai pendant que cette ligne impose
+# « openai/gpt-oss-120b », avant même l'import de pipeline.
+# Règle générale : un correctif propre à un fournisseur ne s'applique que si
+# c'est ce fournisseur qui sert. Sous Mistral, on ne force plus rien et le
+# défaut suit l'URL (`modele_fournisseur.modele_redaction`).
+if not est_mistral() and not os.environ.get("GROQ_MODEL_OVERRIDE", "").strip():
+    os.environ["GROQ_MODEL_OVERRIDE"] = MODELE_REDACTION_GROQ
 
 # Une base externe sans clé dédiée ferait utiliser les clés Groq existantes
 # contre un autre fournisseur et ne casserait qu'au premier appel réseau.

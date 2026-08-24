@@ -21,14 +21,16 @@ import sys
 
 import verification_legacy as _verification
 from cles_fournisseur import cles_fournisseur
+from modele_fournisseur import modele_redaction
 
 # Le défaut suit le fournisseur : un nom de modèle Groq envoyé à Mistral produit
 # un 404 sur chaque vérification, donc zéro article publié — la panne exacte des
 # 15-17/08, dans l'autre sens.
 _BASE_POUR_DEFAUT = os.getenv("LLM_BASE_URL", "")
-_MODEL = (os.getenv("GROQ_MODEL_OVERRIDE", "").strip()
-          or ("mistral-large-latest" if "mistral.ai" in _BASE_POUR_DEFAUT
-              else "openai/gpt-oss-120b"))
+# Même résolution que la génération, via le module partagé : deux résolutions
+# séparées ont déjà produit le 401 du 19/08 (clés) puis le modèle Groq envoyé à
+# Mistral du 24/08. Une seule source de vérité pour les deux côtés.
+_MODEL = modele_redaction()
 _BASE_URL = os.getenv("LLM_BASE_URL", "").strip()
 # Même résolution que la génération, au caractère près : `LLM_API_KEY` plus
 # `LLM_API_KEY_2..N`. Le 401 du 19/08 venait de deux listes de clés

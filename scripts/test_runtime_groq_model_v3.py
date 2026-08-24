@@ -12,21 +12,58 @@ def main() -> None:
     runtime = RUNTIME.read_text(encoding="utf-8")
     pipeline = PIPELINE.read_text(encoding="utf-8")
 
-    empty_guard = 'if not os.environ.get("GROQ_MODEL_OVERRIDE", "").strip():'
-    assignment = 'os.environ["GROQ_MODEL_OVERRIDE"] = "openai/gpt-oss-120b"'
+    # ⚠ 24/08 — CINQUIÈME test du projet à verrouiller du TEXTE SOURCE.
+    # Ce bloc exigeait littéralement la ligne
+    #     os.environ["GROQ_MODEL_OVERRIDE"] = "openai/gpt-oss-120b"
+    # et interdisait donc de la corriger — alors qu'elle envoyait un nom de
+    # modèle GROQ à l'API MISTRAL (run 273). Le commentaire quelques lignes
+    # plus bas disait déjà la leçon, tirée du 18/08 : « un test qui lit le code
+    # source interdit toute réécriture, y compris correcte ». Elle n'avait pas
+    # été appliquée à ce bloc-ci.
+    #
+    # Les propriétés RÉELLES à protéger sont au nombre de trois, et se
+    # vérifient par le comportement, plus bas comme ici :
+    #   1. le modèle est résolu AVANT l'import du pipeline historique ;
+    #   2. une variable présente mais VIDE compte comme absente (GitHub Actions
+    #      exporte les expressions vides ainsi — piège d'origine) ;
+    #   3. un override explicite reste prioritaire (essai A/B du 17/08).
     legacy_import = "import run_pipeline as legacy"
-
-    assert empty_guard in runtime, (
-        "Le runtime V3 doit traiter une variable GROQ_MODEL_OVERRIDE présente mais vide comme absente."
-    )
-    assert assignment in runtime, "Le runtime V3 ne force pas le remplaçant Groq de production."
     assert legacy_import in runtime, "Import run_pipeline introuvable dans le runtime V3."
-    assert runtime.index(empty_guard) < runtime.index(assignment) < runtime.index(legacy_import), (
-        "Le modèle doit être résolu, y compris si l'override est vide, AVANT l'import/exécution du pipeline historique."
+
+    import os as _os0
+    import subprocess as _sp
+    import sys as _sys0
+
+    def _modele_v3(env_sup: dict) -> str:
+        env = dict(_os0.environ)
+        env.pop("GROQ_MODEL_OVERRIDE", None)
+        env.setdefault("GROQ_API_KEY", "x")
+        env.update(env_sup)
+        code = ("import run_pipeline_v3, pipeline, verification_legacy;"
+                "print(pipeline.GROQ_MODEL, verification_legacy.GROQ_MODEL)")
+        out = _sp.run([_sys0.executable, "-c", code], capture_output=True,
+                      text=True, env=env, cwd=str(HERE))
+        assert out.returncode == 0, out.stderr[-600:]
+        gen, verif = out.stdout.strip().split()[-2:]
+        assert gen == verif, (
+            f"génération et fact-check divergent : {gen} vs {verif} — c'est la "
+            "famille de bugs du 19/08 (clés) et du 24/08 (modèle).")
+        return gen
+
+    _mistral = {"LLM_BASE_URL": "https://api.mistral.ai/v1", "LLM_API_KEY": "x"}
+
+    # Propriété 2 : vide == absent, dans les deux sens.
+    assert _modele_v3({**_mistral, "GROQ_MODEL_OVERRIDE": "   "}) == _modele_v3(_mistral), (
+        "Une variable présente mais vide doit compter comme absente."
     )
-    assert 'os.environ.setdefault("GROQ_MODEL_OVERRIDE"' not in runtime, (
-        "setdefault laisse intacte une variable d'environnement présente mais vide et réactive le modèle retiré."
+    # Sous Mistral, JAMAIS un nom de modèle Groq — c'est le défaut du run 273.
+    _sous_mistral = _modele_v3(_mistral)
+    assert "mistral" in _sous_mistral, (
+        f"modèle {_sous_mistral!r} envoyé à l'API Mistral : un nom de modèle "
+        "d'un autre fournisseur ne peut pas être servi."
     )
+    # Propriété 3 : un override explicite reste prioritaire (essai A/B).
+    assert _modele_v3({**_mistral, "GROQ_MODEL_OVERRIDE": "mistral-medium-latest"}) == "mistral-medium-latest"
     assert '"test_runtime_groq_model_v3.py"' in runtime, (
         "Le test du modèle Groq doit être rejoué par le prévol runtime V3."
     )

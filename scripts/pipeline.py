@@ -25,6 +25,7 @@ from dotenv import load_dotenv
 
 # Vérification éditoriale 3 passes (Groq Llama 3.3) — inactive sans clé Groq
 from cles_fournisseur import cles_fournisseur
+from modele_fournisseur import modele_redaction
 from json_robuste import _echapper_controles_json
 from verification import verifier_article
 from html import escape as _esc
@@ -63,8 +64,7 @@ BASE_URL = "https://lesfaits.info"
 # préavis, et ça se reproduirait à l'identique en pointant Mistral avec des
 # noms Groq. Les défauts suivent donc la base d'API, et restent surchargeables.
 _MISTRAL = "mistral.ai" in os.getenv("LLM_BASE_URL", "")
-GROQ_MODEL     = (os.getenv("GROQ_MODEL_OVERRIDE", "")
-                  or ("mistral-large-latest" if _MISTRAL else "llama-3.3-70b-versatile"))
+GROQ_MODEL     = modele_redaction()
 GROQ_KEY       = os.getenv("GROQ_API_KEY", "")
 # Liste dynamique (23/07, Nahil : 23 clés après nettoyage à 1 clé/compte) :
 # GROQ_API_KEY_2 à GROQ_API_KEY_N, N ajustable sans toucher au code — il suffit d'ajouter le

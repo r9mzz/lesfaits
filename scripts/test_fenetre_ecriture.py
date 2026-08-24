@@ -16,6 +16,20 @@ import sys
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 os.environ.setdefault("GROQ_API_KEY", "x")
 
+# ⚠ 24/08 — CE TEST MESURAIT UN MODÈLE QUI N'EXISTE PLUS.
+# Il ne passait que parce que le défaut de `pipeline.py` était
+# `llama-3.3-70b-versatile` et sa fenêtre de 12 000 tokens. Or Groq a retiré ce
+# modèle le 16/08 : la marge d'écriture vérifiée ici était une fiction depuis
+# huit jours. Les modèles Groq réellement servis plafonnent à 8 000 TPM, où le
+# format long est arithmétiquement impossible — c'est écrit dans CLAUDE.md, et
+# ce test l'aurait dit s'il avait pointé sur un modèle servi.
+#
+# On mesure donc la configuration de PRODUCTION (Mistral), celle que le runner
+# exécute réellement. Ce n'est pas un assouplissement : les seuils ci-dessous
+# sont inchangés, c'est la cible qui cesse d'être imaginaire.
+os.environ.setdefault("LLM_BASE_URL", "https://api.mistral.ai/v1")
+os.environ.setdefault("LLM_API_KEY", "x")
+
 import pipeline as P  # noqa: E402
 
 
