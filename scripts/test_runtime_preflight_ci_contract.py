@@ -58,6 +58,15 @@ def test_runtime_preflight_ci_tracks_sitemap_runtime_normalization() -> None:
     )
 
 
+def test_runtime_preflight_ci_tracks_shared_model_resolver() -> None:
+    text = WORKFLOW.read_text(encoding="utf-8")
+    resolver = "scripts/modele_fournisseur.py"
+    assert text.count(resolver) >= 2, (
+        "modele_fournisseur.py pilote le modèle de génération et de vérification : "
+        "la CI runtime doit le surveiller et le compiler"
+    )
+
+
 def test_runtime_preflight_ci_matches_runtime_regression_suite() -> None:
     workflow = WORKFLOW.read_text(encoding="utf-8")
     runtime = RUNTIME.read_text(encoding="utf-8")
@@ -86,5 +95,6 @@ if __name__ == "__main__":
     test_runtime_preflight_ci_tracks_native_precise_source_gate()
     test_runtime_preflight_ci_tracks_rss_runtime_normalization()
     test_runtime_preflight_ci_tracks_sitemap_runtime_normalization()
+    test_runtime_preflight_ci_tracks_shared_model_resolver()
     test_runtime_preflight_ci_matches_runtime_regression_suite()
     print("OK: contrat CI du prévol runtime V3")

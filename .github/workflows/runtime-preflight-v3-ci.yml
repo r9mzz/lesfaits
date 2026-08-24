@@ -7,6 +7,7 @@ on:
       - "sitemap.xml"
       - "scripts/pipeline.py"
       - "scripts/fenetres_modeles.py"
+      - "scripts/modele_fournisseur.py"
       - "scripts/run_pipeline_v3.py"
       - "scripts/provider_runtime_guard.py"
       - "scripts/test_runtime_preflight_v3.py"
@@ -48,6 +49,7 @@ jobs:
           python -m py_compile
           scripts/pipeline.py
           scripts/fenetres_modeles.py
+          scripts/modele_fournisseur.py
           scripts/run_pipeline_v3.py
           scripts/provider_runtime_guard.py
           scripts/test_runtime_preflight_v3.py
