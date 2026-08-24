@@ -2017,11 +2017,50 @@ def _titre_norme(titre: str) -> str:
 # souvent gagnantes — refusé après mesure. Ici on ne touche pas à la première
 # reprise : on arrête l'acharnement au-delà. Ne pas confondre les deux.
 ACHARNEMENT_MIN_REJETS = 2      # bloque à partir de la (n+1)e tentative
+
+# ── 24/08 : le garde-fou ne voyait qu'UN motif sur six ──────────────────────
+# Constat de Nahil sur la table de sélection : « les mêmes sujets qu'il y a une
+# semaine, et plein de répétitions ». Mesuré sur le journal, en regroupant les
+# titres par la règle du filtre de diversité :
+#
+#     11×  Canicules : déjà 7 300 morts en excès      19, 20, 21, 22/08
+#      9×  Un campus, combien ça rapporte ?           19, 20, 21/08
+#      8×  Lanceurs d'alerte en exil                  19, 20, 21/08
+#      8×  Ebola en RDC : près de 5 000 cas           19, 20, 21, 22/08
+#      5×  Piratage des impôts                        19, 20, 21/08
+#
+#     163 tentatives pour 71 sujets distincts sur l'ère Mistral.
+#
+# Toutes ces reprises portent `angle_insuffisant = 0`. Le garde-fou ne comptait
+# QUE ce motif : un sujet recalé onze fois sur `chiffre_errone` ou
+# `incoherence_inter_sections` revenait indéfiniment, run après run. C'est la
+# cause directe de la répétition visible, ET une cause majeure de l'épuisement
+# du quota qui a coupé la production les 23-24/08 — 153 générations de reprise
+# sur 587 tentatives, ~5 M de tokens.
+#
+# On compte donc AUSSI les rejets éditoriaux au sens large : un article qui
+# ressort de trois passes de correction avec des motifs bloquants a reçu un
+# verdict, pas une panne. ⚠ Les échecs TECHNIQUES restent exclus (quota épuisé,
+# JSON tronqué, `erreur_verification`) — c'est la prudence d'origine : une
+# panne de réseau ne doit jamais condamner un sujet.
+#
+# Seuil MESURÉ, pas choisi, sur les 587 tentatives du journal :
+#
+#     blocage à la 3e tentative : 42 générations évitées, 2 articles perdus
+#     blocage à la 4e tentative : 20 générations évitées, 1 article perdu
+#
+# La 4e est retenue. Le troc paraît neutre en articles — 20 générations pour
+# 1 article — mais ces 20 générations-là ont un rendement MESURÉ de 5 %, contre
+# ~14 % pour le vivier general : les 0,7 M de tokens rendus achètent une
+# vingtaine de sujets neufs, soit ~2,8 articles espérés. C'est l'inverse du
+# résultat négatif du 15/08 sur le cooldown, où le troc était perdant.
+ACHARNEMENT_MIN_REJETS_EDITORIAUX = 3
+
 ACHARNEMENT_FENETRE_J = 7       # au-delà, le sujet peut revenir avec un angle neuf
 
 
 def _sujets_condamnes(maintenant: datetime | None = None) -> set[str]:
-    """Sujets rejetés au moins `ACHARNEMENT_MIN_REJETS` fois sur l'angle.
+    """Sujets trop souvent recalés : sur l'angle, ou sur un verdict éditorial.
 
     ⚠ Appariement par ÉGALITÉ EXACTE de titre normalisé, jamais par similarité.
     Le rapprochement approximatif de titres a été rustiné trois fois (26/07,
@@ -2046,8 +2085,16 @@ def _sujets_condamnes(maintenant: datetime | None = None) -> set[str]:
             return set()
         limite = (maintenant or datetime.now()) - timedelta(days=ACHARNEMENT_FENETRE_J)
         compte: Counter = Counter()
+        compte_edito: Counter = Counter()
         for e in entrees:
-            if not isinstance(e, dict) or not e.get("angle_insuffisant"):
+            if not isinstance(e, dict):
+                continue
+            # Un rejet ÉDITORIAL : le fact-checker a rendu un verdict motivé.
+            # `bloquants_types` n'est rempli que lorsque l'article est allé au
+            # bout des trois passes — une panne de quota ou un JSON tronqué
+            # laisse ce champ vide et ne condamne donc rien.
+            _edito = bool(e.get("bloquants_types")) or bool(e.get("angle_insuffisant"))
+            if not _edito:
                 continue
             try:
                 quand = datetime.fromisoformat(str(e.get("date", "")).replace("Z", "+00:00"))
@@ -2058,9 +2105,16 @@ def _sujets_condamnes(maintenant: datetime | None = None) -> set[str]:
             if quand < limite:
                 continue
             cle = _titre_norme(e.get("titre_rss") or "") or _titre_norme(e.get("slug") or "")
-            if cle:
+            if not cle:
+                continue
+            compte_edito[cle] += 1
+            if e.get("angle_insuffisant"):
                 compte[cle] += 1
-        return {k for k, n in compte.items() if n >= ACHARNEMENT_MIN_REJETS}
+        # Deux compteurs, deux seuils, chacun mesuré séparément — le seuil
+        # `angle_insuffisant` (17/08) n'est PAS desserré par l'élargissement.
+        return ({k for k, n in compte.items() if n >= ACHARNEMENT_MIN_REJETS}
+                | {k for k, n in compte_edito.items()
+                   if n >= ACHARNEMENT_MIN_REJETS_EDITORIAUX})
     except Exception as exc:  # noqa: BLE001
         print(f"  [ACHARNEMENT] journal illisible ({type(exc).__name__}) — aucun blocage")
         return set()
