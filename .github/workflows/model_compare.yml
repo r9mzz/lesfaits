@@ -17,6 +17,12 @@ on:
         # Vide = Groq. Renseigner bascule le test sur un service compatible
         # OpenAI — sans toucher à la production, ce workflow n'écrit aucun
         # fichier.
+        # Bases connues :
+        #   Mistral : https://api.mistral.ai/v1
+        #   Gemini  : https://generativelanguage.googleapis.com/v1beta/openai
+        # ⚠ Tester un AUTRE fournisseur suppose le secret LLM_API_KEY_ESSAI —
+        # sans lui, la clé de production part vers la mauvaise base et le test
+        # rend un 401 qu'on lirait comme un mauvais modèle.
         description: "Base API (ex : https://api.mistral.ai/v1)"
         required: false
         default: ""
@@ -68,7 +74,16 @@ jobs:
           GROQ_API_KEY_23:  ${{ secrets.GROQ_API_KEY_23 }}
           MODELES_TEST:     ${{ inputs.modeles }}
           LLM_BASE_URL:     ${{ inputs.base_url }}
-          LLM_API_KEY:      ${{ secrets.LLM_API_KEY }}
+          # ⚠ Une clé PAR FOURNISSEUR. `LLM_API_KEY` est la clé de PRODUCTION
+          # (Mistral) : l'envoyer à une autre base produit un 401 et un verdict
+          # faux — on croirait le modèle mauvais alors qu'il n'a jamais été
+          # interrogé. C'est la panne du 19/08 rejouée sur un banc d'essai, où
+          # elle serait plus grave encore : ce workflow existe pour DÉCIDER
+          # d'un fournisseur.
+          # `LLM_API_KEY_ESSAI` prime quand elle existe ; sinon on retombe sur
+          # la clé de production, ce qui reste correct pour tester un autre
+          # MODÈLE du même fournisseur (l'usage d'origine).
+          LLM_API_KEY:      ${{ secrets.LLM_API_KEY_ESSAI || secrets.LLM_API_KEY }}
           PYTHONIOENCODING: utf-8
           TZ: Europe/Paris
         run: python scripts/test_model_compare.py
