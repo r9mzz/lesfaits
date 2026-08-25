@@ -32,12 +32,6 @@ on:
         default: "2"
         type: string
       fenetre:
-        # ⚠ MESURE SEULEMENT. Le banc A/B refuse toute comparaison dont la
-        # fenêtre n'est pas vérifiée, et il a raison — mais pour mesurer la
-        # fenêtre d'un modèle il faut pouvoir lui parler, donc l'exigence est
-        # circulaire tant qu'aucun canal d'essai n'existe. Celui-ci est
-        # explicitement étiqueté essai : il ne rend PAS la fenêtre « vérifiée »
-        # et n'écrit rien dans la table partagée. Vide = comportement inchangé.
         description: "Fenêtre TPM supposée pour cet essai (vide = table par défaut)"
         required: false
         default: ""
@@ -63,12 +57,8 @@ jobs:
       - name: Essayer le fournisseur
         env:
           GROQ_API_KEY:     ${{ secrets.GROQ_API_KEY }}
-          # ⚠ Une clé PAR FOURNISSEUR — même correctif que model_compare.yml
-          # le 24/08. `LLM_API_KEY` est la clé de PRODUCTION : l'envoyer à une
-          # autre base rend un 401, donc un verdict « ce fournisseur ne sait
-          # pas écrire » sur un fournisseur jamais interrogé. Sur un outil qui
-          # sert à DÉCIDER d'un fournisseur, c'est le pire faux signal possible.
           LLM_API_KEY:      ${{ secrets.LLM_API_KEY_ESSAI || secrets.LLM_API_KEY }}
+          ESSAI_FOURNISSEUR: "1"
           FENETRE_ESSAI:    ${{ inputs.fenetre }}
           LLM_BASE_URL:     ${{ inputs.base_url }}
           MODELE_ESSAI:     ${{ inputs.modele }}
