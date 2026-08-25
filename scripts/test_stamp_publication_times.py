@@ -156,6 +156,62 @@ class PublicationTimeTests(unittest.TestCase):
             self.assertIn("Wed, 05 Aug 2026 16:03:00 GMT", feed)
             self.assertIn("Thu, 06 Aug 2026 16:07:12 GMT", feed)
 
+    def test_canonical_iso_replaces_stale_visible_slot_time(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            site = Path(tmp)
+            (site / "articles").mkdir()
+            (site / "categories").mkdir()
+            (site / "data").mkdir()
+            git(site, "init")
+            git(site, "config", "user.name", "Test")
+            git(site, "config", "user.email", "test@example.com")
+
+            stale_display = "3 juillet 2026, 18h00"
+            real_display = "3 juillet 2026, 13h15"
+            real_iso = "2026-07-03T13:15:39+02:00"
+            entry = {
+                "slug": "ancien", "titre": "Ancien article", "categorie": "societe",
+                "nb_sources": 5, "date": stale_display, "date_iso": real_iso,
+                "resume": ["Résumé"],
+            }
+            for name in ("articles.json", "search.json"):
+                (site / "data" / name).write_text(
+                    json.dumps([entry], ensure_ascii=False, indent=2), encoding="utf-8"
+                )
+            (site / "articles" / "ancien.html").write_text(
+                article_html("ancien", "Ancien article", stale_display, real_iso), encoding="utf-8"
+            )
+            (site / "index.html").write_text(
+                f'<a href="articles/ancien.html"><span>{stale_display}</span></a>', encoding="utf-8"
+            )
+            (site / "feed.xml").write_text(
+                feed_xml([("ancien", "Fri, 03 Jul 2026 11:15:39 GMT")]), encoding="utf-8"
+            )
+            git(site, "add", "-A")
+            git(site, "commit", "-m", "état public précédent")
+
+            # Simule un rebuild qui conserve le libellé de créneau mais touche l'article.
+            (site / "articles" / "ancien.html").write_text(
+                article_html("ancien", "Ancien article", stale_display, real_iso) + "\n",
+                encoding="utf-8",
+            )
+            git(site, "add", "-A")
+            git(site, "commit", "-m", "rebuild")
+
+            stamp_publication_times(
+                site,
+                "HEAD~1",
+                datetime(2026, 8, 25, 18, 20, 40, tzinfo=PARIS),
+            )
+
+            data = json.loads((site / "data" / "articles.json").read_text(encoding="utf-8"))
+            self.assertEqual(data[0]["date"], real_display)
+            self.assertEqual(data[0]["date_iso"], real_iso)
+            html = (site / "articles" / "ancien.html").read_text(encoding="utf-8")
+            self.assertIn(f'<time datetime="{real_iso}">{real_display}</time>', html)
+            self.assertNotIn(stale_display, html)
+            self.assertIn(real_display, (site / "index.html").read_text(encoding="utf-8"))
+
 
 if __name__ == "__main__":
     unittest.main(verbosity=2)
