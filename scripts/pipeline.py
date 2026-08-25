@@ -4510,7 +4510,7 @@ _CHARS_PAR_TOKEN = 3.8
 # elle réserve contre une fenêtre qui n'est pas celle de l'appel réel.
 # La table des fenêtres vit dans `fenetres_modeles.py` depuis le 19/08 :
 # le fact-checker en a besoin AUSSI, et il portait la valeur Groq en dur.
-from fenetres_modeles import _TPM_PAR_MODELE_GEN  # noqa: E402
+from fenetres_modeles import fenetre_essai, _TPM_PAR_MODELE_GEN  # noqa: E402
 
 # Tout ce qu'un prompt de génération porte en dehors du prompt système, du
 # contenu principal et des extraits de sources : en-tête d'attribution, bloc
@@ -4543,7 +4543,9 @@ def _groq_call(api_key: str, messages: list, max_tokens: int = 3500) -> str:
     # « Request too large » systématique, quel que soit le quota restant.
     # Table hissée au niveau module (voir `_TPM_PAR_MODELE_GEN`) pour que la
     # réservation d'écriture de `generate()` raisonne sur la même fenêtre.
-    tpm = _TPM_PAR_MODELE_GEN.get(GROQ_MODEL, 12_000)
+    # `fenetre_essai()` ne vaut QUE pendant un essai de fournisseur explicite
+    # (variable FENETRE_ESSAI). En production elle rend None et rien ne change.
+    tpm = fenetre_essai() or _TPM_PAR_MODELE_GEN.get(GROQ_MODEL, 12_000)
     marge_securite = 500
     prompt_estime = int(sum(len(m.get("content", "")) for m in messages) / _CHARS_PAR_TOKEN)
     disponible = tpm - marge_securite - prompt_estime
@@ -4671,7 +4673,9 @@ def generate(content: str, category_hint: str, extra_sources: list[dict] | None 
     # La profondeur suit donc la FENÊTRE du modèle réellement servi, jamais une
     # constante. La réservation d'écriture (voir plus bas) reste seule juge :
     # elle rabotera si le prompt devient trop gros, comme elle le faisait déjà.
-    _fenetre_gen = _TPM_PAR_MODELE_GEN.get(GROQ_MODEL, 12_000)
+    # Même fenêtre que `_groq_call` — sinon un essai garderait la matière
+    # coupée au plancher et ne mesurerait pas ce qu'il prétend mesurer.
+    _fenetre_gen = fenetre_essai() or _TPM_PAR_MODELE_GEN.get(GROQ_MODEL, 12_000)
     _profond = _fenetre_gen >= 100_000
     snippet_len = (4000 if _profond else 950) if not is_retry else (450 if is_expand else 200)
     # BRÈVE (02/08) : c'est ICI que se fait l'essentiel de l'économie de quota.
@@ -4790,7 +4794,7 @@ def generate(content: str, category_hint: str, extra_sources: list[dict] | None 
     # même de s'appliquer. Rien à re-régler.
     _reserve = 1200 if article_type == "breve" else 2000
     _SLEN_PLANCHER = 300
-    _tpm = _TPM_PAR_MODELE_GEN.get(GROQ_MODEL, 12_000)
+    _tpm = fenetre_essai() or _TPM_PAR_MODELE_GEN.get(GROQ_MODEL, 12_000)
     _sys_len = len(_select_prompt(article_type))
 
     def _prompt_tokens(clen: int, slen: int) -> int:
