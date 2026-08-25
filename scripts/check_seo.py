@@ -24,6 +24,14 @@ REQUIRED = {
 PAGES = ["index.html", "methode.html", "contact.html", "corrections.html", "archive.html",
          "breves.html"]
 
+# Pages statiques à part : scannées pour le versionnement CSS (le vrai bug du
+# 19/08) mais PAS pour les balises meta ci-dessus — 404.html et
+# mentions-legales.html en manquent depuis longtemps, un défaut réel mais
+# distinct, à traiter séparément plutôt que de bloquer ce déploiement-ci sur
+# un problème sans rapport avec ce qu'on corrige aujourd'hui.
+PAGES_CACHE_UNIQUEMENT = ["404.html", "cgu.html", "confidentialite.html",
+                          "mentions-legales.html", "recherche.html"]
+
 # Classes utilisées volontairement SANS CSS dédiée : tout leur style vient
 # d'un attribut style="" en ligne, ou d'une classe parente (.meta, .audio-
 # player__ctrl). Vérifié une à une le 04/08 — à ne compléter qu'après
@@ -37,6 +45,26 @@ CLASSES_HOOK_SANS_CSS = {
 def check(path: Path) -> list[str]:
     html = path.read_text(encoding="utf-8", errors="replace")
     return [name for name, rx in REQUIRED.items() if not re.search(rx, html)]
+
+
+def style_css_non_versionne(pages_html: list[Path]) -> list[str]:
+    """Garde-fou contre la classe du 19/08 : 7 pages statiques écrites à la
+
+    main (contact.html, 404.html, cgu.html, confidentialite.html,
+    corrections.html, mentions-legales.html, recherche.html) chargeaient
+    src/style.css SANS paramètre de version (?v=2), contrairement aux 14
+    pages générées par pipeline.py. Un navigateur ayant déjà visité une de
+    ces pages garde en cache l'ANCIENNE feuille de style indéfiniment, même
+    après un déploiement qui corrige un vrai défaut visuel — c'était la
+    cause de « ça a l'air encore cassé » répété sur contact.html malgré des
+    correctifs successifs. Toute page doit référencer style.css avec un
+    paramètre de version, jamais une URL nue."""
+    sans_version = []
+    for path in pages_html:
+        html = path.read_text(encoding="utf-8", errors="replace")
+        if re.search(r'href="[^"]*style\.css"', html):
+            sans_version.append(str(path.relative_to(ROOT)))
+    return sans_version
 
 
 def classes_sans_css(pages_html: list[Path], style_css: str) -> dict[str, list[str]]:
@@ -130,6 +158,14 @@ def main() -> int:
     if style_css_path.exists():
         style_css = style_css_path.read_text(encoding="utf-8", errors="replace")
         pages_a_scanner = [p for p in targets] + articles
+
+        pages_cache = [ROOT / p for p in PAGES_CACHE_UNIQUEMENT if (ROOT / p).exists()]
+        non_versionnees = style_css_non_versionne(pages_a_scanner + pages_cache)
+        if non_versionnees:
+            print(f"\n[SEO FAIL] style.css chargé SANS version (cache navigateur "
+                  f"permanent) : {', '.join(non_versionnees)}")
+            failures += 1
+
         manquantes = classes_sans_css(pages_a_scanner, style_css)
         if manquantes:
             print(f"\n[SEO FAIL] Classe(s) utilisée(s) sans CSS trouvée nulle part :")
