@@ -18,6 +18,8 @@ on:
       - "scripts/test_runtime_newsletter_v3.py"
       - "scripts/test_runtime_groq_model_v3.py"
       - "scripts/test_provider_runtime_guard.py"
+      - "scripts/test_fenetre_essai_isolation.py"
+      - ".github/workflows/essai_fournisseur.yml"
       - "scripts/normalize_feed_pubdates.py"
       - "scripts/test_feed_pubdates.py"
       - "scripts/test_feed_current_state.py"
@@ -60,6 +62,7 @@ jobs:
           scripts/test_runtime_newsletter_v3.py
           scripts/test_runtime_groq_model_v3.py
           scripts/test_provider_runtime_guard.py
+          scripts/test_fenetre_essai_isolation.py
           scripts/normalize_feed_pubdates.py
           scripts/test_feed_pubdates.py
           scripts/test_feed_current_state.py
@@ -76,6 +79,10 @@ jobs:
         run: |
           python scripts/test_runtime_preflight_ci_contract.py
           python scripts/test_fenetres_modeles_ci_contract.py
+      - name: Vérifier l'isolation de la fenêtre d'essai
+        run: |
+          PYTHONPATH=scripts python scripts/test_fenetre_essai_isolation.py
+          grep -q 'ESSAI_FOURNISSEUR: "1"' .github/workflows/essai_fournisseur.yml
       - name: Vérifier la normalisation des dates RSS
         run: |
           python scripts/test_feed_pubdates.py
