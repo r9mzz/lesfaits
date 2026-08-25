@@ -1,0 +1,28 @@
+name: Verification provider 402 contract
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "scripts/verification.py"
+      - "scripts/test_verification_provider_402_failfast.py"
+      - ".github/workflows/verification-provider-402-ci.yml"
+  pull_request:
+    paths:
+      - "scripts/verification.py"
+      - "scripts/test_verification_provider_402_failfast.py"
+      - ".github/workflows/verification-provider-402-ci.yml"
+  workflow_dispatch:
+
+jobs:
+  verification-provider-402:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Compiler
+        run: python -m py_compile scripts/verification.py scripts/test_verification_provider_402_failfast.py
+      - name: Tester le fail-fast HTTP 402
+        run: python scripts/test_verification_provider_402_failfast.py
