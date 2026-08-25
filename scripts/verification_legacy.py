@@ -297,9 +297,17 @@ def _llm_call(prompt: str, max_tokens: int = 6000) -> str:
     max_tokens = max(1500, min(max_tokens, _fenetre - 500 - prompt_estime))
     MAX_CYCLES, WAIT = 2, 62
     last_err = None
+    # Mémorise le dernier corps de 402 pour pouvoir RELEVER une erreur que le
+    # garde de `verification.py` reconnaît quand plus aucune clé ne répond.
+    # Sans cela, la rotation ajoutée ici masquerait le « fail fast » posé le
+    # 25/08 : le préfixe « Groq 402: » est son unique déclencheur, et le
+    # pipeline repartirait pour un aller-retour réseau par article.
+    dernier_402 = None
     for cycle in range(MAX_CYCLES):
         cles_vivantes = [k for k in GROQ_KEYS if k not in _CLES_MORTES_JOUR]
         if not cles_vivantes:
+            if dernier_402 is not None:
+                raise RuntimeError(f"Groq 402: {dernier_402}")
             raise RuntimeError("Quota Groq journalier épuisé sur toutes les clés (vérification)")
         for key in cles_vivantes:
             _entetes = {"Authorization": f"Bearer {key}",
@@ -344,10 +352,42 @@ def _llm_call(prompt: str, max_tokens: int = 6000) -> str:
                     print(f"     [VERIF-BRUT] {r.text[:300]}")
                 last_err = f"429 rate limit ({r.text[:120]})"
                 continue
+            # ── 402 : CLÉ ÉPUISÉE, PAS PANNE — passer à la suivante ────────
+            # Mesuré sur les runs 273 et 275, même profil exact :
+            #
+            #     générations réussies : 18-22   (rotation sur 3 clés)
+            #     vérifications        :  0      (s'arrête sur la clé 1)
+            #     refus 402            : 20-22
+            #
+            # La génération tourne parce qu'elle passe à la clé suivante ; le
+            # fact-check mourait ici, parce que `raise` sur tout code >= 400
+            # abandonne AVANT d'avoir essayé les clés 2 et 3. Un 429 faisait
+            # bien `continue`, un 402 non — alors que les deux disent la même
+            # chose : cette clé-ci n'a plus de quota, une autre en a peut-être.
+            #
+            # Conséquence concrète : les clés supplémentaires de Nahil ne
+            # servaient qu'à la MOITIÉ du pipeline, et le fail-closed
+            # (« publication automatique interdite sans vérification ») rejetait
+            # ensuite chaque article — 18 générations payées pour zéro article,
+            # deux runs de suite.
+            #
+            # ⚠ La clé est marquée morte pour la journée : insister dessus au
+            # sujet suivant redépenserait un aller-retour réseau par article
+            # pour le même refus certain.
+            if r.status_code == 402:
+                _CLES_MORTES_JOUR.add(key)
+                dernier_402 = r.text[:500]
+                last_err = f"402 quota épuisé ({r.text[:120]})"
+                print(f"     [VERIF] clé épuisée (402) — passage à la clé suivante "
+                      f"({len(cles_vivantes) - 1} restante(s))")
+                continue
             if r.status_code >= 400:
                 # Le corps de la réponse contient la vraie raison de l'erreur
                 # (modèle invalide, requête mal formée…) — sans ce log, une
                 # erreur persistante ne laisse aucun indice exploitable.
+                # ⚠ On lève ici À DESSEIN : un 400/401/404 est une panne de
+                # configuration, identique sur toutes les clés. La parcourir
+                # entière ne ferait que retarder le diagnostic.
                 raise RuntimeError(f"Groq {r.status_code}: {r.text[:500]}")
             # Comptabiliser les tokens : verification.py n'en journalisait
             # AUCUN, alors qu'il fait 2 à 4 appels par article avec un prompt
@@ -367,6 +407,8 @@ def _llm_call(prompt: str, max_tokens: int = 6000) -> str:
         if cycle < MAX_CYCLES - 1:
             print(f"     [VERIF] Toutes les clés Groq en rate limit — attente {WAIT}s")
             time.sleep(WAIT)
+    if dernier_402 is not None:
+        raise RuntimeError(f"Groq 402: {dernier_402}")
     raise RuntimeError(f"Rate limit Groq persistant pour la vérification : {last_err}")
 
 
