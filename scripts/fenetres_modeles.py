@@ -52,31 +52,14 @@ _TPM_PAR_MODELE_GEN = {
     # 62 fois la fenêtre de Groq. Nos requêtes d'article (~11 900 tokens) y
     # pèsent 2 % : la réservation d'écriture ne coupe alors plus rien, ce qui
     # est le but. ⚠ Un modèle ABSENT de cette table retombe sur 12 000 par
-    # défaut, ce qui ferait couper la matière pour rien — ajouter toute
-    # nouvelle référence ici.
+    # défaut dans le runtime historique. Le banc A/B, lui, refuse désormais de
+    # comparer un modèle dont la fenêtre n'a pas été vérifiée : une valeur
+    # supposée modifierait la quantité de matière fournie et fausserait le
+    # verdict éditorial.
     "mistral-large-latest": 500_000,
     "mistral-medium-latest": 500_000,
     "mistral-small-latest": 500_000,
     "open-mistral-nemo": 500_000,
     "groq/compound": 8_000,
     "groq/compound-mini": 8_000,
-    # ── Gemini, ajouté le 24/08 AVANT tout essai, et c'est le point ─────────
-    # Sans ces entrées, un modèle Gemini retomberait sur les 12 000 par défaut :
-    # la réservation d'écriture couperait les extraits jusqu'au plancher de 300
-    # caractères, et le test A/B rendrait un verdict FAUX — on lirait « Gemini
-    # écrit mal » là où on lui aurait donné cinq fois moins de matière qu'à
-    # Mistral. Un banc d'essai truqué contre le candidat qu'il doit évaluer est
-    # pire qu'un essai qu'on ne fait pas.
-    #
-    # ⚠ VALEUR RELAYÉE, NON VÉRIFIÉE À LA SOURCE. Le ~1 000 000 vient du relevé
-    # du 18/08 consigné dans CLAUDE.md, pas d'une lecture de la documentation
-    # Google. C'est exactement le type de chiffre qui a coûté le run du 17/08 :
-    # `groq/compound` affichait 70 000 TPM dans une grille tarifaire et était en
-    # réalité facturé sur le compteur d'un autre modèle à 8 000. Seul le corps
-    # d'erreur de l'API fait foi — à confirmer au premier essai réel, et à
-    # corriger ici si un 429 annonce autre chose.
-    "gemini-2.0-flash": 1_000_000,
-    "gemini-2.0-flash-lite": 1_000_000,
-    "gemini-1.5-flash": 1_000_000,
-    "gemini-1.5-pro": 1_000_000,
 }
