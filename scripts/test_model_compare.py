@@ -11,6 +11,7 @@ import sys
 
 sys.path.insert(0, os.path.dirname(__file__))
 import pipeline as p
+from fenetres_modeles import _TPM_PAR_MODELE_GEN
 
 # Modèles à comparer — paramétrables depuis le workflow. La liste était codée
 # en dur sur deux modèles Groq, dont `llama-3.3-70b-versatile` que Groq a retiré
@@ -44,16 +45,7 @@ def collecter_sujets(n: int) -> list[dict]:
 
 
 def generer_avec_modele(item: dict, modele: str) -> dict:
-    """Génère, et CAPTURE la réponse brute du modèle.
-
-    Sans le brut, on ne peut pas départager deux pannes opposées. Le 18/08,
-    Mistral a rendu `fin=stop` (donc rien n'a été coupé) et 1 583 tokens de
-    complétion, alors que le JSON extrait ne portait que six champs courts —
-    environ 250 tokens. Les 1 300 tokens manquants ont donc été ÉCRITS puis
-    perdus quelque part entre le modèle et `_extract_json`. C'est un défaut
-    d'extraction, pas de rédaction, et les deux n'appellent pas le même
-    correctif.
-    """
+    """Génère, et CAPTURE la réponse brute du modèle."""
     p.GROQ_MODEL = modele
     brut = {}
     _vrai = p._groq_call
@@ -87,6 +79,20 @@ def main() -> int:
         )
         return 1
 
+    # Le budget de fenêtre modifie directement la quantité de sources injectée
+    # au rédacteur. Comparer un modèle avec une valeur supposée — ou avec le
+    # fallback historique de 12 000 — fausse donc le verdict éditorial. Le banc
+    # A/B est volontairement fail-closed : chaque modèle testé doit avoir une
+    # fenêtre mesurée/vérifiée dans la table partagée avant toute collecte.
+    sans_fenetre_verifiee = [m for m in MODELES if m not in _TPM_PAR_MODELE_GEN]
+    if sans_fenetre_verifiee:
+        print(
+            "[ÉCHEC] comparaison A/B impossible : fenêtre TPM non vérifiée pour "
+            + ", ".join(sans_fenetre_verifiee)
+            + ". Mesurer le plafond fournisseur avant de lancer le comparatif."
+        )
+        return 1
+
     print(f"[MODE] COMPARAISON A/B — {', '.join(MODELES)}")
     sujets = collecter_sujets(NB_SUJETS)
     print(f"\n{len(sujets)} sujet(s) sélectionné(s) pour le test\n{'='*70}")
@@ -106,17 +112,6 @@ def main() -> int:
             par_modele[modele] = res
             if res["ok"]:
                 art = res["article"]
-                # Affichage détaillé : le premier essai Mistral (18/08) rendait
-                # « corps: null », ce qui ne dit pas s'il manque vraiment ou si
-                # le modèle l'a rangé sous une autre clé. Sans les clés brutes
-                # et le compte de mots, impossible de trancher entre « le
-                # fournisseur écrit mal » et « il ne respecte pas notre schéma
-                # JSON » — deux problèmes très différents, l'un rédhibitoire,
-                # l'autre réparable en une ligne de prompt.
-                # Le 18/08, Mistral a rendu un JSON amputé de `corps` et de
-                # `sources`. Sans le texte BRUT, on ne peut pas dire s'il a été
-                # tronqué en transit, mal réparé par _reparer_json_tronque, ou
-                # jamais écrit. On garde donc une trace du brut.
                 _brut = res.get("brut") or ""
                 if _brut:
                     print(f"[BRUT] {len(_brut)} caractères · début : {_brut[:120]!r}")
