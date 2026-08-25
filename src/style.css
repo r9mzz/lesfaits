@@ -86,13 +86,29 @@ textarea:focus-visible, [tabindex]:focus-visible {
 #back-top svg { width: 16px; height: 16px; stroke: #fff; fill: none; stroke-width: 2.5; }
 
 /* ── HEADER ── */
+/* Le flou est porté par un PSEUDO-ÉLÉMENT, pas par `.header` lui-même.
+   Constat 25/08 : le menu « Catégories » s'affichait mou, texte et bordures
+   comme dessinés au crayon gras, alors que le reste de la page était net.
+   Cause : `backdrop-filter` crée un contexte de composition, et TOUS les
+   descendants de l'élément filtré sont rasterisés dans ce calque — ils
+   perdent l'anticrénelage sous-pixel du texte. Or `.nav-cats-dd` vit dans
+   `.header__inner > nav`, donc dans le calque.
+   En déplaçant le filtre sur `::before`, la barre garde son verre dépoli
+   mais le contenu du header n'est plus descendant d'un élément filtré.
+   ⚠ Ne JAMAIS remettre `backdrop-filter` (ni `filter`, ni `transform`) sur
+   `.header` : tout ce qu'il contient redeviendrait flou, sans message
+   d'erreur nulle part. */
 .header {
-  background: color-mix(in srgb, var(--sand) 82%, transparent);
-  -webkit-backdrop-filter: saturate(180%) blur(14px);
-  backdrop-filter: saturate(180%) blur(14px);
+  background: none;
   border-bottom: 1px solid var(--rule);
   position: sticky; top: 0; z-index: 200;
   transition: box-shadow .25s var(--ease);
+}
+.header::before {
+  content: ''; position: absolute; inset: 0; z-index: -1;
+  background: color-mix(in srgb, var(--sand) 82%, transparent);
+  -webkit-backdrop-filter: saturate(180%) blur(14px);
+  backdrop-filter: saturate(180%) blur(14px);
 }
 [data-theme="dark"] .header { border-bottom-color: rgba(108,133,189,.28); box-shadow: 0 1px 0 rgba(108,133,189,.10); }
 .header__inner { display: flex; align-items: center; justify-content: space-between; gap: 24px; padding: 14px 32px; max-width: 1140px; margin: 0 auto; }
