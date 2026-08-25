@@ -22,6 +22,8 @@ on:
       - "scripts/test_verification_symetrie_ci_contract.py"
       - "scripts/test_verification_sources_immutables.py"
       - "scripts/test_verification_retrospective_date.py"
+      - "scripts/test_juge_reproche_auto_contredit.py"
+      - "scripts/test_juge_reproche_auto_contredit_ci_contract.py"
       - ".github/workflows/verification-provider-ci.yml"
   pull_request:
     paths:
@@ -43,6 +45,8 @@ on:
       - "scripts/test_verification_symetrie_ci_contract.py"
       - "scripts/test_verification_sources_immutables.py"
       - "scripts/test_verification_retrospective_date.py"
+      - "scripts/test_juge_reproche_auto_contredit.py"
+      - "scripts/test_juge_reproche_auto_contredit_ci_contract.py"
       - ".github/workflows/verification-provider-ci.yml"
   workflow_dispatch:
 
@@ -77,6 +81,8 @@ jobs:
           scripts/test_verification_symetrie_ci_contract.py
           scripts/test_verification_sources_immutables.py
           scripts/test_verification_retrospective_date.py
+          scripts/test_juge_reproche_auto_contredit.py
+          scripts/test_juge_reproche_auto_contredit_ci_contract.py
       - name: Tester alignement fournisseur et sécurité de publication
         run: |
           python scripts/test_verification_provider.py
@@ -92,3 +98,5 @@ jobs:
           python scripts/test_verification_symetrie_ci_contract.py
           python scripts/test_verification_sources_immutables.py
           python scripts/test_verification_retrospective_date.py
+          python scripts/test_juge_reproche_auto_contredit.py
+          python scripts/test_juge_reproche_auto_contredit_ci_contract.py
