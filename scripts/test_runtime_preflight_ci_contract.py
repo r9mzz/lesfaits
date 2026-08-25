@@ -67,6 +67,17 @@ def test_runtime_preflight_ci_tracks_shared_model_resolver() -> None:
     )
 
 
+def test_runtime_preflight_ci_tracks_reasoning_reservation() -> None:
+    text = WORKFLOW.read_text(encoding="utf-8")
+    reasoning_test = "scripts/test_raisonnement_reservation.py"
+    assert text.count(reasoning_test) >= 3, (
+        "la CI runtime doit surveiller, compiler et exécuter la régression de réservation des tokens de raisonnement"
+    )
+    assert re.search(r"push:\s*\n\s*branches:\s*\[\"main\"\]", text), (
+        "un changement runtime poussé directement sur main doit déclencher le prévol V3"
+    )
+
+
 def test_runtime_preflight_ci_matches_runtime_regression_suite() -> None:
     workflow = WORKFLOW.read_text(encoding="utf-8")
     runtime = RUNTIME.read_text(encoding="utf-8")
@@ -96,5 +107,6 @@ if __name__ == "__main__":
     test_runtime_preflight_ci_tracks_rss_runtime_normalization()
     test_runtime_preflight_ci_tracks_sitemap_runtime_normalization()
     test_runtime_preflight_ci_tracks_shared_model_resolver()
+    test_runtime_preflight_ci_tracks_reasoning_reservation()
     test_runtime_preflight_ci_matches_runtime_regression_suite()
     print("OK: contrat CI du prévol runtime V3")
