@@ -17588,5 +17588,521 @@
     "date": "2026-08-25T14:41:00",
     "raison": "verification_indisponible",
     "statut_verification_initial": "erreur_verification"
+  },
+  {
+    "slug": "expert-cybersecurite-donnees-personnelles-dark-web-2025",
+    "statut": "rejete_sensible",
+    "date": "2026-08-25T15:05:50",
+    "problemes_initiaux": 14,
+    "bloc5": [
+      "acteur_mis_en_cause_sans_reponse"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "resume_repete_corps"
+    ],
+    "titre": "Un expert en cybersécurité retrouve ses données personnelles sur le dark web en 2025",
+    "n_sources": 4,
+    "n_mots": 537,
+    "titre_rss": "Cyberattaques : demain, tous hackés ? La nouvelle bataille de l’identification",
+    "matiere_faits_distincts": 193,
+    "matiere_redondance": 0.09,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "veille_heures_visible": 21.2,
+    "veille_passages": 20,
+    "veille_age_h": 21.3,
+    "veille_n_flux_grappe": 1
+  },
+  {
+    "slug": "etats-unis-visa-h1b-103265-dollars-projet-trump-relance",
+    "statut": "rejete_qualite",
+    "date": "2026-08-25T15:14:07",
+    "problemes_initiaux": 14,
+    "tentatives": 3,
+    "problemes_restants": 13,
+    "bloquants_restants": 4,
+    "bloquants_types": [
+      "annonce_perimee",
+      "incoherence_inter_sections",
+      "chiffre_errone",
+      "accusation_presentee_comme_fait"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "annonce_perimee",
+        "description": "Le résumé présente la réglementation comme une proposition à venir (« prévoit d’imposer »), alors que les faits indiquent qu'elle a déjà été proposée (« Le 24 août 2026, l’administration Trump a proposé une réglementatio",
+        "phrase": "Une réglementation proposée par l’administration Trump en août 2026 prévoit d’imposer des frais dépassant 100 000 dollars pour les nouvelles demandes de visas H-1B, selon L’Express [1]."
+      },
+      {
+        "bloc": 1,
+        "type": "incoherence_inter_sections",
+        "description": "Le résumé utilise le conditionnel (« ne s’appliquerait »), suggérant une incertitude, tandis que les faits et la source [1] décrivent la mesure comme déjà proposée avec des modalités précises (« ne s’appliquerait qu’aux ",
+        "phrase": "Cette mesure, qui ne s’appliquerait qu’aux nouvelles demandes et non aux renouvellements, a suscité une action en justice de vingt États, menés par la Californie et le Massachusetts, pour contournement du Congrès."
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [1] (L'Express) ne précise pas que les frais « dépassent 100 000 dollars » mais indique « plus de 100 000 dollars » dans le titre de l'article. Cependant, le corps de l'article de L'Express (non fourni dans les",
+        "phrase": "Le 24 août 2026, l’administration Trump a proposé une réglementation visant à imposer des frais dépassant 100 000 dollars pour les nouvelles demandes de visas H-1B, destinés au recrutement de travailleurs étrangers quali"
+      },
+      {
+        "bloc": 1,
+        "type": "accusation_presentee_comme_fait",
+        "description": "L'article présente comme un fait établi (« estimant que l’administration Trump tentait de contourner le Congrès ») ce qui est une accusation portée par les États plaignants. La source [1] doit être vérifiée pour confirme",
+        "phrase": "En août 2026, vingt États, dont la Californie et le Massachusetts, ont engagé une action en justice contre cette proposition, estimant que l’administration Trump tentait de contourner le Congrès."
+      }
+    ],
+    "types_restants": [
+      "annonce_perimee",
+      "incoherence_inter_sections",
+      "chiffre_errone",
+      "accusation_presentee_comme_fait",
+      "source_derivee_comptee_comme_primaire",
+      "contexte_hors_sujet",
+      "extrapolation",
+      "formule_vague",
+      "cadrage_emprunte",
+      "redondance",
+      "redondance",
+      "faux_debat",
+      "compteur_incoherent"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "faits_repetitifs"
+    ],
+    "titre": "États-Unis : 103 265 dollars pour un visa H-1B, le projet relancé par Trump",
+    "n_sources": 4,
+    "n_mots": 613,
+    "titre_rss": "Des visas de travail à plus de 100 000 dollars : Donald Trump relance son projet qui inquiète la Silicon Valley",
+    "matiere_faits_distincts": 1005,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "veille_heures_visible": 3.3,
+    "veille_passages": 4,
+    "veille_age_h": 3.3,
+    "veille_n_flux_grappe": 6
+  },
+  {
+    "slug": "secheresse-pluies-automne-risque-inondations-france-2026",
+    "statut": "rejete_qualite",
+    "date": "2026-08-25T15:23:01",
+    "problemes_initiaux": 12,
+    "tentatives": 3,
+    "problemes_restants": 13,
+    "bloquants_restants": 4,
+    "bloquants_types": [
+      "annonce_perimee",
+      "annonce_perimee",
+      "niveau_preuve_insuffisant",
+      "niveau_preuve_insuffisant"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "annonce_perimee",
+        "description": "Le résumé présente les prévisions comme des scénarios futurs (« envisagent », « potentiellement »), alors que la source [8] (Lachainemeteo) est datée du 31/07/2026, soit avant l'automne 2026. Si les modèles sont déjà pub",
+        "phrase": "Les modèles météorologiques pour l'automne 2026 en France envisagent un trimestre octobre-novembre-décembre potentiellement excédentaire en pluviométrie, selon Lachainemeteo."
+      },
+      {
+        "bloc": 1,
+        "type": "annonce_perimee",
+        "description": "Même problème que ci-dessus : les modèles sont présentés comme en cours d'élaboration (« envisagent »), alors que les sources [7] et [8] sont publiées avant l'automne 2026 et décrivent des projections déjà établies.",
+        "phrase": "Après un été 2026 exceptionnellement sec, les modèles météorologiques pour l'automne envisagent un risque accru de pluies abondantes en France."
+      },
+      {
+        "bloc": 1,
+        "type": "niveau_preuve_insuffisant",
+        "description": "La source [8] (Lachainemeteo) ne précise pas les limites méthodologiques des modèles saisonniers (ex : marge d'erreur, hypothèses sous-jacentes, fiabilité historique). L'article omet ces éléments, alors que les prévision",
+        "phrase": "Lachainemeteo indique que les modèles saisonniers projettent un trimestre octobre-novembre-décembre potentiellement excédentaire en pluviométrie, avec des anomalies particulièrement prononcées en décembre."
+      },
+      {
+        "bloc": 1,
+        "type": "niveau_preuve_insuffisant",
+        "description": "La source [11] (Selectra) mentionne El Niño comme un facteur potentiel, mais sans détailler son impact spécifique sur la France ni les incertitudes associées. L'article ne précise pas que cette corrélation est non systém",
+        "phrase": "Selon le rapport de Selectra, le phénomène El Niño, en cours en 2026, pourrait influencer ces conditions météorologiques."
+      }
+    ],
+    "types_restants": [
+      "annonce_perimee",
+      "annonce_perimee",
+      "niveau_preuve_insuffisant",
+      "niveau_preuve_insuffisant",
+      "fait_tranche_arbitrairement",
+      "source_derivee_comptee_comme_primaire",
+      "source_derivee_comptee_comme_primaire",
+      "compteur_incoherent",
+      "cadrage_emprunte",
+      "contexte_hors_sujet",
+      "redondance",
+      "faux_debat",
+      "extrapolation"
+    ],
+    "article_type": "actu",
+    "titre": "Sécheresse estivale et pluies automnales : la France face à un risque d'inondations",
+    "n_sources": 8,
+    "n_mots": 614,
+    "titre_rss": "De la sécheresse aux pluies diluviennes : le scénario qui menace la France cet automne",
+    "matiere_faits_distincts": 1032,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "veille_heures_visible": 25.4,
+    "veille_passages": 23,
+    "veille_age_h": 25.4,
+    "veille_n_flux_grappe": 1
+  },
+  {
+    "slug": "canicules-europe-2026-cinq-chiffres-impacts",
+    "statut": "rejete_qualite",
+    "date": "2026-08-25T15:39:10",
+    "problemes_initiaux": 14,
+    "tentatives": 3,
+    "problemes_restants": 15,
+    "bloquants_restants": 6,
+    "bloquants_types": [
+      "annonce_perimee",
+      "annonce_perimee",
+      "chiffre_errone",
+      "incoherence_inter_sections",
+      "niveau_preuve_insuffisant",
+      "niveau_preuve_insuffisant"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "annonce_perimee",
+        "description": "Le résumé présente les impacts de l'été 2026 comme des répercussions en cours ou à venir, alors que les faits et les sources décrivent ces événements comme déjà observés et documentés (ex. : « ont été exposés », « ont en",
+        "phrase": "Les répercussions incluent des records de durée de canicule, comme les 55 jours au-dessus de 35°C en Catalogne et à Chypre, ainsi qu'une augmentation des nuits tropicales en France, touchant près de 5 millions de personn"
+      },
+      {
+        "bloc": 1,
+        "type": "annonce_perimee",
+        "description": "Le résumé présente les conséquences à long terme comme des évaluations en cours, alors que les sources (ex. [2], [5]) documentent déjà des impacts concrets et mesurables (ex. : ventes de climatiseurs, consommation d'élec",
+        "phrase": "Les conséquences à long terme sur les modes de vie et les infrastructures font encore l'objet d'évaluations en cours, notamment concernant l'adaptation des logements et la consommation énergétique."
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [5] (Le Télégramme) indique que 4 millions d'habitants en France ont été exposés à des températures ≥ 40°C, mais le résumé du même article parle de « 5 millions de personnes » touchées par les nuits tropicales,",
+        "phrase": "En France, 4 millions d’habitants, y compris en Bretagne et près de Limoges, ont également subi ce seuil inédit [5]."
+      },
+      {
+        "bloc": 1,
+        "type": "incoherence_inter_sections",
+        "description": "Le résumé et les faits mentionnent tous deux 55 jours au-dessus de 35°C en Catalogne et à Chypre, mais le résumé présente cela comme une « augmentation des nuits tropicales en France », ce qui est une incohérence : les n",
+        "phrase": "En Catalogne, les températures ont dépassé 35°C pendant plus de 55 jours entre mi-juin et mi-août, un record pour cette région [5]. À Nicosie, à Chypre, les habitants ont enduré le même nombre de jours au-dessus de ce se"
+      },
+      {
+        "bloc": 1,
+        "type": "niveau_preuve_insuffisant",
+        "description": "L'article présente un « bilan sanitaire lourd » comme un fait établi, alors que la source [5] précise que les données sont provisoires et que les estimations pourraient être ajustées. Le niveau de preuve est insuffisant ",
+        "phrase": "Selon Le Télégramme, les canicules de 2026 ont entraîné un bilan sanitaire lourd, bien que les données définitives ne soient pas encore disponibles [5]."
+      },
+      {
+        "bloc": 1,
+        "type": "niveau_preuve_insuffisant",
+        "description": "La nuance reconnaît le caractère provisoire des données, mais cette limite n'est pas mentionnée dans les faits ou le résumé, où le bilan sanitaire est présenté comme documenté sans cette réserve.",
+        "phrase": "Les estimations de décès excédentaires pour l’été 2026 pourraient être ajustées à l’issue des analyses définitives [5]."
+      }
+    ],
+    "types_restants": [
+      "annonce_perimee",
+      "annonce_perimee",
+      "chiffre_errone",
+      "incoherence_inter_sections",
+      "niveau_preuve_insuffisant",
+      "niveau_preuve_insuffisant",
+      "extrapolation",
+      "source_derivee_comptee_comme_primaire",
+      "source_derivee_comptee_comme_primaire",
+      "compteur_incoherent",
+      "cadrage_emprunte",
+      "redondance",
+      "redondance",
+      "contexte_hors_sujet",
+      "angle_annonce_non_tenu"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "faits_repetitifs"
+    ],
+    "titre": "Canicules en Europe en 2026 : cinq chiffres qui racontent l'été",
+    "n_sources": 6,
+    "n_mots": 811,
+    "titre_rss": "Canicules en Europe : cinq signes d'un été en surchauffe",
+    "matiere_faits_distincts": 1258,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 4,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "n_sources_pertinentes": 4,
+    "veille_heures_visible": 20.2,
+    "veille_passages": 19,
+    "veille_age_h": 20.3,
+    "veille_n_flux_grappe": 1
+  },
+  {
+    "slug": "enquete-csf-2023-sante-sexuelle-outre-mer-premiers-resultats",
+    "statut": "rejete_qualite",
+    "date": "2026-08-25T15:58:08",
+    "problemes_initiaux": 13,
+    "tentatives": 3,
+    "problemes_restants": 9,
+    "bloquants_restants": 4,
+    "bloquants_types": [
+      "niveau_preuve_insuffisant",
+      "accusation_presentee_comme_fait",
+      "niveau_preuve_insuffisant",
+      "accusation_presentee_comme_fait"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "niveau_preuve_insuffisant",
+        "description": "L'article présente des résultats comme des constats établis (« des disparités territoriales apparaissent ») sans rappeler explicitement que les données sont préliminaires et limitées par l'absence de comparaisons, comme ",
+        "phrase": "Selon les données préliminaires de l’Inserm, des disparités territoriales apparaissent, notamment en matière de comportements sexuels chez les jeunes, de couverture vaccinale et de violences sexuelles déclarées."
+      },
+      {
+        "bloc": 1,
+        "type": "accusation_presentee_comme_fait",
+        "description": "L'article reformule une affirmation de VIH.org (« présenteraient ») comme un constat neutre (« ces territoires présentent ») sans attribution explicite dans cette phrase, alors que la source [4] est une interprétation ou",
+        "phrase": "VIH.org indique que ces territoires présenteraient des taux élevés d’infections sexuellement transmissibles (IST) et des difficultés d’accès aux soins [4]."
+      },
+      {
+        "bloc": 1,
+        "type": "niveau_preuve_insuffisant",
+        "description": "L'article utilise « révèle » et « jugée insuffisante » sans préciser que ces résultats sont préliminaires et limités par l'absence d'analyse approfondie des déterminants sociaux, comme le souligne la source [1].",
+        "phrase": "L’enquête révèle également, selon l’ANRS MIE, des écarts dans l’acceptation sociale de l’homosexualité et une prévention des IST en début de vie sexuelle jugée insuffisante [1][3]."
+      },
+      {
+        "bloc": 1,
+        "type": "accusation_presentee_comme_fait",
+        "description": "L'article présente une affirmation de VIH.org (« présentent certains des indicateurs les plus dégradés ») comme un fait neutre, alors que la source [4] est une interprétation ou une estimation, nécessitant une attributio",
+        "phrase": "VIH.org indique que ces territoires présentent certains des indicateurs de santé sexuelle les plus dégradés du territoire national, ce qui pourrait éclairer les politiques de prévention [4]."
+      }
+    ],
+    "types_restants": [
+      "niveau_preuve_insuffisant",
+      "accusation_presentee_comme_fait",
+      "niveau_preuve_insuffisant",
+      "accusation_presentee_comme_fait",
+      "source_derivee_comptee_comme_primaire",
+      "source_derivee_comptee_comme_primaire",
+      "compteur_incoherent",
+      "redondance",
+      "contexte_hors_sujet"
+    ],
+    "article_type": "actu",
+    "titre": "Enquête CSF-2023 : premiers constats sur la santé sexuelle en Outre-mer",
+    "n_sources": 6,
+    "n_mots": 750,
+    "titre_rss": "Premiers résultats de l’enquête CSF-2023 dans les Outre-Mer : focus sur la Guyane, la Martinique, la Guadeloupe et La Réunion",
+    "matiere_faits_distincts": 793,
+    "matiere_redondance": 0.08,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "n_sources_pertinentes": 4,
+    "veille_heures_visible": 324.4,
+    "veille_passages": 261,
+    "veille_age_h": 324.5,
+    "veille_n_flux_grappe": 9
+  },
+  {
+    "slug": "londres-zfe-amelioration-fonction-pulmonaire-enfants",
+    "statut": "rejete_qualite",
+    "date": "2026-08-25T16:19:17",
+    "problemes_initiaux": 13,
+    "tentatives": 3,
+    "problemes_restants": 14,
+    "bloquants_restants": 5,
+    "bloquants_types": [
+      "niveau_preuve_insuffisant",
+      "niveau_preuve_insuffisant",
+      "niveau_preuve_insuffisant",
+      "accusation_presentee_comme_fait",
+      "accusation_presentee_comme_fait"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "niveau_preuve_insuffisant",
+        "description": "L'article ne précise pas le stade de l'étude (observationnelle, préclinique, etc.) ni les limites méthodologiques exactes mentionnées dans les sources [3] et [6], comme les biais de sélection ou les facteurs environnemen",
+        "phrase": "Les tests respiratoires annuels, mesurant le volume d’air expiré de façon forcée en une seconde (VEMS), ont montré qu’avant la mise en place de l’ULEZ en 2019, les enfants londoniens présentaient une croissance pulmonair"
+      },
+      {
+        "bloc": 1,
+        "type": "niveau_preuve_insuffisant",
+        "description": "L'article présente cette évolution comme un résultat établi sans rappeler explicitement qu'il s'agit d'une association et non d'une causalité, comme le précisent les sources [3] et [6].",
+        "phrase": "La proportion d’enfants avec une fonction pulmonaire altérée est passée de 14 % à 9 % dans le centre de Londres, une évolution également décrite comme une association par les chercheurs [6]."
+      },
+      {
+        "bloc": 1,
+        "type": "niveau_preuve_insuffisant",
+        "description": "Cette précision est donnée, mais elle n'est pas intégrée de manière systématique dans la présentation des résultats chiffrés (ex. : 5 % vs 4,5 %), ce qui pourrait laisser penser à une causalité non établie.",
+        "phrase": "Les auteurs de l'étude précisent qu'il s'agit d'une association et non d'une preuve de causalité, et que ces résultats sont exploratoires [3][6]."
+      },
+      {
+        "bloc": 1,
+        "type": "accusation_presentee_comme_fait",
+        "description": "L'article présente cette affirmation comme un fait établi (« comme le rappellent les experts ») sans attribution précise à une source ou à un expert identifié dans [3].",
+        "phrase": "En France, où les ZFE se déploient dans les métropoles, les effets sanitaires spécifiques restent à évaluer, comme le rappellent les experts [3]."
+      },
+      {
+        "bloc": 1,
+        "type": "accusation_presentee_comme_fait",
+        "description": "L'article présente cette critique comme un fait (« imposent un coût social disproportionné ») alors qu'il s'agit d'une estimation ou d'une opinion du collectif Ffmc44, non étayée par des études scientifiques dans les sou",
+        "phrase": "Le collectif Ffmc44 estime que les ZFE imposent un coût social disproportionné aux ménages modestes dépendants de véhicules anciens [10]."
+      }
+    ],
+    "types_restants": [
+      "niveau_preuve_insuffisant",
+      "niveau_preuve_insuffisant",
+      "niveau_preuve_insuffisant",
+      "accusation_presentee_comme_fait",
+      "accusation_presentee_comme_fait",
+      "acteur_mis_en_cause_sans_reponse",
+      "fait_tranche_arbitrairement",
+      "source_derivee_comptee_comme_primaire",
+      "source_non_editoriale",
+      "compteur_incoherent",
+      "cadrage_emprunte",
+      "contexte_hors_sujet",
+      "section_gonflee",
+      "redondance"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "resume_repete_corps"
+    ],
+    "titre": "Londres : la ZFE améliore la fonction pulmonaire des enfants",
+    "n_sources": 6,
+    "n_mots": 647,
+    "titre_rss": "ZFE : à Londres, les enfants respirent mieux",
+    "matiere_faits_distincts": 967,
+    "matiere_redondance": 0.01,
+    "matiere_donnees_chiffrees": 2,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "veille_heures_visible": 32.1,
+    "veille_passages": 29,
+    "veille_age_h": 32.1,
+    "veille_n_flux_grappe": 1
+  },
+  {
+    "slug": "megafeu-gironde-reseaux-telecoms-vulnerables-incendies",
+    "statut": "rejete_qualite",
+    "date": "2026-08-25T16:32:53",
+    "problemes_initiaux": 14,
+    "tentatives": 3,
+    "problemes_restants": 11,
+    "bloquants_restants": 3,
+    "bloquants_types": [
+      "annonce_perimee",
+      "accusation_presentee_comme_fait",
+      "accusation_presentee_comme_fait"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "annonce_perimee",
+        "description": "Le résumé présente l'incendie comme un événement en cours (« a ravagé », « révélant ») alors que les sources [3][4][10] indiquent explicitement qu'il est stabilisé depuis le 29 juillet 2026. L'état le plus récent (stabil",
+        "phrase": "Le mégafeu parti de Saumos en Gironde a ravagé 42 000 hectares, révélant la vulnérabilité des infrastructures de téléphonie et d'Internet fixe face aux catastrophes climatiques. Selon les sources [3][4][10], l'incendie e"
+      },
+      {
+        "bloc": 1,
+        "type": "accusation_presentee_comme_fait",
+        "description": "La phrase présente comme un fait établi (« Les autorités ont souligné ») une prise de position ou une recommandation, sans attribution explicite à une source précise. Cela relève d'une interprétation plutôt que d'un cons",
+        "phrase": "Les autorités ont souligné la nécessité d'adapter ces infrastructures pour faire face à de telles catastrophes, bien que les détails techniques des perturbations n'aient pas été précisés dans les sources disponibles."
+      },
+      {
+        "bloc": 1,
+        "type": "accusation_presentee_comme_fait",
+        "description": "La phrase reformule une accusation (« dénoncé un manque de moyens ») comme un fait neutre, alors que la source [3] (Le Soir) attribue cette dénonciation au chef des pompiers. Elle doit être explicitement attribuée.",
+        "phrase": "Les pompiers ont dénoncé un manque de moyens matériels et financiers pour faire face à de telles catastrophes."
+      }
+    ],
+    "types_restants": [
+      "annonce_perimee",
+      "accusation_presentee_comme_fait",
+      "accusation_presentee_comme_fait",
+      "acteur_mis_en_cause_sans_reponse",
+      "source_derivee_comptee_comme_primaire",
+      "compteur_incoherent",
+      "source_non_editoriale",
+      "cadrage_emprunte",
+      "contexte_hors_sujet",
+      "redondance",
+      "section_gonflee"
+    ],
+    "article_type": "actu",
+    "titre": "Megafeu en Gironde : les réseaux télécoms à l'épreuve des flammes",
+    "n_sources": 11,
+    "n_mots": 687,
+    "titre_rss": "Le mégafeu en Gironde, énième révélateur de la vulnérabilité des réseaux télécoms",
+    "matiere_faits_distincts": 543,
+    "matiere_redondance": 0.01,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "n_sources_pertinentes": 9,
+    "veille_heures_visible": 22.1,
+    "veille_passages": 42,
+    "veille_age_h": 22.2,
+    "veille_n_flux_grappe": 3
+  },
+  {
+    "slug": "recrutement-cadres-france-plus-bas-depuis-2020",
+    "statut": "rejete_qualite",
+    "date": "2026-08-25T16:46:47",
+    "tentative": 3,
+    "perte_substance": true,
+    "section": "nuances",
+    "mots_avant": 63,
+    "mots_apres": 0,
+    "article_type": "actu",
+    "titre": "Recrutement des cadres en France au plus bas depuis 2020",
+    "n_sources": 5,
+    "n_mots": 392,
+    "titre_rss": "Chez les cadres, les perspectives d’emploi restent maussades",
+    "matiere_faits_distincts": 890,
+    "matiere_redondance": 0.01,
+    "matiere_donnees_chiffrees": 5,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "n_sources_pertinentes": 5,
+    "veille_heures_visible": 2.3,
+    "veille_passages": 3,
+    "veille_age_h": 2.4,
+    "veille_n_flux_grappe": 2
+  },
+  {
+    "slug": "nasa-images-cratere-lunaire-fusee-spacex",
+    "statut": "rejete_sensible",
+    "date": "2026-08-25T17:04:04",
+    "problemes_initiaux": 8,
+    "tentative": 2,
+    "bloc5": true,
+    "article_type": "breve",
+    "titre": "La NASA publie les images du cratère lunaire causé par SpaceX",
+    "n_sources": 6,
+    "n_mots": 151,
+    "titre_rss": "VIDEO Un nouveau cratère s’est formé sur la Lune... à cause de Space X",
+    "matiere_faits_distincts": 805,
+    "matiere_redondance": 0.07,
+    "matiere_donnees_chiffrees": 2,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "veille_heures_visible": 72.1,
+    "veille_passages": 65,
+    "veille_age_h": 72.2,
+    "veille_n_flux_grappe": 3
   }
 ]
