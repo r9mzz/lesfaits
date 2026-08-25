@@ -277,7 +277,9 @@ def stamp_publication_times(
 
         if preserved and preserved.get("persisted") and preserved_dt:
             target_dt = preserved_dt
-            display = preserved.get("date") or _display_date(target_dt)
+            # Une heure ISO canonique doit aussi piloter le libellé humain :
+            # conserver un ancien « 18h00 » de créneau rendrait <time> contradictoire.
+            display = _display_date(target_dt)
             persist_iso = True
             patch_article = True
         elif slug in added:
