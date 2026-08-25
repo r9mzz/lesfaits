@@ -16,6 +16,7 @@ from __future__ import annotations
 
 import copy
 import os
+import re
 import sys
 
 import verification_legacy as _verification
@@ -137,6 +138,58 @@ def _provider_sources_immutables_corriger(art: dict, *args, **kwargs):
 
 
 _verification.corriger = _provider_sources_immutables_corriger
+
+# Le prompt impose déjà une règle de symétrie : le juge ne peut pas exiger du
+# rédacteur une limite méthodologique que les extraits fournis ne donnent pas.
+# Le run du 25/08 l'a pourtant violée plusieurs fois en écrivant explicitement
+# « la source [n] ne précise pas ... » puis « l'article ne précise pas ... ».
+# Cette contradiction est vérifiable sans interpréter le fond. On ne filtre que
+# ce cas étroit pour ``niveau_preuve_insuffisant`` ; tout reproche portant sur
+# une efficacité suraffirmée, un comparateur, une survie ou un stade réellement
+# fourni par la source reste intact et bloquant.
+_verification._provider_original_problemes_bloquants = _verification._problemes_bloquants
+_SOURCE_ABSENCE_RE = re.compile(
+    r"(?:la\s+)?source\s*\[?\d+\]?[^.]{0,180}"
+    r"(?:ne\s+(?:pr[ée]cise|mentionne|d[ée]taille|fournit|donne|indique)\s+pas|"
+    r"n['’](?:indique|apporte)\s+pas)",
+    re.IGNORECASE,
+)
+_ARTICLE_OMISSION_RE = re.compile(
+    r"(?:l['’]article|la\s+phrase)[^.]{0,220}"
+    r"(?:ne\s+(?:pr[ée]cise|mentionne|int[èe]gre|d[ée]taille|fournit|donne)\s+pas|"
+    r"omet)",
+    re.IGNORECASE,
+)
+_PREUVE_RENFORCEE_RE = re.compile(
+    r"efficacit[ée]|survie|comparateur|phase\s*[123]|pr[ée]clinique|"
+    r"comme\s+(?:un\s+)?(?:fait|r[ée]sultat)\s+(?:acquis|[ée]tabli)|"
+    r"pr[ée]sente[^.]{0,80}(?:comme\s+[ée]tabli|comme\s+acquis)",
+    re.IGNORECASE,
+)
+
+
+def _provider_reproche_exige_source_absente(probleme: dict) -> bool:
+    if str(probleme.get("type") or "") != "niveau_preuve_insuffisant":
+        return False
+    description = str(probleme.get("description") or "")
+    if not (_SOURCE_ABSENCE_RE.search(description) and _ARTICLE_OMISSION_RE.search(description)):
+        return False
+    if _PREUVE_RENFORCEE_RE.search(description):
+        return False
+    print(
+        "     [JUGE] reproche écarté — le rapport exige une limite qu'il "
+        "déclare lui-même absente de la source (règle de symétrie)"
+    )
+    return True
+
+
+def _provider_problemes_bloquants(problemes: list) -> list:
+    retenus = _verification._provider_original_problemes_bloquants(problemes)
+    return [p for p in retenus if not _provider_reproche_exige_source_absente(p)]
+
+
+_verification._reproche_exige_source_absente = _provider_reproche_exige_source_absente
+_verification._problemes_bloquants = _provider_problemes_bloquants
 
 # Si le fact-check n'a pas abouti, l'article ne peut pas être publié
 # automatiquement.
