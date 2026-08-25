@@ -1,0 +1,33 @@
+name: One-shot anti-acharnement patch
+
+on:
+  push:
+    branches:
+      - fix/acharnement-fresh-title-match
+    paths:
+      - scripts/_apply_acharnement_fresh_patch.py
+      - .github/workflows/_apply_acharnement_fresh_patch.yml
+
+permissions:
+  contents: write
+
+jobs:
+  patch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: fix/acharnement-fresh-title-match
+      - name: Apply deterministic patch
+        run: python scripts/_apply_acharnement_fresh_patch.py
+      - name: Syntax check
+        run: python -m py_compile scripts/pipeline.py
+      - name: Remove one-shot machinery and persist patch
+        run: |
+          rm scripts/_apply_acharnement_fresh_patch.py
+          rm .github/workflows/_apply_acharnement_fresh_patch.yml
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add scripts/pipeline.py scripts/_apply_acharnement_fresh_patch.py .github/workflows/_apply_acharnement_fresh_patch.yml
+          git commit -m "fix: match fresh reformulations against condemned topics"
+          git push origin HEAD:fix/acharnement-fresh-title-match
