@@ -5,8 +5,9 @@ infondés, 2 indécidables (soit 15 % de justesse). La famille la plus flagrante
 est celle-ci : le juge réclame un mot qui figure DÉJÀ dans la phrase citée.
 
 ⚠ CE N'EST PAS UN ASSOUPLISSEMENT. Aucun motif n'est retiré, aucun seuil
-baissé. On écarte uniquement des reproches dont la citation elle-même apporte
-la preuve qu'ils sont faux — ce qu'un humain vérifie en dix secondes.
+baissé. On écarte uniquement des reproches dont la citation ou la description
+apporte elle-même la preuve qu'ils sont faux — ce qu'un humain vérifie en dix
+secondes.
 """
 import os
 import sys
@@ -14,7 +15,7 @@ import sys
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 os.environ.setdefault("GROQ_API_KEY", "x")
 
-import verification_legacy as V
+import verification as V
 
 
 def _pb(type_, phrase, description, bloc=1):
@@ -42,6 +43,31 @@ def test_cas_reel_attribution():
     assert V._reproche_auto_contredit(p)
 
 
+def test_symetrie_source_absente_cas_run_280():
+    """Le juge ne peut exiger une limite qu'il dit lui-même absente de la source."""
+    p = _pb(
+        "niveau_preuve_insuffisant",
+        "Selon les travaux cités, la valeur peut varier selon les conditions [1].",
+        "La source [1] ne précise pas les limites méthodologiques ou les "
+        "incertitudes associées. L'article ne mentionne pas ces limites "
+        "méthodologiques ni ces incertitudes.",
+    )
+    assert V._reproche_exige_source_absente(p)
+    assert V._problemes_bloquants([p]) == []
+
+
+def test_symetrie_ne_masque_pas_une_suraffirmation():
+    """Si le reproche porte aussi sur un niveau de preuve renforcé, il bloque."""
+    p = _pb(
+        "niveau_preuve_insuffisant",
+        "Le traitement améliore la survie [1].",
+        "La source [1] ne précise pas les limites méthodologiques. L'article ne "
+        "mentionne pas ces limites et présente l'efficacité comme un résultat acquis.",
+    )
+    assert not V._reproche_exige_source_absente(p)
+    assert len(V._problemes_bloquants([p])) == 1
+
+
 def test_un_reproche_fonde_bloque_toujours():
     """Les 4 reproches fondés du run visaient des attributions collectives
     floues — « comme le rappellent les experts », « les autorités ont
@@ -66,8 +92,7 @@ def test_un_reproche_qui_ne_parle_pas_d_absence_est_intact():
 
 
 def test_sans_phrase_citee_on_ne_tranche_pas():
-    """Faute de citation, on ne peut rien démentir : le reproche est conservé.
-    Dans le doute, le juge garde la main — c'est le sens du fail-closed."""
+    """Faute de citation, le garde historique ne peut rien démentir."""
     p = _pb("niveau_preuve_insuffisant", "",
             "sans rappeler que les données sont préliminaires")
     assert not V._reproche_auto_contredit(p)
