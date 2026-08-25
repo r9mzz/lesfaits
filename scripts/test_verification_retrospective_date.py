@@ -17,6 +17,15 @@ def test_retrospective_source_date_rule_is_in_runtime_prompt() -> None:
     assert "Ne déduis jamais qu'une source « ne peut pas décrire » un événement antérieur" in prompt
 
 
+def test_future_projection_is_not_annonce_perimee_by_itself() -> None:
+    prompt = verification.PROMPT_DETECTION
+    assert "le simple emploi du futur, du conditionnel" in prompt
+    assert "une prévision, un scénario, une échéance ou un événement encore futur" in prompt
+    assert "elle ne la rend pas périmée" in prompt
+    assert "un extrait plus récent établit explicitement" in prompt
+    assert "Ne transforme jamais une simple différence de temps grammatical" in prompt
+
+
 def test_real_annonce_perimee_definition_remains_strict() -> None:
     prompt = verification.PROMPT_DETECTION
     assert "présente comme À VENIR" in prompt
@@ -26,5 +35,6 @@ def test_real_annonce_perimee_definition_remains_strict() -> None:
 
 if __name__ == "__main__":
     test_retrospective_source_date_rule_is_in_runtime_prompt()
+    test_future_projection_is_not_annonce_perimee_by_itself()
     test_real_annonce_perimee_definition_remains_strict()
-    print("OK — chronologie rétrospective du fact-checker verrouillée")
+    print("OK — chronologie rétrospective et futur réel du fact-checker verrouillés")
