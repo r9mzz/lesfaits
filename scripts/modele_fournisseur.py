@@ -30,10 +30,21 @@ MODELE_REDACTION_MISTRAL = "mistral-large-latest"
 MODELE_REDACTION_GROQ = "openai/gpt-oss-120b"
 
 
+def _fournisseur(env: dict | None = None) -> str:
+    """Nom du fournisseur qui SERT, lu sur l'URL. Jamais supposé."""
+    base = ((env or os.environ).get("LLM_BASE_URL", "") or "").lower()
+    if not base:
+        return "groq"
+    if "mistral.ai" in base:
+        return "mistral"
+    if "googleapis.com" in base or "generativelanguage" in base:
+        return "gemini"
+    return "inconnu"
+
+
 def est_mistral(env: dict | None = None) -> bool:
     """Le fournisseur qui sert est-il Mistral ? Lu sur l'URL, jamais supposé."""
-    lire = (env or os.environ).get
-    return "mistral.ai" in (lire("LLM_BASE_URL", "") or "")
+    return _fournisseur(env) == "mistral"
 
 
 def modele_redaction(env: dict | None = None) -> str:
@@ -48,4 +59,27 @@ def modele_redaction(env: dict | None = None) -> str:
     choix = (lire("GROQ_MODEL_OVERRIDE", "") or "").strip()
     if choix:
         return choix
-    return MODELE_REDACTION_MISTRAL if est_mistral(env) else MODELE_REDACTION_GROQ
+
+    fournisseur = _fournisseur(env)
+    if fournisseur == "mistral":
+        return MODELE_REDACTION_MISTRAL
+    if fournisseur == "groq":
+        return MODELE_REDACTION_GROQ
+
+    # ── 25/08 : un fournisseur INCONNU ne doit pas recevoir un nom Groq ─────
+    # L'essai Gemini l'a montré : `[VERIF-AUTH] modèle=openai/gpt-oss-120b` sur
+    # une base Google. La génération marchait (essai_fournisseur patche
+    # `pipeline.GROQ_MODEL` après l'import) mais la VÉRIFICATION serait partie
+    # avec un nom Groq — donc un 404 sur chaque article, et un run entier
+    # perdu à croire que le fournisseur écrit mal.
+    #
+    # C'est la 4e occurrence de « un défaut propre à un fournisseur survit au
+    # changement de fournisseur ». On ne devine plus : hors Groq et Mistral, le
+    # modèle doit être NOMMÉ explicitement (GROQ_MODEL_OVERRIDE, ou l'entrée
+    # `modele` des workflows d'essai). Lever ici est volontaire — un nom
+    # silencieusement faux coûte un run, une exception coûte une seconde.
+    raise RuntimeError(
+        f"Fournisseur non reconnu ({lire('LLM_BASE_URL', '')!r}) : aucun modèle "
+        "par défaut ne peut être deviné. Nommer le modèle via "
+        "GROQ_MODEL_OVERRIDE (ou l'entrée `modele` du workflow)."
+    )

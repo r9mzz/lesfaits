@@ -4512,6 +4512,11 @@ _CHARS_PAR_TOKEN = 3.8
 # le fact-checker en a besoin AUSSI, et il portait la valeur Groq en dur.
 from fenetres_modeles import fenetre_essai, _TPM_PAR_MODELE_GEN  # noqa: E402
 
+# Surcharge de raisonnement CONSTATÉE par modèle, remplie à l'exécution par
+# `_groq_call`. Jamais préremplie : une valeur devinée ici serait un réglage de
+# fournisseur de plus, à corriger au fournisseur suivant.
+_RAISONNEMENT_OBSERVE: dict[str, int] = {}
+
 # Tout ce qu'un prompt de génération porte en dehors du prompt système, du
 # contenu principal et des extraits de sources : en-tête d'attribution, bloc
 # d'ancrage sur un événement unique, rappels d'attribution, consigne finale.
@@ -4548,6 +4553,10 @@ def _groq_call(api_key: str, messages: list, max_tokens: int = 3500) -> str:
     tpm = fenetre_essai() or _TPM_PAR_MODELE_GEN.get(GROQ_MODEL, 12_000)
     marge_securite = 500
     prompt_estime = int(sum(len(m.get("content", "")) for m in messages) / _CHARS_PAR_TOKEN)
+    # La réflexion déjà OBSERVÉE sur ce modèle s'ajoute à ce qu'on réserve :
+    # sans elle, on réserve la place d'écrire et le modèle la dépense à penser.
+    # Zéro pour un modèle sans raisonnement — comportement inchangé.
+    max_tokens += _RAISONNEMENT_OBSERVE.get(GROQ_MODEL, 0)
     disponible = tpm - marge_securite - prompt_estime
     # Pas de plancher qui dépasserait le budget réel (même piège corrigé le
     # 21/07 côté repêchage TPD) : mieux vaut une réservation honnête, quitte
@@ -4587,6 +4596,26 @@ def _groq_call(api_key: str, messages: list, max_tokens: int = 3500) -> str:
     choice = response.choices[0]
     u = response.usage
     if u:
+        # ── RAISONNEMENT MESURÉ, JAMAIS SUPPOSÉ (25/08) ─────────────────────
+        # Essai Gemini : prompt=9150 completion=101 total=11773 fin=length.
+        # 9150 + 101 = 9251, pas 11773 — 2 522 tokens n'apparaissent nulle
+        # part. Ce sont les tokens de RÉFLEXION, facturés sur le budget de
+        # sortie sans figurer dans `completion`. Le modèle avait 2 628 tokens
+        # réservés : il a tout dépensé à réfléchir et s'est fait couper avant
+        # d'écrire. Deux sujets, même schéma ; puis à 6 000 réservés, l'un des
+        # deux a terminé (réflexion 2 616 + écriture 1 922).
+        #
+        # On l'APPREND au lieu de coder une liste de modèles en dur : une telle
+        # liste serait le 5e réglage propre à un fournisseur destiné à survivre
+        # au fournisseur suivant. L'écart de comptage se lit sur chaque
+        # réponse, quel que soit le service.
+        _surcharge = u.total_tokens - u.prompt_tokens - u.completion_tokens
+        if _surcharge > 0:
+            _ancien = _RAISONNEMENT_OBSERVE.get(GROQ_MODEL, 0)
+            if _surcharge > _ancien:
+                _RAISONNEMENT_OBSERVE[GROQ_MODEL] = _surcharge
+                print(f"     [RAISONNEMENT] {GROQ_MODEL} consomme {_surcharge} tokens "
+                      f"de réflexion — réservations suivantes ajustées", flush=True)
         # `finish_reason` est le seul moyen de distinguer deux pannes qui se
         # ressemblent : une complétion COUPÉE au plafond (« length ») et un
         # modèle qui s'arrête de lui-même en ayant omis des champs (« stop »).
