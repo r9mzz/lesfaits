@@ -71,6 +71,46 @@ def test_hors_fenetre_le_sujet_revient(tmp_path):
     assert P._sujets_condamnes() == set()
 
 
+def test_le_meme_evenement_sous_des_titres_differents_est_vu(tmp_path):
+    """C'est le défaut mesuré sur le run 276 : 12 reprises sur 21 sujets.
+
+    Le garde-fou tournait, mais comparait des titres EXACTEMENT égaux — or la
+    canicule revient chaque jour sous un titre neuf. Le regroupement par mots
+    distinctifs (celui du filtre de diversité, déjà en service) les réunit.
+
+    ⚠ Coût mesuré avant d'appliquer, sur les 80 articles publiés retrouvés dans
+    le journal : 1 aurait été bloqué à tort (1 %), contre 57 % de reprises
+    évitées.
+    """
+    _log(tmp_path, [
+        _entree("Canicules : déjà 7 300 morts en excès en France", 1,
+                bloquants_types=["chiffre_errone"]),
+        _entree("Canicules en France : cinq signes d'un été en surchauffe", 2,
+                bloquants_types=["annonce_perimee"]),
+        _entree("Canicules et morts en excès : le bilan français", 3,
+                bloquants_types=["incoherence_inter_sections"]),
+    ])
+    condamnes = P._sujets_condamnes()
+    assert P._titre_norme("Canicules : déjà 7 300 morts en excès en France") in condamnes, (
+        "trois formulations du même événement doivent condamner l'événement")
+
+
+def test_deux_sujets_sans_rapport_ne_se_condamnent_pas(tmp_path):
+    """Un blocage coûte le sujet pour toute la fenêtre : il faut DEUX mots
+    distinctifs partagés, jamais un seul. C'est la leçon des trois échecs de
+    l'heuristique de titres (26/07, 28/07, 02/08)."""
+    _log(tmp_path, [
+        _entree("Ebola en RDC : progression exponentielle", 1,
+                bloquants_types=["chiffre_errone"]),
+        _entree("Retraites : le gel des pensions contesté", 2,
+                bloquants_types=["chiffre_errone"]),
+        _entree("Nord Stream : arrestation en Croatie", 3,
+                bloquants_types=["chiffre_errone"]),
+    ])
+    assert P._sujets_condamnes() == set(), (
+        "trois sujets sans rapport ne forment pas un acharnement")
+
+
 if __name__ == "__main__":
     import os
     import pathlib

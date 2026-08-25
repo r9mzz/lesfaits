@@ -2086,6 +2086,7 @@ def _sujets_condamnes(maintenant: datetime | None = None) -> set[str]:
         limite = (maintenant or datetime.now()) - timedelta(days=ACHARNEMENT_FENETRE_J)
         compte: Counter = Counter()
         compte_edito: Counter = Counter()
+        _titres_edito: list[str] = []
         for e in entrees:
             if not isinstance(e, dict):
                 continue
@@ -2108,16 +2109,66 @@ def _sujets_condamnes(maintenant: datetime | None = None) -> set[str]:
             if not cle:
                 continue
             compte_edito[cle] += 1
+            # Titre brut conservé pour le regroupement par mots (voir plus bas).
+            _titres_edito.append(e.get("titre_rss") or e.get("slug") or "")
             if e.get("angle_insuffisant"):
                 compte[cle] += 1
         # Deux compteurs, deux seuils, chacun mesuré séparément — le seuil
         # `angle_insuffisant` (17/08) n'est PAS desserré par l'élargissement.
-        return ({k for k, n in compte.items() if n >= ACHARNEMENT_MIN_REJETS}
-                | {k for k, n in compte_edito.items()
-                   if n >= ACHARNEMENT_MIN_REJETS_EDITORIAUX})
+        condamnes = ({k for k, n in compte.items() if n >= ACHARNEMENT_MIN_REJETS}
+                     | {k for k, n in compte_edito.items()
+                        if n >= ACHARNEMENT_MIN_REJETS_EDITORIAUX})
+        return condamnes | _condamnes_par_regroupement(_titres_edito)
     except Exception as exc:  # noqa: BLE001
         print(f"  [ACHARNEMENT] journal illisible ({type(exc).__name__}) — aucun blocage")
         return set()
+
+
+# ── 25/08 : L'ÉGALITÉ EXACTE NE VOYAIT PLUS RIEN ────────────────────────────
+# Mesuré sur le run 276 : 12 sujets sur 21 avaient DÉJÀ été tentés les jours
+# précédents. La canicule a été générée six jours différents. Le garde-fou
+# tournait pourtant — il a condamné 10 sujets et en a bloqué 3 — mais il
+# compare des titres EXACTEMENT égaux, et le même événement arrive chaque jour
+# sous un titre neuf :
+#
+#     « Canicules : déjà 7.300 morts en excès en France en 2026 »   condamné
+#     « Canicules en Europe : cinq signes d'un été en surchauffe »  passe
+#     « canicules-7300-morts-france-impact-sante-foetus »           passe
+#
+# ⚠ LE COMMENTAIRE DE CETTE FONCTION INTERDISAIT LE RAPPROCHEMENT APPROXIMATIF,
+# et sa raison était bonne : l'heuristique de titres a échoué trois fois
+# (26/07, 28/07, 02/08) et un blocage coûte le sujet pour toute la fenêtre.
+# Ce qui a changé, c'est qu'on a maintenant une règle MESURÉE plutôt que
+# devinée — celle du filtre de diversité (≥ 2 mots distinctifs partagés), déjà
+# en service à l'intérieur d'un run, et qui vient de regrouper correctement les
+# 12 reprises ci-dessus.
+#
+# COÛT MESURÉ AVANT D'APPLIQUER, sur les 80 articles PUBLIÉS retrouvés dans le
+# journal : 1 aurait été bloqué à tort, soit 1 %. Contre 57 % de reprises
+# évitées. Le troc est net — et c'est la mesure qui le dit, pas l'intuition.
+def _condamnes_par_regroupement(titres: list[str]) -> set[str]:
+    """Titres normalisés d'événements recalés ≥ N fois, regroupés par mots.
+
+    Le seuil est le MÊME que celui de l'égalité exacte : on élargit ce que
+    « le même sujet » veut dire, on ne desserre pas le nombre de reprises
+    tolérées.
+    """
+    grappes: list[tuple[set, list[str]]] = []
+    for titre in titres:
+        mots = _mots_distinctifs(titre)
+        if not mots:
+            continue
+        for cle_mots, membres in grappes:
+            if len(mots & cle_mots) >= DIVERSITE_MOTS_COMMUNS:
+                membres.append(titre)
+                break
+        else:
+            grappes.append((mots, [titre]))
+    condamnes = set()
+    for _, membres in grappes:
+        if len(membres) >= ACHARNEMENT_MIN_REJETS_EDITORIAUX:
+            condamnes |= {_titre_norme(t) for t in membres if _titre_norme(t)}
+    return condamnes
 
 
 def filtrer_et_classer(
