@@ -2171,6 +2171,25 @@ def _condamnes_par_regroupement(titres: list[str]) -> set[str]:
     return condamnes
 
 
+def _titre_est_condamne(titre: str, condamnes: set[str]) -> bool:
+    """Même dossier qu'un sujet déjà condamné, avec la règle de diversité existante.
+
+    L'égalité exacte reste le chemin certain et rapide. Pour une reformulation,
+    on réutilise strictement `_mots_distinctifs` + `DIVERSITE_MOTS_COMMUNS`,
+    déjà calibrés et utilisés pour regrouper les rejets historiques.
+    """
+    cle = _titre_norme(titre)
+    if cle in condamnes:
+        return True
+    mots = _mots_distinctifs(titre)
+    if not mots:
+        return False
+    return any(
+        len(mots & _mots_distinctifs(condamne)) >= DIVERSITE_MOTS_COMMUNS
+        for condamne in condamnes
+    )
+
+
 def filtrer_et_classer(
     items: list[dict],
     source_name: str,
@@ -2418,7 +2437,7 @@ def selectionner_meilleurs(
     for item in candidats:
         if len(selection) >= nb_max:
             break
-        if _titre_norme(item.get("title", "")) in condamnes:
+        if _titre_est_condamne(item.get("title", ""), condamnes):
             print(f"     [ACHARNEMENT] déjà condamné {ACHARNEMENT_MIN_REJETS}× — "
                   f"« {item.get('title', '')[:64]} »")
             continue
