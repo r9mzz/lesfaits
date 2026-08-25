@@ -18104,5 +18104,450 @@
     "veille_passages": 65,
     "veille_age_h": 72.2,
     "veille_n_flux_grappe": 3
+  },
+  {
+    "slug": "industrie-gaziere-methane-fuites-1960-campagne-desinformation",
+    "statut": "rejete_qualite",
+    "date": "2026-08-25T21:43:41",
+    "problemes_initiaux": 11,
+    "tentatives": 3,
+    "problemes_restants": 10,
+    "bloquants_restants": 3,
+    "bloquants_types": [
+      "niveau_preuve_insuffisant",
+      "niveau_preuve_insuffisant",
+      "niveau_preuve_insuffisant"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "niveau_preuve_insuffisant",
+        "description": "La source [1] ne précise pas le niveau de preuve ou les limites méthodologiques des travaux scientifiques cités concernant le PRG du méthane. L'article ne mentionne pas les conditions spécifiques ou les incertitudes asso",
+        "phrase": "Selon des travaux scientifiques cités par RFI, ce PRG peut atteindre 80 fois celui du CO₂ sur une période de 20 ans, bien que cette valeur puisse varier selon les conditions et les méthodes de mesure [1]."
+      },
+      {
+        "bloc": 1,
+        "type": "niveau_preuve_insuffisant",
+        "description": "L'article présente ces affirmations comme des hypothèses non étayées par des preuves directes, mais ne précise pas les limites méthodologiques ou les incertitudes des analyses documentaires et témoignages cités par la so",
+        "phrase": "Selon des chercheurs et acteurs interrogés par RFI, l'industrie gazière aurait, dans les décennies suivantes, contesté les données scientifiques sur l'impact climatique du méthane et influencé les études menées par l'Age"
+      },
+      {
+        "bloc": 1,
+        "type": "niveau_preuve_insuffisant",
+        "description": "L'article mentionne des « résultats préliminaires et des estimations » sans préciser les limites méthodologiques ou les incertitudes associées, alors que la source [1] pourrait les détailler.",
+        "phrase": "Le Centre pour l'intégrité climatique, cité par RFI, appelle à une régulation plus stricte et à une transparence accrue pour limiter l'influence de l'industrie sur les politiques climatiques. Ces appels s'appuient sur de"
+      }
+    ],
+    "types_restants": [
+      "niveau_preuve_insuffisant",
+      "niveau_preuve_insuffisant",
+      "niveau_preuve_insuffisant",
+      "source_derivee_comptee_comme_primaire",
+      "source_derivee_comptee_comme_primaire",
+      "compteur_incoherent",
+      "cadrage_emprunte",
+      "contexte_hors_sujet",
+      "faux_debat",
+      "redondance"
+    ],
+    "article_type": "actu",
+    "titre": "L'industrie gazière savait dès les années 1960 que le méthane fuyait massivement",
+    "n_sources": 4,
+    "n_mots": 547,
+    "titre_rss": "Le méthane ou le mythe du gaz «propre»",
+    "matiere_faits_distincts": 402,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "n_sources_pertinentes": 4,
+    "veille_heures_visible": 7.3,
+    "veille_passages": 8,
+    "veille_age_h": 8.0,
+    "veille_n_flux_grappe": 1
+  },
+  {
+    "slug": "pic-mortalite-france-juin-2026-canicule-lien",
+    "statut": "rejete_qualite",
+    "date": "2026-08-25T21:53:13",
+    "problemes_initiaux": 8,
+    "tentatives": 3,
+    "problemes_restants": 9,
+    "bloquants_restants": 3,
+    "bloquants_types": [
+      "niveau_preuve_insuffisant",
+      "niveau_preuve_insuffisant",
+      "niveau_preuve_insuffisant"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "niveau_preuve_insuffisant",
+        "description": "La phrase présente la coïncidence entre la surmortalité et la canicule comme un fait établi, alors que la source [2] souligne explicitement l'impossibilité d'établir un lien direct à ce stade. Le conditionnel ou une form",
+        "phrase": "Cette surmortalité, principalement observée chez les plus de 45 ans, coïncide avec une vague de chaleur. Cependant, Santé publique France souligne qu'il n'est pas encore possible d'établir un lien direct entre ces deux p"
+      },
+      {
+        "bloc": 1,
+        "type": "niveau_preuve_insuffisant",
+        "description": "La source [2] précise que les données sont provisoires et pourraient sous-estimer l'ampleur réelle du phénomène, mais cette réserve n'est pas intégrée dans la phrase citée, qui présente les chiffres comme définitifs.",
+        "phrase": "Cette hausse représente 2 025 décès supplémentaires, principalement chez les personnes âgées de 45 ans ou plus (+29,7 %, soit +2 001 décès) [2]."
+      },
+      {
+        "bloc": 1,
+        "type": "niveau_preuve_insuffisant",
+        "description": "La phrase présente la baisse comme un fait établi, alors que la source [3] indique explicitement que les données restent provisoires et sujettes à révision. Le conditionnel ou une formulation plus prudente est requis.",
+        "phrase": "La semaine suivante (29 juin au 5 juillet), le nombre de décès certifiés électroniquement a diminué de 19 % (-1 683 décès), revenant à des niveaux proches de ceux observés avant la période de canicule [3]."
+      }
+    ],
+    "types_restants": [
+      "niveau_preuve_insuffisant",
+      "niveau_preuve_insuffisant",
+      "niveau_preuve_insuffisant",
+      "redondance",
+      "source_derivee_comptee_comme_primaire",
+      "source_non_editoriale",
+      "compteur_incoherent",
+      "contexte_hors_sujet",
+      "extrapolation"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "titre_de_mauvaise_qualite"
+    ],
+    "titre": "Pic de mortalité en France fin juin 2026, canicule en cause ?",
+    "n_sources": 4,
+    "n_mots": 653,
+    "titre_rss": "Point de situation sur la mortalité toutes causes confondues  sur la période du 22 au 28 juin 2026",
+    "matiere_faits_distincts": 814,
+    "matiere_redondance": 0.04,
+    "matiere_donnees_chiffrees": 3,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "n_sources_pertinentes": 3,
+    "veille_heures_visible": 33.9,
+    "veille_passages": 32,
+    "veille_age_h": 34.6,
+    "veille_n_flux_grappe": 1
+  },
+  {
+    "slug": "cop17-mongolie-desertification-engagements-financements-urgents",
+    "statut": "corrige_automatiquement",
+    "date": "2026-08-25T22:15:03",
+    "problemes_initiaux": 13,
+    "tentatives": 1,
+    "problemes_residuels_style": 11,
+    "rapport_initial": {
+      "conforme": false,
+      "sujet_sensible": false,
+      "sujet_sensible_raison": "",
+      "angle_insuffisant": false,
+      "angle_insuffisant_raison": "",
+      "nature_contenu": "actualite_factuelle",
+      "problemes": [
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "Selon Theconversation, 40 % des terres émergées sont aujourd'hui dégradées, affectant directement 3,5 milliards de personnes [1].",
+          "explication": "La source [1] (Theconversation) n'est pas citée avec un renvoi précis à cette statistique dans les extraits fournis. Aucune mention de « 40 % des terres émergées » ou « 3,5 milliards de personnes » n'apparaît dans les sources autorisées."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "La Mongolie, pays hôte, est particulièrement exposée : 76,9 % de ses terres sont touchées par la désertification, un phénomène qui a triplé le coût de production d'un pain en une décennie, selon Yahoo [4].",
+          "explication": "La source [4] n'existe pas dans la liste des sources autorisées (seules 3 sources sont fournies). De plus, la source Yahoo fournie ne mentionne pas explicitement « 76,9 % » ou « triplé le coût de production d'un pain »."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "Un reportage de RFI met en lumière une initiative locale en Mongolie, où une forêt a été plantée par l'homme pour contrer la désertification, illustrant les efforts concrets mais limités face à l'ampleur du défi [3].",
+          "explication": "La source [3] (RFI) n'apparaît pas dans les sources autorisées. Aucune source RFI n'est listée."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "Entre les années 1990 et aujourd'hui, 78 % des terres de la planète ont connu des conditions plus sèches qu'au cours des trente années précédentes. Les sécheresses ont augmenté de deux tiers depuis l'an 2000, et la demande en eau devrait dépasser les disponibilités de 40 % d'ici 2030 [4].",
+          "explication": "La source [4] n'existe pas dans la liste des sources autorisées. De plus, les statistiques citées ne sont pas confirmées par les extraits des sources fournies."
+        },
+        {
+          "bloc": 1,
+          "section": "nuances",
+          "type": "source_inventee",
+          "phrase_exacte": "Un reportage de RFI souligne que la Mongolie dispose de lois et d'initiatives contre la désertification, mais manque de moyens financiers pour les appliquer à grande échelle [3].",
+          "explication": "La source [3] (RFI) n'est pas dans les sources autorisées."
+        },
+        {
+          "bloc": 1,
+          "section": "nuances",
+          "type": "chiffre_errone",
+          "phrase_exacte": "Les 2 100 à 2 600 milliards de dollars nécessaires d'ici 2030 pour restaurer les terres représentent un effort colossal, alors que les budgets publics sont sous pression [1].",
+          "explication": "La source [1] (Theconversation) ne mentionne pas explicitement ce chiffre dans les extraits fournis. Aucun montant précis n'est cité."
+        },
+        {
+          "bloc": 1,
+          "section": "nuances",
+          "type": "source_inventee",
+          "phrase_exacte": "Cette situation est partagée par de nombreux pays à revenu faible ou intermédiaire, où 85 % des personnes affectées par la dégradation des terres vivent [4].",
+          "explication": "La source [4] n'existe pas dans la liste des sources autorisées."
+        },
+        {
+          "bloc": 2,
+          "section": "positions",
+          "type": "acteur_mis_en_cause_sans_reponse",
+          "phrase_exacte": "\"acteurs\": []",
+          "explication": "La section « positions » est vide, alors que l'article met en cause des États et organisations pour leur manque d'action concrète. Aucun acteur n'est cité pour répondre aux critiques, ce qui simule un équilibre inexistant."
+        },
+        {
+          "bloc": 2,
+          "section": "sources",
+          "type": "compteur_incoherent",
+          "phrase_exacte": "\"nb_sources\": 3",
+          "explication": "L'article utilise des sources non listées (RFI, statistiques non attribuées) et compte 3 sources alors que seules 2 sont effectivement utilisées (Theconversation et France 24). Yahoo est cité mais sans confirmation des faits attribués."
+        },
+        {
+          "bloc": 2,
+          "section": "sources",
+          "type": "source_derivee_comptee_comme_primaire",
+          "phrase_exacte": "Sources listées : Theconversation, France 24, Yahoo.",
+          "explication": "Les sources France 24 et Yahoo ne font que relayer des informations sans apporter de données distinctes. France 24 traite de la COP16 (biodiversité), pas de la COP17, et Yahoo n'est pas confirmé comme source primaire pour les données citées."
+        },
+        {
+          "bloc": 4,
+          "section": "resume",
+          "type": "extrapolation",
+          "phrase_exacte": "Les participants doivent transformer des engagements théoriques en actions mesurables, sous peine de voir les conséquences économiques et migratoires s'aggraver, notamment en Europe.",
+          "explication": "Aucune source ne confirme explicitement que les conséquences économiques et migratoires en Europe s'aggraveront en cas d'échec de la COP17. C'est une anticipation non sourcée."
+        },
+        {
+          "bloc": 4,
+          "section": "nuances",
+          "type": "extrapolation",
+          "phrase_exacte": "Certains participants espèrent que la COP17 ne sera pas « un sommet de plus où les discussions prennent le pas sur les actes » [3].",
+          "explication": "La source [3] (RFI) n'existe pas, et aucune source ne cite cette phrase ou une opinion similaire attribuée à des participants."
+        },
+        {
+          "bloc": 4,
+          "section": "contexte",
+          "type": "contexte_hors_sujet",
+          "phrase_exacte": "Lors de la COP16 sur la biodiversité en 2025, les compromis avaient été trouvés in extremis pour sauver un accord sur le financement de la sauvegarde de la nature, selon France 24 [2].",
+          "explication": "La source [2] (France 24) traite de la COP16 sur la biodiversité, pas de la désertification. Ce fait n'éclaire pas directement les enjeux de la COP17."
+        }
+      ]
+    },
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "faits_repetitifs"
+    ],
+    "titre": "COP17 en Mongolie : 200 États face à l'urgence des terres dégradées",
+    "n_sources": 3,
+    "n_mots": 634,
+    "titre_rss": "COP17 en Mongolie : la diplomatie de la terre à l’épreuve de la crise du multilatéralisme environnemental",
+    "matiere_faits_distincts": 1128,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 3,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "veille_heures_visible": 3.9,
+    "veille_passages": 5,
+    "veille_age_h": 4.6,
+    "veille_n_flux_grappe": 2
+  },
+  {
+    "slug": "vih-france-5100-nouveaux-diagnostics-2024-depistage-tardif",
+    "statut": "corrige_automatiquement",
+    "date": "2026-08-25T22:23:59",
+    "problemes_initiaux": 8,
+    "tentatives": 3,
+    "problemes_residuels_style": 7,
+    "rapport_initial": {
+      "conforme": false,
+      "sujet_sensible": false,
+      "sujet_sensible_raison": "",
+      "angle_insuffisant": false,
+      "angle_insuffisant_raison": "",
+      "nature_contenu": "actualite_factuelle",
+      "problemes": [
+        {
+          "bloc": 1,
+          "section": "titre",
+          "type": "chiffre_errone",
+          "phrase_exacte": "VIH en France : 5 100 nouveaux diagnostics en 2024, 43 % détectés tardivement",
+          "explication": "Le titre annonce des données pour 2024, mais la source [1] (Santé publique France) est datée du 1er décembre 2025 et porte sur des données publiées à l'occasion de la Journée mondiale de lutte contre le sida 2025. Les extraits disponibles ne précisent pas explicitement si les chiffres de 5 100 diagnostics concernent 2024 ou 2025, ce qui rend la datation du titre potentiellement erronée ou prématurée."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "annonce_perimee",
+          "phrase_exacte": "Le dispositif « Mon test IST », lancé en septembre 2024, permet un dépistage sans ordonnance et sans frais en laboratoire pour cinq IST (VIH, chlamydiose, gonococcie, syphilis et hépatite B) pour les moins de 26 ans [1].",
+          "explication": "La source [1] est datée du 1er décembre 2025, et le dispositif est mentionné comme lancé en septembre 2024. Si le lancement a bien eu lieu en 2024, l'article présente ce fait comme actuel ou récent en 2025 sans préciser s'il s'agit d'un bilan rétrospectif ou d'une annonce. Cependant, l'absence de confirmation explicite dans les extraits que le dispositif est toujours en vigueur ou a été évalué en 2025 rend la formulation ambiguë."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "extrapolation",
+          "phrase_exacte": "Cependant, les financements internationaux pour la lutte contre le VIH ont chuté de 30 à 40 % en 2025, menaçant les programmes de prévention et de traitement dans les pays à revenu faible et intermédiaire [5].",
+          "explication": "La source [5] (ANRS) mentionne une réduction des financements en 2025, mais l'article présente cette chute comme un fait établi sans préciser s'il s'agit d'une projection, d'une estimation ou d'une donnée confirmée. Les extraits ne permettent pas de vérifier si cette fourchette (30 à 40 %) est une mesure réelle ou une anticipation."
+        },
+        {
+          "bloc": 1,
+          "section": "nuances",
+          "type": "extrapolation",
+          "phrase_exacte": "Les coupes budgétaires internationales pourraient aggraver cette situation en limitant les ressources allouées aux traitements et à la prévention, avec un risque de 3,3 millions de nouvelles infections supplémentaires entre 2025 et 2030 selon des projections citées par l’ANRS [5].",
+          "explication": "L'article présente une projection (3,3 millions de nouvelles infections) comme un risque avéré, sans préciser que cette estimation est issue de modèles ou de scénarios hypothétiques. La source [5] évoque probablement une projection, mais l'article ne le signale pas explicitement, ce qui pourrait induire une confusion entre fait et anticipation."
+        },
+        {
+          "bloc": 2,
+          "section": "sources",
+          "type": "source_derivee_comptee_comme_primaire",
+          "phrase_exacte": "N/A (problème structurel dans la liste des sources)",
+          "explication": "Les sources [2], [4] et [5] (Sante, Sida Info Service, Pasteur) semblent être des reprises ou des relais de l'information produite par Santé publique France [1] ou l'ANRS [3]. Elles ne fournissent pas d'informations distinctes et ne devraient pas être comptées comme des sources indépendantes. Le champ \"qualite_sources\" indique 1 primaire et 4 tertiaires, mais le compteur \"nb_sources\" (5) ne reflète pas cette dépendance."
+        },
+        {
+          "bloc": 2,
+          "section": "sources",
+          "type": "compteur_incoherent",
+          "phrase_exacte": "N/A (problème structurel dans la liste des sources)",
+          "explication": "Le champ \"nb_sources\" est fixé à 5, mais seules 2 sources (Santé publique France [1] et ANRS [3]) apportent des informations substantielles et distinctes. Les autres sources sont des reprises ou des relais, ce qui fausse le compteur de sources indépendantes."
+        },
+        {
+          "bloc": 4,
+          "section": "resume",
+          "type": "extrapolation",
+          "phrase_exacte": "Si 97 % des personnes traitées ont une charge virale indétectable, les coupes budgétaires internationales et les disparités territoriales pourraient compromettre l’objectif d’élimination du virus d’ici 2030.",
+          "explication": "Le résumé présente les coupes budgétaires et les disparités territoriales comme des menaces avérées pour l'objectif d'élimination du VIH d'ici 2030, sans préciser que ces éléments relèvent de projections ou de risques potentiels, et non de faits établis."
+        },
+        {
+          "bloc": 4,
+          "section": "nuances",
+          "type": "redondance",
+          "phrase_exacte": "Les dispositifs de dépistage gratuits, bien qu’ayant permis une augmentation des tests, n’ont pas suffi à réduire significativement les nouvelles infections, notamment chez les hétérosexuel·les né·es à l’étranger, qui restent moins touchés par les campagnes de prévention [1].",
+          "explication": "Cette phrase reprend une idée déjà développée dans la section \"faits\" (les inégalités d'accès aux soins et les disparités dans les diagnostics précoces), sans apporter d'information nouvelle."
+        }
+      ]
+    },
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "faits_repetitifs"
+    ],
+    "titre": "VIH en France : 5 100 nouveaux diagnostics en 2024, 43 % détectés tardivement",
+    "n_sources": 5,
+    "n_mots": 643,
+    "titre_rss": "Journée mondiale de lutte contre le sida 2025 : promouvoir la prévention pour lutter contre la transmission du VIH et des IST",
+    "matiere_faits_distincts": 1182,
+    "matiere_redondance": 0.13,
+    "matiere_donnees_chiffrees": 5,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "n_sources_pertinentes": 5,
+    "veille_heures_visible": 33.9,
+    "veille_passages": 32,
+    "veille_age_h": 34.6,
+    "veille_n_flux_grappe": 5
+  },
+  {
+    "slug": "james-webb-poussiere-etoile-nebuleuse-lion",
+    "statut": "rejete_qualite",
+    "date": "2026-08-25T22:36:01",
+    "problemes_initiaux": 7,
+    "tentatives": 3,
+    "problemes_restants": 7,
+    "bloquants_restants": 2,
+    "bloquants_types": [
+      "niveau_preuve_insuffisant",
+      "niveau_preuve_insuffisant"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "niveau_preuve_insuffisant",
+        "description": "La phrase mentionne que les observations sont 'qualifiées d’exploratoires' et nécessitent des analyses supplémentaires, mais cette réserve n’est pas reprise dans le titre ou le résumé de manière systématique, ce qui pour",
+        "phrase": "Selon Futura Sciences [1], ces observations, qualifiées d’exploratoires, révèlent des zones où la poussière persiste ou se vaporise, mais leur interprétation nécessite des analyses supplémentaires pour en préciser les mé"
+      },
+      {
+        "bloc": 1,
+        "type": "niveau_preuve_insuffisant",
+        "description": "La réserve sur le caractère exploratoire des observations est présente, mais elle n’est pas systématiquement intégrée dans toutes les sections de l’article (ex. : titre, résumé), ce qui pourrait induire une surinterpréta",
+        "phrase": "ces différences pourraient indiquer des variations de composition ou d’épaisseur, mais ces observations sont qualifiées d’exploratoires et leur interprétation nécessite des analyses supplémentaires."
+      }
+    ],
+    "types_restants": [
+      "niveau_preuve_insuffisant",
+      "niveau_preuve_insuffisant",
+      "source_derivee_comptee_comme_primaire",
+      "compteur_incoherent",
+      "contexte_hors_sujet",
+      "redondance",
+      "redondance"
+    ],
+    "article_type": "actu",
+    "titre": "James-Webb révèle la poussière stellaire de la nébuleuse du Lion",
+    "n_sources": 3,
+    "n_mots": 438,
+    "titre_rss": "Le télescope James-Webb ouvre un « Coffre au trésor » cosmique caché à 7 500 années-lumière",
+    "matiere_faits_distincts": 340,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 3,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10
+  },
+  {
+    "slug": "projet-loi-egalite-salariale-retard-transposition-directive-europeenne",
+    "statut": "rejete_qualite",
+    "date": "2026-08-25T22:49:05",
+    "problemes_initiaux": 8,
+    "tentatives": 3,
+    "problemes_restants": 10,
+    "bloquants_restants": 2,
+    "bloquants_types": [
+      "annonce_perimee",
+      "annonce_perimee"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "annonce_perimee",
+        "description": "La source [1] (20 Minutes, 25 août 2026) indique que le projet de loi est « bientôt examiné », ce qui suggère qu'il n'a pas encore été présenté au Parlement. Cependant, la phrase présente le projet comme « en préparation",
+        "phrase": "Un projet de loi visant à transposer une directive européenne sur l'égalité salariale entre hommes et femmes est en préparation en France. Selon 20 Minutes, ce texte devrait être bientôt examiné par le Parlement, après u"
+      },
+      {
+        "bloc": 1,
+        "type": "annonce_perimee",
+        "description": "Le résumé présente le projet comme « en préparation » et son examen comme « annoncé prochainement », alors que la source [2] (Capital) indique que le gouvernement avait prévu de le présenter en juin 2026. Si la source [1",
+        "phrase": "Un projet de loi est en préparation pour répondre à ces exigences, avec un examen parlementaire annoncé prochainement [1][4]."
+      }
+    ],
+    "types_restants": [
+      "annonce_perimee",
+      "chronologie_confuse",
+      "annonce_perimee",
+      "source_non_editoriale",
+      "source_derivee_comptee_comme_primaire",
+      "compteur_incoherent",
+      "formule_vague",
+      "redondance",
+      "faux_debat",
+      "contexte_hors_sujet"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "titre_de_mauvaise_qualite"
+    ],
+    "titre": "Projet de loi sur l'égalité salariale reporté après l'échéance européenne",
+    "n_sources": 6,
+    "n_mots": 541,
+    "titre_rss": "Egalité hommes femmes : Un projet de loi sur l’égalité des salaires bientôt examiné",
+    "matiere_faits_distincts": 647,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "n_sources_pertinentes": 4,
+    "veille_heures_visible": 3.9,
+    "veille_passages": 5,
+    "veille_age_h": 4.6,
+    "veille_n_flux_grappe": 1
   }
 ]
