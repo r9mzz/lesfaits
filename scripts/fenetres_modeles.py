@@ -67,23 +67,19 @@ _TPM_PAR_MODELE_GEN = {
 
 # ── FENÊTRE D'ESSAI — mesure seulement, jamais la production ────────────────
 # `FENETRE_ESSAI` permet de donner à UN essai de fournisseur la fenêtre qu'on
-# suppose être la sienne, sans l'écrire dans la table partagée.
-#
-# Pourquoi ce détour plutôt qu'une entrée dans `_TPM_PAR_MODELE_GEN` : le banc
-# A/B refuse — à raison — toute comparaison dont la fenêtre n'est pas MESURÉE,
-# et une entrée posée sur une valeur relayée a déjà été retirée le 25/08. Or
-# pour mesurer la fenêtre d'un modèle, il faut pouvoir lui parler ; l'exigence
-# est circulaire tant qu'aucun canal ne permet l'essai.
-#
-# Ce canal est donc explicitement étiqueté ESSAI : lu uniquement quand la
-# variable est posée, il ne change rien à la production, n'est jamais écrit par
-# le code, et ne rend pas une fenêtre « vérifiée » au sens du banc A/B. Un
-# résultat obtenu ainsi ne vaut que comme observation à confirmer.
+# suppose être la sienne, sans l'écrire dans la table partagée. Pour éviter
+# qu'une variable d'environnement résiduelle ne modifie la production, elle
+# n'est honorée que si le workflow d'essai pose aussi ESSAI_FOURNISSEUR=1.
 def fenetre_essai() -> int | None:
-    """Fenêtre imposée pour un essai, ou None. Une valeur illisible est
-    ignorée : un essai mal paramétré doit retomber sur le défaut, pas planter
-    à mi-parcours après avoir dépensé des jetons."""
+    """Fenêtre imposée pour un essai explicite, sinon None.
+
+    `FENETRE_ESSAI` seule ne doit jamais influencer la production. Le garde
+    `ESSAI_FOURNISSEUR=1` rend le canal opt-in et limite sa portée au workflow
+    de diagnostic. Une valeur illisible ou non positive est ignorée.
+    """
     import os
+    if (os.getenv("ESSAI_FOURNISSEUR", "") or "").strip() != "1":
+        return None
     brut = (os.getenv("FENETRE_ESSAI", "") or "").strip()
     if not brut:
         return None
