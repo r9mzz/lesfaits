@@ -95,6 +95,42 @@ def test_le_meme_evenement_sous_des_titres_differents_est_vu(tmp_path):
         "trois formulations du même événement doivent condamner l'événement")
 
 
+def test_nouvelle_reformulation_est_bloquee_apres_regroupement(tmp_path):
+    """Une 4e formulation doit être comparée au dossier condamné, pas seulement
+    aux trois chaînes historiques exactes qui ont servi à le condamner."""
+    _log(tmp_path, [
+        _entree("Canicules : déjà 7 300 morts en excès en France", 1,
+                bloquants_types=["chiffre_errone"]),
+        _entree("Canicules en France : cinq signes d'un été en surchauffe", 2,
+                bloquants_types=["annonce_perimee"]),
+        _entree("Canicules et morts en excès : le bilan français", 3,
+                bloquants_types=["incoherence_inter_sections"]),
+    ])
+    condamnes = P._sujets_condamnes()
+    nouveau = "France : canicules et morts en excès, nouveau bilan sanitaire"
+    assert P._titre_norme(nouveau) not in condamnes, (
+        "le test doit bien exercer une formulation nouvelle, pas l'égalité exacte")
+    assert P._titre_est_condamne(nouveau, condamnes), (
+        "une reformulation fraîche du dossier condamné doit être bloquée")
+
+
+def test_nouveau_sujet_sans_rapport_reste_selectionnable(tmp_path):
+    """Le raccord au candidat frais réutilise le seuil existant sans l'élargir :
+    un titre sans deux mots distinctifs communs ne doit pas être condamné."""
+    _log(tmp_path, [
+        _entree("Canicules : déjà 7 300 morts en excès en France", 1,
+                bloquants_types=["chiffre_errone"]),
+        _entree("Canicules en France : cinq signes d'un été en surchauffe", 2,
+                bloquants_types=["annonce_perimee"]),
+        _entree("Canicules et morts en excès : le bilan français", 3,
+                bloquants_types=["incoherence_inter_sections"]),
+    ])
+    condamnes = P._sujets_condamnes()
+    assert not P._titre_est_condamne(
+        "Séisme au Japon : nouvelles mesures de prévention", condamnes
+    )
+
+
 def test_deux_sujets_sans_rapport_ne_se_condamnent_pas(tmp_path):
     """Un blocage coûte le sujet pour toute la fenêtre : il faut DEUX mots
     distinctifs partagés, jamais un seul. C'est la leçon des trois échecs de
