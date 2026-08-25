@@ -52,7 +52,12 @@ jobs:
       - name: Essayer le fournisseur
         env:
           GROQ_API_KEY:     ${{ secrets.GROQ_API_KEY }}
-          LLM_API_KEY:      ${{ secrets.LLM_API_KEY }}
+          # ⚠ Une clé PAR FOURNISSEUR — même correctif que model_compare.yml
+          # le 24/08. `LLM_API_KEY` est la clé de PRODUCTION : l'envoyer à une
+          # autre base rend un 401, donc un verdict « ce fournisseur ne sait
+          # pas écrire » sur un fournisseur jamais interrogé. Sur un outil qui
+          # sert à DÉCIDER d'un fournisseur, c'est le pire faux signal possible.
+          LLM_API_KEY:      ${{ secrets.LLM_API_KEY_ESSAI || secrets.LLM_API_KEY }}
           LLM_BASE_URL:     ${{ inputs.base_url }}
           MODELE_ESSAI:     ${{ inputs.modele }}
           NB_SUJETS:        ${{ inputs.nb_sujets }}
