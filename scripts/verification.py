@@ -50,11 +50,6 @@ _FUTURE_PROJECTION_RULE = """
 if _FUTURE_PROJECTION_RULE not in _verification.PROMPT_DETECTION:
     _verification.PROMPT_DETECTION += "\n\n" + _FUTURE_PROJECTION_RULE
 
-# Une erreur HTTP 402 de vérification signifie que le compte/fournisseur ne
-# permet pas l'appel (ex. abonnement Mistral absent). Le run du 25/08 a répété
-# exactement le même 402 article après article. C'est une panne non transitoire
-# pour le processus : après le premier constat, toutes les vérifications restent
-# fail-closed mais aucun nouvel appel réseau voué à échouer n'est lancé.
 _verification._provider_original_llm_call = _verification._llm_call
 _PROVIDER_FATAL_ERROR = None
 
@@ -69,8 +64,6 @@ def _provider_name() -> str:
 
 
 def _normaliser_erreur_fournisseur(message: str) -> str:
-    # Le moteur historique nomme encore toute erreur « Groq », même lorsque
-    # GROQ_URL pointe vers Mistral. Corriger uniquement le libellé observable.
     if _BASE_URL and message.startswith("Groq "):
         return _provider_name() + message[len("Groq"):]
     return message
@@ -78,54 +71,32 @@ def _normaliser_erreur_fournisseur(message: str) -> str:
 
 def _provider_auth_rotating_llm_call(*args, **kwargs):
     global _PROVIDER_FATAL_ERROR
-
     if _PROVIDER_FATAL_ERROR is not None:
         raise RuntimeError(_PROVIDER_FATAL_ERROR)
-
     while True:
         try:
             return _verification._provider_original_llm_call(*args, **kwargs)
         except RuntimeError as exc:
             message = str(exc)
-
-            # 402 = paiement/abonnement requis : changer de requête, attendre
-            # ou retenter le même compte ne peut pas corriger la panne dans ce
-            # processus. On la mémorise et on continue à refuser toute
-            # publication non vérifiée via le garde fail-closed ci-dessous.
             if message.startswith("Groq 402:"):
                 _PROVIDER_FATAL_ERROR = _normaliser_erreur_fournisseur(message)
-                print(
-                    "     [VERIF] fournisseur indisponible de façon permanente "
-                    "pour ce processus (HTTP 402) — appels suivants bloqués"
-                )
+                print("     [VERIF] fournisseur indisponible de façon permanente pour ce processus (HTTP 402) — appels suivants bloqués")
                 raise RuntimeError(_PROVIDER_FATAL_ERROR) from exc
-
             if not (message.startswith("Groq 401:") or message.startswith("Groq 403:")):
                 raise
-
             mortes = getattr(_verification, "_CLES_MORTES_JOUR", set())
             vivantes = [k for k in _verification.GROQ_KEYS if k not in mortes]
             if not vivantes:
                 raise
-
             cle_invalide = vivantes[0]
-            _verification.GROQ_KEYS = [
-                k for k in _verification.GROQ_KEYS if k != cle_invalide
-            ]
-            print(
-                "     [VERIF] clé refusée par authentification (401/403) — "
-                "retirée de la rotation pour ce processus"
-            )
+            _verification.GROQ_KEYS = [k for k in _verification.GROQ_KEYS if k != cle_invalide]
+            print("     [VERIF] clé refusée par authentification (401/403) — retirée de la rotation pour ce processus")
             if not _verification.GROQ_KEYS:
-                raise RuntimeError(
-                    "Aucune clé de vérification valide après erreur d'authentification"
-                ) from exc
+                raise RuntimeError("Aucune clé de vérification valide après erreur d'authentification") from exc
 
 
 _verification._llm_call = _provider_auth_rotating_llm_call
 
-# La liste ``sources`` est l'espace d'adressage des citations [n] et reste
-# strictement immuable pendant toutes les passes de correction.
 _verification._provider_original_corriger = _verification.corriger
 
 
@@ -139,31 +110,16 @@ def _provider_sources_immutables_corriger(art: dict, *args, **kwargs):
 
 _verification.corriger = _provider_sources_immutables_corriger
 
-# Le prompt impose déjà une règle de symétrie : le juge ne peut pas exiger du
-# rédacteur une limite méthodologique que les extraits fournis ne donnent pas.
-# Le run du 25/08 l'a pourtant violée plusieurs fois en écrivant explicitement
-# « la source [n] ne précise pas ... » puis « l'article ne précise pas ... ».
-# Cette contradiction est vérifiable sans interpréter le fond. On ne filtre que
-# ce cas étroit pour ``niveau_preuve_insuffisant`` ; tout reproche portant sur
-# une efficacité suraffirmée, un comparateur, une survie ou un stade réellement
-# fourni par la source reste intact et bloquant.
-_verification._provider_original_problemes_bloquants = _verification._problemes_bloquants
 _SOURCE_ABSENCE_RE = re.compile(
-    r"(?:la\s+)?source\s*\[?\d+\]?[^.]{0,180}"
-    r"(?:ne\s+(?:pr[ée]cise|mentionne|d[ée]taille|fournit|donne|indique)\s+pas|"
-    r"n['’](?:indique|apporte)\s+pas)",
+    r"(?:la\s+)?source\s*\[?\d+\]?[^.]{0,180}(?:ne\s+(?:pr[ée]cise|mentionne|d[ée]taille|fournit|donne|indique)\s+pas|n['’](?:indique|apporte)\s+pas)",
     re.IGNORECASE,
 )
 _ARTICLE_OMISSION_RE = re.compile(
-    r"(?:l['’]article|la\s+phrase)[^.]{0,220}"
-    r"(?:ne\s+(?:pr[ée]cise|mentionne|int[èe]gre|d[ée]taille|fournit|donne)\s+pas|"
-    r"omet)",
+    r"(?:l['’]article|la\s+phrase)[^.]{0,220}(?:ne\s+(?:pr[ée]cise|mentionne|int[èe]gre|d[ée]taille|fournit|donne)\s+pas|omet)",
     re.IGNORECASE,
 )
 _PREUVE_RENFORCEE_RE = re.compile(
-    r"efficacit[ée]|survie|comparateur|phase\s*[123]|pr[ée]clinique|"
-    r"comme\s+(?:un\s+)?(?:fait|r[ée]sultat)\s+(?:acquis|[ée]tabli)|"
-    r"pr[ée]sente[^.]{0,80}(?:comme\s+[ée]tabli|comme\s+acquis)",
+    r"efficacit[ée]|survie|comparateur|phase\s*[123]|pr[ée]clinique|comme\s+(?:un\s+)?(?:fait|r[ée]sultat)\s+(?:acquis|[ée]tabli)|pr[ée]sente[^.]{0,80}(?:comme\s+[ée]tabli|comme\s+acquis)",
     re.IGNORECASE,
 )
 
@@ -176,23 +132,20 @@ def _provider_reproche_exige_source_absente(probleme: dict) -> bool:
         return False
     if _PREUVE_RENFORCEE_RE.search(description):
         return False
-    print(
-        "     [JUGE] reproche écarté — le rapport exige une limite qu'il "
-        "déclare lui-même absente de la source (règle de symétrie)"
-    )
+    print("     [JUGE] reproche écarté — le rapport exige une limite qu'il déclare lui-même absente de la source (règle de symétrie)")
     return True
 
 
-def _provider_problemes_bloquants(problemes: list) -> list:
-    retenus = _verification._provider_original_problemes_bloquants(problemes)
-    return [p for p in retenus if not _provider_reproche_exige_source_absente(p)]
-
-
 _verification._reproche_exige_source_absente = _provider_reproche_exige_source_absente
-_verification._problemes_bloquants = _provider_problemes_bloquants
+if hasattr(_verification, "_problemes_bloquants"):
+    _verification._provider_original_problemes_bloquants = _verification._problemes_bloquants
 
-# Si le fact-check n'a pas abouti, l'article ne peut pas être publié
-# automatiquement.
+    def _provider_problemes_bloquants(problemes: list) -> list:
+        retenus = _verification._provider_original_problemes_bloquants(problemes)
+        return [p for p in retenus if not _provider_reproche_exige_source_absente(p)]
+
+    _verification._problemes_bloquants = _provider_problemes_bloquants
+
 _verification._provider_original_verifier_article = _verification.verifier_article
 
 
@@ -200,19 +153,9 @@ def _provider_fail_closed_verifier_article(*args, **kwargs):
     article, statut = _verification._provider_original_verifier_article(*args, **kwargs)
     if statut in {"erreur_verification", "non_verifie"}:
         slug = article.get("slug", "?") if isinstance(article, dict) else "?"
-        print(
-            f"     [REJET QUALITÉ] vérification indisponible ({statut}) — "
-            "publication automatique interdite"
-        )
+        print(f"     [REJET QUALITÉ] vérification indisponible ({statut}) — publication automatique interdite")
         try:
-            _verification._log(
-                slug,
-                "rejete_qualite",
-                {
-                    "raison": "verification_indisponible",
-                    "statut_verification_initial": statut,
-                },
-            )
+            _verification._log(slug, "rejete_qualite", {"raison": "verification_indisponible", "statut_verification_initial": statut})
         except Exception:
             pass
         return article, "rejete_qualite"
@@ -227,13 +170,9 @@ def _empreinte(k: str) -> str:
 
 
 print(
-    f"     [VERIF-AUTH] cible={_verification.GROQ_URL} · modèle={_MODEL} · "
-    f"clés={len(_verification.GROQ_KEYS)} · "
-    f"source={'LLM_API_KEY' if _LLM_KEY else 'GROQ_API_KEY*'} · "
-    f"{_empreinte(_verification.GROQ_KEYS[0]) if _verification.GROQ_KEYS else 'AUCUNE'}",
+    f"     [VERIF-AUTH] cible={_verification.GROQ_URL} · modèle={_MODEL} · clés={len(_verification.GROQ_KEYS)} · source={'LLM_API_KEY' if _LLM_KEY else 'GROQ_API_KEY*'} · {_empreinte(_verification.GROQ_KEYS[0]) if _verification.GROQ_KEYS else 'AUCUNE'}",
     file=sys.stderr,
     flush=True,
 )
 
-# Important : renvoyer le vrai module historique, pas une copie de ses symboles.
 sys.modules[__name__] = _verification
