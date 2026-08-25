@@ -43,6 +43,12 @@ _RETROSPECTIVE_SOURCE_RULE = """
 if _RETROSPECTIVE_SOURCE_RULE not in _verification.PROMPT_DETECTION:
     _verification.PROMPT_DETECTION += "\n\n" + _RETROSPECTIVE_SOURCE_RULE
 
+_FUTURE_PROJECTION_RULE = """
+⚠ PROJECTIONS ET FUTUR RÉEL — le simple emploi du futur, du conditionnel ou d'un verbe comme « prévoit », « projette », « envisage » n'est JAMAIS en soi un motif ``annonce_perimee``. Si les extraits décrivent réellement une prévision, un scénario, une échéance ou un événement encore futur à la date de l'article, l'article DOIT pouvoir le présenter comme futur. La date de publication d'une prévision antérieure à l'échéance confirme au contraire qu'il s'agit d'une projection ; elle ne la rend pas périmée. N'utilise ``annonce_perimee`` que lorsqu'un extrait plus récent établit explicitement que l'événement annoncé a déjà eu lieu, a été annulé, a changé d'état ou que la formulation temporelle de l'article contredit l'état le plus récent fourni. Ne transforme jamais une simple différence de temps grammatical en contradiction chronologique.
+""".strip()
+if _FUTURE_PROJECTION_RULE not in _verification.PROMPT_DETECTION:
+    _verification.PROMPT_DETECTION += "\n\n" + _FUTURE_PROJECTION_RULE
+
 # Une erreur HTTP 402 de vérification signifie que le compte/fournisseur ne
 # permet pas l'appel (ex. abonnement Mistral absent). Le run du 25/08 a répété
 # exactement le même 402 article après article. C'est une panne non transitoire
