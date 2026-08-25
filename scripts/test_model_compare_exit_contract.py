@@ -1,4 +1,4 @@
-"""Régression : un A/B incomplet ne doit jamais terminer vert."""
+"""Régression : un A/B incomplet ou biaisé ne doit jamais terminer vert."""
 from pathlib import Path
 import re
 
@@ -14,12 +14,6 @@ def _sujet():
 
 
 def test_workflow_default_est_une_vraie_comparaison():
-    """Le bouton « Run workflow » doit fonctionner sans éditer les inputs.
-
-    Le script refuse volontairement moins de deux modèles. Le workflow ne doit
-    donc jamais fournir un seul modèle par défaut, ni réintroduire le modèle
-    Groq retiré qui ferait échouer la comparaison par construction.
-    """
     text = WORKFLOW.read_text(encoding="utf-8")
     block = re.search(
         r"modeles:\s*.*?default:\s*[\"']([^\"']+)[\"']",
@@ -36,7 +30,7 @@ def test_un_seul_modele_rend_le_run_rouge():
     original_modeles = m.MODELES
     original_collecter = m.collecter_sujets
     try:
-        m.MODELES = ["modele-seul"]
+        m.MODELES = ["openai/gpt-oss-20b"]
         m.collecter_sujets = lambda n: (_ for _ in ()).throw(
             AssertionError("la collecte ne doit pas démarrer sans vraie comparaison")
         )
@@ -46,12 +40,33 @@ def test_un_seul_modele_rend_le_run_rouge():
         m.collecter_sujets = original_collecter
 
 
+def test_modele_sans_fenetre_verifiee_rend_le_run_rouge_avant_collecte():
+    original_modeles = m.MODELES
+    original_collecter = m.collecter_sujets
+    try:
+        m.MODELES = ["openai/gpt-oss-20b", "gemini-modele-non-verifie"]
+        m.collecter_sujets = lambda n: (_ for _ in ()).throw(
+            AssertionError("la collecte ne doit pas démarrer avec une fenêtre supposée")
+        )
+        assert m.main() == 1
+    finally:
+        m.MODELES = original_modeles
+        m.collecter_sujets = original_collecter
+
+
+def test_gemini_non_verifie_n_est_pas_code_en_dur():
+    table = m._TPM_PAR_MODELE_GEN
+    assert not any(nom.startswith("gemini-") for nom in table), (
+        "une fenêtre Gemini non mesurée a été réintroduite dans la table partagée"
+    )
+
+
 def test_echec_generation_rend_le_run_rouge():
     original_collecter = m.collecter_sujets
     original_generer = m.generer_avec_modele
     original_modeles = m.MODELES
     try:
-        m.MODELES = ["modele-a", "modele-b"]
+        m.MODELES = ["openai/gpt-oss-20b", "openai/gpt-oss-120b"]
         m.collecter_sujets = lambda n: [_sujet()]
         m.generer_avec_modele = lambda item, modele: (
             {"ok": False, "erreur": "model_not_found"}
@@ -70,7 +85,7 @@ def test_toutes_generations_ok_rend_le_run_vert():
     original_generer = m.generer_avec_modele
     original_modeles = m.MODELES
     try:
-        m.MODELES = ["modele-a", "modele-b"]
+        m.MODELES = ["openai/gpt-oss-20b", "openai/gpt-oss-120b"]
         m.collecter_sujets = lambda n: [_sujet()]
         m.generer_avec_modele = lambda item, modele: {
             "ok": True,
@@ -86,6 +101,8 @@ def test_toutes_generations_ok_rend_le_run_vert():
 if __name__ == "__main__":
     test_workflow_default_est_une_vraie_comparaison()
     test_un_seul_modele_rend_le_run_rouge()
+    test_modele_sans_fenetre_verifiee_rend_le_run_rouge_avant_collecte()
+    test_gemini_non_verifie_n_est_pas_code_en_dur()
     test_echec_generation_rend_le_run_rouge()
     test_toutes_generations_ok_rend_le_run_vert()
-    print("OK — contrat de sortie A/B")
+    print("OK — contrat de sortie A/B et fenêtre vérifiée")
