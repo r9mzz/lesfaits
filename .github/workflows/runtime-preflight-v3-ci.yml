@@ -19,6 +19,39 @@ on:
       - "scripts/test_runtime_groq_model_v3.py"
       - "scripts/test_provider_runtime_guard.py"
       - "scripts/test_fenetre_essai_isolation.py"
+      - "scripts/test_raisonnement_reservation.py"
+      - ".github/workflows/essai_fournisseur.yml"
+      - "scripts/normalize_feed_pubdates.py"
+      - "scripts/test_feed_pubdates.py"
+      - "scripts/test_feed_current_state.py"
+      - "scripts/test_runtime_feed_pubdates_v3.py"
+      - "scripts/normalize_sitemap_lastmod.py"
+      - "scripts/test_sitemap_lastmod.py"
+      - "scripts/test_sitemap_current_state.py"
+      - "scripts/test_runtime_sitemap_v3.py"
+      - "scripts/test_runtime_preflight_ci_contract.py"
+      - "scripts/test_fenetres_modeles_ci_contract.py"
+      - ".github/workflows/runtime-preflight-v3-ci.yml"
+  push:
+    branches: ["main"]
+    paths:
+      - "feed.xml"
+      - "sitemap.xml"
+      - "scripts/pipeline.py"
+      - "scripts/fenetres_modeles.py"
+      - "scripts/modele_fournisseur.py"
+      - "scripts/run_pipeline_v3.py"
+      - "scripts/provider_runtime_guard.py"
+      - "scripts/test_runtime_preflight_v3.py"
+      - "scripts/test_run_pipeline_v3.py"
+      - "scripts/test_trusted_source_expansion.py"
+      - "scripts/test_verification_scope.py"
+      - "scripts/test_pertinence_bloquant.py"
+      - "scripts/test_runtime_newsletter_v3.py"
+      - "scripts/test_runtime_groq_model_v3.py"
+      - "scripts/test_provider_runtime_guard.py"
+      - "scripts/test_fenetre_essai_isolation.py"
+      - "scripts/test_raisonnement_reservation.py"
       - ".github/workflows/essai_fournisseur.yml"
       - "scripts/normalize_feed_pubdates.py"
       - "scripts/test_feed_pubdates.py"
@@ -63,6 +96,7 @@ jobs:
           scripts/test_runtime_groq_model_v3.py
           scripts/test_provider_runtime_guard.py
           scripts/test_fenetre_essai_isolation.py
+          scripts/test_raisonnement_reservation.py
           scripts/normalize_feed_pubdates.py
           scripts/test_feed_pubdates.py
           scripts/test_feed_current_state.py
@@ -79,6 +113,8 @@ jobs:
         run: |
           python scripts/test_runtime_preflight_ci_contract.py
           python scripts/test_fenetres_modeles_ci_contract.py
+      - name: Vérifier la réservation des tokens de raisonnement
+        run: python scripts/test_raisonnement_reservation.py
       - name: Vérifier l'isolation de la fenêtre d'essai
         run: |
           PYTHONPATH=scripts python scripts/test_fenetre_essai_isolation.py
