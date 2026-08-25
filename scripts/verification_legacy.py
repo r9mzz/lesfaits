@@ -66,6 +66,12 @@ PROMPT_DETECTION = """Tu es un fact-checker indépendant et rigoureux pour Les F
 
 AVANT TOUT — LIMITE DE TA PROPRE CONNAISSANCE. Tu juges uniquement par rapport aux sources fournies. Ta connaissance du monde s'arrête à une date passée : un produit, une institution, un chiffre ou un événement que tu ne connais pas peut être parfaitement réel et postérieur à ton entraînement. Ne signale JAMAIS un élément comme inventé, erroné ou périmé au motif que tu l'ignores — seulement s'il contredit les sources listées ou n'y apparaît pas. Cela vaut en particulier pour "source_inventee", "chiffre_errone", "annonce_perimee" et "fait_tranche_arbitrairement".
 
+RELIS LA PHRASE AVANT DE LUI REPROCHER UNE OMISSION. Un reproche d'omission ("sans préciser que…", "sans rappeler que…", "sans attribution") n'est recevable QUE si le mot manquant est réellement absent de la phrase que tu cites. Cas réels de reproches à ne plus produire : la phrase disait « Selon les données PRÉLIMINAIRES de l'Inserm… » et le reproche exigeait de rappeler que les données sont préliminaires ; la phrase disait « VIH.org INDIQUE que ces territoires PRÉSENTERAIENT… » et le reproche exigeait une attribution et un conditionnel qui y étaient tous deux. Avant d'écrire un reproche d'omission, cherche le mot dans la phrase citée : s'il y est, il n'y a pas de problème.
+
+UNE RÉSERVE DONNÉE UNE FOIS SUFFIT. La charte du rédacteur interdit de répéter une même idée d'une section à l'autre (règle 1 : une idée = une seule apparition). N'exige donc JAMAIS qu'une limite méthodologique, un conditionnel ou une réserve déjà écrits quelque part dans l'article soient répétés dans le résumé, les faits ET les nuances. « Cette précision est donnée, mais elle n'est pas intégrée de manière systématique » n'est pas un problème : c'est la charte qui est respectée. Et ne signale jamais comme manquante, dans un reproche, une réserve que tu constates présente dans un autre reproche du même rapport.
+
+LE CONDITIONNEL EST OBLIGATOIRE POUR CE QUI N'EST PAS ACQUIS. Une mesure PROPOSÉE, un projet de règlement, un texte en cours d'examen ou une prévision se décrivent au conditionnel : « la mesure NE S'APPLIQUERAIT qu'aux nouvelles demandes » est la formulation CORRECTE pour un règlement seulement proposé, pas une incertitude à corriger. N'exige jamais l'indicatif pour un fait non acquis — ce serait demander au rédacteur d'affirmer plus que la source. Deux distinctions à faire avant de signaler « annonce_perimee » : (a) une réglementation déjà PROPOSÉE dont le contenu PRÉVOIT d'imposer quelque chose n'est pas une annonce à venir — « proposée » décrit son statut, « prévoit » décrit son contenu, les deux sont exacts ensemble ; (b) un verbe au passé composé (« a ravagé », « a proposé », « ont subi ») décrit un fait ACCOMPLI : ne le lis jamais comme un événement en cours.
+
 FORMAT DE CITATION (05/08) : cet article n'attribue PLUS ses faits par une prose du type "Selon X, D'après Y" — chaque fait porte un numéro [n] entre crochets renvoyant à sa position dans le tableau "sources" fourni (1 = premier élément). Ce n'est PAS une absence d'attribution : vérifie le fait contre la source à cette position exacte, exactement comme tu l'aurais fait pour un "Selon X". Un [n] qui renvoie à une source dont le contenu ne confirme pas le fait est un "source_inventee" au même titre qu'une fausse attribution en prose. Ne signale PAS l'absence du nom du média dans le texte comme un défaut — c'est le format attendu, pas un oubli.
 
 Chaque type de problème appartient à un bloc. Le bloc détermine si l'article peut être corrigé automatiquement ou doit partir en relecture humaine — indique-le pour chaque problème via le champ "bloc".
@@ -594,11 +600,83 @@ def _problemes_bloquants(problemes: list) -> list:
     BLOC1_BLOQUANTS = {"chiffre_errone", "incoherence_inter_sections", "annonce_perimee",
                        "niveau_preuve_insuffisant", "accusation_presentee_comme_fait"}
     BLOC2_BLOQUANTS = {"source_inventee"}
-    return [
+    retenus = [
         p for p in problemes
         if (p.get("bloc") == 1 and p.get("type") in BLOC1_BLOQUANTS)
         or (p.get("bloc") == 2 and p.get("type") in BLOC2_BLOQUANTS)
     ]
+    return [p for p in retenus if not _reproche_auto_contredit(p)]
+
+
+# ── 25/08 : écarter les reproches que la phrase citée DÉMENT ────────────────
+# Relecture à la main des 27 reproches bloquants du run 276 : 4 fondés, 20
+# infondés. La famille la plus flagrante est celle-ci — le juge réclame un mot
+# qui figure DÉJÀ dans la phrase qu'il cite :
+#
+#   phrase   : « Selon les données PRÉLIMINAIRES de l'Inserm, des disparités… »
+#   reproche : « sans rappeler explicitement que les données sont préliminaires »
+#
+#   phrase   : « VIH.org INDIQUE que ces territoires PRÉSENTERAIENT… »
+#   reproche : « présenté comme un constat neutre, sans attribution »
+#
+# Une consigne de prompt peut être ignorée ; ce contrôle-ci est vérifiable par
+# le code, donc il ne peut pas l'être. ⚠ Ce n'est PAS un assouplissement du
+# juge : on n'écarte que les reproches que leur PROPRE citation dément, jamais
+# un reproche fondé. La condition est délibérément étroite — il faut que le
+# reproche affirme explicitement une absence ET que le marqueur soit présent
+# littéralement dans la phrase. Dans le doute, le reproche est conservé et
+# bloque comme avant.
+_ABSENCE_RE = re.compile(
+    r"sans (?:rappeler|préciser|pr[ée]ciser|attribution|attribuer|mentionner)"
+    r"|ne pr[ée]cise pas|n'est pas mentionn|n'indique pas|omet de",
+    re.IGNORECASE)
+
+# Marqueurs dont la présence littérale dans la phrase suffit à démentir le
+# reproche qui les dit absents. Volontairement courte : chaque entrée est un
+# mot dont la seule présence porte la réserve ou l'attribution.
+_MARQUEURS_RESERVE = ("préliminaire", "provisoire", "association",
+                      "pourrait", "conditionnel", "exploratoire")
+
+# Marqueurs d'ATTRIBUTION. Un reproche « sans attribution » est démenti si l'un
+# d'eux ouvre la phrase citée.
+_MARQUEURS_ATTRIBUTION = ("selon ", "estime", "indique", "d'après", "affirme",
+                          "rapporte", "déclare", "précise que")
+
+# ⚠ EXCEPTION QUI PROTÈGE UN VRAI DÉFAUT : « Selon les experts », « selon des
+# sources » sont des attributions VIDES — c'est le motif `formule_vague`, et
+# c'est aussi ce que visaient les 4 seuls reproches FONDÉS du run 276. Un
+# marqueur suivi d'un collectif anonyme n'excuse donc rien.
+_ATTRIBUTION_VIDE_RE = re.compile(
+    r"(?:selon|d'après|pour)\s+(?:les?\s+|des\s+)?"
+    r"(?:experts?|sources?|analystes?|observateurs?|autorités|spécialistes?|"
+    r"scientifiques|chercheurs|responsables)",
+    re.IGNORECASE)
+
+
+def _reproche_auto_contredit(probleme: dict) -> bool:
+    """Le reproche affirme une absence que sa propre citation dément."""
+    description = str(probleme.get("description") or "")
+    phrase = str(probleme.get("phrase") or "")
+    if not phrase or not _ABSENCE_RE.search(description):
+        return False
+    d, ph = description.lower(), phrase.lower()
+
+    # (a) le reproche nomme le mot manquant, et ce mot est dans la phrase
+    for mot in _MARQUEURS_RESERVE:
+        if mot in d and mot in ph:
+            print(f"     [JUGE] reproche écarté — « {mot} » est dans la phrase "
+                  f"que le reproche dit dépourvue ({probleme.get('type')})")
+            return True
+
+    # (b) le reproche dit « sans attribution » alors que la phrase en porte une
+    if re.search(r"attribu", d) and not _ATTRIBUTION_VIDE_RE.search(phrase):
+        for mot in _MARQUEURS_ATTRIBUTION:
+            if mot in ph:
+                print(f"     [JUGE] reproche écarté — la phrase attribue "
+                      f"(« {mot.strip()} ») alors que le reproche la dit sans "
+                      f"attribution ({probleme.get('type')})")
+                return True
+    return False
 
 
 def _perte_substance(art_original: dict, art_corrige: dict) -> tuple[bool, str | None, int, int]:
