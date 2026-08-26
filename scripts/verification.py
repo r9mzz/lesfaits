@@ -130,6 +130,18 @@ _DEMANDE_REPETITION_RESUME_RE = re.compile(
     r"(?:le\s+)?r[ée]sum[ée][^.]{0,100}\bdoit\b[^.]{0,100}(?:rappeler|reprendre|mentionner|r[ée]p[ée]ter)",
     re.IGNORECASE,
 )
+_ANNONCE_INTENTION_RE = re.compile(
+    r"\b(?:a|ont)\s+annonc[ée](?:e|es|s)?\s+(?:qu['’]?[a-zà-ÿ]+\s+)?(?:vouloir|envisager|projeter|prévoir)\b",
+    re.IGNORECASE,
+)
+_DESCRIPTION_INTENTION_RE = re.compile(
+    r"\b(?:intention|projet|envisag[ée]|vouloir|conditionnel|pas\s+(?:encore\s+)?acquis|non\s+acquis)\b",
+    re.IGNORECASE,
+)
+_DESCRIPTION_PERIMEE_RE = re.compile(
+    r"\b(?:déjà\s+(?:eu\s+lieu|survenu|réalis[ée]|termin[ée])|annul[ée]|abandonn[ée]|remplac[ée]|n['’]est\s+plus|a\s+déjà\s+eu\s+lieu)\b",
+    re.IGNORECASE,
+)
 
 
 def _provider_reproche_exige_source_absente(probleme: dict) -> bool:
@@ -160,8 +172,30 @@ def _provider_reproche_exige_repetition(probleme: dict) -> bool:
     return True
 
 
+def _provider_annonce_intention_pas_perimee(probleme: dict) -> bool:
+    """Écarte un faux ``annonce_perimee`` quand le rapport décrit lui-même
+    une intention toujours au stade de projet, pas un événement devenu passé.
+
+    Le garde exige simultanément : le type exact, une phrase qui dit qu'une
+    entité *a annoncé vouloir/envisager/projeter/prévoir*, et une description
+    qui parle d'intention/projet sans signaler qu'un état plus récent l'a rendu
+    caduc. Une vraie annonce dépassée reste donc bloquante.
+    """
+    if str(probleme.get("type") or "") != "annonce_perimee":
+        return False
+    phrase = str(probleme.get("phrase") or "")
+    description = str(probleme.get("description") or "")
+    if not (_ANNONCE_INTENTION_RE.search(phrase) and _DESCRIPTION_INTENTION_RE.search(description)):
+        return False
+    if _DESCRIPTION_PERIMEE_RE.search(description):
+        return False
+    print("     [JUGE] reproche écarté — « a annoncé vouloir/envisager » décrit une annonce passée d'un projet futur, pas une annonce périmée")
+    return True
+
+
 _verification._reproche_exige_source_absente = _provider_reproche_exige_source_absente
 _verification._reproche_exige_repetition = _provider_reproche_exige_repetition
+_verification._annonce_intention_pas_perimee = _provider_annonce_intention_pas_perimee
 if hasattr(_verification, "_problemes_bloquants"):
     _verification._provider_original_problemes_bloquants = _verification._problemes_bloquants
 
@@ -171,6 +205,7 @@ if hasattr(_verification, "_problemes_bloquants"):
             p for p in retenus
             if not _provider_reproche_exige_source_absente(p)
             and not _provider_reproche_exige_repetition(p)
+            and not _provider_annonce_intention_pas_perimee(p)
         ]
 
     _verification._problemes_bloquants = _provider_problemes_bloquants
