@@ -228,6 +228,14 @@ jobs:
           fi
           git commit -m "$MESSAGE"
 
+          # Sceller les heures publiques dans le même commit que le déploiement.
+          # Cela évite qu'un rebuild republie des libellés visibles par défaut si
+          # le workflow post-déploiement n'est pas déclenché ou arrive en retard.
+          python "${GITHUB_WORKSPACE}/scripts/stamp_publication_times.py" \
+            --site-dir /tmp/site --previous-ref HEAD~1
+          git add -A
+          git diff --cached --quiet || git commit --amend --no-edit
+
           git diff --name-only --diff-filter=A HEAD~1 HEAD -- articles/ \
             | sed 's|^articles/||; s|\.html$||' > "${GITHUB_WORKSPACE}/new_articles.txt" || true
 
