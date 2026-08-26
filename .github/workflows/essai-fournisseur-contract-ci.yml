@@ -1,0 +1,43 @@
+name: Essai fournisseur contract
+
+on:
+  pull_request:
+    paths:
+      - "scripts/essai_fournisseur.py"
+      - "scripts/test_essai_modele_avant_import.py"
+      - "scripts/test_essai_fournisseur_ci_contract.py"
+      - ".github/workflows/essai_fournisseur.yml"
+      - ".github/workflows/essai-fournisseur-contract-ci.yml"
+  push:
+    branches: ["main"]
+    paths:
+      - "scripts/essai_fournisseur.py"
+      - "scripts/test_essai_modele_avant_import.py"
+      - "scripts/test_essai_fournisseur_ci_contract.py"
+      - ".github/workflows/essai_fournisseur.yml"
+      - ".github/workflows/essai-fournisseur-contract-ci.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  essai-fournisseur-contract:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Installer les dépendances
+        run: pip install -r requirements.txt
+      - name: Syntaxe
+        run: >-
+          python -m py_compile
+          scripts/essai_fournisseur.py
+          scripts/test_essai_modele_avant_import.py
+          scripts/test_essai_fournisseur_ci_contract.py
+      - name: Vérifier le modèle avant import
+        run: PYTHONPATH=scripts python scripts/test_essai_modele_avant_import.py
+      - name: Vérifier le contrat CI
+        run: python scripts/test_essai_fournisseur_ci_contract.py
