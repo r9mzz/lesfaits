@@ -5322,6 +5322,27 @@ def generate(content: str, category_hint: str, extra_sources: list[dict] | None 
                 continue
             except Exception as e:
                 err = str(e)
+                # ── 402 : CLÉ ÉPUISÉE, PAS PANNE — même traitement qu'un TPD ──
+                # Run 281 (26/08) : 24 refus 402 « Check your subscription »,
+                # chacun tuant son sujet net. La rédaction ne connaissait que
+                # le 429 ; un 402 tombait dans le `raise` générique, sans
+                # rotation ni marquage. Le fact-check, lui, rotationnait déjà
+                # (correctif du 25/08) — d'où l'asymétrie visible dans le
+                # journal : « [VERIF] clé épuisée (402) — passage à la clé
+                # suivante » d'un côté, un traceback de l'autre.
+                # Un 402 est définitif pour la clé (solde du compte à zéro),
+                # jamais transitoire : on la retire du run, comme un TPD.
+                if "402" in err:
+                    _CLES_MORTES_JOUR.add(key)
+                    _restantes = len([k for k, _ in keys_to_try
+                                      if k not in _CLES_MORTES_JOUR])
+                    print(f"     [GROQ] {label} : solde épuisé (402) — retirée "
+                          f"de la rotation pour ce run ({_restantes} restante(s))")
+                    print(f"     [GROQ-BRUT] {err[:300]}")
+                    if _restantes == 0:
+                        raise QuotaJournalierEpuise(
+                            "Solde épuisé (402) sur toutes les clés du fournisseur")
+                    continue
                 if "429" in err or "rate_limit" in err.lower():
                     if _est_quota_journalier(err):
                         # Lire le solde RÉEL avant de condamner la clé : un

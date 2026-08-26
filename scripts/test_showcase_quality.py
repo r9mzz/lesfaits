@@ -8,6 +8,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
+import showcase_quality  # noqa: E402
 from showcase_quality import validate_generated_article  # noqa: E402
 
 
@@ -149,9 +150,15 @@ class ShowcaseQualityTests(unittest.TestCase):
         self.assertEqual(reasons, [])
 
     def test_short_sourcing_is_rejected(self):
+        # ⚠ SEPTIÈME occurrence dans ce dépôt d'un test qui gèle une valeur au
+        # lieu de la dériver : ce cas a déjà refigé « 4 sources » deux fois, à
+        # chaque changement de MIN_SOURCES. Le nombre est donc CALCULÉ depuis
+        # le seuil — le test dit « un article sous le seuil est rejeté », pas
+        # « un article à 4 sources est rejeté ».
+        manquant = showcase_quality.MIN_SOURCES - 1
         art = valid_article()
-        art["sources"] = art["sources"][:4]
-        art["nb_sources"] = 4
+        art["sources"] = art["sources"][:manquant]
+        art["nb_sources"] = manquant
         ok, reasons = validate_generated_article(art, "actu")
         self.assertFalse(ok)
         self.assertTrue(any("sourcing trop court" in reason for reason in reasons))

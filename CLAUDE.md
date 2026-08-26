@@ -1,5 +1,73 @@
 # Les Faits — lesfaits.info
 
+## RUN 281 — LA MOITIÉ DES SUJETS TUÉE PAR UN 402 JAMAIS RATTRAPÉ (26/08)
+
+Run de 2 h 50 sur Mistral, 0 article. Le journal donne la répartition exacte :
+
+```
+générations abouties ([TOKENS] prompt=)          23
+refus 402 « Check your subscription »            24   ← chacun tue son sujet
+rejets qualité après 3 passes                     7
+rejets amont (pertinence, sources, sensible)     12
+```
+
+**Un refus sur deux appels n'était pas un rejet éditorial, c'était une clé
+morte que personne ne remplaçait.** Le fact-check, lui, rotationnait
+correctement — le journal montre les deux comportements côte à côte :
+
+```
+[VERIF] clé épuisée (402) — passage à la clé suivante (2 restante(s))
+[ERREUR] APIStatusError: Error code: 402 … + traceback, sujet perdu
+```
+
+Cause : `generate()` ne connaissait que le 429. Un 402 tombait dans le `raise`
+générique — clé jamais marquée morte, jamais remplacée, sujet suivant retentant
+la MÊME clé morte. Le correctif du 25/08 n'avait été appliqué qu'à
+`verification_legacy.py` : **corriger un côté d'un chemin dupliqué, c'est
+laisser le bug entier sur l'autre.** Même famille que la double liste de
+`git add` (06/08), corrigée dans `deploy.yml` et pas dans `pipeline.yml`.
+
+Corrigé dans `generate()` : un 402 retire la clé de la rotation et passe à la
+suivante ; toutes les clés épuisées → `QuotaJournalierEpuise`, que `run()`
+rattrape pour arrêter le run au lieu de le faire tourner à vide. Verrouillé par
+`scripts/test_402_rotation_generation.py` (+ `generation-402-ci.yml`), qui rejoue
+le VRAI corps d'erreur Mistral et échoue sans le correctif.
+
+⚠ **Ce correctif ne rend pas de tokens.** 402 « Check your subscription » est un
+solde de COMPTE à zéro, pas un rate limit : il ne se libère pas en attendant. Le
+correctif évite de perdre les sujets tant qu'une clé vivante existe, et fait
+mourir le run proprement quand il n'y en a plus. La question du solde Mistral
+(1 milliard/mois annoncé contre ~66 M/mois consommés) ne se lit que sur la
+console de Nahil.
+
+### Le seuil vitrine à 6 sources était une contradiction, pas une exigence
+
+Rétabli à 4 (décision de Nahil du 26/08), après un retour à 6 par une session
+parallèle au nom du mandat « ne jamais affaiblir un garde-fou ». Le mandat est
+le bon ; il ne s'applique pas à deux portes du même tunnel qui se contredisent :
+
+```
+plancher de publication (charte, règle 7)     3 sources citées
+grille vitrine                                6 sources citées
+juge de pertinence, run 281                   2 à 4 sources jugées pertinentes
+```
+
+On exigeait six citations d'un article que le pipeline publie avec trois, et que
+le sourcing ne documente qu'à deux ou quatre. **La grille ne mesurait pas la
+qualité rédactionnelle, elle mesurait le rendement de DuckDuckGo ce jour-là.**
+
+`test_grille_vitrine_calibrage.py` figeait littéralement `MIN_SOURCES == 6` —
+**septième occurrence dans ce dépôt d'un test qui gèle une VALEUR au lieu de
+verrouiller une PROPRIÉTÉ**, et la première dont l'effet a été de bloquer une
+décision éditoriale. Remplacé par les deux bords qui ont un sens : strictement
+au-dessus du plancher de la charte (lu dans `SEUILS_FORMAT`, jamais recopié) et
+pas au-dessus de ce que le sourcing rend. `test_short_sourcing_is_rejected`
+dérive désormais son nombre de `MIN_SOURCES` — il l'avait refigé deux fois.
+
+⚠ À relire après quelques runs, écrit avant : les articles à 4 sources sont-ils
+moins bons que ceux à 6 ? La mesure à lire est le MOTIF de rejet, pas le nombre
+d'articles publiés.
+
 ## LE JUGE A DURCI, PAS LA RÉDACTION — mesuré le 20/08, ça change la cible
 
 Depuis le passage à Mistral les runs finissent sur `[REJET QUALITÉ] N
