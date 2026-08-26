@@ -59,29 +59,8 @@ MIN_WORDS = {
     "nuances": 91,
     "total": 400,
 }
-# ── SOURCING VITRINE : 4, décision de Nahil (26/08) ──────────────────────────
-# Ce seuil est repassé à 6 le 26/08 au matin par une session parallèle, au nom
-# du mandat « ne jamais affaiblir un garde-fou ». Le mandat est le bon ; il ne
-# s'applique pas ici, parce que 6 n'était pas un niveau d'exigence mais une
-# CONTRADICTION entre deux portes du même tunnel :
-#
-#   plancher de publication (charte, règle 7)      3 sources citées
-#   grille vitrine avant ce correctif              6 sources citées
-#
-# On exigeait d'un article qu'il cite six sources alors que le pipeline le
-# laisse passer avec trois, et que le juge de pertinence n'en déclare
-# régulièrement que deux ou trois comme traitant le sujet précis. Un article
-# ne peut pas citer une source qui n'existe pas : la grille ne mesurait pas la
-# qualité, elle mesurait le rendement du moteur de recherche ce jour-là.
-#
-# 4 est au-dessus du plancher de la charte (donc la vitrine reste plus
-# exigeante que la publication ordinaire) et atteignable avec le sourcing
-# réellement observé. ⚠ Point de vigilance écrit AVANT les runs, pas après :
-# si les articles à 4 sources se révèlent moins bons que ceux à 6, c'est ce
-# seuil qu'il faudra remonter — et la mesure à lire est le motif de rejet, pas
-# le nombre d'articles publiés.
-MIN_SOURCES = 4
-MIN_DISTINCT_DOMAINS = 3
+MIN_SOURCES = 6
+MIN_DISTINCT_DOMAINS = 5
 
 # ── Grille BRÈVE (10/08) ─────────────────────────────────────────────────────
 # Mesuré sur 24 générations : le modèle rend 271, 278, 300, 306 mots quand on

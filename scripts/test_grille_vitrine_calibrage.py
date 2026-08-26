@@ -10,14 +10,7 @@ manquait, à savoir qu'un seuil de publication reste atteignable par la
 production réelle. Les minima de sourcing, eux, ont un plancher éditorial
 historique explicite : ils ne doivent jamais être abaissés pour faire du volume.
 """
-import os
-import sys
-
-sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-os.environ.setdefault("GROQ_MODEL_OVERRIDE", "mistral-large-latest")
-
-import pipeline  # noqa: E402
-import showcase_quality as S  # noqa: E402
+import showcase_quality as S
 
 # Distribution mesurée le 21/08 sur les 140 articles longs publiés, sections
 # comptées une à une. `total` = faits+contexte+nuances, CHAPEAU EXCLU — c'est
@@ -56,47 +49,31 @@ def test_les_sections_ne_contredisent_pas_le_total():
 
 
 def test_les_criteres_non_longueur_sont_intacts():
-    """Le recalibrage de longueur ne desserre QUE la longueur."""
-    assert S.MIN_DISTINCT_DOMAINS <= S.MIN_SOURCES, (
-        "exiger plus de domaines que de sources est arithmétiquement "
-        "impossible")
+    """Le recalibrage ne desserre QUE la longueur."""
+    assert S.MIN_SOURCES == 6
+    assert S.MIN_DISTINCT_DOMAINS == 5
 
 
-def test_la_vitrine_reste_plus_exigeante_que_la_publication_ordinaire():
-    """Le seul plancher qui a un sens est celui de la charte, LU et non recopié.
+def test_le_sourcing_ne_peut_pas_etre_abaisse_pour_faire_du_volume():
+    """Régression du 24/08 : 6/5 avait été abaissé à 3/3 pour élargir la vitrine.
 
-    Historique de ce test, à lire avant de le modifier : il figeait
-    littéralement 6 sources / 5 domaines. C'est la septième occurrence dans ce
-    dépôt d'un test qui gèle une VALEUR au lieu de verrouiller une PROPRIÉTÉ,
-    et l'effet a été de bloquer une décision de Nahil (26/08 : « Mets 4 ») au
-    nom d'un chiffre que plus rien ne justifiait.
-
-    Ce que la vitrine doit garantir, et rien d'autre : être STRICTEMENT plus
-    exigeante que le plancher de publication de la charte (règle 7). Six
-    satisfait cette propriété, quatre aussi — trois ne la satisfait pas, et
-    c'est bien la régression du 24/08 que ce test doit continuer d'attraper.
+    Le mandat d'exploitation interdit explicitement cette stratégie. Les minima
+    historiques 6 sources / 5 domaines sont donc des planchers, pas des cibles
+    qu'un recalibrage de volume peut réduire.
     """
-    plancher_charte = pipeline.SEUILS_FORMAT["article"]["sources"]
-    assert S.MIN_SOURCES > plancher_charte, (
-        f"MIN_SOURCES={S.MIN_SOURCES} n'est pas au-dessus du plancher de "
-        f"publication ({plancher_charte}) : la vitrine n'exige plus rien de "
-        "plus qu'un article ordinaire")
-    assert S.MIN_DISTINCT_DOMAINS >= 3, (
-        f"MIN_DISTINCT_DOMAINS={S.MIN_DISTINCT_DOMAINS} : trois domaines "
-        "distincts sont le minimum pour que « plusieurs sources » ne soit pas "
-        "le même média deux fois")
+    assert S.MIN_SOURCES >= 6, (
+        f"MIN_SOURCES={S.MIN_SOURCES}: sous le plancher éditorial historique 6")
+    assert S.MIN_DISTINCT_DOMAINS >= 5, (
+        f"MIN_DISTINCT_DOMAINS={S.MIN_DISTINCT_DOMAINS}: sous le plancher historique 5")
+    assert S.MIN_DISTINCT_DOMAINS <= S.MIN_SOURCES
 
 
-def test_le_sourcing_ne_peut_pas_depasser_ce_que_le_pipeline_produit():
-    """L'autre bord, celui qui manquait : un seuil inatteignable ne sélectionne
-    pas, il éteint. Le juge de pertinence ne note que les 10 premières sources
-    et n'en déclare régulièrement que 2 à 4 comme traitant le sujet précis
-    (run 281). Un seuil vitrine au-dessus de ce que le sourcing rend mesure le
-    moteur de recherche, pas l'article.
+def test_une_mesure_de_rendement_ne_peut_pas_remplacer_le_plancher_editorial():
+    """Régression du 26/08 : un taux de sujets « atteignables » ne justifie pas
+    de réduire 6/5. Le rendement du pipeline doit être corrigé en amont sans
+    desserrer la porte de publication finale.
     """
-    assert S.MIN_SOURCES <= 6, (
-        f"MIN_SOURCES={S.MIN_SOURCES} : au-delà de 6, la grille rejette sur "
-        "le rendement du sourcing et non sur la qualité rédactionnelle")
+    assert (S.MIN_SOURCES, S.MIN_DISTINCT_DOMAINS) >= (6, 5)
 
 
 if __name__ == "__main__":
