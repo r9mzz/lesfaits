@@ -19567,5 +19567,673 @@
     "veille_passages": 134,
     "veille_age_h": 146.9,
     "veille_n_flux_grappe": 1
+  },
+  {
+    "slug": "nouveau-dpe-850000-logements-reclasses-sans-travaux",
+    "statut": "rejete_qualite",
+    "date": "2026-08-26T21:12:43",
+    "problemes_initiaux": 9,
+    "tentatives": 3,
+    "problemes_restants": 7,
+    "bloquants_restants": 3,
+    "bloquants_types": [
+      "annonce_perimee",
+      "annonce_perimee",
+      "niveau_preuve_insuffisant"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "annonce_perimee",
+        "description": "Le résumé présente la réforme comme déjà entrée en vigueur (« entré en vigueur le 1er janvier 2026 »), alors que la source [1] (Le Monde, 26 août 2026) décrit une réforme en cours d'application et non un événement passé.",
+        "phrase": "Le nouveau mode de calcul du diagnostic de performance énergétique (DPE), entré en vigueur le 1er janvier 2026, pourrait reclasser automatiquement jusqu'à 850 000 logements chauffés à l'électricité en catégorie E, les so"
+      },
+      {
+        "bloc": 1,
+        "type": "annonce_perimee",
+        "description": "La phrase affirme que la réforme est « entrée en vigueur » le 1er janvier 2026, alors que la source [1] (Le Monde) ne confirme pas explicitement que cette date marque une entrée en vigueur effective plutôt qu'une échéanc",
+        "phrase": "Le 1er janvier 2026, une réforme du diagnostic de performance énergétique (DPE) est entrée en vigueur, modifiant le facteur de conversion de l'électricité en énergie primaire [1]."
+      },
+      {
+        "bloc": 1,
+        "type": "niveau_preuve_insuffisant",
+        "description": "La phrase cite une projection (« concernerait principalement ») sans préciser les limites méthodologiques ou la représentativité des données utilisées (taille de l'échantillon, période de référence exacte, ou biais poten",
+        "phrase": "Selon les données du jeu de données des DPE logements neufs publié par le gouvernement, ce reclassement concernerait principalement des logements construits entre 1975 et 1990, période marquée par un recours massif au ch"
+      }
+    ],
+    "types_restants": [
+      "annonce_perimee",
+      "annonce_perimee",
+      "niveau_preuve_insuffisant",
+      "compteur_incoherent",
+      "source_derivee_comptee_comme_primaire",
+      "redondance",
+      "extrapolation"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "faits_repetitifs"
+    ],
+    "titre": "Nouveau DPE : 850 000 logements reclassés sans travaux",
+    "n_sources": 4,
+    "n_mots": 627,
+    "titre_rss": "Logement : le nouveau DPE réduit l’avantage du gaz par rapport à l’électricité",
+    "matiere_faits_distincts": 1104,
+    "matiere_redondance": 0.06,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "veille_heures_visible": 0.0,
+    "veille_passages": 2,
+    "veille_age_h": 2.7,
+    "veille_n_flux_grappe": 2
+  },
+  {
+    "slug": "cop17-mongolie-desertification-financements-deficit",
+    "statut": "rejete_qualite",
+    "date": "2026-08-26T21:20:09",
+    "problemes_initiaux": 8,
+    "tentatives": 3,
+    "problemes_restants": 10,
+    "bloquants_restants": 4,
+    "bloquants_types": [
+      "niveau_preuve_insuffisant",
+      "niveau_preuve_insuffisant",
+      "niveau_preuve_insuffisant",
+      "niveau_preuve_insuffisant"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "niveau_preuve_insuffisant",
+        "description": "La source [2] (Banque mondiale) ne précise pas de chiffres, d'études ou de projets spécifiques confirmant l'impact sur l'emploi ou la résilience des écosystèmes. L'article présente ces effets comme établis sans preuve ta",
+        "phrase": "La Banque mondiale, l’un des principaux acteurs financiers, a souligné que les investissements dans la restauration des terres pourraient créer des emplois et améliorer la résilience des écosystèmes."
+      },
+      {
+        "bloc": 1,
+        "type": "niveau_preuve_insuffisant",
+        "description": "La source [2] mentionne des projets pilotes sans fournir de données précises sur leur succès, leur échelle ou leur impact réel. L'article généralise leur efficacité sans preuve dans les extraits.",
+        "phrase": "Elle a toutefois reconnu que les financements actuels restent largement insuffisants pour répondre aux besoins identifiés, citant des projets pilotes en Afrique et en Asie où des partenariats public-privé ont permis de r"
+      },
+      {
+        "bloc": 1,
+        "type": "niveau_preuve_insuffisant",
+        "description": "Aucun chiffre, étude ou mécanisme précis n'est fourni dans la source [2] pour étayer ces bénéfices économiques. L'article les présente comme des faits sans preuve dans les extraits.",
+        "phrase": "La Banque mondiale a indiqué que les investissements dans la restauration des terres pourraient générer des bénéfices économiques, notamment en réduisant les coûts liés aux sécheresses et en améliorant la productivité ag"
+      },
+      {
+        "bloc": 1,
+        "type": "niveau_preuve_insuffisant",
+        "description": "La source [2] ne donne ni estimation chiffrée des besoins, ni comparaison avec les fonds actuels, ni détails sur les mécanismes proposés. L'article reprend ces éléments sans preuve tangible.",
+        "phrase": "Elle a précisé que les fonds mobilisés à ce jour ne couvrent qu’une fraction des besoins estimés, estimant que des mécanismes de financement plus transparents et une implication accrue du secteur privé seraient nécessair"
+      }
+    ],
+    "types_restants": [
+      "niveau_preuve_insuffisant",
+      "niveau_preuve_insuffisant",
+      "niveau_preuve_insuffisant",
+      "niveau_preuve_insuffisant",
+      "extrapolation",
+      "source_derivee_comptee_comme_primaire",
+      "compteur_incoherent",
+      "contexte_hors_sujet",
+      "redondance",
+      "angle_annonce_non_tenu"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "resume_repete_corps",
+      "faits_repetitifs"
+    ],
+    "titre": "COP17 en Mongolie : la désertification face au déficit de financements",
+    "n_sources": 4,
+    "n_mots": 680,
+    "titre_rss": "COP17 en Mongolie : la diplomatie de la terre à l’épreuve de la crise du multilatéralisme environnemental",
+    "matiere_faits_distincts": 923,
+    "matiere_redondance": 0.02,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "veille_heures_visible": 25.5,
+    "veille_passages": 23,
+    "veille_age_h": 28.1,
+    "veille_n_flux_grappe": 2
+  },
+  {
+    "slug": "james-webb-revelations-nebuleuse-carene",
+    "statut": "corrige_automatiquement",
+    "date": "2026-08-26T21:30:11",
+    "problemes_initiaux": 8,
+    "tentatives": 3,
+    "problemes_residuels_style": 8,
+    "rapport_initial": {
+      "conforme": false,
+      "sujet_sensible": false,
+      "sujet_sensible_raison": "",
+      "angle_insuffisant": false,
+      "angle_insuffisant_raison": "",
+      "nature_contenu": "etude_scientifique",
+      "problemes": [
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "niveau_preuve_insuffisant",
+          "phrase_exacte": "Parmi les observations, des amas d’étoiles anciens, potentiellement formés lorsque l’Univers n’avait que quatre milliards d’années, ont été identifiés.",
+          "explication": "La source [1] (GC) ne précise pas le niveau de preuve ou les limites méthodologiques de cette identification (ex : stade de l'analyse, incertitudes sur l'âge). L'article présente ces amas comme identifiés sans rappeler qu'il s'agit d'une hypothèse nécessitant confirmation."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "niveau_preuve_insuffisant",
+          "phrase_exacte": "Ces amas, visibles grâce à l’effet de lentille gravitationnelle, pourraient figurer parmi les plus anciens jamais observés.",
+          "explication": "La source [1] (GC) ne confirme pas explicitement que ces amas sont parmi les plus anciens jamais observés. L'article généralise une possibilité sans la même réserve que la source."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "niveau_preuve_insuffisant",
+          "phrase_exacte": "L’analyse spectroscopique de la galaxie « Sparkler » a par ailleurs mis en évidence des amas globulaires composés majoritairement de vieilles étoiles rouges. Ces structures pourraient fournir des indices sur les premières phases de formation stellaire dans l’Univers [1].",
+          "explication": "La source [1] (GC) ne précise pas si ces amas globulaires sont effectivement liés aux premières phases de formation stellaire ou s'il s'agit d'une hypothèse. L'article présente cette possibilité comme un fait établi sans la nuance de la source."
+        },
+        {
+          "bloc": 1,
+          "section": "nuances",
+          "type": "redondance",
+          "phrase_exacte": "Les résultats obtenus dans la nébuleuse de la Carène, bien que prometteurs, nécessitent des analyses supplémentaires pour être validés. L’âge des amas d’étoiles observés autour de la galaxie « Sparkler » reste par exemple à confirmer par des études spectroscopiques plus poussées.",
+          "explication": "Cette nuance est déjà présente dans le résumé (« leur interprétation exige des analyses complémentaires ») et dans les faits (« potentiellement formés », « pourraient figurer », « pourraient fournir des indices »). La répétition n'apporte pas d'information nouvelle."
+        },
+        {
+          "bloc": 2,
+          "section": "contexte",
+          "type": "contexte_hors_sujet",
+          "phrase_exacte": "D’autres télescopes, comme Euclid, complètent ces observations en cartographiant l’Univers à grande échelle. Euclid, dont les premières images ont été dévoilées en 2024, vise à étudier la matière noire et l’énergie sombre sur une période couvrant 10 milliards d’années-lumière [2].",
+          "explication": "La source [2] (CNRS) porte sur le télescope Euclid et ses objectifs, sans lien direct avec les observations de James-Webb dans la nébuleuse de la Carène. Ce développement n'éclaire pas le sujet principal de l'article."
+        },
+        {
+          "bloc": 2,
+          "section": "sources",
+          "type": "source_derivee_comptee_comme_primaire",
+          "phrase_exacte": "N/A (problème lié à la liste des sources)",
+          "explication": "Les sources [1] (GC) et [3] (Futura Sciences) semblent toutes deux relayer des informations similaires sur les découvertes de James-Webb, sans apporter d'éléments distincts. Elles ne devraient pas être comptées comme deux sources indépendantes si elles reposent sur la même étude ou communiqué primaire."
+        },
+        {
+          "bloc": 4,
+          "section": "resume",
+          "type": "extrapolation",
+          "phrase_exacte": "Ces clichés, d'une précision inégalée, révèlent des amas d'étoiles et des galaxies lointaines masqués jusqu'ici par des nuages de poussière, offrant des indices sur les premières phases de l'Univers.",
+          "explication": "L'article extrapôle en affirmant que ces observations « offrent des indices sur les premières phases de l'Univers » sans que cette conclusion soit explicitement sourcée ou confirmée par les extraits fournis."
+        },
+        {
+          "bloc": 4,
+          "section": "titre",
+          "type": "angle_annonce_non_tenu",
+          "phrase_exacte": "James-Webb perce les secrets de la nébuleuse de la Carène",
+          "explication": "Le titre annonce une révélation des « secrets » de la nébuleuse, mais l'article précise que les données nécessitent des analyses complémentaires pour être validées. L'angle suggéré (percer les secrets) n'est pas tenu, car les résultats restent provisoires."
+        }
+      ]
+    },
+    "article_type": "actu",
+    "titre": "James-Webb perce les secrets de la nébuleuse de la Carène",
+    "n_sources": 3,
+    "n_mots": 480,
+    "titre_rss": "Le télescope James-Webb ouvre un « Coffre au trésor » cosmique caché à 7 500 années-lumière",
+    "matiere_faits_distincts": 492,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "veille_heures_visible": 20.8,
+    "veille_passages": 18,
+    "veille_age_h": 23.4,
+    "veille_n_flux_grappe": 1
+  },
+  {
+    "slug": "productivite-france-perte-8-5-depuis-2019",
+    "statut": "rejete_qualite",
+    "date": "2026-08-26T21:38:45",
+    "problemes_initiaux": 8,
+    "tentatives": 3,
+    "problemes_restants": 14,
+    "bloquants_restants": 7,
+    "bloquants_types": [
+      "chiffre_errone",
+      "niveau_preuve_insuffisant",
+      "niveau_preuve_insuffisant",
+      "annonce_perimee",
+      "chiffre_errone",
+      "chiffre_errone",
+      "annonce_perimee"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "Le chiffre de 8,5 % est correct, mais le résumé omet de préciser que cet écart est mesuré 'depuis fin 2019' (mentionné dans 'faits'), ce qui peut induire en erreur sur la période concernée.",
+        "phrase": "La productivité apparente du travail en France présente un écart de 8,5 % par rapport à sa trajectoire tendancielle d'avant la pandémie, selon une analyse préliminaire de la Banque de France [4]."
+      },
+      {
+        "bloc": 1,
+        "type": "niveau_preuve_insuffisant",
+        "description": "La source [10] (FMI 2026) est une projection, mais le résumé ne précise pas que les 1,1 % sont une estimation future, pas un chiffre réalisé, ce qui pourrait être interprété comme un fait acquis.",
+        "phrase": "Ce décrochage, plus marqué qu'aux États-Unis, coïncide avec une croissance du PIB limitée à 1,1 % en 2024, selon les projections du FMI [10]."
+      },
+      {
+        "bloc": 1,
+        "type": "niveau_preuve_insuffisant",
+        "description": "La source [4] qualifie explicitement l'analyse de 'préliminaire' et 'exploratoire', mais cette précision n'est pas reprise systématiquement dans toutes les sections où le chiffre est mentionné (ex. résumé), ce qui pourra",
+        "phrase": "La productivité apparente du travail en France présente un écart de 8,5 % par rapport à sa trajectoire tendancielle pré-Covid depuis fin 2019, indique une étude préliminaire de la Banque de France [4]."
+      },
+      {
+        "bloc": 1,
+        "type": "annonce_perimee",
+        "description": "La source [10] est datée de juillet 2026 et décrit une projection pour 2024, mais l'article présente ce chiffre comme une prévision actuelle ('devrait atteindre'), alors qu'il s'agit d'une estimation passée. L'état le pl",
+        "phrase": "Selon les projections du FMI [10], la croissance du PIB devrait atteindre 1,1 % en 2024, après 1,4 % en 2023."
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [5] (German Federal Statistical Office) ne fournit pas explicitement les chiffres du déficit public (5,8 %) ou de la dette (113 %) pour 2024. Ces données ne sont pas confirmées par les extraits fournis.",
+        "phrase": "Le déficit public s'établit à 5,8 % du PIB en 2024, tandis que la dette atteint 113 % du PIB, contre 62,5 % en Allemagne, d'après les données d'Eurostat relayées par le German Federal Statistical Office [5]."
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [5] ne fournit pas explicitement les chiffres du PIB par habitant pour 2024 (39 113 PPS et 46 414 PPS). Ces données ne sont pas confirmées par les extraits fournis.",
+        "phrase": "En 2024, le PIB par habitant en parité de pouvoir d'achat s'élève à 39 113 PPS en France, contre 46 414 PPS en Allemagne, soit un écart de 15 %, d'après les données d'Eurostat relayées par le German Federal Statistical O"
+      },
+      {
+        "bloc": 1,
+        "type": "annonce_perimee",
+        "description": "La source [10] (FMI 2026) est présentée comme une projection future, mais elle est déjà publiée en 2026. L'article devrait préciser que ces 'perspectives à moyen terme' sont désormais des analyses rétrospectives ou actua",
+        "phrase": "Le FMI indique dans son rapport de 2026 que les pressions budgétaires pourraient influencer les perspectives économiques à moyen terme, tout en précisant que ces projections sont soumises à des incertitudes majeures [10]"
+      }
+    ],
+    "types_restants": [
+      "chiffre_errone",
+      "niveau_preuve_insuffisant",
+      "extrapolation",
+      "niveau_preuve_insuffisant",
+      "annonce_perimee",
+      "chiffre_errone",
+      "source_inventee",
+      "chiffre_errone",
+      "extrapolation",
+      "annonce_perimee",
+      "source_derivee_comptee_comme_primaire",
+      "compteur_incoherent",
+      "contexte_hors_sujet",
+      "section_gonflee"
+    ],
+    "article_type": "actu",
+    "titre": "La France perd 8,5 % de productivité depuis 2019",
+    "n_sources": 8,
+    "n_mots": 545,
+    "titre_rss": "Il est urgent de redresser la productivité en France : les pistes de Patrick Artus",
+    "matiere_faits_distincts": 808,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "veille_heures_visible": 10.7,
+    "veille_passages": 10,
+    "veille_age_h": 13.4,
+    "veille_n_flux_grappe": 1
+  },
+  {
+    "slug": "data-centers-ia-consommation-electrique-risque-refossilisation",
+    "statut": "rejete_qualite",
+    "date": "2026-08-26T21:48:30",
+    "problemes_initiaux": 14,
+    "tentatives": 3,
+    "problemes_restants": 10,
+    "bloquants_restants": 3,
+    "bloquants_types": [
+      "chiffre_errone",
+      "niveau_preuve_insuffisant",
+      "annonce_perimee"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [2] (*The Conversation*) qualifie explicitement ces estimations d'« exploratoires », ce qui n'est pas repris dans le résumé, donnant l'impression d'un chiffre établi plutôt que d'une estimation préliminaire.",
+        "phrase": "Selon *The Conversation*, les besoins en calcul pour les modèles d'IA générative ont été multipliés par un facteur de quatre à cinq chaque année depuis 2010, selon des estimations exploratoires [2]."
+      },
+      {
+        "bloc": 1,
+        "type": "niveau_preuve_insuffisant",
+        "description": "La source [2] précise que ces chiffres sont des « estimations exploratoires », mais cette nuance méthodologique n'est pas intégrée systématiquement dans l'article (ex. : reprise dans le résumé sans cette réserve).",
+        "phrase": "Depuis 2010, les besoins en calcul pour ces technologies auraient été multipliés par un facteur de quatre à cinq chaque année, selon des estimations exploratoires citées par la même source [2]."
+      },
+      {
+        "bloc": 1,
+        "type": "annonce_perimee",
+        "description": "La formulation utilise le présent (« ont lieu », « en sont encore ») pour décrire des discussions et projets, alors que la source [2] pourrait établir un état plus récent (ex. : avancées ou abandons). Sans extrait confir",
+        "phrase": "Aux États-Unis, *The Conversation* rapporte que des discussions autour des petits réacteurs modulaires (SMR) ont lieu entre acteurs du numérique et start-up spécialisées, mais ces projets en sont encore à des stades prél"
+      }
+    ],
+    "types_restants": [
+      "chiffre_errone",
+      "niveau_preuve_insuffisant",
+      "annonce_perimee",
+      "extrapolation",
+      "source_derivee_comptee_comme_primaire",
+      "compteur_incoherent",
+      "cadrage_emprunte",
+      "redondance",
+      "section_gonflee",
+      "angle_annonce_non_tenu"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "faits_repetitifs"
+    ],
+    "titre": "Data centers et IA menacent de doubler la demande électrique d'ici 2030",
+    "n_sources": 5,
+    "n_mots": 499,
+    "titre_rss": "Les énormes besoins en électricité de l’IA risquent de relancer les énergies carbonées",
+    "matiere_faits_distincts": 926,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 3,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "n_sources_pertinentes": 3,
+    "veille_heures_visible": 0.0,
+    "veille_passages": 1,
+    "veille_age_h": 2.7,
+    "veille_n_flux_grappe": 1
+  },
+  {
+    "slug": "senat-demande-bei-financer-armes-munitions-europeennes",
+    "statut": "rejete_qualite",
+    "date": "2026-08-26T21:56:33",
+    "problemes_initiaux": 10,
+    "tentatives": 3,
+    "problemes_restants": 11,
+    "bloquants_restants": 4,
+    "bloquants_types": [
+      "annonce_perimee",
+      "niveau_preuve_insuffisant",
+      "accusation_presentee_comme_fait",
+      "accusation_presentee_comme_fait"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "annonce_perimee",
+        "description": "La phrase présente l'adoption de la résolution comme un événement passé (« a adopté »), ce qui est correct, mais le résumé utilise ensuite le conditionnel (« proposerait », « exclurait ») pour décrire le contenu de la ré",
+        "phrase": "Le 8 juillet 2026, la commission des affaires européennes du Sénat a adopté une résolution demandant l'intégration des armes et munitions produites en Europe dans le champ de financement de la BEI."
+      },
+      {
+        "bloc": 1,
+        "type": "niveau_preuve_insuffisant",
+        "description": "La source [1] (rapport sénatorial) est citée pour une estimation des risques financiers, mais l'article ne précise pas si cette estimation repose sur des données chiffrées, des études ou des hypothèses non sourcées. Le r",
+        "phrase": "Le Sénat estime que les risques financiers pour la BEI seraient limités, citant le soutien des investisseurs privés à ce secteur [1]."
+      },
+      {
+        "bloc": 1,
+        "type": "accusation_presentee_comme_fait",
+        "description": "La phrase attribue la réticence de la BEI à des raisons (« perçues comme contraires à ces objectifs ») sans préciser que cette interprétation émane du Sénat. La BEI n'a pas été citée directement pour confirmer cette expl",
+        "phrase": "La BEI, qui se présente comme la « banque du climat », a fait de la lutte contre le changement climatique une priorité, ce qui, selon le Sénat, expliquerait sa réticence à financer des activités perçues comme contraires "
+      },
+      {
+        "bloc": 1,
+        "type": "accusation_presentee_comme_fait",
+        "description": "L'article présente comme un fait établi (« reposerait sur la crainte ») une analyse sénatoriale qui n'est pas confirmée par la BEI elle-même. Le conditionnel est utilisé, mais la formulation reste trop affirmative pour u",
+        "phrase": "Le rapport n° 879 (2025-2026) du Sénat estime que cette exclusion reposerait sur la crainte d'une déstabilisation de son modèle économique et d'une perte d'investisseurs sensibles aux critères ESG."
+      }
+    ],
+    "types_restants": [
+      "annonce_perimee",
+      "niveau_preuve_insuffisant",
+      "accusation_presentee_comme_fait",
+      "accusation_presentee_comme_fait",
+      "source_derivee_comptee_comme_primaire",
+      "compteur_incoherent",
+      "contexte_hors_sujet",
+      "contexte_hors_sujet",
+      "redondance",
+      "angle_annonce_non_tenu",
+      "acteur_mis_en_cause_sans_reponse"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "affirmation_non_demontree"
+    ],
+    "titre": "Le Sénat demande à la BEI de financer les armes et munitions européennes",
+    "n_sources": 4,
+    "n_mots": 583,
+    "titre_rss": "Armes et munitions produites par les industries européennes de la défense - Rapport n° 879",
+    "matiere_faits_distincts": 1147,
+    "matiere_redondance": 0.01,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "veille_heures_visible": 351.9,
+    "veille_passages": 296,
+    "veille_age_h": 354.5,
+    "veille_n_flux_grappe": 6
+  },
+  {
+    "slug": "enquete-eras-2026-comportements-sexuels-hsh-prevention-vih",
+    "statut": "corrige_automatiquement",
+    "date": "2026-08-26T22:09:26",
+    "problemes_initiaux": 6,
+    "tentatives": 1,
+    "problemes_residuels_style": 4,
+    "rapport_initial": {
+      "conforme": false,
+      "sujet_sensible": false,
+      "sujet_sensible_raison": "",
+      "angle_insuffisant": false,
+      "angle_insuffisant_raison": "",
+      "nature_contenu": "etude_scientifique",
+      "problemes": [
+        {
+          "bloc": 1,
+          "section": "resume",
+          "type": "chiffre_errone",
+          "phrase_exacte": "Cette population représente 42 % des nouvelles découvertes de séropositivité en France en 2024, malgré les avancées comme la PrEP, ce qui justifie un suivi régulier des comportements pour adapter les politiques de santé.",
+          "explication": "Le chiffre de 42 % des nouvelles découvertes de séropositivité en 2024 est attribué à la source [1], mais cette source ne précise pas explicitement que ce chiffre concerne uniquement l'année 2024. L'article généralise une donnée qui pourrait être plus ancienne ou cumulative sans le préciser."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "niveau_preuve_insuffisant",
+          "phrase_exacte": "En 2024, les HSH et les personnes trans représentaient 42 % des nouvelles découvertes de séropositivité déclarées en France [1].",
+          "explication": "La source [1] ne fournit pas les détails méthodologiques (période exacte, population étudiée, taille de l'échantillon) pour ce chiffre de 42 %. L'article ne précise pas non plus si ce chiffre est issu d'une étude spécifique ou d'une estimation, ce qui est requis pour un résultat scientifique ou épidémiologique."
+        },
+        {
+          "bloc": 2,
+          "section": "resume",
+          "type": "source_derivee_comptee_comme_primaire",
+          "phrase_exacte": "Santé publique France lance la cinquième édition de l’enquête ERAS, ciblant les hommes ayant des rapports sexuels avec des hommes pour analyser leurs pratiques préventives face au VIH et aux infections sexuellement transmissibles.",
+          "explication": "Les trois sources listées sont des pages institutionnelles de Santé publique France relayant la même information (lancement de l'enquête ERAS 2026). Elles ne constituent pas trois sources indépendantes, mais une seule source primaire (le communiqué de Santé publique France) reprise par trois URLs différentes. Le compteur de sources est donc surévalué."
+        },
+        {
+          "bloc": 2,
+          "section": "corps",
+          "type": "compteur_incoherent",
+          "phrase_exacte": "nb_sources: 3",
+          "explication": "Le champ 'nb_sources' indique 3 sources, mais ces sources ne sont pas indépendantes (cf. problème précédent). De plus, seule une source primaire est effectivement utilisée, ce qui rend le compteur incohérent avec la réalité du sourcing."
+        },
+        {
+          "bloc": 4,
+          "section": "nuances",
+          "type": "extrapolation",
+          "phrase_exacte": "Par ailleurs, les résultats, attendus fin 2026, ne permettront pas d’évaluer immédiatement l’impact des mesures de prévention, dont l’efficacité dépendra aussi de leur appropriation par les populations concernées.",
+          "explication": "L'article anticipe l'impact des mesures de prévention sans que cette projection soit explicitement sourcée. La source [1] ne mentionne pas cette limite temporelle ou cette dépendance à l'appropriation des mesures."
+        },
+        {
+          "bloc": 4,
+          "section": "resume",
+          "type": "redondance",
+          "phrase_exacte": "L’enquête, menée en ligne jusqu’au 26 avril, pourrait toutefois exclure les profils moins connectés, limitant la représentativité des résultats attendus fin 2026.",
+          "explication": "Cette limite méthodologique est déjà mentionnée dans la section 'nuances' (« La méthodologie de l’enquête, exclusivement en ligne, pourrait limiter sa représentativité... »). La répétition dans le résumé est redondante."
+        }
+      ]
+    },
+    "article_type": "actu",
+    "titre": "Santé publique France relance l'enquête ERAS sur le VIH et les IST",
+    "n_sources": 3,
+    "n_mots": 440,
+    "titre_rss": "Enquête « Rapport au sexe » (ERAS) 2026 à destination des hommes ayant des rapports sexuels avec des hommes",
+    "matiere_faits_distincts": 783,
+    "matiere_redondance": 0.1,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "n_sources_pertinentes": 3,
+    "veille_heures_visible": 55.5,
+    "veille_passages": 50,
+    "veille_age_h": 58.1,
+    "veille_n_flux_grappe": 1
+  },
+  {
+    "slug": "diabete-type-2-adolescents-hausse-inedite-colorado",
+    "statut": "rejete_qualite",
+    "date": "2026-08-26T22:17:21",
+    "problemes_initiaux": 12,
+    "tentatives": 3,
+    "problemes_restants": 12,
+    "bloquants_restants": 3,
+    "bloquants_types": [
+      "niveau_preuve_insuffisant",
+      "niveau_preuve_insuffisant",
+      "source_inventee"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "niveau_preuve_insuffisant",
+        "description": "La source [4] (WHO) qualifie ces résultats d'exploratoires, mais l'article ne précise pas explicitement le niveau de preuve (préliminaire, absence de méthodologie détaillée) dans cette phrase, alors que la source le soul",
+        "phrase": "Selon l'Organisation mondiale de la Santé (OMS), des observations préliminaires suggèrent que le diabète de type 2 chez les adolescents pourrait évoluer plus rapidement que chez les adultes, avec un risque accru de compl"
+      },
+      {
+        "bloc": 1,
+        "type": "niveau_preuve_insuffisant",
+        "description": "Cette précision est donnée, mais elle n'est pas intégrée de manière systématique dans la phrase précédente, qui reste trop affirmative sur les risques de complications sans rappeler leur caractère préliminaire (respect d",
+        "phrase": "Ces résultats, qualifiés d'exploratoires par l'OMS, ne précisent pas la méthodologie des études sous-jacentes ni leur niveau de preuve [4]."
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "Le renvoi [4] est utilisé dans l'article, mais la source correspondante dans le tableau est la deuxième source (WHO), numérotée 2 dans la liste fournie. Le renvoi [4] est donc incorrect et attribue un fait à une source i",
+        "phrase": "Selon l'Organisation mondiale de la Santé (OMS) [4]"
+      }
+    ],
+    "types_restants": [
+      "niveau_preuve_insuffisant",
+      "niveau_preuve_insuffisant",
+      "source_inventee",
+      "contexte_hors_sujet",
+      "source_inventee",
+      "compteur_incoherent",
+      "source_non_editoriale",
+      "source_derivee_comptee_comme_primaire",
+      "redondance",
+      "redondance",
+      "section_gonflee",
+      "contexte_hors_sujet"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "faits_repetitifs"
+    ],
+    "titre": "Diabète de type 2 chez les adolescents : une hausse inédite au Colorado",
+    "n_sources": 3,
+    "n_mots": 592,
+    "titre_rss": "Cette maladie autrefois réservée aux adultes explose chez les adolescents : sa progression sidère les chercheurs",
+    "matiere_faits_distincts": 1217,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 7,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "veille_heures_visible": 28.8,
+    "veille_passages": 26,
+    "veille_age_h": 31.5,
+    "veille_n_flux_grappe": 1
+  },
+  {
+    "slug": "androcur-lien-meningiome-risque-indemnisation",
+    "statut": "rejete_sensible",
+    "date": "2026-08-26T22:24:05",
+    "problemes_initiaux": 12,
+    "bloc5": [
+      "diffamation_potentielle"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "resume_repete_corps",
+      "faits_repetitifs"
+    ],
+    "titre": "Androcur : un lien médical à 100 % avec une tumeur cérébrale confirmé",
+    "n_sources": 4,
+    "n_mots": 650,
+    "titre_rss": "Victime d'un traitement hormonal, elle est devenue lanceuse d'alerte",
+    "matiere_faits_distincts": 981,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "veille_heures_visible": 7.5,
+    "veille_passages": 7,
+    "veille_age_h": 10.2,
+    "veille_n_flux_grappe": 8
+  },
+  {
+    "slug": "mutation-genetique-rare-protection-cardio-vasculaire",
+    "statut": "rejete_qualite",
+    "date": "2026-08-26T22:44:08",
+    "problemes_initiaux": 9,
+    "tentatives": 3,
+    "problemes_restants": 7,
+    "bloquants_restants": 2,
+    "bloquants_types": [
+      "niveau_preuve_insuffisant",
+      "niveau_preuve_insuffisant"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "niveau_preuve_insuffisant",
+        "description": "La phrase ne précise pas explicitement que l'étude est de nature exploratoire et observationnelle, ce qui est pourtant mentionné dans les faits et dans la source [1]. Le niveau de preuve (observationnel, exploratoire) do",
+        "phrase": "Une mutation génétique rare, identifiée chez environ une personne sur 7 000, est associée à une réduction de 60 % du risque de maladies cardio-vasculaires, selon une étude observationnelle internationale analysant plus d"
+      },
+      {
+        "bloc": 1,
+        "type": "niveau_preuve_insuffisant",
+        "description": "La phrase utilise le verbe 'suggère' sans rappeler que cette suggestion repose sur une étude observationnelle et exploratoire, ce qui minimise les limites méthodologiques déjà soulignées dans les faits et la source [1].",
+        "phrase": "Cette découverte suggère des effets potentiels sur la répartition des graisses corporelles, les lipides sanguins et le contrôle glycémique, mais ces mécanismes demandent à être confirmés par des recherches supplémentaire"
+      }
+    ],
+    "types_restants": [
+      "niveau_preuve_insuffisant",
+      "niveau_preuve_insuffisant",
+      "source_derivee_comptee_comme_primaire",
+      "compteur_incoherent",
+      "redondance",
+      "section_gonflee",
+      "redondance"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "faits_repetitifs",
+      "article_sans_date"
+    ],
+    "titre": "Une mutation génétique rare réduit de 60 % le risque cardiaque",
+    "n_sources": 4,
+    "n_mots": 423,
+    "titre_rss": "Une mutation génétique rare réduit de 60 % le risque de maladies cardio-vasculaires",
+    "matiere_faits_distincts": 712,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 4,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "n_sources_pertinentes": 3,
+    "veille_heures_visible": 11.6,
+    "veille_passages": 11,
+    "veille_age_h": 14.3,
+    "veille_n_flux_grappe": 1
   }
 ]
