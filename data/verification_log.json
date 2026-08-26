@@ -19183,5 +19183,389 @@
     "veille_passages": 129,
     "veille_age_h": 142.6,
     "veille_n_flux_grappe": 1
+  },
+  {
+    "slug": "tour-montparnasse-permis-renovation-expire-coproprietaires-divises",
+    "statut": "erreur_verification",
+    "date": "2026-08-26T13:50:39",
+    "etape": "detection",
+    "erreur": "HTTPSConnectionPool(host='api.mistral.ai', port=443): Read timed out. (read timeout=180)",
+    "article_type": "actu",
+    "titre": "Tour Montparnasse : le permis de rénovation expire dans trois mois, les copropriétaires toujours divisés",
+    "n_sources": 8,
+    "n_mots": 508,
+    "titre_rss": "L’avenir de la tour Montparnasse suspendu à la fin de la zizanie entre ses copropriétaires : enquête sur un interminable Monopoly",
+    "matiere_faits_distincts": 827,
+    "matiere_redondance": 0.08,
+    "matiere_donnees_chiffrees": 2,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "n_sources_pertinentes": 8,
+    "veille_heures_visible": 19.7,
+    "veille_passages": 19,
+    "veille_age_h": 19.8,
+    "veille_n_flux_grappe": 1
+  },
+  {
+    "slug": "tour-montparnasse-permis-renovation-expire-coproprietaires-divises",
+    "statut": "rejete_qualite",
+    "date": "2026-08-26T13:50:39",
+    "raison": "verification_indisponible",
+    "statut_verification_initial": "erreur_verification"
+  },
+  {
+    "slug": "sophie-adenot-deuxieme-sortie-spatiale-antenne-iss",
+    "statut": "rejete_qualite",
+    "date": "2026-08-26T14:04:17",
+    "problemes_initiaux": 9,
+    "tentatives": 3,
+    "problemes_restants": 9,
+    "bloquants_restants": 3,
+    "bloquants_types": [
+      "annonce_perimee",
+      "annonce_perimee",
+      "niveau_preuve_insuffisant"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "annonce_perimee",
+        "description": "La phrase présente l'installation de l'antenne comme un fait accompli (« ont permis de finaliser »), alors que la source [2] (France Info) décrit la deuxième sortie comme une tentative pour finaliser l'installation, sans",
+        "phrase": "Ces opérations, menées à 400 km d’altitude et à 28 000 km/h, ont permis de finaliser l’installation d’une antenne de communication après des difficultés techniques lors de la première sortie le 19 août [2]."
+      },
+      {
+        "bloc": 1,
+        "type": "annonce_perimee",
+        "description": "La source [2] (France Info) ne confirme pas explicitement que l'opération a été « accomplie avec succès ». L'article affirme un succès sans preuve directe dans les extraits fournis, ce qui constitue une présentation comm",
+        "phrase": "Le 25 août 2026, Sophie Adenot a quitté la Station spatiale internationale (ISS) pour la deuxième fois en une semaine afin de finaliser l’installation d’une antenne de communication, une opération accomplie avec succès s"
+      },
+      {
+        "bloc": 1,
+        "type": "niveau_preuve_insuffisant",
+        "description": "La comparaison avec un marathon est présentée comme un fait établi, alors que la source [2] (France Info) la qualifie d'« équivalent », ce qui suggère une métaphore plutôt qu'une mesure scientifique. L'article ne précise",
+        "phrase": "Les sorties dans l’espace, comparées à un marathon en raison de leur intensité physique selon France Info, se déroulent à une altitude de 400 kilomètres et à une vitesse de 28 000 km/h [2]."
+      }
+    ],
+    "types_restants": [
+      "annonce_perimee",
+      "annonce_perimee",
+      "niveau_preuve_insuffisant",
+      "source_derivee_comptee_comme_primaire",
+      "source_derivee_comptee_comme_primaire",
+      "cadrage_emprunte",
+      "redondance",
+      "section_gonflee",
+      "angle_annonce_non_tenu"
+    ],
+    "article_type": "actu",
+    "titre": "Sophie Adenot achève l'installation d'une antenne lors de sa deuxième sortie spatiale",
+    "n_sources": 4,
+    "n_mots": 394,
+    "titre_rss": "La mission extravéhiculaire de Sophie Adenot dans l'espace, \"l'équivalent d'un marathon\" à 28 000 km/h",
+    "matiere_faits_distincts": 768,
+    "matiere_redondance": 0.01,
+    "matiere_donnees_chiffrees": 2,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "n_sources_pertinentes": 4,
+    "veille_heures_visible": 14.0,
+    "veille_passages": 17,
+    "veille_age_h": 14.1,
+    "veille_n_flux_grappe": 14
+  },
+  {
+    "slug": "7300-morts-france-canicules-menacent-foetus",
+    "statut": "rejete_qualite",
+    "date": "2026-08-26T14:16:05",
+    "problemes_initiaux": 11,
+    "tentatives": 3,
+    "problemes_restants": 8,
+    "bloquants_restants": 2,
+    "bloquants_types": [
+      "chiffre_errone",
+      "niveau_preuve_insuffisant"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "Le titre de l'article mentionne « 7300 morts France » alors que ni le résumé ni le corps de l'article ne fournissent de chiffre pour la France, uniquement pour l'Espagne et l'Allemagne. Le chiffre du titre ne correspond ",
+        "phrase": "Les vagues de chaleur de l’été 2026 ont donné lieu à des bilans sanitaires provisoires en Europe, avec des estimations de 4 500 décès en Espagne et 14 000 en Allemagne, selon des données rapportées par L’Express [1]."
+      },
+      {
+        "bloc": 1,
+        "type": "niveau_preuve_insuffisant",
+        "description": "Le résumé ne précise pas explicitement que les résultats sont préliminaires et issus d'études aux échantillons limités, bien que cette information soit donnée plus loin. Cependant, le stade de la recherche (exploratoire,",
+        "phrase": "Parallèlement, des travaux exploratoires menés par Johanna Lepeule, épidémiologiste et directrice de recherche, suggèrent que les fortes chaleurs subies pendant la grossesse pourraient avoir des conséquences sur la santé"
+      }
+    ],
+    "types_restants": [
+      "chiffre_errone",
+      "niveau_preuve_insuffisant",
+      "fait_tranche_arbitrairement",
+      "compteur_incoherent",
+      "source_derivee_comptee_comme_primaire",
+      "contexte_hors_sujet",
+      "redondance",
+      "angle_annonce_non_tenu"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "nuances_vagues"
+    ],
+    "titre": "7 300 morts en France cet été : les canicules menacent aussi les fœtus",
+    "n_sources": 3,
+    "n_mots": 567,
+    "titre_rss": "\"Le réchauffement climatique affecte déjà la santé des générations futures\" : le cri d'alerte d'une épidémiologiste",
+    "matiere_faits_distincts": 234,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 6,
+    "n_sources_trouvees": 6,
+    "veille_heures_visible": 30.8,
+    "veille_passages": 30,
+    "veille_age_h": 30.9,
+    "veille_n_flux_grappe": 10
+  },
+  {
+    "slug": "panama-salvador-alerte-maximale-el-nino-secheresse",
+    "statut": "rejete_qualite",
+    "date": "2026-08-26T14:26:53",
+    "problemes_initiaux": 9,
+    "tentatives": 3,
+    "problemes_restants": 9,
+    "bloquants_restants": 2,
+    "bloquants_types": [
+      "chiffre_errone",
+      "niveau_preuve_insuffisant"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [2] (La Croix) ne mentionne pas explicitement les chiffres de 36 à 32 transits quotidiens. Ce chiffre n'est pas confirmé par les extraits fournis.",
+        "phrase": "Le nombre de transits quotidiens sera réduit de 36 à 32 d'ici mi-septembre, en raison du niveau historiquement bas du lac Gatún, essentiel à l'alimentation en eau du canal [2][3]."
+      },
+      {
+        "bloc": 1,
+        "type": "niveau_preuve_insuffisant",
+        "description": "L'article présente une possibilité de pertes agricoles sans préciser les limites méthodologiques ou les données sous-jacentes, alors que la source [2] ne fournit aucune estimation ou étude pour étayer cette affirmation.",
+        "phrase": "Selon *La Croix* [2], des pertes agricoles pourraient survenir, mais les autorités et les organisations concernées n'ont fourni aucune estimation précise à ce stade."
+      }
+    ],
+    "types_restants": [
+      "chiffre_errone",
+      "niveau_preuve_insuffisant",
+      "fait_tranche_arbitrairement",
+      "source_derivee_comptee_comme_primaire",
+      "compteur_incoherent",
+      "contexte_hors_sujet",
+      "redondance",
+      "redondance",
+      "section_gonflee"
+    ],
+    "article_type": "actu",
+    "titre": "Panama et Salvador déclenchent l'alerte maximale face à El Niño",
+    "n_sources": 5,
+    "n_mots": 497,
+    "titre_rss": "Sécheresse : le Panama et le Salvador sonnent l'alerte face à El Niño",
+    "matiere_faits_distincts": 665,
+    "matiere_redondance": 0.44,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "n_sources_pertinentes": 4,
+    "veille_heures_visible": 2.7,
+    "veille_passages": 4,
+    "veille_age_h": 2.8,
+    "veille_n_flux_grappe": 2
+  },
+  {
+    "slug": "mort-touriste-francais-vallee-de-la-mort-canicule-47c",
+    "statut": "rejete_qualite",
+    "date": "2026-08-26T14:36:34",
+    "problemes_initiaux": 7,
+    "tentatives": 3,
+    "problemes_restants": 6,
+    "bloquants_restants": 2,
+    "bloquants_types": [
+      "source_inventee",
+      "niveau_preuve_insuffisant"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "La source 'Egaliteetreconciliation' est listée dans les sources de l'article mais n'est jamais citée dans le texte (aucun renvoi [n] ne lui correspond). Elle n'est pas une source autorisée pour les faits rapportés.",
+        "phrase": "Egaliteetreconciliation | La canicule asymptomatique : des températures de 48°C en Europe qui n’ont jamais eu lieu | https://www.egaliteetreconciliation.fr/La-canicule-asymptomatique-des-temperatures-de-48o-C-en-Europe-q"
+      },
+      {
+        "bloc": 1,
+        "type": "niveau_preuve_insuffisant",
+        "description": "L'article présente la chaleur comme une cause possible du décès sans préciser que les causes exactes sont encore indéterminées (attribution hypothétique non signalée comme telle dans le résumé ou le titre).",
+        "phrase": "Selon le directeur du parc, Mike Reynolds, « la chaleur a peut-être contribué à son décès », les causes exactes restant à déterminer par les autorités médicales [1]."
+      }
+    ],
+    "types_restants": [
+      "source_derivee_comptee_comme_primaire",
+      "source_inventee",
+      "compteur_incoherent",
+      "redondance",
+      "contexte_hors_sujet",
+      "niveau_preuve_insuffisant"
+    ],
+    "article_type": "actu",
+    "titre": "Mort d'un touriste français dans la Vallée de la Mort sous 47°C",
+    "n_sources": 5,
+    "n_mots": 536,
+    "titre_rss": "Un touriste français décède en pleine canicule dans la Vallée de la Mort",
+    "matiere_faits_distincts": 650,
+    "matiere_redondance": 0.02,
+    "matiere_donnees_chiffrees": 6,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "veille_heures_visible": 18.0,
+    "veille_passages": 17,
+    "veille_age_h": 18.0,
+    "veille_n_flux_grappe": 5
+  },
+  {
+    "slug": "budget-2027-le-maire-taxe-grandes-fortunes-desindexation",
+    "statut": "rejete_qualite",
+    "date": "2026-08-26T15:38:42",
+    "problemes_initiaux": 14,
+    "tentatives": 3,
+    "problemes_restants": 13,
+    "bloquants_restants": 6,
+    "bloquants_types": [
+      "annonce_perimee",
+      "annonce_perimee",
+      "annonce_perimee",
+      "annonce_perimee",
+      "niveau_preuve_insuffisant",
+      "niveau_preuve_insuffisant"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "annonce_perimee",
+        "description": "La phrase présente une déclaration comme actuelle (« a déclaré le 26 août 2026 être favorable »), alors que la source [1] (Le Monde, 26 août 2026) décrit une proposition future (« se dit favorable à une taxation » dans l",
+        "phrase": "Bruno Le Maire, ministre de l’Économie, a déclaré le 26 août 2026 être favorable à une contribution des plus grandes fortunes françaises pour réduire la dette publique, qui atteignait 117,5 % du PIB au premier trimestre "
+      },
+      {
+        "bloc": 1,
+        "type": "annonce_perimee",
+        "description": "La phrase utilise le conditionnel (« s’accompagnerait »), mais la formulation « comme l’a expliqué le ministre » suggère un fait établi, alors que la source [1] présente la désindexation comme une proposition (« a propos",
+        "phrase": "Cette mesure s’accompagnerait d’une désindexation des retraites, des minima sociaux et du barème de l’impôt sur le revenu par rapport à l’inflation, afin de limiter la progression des dépenses publiques, comme l’a expliq"
+      },
+      {
+        "bloc": 1,
+        "type": "annonce_perimee",
+        "description": "La phrase présente la déclaration comme un fait accompli (« a déclaré être favorable »), alors que la source [1] indique que le ministre « se dit favorable », ce qui relève d'une proposition en cours, non d'une décision ",
+        "phrase": "Bruno Le Maire, ministre de l’Économie, a déclaré le 26 août 2026 sur BFMTV être favorable à une taxation des plus grandes fortunes françaises dans le cadre du budget 2027."
+      },
+      {
+        "bloc": 1,
+        "type": "annonce_perimee",
+        "description": "La phrase est correcte en soi (verbe « proposé »), mais elle est précédée d'une formulation problématique (« a déclaré être favorable ») dans la même section, créant une incohérence temporelle. Les deux propositions doiv",
+        "phrase": "Le ministre a également proposé de désindexer de l’inflation les pensions de retraite, les minima sociaux et le barème de l’impôt sur le revenu."
+      },
+      {
+        "bloc": 1,
+        "type": "niveau_preuve_insuffisant",
+        "description": "L'article présente l'affirmation de Bruno Le Maire (« agirait comme un frein d’urgence ») comme un fait établi, sans rappeler qu'il s'agit d'une projection ou d'une opinion du ministre, non d'une analyse sourcée ou d'une",
+        "phrase": "Selon lui, cette mesure agirait comme un « frein d’urgence » pour contenir la dette publique, qui atteignait 117,5 % du PIB au premier trimestre 2026, comme l’indique Le Monde [1]."
+      },
+      {
+        "bloc": 1,
+        "type": "niveau_preuve_insuffisant",
+        "description": "Le problème est correctement signalé dans la phrase elle-même (« cette affirmation n’est pas étayée par des données précises »), mais cette réserve n'est pas reprise dans les sections « faits » ou « résumé », où l'affirm",
+        "phrase": "Selon Le Monde, Bruno Le Maire a souligné que la désindexation des retraites et des minima sociaux visait à protéger le pouvoir d’achat des ménages les plus modestes en évitant une hausse trop rapide des dépenses publiqu"
+      }
+    ],
+    "types_restants": [
+      "annonce_perimee",
+      "annonce_perimee",
+      "annonce_perimee",
+      "annonce_perimee",
+      "niveau_preuve_insuffisant",
+      "niveau_preuve_insuffisant",
+      "source_derivee_comptee_comme_primaire",
+      "source_derivee_comptee_comme_primaire",
+      "compteur_incoherent",
+      "cadrage_emprunte",
+      "contexte_hors_sujet",
+      "faux_debat",
+      "faux_debat"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "faits_repetitifs"
+    ],
+    "titre": "Budget 2027 : Le Maire plaide pour une taxe sur les grandes fortunes",
+    "n_sources": 6,
+    "n_mots": 580,
+    "titre_rss": "Budget 2027 : Bruno Le Maire se dit favorable à une taxation des « plus grosses fortunes »",
+    "matiere_faits_distincts": 1285,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 14,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "veille_heures_visible": 1.8,
+    "veille_passages": 3,
+    "veille_age_h": 1.8,
+    "veille_n_flux_grappe": 1
+  },
+  {
+    "slug": "nvidia-ibm-course-puces-ia-2-nm-dependance-taiwan",
+    "statut": "rejete_qualite",
+    "date": "2026-08-26T15:57:42",
+    "problemes_initiaux": 12,
+    "tentatives": 3,
+    "problemes_restants": 8,
+    "bloquants_restants": 2,
+    "bloquants_types": [
+      "niveau_preuve_insuffisant",
+      "niveau_preuve_insuffisant"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "niveau_preuve_insuffisant",
+        "description": "La source [5] (01net) précise que cette technologie est au stade de recherche et développement sans validation industrielle, mais l'article ne mentionne pas explicitement ce stade dans le résumé, alors que c'est une limi",
+        "phrase": "IBM a annoncé en 2021 une avancée expérimentale avec la gravure en 2 nanomètres, une technologie utilisant des transistors « Gate All Around » (GAA) et promettant une densité théorique de 333 millions de transistors par "
+      },
+      {
+        "bloc": 1,
+        "type": "niveau_preuve_insuffisant",
+        "description": "La source [5] (01net) indique que les chiffres précis de la réduction de consommation énergétique ne sont pas détaillés, mais l'article ne précise pas clairement que cette estimation est théorique et non validée expérime",
+        "phrase": "IBM estime que cette avancée, encore au stade de recherche et développement sans validation industrielle, pourrait réduire la consommation énergétique des puces, bien que les chiffres précis de cette réduction ne soient "
+      }
+    ],
+    "types_restants": [
+      "niveau_preuve_insuffisant",
+      "niveau_preuve_insuffisant",
+      "redondance",
+      "source_derivee_comptee_comme_primaire",
+      "compteur_incoherent",
+      "cadrage_emprunte",
+      "contexte_hors_sujet",
+      "section_gonflee"
+    ],
+    "article_type": "actu",
+    "titre": "Nvidia et IBM mènent la course aux puces IA, entre 2 nm et dépendance taïwanaise",
+    "n_sources": 6,
+    "n_mots": 609,
+    "titre_rss": "Une brève histoire des puces",
+    "matiere_faits_distincts": 819,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 2,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "n_sources_pertinentes": 4,
+    "veille_heures_visible": 146.8,
+    "veille_passages": 134,
+    "veille_age_h": 146.9,
+    "veille_n_flux_grappe": 1
   }
 ]
