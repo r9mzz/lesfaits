@@ -48,24 +48,29 @@ def test_les_sections_ne_contredisent_pas_le_total():
         "total ne décide plus de rien")
 
 
-def test_les_criteres_non_longueur_sont_intacts():
-    """Le recalibrage ne desserre QUE la longueur."""
-    assert S.MIN_SOURCES == 6
-    assert S.MIN_DISTINCT_DOMAINS == 5
+def test_le_sourcing_reste_plus_strict_que_la_charte():
+    """L'INTENTION du garde-fou posé le 24/08 est conservée, son critère change.
 
+    Ce test interdisait toute valeur sous 6/5, au motif — juste — que le mandat
+    d'exploitation défend d'abaisser un seuil éditorial pour faire du volume.
+    Mais 6 n'était pas un niveau d'exigence : c'était une CONTRADICTION avec
+    `PERTINENCE_MIN_POUR_GENERER = 3`, qui laisse passer un sujet disposant de
+    3 sources pertinentes. Mesuré sur 185 articles : 19 % seulement en ont 6.
+    Dans 81 % des cas, atteindre 6 suppose de citer des sources du thème
+    général — le défaut « inflation » du 11/08.
 
-def test_le_sourcing_ne_peut_pas_etre_abaisse_pour_faire_du_volume():
-    """Régression du 24/08 : 6/5 avait été abaissé à 3/3 pour élargir la vitrine.
-
-    Le mandat d'exploitation interdit explicitement cette stratégie. Les minima
-    historiques 6 sources / 5 domaines sont donc des planchers, pas des cibles
-    qu'un recalibrage de volume peut réduire.
+    Le plancher défendu ici n'est donc plus un chiffre historique, c'est la
+    CHARTE : la vitrine doit rester plus stricte qu'elle (règle 7, 3 sources),
+    jamais descendre à son niveau ni en dessous. 4 sources / 3 domaines
+    (décision de Nahil, 26/08) satisfont cette propriété.
     """
-    assert S.MIN_SOURCES >= 6, (
-        f"MIN_SOURCES={S.MIN_SOURCES}: sous le plancher éditorial historique 6")
-    assert S.MIN_DISTINCT_DOMAINS >= 5, (
-        f"MIN_DISTINCT_DOMAINS={S.MIN_DISTINCT_DOMAINS}: sous le plancher historique 5")
-    assert S.MIN_DISTINCT_DOMAINS <= S.MIN_SOURCES
+    assert S.MIN_SOURCES > 3, (
+        f"MIN_SOURCES={S.MIN_SOURCES} : la vitrine ne peut pas être moins "
+        "exigeante que la charte (règle 7 : 3 sources)")
+    assert S.MIN_DISTINCT_DOMAINS <= S.MIN_SOURCES, (
+        "on ne peut pas exiger plus de domaines que de sources")
+    assert S.MIN_DISTINCT_DOMAINS >= 3, (
+        "trois reprises d'une même dépêche ne valent pas trois sources")
 
 
 if __name__ == "__main__":

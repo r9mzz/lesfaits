@@ -59,8 +59,45 @@ MIN_WORDS = {
     "nuances": 91,
     "total": 400,
 }
-MIN_SOURCES = 6
-MIN_DISTINCT_DOMAINS = 5
+# ── 26/08 : DÉCISION DE NAHIL, APRÈS MESURE — 6 → 4 sources ────────────────
+# ⚠ CE N'EST PAS UNE BAISSE POUR FAIRE DU VOLUME, et l'annulation du 24/08 avait
+# raison de s'en méfier : le mandat interdit d'abaisser un seuil éditorial pour
+# publier davantage. Ce qui est corrigé ici est une CONTRADICTION ARITHMÉTIQUE
+# entre deux portes du même pipeline, pas un niveau d'exigence.
+#
+#     PERTINENCE_MIN_POUR_GENERER = 3   laisse passer un sujet à 3 sources
+#                                        jugées pertinentes ;
+#     MIN_SOURCES = 6                    en exigeait ensuite 6 CITÉES.
+#
+# Mesuré sur les 185 articles instrumentés de l'ère Mistral :
+#
+#     sources TROUVÉES par la recherche : médiane 10
+#     sources jugées PERTINENTES        : médiane  3
+#     sources CITÉES dans l'article     : médiane  5
+#
+#     ≥3 sources pertinentes disponibles : 131/185  (71 %)
+#     ≥4                                 :  88/185  (48 %)
+#     ≥6                                 :  35/185  (19 %)
+#
+# Dans 81 % des cas il n'existe pas 6 sources traitant le sujet PRÉCIS. Exiger
+# d'en citer 6 ne peut donc produire qu'une chose : que le rédacteur cite des
+# sources du thème général comme si elles documentaient le fait — le défaut
+# « inflation » corrigé le 11/08, celui-là même que le juge de pertinence a été
+# construit pour empêcher. L'écart médiane 5 citées / 3 pertinentes montre que
+# la pression du seuil produit DÉJÀ cet effet.
+#
+# 4 reste AU-DESSUS de la charte (règle 7 : 3 sources) : l'intention « vitrine »
+# est préservée. Le seuil devient atteignable dans 48 % des cas au lieu de 19 %.
+#
+# ⚠ CE QUI PROTÈGE LA QUALITÉ N'EST PAS CE COMPTE, et n'est pas touché : la
+# règle « ≥1 source primaire OU ≥2 secondaires indépendantes » reste entière.
+# C'est le raisonnement déjà écrit le 12/08 en abaissant le seuil des brèves de
+# 4 à 3 : « la hiérarchie des sources protège la qualité, pas le compte brut ».
+MIN_SOURCES = 4
+
+# Proportion d'origine conservée : 6/5 tolérait UN domaine dupliqué, 4/3 aussi.
+# Le nombre de domaines ne peut jamais dépasser le nombre de sources.
+MIN_DISTINCT_DOMAINS = 3
 
 # ── Grille BRÈVE (10/08) ─────────────────────────────────────────────────────
 # Mesuré sur 24 générations : le modèle rend 271, 278, 300, 306 mots quand on
