@@ -68,6 +68,34 @@ def test_symetrie_ne_masque_pas_une_suraffirmation():
     assert len(V._problemes_bloquants([p])) == 1
 
 
+def test_reserve_deja_presente_ne_doit_pas_etre_repetee_cas_run_281():
+    """Cas du 26/08 : le juge reconnaît les limites ailleurs puis exige un doublon."""
+    p = _pb(
+        "niveau_preuve_insuffisant",
+        "Les études précliniques sur des souris montrent des effets sur certains "
+        "marqueurs, mais ces résultats sont préliminaires, obtenus sur de petits "
+        "effectifs et sans validation à long terme [5].",
+        "La phrase omet de préciser le stade de la recherche (préclinique) et les "
+        "limites méthodologiques exactes (effectifs, durée de suivi) déjà mentionnées "
+        "dans les faits et nuances, mais le résumé doit rappeler le caractère "
+        "préliminaire de ces résultats.",
+    )
+    assert V._reproche_exige_repetition(p)
+    assert V._problemes_bloquants([p]) == []
+
+
+def test_vraie_omission_sans_aveu_de_presence_reste_bloquante():
+    """Sans reconnaissance explicite d'une réserve déjà présente, on ne filtre rien."""
+    p = _pb(
+        "niveau_preuve_insuffisant",
+        "Le traitement améliore la survie [1].",
+        "L'article ne précise pas que l'étude est préclinique et le résumé doit "
+        "rappeler que l'efficacité n'est pas acquise.",
+    )
+    assert not V._reproche_exige_repetition(p)
+    assert len(V._problemes_bloquants([p])) == 1
+
+
 def test_un_reproche_fonde_bloque_toujours():
     """Les 4 reproches fondés du run visaient des attributions collectives
     floues — « comme le rappellent les experts », « les autorités ont
