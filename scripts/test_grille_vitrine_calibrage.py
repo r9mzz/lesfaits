@@ -68,6 +68,14 @@ def test_le_sourcing_ne_peut_pas_etre_abaisse_pour_faire_du_volume():
     assert S.MIN_DISTINCT_DOMAINS <= S.MIN_SOURCES
 
 
+def test_une_mesure_de_rendement_ne_peut_pas_remplacer_le_plancher_editorial():
+    """Régression du 26/08 : un taux de sujets « atteignables » ne justifie pas
+    de réduire 6/5. Le rendement du pipeline doit être corrigé en amont sans
+    desserrer la porte de publication finale.
+    """
+    assert (S.MIN_SOURCES, S.MIN_DISTINCT_DOMAINS) >= (6, 5)
+
+
 if __name__ == "__main__":
     n = 0
     for nom, fn in sorted(globals().items()):
