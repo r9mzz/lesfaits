@@ -18849,5 +18849,339 @@
     "veille_passages": 284,
     "veille_age_h": 337.4,
     "veille_n_flux_grappe": 1
+  },
+  {
+    "slug": "geffray-reformes-scolaires-presidentielle-2027",
+    "statut": "rejete_qualite",
+    "date": "2026-08-26T09:54:37",
+    "etape": "correction",
+    "tentative": 1,
+    "erreur": "HTTPSConnectionPool(host='api.mistral.ai', port=443): Read timed out. (read timeout=180)",
+    "bloquants_connus": 1,
+    "article_type": "actu",
+    "titre": "Édouard Geffray promet de finir les réformes scolaires avant la présidentielle de 2027",
+    "n_sources": 5,
+    "n_mots": 516,
+    "titre_rss": "Le ministre de l’éducation promet de terminer les réformes engagées, face à la surenchère d’annonces sur l’école par les candidats à la présidentielle",
+    "matiere_faits_distincts": 724,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "veille_heures_visible": 2.2,
+    "veille_passages": 3,
+    "veille_age_h": 2.6,
+    "veille_n_flux_grappe": 8
+  },
+  {
+    "slug": "glucksmann-jadot-marais-poitevin-ecologie-urgence-presidentielle",
+    "statut": "rejete_qualite",
+    "date": "2026-08-26T10:06:40",
+    "problemes_initiaux": 12,
+    "tentatives": 3,
+    "problemes_restants": 11,
+    "bloquants_restants": 2,
+    "bloquants_types": [
+      "annonce_perimee",
+      "accusation_presentee_comme_fait"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "annonce_perimee",
+        "description": "La source [1] (Libération, 25 août 2026) et la source [4] (La Croix, 23 août 2026) confirment que le déplacement du 25 août 2026 est le premier déplacement de Glucksmann *après* l'annonce de sa candidature, déjà survenue",
+        "phrase": "Ce choix symbolique, trois mois après l’annonce de sa candidature, vise à séduire l’électorat écologiste en promouvant les énergies renouvelables et la protection des zones humides, selon Libération [1]."
+      },
+      {
+        "bloc": 1,
+        "type": "accusation_presentee_comme_fait",
+        "description": "La phrase présente l'opposition de Mayer-Rossignol à LFI comme un *fait établi* (« serait partagée »), alors que la source [3] (Les Échos) ne fait que rapporter une *position attribuée* à Jadot et une *hypothèse* (« sera",
+        "phrase": "Selon Les Échos, Yannick Jadot a exprimé son opposition à toute alliance avec La France Insoumise, une position qui, d’après le manifeste « Construire 2027 » publié début août 2026, serait partagée par Nicolas Mayer-Ross"
+      }
+    ],
+    "types_restants": [
+      "annonce_perimee",
+      "fait_tranche_arbitrairement",
+      "accusation_presentee_comme_fait",
+      "chronologie_confuse",
+      "source_derivee_comptee_comme_primaire",
+      "compteur_incoherent",
+      "extrapolation",
+      "extrapolation",
+      "contexte_hors_sujet",
+      "faux_debat",
+      "acteur_mis_en_cause_sans_reponse"
+    ],
+    "article_type": "actu",
+    "titre": "Glucksmann et Jadot unis dans le Marais poitevin pour une écologie d’urgence",
+    "n_sources": 5,
+    "n_mots": 408,
+    "titre_rss": "Dans le Marais poitevin, Raphaël Glucksmann s’affiche avec Yannick Jadot et sort la carte verte",
+    "matiere_faits_distincts": 520,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "veille_heures_visible": 12.2,
+    "veille_passages": 11,
+    "veille_age_h": 12.6,
+    "veille_n_flux_grappe": 13
+  },
+  {
+    "slug": "pomas-tornade-aude-300-maisons-endommagees-blesses",
+    "statut": "rejete_qualite",
+    "date": "2026-08-26T10:24:11",
+    "problemes_initiaux": 13,
+    "tentatives": 3,
+    "problemes_restants": 8,
+    "bloquants_restants": 3,
+    "bloquants_types": [
+      "chiffre_errone",
+      "chiffre_errone",
+      "incoherence_inter_sections"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "Le titre mentionne « plus d'une centaine des 476 habitations endommagées », alors que la source [2] (Libération) précise « plus d'une centaine des 476 habitations de la commune ont été endommagées ». Le titre omet le con",
+        "phrase": "Pomas frappé par une tornade : plus d'une centaine des 476 habitations endommagées, 26 blessés"
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La phrase reprend la même erreur que le titre : elle laisse entendre que 476 est le nombre d'habitations endommagées, alors que c'est le nombre total d'habitations de la commune. La source [2] précise bien que c'est « pl",
+        "phrase": "Une tornade a frappé le village de Pomas, dans l'Aude, lundi 24 août en fin d'après-midi, endommageant plus d'une centaine des 476 habitations que compte la commune, selon le maire Hervé Giné [2]."
+      },
+      {
+        "bloc": 1,
+        "type": "incoherence_inter_sections",
+        "description": "Cette phrase dans « Les faits » est correcte et précise, mais elle contredit le titre et le résumé qui omettent le contexte (« de la commune »). L'incohérence porte sur la présentation du chiffre 476, qui n'est pas inter",
+        "phrase": "Selon les déclarations du maire Hervé Giné, plus d'une centaine des 476 habitations de la commune ont été endommagées [2]."
+      }
+    ],
+    "types_restants": [
+      "chiffre_errone",
+      "chiffre_errone",
+      "incoherence_inter_sections",
+      "compteur_incoherent",
+      "source_derivee_comptee_comme_primaire",
+      "contexte_hors_sujet",
+      "redondance",
+      "extrapolation"
+    ],
+    "article_type": "actu",
+    "titre": "Pomas dévasté par une tornade : 300 maisons touchées, aucun mort",
+    "n_sources": 4,
+    "n_mots": 594,
+    "titre_rss": "\"L'état de choc\" à Pomas, village audois \"bombardé par la nature\"",
+    "matiere_faits_distincts": 516,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 8,
+    "n_sources_trouvees": 8,
+    "veille_heures_visible": 17.0,
+    "veille_passages": 16,
+    "veille_age_h": 17.4,
+    "veille_n_flux_grappe": 11
+  },
+  {
+    "slug": "bruit-routier-enfance-troubles-emotionnels-inserm-etude",
+    "statut": "rejete_qualite",
+    "date": "2026-08-26T10:51:19",
+    "problemes_initiaux": 8,
+    "tentatives": 3,
+    "problemes_restants": 7,
+    "bloquants_restants": 1,
+    "bloquants_types": [
+      "niveau_preuve_insuffisant"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "niveau_preuve_insuffisant",
+        "description": "La phrase ne précise pas que les résultats sont préliminaires et issus d'une étude exploratoire, alors que la source [1] le souligne explicitement et que cette précision est donnée plus loin dans le résumé.",
+        "phrase": "Une analyse exploratoire menée par l’Inserm et Sorbonne Université sur près de 8 000 enfants suggère une association entre une exposition prolongée au bruit routier avant l’âge de 5 ans et des difficultés émotionnelles à"
+      }
+    ],
+    "types_restants": [
+      "niveau_preuve_insuffisant",
+      "source_derivee_comptee_comme_primaire",
+      "compteur_incoherent",
+      "redondance",
+      "redondance",
+      "redondance",
+      "acteur_mis_en_cause_sans_reponse"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "titre_de_mauvaise_qualite"
+    ],
+    "titre": "Exposition précoce au bruit routier et risques de troubles chez l’enfant",
+    "n_sources": 5,
+    "n_mots": 614,
+    "titre_rss": "Une exposition élevée et persistante au bruit routier au début de l’enfance est associée à un risque accru de difficultés émotionnelles et relationnelles à 10 ans",
+    "matiere_faits_distincts": 846,
+    "matiere_redondance": 0.05,
+    "matiere_donnees_chiffrees": 3,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "veille_heures_visible": 23.1,
+    "veille_passages": 22,
+    "veille_age_h": 23.5,
+    "veille_n_flux_grappe": 3
+  },
+  {
+    "slug": "secheresse-risque-pluies-diluviennes-france-automne-2026",
+    "statut": "erreur_verification",
+    "date": "2026-08-26T11:12:04",
+    "etape": "detection",
+    "erreur": "HTTPSConnectionPool(host='api.mistral.ai', port=443): Read timed out. (read timeout=180)",
+    "article_type": "actu",
+    "titre": "Sécheresse estivale et risque de pluies diluviennes en France à l'automne 2026",
+    "n_sources": 7,
+    "n_mots": 469,
+    "titre_rss": "De la sécheresse aux pluies diluviennes : le scénario qui menace la France cet automne",
+    "matiere_faits_distincts": 1004,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "veille_heures_visible": 43.4,
+    "veille_passages": 39,
+    "veille_age_h": 43.8,
+    "veille_n_flux_grappe": 3
+  },
+  {
+    "slug": "secheresse-risque-pluies-diluviennes-france-automne-2026",
+    "statut": "rejete_qualite",
+    "date": "2026-08-26T11:12:04",
+    "raison": "verification_indisponible",
+    "statut_verification_initial": "erreur_verification"
+  },
+  {
+    "slug": "spacex-projet-base-spatiale-100-milliards-louisiane",
+    "statut": "rejete_qualite",
+    "date": "2026-08-26T11:40:25",
+    "problemes_initiaux": 10,
+    "tentatives": 3,
+    "problemes_restants": 10,
+    "bloquants_restants": 4,
+    "bloquants_types": [
+      "annonce_perimee",
+      "annonce_perimee",
+      "annonce_perimee",
+      "accusation_presentee_comme_fait"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "annonce_perimee",
+        "description": "La phrase présente comme un fait accompli (« a annoncé vouloir construire ») ce qui est décrit dans les sources comme une intention ou un projet (verbes au futur ou conditionnel : « vouloir construire », « envisagée », «",
+        "phrase": "Le 25 août 2026, SpaceX a annoncé vouloir construire une base spatiale en Louisiane, destinée à accueillir des milliers de vols annuels de sa fusée Starship [1]."
+      },
+      {
+        "bloc": 1,
+        "type": "annonce_perimee",
+        "description": "La formulation « a annoncé vouloir construire » suggère un engagement ferme, alors que les sources décrivent un projet envisagé ou prévu (ex. : « SpaceX annonce vouloir construire », « Elon Musk veut construire »). Le co",
+        "phrase": "Le 25 août 2026, SpaceX a annoncé vouloir construire une base spatiale en Louisiane, baptisée « Starbase Louisiana » [1][2][3]."
+      },
+      {
+        "bloc": 1,
+        "type": "annonce_perimee",
+        "description": "La phrase est correcte en l'état (verbes au conditionnel ou au futur), mais elle est précédée de formulations affirmatives dans le même paragraphe qui contredisent cette prudence. Le problème est systémique dans la secti",
+        "phrase": "La construction est envisagée à partir de 2027, avec un premier lancement de Starship prévu en 2029 [1][2]."
+      },
+      {
+        "bloc": 1,
+        "type": "accusation_presentee_comme_fait",
+        "description": "La phrase présente comme une probabilité objective (« pourrait faire l'objet ») ce qui est une hypothèse ou une crainte attribuable aux associations locales. Les sources [1][2] précisent que ce sont « des associations lo",
+        "phrase": "Le site de Pecan Island, situé en zone humide protégée, pourrait faire l'objet de contestations environnementales."
+      }
+    ],
+    "types_restants": [
+      "annonce_perimee",
+      "annonce_perimee",
+      "annonce_perimee",
+      "fait_tranche_arbitrairement",
+      "accusation_presentee_comme_fait",
+      "compteur_incoherent",
+      "source_derivee_comptee_comme_primaire",
+      "extrapolation",
+      "extrapolation",
+      "faux_debat"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "resume_repete_corps"
+    ],
+    "titre": "SpaceX annonce un projet de base spatiale à 100 milliards en Louisiane",
+    "n_sources": 5,
+    "n_mots": 615,
+    "titre_rss": "SpaceX annonce vouloir construire une base spatiale pour 100 milliards de dollars en Louisiane, «des milliers de vols» par an de Starship prévus",
+    "matiere_faits_distincts": 722,
+    "matiere_redondance": 0.21,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "n_sources_pertinentes": 7,
+    "veille_heures_visible": 10.4,
+    "veille_passages": 9,
+    "veille_age_h": 10.8,
+    "veille_n_flux_grappe": 8
+  },
+  {
+    "slug": "puces-ia-enjeu-strategique-dominance-taiwanaise",
+    "statut": "rejete_qualite",
+    "date": "2026-08-26T12:09:23",
+    "problemes_initiaux": 11,
+    "tentatives": 3,
+    "problemes_restants": 11,
+    "bloquants_restants": 2,
+    "bloquants_types": [
+      "annonce_perimee",
+      "annonce_perimee"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "annonce_perimee",
+        "description": "La source [3] (Tech-Connect, 19 juin 2026) décrit un événement déjà survenu (« a confirmé », « présentation »), mais le résumé le présente comme une annonce à venir ou en cours (« illustre la compétition accrue »), ce qu",
+        "phrase": "En juin 2026, Intel a confirmé son retour sur le marché des processeurs avancés avec la présentation d'un modèle de bureau à 52 cœurs et d'un modèle serveur à 288 cœurs, selon Tech-Connect, illustrant la compétition accr"
+      },
+      {
+        "bloc": 1,
+        "type": "annonce_perimee",
+        "description": "La phrase utilise le passé composé (« a confirmé », « en présentant ») pour décrire un événement déjà accompli, mais la date (juin 2026) et le contexte suggèrent que cet événement est récent et pourrait être interprété c",
+        "phrase": "En juin 2026, Intel a confirmé son retour sur le marché des processeurs avancés en présentant un processeur de bureau à 52 cœurs et un processeur serveur à 288 cœurs, selon Tech-Connect."
+      }
+    ],
+    "types_restants": [
+      "annonce_perimee",
+      "annonce_perimee",
+      "chronologie_confuse",
+      "source_derivee_comptee_comme_primaire",
+      "compteur_incoherent",
+      "source_derivee_comptee_comme_primaire",
+      "cadrage_emprunte",
+      "cadrage_emprunte",
+      "extrapolation",
+      "faux_debat",
+      "redondance"
+    ],
+    "article_type": "actu",
+    "titre": "Les puces IA, un secteur stratégique dominé par Taïwan",
+    "n_sources": 4,
+    "n_mots": 592,
+    "titre_rss": "Une brève histoire des puces",
+    "matiere_faits_distincts": 792,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 3,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "veille_heures_visible": 142.2,
+    "veille_passages": 129,
+    "veille_age_h": 142.6,
+    "veille_n_flux_grappe": 1
   }
 ]
