@@ -53,7 +53,7 @@ def test_current_application_is_compatible_with_past_entry_into_force() -> None:
         "bloc": 1,
         "type": "annonce_perimee",
         "phrase": "La réforme est entrée en vigueur au début de l'année.",
-        "description": "La réforme est en cours d'application mais a ensuite été remplacée par un nouveau dispositif.",
+        "description": "La réforme est en cours d'application mais le dispositif a ensuite été remplacé par un nouveau cadre.",
     }
     assert verification._entree_en_vigueur_pas_perimee(vrai_changement_etat) is False
 
