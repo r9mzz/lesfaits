@@ -3422,7 +3422,38 @@ def _supprimer_phrases_dupliquees(art: dict) -> int:
                 noyau = _ATTRIB_PREFIX_RE.sub("", p.strip())
                 gardees.append((noyau, _ngrams5(noyau)))
 
+    # ── 26/08 : UNE RÉPARATION NE DOIT PAS RENDRE L'ARTICLE IMPUBLIABLE ─────
+    # Run 279 : les deux seuls articles ayant passé le fact-check ont été
+    # rejetés ensuite pour longueur insuffisante. Le log dit pourquoi :
+    #
+    #     [VERIF] aucun bloquant — publié
+    #     [RÉPARATION] 5 phrase(s) dupliquée(s) supprimée(s) après correction
+    #     [REJET VITRINE] total trop court (325 mots, minimum 400)
+    #
+    # L'article faisait 643 mots au journal juste avant : cette fonction en a
+    # retiré la moitié. Ce n'est donc pas « Mistral écrit court » — c'est notre
+    # propre réparation qui coupe sous le plancher, APRÈS validation éditoriale.
+    #
+    # ⚠ ET ELLE COUPE SUR UN CRITÈRE MESURÉ COMME NON FIABLE. Le référentiel
+    # inclut le CHAPEAU. Or le 28/07, étendre `resume_repete_corps` au-delà des
+    # « faits » a été testé puis ÉCARTÉ : le taux passait de 7 % à 41-95 %,
+    # « un chapeau partage forcément des groupes de mots avec le corps qu'il
+    # résume ». Ce critère a été refusé pour DÉTECTER, et il sert ici à
+    # SUPPRIMER. Mesuré sur 70 articles publiés rejoués dans cette fonction :
+    # 108 phrases supprimées, dont 49 (45 %) à cause du seul chapeau.
+    #
+    # On ne retire pas le chapeau du référentiel — la charte règle 1 compte
+    # bien le résumé dans « une idée = une seule apparition », et supprimer
+    # cette comparaison relâcherait un garde-fou éditorial réel. On borne
+    # l'EFFET : la suppression s'arrête net avant de faire passer le corps sous
+    # le plancher de publication. Un doublon qui subsiste est un défaut de
+    # style ; un article amputé sous le plancher est un article perdu.
+    _plancher = _seuils("actu")["plancher"]
+    _mots_restants = sum(len(str(corps.get(sec) or "").split())
+                         for sec in ("faits", "contexte", "nuances"))
+
     n_supp = 0
+    _plancher_atteint = False
     for section in ("faits", "contexte", "nuances"):
         texte = corps.get(section, "") or ""
         phrases = [p.strip() for p in re.split(r"(?<=[.!?])\s+", texte) if p.strip()]
@@ -3438,13 +3469,20 @@ def _supprimer_phrases_dupliquees(art: dict) -> int:
                 or difflib.SequenceMatcher(None, noyau.lower(), n_g.lower()).ratio() > 0.62
                 for n_g, ng_g in gardees
             )
-            if doublon:
+            if doublon and _mots_restants - len(p.split()) >= _plancher:
                 n_supp += 1
+                _mots_restants -= len(p.split())
             else:
+                if doublon:
+                    _plancher_atteint = True
                 conservees.append(p)
                 gardees.append((noyau, ng))
         corps[section] = " ".join(conservees)
     art["corps"] = corps
+    if _plancher_atteint:
+        print(f"     [RÉPARATION] ⚠ plancher de publication atteint "
+              f"({_plancher} mots) — doublon(s) conservé(s) plutôt que "
+              f"d'amputer l'article")
     return n_supp
 
 

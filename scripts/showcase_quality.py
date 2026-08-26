@@ -185,10 +185,34 @@ def _novelty(section: str, previous: str) -> float:
 
 
 def _paragraph_count(text: str) -> int:
+    """Compte les paragraphes comme le RENDU les compte : sur un \n simple.
+
+    ── 26/08 : la vitrine exigeait une convention que personne n'utilise ─────
+    Run 279 : les deux seuls articles ayant passé le fact-check ont été rejetés
+    sur « faits / contexte / nuances insuffisamment aéré (1 paragraphe) ». Or
+    ils étaient correctement découpés. Trois composants, deux conventions :
+
+        prompt de génération   « insère un \n entre chaque paragraphe »   simple
+        build_article_html     .replace("\n", "</p><p>")                  simple
+        vitrine                re.split(r"\n\s*\n")                      DOUBLE
+
+    La vitrine était la seule à réclamer une ligne vide. Le modèle faisait
+    exactement ce qu'on lui demandait, le site l'affichait correctement, et la
+    grille comptait 1 paragraphe faute de trouver la ligne vide qu'elle seule
+    attendait.
+
+    MESURE avant correction, sur 60 articles publiés : tous rendent 3 à 5
+    paragraphes (médiane 5) — le \n simple fonctionne depuis toujours. C'était
+    donc bien la vitrine qui était fausse, pas la rédaction.
+
+    On garde la coupe sur ligne vide EN PLUS du \n simple : un modèle qui
+    doublerait les sauts de ligne ne doit pas voir ses paragraphes comptés en
+    double, et `split` sur \n suivi du filtre des vides s'en charge.
+    """
     text = str(text or "").strip()
     if not text:
         return 0
-    paragraphs = [p for p in re.split(r"\n\s*\n|\r\n\s*\r\n", text) if p.strip()]
+    paragraphs = [p for p in re.split(r"[\r\n]+", text) if p.strip()]
     return len(paragraphs)
 
 
