@@ -122,6 +122,14 @@ _PREUVE_RENFORCEE_RE = re.compile(
     r"efficacit[ée]|survie|comparateur|phase\s*[123]|pr[ée]clinique|comme\s+(?:un\s+)?(?:fait|r[ée]sultat)\s+(?:acquis|[ée]tabli)|pr[ée]sente[^.]{0,80}(?:comme\s+[ée]tabli|comme\s+acquis)",
     re.IGNORECASE,
 )
+_RESERVE_DEJA_PRESENTE_RE = re.compile(
+    r"d[ée]j[àa]\s+(?:mentionn[ée]e?s?|pr[ée]cis[ée]e?s?|indiqu[ée]e?s?|pr[ée]sent[ée]e?s?|int[ée]gr[ée]e?s?)[^.]{0,140}(?:faits|nuances|article|autre\s+section)",
+    re.IGNORECASE,
+)
+_DEMANDE_REPETITION_RESUME_RE = re.compile(
+    r"(?:le\s+)?r[ée]sum[ée][^.]{0,100}\bdoit\b[^.]{0,100}(?:rappeler|reprendre|mentionner|r[ée]p[ée]ter)",
+    re.IGNORECASE,
+)
 
 
 def _provider_reproche_exige_source_absente(probleme: dict) -> bool:
@@ -136,13 +144,34 @@ def _provider_reproche_exige_source_absente(probleme: dict) -> bool:
     return True
 
 
+def _provider_reproche_exige_repetition(probleme: dict) -> bool:
+    """Écarte uniquement un reproche qui reconnaît la réserve déjà présente
+    puis exige explicitement sa répétition dans le résumé.
+
+    La règle est volontairement étroite : une vraie omission, une suraffirmation
+    ou un simple reproche sans aveu de présence ailleurs reste bloquant.
+    """
+    if str(probleme.get("type") or "") != "niveau_preuve_insuffisant":
+        return False
+    description = str(probleme.get("description") or "")
+    if not (_RESERVE_DEJA_PRESENTE_RE.search(description) and _DEMANDE_REPETITION_RESUME_RE.search(description)):
+        return False
+    print("     [JUGE] reproche écarté — le rapport reconnaît la réserve déjà présente puis exige sa répétition dans le résumé")
+    return True
+
+
 _verification._reproche_exige_source_absente = _provider_reproche_exige_source_absente
+_verification._reproche_exige_repetition = _provider_reproche_exige_repetition
 if hasattr(_verification, "_problemes_bloquants"):
     _verification._provider_original_problemes_bloquants = _verification._problemes_bloquants
 
     def _provider_problemes_bloquants(problemes: list) -> list:
         retenus = _verification._provider_original_problemes_bloquants(problemes)
-        return [p for p in retenus if not _provider_reproche_exige_source_absente(p)]
+        return [
+            p for p in retenus
+            if not _provider_reproche_exige_source_absente(p)
+            and not _provider_reproche_exige_repetition(p)
+        ]
 
     _verification._problemes_bloquants = _provider_problemes_bloquants
 
