@@ -18,9 +18,26 @@ import os
 import sys
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-import pipeline as p  # noqa: E402
 
 MODELE = os.getenv("MODELE_ESSAI", "").strip()
+
+# ── LE MODÈLE DOIT ÊTRE NOMMÉ AVANT L'IMPORT, PAS APRÈS ────────────────────
+# `p.GROQ_MODEL = MODELE` plus bas ne patche QUE la génération. La vérification
+# résout son propre modèle À L'IMPORT, et sur un fournisseur autre que Groq ou
+# Mistral elle ne peut rien deviner : depuis le 25/08 elle lève plutôt que de
+# partir avec un nom d'un autre fournisseur (c'est ce qui envoyait
+# `openai/gpt-oss-120b` à l'API de Google, et aurait produit un 404 par article
+# en croyant que le fournisseur écrit mal).
+#
+# Ce garde-fou a fait exactement son travail sur l'essai Gemini du 26/08 — et
+# il a arrêté l'essai, faute que ce fichier lui donne le nom assez tôt. On pose
+# donc `GROQ_MODEL_OVERRIDE` AVANT l'import : la génération et la vérification
+# lisent alors le même modèle, ce qui est précisément la propriété que le
+# module partagé garantit.
+if MODELE:
+    os.environ.setdefault("GROQ_MODEL_OVERRIDE", MODELE)
+
+import pipeline as p  # noqa: E402
 NB_SUJETS = int(os.getenv("NB_SUJETS", "2"))
 
 
