@@ -65,56 +65,6 @@ Trois règles qui en sortent, valables pour tout futur script de mesure :
   `bloc` manque — il est rempli par le MODÈLE, pas par le code, donc il ne
   peut pas être présumé.
 
-## SOURCING VITRINE — 4 sources depuis le 26/08, À RELIRE APRÈS QUELQUES RUNS
-
-Décision de Nahil, prise sur mesure et à revoir sur mesure. `MIN_SOURCES` passe
-de 6 à 4, `MIN_DISTINCT_DOMAINS` de 5 à 3.
-
-**Ce n'était pas un niveau d'exigence, c'était une contradiction interne.**
-`PERTINENCE_MIN_POUR_GENERER = 3` laisse passer un sujet disposant de 3 sources
-jugées pertinentes ; la vitrine en exigeait ensuite 6 CITÉES.
-
-```
-                                      185 articles, ère Mistral
-sources TROUVÉES par la recherche          médiane 10
-sources jugées PERTINENTES                 médiane  3
-sources CITÉES dans l'article              médiane  5
-
-≥3 sources pertinentes disponibles         131/185   71 %
-≥4                                          88/185   48 %
-≥6                                          35/185   19 %
-```
-
-Dans **81 % des cas il n'existe pas 6 sources traitant le sujet précis**. Exiger
-d'en citer 6 pousse à citer des sources du thème général comme si elles
-documentaient le fait — le défaut « inflation » du 11/08, celui que le juge de
-pertinence a été construit pour empêcher. L'écart médiane 5 citées / 3
-pertinentes montre que la pression du seuil produit **déjà** cet effet.
-
-⚠ **L'annulation du 24/08 avait raison de se méfier**, et son principe reste
-valable : le mandat interdit d'abaisser un seuil éditorial pour faire du
-volume. Si la raison avait été « ça publie plus », il fallait annuler. La raison
-est ici l'incompatibilité arithmétique entre deux portes du même pipeline.
-
-⚠ **Ce qui protège la qualité n'est pas ce compte** et n'a pas bougé : « ≥1
-source primaire OU ≥2 secondaires indépendantes ». Même raisonnement que le
-12/08 sur les brèves (4 → 3) : « la hiérarchie des sources protège la qualité,
-pas le compte brut ».
-
-**À RELIRE APRÈS QUELQUES RUNS — la question ouverte.** 4 est un compromis, pas
-une mesure : il garde la vitrine au-dessus de la charte (3) tout en la rendant
-atteignable dans 48 % des cas au lieu de 19 %. Ce qu'il faut regarder ensuite,
-et qu'aucun run n'a encore dit :
-
-- les articles publiés à 4 sources sont-ils moins bons que ceux à 6 ? Si la
-  hiérarchie primaire/secondaire tient, probablement pas ;
-- l'écart citées/pertinentes se resserre-t-il ? S'il reste à +2, la pression du
-  seuil n'était pas la cause et il faut chercher ailleurs ;
-- combien d'articles meurent encore sur `sourcing trop court` ? Si le motif
-  disparaît complètement, 4 est peut-être trop bas et 5 serait le bon point.
-
-Ne pas re-trancher sans ces trois chiffres.
-
 ## VEILLE CONTINUE — phase 1 lancée le 12/08, NE DÉCIDE RIEN
 
 Idée de Nahil : arrêter de choisir un sujet sur une PHOTO deux fois par jour,
