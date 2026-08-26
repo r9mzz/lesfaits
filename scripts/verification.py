@@ -50,6 +50,12 @@ _FUTURE_PROJECTION_RULE = """
 if _FUTURE_PROJECTION_RULE not in _verification.PROMPT_DETECTION:
     _verification.PROMPT_DETECTION += "\n\n" + _FUTURE_PROJECTION_RULE
 
+_CURRENT_APPLICATION_RULE = """
+⚠ ÉTAT EN VIGUEUR — dire qu'une réforme « est entrée en vigueur » à une date passée est parfaitement compatible avec une source plus récente qui la décrit comme « en vigueur », « applicable », « appliquée » ou « en cours d'application ». Cet état actuel confirme qu'elle a déjà pris effet ; il ne transforme pas l'entrée en vigueur passée en ``annonce_perimee``. Si la date exacte n'est pas confirmée par les extraits, traite ce point comme un éventuel défaut de preuve sur la date, jamais comme une contradiction chronologique. ``annonce_perimee`` ne s'applique que si un extrait plus récent établit que la réforme n'est finalement pas entrée en vigueur, a été reportée, annulée, remplacée ou a changé d'état.
+""".strip()
+if _CURRENT_APPLICATION_RULE not in _verification.PROMPT_DETECTION:
+    _verification.PROMPT_DETECTION += "\n\n" + _CURRENT_APPLICATION_RULE
+
 _AUTHORIZED_BIBLIOGRAPHY_RULE = """
 ⚠ SOURCE AUTORISÉE MAIS NON CITÉE — la présence d'une source dans le tableau ``sources`` sans renvoi [n] dans le corps n'est JAMAIS, à elle seule, une ``source_inventee``. ``source_inventee`` signifie qu'un média, une institution, une étude ou une attribution UTILISÉE DANS LE TEXTE n'appartient pas à la liste autorisée, ou qu'un renvoi [n] attribue un fait que la source correspondante ne confirme pas. Une entrée bibliographique autorisée mais finalement inutilisée peut être superflue, mais elle n'est pas inventée et ne doit pas bloquer la publication sous ce motif.
 """.strip()
@@ -200,6 +206,14 @@ _DESCRIPTION_PERIMEE_RE = re.compile(
     r"\b(?:déjà\s+(?:eu\s+lieu|survenu|réalis[ée]|termin[ée])|annul[ée]|abandonn[ée]|remplac[ée]|n['’]est\s+plus|a\s+déjà\s+eu\s+lieu)\b",
     re.IGNORECASE,
 )
+_ENTREE_EN_VIGUEUR_RE = re.compile(
+    r"\b(?:est\s+)?entr[ée]e?\s+en\s+vigueur\b",
+    re.IGNORECASE,
+)
+_APPLICATION_ACTUELLE_RE = re.compile(
+    r"\b(?:en\s+cours\s+d['’]application|actuellement\s+applicable|toujours\s+en\s+vigueur|est\s+applicable|est\s+appliqu[ée]e?)\b",
+    re.IGNORECASE,
+)
 
 
 def _provider_reproche_exige_source_absente(probleme: dict) -> bool:
@@ -251,9 +265,30 @@ def _provider_annonce_intention_pas_perimee(probleme: dict) -> bool:
     return True
 
 
+def _provider_entree_en_vigueur_pas_perimee(probleme: dict) -> bool:
+    """Écarte uniquement la contradiction logique observée le 26/08 :
+    le juge reproche une entrée en vigueur passée tout en reconnaissant que la
+    réforme est actuellement appliquée. Un doute sur la date exacte reste un
+    défaut de preuve et n'est volontairement pas filtré ici.
+    """
+    if str(probleme.get("type") or "") != "annonce_perimee":
+        return False
+    phrase = str(probleme.get("phrase") or "")
+    description = str(probleme.get("description") or "")
+    if not (_ENTREE_EN_VIGUEUR_RE.search(phrase) and _APPLICATION_ACTUELLE_RE.search(description)):
+        return False
+    if _DESCRIPTION_PERIMEE_RE.search(description):
+        return False
+    if re.search(r"\b(?:date|1er\s+janvier|ne\s+confirme\s+pas|pas\s+explicitement)\b", description, re.IGNORECASE):
+        return False
+    print("     [JUGE] annonce_perimee écarté — une réforme actuellement appliquée peut être entrée en vigueur à une date passée")
+    return True
+
+
 _verification._reproche_exige_source_absente = _provider_reproche_exige_source_absente
 _verification._reproche_exige_repetition = _provider_reproche_exige_repetition
 _verification._annonce_intention_pas_perimee = _provider_annonce_intention_pas_perimee
+_verification._entree_en_vigueur_pas_perimee = _provider_entree_en_vigueur_pas_perimee
 if hasattr(_verification, "_problemes_bloquants"):
     _verification._provider_original_problemes_bloquants = _verification._problemes_bloquants
 
@@ -264,6 +299,7 @@ if hasattr(_verification, "_problemes_bloquants"):
             if not _provider_reproche_exige_source_absente(p)
             and not _provider_reproche_exige_repetition(p)
             and not _provider_annonce_intention_pas_perimee(p)
+            and not _provider_entree_en_vigueur_pas_perimee(p)
         ]
 
     _verification._problemes_bloquants = _provider_problemes_bloquants
