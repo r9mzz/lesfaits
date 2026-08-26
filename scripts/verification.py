@@ -50,6 +50,12 @@ _FUTURE_PROJECTION_RULE = """
 if _FUTURE_PROJECTION_RULE not in _verification.PROMPT_DETECTION:
     _verification.PROMPT_DETECTION += "\n\n" + _FUTURE_PROJECTION_RULE
 
+_AUTHORIZED_BIBLIOGRAPHY_RULE = """
+⚠ SOURCE AUTORISÉE MAIS NON CITÉE — la présence d'une source dans le tableau ``sources`` sans renvoi [n] dans le corps n'est JAMAIS, à elle seule, une ``source_inventee``. ``source_inventee`` signifie qu'un média, une institution, une étude ou une attribution UTILISÉE DANS LE TEXTE n'appartient pas à la liste autorisée, ou qu'un renvoi [n] attribue un fait que la source correspondante ne confirme pas. Une entrée bibliographique autorisée mais finalement inutilisée peut être superflue, mais elle n'est pas inventée et ne doit pas bloquer la publication sous ce motif.
+""".strip()
+if _AUTHORIZED_BIBLIOGRAPHY_RULE not in _verification.PROMPT_DETECTION:
+    _verification.PROMPT_DETECTION += "\n\n" + _AUTHORIZED_BIBLIOGRAPHY_RULE
+
 _verification._provider_original_llm_call = _verification._llm_call
 _PROVIDER_FATAL_ERROR = None
 
@@ -109,6 +115,58 @@ def _provider_sources_immutables_corriger(art: dict, *args, **kwargs):
 
 
 _verification.corriger = _provider_sources_immutables_corriger
+
+
+def _provider_source_inventee_bibliographie_autorisee(probleme: dict, art: dict) -> bool:
+    """Écarte uniquement le faux ``source_inventee`` qui vise l'entrée
+    bibliographique elle-même alors que son URL figure déjà dans ``sources``.
+
+    Un mauvais renvoi [n], une attribution absente de la liste ou un fait non
+    confirmé restent bloquants : ils n'ont normalement pas l'URL bibliographique
+    autorisée comme ``phrase`` du reproche.
+    """
+    if str(probleme.get("type") or "") != "source_inventee" or not isinstance(art, dict):
+        return False
+    texte = " ".join(
+        str(probleme.get(k) or "") for k in ("phrase", "description")
+    )
+    if not texte:
+        return False
+    for source in art.get("sources") or []:
+        if not isinstance(source, dict):
+            continue
+        url = str(source.get("url") or "").strip()
+        if url and url in texte:
+            print("     [JUGE] source_inventee écarté — le reproche vise une entrée bibliographique dont l'URL figure déjà dans les sources autorisées")
+            return True
+    return False
+
+
+_verification._provider_original_detecter = _verification.detecter
+
+
+def _provider_detecter(art: dict, *args, **kwargs):
+    rapport = _verification._provider_original_detecter(art, *args, **kwargs)
+    if not isinstance(rapport, dict):
+        return rapport
+    problemes = rapport.get("problemes")
+    if not isinstance(problemes, list):
+        return rapport
+    filtres = [
+        p for p in problemes
+        if not _provider_source_inventee_bibliographie_autorisee(p, art)
+    ]
+    if len(filtres) == len(problemes):
+        return rapport
+    rapport = copy.deepcopy(rapport)
+    rapport["problemes"] = filtres
+    if not filtres and not rapport.get("sujet_sensible") and not rapport.get("angle_insuffisant"):
+        rapport["conforme"] = True
+    return rapport
+
+
+_verification._provider_source_inventee_bibliographie_autorisee = _provider_source_inventee_bibliographie_autorisee
+_verification.detecter = _provider_detecter
 
 _SOURCE_ABSENCE_RE = re.compile(
     r"(?:la\s+)?source\s*\[?\d+\]?[^.]{0,180}(?:ne\s+(?:pr[ée]cise|mentionne|d[ée]taille|fournit|donne|indique)\s+pas|n['’](?:indique|apporte)\s+pas)",
