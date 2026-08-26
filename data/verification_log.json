@@ -18549,5 +18549,305 @@
     "veille_passages": 5,
     "veille_age_h": 4.6,
     "veille_n_flux_grappe": 1
+  },
+  {
+    "slug": "canicules-2026-7300-morts-france-effets-foetus",
+    "statut": "rejete_qualite",
+    "date": "2026-08-26T04:21:11",
+    "angle_insuffisant": true,
+    "raison": "Aucune phrase dans la section 'faits' ne combine un événement précis daté (ex. : publication d'un bilan, annonce officielle) avec une donnée chiffrée ou nommée qui lui soit propre pour l'été 2026. Les chiffres de décès (7 300 en France, 25 800 en Europe) sont présentés comme des bilans provisoires sans date de publication ni fait déclencheur identifiable justifiant une actualité immédiate. L'article répond davantage à une question générale ('Quels sont les impacts sanitaires ?') qu'à un événement récent et daté.",
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "faits_repetitifs",
+      "nuances_vagues"
+    ],
+    "titre": "7 300 morts en France cet été : les canicules 2026 et leurs effets sur les fœtus",
+    "n_sources": 4,
+    "n_mots": 518,
+    "titre_rss": "\"Le réchauffement climatique affecte déjà la santé des générations futures\" : le cri d'alerte d'une épidémiologiste",
+    "matiere_faits_distincts": 1370,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 4,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "veille_heures_visible": 21.0,
+    "veille_passages": 21,
+    "veille_age_h": 21.2,
+    "veille_n_flux_grappe": 9
+  },
+  {
+    "slug": "ebola-rdc-2642-morts-100-jours-propagation-exponentielle",
+    "statut": "rejete_qualite",
+    "date": "2026-08-26T04:29:25",
+    "problemes_initiaux": 14,
+    "tentatives": 3,
+    "problemes_restants": 9,
+    "bloquants_restants": 4,
+    "bloquants_types": [
+      "chiffre_errone",
+      "niveau_preuve_insuffisant",
+      "accusation_presentee_comme_fait",
+      "chiffre_errone"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "Le chiffre de 2 642 décès est correct, mais la source [3] (ECDC) ne précise pas explicitement que ce chiffre inclut les décès 'confirmés et probables'. L'article ajoute cette précision sans base dans la source citée.",
+        "phrase": "L'épidémie d'Ebola en République démocratique du Congo a causé 2 642 décès confirmés et probables au 24 août 2026, selon le Centre européen de prévention et de contrôle des maladies (ECDC) [3]."
+      },
+      {
+        "bloc": 1,
+        "type": "niveau_preuve_insuffisant",
+        "description": "La source [3] mentionne une évaluation préliminaire du taux de létalité, mais l'article ne précise pas que cette évaluation est préliminaire et ne donne pas les limites méthodologiques (effectif, période de référence, et",
+        "phrase": "Selon une évaluation préliminaire de l'ECDC, le taux de létalité pourrait s'élever à près de 50 %, tandis que le suivi des contacts identifiés reste en deçà des objectifs fixés [3]."
+      },
+      {
+        "bloc": 1,
+        "type": "accusation_presentee_comme_fait",
+        "description": "L'article présente les attaques comme un fait établi ('ont été signalées') sans préciser qu'il s'agit de signalements ou d'accusations rapportés par les Nations Unies, et non d'une confirmation indépendante.",
+        "phrase": "Selon les rapports des Nations Unies, des attaques contre les centres de traitement et les ambulances ont été signalées, entravant les opérations de riposte [4]."
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [1] (Banque mondiale) indique un financement de 243 millions de dollars, mais l'article ne précise pas si ce montant a été effectivement alloué ou s'il s'agit d'une annonce. La source ne confirme pas explicitem",
+        "phrase": "Selon la Banque mondiale, 243 millions de dollars ont été alloués pour soutenir la riposte, mais leur déploiement est ralenti par les obstacles logistiques et sécuritaires [1]."
+      }
+    ],
+    "types_restants": [
+      "chiffre_errone",
+      "niveau_preuve_insuffisant",
+      "accusation_presentee_comme_fait",
+      "chiffre_errone",
+      "source_derivee_comptee_comme_primaire",
+      "compteur_incoherent",
+      "cadrage_emprunte",
+      "redondance",
+      "faux_debat"
+    ],
+    "article_type": "actu",
+    "titre": "Ebola en RDC : 2 642 morts en 100 jours, une propagation exponentielle",
+    "n_sources": 5,
+    "n_mots": 618,
+    "titre_rss": "Ebola : ce qui s’est produit en seulement 20 jours révèle une situation devenue critique",
+    "matiere_faits_distincts": 950,
+    "matiere_redondance": 0.03,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "veille_heures_visible": 34.9,
+    "veille_passages": 33,
+    "veille_age_h": 35.1,
+    "veille_n_flux_grappe": 5
+  },
+  {
+    "slug": "fda-autorise-premier-essai-clinique-reprogrammation-cellulaire-anti-age",
+    "statut": "rejete_qualite",
+    "date": "2026-08-26T04:38:08",
+    "problemes_initiaux": 13,
+    "tentatives": 3,
+    "problemes_restants": 7,
+    "bloquants_restants": 2,
+    "bloquants_types": [
+      "niveau_preuve_insuffisant",
+      "niveau_preuve_insuffisant"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "niveau_preuve_insuffisant",
+        "description": "La phrase omet de préciser le stade de la recherche (préclinique) et les limites méthodologiques exactes (effectifs, durée de suivi) déjà mentionnées dans les faits et nuances, mais le résumé doit rappeler le caractère p",
+        "phrase": "Les études précliniques menées sur des modèles animaux (souris) montrent des effets sur ces marqueurs, mais ces résultats sont préliminaires, obtenus sur de petits effectifs et sans validation à long terme, ce qui limite"
+      },
+      {
+        "bloc": 1,
+        "type": "niveau_preuve_insuffisant",
+        "description": "La source [5] précise que ces résultats sont préliminaires, obtenus sur de petits effectifs et sans suivi à long terme, mais cette limite méthodologique n'est pas intégrée dans la phrase citée, ce qui pourrait donner l'i",
+        "phrase": "Selon cette institution, des études précliniques menées sur des modèles animaux (souris) ont montré que cette approche pouvait influencer des marqueurs du vieillissement, tels que la sénescence cellulaire ou la fibrose t"
+      }
+    ],
+    "types_restants": [
+      "niveau_preuve_insuffisant",
+      "niveau_preuve_insuffisant",
+      "source_inventee",
+      "compteur_incoherent",
+      "source_derivee_comptee_comme_primaire",
+      "contexte_hors_sujet",
+      "faux_debat"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "faits_repetitifs"
+    ],
+    "titre": "La FDA autorise le premier essai clinique de reprogrammation cellulaire anti-âge aux États-Unis",
+    "n_sources": 4,
+    "n_mots": 621,
+    "titre_rss": "Rajeunir des cellules humaines : un premier essai clinique vient d'obtenir le feu vert américain",
+    "matiere_faits_distincts": 1021,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "veille_heures_visible": 16.9,
+    "veille_passages": 17,
+    "veille_age_h": 17.1,
+    "veille_n_flux_grappe": 2
+  },
+  {
+    "slug": "greve-soignants-rdc-salaires-impayes-ebola-2026",
+    "statut": "rejete_qualite",
+    "date": "2026-08-26T04:53:02",
+    "problemes_initiaux": 8,
+    "tentatives": 3,
+    "problemes_restants": 8,
+    "bloquants_restants": 1,
+    "bloquants_types": [
+      "niveau_preuve_insuffisant"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "niveau_preuve_insuffisant",
+        "description": "La source [5] (The Lancet) est une étude scientifique, mais l'article ne précise pas si les défis de diagnostic sont basés sur des résultats expérimentaux, observationnels ou des projections, ni les limites méthodologiqu",
+        "phrase": "The Lancet indique que la souche Bundibugyo, identifiée dans cette épidémie, présente des défis spécifiques, notamment en matière de diagnostic, car les tests moléculaires comme la PCR nécessitent des cartouches spécifiq"
+      }
+    ],
+    "types_restants": [
+      "niveau_preuve_insuffisant",
+      "source_derivee_comptee_comme_primaire",
+      "compteur_incoherent",
+      "source_non_editoriale",
+      "contexte_hors_sujet",
+      "extrapolation",
+      "faux_debat",
+      "acteur_mis_en_cause_sans_reponse"
+    ],
+    "article_type": "actu",
+    "titre": "Soignants en grève en RDC pour des salaires impayés pendant l'épidémie d'Ebola",
+    "n_sources": 8,
+    "n_mots": 543,
+    "titre_rss": "En RDC, la colère des soignants, en première ligne face à Ebola, mais rarement payés",
+    "matiere_faits_distincts": 1074,
+    "matiere_redondance": 0.01,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "n_sources_pertinentes": 6,
+    "veille_heures_visible": 9.0,
+    "veille_passages": 27,
+    "veille_age_h": 9.2,
+    "veille_n_flux_grappe": 3
+  },
+  {
+    "slug": "deces-france-2024-taux-mortalite-baisse-causes-principales",
+    "statut": "rejete_qualite",
+    "date": "2026-08-26T05:02:49",
+    "problemes_initiaux": 10,
+    "tentatives": 3,
+    "problemes_restants": 8,
+    "bloquants_restants": 3,
+    "bloquants_types": [
+      "chiffre_errone",
+      "niveau_preuve_insuffisant",
+      "niveau_preuve_insuffisant"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [1] (Inserm) indique une diminution de 1 et 3 décès pour 100 000 habitants par rapport à la période pré-pandémique, mais ne précise pas que ces causes 'demeurent les premières causes de mortalité' comme un fait",
+        "phrase": "Les tumeurs (27,1 % des décès) et les maladies cardio-neurovasculaires (21,2 %) demeurent les premières causes de mortalité. Selon l’Inserm, leur mortalité respective a diminué de 1 et 3 décès pour 100 000 habitants par "
+      },
+      {
+        "bloc": 1,
+        "type": "niveau_preuve_insuffisant",
+        "description": "La source [1] mentionne une diminution, mais ne précise pas si cette tendance est basée sur des données définitives, des estimations ou des projections. L'absence de détails sur la méthodologie ou les limites de ces chif",
+        "phrase": "Selon l’Inserm, leur mortalité respective a diminué de 1 décès pour 100 000 habitants pour les tumeurs et de 3 décès pour 100 000 habitants pour les maladies cardio-neurovasculaires par rapport à la période pré-pandémiqu"
+      },
+      {
+        "bloc": 1,
+        "type": "niveau_preuve_insuffisant",
+        "description": "La source [2] (Santé publique France) indique que cette hausse nécessite des investigations, mais ne fournit pas de données précises sur l'ampleur de cette hausse ni sur les populations concernées. L'article présente cet",
+        "phrase": "Les maladies de l’appareil respiratoire hors Covid-19 enregistrent une hausse de leur taux de mortalité en 2024. Santé publique France souligne que cette évolution nécessite des investigations supplémentaires pour en ide"
+      }
+    ],
+    "types_restants": [
+      "chiffre_errone",
+      "niveau_preuve_insuffisant",
+      "niveau_preuve_insuffisant",
+      "source_derivee_comptee_comme_primaire",
+      "compteur_incoherent",
+      "redondance",
+      "redondance",
+      "extrapolation"
+    ],
+    "article_type": "actu",
+    "titre": "Décès en France 2024 : 641 046 morts, taux en baisse malgré le vieillissement",
+    "n_sources": 4,
+    "n_mots": 553,
+    "titre_rss": "Grandes causes de décès en France : tendances et causes associées en 2024",
+    "matiere_faits_distincts": 958,
+    "matiere_redondance": 0.12,
+    "matiere_donnees_chiffrees": 4,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "n_sources_pertinentes": 4,
+    "veille_heures_visible": 337.2,
+    "veille_passages": 273,
+    "veille_age_h": 337.4,
+    "veille_n_flux_grappe": 1
+  },
+  {
+    "slug": "ird-formation-registre-traitements-donnees-rgpd",
+    "statut": "rejete_qualite",
+    "date": "2026-08-26T05:12:27",
+    "problemes_initiaux": 7,
+    "tentatives": 3,
+    "problemes_restants": 8,
+    "bloquants_restants": 2,
+    "bloquants_types": [
+      "annonce_perimee",
+      "annonce_perimee"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "annonce_perimee",
+        "description": "La phrase présente comme une action en cours (« organise ») une formation qui, selon la source [1] (IRD), est décrite comme une page intranet existante (« Protection des données personnelles - Le registre des traitements",
+        "phrase": "L'Institut de Recherche pour le Développement (IRD) organise des sessions internes pour outiller son personnel à la tenue du registre des activités de traitement des données personnelles, une obligation légale en vigueur"
+      },
+      {
+        "bloc": 1,
+        "type": "annonce_perimee",
+        "description": "La source [1] (IRD) ne confirme pas l'organisation actuelle de formations, mais décrit une page intranet sur le registre des traitements. La formulation « organise » suggère une action en cours non étayée par la source c",
+        "phrase": "L'Institut de Recherche pour le Développement (IRD) organise des formations internes destinées à son personnel pour la tenue du registre des activités de traitement de données personnelles [1]."
+      }
+    ],
+    "types_restants": [
+      "annonce_perimee",
+      "annonce_perimee",
+      "source_derivee_comptee_comme_primaire",
+      "source_derivee_comptee_comme_primaire",
+      "compteur_incoherent",
+      "contexte_hors_sujet",
+      "redondance",
+      "faux_debat"
+    ],
+    "article_type": "actu",
+    "titre": "L'IRD forme ses agents au registre des traitements de données RGPD",
+    "n_sources": 7,
+    "n_mots": 565,
+    "titre_rss": "Protection des données personnelles - Le registre des traitements",
+    "matiere_faits_distincts": 1117,
+    "matiere_redondance": 0.01,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "n_sources_pertinentes": 4,
+    "veille_heures_visible": 337.2,
+    "veille_passages": 284,
+    "veille_age_h": 337.4,
+    "veille_n_flux_grappe": 1
   }
 ]
