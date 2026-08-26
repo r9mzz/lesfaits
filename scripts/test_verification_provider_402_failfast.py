@@ -29,6 +29,7 @@ class VerificationProvider402FailFastTest(unittest.TestCase):
 
         legacy._llm_call = failing_llm_call
         legacy.corriger = lambda art, *args, **kwargs: art
+        legacy.detecter = lambda art, *args, **kwargs: {"conforme": True, "problemes": []}
         legacy.verifier_article = lambda art, *args, **kwargs: (art, "erreur_verification")
         legacy._log = lambda *args, **kwargs: None
 
