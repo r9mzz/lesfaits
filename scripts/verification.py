@@ -292,8 +292,13 @@ _verification._entree_en_vigueur_pas_perimee = _provider_entree_en_vigueur_pas_p
 if hasattr(_verification, "_problemes_bloquants"):
     _verification._provider_original_problemes_bloquants = _verification._problemes_bloquants
 
-    def _provider_problemes_bloquants(problemes: list) -> list:
-        retenus = _verification._provider_original_problemes_bloquants(problemes)
+    def _provider_problemes_bloquants(problemes: list, article: dict | None = None) -> list:
+        # `article` est optionnel et TRANSMIS : le moteur partagé s'en sert pour
+        # prouver qu'une réserve réclamée figure déjà dans le corps. L'omettre
+        # ici rendrait le garde-fou muet en production tout en le laissant vert
+        # en test — exactement la panne du 19/08 (deux résolutions divergentes
+        # entre les deux côtés du pipeline).
+        retenus = _verification._provider_original_problemes_bloquants(problemes, article)
         return [
             p for p in retenus
             if not _provider_reproche_exige_source_absente(p)

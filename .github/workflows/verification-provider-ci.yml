@@ -23,6 +23,7 @@ on:
       - "scripts/test_verification_sources_immutables.py"
       - "scripts/test_verification_retrospective_date.py"
       - "scripts/test_juge_reproche_auto_contredit.py"
+      - "scripts/test_juge_repetition_reserve.py"
       - "scripts/test_juge_reproche_auto_contredit_ci_contract.py"
       - "scripts/test_annonce_perimee_intention.py"
       - "scripts/test_source_inventee_bibliographie.py"
@@ -48,6 +49,7 @@ on:
       - "scripts/test_verification_sources_immutables.py"
       - "scripts/test_verification_retrospective_date.py"
       - "scripts/test_juge_reproche_auto_contredit.py"
+      - "scripts/test_juge_repetition_reserve.py"
       - "scripts/test_juge_reproche_auto_contredit_ci_contract.py"
       - "scripts/test_annonce_perimee_intention.py"
       - "scripts/test_source_inventee_bibliographie.py"
@@ -86,6 +88,7 @@ jobs:
           scripts/test_verification_sources_immutables.py
           scripts/test_verification_retrospective_date.py
           scripts/test_juge_reproche_auto_contredit.py
+          scripts/test_juge_repetition_reserve.py
           scripts/test_juge_reproche_auto_contredit_ci_contract.py
           scripts/test_annonce_perimee_intention.py
           scripts/test_source_inventee_bibliographie.py
@@ -104,6 +107,7 @@ jobs:
           python scripts/test_verification_symetrie_ci_contract.py
           python scripts/test_verification_sources_immutables.py
           python scripts/test_verification_retrospective_date.py
+          python scripts/test_juge_repetition_reserve.py
           python scripts/test_juge_reproche_auto_contredit.py
           python scripts/test_juge_reproche_auto_contredit_ci_contract.py
           python scripts/test_annonce_perimee_intention.py
