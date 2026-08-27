@@ -20784,5 +20784,274 @@
     "veille_passages": 14,
     "veille_age_h": 28.9,
     "veille_n_flux_grappe": 1
+  },
+  {
+    "slug": "dpe-2026-reclassement-logements-sans-renovation",
+    "statut": "rejete_qualite",
+    "date": "2026-08-27T15:47:26",
+    "problemes_initiaux": 9,
+    "tentatives": 3,
+    "problemes_restants": 9,
+    "bloquants_restants": 4,
+    "bloquants_types": [
+      "chiffre_errone",
+      "chiffre_errone",
+      "annonce_perimee",
+      "niveau_preuve_insuffisant"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "Le chiffre de 850 000 logements reclassés est attribué à la source [1] (Le Monde), mais cette source ne confirme pas explicitement que ces logements étaient *auparavant* classés F ou G. L'article généralise un état antér",
+        "phrase": "Un arrêté publié en août 2025 a modifié le mode de calcul du diagnostic de performance énergétique (DPE), entraînant le reclassement automatique de 850 000 logements chauffés à l'électricité, auparavant classés F ou G."
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "Même problème que ci-dessus : la source [1] ne précise pas que ces logements étaient *tous* classés F ou G avant le reclassement. L'affirmation est une extrapolation non confirmée par la source citée.",
+        "phrase": "Ces logements, jusqu'alors classés F ou G (passoires thermiques), sont désormais classés E, sans que des travaux de rénovation n'aient été réalisés."
+      },
+      {
+        "bloc": 1,
+        "type": "annonce_perimee",
+        "description": "La question écrite [3] date de février 2026, mais l'arrêté est publié en août 2025. Le conditionnel (« pourrait permettre ») est correct pour une préoccupation parlementaire, mais le résumé présente cela comme une *évolu",
+        "phrase": "Selon une question écrite déposée à l'Assemblée nationale, cette évolution pourrait permettre aux propriétaires d'appliquer des hausses de loyer, une préoccupation exprimée par plusieurs parlementaires [3]."
+      },
+      {
+        "bloc": 1,
+        "type": "niveau_preuve_insuffisant",
+        "description": "La source [1] (Le Monde) ne confirme pas explicitement que cette attestation est *gratuite* ni qu'elle est délivrée par l'Observatoire DPE-Audit de l'Ademe. Ces détails sont absents des extraits fournis et ne peuvent êtr",
+        "phrase": "Pour les propriétaires disposant d'un DPE antérieur à 2026, une attestation officielle de reclassement peut être obtenue gratuitement via l'Observatoire DPE-Audit de l'Ademe, sans nécessiter un nouveau diagnostic réalisé"
+      }
+    ],
+    "types_restants": [
+      "chiffre_errone",
+      "chiffre_errone",
+      "annonce_perimee",
+      "niveau_preuve_insuffisant",
+      "source_derivee_comptee_comme_primaire",
+      "compteur_incoherent",
+      "redondance",
+      "faux_debat",
+      "contexte_hors_sujet"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "resume_repete_corps"
+    ],
+    "titre": "DPE 2026 : 850 000 logements reclassés sans rénovation",
+    "n_sources": 4,
+    "n_mots": 501,
+    "titre_rss": "Logement : le nouveau DPE réduit l’avantage du gaz par rapport à l’électricité",
+    "matiere_faits_distincts": 946,
+    "matiere_redondance": 0.07,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "veille_heures_visible": 16.4,
+    "veille_passages": 8,
+    "veille_age_h": 20.8,
+    "veille_n_flux_grappe": 3
+  },
+  {
+    "slug": "pekin-saules-peupliers-pollution-ozone-etude-chinoise",
+    "statut": "rejete_qualite",
+    "date": "2026-08-27T16:09:38",
+    "etape": "correction",
+    "tentative": 2,
+    "erreur": "HTTPSConnectionPool(host='api.mistral.ai', port=443): Read timed out. (read timeout=180)",
+    "bloquants_connus": 2,
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "article_sans_date"
+    ],
+    "titre": "À Pékin, les saules et peupliers aggravent la pollution à l’ozone",
+    "n_sources": 4,
+    "n_mots": 414,
+    "titre_rss": "Trop pollués, certains arbres finissent par polluer eux-mêmes",
+    "matiere_faits_distincts": 996,
+    "matiere_redondance": 0.01,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "veille_heures_visible": 17.9,
+    "veille_passages": 5,
+    "veille_age_h": 22.3,
+    "veille_n_flux_grappe": 3
+  },
+  {
+    "slug": "disneyland-paris-condamne-homicide-involontaire-technicien",
+    "statut": "erreur_verification",
+    "date": "2026-08-27T16:38:52",
+    "etape": "detection",
+    "erreur": "HTTPSConnectionPool(host='api.mistral.ai', port=443): Read timed out. (read timeout=180)",
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "resume_repete_corps"
+    ],
+    "titre": "Disneyland Paris condamné pour homicide involontaire après la mort d'un technicien",
+    "n_sources": 3,
+    "n_mots": 510,
+    "titre_rss": "Disneyland Paris condamné pour homicide involontaire, dix ans après la mort d’un technicien dans la Maison hantée",
+    "matiere_faits_distincts": 461,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "veille_heures_visible": 13.6,
+    "veille_passages": 6,
+    "veille_age_h": 18.0,
+    "veille_n_flux_grappe": 10
+  },
+  {
+    "slug": "disneyland-paris-condamne-homicide-involontaire-technicien",
+    "statut": "rejete_qualite",
+    "date": "2026-08-27T16:38:52",
+    "raison": "verification_indisponible",
+    "statut_verification_initial": "erreur_verification"
+  },
+  {
+    "slug": "productivite-france-recul-8-5-depuis-2019",
+    "statut": "erreur_verification",
+    "date": "2026-08-27T17:05:12",
+    "etape": "detection",
+    "erreur": "HTTPSConnectionPool(host='api.mistral.ai', port=443): Read timed out. (read timeout=180)",
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "resume_repete_corps"
+    ],
+    "titre": "Productivité française en recul de 8,5 % par rapport à la tendance pré-Covid",
+    "n_sources": 5,
+    "n_mots": 669,
+    "titre_rss": "Il est urgent de redresser la productivité en France : les pistes de Patrick Artus",
+    "matiere_faits_distincts": 999,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "n_sources_pertinentes": 5,
+    "veille_heures_visible": 27.1,
+    "veille_passages": 13,
+    "veille_age_h": 31.5,
+    "veille_n_flux_grappe": 1
+  },
+  {
+    "slug": "productivite-france-recul-8-5-depuis-2019",
+    "statut": "rejete_qualite",
+    "date": "2026-08-27T17:05:12",
+    "raison": "verification_indisponible",
+    "statut_verification_initial": "erreur_verification"
+  },
+  {
+    "slug": "chomage-duree-indemnisation-12-mois-moins-50-ans",
+    "statut": "rejete_qualite",
+    "date": "2026-08-27T18:02:24",
+    "etape": "correction",
+    "tentative": 1,
+    "erreur": "HTTPSConnectionPool(host='api.mistral.ai', port=443): Read timed out. (read timeout=180)",
+    "bloquants_connus": 2,
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "resume_repete_corps",
+      "cliches_ia"
+    ],
+    "titre": "Réduction de l'indemnisation chômage à 12 mois pour les moins de 50 ans",
+    "n_sources": 3,
+    "n_mots": 389,
+    "titre_rss": "Edouard Philippe veut \"faire comme l'Allemagne\" et limiter à 12 mois l'indemnisation chômage des moins de 50 ans",
+    "matiere_faits_distincts": 424,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10
+  },
+  {
+    "slug": "arbres-parisiens-chute-feuilles-precoce-secheresse-2026",
+    "statut": "erreur_verification",
+    "date": "2026-08-27T18:19:15",
+    "etape": "detection",
+    "erreur": "HTTPSConnectionPool(host='api.mistral.ai', port=443): Read timed out. (read timeout=180)",
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "resume_repete_corps"
+    ],
+    "titre": "À Paris, les arbres perdent leurs feuilles dès août sous l’effet de la sécheresse",
+    "n_sources": 4,
+    "n_mots": 535,
+    "titre_rss": "Canicule et sécheresse : les arbres de Paris sous pression",
+    "matiere_faits_distincts": 895,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "veille_heures_visible": 139.8,
+    "veille_passages": 115,
+    "veille_age_h": 144.2,
+    "veille_n_flux_grappe": 11
+  },
+  {
+    "slug": "arbres-parisiens-chute-feuilles-precoce-secheresse-2026",
+    "statut": "rejete_qualite",
+    "date": "2026-08-27T18:19:15",
+    "raison": "verification_indisponible",
+    "statut_verification_initial": "erreur_verification"
+  },
+  {
+    "slug": "biodiversite-europe-declin-accelere-alerte-scientifiques",
+    "statut": "erreur_verification",
+    "date": "2026-08-27T19:04:57",
+    "etape": "detection",
+    "erreur": "HTTPSConnectionPool(host='api.mistral.ai', port=443): Read timed out. (read timeout=180)",
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "faits_repetitifs"
+    ],
+    "titre": "Biodiversité en Europe : l'alerte des scientifiques sur un déclin accéléré",
+    "n_sources": 4,
+    "n_mots": 445,
+    "titre_rss": "Réformes et Éducation Nationale / Quelle perte de biodiversité ? / Correspondance retrouvée de Marcel Proust",
+    "matiere_faits_distincts": 1098,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "veille_heures_visible": 0.0,
+    "veille_passages": 1,
+    "veille_age_h": 4.4,
+    "veille_n_flux_grappe": 11
+  },
+  {
+    "slug": "biodiversite-europe-declin-accelere-alerte-scientifiques",
+    "statut": "rejete_qualite",
+    "date": "2026-08-27T19:04:57",
+    "raison": "verification_indisponible",
+    "statut_verification_initial": "erreur_verification"
+  },
+  {
+    "slug": "deces-france-2024-baisse-mortalite-standardisee-causes",
+    "statut": "rejete_qualite",
+    "date": "2026-08-27T19:32:54",
+    "etape": "correction",
+    "tentative": 1,
+    "erreur": "HTTPSConnectionPool(host='api.mistral.ai', port=443): Read timed out. (read timeout=180)",
+    "bloquants_connus": 2,
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "faits_repetitifs"
+    ],
+    "titre": "641 046 décès en France en 2024, une mortalité standardisée en baisse",
+    "n_sources": 4,
+    "n_mots": 765,
+    "titre_rss": "Grandes causes de décès en France : tendances et causes associées en 2024",
+    "matiere_faits_distincts": 1027,
+    "matiere_redondance": 0.02,
+    "matiere_donnees_chiffrees": 2,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "veille_heures_visible": 368.2,
+    "veille_passages": 288,
+    "veille_age_h": 372.6,
+    "veille_n_flux_grappe": 1
   }
 ]
