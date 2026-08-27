@@ -1,5 +1,105 @@
 # Les Faits — lesfaits.info
 
+## RUN 285 — LE 402 EST RÉGLÉ, LE GOULOT EST LE JUGE (26/08)
+
+Premier run où le tunnel va au bout depuis le passage à Mistral :
+
+```
+                       280   281   282  │  285 (avec rotation 402)
+refus 402               20    24    28  │      1
+générations abouties    18    23    26  │     31
+articles au fact-check   5     5     6  │      7
+articles publiés         0     0     0  │      0
+```
+
+`[GROQ] clé fournisseur 1 : solde épuisée (402) — retirée de la rotation (2
+restante(s))` apparaît UNE fois et le run continue. **Une clé Mistral sur trois
+est morte ; les deux autres portent le run.** Si une deuxième tombe, la marge
+disparaît — la console de Nahil est la seule à pouvoir le dire.
+
+### Relecture à la main des 26 reproches — 4 fondés, 17 infondés, 5 indécidables
+
+Même protocole qu'au run 276, sur un échantillon cette fois non pollué par les
+pannes d'accès. Profil quasi identique (74 % / 15 % → 65 % / 15 %).
+
+```
+article                reproches   fondés   infondés   indécidables
+1  réforme                  2         0         1           1
+2  Banque mondiale          5         0         1           4
+3  écart 8,5 % / FMI        7         0         7           0
+4  Allemagne / déficit      4         2         2           0
+5  BEI / Sénat              3         1         2           0
+6  OMS / étude              5         1         4           0
+                           ──        ──        ──          ──
+                           26         4        17           5
+```
+
+**Les 5 indécidables sont une limite de l'INSTRUMENT, pas un verdict** : le
+journal ne contient pas la phrase visée, seulement le reproche. Ne pas les
+compter dans un taux — c'est la règle « compter les échecs à part, jamais dans
+le dénominateur » (essai juge, 20/08).
+
+### La famille traitée : exiger la RÉPÉTITION d'une réserve déjà écrite
+
+7 reproches sur 26 (27 %). Le juge s'auto-dénonce dans son propre texte :
+
+```
+« cette précision n'est pas reprise SYSTÉMATIQUEMENT dans toutes les sections »
+« Cette précision EST DONNÉE, mais elle n'est pas intégrée systématiquement »
+« ce qui est POURTANT MENTIONNÉ dans les faits et dans la source [1] »
+« le résumé omet de préciser […] (MENTIONNÉ DANS 'faits') »
+```
+
+C'est frontalement contraire à la règle 1 de la charte — une idée = une seule
+apparition. **On rejetait des articles PARCE QU'ILS respectent la charte.**
+
+`_reproche_exige_une_repetition` (moteur partagé) écarte sur deux preuves, jamais
+sur une supposition :
+
+- **le reproche AVOUE la présence ailleurs dans l'article** — l'aveu doit viser
+  une SECTION (faits, contexte, nuances, résumé). ⚠ « déjà mentionnée dans la
+  SOURCE [3], mais l'article ne la reprend jamais » est une vraie omission :
+  qu'une source porte la réserve ne dit rien de ce que l'article porte. Une
+  première version de la regex écartait ce cas — **attrapé par le test, pas par
+  la relecture**, ce qui est exactement le rôle des tests de non-écartement ;
+- **le terme réclamé figure LITTÉRALEMENT dans le corps** et le reproche n'en
+  demande que la reprise. Ce cas exige l'article : `_problemes_bloquants` prend
+  donc un `article` OPTIONNEL. Sans lui (backtests, `essai_juge_corpus`) le
+  garde-fou se tait et le reproche bloque — on ne devine pas.
+
+Ajouté aussi : un `chiffre_errone` dont la description dit le chiffre EXACT
+(« Le chiffre de 8,5 % est correct, mais… ») — le motif dit l'inverse du texte.
+
+**Effet mesuré en rejouant les 26 reproches réels : 8 écartés, dont AUCUN des
+4 fondés.** ⚠ Le rejeu utilise un corps de test contenant les termes de réserve ;
+c'est une hypothèse favorable pour le second mécanisme. Les cas 23 et 25 sortent
+de l'aveu seul, sans article.
+
+⚠ **CE N'EST PAS UN ASSOUPLISSEMENT.** Aucun motif retiré, aucun seuil baissé.
+`test_juge_repetition_reserve.py` consacre la moitié de ses cas à ce qui doit
+RESTER bloquant — chiffre absent des extraits, renvoi `[n]` faux, interprétation
+non attribuée, réserve réellement absente du corps, appel sans article. Un
+garde-fou de ce type devient un desserrage silencieux dès qu'il attrape un cas
+de trop ; ce sont ces tests-là qui comptent.
+
+### Les deux familles NON traitées, et pourquoi
+
+- **une projection publiée lue comme rétrospective** (3 reproches sur la même
+  source FMI) : « la source est datée de 2026 et décrit une projection, mais
+  elle est déjà publiée en 2026, donc c'est rétrospectif ». Erreur de catégorie.
+  Les reproches 9 et 11 se contredisent dans le MÊME rapport ;
+- **le reproche qui commence par « ce qui est correct »** sur un temps verbal.
+
+Ces deux-là ne se vérifient pas par le code — elles relèvent du prompt, qui les
+porte déjà depuis le 25/08 et ne les empêche pas. ⚠ Ne pas en déduire qu'il faut
+durcir le prompt : c'est la troisième fois qu'une clause y est ajoutée sur cette
+famille. Le prochain geste utile est une mesure, pas une clause de plus.
+
+⚠ **RÉSERVE, la même qu'au run 276 : je suis un LLM qui juge un LLM.** Les 17
+infondés sont contrôlables en dix secondes chacun — le reproche cite l'élément
+qu'il réclame. À vérifier sur deux ou trois avant d'en tirer une décision de
+seuil, qui appartient à Nahil et Roméo.
+
 ## RUN 281 — LA MOITIÉ DES SUJETS TUÉE PAR UN 402 JAMAIS RATTRAPÉ (26/08)
 
 Run de 2 h 50 sur Mistral, 0 article. Le journal donne la répartition exacte :

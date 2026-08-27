@@ -584,7 +584,7 @@ def _log(slug: str, statut: str, detail: dict | None = None):
     })
 
 
-def _problemes_bloquants(problemes: list) -> list:
+def _problemes_bloquants(problemes: list, article: dict | None = None) -> list:
     """Blocs véritablement bloquants :
     - Bloc 1 STRICT : chiffre_errone + incoherence_inter_sections uniquement.
       fait_tranche_arbitrairement / chronologie_confuse = défauts rédactionnels
@@ -605,7 +605,10 @@ def _problemes_bloquants(problemes: list) -> list:
         if (p.get("bloc") == 1 and p.get("type") in BLOC1_BLOQUANTS)
         or (p.get("bloc") == 2 and p.get("type") in BLOC2_BLOQUANTS)
     ]
-    return [p for p in retenus if not _reproche_auto_contredit(p)]
+    return [p for p in retenus
+            if not _reproche_auto_contredit(p)
+            and not _reproche_exige_une_repetition(p, article)
+            and not _chiffre_declare_exact(p)]
 
 
 # ── 25/08 : écarter les reproches que la phrase citée DÉMENT ────────────────
@@ -677,6 +680,127 @@ def _reproche_auto_contredit(probleme: dict) -> bool:
                       f"attribution ({probleme.get('type')})")
                 return True
     return False
+
+
+# ── 27/08 : écarter les reproches qui exigent la RÉPÉTITION d'une réserve ───
+# Relecture à la main des 26 reproches bloquants du run 285 : 4 fondés, 17
+# infondés, 5 indécidables. La famille la plus nombreuse — 7 reproches sur 26,
+# soit 27 % — réclame qu'une réserve DÉJÀ ÉCRITE soit répétée ailleurs. Le juge
+# le dit dans son propre texte :
+#
+#   « cette précision n'est pas reprise SYSTÉMATIQUEMENT dans toutes les sections »
+#   « Cette précision EST DONNÉE, mais elle n'est pas intégrée systématiquement »
+#   « ce qui est POURTANT MENTIONNÉ dans les faits et dans la source [1] »
+#   « le résumé omet de préciser […] (MENTIONNÉ DANS 'faits') »
+#
+# C'est frontalement contraire à la règle 1 de la charte — une idée = une seule
+# apparition. On rejetait donc des articles PARCE QU'ILS respectent la charte.
+#
+# ⚠ CE N'EST PAS UN ASSOUPLISSEMENT. Aucun motif retiré, aucun seuil baissé. Le
+# garde-fou n'écarte que ce qu'il peut PROUVER : soit le reproche avoue
+# lui-même que l'élément est présent ailleurs dans l'article, soit le terme de
+# réserve qu'il réclame figure LITTÉRALEMENT dans le corps. Une réserve
+# réellement absente du texte reste bloquante — c'est la différence avec un
+# desserrage de seuil, et c'est ce que verrouillent les tests.
+
+# (a) le reproche AVOUE la présence ailleurs dans l'article. Le complément est
+#     restreint aux sections de l'article : « mentionné dans les faits » écarte,
+#     « mentionné dans la source » n'écarte RIEN — que la source porte la
+#     réserve ne dit pas que l'article la porte.
+_AVEU_PRESENCE_ARTICLE_RE = re.compile(
+    r"(?:d[ée]j[àa]\s+(?:mentionn|pr[ée]cis|indiqu|pr[ée]sent|int[ée]gr|soulign)"
+    r"|pourtant\s+(?:mentionn|pr[ée]cis|indiqu|soulign)"
+    r"|cette\s+(?:pr[ée]cision|nuance|r[ée]serve)\s+est\s+(?:donn[ée]e|pr[ée]sente))"
+    # ⚠ Le mot « source » ne doit PAS pouvoir se glisser entre l'aveu et la
+    # section : « déjà mentionnée dans la source [3], mais l'article ne la
+    # reprend jamais » est une VRAIE omission, et une première version de cette
+    # regex l'écartait (attrapé par le test, pas par la relecture). Que la
+    # source porte la réserve ne dit rien de ce que l'article porte.
+    r"(?:(?!\bsources?\b)[^.]){0,160}?"
+    r"\b(?:faits|nuances|contexte|r[ée]sum[ée]|article|autre\s+section)\b",
+    re.IGNORECASE)
+
+# (b) la demande se réduit à une REPRISE ailleurs, pas à une omission de fond.
+_DEMANDE_REPRISE_RE = re.compile(
+    r"syst[ée]matiquement"
+    r"|n'est pas repris|pas reprise|non repris"
+    r"|dans toutes les sections"
+    r"|(?:dans|de)\s+(?:le\s+)?r[ée]sum[ée]"
+    r"|dans cette phrase|dans la phrase pr[ée]c[ée]dente",
+    re.IGNORECASE)
+
+# Termes de réserve dont la présence LITTÉRALE dans le corps prouve que
+# l'article porte déjà la nuance réclamée. Même liste d'esprit que
+# `_MARQUEURS_RESERVE` : chaque entrée porte à elle seule la réserve.
+_TERMES_RESERVE_CORPS = ("exploratoire", "préliminaire", "provisoire",
+                         "observationnel", "estimation", "projection",
+                         "hypothèse", "pourrait", "conditionnel")
+
+
+def _corps_article(article: dict | None) -> str:
+    """Texte complet de l'article, sections réunies. `.get()` partout : le
+    correcteur LLM rend des objets incomplets (piège connu du projet)."""
+    if not isinstance(article, dict):
+        return ""
+    corps = article.get("corps") or {}
+    morceaux = [str(article.get("resume") or "")]
+    if isinstance(corps, dict):
+        morceaux += [str(corps.get(k) or "") for k in ("faits", "contexte", "nuances")]
+    return " ".join(morceaux).lower()
+
+
+def _reproche_exige_une_repetition(probleme: dict, article: dict | None = None) -> bool:
+    """Le reproche ne signale pas une absence, mais un défaut de répétition."""
+    description = str(probleme.get("description") or "")
+    if not description:
+        return False
+
+    # (1) Le reproche avoue lui-même la présence ailleurs dans l'article.
+    #     Suffit seul : c'est le rapport qui se contredit, pas nous qui
+    #     supposons quoi que ce soit.
+    if _AVEU_PRESENCE_ARTICLE_RE.search(description):
+        print(f"     [JUGE] reproche écarté — le rapport constate lui-même la "
+              f"précision présente ailleurs dans l'article puis exige sa "
+              f"répétition, ce que la règle 1 de la charte interdit "
+              f"({probleme.get('type')})")
+        return True
+
+    # (2) Le reproche réclame la reprise d'un terme de réserve, et ce terme est
+    #     bien dans le corps. Sans article, on ne peut rien prouver : on garde.
+    corps = _corps_article(article)
+    if not corps or not _DEMANDE_REPRISE_RE.search(description):
+        return False
+    d = description.lower()
+    for terme in _TERMES_RESERVE_CORPS:
+        if terme in d and terme in corps:
+            print(f"     [JUGE] reproche écarté — « {terme} » figure déjà dans "
+                  f"le corps ; le reproche n'en demande que la reprise "
+                  f"({probleme.get('type')})")
+            return True
+    return False
+
+
+# ── Un `chiffre_errone` qui déclare le chiffre EXACT ────────────────────────
+# Run 285 : « Le chiffre de 8,5 % EST CORRECT, mais le résumé omet de préciser
+# que cet écart est mesuré depuis fin 2019 (mentionné dans 'faits') ». Le motif
+# dit « chiffre erroné », le texte dit l'inverse. Couvert par (1) ci-dessus via
+# l'aveu « mentionné dans 'faits' » ; la règle explicite reste utile pour les
+# cas où l'aveu manque.
+_CHIFFRE_DECLARE_EXACT_RE = re.compile(
+    r"\b(?:le\s+)?chiffre[^.]{0,80}est\s+(?:correct|exact|juste)"
+    r"|\bchiffres?\s+(?:sont\s+)?(?:corrects?|exacts?)\b",
+    re.IGNORECASE)
+
+
+def _chiffre_declare_exact(probleme: dict) -> bool:
+    """Un `chiffre_errone` dont la description dit le chiffre juste."""
+    if str(probleme.get("type") or "") != "chiffre_errone":
+        return False
+    if not _CHIFFRE_DECLARE_EXACT_RE.search(str(probleme.get("description") or "")):
+        return False
+    print("     [JUGE] reproche écarté — le rapport déclare lui-même le chiffre "
+          "exact sous un motif « chiffre erroné »")
+    return True
 
 
 def _perte_substance(art_original: dict, art_corrige: dict) -> tuple[bool, str | None, int, int]:
@@ -857,7 +981,7 @@ def verifier_article(art: dict, article_type: str = "actu",
                 if essai_api == 1:
                     print(f"     [VERIF] Erreur API correction (tentative {tentative}) ({e}) — nouvel essai…")
         if rapport_final is None:
-            bloquants_connus = _problemes_bloquants(rapport_courant.get("problemes", []))
+            bloquants_connus = _problemes_bloquants(rapport_courant.get("problemes", []), art_courant)
             if bloquants_connus:
                 print(f"     [REJET QUALITÉ] Erreur API persistante ({derniere_erreur}) — "
                       f"{len(bloquants_connus)} bloquant(s) connu(s) non corrigés, rejet")
@@ -872,7 +996,7 @@ def verifier_article(art: dict, article_type: str = "actu",
             return art_courant, "erreur_verification"
 
         problemes = rapport_final.get("problemes", [])
-        bloquants = _problemes_bloquants(problemes)
+        bloquants = _problemes_bloquants(problemes, art_corrige)
 
         # Sécurité : si la correction a (anormalement) fait apparaître un
         # problème légal, on ne publie jamais automatiquement, quel que soit
@@ -971,7 +1095,7 @@ def verifier_article(art: dict, article_type: str = "actu",
         art_courant, rapport_courant = art_corrige, rapport_final
 
     # Toujours des problèmes bloquants (factuel/sourcing) après MAX_TENTATIVES
-    bloquants_restants = _problemes_bloquants(rapport_courant.get("problemes", []))
+    bloquants_restants = _problemes_bloquants(rapport_courant.get("problemes", []), art_courant)
     types_bloquants = [f"{p.get('bloc')}/{p.get('type')}" for p in bloquants_restants]
     print(f"     [REJET QUALITÉ] {len(bloquants_restants)} bloquant(s) après {MAX_TENTATIVES} passes : {types_bloquants}")
     # Le TYPE seul ne permet pas de juger si le garde-fou a raison. Constat
