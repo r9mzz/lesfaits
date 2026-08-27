@@ -20235,5 +20235,554 @@
     "veille_passages": 11,
     "veille_age_h": 14.3,
     "veille_n_flux_grappe": 1
+  },
+  {
+    "slug": "canicules-surmortalite-touche-aussi-45-64-ans",
+    "statut": "rejete_qualite",
+    "date": "2026-08-27T11:54:31",
+    "problemes_initiaux": 14,
+    "tentatives": 3,
+    "problemes_restants": 8,
+    "bloquants_restants": 3,
+    "bloquants_types": [
+      "annonce_perimee",
+      "niveau_preuve_insuffisant",
+      "niveau_preuve_insuffisant"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "annonce_perimee",
+        "description": "La phrase présente la surmortalité comme un fait déjà constaté (« ont entraîné »), alors que la source [1] (audition du Sénat) qualifie les chiffres de « provisoires » et souligne la difficulté à quantifier précisément l",
+        "phrase": "Selon l’audition de Virginie Schwarz, PDG de Météo-France devant le Sénat en juillet 2026, les épisodes de chaleur extrême en France ont entraîné une surmortalité provisoire, touchant des profils de victimes plus larges "
+      },
+      {
+        "bloc": 1,
+        "type": "niveau_preuve_insuffisant",
+        "description": "La source [1] précise que le lien entre ces décès et la chaleur est « difficile à quantifier précisément » et résulte de « facteurs multiples », mais le résumé ne mentionne pas explicitement que ces risques sont des hypo",
+        "phrase": "Les 45-64 ans seraient exposés à des risques accrus, notamment liés aux accidents, aux noyades ou aux conditions de travail en extérieur, bien que le lien avec les températures élevées reste difficile à quantifier précis"
+      },
+      {
+        "bloc": 1,
+        "type": "niveau_preuve_insuffisant",
+        "description": "La source [1] indique que ces causes de décès sont « difficiles à quantifier précisément » et liées à des « facteurs multiples », mais l'article ne précise pas que ces liens sont des hypothèses ou des corrélations, pas d",
+        "phrase": "Selon Météo-France, les causes de décès incluraient des accidents, des noyades ou des suicides, mais leur lien avec les températures élevées est qualifié de « difficile à quantifier précisément » par les acteurs sanitair"
+      }
+    ],
+    "types_restants": [
+      "annonce_perimee",
+      "niveau_preuve_insuffisant",
+      "niveau_preuve_insuffisant",
+      "source_derivee_comptee_comme_primaire",
+      "compteur_incoherent",
+      "contexte_hors_sujet",
+      "redondance",
+      "redondance"
+    ],
+    "article_type": "actu",
+    "titre": "Canicules : la surmortalité touche aussi les 45-64 ans",
+    "n_sources": 5,
+    "n_mots": 555,
+    "titre_rss": "Le bilan provisoire des canicules vient bousculer ce que l’on croyait savoir sur leurs victimes",
+    "matiere_faits_distincts": 1084,
+    "matiere_redondance": 0.05,
+    "matiere_donnees_chiffrees": 4,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "n_sources_pertinentes": 3,
+    "veille_heures_visible": 9.5,
+    "veille_passages": 2,
+    "veille_age_h": 10.4,
+    "veille_n_flux_grappe": 1
+  },
+  {
+    "slug": "etude-chinoise-arbres-urbains-ozone-pollution",
+    "statut": "rejete_qualite",
+    "date": "2026-08-27T12:05:13",
+    "problemes_initiaux": 10,
+    "tentatives": 3,
+    "problemes_restants": 7,
+    "bloquants_restants": 2,
+    "bloquants_types": [
+      "niveau_preuve_insuffisant",
+      "niveau_preuve_insuffisant"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "niveau_preuve_insuffisant",
+        "description": "L'article ne précise pas le stade de l'étude (exploratoire) dès la première mention du résultat principal, alors que la source [1] le qualifie explicitement d'exploratoire et préliminaire.",
+        "phrase": "Une équipe de chercheurs de l'université Jinan à Canton, en Chine, a mené une étude exploratoire sur l'impact des émissions de composés organiques volatils (COV) par certaines espèces d'arbres en milieu urbain."
+      },
+      {
+        "bloc": 1,
+        "type": "niveau_preuve_insuffisant",
+        "description": "Le résumé présente le résultat comme une révélation sans rappeler explicitement le caractère exploratoire et préliminaire de l'étude, alors que la source [1] insiste sur ce point.",
+        "phrase": "Une étude exploratoire menée par des chercheurs de l'université Jinan à Canton révèle que certaines espèces d'arbres en milieu urbain émettent des composés organiques volatils (COV) qui, en réagissant avec les oxydes d'a"
+      }
+    ],
+    "types_restants": [
+      "niveau_preuve_insuffisant",
+      "niveau_preuve_insuffisant",
+      "compteur_incoherent",
+      "source_derivee_comptee_comme_primaire",
+      "contexte_hors_sujet",
+      "redondance",
+      "faux_debat"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "faits_repetitifs",
+      "titre_de_mauvaise_qualite",
+      "article_sans_date"
+    ],
+    "titre": "Une étude chinoise révèle que des arbres urbains amplifient l'ozone dans l'air pollué",
+    "n_sources": 4,
+    "n_mots": 500,
+    "titre_rss": "Trop pollués, certains arbres finissent par polluer eux-mêmes",
+    "matiere_faits_distincts": 958,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "veille_heures_visible": 17.9,
+    "veille_passages": 5,
+    "veille_age_h": 18.8,
+    "veille_n_flux_grappe": 3
+  },
+  {
+    "slug": "sommeil-chasseurs-cueilleurs-etude-duree-comparable",
+    "statut": "rejete_qualite",
+    "date": "2026-08-27T12:27:01",
+    "problemes_initiaux": 11,
+    "tentatives": 3,
+    "problemes_restants": 13,
+    "bloquants_restants": 4,
+    "bloquants_types": [
+      "niveau_preuve_insuffisant",
+      "niveau_preuve_insuffisant",
+      "niveau_preuve_insuffisant",
+      "niveau_preuve_insuffisant"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "niveau_preuve_insuffisant",
+        "description": "L'article présente comme un résultat établi (« résiderait ») une hypothèse ou une observation non étayée par des données précises dans la source [1], qui ne détaille ni les méthodes de mesure ni la période de collecte.",
+        "phrase": "La différence résiderait davantage dans la structure du sommeil, avec des périodes de repos plus flexibles et fragmentées chez ces populations, contrairement aux rythmes modernes marqués par des horaires fixes et une exp"
+      },
+      {
+        "bloc": 1,
+        "type": "niveau_preuve_insuffisant",
+        "description": "L'article reprend une observation de la source [1] sans préciser que celle-ci repose sur des données limitées et sans rappeler explicitement les limites méthodologiques déjà mentionnées dans le corps de l'article.",
+        "phrase": "France Info souligne que les interruptions du sommeil chez les chasseurs-cueilleurs ne semblent pas affecter leur santé globale, bien que cette observation repose sur des données limitées et que les mécanismes sous-jacen"
+      },
+      {
+        "bloc": 1,
+        "type": "niveau_preuve_insuffisant",
+        "description": "L'article présente comme un fait établi (« réside davantage ») une observation qui, selon la source [1], manque de détails méthodologiques pour être robuste.",
+        "phrase": "France Info souligne que la différence entre ces populations et les sociétés modernes réside davantage dans la structure du sommeil. Les chasseurs-cueilleurs adoptent des périodes de repos plus flexibles, souvent fragmen"
+      },
+      {
+        "bloc": 1,
+        "type": "niveau_preuve_insuffisant",
+        "description": "L'article reprend une observation de la source [1] sans intégrer systématiquement les limites méthodologiques (données limitées, mécanismes non éclaircis) dans la formulation du fait.",
+        "phrase": "La source précise que ces interruptions ne semblent pas affecter la santé globale des populations étudiées, mais cette observation repose sur des données limitées et les mécanismes sous-jacents restent à éclaircir [1]."
+      }
+    ],
+    "types_restants": [
+      "niveau_preuve_insuffisant",
+      "niveau_preuve_insuffisant",
+      "fait_tranche_arbitrairement",
+      "niveau_preuve_insuffisant",
+      "niveau_preuve_insuffisant",
+      "redondance",
+      "source_derivee_comptee_comme_primaire",
+      "source_derivee_comptee_comme_primaire",
+      "compteur_incoherent",
+      "cadrage_emprunte",
+      "contexte_hors_sujet",
+      "redondance",
+      "redondance"
+    ],
+    "article_type": "actu",
+    "titre": "Les chasseurs-cueilleurs dorment aussi peu que nous selon une étude",
+    "n_sources": 4,
+    "n_mots": 630,
+    "titre_rss": "Nos ancêtres ne dormaient pas plus que nous",
+    "matiere_faits_distincts": 978,
+    "matiere_redondance": 0.07,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "veille_heures_visible": 13.6,
+    "veille_passages": 3,
+    "veille_age_h": 14.5,
+    "veille_n_flux_grappe": 1
+  },
+  {
+    "slug": "bercy-cybersecurite-facturation-electronique-piratage-dgfip",
+    "statut": "rejete_qualite",
+    "date": "2026-08-27T12:41:48",
+    "problemes_initiaux": 10,
+    "tentatives": 3,
+    "problemes_restants": 8,
+    "bloquants_restants": 2,
+    "bloquants_types": [
+      "annonce_perimee",
+      "annonce_perimee"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "annonce_perimee",
+        "description": "La source [1] (La Croix, 26 août 2026) décrit une réunion tenue le 26 août 2026 pour renforcer la cybersécurité, ce qui implique que l'obligation de réception des factures électroniques n'est pas encore en vigueur à cett",
+        "phrase": "À compter du 1er septembre 2026, toutes les entreprises devront être en mesure de recevoir des factures électroniques via une plateforme agréée par l’État."
+      },
+      {
+        "bloc": 1,
+        "type": "annonce_perimee",
+        "description": "Même problème que dans le résumé : la réunion du 26 août 2026 [1] suggère que des mesures sont encore en cours de mise en place, et aucune source ne confirme que l'obligation est déjà effective au 1er septembre 2026. La ",
+        "phrase": "À compter du 1er septembre 2026, toutes les entreprises devront être en mesure de recevoir des factures électroniques via une plateforme agréée par l’État."
+      }
+    ],
+    "types_restants": [
+      "annonce_perimee",
+      "annonce_perimee",
+      "source_derivee_comptee_comme_primaire",
+      "compteur_incoherent",
+      "source_non_editoriale",
+      "cadrage_emprunte",
+      "redondance",
+      "section_gonflee"
+    ],
+    "article_type": "actu",
+    "titre": "Bercy renforce la cybersécurité de la facturation électronique après le piratage de la DGFIP",
+    "n_sources": 7,
+    "n_mots": 740,
+    "titre_rss": "Facturation électronique : face aux craintes de piratage, Bercy tente de rassurer",
+    "matiere_faits_distincts": 997,
+    "matiere_redondance": 0.01,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "veille_heures_visible": 0.0,
+    "veille_passages": 1,
+    "veille_age_h": 0.9,
+    "veille_n_flux_grappe": 2
+  },
+  {
+    "slug": "rapport-senat-production-europeenne-armes-munitions-dependances",
+    "statut": "corrige_automatiquement",
+    "date": "2026-08-27T12:59:32",
+    "problemes_initiaux": 8,
+    "tentatives": 2,
+    "problemes_residuels_style": 7,
+    "rapport_initial": {
+      "conforme": false,
+      "sujet_sensible": false,
+      "sujet_sensible_raison": "",
+      "angle_insuffisant": false,
+      "angle_insuffisant_raison": "",
+      "nature_contenu": "rapport",
+      "problemes": [
+        {
+          "bloc": 1,
+          "section": "resume",
+          "type": "annonce_perimee",
+          "phrase_exacte": "Un rapport du Sénat français publié en juillet 2026 révèle l'absence de chiffres consolidés sur la production européenne d'armes et de munitions, malgré une hausse des commandes liée à la guerre en Ukraine.",
+          "explication": "Le rapport est daté du 8 juillet 2026 dans les faits, donc déjà publié. Le résumé le présente comme s'il venait d'être publié (« révèle »), alors qu'il est déjà disponible et décrit comme tel dans le corps de l'article."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "niveau_preuve_insuffisant",
+          "phrase_exacte": "Les industriels interrogés par le Sénat estiment que ces retards pourraient persister jusqu'en 2028 sans investissements supplémentaires dans les capacités de production [1].",
+          "explication": "La source [1] (rapport du Sénat) ne précise pas la méthodologie de l'interrogation des industriels (nombre, représentativité, méthode de collecte). L'article ne signale pas cette limite, alors que la source pourrait la détailler."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "chiffre_errone",
+          "phrase_exacte": "La production européenne d'armes et de munitions avait connu un déclin entre 2014 et 2020, avec une baisse de 22 % des investissements industriels dans le secteur [1].",
+          "explication": "La source [1] ne fournit pas explicitement ce chiffre de 22 % dans les extraits visibles. L'article l'attribue à la source sans confirmation directe."
+        },
+        {
+          "bloc": 2,
+          "section": "contexte",
+          "type": "source_derivee_comptee_comme_primaire",
+          "phrase_exacte": "Selon EUR-Lex, ces mécanismes ont permis de financer 65 projets collaboratifs depuis 2021, mais leur impact sur la réduction des dépendances extérieures reste limité [4].",
+          "explication": "La source [4] (EUR-Lex) est citée comme primaire, mais elle ne fait que relayer des informations sur le Fonds européen de défense (FED). Le rapport du Sénat [1] est la source primaire pour les constats sur la production européenne, tandis qu'EUR-Lex est une source dérivée pour les projets financés. Les deux ne sont pas indépendantes sur ce point."
+        },
+        {
+          "bloc": 2,
+          "section": "sources",
+          "type": "compteur_incoherent",
+          "phrase_exacte": "\"nb_sources\": 3, \"primaire\": 3",
+          "explication": "La source [3] (Curia) n'est pas utilisée dans l'article, et la source [4] (EUR-Lex) est une source dérivée comptée comme primaire. Le compteur réel de sources primaires utilisées est de 1 (rapport du Sénat), avec une source dérivée (EUR-Lex) et une source non utilisée (Curia)."
+        },
+        {
+          "bloc": 2,
+          "section": "contexte",
+          "type": "contexte_hors_sujet",
+          "phrase_exacte": "Selon EUR-Lex, ces mécanismes ont permis de financer 65 projets collaboratifs depuis 2021, mais leur impact sur la réduction des dépendances extérieures reste limité [4].",
+          "explication": "La source [4] (EUR-Lex) porte sur le Fonds européen de défense (FED) et ses projets financés, mais ne fournit pas d'information directe sur la production européenne d'armes et de munitions, sujet principal de l'article. Elle est citée pour un fait tangentiel qui n'éclaire pas les constats du Sénat."
+        },
+        {
+          "bloc": 4,
+          "section": "nuances",
+          "type": "redondance",
+          "phrase_exacte": "Les industriels estiment que le maintien de ce rythme nécessiterait une augmentation durable des budgets de défense européens, actuellement en débat au sein des institutions de l'UE [1].",
+          "explication": "Cette idée est déjà présente dans le résumé (« dont la pérennité dépendra d'une augmentation durable des budgets de défense européens ») et dans les faits (« sans investissements supplémentaires dans les capacités de production »)."
+        },
+        {
+          "bloc": 4,
+          "section": "positions",
+          "type": "faux_debat",
+          "phrase_exacte": "\"positions\": {\"verifie\": false, \"label_gauche\": \"\", \"label_droite\": \"\", \"acteurs\": []}",
+          "explication": "La section « positions » est vide, alors que le sujet (production européenne d'armes) implique des acteurs institutionnels et industriels avec des positions divergentes (ex : États membres, industriels, Commission européenne). Cela simule un équilibre inexistant."
+        }
+      ]
+    },
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "resume_repete_corps"
+    ],
+    "titre": "Production européenne d'armes : le Sénat alerte sur les dépendances critiques",
+    "n_sources": 3,
+    "n_mots": 690,
+    "titre_rss": "Armes et munitions produites par les industries européennes de la défense - Rapport n° 879",
+    "matiere_faits_distincts": 660,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "veille_heures_visible": 368.2,
+    "veille_passages": 299,
+    "veille_age_h": 369.1,
+    "veille_n_flux_grappe": 7
+  },
+  {
+    "slug": "bill-gates-propositions-encadrement-ia",
+    "statut": "rejete_qualite",
+    "date": "2026-08-27T13:19:05",
+    "problemes_initiaux": 13,
+    "tentatives": 3,
+    "problemes_restants": 11,
+    "bloquants_restants": 3,
+    "bloquants_types": [
+      "niveau_preuve_insuffisant",
+      "niveau_preuve_insuffisant",
+      "annonce_perimee"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "niveau_preuve_insuffisant",
+        "description": "Le résumé présente comme un fait établi que 'jusqu'à 40 % des emplois mondiaux pourraient être exposés à des transformations liées à l'IA' sans rappeler explicitement que cette projection du FMI [11] est qualifiée d'expl",
+        "phrase": ""
+      },
+      {
+        "bloc": 1,
+        "type": "niveau_preuve_insuffisant",
+        "description": "La phrase mentionne bien le caractère préliminaire de la projection, mais la section 'faits' ne précise pas les limites méthodologiques de cette analyse (ex : taille de l'échantillon, hypothèses sous-jacentes, période de",
+        "phrase": "Selon une analyse exploratoire du FMI [11], jusqu'à 40 % des emplois mondiaux pourraient être exposés à l'IA — une projection préliminaire — avec un taux atteignant 60 % dans les économies avancées."
+      },
+      {
+        "bloc": 1,
+        "type": "annonce_perimee",
+        "description": "La source [4] (Europa) est datée du 16 juin 2026, ce qui implique que la réglementation est déjà adoptée à cette date. Pourtant, l'article utilise le passé composé ('a adopté') pour décrire un événement futur par rapport",
+        "phrase": "En juin 2026, l'Union européenne a adopté une réglementation visant à encadrer les usages de l'IA selon leur niveau de risque, tout en simplifiant son application pour les entreprises [4]."
+      }
+    ],
+    "types_restants": [
+      "niveau_preuve_insuffisant",
+      "extrapolation",
+      "niveau_preuve_insuffisant",
+      "annonce_perimee",
+      "source_derivee_comptee_comme_primaire",
+      "source_derivee_comptee_comme_primaire",
+      "compteur_incoherent",
+      "cadrage_emprunte",
+      "contexte_hors_sujet",
+      "redondance",
+      "extrapolation"
+    ],
+    "article_type": "actu",
+    "titre": "Bill Gates propose une taxe sur l'IA et des emplois réservés aux humains",
+    "n_sources": 7,
+    "n_mots": 457,
+    "titre_rss": "Bill Gates devient alarmiste sur l'IA, propose une taxe et de réserver des emplois aux humains",
+    "matiere_faits_distincts": 897,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "veille_heures_visible": 16.4,
+    "veille_passages": 4,
+    "veille_age_h": 17.3,
+    "veille_n_flux_grappe": 2
+  },
+  {
+    "slug": "pessimisme-record-patrons-francais-chomage-dirigeants-2026",
+    "statut": "rejete_qualite",
+    "date": "2026-08-27T13:36:53",
+    "problemes_initiaux": 10,
+    "tentatives": 3,
+    "problemes_restants": 11,
+    "bloquants_restants": 3,
+    "bloquants_types": [
+      "chiffre_errone",
+      "accusation_presentee_comme_fait",
+      "niveau_preuve_insuffisant"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La phrase du résumé omet de préciser que ce chiffre exclut les micro-entrepreneurs et les gérants majoritaires de SARL, une exclusion explicitement mentionnée dans le corps de l'article (section 'faits'). Le résumé donne",
+        "phrase": "Selon les données de l’assurance chômage citées par La Croix, 33 124 dirigeants ayant cotisé ont perdu leur emploi au premier semestre 2026."
+      },
+      {
+        "bloc": 1,
+        "type": "accusation_presentee_comme_fait",
+        "description": "Le résumé présente comme un fait établi ('met en évidence') une interprétation ou un jugement de valeur ('souvent jugée moins protectrice') qui est attribué à La Croix dans le corps de l'article ('La Croix qualifie cette",
+        "phrase": "cette situation met en évidence les limites de la protection sociale des chefs d’entreprise, souvent jugée moins protectrice que celle des salariés, et son impact potentiel sur les décisions d’investissement est interrog"
+      },
+      {
+        "bloc": 1,
+        "type": "niveau_preuve_insuffisant",
+        "description": "L'article mentionne une augmentation de 12 % des faillites d'entreprises sur un an sans préciser la période exacte de référence, la population étudiée (taille des entreprises, secteurs spécifiques) ni les limites méthodo",
+        "phrase": "La Croix indique que cette tendance est à la hausse depuis 2021, avec des secteurs comme le commerce, la construction et les services particulièrement touchés par une augmentation de 12 % des faillites d’entreprises sur "
+      }
+    ],
+    "types_restants": [
+      "chiffre_errone",
+      "accusation_presentee_comme_fait",
+      "niveau_preuve_insuffisant",
+      "source_derivee_comptee_comme_primaire",
+      "source_non_editoriale",
+      "source_non_editoriale",
+      "compteur_incoherent",
+      "cadrage_emprunte",
+      "contexte_hors_sujet",
+      "faux_debat",
+      "extrapolation"
+    ],
+    "article_type": "actu",
+    "titre": "82 % des patrons pessimistes face à l'avenir économique",
+    "n_sources": 4,
+    "n_mots": 563,
+    "titre_rss": "Les dirigeants dans l’angle mort du chômage, avec 180 patrons perdant leur job chaque jour",
+    "matiere_faits_distincts": 503,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 3,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "veille_heures_visible": 13.6,
+    "veille_passages": 3,
+    "veille_age_h": 14.5,
+    "veille_n_flux_grappe": 1
+  },
+  {
+    "slug": "androcur-meningiome-lien-medical-100-pour-cent-victime",
+    "statut": "rejete_sensible",
+    "date": "2026-08-27T13:52:07",
+    "problemes_initiaux": 8,
+    "tentative": 2,
+    "bloc5": true,
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "faits_repetitifs"
+    ],
+    "titre": "Emmanuelle Huet-Mignaton obtient un lien à 100 % entre l'Androcur et son méningiome",
+    "n_sources": 4,
+    "n_mots": 458,
+    "titre_rss": "Victime d'un traitement hormonal, elle est devenue lanceuse d'alerte",
+    "matiere_faits_distincts": 871,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "veille_heures_visible": 23.9,
+    "veille_passages": 10,
+    "veille_age_h": 24.8,
+    "veille_n_flux_grappe": 8
+  },
+  {
+    "slug": "vaccin-arn-melanome-resultats-annonces",
+    "statut": "rejete_sensible",
+    "date": "2026-08-27T14:10:17",
+    "problemes_initiaux": 9,
+    "bloc5": [
+      "acteur_mis_en_cause_sans_reponse"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "faits_repetitifs"
+    ],
+    "titre": "Premier vaccin à ARN contre le mélanome : résultats annoncés",
+    "n_sources": 4,
+    "n_mots": 723,
+    "titre_rss": "Que faut-il savoir sur le vaccin à ARN contre le mélanome ?",
+    "matiere_faits_distincts": 1219,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "veille_heures_visible": 24.9,
+    "veille_passages": 11,
+    "veille_age_h": 25.7,
+    "veille_n_flux_grappe": 1
+  },
+  {
+    "slug": "mutation-genetique-rare-reduit-risque-cardiovasculaire",
+    "statut": "rejete_qualite",
+    "date": "2026-08-27T14:51:05",
+    "problemes_initiaux": 9,
+    "tentatives": 3,
+    "problemes_restants": 7,
+    "bloquants_restants": 2,
+    "bloquants_types": [
+      "niveau_preuve_insuffisant",
+      "niveau_preuve_insuffisant"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "niveau_preuve_insuffisant",
+        "description": "La source [3] (WHO) ne mentionne pas cette mutation génétique ni son potentiel impact sur les mécanismes métaboliques. L'extrapolation sur un 'nouvel angle' d'étude n'est pas étayée par la source citée.",
+        "phrase": "Les maladies cardiovasculaires, responsables de 19,8 millions de décès dans le monde en 2022, pourraient voir leurs mécanismes métaboliques étudiés sous un nouvel angle grâce à cette piste, sous réserve de validations ul"
+      },
+      {
+        "bloc": 1,
+        "type": "niveau_preuve_insuffisant",
+        "description": "La source [1] (Le Monde) précise que l'étude est observationnelle et préliminaire, mais l'article ne mentionne pas explicitement le stade de l'étude (ex. : absence de randomisation, durée de suivi, effectif précis) ni le",
+        "phrase": "Une mutation génétique rare, identifiée chez environ une personne sur 7 000, est associée à une réduction de 60 % du risque de maladies cardiovasculaires, selon les résultats préliminaires et exploratoires d’une étude ob"
+      }
+    ],
+    "types_restants": [
+      "niveau_preuve_insuffisant",
+      "niveau_preuve_insuffisant",
+      "fait_tranche_arbitrairement",
+      "contexte_hors_sujet",
+      "compteur_incoherent",
+      "extrapolation",
+      "redondance"
+    ],
+    "article_type": "actu",
+    "titre": "Une mutation génétique réduit de 60 % le risque cardiovasculaire",
+    "n_sources": 4,
+    "n_mots": 364,
+    "titre_rss": "Une mutation génétique rare réduit de 60 % le risque de maladies cardio-vasculaires",
+    "matiere_faits_distincts": 589,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 4,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "veille_heures_visible": 28.0,
+    "veille_passages": 14,
+    "veille_age_h": 28.9,
+    "veille_n_flux_grappe": 1
   }
 ]
