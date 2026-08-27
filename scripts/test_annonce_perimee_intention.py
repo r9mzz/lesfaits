@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-"""Régression run 26/08 : une intention annoncée n'est pas une annonce périmée."""
+"""Régressions chronologiques : projet ou échéance future != annonce périmée."""
 import os
 import sys
 import unittest
@@ -51,6 +51,55 @@ class AnnoncePerimeeIntentionTest(unittest.TestCase):
             "phrase": "L'entreprise a annoncé vouloir construire le site.",
         }
         self.assertFalse(verification._annonce_intention_pas_perimee(probleme))
+        self.assertEqual(verification._problemes_bloquants([probleme]), [probleme])
+
+    def test_echeance_explicitement_future_non_encore_en_vigueur_est_ecartee(self):
+        """Cas réel du run du 27/08 : le juge inversait la chronologie."""
+        probleme = {
+            "bloc": 1,
+            "type": "annonce_perimee",
+            "description": (
+                "La source [1] (La Croix, 26 août 2026) décrit une réunion tenue le "
+                "26 août 2026, ce qui implique que l'obligation de réception des "
+                "factures électroniques n'est pas encore en vigueur à cette date."
+            ),
+            "phrase": (
+                "À compter du 1er septembre 2026, toutes les entreprises devront "
+                "être en mesure de recevoir des factures électroniques."
+            ),
+        }
+        self.assertTrue(verification._echeance_future_pas_perimee(probleme))
+        self.assertEqual(verification._problemes_bloquants([probleme]), [])
+
+    def test_echeance_reportee_reste_bloquante(self):
+        probleme = {
+            "bloc": 1,
+            "type": "annonce_perimee",
+            "description": (
+                "L'échéance du 1er septembre 2026 a été reportée au 1er janvier 2027 "
+                "par une source plus récente."
+            ),
+            "phrase": (
+                "À compter du 1er septembre 2026, toutes les entreprises devront "
+                "être en mesure de recevoir des factures électroniques."
+            ),
+        }
+        self.assertFalse(verification._echeance_future_pas_perimee(probleme))
+        self.assertEqual(verification._problemes_bloquants([probleme]), [probleme])
+
+    def test_date_non_etablie_reste_bloquante(self):
+        probleme = {
+            "bloc": 1,
+            "type": "annonce_perimee",
+            "description": (
+                "Aucune source fournie ne confirme la date du 1er septembre 2026."
+            ),
+            "phrase": (
+                "À compter du 1er septembre 2026, toutes les entreprises devront "
+                "être en mesure de recevoir des factures électroniques."
+            ),
+        }
+        self.assertFalse(verification._echeance_future_pas_perimee(probleme))
         self.assertEqual(verification._problemes_bloquants([probleme]), [probleme])
 
 
