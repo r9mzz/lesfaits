@@ -214,6 +214,22 @@ _APPLICATION_ACTUELLE_RE = re.compile(
     r"\b(?:en\s+cours\s+d['’]application|actuellement\s+applicable|toujours\s+en\s+vigueur|est\s+applicable|est\s+appliqu[ée]e?)\b",
     re.IGNORECASE,
 )
+_ECHEANCE_FUTURE_RE = re.compile(
+    r"\b(?:à\s+compter\s+du|à\s+partir\s+du)\s+\d{1,2}(?:er)?\s+[a-zà-ÿ]+\s+20\d{2}\b",
+    re.IGNORECASE,
+)
+_VERBE_FUTUR_RE = re.compile(
+    r"\b(?:devra|devront|sera|seront|entrera|entreront|s['’]appliquera|s['’]appliqueront)\b",
+    re.IGNORECASE,
+)
+_DESCRIPTION_PAS_ENCORE_RE = re.compile(
+    r"\b(?:n['’]est\s+pas\s+encore|ne\s+sont\s+pas\s+encore|pas\s+encore)\b[^.]{0,80}\b(?:en\s+vigueur|effective?s?|applicable?s?|appliqu[ée]e?s?)\b",
+    re.IGNORECASE,
+)
+_DESCRIPTION_ECHEANCE_CONTREDITE_RE = re.compile(
+    r"\b(?:report[ée]e?s?|repouss[ée]e?s?|d[ée]cal[ée]e?s?|annul[ée]e?s?|abandonn[ée]e?s?|remplac[ée]e?s?)\b|(?:aucune|pas\s+de)\s+source[^.]{0,80}(?:confirme|[ée]tablit)[^.]{0,40}\bdate\b",
+    re.IGNORECASE,
+)
 
 
 def _provider_reproche_exige_source_absente(probleme: dict) -> bool:
@@ -285,10 +301,35 @@ def _provider_entree_en_vigueur_pas_perimee(probleme: dict) -> bool:
     return True
 
 
+def _provider_echeance_future_pas_perimee(probleme: dict) -> bool:
+    """Écarte le faux ``annonce_perimee`` où le juge reproche justement à
+    une échéance future de ne pas être encore entrée en vigueur.
+
+    Le garde exige une date explicite introduite par « à compter/à partir du »,
+    un verbe au futur et l'aveu du rapport que la mesure n'est *pas encore* en
+    vigueur. Un report, une annulation ou une date non établie restent bloquants.
+    """
+    if str(probleme.get("type") or "") != "annonce_perimee":
+        return False
+    phrase = str(probleme.get("phrase") or "")
+    description = str(probleme.get("description") or "")
+    if not (
+        _ECHEANCE_FUTURE_RE.search(phrase)
+        and _VERBE_FUTUR_RE.search(phrase)
+        and _DESCRIPTION_PAS_ENCORE_RE.search(description)
+    ):
+        return False
+    if _DESCRIPTION_PERIMEE_RE.search(description) or _DESCRIPTION_ECHEANCE_CONTREDITE_RE.search(description):
+        return False
+    print("     [JUGE] annonce_perimee écarté — le rapport reproche à une échéance explicitement future de ne pas être encore en vigueur")
+    return True
+
+
 _verification._reproche_exige_source_absente = _provider_reproche_exige_source_absente
 _verification._reproche_exige_repetition = _provider_reproche_exige_repetition
 _verification._annonce_intention_pas_perimee = _provider_annonce_intention_pas_perimee
 _verification._entree_en_vigueur_pas_perimee = _provider_entree_en_vigueur_pas_perimee
+_verification._echeance_future_pas_perimee = _provider_echeance_future_pas_perimee
 if hasattr(_verification, "_problemes_bloquants"):
     _verification._provider_original_problemes_bloquants = _verification._problemes_bloquants
 
@@ -305,6 +346,7 @@ if hasattr(_verification, "_problemes_bloquants"):
             and not _provider_reproche_exige_repetition(p)
             and not _provider_annonce_intention_pas_perimee(p)
             and not _provider_entree_en_vigueur_pas_perimee(p)
+            and not _provider_echeance_future_pas_perimee(p)
         ]
 
     _verification._problemes_bloquants = _provider_problemes_bloquants
