@@ -191,6 +191,9 @@ _ARTICLE_OMISSION_RE = re.compile(r"(?:l['’]article|la\s+phrase)[^.]{0,220}(?:
 _PREUVE_RENFORCEE_RE = re.compile(r"efficacit[ée]|survie|comparateur|phase\s*[123]|pr[ée]clinique|comme\s+(?:un\s+)?(?:fait|r[ée]sultat)\s+(?:acquis|[ée]tabli)|pr[ée]sente[^.]{0,80}(?:comme\s+[ée]tabli|comme\s+acquis)", re.IGNORECASE)
 _RESERVE_DEJA_PRESENTE_RE = re.compile(r"d[ée]j[àa]\s+(?:mentionn[ée]e?s?|pr[ée]cis[ée]e?s?|indiqu[ée]e?s?|pr[ée]sent[ée]e?s?|int[ée]gr[ée]e?s?)[^.]{0,140}(?:faits|nuances|article|autre\s+section)", re.IGNORECASE)
 _DEMANDE_REPETITION_RESUME_RE = re.compile(r"(?:le\s+)?r[ée]sum[ée][^.]{0,100}\bdoit\b[^.]{0,100}(?:rappeler|reprendre|mentionner|r[ée]p[ée]ter)", re.IGNORECASE)
+_RESERVE_RESUME_CORRECTE_RE = re.compile(r"(?:formulation\s+du\s+)?r[ée]sum[ée][^.]{0,140}(?:reprend|int[èe]gre|mentionne)[^.]{0,80}(?:correctement|d[ée]j[àa])[^.]{0,120}(?:r[ée]serve|nuance|limite)", re.IGNORECASE)
+_TITRE_DONNEES_MENACEES_RE = re.compile(r"titre[^.]{0,120}[«\"']?[^.]{0,80}\bdonn[ée]es?\s+menac[ée]es?\b", re.IGNORECASE)
+_PHRASE_COMPROMISSION_PRUDENTE_RE = re.compile(r"\b(?:pourrait|pourraient|aurait|auraient)\b[^.]{0,100}\bcompromis(?:e|es)?\b[^.]{0,120}\bsans\b[^.]{0,80}\bpreuve\b", re.IGNORECASE)
 _ANNONCE_INTENTION_RE = re.compile(r"\b(?:a|ont)\s+annonc[ée](?:e|es|s)?\s+(?:qu['’]?[a-zà-ÿ]+\s+)?(?:vouloir|envisager|projeter|prévoir)\b", re.IGNORECASE)
 _DESCRIPTION_INTENTION_RE = re.compile(r"\b(?:intention|projet|envisag[ée]|vouloir|conditionnel|pas\s+(?:encore\s+)?acquis|non\s+acquis)\b", re.IGNORECASE)
 _DESCRIPTION_PERIMEE_RE = re.compile(r"\b(?:déjà\s+(?:eu\s+lieu|survenu|réalis[ée]|termin[ée])|annul[ée]|abandonn[ée]|remplac[ée]|n['’]est\s+plus|a\s+déjà\s+eu\s+lieu)\b", re.IGNORECASE)
@@ -230,10 +233,16 @@ def _provider_reproche_exige_repetition(probleme: dict) -> bool:
     if str(probleme.get("type") or "") != "niveau_preuve_insuffisant":
         return False
     description = str(probleme.get("description") or "")
-    if not (_RESERVE_DEJA_PRESENTE_RE.search(description) and _DEMANDE_REPETITION_RESUME_RE.search(description)):
-        return False
-    print("     [JUGE] reproche écarté — le rapport reconnaît la réserve déjà présente puis exige sa répétition dans le résumé")
-    return True
+    if _RESERVE_DEJA_PRESENTE_RE.search(description) and _DEMANDE_REPETITION_RESUME_RE.search(description):
+        print("     [JUGE] reproche écarté — le rapport reconnaît la réserve déjà présente puis exige sa répétition dans le résumé")
+        return True
+    phrase = str(probleme.get("phrase") or "")
+    if (_RESERVE_RESUME_CORRECTE_RE.search(description)
+            and _TITRE_DONNEES_MENACEES_RE.search(description)
+            and _PHRASE_COMPROMISSION_PRUDENTE_RE.search(phrase)):
+        print("     [JUGE] reproche écarté — le résumé et la phrase portent déjà la réserve, tandis que le titre dit seulement que les données sont menacées")
+        return True
+    return False
 
 
 def _provider_annonce_intention_pas_perimee(probleme: dict) -> bool:
