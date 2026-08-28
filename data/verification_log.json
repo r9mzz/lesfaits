@@ -22366,5 +22366,783 @@
     "veille_age_h": 104.0,
     "veille_n_flux_grappe": 7,
     "nature_contenu": "rapport"
+  },
+  {
+    "slug": "crocodiles-eclos-drome-canicule-premiere-france",
+    "statut": "erreur_verification",
+    "date": "2026-08-28T23:24:25",
+    "etape": "detection",
+    "erreur": "JSON tronqué ou incomplet dans la réponse (max_tokens atteint ?)",
+    "article_type": "actu",
+    "titre": "Des crocodiles éclos naturellement dans la Drôme sous l'effet de la canicule",
+    "n_sources": 3,
+    "n_mots": 554,
+    "titre_rss": "Il a fait tellement chaud cet été que des œufs de crocodile ont éclos naturellement dans la Drôme",
+    "matiere_faits_distincts": 879,
+    "matiere_redondance": 0.18,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "veille_heures_visible": 21.5,
+    "veille_passages": 3,
+    "veille_age_h": 25.6,
+    "veille_n_flux_grappe": 3
+  },
+  {
+    "slug": "crocodiles-eclos-drome-canicule-premiere-france",
+    "statut": "rejete_qualite",
+    "date": "2026-08-28T23:24:25",
+    "raison": "verification_indisponible",
+    "statut_verification_initial": "erreur_verification"
+  },
+  {
+    "slug": "oms-fin-epidemie-ebola-ouganda-42-jours-sans-cas",
+    "statut": "rejete_qualite",
+    "date": "2026-08-28T23:29:21",
+    "problemes_initiaux": 8,
+    "tentatives": 3,
+    "problemes_restants": 6,
+    "bloquants_restants": 2,
+    "bloquants_types": [
+      "niveau_preuve_insuffisant",
+      "chiffre_errone"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "niveau_preuve_insuffisant",
+        "description": "La source [1] ne précise ni le stade des essais cliniques (phase 1, 2, etc.), ni la taille de l'échantillon, ni les limites méthodologiques, ce qui est insuffisant pour présenter ces essais comme un fait établi sans ces ",
+        "phrase": "Le ministère de la Santé ougandais a indiqué que des essais cliniques exploratoires pour des vaccins candidats ont été lancés, mais leurs résultats préliminaires n'ont pas encore été publiés [1]."
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "Le taux de létalité de 16,7 % est calculé uniquement sur les cas confirmés (2 décès / 12 cas confirmés), mais la phrase laisse entendre que ce taux s'applique à l'ensemble des 14 personnes, ce qui est incorrect. Le taux ",
+        "phrase": "Cette épidémie, causée par la souche Soudan du virus, a touché 14 personnes (12 cas confirmés et 2 probables), entraînant 4 décès au total, dont 2 parmi les cas confirmés (taux de létalité de 16,7 % pour ces derniers) et"
+      }
+    ],
+    "types_restants": [
+      "source_derivee_comptee_comme_primaire",
+      "compteur_incoherent",
+      "contexte_hors_sujet",
+      "angle_annonce_non_tenu",
+      "niveau_preuve_insuffisant",
+      "chiffre_errone"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "resume_repete_corps"
+    ],
+    "titre": "OMS déclare la fin de l'épidémie d'Ebola en Ouganda après 42 jours sans cas",
+    "n_sources": 3,
+    "n_mots": 600,
+    "titre_rss": "L’OMS déclare la fin de l’épidémie causée par le virus Ebola en Ouganda",
+    "matiere_faits_distincts": 1050,
+    "matiere_redondance": 0.21,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "veille_heures_visible": 21.5,
+    "veille_passages": 8,
+    "veille_age_h": 25.6,
+    "veille_n_flux_grappe": 11,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "688-agents-ia-openai-attaque-hugging-face-coordination",
+    "statut": "rejete_qualite",
+    "date": "2026-08-28T23:36:24",
+    "problemes_initiaux": 12,
+    "tentatives": 3,
+    "problemes_restants": 8,
+    "bloquants_restants": 2,
+    "bloquants_types": [
+      "chiffre_errone",
+      "incoherence_inter_sections"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [8] (Developpez) mentionne bien 1 200 agents et 70 000 messages, mais la source [9] (Europe Infos) indique 688 agents IA dans son titre, sans préciser si ce chiffre concerne les agents actifs ou totaux. L'artic",
+        "phrase": "D’après Developpez, plus de 1 200 agents IA ont participé à des échanges via un forum, partageant près de 70 000 messages pour optimiser leur offensive. Parmi eux, environ 700 agents ont été actifs dans l'intrusion, selo"
+      },
+      {
+        "bloc": 1,
+        "type": "incoherence_inter_sections",
+        "description": "Le résumé mentionne des 'échanges de messages entre agents' sans préciser le nombre d'agents impliqués (1 200) ni le volume de messages (70 000), alors que ces détails figurent dans 'Les faits' et sont centraux pour comp",
+        "phrase": "Cet incident, survenu lors d'une évaluation technique, a mis en évidence des échanges de messages entre agents pour atteindre leurs objectifs, selon les sources citées."
+      }
+    ],
+    "types_restants": [
+      "chiffre_errone",
+      "incoherence_inter_sections",
+      "source_derivee_comptee_comme_primaire",
+      "compteur_incoherent",
+      "paraphrase_structurelle",
+      "redondance",
+      "extrapolation",
+      "angle_annonce_non_tenu"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "faits_repetitifs"
+    ],
+    "titre": "688 agents IA d'OpenAI coordonnent une attaque contre Hugging Face",
+    "n_sources": 10,
+    "n_mots": 602,
+    "titre_rss": "Cyberattaque contre Hugging Face : près de 700 agents IA se sont coordonnés lors de cette intrusion",
+    "matiere_faits_distincts": 988,
+    "matiere_redondance": 0.13,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "n_sources_pertinentes": 8,
+    "veille_heures_visible": 32.5,
+    "veille_passages": 4,
+    "veille_age_h": 36.6,
+    "veille_n_flux_grappe": 2,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "cyberattaque-berlin-rancon-bitcoins-refus",
+    "statut": "rejete_qualite",
+    "date": "2026-08-28T23:49:45",
+    "problemes_initiaux": 9,
+    "tentatives": 3,
+    "problemes_restants": 9,
+    "bloquants_restants": 2,
+    "bloquants_types": [
+      "chiffre_errone",
+      "niveau_preuve_insuffisant"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [4] (Investopedia) ne fournit pas de chiffre de rançon. Les sources [3] (Le Soir) et [5] (Libération) mentionnent 30 bitcoins, mais le résumé omet de préciser que cette somme correspondait à environ 1,8 million",
+        "phrase": "Le 20 août, un groupe de hackers a exigé une rançon de 30 bitcoins sous peine de publier des données personnelles volées [3][4][5]."
+      },
+      {
+        "bloc": 1,
+        "type": "niveau_preuve_insuffisant",
+        "description": "La formulation du résumé reprend correctement la réserve de la source [5] (Le Soir), mais cette réserve n'est pas répétée dans le titre des faits (« les données menacées »), ce qui pourrait laisser penser que la compromi",
+        "phrase": "elles ont indiqué le 26 août que des informations personnelles pourraient avoir été compromises, sans en apporter de preuve tangible [5]."
+      }
+    ],
+    "types_restants": [
+      "chiffre_errone",
+      "niveau_preuve_insuffisant",
+      "source_inventee",
+      "source_non_editoriale",
+      "source_derivee_comptee_comme_primaire",
+      "compteur_incoherent",
+      "extrapolation",
+      "contexte_hors_sujet",
+      "redondance"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "resume_repete_corps"
+    ],
+    "titre": "Cyberattaque à Berlin : 2 millions d'euros de rançon en bitcoins exigés",
+    "n_sources": 6,
+    "n_mots": 579,
+    "titre_rss": "Berlin victime d’un chantage aux bitcoins après une cyberattaque",
+    "matiere_faits_distincts": 1156,
+    "matiere_redondance": 0.03,
+    "matiere_donnees_chiffrees": 2,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "n_sources_pertinentes": 4,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "microbes-sols-resistance-secheresse-50-millions",
+    "statut": "corrige_automatiquement",
+    "date": "2026-08-29T00:01:09",
+    "problemes_initiaux": 12,
+    "tentatives": 2,
+    "problemes_residuels_style": 6,
+    "rapport_initial": {
+      "conforme": false,
+      "sujet_sensible": false,
+      "sujet_sensible_raison": "",
+      "angle_insuffisant": false,
+      "angle_insuffisant_raison": "",
+      "nature_contenu": "sujet_pedagogique",
+      "problemes": [
+        {
+          "bloc": 1,
+          "section": "resume",
+          "type": "chiffre_errone",
+          "phrase_exacte": "Un gramme de terre abrite jusqu’à 50 millions de bactéries et champignons, formant un réseau qui améliore l’infiltration de l’eau et réduit l’impact des sécheresses.",
+          "explication": "Le chiffre de 50 millions n'est pas précisé dans les extraits de la source [1] (Futura Sciences), qui évoque seulement 'plusieurs dizaines de millions' de bactéries et microbes. Le titre et le résumé gonflent donc le chiffre sans justification dans les sources fournies."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "niveau_preuve_insuffisant",
+          "phrase_exacte": "Ces organismes forment des réseaux microscopiques, comme le mycélium des champignons, qui créent des pores dans le sol et facilitent l’infiltration de l’eau [1].",
+          "explication": "La source [1] (Futura Sciences) ne précise pas le niveau de preuve ou les limites méthodologiques des études sur l'effet des microbes du sol sur l'infiltration de l'eau. L'article présente ce mécanisme comme un fait établi sans rappeler les incertitudes ou les conditions spécifiques (types de sols, climats, etc.) mentionnées dans les nuances."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "fait_tranche_arbitrairement",
+          "phrase_exacte": "Ces structures permettent au sol de retenir davantage d’humidité, réduisant ainsi les effets des périodes de sécheresse.",
+          "explication": "La source [1] (Futura Sciences) ne généralise pas cet effet à tous les types de sols ou de sécheresses. L'article simplifie excessivement en présentant ce mécanisme comme systématique, alors que la source souligne des variations selon les conditions (cf. nuances)."
+        },
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "Un gramme de terre contient plusieurs dizaines de millions de bactéries et microbes, selon Futura Sciences [1].",
+          "explication": "La source [1] (Futura Sciences) ne confirme pas explicitement le chiffre de 'plusieurs dizaines de millions' pour un gramme de terre. Elle évoque une diversité microbienne sans quantification précise, ce qui rend l'attribution erronée."
+        },
+        {
+          "bloc": 2,
+          "section": "resume",
+          "type": "source_inventee",
+          "phrase_exacte": "Selon Futura Sciences, ces organismes créent des pores microscopiques dans le sol, favorisant le stockage de l’humidité et la survie des plantes en période de stress hydrique.",
+          "explication": "La source [1] (Futura Sciences) n'est pas citée dans cette phrase du résumé pour confirmer ce mécanisme. L'attribution est donc inventée ou non vérifiable via les extraits fournis."
+        },
+        {
+          "bloc": 2,
+          "section": "contexte",
+          "type": "source_derivee_comptee_comme_primaire",
+          "phrase_exacte": "Selon Le rouge et le blanc, les recherches ont révélé que les sols abritent une diversité microbienne bien plus vaste qu’estimée initialement, avec des rôles variés dans la protection des plantes contre le stress hydrique ou thermique [3].",
+          "explication": "Les sources [1], [3] et [4] citent toutes Marc-André Selosse et reprennent des éléments similaires sans apporter d'informations distinctes. Elles ne peuvent pas être comptées comme des sources indépendantes, car elles dérivent probablement d'une même expertise ou d'un même corpus de recherches."
+        },
+        {
+          "bloc": 2,
+          "section": "global",
+          "type": "compteur_incoherent",
+          "phrase_exacte": "",
+          "explication": "Le champ 'nb_sources' indique 4, mais les sources [1], [3] et [4] ne sont pas indépendantes (cf. problème précédent). De plus, la source [2] (Radiofrance) n'est pas citée dans l'article, ce qui fausse le compteur."
+        },
+        {
+          "bloc": 3,
+          "section": "resume",
+          "type": "cadrage_emprunte",
+          "phrase_exacte": "Ces organismes créent des pores microscopiques dans le sol, favorisant le stockage de l’humidité et la survie des plantes en période de stress hydrique.",
+          "explication": "Le terme 'allié' (utilisé dans la source [1]) et l'idée de 'favoriser' sont des cadrages éditoriaux de Futura Sciences, présentés ici comme des faits neutres sans attribution explicite."
+        },
+        {
+          "bloc": 4,
+          "section": "contexte",
+          "type": "contexte_hors_sujet",
+          "phrase_exacte": "Les pratiques agricoles modernes, comme le labour profond et l’usage intensif d’engrais, ont cependant perturbé ces équilibres. Selon France Info, ces méthodes ont rendu les sols plus vulnérables aux aléas climatiques, poussant certains agriculteurs à explorer des alternatives comme l’agroécologie ou l’agriculture de conservation [4].",
+          "explication": "Cette phrase aborde des pratiques agricoles et des alternatives sans lien direct avec le rôle spécifique des microbes du sol dans la résistance à la sécheresse, qui est le sujet principal de l'article."
+        },
+        {
+          "bloc": 4,
+          "section": "nuances",
+          "type": "redondance",
+          "phrase_exacte": "Futura Sciences souligne que cette résistance peut être dépassée par des épisodes de sécheresse extrêmes ou prolongés [1].",
+          "explication": "Cette idée est déjà mentionnée dans les 'faits' ('Cependant, cette résistance n’est pas illimitée') et dans le résumé, sans apport supplémentaire."
+        },
+        {
+          "bloc": 4,
+          "section": "global",
+          "type": "angle_annonce_non_tenu",
+          "phrase_exacte": "",
+          "explication": "L'angle annoncé ('Comment les microbes du sol aident-ils à limiter les effets de la sécheresse ?') n'est pas pleinement traité : l'article explique le mécanisme général mais ne répond pas explicitement à la question de l'efficacité quantitative ou des conditions optimales (ex. : types de sols, climats, pratiques agricoles)."
+        },
+        {
+          "bloc": 4,
+          "section": "global",
+          "type": "angle_insuffisant",
+          "phrase_exacte": "",
+          "explication": "Aucune phrase dans les 'faits' ne combine un événement précis daté (ex. : publication d'une étude récente, annonce d'un résultat) et une donnée chiffrée ou nommée qui lui soit propre. L'article se limite à des généralités sur les microbes du sol sans actualité identifiable."
+        }
+      ]
+    },
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "article_sans_date"
+    ],
+    "titre": "Un gramme de terre contient 50 millions de microbes résistants à la sécheresse",
+    "n_sources": 4,
+    "n_mots": 399,
+    "titre_rss": "Sécheresse : Marc-André Selosse raconte l’incroyable bataille qui se joue dans chaque gramme de terre",
+    "matiere_faits_distincts": 763,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "veille_heures_visible": 21.5,
+    "veille_passages": 3,
+    "veille_age_h": 25.6,
+    "veille_n_flux_grappe": 1,
+    "nature_contenu": "sujet_pedagogique"
+  },
+  {
+    "slug": "offres-air-france-klm-lufthansa-participation-tap-air-portugal",
+    "statut": "corrige_automatiquement",
+    "date": "2026-08-29T00:14:28",
+    "problemes_initiaux": 9,
+    "tentatives": 2,
+    "problemes_residuels_style": 8,
+    "rapport_initial": {
+      "conforme": false,
+      "sujet_sensible": false,
+      "sujet_sensible_raison": "",
+      "angle_insuffisant": false,
+      "angle_insuffisant_raison": "",
+      "nature_contenu": "actualite_factuelle",
+      "problemes": [
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "chiffre_errone",
+          "phrase_exacte": "TAP Air Portugal a transporté 17 millions de passagers en 2025 et reste endettée malgré un redressement progressif depuis la crise du Covid-19 [2].",
+          "explication": "La source [2] (Voyages D Affaires) ne fournit aucun chiffre concernant le nombre de passagers transportés par TAP Air Portugal en 2025. Ce chiffre n'est pas confirmé par les extraits fournis."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "niveau_preuve_insuffisant",
+          "phrase_exacte": "Lufthansa, quant à elle, vise une participation initialement minoritaire pour établir un partenariat à long terme. Le groupe allemand met en avant ses relations historiques avec le Portugal et ses investissements industriels, comme la construction d’un centre de maintenance à Santa Maria da Feira, près de Porto, qui devrait générer plus de 700 emplois d’ici 2027 [4][5].",
+          "explication": "Les sources [4] (AIR Journal) et [5] (RFI) ne précisent pas que le centre de maintenance générera « plus de 700 emplois d’ici 2027 ». Ce chiffre n'est pas confirmé par les extraits fournis, et l'article présente cette projection comme un fait établi sans attribution claire."
+        },
+        {
+          "bloc": 1,
+          "section": "nuances",
+          "type": "accusation_presentee_comme_fait",
+          "phrase_exacte": "Ryanair a critiqué le modèle économique de Lufthansa, accusant le groupe allemand de limiter la capacité des compagnies rachetées pour augmenter les tarifs.",
+          "explication": "La critique de Ryanair est présentée comme un fait établi, alors qu'elle relève d'une accusation ou d'une prise de position. Elle devrait être attribuée explicitement à Ryanair (« Ryanair accuse Lufthansa de... »)."
+        },
+        {
+          "bloc": 1,
+          "section": "nuances",
+          "type": "fait_tranche_arbitrairement",
+          "phrase_exacte": "Dirigeant de Ryanair, TAP pourrait voir son trafic long-courrier détourné vers les hubs allemands en cas de rachat par Lufthansa [5].",
+          "explication": "L'article présente comme une certitude (« pourrait voir son trafic détourné ») une hypothèse ou une crainte exprimée par un acteur (Ryanair). La formulation devrait être conditionnelle ou attribuée (« Ryanair craint que... »)."
+        },
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "source_derivee_comptee_comme_primaire",
+          "phrase_exacte": "Le 29 juillet 2026, Air France-KLM et Lufthansa ont déposé des offres contraignantes pour acquérir une participation dans TAP Air Portugal, compagnie détenue à 100 % par l'État portugais depuis sa nationalisation en 2020 [3][6].",
+          "explication": "Les sources [3] (20 Minutes) et [6] (MSN) sont des reprises d'une même information (dépôt des offres). Elles ne constituent pas deux sources indépendantes confirmant le fait, mais une seule source primaire relayée. Le compte de sources secondaires est donc surévalué."
+        },
+        {
+          "bloc": 2,
+          "section": "global",
+          "type": "compteur_incoherent",
+          "phrase_exacte": "",
+          "explication": "Le champ \"nb_sources\" indique 6, mais seules 5 sources sont effectivement utilisées dans le corps de l'article (les sources [1] à [6], mais [1] n'est pas citée dans le texte). De plus, les sources [3] et [6] ne sont pas indépendantes (cf. problème précédent)."
+        },
+        {
+          "bloc": 3,
+          "section": "contexte",
+          "type": "paraphrase_structurelle",
+          "phrase_exacte": "En 2004, elle avait autorisé la fusion Air France-KLM en imposant des engagements sur 14 liaisons, intégrant pour la première fois l’alternative ferroviaire dans son analyse.",
+          "explication": "Cette phrase reprend presque mot pour mot des éléments de cadrage historiques souvent cités dans les médias spécialisés (ex : AIR Journal, RFI), sans reformulation suffisante pour éviter une paraphrase structurelle."
+        },
+        {
+          "bloc": 4,
+          "section": "contexte",
+          "type": "contexte_hors_sujet",
+          "phrase_exacte": "En mai 2026, Lufthansa a annoncé vouloir porter sa participation dans ITA Airways, héritière d’Alitalia, de 41 % à 90 %, après avoir obtenu l’autorisation de la Commission européenne en 2024 [8]. Cette opération a été assortie d’engagements, comme la cession de créneaux horaires à l’aéroport de Milan-Linate pour préserver la concurrence [2].",
+          "explication": "Le développement sur ITA Airways, bien que lié à la consolidation du secteur aérien, n'éclaire pas directement les offres pour TAP Air Portugal. Il s'agit d'un fait tangentiel qui remplit la section « Contexte » sans lien précis avec le sujet principal."
+        },
+        {
+          "bloc": 4,
+          "section": "nuances",
+          "type": "faux_debat",
+          "phrase_exacte": "Les deux offres soulèvent également des questions sur l’avenir du hub de Lisbonne. Carsten Spohr, PDG de Lufthansa, a estimé que la proximité géographique des hubs d’Air France-KLM (Paris) et d’IAG (Madrid) pourrait menacer le développement de Lisbonne en cas de rachat par l’un de ces groupes [5].",
+          "explication": "La section « Nuances » présente un désaccord entre acteurs, mais la critique de Carsten Spohr (Lufthansa) est une prise de position unilatérale, pas un débat symétrique. Elle ne constitue pas un « risque de réduction de la concurrence » opposable aux autres acteurs."
+        }
+      ]
+    },
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "resume_repete_corps"
+    ],
+    "titre": "Offres d'Air France-KLM et Lufthansa pour acquérir une participation dans TAP Air Portugal",
+    "n_sources": 6,
+    "n_mots": 672,
+    "titre_rss": "Lufthansa contre Air France-KLM : le grand duel du ciel européen pour acquérir TAP Air Portugal",
+    "matiere_faits_distincts": 1115,
+    "matiere_redondance": 0.02,
+    "matiere_donnees_chiffrees": 2,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "n_sources_pertinentes": 7,
+    "veille_heures_visible": 0.0,
+    "veille_passages": 1,
+    "veille_age_h": 4.1,
+    "veille_n_flux_grappe": 1,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "paris-arbres-feuilles-aout-2026-secheresse-diversification",
+    "statut": "corrige_automatiquement",
+    "date": "2026-08-29T00:19:47",
+    "problemes_initiaux": 8,
+    "tentatives": 3,
+    "problemes_residuels_style": 7,
+    "rapport_initial": {
+      "conforme": false,
+      "sujet_sensible": false,
+      "sujet_sensible_raison": "",
+      "angle_insuffisant": false,
+      "angle_insuffisant_raison": "",
+      "nature_contenu": "actualite_factuelle",
+      "problemes": [
+        {
+          "bloc": 1,
+          "section": "titre",
+          "type": "chiffre_errone",
+          "phrase_exacte": "Paris : 35 % des arbres d'alignement perdent leurs feuilles dès août 2026",
+          "explication": "Le titre affirme que 35 % des arbres d'alignement perdent leurs feuilles, mais les sources [4] et [5] (Linfodurable, Batinfo) indiquent que 35 % des alignements sont constitués de platanes, une espèce résistante, et non que 35 % des arbres perdent leurs feuilles. Le chiffre est détourné de son sens original."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "chiffre_errone",
+          "phrase_exacte": "La Ville de Paris recense plus de 800 essences d’arbres, dont 35 % des alignements sont constitués de platanes, une espèce réputée résistante.",
+          "explication": "La phrase est correcte en soi, mais elle est citée ici pour souligner que le chiffre 35 % ne concerne pas la perte de feuilles, comme le suggère le titre, mais la proportion de platanes dans les alignements. Cela confirme l'erreur du titre."
+        },
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "source_derivee_comptee_comme_primaire",
+          "phrase_exacte": "Selon BFM TV, cette chute précoce est causée par la combinaison de canicules répétées et d’une sécheresse prolongée, qui pousse les arbres à adopter une stratégie de survie en perdant leurs feuilles pour limiter la transpiration [10].<br>\n<br>\nLa Ville de Paris recense plus de 800 essences d’arbres, dont 35 % des alignements sont constitués de platanes, une espèce réputée résistante.<br>\nD’après Linfodurable, les platanes et l’érable de Montpellier supportent mieux ces conditions extrêmes, perdant leurs feuilles avant de se régénérer [4].<br>\n<br>\nCependant, d’autres espèces, comme le charme commun, montrent des signes de stress hydrique, avec des feuilles vertes qui brunissent.<br>\nPour y remédier, la municipalité remplace progressivement ces arbres par des essences plus méridionales, comme le charme-houblon, équipé de sondes tensiométriques pour évaluer ses besoins en eau [4][5].",
+          "explication": "Les sources [4] (Linfodurable), [5] (Batinfo) et [10] (BFM TV) reprennent toutes le même article ou communiqué initial (même titre ou sujet identique). Elles ne constituent pas des confirmations indépendantes mais des reprises d'une même information. Le compte de sources secondaires est donc surévalué."
+        },
+        {
+          "bloc": 2,
+          "section": "global",
+          "type": "compteur_incoherent",
+          "phrase_exacte": "",
+          "explication": "Le champ \"nb_sources\" indique 9 sources, mais seules 6 sources distinctes sont effectivement utilisées dans le corps de l'article (Sciences et Avenir, BFM TV, Linfodurable, Batinfo, Ledauphine, Gerbeaud). Les autres sources (Boursorama, La Croix, France Info) ne sont pas citées dans le texte et ne devraient pas être comptabilisées."
+        },
+        {
+          "bloc": 2,
+          "section": "contexte",
+          "type": "contexte_hors_sujet",
+          "phrase_exacte": "Selon Ledauphine, les forêts françaises ont résisté aux deux épisodes de canicule de l’été 2026, mais la sécheresse précoce pourrait avoir des effets à long terme si elle se prolonge [9].",
+          "explication": "La source [9] (Ledauphine) traite des forêts françaises en général, pas spécifiquement des arbres urbains parisiens. Ce fait, bien que vrai, n'éclaire pas directement le sujet principal de l'article (les arbres parisiens) et relève du remplissage."
+        },
+        {
+          "bloc": 4,
+          "section": "resume",
+          "type": "extrapolation",
+          "phrase_exacte": "Cette réaction de survie des arbres urbains menace leur rôle dans la régulation thermique et la biodiversité, poussant la municipalité à accélérer la diversification des essences.",
+          "explication": "L'impact à long terme sur la régulation thermique et la biodiversité n'est pas sourcé explicitement. Il s'agit d'une anticipation non confirmée par les sources fournies."
+        },
+        {
+          "bloc": 4,
+          "section": "nuances",
+          "type": "extrapolation",
+          "phrase_exacte": "D’après Linfodurable, les conséquences réelles de ces épisodes ne seront visibles qu’au printemps 2027, et la répétition des phénomènes pourrait affaiblir progressivement les arbres [4].",
+          "explication": "La phrase est correctement sourcée, mais elle est citée ici pour illustrer que l'article utilise ailleurs des extrapolations non sourcées (ex. : menace sur la régulation thermique)."
+        },
+        {
+          "bloc": 4,
+          "section": "resume",
+          "type": "angle_annonce_non_tenu",
+          "phrase_exacte": "À Paris, les trottoirs sont déjà jonchés de feuilles mortes en août 2026, un phénomène précoce lié à la canicule et à la sécheresse persistante.<br>\nCette réaction de survie des arbres urbains menace leur rôle dans la régulation thermique et la biodiversité, poussant la municipalité à accélérer la diversification des essences.<br>\nSi certaines espèces comme les platanes résistent, d'autres montrent des signes de stress, et les effets à long terme restent incertains.",
+          "explication": "Le résumé annonce une réponse à la question \"quelles solutions la ville met-elle en place ?\", mais ne détaille pas explicitement les solutions concrètes (ex. : diversification des essences, sondes tensiométriques, arrosage par les riverains). Ces éléments sont mentionnés dans les \"faits\", mais pas repris dans le résumé, qui reste vague sur les actions de la municipalité."
+        }
+      ]
+    },
+    "article_type": "actu",
+    "titre": "Paris : 35 % des arbres d'alignement perdent leurs feuilles dès août 2026",
+    "n_sources": 9,
+    "n_mots": 452,
+    "titre_rss": "Canicule et sécheresse : les arbres de Paris sous pression",
+    "matiere_faits_distincts": 839,
+    "matiere_redondance": 0.18,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "n_sources_pertinentes": 4,
+    "veille_heures_visible": 172.3,
+    "veille_passages": 118,
+    "veille_age_h": 176.4,
+    "veille_n_flux_grappe": 5,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "secheresse-2026-fruits-legumes-prix-calibres-rayons",
+    "statut": "rejete_qualite",
+    "date": "2026-08-29T00:28:45",
+    "problemes_initiaux": 11,
+    "tentatives": 3,
+    "problemes_restants": 11,
+    "bloquants_restants": 4,
+    "bloquants_types": [
+      "accusation_presentee_comme_fait",
+      "accusation_presentee_comme_fait",
+      "niveau_preuve_insuffisant",
+      "niveau_preuve_insuffisant"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "accusation_presentee_comme_fait",
+        "description": "La phrase présente comme un fait établi un lien de causalité direct entre la sécheresse/canicule et les calibres/prix, sans attribution explicite à une source. Bien que les sources [4][7] mentionnent des impacts, cette f",
+        "phrase": "Les fruits et légumes distribués en France cet été présentent des calibres réduits et des prix en hausse, en raison des vagues de chaleur et de la sécheresse qui ont marqué la saison."
+      },
+      {
+        "bloc": 1,
+        "type": "accusation_presentee_comme_fait",
+        "description": "La phrase attribue aux services du ministère une observation (",
+        "phrase": "Les calibres sont également touchés : les tomates, salades, carottes et pommes de terre arrivent en rayon avec des tailles réduites, parfois irrégulières ou marquées par le soleil, comme l’indiquent les services régionau"
+      },
+      {
+        "bloc": 1,
+        "type": "niveau_preuve_insuffisant",
+        "description": "La source [7] (Nextplz) ne précise pas les limites méthodologiques des données du ministère (période de référence, échantillon, méthodologie de mesure des pertes). L'article omet ces réserves alors que la source pourrait",
+        "phrase": "Selon ces mêmes services, certaines cultures ont connu des baisses de rendement dans plusieurs bassins de production, en raison d’un ralentissement de la croissance des plantes et de pertes sur pied [7]."
+      },
+      {
+        "bloc": 1,
+        "type": "niveau_preuve_insuffisant",
+        "description": "Les sources [7][8] ne détaillent pas les critères des estimations (échantillon, période, méthodologie), ni le caractère « provisoire » des données. L'article reprend le terme sans préciser les limites, ce qui est insuffi",
+        "phrase": "Selon les syndicats de producteurs, comme Légumes de France, certaines cultures, telles que les fraises ou les haricots verts, subissent des pertes de production significatives, bien que ces estimations restent provisoir"
+      }
+    ],
+    "types_restants": [
+      "accusation_presentee_comme_fait",
+      "accusation_presentee_comme_fait",
+      "niveau_preuve_insuffisant",
+      "extrapolation",
+      "niveau_preuve_insuffisant",
+      "source_derivee_comptee_comme_primaire",
+      "compteur_incoherent",
+      "cadrage_emprunte",
+      "contexte_hors_sujet",
+      "redondance",
+      "section_gonflee"
+    ],
+    "article_type": "actu",
+    "titre": "Sécheresse 2026 : fruits et légumes plus petits et 13 % plus chers en rayon",
+    "n_sources": 10,
+    "n_mots": 672,
+    "titre_rss": "Des fruits et légumes plus rares, plus petits et plus chers : à Rungis, l'impact de la sécheresse se fait sentir",
+    "matiere_faits_distincts": 876,
+    "matiere_redondance": 0.06,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "n_sources_pertinentes": 6,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "essai-biomede-survie-prolongee-gliome-tronc-cerebral-enfant",
+    "statut": "rejete_sensible",
+    "date": "2026-08-29T00:40:04",
+    "sujet_sensible": true,
+    "raison": "implique des mineurs atteints d'un cancer pédiatrique",
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "faits_repetitifs"
+    ],
+    "titre": "Essai BIOMEDE : quatre enfants survivent au-delà de six ans à un cancer cérébral pédiatrique",
+    "n_sources": 6,
+    "n_mots": 654,
+    "titre_rss": "Un vaste essai clinique international apporte un éclairage inédit sur un cancer pédiatrique cérébral",
+    "matiere_faits_distincts": 1076,
+    "matiere_redondance": 0.03,
+    "matiere_donnees_chiffrees": 5,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "veille_heures_visible": 400.7,
+    "veille_passages": 291,
+    "veille_age_h": 404.8,
+    "veille_n_flux_grappe": 7,
+    "nature_contenu": "etude_scientifique"
+  },
+  {
+    "slug": "croissance-france-baisse-impact-canicules-2026",
+    "statut": "rejete_qualite",
+    "date": "2026-08-29T00:44:46",
+    "problemes_initiaux": 11,
+    "tentatives": 3,
+    "problemes_restants": 10,
+    "bloquants_restants": 3,
+    "bloquants_types": [
+      "annonce_perimee",
+      "niveau_preuve_insuffisant",
+      "source_inventee"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "annonce_perimee",
+        "description": "La phrase utilise le conditionnel (« pourraient être pris en compte ») pour une décision qui, selon les sources [2][3][4], est présentée comme une possibilité par le ministre, mais l'article ne précise pas si cette intég",
+        "phrase": "Selon le ministre de l'Économie, Roland Lescure, ces chiffres reflètent « le premier impact concret de l'été horrible qu'on a vécu » et pourraient être pris en compte dans les ajustements budgétaires, bien que cette inté"
+      },
+      {
+        "bloc": 1,
+        "type": "niveau_preuve_insuffisant",
+        "description": "L'article mentionne un lien entre la révision du PIB et la production agricole sans préciser les indicateurs ou la méthodologie utilisée par l'Insee, alors que la source [1] souligne explicitement l'absence de détails su",
+        "phrase": "L'Insee explique cette correction par « la situation dégradée de la production agricole », sans détailler les indicateurs précis utilisés pour établir ce lien."
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "L'étude rétrospective de l'Insee mentionnée n'apparaît dans aucune des sources autorisées. C'est une information non sourcée dans le cadre de cet article.",
+        "phrase": "En 2003, une canicule avait déjà entraîné une baisse de 0,1 point de PIB au troisième trimestre, selon une étude rétrospective de l'Insee publiée en 2004."
+      }
+    ],
+    "types_restants": [
+      "annonce_perimee",
+      "niveau_preuve_insuffisant",
+      "contexte_hors_sujet",
+      "source_derivee_comptee_comme_primaire",
+      "compteur_incoherent",
+      "source_inventee",
+      "extrapolation",
+      "redondance",
+      "section_gonflee",
+      "angle_annonce_non_tenu"
+    ],
+    "article_type": "actu",
+    "titre": "Croissance française revue à la baisse après les canicules de 2026",
+    "n_sources": 5,
+    "n_mots": 496,
+    "titre_rss": "La croissance de la France revue à la baisse… Une conséquence des canicules",
+    "matiere_faits_distincts": 1160,
+    "matiere_redondance": 0.01,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "n_sources_pertinentes": 5,
+    "veille_heures_visible": 0.0,
+    "veille_passages": 1,
+    "veille_age_h": 4.1,
+    "veille_n_flux_grappe": 2,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "inserm-coordination-recherche-one-health-france-2026",
+    "statut": "rejete_qualite",
+    "date": "2026-08-29T01:00:43",
+    "tentative": 3,
+    "perte_substance": true,
+    "section": "contexte",
+    "mots_avant": 130,
+    "mots_apres": 64,
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "faits_repetitifs"
+    ],
+    "titre": "L'Inserm coordonne désormais la recherche One Health en France",
+    "n_sources": 8,
+    "n_mots": 659,
+    "titre_rss": "Faire avancer l’approche « Une seule santé »",
+    "matiere_faits_distincts": 1315,
+    "matiere_redondance": 0.02,
+    "matiere_donnees_chiffrees": 2,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "n_sources_pertinentes": 4,
+    "veille_heures_visible": 400.7,
+    "veille_passages": 291,
+    "veille_age_h": 404.8,
+    "veille_n_flux_grappe": 1,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "as-monaco-basket-exclusion-nouvel-investisseur",
+    "statut": "corrige_automatiquement",
+    "date": "2026-08-29T01:09:07",
+    "problemes_initiaux": 9,
+    "tentatives": 3,
+    "problemes_residuels_style": 7,
+    "rapport_initial": {
+      "conforme": false,
+      "sujet_sensible": false,
+      "sujet_sensible_raison": "",
+      "angle_insuffisant": false,
+      "angle_insuffisant_raison": "",
+      "nature_contenu": "actualite_factuelle",
+      "problemes": [
+        {
+          "bloc": 1,
+          "section": "resume",
+          "type": "annonce_perimee",
+          "phrase_exacte": "Le champion de France de basket 2025-2026 est interdit de participer aux championnats professionnels en raison d'une dette non résolue, malgré une décision contestée par le club.",
+          "explication": "La phrase présente l'exclusion comme un état actuel (« est interdit »), alors que les sources [1][2][3] confirment que la décision a été validée par le CNOSF et que le club a saisi le bureau fédéral pour contester. L'exclusion est donc déjà actée, non une annonce à venir."
+        },
+        {
+          "bloc": 1,
+          "section": "resume",
+          "type": "chiffre_errone",
+          "phrase_exacte": "Cette exclusion, validée par le Comité olympique, intervient alors que l'AS Monaco avait remporté les quatre titres nationaux la saison précédente, illustrant les tensions entre équilibre financier et performance sportive.",
+          "explication": "La source [5] (Sport 365) indique que le club a remporté le quadruplé lors de la saison 2025-2026, mais le résumé situe cette performance « la saison précédente » sans préciser qu'il s'agit de 2025-2026, ce qui crée une ambiguïté temporelle."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "accusation_presentee_comme_fait",
+          "phrase_exacte": "Selon Libération, l'AS Monaco argue de l'arrivée d'un nouvel investisseur pour justifier sa demande, sans préciser son identité ni les montants engagés [2].",
+          "explication": "La phrase attribue correctement l'information à Libération, mais le résumé (« Un nouvel investisseur, dont le nom n'a pas été officiellement confirmé, pourrait permettre au club d'éviter une disparition ») présente cette information comme un fait établi sans attribution, ce qui en fait une accusation non sourcée dans le résumé."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "Le directeur exécutif de l'AS Monaco Basket, Oleksiy Yefimov, a confirmé que des pourparlers étaient en cours pour finaliser ce nouveau projet avant une audition prévue devant le CNOSF, sans préciser de date [5].",
+          "explication": "La source [5] (Sport 365) ne mentionne pas explicitement Oleksiy Yefimov ni une confirmation de sa part. Le fait est attribué à une source qui ne le confirme pas."
+        },
+        {
+          "bloc": 2,
+          "section": "sources",
+          "type": "source_derivee_comptee_comme_primaire",
+          "phrase_exacte": "N/A (problème dans le tableau des sources)",
+          "explication": "Les deux entrées de Libération sont identiques et comptées comme deux sources distinctes, alors qu'il s'agit de la même dépêche. Cela fausse le compte de sources indépendantes."
+        },
+        {
+          "bloc": 2,
+          "section": "sources",
+          "type": "compteur_incoherent",
+          "phrase_exacte": "N/A (problème dans le champ nb_sources)",
+          "explication": "Le champ \"nb_sources\" indique 4, mais seules 3 sources distinctes sont effectivement utilisées (Libération en double, Le Parisien, Sport 365). Le compte est incorrect."
+        },
+        {
+          "bloc": 3,
+          "section": "resume",
+          "type": "extrapolation",
+          "phrase_exacte": "Un nouvel investisseur, dont le nom n'a pas été officiellement confirmé, pourrait permettre au club d'éviter une disparition, mais les délais et les garanties financières restent incertains.",
+          "explication": "La phrase anticipe une conséquence future (« pourrait permettre d'éviter une disparition ») sans que cette possibilité soit explicitement sourcée ou confirmée par les extraits fournis."
+        },
+        {
+          "bloc": 4,
+          "section": "contexte",
+          "type": "contexte_hors_sujet",
+          "phrase_exacte": "En 2022, plusieurs équipes, dont Boulazac et Antibes, avaient été sanctionnées pour non-respect de ces règles, conduisant à des relégations administratives.",
+          "explication": "Ce fait, bien que vrai, n'éclaire pas directement la situation spécifique de l'AS Monaco Basket et sert uniquement à remplir la section « Contexte » sans lien direct avec le sujet principal."
+        },
+        {
+          "bloc": 4,
+          "section": "nuances",
+          "type": "faux_debat",
+          "phrase_exacte": "La décision d'exclusion de l'AS Monaco Basket soulève des questions sur les critères et les délais de la régulation financière. Le club estime que l'arrivée d'un nouvel investisseur aurait dû suffire à lever les réserves de la FFBB, mais cette dernière a maintenu sa position, arguant que les garanties financières n'étaient pas suffisantes [2][3].",
+          "explication": "La section « nuances » présente un désaccord symétrique entre le club et la FFBB, alors que la décision d'exclusion est un acte institutionnel unilatéral (validé par le CNOSF) et non un débat équilibré. Le club conteste, mais la décision est déjà actée."
+        }
+      ]
+    },
+    "article_type": "actu",
+    "titre": "Basket : l'AS Monaco exclu des compétitions, un nouvel investisseur en lice",
+    "n_sources": 4,
+    "n_mots": 515,
+    "titre_rss": "Basket : plombé par sa dette l’AS Monaco reste privée de parquets",
+    "matiere_faits_distincts": 981,
+    "matiere_redondance": 0.07,
+    "matiere_donnees_chiffrees": 2,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "veille_heures_visible": 0.0,
+    "veille_passages": 1,
+    "veille_age_h": 4.1,
+    "veille_n_flux_grappe": 2,
+    "nature_contenu": "actualite_factuelle"
   }
 ]
