@@ -6,6 +6,9 @@ on:
       - agent/retry-transient-verification-errors
     paths:
       - .github/workflows/agent-apply-transient-retry.yml
+  pull_request:
+    paths:
+      - .github/workflows/agent-apply-transient-retry.yml
 
 permissions:
   contents: write
