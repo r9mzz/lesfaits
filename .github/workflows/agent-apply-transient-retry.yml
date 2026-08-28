@@ -1,0 +1,204 @@
+name: Agent apply transient verification retry
+
+on:
+  push:
+    branches:
+      - agent/retry-transient-verification-errors
+    paths:
+      - .github/workflows/agent-apply-transient-retry.yml
+
+permissions:
+  contents: write
+
+jobs:
+  patch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: agent/retry-transient-verification-errors
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Appliquer le correctif et le test
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+
+          path = Path("scripts/verification.py")
+          source = path.read_text(encoding="utf-8")
+          old = '''def _provider_auth_rotating_llm_call(*args, **kwargs):
+              global _PROVIDER_FATAL_ERROR
+              if _PROVIDER_FATAL_ERROR is not None:
+                  raise RuntimeError(_PROVIDER_FATAL_ERROR)
+              while True:
+                  try:
+                      return _verification._provider_original_llm_call(*args, **kwargs)
+                  except RuntimeError as exc:
+                      message = str(exc)
+                      if message.startswith("Groq 402:"):
+                          _PROVIDER_FATAL_ERROR = _normaliser_erreur_fournisseur(message)
+                          print("     [VERIF] fournisseur indisponible de façon permanente pour ce processus (HTTP 402) — appels suivants bloqués")
+                          raise RuntimeError(_PROVIDER_FATAL_ERROR) from exc
+                      if not (message.startswith("Groq 401:") or message.startswith("Groq 403:")):
+                          raise
+                      mortes = getattr(_verification, "_CLES_MORTES_JOUR", set())
+                      vivantes = [k for k in _verification.GROQ_KEYS if k not in mortes]
+                      if not vivantes:
+                          raise
+                      cle_invalide = vivantes[0]
+                      _verification.GROQ_KEYS = [k for k in _verification.GROQ_KEYS if k != cle_invalide]
+                      print("     [VERIF] clé refusée par authentification (401/403) — retirée de la rotation pour ce processus")
+                      if not _verification.GROQ_KEYS:
+                          raise RuntimeError("Aucune clé de vérification valide après erreur d'authentification") from exc
+          '''
+          new = '''def _provider_auth_rotating_llm_call(*args, **kwargs):
+              global _PROVIDER_FATAL_ERROR
+              if _PROVIDER_FATAL_ERROR is not None:
+                  raise RuntimeError(_PROVIDER_FATAL_ERROR)
+              # Une panne de transport ou un 5xx ne dit rien de la qualité de
+              # l'article. Le run du 28/08 a perdu une correction sur timeout
+              # Mistral et une autre sur Groq 504 dès la première tentative.
+              # On autorise UNE seule relance transitoire : assez pour absorber
+              # un incident ponctuel, jamais assez pour masquer une panne durable.
+              retry_transitoire_utilise = False
+              while True:
+                  try:
+                      return _verification._provider_original_llm_call(*args, **kwargs)
+                  except (_verification.requests.Timeout, _verification.requests.ConnectionError) as exc:
+                      if retry_transitoire_utilise:
+                          raise
+                      retry_transitoire_utilise = True
+                      print(f"     [VERIF] panne réseau transitoire ({type(exc).__name__}) — une relance")
+                      continue
+                  except RuntimeError as exc:
+                      message = str(exc)
+                      if re.match(r"Groq 5\\d\\d:", message):
+                          if retry_transitoire_utilise:
+                              raise
+                          retry_transitoire_utilise = True
+                          libelle = _normaliser_erreur_fournisseur(message).split(":", 1)[0]
+                          print(f"     [VERIF] erreur fournisseur transitoire ({libelle}) — une relance")
+                          continue
+                      if message.startswith("Groq 402:"):
+                          _PROVIDER_FATAL_ERROR = _normaliser_erreur_fournisseur(message)
+                          print("     [VERIF] fournisseur indisponible de façon permanente pour ce processus (HTTP 402) — appels suivants bloqués")
+                          raise RuntimeError(_PROVIDER_FATAL_ERROR) from exc
+                      if not (message.startswith("Groq 401:") or message.startswith("Groq 403:")):
+                          raise
+                      mortes = getattr(_verification, "_CLES_MORTES_JOUR", set())
+                      vivantes = [k for k in _verification.GROQ_KEYS if k not in mortes]
+                      if not vivantes:
+                          raise
+                      cle_invalide = vivantes[0]
+                      _verification.GROQ_KEYS = [k for k in _verification.GROQ_KEYS if k != cle_invalide]
+                      print("     [VERIF] clé refusée par authentification (401/403) — retirée de la rotation pour ce processus")
+                      if not _verification.GROQ_KEYS:
+                          raise RuntimeError("Aucune clé de vérification valide après erreur d'authentification") from exc
+          '''
+          if source.count(old) != 1:
+              raise SystemExit(f"bloc cible absent ou dupliqué: {source.count(old)}")
+          path.write_text(source.replace(old, new, 1), encoding="utf-8")
+
+          Path("scripts/test_verification_transient_retry.py").write_text(r'''# -*- coding: utf-8 -*-
+          """Régression : timeout/5xx du fact-check ne doivent pas devenir un rejet éditorial immédiat."""
+          from __future__ import annotations
+
+          import importlib
+          import os
+          import sys
+
+
+          def _reload_verification():
+              for name in ("verification", "verification_legacy"):
+                  sys.modules.pop(name, None)
+              os.environ.pop("LLM_BASE_URL", None)
+              os.environ.pop("LLM_API_KEY", None)
+              os.environ["GROQ_API_KEY"] = "cle-test"
+              return importlib.import_module("verification")
+
+
+          def test_504_est_relance_une_fois() -> None:
+              verification = _reload_verification()
+              appels = []
+
+              def fake(*args, **kwargs):
+                  appels.append(1)
+                  if len(appels) == 1:
+                      raise RuntimeError('Groq 504: {"message":"Service unavailable"}')
+                  return '{"conforme": true}'
+
+              verification._provider_original_llm_call = fake
+              assert verification._llm_call("prompt", max_tokens=1500) == '{"conforme": true}'
+              assert len(appels) == 2
+
+
+          def test_timeout_est_relance_une_fois() -> None:
+              verification = _reload_verification()
+              appels = []
+
+              def fake(*args, **kwargs):
+                  appels.append(1)
+                  if len(appels) == 1:
+                      raise verification.requests.Timeout("read timeout")
+                  return '{"conforme": true}'
+
+              verification._provider_original_llm_call = fake
+              assert verification._llm_call("prompt", max_tokens=1500) == '{"conforme": true}'
+              assert len(appels) == 2
+
+
+          def test_504_persistant_reste_fail_closed() -> None:
+              verification = _reload_verification()
+              appels = []
+
+              def fake(*args, **kwargs):
+                  appels.append(1)
+                  raise RuntimeError('Groq 504: {"message":"Service unavailable"}')
+
+              verification._provider_original_llm_call = fake
+              try:
+                  verification._llm_call("prompt", max_tokens=1500)
+              except RuntimeError as exc:
+                  assert "504" in str(exc)
+              else:
+                  raise AssertionError("Un 5xx persistant ne doit jamais être accepté")
+              assert len(appels) == 2
+
+
+          def test_400_ne_se_reessaie_pas() -> None:
+              verification = _reload_verification()
+              appels = []
+
+              def fake(*args, **kwargs):
+                  appels.append(1)
+                  raise RuntimeError('Groq 400: {"message":"bad request"}')
+
+              verification._provider_original_llm_call = fake
+              try:
+                  verification._llm_call("prompt", max_tokens=1500)
+              except RuntimeError as exc:
+                  assert "400" in str(exc)
+              else:
+                  raise AssertionError("Une erreur de configuration 400 doit rester immédiate")
+              assert len(appels) == 1
+
+
+          if __name__ == "__main__":
+              test_504_est_relance_une_fois()
+              test_timeout_est_relance_une_fois()
+              test_504_persistant_reste_fail_closed()
+              test_400_ne_se_reessaie_pas()
+              print("OK - retry transitoire fact-check")
+          '''.replace("\n          ", "\n").lstrip(), encoding="utf-8")
+          PY
+          python -m py_compile scripts/verification.py scripts/test_verification_transient_retry.py
+          python scripts/test_verification_transient_retry.py
+      - name: Persister le correctif sur la branche
+        run: |
+          git config user.name "Les Faits CI Watch"
+          git config user.email "actions@users.noreply.github.com"
+          git rm .github/workflows/agent-apply-transient-retry.yml
+          git add scripts/verification.py scripts/test_verification_transient_retry.py
+          git commit -m "fix: relancer une panne transitoire du fact-check"
+          git push origin HEAD:agent/retry-transient-verification-errors
