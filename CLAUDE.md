@@ -1,5 +1,84 @@
 # Les Faits — lesfaits.info
 
+## OÙ ÇA BLOQUE APRÈS LE SOURCING — audit des 7 articles arrivés à la vitrine
+
+⚠ **Déverrouiller `MIN_SOURCES` ne publiera rien à soi seul, et il faut le
+savoir avant le prochain run.** Sept articles ont réellement atteint la grille
+vitrine dans les journaux disponibles. **Aucun n'échoue sur un seul critère** —
+chacun en cumule quatre à six :
+
+```
+ 7/7  hiérarchie des sources insuffisante      (0 primaire, ou 1 prim/0 sec)
+ 6/7  sourcing trop court
+ 5/7  titre non vitrine                        16, 17, 19, 21 mots
+ 5/7  contexte trop court                      75, 76, 76, 83 mots  (min 106)
+ 5/7  total trop court                         325, 362, 364, 396   (min 400)
+ 4/7  intertitre absent ou générique
+ 4/7  sourcing trop concentré
+ 4/7  aération : 1 seul paragraphe par section
+ 4/7  maillage de citations trop faible
+ 3/7  nuances trop court                       32, 66, 100 mots     (min 91)
+ 3/7  sources listées mais jamais citées       [2,3] · [2,3,5,7] · [1,3]
+```
+
+### Les trois défauts qui ne sont PAS des seuils, et qui se corrigent
+
+- **Le titre dépasse notre propre charte.** 16 à 21 mots quand la règle 6 dit
+  **6-15**, et le prompt aussi. Ce n'est pas un désaccord de seuil, c'est une
+  consigne non suivie par le rédacteur. 5 articles sur 7.
+- **Une seule section par paragraphe.** La consigne de mise en paragraphes
+  existe depuis le 15/08 et a coûté 470 tokens de prompt ; elle n'est pas
+  appliquée. 4 articles sur 7.
+- **Des sources listées jamais appelées dans le texte.** Le tableau `sources`
+  contient des entrées qu'aucun `[n]` ne cite. C'est le symptôme direct du
+  seuil de sourcing : on liste pour atteindre le compte, on ne cite pas.
+
+### Les seuils de longueur sont frôlés, pas manqués
+
+**396, 364, 362 mots contre 400 exigés.** Trois articles sur quatre échouent de
+moins de 40 mots. La cible du prompt est 800 et le plancher de publication 350 :
+la vitrine à 400 se situe entre les deux, mais elle est franchie de justesse ou
+ratée de peu — ce n'est pas la même chose qu'un seuil inatteignable, et ça ne
+se traite pas pareil.
+
+⚠ **`hiérarchie des sources insuffisante` est à 7/7 et n'est PAS un problème de
+compte.** Elle exige ≥1 primaire OU ≥2 secondaires. C'est le déficit de sources
+primaires mesuré depuis le 03/08 (69 % du corpus sans primaire), et le seul
+levier connu est en amont — les axes documentaires du 05/08. Aucun réglage de
+seuil ne le règle, et il ne faut pas essayer.
+
+## ⛔ ARBITRAGE — `MIN_SOURCES = 4`, NE PAS L'ANNULER UNE CINQUIÈME FOIS
+
+**Décision de Nahil, confirmée deux fois** (26/08 « Mets 4 », 28/08 « Confirme
+4 »). Annulée **quatre fois** par des sessions parallèles : 24/08, 26/08 à
+03h23, 26/08 à 15h37, 28/08 à 03h29 — chaque fois de bonne foi, au nom du
+mandat « ne jamais affaiblir un garde-fou pour faire du volume ».
+
+**Le mandat est le bon et il n'est pas contesté.** Voici ce qui le rend
+inapplicable à CE seuil, et il faut infirmer la mesure avant de reposer 6 :
+
+```
+sources TROUVÉES par la recherche          médiane 10
+sources jugées PERTINENTES par le juge     médiane  3
+```
+
+Le sourcing n'est pas déficient — il ramène dix documents. C'est le **juge de
+pertinence** qui n'en déclare que trois traitant le sujet PRÉCIS. Exiger six
+citations force donc le rédacteur à citer des pages hors sujet pour remplir le
+quota : c'est le défaut « rougeole »/« inflation » du 11/08, celui que ce juge
+a été construit pour empêcher. À 6, **deux garde-fous du même pipeline se
+contredisent**, et c'est le second qui gagne en rejetant l'article.
+
+L'argument des quatre annulations — « corriger en amont par un meilleur
+sourcing » — suppose que les sources existent et qu'on les cherche mal. Les
+deux médianes ci-dessus disent l'inverse.
+
+⚠ **La propriété que les annulations protégeaient est CONSERVÉE** :
+`test_showcase_source_floor_mandate.py` interdit toujours de descendre au
+niveau de la charte (3 échoue). Il a simplement gagné le bord haut qui
+manquait : 6 → 10 % de survivants, 5 → 30 %, **4 → passe**, 3 → sous la
+charte. Une seule valeur satisfait les deux bords.
+
 ## POURQUOI ZÉRO ARTICLE : LA GRILLE VITRINE, ET C'EST ARITHMÉTIQUE (28/08)
 
 ⚠ **AUCUN article n'a JAMAIS été publié sous Mistral.** Le dernier date du
