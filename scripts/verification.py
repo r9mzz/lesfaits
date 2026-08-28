@@ -19,6 +19,8 @@ import os
 import re
 import sys
 
+import requests
+
 import verification_legacy as _verification
 from cles_fournisseur import cles_fournisseur
 from modele_fournisseur import modele_redaction
@@ -94,7 +96,7 @@ def _provider_auth_rotating_llm_call(*args, **kwargs):
     while True:
         try:
             return _verification._provider_original_llm_call(*args, **kwargs)
-        except (_verification.requests.Timeout, _verification.requests.ConnectionError) as exc:
+        except (requests.Timeout, requests.ConnectionError) as exc:
             if retry_transitoire_utilise:
                 raise
             retry_transitoire_utilise = True
