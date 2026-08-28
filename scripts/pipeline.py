@@ -4523,12 +4523,31 @@ _ROTATION_APPELS = [0]  # compteur global — départ tournant dans la liste des
 LLM_BASE_URL = os.getenv("LLM_BASE_URL", "").strip()
 
 
+# ── 28/08 : survivre à une coupure réseau du fournisseur ────────────────────
+# Run 287 : 11 « Read timed out (read timeout=180) » et 2 APIConnectionError
+# sur api.mistral.ai, pour 7 articles perdus. Le run 290 deux heures plus tard
+# n'en a eu que 3 : la panne est transitoire, donc réessayable.
+#
+# Le SDK ne relance de lui-même que les erreurs qu'il juge transitoires, et sa
+# valeur par défaut est basse. On l'explicite ici — la ligne dit ce qu'on
+# attend, au lieu de dépendre d'un défaut de bibliothèque qui peut changer.
+#
+# ⚠ Le timeout reste GÉNÉREUX (180 s) : une génération d'article est lente par
+# nature, et le raccourcir transformerait des appels valides en échecs. On
+# relance ce qui a vraiment échoué, on ne coupe pas ce qui travaille encore.
+_TIMEOUT_FOURNISSEUR_S = 180.0
+_RELANCES_FOURNISSEUR = 3
+
+
 def _client(api_key: str):
     """Client de complétion, Groq par défaut, tout service compatible sinon."""
     if LLM_BASE_URL:
         from openai import OpenAI
-        return OpenAI(api_key=api_key, base_url=LLM_BASE_URL)
-    return Groq(api_key=api_key)
+        return OpenAI(api_key=api_key, base_url=LLM_BASE_URL,
+                      timeout=_TIMEOUT_FOURNISSEUR_S,
+                      max_retries=_RELANCES_FOURNISSEUR)
+    return Groq(api_key=api_key, timeout=_TIMEOUT_FOURNISSEUR_S,
+                max_retries=_RELANCES_FOURNISSEUR)
 
 
 def _est_quota_journalier(err: str) -> bool:

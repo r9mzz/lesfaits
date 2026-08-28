@@ -318,10 +318,10 @@ def _llm_call(prompt: str, max_tokens: int = 6000) -> str:
         for key in cles_vivantes:
             _entetes = {"Authorization": f"Bearer {key}",
                         "content-type": "application/json"}
-            r = requests.post(GROQ_URL, headers=_entetes,
+            r = _post_avec_relance(GROQ_URL, headers=_entetes,
                               json=_corps_requete(prompt, max_tokens), timeout=180)
             if _sans_json_mode(r):
-                r = requests.post(GROQ_URL, headers=_entetes,
+                r = _post_avec_relance(GROQ_URL, headers=_entetes,
                                   json=_corps_requete(prompt, max_tokens), timeout=180)
             if r.status_code == 429:
                 corps = r.text.lower()
@@ -341,7 +341,7 @@ def _llm_call(prompt: str, max_tokens: int = 6000) -> str:
                     SECURITE = 200
                     if restant is not None and restant > prompt_est + MARGE_MIN_COMPLETION + SECURITE:
                         reservation = restant - prompt_est - SECURITE
-                        r2 = requests.post(
+                        r2 = _post_avec_relance(
                             GROQ_URL,
                             headers={"Authorization": f"Bearer {key}",
                                      "content-type": "application/json"},
@@ -582,6 +582,38 @@ def _log(slug: str, statut: str, detail: dict | None = None):
         "date": datetime.now().isoformat(timespec="seconds"),
         **(detail or {}),
     })
+
+
+# ── 28/08 : un timeout réseau ne doit pas coûter un article déjà écrit ──────
+# Run 287 : 11 « Read timed out (read timeout=180) » sur api.mistral.ai, et
+# 7 articles perdus en `erreur_verification` — le fail-closed a bien joué son
+# rôle (rien n'est publié sans fact-check), mais l'article était écrit, payé,
+# et il est mort sur une latence du fournisseur. Le run 290, deux heures plus
+# tard, n'en a eu que 3 : c'est transitoire, donc réessayable.
+#
+# ⚠ On ne relance QUE sur timeout et erreur de connexion — jamais sur une
+# réponse HTTP. Un 402, un 429 ou un 400 sont des décisions du fournisseur,
+# traitées chacune par son propre chemin plus bas ; les relancer en aveugle
+# masquerait la panne au lieu de la nommer, et ferait repayer l'appel.
+_RELANCES_RESEAU = 2
+_ATTENTE_RELANCE_S = 5
+
+
+def _post_avec_relance(url: str, **kwargs):
+    """POST qui survit à une coupure réseau transitoire."""
+    derniere = None
+    for essai in range(_RELANCES_RESEAU + 1):
+        try:
+            return requests.post(url, **kwargs)
+        except (requests.exceptions.Timeout,
+                requests.exceptions.ConnectionError) as e:
+            derniere = e
+            if essai < _RELANCES_RESEAU:
+                print(f"     [VERIF] réseau indisponible ({type(e).__name__}) — "
+                      f"relance {essai + 1}/{_RELANCES_RESEAU} dans "
+                      f"{_ATTENTE_RELANCE_S}s", flush=True)
+                time.sleep(_ATTENTE_RELANCE_S)
+    raise derniere
 
 
 def _problemes_bloquants(problemes: list, article: dict | None = None) -> list:

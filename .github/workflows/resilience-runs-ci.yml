@@ -1,0 +1,49 @@
+name: Résilience des runs
+
+# Deux pertes mesurées le 27/08, toutes deux hors du champ éditorial :
+#   - deux déclenchements sur quatre perdus en collision (un run forcé de
+#     4 h 23 en a fait annuler un et vider un autre) ;
+#   - 11 timeouts réseau sur api.mistral.ai, 7 articles déjà écrits perdus.
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "scripts/dernier_run.py"
+      - "scripts/verification_legacy.py"
+      - "scripts/pipeline.py"
+      - "scripts/test_collision_runs.py"
+      - "scripts/test_relance_reseau.py"
+      - ".github/workflows/pipeline.yml"
+      - ".github/workflows/resilience-runs-ci.yml"
+  pull_request:
+    paths:
+      - "scripts/dernier_run.py"
+      - "scripts/verification_legacy.py"
+      - "scripts/pipeline.py"
+      - "scripts/test_collision_runs.py"
+      - "scripts/test_relance_reseau.py"
+      - ".github/workflows/pipeline.yml"
+      - ".github/workflows/resilience-runs-ci.yml"
+  workflow_dispatch:
+
+jobs:
+  resilience:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Installer les dépendances
+        run: pip install -q openai groq requests beautifulsoup4 lxml pypdf pillow feedparser pyyaml
+      - name: Compiler
+        run: python -m py_compile scripts/dernier_run.py scripts/test_collision_runs.py scripts/test_relance_reseau.py
+      - name: Le workflow appelle bien la garde de concurrence
+        run: |
+          grep -q -- "--en-cours" .github/workflows/pipeline.yml \
+            || { echo "::error::pipeline.yml n'appelle plus la garde de concurrence"; exit 1; }
+      - name: Collision de runs
+        run: python scripts/test_collision_runs.py
+      - name: Relance réseau
+        run: python scripts/test_relance_reseau.py
