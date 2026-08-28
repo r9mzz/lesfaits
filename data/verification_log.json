@@ -22081,5 +22081,290 @@
     "veille_age_h": 26.6,
     "veille_n_flux_grappe": 4,
     "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "legora-levée-550-millions-valorisation-5-5-milliards-2024",
+    "statut": "rejete_qualite",
+    "date": "2026-08-28T20:39:50",
+    "problemes_initiaux": 12,
+    "tentatives": 3,
+    "problemes_restants": 10,
+    "bloquants_restants": 4,
+    "bloquants_types": [
+      "annonce_perimee",
+      "annonce_perimee",
+      "annonce_perimee",
+      "chiffre_errone"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "annonce_perimee",
+        "description": "La source [7] (Maddyness) est datée du 10/06/2026, ce qui signifie que l'implantation à Paris est déjà annoncée comme effective ou en cours à cette date. Présenter cela comme une prévision future (« prévoit de s'implante",
+        "phrase": "Legora prévoit de s'implanter à Paris en juin 2026 pour renforcer sa présence auprès des grands groupes et cabinets d'avocats internationaux, comme l'indique son annonce relayée par Maddyness [7]."
+      },
+      {
+        "bloc": 1,
+        "type": "annonce_perimee",
+        "description": "La source [7] (Maddyness) est datée du 10/06/2026, ce qui indique que l'implantation est déjà effective ou en cours à cette date. Le verbe « a annoncé » est correct, mais la formulation « en prévision de cette ouverture ",
+        "phrase": "Selon Maddyness, Legora a annoncé son implantation à Paris pour juin 2026, où elle cible des grands groupes et cabinets d'avocats en prévision de cette ouverture [7]."
+      },
+      {
+        "bloc": 1,
+        "type": "annonce_perimee",
+        "description": "La source [7] (Maddyness) est datée du 10/06/2026, ce qui signifie que l'implantation est déjà effective ou en cours à cette date. Présenter cela comme une « annonce » ou un objectif futur (« s'inscrit dans cette dynamiq",
+        "phrase": "L'annonce de son implantation à Paris en juin 2026 s'inscrit dans cette dynamique, avec pour objectif de renforcer sa présence auprès des grands groupes et cabinets d'avocats internationaux [7]."
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [7] (Maddyness) ne figure pas dans les extraits fournis pour confirmer ce chiffre de 150 millions de dollars ou la valorisation de 1,8 milliard. Seul L'Express [1] est cité pour la levée de 550 millions, mais a",
+        "phrase": "En octobre 2023, soit cinq mois avant la levée de mars 2024, la start-up avait réalisé une levée de fonds de 150 millions de dollars, portant sa valorisation à 1,8 milliard de dollars, selon la même source [7]."
+      }
+    ],
+    "types_restants": [
+      "annonce_perimee",
+      "annonce_perimee",
+      "annonce_perimee",
+      "chiffre_errone",
+      "source_derivee_comptee_comme_primaire",
+      "compteur_incoherent",
+      "formule_vague",
+      "cadrage_emprunte",
+      "extrapolation",
+      "faux_debat"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "resume_repete_corps",
+      "faits_repetitifs",
+      "cliches_ia"
+    ],
+    "titre": "Legora lève 550 millions et atteint 5,5 milliards de valorisation en 2024",
+    "n_sources": 4,
+    "n_mots": 471,
+    "titre_rss": "IA : Legora, la start-up suédoise qui a conquis les avocats",
+    "matiere_faits_distincts": 863,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 5,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "veille_heures_visible": 19.4,
+    "veille_passages": 3,
+    "veille_age_h": 32.2,
+    "veille_n_flux_grappe": 1,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "insee-revise-croissance-francaise-zero-deuxieme-trimestre-2026",
+    "statut": "erreur_verification",
+    "date": "2026-08-28T20:58:10",
+    "etape": "detection",
+    "erreur": "Groq 503: {\"object\":\"error\",\"message\":\"Service temporarily unavailable due to high load, please retry.\",\"type\":\"internal_server_error\",\"param\":null,\"code\":\"3505\",\"raw_status_code\":503}",
+    "article_type": "actu",
+    "titre": "L'Insee révise à 0 % la croissance française au 2e trimestre 2026",
+    "n_sources": 7,
+    "n_mots": 524,
+    "titre_rss": "La France échappe de justesse à la récession au deuxième trimestre, selon l'Insee",
+    "matiere_faits_distincts": 915,
+    "matiere_redondance": 0.01,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10
+  },
+  {
+    "slug": "insee-revise-croissance-francaise-zero-deuxieme-trimestre-2026",
+    "statut": "rejete_qualite",
+    "date": "2026-08-28T20:58:10",
+    "raison": "verification_indisponible",
+    "statut_verification_initial": "erreur_verification"
+  },
+  {
+    "slug": "debat-medef-27-aout-2026-propositions-economiques-reactions-patrons",
+    "statut": "rejete_qualite",
+    "date": "2026-08-28T21:36:42",
+    "problemes_initiaux": 9,
+    "tentatives": 3,
+    "problemes_restants": 8,
+    "bloquants_restants": 2,
+    "bloquants_types": [
+      "accusation_presentee_comme_fait",
+      "accusation_presentee_comme_fait"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "accusation_presentee_comme_fait",
+        "description": "Le résumé présente les qualificatifs « hors-sol » comme un constat neutre, alors qu'il s'agit d'une opinion attribuée à des patrons par Europe1. La formulation devrait préciser que ce sont les patrons qui estiment cela, ",
+        "phrase": "Selon Europe1, plusieurs patrons ont qualifié certaines propositions de « hors-sol », estimant qu’elles manquaient de réalisme économique [4]."
+      },
+      {
+        "bloc": 1,
+        "type": "accusation_presentee_comme_fait",
+        "description": "La phrase présente le risque comme un fait établi (« est jugée risquée »), alors qu'il s'agit d'une opinion attribuée à des économistes et à Édouard Philippe. La formulation devrait préciser que ce sont des économistes q",
+        "phrase": "L’annulation d’une partie de la dette détenue par la BCE, défendue par Jean-Luc Mélenchon, est jugée risquée par certains économistes, qui estiment qu’elle pourrait affaiblir la crédibilité financière de la France, comme"
+      }
+    ],
+    "types_restants": [
+      "fait_tranche_arbitrairement",
+      "accusation_presentee_comme_fait",
+      "accusation_presentee_comme_fait",
+      "extrapolation",
+      "source_derivee_comptee_comme_primaire",
+      "compteur_incoherent",
+      "contexte_hors_sujet",
+      "section_gonflee"
+    ],
+    "article_type": "actu",
+    "titre": "Débat Medef : les propositions économiques des candidats face aux patrons",
+    "n_sources": 3,
+    "n_mots": 743,
+    "titre_rss": "Dette publique, retraites, réindustrialisation… Ce qu'il faut retenir du premier débat des principaux candidats à la présidentielle, organisé par le Medef",
+    "matiere_faits_distincts": 614,
+    "matiere_redondance": 0.01,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "veille_heures_visible": 8.4,
+    "veille_passages": 2,
+    "veille_age_h": 21.2,
+    "veille_n_flux_grappe": 5,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "incendies-belgique-ue-anticipation-systematique-catastrophes",
+    "statut": "rejete_qualite",
+    "date": "2026-08-28T21:53:43",
+    "problemes_initiaux": 10,
+    "tentatives": 3,
+    "problemes_restants": 8,
+    "bloquants_restants": 2,
+    "bloquants_types": [
+      "annonce_perimee",
+      "niveau_preuve_insuffisant"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "annonce_perimee",
+        "description": "La source [1] (La Croix) décrit des mesures déjà en discussion ou en préparation, mais le résumé les présente comme des éléments « en discussion » sans préciser qu'elles sont déjà en cours de renforcement (cf. déclaratio",
+        "phrase": "Parmi les mesures en discussion figurent l’intégration de plans de prévention territoriaux et l’augmentation des financements dédiés, bien que les modalités de ces investissements restent à préciser [1][8]."
+      },
+      {
+        "bloc": 1,
+        "type": "niveau_preuve_insuffisant",
+        "description": "La source [5] (laktu) précise que les données sont préliminaires et doivent être interprétées avec prudence en raison des limites méthodologiques, mais cette réserve n'est pas reprise dans la phrase citée, qui présente l",
+        "phrase": "Selon des données préliminaires de 2025 relayées par laktu, plus d’un million d’hectares ont brûlé en Europe, un chiffre sans précédent qui dépasse la superficie de la Corse [5]."
+      }
+    ],
+    "types_restants": [
+      "annonce_perimee",
+      "niveau_preuve_insuffisant",
+      "redondance",
+      "source_derivee_comptee_comme_primaire",
+      "compteur_incoherent",
+      "contexte_hors_sujet",
+      "section_gonflee",
+      "faux_debat"
+    ],
+    "article_type": "actu",
+    "titre": "Incendies en Belgique : l'UE pousse pour une anticipation systématique",
+    "n_sources": 6,
+    "n_mots": 531,
+    "titre_rss": "Après les incendies de l’été, l’UE mise sur la préparation face aux catastrophes naturelles",
+    "matiere_faits_distincts": 1020,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "n_sources_pertinentes": 3,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "essai-biomede-quatre-enfants-survivent-plus-de-six-ans-gliome",
+    "statut": "rejete_sensible",
+    "date": "2026-08-28T21:57:11",
+    "sujet_sensible": true,
+    "raison": "implique des mineurs atteints d'une maladie grave et des résultats d'essai clinique les concernant",
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "faits_repetitifs"
+    ],
+    "titre": "Essai BIOMEDE : quatre enfants survivent plus de six ans au gliome du tronc cérébral",
+    "n_sources": 7,
+    "n_mots": 591,
+    "titre_rss": "Un vaste essai clinique international apporte un éclairage inédit sur un cancer pédiatrique cérébral",
+    "matiere_faits_distincts": 1076,
+    "matiere_redondance": 0.03,
+    "matiere_donnees_chiffrees": 5,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "veille_heures_visible": 387.6,
+    "veille_passages": 290,
+    "veille_age_h": 400.4,
+    "veille_n_flux_grappe": 7,
+    "nature_contenu": "etude_scientifique"
+  },
+  {
+    "slug": "5100-nouveaux-cas-vih-france-2024-depistage-tardif",
+    "statut": "rejete_qualite",
+    "date": "2026-08-28T22:06:55",
+    "problemes_initiaux": 11,
+    "tentatives": 3,
+    "problemes_restants": 8,
+    "bloquants_restants": 3,
+    "bloquants_types": [
+      "niveau_preuve_insuffisant",
+      "niveau_preuve_insuffisant",
+      "niveau_preuve_insuffisant"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "niveau_preuve_insuffisant",
+        "description": "L'article mentionne explicitement l'absence de période de référence et d'intervalles de confiance pour interpréter l'évolution des diagnostics chez les jeunes, mais cette limite méthodologique n'est pas reprise dans le r",
+        "phrase": "Selon les données disponibles, cette part pourrait indiquer une tendance à la hausse, mais la période de référence et les intervalles de confiance ne sont pas précisés, limitant l’interprétation de cette évolution [1]."
+      },
+      {
+        "bloc": 1,
+        "type": "niveau_preuve_insuffisant",
+        "description": "L'article signale correctement l'absence d'effectifs de référence et d'intervalles de confiance pour les tendances des IST, mais cette limite n'est pas intégrée dans le résumé, où ces chiffres sont repris sans réserve.",
+        "phrase": "Les tendances observées pour les IST, comme l’augmentation de 24 % de la syphilis chez les femmes et de 38 % des infections à gonocoque chez les 15-25 ans entre 2022 et 2023, sont présentées sans effectifs de référence n"
+      },
+      {
+        "bloc": 1,
+        "type": "niveau_preuve_insuffisant",
+        "description": "L'article précise que la variation chez les hétérosexuel·les né·es à l'étranger n'est pas statistiquement significative, mais cette nuance n'est pas reprise dans le résumé ou les nuances, alors que la source [1] l'indiqu",
+        "phrase": "Cette variation n’est pas présentée comme statistiquement significative dans les données disponibles [1]."
+      }
+    ],
+    "types_restants": [
+      "niveau_preuve_insuffisant",
+      "niveau_preuve_insuffisant",
+      "niveau_preuve_insuffisant",
+      "source_derivee_comptee_comme_primaire",
+      "compteur_incoherent",
+      "redondance",
+      "redondance",
+      "extrapolation"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "faits_repetitifs"
+    ],
+    "titre": "5 100 nouveaux cas de VIH détectés en France en 2024",
+    "n_sources": 3,
+    "n_mots": 640,
+    "titre_rss": "Journée mondiale de lutte contre le sida 2025 : promouvoir la prévention pour lutter contre la transmission du VIH et des IST",
+    "matiere_faits_distincts": 931,
+    "matiere_redondance": 0.15,
+    "matiere_donnees_chiffrees": 2,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "veille_heures_visible": 52.1,
+    "veille_passages": 48,
+    "veille_age_h": 104.0,
+    "veille_n_flux_grappe": 7,
+    "nature_contenu": "rapport"
   }
 ]
