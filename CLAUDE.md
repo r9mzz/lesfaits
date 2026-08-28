@@ -1,5 +1,108 @@
 # Les Faits — lesfaits.info
 
+## POURQUOI ZÉRO ARTICLE : LA GRILLE VITRINE, ET C'EST ARITHMÉTIQUE (28/08)
+
+⚠ **AUCUN article n'a JAMAIS été publié sous Mistral.** Le dernier date du
+**14/08**, la bascule du 18/08. Ne pas répéter « depuis le 21/08 » — c'était
+faux, et ça faisait chercher la cause du mauvais côté de la bascule.
+
+Dix articles ont franchi le fact-check 3 passes EN ENTIER depuis. Ils sont
+morts APRÈS, sur le compte de sources de la vitrine :
+
+```
+sources citées par ces 10 articles
+    3 sources : 6      4 : 1      5 : 2      8 : 1
+
+grille à 3 → 10/10 survivent (100 %)   ← plancher de la charte, règle 7
+grille à 4 →  4/10           ( 40 %)
+grille à 5 →  3/10           ( 30 %)
+grille à 6 →  1/10           ( 10 %)
+```
+
+**À 6, la vitrine rejetait neuf articles sur dix qui avaient passé tout le
+protocole éditorial.** Ce n'est pas un niveau d'exigence, c'est une porte
+fermée.
+
+### La décision de Nahil a été annulée TROIS fois, et le test le permettait
+
+`MIN_SOURCES = 4` (décision de Nahil, 26/08) a été remis à 6 les 24/08, 26/08 à
+03h23 et 26/08 à 15h37 — chaque fois de bonne foi, au nom du mandat « ne jamais
+affaiblir un garde-fou ». Le mandat est le bon. **Le défaut était dans le
+test** : il gelait `MIN_SOURCES >= 6` comme « plancher historique », donc il
+autorisait 4 ET 6 et ne tranchait rien.
+
+`test_grille_vitrine_calibrage.py` encadre désormais des DEUX côtés, sur une
+mesure et non sur un chiffre :
+
+- **bord bas** — strictement au-dessus du plancher de la charte, lu dans
+  `SEUILS_FORMAT` et jamais recopié. C'est ce que les annulations voulaient
+  protéger, et c'est conservé : 3 échoue ;
+- **bord haut** — au moins 35 % des articles ayant franchi le fact-check
+  doivent survivre. 5 et 6 échouent.
+
+Vérifié en rejouant les quatre valeurs : 6 → bloqué (10 %), 5 → bloqué (30 %),
+**4 → passe**, 3 → bloqué (sous la charte). Une seule valeur survit, et elle
+est celle que Nahil avait choisie.
+
+⚠ **n = 10.** C'est peu et aucun réglage fin ne doit s'y appuyer. Ce que ces
+chiffres établissent est un ORDRE DE GRANDEUR — 10 % contre 100 % n'est pas un
+écart de bruit. Refaire la mesure quand la population aura doublé.
+
+⚠ **Ceci ne garantit PAS des articles.** Passer de 1 à 4 candidats sur 10 ne
+dit rien des autres critères de la vitrine (longueur, aération, citations
+réellement appelées, ≥1 source primaire). Si le prochain run publie encore
+zéro, lire le MOTIF de rejet vitrine — ce ne sera plus le même problème.
+
+## LA MESURE SUR 10 JOURS ANNULE MES DEUX LECTURES D'UN RUN (28/08)
+
+`python scripts/analyser_reproches.py --jours 10` — **n = 134 articles recalés,
+448 reproches**, contre n=26 et n=12 pour mes deux relectures à la main :
+
+```
+ 136   30,4 %  niveau_preuve_insuffisant
+  99   22,1 %  annonce_perimee
+  85   19,0 %  chiffre_errone
+  59   13,2 %  accusation_presentee_comme_fait
+  45   10,0 %  incoherence_inter_sections
+  24    5,4 %  source_inventee
+                → 3,3 reproches bloquants par article recalé
+```
+
+**Le run 290 était atypique** : ses 5 `accusation_presentee_comme_fait` m'ont
+fait écrire que la sélection laissait entrer des sujets d'opinion. Sur 10 jours
+ce motif ne pèse que 13 %. Deux relectures d'un run donnaient des conclusions
+opposées ; c'était un effet d'échantillon, pas une contradiction — et aucune des
+deux ne devait servir de base à une décision.
+
+⚠ **8 `corrige_automatiquement` en 10 jours pour 0 article publié.** Le piège du
+01/08 est toujours actif : ce statut ne veut PAS dire publié. Compter les
+fichiers dans `articles/`, jamais le journal.
+
+### Deux choses vérifiées avant de coder, et qui existaient déjà
+
+- **Le rejet de pertinence tourne DÉJÀ avant la génération.** Le journal du run
+  290 le montre : aucun `[TOKENS]` entre un `[REJET] n source(s)` et le sujet
+  suivant. La « génération évitée » du message est exacte. Rien à construire —
+  je l'avais proposé à tort, faute d'avoir vérifié l'existant, ce qui est
+  précisément l'erreur listée dans « Méthode et erreurs à ne pas refaire ».
+- **`nature_contenu` était demandé depuis le 03/08 et lu par personne.** Le
+  fact-checker le remplit à chaque rapport payé ; le champ est désormais
+  journalisé au verdict. **On journalise, on ne décide rien** — le taux réel de
+  sujets d'opinion n'a jamais été relevé.
+
+### La question à lire dans quelques runs, et rien d'autre
+
+Les sujets dont `nature_contenu` est une OPINION (tribune, chronique,
+prise_de_position, interview) échouent-ils PLUS que les autres ? Si oui, un
+malus de sélection se justifie ; si les colonnes sont plates, il ne se justifie
+pas — et il ne faudra pas le poser quand même. Le script affiche l'avertissement
+`n < 30` de lui-même.
+
+⚠ `test_analyser_reproches.py` verrouille ce qui a produit quatre verdicts faux
+le 20/08 : les échecs techniques sortent du dénominateur, un champ absent est
+affiché comme ABSENT et non comme zéro, et l'absence totale de mesure sort en
+code 1 plutôt qu'en tableau vide.
+
 ## RUNS 287-290 — LE GOULOT SE DÉPLACE À CHAQUE FOIS (27/08)
 
 ```
@@ -83,7 +186,15 @@ articles publiés         0     0     0  │      0
 `[GROQ] clé fournisseur 1 : solde épuisée (402) — retirée de la rotation (2
 restante(s))` apparaît UNE fois et le run continue. **Une clé Mistral sur trois
 est morte ; les deux autres portent le run.** Si une deuxième tombe, la marge
-disparaît — la console de Nahil est la seule à pouvoir le dire.
+disparaît.
+
+⚠ **QUESTION TRANCHÉE PAR NAHIL, NE PLUS LA ROUVRIR : la clé 1 est ÉPUISÉE.**
+Elle n'a plus de tokens, point. Ce n'est pas un mystère de facturation, ce
+n'est pas une activation à faire, et ce n'est pas « à vérifier sur la
+console ». Le 402 qu'elle renvoie à chaque run est le comportement NORMAL
+d'une clé vide ; la rotation le traite en une ligne et le run continue. La
+seule action utile est de remplacer le secret `LLM_API_KEY` par une clé qui a
+du solde — c'est une opération de compte, pas de code.
 
 ### Relecture à la main des 26 reproches — 4 fondés, 17 infondés, 5 indécidables
 
@@ -205,8 +316,9 @@ le VRAI corps d'erreur Mistral et échoue sans le correctif.
 solde de COMPTE à zéro, pas un rate limit : il ne se libère pas en attendant. Le
 correctif évite de perdre les sujets tant qu'une clé vivante existe, et fait
 mourir le run proprement quand il n'y en a plus. La question du solde Mistral
-(1 milliard/mois annoncé contre ~66 M/mois consommés) ne se lit que sur la
-console de Nahil.
+(1 milliard/mois annoncé contre ~66 M/mois consommés) est une question de
+COMPTE, pas de code : voir la note tranchée plus haut — la clé 1 est vide, et
+il n'y a rien d'autre à en déduire.
 
 ### Le seuil vitrine à 6 sources était une contradiction, pas une exigence
 

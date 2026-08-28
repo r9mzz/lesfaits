@@ -930,6 +930,28 @@ def verifier_article(art: dict, article_type: str = "actu",
         _log(slug, "erreur_verification", {"etape": "detection", "erreur": str(e), **_type_detail})
         return art, "erreur_verification"
 
+    # ── nature_contenu : DEMANDÉ DEPUIS LE 03/08, JAMAIS LU ─────────────────
+    # CLAUDE.md le signale depuis le retrait public du 03/08 : « Le
+    # fact-checker a pourtant renvoyé nature_contenu — l'information était dans
+    # le rapport, rien ne s'en sert. » Toujours vrai cinq semaines plus tard.
+    #
+    # Le run 290 en donne l'usage : 5 des 12 reproches bloquants étaient des
+    # `accusation_presentee_comme_fait` sur des opinions (Mélenchon, Pigasse,
+    # Gates) écrites comme des constats. Ce sont des tribunes que la sélection
+    # ne sait pas reconnaître, et qu'on paie jusqu'à la 3e passe avant de
+    # rejeter.
+    #
+    # ⚠ ON JOURNALISE, ON NE DÉCIDE RIEN. La règle du projet interdit de fixer
+    # un seuil non mesuré, et le taux réel de sujets d'opinion n'a JAMAIS été
+    # relevé sur un run. La question à trancher après quelques runs est
+    # écrite dans `analyser_reproches.py` : les sujets dont `nature_contenu`
+    # est une opinion échouent-ils PLUS que les autres ? Si oui, un malus de
+    # sélection se justifie ; si les colonnes sont plates, il ne se justifie
+    # pas. Coût : zéro token, le champ est déjà dans le rapport payé.
+    _nature = str(rapport.get("nature_contenu") or "").strip()
+    if _nature:
+        _type_detail["nature_contenu"] = _nature
+
     # Garde-fou indépendant du score : un sujet sensible (mineur impliqué,
     # affaire judiciaire en cours, personne nommée négativement) part toujours
     # en relecture humaine, même si l'article est par ailleurs 100% conforme

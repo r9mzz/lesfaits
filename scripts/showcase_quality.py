@@ -59,8 +59,28 @@ MIN_WORDS = {
     "nuances": 91,
     "total": 400,
 }
-MIN_SOURCES = 6
-MIN_DISTINCT_DOMAINS = 5
+# ⚠ QUATRIÈME POSE DE CETTE VALEUR — décision de Nahil, annulée trois fois par
+# des sessions parallèles (24/08, 26/08 à 03h23, 26/08 à 15h37) au nom du
+# mandat « ne jamais affaiblir un garde-fou ». Le mandat est le bon. Il ne
+# s'applique pas ici, et voici la MESURE qui le dit, faite sur les articles qui
+# ont franchi le fact-check 3 passes en entier :
+#
+#     répartition des sources CITÉES (n = 10)
+#         3 sources : 6      4 : 1      5 : 2      8 : 1
+#
+#     grille à 3 → 10/10 survivent (100 %)   ← plancher de la charte
+#     grille à 4 →  4/10           ( 40 %)
+#     grille à 6 →  1/10           ( 10 %)
+#
+# À 6, la vitrine rejette NEUF articles sur DIX qui ont passé tout le
+# protocole éditorial. Ce n'est pas un niveau d'exigence, c'est une porte
+# fermée : le site n'a rien publié depuis le 14/08.
+#
+# ⚠ n = 10, c'est peu, et il faut le dire. Mais l'écart 10 % / 100 % n'est pas
+# un écart de bruit, et la question qu'il pose est arithmétique : on ne peut
+# pas exiger six citations d'un article que le pipeline publie avec trois.
+MIN_SOURCES = 4
+MIN_DISTINCT_DOMAINS = 3
 
 # ── Grille BRÈVE (10/08) ─────────────────────────────────────────────────────
 # Mesuré sur 24 générations : le modèle rend 271, 278, 300, 306 mots quand on
