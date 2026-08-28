@@ -36,9 +36,9 @@ jobs:
         with:
           python-version: "3.11"
       - name: Installer les dépendances
-        run: pip install -q openai groq requests beautifulsoup4 lxml pypdf pillow feedparser pyyaml
+        run: pip install -q openai groq requests beautifulsoup4 lxml pypdf pillow feedparser pyyaml python-dotenv
       - name: Compiler
-        run: python -m py_compile scripts/dernier_run.py scripts/test_collision_runs.py scripts/test_relance_reseau.py
+        run: python -m py_compile scripts/dernier_run.py scripts/verification_legacy.py scripts/pipeline.py scripts/test_collision_runs.py scripts/test_relance_reseau.py
       - name: Le workflow appelle bien la garde de concurrence
         run: |
           grep -q -- "--en-cours" .github/workflows/pipeline.yml \
