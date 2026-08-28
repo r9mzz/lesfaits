@@ -19,7 +19,6 @@ import os
 import re
 import sys
 
-import requests
 
 import verification_legacy as _verification
 from cles_fournisseur import cles_fournisseur
@@ -66,6 +65,15 @@ if _AUTHORIZED_BIBLIOGRAPHY_RULE not in _verification.PROMPT_DETECTION:
 
 _verification._provider_original_llm_call = _verification._llm_call
 _PROVIDER_FATAL_ERROR = None
+_REQUESTS_MODULE = getattr(_verification, "requests", None)
+_TRANSIENT_REQUEST_ERRORS = tuple(
+    cls
+    for cls in (
+        getattr(_REQUESTS_MODULE, "Timeout", None),
+        getattr(_REQUESTS_MODULE, "ConnectionError", None),
+    )
+    if isinstance(cls, type)
+)
 
 
 def _provider_name() -> str:
@@ -96,7 +104,7 @@ def _provider_auth_rotating_llm_call(*args, **kwargs):
     while True:
         try:
             return _verification._provider_original_llm_call(*args, **kwargs)
-        except (requests.Timeout, requests.ConnectionError) as exc:
+        except _TRANSIENT_REQUEST_ERRORS as exc:
             if retry_transitoire_utilise:
                 raise
             retry_transitoire_utilise = True
