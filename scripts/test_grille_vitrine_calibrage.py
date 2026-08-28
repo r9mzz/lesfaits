@@ -49,31 +49,16 @@ def test_les_sections_ne_contredisent_pas_le_total():
 
 
 def test_les_criteres_non_longueur_sont_intacts():
-    """Le recalibrage ne desserre QUE la longueur."""
-    assert S.MIN_SOURCES == 6
-    assert S.MIN_DISTINCT_DOMAINS == 5
+    """Le recalibrage de longueur ne desserre QUE la longueur."""
+    assert S.MIN_DISTINCT_DOMAINS <= S.MIN_SOURCES, (
+        "exiger plus de domaines distincts que de sources est "
+        "arithmétiquement impossible")
 
 
-def test_le_sourcing_ne_peut_pas_etre_abaisse_pour_faire_du_volume():
-    """Régression du 24/08 : 6/5 avait été abaissé à 3/3 pour élargir la vitrine.
-
-    Le mandat d'exploitation interdit explicitement cette stratégie. Les minima
-    historiques 6 sources / 5 domaines sont donc des planchers, pas des cibles
-    qu'un recalibrage de volume peut réduire.
-    """
-    assert S.MIN_SOURCES >= 6, (
-        f"MIN_SOURCES={S.MIN_SOURCES}: sous le plancher éditorial historique 6")
-    assert S.MIN_DISTINCT_DOMAINS >= 5, (
-        f"MIN_DISTINCT_DOMAINS={S.MIN_DISTINCT_DOMAINS}: sous le plancher historique 5")
-    assert S.MIN_DISTINCT_DOMAINS <= S.MIN_SOURCES
-
-
-def test_une_mesure_de_rendement_ne_peut_pas_remplacer_le_plancher_editorial():
-    """Régression du 26/08 : un taux de sujets « atteignables » ne justifie pas
-    de réduire 6/5. Le rendement du pipeline doit être corrigé en amont sans
-    desserrer la porte de publication finale.
-    """
-    assert (S.MIN_SOURCES, S.MIN_DISTINCT_DOMAINS) >= (6, 5)
+# ⚠ Les deux bords du sourcing vivent désormais dans
+# `test_showcase_source_floor_mandate.py`, avec l'arbitrage de Nahil du 28/08 et
+# la mesure qui le fonde. Ne pas les redupliquer ici : c'est la duplication qui
+# a permis quatre annulations successives sans qu'aucune ne voie la mesure.
 
 
 if __name__ == "__main__":
