@@ -23,9 +23,19 @@ chacun en cumule quatre à six :
 
 ### Les trois défauts qui ne sont PAS des seuils, et qui se corrigent
 
-- **Le titre dépasse notre propre charte.** 16 à 21 mots quand la règle 6 dit
-  **6-15**, et le prompt aussi. Ce n'est pas un désaccord de seuil, c'est une
-  consigne non suivie par le rédacteur. 5 articles sur 7.
+- **Le titre dépasse notre propre charte — CORRIGÉ le 28/08.** 16 à 21 mots
+  quand la règle 6 dit **6-15**, et les prompts aussi. 5 articles sur 7.
+  Cause trouvée : `titre_de_mauvaise_qualite` testait `nb_mots < 6` et **n'a
+  jamais eu de borne HAUTE**. Rien ne signalait donc le dépassement, et
+  l'article mourait à la toute fin sur `titre non vitrine`.
+  Taux de déclenchement mesuré AVANT l'ajout, comme la règle l'exige : sur les
+  153 titres publiés, médiane 9 mots, maximum 16, **1 seul au-dessus de 15
+  (0,7 %)**. Loin des ~10 % au-delà desquels un motif est trop large — et la
+  mesure dit aussi que les 16-21 mots sont une RÉGRESSION, pas la norme.
+  ⚠ La relance VISE 8-15 alors qu'elle REJETTE hors de 6-15 : la vitrine exige
+  8 mots minimum pour un article, la charte 6. Un titre réécrit à 6 mots
+  passerait le garde-fou puis mourrait sur la vitrine. On ne durcit pas le
+  rejet, on vise la zone qui passe les deux portes.
 - **Une seule section par paragraphe.** La consigne de mise en paragraphes
   existe depuis le 15/08 et a coûté 470 tokens de prompt ; elle n'est pas
   appliquée. 4 articles sur 7.

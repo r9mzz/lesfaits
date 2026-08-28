@@ -3838,10 +3838,39 @@ def _titre_a_un_nom_propre(titre: str) -> bool:
     return any(m[:1].isupper() for m in mots[1:] if m[:1].isalpha())
 
 
+# Bornes du titre, LUES ICI et nulle part ailleurs. La charte (règle 6), les
+# deux prompts et la grille vitrine disent tous 6-15 : cette paire est la seule
+# source, pour qu'un futur ajustement ne laisse pas trois endroits diverger.
+TITRE_MOTS_MIN, TITRE_MOTS_MAX = 6, 15
+
+# La relance VISE une fourchette plus étroite que celle qui REJETTE. La grille
+# vitrine exige 8 mots au minimum pour un article là où la charte en accepte 6 :
+# un titre réécrit à 6 ou 7 mots satisferait ce garde-fou puis mourrait sur
+# « titre non vitrine ». On ne durcit pas le rejet — la charte reste la charte —
+# on demande simplement au rédacteur de viser la zone qui passe les deux portes.
+TITRE_MOTS_CIBLE_MIN = 8
+
+
 def titre_de_mauvaise_qualite(art: dict) -> str | None:
-    """Détecte un titre non conforme à la règle 7 (factuel, neutre, 10-15 mots,
+    """Détecte un titre non conforme à la règle 6 (factuel, neutre, 6-15 mots,
     jamais de question ni de vocabulaire putaclic) — retourne un message de
-    correction ou None si le titre est correct."""
+    correction ou None si le titre est correct.
+
+    ⚠ LA BORNE HAUTE MANQUAIT, et c'est ce qui tuait des articles entiers.
+    Ce garde-fou vérifiait `nb_mots < 6` sans jamais regarder le plafond de 15,
+    alors que la charte, les deux prompts ET la grille vitrine le posent. Rien
+    ne rappelait donc au rédacteur qu'il dépassait, et l'article mourait à la
+    toute fin, sur `titre non vitrine`.
+
+    Mesuré le 28/08 sur les 7 articles ayant réellement atteint la vitrine :
+    5 sur 7 rejetés là-dessus, à 16, 17, 19 et 21 mots.
+
+    Taux de déclenchement sur les 153 titres PUBLIÉS, relevé avant d'ajouter le
+    contrôle comme la règle du projet l'exige : médiane 9 mots, maximum 16,
+    **1 seul titre sur 153 au-dessus de 15 (0,7 %)**. Très en dessous des ~10 %
+    au-delà desquels un motif est jugé trop large — et la mesure dit aussi que
+    les 16-21 mots récents sont une RÉGRESSION, pas la norme du site.
+    """
     titre = str(art.get("titre", "") or "").strip()
     if not titre:
         return None
@@ -3857,8 +3886,13 @@ def titre_de_mauvaise_qualite(art: dict) -> str | None:
         problemes.append(
             f"cadrage narratif « {_m} » — le titre raconte un affrontement avec "
             f"un vainqueur au lieu d'énoncer le fait (quelle décision, de qui, sur quoi)")
-    if nb_mots < 6:
-        problemes.append(f"trop court ({nb_mots} mots, minimum 6-10 attendus)")
+    if nb_mots < TITRE_MOTS_MIN:
+        problemes.append(f"trop court ({nb_mots} mots, minimum {TITRE_MOTS_MIN})")
+    elif nb_mots > TITRE_MOTS_MAX:
+        problemes.append(
+            f"trop long ({nb_mots} mots, maximum {TITRE_MOTS_MAX}) — coupe les "
+            "incises et les compléments explicatifs, garde l'acteur, l'action "
+            "et le chiffre ou le lieu")
     titre_generique = False
     if not _TITRE_A_UN_CHIFFRE_RE.search(titre) and not _titre_a_un_nom_propre(titre):
         problemes.append("trop générique (aucun chiffre ni nom propre — acteur, institution, lieu)")
@@ -3871,7 +3905,8 @@ def titre_de_mauvaise_qualite(art: dict) -> str | None:
         if titre_generique else ""
     )
     return (f"le titre « {titre} » a un problème : {', '.join(problemes)}. "
-            "Réécris-le en 10 à 15 mots, factuel et neutre, qui résume l'essentiel de l'article "
+            f"Réécris-le en {TITRE_MOTS_CIBLE_MIN} à {TITRE_MOTS_MAX} mots, factuel et neutre, "
+            "qui résume l'essentiel de l'article "
             "SANS vocabulaire putaclic (bizarre, insolite, choc…) et SANS tournure de question — "
             "énonce le fait directement, comme le ferait un titre de presse de référence."
             + consigne_generique)
