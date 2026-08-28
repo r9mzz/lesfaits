@@ -102,6 +102,40 @@ class AnnoncePerimeeIntentionTest(unittest.TestCase):
         self.assertFalse(verification._echeance_future_pas_perimee(probleme))
         self.assertEqual(verification._problemes_bloquants([probleme]), [probleme])
 
+    def test_approbation_commission_confirmee_par_communique_du_meme_jour_est_ecartee(self):
+        """Cas réel du run du 28/08 : la source primaire du jour prouve le fait."""
+        probleme = {
+            "bloc": 1,
+            "type": "annonce_perimee",
+            "description": (
+                "Le résumé présente l'approbation comme un événement passé, alors que "
+                "la source [1] est un communiqué de la Commission du 27 août 2026, "
+                "daté du même jour que l'événement. Aucune source plus récente n'est fournie."
+            ),
+            "phrase": (
+                "Le 27 août 2026, la Commission européenne a approuvé le plan social "
+                "pour le climat de la Grèce."
+            ),
+        }
+        self.assertTrue(verification._approbation_commission_meme_jour_pas_perimee(probleme))
+        self.assertEqual(verification._problemes_bloquants([probleme]), [])
+
+    def test_approbation_commission_retirée_reste_bloquante(self):
+        probleme = {
+            "bloc": 1,
+            "type": "annonce_perimee",
+            "description": (
+                "Le communiqué de la Commission du 27 août 2026 mentionnait l'approbation, "
+                "mais une décision plus récente indique qu'elle a été retirée."
+            ),
+            "phrase": (
+                "Le 27 août 2026, la Commission européenne a approuvé le plan social "
+                "pour le climat de la Grèce."
+            ),
+        }
+        self.assertFalse(verification._approbation_commission_meme_jour_pas_perimee(probleme))
+        self.assertEqual(verification._problemes_bloquants([probleme]), [probleme])
+
 
 if __name__ == "__main__":
     unittest.main()
