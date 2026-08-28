@@ -27,6 +27,7 @@ jobs:
         run: |
           python - <<'PY'
           from pathlib import Path
+          import textwrap
 
           path = Path("scripts/verification.py")
           source = path.read_text(encoding="utf-8")
@@ -103,7 +104,8 @@ jobs:
               raise SystemExit(f"bloc cible absent ou dupliqué: {source.count(old)}")
           path.write_text(source.replace(old, new, 1), encoding="utf-8")
 
-          Path("scripts/test_verification_transient_retry.py").write_text(r'''# -*- coding: utf-8 -*-
+          test_content = r'''
+          # -*- coding: utf-8 -*-
           """Régression : timeout/5xx du fact-check ne doivent pas devenir un rejet éditorial immédiat."""
           from __future__ import annotations
 
@@ -193,7 +195,10 @@ jobs:
               test_504_persistant_reste_fail_closed()
               test_400_ne_se_reessaie_pas()
               print("OK - retry transitoire fact-check")
-          '''.replace("\n          ", "\n").lstrip(), encoding="utf-8")
+          '''
+          Path("scripts/test_verification_transient_retry.py").write_text(
+              textwrap.dedent(test_content).lstrip(), encoding="utf-8"
+          )
           PY
           python -m py_compile scripts/verification.py scripts/test_verification_transient_retry.py
           python scripts/test_verification_transient_retry.py
