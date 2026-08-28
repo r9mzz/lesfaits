@@ -1,0 +1,30 @@
+name: Verification title reserve contract
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "scripts/verification.py"
+      - "scripts/test_juge_repetition_titre_menace.py"
+      - ".github/workflows/verification-title-reserve-ci.yml"
+  pull_request:
+    paths:
+      - "scripts/verification.py"
+      - "scripts/test_juge_repetition_titre_menace.py"
+      - ".github/workflows/verification-title-reserve-ci.yml"
+  workflow_dispatch:
+
+jobs:
+  title-reserve-contract:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Installer les dépendances du runtime
+        run: pip install -r requirements.txt
+      - name: Compiler
+        run: python -m py_compile scripts/verification.py scripts/test_juge_repetition_titre_menace.py
+      - name: Tester le faux blocage de réserve dans le titre
+        run: python scripts/test_juge_repetition_titre_menace.py
