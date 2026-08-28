@@ -21053,5 +21053,436 @@
     "veille_passages": 288,
     "veille_age_h": 372.6,
     "veille_n_flux_grappe": 1
+  },
+  {
+    "slug": "canicules-surmortalite-adultes-jeunes-france",
+    "statut": "rejete_qualite",
+    "date": "2026-08-27T23:41:05",
+    "etape": "correction",
+    "tentative": 1,
+    "erreur": "HTTPSConnectionPool(host='api.mistral.ai', port=443): Read timed out. (read timeout=180)",
+    "bloquants_connus": 4,
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "faits_repetitifs"
+    ],
+    "titre": "Canicules : la surmortalité frappe dès 45 ans, pas seulement les seniors",
+    "n_sources": 3,
+    "n_mots": 681,
+    "titre_rss": "Le bilan provisoire des canicules vient bousculer ce que l’on croyait savoir sur leurs victimes",
+    "matiere_faits_distincts": 457,
+    "matiere_redondance": 0.22,
+    "matiere_donnees_chiffrees": 4,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "n_sources_pertinentes": 3,
+    "veille_heures_visible": 20.5,
+    "veille_passages": 3,
+    "veille_age_h": 21.8,
+    "veille_n_flux_grappe": 1
+  },
+  {
+    "slug": "legora-valorisation-10-milliards-levée-fonds-ia-juridique",
+    "statut": "rejete_qualite",
+    "date": "2026-08-28T01:30:56",
+    "etape": "correction",
+    "tentative": 1,
+    "erreur": "Groq 504: {\"object\":\"error\",\"message\":\"Service unavailable.\",\"type\":\"internal_server_error\",\"param\":null,\"code\":\"3804\",\"raw_status_code\":504}",
+    "bloquants_connus": 5,
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "faits_repetitifs"
+    ],
+    "titre": "Legora vise 10 milliards de dollars de valorisation après une levée record",
+    "n_sources": 7,
+    "n_mots": 543,
+    "titre_rss": "IA : Legora, la start-up suédoise qui a conquis les avocats",
+    "matiere_faits_distincts": 1037,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 5,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "n_sources_pertinentes": 6,
+    "veille_heures_visible": 11.0,
+    "veille_passages": 2,
+    "veille_age_h": 12.2,
+    "veille_n_flux_grappe": 1
+  },
+  {
+    "slug": "enquete-csf-2023-sante-sexuelle-outre-mer-premiers-resultats",
+    "statut": "erreur_verification",
+    "date": "2026-08-28T01:40:54",
+    "etape": "detection",
+    "erreur": "Groq 504: {\"object\":\"error\",\"message\":\"Service unavailable.\",\"type\":\"internal_server_error\",\"param\":null,\"code\":\"3804\",\"raw_status_code\":504}",
+    "article_type": "actu",
+    "titre": "Enquête CSF-2023 : premiers constats sur la santé sexuelle en Outre-mer",
+    "n_sources": 5,
+    "n_mots": 638,
+    "titre_rss": "Premiers résultats de l’enquête CSF-2023 dans les Outre-Mer : focus sur la Guyane, la Martinique, la Guadeloupe et La Réunion",
+    "matiere_faits_distincts": 800,
+    "matiere_redondance": 0.08,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "n_sources_pertinentes": 3,
+    "veille_heures_visible": 379.2,
+    "veille_passages": 289,
+    "veille_age_h": 380.5,
+    "veille_n_flux_grappe": 11
+  },
+  {
+    "slug": "enquete-csf-2023-sante-sexuelle-outre-mer-premiers-resultats",
+    "statut": "rejete_qualite",
+    "date": "2026-08-28T01:40:54",
+    "raison": "verification_indisponible",
+    "statut_verification_initial": "erreur_verification"
+  },
+  {
+    "slug": "mer-noire-rapport-senat-rivalites-puissances-2026",
+    "statut": "corrige_automatiquement",
+    "date": "2026-08-28T01:56:46",
+    "problemes_initiaux": 5,
+    "tentatives": 1,
+    "problemes_residuels_style": 6,
+    "rapport_initial": {
+      "conforme": false,
+      "sujet_sensible": false,
+      "sujet_sensible_raison": "",
+      "angle_insuffisant": false,
+      "angle_insuffisant_raison": "",
+      "nature_contenu": "rapport",
+      "problemes": [
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "source_derivee_comptee_comme_primaire",
+          "phrase_exacte": "Le Sénat français a publié le 9 juillet 2026 un rapport d’information intitulé *La mer Noire, bassin des rivalités de puissances*, analysant les dynamiques géopolitiques de cette région [1].\n\nCe document, rédigé par la commission des affaires étrangères, de la défense et des forces armées, met en lumière la compétition accrue entre la Russie, l’OTAN et les puissances régionales pour le contrôle de la mer Noire. Selon le Sénat, cette zone est devenue un enjeu majeur pour la sécurité européenne et la stabilité des routes commerciales [1].\n\nLa Russie a renforcé sa présence militaire en Crimée et dans le détroit de Kertch depuis 2014, modifiant l’équilibre des forces dans la région. Ces actions visent à consolider son influence, tandis que l’OTAN, via des programmes d’aide militaire, cherche à soutenir les pays riverains comme la Roumanie et la Bulgarie [1].\n\nLe rapport souligne également l’importance économique de la mer Noire, notamment pour le transport du gaz et du pétrole. Des infrastructures comme le gazoduc TurkStream, reliant la Russie à la Turquie, illustrent les enjeux énergétiques de la région.",
+          "explication": "Les sources [2] (RFI) et [3] (aa.com.tr) ne font que relayer ou analyser des informations similaires à celles du rapport du Sénat [1], sans apporter d'éléments distincts ou indépendants. Elles ne devraient pas être comptées comme des sources secondaires indépendantes, mais comme des reprises d'une source primaire unique (le rapport du Sénat)."
+        },
+        {
+          "bloc": 2,
+          "section": "sources",
+          "type": "compteur_incoherent",
+          "phrase_exacte": "\"nb_sources\": 3, \"qualite_sources\": {\"primaire\": 1, \"secondaire\": 1, \"tertiaire\": 1}",
+          "explication": "Le compteur indique 3 sources, mais seules 2 sources sont réellement distinctes (le rapport du Sénat [1] comme primaire, et les deux autres [2] et [3] comme dérivées d'une même information). Le champ \"nb_sources\" devrait être ajusté à 1 source primaire et 0 secondaire indépendante."
+        },
+        {
+          "bloc": 4,
+          "section": "contexte",
+          "type": "contexte_hors_sujet",
+          "phrase_exacte": "L’annexion de la Crimée par la Russie en 2014 a marqué un tournant, accélérant la militarisation de la zone. La création de l’Organisation de coopération économique de la mer Noire (OCEMN) en 1992, regroupant 12 pays, visait à structurer une coopération régionale, mais les rivalités persistent.",
+          "explication": "La mention de l'OCEMN, bien que vraie, n'éclaire pas directement les enjeux stratégiques actuels révélés par le rapport du Sénat. Elle est tangentiellement liée au sujet mais ne contribue pas à comprendre les dynamiques géopolitiques contemporaines analysées dans l'article."
+        },
+        {
+          "bloc": 4,
+          "section": "resume",
+          "type": "angle_annonce_non_tenu",
+          "phrase_exacte": "\"Quels sont les enjeux stratégiques de la mer Noire révélés par le dernier rapport du Sénat français ?\"",
+          "explication": "Le résumé et le corps de l'article décrivent les rivalités de puissances et les enjeux géopolitiques, mais ne répondent pas explicitement à la question des *enjeux stratégiques* pour la France ou l'Europe, comme annoncé dans l'angle de réponse."
+        },
+        {
+          "bloc": 4,
+          "section": "nuances",
+          "type": "section_gonflee",
+          "phrase_exacte": "La Turquie, membre de l’OTAN mais partenaire économique de la Russie, joue un rôle ambigu, naviguant entre ces deux sphères d’influence. Les stratégies de containment de l’OTAN sont perçues par Moscou comme des ingérences, alimentant les tensions.",
+          "explication": "La section \"nuances\" reprend des éléments déjà mentionnés dans les \"faits\" (rôle de la Turquie, tensions entre OTAN et Russie) sans apporter de fait distinct ou sourcé supplémentaire. Elle pourrait être supprimée ou fusionnée avec une autre section."
+        }
+      ]
+    },
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "resume_repete_corps",
+      "faits_repetitifs"
+    ],
+    "titre": "Mer Noire : le Sénat français alerte sur les rivalités de puissances",
+    "n_sources": 3,
+    "n_mots": 403,
+    "titre_rss": "La mer Noire, bassin des rivalités de puissances - Rapport d'information n° 889",
+    "matiere_faits_distincts": 996,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "veille_heures_visible": 379.2,
+    "veille_passages": 300,
+    "veille_age_h": 380.5,
+    "veille_n_flux_grappe": 2
+  },
+  {
+    "slug": "effacement-dette-france-banque-france-proposition-melenchon",
+    "statut": "rejete_qualite",
+    "date": "2026-08-28T02:22:15",
+    "problemes_initiaux": 12,
+    "tentatives": 3,
+    "problemes_restants": 14,
+    "bloquants_restants": 4,
+    "bloquants_types": [
+      "accusation_presentee_comme_fait",
+      "accusation_presentee_comme_fait",
+      "accusation_presentee_comme_fait",
+      "niveau_preuve_insuffisant"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "accusation_presentee_comme_fait",
+        "description": "La phrase présente la proposition de Mélenchon comme un fait établi (« est présentée ») sans attribution claire à Mélenchon ou à une source spécifique pour cette interprétation. La formulation suggère une neutralité qui ",
+        "phrase": "Cette dette, issue des rachats d’obligations par la Banque centrale européenne (BCE) depuis 2015, est présentée par le leader de la France insoumise comme un levier pour financer des dépenses publiques, telles que la tra"
+      },
+      {
+        "bloc": 1,
+        "type": "accusation_presentee_comme_fait",
+        "description": "La phrase attribue la proposition à Mélenchon, mais la description des titres comme « le résultat des programmes d’achats d’actifs » est présentée comme un fait neutre, alors qu'elle reflète une interprétation contextuel",
+        "phrase": "Jean-Luc Mélenchon propose d’annuler les obligations détenues par la Banque de France, d’un montant de 340 milliards d’euros, selon les données de L’Express [2]. Ces titres, qui représentent environ 18 % de la dette fran"
+      },
+      {
+        "bloc": 1,
+        "type": "accusation_presentee_comme_fait",
+        "description": "L'affirmation sur les conséquences (fragilisation de la crédibilité, hausse des taux) est présentée comme un fait établi, alors qu'il s'agit d'une opinion d'experte non étayée par des données ou une analyse technique dan",
+        "phrase": "À l’inverse, une économiste interrogée par BFM TV indique que cette mesure pourrait fragiliser la crédibilité de la Banque de France et de la BCE, entraînant une hausse des taux d’intérêt pour les emprunts futurs de la F"
+      },
+      {
+        "bloc": 1,
+        "type": "niveau_preuve_insuffisant",
+        "description": "L'article reprend l'affirmation de Pigasse sans signaler explicitement dans la phrase principale que cette analyse est dépourvue de fondement technique, alors que Mediapart le précise. La nuance est reléguée à une subord",
+        "phrase": "Selon Mediapart, l’économiste Matthieu Pigasse estime que cette opération pourrait être réalisée « sans aucun impact économique et sans aucun impact financier », qualifiant la dette détenue par une banque centrale de « f"
+      }
+    ],
+    "types_restants": [
+      "accusation_presentee_comme_fait",
+      "accusation_presentee_comme_fait",
+      "accusation_presentee_comme_fait",
+      "niveau_preuve_insuffisant",
+      "acteur_mis_en_cause_sans_reponse",
+      "source_derivee_comptee_comme_primaire",
+      "compteur_incoherent",
+      "source_non_editoriale",
+      "source_derivee_comptee_comme_primaire",
+      "cadrage_emprunte",
+      "cadrage_emprunte",
+      "faux_debat",
+      "extrapolation",
+      "contexte_hors_sujet"
+    ],
+    "article_type": "actu",
+    "titre": "Effacer 600 milliards de dette française : ce que propose Mélenchon",
+    "n_sources": 6,
+    "n_mots": 559,
+    "titre_rss": "Jean-Luc Mélenchon et l'effacement de la dette : deux mensonges et une omission",
+    "matiere_faits_distincts": 638,
+    "matiere_redondance": 0.03,
+    "matiere_donnees_chiffrees": 3,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "n_sources_pertinentes": 8,
+    "veille_heures_visible": 11.0,
+    "veille_passages": 2,
+    "veille_age_h": 12.2,
+    "veille_n_flux_grappe": 3
+  },
+  {
+    "slug": "explosion-voiture-saint-petersbourg-officier-russe-tue",
+    "statut": "rejete_sensible",
+    "date": "2026-08-28T02:25:18",
+    "sujet_sensible": true,
+    "raison": "affaire pénale en cours (enquête pour déterminer les causes d'une explosion mortelle) visant potentiellement des personnes non identifiées",
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "resume_repete_corps"
+    ],
+    "titre": "Explosion à Saint-Pétersbourg : un officier russe tué dans sa voiture",
+    "n_sources": 3,
+    "n_mots": 363,
+    "titre_rss": "Guerre en Ukraine : Un officier russe tué dans l'explosion d'une voiture à Saint-Pétersbourg, la Russie enquête",
+    "matiere_faits_distincts": 663,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "veille_heures_visible": 11.0,
+    "veille_passages": 2,
+    "veille_age_h": 12.2,
+    "veille_n_flux_grappe": 10
+  },
+  {
+    "slug": "bill-gates-taxe-ia-emplois-reserves-humains",
+    "statut": "rejete_qualite",
+    "date": "2026-08-28T02:42:44",
+    "problemes_initiaux": 9,
+    "tentatives": 3,
+    "problemes_restants": 13,
+    "bloquants_restants": 3,
+    "bloquants_types": [
+      "niveau_preuve_insuffisant",
+      "accusation_presentee_comme_fait",
+      "accusation_presentee_comme_fait"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "niveau_preuve_insuffisant",
+        "description": "La phrase présente une projection comme une opinion personnelle, mais l'article ne précise pas que cette projection n'est pas étayée par des données ou études publiées, ce qui est pourtant mentionné dans la source [9].",
+        "phrase": "Gates a exprimé l'opinion personnelle selon laquelle les progrès rapides de l'IA pourraient réduire le nombre d'emplois disponibles, en particulier dans les secteurs du droit, du service client et du développement logici"
+      },
+      {
+        "bloc": 1,
+        "type": "accusation_presentee_comme_fait",
+        "description": "La proposition de taxe est présentée comme une suggestion de Gates, mais l'article ne précise pas explicitement qu'il s'agit d'une opinion personnelle et non d'un fait établi ou d'une mesure en vigueur.",
+        "phrase": "Gates a suggéré que cette taxe pourrait, à ses yeux, financer la formation professionnelle et renforcer la protection sociale."
+      },
+      {
+        "bloc": 1,
+        "type": "accusation_presentee_comme_fait",
+        "description": "La phrase présente une opinion personnelle de Gates comme un constat neutre, sans attribution claire de son caractère subjectif.",
+        "phrase": "« Il n'y a aucune raison technique pour qu'un robot annonce un diagnostic de maladie incurable, mais je considère que cela ne devrait pas être autorisé », a-t-il expliqué, évoquant son expérience personnelle avec la mala"
+      }
+    ],
+    "types_restants": [
+      "niveau_preuve_insuffisant",
+      "accusation_presentee_comme_fait",
+      "accusation_presentee_comme_fait",
+      "fait_tranche_arbitrairement",
+      "fait_tranche_arbitrairement",
+      "source_derivee_comptee_comme_primaire",
+      "compteur_incoherent",
+      "cadrage_emprunte",
+      "cadrage_emprunte",
+      "extrapolation",
+      "jugement_de_valeur",
+      "faux_debat",
+      "angle_annonce_non_tenu"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "nuances_vagues"
+    ],
+    "titre": "Bill Gates appelle à taxer l'IA et à réserver des emplois aux humains",
+    "n_sources": 10,
+    "n_mots": 708,
+    "titre_rss": "Bill Gates devient alarmiste sur l'IA, propose une taxe et de réserver des emplois aux humains",
+    "matiere_faits_distincts": 763,
+    "matiere_redondance": 0.32,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "n_sources_pertinentes": 9,
+    "veille_heures_visible": 27.4,
+    "veille_passages": 5,
+    "veille_age_h": 28.6,
+    "veille_n_flux_grappe": 2
+  },
+  {
+    "slug": "s301-etoile-rapide-voie-lactee-trou-noir-sagittarius-a",
+    "statut": "rejete_qualite",
+    "date": "2026-08-28T02:54:15",
+    "problemes_initiaux": 9,
+    "tentatives": 3,
+    "problemes_restants": 6,
+    "bloquants_restants": 2,
+    "bloquants_types": [
+      "chiffre_errone",
+      "incoherence_inter_sections"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [4] (ESO) mentionne une vitesse de 25 000 km/s pour S301, et non 24 000 km/s. Le chiffre de 24 000 km/s correspond à S4714, une autre étoile citée dans l'article.",
+        "phrase": "elle atteint une vitesse maximale de 24 000 kilomètres par seconde lors de son passage au plus près du trou noir, soit environ 8 % de la vitesse de la lumière [4]."
+      },
+      {
+        "bloc": 1,
+        "type": "incoherence_inter_sections",
+        "description": "L'article attribue à S301 une vitesse de 24 000 km/s dans cette phrase, alors qu'il avait précédemment indiqué 24 000 km/s pour S4714 et 25 000 km/s pour S301 (chiffre correct selon la source [4]). Cela crée une incohére",
+        "phrase": "S301 partage cette vitesse record avec l’étoile S4714, mesurée à 24 000 km/s en 2020, les deux étoiles étant considérées comme les plus rapides connues à ce jour."
+      }
+    ],
+    "types_restants": [
+      "chiffre_errone",
+      "incoherence_inter_sections",
+      "source_derivee_comptee_comme_primaire",
+      "compteur_incoherent",
+      "contexte_hors_sujet",
+      "redondance"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "faits_repetitifs"
+    ],
+    "titre": "S301, l'étoile la plus rapide de la Voie lactée, frôle Sagittarius A*",
+    "n_sources": 6,
+    "n_mots": 624,
+    "titre_rss": "L’étoile la plus rapide de la Voie lactée fonce à 25.000 km/s autour d’un trou noir",
+    "matiere_faits_distincts": 1073,
+    "matiere_redondance": 0.12,
+    "matiere_donnees_chiffrees": 3,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "veille_heures_visible": 172.1,
+    "veille_passages": 135,
+    "veille_age_h": 173.3,
+    "veille_n_flux_grappe": 1
+  },
+  {
+    "slug": "deces-france-2024-causes-tumeurs-maladies-cardiovasculaires",
+    "statut": "rejete_qualite",
+    "date": "2026-08-28T03:04:11",
+    "problemes_initiaux": 7,
+    "tentatives": 3,
+    "problemes_restants": 8,
+    "bloquants_restants": 3,
+    "bloquants_types": [
+      "chiffre_errone",
+      "niveau_preuve_insuffisant",
+      "niveau_preuve_insuffisant"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "Les chiffres de 173 502 et 135 901 décès correspondent à des valeurs absolues, mais le résumé les associe à des pourcentages (27,1 % et 21,2 %) sans préciser le dénominateur total (nombre total de décès en 2024). Cela pe",
+        "phrase": "Selon les données provisoires publiées en juin 2026, les tumeurs (27,1 %) et les maladies cardio-neurovasculaires (21,2 %) restent les deux premières causes de décès identifiées en France pour 2024, représentant respecti"
+      },
+      {
+        "bloc": 1,
+        "type": "niveau_preuve_insuffisant",
+        "description": "L'article mentionne une progression des maladies respiratoires et un lien possible avec les grippes et pneumonies, mais la source [2] précise que le nombre exact de décès attribuables à ces causes spécifiques n'est pas p",
+        "phrase": "Les maladies respiratoires (hors Covid-19) ont causé 8,2 % des décès en 2024, une progression observée pour la troisième année consécutive [1][2]. Selon les données de Santé Publique France, les grippes et les pneumonies"
+      },
+      {
+        "bloc": 1,
+        "type": "niveau_preuve_insuffisant",
+        "description": "Cette phrase apparaît dans la section « nuances », mais la limite méthodologique (absence de lien direct avec la résistance aux antibiotiques) n'est pas rappelée dans la section « faits » où la hausse des décès liés aux ",
+        "phrase": "La hausse des décès liés à des infections, comme la septicémie ou les infections génito-urinaires, a été relevée depuis 2019. Cependant, les sources disponibles précisent qu’aucun lien direct avec la résistance aux antib"
+      }
+    ],
+    "types_restants": [
+      "chiffre_errone",
+      "niveau_preuve_insuffisant",
+      "niveau_preuve_insuffisant",
+      "source_derivee_comptee_comme_primaire",
+      "compteur_incoherent",
+      "contexte_hors_sujet",
+      "redondance",
+      "redondance"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "faits_repetitifs"
+    ],
+    "titre": "641 046 décès en France en 2024, les tumeurs en tête des causes",
+    "n_sources": 7,
+    "n_mots": 796,
+    "titre_rss": "Grandes causes de décès en France : tendances et causes associées en 2024",
+    "matiere_faits_distincts": 1262,
+    "matiere_redondance": 0.08,
+    "matiere_donnees_chiffrees": 8,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "n_sources_pertinentes": 4,
+    "veille_heures_visible": 379.2,
+    "veille_passages": 289,
+    "veille_age_h": 380.5,
+    "veille_n_flux_grappe": 1
   }
 ]
