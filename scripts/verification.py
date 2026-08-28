@@ -95,11 +95,6 @@ def _provider_auth_rotating_llm_call(*args, **kwargs):
     global _PROVIDER_FATAL_ERROR
     if _PROVIDER_FATAL_ERROR is not None:
         raise RuntimeError(_PROVIDER_FATAL_ERROR)
-    # Une panne de transport ou un 5xx ne dit rien de la qualité de
-    # l'article. Le run du 28/08 a perdu une correction sur timeout
-    # Mistral et une autre sur Groq 504 dès la première tentative.
-    # On autorise UNE seule relance transitoire : assez pour absorber
-    # un incident ponctuel, jamais assez pour masquer une panne durable.
     retry_transitoire_utilise = False
     while True:
         try:
@@ -153,18 +148,9 @@ _verification.corriger = _provider_sources_immutables_corriger
 
 
 def _provider_source_inventee_bibliographie_autorisee(probleme: dict, art: dict) -> bool:
-    """Écarte uniquement le faux ``source_inventee`` qui vise l'entrée
-    bibliographique elle-même alors que son URL figure déjà dans ``sources``.
-
-    Un mauvais renvoi [n], une attribution absente de la liste ou un fait non
-    confirmé restent bloquants : ils n'ont normalement pas l'URL bibliographique
-    autorisée comme ``phrase`` du reproche.
-    """
     if str(probleme.get("type") or "") != "source_inventee" or not isinstance(art, dict):
         return False
-    texte = " ".join(
-        str(probleme.get(k) or "") for k in ("phrase", "description")
-    )
+    texte = " ".join(str(probleme.get(k) or "") for k in ("phrase", "description"))
     if not texte:
         return False
     for source in art.get("sources") or []:
@@ -187,10 +173,7 @@ def _provider_detecter(art: dict, *args, **kwargs):
     problemes = rapport.get("problemes")
     if not isinstance(problemes, list):
         return rapport
-    filtres = [
-        p for p in problemes
-        if not _provider_source_inventee_bibliographie_autorisee(p, art)
-    ]
+    filtres = [p for p in problemes if not _provider_source_inventee_bibliographie_autorisee(p, art)]
     if len(filtres) == len(problemes):
         return rapport
     rapport = copy.deepcopy(rapport)
@@ -203,73 +186,30 @@ def _provider_detecter(art: dict, *args, **kwargs):
 _verification._provider_source_inventee_bibliographie_autorisee = _provider_source_inventee_bibliographie_autorisee
 _verification.detecter = _provider_detecter
 
-_SOURCE_ABSENCE_RE = re.compile(
-    r"(?:la\s+)?source\s*\[?\d+\]?[^.]{0,180}(?:ne\s+(?:pr[ée]cise|mentionne|d[ée]taille|fournit|donne|indique)\s+pas|n['’](?:indique|apporte)\s+pas)",
-    re.IGNORECASE,
-)
-_ARTICLE_OMISSION_RE = re.compile(
-    r"(?:l['’]article|la\s+phrase)[^.]{0,220}(?:ne\s+(?:pr[ée]cise|mentionne|int[èe]gre|d[ée]taille|fournit|donne)\s+pas|omet)",
-    re.IGNORECASE,
-)
-_PREUVE_RENFORCEE_RE = re.compile(
-    r"efficacit[ée]|survie|comparateur|phase\s*[123]|pr[ée]clinique|comme\s+(?:un\s+)?(?:fait|r[ée]sultat)\s+(?:acquis|[ée]tabli)|pr[ée]sente[^.]{0,80}(?:comme\s+[ée]tabli|comme\s+acquis)",
-    re.IGNORECASE,
-)
-_RESERVE_DEJA_PRESENTE_RE = re.compile(
-    r"d[ée]j[àa]\s+(?:mentionn[ée]e?s?|pr[ée]cis[ée]e?s?|indiqu[ée]e?s?|pr[ée]sent[ée]e?s?|int[ée]gr[ée]e?s?)[^.]{0,140}(?:faits|nuances|article|autre\s+section)",
-    re.IGNORECASE,
-)
-_DEMANDE_REPETITION_RESUME_RE = re.compile(
-    r"(?:le\s+)?r[ée]sum[ée][^.]{0,100}\bdoit\b[^.]{0,100}(?:rappeler|reprendre|mentionner|r[ée]p[ée]ter)",
-    re.IGNORECASE,
-)
-_ANNONCE_INTENTION_RE = re.compile(
-    r"\b(?:a|ont)\s+annonc[ée](?:e|es|s)?\s+(?:qu['’]?[a-zà-ÿ]+\s+)?(?:vouloir|envisager|projeter|prévoir)\b",
-    re.IGNORECASE,
-)
-_DESCRIPTION_INTENTION_RE = re.compile(
-    r"\b(?:intention|projet|envisag[ée]|vouloir|conditionnel|pas\s+(?:encore\s+)?acquis|non\s+acquis)\b",
-    re.IGNORECASE,
-)
-_DESCRIPTION_PERIMEE_RE = re.compile(
-    r"\b(?:déjà\s+(?:eu\s+lieu|survenu|réalis[ée]|termin[ée])|annul[ée]|abandonn[ée]|remplac[ée]|n['’]est\s+plus|a\s+déjà\s+eu\s+lieu)\b",
-    re.IGNORECASE,
-)
-_ENTREE_EN_VIGUEUR_RE = re.compile(
-    r"\b(?:est\s+)?entr[ée]e?\s+en\s+vigueur\b",
-    re.IGNORECASE,
-)
-_APPLICATION_ACTUELLE_RE = re.compile(
-    r"\b(?:en\s+cours\s+d['’]application|actuellement\s+applicable|toujours\s+en\s+vigueur|est\s+applicable|est\s+appliqu[ée]e?)\b",
-    re.IGNORECASE,
-)
-_ECHEANCE_FUTURE_RE = re.compile(
-    r"\b(?:à\s+compter\s+du|à\s+partir\s+du)\s+\d{1,2}(?:er)?\s+[a-zà-ÿ]+\s+20\d{2}\b",
-    re.IGNORECASE,
-)
-_VERBE_FUTUR_RE = re.compile(
-    r"\b(?:devra|devront|sera|seront|entrera|entreront|s['’]appliquera|s['’]appliqueront)\b",
-    re.IGNORECASE,
-)
-_DESCRIPTION_PAS_ENCORE_RE = re.compile(
-    r"\b(?:n['’]est\s+pas\s+encore|ne\s+sont\s+pas\s+encore|pas\s+encore)\b[^.]{0,80}\b(?:en\s+vigueur|effective?s?|applicable?s?|appliqu[ée]e?s?)\b",
-    re.IGNORECASE,
-)
-_DESCRIPTION_ECHEANCE_CONTREDITE_RE = re.compile(
-    r"\b(?:report[ée]e?s?|repouss[ée]e?s?|d[ée]cal[ée]e?s?|annul[ée]e?s?|abandonn[ée]e?s?|remplac[ée]e?s?)\b|(?:aucune|pas\s+de)\s+source[^.]{0,80}(?:confirme|[ée]tablit)[^.]{0,40}\bdate\b",
-    re.IGNORECASE,
-)
+_SOURCE_ABSENCE_RE = re.compile(r"(?:la\s+)?source\s*\[?\d+\]?[^.]{0,180}(?:ne\s+(?:pr[ée]cise|mentionne|d[ée]taille|fournit|donne|indique)\s+pas|n['’](?:indique|apporte)\s+pas)", re.IGNORECASE)
+_ARTICLE_OMISSION_RE = re.compile(r"(?:l['’]article|la\s+phrase)[^.]{0,220}(?:ne\s+(?:pr[ée]cise|mentionne|int[èe]gre|d[ée]taille|fournit|donne)\s+pas|omet)", re.IGNORECASE)
+_PREUVE_RENFORCEE_RE = re.compile(r"efficacit[ée]|survie|comparateur|phase\s*[123]|pr[ée]clinique|comme\s+(?:un\s+)?(?:fait|r[ée]sultat)\s+(?:acquis|[ée]tabli)|pr[ée]sente[^.]{0,80}(?:comme\s+[ée]tabli|comme\s+acquis)", re.IGNORECASE)
+_RESERVE_DEJA_PRESENTE_RE = re.compile(r"d[ée]j[àa]\s+(?:mentionn[ée]e?s?|pr[ée]cis[ée]e?s?|indiqu[ée]e?s?|pr[ée]sent[ée]e?s?|int[ée]gr[ée]e?s?)[^.]{0,140}(?:faits|nuances|article|autre\s+section)", re.IGNORECASE)
+_DEMANDE_REPETITION_RESUME_RE = re.compile(r"(?:le\s+)?r[ée]sum[ée][^.]{0,100}\bdoit\b[^.]{0,100}(?:rappeler|reprendre|mentionner|r[ée]p[ée]ter)", re.IGNORECASE)
+_ANNONCE_INTENTION_RE = re.compile(r"\b(?:a|ont)\s+annonc[ée](?:e|es|s)?\s+(?:qu['’]?[a-zà-ÿ]+\s+)?(?:vouloir|envisager|projeter|prévoir)\b", re.IGNORECASE)
+_DESCRIPTION_INTENTION_RE = re.compile(r"\b(?:intention|projet|envisag[ée]|vouloir|conditionnel|pas\s+(?:encore\s+)?acquis|non\s+acquis)\b", re.IGNORECASE)
+_DESCRIPTION_PERIMEE_RE = re.compile(r"\b(?:déjà\s+(?:eu\s+lieu|survenu|réalis[ée]|termin[ée])|annul[ée]|abandonn[ée]|remplac[ée]|n['’]est\s+plus|a\s+déjà\s+eu\s+lieu)\b", re.IGNORECASE)
+_ENTREE_EN_VIGUEUR_RE = re.compile(r"\b(?:est\s+)?entr[ée]e?\s+en\s+vigueur\b", re.IGNORECASE)
+_APPLICATION_ACTUELLE_RE = re.compile(r"\b(?:en\s+cours\s+d['’]application|actuellement\s+applicable|toujours\s+en\s+vigueur|est\s+applicable|est\s+appliqu[ée]e?)\b", re.IGNORECASE)
+_ECHEANCE_FUTURE_RE = re.compile(r"\b(?:à\s+compter\s+du|à\s+partir\s+du)\s+\d{1,2}(?:er)?\s+[a-zà-ÿ]+\s+20\d{2}\b", re.IGNORECASE)
+_VERBE_FUTUR_RE = re.compile(r"\b(?:devra|devront|sera|seront|entrera|entreront|s['’]appliquera|s['’]appliqueront)\b", re.IGNORECASE)
+_DESCRIPTION_PAS_ENCORE_RE = re.compile(r"\b(?:n['’]est\s+pas\s+encore|ne\s+sont\s+pas\s+encore|pas\s+encore)\b[^.]{0,80}\b(?:en\s+vigueur|effective?s?|applicable?s?|appliqu[ée]e?s?)\b", re.IGNORECASE)
+_DESCRIPTION_ECHEANCE_CONTREDITE_RE = re.compile(r"\b(?:report[ée]e?s?|repouss[ée]e?s?|d[ée]cal[ée]e?s?|annul[ée]e?s?|abandonn[ée]e?s?|remplac[ée]e?s?)\b|(?:aucune|pas\s+de)\s+source[^.]{0,80}(?:confirme|[ée]tablit)[^.]{0,40}\bdate\b", re.IGNORECASE)
 _DATE_FR_RE = re.compile(r"\b\d{1,2}(?:er)?\s+[a-zà-ÿ]+\s+20\d{2}\b", re.IGNORECASE)
-_APPROBATION_COMMISSION_RE = re.compile(
-    r"\bcommission\s+europ[ée]enne\s+a\s+approuv[ée]\b",
+_APPROBATION_COMMISSION_RE = re.compile(r"\bcommission\s+europ[ée]enne\s+a\s+approuv[ée]\b", re.IGNORECASE)
+_COMMUNIQUE_COMMISSION_RE = re.compile(r"\bcommuniqu[ée]\s+(?:officiel\s+)?(?:de\s+)?(?:la\s+)?commission\b", re.IGNORECASE)
+_DESCRIPTION_DECISION_CONTREDITE_RE = re.compile(r"\b(?:annul[ée]e?|retir[ée]e?|r[ée]voqu[ée]e?|report[ée]e?|repouss[ée]e?|remplac[ée]e?|provisoire|proposition|non\s+d[ée]finitive?|pas\s+d[ée]finitive?|sous\s+r[ée]serve)\b", re.IGNORECASE)
+_ATTRIBUTION_ACTIVE_RE = re.compile(
+    r"\b(?:plusieurs|certains?|des)\s+[a-zà-ÿ][^,.;:]{0,60}\s+(?:a|ont)\s+(?:qualifi[ée]e?s?|jug[ée]e?s?|estim[ée]e?s?|affirm[ée]e?s?|d[ée]clar[ée]e?s?)\b",
     re.IGNORECASE,
 )
-_COMMUNIQUE_COMMISSION_RE = re.compile(
-    r"\bcommuniqu[ée]\s+(?:officiel\s+)?(?:de\s+)?(?:la\s+)?commission\b",
-    re.IGNORECASE,
-)
-_DESCRIPTION_DECISION_CONTREDITE_RE = re.compile(
-    r"\b(?:annul[ée]e?|retir[ée]e?|r[ée]voqu[ée]e?|report[ée]e?|repouss[ée]e?|remplac[ée]e?|provisoire|proposition|non\s+d[ée]finitive?|pas\s+d[ée]finitive?|sous\s+r[ée]serve)\b",
+_ATTRIBUTION_PASSIVE_RE = re.compile(
+    r"\b(?:est|sont)\s+(?:jug[ée]e?s?|qualifi[ée]e?s?|estim[ée]e?s?)\s+[^,.;:]{0,100}\bpar\s+(?:certains?|plusieurs|des)\s+[a-zà-ÿ]",
     re.IGNORECASE,
 )
 
@@ -287,12 +227,6 @@ def _provider_reproche_exige_source_absente(probleme: dict) -> bool:
 
 
 def _provider_reproche_exige_repetition(probleme: dict) -> bool:
-    """Écarte uniquement un reproche qui reconnaît la réserve déjà présente
-    puis exige explicitement sa répétition dans le résumé.
-
-    La règle est volontairement étroite : une vraie omission, une suraffirmation
-    ou un simple reproche sans aveu de présence ailleurs reste bloquant.
-    """
     if str(probleme.get("type") or "") != "niveau_preuve_insuffisant":
         return False
     description = str(probleme.get("description") or "")
@@ -303,14 +237,6 @@ def _provider_reproche_exige_repetition(probleme: dict) -> bool:
 
 
 def _provider_annonce_intention_pas_perimee(probleme: dict) -> bool:
-    """Écarte un faux ``annonce_perimee`` quand le rapport décrit lui-même
-    une intention toujours au stade de projet, pas un événement devenu passé.
-
-    Le garde exige simultanément : le type exact, une phrase qui dit qu'une
-    entité *a annoncé vouloir/envisager/projeter/prévoir*, et une description
-    qui parle d'intention/projet sans signaler qu'un état plus récent l'a rendu
-    caduc. Une vraie annonce dépassée reste donc bloquante.
-    """
     if str(probleme.get("type") or "") != "annonce_perimee":
         return False
     phrase = str(probleme.get("phrase") or "")
@@ -324,11 +250,6 @@ def _provider_annonce_intention_pas_perimee(probleme: dict) -> bool:
 
 
 def _provider_entree_en_vigueur_pas_perimee(probleme: dict) -> bool:
-    """Écarte uniquement la contradiction logique observée le 26/08 :
-    le juge reproche une entrée en vigueur passée tout en reconnaissant que la
-    réforme est actuellement appliquée. Un doute sur la date exacte reste un
-    défaut de preuve et n'est volontairement pas filtré ici.
-    """
     if str(probleme.get("type") or "") != "annonce_perimee":
         return False
     phrase = str(probleme.get("phrase") or "")
@@ -344,22 +265,11 @@ def _provider_entree_en_vigueur_pas_perimee(probleme: dict) -> bool:
 
 
 def _provider_echeance_future_pas_perimee(probleme: dict) -> bool:
-    """Écarte le faux ``annonce_perimee`` où le juge reproche justement à
-    une échéance future de ne pas être encore entrée en vigueur.
-
-    Le garde exige une date explicite introduite par « à compter/à partir du »,
-    un verbe au futur et l'aveu du rapport que la mesure n'est *pas encore* en
-    vigueur. Un report, une annulation ou une date non établie restent bloquants.
-    """
     if str(probleme.get("type") or "") != "annonce_perimee":
         return False
     phrase = str(probleme.get("phrase") or "")
     description = str(probleme.get("description") or "")
-    if not (
-        _ECHEANCE_FUTURE_RE.search(phrase)
-        and _VERBE_FUTUR_RE.search(phrase)
-        and _DESCRIPTION_PAS_ENCORE_RE.search(description)
-    ):
+    if not (_ECHEANCE_FUTURE_RE.search(phrase) and _VERBE_FUTUR_RE.search(phrase) and _DESCRIPTION_PAS_ENCORE_RE.search(description)):
         return False
     if _DESCRIPTION_PERIMEE_RE.search(description) or _DESCRIPTION_ECHEANCE_CONTREDITE_RE.search(description):
         return False
@@ -368,15 +278,6 @@ def _provider_echeance_future_pas_perimee(probleme: dict) -> bool:
 
 
 def _provider_approbation_commission_meme_jour_pas_perimee(probleme: dict) -> bool:
-    """Écarte le faux ``annonce_perimee`` observé le 28/08 : le juge refuse
-    une approbation de la Commission comme fait accompli précisément parce que
-    le communiqué primaire qui l'établit est daté du jour de la décision.
-
-    Le garde est volontairement étroit : même institution, verbe « a approuvé »,
-    communiqué de la Commission, même date explicite dans la phrase et dans le
-    reproche. Toute annulation, révocation, proposition ou décision provisoire
-    continue de bloquer.
-    """
     if str(probleme.get("type") or "") != "annonce_perimee":
         return False
     phrase = str(probleme.get("phrase") or "")
@@ -393,21 +294,37 @@ def _provider_approbation_commission_meme_jour_pas_perimee(probleme: dict) -> bo
     return True
 
 
+def _provider_accusation_opinion_explicitement_attribuee(probleme: dict) -> bool:
+    """Écarte uniquement un reproche d'accusation quand la phrase attribue déjà
+    explicitement le jugement à un groupe identifié.
+
+    Les deux formes observées sont couvertes : sujet + verbe d'opinion
+    ("plusieurs patrons ont qualifié") et passif avec agent explicite
+    ("est jugée risquée par certains économistes"). Une accusation directe ou
+    un jugement sans auteur identifié reste bloquant.
+    """
+    if str(probleme.get("type") or "") != "accusation_presentee_comme_fait":
+        return False
+    phrase = str(probleme.get("phrase") or "")
+    if not phrase:
+        return False
+    if not (_ATTRIBUTION_ACTIVE_RE.search(phrase) or _ATTRIBUTION_PASSIVE_RE.search(phrase)):
+        return False
+    print("     [JUGE] accusation_presentee_comme_fait écarté — le jugement est déjà explicitement attribué dans la phrase")
+    return True
+
+
 _verification._reproche_exige_source_absente = _provider_reproche_exige_source_absente
 _verification._reproche_exige_repetition = _provider_reproche_exige_repetition
 _verification._annonce_intention_pas_perimee = _provider_annonce_intention_pas_perimee
 _verification._entree_en_vigueur_pas_perimee = _provider_entree_en_vigueur_pas_perimee
 _verification._echeance_future_pas_perimee = _provider_echeance_future_pas_perimee
 _verification._approbation_commission_meme_jour_pas_perimee = _provider_approbation_commission_meme_jour_pas_perimee
+_verification._accusation_opinion_explicitement_attribuee = _provider_accusation_opinion_explicitement_attribuee
 if hasattr(_verification, "_problemes_bloquants"):
     _verification._provider_original_problemes_bloquants = _verification._problemes_bloquants
 
     def _provider_problemes_bloquants(problemes: list, article: dict | None = None) -> list:
-        # `article` est optionnel et TRANSMIS : le moteur partagé s'en sert pour
-        # prouver qu'une réserve réclamée figure déjà dans le corps. L'omettre
-        # ici rendrait le garde-fou muet en production tout en le laissant vert
-        # en test — exactement la panne du 19/08 (deux résolutions divergentes
-        # entre les deux côtés du pipeline).
         retenus = _verification._provider_original_problemes_bloquants(problemes, article)
         return [
             p for p in retenus
@@ -417,6 +334,7 @@ if hasattr(_verification, "_problemes_bloquants"):
             and not _provider_entree_en_vigueur_pas_perimee(p)
             and not _provider_echeance_future_pas_perimee(p)
             and not _provider_approbation_commission_meme_jour_pas_perimee(p)
+            and not _provider_accusation_opinion_explicitement_attribuee(p)
         ]
 
     _verification._problemes_bloquants = _provider_problemes_bloquants
