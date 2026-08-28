@@ -7,9 +7,10 @@ démarrage précédent, pas l'état courant.
 
 ⚠ La distinction verrouillée ici est celle qui compte : `--en-cours` est un
 fait d'ÉTAT (un run tourne), la fenêtre est une heuristique d'économie de
-quota. C'est pourquoi la concurrence s'applique aussi aux crons et n'est pas
-contournable par « forcer » — deux runs simultanés ne sont pas un forçage,
-c'est une collision.
+quota. Le workflow possède déjà un groupe `concurrency` avec
+`cancel-in-progress: false` : les runs queued/waiting/requested sont donc en
+file, pas concurrents. Les prendre pour des runs actifs ferait perdre un run
+sérialisé dès qu'un autre attend derrière lui.
 """
 import json
 import os
@@ -38,17 +39,30 @@ def test_un_run_en_cours_est_signale():
     assert _appel(runs, "99", "--en-cours") == "42"
 
 
-def test_un_run_en_file_compte_aussi():
-    """Un run `queued` va démarrer : le laisser passer recrée la collision."""
+def test_un_run_en_file_ne_compte_pas_comme_concurrent():
+    """Le groupe concurrency sérialise déjà ces états : ils ne consomment pas
+    encore les clés et ne poussent pas en parallèle."""
     for etat in ("queued", "waiting", "requested"):
         runs = [{"id": 7, "status": etat}]
-        assert _appel(runs, "99", "--en-cours") == "7", etat
+        assert _appel(runs, "99", "--en-cours") == "", etat
+
+
+def test_un_run_promu_ne_saute_pas_si_un_autre_attend_derriere():
+    """Régression précise : un run jusque-là queued vient d'être promu et
+    exécute le garde ; un run plus récent reste queued derrière lui. Le run
+    courant doit continuer, sinon GitHub sérialise correctement mais notre
+    garde le supprime quand même."""
+    runs = [
+        {"id": 100, "status": "queued"},
+        {"id": 99, "status": "in_progress"},
+        {"id": 98, "status": "completed", "conclusion": "success"},
+    ]
+    assert _appel(runs, "99", "--en-cours") == ""
 
 
 def test_le_run_courant_ne_se_bloque_pas_lui_meme():
-    """LE piège de ce garde-fou : le run qui pose la question est lui-même
-    `in_progress` dans la liste. S'il se comptait, AUCUN run ne démarrerait
-    jamais — le pipeline serait mort en silence."""
+    """Le run qui pose la question est lui-même `in_progress` dans la liste.
+    S'il se comptait, aucun run ne démarrerait."""
     runs = [{"id": 99, "status": "in_progress"}]
     assert _appel(runs, "99", "--en-cours") == ""
 
