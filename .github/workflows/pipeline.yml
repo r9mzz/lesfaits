@@ -97,6 +97,25 @@ jobs:
           EVENEMENT: ${{ github.event_name }}
         run: |
           FENETRE_MIN=360
+          curl -sS -H "Authorization: Bearer $GH_TOKEN" \
+            "https://api.github.com/repos/${GITHUB_REPOSITORY}/actions/workflows/pipeline.yml/runs?per_page=30" \
+            > /tmp/runs.json || echo '{}' > /tmp/runs.json
+
+          # ── CONCURRENCE : un run DÉJÀ EN COURS écarte celui-ci ─────────────
+          # Critère d'ÉTAT, pas de temps — et donc appliqué à TOUS les
+          # événements, crons compris, et NON contournable par « forcer ».
+          # Deux runs simultanés partagent les mêmes clés du fournisseur et
+          # poussent tous les deux sur main : ce n'est pas un forçage, c'est
+          # une collision. Le 27/08, un run forcé de 4 h 23 a fait perdre les
+          # deux déclenchements suivants — l'un annulé, l'autre exécuté à vide.
+          # « forcer » garde son sens exact : outrepasser la FENÊTRE de 360 min.
+          EN_COURS=$(python3 scripts/dernier_run.py /tmp/runs.json "$GITHUB_RUN_ID" --en-cours)
+          if [ -n "$EN_COURS" ]; then
+            echo "::notice::Run ignoré — le run ${EN_COURS} tourne déjà. Deux runs simultanés se disputeraient les mêmes clés et le même push."
+            echo "passer=true" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+
           if [ "$EVENEMENT" != "workflow_dispatch" ]; then
             echo "Run planifié ($EVENEMENT) — jamais filtré."
             echo "passer=false" >> "$GITHUB_OUTPUT"
@@ -107,9 +126,6 @@ jobs:
             echo "passer=false" >> "$GITHUB_OUTPUT"
             exit 0
           fi
-          curl -sS -H "Authorization: Bearer $GH_TOKEN" \
-            "https://api.github.com/repos/${GITHUB_REPOSITORY}/actions/workflows/pipeline.yml/runs?per_page=30" \
-            > /tmp/runs.json || echo '{}' > /tmp/runs.json
           PRECEDENT=$(python3 scripts/dernier_run.py /tmp/runs.json "$GITHUB_RUN_ID")
           if [ "$PRECEDENT" = "0" ]; then
             echo "Aucun run précédent — on continue."

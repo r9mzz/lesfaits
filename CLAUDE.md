@@ -1,5 +1,73 @@
 # Les Faits — lesfaits.info
 
+## RUNS 287-290 — LE GOULOT SE DÉPLACE À CHAQUE FOIS (27/08)
+
+```
+run   heure UTC        durée   état
+287   13:09 → 17:32    4h23    a tourné
+288   15:00 → 15:50      —     ANNULÉ (superposé à 287)
+289   15:50 → 17:33      —     IGNORÉ, toutes les étapes « skipped »
+290   20:58 → 01:04    4h06    a tourné
+```
+
+**Deux déclenchements sur quatre perdus en collision.** Le `forcer: true` passé
+à 287 l'a fait tourner 4 h 23, écrasant les deux créneaux suivants. La fenêtre
+de 360 min ne pouvait rien : elle mesure le TEMPS ÉCOULÉ depuis le démarrage
+précédent, pas l'état courant.
+
+```
+                        285    287    290
+générations abouties     31     23     30
+refus 402                 1      1      1     ← la rotation tient
+appels fact-check        60     15     36
+timeouts Mistral          0     11      3
+articles au fact-check    7      1      4
+articles publiés          0      0      0
+```
+
+### Deux correctifs, tous deux hors du champ éditorial
+
+**1. Concurrence (`dernier_run.py --en-cours`).** Critère d'ÉTAT, pas de temps :
+appliqué à TOUS les événements, crons compris, et NON contournable par
+« forcer ». Deux runs simultanés partagent les mêmes clés et poussent tous les
+deux sur `main` — ce n'est pas un forçage, c'est une collision. « forcer »
+garde son sens exact : outrepasser la FENÊTRE de 360 min.
+⚠ Le piège verrouillé par test : le run qui pose la question est lui-même
+`in_progress` dans la liste de l'API. S'il se comptait, AUCUN run ne
+démarrerait plus — panne totale et silencieuse.
+
+**2. Relance réseau.** 11 « Read timed out (timeout=180) » sur 287 ont tué
+7 articles DÉJÀ ÉCRITS en `erreur_verification` ; 290 n'en a eu que 3, donc
+c'est transitoire. `_post_avec_relance` côté fact-check (2 relances, 5 s),
+`timeout` + `max_retries` explicites sur le client de génération.
+⚠ **On ne relance JAMAIS une réponse HTTP.** Un 402, un 429, un 400 sont des
+décisions du fournisseur, chacune traitée par son propre chemin ; les relancer
+en aveugle masquerait la panne et ferait repayer l'appel. Verrouillé par test.
+⚠ Le timeout reste à 180 s : le raccourcir transformerait des générations
+valides (lentes par nature) en échecs.
+
+### Le garde-fou « répétition » n'a jamais servi — et ce n'est pas une panne
+
+`[JUGE] reproche écarté` : 0 fois sur 287 et 290. Vérifié en important
+`verification` par le chemin de PRODUCTION (wrapper provider actif) : le garde
+déclenche et l'article est bien transmis. **La famille ne s'est pas présentée.**
+
+Les 12 reproches de 290 sont d'une autre nature, et la plupart paraissent
+FONDÉS : 5 `accusation_presentee_comme_fait` sur des opinions (Mélenchon,
+Pigasse, Gates) écrites comme des constats — c'est la règle 3 de la charte ; un
+`chiffre_errone` qui attribue à S301 la vitesse de S4714 (vrai contresens) ; une
+`incoherence_inter_sections` sur ce même chiffre.
+
+⚠ **Sur ce run, le juge n'est pas le problème** — c'est la sélection qui a fait
+entrer des sujets d'opinion. Ne pas généraliser la relecture du run 285 : le
+taux d'infondés dépend des SUJETS tirés, pas seulement du juge.
+
+### Ce que ces trois runs enseignent, et qui vaut plus que chaque correctif
+
+**Le goulot se déplace à chaque run** : 402 → juge → réseau → sélection. Aucun
+n'était seul responsable, et il n'existe pas de correctif unique qui débloque la
+publication. Ne pas annoncer « la cause est trouvée » après un run.
+
 ## RUN 285 — LE 402 EST RÉGLÉ, LE GOULOT EST LE JUGE (26/08)
 
 Premier run où le tunnel va au bout depuis le passage à Mistral :

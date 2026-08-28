@@ -5,12 +5,21 @@
         run le plus récent hors run courant, ou 0.
     dernier_run.py <fichier.json> <run_id_courant> --sha    → head_sha du
         dernier run RÉUSSI hors run courant, ou chaîne vide.
+    dernier_run.py <fichier.json> <run_id_courant> --en-cours → id d'un run
+        DÉJÀ EN TRAIN DE TOURNER hors run courant, ou chaîne vide.
 
 Sert aux garde-fous anti-déclenchement-redondant de pipeline.yml (fenêtre de
 temps : le quota Groq est la ressource rare) et de deploy.yml (comparaison de
 SHA : ne jamais bloquer un déploiement qui a réellement du neuf à publier).
 En cas de doute on renvoie une valeur neutre — on ne bloque jamais un run
 faute d'information.
+
+⚠ `--en-cours` répond à une question DIFFÉRENTE de la fenêtre de temps, et
+c'est pour ça qu'il est séparé. La fenêtre est une heuristique d'économie de
+quota ; la concurrence est un fait d'état : deux runs simultanés partagent les
+mêmes clés du fournisseur ET poussent tous les deux sur `main`. Les 27/08,
+deux déclenchements sur quatre ont été perdus ainsi — l'un annulé, l'autre
+exécuté à vide pendant que le premier tournait encore.
 """
 import datetime as dt
 import json
@@ -28,6 +37,16 @@ def main() -> None:
     chemin, run_courant = sys.argv[1], sys.argv[2]
     veut_sha = "--sha" in sys.argv
     runs = charger(chemin)
+
+    if "--en-cours" in sys.argv:
+        for r in runs:
+            if str(r.get("id")) == str(run_courant):
+                continue
+            if r.get("status") in ("in_progress", "queued", "waiting", "requested"):
+                print(r.get("id", ""))
+                return
+        print("")
+        return
 
     if veut_sha:
         for r in runs:  # l'API renvoie les runs du plus récent au plus ancien
