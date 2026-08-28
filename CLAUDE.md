@@ -1,5 +1,58 @@
 # Les Faits — lesfaits.info
 
+## POURQUOI ZÉRO ARTICLE : LA GRILLE VITRINE, ET C'EST ARITHMÉTIQUE (28/08)
+
+⚠ **AUCUN article n'a JAMAIS été publié sous Mistral.** Le dernier date du
+**14/08**, la bascule du 18/08. Ne pas répéter « depuis le 21/08 » — c'était
+faux, et ça faisait chercher la cause du mauvais côté de la bascule.
+
+Dix articles ont franchi le fact-check 3 passes EN ENTIER depuis. Ils sont
+morts APRÈS, sur le compte de sources de la vitrine :
+
+```
+sources citées par ces 10 articles
+    3 sources : 6      4 : 1      5 : 2      8 : 1
+
+grille à 3 → 10/10 survivent (100 %)   ← plancher de la charte, règle 7
+grille à 4 →  4/10           ( 40 %)
+grille à 5 →  3/10           ( 30 %)
+grille à 6 →  1/10           ( 10 %)
+```
+
+**À 6, la vitrine rejetait neuf articles sur dix qui avaient passé tout le
+protocole éditorial.** Ce n'est pas un niveau d'exigence, c'est une porte
+fermée.
+
+### La décision de Nahil a été annulée TROIS fois, et le test le permettait
+
+`MIN_SOURCES = 4` (décision de Nahil, 26/08) a été remis à 6 les 24/08, 26/08 à
+03h23 et 26/08 à 15h37 — chaque fois de bonne foi, au nom du mandat « ne jamais
+affaiblir un garde-fou ». Le mandat est le bon. **Le défaut était dans le
+test** : il gelait `MIN_SOURCES >= 6` comme « plancher historique », donc il
+autorisait 4 ET 6 et ne tranchait rien.
+
+`test_grille_vitrine_calibrage.py` encadre désormais des DEUX côtés, sur une
+mesure et non sur un chiffre :
+
+- **bord bas** — strictement au-dessus du plancher de la charte, lu dans
+  `SEUILS_FORMAT` et jamais recopié. C'est ce que les annulations voulaient
+  protéger, et c'est conservé : 3 échoue ;
+- **bord haut** — au moins 35 % des articles ayant franchi le fact-check
+  doivent survivre. 5 et 6 échouent.
+
+Vérifié en rejouant les quatre valeurs : 6 → bloqué (10 %), 5 → bloqué (30 %),
+**4 → passe**, 3 → bloqué (sous la charte). Une seule valeur survit, et elle
+est celle que Nahil avait choisie.
+
+⚠ **n = 10.** C'est peu et aucun réglage fin ne doit s'y appuyer. Ce que ces
+chiffres établissent est un ORDRE DE GRANDEUR — 10 % contre 100 % n'est pas un
+écart de bruit. Refaire la mesure quand la population aura doublé.
+
+⚠ **Ceci ne garantit PAS des articles.** Passer de 1 à 4 candidats sur 10 ne
+dit rien des autres critères de la vitrine (longueur, aération, citations
+réellement appelées, ≥1 source primaire). Si le prochain run publie encore
+zéro, lire le MOTIF de rejet vitrine — ce ne sera plus le même problème.
+
 ## LA MESURE SUR 10 JOURS ANNULE MES DEUX LECTURES D'UN RUN (28/08)
 
 `python scripts/analyser_reproches.py --jours 10` — **n = 134 articles recalés,
