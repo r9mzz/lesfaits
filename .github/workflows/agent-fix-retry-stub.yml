@@ -1,0 +1,38 @@
+name: Agent fix transient retry stub
+
+on:
+  pull_request:
+    paths:
+      - .github/workflows/agent-fix-retry-stub.yml
+      - scripts/agent_fix_retry_stub.py
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  patch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: agent/retry-transient-verification-errors
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Installer les dépendances du runtime
+        run: pip install -r requirements.txt
+      - name: Appliquer et tester la compatibilité
+        run: |
+          python scripts/agent_fix_retry_stub.py
+          python -m py_compile scripts/verification.py scripts/test_verification_transient_retry.py scripts/test_verification_provider_402_failfast.py
+          python scripts/test_verification_transient_retry.py
+          python scripts/test_verification_provider_402_failfast.py
+      - name: Persister la correction sur la branche
+        run: |
+          git config user.name "Les Faits CI Watch"
+          git config user.email "actions@users.noreply.github.com"
+          git rm .github/workflows/agent-fix-retry-stub.yml scripts/agent_fix_retry_stub.py
+          git add scripts/verification.py
+          git commit -m "fix: préserver les stubs du garde 402"
+          git push origin HEAD:agent/retry-transient-verification-errors
