@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-"""Régression : timeout/5xx du fact-check ne doivent pas devenir un rejet éditorial immédiat."""
+"""Régression : timeout/5xx du fact-check ont une seule relance, sans assouplir le fail-closed."""
 from __future__ import annotations
 
 import importlib
@@ -19,11 +19,13 @@ def _reload_verification():
 def test_504_est_relance_une_fois() -> None:
     verification = _reload_verification()
     appels = []
+
     def fake(*args, **kwargs):
         appels.append(1)
         if len(appels) == 1:
             raise RuntimeError('Groq 504: {"message":"Service unavailable"}')
         return '{"conforme": true}'
+
     verification._provider_original_llm_call = fake
     assert verification._llm_call("prompt", max_tokens=1500) == '{"conforme": true}'
     assert len(appels) == 2
@@ -32,11 +34,13 @@ def test_504_est_relance_une_fois() -> None:
 def test_timeout_est_relance_une_fois() -> None:
     verification = _reload_verification()
     appels = []
+
     def fake(*args, **kwargs):
         appels.append(1)
         if len(appels) == 1:
             raise verification.requests.Timeout("read timeout")
         return '{"conforme": true}'
+
     verification._provider_original_llm_call = fake
     assert verification._llm_call("prompt", max_tokens=1500) == '{"conforme": true}'
     assert len(appels) == 2
@@ -45,9 +49,11 @@ def test_timeout_est_relance_une_fois() -> None:
 def test_504_persistant_reste_fail_closed() -> None:
     verification = _reload_verification()
     appels = []
+
     def fake(*args, **kwargs):
         appels.append(1)
         raise RuntimeError('Groq 504: {"message":"Service unavailable"}')
+
     verification._provider_original_llm_call = fake
     try:
         verification._llm_call("prompt", max_tokens=1500)
@@ -61,9 +67,11 @@ def test_504_persistant_reste_fail_closed() -> None:
 def test_400_ne_se_reessaie_pas() -> None:
     verification = _reload_verification()
     appels = []
+
     def fake(*args, **kwargs):
         appels.append(1)
         raise RuntimeError('Groq 400: {"message":"bad request"}')
+
     verification._provider_original_llm_call = fake
     try:
         verification._llm_call("prompt", max_tokens=1500)
