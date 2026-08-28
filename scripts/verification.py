@@ -259,6 +259,19 @@ _DESCRIPTION_ECHEANCE_CONTREDITE_RE = re.compile(
     r"\b(?:report[ée]e?s?|repouss[ée]e?s?|d[ée]cal[ée]e?s?|annul[ée]e?s?|abandonn[ée]e?s?|remplac[ée]e?s?)\b|(?:aucune|pas\s+de)\s+source[^.]{0,80}(?:confirme|[ée]tablit)[^.]{0,40}\bdate\b",
     re.IGNORECASE,
 )
+_DATE_FR_RE = re.compile(r"\b\d{1,2}(?:er)?\s+[a-zà-ÿ]+\s+20\d{2}\b", re.IGNORECASE)
+_APPROBATION_COMMISSION_RE = re.compile(
+    r"\bcommission\s+europ[ée]enne\s+a\s+approuv[ée]\b",
+    re.IGNORECASE,
+)
+_COMMUNIQUE_COMMISSION_RE = re.compile(
+    r"\bcommuniqu[ée]\s+(?:officiel\s+)?(?:de\s+)?(?:la\s+)?commission\b",
+    re.IGNORECASE,
+)
+_DESCRIPTION_DECISION_CONTREDITE_RE = re.compile(
+    r"\b(?:annul[ée]e?|retir[ée]e?|r[ée]voqu[ée]e?|report[ée]e?|repouss[ée]e?|remplac[ée]e?|provisoire|proposition|non\s+d[ée]finitive?|pas\s+d[ée]finitive?|sous\s+r[ée]serve)\b",
+    re.IGNORECASE,
+)
 
 
 def _provider_reproche_exige_source_absente(probleme: dict) -> bool:
@@ -354,11 +367,38 @@ def _provider_echeance_future_pas_perimee(probleme: dict) -> bool:
     return True
 
 
+def _provider_approbation_commission_meme_jour_pas_perimee(probleme: dict) -> bool:
+    """Écarte le faux ``annonce_perimee`` observé le 28/08 : le juge refuse
+    une approbation de la Commission comme fait accompli précisément parce que
+    le communiqué primaire qui l'établit est daté du jour de la décision.
+
+    Le garde est volontairement étroit : même institution, verbe « a approuvé »,
+    communiqué de la Commission, même date explicite dans la phrase et dans le
+    reproche. Toute annulation, révocation, proposition ou décision provisoire
+    continue de bloquer.
+    """
+    if str(probleme.get("type") or "") != "annonce_perimee":
+        return False
+    phrase = str(probleme.get("phrase") or "")
+    description = str(probleme.get("description") or "")
+    if not (_APPROBATION_COMMISSION_RE.search(phrase) and _COMMUNIQUE_COMMISSION_RE.search(description)):
+        return False
+    dates_phrase = {m.group(0).lower() for m in _DATE_FR_RE.finditer(phrase)}
+    dates_description = {m.group(0).lower() for m in _DATE_FR_RE.finditer(description)}
+    if not dates_phrase.intersection(dates_description):
+        return False
+    if _DESCRIPTION_DECISION_CONTREDITE_RE.search(description):
+        return False
+    print("     [JUGE] annonce_perimee écarté — le communiqué primaire de la Commission daté du jour même établit l'approbation comme fait accompli")
+    return True
+
+
 _verification._reproche_exige_source_absente = _provider_reproche_exige_source_absente
 _verification._reproche_exige_repetition = _provider_reproche_exige_repetition
 _verification._annonce_intention_pas_perimee = _provider_annonce_intention_pas_perimee
 _verification._entree_en_vigueur_pas_perimee = _provider_entree_en_vigueur_pas_perimee
 _verification._echeance_future_pas_perimee = _provider_echeance_future_pas_perimee
+_verification._approbation_commission_meme_jour_pas_perimee = _provider_approbation_commission_meme_jour_pas_perimee
 if hasattr(_verification, "_problemes_bloquants"):
     _verification._provider_original_problemes_bloquants = _verification._problemes_bloquants
 
@@ -376,6 +416,7 @@ if hasattr(_verification, "_problemes_bloquants"):
             and not _provider_annonce_intention_pas_perimee(p)
             and not _provider_entree_en_vigueur_pas_perimee(p)
             and not _provider_echeance_future_pas_perimee(p)
+            and not _provider_approbation_commission_meme_jour_pas_perimee(p)
         ]
 
     _verification._problemes_bloquants = _provider_problemes_bloquants
