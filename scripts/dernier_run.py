@@ -6,7 +6,7 @@
     dernier_run.py <fichier.json> <run_id_courant> --sha    → head_sha du
         dernier run RÉUSSI hors run courant, ou chaîne vide.
     dernier_run.py <fichier.json> <run_id_courant> --en-cours → id d'un run
-        DÉJÀ EN TRAIN DE TOURNER hors run courant, ou chaîne vide.
+        RÉELLEMENT EN TRAIN DE TOURNER hors run courant, ou chaîne vide.
 
 Sert aux garde-fous anti-déclenchement-redondant de pipeline.yml (fenêtre de
 temps : le quota Groq est la ressource rare) et de deploy.yml (comparaison de
@@ -20,6 +20,11 @@ quota ; la concurrence est un fait d'état : deux runs simultanés partagent les
 mêmes clés du fournisseur ET poussent tous les deux sur `main`. Les 27/08,
 deux déclenchements sur quatre ont été perdus ainsi — l'un annulé, l'autre
 exécuté à vide pendant que le premier tournait encore.
+
+Le workflow possède déjà `concurrency: cancel-in-progress: false` : GitHub met
+les exécutions suivantes en file. Un run `queued`, `waiting` ou `requested`
+n'est donc PAS un concurrent du run courant ; le compter ici ferait sauter un
+run justement sérialisé par GitHub dès qu'un autre attend derrière lui.
 """
 import datetime as dt
 import json
@@ -42,7 +47,10 @@ def main() -> None:
         for r in runs:
             if str(r.get("id")) == str(run_courant):
                 continue
-            if r.get("status") in ("in_progress", "queued", "waiting", "requested"):
+            # Seul `in_progress` signifie qu'un autre job consomme réellement
+            # les clés et peut pousser en parallèle. Les états queued/waiting/
+            # requested sont sérialisés par le `concurrency` du workflow.
+            if r.get("status") == "in_progress":
                 print(r.get("id", ""))
                 return
         print("")
