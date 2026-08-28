@@ -85,11 +85,30 @@ def _provider_auth_rotating_llm_call(*args, **kwargs):
     global _PROVIDER_FATAL_ERROR
     if _PROVIDER_FATAL_ERROR is not None:
         raise RuntimeError(_PROVIDER_FATAL_ERROR)
+    # Une panne de transport ou un 5xx ne dit rien de la qualité de
+    # l'article. Le run du 28/08 a perdu une correction sur timeout
+    # Mistral et une autre sur Groq 504 dès la première tentative.
+    # On autorise UNE seule relance transitoire : assez pour absorber
+    # un incident ponctuel, jamais assez pour masquer une panne durable.
+    retry_transitoire_utilise = False
     while True:
         try:
             return _verification._provider_original_llm_call(*args, **kwargs)
+        except (_verification.requests.Timeout, _verification.requests.ConnectionError) as exc:
+            if retry_transitoire_utilise:
+                raise
+            retry_transitoire_utilise = True
+            print(f"     [VERIF] panne réseau transitoire ({type(exc).__name__}) — une relance")
+            continue
         except RuntimeError as exc:
             message = str(exc)
+            if re.match(r"Groq 5\d\d:", message):
+                if retry_transitoire_utilise:
+                    raise
+                retry_transitoire_utilise = True
+                libelle = _normaliser_erreur_fournisseur(message).split(":", 1)[0]
+                print(f"     [VERIF] erreur fournisseur transitoire ({libelle}) — une relance")
+                continue
             if message.startswith("Groq 402:"):
                 _PROVIDER_FATAL_ERROR = _normaliser_erreur_fournisseur(message)
                 print("     [VERIF] fournisseur indisponible de façon permanente pour ce processus (HTTP 402) — appels suivants bloqués")
