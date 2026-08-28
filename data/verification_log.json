@@ -21484,5 +21484,195 @@
     "veille_passages": 289,
     "veille_age_h": 380.5,
     "veille_n_flux_grappe": 1
+  },
+  {
+    "slug": "canicules-2026-surmortalite-45-64-ans-donnees-provisoires",
+    "statut": "rejete_sensible",
+    "date": "2026-08-28T08:44:57",
+    "problemes_initiaux": 12,
+    "bloc5": [
+      "acteur_mis_en_cause_sans_reponse"
+    ],
+    "article_type": "actu",
+    "titre": "Canicules 2026 : la surmortalité touche aussi les 45-64 ans",
+    "n_sources": 4,
+    "n_mots": 635,
+    "titre_rss": "Le bilan provisoire des canicules vient bousculer ce que l’on croyait savoir sur leurs victimes",
+    "matiere_faits_distincts": 1021,
+    "matiere_redondance": 0.09,
+    "matiere_donnees_chiffrees": 3,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "veille_heures_visible": 28.9,
+    "veille_passages": 4,
+    "veille_age_h": 31.2,
+    "veille_n_flux_grappe": 1
+  },
+  {
+    "slug": "fin-epidemie-ebola-ouganda-rdc-toujours-en-crise",
+    "statut": "rejete_qualite",
+    "date": "2026-08-28T09:48:38",
+    "problemes_initiaux": 10,
+    "tentatives": 3,
+    "problemes_restants": 10,
+    "bloquants_restants": 4,
+    "bloquants_types": [
+      "chiffre_errone",
+      "niveau_preuve_insuffisant",
+      "niveau_preuve_insuffisant",
+      "niveau_preuve_insuffisant"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "Le résumé présente les chiffres de décès et de cas comme spécifiques à l'épidémie déclarée en mai 2026, alors que la source [2] précise que ces chiffres reflètent l'ensemble des cas et décès enregistrés depuis le début d",
+        "phrase": "Cette avancée contraste avec la situation en République démocratique du Congo (RDC), où la 17e épidémie d'Ebola depuis 1976, déclarée en mai 2026, a causé 2 744 décès sur 5 713 cas confirmés au 25 août 2026, selon les Na"
+      },
+      {
+        "bloc": 1,
+        "type": "niveau_preuve_insuffisant",
+        "description": "L'article ne précise pas le stade des essais cliniques (exploratoires) ni leur caractère préliminaire, alors que la source [2] souligne que les résultats ne sont pas encore concluants et que les essais sont en cours depu",
+        "phrase": "70 000 doses du vaccin Ervebo, efficace contre la souche Zaïre, ont été envoyées en RDC dans le cadre d'essais cliniques exploratoires pour évaluer son impact potentiel contre la souche Bundibugyo."
+      },
+      {
+        "bloc": 1,
+        "type": "niveau_preuve_insuffisant",
+        "description": "La phrase mentionne les essais mais ne rappelle pas explicitement leur caractère exploratoire et préliminaire, ce qui pourrait laisser penser à un niveau de preuve plus avancé que celui décrit par la source [2].",
+        "phrase": "L'OMS précise que ces essais, menés depuis juin 2026, n'ont pas encore produit de résultats concluants sur l'efficacité du vaccin contre cette souche."
+      },
+      {
+        "bloc": 1,
+        "type": "niveau_preuve_insuffisant",
+        "description": "La phrase omet de préciser que les essais sont exploratoires et en cours depuis juin 2026, ce qui est mentionné dans la source [2] et essentiel pour évaluer le niveau de preuve.",
+        "phrase": "L'OMS souligne que les résultats des essais cliniques sur l'efficacité du vaccin Ervebo contre la souche Bundibugyo, attendus pour fin 2026, sont préliminaires et ne permettront pas de conclusions définitives avant plusi"
+      }
+    ],
+    "types_restants": [
+      "chiffre_errone",
+      "niveau_preuve_insuffisant",
+      "niveau_preuve_insuffisant",
+      "niveau_preuve_insuffisant",
+      "source_derivee_comptee_comme_primaire",
+      "compteur_incoherent",
+      "contexte_hors_sujet",
+      "redondance",
+      "section_gonflee",
+      "contexte_hors_sujet"
+    ],
+    "article_type": "actu",
+    "titre": "Fin de l'épidémie d'Ebola en Ouganda, la RDC toujours en alerte",
+    "n_sources": 7,
+    "n_mots": 687,
+    "titre_rss": "Ebola : l’épidémie terminée en Ouganda, l’ONU réclame 1,1 milliard de dollars pour la RD-Congo",
+    "matiere_faits_distincts": 729,
+    "matiere_redondance": 0.07,
+    "matiere_donnees_chiffrees": 2,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "n_sources_pertinentes": 4,
+    "veille_heures_visible": 8.4,
+    "veille_passages": 2,
+    "veille_age_h": 10.7,
+    "veille_n_flux_grappe": 11
+  },
+  {
+    "slug": "retraites-fiscalite-pouvoir-achat-debats-medef-presidentielle-2027",
+    "statut": "rejete_qualite",
+    "date": "2026-08-28T11:25:13",
+    "problemes_initiaux": 7,
+    "tentatives": 3,
+    "problemes_restants": 8,
+    "bloquants_restants": 1,
+    "bloquants_types": [
+      "niveau_preuve_insuffisant"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "niveau_preuve_insuffisant",
+        "description": "La source [2] (Vie Publique) décrit une hypothèse ou un scénario conditionnel (« pourrait être appliquée »), mais l'article présente cette prolongation comme une conséquence quasi certaine (« limiterait les marges de man",
+        "phrase": "Vie Publique précise que, en l’absence d’accord parlementaire sur le projet de loi de finances pour 2027, une prolongation de la loi de finances spéciale pourrait être appliquée, ce qui limiterait les marges de manœuvre "
+      }
+    ],
+    "types_restants": [
+      "niveau_preuve_insuffisant",
+      "fait_tranche_arbitrairement",
+      "source_derivee_comptee_comme_primaire",
+      "source_derivee_comptee_comme_primaire",
+      "compteur_incoherent",
+      "contexte_hors_sujet",
+      "redondance",
+      "faux_debat"
+    ],
+    "article_type": "actu",
+    "titre": "Retraites, fiscalité et pouvoir d’achat au cœur des débats du Medef",
+    "n_sources": 3,
+    "n_mots": 399,
+    "titre_rss": "Débat de la présidentielle 2027 : fiscalité, réforme des retraites, pouvoir d’achat… Sept candidats se sont affrontés devant les chefs d’entreprise",
+    "matiere_faits_distincts": 1205,
+    "matiere_redondance": 0.01,
+    "matiere_donnees_chiffrees": 3,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "veille_heures_visible": 8.4,
+    "veille_passages": 2,
+    "veille_age_h": 10.7,
+    "veille_n_flux_grappe": 4
+  },
+  {
+    "slug": "grece-4-8-milliards-transition-energetique-sociale",
+    "statut": "rejete_qualite",
+    "date": "2026-08-28T12:38:10",
+    "problemes_initiaux": 7,
+    "tentatives": 3,
+    "problemes_restants": 9,
+    "bloquants_restants": 2,
+    "bloquants_types": [
+      "annonce_perimee",
+      "annonce_perimee"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "annonce_perimee",
+        "description": "Le résumé présente l'approbation du plan comme un événement passé (« a approuvé »), alors que la source [1] (communiqué de la Commission du 27 août 2026) est datée du même jour que l'événement. Aucune source ne confirme ",
+        "phrase": "Le 27 août 2026, la Commission européenne a approuvé le plan social pour le climat de la Grèce, financé par les recettes des quotas d'émission de CO₂, afin d'atténuer l'impact de la transition écologique sur les populati"
+      },
+      {
+        "bloc": 1,
+        "type": "annonce_perimee",
+        "description": "Même problème que dans le résumé : la phrase présente l'approbation comme un fait accompli (« a approuvé »), alors que la source [1] est un communiqué daté du 27 août 2026, jour même de l'événement. Aucune confirmation r",
+        "phrase": "Le 27 août 2026, la Commission européenne a approuvé le plan social pour le climat de la Grèce, doté d'une enveloppe de 4,8 milliards d'euros pour la période 2026-2027 [1]."
+      }
+    ],
+    "types_restants": [
+      "annonce_perimee",
+      "annonce_perimee",
+      "fait_tranche_arbitrairement",
+      "source_derivee_comptee_comme_primaire",
+      "compteur_incoherent",
+      "source_derivee_comptee_comme_primaire",
+      "formule_vague",
+      "contexte_hors_sujet",
+      "extrapolation"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "faits_repetitifs"
+    ],
+    "titre": "Grèce : 4,8 milliards d'euros pour une transition énergétique sociale",
+    "n_sources": 3,
+    "n_mots": 429,
+    "titre_rss": "la Commission approuve le plan social pour le climat de la Grèce, doté d'un budget de 4,8 milliards d'euros, visant à soutenir les ménages vulnérables, les usagers des transports et les microentrepris",
+    "matiere_faits_distincts": 904,
+    "matiere_redondance": 0.04,
+    "matiere_donnees_chiffrees": 5,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "veille_heures_visible": 8.4,
+    "veille_passages": 2,
+    "veille_age_h": 10.7,
+    "veille_n_flux_grappe": 8
   }
 ]
