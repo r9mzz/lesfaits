@@ -6,6 +6,9 @@ import importlib
 import os
 import sys
 
+# Une panne transitoire peut produire au maximum deux appels au fournisseur :
+# l'appel initial et une unique relance. Les 4xx restent immédiats.
+
 
 def _reload_verification():
     for name in ("verification", "verification_legacy"):
