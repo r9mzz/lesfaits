@@ -21674,5 +21674,412 @@
     "veille_passages": 2,
     "veille_age_h": 10.7,
     "veille_n_flux_grappe": 8
+  },
+  {
+    "slug": "tourisme-france-2025-retombees-restauration-inegales",
+    "statut": "rejete_qualite",
+    "date": "2026-08-28T14:10:13",
+    "problemes_initiaux": 10,
+    "tentatives": 3,
+    "problemes_restants": 11,
+    "bloquants_restants": 1,
+    "bloquants_types": [
+      "source_inventee"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "La source [4] (Les Échos Études) ne mentionne pas explicitement une contestation par Atout France des chiffres espagnols. Cette affirmation n'est pas confirmée par les sources autorisées.",
+        "phrase": "Atout France, l’agence de promotion du tourisme, a contesté certains chiffres espagnols, estimant que certaines dépenses incluses ne relevaient pas directement du tourisme, ce qui pourrait fausser les classements [4]."
+      }
+    ],
+    "types_restants": [
+      "source_derivee_comptee_comme_primaire",
+      "source_derivee_comptee_comme_primaire",
+      "compteur_incoherent",
+      "source_non_editoriale",
+      "source_derivee_comptee_comme_primaire",
+      "source_inventee",
+      "source_derivee_comptee_comme_primaire",
+      "contexte_hors_sujet",
+      "redondance",
+      "section_gonflee",
+      "acteur_mis_en_cause_sans_reponse"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "faits_repetitifs"
+    ],
+    "titre": "Tourisme record en France : 20,6 milliards d’euros pour la restauration, mais pas pour tous",
+    "n_sources": 5,
+    "n_mots": 514,
+    "titre_rss": "France, première destination touristique mondiale : des retombées inégalement réparties dans la restauration",
+    "matiere_faits_distincts": 1005,
+    "matiere_redondance": 0.01,
+    "matiere_donnees_chiffrees": 11,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "veille_heures_visible": 8.4,
+    "veille_passages": 2,
+    "veille_age_h": 15.6,
+    "veille_n_flux_grappe": 1,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "enquete-csf-2023-inegalites-sante-sexuelle-outre-mer",
+    "statut": "corrige_automatiquement",
+    "date": "2026-08-28T14:45:30",
+    "problemes_initiaux": 13,
+    "tentatives": 2,
+    "problemes_residuels_style": 6,
+    "rapport_initial": {
+      "conforme": false,
+      "sujet_sensible": false,
+      "sujet_sensible_raison": "",
+      "angle_insuffisant": false,
+      "angle_insuffisant_raison": "",
+      "nature_contenu": "etude_scientifique",
+      "problemes": [
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "niveau_preuve_insuffisant",
+          "phrase_exacte": "Les données révèlent des lacunes en matière de prévention. Selon Outremers360, le recours au préservatif lors de nouvelles relations sexuelles reste inférieur à 55 % dans les quatre territoires [11].",
+          "explication": "La source [11] (Outremers360) n'est pas une publication scientifique ou institutionnelle primaire, et l'article ne précise pas la méthodologie de collecte de cette donnée (période, échantillon, méthode de calcul), ce qui est insuffisant pour un résultat présenté comme un constat factuel."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "niveau_preuve_insuffisant",
+          "phrase_exacte": "La couverture vaccinale contre les papillomavirus humains (HPV) est également faible : seulement 27,9 % des jeunes femmes et 18,9 % des jeunes hommes âgés de 18 à 29 ans sont vaccinés, loin de l’objectif national de 80 % [11].",
+          "explication": "Le chiffre de couverture vaccinale est attribué à Outremers360 [11], mais la source primaire (Inserm ou FNORS) devrait être citée pour un indicateur aussi précis, surtout en l'absence de détails méthodologiques dans l'article."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "niveau_preuve_insuffisant",
+          "phrase_exacte": "Entre un quart et un tiers des femmes en âge de procréer n’utilisent aucune méthode contraceptive, contre 9 % en métropole [11]. En Guadeloupe, ce taux atteint 35,1 % chez les 18-29 ans.",
+          "explication": "L'article ne précise pas la période de référence, la définition de 'femmes en âge de procréer' ou la méthodologie de calcul, alors que ces éléments sont essentiels pour interpréter un taux de non-recours à la contraception. La source [11] (Outremers360) n'est pas suffisante pour un indicateur aussi technique."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "niveau_preuve_insuffisant",
+          "phrase_exacte": "Ces chiffres se traduisent par une proportion élevée de grossesses non souhaitées, déclarées par 29 % à 37,2 % des femmes selon les territoires [11].",
+          "explication": "L'article ne précise pas si ces grossesses non souhaitées sont auto-déclarées, ni la période de référence, ni la méthodologie de collecte, ce qui est insuffisant pour un indicateur aussi sensible. La source [11] (Outremers360) n'est pas une source primaire."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "niveau_preuve_insuffisant",
+          "phrase_exacte": "Entre 22,7 % (La Réunion) et 28,7 % (Guyane) des femmes déclarent avoir subi un viol ou une tentative au cours de leur vie, avec des proportions dépassant un tiers chez les plus jeunes [11].",
+          "explication": "L'article ne précise pas si ces déclarations concernent des violences auto-déclarées ou confirmées, ni la période de référence, ni les limites méthodologiques (biais de mémoire, libération de la parole). La source [11] (Outremers360) n'est pas une source primaire pour un indicateur aussi grave."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "niveau_preuve_insuffisant",
+          "phrase_exacte": "L’âge médian au premier rapport sexuel a augmenté depuis 2008 dans la plupart des territoires, sauf en Guyane, où il reste plus précoce (17,4 ans pour les femmes, 15,7 ans pour les hommes) [5].",
+          "explication": "L'article ne précise pas si cette comparaison avec 2008 repose sur des données comparables (même méthodologie, même échantillon), ce qui est essentiel pour une tendance évolutive. La source [5] (FNORS) devrait être complétée par la source primaire (Inserm)."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "accusation_presentee_comme_fait",
+          "phrase_exacte": "France Info souligne que ces résultats reflètent à la fois une exposition accrue et une libération progressive de la parole [4].",
+          "explication": "L'article présente l'interprétation de France Info comme un fait établi (« reflètent »), alors qu'il s'agit d'une hypothèse ou d'une analyse éditoriale. La formulation devrait être attribuée explicitement (« selon France Info »)."
+        },
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "source_derivee_comptee_comme_primaire",
+          "phrase_exacte": "Selon Outremers360, le recours au préservatif lors de nouvelles relations sexuelles reste inférieur à 55 % dans les quatre territoires [11]. La couverture vaccinale contre les papillomavirus humains (HPV) est également faible : seulement 27,9 % des jeunes femmes et 18,9 % des jeunes hommes âgés de 18 à 29 ans sont vaccinés, loin de l’objectif national de 80 % [11].",
+          "explication": "Outremers360 [11] est une source secondaire qui relaie des données de l'Inserm ou de la FNORS. Elle ne peut pas être comptée comme une source indépendante pour des chiffres précis, surtout quand les sources primaires (Inserm, FNORS) sont disponibles."
+        },
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "source_derivee_comptee_comme_primaire",
+          "phrase_exacte": "Zinfos974 rapporte qu’à La Réunion, cette évolution s’accompagne d’une sexualité plus tardive et d’une évolution des mentalités [8].",
+          "explication": "Zinfos974 [8] est une source secondaire qui commente les résultats de l'Inserm. Elle ne peut pas être comptée comme une source indépendante pour des interprétations ou des tendances."
+        },
+        {
+          "bloc": 2,
+          "section": "global",
+          "type": "compteur_incoherent",
+          "phrase_exacte": "nb_sources: 7",
+          "explication": "Le compteur indique 7 sources, mais seules 4 sont effectivement utilisées dans le corps de l'article (Inserm [1], FNORS [5], Outremers360 [11], Zinfos974 [8]). Les autres sources (Ined, France Info, VIH) sont listées mais non citées dans le texte."
+        },
+        {
+          "bloc": 3,
+          "section": "resume",
+          "type": "extrapolation",
+          "phrase_exacte": "Ces constats appellent des politiques de prévention adaptées aux spécificités locales.",
+          "explication": "L'article extrapole une conséquence non sourcée (« appellent des politiques de prévention ») à partir des données présentées. Aucune source ne confirme cette recommandation ou cette nécessité."
+        },
+        {
+          "bloc": 4,
+          "section": "nuances",
+          "type": "redondance",
+          "phrase_exacte": "Les premiers résultats de l’enquête CSF-2023 dans les Outre-mer doivent être interprétés avec prudence. Les données disponibles à ce stade sont succinctes et ne permettent pas de comparaisons avec l’Hexagone ou les enquêtes antérieures [5].",
+          "explication": "Cette précision est déjà donnée dans le résumé (« Les résultats, encore partiels, ne permettent pas de comparaisons avec l’Hexagone ou les enquêtes antérieures ») et dans les faits (« Les résultats, encore partiels, ne permettent pas de comparaisons avec l’Hexagone ou avec les enquêtes antérieures menées dans ces territoires en 2004 et 2012 [5] »). Elle est redondante."
+        },
+        {
+          "bloc": 4,
+          "section": "contexte",
+          "type": "contexte_hors_sujet",
+          "phrase_exacte": "L’enquête CSF-2023 s’inscrit dans une lignée de travaux sur la sexualité en France, initiée en 1970 par une première étude auprès de 2 600 personnes [3]. Elle fait suite aux enquêtes de 1992 et 2006, toutes deux pilotées par l’Inserm et l’Ined, et financées par l’ANRS.",
+          "explication": "Ce développement sur l'historique des enquêtes CSF en métropole n'éclaire pas directement les résultats de l'enquête CSF-2023 dans les Outre-mer, qui est le sujet principal de l'article. Il s'agit d'un contexte générique sans lien précis avec les données présentées."
+        }
+      ]
+    },
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "faits_repetitifs"
+    ],
+    "titre": "Enquête CSF-2023 : les inégalités de santé sexuelle dans les Outre-mer",
+    "n_sources": 7,
+    "n_mots": 783,
+    "titre_rss": "Premiers résultats de l’enquête CSF-2023 dans les Outre-Mer : focus sur la Guyane, la Martinique, la Guadeloupe et La Réunion",
+    "matiere_faits_distincts": 784,
+    "matiere_redondance": 0.09,
+    "matiere_donnees_chiffrees": 2,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "n_sources_pertinentes": 4,
+    "veille_heures_visible": 387.6,
+    "veille_passages": 290,
+    "veille_age_h": 394.8,
+    "veille_n_flux_grappe": 11,
+    "nature_contenu": "etude_scientifique"
+  },
+  {
+    "slug": "ue-valide-plan-grec-4-8-milliards-transition-energetique",
+    "statut": "corrige_automatiquement",
+    "date": "2026-08-28T15:02:48",
+    "problemes_initiaux": 7,
+    "tentatives": 1,
+    "problemes_residuels_style": 6,
+    "rapport_initial": {
+      "conforme": false,
+      "sujet_sensible": false,
+      "sujet_sensible_raison": "",
+      "angle_insuffisant": false,
+      "angle_insuffisant_raison": "",
+      "nature_contenu": "decision_officielle",
+      "problemes": [
+        {
+          "bloc": 1,
+          "section": "resume",
+          "type": "annonce_perimee",
+          "phrase_exacte": "La Commission européenne a approuvé le 27 août 2026 un plan grec de 4,8 milliards d’euros, le plus important jamais adopté dans le cadre du Fonds social pour le climat.",
+          "explication": "Le résumé présente l'approbation comme un événement passé (« a approuvé »), alors que la source [1] (Europa) confirme qu'il s'agit d'une décision officielle datée du 27 août 2026, donc déjà survenue. Le problème n'est pas la date, mais l'emploi du présent de narration pour un fait accompli, ce qui est correct, mais la formulation du résumé ne reflète pas explicitement que l'événement est déjà acté. Cependant, ce n'est pas une annonce périmée stricto sensu, car la source confirme bien l'approbation. Ce point est donc à reclasser : il n'y a pas de contradiction chronologique, mais une formulation ambiguë. **Correction** : ce n'est pas un problème valide, car la source confirme l'approbation comme un fait accompli."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "niveau_preuve_insuffisant",
+          "phrase_exacte": "Il cible trois groupes prioritaires : les ménages vulnérables, les usagers des transports et les microentreprises, sans détailler les critères d’éligibilité ni les montants alloués à chacun [1].",
+          "explication": "La source [1] (Europa) ne fournit effectivement aucun détail sur les critères d'éligibilité ou les montants alloués. Cependant, l'article présente cette absence d'information comme un constat neutre (« sans détailler »), ce qui est exact. Ce n'est pas un problème de niveau de preuve, car l'article ne prétend pas fournir ces détails. **Correction** : ce n'est pas un problème valide."
+        },
+        {
+          "bloc": 2,
+          "section": "contexte",
+          "type": "source_derivee_comptee_comme_primaire",
+          "phrase_exacte": "Le Fonds social pour le climat a été créé en 2023 pour accompagner l’extension du marché carbone européen aux secteurs du bâtiment et des transports routiers, entrée en vigueur en 2027 [1].\n\nDoté de 65 milliards d’euros pour la période 2026-2032, ce fonds est financé par les recettes des quotas d’émission et vise une réduction de 62 % des émissions couvertes d’ici 2030 par rapport à 2005 [1].",
+          "explication": "La source [1] (Europa) est la seule citée pour ces informations, mais elle ne fait que relayer des éléments institutionnels déjà connus (création du fonds, budget global, objectifs). Aucune autre source indépendante ne confirme ces données, et l'article les présente comme des faits établis sans préciser qu'il s'agit d'une reprise d'un communiqué de la Commission. Cependant, la charte autorise une source primaire institutionnelle pour des faits officiels. **Correction** : ce n'est pas un problème valide, car une source primaire institutionnelle suffit pour des décisions officielles."
+        },
+        {
+          "bloc": 2,
+          "section": "sources",
+          "type": "compteur_incoherent",
+          "phrase_exacte": "",
+          "explication": "Le champ \"nb_sources\" indique 3, mais seules deux sources sont effectivement utilisées dans l'article ([1] pour Europa et aucune pour les deux autres). Les sources Insee et Données annuelles 2025 et 2026 ne sont jamais citées dans le corps de l'article, ce qui fausse le compteur."
+        },
+        {
+          "bloc": 2,
+          "section": "contexte",
+          "type": "contexte_hors_sujet",
+          "phrase_exacte": "Les États membres peuvent l’utiliser pour des aides directes au revenu, des investissements dans la rénovation énergétique ou la décarbonation des systèmes de chauffage [1].",
+          "explication": "Cette information, bien que vraie et sourcée, est générique et ne porte pas spécifiquement sur le plan grec. Elle n'éclaire pas directement le sujet principal de l'article (le plan grec de 4,8 milliards) et sert uniquement à remplir la section « Contexte »."
+        },
+        {
+          "bloc": 4,
+          "section": "nuances",
+          "type": "extrapolation",
+          "phrase_exacte": "Le plafonnement du prix du carbone à 45 euros la tonne en 2027 pourrait limiter les recettes du fonds, réduisant ainsi les montants disponibles pour les aides [1].",
+          "explication": "L'article anticipe une conséquence future (« pourrait limiter les recettes ») sans que cette projection soit explicitement sourcée. La source [1] mentionne le plafonnement du prix du carbone, mais ne lie pas ce plafonnement à une réduction des recettes du fonds grec."
+        },
+        {
+          "bloc": 4,
+          "section": "positions",
+          "type": "faux_debat",
+          "phrase_exacte": "\"positions\": {\"verifie\": false, \"label_gauche\": \"\", \"label_droite\": \"\", \"acteurs\": []}",
+          "explication": "La section \"positions\" est vide, ce qui simule un équilibre ou un débat inexistant. Le plan grec est une décision unilatérale de la Commission européenne, sans désaccord symétrique à présenter. Une section vide est trompeuse."
+        }
+      ]
+    },
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "resume_repete_corps",
+      "faits_repetitifs"
+    ],
+    "titre": "L'UE valide un plan grec de 4,8 milliards pour la transition énergétique",
+    "n_sources": 3,
+    "n_mots": 386,
+    "titre_rss": "la Commission approuve le plan social pour le climat de la Grèce, doté d'un budget de 4,8 milliards d'euros, visant à soutenir les ménages vulnérables, les usagers des transports et les microentrepris",
+    "matiere_faits_distincts": 1344,
+    "matiere_redondance": 0.1,
+    "matiere_donnees_chiffrees": 3,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "veille_heures_visible": 8.4,
+    "veille_passages": 2,
+    "veille_age_h": 15.6,
+    "veille_n_flux_grappe": 8,
+    "nature_contenu": "decision_officielle"
+  },
+  {
+    "slug": "maroc-fuite-donnees-70000-agents-renseignement-jabaroot",
+    "statut": "rejete_sensible",
+    "date": "2026-08-28T15:50:31",
+    "sujet_sensible": true,
+    "raison": "L'article porte sur une fuite de données sensibles impliquant des agents de renseignement et des tensions diplomatiques, avec des accusations non vérifiées et des acteurs non étatiques (hackers, anciens agents) dont les motivations et l'identité sont incertaines.",
+    "article_type": "actu",
+    "titre": "Maroc : 70 000 agents du renseignement exposés par une fuite massive",
+    "n_sources": 5,
+    "n_mots": 523,
+    "titre_rss": "Maroc : cette fuite de données massive qui expose des agents du renseignement",
+    "matiere_faits_distincts": 941,
+    "matiere_redondance": 0.03,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "veille_heures_visible": 8.4,
+    "veille_passages": 2,
+    "veille_age_h": 15.6,
+    "veille_n_flux_grappe": 3,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "etude-500000-personnes-sommeil-sept-heures-vieillissement-ralenti",
+    "statut": "rejete_qualite",
+    "date": "2026-08-28T16:15:15",
+    "etape": "correction",
+    "tentative": 1,
+    "erreur": "Groq 504: {\"object\":\"error\",\"message\":\"Service unavailable.\",\"type\":\"internal_server_error\",\"param\":null,\"code\":\"3804\",\"raw_status_code\":504}",
+    "bloquants_connus": 3,
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "faits_repetitifs"
+    ],
+    "titre": "Une étude sur 500 000 personnes lie sept heures de sommeil à un vieillissement biologique ralenti",
+    "n_sources": 6,
+    "n_mots": 493,
+    "titre_rss": "Une vaste étude révèle que ceux qui dorment ce nombre d’heures chaque jour vieillissent moins vite que les autres",
+    "matiere_faits_distincts": 747,
+    "matiere_redondance": 0.01,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "veille_heures_visible": 0.0,
+    "veille_passages": 1,
+    "veille_age_h": 7.2,
+    "veille_n_flux_grappe": 5,
+    "nature_contenu": "etude_scientifique"
+  },
+  {
+    "slug": "insee-revision-pib-baisse-canicules-2026",
+    "statut": "rejete_qualite",
+    "date": "2026-08-28T16:53:50",
+    "tentative": 3,
+    "perte_substance": true,
+    "section": "contexte",
+    "mots_avant": 96,
+    "mots_apres": 45,
+    "article_type": "actu",
+    "titre": "L'Insee révise à la baisse le PIB du premier trimestre 2026 en raison des canicules",
+    "n_sources": 4,
+    "n_mots": 397,
+    "titre_rss": "La croissance de la France revue à la baisse… Une conséquence des canicules",
+    "matiere_faits_distincts": 1010,
+    "matiere_redondance": 0.04,
+    "matiere_donnees_chiffrees": 2,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "dette-france-annulation-partielle-proposition-melenchon",
+    "statut": "rejete_qualite",
+    "date": "2026-08-28T17:33:49",
+    "problemes_initiaux": 11,
+    "tentatives": 3,
+    "problemes_restants": 13,
+    "bloquants_restants": 4,
+    "bloquants_types": [
+      "niveau_preuve_insuffisant",
+      "niveau_preuve_insuffisant",
+      "niveau_preuve_insuffisant",
+      "niveau_preuve_insuffisant"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "niveau_preuve_insuffisant",
+        "description": "L'article ne précise pas le niveau d'expertise ou le nombre de juristes consultés, ni les limites méthodologiques de cette analyse préliminaire, alors que la source [1] qualifie explicitement cette analyse de préliminair",
+        "phrase": "\"Des juristes interrogés par Les Échos estiment que les traités européens, interdisant le financement monétaire des États, rendraient cette annulation illégale, une analyse qualifiée de « préliminaire » par la source [1]"
+      },
+      {
+        "bloc": 1,
+        "type": "niveau_preuve_insuffisant",
+        "description": "L'article ne précise pas le nombre d'économistes consultés, ni les limites méthodologiques de cette analyse exploratoire, alors que les sources [1] et [3] qualifient explicitement cette analyse d'exploratoire.",
+        "phrase": "\"Des économistes cités par Les Échos et Le Figaro considèrent, dans une analyse exploratoire, que cette opération pourrait être interprétée comme un défaut partiel, risquant d'affaiblir la crédibilité financière de la Fr"
+      },
+      {
+        "bloc": 1,
+        "type": "niveau_preuve_insuffisant",
+        "description": "L'article ne précise pas le niveau d'expertise ou le nombre de juristes consultés, ni les limites méthodologiques de cette analyse préliminaire, alors que la source [1] qualifie explicitement cette analyse de préliminair",
+        "phrase": "\"Des juristes interrogés par Les Échos estiment, dans une analyse préliminaire, que les traités européens, qui interdisent à la BCE de financer directement les États membres, rendraient une telle mesure illégale [1].\""
+      },
+      {
+        "bloc": 1,
+        "type": "niveau_preuve_insuffisant",
+        "description": "L'article ne précise pas le nombre d'économistes consultés, ni les limites méthodologiques de cette étude exploratoire, alors que les sources [1] et [3] qualifient explicitement cette analyse d'exploratoire.",
+        "phrase": "\"Des économistes cités par Les Échos et Le Figaro soulignent, dans une étude exploratoire, que cette opération pourrait être interprétée comme un défaut partiel par les marchés financiers, ce qui entraînerait une hausse "
+      }
+    ],
+    "types_restants": [
+      "compteur_incoherent",
+      "source_derivee_comptee_comme_primaire",
+      "compteur_incoherent",
+      "source_derivee_comptee_comme_primaire",
+      "source_derivee_comptee_comme_primaire",
+      "redondance",
+      "redondance",
+      "faux_debat",
+      "niveau_preuve_insuffisant",
+      "niveau_preuve_insuffisant",
+      "niveau_preuve_insuffisant",
+      "niveau_preuve_insuffisant",
+      "redondance"
+    ],
+    "article_type": "actu",
+    "titre": "Dette française : Mélenchon relance l'idée d'une annulation partielle",
+    "n_sources": 4,
+    "n_mots": 444,
+    "titre_rss": "Jean-Luc Mélenchon et l'effacement de la dette : deux mensonges et une omission",
+    "matiere_faits_distincts": 344,
+    "matiere_redondance": 0.01,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "n_sources_pertinentes": 9,
+    "veille_heures_visible": 19.4,
+    "veille_passages": 3,
+    "veille_age_h": 26.6,
+    "veille_n_flux_grappe": 4,
+    "nature_contenu": "actualite_factuelle"
   }
 ]
