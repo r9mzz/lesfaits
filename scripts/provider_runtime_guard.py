@@ -139,7 +139,10 @@ def validate_provider_env(env: dict[str, str] | None = None) -> None:
             values["GROQ_MODEL_OVERRIDE"] = _MISTRAL_RUNTIME_DEFAULT
 
     # Le runner de production appelle sans ``env`` : c'est le seul chemin où
-    # l'on effectue une sonde réelle. Les tests et outils qui passent un dict
-    # restent purement déterministes et sans réseau.
-    if env is None and base_url:
+    # l'on effectue une sonde réelle. Les tests de résolution de modèle lancent
+    # volontairement le runner avec de fausses clés ; ils posent donc le garde
+    # explicite ci-dessous. Cette variable n'est pas câblée dans pipeline.yml :
+    # la production sonde toujours réellement le fournisseur.
+    skip_probe = str(values.get("LLM_SKIP_ACCESS_PROBE", "") or "").strip() == "1"
+    if env is None and base_url and not skip_probe:
         validate_provider_access(values)
