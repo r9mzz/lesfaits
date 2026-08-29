@@ -182,6 +182,13 @@ class SitemapLastmodTests(unittest.TestCase):
         finally:
             tmp.cleanup()
 
+    def test_deploy_post_commit_passes_explicit_previous_ref(self):
+        workflow = Path(".github/workflows/deploy.yml").read_text(encoding="utf-8")
+        self.assertGreaterEqual(
+            workflow.count("normalize_sitemap_lastmod.py\" --root /tmp/site --baseline-ref HEAD~1"),
+            2,
+        )
+
     def test_falls_back_to_date_published(self):
         tmp, root = self._root()
         try:
