@@ -1,5 +1,5 @@
 """Régression : configuration fournisseur atomique et modèle runtime cohérent."""
-from provider_runtime_guard import validate_provider_env
+from provider_runtime_guard import validate_provider_access, validate_provider_env
 
 
 def expect_ok(env):
@@ -51,5 +51,57 @@ expect_fail({"LLM_BASE_URL": "https://api.mistral.ai/v1", "LLM_API_KEY": "   "})
 expect_fail({"LLM_API_KEY": "secret"})
 expect_fail({"LLM_BASE_URL": "", "LLM_API_KEY": "secret"})
 expect_fail({"LLM_BASE_URL": "   ", "LLM_API_KEY": "secret"})
+
+
+class FakeResponse:
+    def __init__(self, status_code, text=""):
+        self.status_code = status_code
+        self.text = text
+
+
+def fake_post_from(statuses, calls):
+    remaining = iter(statuses)
+
+    def post(url, **kwargs):
+        calls.append((url, kwargs))
+        status = next(remaining)
+        return FakeResponse(status, f"status={status}")
+
+    return post
+
+
+# Régression run #297 : une clé 402 puis des clés 403 tier_not_allowed ne doit
+# plus faire tenter des dizaines de sujets. Si TOUTES les clés ont une panne
+# permanente, le run échoue avant la collecte.
+env_permanent = {
+    "LLM_BASE_URL": "https://api.mistral.ai/v1",
+    "LLM_API_KEY": "key1",
+    "LLM_API_KEY_2": "key2",
+    "LLM_API_KEY_3": "key3",
+    "GROQ_MODEL_OVERRIDE": "mistral-large-latest",
+}
+calls = []
+try:
+    validate_provider_access(env_permanent, post=fake_post_from([402, 403, 403], calls))
+except RuntimeError as exc:
+    message = str(exc)
+    assert "mistral-large-latest" in message
+    assert "402" in message and "403" in message
+    assert "avant collecte" in message
+else:
+    raise AssertionError("trois refus permanents fournisseur n'ont pas arrêté le prévol")
+assert len(calls) == 3
+assert all(call[1]["json"]["model"] == "mistral-large-latest" for call in calls)
+
+# Une clé refusée n'interdit pas le run si une autre clé a réellement accès.
+calls = []
+validate_provider_access(env_permanent, post=fake_post_from([403, 200], calls))
+assert len(calls) == 2
+
+# Un incident transitoire ne doit pas être transformé en panne permanente :
+# le pipeline possède déjà ses retries pour 429/5xx/réseau.
+calls = []
+validate_provider_access(env_permanent, post=fake_post_from([503, 403, 403], calls))
+assert len(calls) == 3
 
 print("OK provider runtime guard")
