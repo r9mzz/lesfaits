@@ -11,7 +11,7 @@ def test_horodatage_est_dans_le_checkout_public_avant_extraction_des_slugs() -> 
     commit = 'git commit -m "$MESSAGE"'
     stamp = 'scripts/stamp_publication_times.py'
     site_dir = '--site-dir /tmp/site --previous-ref HEAD~1'
-    renormalize = 'scripts/normalize_sitemap_lastmod.py" --root /tmp/site'
+    renormalize = 'scripts/normalize_sitemap_lastmod.py" --root /tmp/site --baseline-ref HEAD~1'
     amend = 'git commit --amend --no-edit'
     slugs = 'git diff --name-only --diff-filter=A HEAD~1 HEAD -- articles/'
     push = 'git push'
@@ -36,8 +36,10 @@ def test_horodatage_est_dans_le_checkout_public_avant_extraction_des_slugs() -> 
 def test_sitemap_est_renormalise_apres_estampillage() -> None:
     text = DEPLOY.read_text(encoding="utf-8")
     stamp = text.index('scripts/stamp_publication_times.py')
-    normalize = text.index('scripts/normalize_sitemap_lastmod.py" --root /tmp/site', stamp)
-    check = text.index('scripts/normalize_sitemap_lastmod.py" --root /tmp/site --check', normalize)
+    normalize_token = 'scripts/normalize_sitemap_lastmod.py" --root /tmp/site --baseline-ref HEAD~1'
+    check_token = 'scripts/normalize_sitemap_lastmod.py" --root /tmp/site --baseline-ref HEAD~1 --check'
+    normalize = text.index(normalize_token, stamp)
+    check = text.index(check_token, normalize + len(normalize_token))
     amend = text.index('git commit --amend --no-edit', check)
     assert stamp < normalize < check < amend
 
@@ -48,6 +50,7 @@ def test_le_workflow_post_deploiement_n_est_pas_unique_barriere() -> None:
     block = text[block_start:]
     assert 'scripts/stamp_publication_times.py' in block
     assert '--site-dir /tmp/site --previous-ref HEAD~1' in block
+    assert block.count('--baseline-ref HEAD~1') >= 2
 
 
 if __name__ == "__main__":

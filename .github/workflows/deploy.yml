@@ -237,8 +237,8 @@ jobs:
           # L'estampillage peut remettre les HTML de catégorie exactement à leur
           # état public canonique. Recalculer ensuite le sitemap empêche de conserver
           # un lastmod du jour issu du rebuild alors que la page finale n'a pas changé.
-          python "${GITHUB_WORKSPACE}/scripts/normalize_sitemap_lastmod.py" --root /tmp/site
-          python "${GITHUB_WORKSPACE}/scripts/normalize_sitemap_lastmod.py" --root /tmp/site --check
+          python "${GITHUB_WORKSPACE}/scripts/normalize_sitemap_lastmod.py" --root /tmp/site --baseline-ref HEAD~1
+          python "${GITHUB_WORKSPACE}/scripts/normalize_sitemap_lastmod.py" --root /tmp/site --baseline-ref HEAD~1 --check
 
           git add -A
           git diff --cached --quiet || git commit --amend --no-edit

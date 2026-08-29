@@ -11,10 +11,9 @@ vraies pages indexables.
 
 Pour les URL hors ``/articles/`` (accueil, archive, pages statiques et
 catégories), le rebuild peut aussi avancer artificiellement ``lastmod`` alors
-que le fichier HTML correspondant n'a pas changé. Avant le premier commit
-public, la référence est HEAD. Lors d'une seconde normalisation exécutée après
-ce commit, la référence devient HEAD~1 afin de comparer au véritable état
-public précédent et non au sitemap fraîchement généré.
+que le fichier HTML correspondant n'a pas changé. La référence publique est
+explicite : HEAD par défaut avant le commit public ; le workflow de déploiement
+passe HEAD~1 lors de la seconde normalisation exécutée après ce commit.
 """
 from __future__ import annotations
 
@@ -121,21 +120,6 @@ def _git_path_unchanged(root: Path, ref: str, rel: str) -> bool | None:
     return None
 
 
-def _baseline_ref(root: Path) -> str:
-    """Choisit l'état public de référence pour les pages hors articles.
-
-    Si sitemap.xml diffère de HEAD, on est avant le commit public et HEAD est
-    bien l'état servi précédent. Si le sitemap est déjà commité et HEAD~1
-    existe, on est dans la normalisation post-commit : HEAD est alors le
-    rebuild courant et il faut comparer au véritable état public précédent.
-    """
-    if _git_path_unchanged(root, "HEAD", "sitemap.xml") is not True:
-        return "HEAD"
-    if _git_show(root, "HEAD~1", "sitemap.xml") is not None:
-        return "HEAD~1"
-    return "HEAD"
-
-
 def _committed_sitemap(root: Path, ref: str) -> str | None:
     return _git_show(root, ref, "sitemap.xml")
 
@@ -167,10 +151,14 @@ def _lastmods_by_url(text: str) -> dict[str, str]:
     return {match.group(2): match.group(3) for match in ALL_URL_RE.finditer(text)}
 
 
-def _restore_unchanged_non_article_lastmods(root: Path, text: str) -> tuple[str, int, int]:
-    """Restaure les lastmod du véritable état public précédent."""
-    ref = _baseline_ref(root)
-    committed = _committed_sitemap(root, ref)
+def _restore_unchanged_non_article_lastmods(
+    root: Path,
+    text: str,
+    *,
+    baseline_ref: str = "HEAD",
+) -> tuple[str, int, int]:
+    """Restaure les lastmod de la référence publique explicitement fournie."""
+    committed = _committed_sitemap(root, baseline_ref)
     if not committed:
         return text, 0, 0
     previous = _lastmods_by_url(committed)
@@ -185,7 +173,7 @@ def _restore_unchanged_non_article_lastmods(root: Path, text: str) -> tuple[str,
         if not page:
             return match.group(0)
         seen += 1
-        if _unchanged_from_ref(root, page, ref) is not True:
+        if _unchanged_from_ref(root, page, baseline_ref) is not True:
             return match.group(0)
         old = previous.get(url)
         if not old or old == current:
@@ -196,7 +184,12 @@ def _restore_unchanged_non_article_lastmods(root: Path, text: str) -> tuple[str,
     return ALL_URL_RE.sub(replace, text), seen, changed
 
 
-def normalize(root: Path = ROOT, *, check: bool = False) -> dict[str, int]:
+def normalize(
+    root: Path = ROOT,
+    *,
+    check: bool = False,
+    baseline_ref: str = "HEAD",
+) -> dict[str, int]:
     sitemap = root / "sitemap.xml"
     articles_dir = root / "articles"
     text = sitemap.read_text(encoding="utf-8")
@@ -239,7 +232,9 @@ def normalize(root: Path = ROOT, *, check: bool = False) -> dict[str, int]:
         )
 
     updated, non_articles, non_article_changed = _restore_unchanged_non_article_lastmods(
-        root, updated
+        root,
+        updated,
+        baseline_ref=baseline_ref,
     )
     if check and (changed or removed or non_article_changed):
         raise RuntimeError(
@@ -268,8 +263,17 @@ def main() -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument("--root", type=Path, default=ROOT)
     parser.add_argument("--check", action="store_true")
+    parser.add_argument(
+        "--baseline-ref",
+        default="HEAD",
+        help="Référence Git représentant l'état public précédent pour les pages hors articles (défaut: HEAD).",
+    )
     args = parser.parse_args()
-    normalize(args.root.resolve(), check=args.check)
+    normalize(
+        args.root.resolve(),
+        check=args.check,
+        baseline_ref=args.baseline_ref,
+    )
     return 0
 
 

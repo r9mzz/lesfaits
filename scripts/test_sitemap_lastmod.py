@@ -89,8 +89,42 @@ class SitemapLastmodTests(unittest.TestCase):
         finally:
             tmp.cleanup()
 
+    def test_default_baseline_stays_head_when_sitemap_matches_head(self):
+        """Un sitemap inchangé ne doit pas suffire à deviner qu'on est après le commit."""
+        tmp = tempfile.TemporaryDirectory()
+        root = Path(tmp.name)
+        try:
+            (root / "articles").mkdir()
+            (root / "categories").mkdir()
+            (root / "articles" / "exemple.html").write_text(ARTICLE, encoding="utf-8")
+            (root / "categories" / "science.html").write_text("science ancienne", encoding="utf-8")
+            old = (
+                '<?xml version="1.0"?><urlset>'
+                '<url><loc>https://lesfaits.info/categories/science.html</loc><lastmod>2026-08-19</lastmod></url>'
+                '<url><loc>https://lesfaits.info/articles/exemple.html</loc><lastmod>2026-08-06</lastmod><changefreq>monthly</changefreq></url>'
+                '</urlset>'
+            )
+            (root / "sitemap.xml").write_text(old, encoding="utf-8")
+            self._init_git(root)
+            self._commit(root, "public ancien")
+
+            current = old.replace("2026-08-19", "2026-08-20")
+            (root / "categories" / "science.html").write_text("science publique actuelle", encoding="utf-8")
+            (root / "sitemap.xml").write_text(current, encoding="utf-8")
+            self._commit(root, "public actuel")
+
+            # Simule un rebuild pré-commit qui change la page mais laisse le sitemap
+            # exactement identique à HEAD. La référence correcte reste HEAD.
+            (root / "categories" / "science.html").write_text("science ancienne", encoding="utf-8")
+            result = sm.normalize(root)
+            text = (root / "sitemap.xml").read_text(encoding="utf-8")
+            self.assertEqual(result["non_article_changed"], 0)
+            self.assertIn('<loc>https://lesfaits.info/categories/science.html</loc><lastmod>2026-08-20</lastmod>', text)
+        finally:
+            tmp.cleanup()
+
     def test_post_commit_normalization_uses_previous_public_commit(self):
-        """Après le commit du rebuild, HEAD ne doit pas devenir sa propre référence."""
+        """Après le commit du rebuild, HEAD~1 doit être fourni explicitement."""
         tmp = tempfile.TemporaryDirectory()
         root = Path(tmp.name)
         try:
@@ -112,7 +146,7 @@ class SitemapLastmodTests(unittest.TestCase):
             (root / "sitemap.xml").write_text(rebuilt, encoding="utf-8")
             self._commit(root, "publication automatique")
 
-            result = sm.normalize(root)
+            result = sm.normalize(root, baseline_ref="HEAD~1")
             text = (root / "sitemap.xml").read_text(encoding="utf-8")
             self.assertEqual(result["non_article_changed"], 1)
             self.assertIn('<loc>https://lesfaits.info/categories/science.html</loc><lastmod>2026-08-20</lastmod>', text)
@@ -141,12 +175,19 @@ class SitemapLastmodTests(unittest.TestCase):
             (root / "sitemap.xml").write_text(initial.replace("2026-08-20", "2026-08-29"), encoding="utf-8")
             self._commit(root, "publication automatique")
 
-            result = sm.normalize(root)
+            result = sm.normalize(root, baseline_ref="HEAD~1")
             text = (root / "sitemap.xml").read_text(encoding="utf-8")
             self.assertEqual(result["non_article_changed"], 0)
             self.assertIn('<loc>https://lesfaits.info/categories/science.html</loc><lastmod>2026-08-29</lastmod>', text)
         finally:
             tmp.cleanup()
+
+    def test_deploy_post_commit_passes_explicit_previous_ref(self):
+        workflow = Path(".github/workflows/deploy.yml").read_text(encoding="utf-8")
+        self.assertGreaterEqual(
+            workflow.count("normalize_sitemap_lastmod.py\" --root /tmp/site --baseline-ref HEAD~1"),
+            2,
+        )
 
     def test_falls_back_to_date_published(self):
         tmp, root = self._root()
