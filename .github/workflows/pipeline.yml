@@ -291,16 +291,16 @@ jobs:
         run: |
           LOG="${RUNNER_TEMP}/lesfaits-pipeline.log"
           [ -f "$LOG" ] || exit 0
-          REFUS=$(grep -cE "Error code: (401|402|429)" "$LOG" || true)
+          REFUS=$(grep -cE "Error code: (401|402|403|404|429)|toutes les clés refusées par erreur permanente" "$LOG" || true)
           OK=$(grep -cE "\[TOKENS\] prompt=" "$LOG" || true)
-          echo "Refus d'authentification/quota : ${REFUS} · générations abouties : ${OK}"
+          echo "Refus/pannes d'accès fournisseur : ${REFUS} · générations abouties : ${OK}"
           if [ "$REFUS" -gt 0 ] && [ "$OK" -eq 0 ]; then
-            echo "::error::Fournisseur injoignable — ${REFUS} refus, aucune génération. Vérifier les clés et le quota sur le fournisseur."
+            echo "::error::Fournisseur injoignable — ${REFUS} refus/panne(s) d'accès, aucune génération. Vérifier les clés, le palier et le quota sur le fournisseur."
             {
               echo ""
               echo "## ⛔ Panne fournisseur"
               echo ""
-              echo "- Refus (401/402/429) : ${REFUS}"
+              echo "- Refus/pannes d'accès (401/402/403/404/429 ou prévol permanent) : ${REFUS}"
               echo "- Générations abouties : ${OK}"
               echo ""
               echo "Ce run n'a produit AUCUN appel modèle réussi. Ce n'est pas un run stérile, c'est une panne d'accès."
