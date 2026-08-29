@@ -38,6 +38,10 @@ def main() -> None:
         env = dict(_os0.environ)
         env.pop("GROQ_MODEL_OVERRIDE", None)
         env.setdefault("GROQ_API_KEY", "x")
+        # Ce test mesure la résolution du modèle avec une fausse clé et doit
+        # rester strictement hors réseau. Le workflow de production n'exporte
+        # jamais ce drapeau : la sonde réelle reste donc obligatoire en run.
+        env["LLM_SKIP_ACCESS_PROBE"] = "1"
         env.update(env_sup)
         code = ("import run_pipeline_v3, pipeline, verification_legacy;"
                 "print(pipeline.GROQ_MODEL, verification_legacy.GROQ_MODEL)")
