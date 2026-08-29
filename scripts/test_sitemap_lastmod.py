@@ -29,6 +29,15 @@ class SitemapLastmodTests(unittest.TestCase):
         )
         return tmp, root
 
+    def _init_git(self, root: Path) -> None:
+        subprocess.run(["git", "init"], cwd=root, check=True, capture_output=True)
+        subprocess.run(["git", "config", "user.email", "test@example.invalid"], cwd=root, check=True)
+        subprocess.run(["git", "config", "user.name", "Regression Test"], cwd=root, check=True)
+
+    def _commit(self, root: Path, message: str) -> None:
+        subprocess.run(["git", "add", "."], cwd=root, check=True)
+        subprocess.run(["git", "commit", "-m", message], cwd=root, check=True, capture_output=True)
+
     def test_uses_date_modified_and_keeps_static_urls_outside_git(self):
         tmp, root = self._root()
         try:
@@ -46,7 +55,6 @@ class SitemapLastmodTests(unittest.TestCase):
             tmp.cleanup()
 
     def test_zero_article_rebuild_restores_unchanged_non_article_lastmod(self):
-        """Un rebuild ne doit pas antidater fictivement toutes les pages du site."""
         tmp = tempfile.TemporaryDirectory()
         root = Path(tmp.name)
         try:
@@ -65,15 +73,9 @@ class SitemapLastmodTests(unittest.TestCase):
                 '</urlset>'
             )
             (root / "sitemap.xml").write_text(initial, encoding="utf-8")
+            self._init_git(root)
+            self._commit(root, "baseline")
 
-            subprocess.run(["git", "init"], cwd=root, check=True, capture_output=True)
-            subprocess.run(["git", "config", "user.email", "test@example.invalid"], cwd=root, check=True)
-            subprocess.run(["git", "config", "user.name", "Regression Test"], cwd=root, check=True)
-            subprocess.run(["git", "add", "."], cwd=root, check=True)
-            subprocess.run(["git", "commit", "-m", "baseline"], cwd=root, check=True, capture_output=True)
-
-            # Simule le rebuild historique : tout le hors-article passe au jour
-            # courant, mais seule archive.html a réellement changé.
             rebuilt = initial.replace("2026-08-17", "2026-08-18")
             (root / "sitemap.xml").write_text(rebuilt, encoding="utf-8")
             (root / "archive.html").write_text("archive réellement modifiée", encoding="utf-8")
@@ -82,18 +84,67 @@ class SitemapLastmodTests(unittest.TestCase):
             text = (root / "sitemap.xml").read_text(encoding="utf-8")
             self.assertEqual(result["non_article_changed"], 2)
             self.assertIn('<loc>https://lesfaits.info/</loc><lastmod>2026-08-17</lastmod>', text)
-            self.assertIn(
-                '<loc>https://lesfaits.info/categories/science.html</loc><lastmod>2026-08-17</lastmod>',
-                text,
+            self.assertIn('<loc>https://lesfaits.info/categories/science.html</loc><lastmod>2026-08-17</lastmod>', text)
+            self.assertIn('<loc>https://lesfaits.info/archive.html</loc><lastmod>2026-08-18</lastmod>', text)
+        finally:
+            tmp.cleanup()
+
+    def test_post_commit_normalization_uses_previous_public_commit(self):
+        """Après le commit du rebuild, HEAD ne doit pas devenir sa propre référence."""
+        tmp = tempfile.TemporaryDirectory()
+        root = Path(tmp.name)
+        try:
+            (root / "articles").mkdir()
+            (root / "categories").mkdir()
+            (root / "articles" / "exemple.html").write_text(ARTICLE, encoding="utf-8")
+            (root / "categories" / "science.html").write_text("science stable", encoding="utf-8")
+            initial = (
+                '<?xml version="1.0"?><urlset>'
+                '<url><loc>https://lesfaits.info/categories/science.html</loc><lastmod>2026-08-20</lastmod></url>'
+                '<url><loc>https://lesfaits.info/articles/exemple.html</loc><lastmod>2026-08-06</lastmod><changefreq>monthly</changefreq></url>'
+                '</urlset>'
             )
-            self.assertIn(
-                '<loc>https://lesfaits.info/archive.html</loc><lastmod>2026-08-18</lastmod>',
-                text,
+            (root / "sitemap.xml").write_text(initial, encoding="utf-8")
+            self._init_git(root)
+            self._commit(root, "public précédent")
+
+            rebuilt = initial.replace("2026-08-20", "2026-08-29")
+            (root / "sitemap.xml").write_text(rebuilt, encoding="utf-8")
+            self._commit(root, "publication automatique")
+
+            result = sm.normalize(root)
+            text = (root / "sitemap.xml").read_text(encoding="utf-8")
+            self.assertEqual(result["non_article_changed"], 1)
+            self.assertIn('<loc>https://lesfaits.info/categories/science.html</loc><lastmod>2026-08-20</lastmod>', text)
+        finally:
+            tmp.cleanup()
+
+    def test_post_commit_keeps_lastmod_when_page_really_changed(self):
+        tmp = tempfile.TemporaryDirectory()
+        root = Path(tmp.name)
+        try:
+            (root / "articles").mkdir()
+            (root / "categories").mkdir()
+            (root / "articles" / "exemple.html").write_text(ARTICLE, encoding="utf-8")
+            (root / "categories" / "science.html").write_text("ancienne science", encoding="utf-8")
+            initial = (
+                '<?xml version="1.0"?><urlset>'
+                '<url><loc>https://lesfaits.info/categories/science.html</loc><lastmod>2026-08-20</lastmod></url>'
+                '<url><loc>https://lesfaits.info/articles/exemple.html</loc><lastmod>2026-08-06</lastmod><changefreq>monthly</changefreq></url>'
+                '</urlset>'
             )
-            self.assertIn(
-                '<loc>https://lesfaits.info/articles/exemple.html</loc><lastmod>2026-08-06</lastmod>',
-                text,
-            )
+            (root / "sitemap.xml").write_text(initial, encoding="utf-8")
+            self._init_git(root)
+            self._commit(root, "public précédent")
+
+            (root / "categories" / "science.html").write_text("science réellement modifiée", encoding="utf-8")
+            (root / "sitemap.xml").write_text(initial.replace("2026-08-20", "2026-08-29"), encoding="utf-8")
+            self._commit(root, "publication automatique")
+
+            result = sm.normalize(root)
+            text = (root / "sitemap.xml").read_text(encoding="utf-8")
+            self.assertEqual(result["non_article_changed"], 0)
+            self.assertIn('<loc>https://lesfaits.info/categories/science.html</loc><lastmod>2026-08-29</lastmod>', text)
         finally:
             tmp.cleanup()
 

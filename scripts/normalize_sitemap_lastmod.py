@@ -11,10 +11,10 @@ vraies pages indexables.
 
 Pour les URL hors ``/articles/`` (accueil, archive, pages statiques et
 catégories), le rebuild peut aussi avancer artificiellement ``lastmod`` alors
-que le fichier HTML correspondant n'a pas changé. Dans le checkout Git utilisé
-par le runtime, on restaure alors le ``lastmod`` du sitemap commité dans HEAD.
-Si la page HTML a réellement changé depuis HEAD, on conserve au contraire la
-nouvelle date produite par le rebuild.
+que le fichier HTML correspondant n'a pas changé. Avant le premier commit
+public, la référence est HEAD. Lors d'une seconde normalisation exécutée après
+ce commit, la référence devient HEAD~1 afin de comparer au véritable état
+public précédent et non au sitemap fraîchement généré.
 """
 from __future__ import annotations
 
@@ -28,7 +28,6 @@ from urllib.parse import unquote, urlparse
 
 ROOT = Path(__file__).resolve().parent.parent
 
-# Capture l'entrée complète afin de pouvoir supprimer proprement une redirection.
 URL_RE = re.compile(
     r"\s*<url><loc>https://lesfaits\.info/articles/([^<]+)\.html</loc>"
     r"<lastmod>([^<]+)</lastmod>(.*?)</url>",
@@ -92,15 +91,13 @@ def article_metadata(path: Path) -> tuple[str | None, bool]:
             if date:
                 return date, False
 
-    # Compatibilité avec quelques anciennes vraies pages publiées avant le JSON-LD.
     match = TIME_RE.search(html)
     return (match.group(2) if match else None), False
 
 
-def _committed_sitemap(root: Path) -> str | None:
-    """Lit ``HEAD:sitemap.xml`` ; retourne None hors d'un checkout Git exploitable."""
+def _git_show(root: Path, ref: str, path: str) -> str | None:
     proc = subprocess.run(
-        ["git", "-C", str(root), "show", "HEAD:sitemap.xml"],
+        ["git", "-C", str(root), "show", f"{ref}:{path}"],
         capture_output=True,
         text=True,
         encoding="utf-8",
@@ -108,6 +105,39 @@ def _committed_sitemap(root: Path) -> str | None:
         check=False,
     )
     return proc.stdout if proc.returncode == 0 and proc.stdout else None
+
+
+def _git_path_unchanged(root: Path, ref: str, rel: str) -> bool | None:
+    proc = subprocess.run(
+        ["git", "-C", str(root), "diff", "--quiet", ref, "--", rel],
+        stdout=subprocess.DEVNULL,
+        stderr=subprocess.DEVNULL,
+        check=False,
+    )
+    if proc.returncode == 0:
+        return True
+    if proc.returncode == 1:
+        return False
+    return None
+
+
+def _baseline_ref(root: Path) -> str:
+    """Choisit l'état public de référence pour les pages hors articles.
+
+    Si sitemap.xml diffère de HEAD, on est avant le commit public et HEAD est
+    bien l'état servi précédent. Si le sitemap est déjà commité et HEAD~1
+    existe, on est dans la normalisation post-commit : HEAD est alors le
+    rebuild courant et il faut comparer au véritable état public précédent.
+    """
+    if _git_path_unchanged(root, "HEAD", "sitemap.xml") is not True:
+        return "HEAD"
+    if _git_show(root, "HEAD~1", "sitemap.xml") is not None:
+        return "HEAD~1"
+    return "HEAD"
+
+
+def _committed_sitemap(root: Path, ref: str) -> str | None:
+    return _git_show(root, ref, "sitemap.xml")
 
 
 def _page_for_url(root: Path, url: str) -> Path | None:
@@ -125,23 +155,12 @@ def _page_for_url(root: Path, url: str) -> Path | None:
     return candidate if candidate.is_file() else None
 
 
-def _unchanged_from_head(root: Path, page: Path) -> bool | None:
-    """True si la page suivie est identique à HEAD, False si elle a changé."""
+def _unchanged_from_ref(root: Path, page: Path, ref: str) -> bool | None:
     try:
         rel = page.resolve().relative_to(root.resolve()).as_posix()
     except ValueError:
         return None
-    proc = subprocess.run(
-        ["git", "-C", str(root), "diff", "--quiet", "HEAD", "--", rel],
-        stdout=subprocess.DEVNULL,
-        stderr=subprocess.DEVNULL,
-        check=False,
-    )
-    if proc.returncode == 0:
-        return True
-    if proc.returncode == 1:
-        return False
-    return None
+    return _git_path_unchanged(root, ref, rel)
 
 
 def _lastmods_by_url(text: str) -> dict[str, str]:
@@ -149,8 +168,9 @@ def _lastmods_by_url(text: str) -> dict[str, str]:
 
 
 def _restore_unchanged_non_article_lastmods(root: Path, text: str) -> tuple[str, int, int]:
-    """Restaure le lastmod HEAD des pages hors articles qui n'ont pas changé."""
-    committed = _committed_sitemap(root)
+    """Restaure les lastmod du véritable état public précédent."""
+    ref = _baseline_ref(root)
+    committed = _committed_sitemap(root, ref)
     if not committed:
         return text, 0, 0
     previous = _lastmods_by_url(committed)
@@ -165,7 +185,7 @@ def _restore_unchanged_non_article_lastmods(root: Path, text: str) -> tuple[str,
         if not page:
             return match.group(0)
         seen += 1
-        if _unchanged_from_head(root, page) is not True:
+        if _unchanged_from_ref(root, page, ref) is not True:
             return match.group(0)
         old = previous.get(url)
         if not old or old == current:
@@ -210,10 +230,6 @@ def normalize(root: Path = ROOT, *, check: bool = False) -> dict[str, int]:
         )
 
     updated = URL_RE.sub(replace, text)
-    # Si le sitemap contient encore une URL /articles/ mais que la regexp n'en
-    # reconnaît aucune, c'est un changement de format qu'il faut bloquer. En
-    # revanche un sitemap sans aucun article est valide (par exemple après le
-    # retrait du seul stub de redirection dans un test ou un corpus vide).
     if seen == 0 and "https://lesfaits.info/articles/" in text:
         raise RuntimeError("Entrées article présentes mais format sitemap non reconnu")
     if missing_slugs:
