@@ -38,11 +38,9 @@ def main() -> None:
         env = dict(_os0.environ)
         env.pop("GROQ_MODEL_OVERRIDE", None)
         env.setdefault("GROQ_API_KEY", "x")
-        # Ce test vérifie uniquement la RÉSOLUTION du modèle avec de fausses
-        # clés. Depuis le 29/08, le vrai runtime sonde l'accès au fournisseur
-        # avant collecte ; ne pas transformer ce test hors réseau en appel API.
-        # `pipeline.yml` n'exporte jamais cette variable : la production ne
-        # peut donc pas désactiver accidentellement la sonde.
+        # Ce test mesure la résolution du modèle avec une fausse clé et doit
+        # rester strictement hors réseau. Le workflow de production n'exporte
+        # jamais ce drapeau : la sonde réelle reste donc obligatoire en run.
         env["LLM_SKIP_ACCESS_PROBE"] = "1"
         env.update(env_sup)
         code = ("import run_pipeline_v3, pipeline, verification_legacy;"
@@ -90,39 +88,58 @@ def main() -> None:
     _sys.path.insert(0, str(HERE))
     _os.environ.setdefault("GROQ_API_KEY", "x")
 
-    # Le reste du fichier teste l'import réel et la cohérence des modèles ; on
-    # conserve son environnement historique.
-    old_override = _os.environ.get("GROQ_MODEL_OVERRIDE")
-    old_base = _os.environ.get("LLM_BASE_URL")
-    old_key = _os.environ.get("LLM_API_KEY")
-    old_skip = _os.environ.get("LLM_SKIP_ACCESS_PROBE")
-    try:
-        _os.environ["LLM_SKIP_ACCESS_PROBE"] = "1"
-        _os.environ.pop("LLM_BASE_URL", None)
-        _os.environ.pop("LLM_API_KEY", None)
-        _os.environ.pop("GROQ_MODEL_OVERRIDE", None)
-        import run_pipeline_v3 as _runtime_mod
-        import pipeline as _pipeline_mod
-        assert _pipeline_mod.GROQ_MODEL, "Le runtime doit résoudre un modèle non vide."
-    finally:
-        if old_override is None:
-            _os.environ.pop("GROQ_MODEL_OVERRIDE", None)
+    def _defauts(base_url: str) -> tuple[str, str]:
+        _anc = _os.environ.get("LLM_BASE_URL")
+        if base_url:
+            _os.environ["LLM_BASE_URL"] = base_url
         else:
-            _os.environ["GROQ_MODEL_OVERRIDE"] = old_override
-        if old_base is None:
             _os.environ.pop("LLM_BASE_URL", None)
-        else:
-            _os.environ["LLM_BASE_URL"] = old_base
-        if old_key is None:
-            _os.environ.pop("LLM_API_KEY", None)
-        else:
-            _os.environ["LLM_API_KEY"] = old_key
-        if old_skip is None:
-            _os.environ.pop("LLM_SKIP_ACCESS_PROBE", None)
-        else:
-            _os.environ["LLM_SKIP_ACCESS_PROBE"] = old_skip
+        try:
+            for m in ("pipeline",):
+                _sys.modules.pop(m, None)
+            mod = importlib.import_module("pipeline")
+            return mod.GROQ_MODEL, mod.JUGE_SOURCES_MODELE
+        finally:
+            if _anc is None:
+                _os.environ.pop("LLM_BASE_URL", None)
+            else:
+                _os.environ["LLM_BASE_URL"] = _anc
+            _sys.modules.pop("pipeline", None)
 
-    print("OK — modèle runtime V3 cohérent avec le fournisseur")
+    _red, _juge = _defauts("")
+    assert "llama-3.1-8b-instant" not in _juge, (
+        "Le modèle retiré ne doit jamais être le défaut du juge."
+    )
+    assert _juge != _red, (
+        "Le juge doit rester DISTINCT du modèle de rédaction : sinon il puise "
+        "dans le quota qui bloque déjà les runs, et le garde-fou le refuse."
+    )
+
+    # Un nom de modèle n'a de sens que chez le fournisseur qui le sert : pointer
+    # Mistral avec des noms Groq produit un 404 sur chaque appel, soit la panne
+    # des 15-17/08 dans l'autre sens.
+    _red_m, _juge_m = _defauts("https://api.mistral.ai/v1")
+    assert "mistral" in _red_m and "mistral" in _juge_m, (
+        f"Sous Mistral, les défauts restent des modèles Groq ({_red_m}, {_juge_m}) "
+        "— chaque appel échouerait en 404."
+    )
+    assert _juge_m != _red_m, "Juge et rédacteur doivent rester distincts sous tout fournisseur."
+    # ⚠ 19/08 — ces deux contrôles lisaient le TEXTE SOURCE de pipeline.py.
+    # La table des fenêtres a déménagé dans `fenetres_modeles.py` (le
+    # fact-checker en a besoin aussi, il portait la valeur Groq en dur) et le
+    # test a cassé alors que la propriété protégée était intacte. On lit
+    # désormais la VALEUR, pas la ligne de code : elle survit à un
+    # déplacement, à un reformatage, et dit ce qu'on veut vraiment garantir.
+    from fenetres_modeles import _TPM_PAR_MODELE_GEN
+
+    for _m in ("groq/compound", "groq/compound-mini"):
+        assert _TPM_PAR_MODELE_GEN.get(_m) == 8_000, (
+            f"Le plafond runtime de {_m} doit rester aligné sur le compteur "
+            "réellement servi (gpt-oss-120b, 8 000 TPM) : les 70 000 de la "
+            "grille tarifaire ne décrivent pas ce qui nous rejette."
+        )
+
+    print("OK — modèles Groq runtime, juge de pertinence et plafonds TPM verrouillés")
 
 
 if __name__ == "__main__":
