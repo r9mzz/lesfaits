@@ -79,6 +79,16 @@ jobs:
         env:
           GROQ_API_KEY:     ${{ secrets.GROQ_API_KEY }}
           LLM_API_KEY:      ${{ inputs.cle == 'production' && secrets.LLM_API_KEY || (secrets.LLM_API_KEY_ESSAI || secrets.LLM_API_KEY) }}
+          # ⚠ 30/08 : l'essai ne câblait QUE la clé 1. Or c'est elle qui est
+          # épuisée (402) ; les clés 2 et 3 sont vivantes mais refusent
+          # `mistral-large-latest` hors palier (403). Un essai sur la seule
+          # clé 1 ne pouvait donc RIEN dire du palier — la question même qu'il
+          # devait trancher. C'est le défaut du 24/08 en production (« un
+          # secret non listé ici n'atteint pas le run »), rejoué sur l'essai.
+          # En mode « essai » (autre fournisseur), ces deux-là restent vides :
+          # elles appartiennent au fournisseur de production.
+          LLM_API_KEY_2:    ${{ inputs.cle == 'production' && secrets.LLM_API_KEY_2 || '' }}
+          LLM_API_KEY_3:    ${{ inputs.cle == 'production' && secrets.LLM_API_KEY_3 || '' }}
           ESSAI_FOURNISSEUR: "1"
           FENETRE_ESSAI:    ${{ inputs.fenetre }}
           LLM_BASE_URL:     ${{ inputs.base_url }}

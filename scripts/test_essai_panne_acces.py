@@ -52,6 +52,34 @@ def test_le_type_d_exception_suffit():
     assert E._est_panne_acces(NotFoundError("modèle inconnu"))
 
 
+class QuotaJournalierEpuise(Exception):
+    pass
+
+
+def test_un_quota_epuise_est_une_panne_d_acces():
+    """Trou trouvé le 30/08 DANS ce correctif. Toutes les clés épuisées (402),
+    aucun appel abouti — et l'essai concluait quand même « 3 sujets sur 3 non
+    conformes ». Un solde à zéro n'a rien mesuré, comme une clé invalide."""
+    assert E._est_panne_acces(QuotaJournalierEpuise(
+        "Solde épuisé (402) sur toutes les clés du fournisseur"))
+    assert E._est_panne_acces(QuotaJournalierEpuise(
+        "Toutes les clés Groq ont épuisé leur quota journalier (TPD)"))
+
+
+def test_l_essai_cable_les_memes_cles_que_la_production():
+    """L'essai ne câblait que la clé 1 — justement celle qui est épuisée. Les
+    clés 2 et 3, vivantes, n'étaient jamais présentées : l'essai ne pouvait
+    donc rien dire du palier, la question qu'il devait trancher. Même défaut
+    que le 24/08 en production."""
+    wf = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))),
+                      ".github", "workflows", "essai_fournisseur.yml")
+    contenu = open(wf, encoding="utf-8").read()
+    for cle in ("LLM_API_KEY_2", "LLM_API_KEY_3"):
+        assert f"{cle}:" in contenu, (
+            f"{cle} n'atteint pas l'essai : il tournera sur une seule clé, et "
+            "un refus de CETTE clé sera pris pour un verdict sur le modèle")
+
+
 def test_un_429_n_est_PAS_une_panne_d_acces():
     """LE bord qui compte. Un rate limit est une condition d'exploitation : le
     fournisseur a bien accepté la clé et le modèle. Le classer en panne

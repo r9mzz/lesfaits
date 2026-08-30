@@ -49,9 +49,23 @@ _CODES_PANNE_ACCES = ("401", "403", "404")
 
 
 def _est_panne_acces(err: Exception) -> bool:
-    """Le fournisseur a refusé l'accès — clé invalide, modèle hors palier."""
-    texte = f"{type(err).__name__} {err}"
-    if "Authentication" in type(err).__name__ or "NotFound" in type(err).__name__:
+    """Le fournisseur a refusé l'accès — clé invalide, modèle hors palier,
+    ou solde de compte à zéro.
+
+    ⚠ TROU CORRIGÉ LE 30/08, dans ce correctif même. `QuotaJournalierEpuise`
+    n'était pas reconnu : l'essai a donc de nouveau conclu « 3 sujet(s) sur 3
+    n'ont pas produit d'article conforme » alors que toutes les clés étaient
+    épuisées et qu'aucun appel n'avait abouti. Un solde à zéro n'a rien mesuré,
+    exactement comme une clé invalide.
+
+    Le bord reste le même : un 429 est une condition de DÉBIT — le fournisseur
+    a accepté la clé et le modèle — et continue de compter comme un échec.
+    """
+    nom = type(err).__name__
+    texte = f"{nom} {err}"
+    if "Authentication" in nom or "NotFound" in nom or "Quota" in nom:
+        return True
+    if "Error code: 402" in texte or "solde épuisé" in texte.lower():
         return True
     return any(f"Error code: {c}" in texte for c in _CODES_PANNE_ACCES)
 
