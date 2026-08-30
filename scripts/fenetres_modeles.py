@@ -48,6 +48,32 @@ _TPM_PAR_MODELE_GEN = {
     # et n'y échappe pas. Déclarer 70 000 a fait envoyer des requêtes de
     # 17 000 tokens, refusées 40 fois sur 40 en « 413 Request Entity Too
     # Large ». C'est la cause des zéro article du run de 18h58.
+    # ⚠ VALEURS RELAYÉES, DÉMENTIES PAR LA CONSOLE LE 30/08. Relevé sur
+    # `admin.mistral.ai/organization` (page Limites), compte de la clé 1 :
+    #
+    #   mistral-large-2512     250 000 TPM   0,07 requête/seconde
+    #   mistral-medium-2505    375 000 TPM   0,42
+    #   mistral-medium-latest   25 000 TPM   0,83   ← l'alias est 15× plus bas
+    #                                                 que la version datée
+    #   mistral-small-2603      50 000 TPM   0,83
+    #
+    # Les 500 000 ci-dessous sont donc le DOUBLE du réel pour `large`. Sans
+    # effet pratique — nos prompts pèsent 9 000 à 14 000 tokens, très en
+    # dessous des deux valeurs — mais la table ment, et c'est elle qu'on relit
+    # pour décider. Elles ne sont PAS corrigées ici sans mesure par modèle :
+    # ces chiffres valent pour le compte de la clé 1, et les clés 2 et 3
+    # appartiennent à d'autres comptes dont le palier n'a pas été relevé.
+    #
+    # ⚠ CE QUE LA TABLE NE MODÉLISE PAS, et qui borne réellement les runs :
+    # les REQUÊTES PAR SECONDE. À 0,07/s sur `large`, un run de ~272 appels
+    # attend 65 minutes de plancher incompressible. C'est l'explication des
+    # runs de 4 h mesurés les 27-28/08, et rien dans le pipeline n'en tient
+    # compte.
+    #
+    # Le « 1 milliard de tokens par mois » qui figurait ici est faux : la clé 1
+    # rend 402 après 15,3 M tokens consommés (console, 30/08).
+    #
+    # Ancien commentaire, conservé pour mémoire de ce qui était supposé :
     # Mistral, palier gratuit : 500 000 tokens/minute et 1 milliard/mois — soit
     # 62 fois la fenêtre de Groq. Nos requêtes d'article (~11 900 tokens) y
     # pèsent 2 % : la réservation d'écriture ne coupe alors plus rien, ce qui

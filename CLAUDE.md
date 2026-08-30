@@ -57,6 +57,74 @@ primaires mesuré depuis le 03/08 (69 % du corpus sans primaire), et le seul
 levier connu est en amont — les axes documentaires du 05/08. Aucun réglage de
 seuil ne le règle, et il ne faut pas essayer.
 
+## LES LIMITES MISTRAL, LUES SUR LA CONSOLE — trois chiffres faux depuis le 18/08
+
+Relevé le 30/08 sur `admin.mistral.ai/organization` (page **Limites**), pour le
+compte de la **clé 1** uniquement. ⚠ Les clés 2 et 3 appartiennent à d'autres
+comptes et ne sont PAS décrites ici — ne pas leur appliquer ces valeurs.
+
+```
+modèle                    TPM        requêtes/seconde
+mistral-large-2512      250 000           0,07
+mistral-medium-2505     375 000           0,42
+mistral-medium-2508     356 250           0,38
+mistral-medium-latest    25 000           0,83     ← alias BEAUCOUP plus bas
+mistral-small-2603       50 000           0,83
+ministral-8b-2512       625 000           3,13
+ministral-3b-2512     1 300 000          12,50
+```
+
+### Le débit explique les runs de 4 heures, et personne ne le savait
+
+**0,07 requête/seconde sur `large`** : une toutes les 14 secondes, ~4 par
+minute. Un run fait ~272 appels → **65 minutes de plancher incompressible**,
+uniquement en attente de débit. Ajouter le fact-check 3 passes et les relances,
+et on obtient les 4 h 06 à 4 h 23 mesurées sur les runs 287, 290, 291 et 295.
+
+⚠ **Le code ne modélise PAS les requêtes par seconde**, seulement le TPM. Ce
+n'est donc pas un bug mais un angle mort : rien dans le pipeline ne raisonne sur
+cette limite, et c'est elle qui borne la durée.
+
+### Trois valeurs de CLAUDE.md étaient fausses, et je les ai propagées
+
+```
+écrit ici depuis le 18/08     500 000 TPM · 1/s = 60/min · 1 milliard/mois
+console                       250 000 TPM · 0,07/s
+usage réel du mois            15,76 M tokens — et la clé rend 402
+```
+
+- **le débit** : 0,07/s et non 1/s, soit quatorze fois moins ;
+- **la fenêtre** : 250 000 et non 500 000 pour `large` ;
+- **le plafond mensuel** : la clé 1 s'arrête à **15,3 M tokens**, pas à un
+  milliard. Le raisonnement « ~66 M/mois, soit 6,6 % du milliard, on ne devrait
+  jamais l'atteindre » (écrit le 25/08) était faux d'un facteur ~65, et il a
+  servi à écarter l'hypothèse de l'épuisement pendant plusieurs jours.
+
+Ces trois chiffres venaient d'une grille tarifaire RELAYÉE, jamais confrontée à
+l'API ni à la console. C'est exactement l'erreur du 17/08 sur `groq/compound`
+— « choisir un modèle sur son TPM sans vérifier sur quel compteur il est
+facturé » — rejouée sur Mistral, cette fois par moi.
+
+### ⚠ L'alias `-latest` n'a PAS les limites de la version datée
+
+```
+mistral-medium-latest     25 000 TPM
+mistral-medium-2505      375 000 TPM     ← quinze fois plus
+```
+
+Le jour où un changement de modèle sera envisagé, viser la version DATÉE, pas
+l'alias. Notre prompt pèse 9 000 à 14 000 tokens : à 25 000 TPM, l'alias
+`medium-latest` ne laisse passer que deux requêtes par minute.
+
+### Ce que la console ne dit PAS
+
+Le coût affiché est **0,00 EUR pour 15,76 M tokens** : palier gratuit, donc
+aucun suivi de consommation en direct — il n'y a rien à facturer. L'absence de
+dashboard n'est pas une panne, c'est le palier.
+
+⚠ **Décision de Nahil (30/08) : ne pas explorer le passage payant.** Les clés 2
+et 3 fonctionnent ; seule la clé 1 est épuisée. Ne pas rouvrir cette piste.
+
 ## ⛔ PANNE D'ACCÈS MISTRAL — LE PALIER, PAS LE QUOTA (29-30/08)
 
 **Le pipeline ne démarre plus depuis le 29/08.** Quatre runs en échec (297, 298,
@@ -495,9 +563,11 @@ le VRAI corps d'erreur Mistral et échoue sans le correctif.
 solde de COMPTE à zéro, pas un rate limit : il ne se libère pas en attendant. Le
 correctif évite de perdre les sujets tant qu'une clé vivante existe, et fait
 mourir le run proprement quand il n'y en a plus. La question du solde Mistral
-(1 milliard/mois annoncé contre ~66 M/mois consommés) est une question de
-COMPTE, pas de code : voir la note tranchée plus haut — la clé 1 est vide, et
-il n'y a rien d'autre à en déduire.
+est une question de COMPTE, pas de code : voir la note tranchée plus haut — la
+clé 1 est vide, et il n'y a rien d'autre à en déduire. ⚠ Le « 1 milliard/mois
+annoncé contre ~66 M consommés » qui figurait ici est FAUX : la console montre
+la clé épuisée à 15,3 M tokens. Voir « LES LIMITES MISTRAL, LUES SUR LA
+CONSOLE ».
 
 ### Le seuil vitrine à 6 sources était une contradiction, pas une exigence
 
@@ -980,7 +1050,13 @@ Comparaison des paliers GRATUITS, relevée le 18/08 :
 ```
                     TPM        requêtes           plafond global
 Groq              8 000    30/min · 1 000/j      200 k tokens/j
-Mistral         500 000    1/s = 60/min          1 milliard/mois
+Mistral         500 000    1/s = 60/min          1 milliard/mois   ⚠ FAUX, voir
+                                                                   « LES LIMITES
+                                                                   MISTRAL » : la
+                                                                   console dit
+                                                                   250 000 · 0,07/s
+                                                                   et la clé rend
+                                                                   402 à 15,3 M
 Gemini       ~1 000 000    15/min · 250-1 500/j  (Flash seulement)
 ```
 
@@ -1024,7 +1100,8 @@ Trois adaptations, chacune verrouillée par `scripts/test_fournisseur.py` :
   message d'un autre fournisseur, ces fonctions rendent `None` au lieu de
   lever ;
 - **les 11 clés deviennent une.** Elles n'existaient que pour contourner un
-  plafond journalier par compte ; un service à 1 milliard/mois n'a pas ce
+  plafond journalier par compte ; un service qu'on croyait à 1 milliard/mois
+  (⚠ chiffre faux, voir « LES LIMITES MISTRAL ») n'a pas ce
   problème. La rotation traverse une liste d'un seul élément sans cas
   particulier.
 
