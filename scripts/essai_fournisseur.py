@@ -41,6 +41,21 @@ import pipeline as p  # noqa: E402
 NB_SUJETS = int(os.getenv("NB_SUJETS", "2"))
 
 
+# Codes qui disent « le fournisseur n'a pas traité la demande », par opposition
+# à « il l'a traitée et le résultat est mauvais ». Volontairement restreint aux
+# refus d'ACCÈS : un 429 (débit) ou un 400 (requête trop grosse) sont des
+# conditions d'exploitation qui, elles, méritent de compter comme un échec.
+_CODES_PANNE_ACCES = ("401", "403", "404")
+
+
+def _est_panne_acces(err: Exception) -> bool:
+    """Le fournisseur a refusé l'accès — clé invalide, modèle hors palier."""
+    texte = f"{type(err).__name__} {err}"
+    if "Authentication" in type(err).__name__ or "NotFound" in type(err).__name__:
+        return True
+    return any(f"Error code: {c}" in texte for c in _CODES_PANNE_ACCES)
+
+
 def main() -> int:
     if not MODELE:
         print("[ÉCHEC] MODELE_ESSAI non défini")
@@ -57,6 +72,7 @@ def main() -> int:
         return 1
 
     echecs = 0
+    pannes: list[str] = []
     for i, item in enumerate(sujets, 1):
         print("=" * 74)
         print(f"SUJET {i} : {item['title'][:70]}")
@@ -76,6 +92,19 @@ def main() -> int:
             art = p.generate(item["content"], cat, extra_sources=extra,
                              rss_url=item.get("url"))
         except Exception as e:  # noqa: BLE001
+            # ⚠ 30/08 : UN REFUS D'ACCÈS N'EST PAS UN VERDICT ÉDITORIAL.
+            # Un essai de `mistral-medium-latest` a présenté une clé Google —
+            # trois `401 Invalid API Key` — et l'essai a conclu « 3 sujets sur
+            # 3 n'ont pas produit d'article conforme ». Lu vite, ça dit « ce
+            # modèle ne sait pas écrire » d'un modèle jamais interrogé. C'est
+            # la même famille que le flux RSS qui répond 200 avec 0 article :
+            # l'échec le plus coûteux est celui qui ressemble à un résultat.
+            if _est_panne_acces(e):
+                pannes.append(f"{type(e).__name__}: {str(e)[:200]}")
+                print(f"[PANNE D'ACCÈS] {type(e).__name__}: {e}")
+                print("               Ce n'est PAS un verdict sur la rédaction : "
+                      "le fournisseur n'a jamais traité la demande.")
+                continue
             print(f"[ÉCHEC] {type(e).__name__}: {e}")
             t = brut.get("texte", "")
             if t:
@@ -133,6 +162,18 @@ def main() -> int:
         print()
 
     print("=" * 74)
+    # L'ORDRE COMPTE : une panne d'accès prime sur tout verdict éditorial. Si
+    # le fournisseur n'a jamais traité la demande, l'essai n'a RIEN mesuré et
+    # doit le dire — pas rendre un compte de sujets « non conformes ».
+    if pannes:
+        print(f"[PANNE D'ACCÈS] {len(pannes)} sujet(s) sur {len(sujets)} refusés "
+              "par le fournisseur — AUCUNE mesure de rédaction n'a été faite.")
+        for p in pannes[:3]:
+            print(f"                {p}")
+        print("                Vérifier que la clé appartient au fournisseur "
+              "essayé (entrée « cle » du workflow) et que le modèle est dans "
+              "le palier de l'abonnement.")
+        return 2
     if echecs:
         print(f"[ÉCHEC] {echecs} sujet(s) sur {len(sujets)} n'ont pas produit "
               "d'article conforme")
