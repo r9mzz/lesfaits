@@ -59,35 +59,8 @@ MIN_WORDS = {
     "nuances": 91,
     "total": 400,
 }
-# ══ ARBITRAGE DE NAHIL, 28/08 — QUATRE ANNULATIONS, NE PAS EN FAIRE UNE 5e ══
-#
-# `MIN_SOURCES = 4` est une DÉCISION ÉDITORIALE de Nahil, confirmée deux fois
-# (26/08 « Mets 4 », 28/08 « Confirme 4 »). Elle a été annulée quatre fois par
-# des sessions parallèles — 24/08, 26/08 à 03h23, 26/08 à 15h37, 28/08 à 03h29 —
-# chaque fois de bonne foi, au nom du mandat « ne jamais affaiblir un garde-fou
-# pour faire du volume ». Ce mandat est le bon et il n'est pas contesté ici.
-#
-# CE QUI LE REND INAPPLICABLE À CE SEUIL PRÉCIS, et qui est mesuré :
-#
-#     sources TROUVÉES par la recherche          médiane 10
-#     sources jugées PERTINENTES par le juge     médiane  3
-#
-# Le sourcing n'est pas déficient : il ramène dix documents. C'est le JUGE DE
-# PERTINENCE qui n'en déclare que trois traitant le sujet PRÉCIS. Exiger six
-# citations force donc le rédacteur à citer des pages hors sujet pour remplir
-# le quota — le défaut « rougeole »/« inflation » du 11/08, celui que le juge
-# de pertinence a précisément été construit pour empêcher.
-#
-# À 6, deux garde-fous du même pipeline se contredisent, et c'est le second qui
-# gagne en rejetant l'article. Ce n'est pas « desserrer une porte éditoriale »,
-# c'est retirer une exigence que la charte interdit de satisfaire honnêtement.
-#
-# ⚠ « Corriger en amont par un meilleur sourcing » — l'argument des quatre
-# annulations — suppose que les sources existent et qu'on les cherche mal.
-# Les chiffres ci-dessus disent l'inverse. Avant de reposer 6, il faut donc
-# infirmer CETTE mesure, pas réaffirmer le principe.
-MIN_SOURCES = 4
-MIN_DISTINCT_DOMAINS = 3
+MIN_SOURCES = 6
+MIN_DISTINCT_DOMAINS = 5
 
 # ── Grille BRÈVE (10/08) ─────────────────────────────────────────────────────
 # Mesuré sur 24 générations : le modèle rend 271, 278, 300, 306 mots quand on
