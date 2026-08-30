@@ -84,6 +84,29 @@ def test_le_code_de_sortie_distingue_les_deux():
         "sujets « non conformes »")
 
 
+def test_le_module_pipeline_n_est_pas_masque_dans_main():
+    """Régression du 30/08, dans le correctif même qui devait fiabiliser l'essai.
+
+    `pipeline` est importé sous l'alias `p`. Écrire `for p in pannes` dans
+    `main()` rend `p` LOCAL pour toute la fonction, et `p.GROQ_MODEL = MODELE`
+    — cinquante lignes plus haut — lève alors UnboundLocalError. Le script
+    mourait avant d'avoir interrogé le fournisseur, donc l'essai ne mesurait
+    toujours rien : même symptôme que le bug qu'il corrigeait.
+    """
+    import re
+    source = open(os.path.join(os.path.dirname(os.path.abspath(__file__)),
+                               "essai_fournisseur.py"), encoding="utf-8").read()
+    alias = re.search(r"^import pipeline as (\w+)", source, re.M)
+    assert alias, "l'alias d'import de pipeline a changé — relire ce test"
+    nom = alias.group(1)
+    corps = source[source.index("def main("):]
+    masquage = re.search(rf"^\s+(?:for|with)\s+{nom}\s|^\s+{nom}\s*=[^=]",
+                         corps, re.M)
+    assert not masquage, (
+        f"« {nom} » est réaffecté dans main() : cela masque le module pipeline "
+        f"pour TOUTE la fonction — {masquage.group(0).strip() if masquage else ''}")
+
+
 def test_le_workflow_permet_de_choisir_la_cle():
     """La cause racine : le workflow imposait la clé d'essai. Il doit pouvoir
     présenter la clé de PRODUCTION quand on essaie un autre modèle du MÊME

@@ -168,8 +168,13 @@ def main() -> int:
     if pannes:
         print(f"[PANNE D'ACCÈS] {len(pannes)} sujet(s) sur {len(sujets)} refusés "
               "par le fournisseur — AUCUNE mesure de rédaction n'a été faite.")
-        for p in pannes[:3]:
-            print(f"                {p}")
+        # ⚠ NE PAS nommer cette variable `p` : `pipeline` est importé sous ce
+        # nom, et une affectation locale dans `main()` le rend local pour TOUTE
+        # la fonction — `p.GROQ_MODEL = MODELE`, cinquante lignes plus haut,
+        # lève alors UnboundLocalError. C'est ce qui a cassé l'essai du 30/08,
+        # dans le correctif même qui devait le fiabiliser.
+        for _panne in pannes[:3]:
+            print(f"                {_panne}")
         print("                Vérifier que la clé appartient au fournisseur "
               "essayé (entrée « cle » du workflow) et que le modèle est dans "
               "le palier de l'abonnement.")
