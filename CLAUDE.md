@@ -57,6 +57,96 @@ primaires mesuré depuis le 03/08 (69 % du corpus sans primaire), et le seul
 levier connu est en amont — les axes documentaires du 05/08. Aucun réglage de
 seuil ne le règle, et il ne faut pas essayer.
 
+## ⛔ PANNE D'ACCÈS MISTRAL — LE PALIER, PAS LE QUOTA (29-30/08)
+
+**Le pipeline ne démarre plus depuis le 29/08.** Quatre runs en échec (297, 298,
+299, 301), arrêtés au prévol avant collecte :
+
+```
+RuntimeError: Accès fournisseur impossible avant génération : modèle
+mistral-large-latest, toutes les clés refusées par erreur permanente (402, 403, 403)
+
+  clé 1 : {"detail":"Check your subscription…"}                      402  solde épuisé
+  clé 2 : "This model is not available in your subscription tier"    403  code 1910
+  clé 3 : idem                                                       403  code 1910
+```
+
+⚠ **Les clés 2 et 3 ne sont PAS épuisées — elles n'ont pas le droit d'utiliser
+`mistral-large-latest`.** C'est un palier d'ABONNEMENT (403, `tier_not_allowed`),
+pas un quota. Ne pas le confondre avec le 402 de la clé 1, qui est un solde à
+zéro. Deux causes différentes, deux remèdes différents.
+
+**TROIS composants résolvent `mistral-large-latest`** et tombent donc ensemble :
+
+```
+rédaction        modele_fournisseur.MODELE_REDACTION_MISTRAL
+fact-check       même constante — « une seule source de vérité » (25/08)
+juge pertinence  mistral-small-latest  ← seul à ne PAS dépendre du palier bloqué
+```
+
+Changer le seul modèle de rédaction ne débloquerait rien : le fact-check
+tomberait en 403 et le fail-closed rejetterait chaque article. C'est la panne du
+15-17/08 dans l'autre sens.
+
+### `mistral-medium-latest` est accessible mais ne tient PAS le format
+
+Essai du 30/08, trois clés présentées, la 1 retirée sur 402, les deux autres au
+travail :
+
+```
+sujet                    mots   faits/contexte/nuances   sources
+1  baignade Seine         214      107 / 107 /   0          5
+2  télescope Roman        220      162 /  58 /   0          4
+3  Nottale                164       73 /  91 /   0          1     ← à ÉCARTER
+```
+
+`nuances` VIDE trois fois sur trois, total à 214-220 mots contre un plancher de
+350. `large` rendait une médiane de 553. Ce n'est pas un écart de style : c'est
+la moitié du volume, et la section qui porte les limites et les incertitudes
+n'est jamais écrite.
+
+⚠ **Le sujet 3 ne compte pas** : `[SOURCING] 0 sources — moteur de recherche
+probablement limité (runs trop rapprochés)`, après quatre essais en dix minutes.
+Il reste n=2 de propre.
+
+⚠ **Ceci ne dit PAS que `medium` en est incapable** — seulement qu'il ne le fait
+pas avec le prompt actuel, calibré deux mois sur Llama puis sur `large`. Il
+s'est arrêté à 1 116-1 328 tokens de complétion sur 3 500 réservés
+(`fin=stop`) : il n'a pas été coupé, il a jugé avoir fini.
+
+**Point favorable, à retenir pour le débat sur le sourcing** : `medium` cite
+5 et 4 sources avec un vrai maillage (`[2][7]`, `[8]`), là où `large` publiait
+à médiane 3.
+
+### DÉCISION DE NAHIL (30/08) : régler le palier, ne pas changer de modèle
+
+Les deux autres voies — essayer `small`, ou rester sur `medium` — reviendraient
+à changer de modèle de rédaction pour la TROISIÈME fois en deux semaines, sans
+témoin pour comparer, avec un prompt calibré pour un modèle qu'on n'utiliserait
+plus. **L'action est côté console Mistral : rendre `mistral-large-latest`
+accessible aux clés 2 et 3.** Rien à changer dans le code.
+
+### Quatre essais pour une mesure — l'outil de diagnostic était cassé
+
+Chaque échec ressemblait à un verdict éditorial, et aucun n'en était un :
+
+```
+essai 1  clé Gemini envoyée à Mistral        401  → « 3 sujets sur 3 non conformes »
+essai 2  `for p in pannes` masquait `pipeline` UnboundLocalError avant tout appel
+essai 3  seule la clé 1 câblée, épuisée      402  → « 3 sujets sur 3 non conformes »
+essai 4  trois clés                          MESURE RÉELLE
+```
+
+⚠ Corrigé, et c'est le plus important de cette séquence : `_est_panne_acces`
+sépare désormais « le fournisseur n'a pas traité la demande » (401, 403, 404,
+402, quota épuisé) de « il l'a traitée et le résultat est mauvais ». Une panne
+prime sur tout verdict et sort en code 2. **Le bord verrouillé : un 429 n'est
+PAS une panne d'accès** — la clé et le modèle ont été acceptés, c'est du débit.
+
+⚠ `LLM_API_KEY_2` et `_3` n'atteignaient pas l'essai : le défaut du 24/08 en
+production (« un secret non listé ici n'atteint pas le run ») rejoué sur
+l'outil de diagnostic, et il rendait la question du palier intestable.
+
 ## ⛔ ARBITRAGE — `MIN_SOURCES = 4`, NE PAS L'ANNULER UNE CINQUIÈME FOIS
 
 **Décision de Nahil, confirmée deux fois** (26/08 « Mets 4 », 28/08 « Confirme
