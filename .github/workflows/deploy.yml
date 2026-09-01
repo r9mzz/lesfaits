@@ -13,15 +13,9 @@ on:
       - "scripts/test_feed_pubdates.py"
       - ".github/workflows/deploy.yml"
   schedule:
-    # NOTE : les crons GitHub sont fréquemment retardés de 1 à 4h. On planifie
-    # dix minutes avant l'heure cible sur une minute non ronde.
-    # Matin ~07h00 Paris — été (CEST UTC+2) : avril–octobre
     - cron: "50 4 * 4-10 *"
-    # Matin ~07h00 Paris — hiver (CET UTC+1) : novembre–mars
     - cron: "50 5 * 11-12,1-3 *"
-    # Soir ~18h00 Paris — été (CEST UTC+2) : avril–octobre
     - cron: "50 15 * 4-10 *"
-    # Soir ~18h00 Paris — hiver (CET UTC+1) : novembre–mars
     - cron: "50 16 * 11-12,1-3 *"
   workflow_dispatch:
     inputs:
@@ -46,13 +40,11 @@ jobs:
     timeout-minutes: 12
     permissions:
       contents: write
-
     steps:
       - name: Checkout (repo privé — contient tous les articles)
         uses: actions/checkout@v4
         with:
           fetch-depth: 1
-
       - name: Ignorer si rien de neuf à déployer
         id: garde
         env:
@@ -76,18 +68,15 @@ jobs:
           else
             echo "passer=false" >> "$GITHUB_OUTPUT"
           fi
-
       - name: Set up Python
         if: steps.garde.outputs.passer != 'true'
         uses: actions/setup-python@v5
         with:
           python-version: "3.11"
           cache: pip
-
       - name: Installer les dépendances
         if: steps.garde.outputs.passer != 'true'
         run: pip install -r requirements.txt
-
       - name: Rebuild index + catégories + archive
         if: steps.garde.outputs.passer != 'true'
         env:
@@ -101,7 +90,6 @@ jobs:
           else
             python scripts/pipeline.py --rebuild
           fi
-
       - name: Normaliser les dates réelles du sitemap et du RSS
         if: ${{ steps.garde.outputs.passer != 'true' && github.event.inputs.dry_run != 'true' }}
         env:
@@ -111,13 +99,11 @@ jobs:
           python scripts/normalize_sitemap_lastmod.py --check
           python scripts/normalize_feed_pubdates.py
           python scripts/normalize_feed_pubdates.py --check
-
       - name: Patcher les articles (à lire aussi + disclaimer + newsletter + back-to-top)
         if: ${{ steps.garde.outputs.passer != 'true' && github.event.inputs.dry_run != 'true' }}
         env:
           PYTHONIOENCODING: utf-8
         run: python scripts/patch_articles.py
-
       - name: Normaliser et auditer tous les formulaires newsletter v3
         if: ${{ steps.garde.outputs.passer != 'true' && github.event.inputs.dry_run != 'true' }}
         env:
@@ -127,13 +113,11 @@ jobs:
           python scripts/harden_newsletter_v3.py --check
           node --check src/newsletter.js
           node --check src/search-preview.js
-
       - name: Test non-régression SEO (bloque le déploiement en cas d'échec)
         if: ${{ steps.garde.outputs.passer != 'true' && github.event.inputs.dry_run != 'true' }}
         env:
           PYTHONIOENCODING: utf-8
         run: python scripts/check_seo.py
-
       - name: Déployer vers lesfaits-site
         if: ${{ steps.garde.outputs.passer != 'true' && github.event.inputs.dry_run != 'true' }}
         env:
@@ -142,46 +126,20 @@ jobs:
         run: |
           : > "${GITHUB_WORKSPACE}/new_articles.txt"
           git clone https://x-access-token:${SITE_DEPLOY_TOKEN}@github.com/r9mzz/lesfaits-site.git /tmp/site
-
           PRIVATE_ARTICLES="${GITHUB_WORKSPACE}/articles"
           shopt -s nullglob
           for f in /tmp/site/articles/*.html; do
             slug=$(basename "$f") && [ ! -f "${PRIVATE_ARTICLES}/${slug}" ] && rm "$f" && echo "Supprimé: $slug"
           done
           shopt -u nullglob
-
-          cp -r articles/             /tmp/site/
-          cp -r categories/           /tmp/site/
-          cp -r assets/               /tmp/site/
-          cp -r data/                 /tmp/site/
-          cp    index.html            /tmp/site/
-          cp    archive.html          /tmp/site/
-          cp    breves.html           /tmp/site/
-          cp    feed.xml              /tmp/site/
-          cp    sitemap.xml           /tmp/site/
-          cp    robots.txt            /tmp/site/ 2>/dev/null || true
-          cp    manifest.json         /tmp/site/ 2>/dev/null || true
-          cp    favicon.svg           /tmp/site/ 2>/dev/null || true
-          cp    favicon.ico           /tmp/site/ 2>/dev/null || true
-          cp    favicon-16x16.png     /tmp/site/ 2>/dev/null || true
-          cp    favicon-32x32.png     /tmp/site/ 2>/dev/null || true
-          cp    apple-touch-icon.png  /tmp/site/ 2>/dev/null || true
-          cp    recherche.html        /tmp/site/
-          cp    mentions-legales.html /tmp/site/
-          cp    confidentialite.html  /tmp/site/ 2>/dev/null || true
-          cp    cgu.html              /tmp/site/ 2>/dev/null || true
-          cp    contact.html          /tmp/site/ 2>/dev/null || true
-          cp    methode.html          /tmp/site/ 2>/dev/null || true
-          cp    a-propos.html         /tmp/site/ 2>/dev/null || true
-          cp    corrections.html      /tmp/site/ 2>/dev/null || true
-          cp    404.html              /tmp/site/ 2>/dev/null || true
-          cp    favoris.html          /tmp/site/ 2>/dev/null || true
-          cp    confirmation.html     /tmp/site/ 2>/dev/null || true
-          cp    desabonnement.html    /tmp/site/ 2>/dev/null || true
-          cp -r src/                  /tmp/site/ 2>/dev/null || true
+          cp -r articles/ /tmp/site/
+          cp -r categories/ /tmp/site/
+          cp -r assets/ /tmp/site/
+          cp -r data/ /tmp/site/
+          cp index.html archive.html breves.html feed.xml sitemap.xml recherche.html mentions-legales.html /tmp/site/
+          cp robots.txt manifest.json favicon.svg favicon.ico favicon-16x16.png favicon-32x32.png apple-touch-icon.png confidentialite.html cgu.html contact.html methode.html a-propos.html corrections.html 404.html favoris.html confirmation.html desabonnement.html /tmp/site/ 2>/dev/null || true
+          cp -r src/ /tmp/site/ 2>/dev/null || true
           rm -rf /tmp/site/devenir
-
-          # Toute page HTML racine générée doit être présente dans le site.
           manquantes=""
           for f in *.html; do
             [ -f "/tmp/site/$f" ] || manquantes="$manquantes $f"
@@ -190,29 +148,19 @@ jobs:
             echo "::error::Page(s) générée(s) mais NON copiée(s) vers lesfaits-site :$manquantes"
             exit 1
           fi
-
           cd /tmp/site
-          git config user.name  "Factuel Bot"
+          git config user.name "Factuel Bot"
           git config user.email "bot@factuel.fr"
-
-          # Re-normaliser les métadonnées face au HEAD réellement public : le dépôt
-          # source peut contenir du bruit de rebuild qui ne doit ni avancer les
-          # lastmod du sitemap, ni le lastBuildDate du RSS sur un lot sans article.
           python "${GITHUB_WORKSPACE}/scripts/normalize_sitemap_lastmod.py" --root /tmp/site
           python "${GITHUB_WORKSPACE}/scripts/normalize_sitemap_lastmod.py" --root /tmp/site --check
           python "${GITHUB_WORKSPACE}/scripts/normalize_feed_pubdates.py" --root /tmp/site
           python "${GITHUB_WORKSPACE}/scripts/normalize_feed_pubdates.py" --root /tmp/site --check
-
           git add -A
           git diff --cached --quiet && echo "Aucun changement à déployer." && exit 0
-
-          # Compter uniquement les créations. Les anciens articles reconstruits
-          # ne sont plus annoncés comme de nouvelles publications.
           NB_NEW=$(git diff --cached --name-only --diff-filter=A -- articles/ | grep -E '\.html$' | wc -l | tr -d ' ')
           NB_MOD=$(git diff --cached --name-only --diff-filter=M -- articles/ | grep -E '\.html$' | wc -l | tr -d ' ')
           NB_DEL=$(git diff --cached --name-only --diff-filter=D -- articles/ | grep -E '\.html$' | wc -l | tr -d ' ')
           CRENEAU=$([ $(date +%H) -lt 12 ] && echo "07h00" || echo "18h00")
-
           {
             echo "## Déploiement public"
             echo ""
@@ -220,46 +168,34 @@ jobs:
             echo "- Articles reconstruits : ${NB_MOD}"
             echo "- Articles retirés : ${NB_DEL}"
           } >> "$GITHUB_STEP_SUMMARY"
-
           if [ "$NB_NEW" -gt 0 ]; then
             MESSAGE="✦ ${NB_NEW} nouveau(x) article(s) publié(s) — ${CRENEAU} — $(date +'%d/%m/%Y')"
           else
             MESSAGE="chore: mise à jour du site — 0 nouvel article — ${CRENEAU} — $(date +'%d/%m/%Y')"
           fi
           git commit -m "$MESSAGE"
-
-          # Sceller les heures publiques dans le même commit que le déploiement.
-          # Cela évite qu'un rebuild republie des libellés visibles par défaut si
-          # le workflow post-déploiement n'est pas déclenché ou arrive en retard.
           python "${GITHUB_WORKSPACE}/scripts/stamp_publication_times.py" \
             --site-dir /tmp/site --previous-ref HEAD~1
-
-          # L'estampillage réécrit aussi le RSS, notamment son lastBuildDate.
-          # Rejouer sa normalisation contre le HEAD pré-estampillage empêche un
-          # lot sans publication d'apparaître artificiellement comme un nouveau build.
           python "${GITHUB_WORKSPACE}/scripts/normalize_feed_pubdates.py" --root /tmp/site
           python "${GITHUB_WORKSPACE}/scripts/normalize_feed_pubdates.py" --root /tmp/site --check
-
-          # L'estampillage peut remettre les HTML de catégorie exactement à leur
-          # état public canonique. Recalculer ensuite le sitemap empêche de conserver
-          # un lastmod du jour issu du rebuild alors que la page finale n'a pas changé.
           python "${GITHUB_WORKSPACE}/scripts/normalize_sitemap_lastmod.py" --root /tmp/site --baseline-ref HEAD~1
           python "${GITHUB_WORKSPACE}/scripts/normalize_sitemap_lastmod.py" --root /tmp/site --baseline-ref HEAD~1 --check
-
           git add -A
+          if git diff --cached --quiet HEAD~1; then
+            echo "Aucun changement public final à déployer."
+            git reset --hard HEAD~1
+            exit 0
+          fi
           git diff --cached --quiet || git commit --amend --no-edit
-
           git diff --name-only --diff-filter=A HEAD~1 HEAD -- articles/ \
             | sed 's|^articles/||; s|\.html$||' > "${GITHUB_WORKSPACE}/new_articles.txt" || true
-
           git push
-
       - name: Sauvegarder les slugs pour publication X (07h00)
         if: ${{ steps.garde.outputs.passer != 'true' && github.event.inputs.dry_run != 'true' }}
         run: |
           if [ -s "${GITHUB_WORKSPACE}/new_articles.txt" ]; then
             cp "${GITHUB_WORKSPACE}/new_articles.txt" data/pending_x_posts.txt
-            git config user.name  "Factuel Bot"
+            git config user.name "Factuel Bot"
             git config user.email "bot@lesfaits.info"
             git add data/pending_x_posts.txt
             git diff --cached --quiet || git commit -m "chore: slugs en attente de publication X"
