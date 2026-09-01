@@ -234,6 +234,12 @@ jobs:
           python "${GITHUB_WORKSPACE}/scripts/stamp_publication_times.py" \
             --site-dir /tmp/site --previous-ref HEAD~1
 
+          # L'estampillage réécrit aussi le RSS, notamment son lastBuildDate.
+          # Rejouer sa normalisation contre le HEAD pré-estampillage empêche un
+          # lot sans publication d'apparaître artificiellement comme un nouveau build.
+          python "${GITHUB_WORKSPACE}/scripts/normalize_feed_pubdates.py" --root /tmp/site
+          python "${GITHUB_WORKSPACE}/scripts/normalize_feed_pubdates.py" --root /tmp/site --check
+
           # L'estampillage peut remettre les HTML de catégorie exactement à leur
           # état public canonique. Recalculer ensuite le sitemap empêche de conserver
           # un lastmod du jour issu du rebuild alors que la page finale n'a pas changé.
