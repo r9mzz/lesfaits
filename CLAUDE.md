@@ -215,12 +215,24 @@ PAS une panne d'accès** — la clé et le modèle ont été acceptés, c'est du
 production (« un secret non listé ici n'atteint pas le run ») rejoué sur
 l'outil de diagnostic, et il rendait la question du palier intestable.
 
-## ⛔ ARBITRAGE — `MIN_SOURCES = 4`, NE PAS L'ANNULER UNE CINQUIÈME FOIS
+## ⛔ ARBITRAGE — `MIN_SOURCES = 4`, NE PAS L'ANNULER UNE DIXIÈME FOIS
 
 **Décision de Nahil, confirmée deux fois** (26/08 « Mets 4 », 28/08 « Confirme
-4 »). Annulée **quatre fois** par des sessions parallèles : 24/08, 26/08 à
-03h23, 26/08 à 15h37, 28/08 à 03h29 — chaque fois de bonne foi, au nom du
-mandat « ne jamais affaiblir un garde-fou pour faire du volume ».
+4 ») puis rappelée le 01/09 : « tous les jours tu me dis je remets à 4 ».
+Annulée **neuf fois** par des sessions parallèles : 24/08, 26/08 ×2, 28/08 ×2,
+30/08 ×2, 31/08, 01/09 — chaque fois de bonne foi, au nom du mandat « ne jamais
+affaiblir un garde-fou pour faire du volume ».
+
+⚠ **Le rétablissement du 01/09 a dû réparer les DEUX tests en même temps que la
+valeur.** Ils avaient été réécrits en `assert S.MIN_SOURCES == 6` et en
+`>= 6` (« plancher éditorial historique ») : une valeur figée, pas une
+propriété — le défaut recensé sept fois dans ce dépôt. Un test qui gèle 6 rend
+l'annulation suivante indolore et invisible. **Vérifier les tests, pas
+seulement la constante**, avant de conclure que l'arbitrage tient.
+
+Rejoué le 01/09 sur les quatre valeurs, bytecode vidé entre chaque :
+**3 bloqué** (sous la charte) · **4 passe** · **5 bloqué** (30 % de survivants)
+· **6 bloqué** (10 %). Une seule valeur satisfait les deux bords.
 
 **Le mandat est le bon et il n'est pas contesté.** Voici ce qui le rend
 inapplicable à CE seuil, et il faut infirmer la mesure avant de reposer 6 :
