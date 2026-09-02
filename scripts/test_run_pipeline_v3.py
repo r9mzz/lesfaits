@@ -1,11 +1,22 @@
 # -*- coding: utf-8 -*-
 """Tests déterministes des adaptations V3 sans appel réseau ni Groq."""
+import os
+
+# Ce fichier est rejoué depuis le runtime de production avec les vraies variables
+# fournisseur héritées. Il doit rester strictement déterministe : le prévol réseau
+# réel a déjà été exécuté par le processus parent avant le lancement des tests.
+os.environ["LLM_SKIP_ACCESS_PROBE"] = "1"
+
 import run_pipeline_v3 as v3
 from run_pipeline_v3 import (
     _patch_breve_source_integrity,
     _patch_conditional_nuances_runtime,
     _patch_post_generation_cooldown,
 )
+
+
+def test_runtime_regression_import_never_probes_provider():
+    assert os.environ.get("LLM_SKIP_ACCESS_PROBE") == "1"
 
 
 def test_post_generation_cooldown_is_inserted_once():
@@ -182,13 +193,14 @@ def save(art, article_type):
 
 
 def main():
+    test_runtime_regression_import_never_probes_provider()
     test_post_generation_cooldown_is_inserted_once()
     test_patch_refuses_ambiguous_marker()
     test_breve_with_numbered_notes_must_use_every_listed_source()
     test_native_breve_without_numbered_notes_remains_allowed()
     test_conditional_nuances_align_prompt_and_showcase_without_lowering_other_gates()
     test_v3_preserves_native_subject_selection()
-    print("OK — V3 sélection native, cooldown, sources brèves et nuances conditionnelles")
+    print("OK — V3 sélection native, cooldown, sources brèves, nuances conditionnelles et import hors réseau")
 
 
 if __name__ == "__main__":
