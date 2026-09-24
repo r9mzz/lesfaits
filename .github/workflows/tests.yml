@@ -1,0 +1,130 @@
+name: Tests
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+concurrency:
+  group: tests-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  tests:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      PYTHONIOENCODING: utf-8
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+      - name: Installer les dépendances
+        run: pip install -r requirements.txt
+      - name: Compiler tous les scripts (détecte les erreurs de syntaxe)
+        run: python -m py_compile scripts/*.py
+      - name: Tests avec fixtures pytest
+        run: python -m pytest scripts/test_402_rotation_generation.py scripts/test_acharnement_editorial.py -q
+      - name: Reste de la suite (scripts autonomes)
+        run: |
+          echec=0
+          FICHIERS="
+          scripts/test_accusation_attribution_explicit.py
+          scripts/test_acharnement_editorial_ci_contract.py
+          scripts/test_analyser_reproches.py
+          scripts/test_annonce_perimee_intention.py
+          scripts/test_article_change_counts.py
+          scripts/test_bareme_enjeu_divertissement.py
+          scripts/test_bareme_selection_ci_contract.py
+          scripts/test_citations_ponctuation.py
+          scripts/test_citations_ponctuation_ci_contract.py
+          scripts/test_collision_runs.py
+          scripts/test_correction_motifs_bloquants.py
+          scripts/test_deploy_publication_time_contract.py
+          scripts/test_diversite_selection.py
+          scripts/test_editorial_depth.py
+          scripts/test_editorial_quality.py
+          scripts/test_editorial_quality_main_push_ci_contract.py
+          scripts/test_editorial_ranking.py
+          scripts/test_essai_fournisseur_ci_contract.py
+          scripts/test_essai_juge_corpus_v2.py
+          scripts/test_essai_modele_avant_import.py
+          scripts/test_feed_current_state.py
+          scripts/test_feed_pubdates.py
+          scripts/test_fenetre_correcteur.py
+          scripts/test_fenetre_essai_isolation.py
+          scripts/test_fenetres_modeles_ci_contract.py
+          scripts/test_grille_vitrine_calibrage.py
+          scripts/test_groq_probe_timeout_contract.py
+          scripts/test_json_generation_ci_contract.py
+          scripts/test_json_generation_guillemets.py
+          scripts/test_json_mode_verification.py
+          scripts/test_json_sauts_de_ligne.py
+          scripts/test_juge_repetition_reserve.py
+          scripts/test_juge_repetition_titre_menace.py
+          scripts/test_juge_reproche_auto_contredit.py
+          scripts/test_juge_reproche_auto_contredit_ci_contract.py
+          scripts/test_juge_symetrie.py
+          scripts/test_latest_selection_correction_ci_contract.py
+          scripts/test_nuances_conditionnelles.py
+          scripts/test_nuances_conditionnelles_ci_contract.py
+          scripts/test_pertinence_bloquant.py
+          scripts/test_pipeline_editorial_prompt_contract.py
+          scripts/test_precise_source_gate_ci_contract.py
+          scripts/test_profondeur_diversite_ci_contract.py
+          scripts/test_profondeur_lecture.py
+          scripts/test_provider_failure_alert.py
+          scripts/test_provider_runtime_guard.py
+          scripts/test_publication_override_persistence_contract.py
+          scripts/test_publication_time_legacy_rebuild.py
+          scripts/test_publication_times_workflow_contract.py
+          scripts/test_quota_wait.py
+          scripts/test_raisonnement_reservation.py
+          scripts/test_relance_reseau.py
+          scripts/test_repair_jsonld_modified_dates.py
+          scripts/test_reportage_invente.py
+          scripts/test_reportage_invente_ci_contract.py
+          scripts/test_reserve_verification_quota.py
+          scripts/test_retirements.py
+          scripts/test_run_pipeline.py
+          scripts/test_run_pipeline_v3.py
+          scripts/test_runtime_feed_pubdates_v3.py
+          scripts/test_runtime_groq_model_v3.py
+          scripts/test_runtime_newsletter_v3.py
+          scripts/test_runtime_preflight_ci_contract.py
+          scripts/test_runtime_preflight_v3.py
+          scripts/test_runtime_sitemap_v3.py
+          scripts/test_selection_sujets_manques.py
+          scripts/test_showcase_calibration_ci_contract.py
+          scripts/test_showcase_quality.py
+          scripts/test_showcase_source_floor_mandate.py
+          scripts/test_sitemap_current_state.py
+          scripts/test_sitemap_lastmod.py
+          scripts/test_source_inventee_bibliographie.py
+          scripts/test_stamp_publication_times.py
+          scripts/test_summarize_pipeline_log.py
+          scripts/test_titre_trop_long.py
+          scripts/test_trusted_source_expansion.py
+          scripts/test_verification_auth_rotation.py
+          scripts/test_verification_fail_closed.py
+          scripts/test_verification_json_ci_contract.py
+          scripts/test_verification_provider.py
+          scripts/test_verification_provider_402_failfast.py
+          scripts/test_verification_retrospective_date.py
+          scripts/test_verification_scope.py
+          scripts/test_verification_sources_immutables.py
+          scripts/test_verification_symetrie_ci_contract.py
+          scripts/test_verification_transient_retry.py
+          "
+          for f in $FICHIERS; do
+            echo "::group::$f"
+            if ! python "$f"; then
+              echo "::error::$f a échoué"
+              echec=1
+            fi
+            echo "::endgroup::"
+          done
+          exit $echec
