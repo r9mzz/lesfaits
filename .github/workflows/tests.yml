@@ -23,7 +23,7 @@ jobs:
           python-version: "3.11"
           cache: pip
       - name: Installer les dépendances
-        run: pip install -r requirements.txt
+        run: pip install -r requirements.txt pytest
       - name: Compiler tous les scripts (détecte les erreurs de syntaxe)
         run: python -m py_compile scripts/*.py
       - name: Tests avec fixtures pytest
