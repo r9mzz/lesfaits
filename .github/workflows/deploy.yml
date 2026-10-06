@@ -190,17 +190,6 @@ jobs:
           git diff --name-only --diff-filter=A HEAD~1 HEAD -- articles/ \
             | sed 's|^articles/||; s|\.html$||' > "${GITHUB_WORKSPACE}/new_articles.txt" || true
           git push
-      - name: Déployer vers Netlify (indépendant de GitHub Pages)
-        if: ${{ steps.garde.outputs.passer != 'true' && github.event.inputs.dry_run != 'true' }}
-        env:
-          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
-          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
-        run: |
-          if [ -n "$NETLIFY_AUTH_TOKEN" ] && [ -n "$NETLIFY_SITE_ID" ]; then
-            npx --yes netlify-cli deploy --dir=/tmp/site --prod --site="$NETLIFY_SITE_ID" --auth="$NETLIFY_AUTH_TOKEN"
-          else
-            echo "::warning::NETLIFY_AUTH_TOKEN ou NETLIFY_SITE_ID absent — déploiement Netlify sauté."
-          fi
       - name: Sauvegarder les slugs pour publication X (07h00)
         if: ${{ steps.garde.outputs.passer != 'true' && github.event.inputs.dry_run != 'true' }}
         run: |
