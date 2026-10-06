@@ -254,6 +254,8 @@ jobs:
           LLM_API_KEY: ${{ secrets.LLM_API_KEY }}
           LLM_API_KEY_2: ${{ secrets.LLM_API_KEY_2 }}
           LLM_API_KEY_3: ${{ secrets.LLM_API_KEY_3 }}
+          LLM_API_KEY_4: ${{ secrets.LLM_API_KEY_4 }}
+          LLM_API_KEY_5: ${{ secrets.LLM_API_KEY_5 }}
           PYTHONIOENCODING: utf-8
           TZ: Europe/Paris
         run: |
