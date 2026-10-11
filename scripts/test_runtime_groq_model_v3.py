@@ -119,7 +119,12 @@ def main() -> None:
     # Mistral avec des noms Groq produit un 404 sur chaque appel, soit la panne
     # des 15-17/08 dans l'autre sens.
     _red_m, _juge_m = _defauts("https://api.mistral.ai/v1")
-    assert "mistral" in _red_m and "mistral" in _juge_m, (
+    def _modele_mistral(nom):
+        # « ministral-* » est la gamme légère de Mistral AI ; elle ne contient
+        # pas la sous-chaîne « mistral » (n-i-s-t-r-a-l).
+        return "mistral" in nom or "ministral" in nom
+
+    assert _modele_mistral(_red_m) and _modele_mistral(_juge_m), (
         f"Sous Mistral, les défauts restent des modèles Groq ({_red_m}, {_juge_m}) "
         "— chaque appel échouerait en 404."
     )
