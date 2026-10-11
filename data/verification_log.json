@@ -23144,5 +23144,333 @@
     "veille_age_h": 4.1,
     "veille_n_flux_grappe": 2,
     "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "voitures-electriques-part-de-marché-38-8-août-2026",
+    "statut": "rejete_qualite",
+    "date": "2026-10-11T22:39:39",
+    "angle_insuffisant": true,
+    "raison": "Aucune phrase dans 'faits' ne lie un événement daté récent (ex : Mondial de l'automobile 2026) à une donnée chiffrée ou nommée propre à cet événement. Le texte décrit des tendances générales (parc électrique, bornes de recharge) sans ancrage dans une actualité précise déclenchante.",
+    "article_type": "breve",
+    "avertissements_garde_fous": [
+      "resume_repete_corps"
+    ],
+    "titre": "Voitures électriques : part de marché à 38,8 % en août 2026",
+    "n_sources": 3,
+    "n_mots": 178,
+    "titre_rss": "Automobile : la location courte durée, un vecteur de liberté",
+    "matiere_faits_distincts": 727,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "primaire-socialiste-glucksmann-66-voix-cyberattaque-perturbations-11-octobre",
+    "statut": "erreur_verification",
+    "date": "2026-10-11T22:41:57",
+    "etape": "detection",
+    "erreur": "JSON tronqué ou incomplet dans la réponse (max_tokens atteint ?)",
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "article_sans_date"
+    ],
+    "titre": "Primaire socialiste 2026 : Glucksmann l'emporte dès le premier tour avec 66,13 % malgré une cyberattaque",
+    "n_sources": 4,
+    "n_mots": 744,
+    "titre_rss": "Primaire de la gauche : Raphaël Glucksmann l'emporte dès le premier tour avec 66 % des voix",
+    "matiere_faits_distincts": 1158,
+    "matiere_redondance": 0.05,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10
+  },
+  {
+    "slug": "primaire-socialiste-glucksmann-66-voix-cyberattaque-perturbations-11-octobre",
+    "statut": "rejete_qualite",
+    "date": "2026-10-11T22:41:57",
+    "raison": "verification_indisponible",
+    "statut_verification_initial": "erreur_verification"
+  },
+  {
+    "slug": "sac-ashley-1921-relique-esclavage-transmission-familiale-etats-unis",
+    "statut": "rejete_sensible",
+    "date": "2026-10-11T22:44:08",
+    "problemes_initiaux": 13,
+    "bloc5": [
+      "compteur_incoherent"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "article_sans_date"
+    ],
+    "titre": "Le sac d'Ashley, relique brodée de 1921, éclaire les réseaux de transmission familiale sous l'esclavage",
+    "n_sources": 5,
+    "n_mots": 819,
+    "titre_rss": "« Le Sac d’Ashley » : enquête sur l’esclavage au fil d’une histoire de transmission",
+    "matiere_faits_distincts": 867,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "albanie-montenegro-blocages-adhesion-ue-2026-criteres-corruption-reformes",
+    "statut": "rejete_sensible",
+    "date": "2026-10-11T22:50:20",
+    "problemes_initiaux": 12,
+    "bloc5": [
+      "diffamation_potentielle"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "article_sans_date"
+    ],
+    "titre": "Adhésion à l'UE : Albanie et Monténégro bloqués sur justice et corruption malgré des avancées",
+    "n_sources": 4,
+    "n_mots": 892,
+    "titre_rss": "Albanie et Monténégro : un état des lieux des négociations d'adhésion à l'Union européenne - Rapport d'information n° 845",
+    "matiere_faits_distincts": 774,
+    "matiere_redondance": 0.01,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "retraites-france-allemagne-depenses-pib-endettement-2026",
+    "statut": "rejete_sensible",
+    "date": "2026-10-11T22:53:44",
+    "problemes_initiaux": 14,
+    "bloc5": [
+      "extrapolation"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "article_sans_date"
+    ],
+    "titre": "Retraites : la France dépense 4,2 points de PIB de plus que l'Allemagne",
+    "n_sources": 4,
+    "n_mots": 783,
+    "titre_rss": "« La France protège mieux ses retraités les plus modestes que l’Allemagne, mais elle finance son système de retraite généreux à crédit »",
+    "matiere_faits_distincts": 1155,
+    "matiere_redondance": 0.03,
+    "matiere_donnees_chiffrees": 8,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "europe-investissements-antidrones-retard-operationnel-2030",
+    "statut": "rejete_sensible",
+    "date": "2026-10-11T22:56:12",
+    "problemes_initiaux": 7,
+    "bloc5": [
+      "annonce_perimee"
+    ],
+    "article_type": "breve",
+    "avertissements_garde_fous": [
+      "article_sans_date"
+    ],
+    "titre": "L'Europe multiplie par six ses investissements antidrones mais seul un tiers sera opérationnel d’ici 2030",
+    "n_sources": 3,
+    "n_mots": 221,
+    "titre_rss": "Défense antidrones : le rapport qui met en lumière le retard opérationnel de l’Europe",
+    "matiere_faits_distincts": 975,
+    "matiere_redondance": 0.1,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "inde-arrestations-massives-manifestations-reforme-electorale-10-octobre",
+    "statut": "rejete_sensible",
+    "date": "2026-10-11T22:59:12",
+    "sujet_sensible": true,
+    "raison": "L'article porte sur des arrestations massives et des questions de droits humains en Inde, impliquant des risques juridiques et des critiques envers des pratiques policières, ce qui peut être interprété comme une mise en cause indirecte des autorités indiennes et des forces de l'ordre.",
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "article_sans_date"
+    ],
+    "titre": "Inde : 500 arrestations lors des manifestations contre la réforme électorale",
+    "n_sources": 4,
+    "n_mots": 770,
+    "titre_rss": "Manifestations en Inde : des arrestations à la pelle des jeunes «cafards» et de l’opposition",
+    "matiere_faits_distincts": 770,
+    "matiere_redondance": 0.01,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "deux-tiers-nappes-phreatiques-france-situation-critique-alerte-brgm",
+    "statut": "rejete_sensible",
+    "date": "2026-10-11T23:02:23",
+    "problemes_initiaux": 13,
+    "bloc5": [
+      "compteur_incoherent"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "article_sans_date"
+    ],
+    "titre": "Deux tiers des nappes phréatiques françaises en situation critique selon le BRGM",
+    "n_sources": 5,
+    "n_mots": 805,
+    "titre_rss": "France: Deux tiers des nappes phréatiques dans une situation \"très préoccupante“",
+    "matiere_faits_distincts": 1063,
+    "matiere_redondance": 0.01,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "cop31-energies-fossiles-dominent-toujours-mix-energetique-mondial",
+    "statut": "erreur_verification",
+    "date": "2026-10-11T23:06:23",
+    "etape": "detection",
+    "erreur": "JSON tronqué ou incomplet dans la réponse (max_tokens atteint ?)",
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "article_sans_date"
+    ],
+    "titre": "COP31 : les énergies fossiles dominent toujours le mix énergétique mondial malgré les progrès des renouvelables",
+    "n_sources": 5,
+    "n_mots": 933,
+    "titre_rss": "COP31: l'humanité est toujours accro aux énergies fossiles",
+    "matiere_faits_distincts": 906,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10
+  },
+  {
+    "slug": "cop31-energies-fossiles-dominent-toujours-mix-energetique-mondial",
+    "statut": "rejete_qualite",
+    "date": "2026-10-11T23:06:23",
+    "raison": "verification_indisponible",
+    "statut_verification_initial": "erreur_verification"
+  },
+  {
+    "slug": "sante-publique-france-lance-enquete-eras-2026-comportements-sexuels-hsh",
+    "statut": "rejete_sensible",
+    "date": "2026-10-11T23:08:50",
+    "problemes_initiaux": 5,
+    "bloc5": [
+      "diffamation_potentielle"
+    ],
+    "article_type": "breve",
+    "avertissements_garde_fous": [
+      "article_sans_date"
+    ],
+    "titre": "Santé publique France lance l’enquête ERAS 2026 sur les comportements sexuels des HSH",
+    "n_sources": 3,
+    "n_mots": 155,
+    "titre_rss": "Enquête « Rapport au sexe » (ERAS) 2026 à destination des hommes ayant des rapports sexuels avec des hommes",
+    "matiere_faits_distincts": 985,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "budget-2027-assemblee-nationale-deficit-8-milliards-transferts-dépenses",
+    "statut": "rejete_sensible",
+    "date": "2026-10-11T23:16:58",
+    "problemes_initiaux": 20,
+    "tentative": 1,
+    "bloc5": true,
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "article_sans_date"
+    ],
+    "titre": "Budget 2027 : l'Assemblée nationale alourdit le déficit de 8 milliards via des transferts et dépenses non compensées",
+    "n_sources": 4,
+    "n_mots": 810,
+    "titre_rss": "Budget 2027 : l’examen à l’Assemblée nationale tourne au désastre pour les comptes publics",
+    "matiere_faits_distincts": 919,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "ia-comme-collegue-40-entreprises-europeennes-cadre-juridique-fragmentaire",
+    "statut": "rejete_sensible",
+    "date": "2026-10-12T01:04:15",
+    "problemes_initiaux": 14,
+    "bloc5": [
+      "faux_debat"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "titre_de_mauvaise_qualite",
+      "article_sans_date"
+    ],
+    "titre": "L'IA comme collègue : 40 % des entreprises européennes l'adoptent, mais le cadre juridique reste fragmenté",
+    "n_sources": 5,
+    "n_mots": 1052,
+    "titre_rss": "Mon collègue est une IA",
+    "matiere_faits_distincts": 731,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "mortalite-france-2024-641046-deces-baisse-taux-standardise",
+    "statut": "rejete_sensible",
+    "date": "2026-10-12T01:07:40",
+    "problemes_initiaux": 5,
+    "tentative": 1,
+    "bloc5": true,
+    "article_type": "breve",
+    "avertissements_garde_fous": [
+      "titre_de_mauvaise_qualite",
+      "article_sans_date"
+    ],
+    "titre": "France enregistre 641 046 décès en 2024 malgré baisse du taux de mortalité standardisé",
+    "n_sources": 3,
+    "n_mots": 157,
+    "titre_rss": "Grandes causes de décès en France : tendances et causes associées en 2024",
+    "matiere_faits_distincts": 635,
+    "matiere_redondance": 0.02,
+    "matiere_donnees_chiffrees": 3,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "veille_heures_visible": 517.7,
+    "veille_passages": 311,
+    "veille_age_h": 1460.1,
+    "veille_n_flux_grappe": 1,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "condamnation-akhazzane-22-ans-incendie-bande-organisee-corse",
+    "statut": "rejete_sensible",
+    "date": "2026-10-12T01:11:33",
+    "sujet_sensible": true,
+    "raison": "Affaire judiciaire en cours visant une personne nommée (Yassine Akhazzane) avec condamnation prononcée mais non définitivement jugée (pas de mention d'un jugement définitif ou d'appel épuisé).",
+    "article_type": "breve",
+    "avertissements_garde_fous": [
+      "article_sans_date"
+    ],
+    "titre": "Condamnation de Yassine Akhazzane pour incendie criminel en bande organisée",
+    "n_sources": 3,
+    "n_mots": 211,
+    "titre_rss": "Corse : le caïd de la drogue Yassine Akhazzane condamné à vingt-deux ans de réclusion pour avoir ordonné l’incendie d’un hôtel",
+    "matiere_faits_distincts": 800,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
   }
 ]
