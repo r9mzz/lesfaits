@@ -23472,5 +23472,737 @@
     "n_sources_injectees": 10,
     "n_sources_trouvees": 10,
     "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "voiture-electrique-38-8-ventes-franche-cap-2-millions-2026",
+    "statut": "rejete_sensible",
+    "date": "2026-10-12T16:54:18",
+    "problemes_initiaux": 16,
+    "bloc5": [
+      "compteur_incoherent"
+    ],
+    "article_type": "breve",
+    "titre": "La voiture électrique domine le marché français avec 38,8 % des ventes",
+    "n_sources": 4,
+    "n_mots": 254,
+    "titre_rss": "Automobile : la location courte durée, un vecteur de liberté",
+    "matiere_faits_distincts": 468,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "nucléaire-france-recule-mondial-14-pourcent-2026",
+    "statut": "rejete_sensible",
+    "date": "2026-10-12T17:03:59",
+    "problemes_initiaux": 12,
+    "bloc5": [
+      "acteur_mis_en_cause_sans_reponse"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "resume_repete_corps"
+    ],
+    "titre": "Nucléaire : la France mise sur une énergie en recul mondial (14 % en 2026)",
+    "n_sources": 10,
+    "n_mots": 475,
+    "titre_rss": "Nucléaire: une énergie en perte de vitesse dans le monde",
+    "matiere_faits_distincts": 977,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "transition-ecologique-161-milliards-ecarts-financement-cour-des-comptes",
+    "statut": "rejete_sensible",
+    "date": "2026-10-12T17:17:49",
+    "problemes_initiaux": 17,
+    "tentative": 1,
+    "bloc5": true,
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "resume_repete_corps"
+    ],
+    "titre": "Transition écologique : 161 milliards d'euros manquants d'ici 2030 selon la Cour des comptes",
+    "n_sources": 4,
+    "n_mots": 682,
+    "titre_rss": "La Cour des comptes alerte sur le financement insuffisant de la transition écologique",
+    "matiere_faits_distincts": 1092,
+    "matiere_redondance": 0.01,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "rapport"
+  },
+  {
+    "slug": "cyberattaque-danfoss-impact-sur-les-congelateurs-des-enseignes",
+    "statut": "rejete_sensible",
+    "date": "2026-10-12T17:26:41",
+    "problemes_initiaux": 15,
+    "bloc5": [
+      "compteur_incoherent"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "faits_repetitifs"
+    ],
+    "titre": "Cyberattaque Danfoss : des congélateurs transformés en radiateurs dans 3 enseignes",
+    "n_sources": 4,
+    "n_mots": 710,
+    "titre_rss": "Frigos réglés à 50 degrés : une immense cyberattaque frappe Intermarché, Leclerc et Super U",
+    "matiere_faits_distincts": 908,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 4,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "chasse-illégale-reserves-naturelles-pyrenees-orientales-notables-risques-ecologiques",
+    "statut": "rejete_sensible",
+    "date": "2026-10-12T17:33:35",
+    "problemes_initiaux": 19,
+    "tentative": 1,
+    "bloc5": true,
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "faits_repetitifs",
+      "titre_de_mauvaise_qualite"
+    ],
+    "titre": "Chasse illégale dans les réserves naturelles : des notables et des défaillances institutionnelles",
+    "n_sources": 4,
+    "n_mots": 800,
+    "titre_rss": "Chasse : les petits arrangements de notables dans une réserve naturelle",
+    "matiere_faits_distincts": 707,
+    "matiere_redondance": 0.01,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "albanie-montenegro-avances-blocages-negociations-adhesion-ue-2026",
+    "statut": "rejete_sensible",
+    "date": "2026-10-12T17:39:03",
+    "problemes_initiaux": 15,
+    "bloc5": [
+      "faux_debat"
+    ],
+    "article_type": "actu",
+    "titre": "Albanie et Monténégro : avancées et blocages dans les négociations d'adhésion à l'UE",
+    "n_sources": 4,
+    "n_mots": 484,
+    "titre_rss": "Albanie et Monténégro : un état des lieux des négociations d'adhésion à l'Union européenne - Rapport d'information n° 845",
+    "matiere_faits_distincts": 755,
+    "matiere_redondance": 0.03,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "primaire-gauche-glucksmann-designe-66-1-premier-tour",
+    "statut": "rejete_sensible",
+    "date": "2026-10-12T17:45:37",
+    "problemes_initiaux": 19,
+    "bloc5": [
+      "acteur_mis_en_cause_sans_reponse"
+    ],
+    "article_type": "actu",
+    "titre": "Primaire gauche : Glucksmann désigné avec 66,1 % dès le premier tour",
+    "n_sources": 3,
+    "n_mots": 814,
+    "titre_rss": "Primaire de la gauche : Raphaël Glucksmann l'emporte dès le premier tour avec 66 % des voix",
+    "matiere_faits_distincts": 628,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "ebola-bundibugyo-vaccins-zaire-anticorps-resultats-inserm-23-juillet-2026",
+    "statut": "rejete_sensible",
+    "date": "2026-10-12T17:52:50",
+    "problemes_initiaux": 19,
+    "bloc5": [
+      "faux_debat"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "resume_repete_corps"
+    ],
+    "titre": "Ebola Bundibugyo : les vaccins Zaïre induisent des anticorps, mais sans preuve de protection",
+    "n_sources": 6,
+    "n_mots": 776,
+    "titre_rss": "Épidémie d’Ebola Bundibugyo : des premiers résultats pour guider la recherche d’un vaccin efficace",
+    "matiere_faits_distincts": 871,
+    "matiere_redondance": 0.01,
+    "matiere_donnees_chiffrees": 2,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "veille_heures_visible": 517.7,
+    "veille_passages": 311,
+    "veille_age_h": 1478.2,
+    "veille_n_flux_grappe": 9,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "brgm-66-nappes-phreatiques-situation-preoccupante-secheresse-ete-2026",
+    "statut": "rejete_sensible",
+    "date": "2026-10-12T17:59:44",
+    "problemes_initiaux": 19,
+    "bloc5": [
+      "faux_debat"
+    ],
+    "article_type": "actu",
+    "titre": "BRGM : 66 % des nappes phréatiques françaises en situation très préoccupante après l'été 2026",
+    "n_sources": 4,
+    "n_mots": 401,
+    "titre_rss": "France: Deux tiers des nappes phréatiques dans une situation \"très préoccupante“",
+    "matiere_faits_distincts": 775,
+    "matiere_redondance": 0.14,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "france-energies-fossiles-renouvelables-dependance-2025",
+    "statut": "erreur_verification",
+    "date": "2026-10-12T18:04:49",
+    "etape": "detection",
+    "erreur": "JSON tronqué ou incomplet dans la réponse (max_tokens atteint ?)",
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "faits_repetitifs"
+    ],
+    "titre": "La France reste dépendante des énergies fossiles malgré les progrès des renouvelables",
+    "n_sources": 4,
+    "n_mots": 686,
+    "titre_rss": "COP31: l'humanité est toujours accro aux énergies fossiles",
+    "matiere_faits_distincts": 847,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10
+  },
+  {
+    "slug": "france-energies-fossiles-renouvelables-dependance-2025",
+    "statut": "rejete_qualite",
+    "date": "2026-10-12T18:04:49",
+    "raison": "verification_indisponible",
+    "statut_verification_initial": "erreur_verification"
+  },
+  {
+    "slug": "enquete-eras-2026-cible-20-000-hsh-personnes-trans-adapter-prevention-vih-ist",
+    "statut": "erreur_verification",
+    "date": "2026-10-12T18:18:09",
+    "etape": "detection",
+    "erreur": "JSON tronqué ou incomplet dans la réponse (max_tokens atteint ?)",
+    "article_type": "actu",
+    "titre": "L’enquête ERAS 2026 cible 20 000 HSH et personnes trans pour adapter la prévention",
+    "n_sources": 3,
+    "n_mots": 960,
+    "titre_rss": "Enquête « Rapport au sexe » (ERAS) 2026 à destination des hommes ayant des rapports sexuels avec des hommes",
+    "matiere_faits_distincts": 763,
+    "matiere_redondance": 0.1,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "veille_heures_visible": 117.0,
+    "veille_passages": 24,
+    "veille_age_h": 1077.5,
+    "veille_n_flux_grappe": 1
+  },
+  {
+    "slug": "enquete-eras-2026-cible-20-000-hsh-personnes-trans-adapter-prevention-vih-ist",
+    "statut": "rejete_qualite",
+    "date": "2026-10-12T18:18:09",
+    "raison": "verification_indisponible",
+    "statut_verification_initial": "erreur_verification"
+  },
+  {
+    "slug": "inserm-demonstration-scientifique-sept-idees-recues-vaccins",
+    "statut": "rejete_sensible",
+    "date": "2026-10-12T18:28:43",
+    "problemes_initiaux": 14,
+    "bloc5": [
+      "source_inventee"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "resume_repete_corps",
+      "faits_repetitifs",
+      "titre_de_mauvaise_qualite"
+    ],
+    "titre": "L’Inserm démontre scientifiquement sept idées reçues sur les vaccins",
+    "n_sources": 4,
+    "n_mots": 898,
+    "titre_rss": "Sept fausses idées sur les vaccins",
+    "matiere_faits_distincts": 955,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 2,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "cyberattaque-frigorifiques-supermarches-intermarche-cooperative-u-impact-risques",
+    "statut": "rejete_sensible",
+    "date": "2026-10-12T18:32:45",
+    "problemes_initiaux": 16,
+    "bloc5": [
+      "compteur_incoherent"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "resume_repete_corps"
+    ],
+    "titre": "Cyberattaque contre les frigos des supermarchés : 250 magasins touchés, enquête en cours",
+    "n_sources": 4,
+    "n_mots": 411,
+    "titre_rss": "Des supermarchés français victimes d'une cyberattaque contre leurs installations frigorifiques",
+    "matiere_faits_distincts": 661,
+    "matiere_redondance": 0.02,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "faux-contenus-reseaux-sociaux-revenus-regulations-limites-2026",
+    "statut": "rejete_sensible",
+    "date": "2026-10-12T18:36:55",
+    "problemes_initiaux": 12,
+    "bloc5": [
+      "faux_debat"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "faits_repetitifs"
+    ],
+    "titre": "Les faux contenus sur TikTok, Facebook et Instagram rapportent des centaines de milliers de vues",
+    "n_sources": 7,
+    "n_mots": 861,
+    "titre_rss": "Les faux contenus d''informations font recette sur les réseaux sociaux",
+    "matiere_faits_distincts": 896,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "finistere-secheresse-75-eau-depend-cours-deau-debit-historique-bas",
+    "statut": "rejete_sensible",
+    "date": "2026-10-12T18:40:48",
+    "problemes_initiaux": 14,
+    "bloc5": [
+      "compteur_incoherent"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "titre_de_mauvaise_qualite"
+    ],
+    "titre": "Finistère en crise hydrique : 75 % de l'eau dépendent de cours d'eau en débit historique bas",
+    "n_sources": 6,
+    "n_mots": 852,
+    "titre_rss": "Sécheresse : le Finistère dans une « situation critique »",
+    "matiere_faits_distincts": 1100,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "tortue-jonathan-194-ans-mitochondries-longevite-adn-sainte-helene",
+    "statut": "rejete_sensible",
+    "date": "2026-10-12T18:44:57",
+    "problemes_initiaux": 13,
+    "tentative": 1,
+    "bloc5": true,
+    "article_type": "actu",
+    "titre": "Jonathan, tortue de 194 ans : des mitochondries adaptées comme clé de longévité",
+    "n_sources": 4,
+    "n_mots": 748,
+    "titre_rss": "Le secret de longévité de Jonathan, une tortue de 194 ans de l’île de Sainte-Hélène, caché dans son ADN",
+    "matiere_faits_distincts": 508,
+    "matiere_redondance": 0.11,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "etude_scientifique"
+  },
+  {
+    "slug": "l-ue-propose-un-cadre-climatique-renforce-nucleaire-preference-europeenne",
+    "statut": "rejete_sensible",
+    "date": "2026-10-12T18:48:36",
+    "problemes_initiaux": 11,
+    "bloc5": [
+      "faux_debat"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "titre_de_mauvaise_qualite"
+    ],
+    "titre": "L'UE propose un cadre climatique renforcé avec nucléaire et préférence européenne",
+    "n_sources": 6,
+    "n_mots": 448,
+    "titre_rss": "Le commissaire européen au climat compte sur le « made in Europe » et le nucléaire pour réduire les émissions de carbone",
+    "matiere_faits_distincts": 1097,
+    "matiere_redondance": 0.05,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "simulation-lune-formation-rapide-collision-terre-theia",
+    "statut": "rejete_sensible",
+    "date": "2026-10-12T18:52:18",
+    "problemes_initiaux": 13,
+    "bloc5": [
+      "faux_debat"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "faits_repetitifs"
+    ],
+    "titre": "La Lune pourrait s'être formée en quelques heures selon une simulation",
+    "n_sources": 3,
+    "n_mots": 388,
+    "titre_rss": "Et, en quelques heures, naquit la Lune...",
+    "matiere_faits_distincts": 802,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "etude_scientifique"
+  },
+  {
+    "slug": "infections-nosocomiales-mortalite-perinatale-impact-deces-2024",
+    "statut": "rejete_sensible",
+    "date": "2026-10-12T18:56:33",
+    "problemes_initiaux": 17,
+    "bloc5": [
+      "compteur_incoherent"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "resume_repete_corps",
+      "faits_repetitifs"
+    ],
+    "titre": "Infections nosocomiales et mortalité périnatale : deux causes sous-estimées dans les décès de 2024",
+    "n_sources": 4,
+    "n_mots": 785,
+    "titre_rss": "Grandes causes de décès en France : tendances et causes associées en 2024",
+    "matiere_faits_distincts": 862,
+    "matiere_redondance": 0.04,
+    "matiere_donnees_chiffrees": 2,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "veille_heures_visible": 517.7,
+    "veille_passages": 311,
+    "veille_age_h": 1478.2,
+    "veille_n_flux_grappe": 1,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "inserm-etudes-additifs-alimentaires-risques-sante-2026",
+    "statut": "rejete_sensible",
+    "date": "2026-10-12T19:00:46",
+    "problemes_initiaux": 16,
+    "bloc5": [
+      "faux_debat"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "resume_repete_corps",
+      "titre_de_mauvaise_qualite"
+    ],
+    "titre": "Inserm : trois études lient additifs alimentaires à cancer, diabète et hypertension",
+    "n_sources": 4,
+    "n_mots": 799,
+    "titre_rss": "Colorants, conservateurs : trois nouvelles études pointent des liens entre additifs alimentaires et risque accru de cancer, de diabète de type 2, de maladies cardiovasculaires et d’hypertension",
+    "matiere_faits_distincts": 908,
+    "matiere_redondance": 0.02,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "veille_heures_visible": 517.7,
+    "veille_passages": 311,
+    "veille_age_h": 1478.2,
+    "veille_n_flux_grappe": 3,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "cinq-projets-ird-selectionnes-impacts-covid-19-france",
+    "statut": "rejete_sensible",
+    "date": "2026-10-12T19:06:27",
+    "problemes_initiaux": 18,
+    "tentative": 1,
+    "bloc5": true,
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "faits_repetitifs"
+    ],
+    "titre": "Cinq projets IRD sélectionnés pour analyser les impacts du Covid-19 en France",
+    "n_sources": 4,
+    "n_mots": 801,
+    "titre_rss": "Covid-19 – les projets IRD de l’appel ANR-Flash",
+    "matiere_faits_distincts": 1092,
+    "matiere_redondance": 0.01,
+    "matiere_donnees_chiffrees": 2,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "veille_heures_visible": 517.7,
+    "veille_passages": 326,
+    "veille_age_h": 1478.2,
+    "veille_n_flux_grappe": 1,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "budget-2027-impos-geles-retraites-revalorisees-aides-logement-ciblees",
+    "statut": "rejete_sensible",
+    "date": "2026-10-12T19:11:43",
+    "problemes_initiaux": 24,
+    "tentative": 1,
+    "bloc5": true,
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "faits_repetitifs"
+    ],
+    "titre": "Budget 2027 : impôts gelés, retraites revalorisées et aides au logement ciblées",
+    "n_sources": 5,
+    "n_mots": 780,
+    "titre_rss": "Ce que contient le projet de budget 2027",
+    "matiere_faits_distincts": 725,
+    "matiere_redondance": 0.01,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "decision_officielle"
+  },
+  {
+    "slug": "optogenetique-essai-clinique-phase-1-tolerance-limites-cécité-héréditaire",
+    "statut": "erreur_verification",
+    "date": "2026-10-12T19:16:54",
+    "etape": "detection",
+    "erreur": "JSON tronqué ou incomplet dans la réponse (max_tokens atteint ?)",
+    "article_type": "actu",
+    "titre": "Essai clinique de phase 1 : l’optogénétique tolérée et ses limites précisées",
+    "n_sources": 3,
+    "n_mots": 442,
+    "titre_rss": "L’optogénétique s’avère sûre pour traiter certaines formes de cécité",
+    "matiere_faits_distincts": 551,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10
+  },
+  {
+    "slug": "optogenetique-essai-clinique-phase-1-tolerance-limites-cécité-héréditaire",
+    "statut": "rejete_qualite",
+    "date": "2026-10-12T19:16:54",
+    "raison": "verification_indisponible",
+    "statut_verification_initial": "erreur_verification"
+  },
+  {
+    "slug": "thrombinnov-inserm-plaquettes-sang-medicaments-acceleration-preclinique",
+    "statut": "rejete_sensible",
+    "date": "2026-10-12T19:22:05",
+    "problemes_initiaux": 17,
+    "tentative": 1,
+    "bloc5": true,
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "faits_repetitifs",
+      "titre_de_mauvaise_qualite",
+      "cliches_ia"
+    ],
+    "titre": "ThrombInnov révolutionne les tests précliniques sur les plaquettes sanguines",
+    "n_sources": 3,
+    "n_mots": 638,
+    "titre_rss": "L’entrepreneuriat dans le sang !",
+    "matiere_faits_distincts": 938,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "ird-formations-obligatoires-registre-rgpd-novembre-2026",
+    "statut": "rejete_sensible",
+    "date": "2026-10-12T19:27:13",
+    "problemes_initiaux": 16,
+    "tentative": 1,
+    "bloc5": true,
+    "article_type": "actu",
+    "titre": "L'IRD organise des formations obligatoires sur son registre RGPD à partir de novembre 2026",
+    "n_sources": 9,
+    "n_mots": 828,
+    "titre_rss": "Protection des données personnelles - Le registre des traitements",
+    "matiere_faits_distincts": 857,
+    "matiere_redondance": 0.02,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "veille_heures_visible": 517.7,
+    "veille_passages": 326,
+    "veille_age_h": 1478.2,
+    "veille_n_flux_grappe": 1,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "retailleau-plan-197-milliards-economies-publiques-dici-2032",
+    "statut": "erreur_verification",
+    "date": "2026-10-12T19:34:12",
+    "etape": "detection",
+    "erreur": "JSON tronqué ou incomplet dans la réponse (max_tokens atteint ?)",
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "resume_repete_corps",
+      "faits_repetitifs"
+    ],
+    "titre": "Retailleau cible 197 milliards d'euros d'économies publiques d'ici 2032",
+    "n_sources": 4,
+    "n_mots": 744,
+    "titre_rss": "Présidentielle 2027 : Bruno Retailleau promet des économies de près de 200 milliards d'euros jusqu'en 2032",
+    "matiere_faits_distincts": 566,
+    "matiere_redondance": 0.05,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10
+  },
+  {
+    "slug": "retailleau-plan-197-milliards-economies-publiques-dici-2032",
+    "statut": "rejete_qualite",
+    "date": "2026-10-12T19:34:12",
+    "raison": "verification_indisponible",
+    "statut_verification_initial": "erreur_verification"
+  },
+  {
+    "slug": "trump-dividende-5000-dollars-deficit-budgetaire-1300-milliards",
+    "statut": "rejete_sensible",
+    "date": "2026-10-12T19:39:09",
+    "problemes_initiaux": 12,
+    "tentative": 1,
+    "bloc5": true,
+    "article_type": "actu",
+    "titre": "Trump propose un dividende de 5 000 dollars : un coût de 1 300 milliards sans mécanisme identifié",
+    "n_sources": 3,
+    "n_mots": 464,
+    "titre_rss": "Trump peut-il acheter les midterms ?",
+    "matiere_faits_distincts": 912,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "retombees-economiques-universites-impact-territorial-2026",
+    "statut": "rejete_sensible",
+    "date": "2026-10-12T19:45:52",
+    "problemes_initiaux": 17,
+    "tentative": 2,
+    "bloc5": true,
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "resume_repete_corps",
+      "faits_repetitifs"
+    ],
+    "titre": "Un euro investi dans les universités rapporte 2,7 euros aux collectivités locales",
+    "n_sources": 3,
+    "n_mots": 763,
+    "titre_rss": "Près de 2,7 € de retombées économiques pour chaque euro investi : les universités, moteurs de croissance des territoires",
+    "matiere_faits_distincts": 868,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 2,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "ia-adoption-entreprises-francaises-10-en-2024-ecarts-sectoriels",
+    "statut": "rejete_sensible",
+    "date": "2026-10-12T19:50:32",
+    "problemes_initiaux": 11,
+    "bloc5": [
+      "compteur_incoherent"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "faits_repetitifs"
+    ],
+    "titre": "L'IA adoptée par 10 % des entreprises françaises en 2024, avec des écarts sectoriels marqués",
+    "n_sources": 5,
+    "n_mots": 821,
+    "titre_rss": "Mon collègue est une IA",
+    "matiere_faits_distincts": 680,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "europe-dependance-importations-munitions-defense-2026",
+    "statut": "rejete_sensible",
+    "date": "2026-10-12T19:55:28",
+    "problemes_initiaux": 17,
+    "bloc5": [
+      "compteur_incoherent"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "titre_de_mauvaise_qualite",
+      "cliches_ia"
+    ],
+    "titre": "L'Europe produit 11 % des armes mondiales mais dépend à 60 % des importations pour ses munitions critiques",
+    "n_sources": 4,
+    "n_mots": 1027,
+    "titre_rss": "Armes et munitions produites par les industries européennes de la défense - Texte de la commission n° 880",
+    "matiere_faits_distincts": 868,
+    "matiere_redondance": 0.14,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "veille_heures_visible": 517.7,
+    "veille_passages": 326,
+    "veille_age_h": 1478.2,
+    "veille_n_flux_grappe": 4,
+    "nature_contenu": "rapport"
+  },
+  {
+    "slug": "corée-du-sud-robots-patrouilles-policières-2027-limites",
+    "statut": "rejete_sensible",
+    "date": "2026-10-12T19:59:09",
+    "problemes_initiaux": 14,
+    "bloc5": [
+      "extrapolation"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "resume_repete_corps",
+      "faits_repetitifs"
+    ],
+    "titre": "Corée du Sud : robots autonomes pour patrouilles policières dès 2027",
+    "n_sources": 4,
+    "n_mots": 708,
+    "titre_rss": "En Corée du Sud, des robots vont remplacer les patrouilles de police",
+    "matiere_faits_distincts": 1196,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
   }
 ]
