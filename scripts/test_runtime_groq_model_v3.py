@@ -90,6 +90,9 @@ def main() -> None:
 
     def _defauts(base_url: str) -> tuple[str, str]:
         _anc = _os.environ.get("LLM_BASE_URL")
+        # On mesure les DÉFAUTS : le modèle forcé du run en cours (essai d'un
+        # autre fournisseur) ne doit pas les masquer ni les fausser.
+        _anc_modele = _os.environ.pop("GROQ_MODEL_OVERRIDE", None)
         if base_url:
             _os.environ["LLM_BASE_URL"] = base_url
         else:
@@ -104,6 +107,8 @@ def main() -> None:
                 _os.environ.pop("LLM_BASE_URL", None)
             else:
                 _os.environ["LLM_BASE_URL"] = _anc
+            if _anc_modele is not None:
+                _os.environ["GROQ_MODEL_OVERRIDE"] = _anc_modele
             _sys.modules.pop("pipeline", None)
 
     _red, _juge = _defauts("")
