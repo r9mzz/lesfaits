@@ -24204,5 +24204,657 @@
     "n_sources_injectees": 10,
     "n_sources_trouvees": 10,
     "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "loi-integrale-violences-sexuelles-divisions-feministes-lfi",
+    "statut": "rejete_sensible",
+    "date": "2026-10-12T22:18:46",
+    "problemes_initiaux": 14,
+    "bloc5": [
+      "source_derivee_comptee_comme_primaire"
+    ],
+    "article_type": "actu",
+    "titre": "Loi intégrale contre les violences sexuelles : les critiques de LFI et les divisions féministes",
+    "n_sources": 5,
+    "n_mots": 418,
+    "titre_rss": "Derrière la loi intégrale, la guerre des féministes : \"Si on s'écarte un peu de LFI, on est vite traité de facho\"",
+    "matiere_faits_distincts": 528,
+    "matiere_redondance": 0.18,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "voiture-electrique-parc-depasse-2-millions-francais-2026",
+    "statut": "rejete_sensible",
+    "date": "2026-10-12T22:22:40",
+    "problemes_initiaux": 21,
+    "bloc5": [
+      "compteur_incoherent"
+    ],
+    "article_type": "actu",
+    "titre": "La voiture électrique dépasse 2 millions d'unités en France en 2026",
+    "n_sources": 4,
+    "n_mots": 812,
+    "titre_rss": "Automobile : la location courte durée, un vecteur de liberté",
+    "matiere_faits_distincts": 625,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "transition-ecologique-161-milliards-ecart-financement-2030",
+    "statut": "rejete_sensible",
+    "date": "2026-10-12T22:26:35",
+    "problemes_initiaux": 10,
+    "bloc5": [
+      "diffamation_potentielle"
+    ],
+    "article_type": "breve",
+    "avertissements_garde_fous": [
+      "resume_repete_corps"
+    ],
+    "titre": "Transition écologique : la France manque de 161 milliards d'euros d'ici 2030",
+    "n_sources": 4,
+    "n_mots": 261,
+    "titre_rss": "La Cour des comptes alerte sur le financement insuffisant de la transition écologique",
+    "matiere_faits_distincts": 883,
+    "matiere_redondance": 0.01,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "rapport"
+  },
+  {
+    "slug": "budget-2027-assemblee-nationale-absence-majorite-procedures-exceptionnelles",
+    "statut": "rejete_sensible",
+    "date": "2026-10-12T22:29:48",
+    "problemes_initiaux": 20,
+    "bloc5": [
+      "acteur_mis_en_cause_sans_reponse"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "titre_de_mauvaise_qualite"
+    ],
+    "titre": "Budget 2027 : comment l'Assemblée nationale gère-t-elle l'absence de majorité ?",
+    "n_sources": 5,
+    "n_mots": 412,
+    "titre_rss": "« Tous les outils sont sur la table » : à l’Assemblée nationale, la grande bataille du budget 2027 s’engage dans un climat dégradé",
+    "matiere_faits_distincts": 700,
+    "matiere_redondance": 0.01,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "chasse-illégale-reserves-naturelles-pyrenees-orientales-notables-proteges",
+    "statut": "rejete_sensible",
+    "date": "2026-10-12T22:36:26",
+    "problemes_initiaux": 14,
+    "bloc5": [
+      "faux_debat"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "titre_de_mauvaise_qualite",
+      "article_sans_date"
+    ],
+    "titre": "Chasse illégale dans les réserves naturelles : des notables protégés par leur statut",
+    "n_sources": 4,
+    "n_mots": 385,
+    "titre_rss": "Chasse : les petits arrangements de notables dans une réserve naturelle",
+    "matiere_faits_distincts": 691,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "albanie-montenegro-blocages-adhesion-ue-2026",
+    "statut": "rejete_sensible",
+    "date": "2026-10-12T22:39:06",
+    "problemes_initiaux": 10,
+    "bloc5": [
+      "faux_debat"
+    ],
+    "article_type": "actu",
+    "titre": "Adhésion à l'UE : Albanie et Monténégro bloqués sur justice et corruption",
+    "n_sources": 4,
+    "n_mots": 456,
+    "titre_rss": "Albanie et Monténégro : un état des lieux des négociations d'adhésion à l'Union européenne - Rapport d'information n° 845",
+    "matiere_faits_distincts": 463,
+    "matiere_redondance": 0.01,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "glucksmann-designe-candidat-unique-66-voix-primaire-social-democrate",
+    "statut": "rejete_sensible",
+    "date": "2026-10-12T22:44:59",
+    "problemes_initiaux": 18,
+    "bloc5": [
+      "compteur_incoherent"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "resume_repete_corps"
+    ],
+    "titre": "Raphaël Glucksmann désigné candidat unique avec 66,13 % des voix",
+    "n_sources": 3,
+    "n_mots": 399,
+    "titre_rss": "Primaire de la gauche : Raphaël Glucksmann l'emporte dès le premier tour avec 66 % des voix",
+    "matiere_faits_distincts": 745,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "brgm-alerte-66-nappes-phreatiques-france-niveaux-critiques-octobre-2026",
+    "statut": "rejete_sensible",
+    "date": "2026-10-12T22:48:16",
+    "problemes_initiaux": 14,
+    "bloc5": [
+      "compteur_incoherent"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "resume_repete_corps"
+    ],
+    "titre": "BRGM alerte : 66 % des nappes phréatiques en dessous des normales en octobre 2026",
+    "n_sources": 4,
+    "n_mots": 987,
+    "titre_rss": "France: Deux tiers des nappes phréatiques dans une situation \"très préoccupante“",
+    "matiere_faits_distincts": 1004,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "cop31-fossiles-80-pourcent-mix-energetique-mondial-renouvelables-limites",
+    "statut": "rejete_sensible",
+    "date": "2026-10-12T22:52:27",
+    "problemes_initiaux": 25,
+    "bloc5": [
+      "annonce_perimee"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "resume_repete_corps",
+      "faits_repetitifs",
+      "titre_de_mauvaise_qualite"
+    ],
+    "titre": "COP31 : les énergies fossiles couvrent encore 80 % de la consommation mondiale malgré les progrès des renouvelables",
+    "n_sources": 4,
+    "n_mots": 1014,
+    "titre_rss": "COP31: l'humanité est toujours accro aux énergies fossiles",
+    "matiere_faits_distincts": 1097,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "enquete-eras-2026-20000-hsh-prevention-vih-ist",
+    "statut": "rejete_sensible",
+    "date": "2026-10-12T22:57:11",
+    "problemes_initiaux": 10,
+    "bloc5": [
+      "compteur_incoherent"
+    ],
+    "article_type": "actu",
+    "titre": "L’enquête ERAS 2026 vise 20 000 HSH pour adapter la prévention du VIH",
+    "n_sources": 3,
+    "n_mots": 816,
+    "titre_rss": "Enquête « Rapport au sexe » (ERAS) 2026 à destination des hommes ayant des rapports sexuels avec des hommes",
+    "matiere_faits_distincts": 950,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "veille_heures_visible": 117.0,
+    "veille_passages": 24,
+    "veille_age_h": 1083.0,
+    "veille_n_flux_grappe": 1,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "inserm-sept-idees-recues-vaccins-demontees-par-les-donnees",
+    "statut": "rejete_sensible",
+    "date": "2026-10-12T23:01:47",
+    "problemes_initiaux": 18,
+    "bloc5": [
+      "acteur_mis_en_cause_sans_reponse"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "faits_repetitifs",
+      "titre_de_mauvaise_qualite"
+    ],
+    "titre": "Inserm : sept idées reçues sur les vaccins démontées par les données",
+    "n_sources": 7,
+    "n_mots": 800,
+    "titre_rss": "Sept fausses idées sur les vaccins",
+    "matiere_faits_distincts": 1005,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 2,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "cyberattaque-danfoss-surchauffe-congelateurs-supermarches-francais",
+    "statut": "rejete_sensible",
+    "date": "2026-10-12T23:06:32",
+    "problemes_initiaux": 13,
+    "bloc5": [
+      "extrapolation"
+    ],
+    "article_type": "actu",
+    "titre": "Cyberattaque sur Danfoss : surchauffe des congélateurs dans 500+ supermarchés français",
+    "n_sources": 4,
+    "n_mots": 455,
+    "titre_rss": "Dans les supermarchés français, une journée noire après une cyberattaque massive visant des systèmes frigorifiques",
+    "matiere_faits_distincts": 1029,
+    "matiere_redondance": 0.01,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "projet-pure-salmon-verdon-sur-mer-impacts-ecosystemes-nappes-phreatiques",
+    "statut": "rejete_sensible",
+    "date": "2026-10-12T23:11:19",
+    "problemes_initiaux": 18,
+    "bloc5": [
+      "acteur_mis_en_cause_sans_reponse"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "faits_repetitifs",
+      "titre_de_mauvaise_qualite"
+    ],
+    "titre": "Pure Salmon à Verdon-sur-Mer : 6 500 m³ d'eau quotidienne et 10 000 tonnes de saumon menacent écosystèmes et nappes phréatiques",
+    "n_sources": 7,
+    "n_mots": 811,
+    "titre_rss": "Enquête sur le poisson d'élevage: un drame environnemental et humain",
+    "matiere_faits_distincts": 1168,
+    "matiere_redondance": 0.05,
+    "matiere_donnees_chiffrees": 3,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "finistere-alerte-secheresse-restrictions-eau-agriculture-2026",
+    "statut": "rejete_sensible",
+    "date": "2026-10-12T23:16:19",
+    "problemes_initiaux": 17,
+    "bloc5": [
+      "contexte_hors_sujet"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "resume_repete_corps",
+      "titre_de_mauvaise_qualite"
+    ],
+    "titre": "Finistère en alerte sécheresse : restrictions d'eau et impacts agricoles",
+    "n_sources": 8,
+    "n_mots": 806,
+    "titre_rss": "Sécheresse : le Finistère dans une « situation critique »",
+    "matiere_faits_distincts": 1147,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "tortue-jonathan-194-ans-adn-mitochondrial-resistance-stress-oxydatif",
+    "statut": "rejete_sensible",
+    "date": "2026-10-12T23:20:21",
+    "problemes_initiaux": 12,
+    "bloc5": [
+      "compteur_incoherent"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "faits_repetitifs"
+    ],
+    "titre": "Jonathan, tortue de 194 ans : son ADN mitochondrial révèle des adaptations uniques",
+    "n_sources": 3,
+    "n_mots": 840,
+    "titre_rss": "Le secret de longévité de Jonathan, une tortue de 194 ans de l’île de Sainte-Hélène, caché dans son ADN",
+    "matiere_faits_distincts": 784,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "etude_scientifique"
+  },
+  {
+    "slug": "inondations-schoenau-bas-rhin-secheresse-paradoxe",
+    "statut": "rejete_qualite",
+    "date": "2026-10-12T23:26:25",
+    "tentative": 3,
+    "perte_substance": true,
+    "section": "contexte",
+    "mots_avant": 216,
+    "mots_apres": 94,
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "faits_repetitifs"
+    ],
+    "titre": "Inondations à Schœnau : un phénomène paradoxal en pleine sécheresse alsacienne",
+    "n_sources": 3,
+    "n_mots": 611,
+    "titre_rss": "\"Je n'ai jamais connu ça\" : malgré la sécheresse en Alsace, un village du Bas-Rhin est de plus en plus inondé",
+    "matiere_faits_distincts": 863,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "lune-formation-rapide-simulation-collision-terre-theia",
+    "statut": "rejete_sensible",
+    "date": "2026-10-12T23:30:11",
+    "problemes_initiaux": 12,
+    "bloc5": [
+      "faux_debat"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "resume_repete_corps",
+      "faits_repetitifs"
+    ],
+    "titre": "La Lune pourrait s'être formée en quelques heures selon une simulation",
+    "n_sources": 3,
+    "n_mots": 658,
+    "titre_rss": "Et, en quelques heures, naquit la Lune...",
+    "matiere_faits_distincts": 861,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "etude_scientifique"
+  },
+  {
+    "slug": "nepal-vague-de-boue-devastatrice-11-octobre-2026-bilan-contexte",
+    "statut": "rejete_sensible",
+    "date": "2026-10-12T23:35:15",
+    "problemes_initiaux": 15,
+    "tentative": 1,
+    "bloc5": true,
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "resume_repete_corps",
+      "faits_repetitifs"
+    ],
+    "titre": "Vague de boue dévastatrice au Népal : 11 octobre 2026, bilan et contexte",
+    "n_sources": 4,
+    "n_mots": 717,
+    "titre_rss": "« Nous avons fui vers la forêt » : au Népal, une vague de boue dévastatrice surprend des villages en pleine nuit",
+    "matiere_faits_distincts": 885,
+    "matiere_redondance": 0.02,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "mortalité-france-2024-baisse-taux-hausse-maladies-respiratoires",
+    "statut": "rejete_sensible",
+    "date": "2026-10-12T23:39:18",
+    "problemes_initiaux": 11,
+    "bloc5": [
+      "compteur_incoherent"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "resume_repete_corps",
+      "titre_de_mauvaise_qualite"
+    ],
+    "titre": "641 046 décès en France en 2024 : baisse du taux de mortalité malgré une hausse des maladies respiratoires",
+    "n_sources": 4,
+    "n_mots": 709,
+    "titre_rss": "Grandes causes de décès en France : tendances et causes associées en 2024",
+    "matiere_faits_distincts": 734,
+    "matiere_redondance": 0.1,
+    "matiere_donnees_chiffrees": 3,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "veille_heures_visible": 517.7,
+    "veille_passages": 311,
+    "veille_age_h": 1483.7,
+    "veille_n_flux_grappe": 1,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "faux-medias-reseaux-sociaux-51-internautes-exposes-infox-2021",
+    "statut": "rejete_sensible",
+    "date": "2026-10-12T23:44:04",
+    "problemes_initiaux": 16,
+    "bloc5": [
+      "compteur_incoherent"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "titre_de_mauvaise_qualite"
+    ],
+    "titre": "Faux médias sur les réseaux : 51 % des Français exposés à des infox en 2021",
+    "n_sources": 7,
+    "n_mots": 465,
+    "titre_rss": "Les faux contenus d''informations font recette sur les réseaux sociaux",
+    "matiere_faits_distincts": 920,
+    "matiere_redondance": 0.02,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "inserm-etudes-additifs-alimentaires-risques-cancer-diabete-maladies-cardiovasculaires",
+    "statut": "rejete_sensible",
+    "date": "2026-10-12T23:48:35",
+    "problemes_initiaux": 19,
+    "bloc5": [
+      "acteur_mis_en_cause_sans_reponse"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "titre_de_mauvaise_qualite"
+    ],
+    "titre": "Inserm : trois études lient additifs alimentaires à cancer, diabète et maladies cardiovasculaires",
+    "n_sources": 4,
+    "n_mots": 964,
+    "titre_rss": "Colorants, conservateurs : trois nouvelles études pointent des liens entre additifs alimentaires et risque accru de cancer, de diabète de type 2, de maladies cardiovasculaires et d’hypertension",
+    "matiere_faits_distincts": 781,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "veille_heures_visible": 517.7,
+    "veille_passages": 311,
+    "veille_age_h": 1483.7,
+    "veille_n_flux_grappe": 3,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "budget-2027-trois-mesures-phares-pour-limiter-le-deficit-a-5-du-pib",
+    "statut": "rejete_sensible",
+    "date": "2026-10-12T23:58:50",
+    "problemes_initiaux": 15,
+    "bloc5": [
+      "extrapolation"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "faits_repetitifs"
+    ],
+    "titre": "Budget 2027 : trois mesures phares pour limiter le déficit à 5 % du PIB",
+    "n_sources": 6,
+    "n_mots": 718,
+    "titre_rss": "Ce que contient le projet de budget 2027",
+    "matiere_faits_distincts": 663,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "decision_officielle"
+  },
+  {
+    "slug": "optogenetique-essai-clinique-phase-1-limites-traitement-cecite",
+    "statut": "rejete_sensible",
+    "date": "2026-10-13T00:03:16",
+    "problemes_initiaux": 17,
+    "bloc5": [
+      "compteur_incoherent"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "resume_repete_corps",
+      "faits_repetitifs"
+    ],
+    "titre": "Essai clinique de phase 1 : l’optogénétique tolérée mais limitée pour certaines cécités",
+    "n_sources": 3,
+    "n_mots": 903,
+    "titre_rss": "L’optogénétique s’avère sûre pour traiter certaines formes de cécité",
+    "matiere_faits_distincts": 605,
+    "matiere_redondance": 0.06,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "etude_scientifique"
+  },
+  {
+    "slug": "ird-forme-agents-obligation-registre-traitements-donnees-rgpd",
+    "statut": "rejete_sensible",
+    "date": "2026-10-13T00:08:22",
+    "problemes_initiaux": 11,
+    "tentative": 1,
+    "bloc5": true,
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "resume_repete_corps",
+      "faits_repetitifs",
+      "titre_de_mauvaise_qualite"
+    ],
+    "titre": "RGPD : l'IRD forme ses agents à l'obligation du registre des traitements de données",
+    "n_sources": 6,
+    "n_mots": 715,
+    "titre_rss": "Protection des données personnelles - Le registre des traitements",
+    "matiere_faits_distincts": 938,
+    "matiere_redondance": 0.03,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "veille_heures_visible": 517.7,
+    "veille_passages": 326,
+    "veille_age_h": 1483.7,
+    "veille_n_flux_grappe": 1,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "retailleau-198-milliards-economies-deficit-2032-moyens-risques",
+    "statut": "rejete_sensible",
+    "date": "2026-10-13T00:12:01",
+    "problemes_initiaux": 22,
+    "bloc5": [
+      "compteur_incoherent"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "faits_repetitifs",
+      "titre_de_mauvaise_qualite"
+    ],
+    "titre": "Retailleau annonce 198 milliards d'économies d'ici 2032 : quels moyens et quels risques ?",
+    "n_sources": 4,
+    "n_mots": 687,
+    "titre_rss": "Présidentielle 2027 : Bruno Retailleau promet des économies de près de 200 milliards d'euros jusqu'en 2032",
+    "matiere_faits_distincts": 954,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "trump-promet-5000-dollars-electeurs-victoire-republicaine-midterms-2026",
+    "statut": "rejete_sensible",
+    "date": "2026-10-13T00:17:40",
+    "problemes_initiaux": 17,
+    "tentative": 1,
+    "bloc5": true,
+    "article_type": "actu",
+    "titre": "Trump promet 5 000 dollars par électeur en cas de victoire républicaine aux midterms",
+    "n_sources": 3,
+    "n_mots": 766,
+    "titre_rss": "Trump peut-il acheter les midterms ?",
+    "matiere_faits_distincts": 589,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "corée-du-sud-robots-patrouilles-policières-automatisation-2027",
+    "statut": "rejete_sensible",
+    "date": "2026-10-13T00:35:42",
+    "problemes_initiaux": 14,
+    "bloc5": [
+      "compteur_incoherent"
+    ],
+    "article_type": "actu",
+    "titre": "Corée du Sud : automatisation des patrouilles policières par des robots d’ici 2027",
+    "n_sources": 4,
+    "n_mots": 864,
+    "titre_rss": "En Corée du Sud, des robots vont remplacer les patrouilles de police",
+    "matiere_faits_distincts": 963,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "cyberattaque-frigos-ascenseurs-menace-infrastructures-critiques",
+    "statut": "rejete_sensible",
+    "date": "2026-10-13T00:39:29",
+    "problemes_initiaux": 16,
+    "bloc5": [
+      "faux_debat"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "resume_repete_corps",
+      "faits_repetitifs",
+      "titre_de_mauvaise_qualite"
+    ],
+    "titre": "Cyberattaque sur les systèmes frigorifiques français : une menace croissante pour ascenseurs et infrastructures critiques",
+    "n_sources": 5,
+    "n_mots": 802,
+    "titre_rss": "«Aujourd’hui, tout est vulnérable» : des frigos aux ascenseurs, comment nos équipements du quotidien sont devenus les cibles de cyberattaques",
+    "matiere_faits_distincts": 494,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 2,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
   }
 ]
