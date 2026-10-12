@@ -93,6 +93,13 @@ _TPM_PAR_MODELE_GEN = {
     # vides ou de quelques dizaines de mots (run du 11/10).
     "mistral-medium-latest": 20_000,
     "ministral-14b-2512": 937_500,
+    # Gemini, palier gratuit AI Studio. Valeur SUPPOSÉE, à confirmer sur la
+    # console du compte au premier essai : ~1 000 000 TPM annoncés pour les
+    # Flash (cf. CLAUDE.md, comparaison du 18/08). 250 000 par prudence — très
+    # au-dessus d'un prompt d'article (9 000 à 14 000), donc rien n'est coupé.
+    # Le vrai plafond est le débit : 15 requêtes/min et 250 à 1 500/jour.
+    "gemini-2.5-flash": 250_000,
+    "gemini-2.0-flash": 250_000,
     "mistral-small-latest": 500_000,
     "open-mistral-nemo": 500_000,
     "groq/compound": 8_000,
