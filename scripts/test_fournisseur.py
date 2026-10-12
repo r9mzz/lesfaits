@@ -43,9 +43,12 @@ finally:
 print("\n3. Les fenêtres du nouveau fournisseur sont déclarées")
 # Un modèle ABSENT de la table retombe sur 12 000 par défaut : la réservation
 # couperait alors la matière pour rien, sur un service qui n'en a pas besoin.
-for m in ("mistral-large-latest", "mistral-medium-latest",
-          "mistral-small-latest", "open-mistral-nemo"):
+for m in ("mistral-large-latest", "mistral-small-latest", "open-mistral-nemo"):
     verifie(f"{m} déclaré", P._TPM_PAR_MODELE_GEN.get(m, 0) >= 100_000)
+# `mistral-medium-latest` est relevé à 20 000 TPM sur la console (palier
+# gratuit) : il doit être DÉCLARÉ à sa vraie valeur, pas à un plafond supposé.
+verifie("mistral-medium-latest déclaré à sa valeur mesurée",
+        0 < P._TPM_PAR_MODELE_GEN.get("mistral-medium-latest", 0) <= 25_000)
 
 print("\n4. Une seule clé suffit et ne casse aucun mécanisme")
 # Les 11 clés Groq contournent un plafond journalier PAR COMPTE. Un service qui

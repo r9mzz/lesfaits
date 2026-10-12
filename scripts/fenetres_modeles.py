@@ -83,7 +83,16 @@ _TPM_PAR_MODELE_GEN = {
     # supposée modifierait la quantité de matière fournie et fausserait le
     # verdict éditorial.
     "mistral-large-latest": 500_000,
-    "mistral-medium-latest": 500_000,
+    # ⚠ 12/10 — valeurs RELEVÉES sur la console (organisation u1434499021,
+    # palier gratuit, page Limites) : `mistral-medium-latest` 20 000 TPM,
+    # `ministral-14b-2512` 937 500 TPM. Avec 500 000 supposés, les requêtes
+    # d'article (prompt + réservation d'écriture) dépassaient 20 000 : refus 429
+    # sur toutes les clés dès le premier article, 8 cycles d'attente, zéro
+    # publication (run du 06/10). Absent de la table, `ministral-14b-2512`
+    # retombait à 12 000 : réservation d'écriture de 2 098 tokens, brouillons
+    # vides ou de quelques dizaines de mots (run du 11/10).
+    "mistral-medium-latest": 20_000,
+    "ministral-14b-2512": 937_500,
     "mistral-small-latest": 500_000,
     "open-mistral-nemo": 500_000,
     "groq/compound": 8_000,
