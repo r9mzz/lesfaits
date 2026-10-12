@@ -924,7 +924,16 @@ def verifier_article(art: dict, article_type: str = "actu",
         return art, "non_verifie"
 
     try:
-        rapport = detecter(art, article_type)
+        try:
+            rapport = detecter(art, article_type)
+        except ValueError as e_json:
+            # 12/10 — un petit modèle (ministral-14b) rend parfois un JSON
+            # invalide alors qu'il n'a consommé que 700 à 2 000 des 4 000
+            # tokens réservés : ce n'est pas la réservation, c'est un tirage
+            # raté. Un seul nouvel essai ; s'il échoue aussi, l'article reste
+            # rejeté en `erreur_verification` (fail-closed inchangé).
+            print(f"     [VERIF] Détection : réponse invalide ({e_json}) — nouvel essai…")
+            rapport = detecter(art, article_type)
     except Exception as e:
         print(f"     [VERIF] Erreur API détection ({e}) — publié sans vérification")
         _log(slug, "erreur_verification", {"etape": "detection", "erreur": str(e), **_type_detail})
