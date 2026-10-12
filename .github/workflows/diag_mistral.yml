@@ -2,38 +2,30 @@ name: Diagnostic Mistral (temporaire)
 
 on:
   workflow_dispatch:
-    inputs:
-      modele:
-        description: "Modèle à sonder"
-        required: false
-        default: "mistral-medium-latest"
-        type: string
 
 jobs:
   diag:
     runs-on: ubuntu-latest
-    timeout-minutes: 5
+    timeout-minutes: 8
     env:
-      MODELE: ${{ inputs.modele }}
       K1: ${{ secrets.LLM_API_KEY }}
-      K2: ${{ secrets.LLM_API_KEY_2 }}
-      K3: ${{ secrets.LLM_API_KEY_3 }}
-      K4: ${{ secrets.LLM_API_KEY_4 }}
       K5: ${{ secrets.LLM_API_KEY_5 }}
     steps:
-      - name: Une requête minimale par clé
+      - name: Un appel minimal par modèle et par clé
         run: |
-          for i in 1 2 3 4 5; do
-            eval "KEY=\$K$i"
-            [ -z "$KEY" ] && { echo "clé $i : absente"; continue; }
-            echo "=== clé $i ($(printf %s "$KEY" | wc -c) car.) modèle=$MODELE ==="
-            curl -sS -D /tmp/h.txt -o /tmp/b.txt -m 60 \
-              https://api.mistral.ai/v1/chat/completions \
-              -H "Authorization: Bearer $KEY" -H "Content-Type: application/json" \
-              -d "{\"model\":\"$MODELE\",\"max_tokens\":5,\"messages\":[{\"role\":\"user\",\"content\":\"Dis ok\"}]}" \
-              || echo "curl a échoué"
-            head -1 /tmp/h.txt
-            grep -iE "^(x-ratelimit|retry-after|ratelimit)" /tmp/h.txt || true
-            head -c 400 /tmp/b.txt; echo
-            sleep 3
+          MODELES="mistral-large-latest mistral-medium-latest mistral-small-latest mistral-small-2603 ministral-14b-2512 ministral-8b-2512 ministral-3b-2512 open-mistral-nemo mistral-medium-2505 mistral-large-2512 codestral-2508 zai-glm-5-3 glm-5-2"
+          for NOM in K5 K1; do
+            eval "KEY=\$$NOM"
+            echo "################ clé $NOM"
+            for M in $MODELES; do
+              CODE=$(curl -sS -D /tmp/h.txt -o /tmp/b.txt -m 60 -w "%{http_code}" \
+                https://api.mistral.ai/v1/chat/completions \
+                -H "Authorization: Bearer $KEY" -H "Content-Type: application/json" \
+                -d "{\"model\":\"$M\",\"max_tokens\":5,\"messages\":[{\"role\":\"user\",\"content\":\"Dis ok\"}]}")
+              REQ=$(grep -i "^x-ratelimit-limit-req-minute" /tmp/h.txt | tr -d '\r')
+              TOK=$(grep -i "^x-ratelimit-limit-tokens-minute" /tmp/h.txt | tr -d '\r')
+              MSG=$(head -c 110 /tmp/b.txt | tr '\n' ' ')
+              echo "$M | HTTP $CODE | $REQ | $TOK | $MSG"
+              sleep 2
+            done
           done
