@@ -1,0 +1,39 @@
+name: Diagnostic Mistral (temporaire)
+
+on:
+  workflow_dispatch:
+    inputs:
+      modele:
+        description: "Modèle à sonder"
+        required: false
+        default: "mistral-medium-latest"
+        type: string
+
+jobs:
+  diag:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    env:
+      MODELE: ${{ inputs.modele }}
+      K1: ${{ secrets.LLM_API_KEY }}
+      K2: ${{ secrets.LLM_API_KEY_2 }}
+      K3: ${{ secrets.LLM_API_KEY_3 }}
+      K4: ${{ secrets.LLM_API_KEY_4 }}
+      K5: ${{ secrets.LLM_API_KEY_5 }}
+    steps:
+      - name: Une requête minimale par clé
+        run: |
+          for i in 1 2 3 4 5; do
+            eval "KEY=\$K$i"
+            [ -z "$KEY" ] && { echo "clé $i : absente"; continue; }
+            echo "=== clé $i ($(printf %s "$KEY" | wc -c) car.) modèle=$MODELE ==="
+            curl -sS -D /tmp/h.txt -o /tmp/b.txt -m 60 \
+              https://api.mistral.ai/v1/chat/completions \
+              -H "Authorization: Bearer $KEY" -H "Content-Type: application/json" \
+              -d "{\"model\":\"$MODELE\",\"max_tokens\":5,\"messages\":[{\"role\":\"user\",\"content\":\"Dis ok\"}]}" \
+              || echo "curl a échoué"
+            head -1 /tmp/h.txt
+            grep -iE "^(x-ratelimit|retry-after|ratelimit)" /tmp/h.txt || true
+            head -c 400 /tmp/b.txt; echo
+            sleep 3
+          done
