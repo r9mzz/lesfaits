@@ -98,6 +98,12 @@ _TPM_PAR_MODELE_GEN = {
     # Flash (cf. CLAUDE.md, comparaison du 18/08). 250 000 par prudence — très
     # au-dessus d'un prompt d'article (9 000 à 14 000), donc rien n'est coupé.
     # Le vrai plafond est le débit : 15 requêtes/min et 250 à 1 500/jour.
+    # Cerebras, palier gratuit (api.cerebras.ai/v1). Valeurs SUPPOSÉES, à lire sur
+    # l'en-tête `x-ratelimit-limit-tokens-minute` au premier essai : ~60 000 TPM,
+    # ~1 000 000 tokens/jour. Au-dessus d'un prompt d'article (9 000-14 000).
+    "gpt-oss-120b": 60_000,
+    "llama-3.3-70b": 60_000,
+    "qwen-3-235b-a22b-instruct-2507": 60_000,
     "gemini-3.8-flash": 250_000,
     "gemini-2.5-flash": 250_000,
     "gemini-2.0-flash": 250_000,

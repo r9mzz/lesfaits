@@ -252,14 +252,15 @@ jobs:
           # 23 », quatre jours sans publication. Ajouter une clé au dépôt sans
           # ajouter sa ligne ici ne sert donc à rien.
           # Une clé n'est transmise qu'au fournisseur auquel elle appartient :
-          # avec une base Google, SEULE `GEMINI_API_KEY` part (en LLM_API_KEY) ;
-          # sinon, seules les clés Mistral. Jamais une clé chez le mauvais
-          # service (c'est le « 401 clé Gemini envoyée à Mistral » du 26/08).
-          LLM_API_KEY: ${{ contains(inputs.base_url || vars.LLM_BASE_URL, 'googleapis') && secrets.GEMINI_API_KEY || (!contains(inputs.base_url || vars.LLM_BASE_URL, 'googleapis') && secrets.LLM_API_KEY || '') }}
-          LLM_API_KEY_2: ${{ !contains(inputs.base_url || vars.LLM_BASE_URL, 'googleapis') && secrets.LLM_API_KEY_2 || '' }}
-          LLM_API_KEY_3: ${{ !contains(inputs.base_url || vars.LLM_BASE_URL, 'googleapis') && secrets.LLM_API_KEY_3 || '' }}
-          LLM_API_KEY_4: ${{ !contains(inputs.base_url || vars.LLM_BASE_URL, 'googleapis') && secrets.LLM_API_KEY_4 || '' }}
-          LLM_API_KEY_5: ${{ !contains(inputs.base_url || vars.LLM_BASE_URL, 'googleapis') && secrets.LLM_API_KEY_5 || '' }}
+          # base Google -> GEMINI_API_KEY seule ; base Cerebras -> CEREBRAS_API_KEY
+          # seule ; sinon (Mistral) -> les clés LLM_API_KEY*. Jamais une clé chez
+          # le mauvais service (c'est le « 401 clé Gemini envoyée à Mistral »
+          # du 26/08).
+          LLM_API_KEY: ${{ contains(inputs.base_url || vars.LLM_BASE_URL, 'googleapis') && secrets.GEMINI_API_KEY || (contains(inputs.base_url || vars.LLM_BASE_URL, 'cerebras') && secrets.CEREBRAS_API_KEY || (!contains(inputs.base_url || vars.LLM_BASE_URL, 'googleapis') && !contains(inputs.base_url || vars.LLM_BASE_URL, 'cerebras') && secrets.LLM_API_KEY || '')) }}
+          LLM_API_KEY_2: ${{ !contains(inputs.base_url || vars.LLM_BASE_URL, 'googleapis') && !contains(inputs.base_url || vars.LLM_BASE_URL, 'cerebras') && secrets.LLM_API_KEY_2 || '' }}
+          LLM_API_KEY_3: ${{ !contains(inputs.base_url || vars.LLM_BASE_URL, 'googleapis') && !contains(inputs.base_url || vars.LLM_BASE_URL, 'cerebras') && secrets.LLM_API_KEY_3 || '' }}
+          LLM_API_KEY_4: ${{ !contains(inputs.base_url || vars.LLM_BASE_URL, 'googleapis') && !contains(inputs.base_url || vars.LLM_BASE_URL, 'cerebras') && secrets.LLM_API_KEY_4 || '' }}
+          LLM_API_KEY_5: ${{ !contains(inputs.base_url || vars.LLM_BASE_URL, 'googleapis') && !contains(inputs.base_url || vars.LLM_BASE_URL, 'cerebras') && secrets.LLM_API_KEY_5 || '' }}
           PYTHONIOENCODING: utf-8
           TZ: Europe/Paris
         run: |
