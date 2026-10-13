@@ -6,21 +6,21 @@ on:
 jobs:
   diag:
     runs-on: ubuntu-latest
-    timeout-minutes: 8
+    timeout-minutes: 12
     env:
       GK: ${{ secrets.GEMINI_API_KEY }}
     steps:
-      - name: Modèles disponibles puis un appel minimal par candidat
+      - name: Un appel minimal par modèle de texte candidat (2 passes)
         run: |
-          echo "### liste des modèles"
-          curl -sS -m 30 "https://generativelanguage.googleapis.com/v1beta/openai/models" \
-            -H "Authorization: Bearer $GK" | python3 -c "import sys,json; d=json.load(sys.stdin); print(' '.join(sorted(m.get('id','').replace('models/','') for m in d.get('data',[]))))" || echo "liste indisponible"
-          echo "### appels minimaux"
-          for M in $(curl -sS -m 30 "https://generativelanguage.googleapis.com/v1beta/openai/models" -H "Authorization: Bearer $GK" | python3 -c "import sys,json; d=json.load(sys.stdin); print(' '.join(m['id'].replace('models/','') for m in d.get('data',[]) if 'flash' in m['id'] or 'pro' in m['id'] or 'gemma' in m['id']))"); do
-            CODE=$(curl -sS -o /tmp/b.txt -m 60 -w "%{http_code}" \
-              https://generativelanguage.googleapis.com/v1beta/openai/chat/completions \
-              -H "Authorization: Bearer $GK" -H "Content-Type: application/json" \
-              -d "{\"model\":\"$M\",\"max_tokens\":20,\"messages\":[{\"role\":\"user\",\"content\":\"Dis ok\"}]}")
-            echo "$M | HTTP $CODE | $(head -c 130 /tmp/b.txt | tr '\n' ' ')"
-            sleep 4
+          MODELES="gemini-3.1-flash-lite gemini-3.1-flash-lite-preview gemini-3.5-flash-lite gemini-flash-lite-latest gemini-3.5-flash gemini-3.6-flash gemini-3.7-flash gemini-3.8-flash gemini-3-flash-preview gemini-flash-latest gemini-3.1-pro-preview gemini-pro-latest"
+          for PASSE in 1 2; do
+            echo "### passe $PASSE"
+            for M in $MODELES; do
+              CODE=$(curl -sS -o /tmp/b.txt -m 25 -w "%{http_code}" \
+                https://generativelanguage.googleapis.com/v1beta/openai/chat/completions \
+                -H "Authorization: Bearer $GK" -H "Content-Type: application/json" \
+                -d "{\"model\":\"$M\",\"max_tokens\":20,\"messages\":[{\"role\":\"user\",\"content\":\"Dis ok\"}]}" || echo 000)
+              echo "RES $M | HTTP $CODE | $(head -c 110 /tmp/b.txt | tr '\n' ' ')"
+              sleep 6
+            done
           done
