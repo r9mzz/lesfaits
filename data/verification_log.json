@@ -25720,5 +25720,583 @@
     "n_sources_injectees": 10,
     "n_sources_trouvees": 10,
     "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "lfi-critique-loi-integrale-moyens-insuffisants-violences-sexuelles",
+    "statut": "rejete_sensible",
+    "date": "2026-10-13T17:04:07",
+    "problemes_initiaux": 13,
+    "bloc5": [
+      "acteur_mis_en_cause_sans_reponse"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "cliches_ia"
+    ],
+    "titre": "Loi intégrale : LFI critique moyens insuffisants et approche répressive",
+    "n_sources": 3,
+    "n_mots": 775,
+    "titre_rss": "Derrière la loi intégrale, la guerre des féministes : \"Si on s'écarte un peu de LFI, on est vite traité de facho\"",
+    "matiere_faits_distincts": 770,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 2,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "saisie-petrolier-russe-df-peak-condamnee-par-moscou",
+    "statut": "rejete_sensible",
+    "date": "2026-10-13T17:13:33",
+    "problemes_initiaux": 15,
+    "bloc5": [
+      "faux_debat"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "cliches_ia"
+    ],
+    "titre": "Saisie du DF Peak : la Russie dénonce une violation du droit maritime",
+    "n_sources": 4,
+    "n_mots": 384,
+    "titre_rss": "La Russie condamne la saisie par la France d'un pétrolier au large de la Réunion",
+    "matiere_faits_distincts": 1189,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 3,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "bei-defense-armes-munitions-exclusion-senat-proposition-2026",
+    "statut": "rejete_sensible",
+    "date": "2026-10-13T17:19:55",
+    "problemes_initiaux": 20,
+    "bloc5": [
+      "faux_debat"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "resume_repete_corps",
+      "faits_repetitifs"
+    ],
+    "titre": "La BEI exclut toujours les armes malgré un élargissement à la défense",
+    "n_sources": 3,
+    "n_mots": 902,
+    "titre_rss": "Armes et munitions produites par les industries européennes de la défense - Rapport n° 879",
+    "matiere_faits_distincts": 300,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "veille_heures_visible": 517.7,
+    "veille_passages": 326,
+    "veille_age_h": 1502.5,
+    "veille_n_flux_grappe": 4,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "baisse-emissions-gaz-effet-serre-france-rythme-insuffisant-progres-sectoriels",
+    "statut": "rejete_sensible",
+    "date": "2026-10-13T17:22:50",
+    "problemes_initiaux": 17,
+    "bloc5": [
+      "faux_debat"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "resume_repete_corps"
+    ],
+    "titre": "Baisse des émissions de GES en France : un rythme insuffisant malgré des progrès sectoriels",
+    "n_sources": 5,
+    "n_mots": 460,
+    "titre_rss": "Les émissions de gaz à effet de serre en France diminuent du fait de l’envolée des prix des carburants",
+    "matiere_faits_distincts": 1079,
+    "matiere_redondance": 0.04,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "etude-genetique-mangareva-origine-peuplement-pacifique",
+    "statut": "rejete_sensible",
+    "date": "2026-10-13T17:27:35",
+    "problemes_initiaux": 20,
+    "bloc5": [
+      "compteur_incoherent"
+    ],
+    "article_type": "actu",
+    "titre": "Mangareva identifiée comme origine génétique des Polynésiens de Rapa Nui et Hawaii",
+    "n_sources": 3,
+    "n_mots": 651,
+    "titre_rss": "Du nouveau sur le peuplement des îles du Pacifique",
+    "matiere_faits_distincts": 799,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 3,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "etude_scientifique"
+  },
+  {
+    "slug": "canicules-records-diplomatie-climatique-propositions-senat-juillet-2026",
+    "statut": "rejete_sensible",
+    "date": "2026-10-13T17:30:35",
+    "problemes_initiaux": 13,
+    "bloc5": [
+      "compteur_incoherent"
+    ],
+    "article_type": "actu",
+    "titre": "Canicules records et diplomatie climatique : les propositions du Sénat pour une France plus influente",
+    "n_sources": 3,
+    "n_mots": 817,
+    "titre_rss": "Climat : La France, puissance océanique au coeur des défis du siècle - Rapport d'information n° 859",
+    "matiere_faits_distincts": 857,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "veille_heures_visible": 517.7,
+    "veille_passages": 326,
+    "veille_age_h": 1502.5,
+    "veille_n_flux_grappe": 5,
+    "nature_contenu": "rapport"
+  },
+  {
+    "slug": "vaccins-ebola-immunite-croisee-souche-bundibugyo-epidemie-actuelle",
+    "statut": "rejete_sensible",
+    "date": "2026-10-13T17:33:56",
+    "problemes_initiaux": 14,
+    "bloc5": [
+      "compteur_incoherent"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "faits_repetitifs"
+    ],
+    "titre": "Vaccins Ebola : une immunité croisée détectée contre la souche Bundibugyo",
+    "n_sources": 4,
+    "n_mots": 900,
+    "titre_rss": "Épidémie d’Ebola Bundibugyo : des premiers résultats pour guider la recherche d’un vaccin efficace",
+    "matiere_faits_distincts": 879,
+    "matiere_redondance": 0.03,
+    "matiere_donnees_chiffrees": 2,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "veille_heures_visible": 517.7,
+    "veille_passages": 311,
+    "veille_age_h": 1502.5,
+    "veille_n_flux_grappe": 9,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "66-pour-cent-nappes-phreatiques-sous-normales-alerte-brgm-situation-preoccupante",
+    "statut": "rejete_sensible",
+    "date": "2026-10-13T17:43:35",
+    "problemes_initiaux": 24,
+    "tentative": 3,
+    "bloc5": true,
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "faits_repetitifs"
+    ],
+    "titre": "66 % des nappes phréatiques françaises sous les normales saisonnières selon le BRGM",
+    "n_sources": 5,
+    "n_mots": 741,
+    "titre_rss": "France: Deux tiers des nappes phréatiques dans une situation \"très préoccupante“",
+    "matiere_faits_distincts": 740,
+    "matiere_redondance": 0.01,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "cop31-demande-fossiles-progresse-malgre-renouvelables-2026",
+    "statut": "rejete_sensible",
+    "date": "2026-10-13T17:48:49",
+    "problemes_initiaux": 13,
+    "tentative": 2,
+    "bloc5": true,
+    "article_type": "actu",
+    "titre": "COP31 : la demande mondiale en énergies fossiles progresse malgré les renouvelables",
+    "n_sources": 3,
+    "n_mots": 803,
+    "titre_rss": "COP31: l'humanité est toujours accro aux énergies fossiles",
+    "matiere_faits_distincts": 850,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "inserm-demonstration-sept-idees-recues-vaccins-campagne-2026-2027",
+    "statut": "rejete_sensible",
+    "date": "2026-10-13T17:55:25",
+    "problemes_initiaux": 17,
+    "bloc5": [
+      "faux_debat"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "faits_repetitifs"
+    ],
+    "titre": "Inserm démontre sept idées reçues sur les vaccins à l’ouverture de la campagne 2026-2027",
+    "n_sources": 5,
+    "n_mots": 1025,
+    "titre_rss": "Sept fausses idées sur les vaccins",
+    "matiere_faits_distincts": 1219,
+    "matiere_redondance": 0.01,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "deces-carole-fritz-archeologue-art-parietal-impact-scientifique",
+    "statut": "rejete_sensible",
+    "date": "2026-10-13T17:58:47",
+    "problemes_initiaux": 18,
+    "bloc5": [
+      "diffamation_potentielle"
+    ],
+    "article_type": "actu",
+    "titre": "Décès de Carole Fritz, figure majeure de l'archéologie de l'art pariétal",
+    "n_sources": 6,
+    "n_mots": 732,
+    "titre_rss": "Carole Fritz, archéologue et préhistorienne, grande amoureuse de l’art pariétal, est morte",
+    "matiere_faits_distincts": 799,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "horloges-atomiques-precision-record-redefinition-seconde-2026",
+    "statut": "rejete_sensible",
+    "date": "2026-10-13T18:04:42",
+    "problemes_initiaux": 12,
+    "bloc5": [
+      "compteur_incoherent"
+    ],
+    "article_type": "actu",
+    "titre": "Horloges atomiques : précision record et enjeux d'une possible redéfinition de la seconde",
+    "n_sources": 3,
+    "n_mots": 850,
+    "titre_rss": "La folle course des physiciens pour mesurer le temps, jusqu’à envisager une redéfinition de la seconde",
+    "matiere_faits_distincts": 707,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "finistere-secheresse-75-eau-cours-deau-crise-historique",
+    "statut": "rejete_sensible",
+    "date": "2026-10-13T18:09:52",
+    "problemes_initiaux": 17,
+    "bloc5": [
+      "compteur_incoherent"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "faits_repetitifs"
+    ],
+    "titre": "Finistère : 75 % de l'eau dépendante des cours d'eau, en crise sécheresse historique",
+    "n_sources": 6,
+    "n_mots": 783,
+    "titre_rss": "Sécheresse : le Finistère dans une « situation critique »",
+    "matiere_faits_distincts": 838,
+    "matiere_redondance": 0.03,
+    "matiere_donnees_chiffrees": 2,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "greta-thunberg-soutient-grève-lycéens-saint-denis-13-octobre-2026",
+    "statut": "rejete_sensible",
+    "date": "2026-10-13T18:22:40",
+    "problemes_initiaux": 19,
+    "bloc5": [
+      "source_inventee"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "cliches_ia"
+    ],
+    "titre": "Greta Thunberg soutient des lycéens en grève à Saint-Denis",
+    "n_sources": 5,
+    "n_mots": 410,
+    "titre_rss": "Greta Thunberg : de l’ONU à Saint-Denis, du climat à Gaza, que devient la militante suédoise",
+    "matiere_faits_distincts": 833,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 2,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "mortalite-france-2024-641-046-deces-taux-baisse-maladies-respiratoires",
+    "statut": "rejete_sensible",
+    "date": "2026-10-13T18:30:08",
+    "problemes_initiaux": 11,
+    "tentative": 3,
+    "bloc5": true,
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "resume_repete_corps",
+      "titre_de_mauvaise_qualite"
+    ],
+    "titre": "France : 641 046 décès en 2024, un taux de mortalité en baisse malgré une hausse des maladies respiratoires",
+    "n_sources": 4,
+    "n_mots": 706,
+    "titre_rss": "Grandes causes de décès en France : tendances et causes associées en 2024",
+    "matiere_faits_distincts": 878,
+    "matiere_redondance": 0.21,
+    "matiere_donnees_chiffrees": 2,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "veille_heures_visible": 517.7,
+    "veille_passages": 311,
+    "veille_age_h": 1502.5,
+    "veille_n_flux_grappe": 1,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "qualite-emploi-ue-progres-disparites-rapport-2026",
+    "statut": "corrige_automatiquement",
+    "date": "2026-10-13T18:34:17",
+    "problemes_initiaux": 12,
+    "tentatives": 1,
+    "problemes_residuels_style": 17,
+    "rapport_initial": {
+      "conforme": false,
+      "sujet_sensible": false,
+      "sujet_sensible_raison": "",
+      "angle_insuffisant": false,
+      "angle_insuffisant_raison": "",
+      "nature_contenu": "rapport",
+      "problemes": [
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "Cela explique en partie la forte flambée des chiffres enregistrée en août 2025, selon *L'Express* [2].",
+          "explication": "La source [2] (*L'Express*) ne mentionne pas explicitement une 'forte flambée des chiffres enregistrée en août 2025' dans son titre ou son contenu visible. Le renvoi [2] ne correspond pas à ce fait précis."
+        },
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "Cette approche a influencé les politiques publiques européennes pour éviter une précarisation excessive des travailleurs.",
+          "explication": "La source [4] (*Le Figaro*) n'est pas citée dans le tableau des sources autorisées, et son contenu visible ne traite pas des politiques publiques européennes post-2008 ni de leur influence sur la précarisation."
+        },
+        {
+          "bloc": 2,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "La théorie économique de Keynes, rappelée par *Le Figaro*, souligne les conséquences négatives d'une baisse des salaires sur la demande effective et donc l'emploi [4].",
+          "explication": "La source [4] (*Le Figaro*) n'est pas citée dans le tableau des sources autorisées, et son contenu visible ne mentionne pas explicitement la théorie de Keynes ni son lien avec les politiques publiques européennes."
+        },
+        {
+          "bloc": 2,
+          "section": "contexte",
+          "type": "source_derivee_comptee_comme_primaire",
+          "phrase_exacte": "Comparativement, des pays comme l'Allemagne ou les Pays-Bas, où les partenariats sociaux entre syndicats et employeurs sont historiques, affichaient déjà des taux de contrats précaires inférieurs à 10 % dès 2015, contre plus de 15 % dans des économies plus libérales comme le Royaume-Uni ou l'Irlande [1].",
+          "explication": "La source [1] (rapport Europa) ne fournit pas explicitement ces comparaisons pays par pays (Allemagne, Pays-Bas, Royaume-Uni, Irlande) ni les chiffres précis pour 2015. Ces détails semblent extrapolés ou reformulés sans référence directe dans le rapport."
+        },
+        {
+          "bloc": 2,
+          "section": "nuances",
+          "type": "source_inventee",
+          "phrase_exacte": "Enfin, les disparités régionales ne sont pas toujours prises en compte dans les politiques européennes, bien que des pays comme la Pologne ou la Hongrie aient réduit leur taux de précarité grâce à des mesures locales ciblées [1].",
+          "explication": "La source [1] ne mentionne pas explicitement la Pologne ou la Hongrie comme exemples de réduction de précarité via des mesures locales. Ces pays ne sont pas cités dans le rapport Europa fourni."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "fait_tranche_arbitrairement",
+          "phrase_exacte": "Les transitions numérique et écologique, bien que créatrices d'emplois qualifiés, accentuent les inégalités régionales, avec des taux de chômage structurel dépassant 10 % dans certains bassins industriels.",
+          "explication": "La source [1] ne précise pas quels 'certains bassins industriels' sont concernés ni si ces taux dépassant 10 % sont confirmés par des données chiffrées ou des exemples concrets. La généralisation est plus forte que ce que permet la source."
+        },
+        {
+          "bloc": 1,
+          "section": "nuances",
+          "type": "niveau_preuve_insuffisant",
+          "phrase_exacte": "Par exemple, une hausse des salaires médians peut masquer une polarisation accrue : les hauts revenus progressent plus vite que les bas, creusant les écarts internes.",
+          "explication": "La source [1] ne fournit pas de données chiffrées ou d'analyse détaillée sur cette 'polarisation accrue' ou les écarts internes entre hauts et bas revenus. Cette affirmation repose sur une interprétation non explicitement sourcée."
+        },
+        {
+          "bloc": 2,
+          "section": "nuances",
+          "type": "source_inventee",
+          "phrase_exacte": "Enfin, les données ne permettent pas d'évaluer l'impact réel des transitions écologique et numérique sur la qualité des emplois.",
+          "explication": "Bien que cette affirmation soit plausible, elle n'est pas explicitement soutenue par la source [1], qui ne mentionne pas cette limite méthodologique spécifique. Elle relève davantage d'une interprétation générale."
+        },
+        {
+          "bloc": 4,
+          "section": "contexte",
+          "type": "contexte_hors_sujet",
+          "phrase_exacte": "La théorie économique de Keynes, rappelée par *Le Figaro*, souligne les conséquences négatives d'une baisse des salaires sur la demande effective et donc l'emploi.",
+          "explication": "Cette référence à la théorie de Keynes, bien que pertinente pour le sujet, n'est pas directement liée à l'analyse des progrès concrets de la qualité de l'emploi dans l'UE depuis 2016. Elle relève davantage d'un contexte économique général."
+        },
+        {
+          "bloc": 4,
+          "section": "nuances",
+          "type": "redondance",
+          "phrase_exacte": "Les indicateurs utilisés (durée des contrats, niveau des salaires) ne capturent pas entièrement la satisfaction des travailleurs ou la conciliation entre vie professionnelle et personnelle.",
+          "explication": "Cette idée est déjà évoquée dans les faits ('ces progrès masquent des disparités persistantes') et dans le contexte ('les protections sociales et les droits des travailleurs'). Elle est reformulée sans apporter de nouvelle information sourcée."
+        },
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "compteur_incoherent",
+          "phrase_exacte": "Le calendrier d'actualisation des données de Pôle emploi, arrêté à date fixe depuis janvier 2025, peut fausser les statistiques mensuelles en fonction du nombre de jours ouvrés par mois [2]. Cela explique en partie la forte flambée des chiffres enregistrée en août 2025, selon *L'Express* [2].",
+          "explication": "La source [2] (*L'Express*) est citée deux fois pour des faits distincts, mais elle n'est pas une source primaire sur les données de Pôle emploi. De plus, le rapport Europa [1] est la seule source autorisée sur les données européennes, et il n'est pas utilisé ici pour ces détails techniques."
+        },
+        {
+          "bloc": 3,
+          "section": "contexte",
+          "type": "cadrage_emprunte",
+          "phrase_exacte": "Avant 2016, les politiques publiques se concentraient surtout sur la réduction du chômage, souvent au détriment de la stabilité des emplois.",
+          "explication": "Cette affirmation ('au détriment de la stabilité des emplois') est un jugement de valeur non explicitement attribué à une source. Elle relève d'une interprétation subjective non sourcée dans les extraits fournis."
+        }
+      ]
+    },
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "cliches_ia"
+    ],
+    "titre": "Qualité de l'emploi dans l'UE : améliorations mesurées, mais disparités persistantes",
+    "n_sources": 3,
+    "n_mots": 792,
+    "titre_rss": "La qualité de l'emploi est une priorité dans l'UE, selon le rapport annuel de la Commission",
+    "matiere_faits_distincts": 1153,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "rapport"
+  },
+  {
+    "slug": "divergence-166-milliards-aides-publiques-gouvernement-senat-perimetre",
+    "statut": "rejete_sensible",
+    "date": "2026-10-13T18:38:24",
+    "problemes_initiaux": 20,
+    "bloc5": [
+      "compteur_incoherent"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "resume_repete_corps"
+    ],
+    "titre": "166 milliards d'euros d'aides publiques : le gouvernement et le Sénat s'opposent sur leur périmètre",
+    "n_sources": 5,
+    "n_mots": 891,
+    "titre_rss": "Le gouvernement estime à 166 milliards d'euros le montant des aides publiques accordées aux entreprises en 2024",
+    "matiere_faits_distincts": 1259,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 10,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "budget-2027-detaille-mesures-impots-retraites-prestations-sociales",
+    "statut": "rejete_sensible",
+    "date": "2026-10-13T18:41:41",
+    "problemes_initiaux": 13,
+    "bloc5": [
+      "acteur_mis_en_cause_sans_reponse"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "faits_repetitifs"
+    ],
+    "titre": "Budget 2027 : gel des barèmes, retraites et aides au logement, les mesures détaillées",
+    "n_sources": 4,
+    "n_mots": 670,
+    "titre_rss": "Ce que contient le projet de budget 2027",
+    "matiere_faits_distincts": 915,
+    "matiere_redondance": 0.03,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "decision_officielle"
+  },
+  {
+    "slug": "comptes-tiktok-generent-5000-euros-mois-fausses-informations",
+    "statut": "rejete_sensible",
+    "date": "2026-10-13T18:47:30",
+    "problemes_initiaux": 12,
+    "bloc5": [
+      "extrapolation"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "resume_repete_corps"
+    ],
+    "titre": "Des comptes TikTok génèrent jusqu’à 5 000 euros par mois avec des fausses informations",
+    "n_sources": 3,
+    "n_mots": 577,
+    "titre_rss": "Les faux contenus d''informations font recette sur les réseaux sociaux",
+    "matiere_faits_distincts": 829,
+    "matiere_redondance": 0.34,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "ia-entreprises-gains-productivite-resistances-rapports-parlementaires-2024-2026",
+    "statut": "rejete_sensible",
+    "date": "2026-10-13T18:56:12",
+    "problemes_initiaux": 22,
+    "bloc5": [
+      "acteur_mis_en_cause_sans_reponse"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "faits_repetitifs",
+      "cliches_ia"
+    ],
+    "titre": "IA dans les entreprises : gains de productivité et résistances selon les rapports parlementaires 2024-2026",
+    "n_sources": 5,
+    "n_mots": 834,
+    "titre_rss": "Mon collègue est une IA",
+    "matiere_faits_distincts": 1025,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "rapport"
+  },
+  {
+    "slug": "les-aides-auditives-a-ia-isolent-les-voix-avec-une-precision-de-99-63",
+    "statut": "rejete_sensible",
+    "date": "2026-10-13T18:59:50",
+    "problemes_initiaux": 10,
+    "bloc5": [
+      "compteur_incoherent"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "titre_de_mauvaise_qualite",
+      "article_sans_date"
+    ],
+    "titre": "Les aides auditives à IA isolent les voix avec une précision de 99,63 % dans des conditions contrôlées",
+    "n_sources": 8,
+    "n_mots": 359,
+    "titre_rss": "Ce que l’intelligence artificielle change vraiment pour les aides auditives",
+    "matiere_faits_distincts": 1254,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
   }
 ]
