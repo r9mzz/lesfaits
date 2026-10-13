@@ -24856,5 +24856,869 @@
     "n_sources_injectees": 10,
     "n_sources_trouvees": 10,
     "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "loi-integrale-clivages-feministes-lfi-associations-violences-sexuelles-2026",
+    "statut": "rejete_sensible",
+    "date": "2026-10-13T08:49:20",
+    "problemes_initiaux": 14,
+    "bloc5": [
+      "faux_debat"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "cliches_ia"
+    ],
+    "titre": "Loi intégrale : LFI et associations féministes s'opposent sur les mesures migratoires et la répression",
+    "n_sources": 8,
+    "n_mots": 762,
+    "titre_rss": "Derrière la loi intégrale, la guerre des féministes : \"Si on s'écarte un peu de LFI, on est vite traité de facho\"",
+    "matiere_faits_distincts": 755,
+    "matiere_redondance": 0.17,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "voitures-electriques-38-8-part-de-marche-august-2026-record-historique",
+    "statut": "rejete_qualite",
+    "date": "2026-10-13T08:53:23",
+    "angle_insuffisant": true,
+    "raison": "Aucune source autorisée ne fournit de données chiffrées ou d'événements précis datés pour août 2026 ou les indicateurs concrets de domination du marché électrique en France. Les sources fournies concernent uniquement la location courte durée et des règles administratives, sans lien avec le sujet annoncé. L'article repose sur des généralités et des projections sans preuve factuelle récente ou datée.",
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "resume_repete_corps",
+      "cliches_ia"
+    ],
+    "titre": "Voitures électriques : 38,8 % de part de marché en août 2026, un record historique",
+    "n_sources": 4,
+    "n_mots": 637,
+    "titre_rss": "Automobile : la location courte durée, un vecteur de liberté",
+    "matiere_faits_distincts": 632,
+    "matiere_redondance": 0.07,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "sujet_pedagogique"
+  },
+  {
+    "slug": "emissions-gaz-effet-serre-france-2026-transports-defis-objectifs-climatiques",
+    "statut": "rejete_sensible",
+    "date": "2026-10-13T08:57:00",
+    "problemes_initiaux": 15,
+    "bloc5": [
+      "acteur_mis_en_cause_sans_reponse"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "resume_repete_corps",
+      "faits_repetitifs",
+      "titre_de_mauvaise_qualite"
+    ],
+    "titre": "La France réduit ses émissions de GES de 2,8 % en 2026, mais les transports restent un défi",
+    "n_sources": 8,
+    "n_mots": 760,
+    "titre_rss": "En France, les émissions de gaz à effet de serre en baisse de 2,8% en 2026, un recul plus marqué qu'en 2025",
+    "matiere_faits_distincts": 1065,
+    "matiere_redondance": 0.01,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "budget-2027-restrictions-locales-et-deficit-maintenu-a-5-pourcent",
+    "statut": "rejete_sensible",
+    "date": "2026-10-13T09:02:34",
+    "problemes_initiaux": 12,
+    "bloc5": [
+      "acteur_mis_en_cause_sans_reponse"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "resume_repete_corps",
+      "titre_de_mauvaise_qualite"
+    ],
+    "titre": "Budget 2027 : l'Assemblée examine un texte marqué par des restrictions locales et un déficit maintenu à 5 %",
+    "n_sources": 4,
+    "n_mots": 480,
+    "titre_rss": "France: toujours aussi divisée, l'Assemblée nationale entame l'examen du budget 2027 sur fond de crises multiples",
+    "matiere_faits_distincts": 836,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "soudan-14-zones-famine-aide-paralysée-conflits-secheresse",
+    "statut": "rejete_sensible",
+    "date": "2026-10-13T09:07:08",
+    "sujet_sensible": true,
+    "raison": "Crise humanitaire impliquant des populations civiles en danger, des conflits armés et des obstacles à l'aide, avec des risques de famine et des victimes potentielles (enfants en malnutrition sévère).",
+    "article_type": "actu",
+    "titre": "Soudan : 14 zones en risque de famine, aide humanitaire paralysée par conflits et sécheresse",
+    "n_sources": 7,
+    "n_mots": 1014,
+    "titre_rss": "Le risque de famine s'accroît au Soudan en raison des conflits et de la sécheresse, alerte l'ONU",
+    "matiere_faits_distincts": 1148,
+    "matiere_redondance": 0.02,
+    "matiere_donnees_chiffrees": 6,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "chasse-illégale-reserves-naturelles-pyrénées-orientales-notables-proteges-statut",
+    "statut": "rejete_sensible",
+    "date": "2026-10-13T09:13:58",
+    "sujet_sensible": true,
+    "raison": "L'article implique des personnalités identifiées (ancien préfet, doyen de faculté de droit, colonel de gendarmerie) dans des pratiques illégales, avec des conséquences juridiques potentielles, sans que les procédures judiciaires ne soient définitivement closes.",
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "resume_repete_corps",
+      "faits_repetitifs",
+      "titre_de_mauvaise_qualite"
+    ],
+    "titre": "Chasse illégale dans les réserves naturelles : des notables protégés par leur statut",
+    "n_sources": 4,
+    "n_mots": 655,
+    "titre_rss": "Chasse : les petits arrangements de notables dans une réserve naturelle",
+    "matiere_faits_distincts": 1088,
+    "matiere_redondance": 0.01,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "glucksmann-66-premier-tour-cyberattaque-perturbation-scrutin",
+    "statut": "rejete_sensible",
+    "date": "2026-10-13T09:20:29",
+    "problemes_initiaux": 12,
+    "bloc5": [
+      "compteur_incoherent"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "resume_repete_corps",
+      "faits_repetitifs"
+    ],
+    "titre": "Glucksmann élu dès le premier tour avec 66 % malgré une cyberattaque",
+    "n_sources": 4,
+    "n_mots": 853,
+    "titre_rss": "Primaire de la gauche : Raphaël Glucksmann l'emporte dès le premier tour avec 66 % des voix",
+    "matiere_faits_distincts": 733,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "horizons-propose-10-milliards-d-economies-pour-annuler-hausses-dimpots-2027",
+    "statut": "rejete_sensible",
+    "date": "2026-10-13T09:24:14",
+    "problemes_initiaux": 14,
+    "bloc5": [
+      "acteur_mis_en_cause_sans_reponse"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "faits_repetitifs"
+    ],
+    "titre": "Horizons propose 10 milliards d'économies pour annuler des hausses d'impôts prévues",
+    "n_sources": 6,
+    "n_mots": 731,
+    "titre_rss": "Horizons propose un \"budget alternatif\", avec 10 milliards d'économies supplémentaires",
+    "matiere_faits_distincts": 1013,
+    "matiere_redondance": 0.01,
+    "matiere_donnees_chiffrees": 3,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "nappes-phreatiques-france-baisse-critique-ete-2026",
+    "statut": "rejete_sensible",
+    "date": "2026-10-13T09:28:49",
+    "problemes_initiaux": 16,
+    "tentative": 1,
+    "bloc5": true,
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "resume_repete_corps"
+    ],
+    "titre": "66 % des nappes phréatiques françaises en baisse critique après un été de sécheresse",
+    "n_sources": 6,
+    "n_mots": 719,
+    "titre_rss": "France: Deux tiers des nappes phréatiques dans une situation \"très préoccupante“",
+    "matiere_faits_distincts": 915,
+    "matiere_redondance": 0.13,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "cop31-energies-fossiles-dominent-toujours-mix-energetique-mondial-2026",
+    "statut": "rejete_sensible",
+    "date": "2026-10-13T09:33:50",
+    "problemes_initiaux": 19,
+    "tentative": 1,
+    "bloc5": true,
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "resume_repete_corps",
+      "faits_repetitifs"
+    ],
+    "titre": "COP31 : les énergies fossiles couvrent encore 70 % de la consommation mondiale en 2026",
+    "n_sources": 5,
+    "n_mots": 1175,
+    "titre_rss": "COP31: l'humanité est toujours accro aux énergies fossiles",
+    "matiere_faits_distincts": 1305,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "enquete-eras-2026-20-000-participants-pour-cibler-prevention-vih-hsh",
+    "statut": "rejete_sensible",
+    "date": "2026-10-13T09:37:23",
+    "problemes_initiaux": 10,
+    "bloc5": [
+      "compteur_incoherent"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "faits_repetitifs"
+    ],
+    "titre": "Enquête ERAS 2026 : 20 000 participants pour cibler la prévention VIH chez les HSH",
+    "n_sources": 3,
+    "n_mots": 595,
+    "titre_rss": "Enquête « Rapport au sexe » (ERAS) 2026 à destination des hommes ayant des rapports sexuels avec des hommes",
+    "matiere_faits_distincts": 1221,
+    "matiere_redondance": 0.07,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "veille_heures_visible": 117.0,
+    "veille_passages": 24,
+    "veille_age_h": 1093.5,
+    "veille_n_flux_grappe": 1,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "inserm-demystifie-sept-idees-reçues-vaccins-campagne-2026-2027",
+    "statut": "rejete_sensible",
+    "date": "2026-10-13T09:43:00",
+    "problemes_initiaux": 18,
+    "tentative": 1,
+    "bloc5": true,
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "faits_repetitifs"
+    ],
+    "titre": "Inserm démystifie sept idées reçues sur les vaccins avant la campagne 2026-2027",
+    "n_sources": 4,
+    "n_mots": 1018,
+    "titre_rss": "Sept fausses idées sur les vaccins",
+    "matiere_faits_distincts": 878,
+    "matiere_redondance": 0.01,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "budget-2027-adoption-bloquee-majorite-deficit",
+    "statut": "rejete_sensible",
+    "date": "2026-10-13T09:46:45",
+    "problemes_initiaux": 12,
+    "bloc5": [
+      "compteur_incoherent"
+    ],
+    "article_type": "actu",
+    "titre": "Budget 2027 : adoption bloquée par l'absence de majorité et un déficit résistant",
+    "n_sources": 6,
+    "n_mots": 706,
+    "titre_rss": "Le budget entre dans l'hémicycle mardi, la présidentielle aussi",
+    "matiere_faits_distincts": 735,
+    "matiere_redondance": 0.02,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "redéfinition-seconde-précision-temporelle-horloges-atomiques",
+    "statut": "rejete_sensible",
+    "date": "2026-10-13T09:51:21",
+    "problemes_initiaux": 14,
+    "bloc5": [
+      "jugement_de_valeur"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "faits_repetitifs"
+    ],
+    "titre": "Redéfinition de la seconde : vers une précision temporelle inégalée",
+    "n_sources": 3,
+    "n_mots": 844,
+    "titre_rss": "La folle course des physiciens pour mesurer le temps, jusqu’à envisager une redéfinition de la seconde",
+    "matiere_faits_distincts": 897,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "fumee-incendies-indonesie-fermetures-ecoles-annulations-vols-malaisie",
+    "statut": "rejete_sensible",
+    "date": "2026-10-13T09:54:52",
+    "problemes_initiaux": 17,
+    "bloc5": [
+      "compteur_incoherent"
+    ],
+    "article_type": "actu",
+    "titre": "Fumée toxique des incendies indonésiens : 12 écoles fermées et 45 vols annulés en Malaisie",
+    "n_sources": 4,
+    "n_mots": 979,
+    "titre_rss": "La propagation de la fumée toxique des incendies en Indonésie entraîne des fermetures d'écoles en Malaisie et des annulations de vols",
+    "matiere_faits_distincts": 1020,
+    "matiere_redondance": 0.02,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "finistere-secheresse-75-eau-cours-deau-niveau-critique-restrictions",
+    "statut": "rejete_sensible",
+    "date": "2026-10-13T09:59:11",
+    "problemes_initiaux": 13,
+    "bloc5": [
+      "acteur_mis_en_cause_sans_reponse"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "faits_repetitifs",
+      "titre_de_mauvaise_qualite"
+    ],
+    "titre": "Finistère : 75 % de l'eau dépend des cours d'eau en niveau critique, restrictions d'usage généralisées",
+    "n_sources": 7,
+    "n_mots": 808,
+    "titre_rss": "Sécheresse : le Finistère dans une « situation critique »",
+    "matiere_faits_distincts": 1370,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "grippe-2026-variant-emergent-saison-precoce-hemisphere-nord",
+    "statut": "rejete_sensible",
+    "date": "2026-10-13T10:03:57",
+    "problemes_initiaux": 13,
+    "bloc5": [
+      "compteur_incoherent"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "resume_repete_corps"
+    ],
+    "titre": "Grippe 2026 : un variant émergent et une saison précoce dans l'hémisphère Nord",
+    "n_sources": 4,
+    "n_mots": 691,
+    "titre_rss": "« Incroyablement tôt » : la grippe prend de l'avance et une mutation du virus inquiète les chercheurs",
+    "matiere_faits_distincts": 1082,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "mortalité-france-2024-causes-principales-et-evolutions",
+    "statut": "rejete_qualite",
+    "date": "2026-10-13T10:14:33",
+    "problemes_initiaux": 18,
+    "tentatives": 3,
+    "problemes_restants": 15,
+    "bloquants_restants": 9,
+    "bloquants_types": [
+      "chiffre_errone",
+      "chiffre_errone",
+      "niveau_preuve_insuffisant",
+      "incoherence_inter_sections",
+      "niveau_preuve_insuffisant",
+      "incoherence_inter_sections",
+      "source_inventee",
+      "source_inventee",
+      "annonce_perimee"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [1] (Inserm) et [2] (Santé publique France) indiquent une comparaison avec **2023** (et non 2022) pour le chiffre de 4 000 décès de plus. Aucune source ne mentionne explicitement une comparaison avec 2022.",
+        "phrase": "En 2024, la France a enregistré **641 046 décès**, soit **4 000 décès de plus qu’en 2022** [1][2]."
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "Les sources [1] et [2] ne mentionnent pas explicitement un taux de **777,9 décès pour 100 000 habitants** comme valeur absolue. Le chiffre de 11 décès pour 100 000 habitants est correct, mais la mention du taux exact de ",
+        "phrase": "le **taux de mortalité standardisé** a diminué de **11 décès pour 100 000 habitants** par rapport à 2023, sans que les sources ne précisent explicitement le taux exact de 777,9 décès pour 100 000 habitants [1][2]."
+      },
+      {
+        "bloc": 1,
+        "type": "niveau_preuve_insuffisant",
+        "description": "La phrase utilise le conditionnel ('pourraient avoir contribué') et mentionne explicitement que les facteurs sont 'non encore pleinement confirmés', ce qui est correct. Cependant, la phrase suivante ('Cette tendance, si ",
+        "phrase": "Les **maladies respiratoires hors Covid-19**, notamment les grippes et pneumonies, pourraient avoir contribué à une hausse de la mortalité, bien que les sources évoquent des **souches virales potentiellement plus agressi"
+      },
+      {
+        "bloc": 1,
+        "type": "incoherence_inter_sections",
+        "description": "Le résumé mentionne 'Les cancers restent la première cause de mortalité avec **27,1 % des décès**', ce qui est cohérent avec les faits. Cependant, dans le résumé, il est écrit 'Les cancers restent la première cause de mo",
+        "phrase": "Les **tumeurs**, principalement les cancers, restent la **première cause de mortalité** en France, représentant **27,1 % des décès** en 2024 [1][2]."
+      },
+      {
+        "bloc": 1,
+        "type": "niveau_preuve_insuffisant",
+        "description": "Bien que les sources mentionnent les comorbidités et leur prévalence, elles ne précisent pas explicitement la moyenne de 2,2 causes associées par certificat. Cette donnée chiffrée n'est pas directement confirmée par les ",
+        "phrase": "Les **comorbidités** sont présentes dans **32 % des décès**, avec une moyenne de **2,2 causes associées par certificat** [1][2]."
+      },
+      {
+        "bloc": 1,
+        "type": "incoherence_inter_sections",
+        "description": "Les sources [1] et [2] ne mentionnent pas explicitement que l'alcool et le tabac sont des comorbidités plus fréquentes chez les moins de 65 ans. Elles évoquent les comorbidités en général, mais pas cette répartition spéc",
+        "phrase": "Les **comorbidités** varient selon l’âge : l’hypertension domine chez les plus de 65 ans, tandis que les **tumeurs**, l’**alcool** et le **tabac** sont plus fréquents chez les moins de 65 ans [1][2]."
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "La mention des 'souches virales potentiellement plus agressives' et de la 'diminution de l’immunité collective' n'est pas explicitement citée dans les sources fournies [1] et [2]. Ces éléments ne sont pas directement con",
+        "phrase": "Les **maladies respiratoires hors Covid-19**, notamment les grippes et pneumonies, pourraient avoir contribué à une hausse de la mortalité, bien que les sources évoquent des **souches virales potentiellement plus agressi"
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "Les sources [1] et [2] ne mentionnent pas explicitement une augmentation spécifique du cancer du poumon chez les femmes depuis 2019. Elles évoquent une hausse des cancers en général, mais pas cette précision.",
+        "phrase": "La mortalité par **cancer du poumon chez les femmes** a augmenté depuis **2019**, reflétant des **décalages dans les diagnostics et les traitements** liés à la pandémie [1]."
+      },
+      {
+        "bloc": 1,
+        "type": "annonce_perimee",
+        "description": "Le titre ne mentionne pas explicitement que la baisse globale du taux de mortalité est principalement due à la réduction des décès liés à la Covid-19, ce qui est un élément clé des sources. Le titre pourrait être plus pr",
+        "phrase": "641 046 décès en France en 2024 : cancers toujours en tête, hausse des maladies respiratoires hors Covid-19 malgré une baisse globale du taux de mortalité"
+      }
+    ],
+    "types_restants": [
+      "chiffre_errone",
+      "chiffre_errone",
+      "niveau_preuve_insuffisant",
+      "incoherence_inter_sections",
+      "fait_tranche_arbitrairement",
+      "niveau_preuve_insuffisant",
+      "incoherence_inter_sections",
+      "source_inventee",
+      "extrapolation",
+      "redondance",
+      "redondance",
+      "source_inventee",
+      "contexte_hors_sujet",
+      "extrapolation",
+      "annonce_perimee"
+    ],
+    "article_type": "actu",
+    "titre": "641 046 décès en France en 2024 : cancers en tête, hausse des maladies respiratoires",
+    "n_sources": 3,
+    "n_mots": 720,
+    "titre_rss": "Grandes causes de décès en France : tendances et causes associées en 2024",
+    "matiere_faits_distincts": 1054,
+    "matiere_redondance": 0.17,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "veille_heures_visible": 517.7,
+    "veille_passages": 311,
+    "veille_age_h": 1494.2,
+    "veille_n_flux_grappe": 1,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "cyberattaque-danfoss-supermarches-francais-congelateurs-defaillants",
+    "statut": "rejete_qualite",
+    "date": "2026-10-13T10:22:01",
+    "problemes_initiaux": 16,
+    "tentatives": 3,
+    "problemes_restants": 15,
+    "bloquants_restants": 3,
+    "bloquants_types": [
+      "niveau_preuve_insuffisant",
+      "niveau_preuve_insuffisant",
+      "niveau_preuve_insuffisant"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "niveau_preuve_insuffisant",
+        "description": "L'article ne précise pas si ces arrêts partiels d'activité sont confirmés par des données chiffrées ou des témoignages directs des enseignes concernées. La source [1] ne fournit pas de détails concrets sur ces arrêts, ce",
+        "phrase": "Les enseignes touchées, sans être nommées, ont dû procéder à des arrêts partiels d’activité localisés pour limiter les pertes supplémentaires [1]."
+      },
+      {
+        "bloc": 1,
+        "type": "niveau_preuve_insuffisant",
+        "description": "Bien que la source [1] mentionne des ruptures de stock, elle ne précise pas si ces ruptures sont confirmées par des données chiffrées ou des témoignages directs des consommateurs ou des enseignes.",
+        "phrase": "Les conséquences immédiates pour les consommateurs se traduisent par des ruptures de stock localisées pour certains produits réfrigérés, notamment dans les magasins équipés des systèmes Danfoss affectés [1]."
+      },
+      {
+        "bloc": 1,
+        "type": "niveau_preuve_insuffisant",
+        "description": "La source [1] ne confirme pas explicitement que ces mesures d'urgence ont été mises en œuvre par les enseignes concernées, ni avec quelles conséquences précises.",
+        "phrase": "Les enseignes concernées ont mis en place des mesures d’urgence, comme la redistribution des stocks disponibles vers d’autres magasins non touchés, afin de limiter les impacts sur l’approvisionnement [1]."
+      }
+    ],
+    "types_restants": [
+      "compteur_incoherent",
+      "source_derivee_comptee_comme_primaire",
+      "source_derivee_comptee_comme_primaire",
+      "formule_vague",
+      "formule_vague",
+      "contexte_hors_sujet",
+      "redondance",
+      "redondance",
+      "redondance",
+      "niveau_preuve_insuffisant",
+      "niveau_preuve_insuffisant",
+      "niveau_preuve_insuffisant",
+      "extrapolation",
+      "extrapolation",
+      "extrapolation"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "resume_repete_corps"
+    ],
+    "titre": "Cyberattaque sur Danfoss : 12 octobre, des centaines de magasins paralysés par des congélateurs défaillants",
+    "n_sources": 5,
+    "n_mots": 663,
+    "titre_rss": "Dans les supermarchés français, une journée noire après une cyberattaque massive visant des systèmes frigorifiques",
+    "matiere_faits_distincts": 1195,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "budget-2027-bloque-qpc-motion-rejet-assemblee-nationale-scenarios",
+    "statut": "rejete_sensible",
+    "date": "2026-10-13T10:28:01",
+    "problemes_initiaux": 22,
+    "tentative": 1,
+    "bloc5": true,
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "faits_repetitifs"
+    ],
+    "titre": "Budget 2027 bloqué à l'Assemblée : QPC, motion de rejet et 49.3 en suspens",
+    "n_sources": 4,
+    "n_mots": 888,
+    "titre_rss": "Égalité devant l’impôt : la jurisprudence du Conseil constitutionnel protège-t-elle les « ultra-riches » ?",
+    "matiere_faits_distincts": 611,
+    "matiere_redondance": 0.04,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "inserm-additifs-alimentaires-risques-cancer-diabete-hypertension-etudes-2026",
+    "statut": "rejete_sensible",
+    "date": "2026-10-13T10:35:29",
+    "problemes_initiaux": 29,
+    "tentative": 1,
+    "bloc5": true,
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "faits_repetitifs",
+      "titre_de_mauvaise_qualite"
+    ],
+    "titre": "Inserm : trois études lient additifs alimentaires à des risques accrus de cancer, diabète et hypertension",
+    "n_sources": 3,
+    "n_mots": 982,
+    "titre_rss": "Colorants, conservateurs : trois nouvelles études pointent des liens entre additifs alimentaires et risque accru de cancer, de diabète de type 2, de maladies cardiovasculaires et d’hypertension",
+    "matiere_faits_distincts": 1059,
+    "matiere_redondance": 0.03,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "veille_heures_visible": 517.7,
+    "veille_passages": 311,
+    "veille_age_h": 1494.2,
+    "veille_n_flux_grappe": 3,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "budget-2027-impacts-retraites-collectivites-entreprises",
+    "statut": "rejete_sensible",
+    "date": "2026-10-13T10:42:39",
+    "problemes_initiaux": 15,
+    "bloc5": [
+      "acteur_mis_en_cause_sans_reponse"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "faits_repetitifs"
+    ],
+    "titre": "Budget 2027 : les mesures qui touchent retraites, collectivités et entreprises",
+    "n_sources": 10,
+    "n_mots": 622,
+    "titre_rss": "Ce que contient le projet de budget 2027",
+    "matiere_faits_distincts": 596,
+    "matiere_redondance": 0.1,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "optogenetique-essai-clinique-phase-1-limites-et-perspectives",
+    "statut": "rejete_sensible",
+    "date": "2026-10-13T10:47:10",
+    "problemes_initiaux": 17,
+    "bloc5": [
+      "compteur_incoherent"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "resume_repete_corps",
+      "faits_repetitifs",
+      "affirmation_non_demontree",
+      "article_sans_date"
+    ],
+    "titre": "Essai clinique : l'optogénétique sûre pour la rétine, mais une vision limitée",
+    "n_sources": 3,
+    "n_mots": 790,
+    "titre_rss": "L’optogénétique s’avère sûre pour traiter certaines formes de cécité",
+    "matiere_faits_distincts": 775,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "etude_scientifique"
+  },
+  {
+    "slug": "thrombinnov-plaquettes-sanguines-tests-medicaments-innovants-acceleration",
+    "statut": "rejete_qualite",
+    "date": "2026-10-13T10:57:14",
+    "problemes_initiaux": 12,
+    "tentatives": 3,
+    "problemes_restants": 20,
+    "bloquants_restants": 1,
+    "bloquants_types": [
+      "niveau_preuve_insuffisant"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "niveau_preuve_insuffisant",
+        "description": "La source [1] ne mentionne pas explicitement l'absence de validations cliniques à grande échelle, mais évoque des résultats exploratoires. L'article généralise cette limite sans que les extraits fournis ne la confirment ",
+        "phrase": "Bien que prometteuse, cette approche n’a pas encore fait l’objet de **validations cliniques à grande échelle**, ce qui limite sa généralisation dans l’industrie pharmaceutique [1]."
+      }
+    ],
+    "types_restants": [
+      "source_derivee_comptee_comme_primaire",
+      "source_derivee_comptee_comme_primaire",
+      "source_derivee_comptee_comme_primaire",
+      "source_derivee_comptee_comme_primaire",
+      "source_derivee_comptee_comme_primaire",
+      "source_derivee_comptee_comme_primaire",
+      "fait_tranche_arbitrairement",
+      "fait_tranche_arbitrairement",
+      "niveau_preuve_insuffisant",
+      "source_non_editoriale",
+      "formule_vague",
+      "formule_vague",
+      "redondance",
+      "redondance",
+      "redondance",
+      "redondance",
+      "redondance",
+      "contexte_hors_sujet",
+      "contexte_hors_sujet",
+      "compteur_incoherent"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "faits_repetitifs",
+      "cliches_ia",
+      "article_sans_date"
+    ],
+    "titre": "ThrombInnov révolutionne les tests précliniques avec 40 ans d’expertise sur les plaquettes",
+    "n_sources": 3,
+    "n_mots": 681,
+    "titre_rss": "L’entrepreneuriat dans le sang !",
+    "matiere_faits_distincts": 805,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "ird-forme-agents-registre-traitements-donnees-personnelles-obligation-rgpd",
+    "statut": "rejete_sensible",
+    "date": "2026-10-13T11:09:44",
+    "problemes_initiaux": 12,
+    "bloc5": [
+      "source_non_editoriale"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "titre_de_mauvaise_qualite",
+      "article_sans_date"
+    ],
+    "titre": "L'IRD forme ses agents à l'obligation légale du registre des traitements de données",
+    "n_sources": 7,
+    "n_mots": 432,
+    "titre_rss": "Protection des données personnelles - Le registre des traitements",
+    "matiere_faits_distincts": 1390,
+    "matiere_redondance": 0.04,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "veille_heures_visible": 517.7,
+    "veille_passages": 326,
+    "veille_age_h": 1494.2,
+    "veille_n_flux_grappe": 1,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "jonathan-tortue-194-ans-mitochondries-longevite-adn",
+    "statut": "rejete_sensible",
+    "date": "2026-10-13T11:14:02",
+    "problemes_initiaux": 13,
+    "bloc5": [
+      "compteur_incoherent"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "resume_repete_corps",
+      "faits_repetitifs",
+      "nuances_vagues",
+      "article_sans_date"
+    ],
+    "titre": "Jonathan, tortue géante de 194 ans : des mitochondries résistantes au vieillissement",
+    "n_sources": 3,
+    "n_mots": 766,
+    "titre_rss": "Le secret de longévité de Jonathan, une tortue de 194 ans de l’île de Sainte-Hélène, caché dans son ADN",
+    "matiere_faits_distincts": 971,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "etude_scientifique"
+  },
+  {
+    "slug": "croissance-francaise-2026-2027-0-4-et-0-7-contre-0-9-et-1-2-zone-euro",
+    "statut": "rejete_sensible",
+    "date": "2026-10-13T11:18:22",
+    "problemes_initiaux": 21,
+    "bloc5": [
+      "acteur_mis_en_cause_sans_reponse"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "resume_repete_corps",
+      "titre_de_mauvaise_qualite"
+    ],
+    "titre": "Croissance française 2026-2027 : 0,4 % et 0,7 %, contre 0,9 % et 1,2 % pour la zone euro",
+    "n_sources": 5,
+    "n_mots": 405,
+    "titre_rss": "Le FMI relève sa prévision de croissance pour la zone euro, mais l'abaisse pour la France",
+    "matiere_faits_distincts": 883,
+    "matiere_redondance": 0.04,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "autorite-de-la-concurrence-alerte-sur-concentration-agents-dintelligence-artificielle",
+    "statut": "rejete_sensible",
+    "date": "2026-10-13T11:25:14",
+    "problemes_initiaux": 14,
+    "bloc5": [
+      "acteur_mis_en_cause_sans_reponse"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "resume_repete_corps"
+    ],
+    "titre": "L'Autorité de la concurrence alerte sur la concentration des agents d'IA en France",
+    "n_sources": 4,
+    "n_mots": 435,
+    "titre_rss": "Mon collègue est une IA",
+    "matiere_faits_distincts": 839,
+    "matiere_redondance": 0.01,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "cyberattaque-magasins-u-refrigerateurs-pertes-financieres-systems-paralyses",
+    "statut": "rejete_sensible",
+    "date": "2026-10-13T11:29:40",
+    "problemes_initiaux": 16,
+    "bloc5": [
+      "extrapolation"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "resume_repete_corps",
+      "faits_repetitifs"
+    ],
+    "titre": "Cyberattaque sur les réfrigérateurs U : des milliers d'euros perdus et des systèmes paralysés",
+    "n_sources": 4,
+    "n_mots": 744,
+    "titre_rss": "Cyberattaque contre les réfrigérateurs : « des milliers d’euros » perdus et de la « stupeur », le patron des magasins U fait un premier bilan",
+    "matiere_faits_distincts": 834,
+    "matiere_redondance": 0.04,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "finlande-suspend-chantiers-google-defrichement-300-hectares-foret",
+    "statut": "rejete_sensible",
+    "date": "2026-10-13T11:35:17",
+    "problemes_initiaux": 20,
+    "bloc5": [
+      "source_non_editoriale"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "resume_repete_corps",
+      "faits_repetitifs"
+    ],
+    "titre": "Finlande : suspension immédiate des chantiers Google pour défrichement illégal de 300 hectares",
+    "n_sources": 3,
+    "n_mots": 901,
+    "titre_rss": "Défrichement de 300 hectares : la Finlande exige l’arrêt de deux chantiers de Google",
+    "matiere_faits_distincts": 1001,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 2,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
   }
 ]
