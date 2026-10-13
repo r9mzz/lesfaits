@@ -1,0 +1,26 @@
+name: Diagnostic Gemini (temporaire)
+
+on:
+  workflow_dispatch:
+
+jobs:
+  diag:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    env:
+      GK: ${{ secrets.GEMINI_API_KEY }}
+    steps:
+      - name: Modèles disponibles puis un appel minimal par candidat
+        run: |
+          echo "### liste des modèles"
+          curl -sS -m 30 "https://generativelanguage.googleapis.com/v1beta/openai/models" \
+            -H "Authorization: Bearer $GK" | python3 -c "import sys,json; d=json.load(sys.stdin); print(' '.join(sorted(m.get('id','').replace('models/','') for m in d.get('data',[]))))" || echo "liste indisponible"
+          echo "### appels minimaux"
+          for M in $(curl -sS -m 30 "https://generativelanguage.googleapis.com/v1beta/openai/models" -H "Authorization: Bearer $GK" | python3 -c "import sys,json; d=json.load(sys.stdin); print(' '.join(m['id'].replace('models/','') for m in d.get('data',[]) if 'flash' in m['id'] or 'pro' in m['id'] or 'gemma' in m['id']))"); do
+            CODE=$(curl -sS -o /tmp/b.txt -m 60 -w "%{http_code}" \
+              https://generativelanguage.googleapis.com/v1beta/openai/chat/completions \
+              -H "Authorization: Bearer $GK" -H "Content-Type: application/json" \
+              -d "{\"model\":\"$M\",\"max_tokens\":20,\"messages\":[{\"role\":\"user\",\"content\":\"Dis ok\"}]}")
+            echo "$M | HTTP $CODE | $(head -c 130 /tmp/b.txt | tr '\n' ' ')"
+            sleep 4
+          done
