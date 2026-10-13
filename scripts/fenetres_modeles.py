@@ -98,6 +98,7 @@ _TPM_PAR_MODELE_GEN = {
     # Flash (cf. CLAUDE.md, comparaison du 18/08). 250 000 par prudence — très
     # au-dessus d'un prompt d'article (9 000 à 14 000), donc rien n'est coupé.
     # Le vrai plafond est le débit : 15 requêtes/min et 250 à 1 500/jour.
+    "gemini-3.8-flash": 250_000,
     "gemini-2.5-flash": 250_000,
     "gemini-2.0-flash": 250_000,
     "mistral-small-latest": 500_000,
