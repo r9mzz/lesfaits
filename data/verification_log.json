@@ -27732,5 +27732,717 @@
     "n_sources_injectees": 10,
     "n_sources_trouvees": 10,
     "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "frappes-russes-kiev-sans-alerte-trois-morts-système-défaillant",
+    "statut": "rejete_sensible",
+    "date": "2026-10-14T17:53:40",
+    "sujet_sensible": true,
+    "raison": "L'article porte sur une attaque militaire récente (12-13 octobre 2026) ayant causé des morts civiles et des frappes ciblant des zones résidentielles, impliquant directement des risques pour des populations civiles en contexte de guerre active.",
+    "article_type": "actu",
+    "titre": "Frappes russes sur Kiev sans alerte : trois morts et un système de protection défaillant",
+    "n_sources": 4,
+    "n_mots": 650,
+    "titre_rss": "Guerre en Ukraine : cette absence d'alerte avant des frappes russes qui interroge",
+    "matiere_faits_distincts": 717,
+    "matiere_redondance": 0.02,
+    "matiere_donnees_chiffrees": 2,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "rn-100-milliards-promesses-annuelles-ecarts-budgetaires-majeurs",
+    "statut": "erreur_verification",
+    "date": "2026-10-14T17:56:23",
+    "etape": "detection",
+    "erreur": "JSON tronqué ou incomplet dans la réponse (max_tokens atteint ?)",
+    "article_type": "actu",
+    "titre": "RN : 100 milliards de promesses annuelles, mais des coûts sous-estimés de 80 %",
+    "n_sources": 4,
+    "n_mots": 599,
+    "titre_rss": "\"De la science-fiction\" : le programme économique du RN démonté par Antoine Levy",
+    "matiere_faits_distincts": 853,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10
+  },
+  {
+    "slug": "rn-100-milliards-promesses-annuelles-ecarts-budgetaires-majeurs",
+    "statut": "rejete_qualite",
+    "date": "2026-10-14T17:56:23",
+    "raison": "verification_indisponible",
+    "statut_verification_initial": "erreur_verification"
+  },
+  {
+    "slug": "manifestations-azerbaidjan-interdiction-hijab-ecoles-95-musulmans",
+    "statut": "rejete_sensible",
+    "date": "2026-10-14T18:02:59",
+    "sujet_sensible": true,
+    "raison": "L'article porte sur une interdiction du hijab à l'école en Azerbaïdjan, impliquant des manifestations et des enjeux juridiques liés à la liberté religieuse, avec des acteurs identifiés (manifestants, gouvernement) et des critiques envers une décision institutionnelle.",
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "titre_de_mauvaise_qualite"
+    ],
+    "titre": "Azerbaïdjan : manifestations contre l'interdiction du hijab à l'école",
+    "n_sources": 4,
+    "n_mots": 396,
+    "titre_rss": "En Azerbaïdjan, des manifestants protestent contre l’interdiction du port du hijab à l’école",
+    "matiere_faits_distincts": 793,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "cyberattaque-supermarches-systems-frigorifiques-risques-alimentaires-france",
+    "statut": "rejete_sensible",
+    "date": "2026-10-14T18:05:06",
+    "problemes_initiaux": 17,
+    "bloc5": [
+      "jugement_de_valeur"
+    ],
+    "article_type": "actu",
+    "titre": "Cyberattaque sur les systèmes frigorifiques : 50 milliards d'euros de produits alimentaires menacés",
+    "n_sources": 4,
+    "n_mots": 711,
+    "titre_rss": "Piratage de supermarchés en France : \"Pas besoin de chars pour faire la guerre\", dit un expert",
+    "matiere_faits_distincts": 451,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "chasse-illégale-reserves-naturelles-pyrénées-orientales-notables-2026",
+    "statut": "rejete_sensible",
+    "date": "2026-10-14T18:07:41",
+    "problemes_initiaux": 16,
+    "bloc5": [
+      "acteur_mis_en_cause_sans_reponse"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "prise_de_position"
+    ],
+    "titre": "Chasse illégale dans les réserves naturelles : des notables impliqués dans les Pyrénées-Orientales",
+    "n_sources": 7,
+    "n_mots": 671,
+    "titre_rss": "Chasse : les petits arrangements de notables dans une réserve naturelle",
+    "matiere_faits_distincts": 1131,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "albanie-montenegro-adhesion-ue-progres-et-obstacles-2026",
+    "statut": "rejete_sensible",
+    "date": "2026-10-14T18:10:37",
+    "problemes_initiaux": 22,
+    "bloc5": [
+      "acteur_mis_en_cause_sans_reponse"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "faits_repetitifs",
+      "titre_de_mauvaise_qualite"
+    ],
+    "titre": "Albanie et Monténégro : avancées dans l’UE, mais quels blocages persistent ?",
+    "n_sources": 4,
+    "n_mots": 945,
+    "titre_rss": "Albanie et Monténégro : un état des lieux des négociations d'adhésion à l'Union européenne - Rapport d'information n° 845",
+    "matiere_faits_distincts": 508,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "mont-blanc-altitude-officielle-revisee-480745-metres-hausse-inedeite",
+    "statut": "rejete_sensible",
+    "date": "2026-10-14T18:13:05",
+    "problemes_initiaux": 14,
+    "bloc5": [
+      "compteur_incoherent"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "resume_repete_corps",
+      "nuances_vagues"
+    ],
+    "titre": "Mont Blanc : altitude officielle révisée à 4 807,45 mètres, une hausse inédite en une année",
+    "n_sources": 4,
+    "n_mots": 421,
+    "titre_rss": "Le mont Blanc culmine à 4 807 mètres et 45 centimètres, selon la dernière mesure officielle",
+    "matiere_faits_distincts": 883,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "ebola-bundibugyo-vaccins-zaire-anticorps-sans-preuve-efficacite-resultats-inserm",
+    "statut": "rejete_sensible",
+    "date": "2026-10-14T18:15:52",
+    "problemes_initiaux": 17,
+    "bloc5": [
+      "acteur_mis_en_cause_sans_reponse"
+    ],
+    "article_type": "actu",
+    "titre": "Ebola Bundibugyo : les vaccins Zaïre génèrent des anticorps, mais sans preuve d'efficacité",
+    "n_sources": 4,
+    "n_mots": 728,
+    "titre_rss": "Épidémie d’Ebola Bundibugyo : des premiers résultats pour guider la recherche d’un vaccin efficace",
+    "matiere_faits_distincts": 1208,
+    "matiere_redondance": 0.02,
+    "matiere_donnees_chiffrees": 2,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "veille_heures_visible": 517.7,
+    "veille_passages": 311,
+    "veille_age_h": 1527.3,
+    "veille_n_flux_grappe": 9,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "brgm-66-des-nappes-phreatiques-francaises-en-situation-tres-preoccupante",
+    "statut": "rejete_sensible",
+    "date": "2026-10-14T18:18:47",
+    "problemes_initiaux": 14,
+    "tentative": 1,
+    "bloc5": true,
+    "article_type": "breve",
+    "avertissements_garde_fous": [
+      "resume_repete_corps"
+    ],
+    "titre": "BRGM : 66 % des nappes phréatiques françaises en situation très préoccupante",
+    "n_sources": 4,
+    "n_mots": 277,
+    "titre_rss": "France: Deux tiers des nappes phréatiques dans une situation \"très préoccupante“",
+    "matiere_faits_distincts": 1029,
+    "matiere_redondance": 0.01,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "cop31-dependance-fossiles-persiste-engagements-climatiques",
+    "statut": "rejete_sensible",
+    "date": "2026-10-14T18:21:11",
+    "problemes_initiaux": 21,
+    "bloc5": [
+      "faux_debat"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "faits_repetitifs"
+    ],
+    "titre": "COP31 : la dépendance mondiale aux fossiles persiste malgré les promesses de transition",
+    "n_sources": 6,
+    "n_mots": 702,
+    "titre_rss": "COP31: l'humanité est toujours accro aux énergies fossiles",
+    "matiere_faits_distincts": 890,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "enquete-eras-2026-sante-publique-france-lance-enquete-hsh-vih-ist",
+    "statut": "rejete_sensible",
+    "date": "2026-10-14T18:23:54",
+    "problemes_initiaux": 11,
+    "bloc5": [
+      "compteur_incoherent"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "resume_repete_corps"
+    ],
+    "titre": "Santé publique France lance l’enquête ERAS 2026 sur les HSH",
+    "n_sources": 3,
+    "n_mots": 389,
+    "titre_rss": "Enquête « Rapport au sexe » (ERAS) 2026 à destination des hommes ayant des rapports sexuels avec des hommes",
+    "matiere_faits_distincts": 990,
+    "matiere_redondance": 0.08,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "veille_heures_visible": 117.0,
+    "veille_passages": 24,
+    "veille_age_h": 1126.5,
+    "veille_n_flux_grappe": 1,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "cyberattaque-frigos-supermarches-origine-inconnue-13-octobre-2026",
+    "statut": "rejete_sensible",
+    "date": "2026-10-14T18:26:04",
+    "problemes_initiaux": 13,
+    "bloc5": [
+      "acteur_mis_en_cause_sans_reponse"
+    ],
+    "article_type": "breve",
+    "avertissements_garde_fous": [
+      "resume_repete_corps",
+      "titre_de_mauvaise_qualite"
+    ],
+    "titre": "Cyberattaque contre les frigos de supermarchés : aucune origine identifiée",
+    "n_sources": 4,
+    "n_mots": 289,
+    "titre_rss": "Cyberattaque sur les frigos : « Nous nous attendons à des attaques plus massives »",
+    "matiere_faits_distincts": 675,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "inserm-demele-sept-idees-reçues-vaccins-campagne-2026-2027",
+    "statut": "rejete_sensible",
+    "date": "2026-10-14T18:29:34",
+    "problemes_initiaux": 17,
+    "tentative": 1,
+    "bloc5": true,
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "resume_repete_corps"
+    ],
+    "titre": "Inserm démêle sept idées reçues sur les vaccins avant la campagne 2026-2027",
+    "n_sources": 4,
+    "n_mots": 1010,
+    "titre_rss": "Sept fausses idées sur les vaccins",
+    "matiere_faits_distincts": 1183,
+    "matiere_redondance": 0.02,
+    "matiere_donnees_chiffrees": 2,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "parchemins-medievaux-revelent-3500-ans-evolution-variole-ovine",
+    "statut": "rejete_sensible",
+    "date": "2026-10-14T18:31:57",
+    "problemes_initiaux": 17,
+    "bloc5": [
+      "compteur_incoherent"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "resume_repete_corps",
+      "faits_repetitifs",
+      "titre_de_mauvaise_qualite"
+    ],
+    "titre": "Des génomes viraux découverts dans des parchemins médiévaux révèlent 3 500 ans d'histoire de la variole ovine",
+    "n_sources": 3,
+    "n_mots": 703,
+    "titre_rss": "Des manuscrits médiévaux révèlent l’histoire millénaire de la variole ovine",
+    "matiere_faits_distincts": 771,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "taux-demprunt-francais-atteint-4-75-pourcent",
+    "statut": "rejete_sensible",
+    "date": "2026-10-14T18:35:20",
+    "problemes_initiaux": 13,
+    "bloc5": [
+      "acteur_mis_en_cause_sans_reponse"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "cliches_ia"
+    ],
+    "titre": "La France paie son emprunt à 10 ans à 4,75 %",
+    "n_sources": 7,
+    "n_mots": 706,
+    "titre_rss": "Dette : les moyens d’enrayer l’envolée des taux « doivent être d’abord trouvés en France » au niveau du budget, pour rassurer les marchés, affirme Christine Lagarde",
+    "matiere_faits_distincts": 806,
+    "matiere_redondance": 0.08,
+    "matiere_donnees_chiffrees": 4,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "quatre-geants-europeens-etudient-alliance-contre-starlink",
+    "statut": "rejete_sensible",
+    "date": "2026-10-14T18:41:52",
+    "problemes_initiaux": 21,
+    "bloc5": [
+      "compteur_incoherent"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "faits_repetitifs",
+      "cliches_ia"
+    ],
+    "titre": "Orange, Deutsche Telekom, Vodafone et Telefónica étudient une alliance contre Starlink",
+    "n_sources": 4,
+    "n_mots": 864,
+    "titre_rss": "Face à la domination de Starlink, les géants européens des télécoms veulent faire front commun",
+    "matiere_faits_distincts": 1126,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "adoption-ia-entreprises-europeennes-2026-ecarts-secteurs-tailles",
+    "statut": "rejete_sensible",
+    "date": "2026-10-14T18:44:38",
+    "problemes_initiaux": 16,
+    "bloc5": [
+      "compteur_incoherent"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "resume_repete_corps",
+      "faits_repetitifs",
+      "titre_de_mauvaise_qualite"
+    ],
+    "titre": "L'IA adoptée par 28 % des entreprises européennes, mais avec des écarts majeurs selon la taille et le secteur",
+    "n_sources": 4,
+    "n_mots": 445,
+    "titre_rss": "Une enquête Eurobaromètre met en évidence l'utilisation croissante de l'IA dans les entreprises européennes",
+    "matiere_faits_distincts": 791,
+    "matiere_redondance": 0.02,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "horloges-atomiques-aces-precision-record-300-millions-annees-esa",
+    "statut": "rejete_sensible",
+    "date": "2026-10-14T18:47:47",
+    "problemes_initiaux": 11,
+    "bloc5": [
+      "extrapolation"
+    ],
+    "article_type": "actu",
+    "titre": "ACES sur l'ISS : une précision de 300 millions d'années pour tester la relativité",
+    "n_sources": 3,
+    "n_mots": 873,
+    "titre_rss": "La folle course des physiciens pour mesurer le temps, jusqu’à envisager une redéfinition de la seconde",
+    "matiere_faits_distincts": 763,
+    "matiere_redondance": 0.01,
+    "matiere_donnees_chiffrees": 2,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "reglement-2026-distinction-ia-fermees-ouvertes-europe",
+    "statut": "rejete_sensible",
+    "date": "2026-10-14T18:51:53",
+    "problemes_initiaux": 21,
+    "tentative": 1,
+    "bloc5": true,
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "faits_repetitifs",
+      "cliches_ia",
+      "affirmation_non_demontree"
+    ],
+    "titre": "L'Europe distingue IA fermées et ouvertes dans son règlement de 2026",
+    "n_sources": 7,
+    "n_mots": 961,
+    "titre_rss": "Derrière les appels à la régulation, l’affrontement entre IA fermées et IA ouvertes",
+    "matiere_faits_distincts": 731,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "virus-nil-occidental-39-cas-autochtones-france-2026",
+    "statut": "rejete_sensible",
+    "date": "2026-10-14T18:57:28",
+    "problemes_initiaux": 15,
+    "tentative": 1,
+    "bloc5": true,
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "resume_repete_corps"
+    ],
+    "titre": "Virus du Nil occidental : 39 cas autochtones en France en 2026",
+    "n_sources": 5,
+    "n_mots": 939,
+    "titre_rss": "Record d'infections en France : ce virus transmis par les moustiques inquiète, d'autant qu'il n'existe aucun vaccin !",
+    "matiere_faits_distincts": 956,
+    "matiere_redondance": 0.01,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "robot-humanoide-americain-maitrise-gestes-baseball-precision-limites",
+    "statut": "rejete_sensible",
+    "date": "2026-10-14T19:00:24",
+    "problemes_initiaux": 13,
+    "bloc5": [
+      "compteur_incoherent"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "titre_de_mauvaise_qualite"
+    ],
+    "titre": "Robot humanoïde américain maîtrise lancer, attraper et frapper des balles",
+    "n_sources": 4,
+    "n_mots": 800,
+    "titre_rss": "Il lance, attrape et frappe comme un joueur de baseball : ce robot montre ce qui change dans la robotique",
+    "matiere_faits_distincts": 1029,
+    "matiere_redondance": 0.02,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "ionos-premium-350-go-nvme-cdn-integre-sites-en-croissance",
+    "statut": "rejete_sensible",
+    "date": "2026-10-14T19:06:22",
+    "problemes_initiaux": 13,
+    "tentative": 2,
+    "bloc5": true,
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "resume_repete_corps"
+    ],
+    "titre": "IONOS Premium : 350 Go NVMe et CDN intégré pour les sites en croissance",
+    "n_sources": 3,
+    "n_mots": 840,
+    "titre_rss": "IONOS Premium : un coup de pouce pour les sites Web en pleine croissance",
+    "matiere_faits_distincts": 636,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "duralex-repris-par-tome-155-emplois-sauves-defis-energetiques",
+    "statut": "rejete_sensible",
+    "date": "2026-10-14T19:09:33",
+    "problemes_initiaux": 14,
+    "bloc5": [
+      "affaire_en_cours_presentee_comme_fait"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "faits_repetitifs",
+      "titre_de_mauvaise_qualite"
+    ],
+    "titre": "Duralex passe sous contrôle de Tomé : 155 emplois sauvés, mais des défis énergétiques et financiers subsistent",
+    "n_sources": 4,
+    "n_mots": 1027,
+    "titre_rss": "Fini la coopérative : Duralex repris pour en faire \"l'usine de verre la plus verte au monde\"",
+    "matiere_faits_distincts": 862,
+    "matiere_redondance": 0.01,
+    "matiere_donnees_chiffrees": 2,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "beton-absorbant-co2-innovation-scientifique-2026",
+    "statut": "rejete_sensible",
+    "date": "2026-10-14T19:12:44",
+    "problemes_initiaux": 16,
+    "bloc5": [
+      "compteur_incoherent"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "resume_repete_corps",
+      "faits_repetitifs"
+    ],
+    "titre": "Un béton capable d'absorber le CO2 développé par des chercheurs",
+    "n_sources": 4,
+    "n_mots": 601,
+    "titre_rss": "Du béton qui absorbe le CO2 !",
+    "matiere_faits_distincts": 1015,
+    "matiere_redondance": 0.02,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "deces-carole-fritz-archeologue-grotte-chauvet-interpretation-scientifique",
+    "statut": "rejete_sensible",
+    "date": "2026-10-14T19:16:10",
+    "problemes_initiaux": 13,
+    "bloc5": [
+      "compteur_incoherent"
+    ],
+    "article_type": "actu",
+    "titre": "Décès de Carole Fritz, archéologue à l'origine d'une nouvelle lecture de Chauvet",
+    "n_sources": 4,
+    "n_mots": 987,
+    "titre_rss": "Carole Fritz, archéologue et préhistorienne, grande amoureuse de l’art pariétal, est morte",
+    "matiere_faits_distincts": 1017,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 3,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "cyberattaque-danfoss-supermarches-panne-frigorifiques-12-octobre",
+    "statut": "rejete_sensible",
+    "date": "2026-10-14T19:19:01",
+    "problemes_initiaux": 12,
+    "bloc5": [
+      "compteur_incoherent"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "resume_repete_corps"
+    ],
+    "titre": "Cyberattaque sur Danfoss : 12 octobre, des centaines de magasins touchés par une panne généralisée",
+    "n_sources": 4,
+    "n_mots": 633,
+    "titre_rss": "Dans les supermarchés français, une journée noire après une cyberattaque massive visant des systèmes frigorifiques",
+    "matiere_faits_distincts": 930,
+    "matiere_redondance": 0.08,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "thrombinov-startup-plaquettes-sanguines-tests-medicaments-thrombose-innovation",
+    "statut": "rejete_sensible",
+    "date": "2026-10-14T19:25:19",
+    "problemes_initiaux": 14,
+    "bloc5": [
+      "diffamation_potentielle"
+    ],
+    "article_type": "actu",
+    "titre": "ThrombInnov accélère les tests de médicaments via des modèles plaquettaires strasbourgeois",
+    "n_sources": 3,
+    "n_mots": 967,
+    "titre_rss": "L’entrepreneuriat dans le sang !",
+    "matiere_faits_distincts": 940,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "projet-erc-forets-tropicales-impact-extinction-especes-1-95-million",
+    "statut": "rejete_sensible",
+    "date": "2026-10-14T19:28:26",
+    "problemes_initiaux": 13,
+    "bloc5": [
+      "compteur_incoherent"
+    ],
+    "article_type": "actu",
+    "titre": "Projet ERC de 1,95 million d'euros pour étudier l'impact de l'extinction sur les forêts tropicales",
+    "n_sources": 3,
+    "n_mots": 657,
+    "titre_rss": "Forêts tropicales humides : un financement ERC pour le chercheur IRD Thomas Couvreur",
+    "matiere_faits_distincts": 980,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "veille_heures_visible": 517.7,
+    "veille_passages": 326,
+    "veille_age_h": 1527.3,
+    "veille_n_flux_grappe": 2,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "pollution-air-france-hausse-particules-gaz-2025",
+    "statut": "rejete_sensible",
+    "date": "2026-10-14T19:31:15",
+    "problemes_initiaux": 11,
+    "bloc5": [
+      "compteur_incoherent"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "resume_repete_corps",
+      "titre_de_mauvaise_qualite"
+    ],
+    "titre": "Pollution de l’air en France : une hausse des particules et gaz après des années de baisse",
+    "n_sources": 4,
+    "n_mots": 669,
+    "titre_rss": "En France, la pollution de l’air repart à la hausse, après des années de recul",
+    "matiere_faits_distincts": 1068,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "operation-pape-leon-xiv-cancer-poumon-silence-vatican-inquietude",
+    "statut": "erreur_verification",
+    "date": "2026-10-14T19:34:24",
+    "etape": "detection",
+    "erreur": "JSON tronqué ou incomplet dans la réponse (max_tokens atteint ?)",
+    "article_type": "actu",
+    "titre": "Opération du pape Léon XIV : silence médical et inquiétude des fidèles à Rome",
+    "n_sources": 3,
+    "n_mots": 911,
+    "titre_rss": "\"Ça a été un choc\" : à Rome, l'inquiétude des fidèles après l'opération du pape Léon XIV",
+    "matiere_faits_distincts": 726,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10
+  },
+  {
+    "slug": "operation-pape-leon-xiv-cancer-poumon-silence-vatican-inquietude",
+    "statut": "rejete_qualite",
+    "date": "2026-10-14T19:34:24",
+    "raison": "verification_indisponible",
+    "statut_verification_initial": "erreur_verification"
+  },
+  {
+    "slug": "emissions-gaz-effet-serre-france-baisse-2-8-pourcent-2026-objectif-2030-risque-echec",
+    "statut": "rejete_sensible",
+    "date": "2026-10-14T19:37:32",
+    "problemes_initiaux": 22,
+    "bloc5": [
+      "compteur_incoherent"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "resume_repete_corps",
+      "faits_repetitifs",
+      "titre_de_mauvaise_qualite"
+    ],
+    "titre": "La France réduit ses émissions de GES de 2,8 % en 2026, mais l'objectif 2030 reste hors de portée",
+    "n_sources": 4,
+    "n_mots": 755,
+    "titre_rss": "Gaz à effet de serre : les émissions baissent en France, mais pas assez vite",
+    "matiere_faits_distincts": 834,
+    "matiere_redondance": 0.15,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
   }
 ]
