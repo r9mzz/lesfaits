@@ -27075,5 +27075,662 @@
     "n_sources_injectees": 10,
     "n_sources_trouvees": 10,
     "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "loi-integrale-violences-sexuelles-clivage-feministes-lfi",
+    "statut": "rejete_sensible",
+    "date": "2026-10-14T06:52:12",
+    "problemes_initiaux": 12,
+    "bloc5": [
+      "faux_debat"
+    ],
+    "article_type": "actu",
+    "titre": "Loi intégrale : tensions entre féministes et LFI sur les mesures et leur efficacité",
+    "n_sources": 5,
+    "n_mots": 466,
+    "titre_rss": "Derrière la loi intégrale, la guerre des féministes : \"Si on s'écarte un peu de LFI, on est vite traité de facho\"",
+    "matiere_faits_distincts": 749,
+    "matiere_redondance": 0.18,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "rn-100-milliards-annuels-promesses-budgetaires-incompatibles",
+    "statut": "rejete_sensible",
+    "date": "2026-10-14T06:54:39",
+    "problemes_initiaux": 15,
+    "bloc5": [
+      "jugement_de_valeur",
+      "jugement_de_valeur"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "resume_repete_corps"
+    ],
+    "titre": "Le RN annonce 100 milliards d'euros annuels sans expliquer leur financement",
+    "n_sources": 3,
+    "n_mots": 597,
+    "titre_rss": "\"De la science-fiction\" : le programme économique du RN démonté par Antoine Levy",
+    "matiere_faits_distincts": 868,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "menaces-existentielles-guerre-nucleaire-ia-arme-biologique-lancet",
+    "statut": "rejete_sensible",
+    "date": "2026-10-14T06:59:10",
+    "problemes_initiaux": 16,
+    "tentative": 1,
+    "bloc5": true,
+    "article_type": "actu",
+    "titre": "Guerre nucléaire et IA malveillante : les deux menaces 'existentielles' pour l'humanité d'ici 2100",
+    "n_sources": 4,
+    "n_mots": 869,
+    "titre_rss": "Pr Hechmi Louzir (The Lancet) : \"Les pires scénarios pour l’avenir de l'humanité ne sont pas inévitables\"",
+    "matiere_faits_distincts": 581,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "etude_scientifique"
+  },
+  {
+    "slug": "albanie-montenegro-negociations-adhesion-ue-2026-rythmes-contrastes",
+    "statut": "rejete_sensible",
+    "date": "2026-10-14T07:06:57",
+    "problemes_initiaux": 16,
+    "bloc5": [
+      "jugement_de_valeur",
+      "jugement_de_valeur"
+    ],
+    "article_type": "actu",
+    "titre": "Adhésion à l'UE : Albanie et Monténégro, des rythmes contrastés dans les négociations",
+    "n_sources": 5,
+    "n_mots": 873,
+    "titre_rss": "Albanie et Monténégro : un état des lieux des négociations d'adhésion à l'Union européenne - Rapport d'information n° 845",
+    "matiere_faits_distincts": 496,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "2200-dispositifs-aides-publiques-opacite-blocages-senat",
+    "statut": "rejete_sensible",
+    "date": "2026-10-14T07:09:46",
+    "problemes_initiaux": 17,
+    "bloc5": [
+      "faux_debat"
+    ],
+    "article_type": "actu",
+    "titre": "2 200 dispositifs d'aides publiques : opacité et blocages selon le Sénat",
+    "n_sources": 4,
+    "n_mots": 823,
+    "titre_rss": "Le sénateur Fabien Gay plonge dans le maquis des aides publiques aux entreprises",
+    "matiere_faits_distincts": 1152,
+    "matiere_redondance": 0.02,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "rapport"
+  },
+  {
+    "slug": "vaccins-ebola-zaire-reponse-immunitaire-partielle-souche-bundibugyo",
+    "statut": "rejete_sensible",
+    "date": "2026-10-14T07:12:09",
+    "problemes_initiaux": 13,
+    "bloc5": [
+      "compteur_incoherent"
+    ],
+    "article_type": "actu",
+    "titre": "Vaccins Ebola Zaïre : une réponse immunitaire partielle contre Bundibugyo détectée",
+    "n_sources": 4,
+    "n_mots": 807,
+    "titre_rss": "Épidémie d’Ebola Bundibugyo : des premiers résultats pour guider la recherche d’un vaccin efficace",
+    "matiere_faits_distincts": 608,
+    "matiere_redondance": 0.01,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "veille_heures_visible": 517.7,
+    "veille_passages": 311,
+    "veille_age_h": 1516.3,
+    "veille_n_flux_grappe": 9,
+    "nature_contenu": "etude_scientifique"
+  },
+  {
+    "slug": "projet-directive-micro-organismes-genetiquement-modifies-moratoire-demande",
+    "statut": "rejete_sensible",
+    "date": "2026-10-14T07:15:11",
+    "problemes_initiaux": 15,
+    "bloc5": [
+      "acteur_mis_en_cause_sans_reponse"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "resume_repete_corps",
+      "faits_repetitifs"
+    ],
+    "titre": "Projet de directive sur les MGM : pourquoi des chercheurs demandent un moratoire",
+    "n_sources": 4,
+    "n_mots": 721,
+    "titre_rss": "« Nous demandons à la Commission européenne de surseoir au projet de directive sur le marché de micro-organismes génétiquement modifiés »",
+    "matiere_faits_distincts": 393,
+    "matiere_redondance": 0.14,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "brgm-66-nappes-phreatiques-france-situation-tres-preoccupante-2026",
+    "statut": "rejete_sensible",
+    "date": "2026-10-14T07:18:29",
+    "problemes_initiaux": 21,
+    "bloc5": [
+      "acteur_mis_en_cause_sans_reponse"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "resume_repete_corps"
+    ],
+    "titre": "BRGM : 66 % des nappes phréatiques françaises en situation très préoccupante",
+    "n_sources": 6,
+    "n_mots": 919,
+    "titre_rss": "France: Deux tiers des nappes phréatiques dans une situation \"très préoccupante“",
+    "matiere_faits_distincts": 787,
+    "matiere_redondance": 0.01,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "cop31-demande-energies-fossiles-records-renouvelables",
+    "statut": "rejete_sensible",
+    "date": "2026-10-14T07:20:51",
+    "problemes_initiaux": 17,
+    "bloc5": [
+      "compteur_incoherent"
+    ],
+    "article_type": "actu",
+    "titre": "COP31 : la demande en énergies fossiles bat des records malgré les promesses",
+    "n_sources": 5,
+    "n_mots": 813,
+    "titre_rss": "COP31: l'humanité est toujours accro aux énergies fossiles",
+    "matiere_faits_distincts": 1004,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "canicule-2025-deces-supplementaires-en-une-semaine-en-france",
+    "statut": "rejete_sensible",
+    "date": "2026-10-14T07:27:27",
+    "problemes_initiaux": 17,
+    "tentative": 3,
+    "bloc5": true,
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "faits_repetitifs"
+    ],
+    "titre": "Canicule : 2 025 décès supplémentaires en une semaine en France",
+    "n_sources": 3,
+    "n_mots": 820,
+    "titre_rss": "Point de situation sur la mortalité toutes causes confondues  sur la période du 22 au 28 juin 2026",
+    "matiere_faits_distincts": 1078,
+    "matiere_redondance": 0.01,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "veille_heures_visible": 221.3,
+    "veille_passages": 74,
+    "veille_age_h": 1219.9,
+    "veille_n_flux_grappe": 1,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "cyberattaque-supermarches-frigorifiques-origine-inconnue-risques",
+    "statut": "rejete_sensible",
+    "date": "2026-10-14T07:33:40",
+    "problemes_initiaux": 16,
+    "bloc5": [
+      "compteur_incoherent"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "resume_repete_corps",
+      "faits_repetitifs",
+      "cliches_ia",
+      "nuances_vagues"
+    ],
+    "titre": "Cyberattaque contre 300 supermarchés : origine inconnue et risques accrus",
+    "n_sources": 3,
+    "n_mots": 740,
+    "titre_rss": "Cyberattaque sur les frigos : « Nous nous attendons à des attaques plus massives »",
+    "matiere_faits_distincts": 999,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "inserm-detruit-sept-idees-recues-vaccins-campagne-2026-2027",
+    "statut": "rejete_sensible",
+    "date": "2026-10-14T07:37:39",
+    "problemes_initiaux": 13,
+    "tentative": 1,
+    "bloc5": true,
+    "article_type": "actu",
+    "titre": "Inserm démêle sept idées reçues sur les vaccins à l'occasion de la campagne 2026-2027",
+    "n_sources": 3,
+    "n_mots": 985,
+    "titre_rss": "Sept fausses idées sur les vaccins",
+    "matiere_faits_distincts": 1114,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "finistere-alerte-secheresse-75-eau-depend-cours-deau-crise",
+    "statut": "rejete_sensible",
+    "date": "2026-10-14T07:44:44",
+    "problemes_initiaux": 13,
+    "tentative": 2,
+    "bloc5": true,
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "faits_repetitifs"
+    ],
+    "titre": "Finistère en alerte sécheresse : 75 % de l'eau dépend des cours d'eau en crise",
+    "n_sources": 4,
+    "n_mots": 769,
+    "titre_rss": "Sécheresse : le Finistère dans une « situation critique »",
+    "matiere_faits_distincts": 1023,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "horloges-atomiques-precision-18-chiffres-defi-scientifique",
+    "statut": "rejete_sensible",
+    "date": "2026-10-14T07:47:42",
+    "problemes_initiaux": 13,
+    "bloc5": [
+      "compteur_incoherent"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "resume_repete_corps"
+    ],
+    "titre": "Horloges atomiques : vers une précision de 18 chiffres après la virgule",
+    "n_sources": 3,
+    "n_mots": 904,
+    "titre_rss": "La folle course des physiciens pour mesurer le temps, jusqu’à envisager une redéfinition de la seconde",
+    "matiere_faits_distincts": 742,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "les-cinq-pays-avec-moins-de-01-de-couvert-forestier-naturel",
+    "statut": "rejete_sensible",
+    "date": "2026-10-14T07:53:03",
+    "problemes_initiaux": 17,
+    "tentative": 3,
+    "bloc5": true,
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "resume_repete_corps",
+      "faits_repetitifs",
+      "article_sans_date"
+    ],
+    "titre": "Qatar, Maldives et trois autres pays sans forêt naturelle",
+    "n_sources": 3,
+    "n_mots": 623,
+    "titre_rss": "Ces 5 pays qui ne comptent absolument aucune forêt",
+    "matiere_faits_distincts": 896,
+    "matiere_redondance": 0.1,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "mortalite-france-2024-641-046-deces-baisse-taux-standardise",
+    "statut": "rejete_sensible",
+    "date": "2026-10-14T07:57:34",
+    "problemes_initiaux": 15,
+    "tentative": 1,
+    "bloc5": true,
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "faits_repetitifs",
+      "titre_de_mauvaise_qualite"
+    ],
+    "titre": "Mortalité en France en 2024 : 641 046 décès, baisse du taux standardisé malgré des disparités persistantes",
+    "n_sources": 4,
+    "n_mots": 915,
+    "titre_rss": "Grandes causes de décès en France : tendances et causes associées en 2024",
+    "matiere_faits_distincts": 841,
+    "matiere_redondance": 0.14,
+    "matiere_donnees_chiffrees": 3,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "veille_heures_visible": 517.7,
+    "veille_passages": 311,
+    "veille_age_h": 1516.3,
+    "veille_n_flux_grappe": 1,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "disparition-carole-fritz-archeologue-grotte-chauvet-avancees-scientifiques",
+    "statut": "rejete_sensible",
+    "date": "2026-10-14T08:00:11",
+    "problemes_initiaux": 11,
+    "bloc5": [
+      "jugement_de_valeur"
+    ],
+    "article_type": "actu",
+    "titre": "Disparition de Carole Fritz, archéologue à l'origine des avancées majeures sur la grotte Chauvet",
+    "n_sources": 4,
+    "n_mots": 762,
+    "titre_rss": "Carole Fritz, archéologue et préhistorienne, grande amoureuse de l’art pariétal, est morte",
+    "matiere_faits_distincts": 558,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "igf-propose-suppression-taxe-dhabitation-impact-financier-commune",
+    "statut": "rejete_sensible",
+    "date": "2026-10-14T08:03:00",
+    "problemes_initiaux": 17,
+    "bloc5": [
+      "faux_debat"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "faits_repetitifs",
+      "titre_de_mauvaise_qualite"
+    ],
+    "titre": "IGF propose la suppression totale de la taxe d'habitation : perte de 10 à 15 % pour les communes",
+    "n_sources": 5,
+    "n_mots": 731,
+    "titre_rss": "Supprimer définitivement la taxe d’habitation : la piste longtemps restée secrète de l’inspection générale des finances",
+    "matiere_faits_distincts": 1026,
+    "matiere_redondance": 0.03,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "cyberattaque-danfoss-supermarches-france-12-octobre",
+    "statut": "rejete_sensible",
+    "date": "2026-10-14T08:09:20",
+    "problemes_initiaux": 16,
+    "tentative": 1,
+    "bloc5": true,
+    "article_type": "actu",
+    "titre": "Cyberattaque sur Danfoss : 12 octobre, des centaines de magasins touchés en France",
+    "n_sources": 4,
+    "n_mots": 689,
+    "titre_rss": "Dans les supermarchés français, une journée noire après une cyberattaque massive visant des systèmes frigorifiques",
+    "matiere_faits_distincts": 599,
+    "matiere_redondance": 0.01,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "budget-2027-arbitrages-impots-retraites-depenses-sociales",
+    "statut": "rejete_sensible",
+    "date": "2026-10-14T08:12:23",
+    "problemes_initiaux": 15,
+    "bloc5": [
+      "acteur_mis_en_cause_sans_reponse"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "faits_repetitifs"
+    ],
+    "titre": "Budget 2027 : les arbitrages entre impôts, retraites et dépenses sociales",
+    "n_sources": 5,
+    "n_mots": 770,
+    "titre_rss": "Ce que contient le projet de budget 2027",
+    "matiere_faits_distincts": 943,
+    "matiere_redondance": 0.01,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "decision_officielle"
+  },
+  {
+    "slug": "optogenetique-essai-clinique-phase-1-pittsburgh-cecite-traitement",
+    "statut": "rejete_sensible",
+    "date": "2026-10-14T08:15:51",
+    "problemes_initiaux": 12,
+    "tentative": 1,
+    "bloc5": true,
+    "article_type": "actu",
+    "titre": "Essai clinique de Pittsburgh : l'optogénétique validée comme sûre pour la rétine",
+    "n_sources": 3,
+    "n_mots": 623,
+    "titre_rss": "L’optogénétique s’avère sûre pour traiter certaines formes de cécité",
+    "matiere_faits_distincts": 365,
+    "matiere_redondance": 0.13,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "etude_scientifique"
+  },
+  {
+    "slug": "thrombinnov-inserm-strasbourg-tests-medicaments-risques-thrombotiques",
+    "statut": "rejete_sensible",
+    "date": "2026-10-14T08:21:01",
+    "problemes_initiaux": 17,
+    "tentative": 2,
+    "bloc5": true,
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "cliches_ia"
+    ],
+    "titre": "ThrombInnov utilise 40 ans d’expertise Inserm pour tester les risques thrombotiques des médicaments",
+    "n_sources": 3,
+    "n_mots": 872,
+    "titre_rss": "L’entrepreneuriat dans le sang !",
+    "matiere_faits_distincts": 767,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "reseaux-sociaux-70-francais-exposes-fausses-informations-hebdomadairement",
+    "statut": "rejete_sensible",
+    "date": "2026-10-14T08:24:54",
+    "problemes_initiaux": 14,
+    "bloc5": [
+      "faux_debat"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "faits_repetitifs"
+    ],
+    "titre": "Réseaux sociaux : 70 % des Français exposés à des fausses infos hebdomadairement",
+    "n_sources": 8,
+    "n_mots": 764,
+    "titre_rss": "Les faux contenus d''informations font recette sur les réseaux sociaux",
+    "matiere_faits_distincts": 1046,
+    "matiere_redondance": 0.07,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "ird-formation-registre-rgpd-traitements-donnees-personnelles",
+    "statut": "rejete_sensible",
+    "date": "2026-10-14T08:27:33",
+    "problemes_initiaux": 9,
+    "bloc5": [
+      "extrapolation"
+    ],
+    "article_type": "actu",
+    "titre": "IRD forme ses agents au registre RGPD des traitements de données",
+    "n_sources": 4,
+    "n_mots": 420,
+    "titre_rss": "Protection des données personnelles - Le registre des traitements",
+    "matiere_faits_distincts": 1148,
+    "matiere_redondance": 0.05,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "veille_heures_visible": 517.7,
+    "veille_passages": 326,
+    "veille_age_h": 1516.3,
+    "veille_n_flux_grappe": 1,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "400-scientifiques-demande-organisme-international-securiser-ia-avancees",
+    "statut": "rejete_sensible",
+    "date": "2026-10-14T08:30:44",
+    "problemes_initiaux": 11,
+    "bloc5": [
+      "faux_debat"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "resume_repete_corps",
+      "faits_repetitifs"
+    ],
+    "titre": "400 scientifiques demandent un organisme international pour sécuriser les IA avancées",
+    "n_sources": 10,
+    "n_mots": 857,
+    "titre_rss": "IA : 400 scientifiques alertent sur les risques de cybersécurité",
+    "matiere_faits_distincts": 1190,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "retombees-economiques-universites-impact-territorial-2-7-euros",
+    "statut": "rejete_sensible",
+    "date": "2026-10-14T08:36:56",
+    "problemes_initiaux": 16,
+    "tentative": 2,
+    "bloc5": true,
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "faits_repetitifs"
+    ],
+    "titre": "Un euro investi dans les universités rapporte 2,7 euros aux territoires",
+    "n_sources": 3,
+    "n_mots": 696,
+    "titre_rss": "Près de 2,7 € de retombées économiques pour chaque euro investi : les universités, moteurs de croissance des territoires",
+    "matiere_faits_distincts": 729,
+    "matiere_redondance": 0.01,
+    "matiere_donnees_chiffrees": 3,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "greta-thunberg-saint-denis-impact-militantisme-gaza-climat",
+    "statut": "rejete_sensible",
+    "date": "2026-10-14T08:41:16",
+    "problemes_initiaux": 14,
+    "bloc5": [
+      "diffamation_potentielle"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "faits_repetitifs",
+      "titre_de_mauvaise_qualite"
+    ],
+    "titre": "Greta Thunberg à Saint-Denis : un militantisme élargi, mais quels impacts concrets ?",
+    "n_sources": 6,
+    "n_mots": 689,
+    "titre_rss": "Greta Thunberg : de l’ONU à Saint-Denis, du climat à Gaza, que devient la militante suédoise",
+    "matiere_faits_distincts": 930,
+    "matiere_redondance": 0.02,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "projet-erc-2-millions-euros-forets-tropicales-humides-extinction",
+    "statut": "rejete_sensible",
+    "date": "2026-10-14T08:43:40",
+    "problemes_initiaux": 9,
+    "bloc5": [
+      "extrapolation"
+    ],
+    "article_type": "breve",
+    "avertissements_garde_fous": [
+      "titre_de_mauvaise_qualite",
+      "article_sans_date"
+    ],
+    "titre": "Un projet ERC de 2 millions d'euros pour modéliser l'impact de l'extinction sur les forêts tropicales",
+    "n_sources": 3,
+    "n_mots": 250,
+    "titre_rss": "Forêts tropicales humides : un financement ERC pour le chercheur IRD Thomas Couvreur",
+    "matiere_faits_distincts": 1003,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "veille_heures_visible": 517.7,
+    "veille_passages": 326,
+    "veille_age_h": 1516.3,
+    "veille_n_flux_grappe": 2,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "trois-acteurs-dominent-84-pour-cent-marches-agents-dintelligence-artificielle",
+    "statut": "rejete_sensible",
+    "date": "2026-10-14T08:46:22",
+    "problemes_initiaux": 11,
+    "bloc5": [
+      "faux_debat"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "cliches_ia"
+    ],
+    "titre": "Trois acteurs contrôlent 84 % du marché des agents d'IA, selon l'Autorité de la concurrence",
+    "n_sources": 5,
+    "n_mots": 380,
+    "titre_rss": "Mon collègue est une IA",
+    "matiere_faits_distincts": 818,
+    "matiere_redondance": 0.05,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
   }
 ]
