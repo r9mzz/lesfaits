@@ -28444,5 +28444,827 @@
     "n_sources_injectees": 10,
     "n_sources_trouvees": 10,
     "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "rn-50-milliards-depenses-impots-coûts-sous-estimés",
+    "statut": "rejete_sensible",
+    "date": "2026-10-15T06:41:27",
+    "problemes_initiaux": 20,
+    "bloc5": [
+      "acteur_mis_en_cause_sans_reponse"
+    ],
+    "article_type": "actu",
+    "titre": "RN : 50 milliards de dépenses et d'impôts en moins, mais des coûts sous-estimés",
+    "n_sources": 4,
+    "n_mots": 982,
+    "titre_rss": "\"De la science-fiction\" : le programme économique du RN démonté par Antoine Levy",
+    "matiere_faits_distincts": 856,
+    "matiere_redondance": 0.01,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "assemblee-nationale-adopte-prelevement-30-9-milliards-europe",
+    "statut": "rejete_sensible",
+    "date": "2026-10-15T06:46:01",
+    "problemes_initiaux": 19,
+    "bloc5": [
+      "faux_debat"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "titre_de_mauvaise_qualite"
+    ],
+    "titre": "L'Assemblée nationale adopte un prélèvement de 30,9 milliards pour l'UE malgré les oppositions de LFI et RN",
+    "n_sources": 6,
+    "n_mots": 1087,
+    "titre_rss": "L’Assemblée nationale valide la contribution française au budget européen, malgré l’opposition de LFI et du RN",
+    "matiere_faits_distincts": 707,
+    "matiere_redondance": 0.04,
+    "matiere_donnees_chiffrees": 2,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "chasse-illégale-reserves-naturelles-pyrénées-orientales-arrangements-notables",
+    "statut": "rejete_sensible",
+    "date": "2026-10-15T06:48:11",
+    "sujet_sensible": true,
+    "raison": "L'article implique des accusations de pratiques illégales (chasse illégale) visant des personnalités identifiées (ancien préfet, colonel de gendarmerie, doyen de faculté de droit), sans réponse de leur part ni mention explicite de leur absence de réaction.",
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "faits_repetitifs",
+      "article_sans_date"
+    ],
+    "titre": "Chasse illégale dans les réserves naturelles des Pyrénées-Orientales : des notables protégés par des arrangements",
+    "n_sources": 3,
+    "n_mots": 644,
+    "titre_rss": "Chasse : les petits arrangements de notables dans une réserve naturelle",
+    "matiere_faits_distincts": 950,
+    "matiere_redondance": 0.03,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "frappe-russe-kiev-sans-alerte-trois-morts-système-défense-défaut",
+    "statut": "rejete_sensible",
+    "date": "2026-10-15T06:50:25",
+    "sujet_sensible": true,
+    "raison": "L'article porte sur une frappe militaire récente ayant causé des morts civils et des dysfonctionnements dans un système de défense, impliquant des tensions géopolitiques et des conséquences humanitaires directes.",
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "titre_de_mauvaise_qualite"
+    ],
+    "titre": "Frappe russe sur Kiev sans alerte : trois morts et un système de défense défaillant",
+    "n_sources": 4,
+    "n_mots": 392,
+    "titre_rss": "Guerre en Ukraine : cette absence d'alerte avant des frappes russes qui interroge",
+    "matiere_faits_distincts": 690,
+    "matiere_redondance": 0.02,
+    "matiere_donnees_chiffrees": 2,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "albanie-montenegro-17-23-chapitres-ue-reformes-bloquees",
+    "statut": "rejete_sensible",
+    "date": "2026-10-15T06:53:24",
+    "problemes_initiaux": 20,
+    "bloc5": [
+      "acteur_mis_en_cause_sans_reponse"
+    ],
+    "article_type": "actu",
+    "titre": "Albanie et Monténégro : 17 et 23 chapitres ouverts, mais des réformes bloquées",
+    "n_sources": 4,
+    "n_mots": 733,
+    "titre_rss": "Albanie et Monténégro : un état des lieux des négociations d'adhésion à l'Union européenne - Rapport d'information n° 845",
+    "matiere_faits_distincts": 618,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "rats-hygiene-defaillante-hypermarches-carrefour-sous-traitance-risques",
+    "statut": "rejete_qualite",
+    "date": "2026-10-15T06:58:26",
+    "problemes_initiaux": 15,
+    "tentatives": 3,
+    "problemes_restants": 21,
+    "bloquants_restants": 16,
+    "bloquants_types": [
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "niveau_preuve_insuffisant"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "La mention de 'risques sanitaires potentiels' et de 'problèmes d’hygiène localisés' n'est pas explicitement documentée dans la source [1] (France Info) comme un fait établi, mais plutôt comme une interprétation ou une su",
+        "phrase": "Des images exclusives de France Info révèlent la présence de rats circulant dans les rayons d’un hypermarché Carrefour géré par un locataire-gérant indépendant, **documentant des problèmes d’hygiène localisés** et soulev"
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "L'affirmation selon laquelle les contrôles officiels sont 'insuffisamment systématiques' n'est pas sourcée dans les extraits fournis. Aucune source ne confirme cette évaluation.",
+        "phrase": "Ces observations, limitées à un seul magasin, interrogent la responsabilité partagée entre Carrefour et les gestionnaires indépendants, alors que les contrôles officiels restent **insuffisamment systématiques** pour éval"
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "La source [1] ne mentionne pas explicitement les 'horaires chargés' ou les 'salaire parfois inférieurs' comme des éléments confirmés. Ces détails relèvent d'une interprétation ou d'une généralisation non sourcée.",
+        "phrase": "Les témoignages recueillis par le journaliste infiltré évoquent des conditions de travail difficiles, notamment des horaires chargés et des salaires parfois inférieurs à ceux pratiqués par Carrefour directement. Cependan"
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "L'affirmation selon laquelle 'la responsabilité est diluée' entre Carrefour et les locataires-gérants n'est pas explicitement sourcée dans les extraits fournis.",
+        "phrase": "Les contrôles sanitaires, partagés entre autorités locales et enseigne, peinent à couvrir systématiquement les magasins sous-traités, **d’autant que la responsabilité est diluée entre Carrefour et les locataires-gérants*"
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "La mention de 'traces de saleté' n'est pas explicitement confirmée par la source [1]. Seule la présence de rats est documentée.",
+        "phrase": "Ces clichés, obtenus par un journaliste infiltré en tant qu’employé, révèlent **la présence de rats et des traces de saleté**, sans confirmation explicite de produits exposés sans protection adéquate."
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "Les 'risques sanitaires hypothétiques' et la mention spécifique de maladies comme la leptospirose ou les salmonelloses ne sont pas explicitement évoquées dans la source [1].",
+        "phrase": "Selon France Info, cette situation **suggère des risques sanitaires hypothétiques**, notamment liés à la présence d’animaux nuisibles, bien que **aucun incident avéré ou maladie spécifique (comme la leptospirose ou les s"
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "Les détails sur les 'horaires chargés' et les 'salaire parfois inférieurs' ne sont pas explicitement confirmés par la source [1].",
+        "phrase": "Les témoignages recueillis par le journaliste infiltré évoquent des conditions de travail difficiles, avec des horaires chargés et des salaires parfois inférieurs à ceux pratiqués par Carrefour directement."
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "L'affirmation selon laquelle 'cette responsabilité partagée peut créer des zones de flou' et que 'les moyens alloués à l’entretien sont réduits' n'est pas explicitement sourcée dans les extraits fournis.",
+        "phrase": "Les contrôles sanitaires dans les hypermarchés relèvent à la fois des autorités locales (préfectures et Directions départementales de la protection des populations, DDPP) et de l’enseigne elle-même. **Dans le cas des mag"
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "L'affirmation selon laquelle cette stratégie 'peut entraîner des écarts dans l’application des normes d’hygiène' n'est pas explicitement confirmée par la source [1].",
+        "phrase": "La sous-traitance des hypermarchés est une pratique courante dans la grande distribution, notamment pour relancer des magasins en difficulté. Carrefour, comme d’autres enseignes, confie une partie de ses hypermarchés à d"
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "L'affirmation selon laquelle 'les moyens alloués à l’entretien pourraient être réduits' n'est pas explicitement sourcée dans les extraits fournis.",
+        "phrase": "Dans les magasins sous-traités, la responsabilité des normes sanitaires est **partagée entre Carrefour et les gestionnaires indépendants**, ce qui peut compliquer les contrôles. **Les témoignages et observations de Franc"
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "L'affirmation selon laquelle 'les priorités économiques pourraient primer sur les exigences sanitaires' n'est pas sourcée dans les extraits fournis.",
+        "phrase": "Cette pratique s’inscrit dans un modèle où **les priorités économiques des locataires-gérants pourraient primer sur les exigences sanitaires**, comme le laisse entendre l’enquête, mais **aucune source autorisée ne fourni"
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "Bien que correcte, cette phrase est redondante avec d'autres parties de l'article et ne constitue pas une nouvelle information sourcée.",
+        "phrase": "Les images et témoignages recueillis par France Info **ne permettent d’évaluer que la situation d’un seul magasin**, sans données officielles ou rapports indépendants confirmant la généralisation de ces dérives à l’ensem"
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "Les affirmations selon lesquelles les contrôles 'peuvent être moins stricts' et qu'il y a des 'différences de priorités' ne sont pas explicitement sourcées.",
+        "phrase": "Les contrôles sanitaires, bien que partagés entre autorités locales (DDPP, préfectures) et Carrefour, **peuvent être moins stricts dans les magasins sous-traités**, en raison du **partage des responsabilités** et des **d"
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "Bien que correcte, cette phrase est une interprétation non sourcée des risques sanitaires évoqués.",
+        "phrase": "Les risques sanitaires évoqués, comme la présence de rats, **ne sont pas associés à des cas avérés de maladies** dans les sources disponibles."
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "Bien que correcte, cette phrase est une interprétation et non une nouvelle information sourcée.",
+        "phrase": "Les témoignages sur les conditions de travail, bien que préoccupants, **manquent de données chiffrées pour en mesurer l’ampleur réelle**, limitant ainsi leur portée [1]."
+      },
+      {
+        "bloc": 1,
+        "type": "niveau_preuve_insuffisant",
+        "description": "Les témoignages sont présentés sans préciser qu'ils reposent sur des récits individuels et non sur une méthodologie scientifique ou statistique.",
+        "phrase": "Les témoignages recueillis par le journaliste infiltré évoquent des conditions de travail difficiles..."
+      }
+    ],
+    "types_restants": [
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_derivee_comptee_comme_primaire",
+      "redondance",
+      "redondance",
+      "compteur_incoherent",
+      "fait_tranche_arbitrairement",
+      "niveau_preuve_insuffisant"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "article_sans_date"
+    ],
+    "titre": "Rats et hygiène défaillante : enquête sur les dérives dans les hypermarchés Carrefour sous-traités",
+    "n_sources": 3,
+    "n_mots": 823,
+    "titre_rss": "Des rats qui se baladent dans les rayons d'un hypermarché Carrefour : images exclusives dans \"Complément d'enquête\"",
+    "matiere_faits_distincts": 810,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 4,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "cyberattaque-supermarches-frigorifiques-62-000-armes-678-000-contribuables",
+    "statut": "rejete_sensible",
+    "date": "2026-10-15T07:01:33",
+    "problemes_initiaux": 15,
+    "tentative": 1,
+    "bloc5": true,
+    "article_type": "actu",
+    "titre": "Cyberattaque sur les systèmes frigorifiques : 62 000 armes exposées et 678 000 contribuables concernés",
+    "n_sources": 5,
+    "n_mots": 536,
+    "titre_rss": "Piratage de supermarchés en France : \"Pas besoin de chars pour faire la guerre\", dit un expert",
+    "matiere_faits_distincts": 1338,
+    "matiere_redondance": 0.02,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "brgm-alerte-66-nappes-phreatiques-france-situation-preoccupante",
+    "statut": "rejete_sensible",
+    "date": "2026-10-15T07:04:52",
+    "problemes_initiaux": 12,
+    "tentative": 1,
+    "bloc5": true,
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "resume_repete_corps",
+      "faits_repetitifs"
+    ],
+    "titre": "BRGM alerte : 66 % des nappes phréatiques françaises en situation « très préoccupante »",
+    "n_sources": 4,
+    "n_mots": 604,
+    "titre_rss": "France: Deux tiers des nappes phréatiques dans une situation \"très préoccupante“",
+    "matiere_faits_distincts": 759,
+    "matiere_redondance": 0.07,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "cop31-demande-fossiles-record-2026-dependance-persistante",
+    "statut": "rejete_sensible",
+    "date": "2026-10-15T07:07:51",
+    "problemes_initiaux": 13,
+    "bloc5": [
+      "faux_debat"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "faits_repetitifs"
+    ],
+    "titre": "COP31 : la demande en énergies fossiles atteint un nouveau record en 2026",
+    "n_sources": 6,
+    "n_mots": 794,
+    "titre_rss": "COP31: l'humanité est toujours accro aux énergies fossiles",
+    "matiere_faits_distincts": 866,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "enquete-eras-2026-20-000-participants-adapter-prevention-vih-hsh",
+    "statut": "rejete_qualite",
+    "date": "2026-10-15T07:16:39",
+    "problemes_initiaux": 17,
+    "tentatives": 3,
+    "problemes_restants": 15,
+    "bloquants_restants": 3,
+    "bloquants_types": [
+      "niveau_preuve_insuffisant",
+      "niveau_preuve_insuffisant",
+      "incoherence_inter_sections"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "niveau_preuve_insuffisant",
+        "description": "La source [1] ne fournit **aucun chiffre précis** sur cet 'accès deux fois plus difficile' (ex : 50 % vs 25 %, ou une autre comparaison). Le terme 'deux fois plus difficile' est une **extrapolation non sourcée** et doit ",
+        "phrase": "Les données de Santé publique France révèlent également que les personnes trans déclarent un accès deux fois plus difficile aux dépistages du VIH que les HSH cisgenres, en raison de pratiques discriminatoires dans certai"
+      },
+      {
+        "bloc": 1,
+        "type": "niveau_preuve_insuffisant",
+        "description": "La source [1] ne fournit **aucun détail chiffré** sur la répartition ethnique, le niveau d'éducation ou la localisation géographique des participants. Le terme 'majoritairement' est une **interprétation non sourcée** et ",
+        "phrase": "Une analyse complémentaire des éditions précédentes révèle que les participants aux enquêtes ERAS étaient majoritairement des hommes blancs, diplômés et résidant en Île-de-France, ce qui limite la généralisation des résu"
+      },
+      {
+        "bloc": 1,
+        "type": "incoherence_inter_sections",
+        "description": "Le titre annonce **20 000 participants** pour l'enquête ERAS 2026, mais le corps ne lie **aucunement ce chiffre à un objectif précis** (ex : représentativité, couverture géographique). Le lien entre le nombre de particip",
+        "phrase": "Les HSH et les personnes trans restent particulièrement exposés au VIH en France : ils représentaient 42 % des découvertes de séropositivité déclarées en 2024."
+      }
+    ],
+    "types_restants": [
+      "source_derivee_comptee_comme_primaire",
+      "compteur_incoherent",
+      "fait_tranche_arbitrairement",
+      "fait_tranche_arbitrairement",
+      "niveau_preuve_insuffisant",
+      "niveau_preuve_insuffisant",
+      "extrapolation",
+      "redondance",
+      "redondance",
+      "contexte_hors_sujet",
+      "extrapolation",
+      "jugement_de_valeur",
+      "angle_annonce_non_tenu",
+      "cadrage_emprunte",
+      "incoherence_inter_sections"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "faits_repetitifs",
+      "cliches_ia"
+    ],
+    "titre": "Enquête ERAS 2026 : 20 000 participants pour adapter la prévention du VIH chez les HSH",
+    "n_sources": 3,
+    "n_mots": 1045,
+    "titre_rss": "Enquête « Rapport au sexe » (ERAS) 2026 à destination des hommes ayant des rapports sexuels avec des hommes",
+    "matiere_faits_distincts": 924,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "veille_heures_visible": 117.0,
+    "veille_passages": 24,
+    "veille_age_h": 1139.3,
+    "veille_n_flux_grappe": 1,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "inserm-demonte-sept-idees-recues-vaccins-campagne-2026-2027",
+    "statut": "rejete_sensible",
+    "date": "2026-10-15T07:20:15",
+    "problemes_initiaux": 15,
+    "bloc5": [
+      "compteur_incoherent"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "faits_repetitifs"
+    ],
+    "titre": "L'Inserm démontre sept idées reçues sur les vaccins à l'approche de la campagne 2026-2027",
+    "n_sources": 4,
+    "n_mots": 926,
+    "titre_rss": "Sept fausses idées sur les vaccins",
+    "matiere_faits_distincts": 1182,
+    "matiere_redondance": 0.02,
+    "matiere_donnees_chiffrees": 2,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "finistere-alerte-secheresse-75-eau-dependance-cours-deau",
+    "statut": "rejete_sensible",
+    "date": "2026-10-15T07:23:33",
+    "problemes_initiaux": 15,
+    "bloc5": [
+      "compteur_incoherent"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "faits_repetitifs"
+    ],
+    "titre": "Finistère en alerte sécheresse : 75 % de l'eau dépendent de cours d'eau en crise",
+    "n_sources": 7,
+    "n_mots": 957,
+    "titre_rss": "Sécheresse : le Finistère dans une « situation critique »",
+    "matiere_faits_distincts": 1374,
+    "matiere_redondance": 0.01,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "horloges-optiques-precision-record-17-chiffres-detection-seismes-ondes-gravitationnelles",
+    "statut": "rejete_sensible",
+    "date": "2026-10-15T07:27:00",
+    "problemes_initiaux": 10,
+    "tentative": 1,
+    "bloc5": true,
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "titre_de_mauvaise_qualite"
+    ],
+    "titre": "Horloges optiques : précision record de 17 chiffres après la virgule pour détecter séismes et ondes gravitationnelles",
+    "n_sources": 3,
+    "n_mots": 405,
+    "titre_rss": "La folle course des physiciens pour mesurer le temps, jusqu’à envisager une redéfinition de la seconde",
+    "matiere_faits_distincts": 766,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "baisse-emissions-gaz-effet-serre-france-mecanismes-risques-2026",
+    "statut": "rejete_sensible",
+    "date": "2026-10-15T07:31:06",
+    "problemes_initiaux": 16,
+    "tentative": 2,
+    "bloc5": true,
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "titre_de_mauvaise_qualite"
+    ],
+    "titre": "Baisse des émissions de GES en France : les prix de l'énergie expliquent-ils tout ?",
+    "n_sources": 4,
+    "n_mots": 710,
+    "titre_rss": "Les émissions de gaz à effet de serre en France diminuent du fait de l’envolée des prix des carburants",
+    "matiere_faits_distincts": 956,
+    "matiere_redondance": 0.01,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "mortalite-france-2024-641-046-deces-taux-standardise-baisse",
+    "statut": "rejete_sensible",
+    "date": "2026-10-15T07:35:05",
+    "problemes_initiaux": 16,
+    "tentative": 1,
+    "bloc5": true,
+    "article_type": "actu",
+    "titre": "France : 641 046 décès en 2024, hausse globale mais baisse du taux standardisé",
+    "n_sources": 3,
+    "n_mots": 684,
+    "titre_rss": "Grandes causes de décès en France : tendances et causes associées en 2024",
+    "matiere_faits_distincts": 1129,
+    "matiere_redondance": 0.1,
+    "matiere_donnees_chiffrees": 3,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "veille_heures_visible": 517.7,
+    "veille_passages": 311,
+    "veille_age_h": 1540.0,
+    "veille_n_flux_grappe": 1,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "quatre-operateurs-europeens-explorent-alliance-contre-starlink",
+    "statut": "rejete_sensible",
+    "date": "2026-10-15T07:39:50",
+    "problemes_initiaux": 19,
+    "bloc5": [
+      "extrapolation"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "faits_repetitifs",
+      "cliches_ia"
+    ],
+    "titre": "Quatre opérateurs européens explorent une alliance pour concurrencer Starlink",
+    "n_sources": 4,
+    "n_mots": 741,
+    "titre_rss": "Face à la domination de Starlink, les géants européens des télécoms veulent faire front commun",
+    "matiere_faits_distincts": 895,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "inserm-additifs-alimentaires-risques-sante-cancer-diabete-hypertension-etudes-2026",
+    "statut": "rejete_sensible",
+    "date": "2026-10-15T07:43:29",
+    "problemes_initiaux": 19,
+    "bloc5": [
+      "diffamation_potentielle"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "titre_de_mauvaise_qualite"
+    ],
+    "titre": "Inserm : colorants et conservateurs liés à un risque accru de cancer, diabète et hypertension dans trois études",
+    "n_sources": 4,
+    "n_mots": 747,
+    "titre_rss": "Colorants, conservateurs : trois nouvelles études pointent des liens entre additifs alimentaires et risque accru de cancer, de diabète de type 2, de maladies cardiovasculaires et d’hypertension",
+    "matiere_faits_distincts": 1139,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "veille_heures_visible": 517.7,
+    "veille_passages": 311,
+    "veille_age_h": 1540.0,
+    "veille_n_flux_grappe": 3,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "ia-progresse-entreprises-europeennes-secteurs-freins-persistants",
+    "statut": "rejete_sensible",
+    "date": "2026-10-15T07:46:40",
+    "problemes_initiaux": 18,
+    "bloc5": [
+      "acteur_mis_en_cause_sans_reponse"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "titre_de_mauvaise_qualite"
+    ],
+    "titre": "L'IA s'impose dans 47 % des entreprises européennes, mais les PME et la France restent en retrait",
+    "n_sources": 6,
+    "n_mots": 513,
+    "titre_rss": "Une enquête Eurobaromètre met en évidence l'utilisation croissante de l'IA dans les entreprises européennes",
+    "matiere_faits_distincts": 727,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 8,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "cyberattaque-supermarches-france-panne-frigorifique-impact-12-octobre",
+    "statut": "rejete_sensible",
+    "date": "2026-10-15T07:54:58",
+    "problemes_initiaux": 12,
+    "tentative": 2,
+    "bloc5": true,
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "resume_repete_corps",
+      "faits_repetitifs",
+      "titre_de_mauvaise_qualite"
+    ],
+    "titre": "Cyberattaque sur les frigos : des centaines de magasins paralysés par une panne généralisée",
+    "n_sources": 4,
+    "n_mots": 783,
+    "titre_rss": "Dans les supermarchés français, une journée noire après une cyberattaque massive visant des systèmes frigorifiques",
+    "matiere_faits_distincts": 1359,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "budget-2027-impots-retraites-collectivites-locales",
+    "statut": "rejete_sensible",
+    "date": "2026-10-15T07:57:42",
+    "problemes_initiaux": 12,
+    "bloc5": [
+      "acteur_mis_en_cause_sans_reponse"
+    ],
+    "article_type": "actu",
+    "titre": "Budget 2027 : les mesures clés pour impôts, retraites et collectivités locales",
+    "n_sources": 11,
+    "n_mots": 521,
+    "titre_rss": "Ce que contient le projet de budget 2027",
+    "matiere_faits_distincts": 1130,
+    "matiere_redondance": 0.06,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "optogenetique-essai-clinique-phase-1-tolerance-restauration-vision",
+    "statut": "rejete_sensible",
+    "date": "2026-10-15T08:00:15",
+    "problemes_initiaux": 13,
+    "bloc5": [
+      "diffamation_potentielle"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "resume_repete_corps",
+      "faits_repetitifs"
+    ],
+    "titre": "Essai clinique de phase 1 : l’optogénétique tolérée pour restaurer partiellement la vision",
+    "n_sources": 3,
+    "n_mots": 834,
+    "titre_rss": "L’optogénétique s’avère sûre pour traiter certaines formes de cécité",
+    "matiere_faits_distincts": 601,
+    "matiere_redondance": 0.03,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "etude_scientifique"
+  },
+  {
+    "slug": "thrombinov-40-ans-expertise-plaquettes-accelerer-tests-medicaments",
+    "statut": "rejete_sensible",
+    "date": "2026-10-15T08:03:21",
+    "problemes_initiaux": 17,
+    "bloc5": [
+      "jugement_de_valeur"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "faits_repetitifs",
+      "cliches_ia"
+    ],
+    "titre": "ThrombInnov utilise 40 ans d’expertise plaquettaire pour accélérer les tests médicaux",
+    "n_sources": 4,
+    "n_mots": 929,
+    "titre_rss": "L’entrepreneuriat dans le sang !",
+    "matiere_faits_distincts": 1254,
+    "matiere_redondance": 0.01,
+    "matiere_donnees_chiffrees": 3,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "reseaux-sociaux-desinformation-revenus-comptes-frauduleux-france",
+    "statut": "rejete_sensible",
+    "date": "2026-10-15T08:05:36",
+    "problemes_initiaux": 12,
+    "bloc5": [
+      "compteur_incoherent"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "titre_de_mauvaise_qualite"
+    ],
+    "titre": "Des comptes frauduleux génèrent des revenus via la désinformation sur les réseaux",
+    "n_sources": 7,
+    "n_mots": 605,
+    "titre_rss": "Les faux contenus d''informations font recette sur les réseaux sociaux",
+    "matiere_faits_distincts": 844,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "ird-lance-formations-obligatoires-registre-rgpd-agents",
+    "statut": "rejete_sensible",
+    "date": "2026-10-15T08:08:59",
+    "problemes_initiaux": 10,
+    "tentative": 1,
+    "bloc5": true,
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "resume_repete_corps"
+    ],
+    "titre": "IRD lance des formations obligatoires sur le registre RGPD pour ses agents",
+    "n_sources": 5,
+    "n_mots": 363,
+    "titre_rss": "Protection des données personnelles - Le registre des traitements",
+    "matiere_faits_distincts": 961,
+    "matiere_redondance": 0.04,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "veille_heures_visible": 517.7,
+    "veille_passages": 326,
+    "veille_age_h": 1540.0,
+    "veille_n_flux_grappe": 1,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "europe-chine-ia-fermee-ouverte-regulations-ai-act",
+    "statut": "rejete_sensible",
+    "date": "2026-10-15T08:11:49",
+    "problemes_initiaux": 13,
+    "bloc5": [
+      "compteur_incoherent"
+    ],
+    "article_type": "actu",
+    "titre": "L'Europe encadre l'IA avec l'AI Act tandis que la Chine promeut des modèles ouverts",
+    "n_sources": 3,
+    "n_mots": 394,
+    "titre_rss": "Derrière les appels à la régulation, l’affrontement entre IA fermées et IA ouvertes",
+    "matiere_faits_distincts": 1160,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "ionos-premium-350-go-nvme-cdn-sites-web-croissance",
+    "statut": "rejete_sensible",
+    "date": "2026-10-15T08:15:06",
+    "problemes_initiaux": 12,
+    "tentative": 1,
+    "bloc5": true,
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "faits_repetitifs"
+    ],
+    "titre": "IONOS Premium : 350 Go NVMe et CDN pour les sites en expansion",
+    "n_sources": 3,
+    "n_mots": 601,
+    "titre_rss": "IONOS Premium : un coup de pouce pour les sites Web en pleine croissance",
+    "matiere_faits_distincts": 1078,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "beton-innovant-absorbe-co2-resistance-superieure",
+    "statut": "rejete_sensible",
+    "date": "2026-10-15T08:19:16",
+    "problemes_initiaux": 14,
+    "tentative": 2,
+    "bloc5": true,
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "cliches_ia"
+    ],
+    "titre": "Un béton innovant absorbe le CO₂ et résiste mieux que le béton classique",
+    "n_sources": 4,
+    "n_mots": 507,
+    "titre_rss": "Du béton qui absorbe le CO2 !",
+    "matiere_faits_distincts": 767,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "projet-erc-1-95-million-euros-forets-tropicales-humides",
+    "statut": "rejete_sensible",
+    "date": "2026-10-15T08:21:39",
+    "problemes_initiaux": 16,
+    "bloc5": [
+      "jugement_de_valeur"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "faits_repetitifs"
+    ],
+    "titre": "Financement ERC pour étudier l'impact de l'extinction sur les forêts tropicales humides",
+    "n_sources": 3,
+    "n_mots": 511,
+    "titre_rss": "Forêts tropicales humides : un financement ERC pour le chercheur IRD Thomas Couvreur",
+    "matiere_faits_distincts": 1195,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "veille_heures_visible": 517.7,
+    "veille_passages": 326,
+    "veille_age_h": 1540.0,
+    "veille_n_flux_grappe": 2,
+    "nature_contenu": "actualite_factuelle"
   }
 ]
