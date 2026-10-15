@@ -29266,5 +29266,657 @@
     "veille_age_h": 1540.0,
     "veille_n_flux_grappe": 2,
     "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "violences-periscolaires-senat-25-mesures-briser-loi-silence",
+    "statut": "rejete_sensible",
+    "date": "2026-10-15T17:04:43",
+    "sujet_sensible": true,
+    "raison": "L'article aborde des violences impliquant des mineurs dans un contexte périscolaire, bien que sans identification nominale.",
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "resume_repete_corps",
+      "faits_repetitifs"
+    ],
+    "titre": "Violences périscolaires : 25 mesures du Sénat pour briser l'impunité",
+    "n_sources": 6,
+    "n_mots": 805,
+    "titre_rss": "Violences dans le périscolaire : un rapport du Sénat alerte sur les défaillances et la protection insuffisante des enfants",
+    "matiere_faits_distincts": 1259,
+    "matiere_redondance": 0.01,
+    "matiere_donnees_chiffrees": 3,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "foucault-100-ans-demarche-critique-institutions-contemporaines",
+    "statut": "rejete_sensible",
+    "date": "2026-10-15T17:08:43",
+    "problemes_initiaux": 21,
+    "bloc5": [
+      "compteur_incoherent"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "article_sans_date"
+    ],
+    "titre": "Foucault cent ans après : une méthode pour décrypter les institutions",
+    "n_sources": 4,
+    "n_mots": 1077,
+    "titre_rss": "Michel Foucault, penseur de l’actualité",
+    "matiere_faits_distincts": 543,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "sujet_pedagogique"
+  },
+  {
+    "slug": "47-pourcent-eleves-ce1-lecture-sous-seuil-officiel-methodes-phoniques",
+    "statut": "rejete_sensible",
+    "date": "2026-10-15T17:11:42",
+    "problemes_initiaux": 12,
+    "tentative": 1,
+    "bloc5": true,
+    "article_type": "actu",
+    "titre": "47 % des élèves en CE1 lisent sous le seuil officiel malgré les méthodes validées",
+    "n_sources": 3,
+    "n_mots": 667,
+    "titre_rss": "Apprentissage de la lecture : ces mauvaises pratiques qui persistent à l’école",
+    "matiere_faits_distincts": 570,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "sanofi-ue-interdiction-communication-vaccins-antigrippaux-france-allemagne",
+    "statut": "rejete_sensible",
+    "date": "2026-10-15T17:15:28",
+    "problemes_initiaux": 16,
+    "tentative": 1,
+    "bloc5": true,
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "faits_repetitifs"
+    ],
+    "titre": "Sanofi interdit de critiquer les recommandations vaccinales en France et Allemagne",
+    "n_sources": 9,
+    "n_mots": 1150,
+    "titre_rss": "Vaccins contre la grippe : Sanofi, accusé d’avoir dénigré un concurrent, sommé par l’UE de rectifier sa communication",
+    "matiere_faits_distincts": 1096,
+    "matiere_redondance": 0.01,
+    "matiere_donnees_chiffrees": 2,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "conseil-etat-taxe-fonciere-defauts-permanents-logement-xixe-siecle",
+    "statut": "rejete_sensible",
+    "date": "2026-10-15T17:18:04",
+    "problemes_initiaux": 11,
+    "bloc5": [
+      "compteur_incoherent"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "titre_de_mauvaise_qualite"
+    ],
+    "titre": "Conseil d'État : réduction de taxe foncière possible pour défauts permanents dans un logement du XIXe siècle",
+    "n_sources": 5,
+    "n_mots": 437,
+    "titre_rss": "Taxe foncière : invoquer la vétusté de son logement peut faire baisser la note",
+    "matiere_faits_distincts": 1281,
+    "matiere_redondance": 0.04,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "enquete-ifop-65-electeurs-gauche-rejettent-propos-melenchon-antisemitisme-gauche-radicale",
+    "statut": "rejete_sensible",
+    "date": "2026-10-15T17:20:26",
+    "problemes_initiaux": 12,
+    "bloc5": [
+      "acteur_mis_en_cause_sans_reponse"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "resume_repete_corps",
+      "titre_de_mauvaise_qualite",
+      "cliches_ia"
+    ],
+    "titre": "Enquête Ifop : 65 % des électeurs de gauche rejettent les propos antisémites de Mélenchon, mais la gauche radicale reste perméable à ces idées",
+    "n_sources": 4,
+    "n_mots": 436,
+    "titre_rss": "\"Juif qui parle, bouche qui ment\" : la stupéfiante enquête de l'Ifop sur l'antisémitisme à gauche",
+    "matiere_faits_distincts": 681,
+    "matiere_redondance": 0.13,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "rn-100-milliards-promesses-annuelles-coûts-sous-estimés-analyse",
+    "statut": "rejete_sensible",
+    "date": "2026-10-15T17:23:29",
+    "problemes_initiaux": 16,
+    "bloc5": [
+      "acteur_mis_en_cause_sans_reponse"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "resume_repete_corps"
+    ],
+    "titre": "RN : 100 milliards d'euros de promesses annuelles, mais des coûts sous-estimés de 50 %",
+    "n_sources": 3,
+    "n_mots": 919,
+    "titre_rss": "\"De la science-fiction\" : le programme économique du RN démonté par Antoine Levy",
+    "matiere_faits_distincts": 1007,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "plan-biodiversite-france-ecart-entre-ambition-et-realisation",
+    "statut": "rejete_sensible",
+    "date": "2026-10-15T17:26:41",
+    "problemes_initiaux": 20,
+    "bloc5": [
+      "acteur_mis_en_cause_sans_reponse"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "resume_repete_corps"
+    ],
+    "titre": "Plan biodiversité : la France peine à concilier cadre européen et moyens insuffisants",
+    "n_sources": 4,
+    "n_mots": 497,
+    "titre_rss": "Biodiversité : la France présente un plan de restauration de la nature sans ambition et sous-financé",
+    "matiere_faits_distincts": 669,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "1888-espèces-europeennes-migrent-rechauffement-climatique-risques-ecologiques",
+    "statut": "rejete_sensible",
+    "date": "2026-10-15T17:29:05",
+    "problemes_initiaux": 14,
+    "bloc5": [
+      "compteur_incoherent"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "nuances_vagues"
+    ],
+    "titre": "1 888 espèces européennes modifient leur habitat à cause du réchauffement",
+    "n_sources": 4,
+    "n_mots": 804,
+    "titre_rss": "Biodiversité : ruée vers les pôles et les sommets",
+    "matiere_faits_distincts": 1154,
+    "matiere_redondance": 0.01,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "etude_scientifique"
+  },
+  {
+    "slug": "the-lancet-alerte-risques-existentiels-2100-guerre-nucleaire-ia-malveillante",
+    "statut": "rejete_sensible",
+    "date": "2026-10-15T17:31:52",
+    "problemes_initiaux": 14,
+    "bloc5": [
+      "extrapolation"
+    ],
+    "article_type": "actu",
+    "titre": "The Lancet alerte sur deux risques 'existentiels' pour l'humanité d'ici 2100",
+    "n_sources": 4,
+    "n_mots": 893,
+    "titre_rss": "Pr Hechmi Louzir (The Lancet) : \"Les pires scénarios pour l’avenir de l'humanité ne sont pas inévitables\"",
+    "matiere_faits_distincts": 745,
+    "matiere_redondance": 0.01,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "etude_scientifique"
+  },
+  {
+    "slug": "chasse-illégale-reserves-naturelles-pyrenees-orientales-notables-ancien-prefet-colonel",
+    "statut": "rejete_sensible",
+    "date": "2026-10-15T17:34:51",
+    "sujet_sensible": true,
+    "raison": "L'article implique des personnalités identifiées (ancien préfet, colonel de gendarmerie, doyen de faculté de droit) mises en cause pour des pratiques illégales, sans réponse de leur part ni mention explicite de leur absence de réaction.",
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "faits_repetitifs"
+    ],
+    "titre": "Ancien préfet et colonel de gendarmerie chassent illégalement dans deux réserves naturelles des Pyrénées-Orientales",
+    "n_sources": 3,
+    "n_mots": 821,
+    "titre_rss": "Chasse : les petits arrangements de notables dans une réserve naturelle",
+    "matiere_faits_distincts": 1356,
+    "matiere_redondance": 0.03,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "bei-refus-financement-armes-munitions-secteur-defense-2026",
+    "statut": "rejete_sensible",
+    "date": "2026-10-15T17:40:59",
+    "problemes_initiaux": 12,
+    "bloc5": [
+      "faux_debat"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "titre_de_mauvaise_qualite"
+    ],
+    "titre": "La BEI maintient son refus de financer armes et munitions malgré une extension à la défense",
+    "n_sources": 4,
+    "n_mots": 640,
+    "titre_rss": "Armes et munitions produites par les industries européennes de la défense - Rapport n° 879",
+    "matiere_faits_distincts": 860,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "veille_heures_visible": 517.7,
+    "veille_passages": 326,
+    "veille_age_h": 1550.5,
+    "veille_n_flux_grappe": 4,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "vaccins-ebola-zaire-reponse-immunitaire-souche-bundibugyo-epidemie-2026",
+    "statut": "rejete_sensible",
+    "date": "2026-10-15T17:46:55",
+    "problemes_initiaux": 16,
+    "bloc5": [
+      "acteur_mis_en_cause_sans_reponse"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "resume_repete_corps"
+    ],
+    "titre": "Vaccins Ebola Zaïre : une réponse immunitaire détectée contre Bundibugyo, mais sans preuve de protection",
+    "n_sources": 4,
+    "n_mots": 711,
+    "titre_rss": "Épidémie d’Ebola Bundibugyo : des premiers résultats pour guider la recherche d’un vaccin efficace",
+    "matiere_faits_distincts": 1054,
+    "matiere_redondance": 0.04,
+    "matiere_donnees_chiffrees": 4,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "veille_heures_visible": 517.7,
+    "veille_passages": 311,
+    "veille_age_h": 1550.5,
+    "veille_n_flux_grappe": 9,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "brgm-66-nappes-phreatiques-france-situation-preoccupante-secheresse-2026",
+    "statut": "rejete_sensible",
+    "date": "2026-10-15T17:51:03",
+    "problemes_initiaux": 17,
+    "tentative": 1,
+    "bloc5": true,
+    "article_type": "actu",
+    "titre": "BRGM : 66 % des nappes phréatiques françaises en situation très préoccupante",
+    "n_sources": 3,
+    "n_mots": 786,
+    "titre_rss": "France: Deux tiers des nappes phréatiques dans une situation \"très préoccupante“",
+    "matiere_faits_distincts": 587,
+    "matiere_redondance": 0.08,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "cop31-demande-fossiles-progresse-malgre-engagements-climatiques",
+    "statut": "rejete_sensible",
+    "date": "2026-10-15T17:54:05",
+    "problemes_initiaux": 25,
+    "bloc5": [
+      "compteur_incoherent"
+    ],
+    "article_type": "actu",
+    "titre": "COP31 : la demande en énergies fossiles progresse encore en 2025",
+    "n_sources": 3,
+    "n_mots": 745,
+    "titre_rss": "COP31: l'humanité est toujours accro aux énergies fossiles",
+    "matiere_faits_distincts": 782,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "enquete-eras-2026-sante-publique-france-interroge-hsh-personnes-trans",
+    "statut": "rejete_sensible",
+    "date": "2026-10-15T17:58:16",
+    "problemes_initiaux": 14,
+    "bloc5": [
+      "compteur_incoherent"
+    ],
+    "article_type": "actu",
+    "titre": "Santé publique France lance l’enquête ERAS 2026 sur les HSH et personnes trans",
+    "n_sources": 3,
+    "n_mots": 839,
+    "titre_rss": "Enquête « Rapport au sexe » (ERAS) 2026 à destination des hommes ayant des rapports sexuels avec des hommes",
+    "matiere_faits_distincts": 968,
+    "matiere_redondance": 0.01,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "veille_heures_visible": 117.0,
+    "veille_passages": 24,
+    "veille_age_h": 1149.8,
+    "veille_n_flux_grappe": 1,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "inserm-demonstration-sept-idees-recues-vaccins-donnees-epidemiologiques",
+    "statut": "rejete_sensible",
+    "date": "2026-10-15T18:02:30",
+    "problemes_initiaux": 15,
+    "tentative": 1,
+    "bloc5": true,
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "resume_repete_corps",
+      "faits_repetitifs",
+      "titre_de_mauvaise_qualite"
+    ],
+    "titre": "Inserm démontre sept idées reçues sur les vaccins avec des données épidémiologiques",
+    "n_sources": 4,
+    "n_mots": 872,
+    "titre_rss": "Sept fausses idées sur les vaccins",
+    "matiere_faits_distincts": 1105,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "20-sites-patrimoine-francais-menaces-rechauffement-climatique-risques",
+    "statut": "rejete_sensible",
+    "date": "2026-10-15T18:05:47",
+    "problemes_initiaux": 18,
+    "bloc5": [
+      "acteur_mis_en_cause_sans_reponse"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "resume_repete_corps",
+      "faits_repetitifs"
+    ],
+    "titre": "20 sites français du patrimoine en danger à cause du réchauffement climatique",
+    "n_sources": 4,
+    "n_mots": 948,
+    "titre_rss": "Patrimoine : Chambord, Carcassonne, Saint-Malo… Alerte sur 20 sites majeurs menacés par le réchauffement climatique",
+    "matiere_faits_distincts": 890,
+    "matiere_redondance": 0.02,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "rapport"
+  },
+  {
+    "slug": "mobilisations-vie-chere-200-300-actions-prevues-samedi-17-octobre",
+    "statut": "rejete_sensible",
+    "date": "2026-10-15T18:08:58",
+    "problemes_initiaux": 17,
+    "bloc5": [
+      "acteur_mis_en_cause_sans_reponse"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "faits_repetitifs"
+    ],
+    "titre": "Mobilisations contre la vie chère : 200 à 300 actions prévues samedi 17 octobre",
+    "n_sources": 4,
+    "n_mots": 885,
+    "titre_rss": "Mouvement du 17 octobre : entre 200 et 300 actions attendues samedi dans tout le pays contre la vie chère",
+    "matiere_faits_distincts": 991,
+    "matiere_redondance": 0.02,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "cyberattaque-supermarches-frigorifiques-risques-approvisionnement-alimentaire-france",
+    "statut": "rejete_sensible",
+    "date": "2026-10-15T18:12:22",
+    "problemes_initiaux": 16,
+    "bloc5": [
+      "acteur_mis_en_cause_sans_reponse"
+    ],
+    "article_type": "actu",
+    "titre": "Cyberattaque sur les systèmes frigorifiques : 62 000 armes et données fiscales fuites en 2026",
+    "n_sources": 7,
+    "n_mots": 871,
+    "titre_rss": "Piratage de supermarchés en France : \"Pas besoin de chars pour faire la guerre\", dit un expert",
+    "matiere_faits_distincts": 730,
+    "matiere_redondance": 0.02,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "horloge-atomique-aces-precision-record-station-spatiale-internationale",
+    "statut": "rejete_sensible",
+    "date": "2026-10-15T18:18:17",
+    "problemes_initiaux": 16,
+    "bloc5": [
+      "compteur_incoherent"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "resume_repete_corps",
+      "article_sans_date"
+    ],
+    "titre": "Projet ACES : une horloge spatiale capable de mesurer une seconde sur 300 millions d’années",
+    "n_sources": 6,
+    "n_mots": 365,
+    "titre_rss": "La folle course des physiciens pour mesurer le temps, jusqu’à envisager une redéfinition de la seconde",
+    "matiere_faits_distincts": 725,
+    "matiere_redondance": 0.01,
+    "matiere_donnees_chiffrees": 3,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "samsung-lunettes-ia-legerettes-modulables-face-ray-ban-meta",
+    "statut": "rejete_sensible",
+    "date": "2026-10-15T18:26:00",
+    "problemes_initiaux": 28,
+    "tentative": 3,
+    "bloc5": true,
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "titre_de_mauvaise_qualite"
+    ],
+    "titre": "Samsung contre-attaque avec des lunettes IA plus légères et modulables",
+    "n_sources": 4,
+    "n_mots": 551,
+    "titre_rss": "Samsung prépare sa riposte aux Ray-Ban Meta : une fuite révèle les surprises de ses futures lunettes IA",
+    "matiere_faits_distincts": 777,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "fossiles-geants-2-milliards-annees-origine-indeterminee",
+    "statut": "rejete_sensible",
+    "date": "2026-10-15T18:29:22",
+    "problemes_initiaux": 22,
+    "bloc5": [
+      "compteur_incoherent"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "resume_repete_corps",
+      "faits_repetitifs",
+      "article_sans_date"
+    ],
+    "titre": "Fossiles géants de 2 milliards d'années : une origine encore indéterminée",
+    "n_sources": 3,
+    "n_mots": 852,
+    "titre_rss": "Bien avant l'apparition des arbres, la Terre abritait déjà une forme de vie géante qui semble venue d'un autre monde",
+    "matiere_faits_distincts": 676,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "inserm-ayahuasca-voix-psychiatriques-contexte-culturel-hallucinations",
+    "statut": "rejete_sensible",
+    "date": "2026-10-15T18:32:37",
+    "problemes_initiaux": 16,
+    "bloc5": [
+      "compteur_incoherent"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "titre_de_mauvaise_qualite"
+    ],
+    "titre": "Inserm : l’ayahuasca et les voix psychiatriques révèlent un même phénomène, deux expériences opposées",
+    "n_sources": 4,
+    "n_mots": 699,
+    "titre_rss": "David Dupuis : Entre voix rituelles et voix psychiatriques",
+    "matiere_faits_distincts": 707,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "sommet-ue-90-milliards-ukraine-energie-budget-en-negociation",
+    "statut": "rejete_sensible",
+    "date": "2026-10-15T18:35:34",
+    "problemes_initiaux": 12,
+    "bloc5": [
+      "faux_debat"
+    ],
+    "article_type": "actu",
+    "titre": "Sommet UE : 90 milliards pour l'Ukraine, énergie et budget pluriannuel en négociation",
+    "n_sources": 8,
+    "n_mots": 441,
+    "titre_rss": "Budget, prix de l'énergie et guerre en Ukraine : les enjeux du sommet de l'UE à Bruxelles",
+    "matiere_faits_distincts": 848,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "carburant-france-ruée-mars-effondrement-septembre-2026",
+    "statut": "rejete_sensible",
+    "date": "2026-10-15T18:38:13",
+    "problemes_initiaux": 15,
+    "bloc5": [
+      "compteur_incoherent"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "faits_repetitifs"
+    ],
+    "titre": "Carburant en France : ruée anticipative en mars, effondrement en septembre 2026",
+    "n_sources": 3,
+    "n_mots": 898,
+    "titre_rss": "Ruée anticipative début mars puis effondrement en septembre : comment expliquer la consommation de carburant en France en 2026 ?",
+    "matiere_faits_distincts": 818,
+    "matiere_redondance": 0.03,
+    "matiere_donnees_chiffrees": 3,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "deces-carole-fritz-archeologue-grotte-chauvet-impact-scientifique",
+    "statut": "rejete_sensible",
+    "date": "2026-10-15T18:41:42",
+    "problemes_initiaux": 19,
+    "bloc5": [
+      "jugement_de_valeur"
+    ],
+    "article_type": "actu",
+    "titre": "Décès de Carole Fritz, archéologue à la tête des recherches sur la grotte Chauvet",
+    "n_sources": 3,
+    "n_mots": 884,
+    "titre_rss": "Carole Fritz, archéologue et préhistorienne, grande amoureuse de l’art pariétal, est morte",
+    "matiere_faits_distincts": 1054,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 8,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "comptes-frauduleux-generent-centaines-milliers-vues-reseaux-sociaux",
+    "statut": "rejete_sensible",
+    "date": "2026-10-15T18:46:57",
+    "problemes_initiaux": 16,
+    "bloc5": [
+      "compteur_incoherent"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "titre_de_mauvaise_qualite"
+    ],
+    "titre": "Des comptes frauduleux génèrent des centaines de milliers de vues sur les réseaux sociaux",
+    "n_sources": 6,
+    "n_mots": 416,
+    "titre_rss": "Les faux contenus d''informations font recette sur les réseaux sociaux",
+    "matiere_faits_distincts": 774,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "alliance-europeenne-contre-starlink-negociation-secrete-geants-telecoms",
+    "statut": "rejete_sensible",
+    "date": "2026-10-15T18:52:08",
+    "problemes_initiaux": 16,
+    "bloc5": [
+      "compteur_incoherent"
+    ],
+    "article_type": "actu",
+    "titre": "Alliance européenne contre Starlink : quatre opérateurs en négociation secrète",
+    "n_sources": 5,
+    "n_mots": 376,
+    "titre_rss": "Face à la domination de Starlink, les géants européens des télécoms veulent faire front commun",
+    "matiere_faits_distincts": 920,
+    "matiere_redondance": 0.06,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
   }
 ]
