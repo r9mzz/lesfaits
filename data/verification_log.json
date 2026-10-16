@@ -30599,5 +30599,774 @@
     "n_sources_injectees": 10,
     "n_sources_trouvees": 10,
     "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "michel-foucault-100-ans-impact-donnees-socioeconomiques-france",
+    "statut": "rejete_sensible",
+    "date": "2026-10-16T17:05:41",
+    "problemes_initiaux": 18,
+    "bloc5": [
+      "source_non_editoriale"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "resume_repete_corps",
+      "titre_de_mauvaise_qualite"
+    ],
+    "titre": "Michel Foucault centenaire : son héritage intellectuel face aux données socio-économiques françaises",
+    "n_sources": 3,
+    "n_mots": 1069,
+    "titre_rss": "Michel Foucault, penseur de l’actualité",
+    "matiere_faits_distincts": 757,
+    "matiere_redondance": 0.05,
+    "matiere_donnees_chiffrees": 3,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "sujet_pedagogique"
+  },
+  {
+    "slug": "47-pourcent-eleves-difficulte-lecture-ce1-methodes-phoniques",
+    "statut": "rejete_sensible",
+    "date": "2026-10-16T17:10:47",
+    "problemes_initiaux": 11,
+    "bloc5": [
+      "acteur_mis_en_cause_sans_reponse"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "resume_repete_corps"
+    ],
+    "titre": "47 % des élèves en difficulté en lecture à l'entrée en CE1",
+    "n_sources": 3,
+    "n_mots": 404,
+    "titre_rss": "Apprentissage de la lecture : ces mauvaises pratiques qui persistent à l’école",
+    "matiere_faits_distincts": 724,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 2,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "enquete-ifop-65-electeurs-gauche-rejettent-propos-melenchon-antisemitisme",
+    "statut": "rejete_sensible",
+    "date": "2026-10-16T17:15:26",
+    "problemes_initiaux": 15,
+    "bloc5": [
+      "faux_debat"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "titre_de_mauvaise_qualite"
+    ],
+    "titre": "Enquête Ifop : 65 % des électeurs de gauche rejettent les propos antisémites de Mélenchon, mais la gauche radicale reste perméable à ces idées",
+    "n_sources": 4,
+    "n_mots": 480,
+    "titre_rss": "Antisémitisme à gauche : la stupéfiante enquête de l'Ifop",
+    "matiere_faits_distincts": 971,
+    "matiere_redondance": 0.1,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "contre-budget-lfi-188-milliards-deséquilibre-relance-limites",
+    "statut": "rejete_sensible",
+    "date": "2026-10-16T17:19:21",
+    "problemes_initiaux": 14,
+    "bloc5": [
+      "acteur_mis_en_cause_sans_reponse"
+    ],
+    "article_type": "actu",
+    "titre": "Contre-budget LFI : 188 milliards d'euros de déséquilibre et les limites de la relance",
+    "n_sources": 5,
+    "n_mots": 520,
+    "titre_rss": "Contre-budget de LFI : le pari incertain de la relance",
+    "matiere_faits_distincts": 834,
+    "matiere_redondance": 0.01,
+    "matiere_donnees_chiffrees": 2,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "automatisation-logements-economies-energie-defis-2030",
+    "statut": "rejete_sensible",
+    "date": "2026-10-16T17:23:02",
+    "problemes_initiaux": 15,
+    "bloc5": [
+      "compteur_incoherent"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "faits_repetitifs"
+    ],
+    "titre": "Automatisation des logements : économies d'énergie et défis techniques à partir de 2030",
+    "n_sources": 6,
+    "n_mots": 708,
+    "titre_rss": "Éclairage, douche, chauffage... À la découverte de la maison qui obéit sur commande",
+    "matiere_faits_distincts": 649,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "femmes-transgenres-vih-progres-medicaux-inegalites-geographiques",
+    "statut": "rejete_sensible",
+    "date": "2026-10-16T17:25:45",
+    "problemes_initiaux": 16,
+    "bloc5": [
+      "faux_debat"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "faits_repetitifs"
+    ],
+    "titre": "Femmes transgenres et VIH : des progrès thérapeutiques, mais des inégalités géographiques persistantes",
+    "n_sources": 4,
+    "n_mots": 910,
+    "titre_rss": "30 ans de parcours de soins chez les femmes transgenres vivant avec le VIH",
+    "matiere_faits_distincts": 1060,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "etude_scientifique"
+  },
+  {
+    "slug": "repas-a-1-euro-dans-les-crous-affluence-record-et-coût-réel-de-8-euros",
+    "statut": "rejete_sensible",
+    "date": "2026-10-16T17:30:23",
+    "problemes_initiaux": 16,
+    "tentative": 1,
+    "bloc5": true,
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "titre_de_mauvaise_qualite"
+    ],
+    "titre": "Repas à 1 euro dans les Crous : affluence record, files d'attente et coût réel de 8 euros",
+    "n_sources": 3,
+    "n_mots": 767,
+    "titre_rss": "De Jean-Luc Mélenchon à Marine Le Pen, l'illusion de la gratuité",
+    "matiere_faits_distincts": 771,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 5,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "sanofi-interdit-de-critiquer-les-recommandations-vaccinales-en-france-et-allemagne",
+    "statut": "rejete_sensible",
+    "date": "2026-10-16T17:33:21",
+    "problemes_initiaux": 10,
+    "bloc5": [
+      "accusation_presentee_comme_fait"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "resume_repete_corps"
+    ],
+    "titre": "Sanofi interdit de critiquer les recommandations vaccinales en France et en Allemagne",
+    "n_sources": 5,
+    "n_mots": 368,
+    "titre_rss": "Vaccins contre la grippe : Sanofi, accusé d’avoir dénigré un concurrent, sommé par l’UE de rectifier sa communication",
+    "matiere_faits_distincts": 1228,
+    "matiere_redondance": 0.01,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "enquete-eras-2026-sante-publique-france-cible-20-000-hsh-personnes-trans",
+    "statut": "rejete_qualite",
+    "date": "2026-10-16T17:42:15",
+    "problemes_initiaux": 15,
+    "tentatives": 3,
+    "problemes_restants": 10,
+    "bloquants_restants": 3,
+    "bloquants_types": [
+      "source_inventee",
+      "niveau_preuve_insuffisant",
+      "incoherence_inter_sections"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "L'association **AIDES** n'apparaît **ni dans les sources autorisées** ni dans les extraits fournis. Elle est citée comme source d'information sans référence valide.",
+        "phrase": "Les résultats seront **partagés avec les acteurs de terrain**, notamment les **CeGIDD** (Centres gratuits d’information, de dépistage et de diagnostic) et les associations comme **AIDES** [1]."
+      },
+      {
+        "bloc": 1,
+        "type": "niveau_preuve_insuffisant",
+        "description": "La phrase affirme qu'**aucune source ne précise** l'existence de contrôles externes, alors que la source [1] **ne mentionne pas explicitement leur absence**. Cela revient à extrapoler une information non confirmée par le",
+        "phrase": "Aucune source ne précise si des **contrôles externes** seront associés à cette enquête pour valider ces déclarations [1]."
+      },
+      {
+        "bloc": 1,
+        "type": "incoherence_inter_sections",
+        "description": "Le **résumé** mentionne une **période de collecte du 16 mars au 26 avril 2026**, mais les **faits** ne précisent **pas explicitement** que cette enquête est **exclusivement digitale** (seul le contexte et les nuances le ",
+        "phrase": "L’enquête repose sur un **questionnaire en ligne**, accessible via des canaux numériques dédiés à la prévention du VIH et des IST chez les HSH."
+      }
+    ],
+    "types_restants": [
+      "compteur_incoherent",
+      "source_derivee_comptee_comme_primaire",
+      "source_inventee",
+      "fait_tranche_arbitrairement",
+      "niveau_preuve_insuffisant",
+      "redondance",
+      "contexte_hors_sujet",
+      "extrapolation",
+      "incoherence_inter_sections",
+      "cadrage_emprunte"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "resume_repete_corps"
+    ],
+    "titre": "L’enquête ERAS 2026 cible 20 000 HSH et personnes trans pour adapter la prévention du VIH",
+    "n_sources": 3,
+    "n_mots": 1232,
+    "titre_rss": "Enquête « Rapport au sexe » (ERAS) 2026 à destination des hommes ayant des rapports sexuels avec des hommes",
+    "matiere_faits_distincts": 1065,
+    "matiere_redondance": 0.01,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "veille_heures_visible": 117.0,
+    "veille_passages": 24,
+    "veille_age_h": 1173.8,
+    "veille_n_flux_grappe": 1,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "symptomes-physiques-apres-consultation-chatbot-cas-medical-inexplique",
+    "statut": "rejete_sensible",
+    "date": "2026-10-16T17:45:31",
+    "problemes_initiaux": 18,
+    "bloc5": [
+      "acteur_mis_en_cause_sans_reponse"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "titre_de_mauvaise_qualite"
+    ],
+    "titre": "Symptômes physiques après consultation d'un chatbot : un cas médical inexpliqué",
+    "n_sources": 4,
+    "n_mots": 530,
+    "titre_rss": "Un homme empoisonné après avoir consulté ChatGPT : l’alerte des chercheurs sur les dangers invisibles de l’IA",
+    "matiere_faits_distincts": 900,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "inserm-demonstration-sept-idees-reçues-vaccins-donnees-scientifiques",
+    "statut": "rejete_sensible",
+    "date": "2026-10-16T17:49:22",
+    "problemes_initiaux": 12,
+    "bloc5": [
+      "compteur_incoherent"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "faits_repetitifs",
+      "titre_de_mauvaise_qualite"
+    ],
+    "titre": "Inserm démontre sept idées reçues sur les vaccins avec des données scientifiques",
+    "n_sources": 5,
+    "n_mots": 774,
+    "titre_rss": "Sept fausses idées sur les vaccins",
+    "matiere_faits_distincts": 852,
+    "matiere_redondance": 0.15,
+    "matiere_donnees_chiffrees": 2,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "plan-biodiversite-francais-1-5-milliard-euros-loin-des-10-milliards-requis",
+    "statut": "rejete_sensible",
+    "date": "2026-10-16T17:54:11",
+    "problemes_initiaux": 13,
+    "bloc5": [
+      "faux_debat"
+    ],
+    "article_type": "actu",
+    "titre": "Plan biodiversité 2027-2030 : 1,5 milliard d'euros mobilisés, loin des 10 milliards requis",
+    "n_sources": 8,
+    "n_mots": 396,
+    "titre_rss": "Biodiversité : la France présente un plan de restauration de la nature sans ambition et sous-financé",
+    "matiere_faits_distincts": 800,
+    "matiere_redondance": 0.01,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "cyberattaque-supermarches-france-systems-froids-risques-alimentaires",
+    "statut": "rejete_sensible",
+    "date": "2026-10-16T17:58:30",
+    "problemes_initiaux": 14,
+    "tentative": 1,
+    "bloc5": true,
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "resume_repete_corps",
+      "faits_repetitifs",
+      "titre_de_mauvaise_qualite"
+    ],
+    "titre": "Cyberattaque ciblant les systèmes frigorifiques des supermarchés français",
+    "n_sources": 4,
+    "n_mots": 752,
+    "titre_rss": "Piratage de supermarchés en France : \"Pas besoin de chars pour faire la guerre\", dit un expert",
+    "matiere_faits_distincts": 595,
+    "matiere_redondance": 0.03,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "52-especes-europeennes-migrent-nord-rechauffement-climatique",
+    "statut": "rejete_sensible",
+    "date": "2026-10-16T18:05:27",
+    "problemes_initiaux": 15,
+    "bloc5": [
+      "compteur_incoherent"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "faits_repetitifs"
+    ],
+    "titre": "52 % des espèces européennes migrent vers le nord à cause du réchauffement",
+    "n_sources": 3,
+    "n_mots": 1028,
+    "titre_rss": "Biodiversité : ruée vers les pôles et les sommets",
+    "matiere_faits_distincts": 1038,
+    "matiere_redondance": 0.02,
+    "matiere_donnees_chiffrees": 2,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "etude_scientifique"
+  },
+  {
+    "slug": "detournement-406-millions-energies-renouvelables-carburants",
+    "statut": "rejete_sensible",
+    "date": "2026-10-16T18:14:23",
+    "problemes_initiaux": 17,
+    "bloc5": [
+      "faux_debat"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "resume_repete_corps",
+      "faits_repetitifs"
+    ],
+    "titre": "406 millions d'euros détournés des renouvelables vers les agriculteurs et pêcheurs",
+    "n_sources": 7,
+    "n_mots": 1067,
+    "titre_rss": "Des aides aux énergies renouvelables... redirigées vers le carburant",
+    "matiere_faits_distincts": 1131,
+    "matiere_redondance": 0.03,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "horloges-atomiques-precision-record-18-chiffres-applications-seismes",
+    "statut": "rejete_sensible",
+    "date": "2026-10-16T18:18:35",
+    "problemes_initiaux": 10,
+    "bloc5": [
+      "compteur_incoherent"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "resume_repete_corps",
+      "faits_repetitifs"
+    ],
+    "titre": "Horloges atomiques : précision à 18 chiffres et applications en détection gravitationnelle",
+    "n_sources": 3,
+    "n_mots": 526,
+    "titre_rss": "La folle course des physiciens pour mesurer le temps, jusqu’à envisager une redéfinition de la seconde",
+    "matiere_faits_distincts": 468,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "deplacements-polaires-rapides-ere-dinosaures-vitesse-plaques-tectoniques",
+    "statut": "rejete_sensible",
+    "date": "2026-10-16T18:27:09",
+    "problemes_initiaux": 17,
+    "bloc5": [
+      "source_non_editoriale"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "resume_repete_corps",
+      "faits_repetitifs",
+      "titre_de_mauvaise_qualite",
+      "article_sans_date"
+    ],
+    "titre": "Les pôles géographiques ont migré 10 fois plus vite que les plaques tectoniques il y a 50 millions d'années",
+    "n_sources": 3,
+    "n_mots": 799,
+    "titre_rss": "Notre planète est moins stable qu'on ne le pensait : une découverte sur les pôles au temps des dinosaures a surpris les chercheurs",
+    "matiere_faits_distincts": 906,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 3,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "en-france-641-046-deces-en-2024-cancers-maladies-respiratoires-en-hausse-relative",
+    "statut": "rejete_sensible",
+    "date": "2026-10-16T18:34:18",
+    "problemes_initiaux": 15,
+    "bloc5": [
+      "compteur_incoherent"
+    ],
+    "article_type": "actu",
+    "titre": "En France, 641 046 décès en 2024 : cancers et maladies respiratoires en hausse relative",
+    "n_sources": 4,
+    "n_mots": 828,
+    "titre_rss": "Grandes causes de décès en France : tendances et causes associées en 2024",
+    "matiere_faits_distincts": 1081,
+    "matiere_redondance": 0.02,
+    "matiere_donnees_chiffrees": 2,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "veille_heures_visible": 517.7,
+    "veille_passages": 311,
+    "veille_age_h": 1574.5,
+    "veille_n_flux_grappe": 1,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "cybersecurite-france-exception-priorite-dirigeants-mondiaux",
+    "statut": "rejete_sensible",
+    "date": "2026-10-16T18:37:28",
+    "problemes_initiaux": 12,
+    "bloc5": [
+      "compteur_incoherent"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "faits_repetitifs"
+    ],
+    "titre": "Cybersécurité : la France, seule exception où les dirigeants ne la placent pas en tête",
+    "n_sources": 5,
+    "n_mots": 800,
+    "titre_rss": "La cybersécurité devient la préoccupation numéro un des dirigeants dans le monde, sauf en France",
+    "matiere_faits_distincts": 991,
+    "matiere_redondance": 0.06,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "commission-europeenne-report-d-un-an-du-reporting-sur-les-fuites-de-methane",
+    "statut": "rejete_sensible",
+    "date": "2026-10-16T18:41:06",
+    "problemes_initiaux": 13,
+    "bloc5": [
+      "faux_debat"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "titre_de_mauvaise_qualite"
+    ],
+    "titre": "Commission européenne : report d’un an du reporting obligatoire sur les fuites de méthane",
+    "n_sources": 10,
+    "n_mots": 462,
+    "titre_rss": "Fuites de méthane : l'Europe cède aux lobbies de l'énergie",
+    "matiere_faits_distincts": 822,
+    "matiere_redondance": 0.01,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "deces-carole-fritz-directrice-grotte-chauvet-impact-recherche",
+    "statut": "rejete_sensible",
+    "date": "2026-10-16T18:47:05",
+    "problemes_initiaux": 22,
+    "tentative": 2,
+    "bloc5": true,
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "cliches_ia"
+    ],
+    "titre": "Décès de Carole Fritz, figure majeure de la grotte Chauvet",
+    "n_sources": 3,
+    "n_mots": 795,
+    "titre_rss": "Carole Fritz, archéologue et préhistorienne, grande amoureuse de l’art pariétal, est morte",
+    "matiere_faits_distincts": 737,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "budget-2027-impacts-concrets-collectivites-menages",
+    "statut": "rejete_sensible",
+    "date": "2026-10-16T18:50:20",
+    "problemes_initiaux": 18,
+    "bloc5": [
+      "acteur_mis_en_cause_sans_reponse"
+    ],
+    "article_type": "actu",
+    "titre": "Budget 2027 : les mesures clés et leurs effets sur les collectivités et les ménages",
+    "n_sources": 4,
+    "n_mots": 674,
+    "titre_rss": "Ce que contient le projet de budget 2027",
+    "matiere_faits_distincts": 658,
+    "matiere_redondance": 0.08,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "decision_officielle"
+  },
+  {
+    "slug": "thrombinnov-startup-inserm-plaquettes-sang-test-medicaments-preclinique",
+    "statut": "rejete_sensible",
+    "date": "2026-10-16T18:53:46",
+    "problemes_initiaux": 12,
+    "bloc5": [
+      "compteur_incoherent"
+    ],
+    "article_type": "actu",
+    "titre": "ThrombInnov accélère les tests précliniques sur les plaquettes sanguines",
+    "n_sources": 3,
+    "n_mots": 415,
+    "titre_rss": "L’entrepreneuriat dans le sang !",
+    "matiere_faits_distincts": 1093,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "faux-contenus-reseaux-sociaux-impact-utilisateurs-france",
+    "statut": "rejete_sensible",
+    "date": "2026-10-16T18:57:05",
+    "problemes_initiaux": 15,
+    "bloc5": [
+      "faux_debat"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "faits_repetitifs",
+      "titre_de_mauvaise_qualite",
+      "affirmation_non_demontree"
+    ],
+    "titre": "Les faux contenus sur les réseaux sociaux génèrent des centaines de milliers de vues",
+    "n_sources": 10,
+    "n_mots": 895,
+    "titre_rss": "Les faux contenus d''informations font recette sur les réseaux sociaux",
+    "matiere_faits_distincts": 710,
+    "matiere_redondance": 0.01,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "rejet-recettes-plfss-2027-consequences-blocage-commission",
+    "statut": "rejete_sensible",
+    "date": "2026-10-16T19:00:22",
+    "problemes_initiaux": 17,
+    "bloc5": [
+      "acteur_mis_en_cause_sans_reponse"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "resume_repete_corps"
+    ],
+    "titre": "Rejet des recettes du PLFSS 2027 : blocage en commission et incertitudes budgétaires",
+    "n_sources": 5,
+    "n_mots": 465,
+    "titre_rss": "Budget de la Sécurité sociale : les députés rejettent en commission la partie « recettes » du texte",
+    "matiere_faits_distincts": 579,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "cyberattaques-europe-frigos-deregles-sanctions-ue",
+    "statut": "rejete_sensible",
+    "date": "2026-10-16T19:03:39",
+    "problemes_initiaux": 15,
+    "bloc5": [
+      "jugement_de_valeur",
+      "jugement_de_valeur"
+    ],
+    "article_type": "actu",
+    "titre": "Cyberattaques : des frigos déréglés en Europe et les sanctions ciblées de l'UE",
+    "n_sources": 6,
+    "n_mots": 413,
+    "titre_rss": "Cyberattaques : comment les Européens tentent de contrer les vagues de piratage",
+    "matiere_faits_distincts": 722,
+    "matiere_redondance": 0.01,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "opérateurs-européens-alliance-starlink-enjeux-et-limites",
+    "statut": "rejete_sensible",
+    "date": "2026-10-16T19:07:01",
+    "problemes_initiaux": 10,
+    "bloc5": [
+      "faux_debat"
+    ],
+    "article_type": "breve",
+    "avertissements_garde_fous": [
+      "resume_repete_corps",
+      "article_sans_date"
+    ],
+    "titre": "Les opérateurs européens explorent une alliance pour rivaliser avec Starlink",
+    "n_sources": 4,
+    "n_mots": 264,
+    "titre_rss": "Face à la domination de Starlink, les géants européens des télécoms veulent faire front commun",
+    "matiere_faits_distincts": 1257,
+    "matiere_redondance": 0.03,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "decret-captages-eau-exclusion-pesticides-interdits-protection",
+    "statut": "rejete_sensible",
+    "date": "2026-10-16T19:10:58",
+    "problemes_initiaux": 14,
+    "bloc5": [
+      "faux_debat"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "titre_de_mauvaise_qualite"
+    ],
+    "titre": "Décret captages : exclusion des pesticides interdits des critères de protection",
+    "n_sources": 8,
+    "n_mots": 485,
+    "titre_rss": "Pesticides dans l’eau: le décret qui enterre la prévention",
+    "matiere_faits_distincts": 718,
+    "matiere_redondance": 0.03,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "ukraine-demande-70-milliards-euros-ue-2027",
+    "statut": "rejete_sensible",
+    "date": "2026-10-16T19:15:18",
+    "problemes_initiaux": 21,
+    "tentative": 1,
+    "bloc5": true,
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "resume_repete_corps"
+    ],
+    "titre": "L'Ukraine demande 70 milliards d'euros supplémentaires à l'UE pour 2027",
+    "n_sources": 6,
+    "n_mots": 396,
+    "titre_rss": "EN DIRECT, guerre en Ukraine : Volodymyr Zelensky demande à l’UE 70 milliards d’euros en plus en 2027",
+    "matiere_faits_distincts": 796,
+    "matiere_redondance": 0.01,
+    "matiere_donnees_chiffrees": 5,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "cnrs-modele-mesure-impact-rechauffement-evenements-extrêmes",
+    "statut": "rejete_sensible",
+    "date": "2026-10-16T19:19:38",
+    "problemes_initiaux": 13,
+    "bloc5": [
+      "compteur_incoherent"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "resume_repete_corps"
+    ],
+    "titre": "Le CNRS publie un modèle pour mesurer l’influence du climat sur les catastrophes naturelles",
+    "n_sources": 7,
+    "n_mots": 560,
+    "titre_rss": "Climat : le réchauffement aggrave-t-il les évènements extrêmes ?",
+    "matiere_faits_distincts": 762,
+    "matiere_redondance": 0.01,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "tortue-jonathan-194-ans-mitochondries-longevite-etude-science",
+    "statut": "rejete_sensible",
+    "date": "2026-10-16T19:23:20",
+    "problemes_initiaux": 10,
+    "bloc5": [
+      "extrapolation"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "resume_repete_corps"
+    ],
+    "titre": "Jonathan, tortue de 194 ans : des mitochondries résistantes au vieillissement",
+    "n_sources": 3,
+    "n_mots": 588,
+    "titre_rss": "Le secret de longévité de Jonathan, une tortue de 194 ans de l’île de Sainte-Hélène, caché dans son ADN",
+    "matiere_faits_distincts": 482,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "etude_scientifique"
+  },
+  {
+    "slug": "ai-act-modeles-ouverts-chinois-geants-fermes-americains",
+    "statut": "rejete_sensible",
+    "date": "2026-10-16T19:26:27",
+    "problemes_initiaux": 17,
+    "bloc5": [
+      "acteur_mis_en_cause_sans_reponse"
+    ],
+    "article_type": "actu",
+    "titre": "L'Europe face à l'AI Act : modèles ouverts chinois vs géants fermés américains",
+    "n_sources": 5,
+    "n_mots": 817,
+    "titre_rss": "Derrière les appels à la régulation, l’affrontement entre IA fermées et IA ouvertes",
+    "matiere_faits_distincts": 872,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
   }
 ]
