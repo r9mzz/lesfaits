@@ -29918,5 +29918,686 @@
     "n_sources_injectees": 10,
     "n_sources_trouvees": 10,
     "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "michel-foucault-100-ans-influence-sciences-humaines-debats-contemporains",
+    "statut": "rejete_sensible",
+    "date": "2026-10-16T06:31:50",
+    "problemes_initiaux": 22,
+    "bloc5": [
+      "compteur_incoherent"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "titre_de_mauvaise_qualite"
+    ],
+    "titre": "Michel Foucault cent ans après : une influence persistante sur les sciences humaines",
+    "n_sources": 3,
+    "n_mots": 592,
+    "titre_rss": "Michel Foucault, penseur de l’actualité",
+    "matiere_faits_distincts": 596,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "47-pourcent-eleves-ce1-lecture-lente-methodes-phoniques-inefficaces",
+    "statut": "rejete_sensible",
+    "date": "2026-10-16T06:35:37",
+    "problemes_initiaux": 21,
+    "tentative": 1,
+    "bloc5": true,
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "titre_de_mauvaise_qualite"
+    ],
+    "titre": "47 % des élèves en CE1 lisent trop lentement, malgré les preuves de l'efficacité de la méthode phonique",
+    "n_sources": 4,
+    "n_mots": 938,
+    "titre_rss": "Apprentissage de la lecture : ces mauvaises pratiques qui persistent à l’école",
+    "matiere_faits_distincts": 961,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 2,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "notables-chasse-illégale-reserves-naturelles-pyrénées-orientales",
+    "statut": "rejete_sensible",
+    "date": "2026-10-16T06:45:20",
+    "problemes_initiaux": 13,
+    "bloc5": [
+      "faux_debat"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "resume_repete_corps"
+    ],
+    "titre": "Des notables chassent illégalement dans des réserves naturelles des Pyrénées-Orientales",
+    "n_sources": 3,
+    "n_mots": 639,
+    "titre_rss": "Chasse : les petits arrangements de notables dans une réserve naturelle",
+    "matiere_faits_distincts": 899,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "albanie-montenegro-blocages-adhesion-ue-corruption-normes",
+    "statut": "rejete_sensible",
+    "date": "2026-10-16T06:47:35",
+    "problemes_initiaux": 18,
+    "bloc5": [
+      "acteur_mis_en_cause_sans_reponse"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "faits_repetitifs"
+    ],
+    "titre": "Adhésion à l'UE : Albanie et Monténégro bloqués sur corruption et normes",
+    "n_sources": 3,
+    "n_mots": 797,
+    "titre_rss": "Albanie et Monténégro : un état des lieux des négociations d'adhésion à l'Union européenne - Rapport d'information n° 845",
+    "matiere_faits_distincts": 740,
+    "matiere_redondance": 0.02,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "rapport"
+  },
+  {
+    "slug": "sanofi-interdit-critiquer-recommandations-vaccinales-ue",
+    "statut": "rejete_sensible",
+    "date": "2026-10-16T06:49:43",
+    "problemes_initiaux": 17,
+    "bloc5": [
+      "diffamation_potentielle"
+    ],
+    "article_type": "actu",
+    "titre": "Sanofi interdit de critiquer les recommandations vaccinales en France et en Allemagne",
+    "n_sources": 6,
+    "n_mots": 636,
+    "titre_rss": "Vaccins contre la grippe : Sanofi, accusé d’avoir dénigré un concurrent, sommé par l’UE de rectifier sa communication",
+    "matiere_faits_distincts": 1050,
+    "matiere_redondance": 0.01,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "frappe-russe-kiev-defaillance-alerte-preventive-morts-ukraine",
+    "statut": "rejete_sensible",
+    "date": "2026-10-16T06:52:15",
+    "sujet_sensible": true,
+    "raison": "L'article porte sur une affaire impliquant des morts civiles lors de frappes russes en Ukraine, avec des conséquences directes sur la protection civile ukrainienne et des déclarations officielles de Volodymyr Zelensky.",
+    "article_type": "actu",
+    "titre": "Frappe russe sur Kiev : trois morts après une défaillance du système d'alerte préventive",
+    "n_sources": 4,
+    "n_mots": 418,
+    "titre_rss": "Guerre en Ukraine : cette absence d'alerte avant des frappes russes qui interroge",
+    "matiere_faits_distincts": 771,
+    "matiere_redondance": 0.01,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "plan-francais-restauration-nature-2030-manque-moyens",
+    "statut": "rejete_sensible",
+    "date": "2026-10-16T06:54:46",
+    "problemes_initiaux": 14,
+    "bloc5": [
+      "acteur_mis_en_cause_sans_reponse"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "resume_repete_corps",
+      "faits_repetitifs",
+      "titre_de_mauvaise_qualite"
+    ],
+    "titre": "Plan français de restauration de la nature : 20 % d'écosystèmes à restaurer d’ici 2030, mais des moyens insuffisants",
+    "n_sources": 8,
+    "n_mots": 787,
+    "titre_rss": "Biodiversité : la France présente un plan de restauration de la nature sans ambition et sous-financé",
+    "matiere_faits_distincts": 913,
+    "matiere_redondance": 0.01,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "brgm-alerte-66-pour-cent-nappes-phreatiques-france-situation-critique",
+    "statut": "rejete_sensible",
+    "date": "2026-10-16T06:59:53",
+    "problemes_initiaux": 14,
+    "tentative": 3,
+    "bloc5": true,
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "resume_repete_corps"
+    ],
+    "titre": "BRGM alerte : 66 % des nappes phréatiques françaises en situation critique",
+    "n_sources": 4,
+    "n_mots": 710,
+    "titre_rss": "France: Deux tiers des nappes phréatiques dans une situation \"très préoccupante“",
+    "matiere_faits_distincts": 654,
+    "matiere_redondance": 0.14,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "migrations-especes-climatiques-risques-survie-1000-especes",
+    "statut": "rejete_sensible",
+    "date": "2026-10-16T07:02:58",
+    "problemes_initiaux": 20,
+    "bloc5": [
+      "compteur_incoherent"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "faits_repetitifs"
+    ],
+    "titre": "1 000 espèces sur 1 888 observées migrent vers les pôles ou sommets en Europe",
+    "n_sources": 4,
+    "n_mots": 1029,
+    "titre_rss": "Biodiversité : ruée vers les pôles et les sommets",
+    "matiere_faits_distincts": 1120,
+    "matiere_redondance": 0.05,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "inserm-demele-sept-idees-reçues-vaccins-campagne-2026-2027",
+    "statut": "rejete_sensible",
+    "date": "2026-10-16T07:09:23",
+    "problemes_initiaux": 14,
+    "bloc5": [
+      "compteur_incoherent"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "faits_repetitifs",
+      "attributions_trop_repetitives"
+    ],
+    "titre": "Inserm démêle sept idées reçues sur les vaccins avant la campagne 2026-2027",
+    "n_sources": 4,
+    "n_mots": 1072,
+    "titre_rss": "Sept fausses idées sur les vaccins",
+    "matiere_faits_distincts": 1127,
+    "matiere_redondance": 0.02,
+    "matiere_donnees_chiffrees": 2,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "cyberattaque-supermarches-frigos-menace-approvisionnement-alimentaire-france",
+    "statut": "rejete_sensible",
+    "date": "2026-10-16T07:12:32",
+    "problemes_initiaux": 20,
+    "bloc5": [
+      "acteur_mis_en_cause_sans_reponse"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "titre_de_mauvaise_qualite"
+    ],
+    "titre": "Cyberattaque sur les frigos des supermarchés : une vulnérabilité critique de la chaîne alimentaire",
+    "n_sources": 4,
+    "n_mots": 535,
+    "titre_rss": "Piratage de supermarchés en France : \"Pas besoin de chars pour faire la guerre\", dit un expert",
+    "matiere_faits_distincts": 874,
+    "matiere_redondance": 0.02,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "finistere-secheresse-75-eau-dependante-cours-deau-baisse-historique",
+    "statut": "rejete_sensible",
+    "date": "2026-10-16T07:15:57",
+    "problemes_initiaux": 14,
+    "bloc5": [
+      "compteur_incoherent"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "faits_repetitifs"
+    ],
+    "titre": "Finistère : 75 % de l'eau dépendante des cours d'eau, en baisse historique",
+    "n_sources": 9,
+    "n_mots": 858,
+    "titre_rss": "Sécheresse : le Finistère dans une « situation critique »",
+    "matiere_faits_distincts": 1142,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "aces-horloges-atomiques-precision-record-iss-relativite",
+    "statut": "rejete_sensible",
+    "date": "2026-10-16T07:19:40",
+    "problemes_initiaux": 16,
+    "bloc5": [
+      "acteur_mis_en_cause_sans_reponse"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "titre_de_mauvaise_qualite"
+    ],
+    "titre": "ACES sur l'ISS : précision record des horloges atomiques pour tester la relativité",
+    "n_sources": 3,
+    "n_mots": 673,
+    "titre_rss": "La folle course des physiciens pour mesurer le temps, jusqu’à envisager une redéfinition de la seconde",
+    "matiere_faits_distincts": 760,
+    "matiere_redondance": 0.01,
+    "matiere_donnees_chiffrees": 2,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "plfss-2027-rejet-recettes-commission-risque-blocage-senat",
+    "statut": "rejete_sensible",
+    "date": "2026-10-16T07:22:49",
+    "problemes_initiaux": 22,
+    "bloc5": [
+      "acteur_mis_en_cause_sans_reponse"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "resume_repete_corps",
+      "cliches_ia"
+    ],
+    "titre": "PLFSS 2027 : rejet des recettes en commission, blocage en séance probable",
+    "n_sources": 4,
+    "n_mots": 406,
+    "titre_rss": "Budget de la Sécurité sociale : les députés rejettent en commission la partie « recettes » du texte",
+    "matiere_faits_distincts": 629,
+    "matiere_redondance": 0.03,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "inegalites-revenus-indice-gini-france-2024",
+    "statut": "rejete_sensible",
+    "date": "2026-10-16T07:25:55",
+    "problemes_initiaux": 14,
+    "bloc5": [
+      "compteur_incoherent"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "faits_repetitifs",
+      "cliches_ia"
+    ],
+    "titre": "Inégalités de revenus : l'Indice de Gini atteint son plus haut niveau depuis 2020",
+    "n_sources": 5,
+    "n_mots": 897,
+    "titre_rss": "Laurence de Charette : « Derrière la crise des lycées, la grande faillite de la transmission »",
+    "matiere_faits_distincts": 583,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "mortalite-france-2024-641-046-deces-baisse-taux-standardise",
+    "statut": "rejete_sensible",
+    "date": "2026-10-16T07:30:03",
+    "problemes_initiaux": 17,
+    "tentative": 1,
+    "bloc5": true,
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "resume_repete_corps",
+      "faits_repetitifs",
+      "titre_de_mauvaise_qualite"
+    ],
+    "titre": "Mortalité en France en 2024 : 641 046 décès, baisse du taux standardisé malgré des disparités",
+    "n_sources": 4,
+    "n_mots": 826,
+    "titre_rss": "Grandes causes de décès en France : tendances et causes associées en 2024",
+    "matiere_faits_distincts": 1052,
+    "matiere_redondance": 0.09,
+    "matiere_donnees_chiffrees": 2,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "veille_heures_visible": 517.7,
+    "veille_passages": 311,
+    "veille_age_h": 1563.9,
+    "veille_n_flux_grappe": 1,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "20-sites-patrimoine-francais-menaces-rechauffement-climatique-2026",
+    "statut": "rejete_sensible",
+    "date": "2026-10-16T07:33:49",
+    "problemes_initiaux": 16,
+    "tentative": 1,
+    "bloc5": true,
+    "article_type": "actu",
+    "titre": "20 sites français classés menacés par le réchauffement climatique",
+    "n_sources": 3,
+    "n_mots": 808,
+    "titre_rss": "Patrimoine : Chambord, Carcassonne, Saint-Malo… Alerte sur 20 sites majeurs menacés par le réchauffement climatique",
+    "matiere_faits_distincts": 853,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "rapport"
+  },
+  {
+    "slug": "mobilisations-vie-chere-200-300-actions-samedi-19-octobre",
+    "statut": "rejete_sensible",
+    "date": "2026-10-16T07:36:18",
+    "problemes_initiaux": 9,
+    "bloc5": [
+      "extrapolation"
+    ],
+    "article_type": "breve",
+    "titre": "Mobilisations contre la vie chère : 200 à 300 actions prévues samedi",
+    "n_sources": 3,
+    "n_mots": 226,
+    "titre_rss": "Mouvement du 17 octobre : entre 200 et 300 actions attendues samedi dans tout le pays contre la vie chère",
+    "matiere_faits_distincts": 985,
+    "matiere_redondance": 0.01,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "ue-report-2027-fuites-methane-lobbies-energie",
+    "statut": "rejete_sensible",
+    "date": "2026-10-16T07:40:16",
+    "problemes_initiaux": 9,
+    "bloc5": [
+      "faux_debat"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "resume_repete_corps"
+    ],
+    "titre": "L’UE repousse à 2027 le reporting sur les fuites de méthane",
+    "n_sources": 5,
+    "n_mots": 430,
+    "titre_rss": "Fuites de méthane : l'Europe cède aux lobbies de l'énergie",
+    "matiere_faits_distincts": 816,
+    "matiere_redondance": 0.01,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "carburants-france-ruée-anticipative-effondrement-septembre-2026",
+    "statut": "rejete_sensible",
+    "date": "2026-10-16T07:46:43",
+    "problemes_initiaux": 15,
+    "tentative": 2,
+    "bloc5": true,
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "faits_repetitifs"
+    ],
+    "titre": "Carburants en France : ruée anticipative en mars, effondrement en septembre 2026",
+    "n_sources": 4,
+    "n_mots": 935,
+    "titre_rss": "Ruée anticipative début mars puis effondrement en septembre : comment expliquer la consommation de carburant en France en 2026 ?",
+    "matiere_faits_distincts": 915,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "parchemins-revelent-3500-ans-histoire-genetique-variole-ovine",
+    "statut": "rejete_sensible",
+    "date": "2026-10-16T07:52:42",
+    "problemes_initiaux": 16,
+    "bloc5": [
+      "extrapolation"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "faits_repetitifs"
+    ],
+    "titre": "Parchemins médiévaux : 3 500 ans d'histoire génétique de la variole ovine révélés",
+    "n_sources": 3,
+    "n_mots": 815,
+    "titre_rss": "Des manuscrits médiévaux révèlent l’histoire millénaire de la variole ovine",
+    "matiere_faits_distincts": 705,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "etude_scientifique"
+  },
+  {
+    "slug": "thrombinnov-tests-plaquettes-sang-medicaments-acceleration",
+    "statut": "rejete_sensible",
+    "date": "2026-10-16T07:55:30",
+    "problemes_initiaux": 14,
+    "bloc5": [
+      "compteur_incoherent"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "titre_de_mauvaise_qualite"
+    ],
+    "titre": "ThrombInnov accélère les tests précliniques sur les plaquettes sanguines",
+    "n_sources": 3,
+    "n_mots": 660,
+    "titre_rss": "L’entrepreneuriat dans le sang !",
+    "matiere_faits_distincts": 746,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "comptes-frauduleux-reseaux-sociaux-70-francais-fausses-informations-semaine",
+    "statut": "rejete_sensible",
+    "date": "2026-10-16T07:58:59",
+    "problemes_initiaux": 15,
+    "bloc5": [
+      "faux_debat"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "resume_repete_corps",
+      "faits_repetitifs",
+      "titre_de_mauvaise_qualite"
+    ],
+    "titre": "Comptes frauduleux sur les réseaux sociaux : 70 % des Français exposés à des fausses informations chaque semaine",
+    "n_sources": 10,
+    "n_mots": 947,
+    "titre_rss": "Les faux contenus d''informations font recette sur les réseaux sociaux",
+    "matiere_faits_distincts": 950,
+    "matiere_redondance": 0.07,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "samsung-lunettes-android-xr-innovations-risques-vie-privee",
+    "statut": "rejete_sensible",
+    "date": "2026-10-16T08:02:43",
+    "problemes_initiaux": 13,
+    "bloc5": [
+      "jugement_de_valeur"
+    ],
+    "article_type": "actu",
+    "titre": "Samsung prépare des lunettes connectées Android XR plus légères et modulaires que les Ray-Ban Meta",
+    "n_sources": 5,
+    "n_mots": 368,
+    "titre_rss": "Samsung prépare sa riposte aux Ray-Ban Meta : une fuite révèle les surprises de ses futures lunettes IA",
+    "matiere_faits_distincts": 1099,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "fossiles-geants-paleozoique-caracteristiques-et-hypotheses-sur-leurs-origines",
+    "statut": "rejete_qualite",
+    "date": "2026-10-16T08:05:48",
+    "angle_insuffisant": true,
+    "raison": "L'article ne répond pas à la question posée dans l'angle de réponse ('quelles sont leurs caractéristiques précises, leur répartition géographique et les hypothèses les plus crédibles sur leur origine ?'). Aucune donnée chiffrée ou nommée datée n'est fournie dans 'faits' pour justifier une actualité récente. Le contenu se limite à une description générale de fossiles anciens sans événement déclencheur ou mise à jour scientifique récente sourcée.",
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "faits_repetitifs",
+      "nuances_vagues",
+      "article_sans_date"
+    ],
+    "titre": "Fossiles géants du Paléozoïque : des structures de plusieurs mètres sans équivalent connu",
+    "n_sources": 3,
+    "n_mots": 738,
+    "titre_rss": "Bien avant l'apparition des arbres, la Terre abritait déjà une forme de vie géante qui semble venue d'un autre monde",
+    "matiere_faits_distincts": 771,
+    "matiere_redondance": 0.03,
+    "matiere_donnees_chiffrees": 3,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "sujet_pedagogique"
+  },
+  {
+    "slug": "orange-telecoms-europeens-preparent-alliance-contre-starlink-2026",
+    "statut": "rejete_sensible",
+    "date": "2026-10-16T08:08:44",
+    "problemes_initiaux": 16,
+    "bloc5": [
+      "acteur_mis_en_cause_sans_reponse"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "faits_repetitifs"
+    ],
+    "titre": "Orange et trois autres géants européens explorent une alliance contre Starlink",
+    "n_sources": 6,
+    "n_mots": 839,
+    "titre_rss": "Face à la domination de Starlink, les géants européens des télécoms veulent faire front commun",
+    "matiere_faits_distincts": 1048,
+    "matiere_redondance": 0.02,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "tortue-jonathan-194-ans-mitochondries-resistance-vieillissement",
+    "statut": "rejete_sensible",
+    "date": "2026-10-16T08:11:36",
+    "problemes_initiaux": 13,
+    "bloc5": [
+      "compteur_incoherent"
+    ],
+    "article_type": "actu",
+    "titre": "Jonathan, tortue géante de 194 ans : des mitochondries résistantes au vieillissement",
+    "n_sources": 3,
+    "n_mots": 610,
+    "titre_rss": "Le secret de longévité de Jonathan, une tortue de 194 ans de l’île de Sainte-Hélène, caché dans son ADN",
+    "matiere_faits_distincts": 497,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 3,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "etude_scientifique"
+  },
+  {
+    "slug": "ai-act-distinction-ia-fermees-ouvertes-impacts-entreprises-francaises",
+    "statut": "rejete_sensible",
+    "date": "2026-10-16T08:14:31",
+    "problemes_initiaux": 17,
+    "bloc5": [
+      "jugement_de_valeur"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "titre_de_mauvaise_qualite"
+    ],
+    "titre": "L'AI Act européen distingue IA fermées et ouvertes : quels impacts pour les entreprises françaises ?",
+    "n_sources": 8,
+    "n_mots": 432,
+    "titre_rss": "Derrière les appels à la régulation, l’affrontement entre IA fermées et IA ouvertes",
+    "matiere_faits_distincts": 840,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "400-scientifiques-demandent-organisme-international-securiser-ia-avancee",
+    "statut": "rejete_sensible",
+    "date": "2026-10-16T08:17:22",
+    "problemes_initiaux": 16,
+    "bloc5": [
+      "acteur_mis_en_cause_sans_reponse"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "resume_repete_corps",
+      "faits_repetitifs"
+    ],
+    "titre": "400 scientifiques demandent un organisme international pour sécuriser les IA avancées",
+    "n_sources": 7,
+    "n_mots": 968,
+    "titre_rss": "IA : 400 scientifiques alertent sur les risques de cybersécurité",
+    "matiere_faits_distincts": 1019,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "lune-formation-rapide-theorie-collision-geante-heures",
+    "statut": "rejete_sensible",
+    "date": "2026-10-16T08:19:43",
+    "problemes_initiaux": 10,
+    "bloc5": [
+      "compteur_incoherent"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "resume_repete_corps",
+      "faits_repetitifs",
+      "article_sans_date"
+    ],
+    "titre": "La Lune aurait pu se former en quelques heures selon des simulations",
+    "n_sources": 3,
+    "n_mots": 491,
+    "titre_rss": "Et, en quelques heures, naquit la Lune...",
+    "matiere_faits_distincts": 780,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 3,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
   }
 ]
