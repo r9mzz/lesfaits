@@ -31368,5 +31368,931 @@
     "n_sources_injectees": 10,
     "n_sources_trouvees": 10,
     "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "centenaire-michel-foucault-influence-et-debats-contemporains-2026",
+    "statut": "rejete_sensible",
+    "date": "2026-10-17T06:25:25",
+    "problemes_initiaux": 12,
+    "bloc5": [
+      "compteur_incoherent"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "resume_repete_corps"
+    ],
+    "titre": "Michel Foucault centenaire : une influence toujours vivante dans les sciences humaines",
+    "n_sources": 4,
+    "n_mots": 851,
+    "titre_rss": "Michel Foucault, penseur de l’actualité",
+    "matiere_faits_distincts": 764,
+    "matiere_redondance": 0.02,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "sujet_pedagogique"
+  },
+  {
+    "slug": "budget-2027-economies-ciblees-absence-mesures-structurelles-pauvrete",
+    "statut": "rejete_sensible",
+    "date": "2026-10-17T06:27:33",
+    "problemes_initiaux": 14,
+    "bloc5": [
+      "acteur_mis_en_cause_sans_reponse"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "faits_repetitifs"
+    ],
+    "titre": "Budget 2027 : des économies ciblées sans réponse structurelle contre la pauvreté",
+    "n_sources": 5,
+    "n_mots": 834,
+    "titre_rss": "Le collectif Alerte appelle à revoir le projet de budget 2027, qui va « appauvrir les plus pauvres »",
+    "matiere_faits_distincts": 490,
+    "matiere_redondance": 0.08,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "47-pourcent-eleves-ce1-lecture-sous-seuil-officiel-50-mots-minute",
+    "statut": "rejete_sensible",
+    "date": "2026-10-17T06:35:49",
+    "problemes_initiaux": 18,
+    "tentative": 1,
+    "bloc5": true,
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "resume_repete_corps"
+    ],
+    "titre": "47 % des élèves en CE1 lisent sous le seuil officiel de 50 mots/minute",
+    "n_sources": 6,
+    "n_mots": 746,
+    "titre_rss": "Apprentissage de la lecture : ces mauvaises pratiques qui persistent à l’école",
+    "matiere_faits_distincts": 970,
+    "matiere_redondance": 0.03,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "enquete-ifop-antisemitisme-gauche-65-rejetent-melenchon-permeabilite-radicale",
+    "statut": "rejete_sensible",
+    "date": "2026-10-17T06:41:03",
+    "problemes_initiaux": 14,
+    "bloc5": [
+      "acteur_mis_en_cause_sans_reponse"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "faits_repetitifs",
+      "titre_de_mauvaise_qualite"
+    ],
+    "titre": "Enquête Ifop sur l'antisémitisme à gauche : 65 % rejettent Mélenchon, mais une frange radicale reste perméable",
+    "n_sources": 4,
+    "n_mots": 893,
+    "titre_rss": "Antisémitisme à gauche : la stupéfiante enquête de l'Ifop",
+    "matiere_faits_distincts": 825,
+    "matiere_redondance": 0.11,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "albanie-montenegro-adhesion-ue-avancees-blocages-2026",
+    "statut": "rejete_sensible",
+    "date": "2026-10-17T06:43:58",
+    "problemes_initiaux": 13,
+    "bloc5": [
+      "acteur_mis_en_cause_sans_reponse"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "faits_repetitifs",
+      "nuances_vagues"
+    ],
+    "titre": "Albanie et Monténégro : avancées et blocages dans leur adhésion à l'UE",
+    "n_sources": 4,
+    "n_mots": 767,
+    "titre_rss": "Albanie et Monténégro : un état des lieux des négociations d'adhésion à l'Union européenne - Rapport d'information n° 845",
+    "matiere_faits_distincts": 699,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "mobilisation-17-octobre-blocage-hec-proviseurs-surveillance-policiere",
+    "statut": "rejete_sensible",
+    "date": "2026-10-17T06:47:00",
+    "problemes_initiaux": 31,
+    "bloc5": [
+      "acteur_mis_en_cause_sans_reponse"
+    ],
+    "article_type": "actu",
+    "titre": "17 octobre : blocage historique de HEC, opération rideaux des proviseurs et surveillance policière",
+    "n_sources": 3,
+    "n_mots": 790,
+    "titre_rss": "Mobilisation du 17 octobre : enquête sur un mouvement protéiforme",
+    "matiere_faits_distincts": 859,
+    "matiere_redondance": 0.01,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "vaccins-ebola-zaire-immunite-partielle-souche-bundibugyo-resultats-inserm-23-juillet-2026",
+    "statut": "rejete_sensible",
+    "date": "2026-10-17T06:51:26",
+    "problemes_initiaux": 14,
+    "tentative": 1,
+    "bloc5": true,
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "faits_repetitifs"
+    ],
+    "titre": "Vaccins Ebola Zaïre : une immunité partielle détectée contre Bundibugyo, mais sans preuve de protection",
+    "n_sources": 7,
+    "n_mots": 762,
+    "titre_rss": "Épidémie d’Ebola Bundibugyo : des premiers résultats pour guider la recherche d’un vaccin efficace",
+    "matiere_faits_distincts": 1156,
+    "matiere_redondance": 0.01,
+    "matiere_donnees_chiffrees": 2,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "veille_heures_visible": 517.7,
+    "veille_passages": 311,
+    "veille_age_h": 1587.8,
+    "veille_n_flux_grappe": 9,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "sanofi-interdit-de-critiquer-vaccins-grippeaux-france-allemagne",
+    "statut": "rejete_sensible",
+    "date": "2026-10-17T06:55:12",
+    "problemes_initiaux": 11,
+    "tentative": 1,
+    "bloc5": true,
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "resume_repete_corps",
+      "faits_repetitifs"
+    ],
+    "titre": "Sanofi interdit de critiquer les vaccins grippeaux en France et en Allemagne",
+    "n_sources": 4,
+    "n_mots": 686,
+    "titre_rss": "Vaccins contre la grippe : Sanofi, accusé d’avoir dénigré un concurrent, sommé par l’UE de rectifier sa communication",
+    "matiere_faits_distincts": 1123,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "sante-publique-france-lance-enquete-eras-2026-hsh-vih-ist",
+    "statut": "rejete_sensible",
+    "date": "2026-10-17T06:58:36",
+    "problemes_initiaux": 15,
+    "bloc5": [
+      "compteur_incoherent"
+    ],
+    "article_type": "actu",
+    "titre": "Santé publique France lance l’enquête ERAS 2026 sur les HSH",
+    "n_sources": 3,
+    "n_mots": 859,
+    "titre_rss": "Enquête « Rapport au sexe » (ERAS) 2026 à destination des hommes ayant des rapports sexuels avec des hommes",
+    "matiere_faits_distincts": 414,
+    "matiere_redondance": 0.02,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "veille_heures_visible": 117.0,
+    "veille_passages": 24,
+    "veille_age_h": 1187.1,
+    "veille_n_flux_grappe": 1,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "inserm-demonstration-sept-idees-fausses-vaccins-campagne-2026-2027",
+    "statut": "rejete_sensible",
+    "date": "2026-10-17T07:04:25",
+    "problemes_initiaux": 14,
+    "bloc5": [
+      "compteur_incoherent"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "faits_repetitifs"
+    ],
+    "titre": "L'Inserm démontre sept idées fausses sur les vaccins lors du lancement de la campagne 2026-2027",
+    "n_sources": 4,
+    "n_mots": 782,
+    "titre_rss": "Sept fausses idées sur les vaccins",
+    "matiere_faits_distincts": 1006,
+    "matiere_redondance": 0.01,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "plan-francais-restauration-nature-10-ecosystemes-cibles-contre-20-requis-ue",
+    "statut": "rejete_sensible",
+    "date": "2026-10-17T07:08:47",
+    "problemes_initiaux": 20,
+    "tentative": 1,
+    "bloc5": true,
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "resume_repete_corps",
+      "titre_de_mauvaise_qualite"
+    ],
+    "titre": "Plan français de restauration de la nature : 10 % des écosystèmes ciblés contre 20 % requis par l'UE",
+    "n_sources": 4,
+    "n_mots": 787,
+    "titre_rss": "Biodiversité : la France présente un plan de restauration de la nature sans ambition et sous-financé",
+    "matiere_faits_distincts": 975,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "lfi-188-milliards-desquilibre-budgetaire-risques-economiques",
+    "statut": "rejete_sensible",
+    "date": "2026-10-17T07:12:06",
+    "problemes_initiaux": 11,
+    "bloc5": [
+      "acteur_mis_en_cause_sans_reponse"
+    ],
+    "article_type": "actu",
+    "titre": "Contre-budget LFI : 188 milliards d'euros de déséquilibre face à une croissance fragilisée",
+    "n_sources": 4,
+    "n_mots": 378,
+    "titre_rss": "Contre-budget de LFI : le pari incertain de la relance",
+    "matiere_faits_distincts": 652,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "cyberattaques-fuite-donnees-armes-supermarches-failles-securite",
+    "statut": "rejete_sensible",
+    "date": "2026-10-17T07:14:55",
+    "problemes_initiaux": 13,
+    "bloc5": [
+      "faux_debat"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "titre_de_mauvaise_qualite"
+    ],
+    "titre": "Fuite de données sur 62 000 armes et piratage des systèmes frigorifiques : une cybermenace sur les infrastructures françaises",
+    "n_sources": 4,
+    "n_mots": 828,
+    "titre_rss": "Piratage de supermarchés en France : \"Pas besoin de chars pour faire la guerre\", dit un expert",
+    "matiere_faits_distincts": 1162,
+    "matiere_redondance": 0.05,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "1084-especes-europeennes-migrent-nord-altitude-rechauffement-climatique",
+    "statut": "rejete_sensible",
+    "date": "2026-10-17T07:18:26",
+    "problemes_initiaux": 13,
+    "bloc5": [
+      "compteur_incoherent"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "nuances_vagues"
+    ],
+    "titre": "1 084 espèces européennes migrent vers le nord ou en altitude à cause du réchauffement",
+    "n_sources": 4,
+    "n_mots": 887,
+    "titre_rss": "Biodiversité : ruée vers les pôles et les sommets",
+    "matiere_faits_distincts": 914,
+    "matiere_redondance": 0.06,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "etude_scientifique"
+  },
+  {
+    "slug": "table-ronde-paris-biais-cognitifs-algorithmes-desinformation-climatique",
+    "statut": "rejete_sensible",
+    "date": "2026-10-17T07:28:04",
+    "problemes_initiaux": 14,
+    "tentative": 1,
+    "bloc5": true,
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "resume_repete_corps",
+      "faits_repetitifs",
+      "titre_de_mauvaise_qualite"
+    ],
+    "titre": "Table ronde à Paris : les biais cognitifs et algorithmes décryptés comme principaux vecteurs de désinformation climatique",
+    "n_sources": 3,
+    "n_mots": 914,
+    "titre_rss": "« Les biais cognitifs nous jouent des tours » : rencontre avec des experts qui décryptent les pièges de la désinformation climatique",
+    "matiere_faits_distincts": 449,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "fausse-conviction-empoisonnement-chatgpt-risques-medicaux",
+    "statut": "rejete_sensible",
+    "date": "2026-10-17T07:31:05",
+    "problemes_initiaux": 14,
+    "bloc5": [
+      "acteur_mis_en_cause_sans_reponse"
+    ],
+    "article_type": "actu",
+    "titre": "Hospitalisation après une fausse conviction d'empoisonnement liée à une IA",
+    "n_sources": 4,
+    "n_mots": 723,
+    "titre_rss": "Un homme empoisonné après avoir consulté ChatGPT : l’alerte des chercheurs sur les dangers invisibles de l’IA",
+    "matiere_faits_distincts": 959,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 4,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "mortalite-france-2024-641-046-deces-taux-baisse-bilan-hausse",
+    "statut": "corrige_automatiquement",
+    "date": "2026-10-17T07:36:10",
+    "problemes_initiaux": 15,
+    "tentatives": 1,
+    "problemes_residuels_style": 28,
+    "rapport_initial": {
+      "conforme": false,
+      "sujet_sensible": false,
+      "sujet_sensible_raison": "",
+      "angle_insuffisant": false,
+      "angle_insuffisant_raison": "",
+      "nature_contenu": "actualite_factuelle",
+      "problemes": [
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "incoherence_inter_sections",
+          "phrase_exacte": "En 2024, la France a comptabilisé **641 046 décès**, soit **4 000 décès supplémentaires par rapport à 2023** [1][2].",
+          "explication": "Le titre annonce **641 046 décès en 2024**, mais le résumé précise **4 000 décès de plus qu’en 2023**, ce qui implique un total de **637 046 décès en 2023** (641 046 - 4 000). Or, aucune source ne confirme ce chiffre de 637 046 décès pour 2023, et le résumé ne mentionne pas explicitement ce total pour 2023. Les sources [1] et [2] ne fournissent pas ce détail, ce qui crée une incohérence entre le titre et le résumé."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "fait_tranche_arbitrairement",
+          "phrase_exacte": "La mortalité globale reste ainsi **supérieure à ce qu’elle aurait dû être** sans la pandémie [1][2].",
+          "explication": "La phrase généralise une affirmation sans préciser les critères ou méthodes utilisés pour estimer ce que la mortalité aurait dû être sans la pandémie. Les sources [1] et [2] ne fournissent pas de modèle ou de calcul explicite pour cette comparaison, ce qui rend la formulation trop catégorique et non sourcée."
+        },
+        {
+          "bloc": 1,
+          "section": "nuances",
+          "type": "extrapolation",
+          "phrase_exacte": "Les projections pour 2025, encore **basées sur des modèles prédictifs**, suggèrent une **stabilité ou une légère hausse du nombre total de décès**, en raison du vieillissement de la génération du baby-boom [1][2].",
+          "explication": "Les projections pour 2025 sont présentées comme un fait certain (« suggèrent une stabilité ou une légère hausse »), alors que les sources [1] et [2] les qualifient explicitement de **modèles prédictifs** et **incertains**. Le conditionnel (« pourraient suggérer ») aurait été plus approprié."
+        },
+        {
+          "bloc": 1,
+          "section": "nuances",
+          "type": "extrapolation",
+          "phrase_exacte": "Cette imprécision peut refléter des **lacunes dans le remplissage des certificats**, notamment pour les personnes âgées ou en fin de vie, où plusieurs pathologies coexistent [1][2]. Elle pourrait aussi masquer des tendances sous-jacentes, comme une **augmentation des maladies chroniques complexes** difficiles à attribuer à une cause unique.",
+          "explication": "La phrase introduit une **hypothèse non sourcée** (« pourrait aussi masquer ») sur une tendance sous-jacente (maladies chroniques complexes) sans que les sources [1] et [2] ne l'étayent. Les sources mentionnent des imprécisions dans les certificats, mais pas cette interprétation spécifique."
+        },
+        {
+          "bloc": 2,
+          "section": "nuances",
+          "type": "formule_vague",
+          "phrase_exacte": "Aucune source ne permet cependant de conclure à une tendance structurelle distincte de la variabilité annuelle.",
+          "explication": "La phrase utilise une formule vague (« Aucune source ne permet de conclure ») sans référence précise à une source de la liste autorisée. Elle devrait être supprimée ou reformulée avec une attribution explicite."
+        },
+        {
+          "bloc": 4,
+          "section": "nuances",
+          "type": "redondance",
+          "phrase_exacte": "Les projections pour 2025, encore **basées sur des modèles prédictifs**, suggèrent une **stabilité ou une légère hausse du nombre total de décès**, en raison du vieillissement de la génération du baby-boom [1][2].",
+          "explication": "Cette phrase répète une idée déjà présente dans le résumé (« vieillissement de la génération du baby-boom ») sans apporter de nouvelle information sourcée. Elle est redondante avec le contexte déjà fourni."
+        },
+        {
+          "bloc": 4,
+          "section": "nuances",
+          "type": "redondance",
+          "phrase_exacte": "Cette imprécision peut refléter des **lacunes dans le remplissage des certificats**, notamment pour les personnes âgées ou en fin de vie, où plusieurs pathologies coexistent [1][2].",
+          "explication": "Cette idée est déjà évoquée dans les faits (« 21,3 % des décès n’ont pas de cause précise identifiée ») et dans le contexte (« lacunes dans le remplissage des certificats »). La reformulation ne constitue pas une nuance nouvelle."
+        },
+        {
+          "bloc": 4,
+          "section": "nuances",
+          "type": "section_gonflee",
+          "phrase_exacte": "Les projections pour 2025, encore **basées sur des modèles prédictifs**, suggèrent une **stabilité ou une légère hausse du nombre total de décès**, en raison du vieillissement de la génération du baby-boom [1][2].",
+          "explication": "La section « nuances » se limite à des généralités non sourcées (« variabilité annuelle », « pourrait masquer ») et à des répétitions. Elle ne contient pas de nuance distincte ou sourcée, ce qui la rend superflue."
+        },
+        {
+          "bloc": 2,
+          "section": "nuances",
+          "type": "source_derivee_comptee_comme_primaire",
+          "phrase_exacte": "Les projections pour 2025, encore **basées sur des modèles prédictifs**, suggèrent une **stabilité ou une légère hausse du nombre total de décès** [1][2].",
+          "explication": "Les sources [1] et [2] ne contiennent pas de projections explicites pour 2025. Elles mentionnent des tendances passées et des modèles prédictifs, mais aucune ne fournit de chiffre ou de prévision chiffrée pour 2025. La phrase repose sur une interprétation non sourcée."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "niveau_preuve_insuffisant",
+          "phrase_exacte": "Les **maladies respiratoires hors Covid-19** ont progressé de **5 décès pour 100 000 habitants** en 2024, portées par la hausse des grippes et des pneumonies [1][2].",
+          "explication": "Bien que les sources [1] et [2] mentionnent une hausse des maladies respiratoires, elles ne précisent pas explicitement que cette hausse est **attribuable aux grippes et aux pneumonies** sans ambiguïté. La formulation est trop catégorique sans confirmation directe dans les extraits."
+        },
+        {
+          "bloc": 4,
+          "section": "contexte",
+          "type": "contexte_hors_sujet",
+          "phrase_exacte": "Les **maladies respiratoires**, hors Covid-19, avaient déjà connu une hausse avant 2020, liée à des facteurs comme **les épidémies saisonnières de grippe** et **la pollution atmosphérique** [1][2].",
+          "explication": "Bien que ce contexte soit pertinent, il est déjà partiellement couvert dans les faits et ne fournit pas d'information nouvelle distincte. La pollution atmosphérique n'est pas explicitement mentionnée dans les sources [1] et [2] comme facteur de hausse des maladies respiratoires, ce qui en fait une affirmation non sourcée dans cette section."
+        },
+        {
+          "bloc": 4,
+          "section": "contexte",
+          "type": "redondance",
+          "phrase_exacte": "Les **tumeurs** ont progressivement dépassé les maladies cardio-neurovasculaires comme première cause de mortalité depuis les années 2000, reflétant à la fois **les avancées thérapeutiques en cardiologie** et **le vieillissement de la population** [1][2].",
+          "explication": "Cette idée est déjà évoquée dans les faits (« tumeurs : première cause de décès ») et ne constitue pas une nuance nouvelle dans le contexte."
+        },
+        {
+          "bloc": 2,
+          "section": "contexte",
+          "type": "formule_vague",
+          "phrase_exacte": "Cette tendance s’observe également dans d’autres pays européens, où les comorbidités expliquent une part croissante des décès [1][2].",
+          "explication": "La phrase utilise une formule vague (« Cette tendance ») sans préciser quels pays européens ni à quelle échelle. Les sources [1] et [2] ne fournissent pas de données comparatives explicites pour d'autres pays."
+        },
+        {
+          "bloc": 4,
+          "section": "nuances",
+          "type": "extrapolation",
+          "phrase_exacte": "La **hausse des maladies respiratoires** en 2024 pourrait s’expliquer par des **facteurs saisonniers**, comme une épidémie de grippe plus virulente, ou par des **effets climatiques** favorisant la propagation des infections [1][2].",
+          "explication": "Bien que les sources [1] et [2] mentionnent une hausse des maladies respiratoires, elles ne précisent pas explicitement que cette hausse est **attribuable à des facteurs saisonniers ou climatiques** sans ambiguïté. La phrase repose sur une interprétation non sourcée."
+        },
+        {
+          "bloc": 2,
+          "section": "nuances",
+          "type": "source_inventee",
+          "phrase_exacte": "Aucune source ne permet cependant de conclure à une tendance structurelle distincte de la variabilité annuelle.",
+          "explication": "La phrase utilise une formulation non sourcée et non attribuée à une source précise. Aucune des sources [1] à [4] ne mentionne explicitement cette affirmation."
+        }
+      ]
+    },
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "faits_repetitifs",
+      "titre_de_mauvaise_qualite",
+      "cliches_ia"
+    ],
+    "titre": "France : 641 046 décès en 2024, un taux de mortalité en baisse mais un bilan global en hausse",
+    "n_sources": 4,
+    "n_mots": 925,
+    "titre_rss": "Grandes causes de décès en France : tendances et causes associées en 2024",
+    "matiere_faits_distincts": 1061,
+    "matiere_redondance": 0.09,
+    "matiere_donnees_chiffrees": 2,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "veille_heures_visible": 517.7,
+    "veille_passages": 311,
+    "veille_age_h": 1587.8,
+    "veille_n_flux_grappe": 1,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "report-dun-an-du-reglement-europeen-sur-les-fuites-de-methane-sous-pression-des-lobbies",
+    "statut": "rejete_sensible",
+    "date": "2026-10-17T07:39:29",
+    "problemes_initiaux": 14,
+    "bloc5": [
+      "acteur_mis_en_cause_sans_reponse"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "faits_repetitifs",
+      "titre_de_mauvaise_qualite"
+    ],
+    "titre": "Report d’un an du règlement européen sur les fuites de méthane sous pression des lobbies",
+    "n_sources": 4,
+    "n_mots": 767,
+    "titre_rss": "Fuites de méthane : l'Europe cède aux lobbies de l'énergie",
+    "matiere_faits_distincts": 631,
+    "matiere_redondance": 0.04,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "deces-carole-fritz-archeologue-grotte-chauvet-methodes-innovantes",
+    "statut": "rejete_sensible",
+    "date": "2026-10-17T07:42:30",
+    "problemes_initiaux": 12,
+    "bloc5": [
+      "compteur_incoherent"
+    ],
+    "article_type": "actu",
+    "titre": "Décès de Carole Fritz, archéologue à l'origine de nouvelles méthodes pour étudier la grotte Chauvet",
+    "n_sources": 3,
+    "n_mots": 695,
+    "titre_rss": "Carole Fritz, archéologue et préhistorienne, grande amoureuse de l’art pariétal, est morte",
+    "matiere_faits_distincts": 662,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "thrombinnov-inserm-plaquettes-sanguines-accelerer-developpement-medicaments",
+    "statut": "rejete_qualite",
+    "date": "2026-10-17T07:48:30",
+    "etape": "correction",
+    "tentative": 2,
+    "erreur": "JSON tronqué ou incomplet dans la réponse (max_tokens atteint ?)",
+    "bloquants_connus": 3,
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "titre_de_mauvaise_qualite"
+    ],
+    "titre": "ThrombInnov transforme 40 ans de recherche sur les plaquettes en tests précliniques révolutionnaires",
+    "n_sources": 3,
+    "n_mots": 768,
+    "titre_rss": "L’entrepreneuriat dans le sang !",
+    "matiere_faits_distincts": 1091,
+    "matiere_redondance": 0.03,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "faux-contenus-reseaux-sociaux-revenus-et-regulations-limites",
+    "statut": "rejete_sensible",
+    "date": "2026-10-17T07:52:10",
+    "problemes_initiaux": 18,
+    "bloc5": [
+      "acteur_mis_en_cause_sans_reponse"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "resume_repete_corps",
+      "titre_de_mauvaise_qualite"
+    ],
+    "titre": "TikTok, Facebook et Instagram : comment les faux contenus rapportent des centaines de milliers de vues",
+    "n_sources": 8,
+    "n_mots": 400,
+    "titre_rss": "Les faux contenus d''informations font recette sur les réseaux sociaux",
+    "matiere_faits_distincts": 760,
+    "matiere_redondance": 0.01,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "arcom-surcoûts-fibre-rurale-depassent-previsions-2015",
+    "statut": "rejete_sensible",
+    "date": "2026-10-17T07:56:39",
+    "problemes_initiaux": 19,
+    "bloc5": [
+      "acteur_mis_en_cause_sans_reponse"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "faits_repetitifs"
+    ],
+    "titre": "Arcom : les surcoûts des réseaux fibre ruraux dépassent les prévisions de 2015",
+    "n_sources": 3,
+    "n_mots": 880,
+    "titre_rss": "Le régulateur des télécoms peine à rassurer la filière sur l’équilibre économique des réseaux ruraux de fibre optique",
+    "matiere_faits_distincts": 1234,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "deplacements-poles-terrestres-rapides-ere-dinosaures-impact-climatique",
+    "statut": "rejete_sensible",
+    "date": "2026-10-17T08:00:19",
+    "problemes_initiaux": 13,
+    "bloc5": [
+      "compteur_incoherent"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "faits_repetitifs",
+      "titre_de_mauvaise_qualite"
+    ],
+    "titre": "Les pôles terrestres ont bougé 10 fois plus vite qu'aujourd'hui à l'ère des dinosaures",
+    "n_sources": 3,
+    "n_mots": 835,
+    "titre_rss": "Notre planète est moins stable qu'on ne le pensait : une découverte sur les pôles au temps des dinosaures a surpris les chercheurs",
+    "matiere_faits_distincts": 850,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "quatre-operateurs-europeens-explorent-alliance-contre-starlink",
+    "statut": "rejete_sensible",
+    "date": "2026-10-17T08:03:35",
+    "problemes_initiaux": 11,
+    "bloc5": [
+      "acteur_mis_en_cause_sans_reponse"
+    ],
+    "article_type": "actu",
+    "titre": "Quatre opérateurs européens explorent une alliance pour concurrencer Starlink",
+    "n_sources": 5,
+    "n_mots": 470,
+    "titre_rss": "Face à la domination de Starlink, les géants européens des télécoms veulent faire front commun",
+    "matiere_faits_distincts": 881,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "eurobarometre-2026-42-entreprises-numerique-utilisent-ia",
+    "statut": "rejete_sensible",
+    "date": "2026-10-17T08:08:49",
+    "problemes_initiaux": 12,
+    "tentative": 1,
+    "bloc5": true,
+    "article_type": "actu",
+    "titre": "Eurobaromètre 2026 : 42 % des entreprises européennes du numérique utilisent l'IA",
+    "n_sources": 4,
+    "n_mots": 370,
+    "titre_rss": "Une enquête Eurobaromètre met en évidence l'utilisation croissante de l'IA dans les entreprises européennes",
+    "matiere_faits_distincts": 796,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "taxe-sucres-menace-confiseries-traditionnelles-seuil-50-pourcent",
+    "statut": "rejete_sensible",
+    "date": "2026-10-17T08:12:33",
+    "problemes_initiaux": 12,
+    "bloc5": [
+      "jugement_de_valeur"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "titre_de_mauvaise_qualite",
+      "article_sans_date"
+    ],
+    "titre": "Taxe sur les sucres : les confiseurs traditionnels bloqués par un seuil technique infranchissable",
+    "n_sources": 5,
+    "n_mots": 446,
+    "titre_rss": "\"En dessous de 50% de sucre, nous ne savons pas faire\" : pourquoi la future taxe menace directement les petites confiseries traditionnelles",
+    "matiere_faits_distincts": 692,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "jonathan-tortue-194-ans-adn-mitochondrial-longevite-mecanismes",
+    "statut": "rejete_sensible",
+    "date": "2026-10-17T08:17:35",
+    "problemes_initiaux": 12,
+    "tentative": 1,
+    "bloc5": true,
+    "article_type": "actu",
+    "titre": "Jonathan, tortue de 194 ans : son ADN mitochondrial révèle des clés de longévité",
+    "n_sources": 3,
+    "n_mots": 725,
+    "titre_rss": "Le secret de longévité de Jonathan, une tortue de 194 ans de l’île de Sainte-Hélène, caché dans son ADN",
+    "matiere_faits_distincts": 536,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 5,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "etude_scientifique"
+  },
+  {
+    "slug": "telescope-elt-931-miroirs-france-chili-2030-defis-industriels",
+    "statut": "rejete_sensible",
+    "date": "2026-10-17T08:21:09",
+    "problemes_initiaux": 20,
+    "bloc5": [
+      "compteur_incoherent"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "faits_repetitifs",
+      "cliches_ia"
+    ],
+    "titre": "Le télescope ELT : 931 miroirs atomiques fabriqués en France pour 2030",
+    "n_sources": 3,
+    "n_mots": 776,
+    "titre_rss": "Les miroirs du futur Extremely Large Telescope au Chili sont polis à l’atome près, dans une usine du Poitou",
+    "matiere_faits_distincts": 329,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "autorite-de-la-concurrence-alerte-risques-ia-ouvertes-juillet-2026",
+    "statut": "rejete_sensible",
+    "date": "2026-10-17T08:25:20",
+    "problemes_initiaux": 19,
+    "tentative": 1,
+    "bloc5": true,
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "faits_repetitifs",
+      "cliches_ia"
+    ],
+    "titre": "L'Autorité de la concurrence alerte sur les risques des IA ouvertes",
+    "n_sources": 4,
+    "n_mots": 930,
+    "titre_rss": "Derrière les appels à la régulation, l’affrontement entre IA fermées et IA ouvertes",
+    "matiere_faits_distincts": 848,
+    "matiere_redondance": 0.02,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "emissions-gaz-effet-serre-france-baisse-2-8-pourcent-2026-objectif-2030-risque",
+    "statut": "rejete_sensible",
+    "date": "2026-10-17T08:28:47",
+    "problemes_initiaux": 15,
+    "bloc5": [
+      "compteur_incoherent"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "resume_repete_corps",
+      "titre_de_mauvaise_qualite"
+    ],
+    "titre": "Baisse de 2,8 % des émissions de GES en France en 2026, mais rythme insuffisant pour 2030",
+    "n_sources": 6,
+    "n_mots": 462,
+    "titre_rss": "Gaz à effet de serre : les émissions baissent en France, mais pas assez vite",
+    "matiere_faits_distincts": 1013,
+    "matiere_redondance": 0.11,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "lune-formation-rapide-impact-geant-simulation-collision-terre-theia",
+    "statut": "corrige_automatiquement",
+    "date": "2026-10-17T08:33:38",
+    "problemes_initiaux": 14,
+    "tentatives": 2,
+    "problemes_residuels_style": 10,
+    "rapport_initial": {
+      "conforme": false,
+      "sujet_sensible": false,
+      "sujet_sensible_raison": "",
+      "angle_insuffisant": false,
+      "angle_insuffisant_raison": "",
+      "nature_contenu": "etude_scientifique",
+      "problemes": [
+        {
+          "bloc": 2,
+          "section": "sources",
+          "type": "source_derivee_comptee_comme_primaire",
+          "phrase_exacte": "",
+          "explication": "Les sources [2] (EUR-Lex) et [3] (Assemblée nationale) sont sans rapport avec le sujet scientifique traité (formation de la Lune). Elles ne sont pas des sources secondaires indépendantes mais des éléments hors contexte, ce qui fausse le compteur de sources primaires/secondaires. Seule la source [1] (Sciences et Avenir) est pertinente pour le sujet."
+        },
+        {
+          "bloc": 2,
+          "section": "sources",
+          "type": "compteur_incoherent",
+          "phrase_exacte": "",
+          "explication": "Le champ `nb_sources` indique 3, mais seules **1 source primaire** (Sciences et Avenir) est effectivement utilisée. Les deux autres sources ([2] et [3]) sont inutiles et ne comptent pas comme secondaires indépendantes."
+        },
+        {
+          "bloc": 1,
+          "section": "titre",
+          "type": "fait_tranche_arbitrairement",
+          "phrase_exacte": "La Lune pourrait s'être formée en quelques heures après un impact géant",
+          "explication": "Le titre présente le scénario comme une **possibilité avérée** ('pourrait') sans préciser que les simulations sont **préliminaires** et nécessitent des validations expérimentales (mentionnées dans le résumé et les nuances). La source [1] souligne explicitement que les résultats sont 'préliminaires' et 'nécessitent des validations'."
+        },
+        {
+          "bloc": 1,
+          "section": "titre_faits",
+          "type": "fait_tranche_arbitrairement",
+          "phrase_exacte": "Un scénario de formation ultra-rapide validé par simulation",
+          "explication": "Le titre des faits utilise 'validé', ce qui sous-entend une confirmation définitive, alors que la source [1] précise que les résultats sont **préliminaires** et non encore confirmés expérimentalement. Le terme 'validé' est excessif."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "niveau_preuve_insuffisant",
+          "phrase_exacte": "Ces modèles montrent qu'un disque de débris suffisamment dense et chaud aurait permis une condensation accélérée des matériaux, sans nécessiter des milliers d'années de refroidissement comme le suggérait la théorie classique.",
+          "explication": "La phrase présente le scénario comme un **fait établi** ('aurait permis', 'montre') alors que la source [1] qualifie explicitement les résultats de **simulations** et non d'observations directes. Aucune validation expérimentale n'est mentionnée dans la source pour justifier cette affirmation comme un résultat définitif."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "niveau_preuve_insuffisant",
+          "phrase_exacte": "Cette hypothèse expliquerait pourquoi la Lune et la Terre partagent des isotopes similaires, tout en résolvant une énigme persistante : l'absence de différences marquées entre leurs compositions isotopiques, contrairement aux prédictions de la théorie de la collision lente.",
+          "explication": "La phrase suggère que le scénario **résout définitivement** une énigme isotopique, alors que la source [1] ne fait que **proposer une explication possible** ('pourrait éclairer') sans preuve expérimentale. Le terme 'résolvant' est une généralisation non justifiée."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "niveau_preuve_insuffisant",
+          "phrase_exacte": "Les simulations suggèrent également que le disque de débris aurait atteint des températures suffisamment élevées pour fondre partiellement les matériaux, favorisant une homogénéisation chimique rapide.",
+          "explication": "La phrase utilise 'suggèrent' (correct), mais la source [1] précise que ces paramètres (**densité et température initiales supérieures aux estimations précédentes**) **pourraient ne pas correspondre à la réalité physique**. L'article ne retranscrit pas cette réserve explicite, ce qui fausse la perception du niveau de preuve."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "incoherence_inter_sections",
+          "phrase_exacte": "Ces modèles montrent qu'un disque de débris suffisamment dense et chaud aurait permis une condensation accélérée des matériaux, sans nécessiter des milliers d'années de refroidissement comme le suggérait la théorie classique.",
+          "explication": "Le résumé indique que la Lune aurait pu se former en **moins de 24 heures**, alors que le corps des faits parle de **quelques heures seulement**. Ces deux formulations ('moins de 24 heures' vs 'quelques heures') ne sont pas identiques et créent une incohérence mineure entre le résumé et les faits."
+        },
+        {
+          "bloc": 4,
+          "section": "nuances",
+          "type": "redondance",
+          "phrase_exacte": "Les résultats des simulations restent préliminaires et nécessitent des validations expérimentales, notamment par des analyses en laboratoire sur les propriétés des matériaux en conditions extrêmes.",
+          "explication": "Cette phrase répète exactement la même idée que la dernière phrase des faits ('Les auteurs soulignent que leur modèle suppose une densité et une température initiales supérieures aux estimations précédentes, ce qui pourrait ne pas correspondre à la réalité physique'). Aucune nouvelle information n'est apportée."
+        },
+        {
+          "bloc": 4,
+          "section": "nuances",
+          "type": "redondance",
+          "phrase_exacte": "Les auteurs soulignent que leur modèle suppose une densité et une température initiales du disque de débris supérieures aux estimations précédentes, ce qui pourrait ne pas correspondre à la réalité physique.",
+          "explication": "Cette phrase est déjà présente dans les faits et reformulée mot pour mot dans les nuances, sans ajout de précision. C'est une redondance pure."
+        },
+        {
+          "bloc": 4,
+          "section": "contexte",
+          "type": "contexte_hors_sujet",
+          "phrase_exacte": "Cette révision théorique s'inscrit dans un débat plus large sur la dynamique des collisions planétaires. Par exemple, les lunes de Mars pourraient aussi s'être formées par des mécanismes similaires, bien que leur origine reste moins documentée.",
+          "explication": "Bien que pertinent scientifiquement, ce développement sur les lunes de Mars n'est pas directement lié à la question posée dans l'angle ('Cette simulation change-t-elle radicalement notre compréhension de la formation de la Lune ?'). Il s'agit d'une digression qui alourdit le contexte sans apporter d'élément clé pour répondre à l'angle."
+        },
+        {
+          "bloc": 4,
+          "section": "contexte",
+          "type": "contexte_hors_sujet",
+          "phrase_exacte": "Les simulations actuelles ouvrent une nouvelle perspective pour étudier ces processus, en combinant des données observationnelles et des modèles informatiques avancés.",
+          "explication": "Cette phrase est trop générique et ne répond pas à l'angle spécifique de l'article. Elle ne précise pas comment ces simulations **changent ou confirment** les théories existantes sur la Lune, ce qui est l'objet principal de l'article."
+        },
+        {
+          "bloc": 4,
+          "section": "nuances",
+          "type": "extrapolation",
+          "phrase_exacte": "Enfin, les simulations actuelles ne prennent pas en compte les effets des gaz présents dans le disque de débris, ce qui pourrait influencer la dynamique de condensation.",
+          "explication": "La phrase évoque une **possibilité future** ('pourrait influencer') sans source explicite. La source [1] ne mentionne pas cette limite comme une extrapolation, mais comme une **lacune connue** du modèle. L'article devrait soit attribuer cette idée à une source, soit la présenter comme une hypothèse non sourcée (et non comme un fait certain)."
+        },
+        {
+          "bloc": 4,
+          "section": "nuances",
+          "type": "jugement_de_valeur",
+          "phrase_exacte": "Cette théorie ne résout pas encore toutes les questions ouvertes, comme l'origine exacte des différences de composition entre la Terre et la Lune, ou le rôle des champs magnétiques dans la condensation des matériaux.",
+          "explication": "Bien que factuellement correcte, la formulation 'ne résout pas encore' est un jugement de valeur implicite ('insuffisant', 'en attente'). Une reformulation neutre serait : 'Cette théorie ne traite pas encore de toutes les questions ouvertes, telles que...'."
+        }
+      ]
+    },
+    "article_type": "actu",
+    "titre": "La Lune pourrait s'être formée en quelques heures après un impact géant",
+    "n_sources": 3,
+    "n_mots": 651,
+    "titre_rss": "Et, en quelques heures, naquit la Lune...",
+    "matiere_faits_distincts": 484,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "etude_scientifique"
   }
 ]
