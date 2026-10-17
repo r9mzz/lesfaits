@@ -32294,5 +32294,785 @@
     "n_sources_injectees": 10,
     "n_sources_trouvees": 10,
     "nature_contenu": "etude_scientifique"
+  },
+  {
+    "slug": "michel-foucault-100-ans-influence-mecanismes-pouvoir-institutions",
+    "statut": "rejete_qualite",
+    "date": "2026-10-17T16:13:34",
+    "angle_insuffisant": true,
+    "raison": "Aucune source ne fournit d'éléments factuels vérifiables sur l'influence actuelle de Foucault, ses impacts concrets sur les institutions contemporaines ou des débats récents s'y référant. L'article repose sur des généralités non sourcées et ne répond pas à l'angle posé (« Quels impacts concrets les travaux de Foucault, cent ans après sa naissance, ont-ils sur l'analyse des institutions contemporaines ? »). Les sources disponibles ne permettent pas de traiter un sujet actuel ou daté, mais seulement de rappeler des concepts théoriques généraux.",
+    "article_type": "actu",
+    "titre": "Michel Foucault à 100 ans : une influence persistante sur les mécanismes de pouvoir",
+    "n_sources": 4,
+    "n_mots": 352,
+    "titre_rss": "Michel Foucault, penseur de l’actualité",
+    "matiere_faits_distincts": 871,
+    "matiere_redondance": 0.02,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "sujet_pedagogique"
+  },
+  {
+    "slug": "mobilisations-lyceennes-17-octobre-2026-sans-revendications-claires",
+    "statut": "rejete_sensible",
+    "date": "2026-10-17T16:16:35",
+    "problemes_initiaux": 18,
+    "bloc5": [
+      "acteur_mis_en_cause_sans_reponse"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "faits_repetitifs"
+    ],
+    "titre": "17 octobre 2026 : mobilisations lycéennes et mémoire du 1961, deux symboles sans revendications claires",
+    "n_sources": 4,
+    "n_mots": 913,
+    "titre_rss": "Manifestation du 17 octobre : Bernard Thibault apporte son soutien aux jeunes mobilisés",
+    "matiere_faits_distincts": 848,
+    "matiere_redondance": 0.03,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "albanie-montenegro-adhesion-ue-avancees-conditions-france",
+    "statut": "rejete_sensible",
+    "date": "2026-10-17T16:19:30",
+    "problemes_initiaux": 15,
+    "bloc5": [
+      "faux_debat"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "faits_repetitifs"
+    ],
+    "titre": "Adhésion à l'UE : Albanie et Monténégro, avancées et conditions françaises",
+    "n_sources": 4,
+    "n_mots": 699,
+    "titre_rss": "Albanie et Monténégro : un état des lieux des négociations d'adhésion à l'Union européenne - Rapport d'information n° 845",
+    "matiere_faits_distincts": 578,
+    "matiere_redondance": 0.01,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "vaccins-ebola-reponse-immunitaire-detectee-contre-souche-bundibugyo",
+    "statut": "rejete_sensible",
+    "date": "2026-10-17T16:22:15",
+    "problemes_initiaux": 12,
+    "bloc5": [
+      "faux_debat"
+    ],
+    "article_type": "actu",
+    "titre": "Vaccins Ebola : une réponse immunitaire détectée contre la souche Bundibugyo",
+    "n_sources": 4,
+    "n_mots": 384,
+    "titre_rss": "Épidémie d’Ebola Bundibugyo : des premiers résultats pour guider la recherche d’un vaccin efficace",
+    "matiere_faits_distincts": 759,
+    "matiere_redondance": 0.01,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "veille_heures_visible": 517.7,
+    "veille_passages": 311,
+    "veille_age_h": 1597.7,
+    "veille_n_flux_grappe": 9,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "sanofi-interdiction-communication-vaccins-grippe-ue",
+    "statut": "rejete_sensible",
+    "date": "2026-10-17T16:24:45",
+    "problemes_initiaux": 21,
+    "bloc5": [
+      "diffamation_potentielle"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "resume_repete_corps",
+      "faits_repetitifs"
+    ],
+    "titre": "Sanofi interdit de critiquer les vaccins concurrents en France et en Allemagne",
+    "n_sources": 4,
+    "n_mots": 598,
+    "titre_rss": "Vaccins contre la grippe : Sanofi, accusé d’avoir dénigré un concurrent, sommé par l’UE de rectifier sa communication",
+    "matiere_faits_distincts": 1335,
+    "matiere_redondance": 0.01,
+    "matiere_donnees_chiffrees": 2,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "budget-2027-economies-ciblent-les-plus-pauvres",
+    "statut": "rejete_sensible",
+    "date": "2026-10-17T16:27:12",
+    "problemes_initiaux": 10,
+    "bloc5": [
+      "compteur_incoherent"
+    ],
+    "article_type": "actu",
+    "titre": "Budget 2027 : des économies budgétaires ciblées sur les plus pauvres",
+    "n_sources": 7,
+    "n_mots": 437,
+    "titre_rss": "Le collectif Alerte appelle à revoir le projet de budget 2027, qui va « appauvrir les plus pauvres »",
+    "matiere_faits_distincts": 544,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "enquete-cyberharcelement-juge-youssef-badr-elements-risques-juridiques",
+    "statut": "rejete_sensible",
+    "date": "2026-10-17T16:30:15",
+    "sujet_sensible": true,
+    "raison": "L'article porte sur une enquête judiciaire en cours visant une personne identifiée (juge Youssef Badr) pour cyberharcèlement, sans condamnation définitive.",
+    "article_type": "actu",
+    "titre": "Enquête pour cyberharcèlement contre le juge Youssef Badr : éléments et risques juridiques",
+    "n_sources": 3,
+    "n_mots": 676,
+    "titre_rss": "Attaques visant le juge Youssef Badr : ouverture à Paris d’une enquête pour cyberharcèlement",
+    "matiere_faits_distincts": 654,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "canicule-juin-2026-2025-deces-supplementaires-mortalite-france-limites",
+    "statut": "rejete_sensible",
+    "date": "2026-10-17T16:36:24",
+    "problemes_initiaux": 13,
+    "bloc5": [
+      "compteur_incoherent"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "resume_repete_corps",
+      "faits_repetitifs"
+    ],
+    "titre": "Canicule : +2 025 décès en une semaine, une hausse record mais des données encore partielles",
+    "n_sources": 3,
+    "n_mots": 1042,
+    "titre_rss": "Point de situation sur la mortalité toutes causes confondues  sur la période du 22 au 28 juin 2026",
+    "matiere_faits_distincts": 879,
+    "matiere_redondance": 0.01,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "enquete-eras-2026-20-000-hsh-interroges-pour-adapter-prevention-vih-ist",
+    "statut": "rejete_sensible",
+    "date": "2026-10-17T16:39:12",
+    "problemes_initiaux": 14,
+    "bloc5": [
+      "compteur_incoherent"
+    ],
+    "article_type": "actu",
+    "titre": "Enquête ERAS 2026 : 20 000 HSH et personnes trans interrogés pour adapter la prévention",
+    "n_sources": 4,
+    "n_mots": 750,
+    "titre_rss": "Enquête « Rapport au sexe » (ERAS) 2026 à destination des hommes ayant des rapports sexuels avec des hommes",
+    "matiere_faits_distincts": 999,
+    "matiere_redondance": 0.01,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "veille_heures_visible": 117.0,
+    "veille_passages": 24,
+    "veille_age_h": 1196.9,
+    "veille_n_flux_grappe": 1,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "roumanie-essence-2-euros-impact-pouvoir-dachat-2026",
+    "statut": "rejete_sensible",
+    "date": "2026-10-17T16:42:27",
+    "problemes_initiaux": 15,
+    "bloc5": [
+      "compteur_incoherent"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "resume_repete_corps"
+    ],
+    "titre": "En Roumanie, l'essence à près de 2 € le litre réduit les dépenses alimentaires",
+    "n_sources": 3,
+    "n_mots": 359,
+    "titre_rss": "« On travaille plus et on mange moins » pour payer son essence en Roumanie",
+    "matiere_faits_distincts": 742,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "inserm-demontre-sept-idees-recues-vaccins-campagne-2026-2027",
+    "statut": "rejete_sensible",
+    "date": "2026-10-17T16:50:01",
+    "problemes_initiaux": 15,
+    "bloc5": [
+      "acteur_mis_en_cause_sans_reponse"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "faits_repetitifs",
+      "attributions_trop_repetitives"
+    ],
+    "titre": "L’Inserm démontre sept idées reçues sur les vaccins à l’occasion de la campagne 2026-2027",
+    "n_sources": 8,
+    "n_mots": 1006,
+    "titre_rss": "Sept fausses idées sur les vaccins",
+    "matiere_faits_distincts": 1231,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "cyberattaque-frigos-supermarches-menace-resilience-alimentaire-france",
+    "statut": "rejete_sensible",
+    "date": "2026-10-17T16:57:30",
+    "problemes_initiaux": 19,
+    "bloc5": [
+      "acteur_mis_en_cause_sans_reponse"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "resume_repete_corps",
+      "titre_de_mauvaise_qualite"
+    ],
+    "titre": "Cyberattaque sur les frigos des supermarchés : une menace sur la résilience alimentaire",
+    "n_sources": 6,
+    "n_mots": 933,
+    "titre_rss": "Piratage de supermarchés en France : \"Pas besoin de chars pour faire la guerre\", dit un expert",
+    "matiere_faits_distincts": 778,
+    "matiere_redondance": 0.02,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "53-pourcent-especes-migrent-nord-rechauffement-climatique",
+    "statut": "rejete_sensible",
+    "date": "2026-10-17T17:01:09",
+    "problemes_initiaux": 19,
+    "bloc5": [
+      "extrapolation"
+    ],
+    "article_type": "actu",
+    "titre": "53 % des espèces étudiées migrent vers le nord pour fuir la chaleur",
+    "n_sources": 5,
+    "n_mots": 428,
+    "titre_rss": "Biodiversité : ruée vers les pôles et les sommets",
+    "matiere_faits_distincts": 636,
+    "matiere_redondance": 0.01,
+    "matiere_donnees_chiffrees": 2,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "les-nouvelles-decouvertes-revelent-des-brassages-genetiques-anciens-entre-humains-et-autres-espèces",
+    "statut": "rejete_qualite",
+    "date": "2026-10-17T17:08:02",
+    "tentative": 3,
+    "perte_substance": true,
+    "section": "contexte",
+    "mots_avant": 235,
+    "mots_apres": 0,
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "faits_repetitifs",
+      "titre_de_mauvaise_qualite"
+    ],
+    "titre": "Les origines de l'humanité : des brassages génétiques bien plus complexes que prévu",
+    "n_sources": 3,
+    "n_mots": 840,
+    "titre_rss": "Homo sapiens, l'enquête qui change tout : plongée dans l'histoire cachée de nos origines",
+    "matiere_faits_distincts": 783,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "406-millions-detournes-energies-renouvelables-carburants-agriculture",
+    "statut": "rejete_sensible",
+    "date": "2026-10-17T17:11:46",
+    "problemes_initiaux": 12,
+    "bloc5": [
+      "faux_debat"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "resume_repete_corps",
+      "faits_repetitifs"
+    ],
+    "titre": "406 millions d'euros détournés des énergies renouvelables vers carburants et agriculture",
+    "n_sources": 5,
+    "n_mots": 772,
+    "titre_rss": "Des aides aux énergies renouvelables... redirigées vers le carburant",
+    "matiere_faits_distincts": 1120,
+    "matiere_redondance": 0.01,
+    "matiere_donnees_chiffrees": 2,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "horloges-atomiques-aces-precision-300-millions-annes-iss",
+    "statut": "rejete_sensible",
+    "date": "2026-10-17T17:14:52",
+    "problemes_initiaux": 16,
+    "bloc5": [
+      "compteur_incoherent"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "titre_de_mauvaise_qualite"
+    ],
+    "titre": "ACES sur l'ISS : des horloges atomiques atteignent une précision de 1 seconde en 300 millions d'années",
+    "n_sources": 3,
+    "n_mots": 741,
+    "titre_rss": "La folle course des physiciens pour mesurer le temps, jusqu’à envisager une redéfinition de la seconde",
+    "matiere_faits_distincts": 861,
+    "matiere_redondance": 0.01,
+    "matiere_donnees_chiffrees": 2,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "incendies-indonesie-pollution-record-asie-du-sud-est-alerte-maximale",
+    "statut": "rejete_sensible",
+    "date": "2026-10-17T17:18:14",
+    "problemes_initiaux": 13,
+    "bloc5": [
+      "compteur_incoherent"
+    ],
+    "article_type": "actu",
+    "titre": "Pollution record en Asie du Sud-Est : les incendies indonésiens déclenchent l'alerte maximale",
+    "n_sources": 3,
+    "n_mots": 456,
+    "titre_rss": "Le niveau d’alerte maximal sur la qualité de l’air déclenché dans une partie de l’Asie du Sud-Est, à la suite des incendies qui ravagent l’Indonésie",
+    "matiere_faits_distincts": 1256,
+    "matiere_redondance": 0.01,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "lfi-presente-budget-alternatif-188-milliards-euros",
+    "statut": "rejete_sensible",
+    "date": "2026-10-17T17:21:56",
+    "problemes_initiaux": 14,
+    "bloc5": [
+      "acteur_mis_en_cause_sans_reponse"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "resume_repete_corps"
+    ],
+    "titre": "LFI présente un budget alternatif de 188 milliards d'euros",
+    "n_sources": 4,
+    "n_mots": 762,
+    "titre_rss": "Contre-budget de LFI : le pari incertain de la relance",
+    "matiere_faits_distincts": 1125,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "mortalité-france-2024-641-046-décès-baisse-taux-maladies-respiratoires",
+    "statut": "rejete_sensible",
+    "date": "2026-10-17T17:29:51",
+    "problemes_initiaux": 15,
+    "tentative": 3,
+    "bloc5": true,
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "resume_repete_corps",
+      "titre_de_mauvaise_qualite"
+    ],
+    "titre": "France : 641 046 décès en 2024, baisse du taux de mortalité malgré hausse des maladies respiratoires",
+    "n_sources": 5,
+    "n_mots": 808,
+    "titre_rss": "Grandes causes de décès en France : tendances et causes associées en 2024",
+    "matiere_faits_distincts": 1347,
+    "matiere_redondance": 0.04,
+    "matiere_donnees_chiffrees": 2,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "veille_heures_visible": 517.7,
+    "veille_passages": 311,
+    "veille_age_h": 1597.7,
+    "veille_n_flux_grappe": 1,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "commission-europeenne-repousse-reporting-fuites-methane-2025",
+    "statut": "rejete_sensible",
+    "date": "2026-10-17T17:33:09",
+    "problemes_initiaux": 14,
+    "bloc5": [
+      "faux_debat"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "resume_repete_corps"
+    ],
+    "titre": "La Commission européenne repousse à 2025 le reporting obligatoire sur les fuites de méthane",
+    "n_sources": 5,
+    "n_mots": 402,
+    "titre_rss": "Fuites de méthane : l'Europe cède aux lobbies de l'énergie",
+    "matiere_faits_distincts": 1104,
+    "matiere_redondance": 0.01,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "hospitalisation-empoisonnement-ia-chatgpt-risques-sante-mentale",
+    "statut": "rejete_sensible",
+    "date": "2026-10-17T17:36:19",
+    "problemes_initiaux": 18,
+    "bloc5": [
+      "jugement_de_valeur"
+    ],
+    "article_type": "actu",
+    "titre": "Hospitalisation après une interaction délirante avec une IA",
+    "n_sources": 5,
+    "n_mots": 696,
+    "titre_rss": "Un homme empoisonné après avoir consulté ChatGPT : l’alerte des chercheurs sur les dangers invisibles de l’IA",
+    "matiere_faits_distincts": 880,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "thrombinnov-startup-strasbourg-plaquettes-sang-molecules-medicaments-risques-thrombotiques",
+    "statut": "rejete_sensible",
+    "date": "2026-10-17T17:42:30",
+    "problemes_initiaux": 11,
+    "bloc5": [
+      "compteur_incoherent"
+    ],
+    "article_type": "actu",
+    "titre": "ThrombInnov utilise 40 ans d’expertise strasbourgeoise pour tester les risques thrombotiques des médicaments",
+    "n_sources": 4,
+    "n_mots": 641,
+    "titre_rss": "L’entrepreneuriat dans le sang !",
+    "matiere_faits_distincts": 1099,
+    "matiere_redondance": 0.01,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "arcep-compensations-fibre-rurale-insuffisantes-opérateurs-2026",
+    "statut": "rejete_sensible",
+    "date": "2026-10-17T17:50:03",
+    "problemes_initiaux": 18,
+    "bloc5": [
+      "faux_debat"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "faits_repetitifs",
+      "titre_de_mauvaise_qualite"
+    ],
+    "titre": "Arcep : les compensations pour la fibre rurale jugées insuffisantes par les opérateurs",
+    "n_sources": 4,
+    "n_mots": 908,
+    "titre_rss": "Le régulateur des télécoms peine à rassurer la filière sur l’équilibre économique des réseaux ruraux de fibre optique",
+    "matiere_faits_distincts": 1212,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "biais-cognitifs-algorithmes-desinformation-climatique-2024",
+    "statut": "rejete_sensible",
+    "date": "2026-10-17T17:53:26",
+    "problemes_initiaux": 16,
+    "bloc5": [
+      "compteur_incoherent"
+    ],
+    "article_type": "actu",
+    "titre": "Biais cognitifs et algorithmes : pourquoi les fausses informations climatiques séduisent-elles autant ?",
+    "n_sources": 3,
+    "n_mots": 845,
+    "titre_rss": "« Les biais cognitifs nous jouent des tours » : rencontre avec des experts qui décryptent les pièges de la désinformation climatique",
+    "matiere_faits_distincts": 200,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "ia-10-entreprises-francaises-2024-retard-europe",
+    "statut": "rejete_sensible",
+    "date": "2026-10-17T17:57:54",
+    "problemes_initiaux": 12,
+    "tentative": 1,
+    "bloc5": true,
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "titre_de_mauvaise_qualite"
+    ],
+    "titre": "L’IA utilisée par 10 % des entreprises françaises en 2024, contre 14 % en moyenne dans l’UE",
+    "n_sources": 5,
+    "n_mots": 497,
+    "titre_rss": "Une enquête Eurobaromètre met en évidence l'utilisation croissante de l'IA dans les entreprises européennes",
+    "matiere_faits_distincts": 803,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "deputes-rejettent-recettes-plfss-2027-commission",
+    "statut": "rejete_sensible",
+    "date": "2026-10-17T18:03:33",
+    "problemes_initiaux": 13,
+    "bloc5": [
+      "acteur_mis_en_cause_sans_reponse"
+    ],
+    "article_type": "actu",
+    "titre": "Députés rejettent la partie recettes du PLFSS 2027 en commission",
+    "n_sources": 4,
+    "n_mots": 413,
+    "titre_rss": "Budget de la Sécurité sociale : les députés rejettent en commission la partie « recettes » du texte",
+    "matiere_faits_distincts": 521,
+    "matiere_redondance": 0.03,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "chine-ue-divergence-ia-modeles-ouverts-fermes-regulation-2026",
+    "statut": "rejete_sensible",
+    "date": "2026-10-17T18:07:23",
+    "problemes_initiaux": 10,
+    "bloc5": [
+      "faux_debat"
+    ],
+    "article_type": "actu",
+    "titre": "Chine et UE divergent sur les IA : modèles ouverts contre régulation renforcée",
+    "n_sources": 6,
+    "n_mots": 386,
+    "titre_rss": "Derrière les appels à la régulation, l’affrontement entre IA fermées et IA ouvertes",
+    "matiere_faits_distincts": 873,
+    "matiere_redondance": 0.04,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "400-scientifiques-alertent-sur-les-risques-des-agents-ia-autonomes",
+    "statut": "rejete_sensible",
+    "date": "2026-10-17T18:10:20",
+    "problemes_initiaux": 12,
+    "bloc5": [
+      "faux_debat"
+    ],
+    "article_type": "actu",
+    "titre": "400 scientifiques alertent sur les risques des agents IA autonomes",
+    "n_sources": 11,
+    "n_mots": 1161,
+    "titre_rss": "IA : 400 scientifiques alertent sur les risques de cybersécurité",
+    "matiere_faits_distincts": 964,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "lune-formation-rapide-theorie-collision-acceleree",
+    "statut": "rejete_sensible",
+    "date": "2026-10-17T18:13:16",
+    "problemes_initiaux": 10,
+    "bloc5": [
+      "compteur_incoherent"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "faits_repetitifs"
+    ],
+    "titre": "La Lune pourrait s'être formée en quelques heures selon une nouvelle simulation",
+    "n_sources": 3,
+    "n_mots": 525,
+    "titre_rss": "Et, en quelques heures, naquit la Lune...",
+    "matiere_faits_distincts": 762,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "etude_scientifique"
+  },
+  {
+    "slug": "duralex-repris-tome-155-emplois-sauves-transition-energetique-ambitieuse",
+    "statut": "corrige_automatiquement",
+    "date": "2026-10-17T18:18:14",
+    "problemes_initiaux": 15,
+    "tentatives": 2,
+    "problemes_residuels_style": 19,
+    "rapport_initial": {
+      "conforme": false,
+      "sujet_sensible": false,
+      "sujet_sensible_raison": "",
+      "angle_insuffisant": false,
+      "angle_insuffisant_raison": "",
+      "nature_contenu": "actualite_factuelle",
+      "problemes": [
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "La holding NJJ Capital, liée à Xavier Niel, participe également au financement [1].",
+          "explication": "La source [1] (Novethic) ne mentionne pas NJJ Capital ni Xavier Niel comme participants au financement."
+        },
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "Une enquête judiciaire a été ouverte par le parquet d’Orléans, avec des perquisitions menées en septembre 2026, mais son motif précis n’a pas été divulgué [1].",
+          "explication": "La source [1] (Novethic) ne mentionne ni l'ouverture d'une enquête judiciaire ni des perquisitions en septembre 2026."
+        },
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "Deux dirigeants, François Marciano (directeur général) et son fils Antoine (directeur financier), avaient quitté leurs fonctions en avril 2026 [1].",
+          "explication": "La source [1] (Novethic) ne mentionne ni les noms des dirigeants ni leur départ en avril 2026."
+        },
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "La CG Scop avait souligné que la situation de Duralex ne tenait pas au modèle coopératif, mais à des problèmes structurels de gouvernance et de financement [1].",
+          "explication": "La source [1] (Novethic) ne mentionne pas explicitement la CG Scop ni ses analyses sur les problèmes structurels de gouvernance et de financement."
+        },
+        {
+          "bloc": 2,
+          "section": "nuances",
+          "type": "source_inventee",
+          "phrase_exacte": "La CG Scop avait déjà souligné que les besoins réels dépassaient largement les montants mobilisés, laissant planer un doute sur la durabilité du sauvetage [1].",
+          "explication": "La source [1] (Novethic) ne mentionne pas explicitement cette analyse de la CG Scop sur les besoins réels et la durabilité du sauvetage."
+        },
+        {
+          "bloc": 2,
+          "section": "nuances",
+          "type": "source_inventee",
+          "phrase_exacte": "Aucune réaction officielle des salariés ou des syndicats n’était disponible dans les sources consultées à la date de publication.",
+          "explication": "Cette affirmation n'est pas sourcée et ne peut être vérifiée par les sources autorisées fournies."
+        },
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "source_derivee_comptee_comme_primaire",
+          "phrase_exacte": "Les sources [1], [2], [3] sont utilisées pour couvrir des aspects distincts (historique, reprise, contexte), mais aucune ne fournit d'informations indépendantes sur les éléments financiers, juridiques ou énergétiques sans recourir à des interprétations ou des détails non confirmés par les extraits.",
+          "explication": "Les sources autorisées sont insuffisantes pour couvrir tous les aspects abordés. Les sources [2] et [3] (annuaires gouvernementaux) ne contiennent que des données administratives générales et ne peuvent valider les détails financiers, juridiques ou énergétiques mentionnés dans l'article."
+        },
+        {
+          "bloc": 2,
+          "section": "contexte",
+          "type": "source_non_editoriale",
+          "phrase_exacte": "Le modèle coopératif, testé en 2024, avait suscité un élan populaire inédit avec plus de 21 000 contributeurs potentiels et une levée de fonds record pour une Scop.",
+          "explication": "Bien que la source [1] mentionne la levée de fonds citoyenne, les chiffres de 21 000 contributeurs et une levée record ne sont pas explicitement confirmés par les extraits fournis."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "chiffre_errone",
+          "phrase_exacte": "Une levée de fonds citoyenne, organisée via la plateforme Lita, avait recueilli 19,8 millions d’euros de promesses, mais seulement 7 millions avaient été effectivement levés, avec un plafond de 1 000 euros par contributeur [1].",
+          "explication": "La source [1] (Novethic) mentionne un plafond de 1 000 euros et 7 millions d'euros effectivement levés, mais ne confirme pas le chiffre de 19,8 millions d'euros de promesses."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "incoherence_inter_sections",
+          "phrase_exacte": "Le tribunal de commerce d’Orléans a confié Duralex à Tomé, la holding de Cédric Meston, le 14 octobre 2026 [1].",
+          "explication": "Le titre et le résumé mentionnent une reprise par Tomé, mais la source [1] ne confirme pas explicitement que Tomé est la holding de Cédric Meston, ni que cette reprise a eu lieu le 14 octobre 2026."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "niveau_preuve_insuffisant",
+          "phrase_exacte": "Les audits ont révélé une trésorerie tendue, et les 6 millions d’euros de prêts publics ne couvrent qu’une partie des besoins estimés.",
+          "explication": "Les audits mentionnés ne sont pas détaillés dans les sources fournies, et leur contenu (trésorerie tendue, besoins estimés) n'est pas explicitement confirmé par les extraits."
+        },
+        {
+          "bloc": 4,
+          "section": "nuances",
+          "type": "redondance",
+          "phrase_exacte": "Les engagements de Tomé, bien que concrets, laissent subsister des incertitudes majeures. Le repreneur s’est engagé à ne procéder à aucun licenciement économique pendant deux ans, mais la viabilité financière de Duralex dépendra de sa capacité à attirer des investisseurs privés supplémentaires.",
+          "explication": "Cette phrase répète des informations déjà présentes dans les faits et le résumé, sans apporter de nouvelle nuance sourcée."
+        },
+        {
+          "bloc": 4,
+          "section": "nuances",
+          "type": "redondance",
+          "phrase_exacte": "La transition énergétique vers l’électricité d’ici 2029 est ambitieuse : elle suppose des investissements supplémentaires non encore détaillés, ainsi qu’une stabilité des coûts énergétiques.",
+          "explication": "Cette phrase reformule des éléments déjà mentionnés dans les faits, sans nouvelle information sourcée."
+        },
+        {
+          "bloc": 2,
+          "section": "sources",
+          "type": "compteur_incoherent",
+          "phrase_exacte": "nb_sources: 3",
+          "explication": "Les sources [2] et [3] (annuaires gouvernementaux) ne fournissent pas d'informations exploitables pour les éléments clés de l'article. Le compte réel de sources primaires utiles est donc 1 (Novethic), et les autres sources ne sont pas des sources secondaires indépendantes."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "fait_tranche_arbitrairement",
+          "phrase_exacte": "« Notre ambition n’est pas de le sauver une cinquième fois, mais de le transformer pour de bon », a déclaré Serge Grouard, président d’Orléans Métropole [1].",
+          "explication": "La source [1] ne confirme pas que cette déclaration implique une transformation définitive et réussie, seulement une ambition. L'article généralise cette ambition en fait établi sans réserve."
+        }
+      ]
+    },
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "faits_repetitifs"
+    ],
+    "titre": "Duralex repris par Tomé : 155 emplois sauvés, mais un plan de transition énergétique ambitieux",
+    "n_sources": 3,
+    "n_mots": 1009,
+    "titre_rss": "Fini la coopérative : Duralex repris pour en faire \"l'usine de verre la plus verte au monde\"",
+    "matiere_faits_distincts": 767,
+    "matiere_redondance": 0.01,
+    "matiere_donnees_chiffrees": 5,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
   }
 ]
