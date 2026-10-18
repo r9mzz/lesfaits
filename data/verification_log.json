@@ -34074,5 +34074,887 @@
     "n_sources_injectees": 10,
     "n_sources_trouvees": 10,
     "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "michel-foucault-100-ans-influence-methodes-institutions-technologies",
+    "statut": "rejete_sensible",
+    "date": "2026-10-18T16:39:12",
+    "problemes_initiaux": 14,
+    "tentative": 2,
+    "bloc5": true,
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "faits_repetitifs",
+      "titre_de_mauvaise_qualite"
+    ],
+    "titre": "Michel Foucault cent ans après : une méthode toujours mobilisée pour analyser les institutions",
+    "n_sources": 3,
+    "n_mots": 1281,
+    "titre_rss": "Michel Foucault, penseur de l’actualité",
+    "matiere_faits_distincts": 963,
+    "matiere_redondance": 0.09,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "rapport-meadows-1972-predictions-effondrement-civilisationnel-verifiees",
+    "statut": "rejete_qualite",
+    "date": "2026-10-18T16:47:40",
+    "problemes_initiaux": 20,
+    "tentatives": 3,
+    "problemes_restants": 24,
+    "bloquants_restants": 16,
+    "bloquants_types": [
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "niveau_preuve_insuffisant",
+      "incoherence_inter_sections"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "La source [10] n'existe pas dans la liste des sources autorisées. Il s'agit d'une erreur de renvoi, car les deux sources INED sont référencées comme [1] et [2].",
+        "phrase": "comme le note l’INED dans ses analyses récentes [10]."
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "Même problème que précédemment : la source [10] n'existe pas dans la liste des sources autorisées.",
+        "phrase": "comme le rappelle l’INED dans ses analyses récentes [10]."
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "La source [10] n'existe pas dans la liste des sources autorisées.",
+        "phrase": "comme le souligne l’INED [10]."
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "La source [10] n'existe pas dans la liste des sources autorisées.",
+        "phrase": "comme le note l’INED dans ses travaux sur les conflits liés à l’eau [10]."
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "La source [10] n'existe pas dans la liste des sources autorisées.",
+        "phrase": "comme le souligne l’INED, qui évoque des tendances persistantes sans quantification précise [10]."
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "La source [10] n'existe pas dans la liste des sources autorisées.",
+        "phrase": "comme le souligne l’INED, qui évoque des tendances persistantes sans quantification précise [10]."
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "La source [10] n'existe pas dans la liste des sources autorisées.",
+        "phrase": "Les modèles de l’INED montrent que la transition démographique a ralenti la croissance dans de nombreux pays [10]."
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "La source [10] n'existe pas dans la liste des sources autorisées.",
+        "phrase": "comme le note l’INED [10]."
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "La source [10] n'existe pas dans la liste des sources autorisées.",
+        "phrase": "comme le souligne l’INED [10]."
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "La source [10] n'existe pas dans la liste des sources autorisées.",
+        "phrase": "comme le souligne l’INED, qui évoque des tendances persistantes sans quantification précise [10]."
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "La source [10] n'existe pas dans la liste des sources autorisées.",
+        "phrase": "comme le souligne l’INED, qui évoque des tendances persistantes sans quantification précise [10]."
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "La source [10] n'existe pas dans la liste des sources autorisées.",
+        "phrase": "comme le note l’INED dans ses analyses sur les conflits liés à l’eau [10]."
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "La source [10] n'existe pas dans la liste des sources autorisées.",
+        "phrase": "comme le souligne l’INED [10]."
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "La source [10] n'existe pas dans la liste des sources autorisées.",
+        "phrase": "comme le souligne l’INED, qui évoque des tendances persistantes sans quantification précise [10]."
+      },
+      {
+        "bloc": 1,
+        "type": "niveau_preuve_insuffisant",
+        "description": "L'article ne précise pas que ces dynamiques sont décrites qualitativement par l'INED sans données chiffrées actualisées ou comparatives avec les prédictions de Meadows.",
+        "phrase": "Les dynamiques décrites dans le rapport — notamment la pression sur les ressources et les déséquilibres écologiques — restent d’actualité."
+      },
+      {
+        "bloc": 1,
+        "type": "incoherence_inter_sections",
+        "description": "L'article affirme que la transition vers les énergies renouvelables a modifié la trajectoire énergétique, mais aucune donnée chiffrée ou comparaison précise n'est fournie pour étayer cette affirmation. Les sources ne per",
+        "phrase": "En 2026, bien que la consommation énergétique mondiale ait effectivement augmenté, la transition vers des énergies renouvelables a modifié cette trajectoire, comme le note l’INED [1]."
+      }
+    ],
+    "types_restants": [
+      "source_derivee_comptee_comme_primaire",
+      "source_derivee_comptee_comme_primaire",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "compteur_incoherent",
+      "fait_tranche_arbitrairement",
+      "niveau_preuve_insuffisant",
+      "redondance",
+      "redondance",
+      "redondance",
+      "incoherence_inter_sections",
+      "contexte_hors_sujet"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "faits_repetitifs",
+      "titre_de_mauvaise_qualite"
+    ],
+    "titre": "Rapport Meadows 1972 : les prédictions du MIT sur l'effondrement civilisationnel se vérifient-elles ?",
+    "n_sources": 3,
+    "n_mots": 1188,
+    "titre_rss": "Effondrement de notre civilisation : ces prédictions du Rapport Meadows (MIT) il y a 50 ans semblent se confirmer",
+    "matiere_faits_distincts": 567,
+    "matiere_redondance": 0.08,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "vaccins-ebola-zaire-reponse-immunitaire-partielle-contre-bundibugyo",
+    "statut": "rejete_sensible",
+    "date": "2026-10-18T16:56:37",
+    "problemes_initiaux": 13,
+    "bloc5": [
+      "compteur_incoherent"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "faits_repetitifs"
+    ],
+    "titre": "Vaccins Ebola Zaïre : une réponse immunitaire partielle contre Bundibugyo",
+    "n_sources": 7,
+    "n_mots": 887,
+    "titre_rss": "Épidémie d’Ebola Bundibugyo : des premiers résultats pour guider la recherche d’un vaccin efficace",
+    "matiere_faits_distincts": 1081,
+    "matiere_redondance": 0.03,
+    "matiere_donnees_chiffrees": 4,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "veille_heures_visible": 517.7,
+    "veille_passages": 311,
+    "veille_age_h": 1622.0,
+    "veille_n_flux_grappe": 9,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "sanofi-interdit-de-critiquer-recommandations-vaccinales-france-allemagne",
+    "statut": "rejete_sensible",
+    "date": "2026-10-18T16:59:47",
+    "problemes_initiaux": 13,
+    "bloc5": [
+      "compteur_incoherent"
+    ],
+    "article_type": "actu",
+    "titre": "Sanofi interdit de critiquer les recommandations vaccinales en France et Allemagne",
+    "n_sources": 6,
+    "n_mots": 683,
+    "titre_rss": "Vaccins contre la grippe : Sanofi, accusé d’avoir dénigré un concurrent, sommé par l’UE de rectifier sa communication",
+    "matiere_faits_distincts": 1099,
+    "matiere_redondance": 0.01,
+    "matiere_donnees_chiffrees": 2,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "canicule-juin-2026-surmortalité-2025-deces-supplementaires",
+    "statut": "rejete_sensible",
+    "date": "2026-10-18T17:04:53",
+    "problemes_initiaux": 16,
+    "tentative": 2,
+    "bloc5": true,
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "faits_repetitifs"
+    ],
+    "titre": "Canicule de juin 2026 : +2 025 décès en une semaine",
+    "n_sources": 3,
+    "n_mots": 859,
+    "titre_rss": "Point de situation sur la mortalité toutes causes confondues  sur la période du 22 au 28 juin 2026",
+    "matiere_faits_distincts": 821,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "enquete-eras-2026-20-000-participants-risques-vih-ist-hsh",
+    "statut": "rejete_sensible",
+    "date": "2026-10-18T17:08:27",
+    "problemes_initiaux": 14,
+    "bloc5": [
+      "compteur_incoherent"
+    ],
+    "article_type": "actu",
+    "titre": "Enquête ERAS 2026 : 20 000 participants pour évaluer les risques VIH/IST chez les HSH",
+    "n_sources": 4,
+    "n_mots": 858,
+    "titre_rss": "Enquête « Rapport au sexe » (ERAS) 2026 à destination des hommes ayant des rapports sexuels avec des hommes",
+    "matiere_faits_distincts": 918,
+    "matiere_redondance": 0.08,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "veille_heures_visible": 117.0,
+    "veille_passages": 24,
+    "veille_age_h": 1221.3,
+    "veille_n_flux_grappe": 1,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "sept-idees-recues-vaccins-demontes-inserm-oms-campagne-2026-2027",
+    "statut": "rejete_sensible",
+    "date": "2026-10-18T17:14:04",
+    "problemes_initiaux": 16,
+    "bloc5": [
+      "compteur_incoherent"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "faits_repetitifs",
+      "prise_de_position"
+    ],
+    "titre": "Campagne vaccinale 2026-2027 : sept idées reçues démontées par l’Inserm et l’OMS",
+    "n_sources": 6,
+    "n_mots": 1042,
+    "titre_rss": "Sept fausses idées sur les vaccins",
+    "matiere_faits_distincts": 1215,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 2,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "commission-enquete-violences-17-octobre-objectifs-et-pouvoirs",
+    "statut": "rejete_sensible",
+    "date": "2026-10-18T17:19:04",
+    "problemes_initiaux": 15,
+    "bloc5": [
+      "accusation_presentee_comme_fait"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "resume_repete_corps",
+      "faits_repetitifs"
+    ],
+    "titre": "Violences du 17 octobre : une commission d'enquête parlementaire en préparation",
+    "n_sources": 3,
+    "n_mots": 511,
+    "titre_rss": "La présidente de l'Assemblée nationale va proposer une commission d'enquête après les violences \"d'une extrême gravité\" en marge de la mobilisation du 17 octobre",
+    "matiere_faits_distincts": 1192,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "plan-biodiversite-financement-insuffisant-40-pourcent-europe",
+    "statut": "rejete_sensible",
+    "date": "2026-10-18T17:22:40",
+    "problemes_initiaux": 13,
+    "bloc5": [
+      "acteur_mis_en_cause_sans_reponse"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "resume_repete_corps"
+    ],
+    "titre": "Plan biodiversité : 40 % des financements manquants malgré l'obligation européenne",
+    "n_sources": 8,
+    "n_mots": 859,
+    "titre_rss": "Biodiversité : la France présente un plan de restauration de la nature sans ambition et sous-financé",
+    "matiere_faits_distincts": 1298,
+    "matiere_redondance": 0.02,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "cyberattaque-systems-frigorifiques-menace-chaine-alimentaire-francaise",
+    "statut": "rejete_sensible",
+    "date": "2026-10-18T17:25:14",
+    "problemes_initiaux": 11,
+    "bloc5": [
+      "faux_debat"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "resume_repete_corps",
+      "titre_de_mauvaise_qualite"
+    ],
+    "titre": "Cyberattaque sur les systèmes frigorifiques : une menace sur la chaîne alimentaire française",
+    "n_sources": 7,
+    "n_mots": 399,
+    "titre_rss": "Piratage de supermarchés en France : \"Pas besoin de chars pour faire la guerre\", dit un expert",
+    "matiere_faits_distincts": 1207,
+    "matiere_redondance": 0.02,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "1888-espèces-européennes-modifient-leur-habitat-sous-leffet-du-rechauffement",
+    "statut": "rejete_sensible",
+    "date": "2026-10-18T17:28:49",
+    "problemes_initiaux": 18,
+    "bloc5": [
+      "compteur_incoherent"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "faits_repetitifs"
+    ],
+    "titre": "1 888 espèces européennes modifient leur habitat à cause du réchauffement",
+    "n_sources": 7,
+    "n_mots": 1091,
+    "titre_rss": "Biodiversité : ruée vers les pôles et les sommets",
+    "matiere_faits_distincts": 1273,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "detournement-406-millions-energies-renouvelables-carburants",
+    "statut": "rejete_sensible",
+    "date": "2026-10-18T17:32:25",
+    "problemes_initiaux": 18,
+    "bloc5": [
+      "acteur_mis_en_cause_sans_reponse"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "resume_repete_corps",
+      "faits_repetitifs"
+    ],
+    "titre": "406 millions d'euros détournés des énergies renouvelables vers les carburants",
+    "n_sources": 4,
+    "n_mots": 920,
+    "titre_rss": "Des aides aux énergies renouvelables... redirigées vers le carburant",
+    "matiere_faits_distincts": 1273,
+    "matiere_redondance": 0.07,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "contre-budget-lfi-2026-188-milliards-deficit-recettes-fragiles",
+    "statut": "rejete_sensible",
+    "date": "2026-10-18T17:38:00",
+    "problemes_initiaux": 13,
+    "bloc5": [
+      "faux_debat"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "faits_repetitifs"
+    ],
+    "titre": "Contre-budget LFI 2026 : 188 milliards de déficit supplémentaire, mais des recettes fragiles",
+    "n_sources": 4,
+    "n_mots": 1024,
+    "titre_rss": "Contre-budget de LFI : le pari incertain de la relance",
+    "matiere_faits_distincts": 576,
+    "matiere_redondance": 0.01,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "mortalite-france-2024-641-046-deces-taux-baisse-bilan-hausse",
+    "statut": "rejete_sensible",
+    "date": "2026-10-18T17:40:48",
+    "problemes_initiaux": 12,
+    "bloc5": [
+      "compteur_incoherent"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "titre_de_mauvaise_qualite"
+    ],
+    "titre": "France : 641 046 décès en 2024, un taux de mortalité en baisse mais un bilan global en hausse",
+    "n_sources": 4,
+    "n_mots": 762,
+    "titre_rss": "Grandes causes de décès en France : tendances et causes associées en 2024",
+    "matiere_faits_distincts": 810,
+    "matiere_redondance": 0.11,
+    "matiere_donnees_chiffrees": 3,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "veille_heures_visible": 517.7,
+    "veille_passages": 311,
+    "veille_age_h": 1622.0,
+    "veille_n_flux_grappe": 1,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "station-meteo-professionnelle-7-en-1-prix-record-7490-euros",
+    "statut": "rejete_qualite",
+    "date": "2026-10-18T17:44:19",
+    "tentative": 2,
+    "angle_insuffisant": true,
+    "raison": "L'article ne répond pas à la question posée dans `angle_reponse` (« Cette baisse de prix modifie-t-elle significativement l'accès aux outils météo de précision pour les particuliers ? »). Aucune donnée chiffrée ou analyse comparative sur l'accessibilité réelle avant/après cette baisse n'est fournie, ni même une estimation de l'impact sur les utilisateurs finaux. Les sources ne permettent pas d'évaluer si cette offre change la donne pour les particuliers, et le texte reste dans une description générique des incertitudes techniques sans lien avec l'angle annoncé.",
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "faits_repetitifs"
+    ],
+    "titre": "Baisse historique : une station météo professionnelle 7-en-1 à 74,90 €",
+    "n_sources": 3,
+    "n_mots": 475,
+    "titre_rss": "Cette station météo professionnelle ultra-complète 7 en 1 voit son prix chuter à 74,90 € !",
+    "matiere_faits_distincts": 494,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "lue-repousse-reporting-obligatoire-fuites-methane-un-an",
+    "statut": "rejete_sensible",
+    "date": "2026-10-18T17:46:59",
+    "problemes_initiaux": 12,
+    "bloc5": [
+      "faux_debat"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "titre_de_mauvaise_qualite"
+    ],
+    "titre": "L’UE repousse d’un an le reporting obligatoire des fuites de méthane",
+    "n_sources": 10,
+    "n_mots": 496,
+    "titre_rss": "Fuites de méthane : l'Europe cède aux lobbies de l'énergie",
+    "matiere_faits_distincts": 634,
+    "matiere_redondance": 0.01,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "hospitalisation-empoisonnement-chatgpt-risques-sante-ia",
+    "statut": "rejete_sensible",
+    "date": "2026-10-18T17:49:43",
+    "problemes_initiaux": 12,
+    "bloc5": [
+      "compteur_incoherent"
+    ],
+    "article_type": "actu",
+    "titre": "Hospitalisation après des symptômes induits par une IA conversationnelle",
+    "n_sources": 5,
+    "n_mots": 434,
+    "titre_rss": "Un homme empoisonné après avoir consulté ChatGPT : l’alerte des chercheurs sur les dangers invisibles de l’IA",
+    "matiere_faits_distincts": 1143,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "deces-carole-fritz-archeologue-grotte-chauvet-60-ans",
+    "statut": "rejete_sensible",
+    "date": "2026-10-18T17:52:31",
+    "problemes_initiaux": 13,
+    "bloc5": [
+      "jugement_de_valeur"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "faits_repetitifs"
+    ],
+    "titre": "Carole Fritz, archéologue de la grotte Chauvet, décédée à 60 ans",
+    "n_sources": 3,
+    "n_mots": 744,
+    "titre_rss": "Carole Fritz, archéologue et préhistorienne, grande amoureuse de l’art pariétal, est morte",
+    "matiere_faits_distincts": 914,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "interphones-connectes-kivala-risques-donnees-personnelles-syndics-copropriete",
+    "statut": "rejete_sensible",
+    "date": "2026-10-18T17:55:45",
+    "problemes_initiaux": 15,
+    "tentative": 1,
+    "bloc5": true,
+    "article_type": "actu",
+    "titre": "Interphones connectés Kivala : 6 millions d'euros pour une technologie sous surveillance",
+    "n_sources": 4,
+    "n_mots": 727,
+    "titre_rss": "Interphones connectés Kivala : «Cette solution crée un climat sécuritaire de méfiance, d’individualisme»",
+    "matiere_faits_distincts": 762,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "thrombinnov-inserm-40-ans-expertise-detection-risques-thrombotiques",
+    "statut": "rejete_sensible",
+    "date": "2026-10-18T17:58:46",
+    "problemes_initiaux": 16,
+    "bloc5": [
+      "compteur_incoherent"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "faits_repetitifs",
+      "cliches_ia"
+    ],
+    "titre": "ThrombInnov utilise 40 ans d’expertise Inserm pour détecter précocement les risques thrombotiques",
+    "n_sources": 4,
+    "n_mots": 765,
+    "titre_rss": "L’entrepreneuriat dans le sang !",
+    "matiere_faits_distincts": 1078,
+    "matiere_redondance": 0.01,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "les-preuves-fossiles-et-adn-qui-redefinissent-les-origines-de-lhomme-sapiens",
+    "statut": "rejete_sensible",
+    "date": "2026-10-18T18:04:02",
+    "problemes_initiaux": 16,
+    "bloc5": [
+      "compteur_incoherent"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "faits_repetitifs"
+    ],
+    "titre": "Brassages génétiques et migrations avortées : les preuves fossiles et ADN qui redéfinissent nos origines",
+    "n_sources": 4,
+    "n_mots": 865,
+    "titre_rss": "Homo sapiens, l'enquête qui change tout : plongée dans l'histoire cachée de nos origines",
+    "matiere_faits_distincts": 825,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "42-pourcent-entreprises-europeennes-utilisent-ia-eurobarometre-2026",
+    "statut": "rejete_sensible",
+    "date": "2026-10-18T18:07:39",
+    "problemes_initiaux": 21,
+    "bloc5": [
+      "jugement_de_valeur"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "resume_repete_corps"
+    ],
+    "titre": "42 % des entreprises européennes utilisent l’IA, selon Eurobaromètre 2026",
+    "n_sources": 7,
+    "n_mots": 731,
+    "titre_rss": "Une enquête Eurobaromètre met en évidence l'utilisation croissante de l'IA dans les entreprises européennes",
+    "matiere_faits_distincts": 939,
+    "matiere_redondance": 0.08,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "plfss-2027-rejet-recettes-commission-sans-effet-juridique",
+    "statut": "rejete_sensible",
+    "date": "2026-10-18T18:11:28",
+    "problemes_initiaux": 12,
+    "bloc5": [
+      "faux_debat"
+    ],
+    "article_type": "actu",
+    "titre": "PLFSS 2027 : rejet des recettes en commission avant débat en séance",
+    "n_sources": 6,
+    "n_mots": 500,
+    "titre_rss": "Budget de la Sécurité sociale : les députés rejettent en commission la partie « recettes » du texte",
+    "matiere_faits_distincts": 1106,
+    "matiere_redondance": 0.01,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "arcep-surcoûts-fibre-rurale-menacent-equilibre-financier",
+    "statut": "rejete_sensible",
+    "date": "2026-10-18T18:15:33",
+    "problemes_initiaux": 12,
+    "bloc5": [
+      "acteur_mis_en_cause_sans_reponse"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "faits_repetitifs",
+      "titre_de_mauvaise_qualite"
+    ],
+    "titre": "Réseaux fibre ruraux : l'Arcep face à des surcoûts de 2 à 4 fois supérieurs aux prévisions",
+    "n_sources": 5,
+    "n_mots": 871,
+    "titre_rss": "Le régulateur des télécoms peine à rassurer la filière sur l’équilibre économique des réseaux ruraux de fibre optique",
+    "matiere_faits_distincts": 1296,
+    "matiere_redondance": 0.02,
+    "matiere_donnees_chiffrees": 3,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "reglementation-ue-ia-fermee-ouverte-2026",
+    "statut": "rejete_sensible",
+    "date": "2026-10-18T18:18:54",
+    "problemes_initiaux": 14,
+    "bloc5": [
+      "jugement_de_valeur"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "faits_repetitifs",
+      "cliches_ia"
+    ],
+    "titre": "L'UE adopte une régulation équilibrée entre IA fermées et ouvertes",
+    "n_sources": 6,
+    "n_mots": 846,
+    "titre_rss": "Derrière les appels à la régulation, l’affrontement entre IA fermées et IA ouvertes",
+    "matiere_faits_distincts": 896,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "400-scientifiques-alertent-sur-les-risques-cyber-des-ia-avancees",
+    "statut": "rejete_sensible",
+    "date": "2026-10-18T18:21:41",
+    "problemes_initiaux": 12,
+    "bloc5": [
+      "acteur_mis_en_cause_sans_reponse"
+    ],
+    "article_type": "actu",
+    "titre": "400 scientifiques alertent sur les risques cyber des IA avancées",
+    "n_sources": 11,
+    "n_mots": 969,
+    "titre_rss": "IA : 400 scientifiques alertent sur les risques de cybersécurité",
+    "matiere_faits_distincts": 1401,
+    "matiere_redondance": 0.01,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "taurides-du-sud-2026-pic-13-14-octobre-vitesse-lente-bolides",
+    "statut": "corrige_automatiquement",
+    "date": "2026-10-18T18:30:08",
+    "problemes_initiaux": 9,
+    "tentatives": 3,
+    "problemes_residuels_style": 11,
+    "rapport_initial": {
+      "conforme": false,
+      "sujet_sensible": false,
+      "sujet_sensible_raison": "",
+      "angle_insuffisant": false,
+      "angle_insuffisant_raison": "",
+      "nature_contenu": "actualite_factuelle",
+      "problemes": [
+        {
+          "bloc": 1,
+          "section": "resume",
+          "type": "incoherence_inter_sections",
+          "phrase_exacte": "Les nuits des **13-14 octobre et 4-5 novembre 2026** marqueront le pic des Taurides du Sud",
+          "explication": "Le résumé mentionne deux pics distincts (13-14 octobre et 4-5 novembre), alors que la section 'faits' ne confirme qu'un seul pic principal les 13-14 octobre, avec une activité secondaire en novembre. La source [1] ne mentionne pas deux pics équivalents."
+        },
+        {
+          "bloc": 1,
+          "section": "resume",
+          "type": "chiffre_errone",
+          "phrase_exacte": "Contrairement aux pluies intenses comme les Géminides (120 météores/heure)",
+          "explication": "La source [1] indique que les Géminides ont un taux horaire zénithal de **120**, mais le résumé ne précise pas que ce chiffre est un taux zénithal théorique maximal, pas une moyenne réelle. Cela peut induire en erreur sur la réalité observable."
+        },
+        {
+          "bloc": 1,
+          "section": "resume",
+          "type": "fait_tranche_arbitrairement",
+          "phrase_exacte": "ces Taurides pourraient produire des bolides exceptionnels, bien que leur taux horaire reste modéré (5 à 10 par heure)",
+          "explication": "La source [1] précise que les bolides exceptionnels surviennent tous les **7 à 8 ans** en raison d'interactions gravitationnelles avec Jupiter, mais le résumé ne mentionne pas cette périodicité, ce qui généralise excessivement le phénomène."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "niveau_preuve_insuffisant",
+          "phrase_exacte": "des pics exceptionnels ont été observés tous les **7 à 8 ans** en raison d'interactions gravitationnelles avec Jupiter. Ces événements, appelés *Taurides exceptionnelles*, pourraient se reproduire en 2026, bien que les prévisions actuelles ne confirment pas encore un tel scénario",
+          "explication": "La source [1] indique que les prévisions pour 2026 restent incertaines, mais l'article ne précise pas que cette affirmation repose sur des modèles astronomiques non confirmés, ce qui affaiblit la crédibilité de la prédiction."
+        },
+        {
+          "bloc": 2,
+          "section": "sources",
+          "type": "source_derivee_comptee_comme_primaire",
+          "phrase_exacte": "La source CNRS et USGS ne sont pas utilisées dans le corps de l'article.",
+          "explication": "Les sources CNRS et USGS sont listées mais ne sont pas citées dans le corps de l'article, ce qui fausse le compte des sources primaires/secondaires. Le champ `nb_sources` indique 3, mais seules 1 source est effectivement utilisée."
+        },
+        {
+          "bloc": 2,
+          "section": "sources",
+          "type": "compteur_incoherent",
+          "phrase_exacte": "Le champ `nb_sources` indique 3, mais seules 1 source est effectivement utilisée dans le corps de l'article.",
+          "explication": "Le compteur `nb_sources` est incorrect : il devrait être 1 (seule la source [1] est citée). Les autres sources ne sont pas exploitées."
+        },
+        {
+          "bloc": 4,
+          "section": "resume",
+          "type": "redondance",
+          "phrase_exacte": "Contrairement aux pluies intenses comme les Géminides (120 météores/heure), ce phénomène offre des traînées lumineuses plus longues et visibles à l'œil nu, idéalement après minuit sous un ciel dégagé.",
+          "explication": "Cette phrase répète des informations déjà présentes dans la section 'faits' sans apporter de nouvelle précision."
+        },
+        {
+          "bloc": 4,
+          "section": "nuances",
+          "type": "redondance",
+          "phrase_exacte": "leur taux horaire modéré (5 à 10 météores/heure) les rend moins spectaculaires que les Perséides ou les Géminides.",
+          "explication": "Cette information est déjà mentionnée dans les 'faits' et le 'contexte', sans ajout de nuance nouvelle."
+        },
+        {
+          "bloc": 4,
+          "section": "nuances",
+          "type": "extrapolation",
+          "phrase_exacte": "Aucune source consultée ne précise si les perturbations gravitationnelles de Jupiter seront suffisantes pour déclencher une *Tauride exceptionnelle* cette année.",
+          "explication": "L'article extrapole une incertitude future (2026) sans préciser que cette affirmation repose sur des modèles astronomiques non confirmés, ce qui dépasse le cadre des sources disponibles."
+        }
+      ]
+    },
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "faits_repetitifs",
+      "titre_de_mauvaise_qualite"
+    ],
+    "titre": "Taurides du Sud 2026 : pic les 13-14 octobre, vitesse lente et bolides possibles",
+    "n_sources": 3,
+    "n_mots": 823,
+    "titre_rss": "Pluie d'étoiles filantes : ne manquez pas l'essaim des Taurides du Sud le 13 octobre",
+    "matiere_faits_distincts": 909,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "duralex-repris-tome-155-emplois-sauves-defis-modernisation",
+    "statut": "rejete_sensible",
+    "date": "2026-10-18T18:32:18",
+    "problemes_initiaux": 14,
+    "bloc5": [
+      "affaire_en_cours_presentee_comme_fait"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "faits_repetitifs",
+      "titre_de_mauvaise_qualite"
+    ],
+    "titre": "Duralex passe sous contrôle de Tomé : 155 emplois sauvés, mais des défis énergétiques et financiers",
+    "n_sources": 3,
+    "n_mots": 670,
+    "titre_rss": "Fini la coopérative : Duralex repris pour en faire \"l'usine de verre la plus verte au monde\"",
+    "matiere_faits_distincts": 489,
+    "matiere_redondance": 0.01,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "allemagne-recentre-strategie-industrielle-chine-deficit-accords-europeens",
+    "statut": "rejete_sensible",
+    "date": "2026-10-18T18:34:54",
+    "problemes_initiaux": 12,
+    "bloc5": [
+      "faux_debat"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "titre_de_mauvaise_qualite"
+    ],
+    "titre": "L'Allemagne recentre sa stratégie industrielle face à la Chine : déficit commercial record et accords franco-allemands",
+    "n_sources": 5,
+    "n_mots": 707,
+    "titre_rss": "Comment l’industrie allemande a changé de position face à la Chine",
+    "matiere_faits_distincts": 692,
+    "matiere_redondance": 0.03,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
   }
 ]
