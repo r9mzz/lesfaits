@@ -25,11 +25,11 @@ jobs:
           except Exception as e:
               print("LISTE ILLISIBLE",e, open('/tmp/l.json').read()[:200])
           PY
-          for M in nvidia/nemotron-3-ultra-550b-a55b nvidia/nemotron-3-super-120b-a12b deepseek-ai/deepseek-v4.1-flash google/gemma-4-31b-it; do
+          for M in mistralai/mistral-large-2-instruct mistralai/mistral-large nvidia/llama-3.1-nemotron-ultra-253b-v1 moonshotai/kimi-k2.6; do
             T0=$(date +%s)
             CODE=$(curl -sS -D /tmp/h.txt -o /tmp/b.txt -m 120 -w "%{http_code}" "$B/chat/completions" \
               -H "Authorization: Bearer $NK" -H "Content-Type: application/json" \
-              -d "{\"model\":\"$M\",\"max_tokens\":60,\"messages\":[{\"role\":\"user\",\"content\":\"Réponds par une phrase en français sur le journalisme.\"}]}" || echo 000)
+              -d "{\"model\":\"$M\",\"max_tokens\":80,\"messages\":[{\"role\":\"user\",\"content\":\"Réponds par une phrase en français sur le journalisme.\"}]}" || echo 000)
             T1=$(date +%s)
             RL=$(grep -iE "^x-ratelimit|^retry-after" /tmp/h.txt | tr -d '\r' | tr '\n' ' ')
             echo "RES $M | HTTP $CODE | $((T1-T0))s | $RL | $(head -c 170 /tmp/b.txt | tr '\n' ' ')"
