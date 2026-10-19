@@ -34956,5 +34956,885 @@
     "n_sources_injectees": 10,
     "n_sources_trouvees": 10,
     "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "michel-foucault-100-ans-demarche-critique-apports-limites-methodologiques",
+    "statut": "rejete_sensible",
+    "date": "2026-10-19T06:41:43",
+    "problemes_initiaux": 26,
+    "tentative": 1,
+    "bloc5": true,
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "faits_repetitifs"
+    ],
+    "titre": "Michel Foucault centenaire : une méthode critique toujours mobilisée, mais contestée",
+    "n_sources": 3,
+    "n_mots": 724,
+    "titre_rss": "Michel Foucault, penseur de l’actualité",
+    "matiere_faits_distincts": 793,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "sujet_pedagogique"
+  },
+  {
+    "slug": "effondrement-civilisation-predictions-mit-1972-verification-actualite-2026",
+    "statut": "rejete_sensible",
+    "date": "2026-10-19T06:44:44",
+    "problemes_initiaux": 11,
+    "bloc5": [
+      "compteur_incoherent"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "titre_de_mauvaise_qualite"
+    ],
+    "titre": "Les prédictions de 1972 sur l'effondrement civilisational : quels points se confirment aujourd'hui ?",
+    "n_sources": 5,
+    "n_mots": 399,
+    "titre_rss": "Effondrement de notre civilisation : ces prédictions du Rapport Meadows (MIT) il y a 50 ans semblent se confirmer",
+    "matiere_faits_distincts": 560,
+    "matiere_redondance": 0.07,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "cop17-biodiversite-deséquilibre-financier-protection-destruction",
+    "statut": "erreur_verification",
+    "date": "2026-10-19T06:48:16",
+    "etape": "detection",
+    "erreur": "JSON tronqué ou incomplet dans la réponse (max_tokens atteint ?)",
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "faits_repetitifs"
+    ],
+    "titre": "COP17 biodiversité : déséquilibre financier record entre protection et destruction",
+    "n_sources": 6,
+    "n_mots": 833,
+    "titre_rss": "COP17 biodiversité : «Pour chaque dollar investi dans la protection de la nature, 30 sont consacrés  à sa destruction»",
+    "matiere_faits_distincts": 1394,
+    "matiere_redondance": 0.03,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10
+  },
+  {
+    "slug": "cop17-biodiversite-deséquilibre-financier-protection-destruction",
+    "statut": "rejete_qualite",
+    "date": "2026-10-19T06:48:16",
+    "raison": "verification_indisponible",
+    "statut_verification_initial": "erreur_verification"
+  },
+  {
+    "slug": "montenegro-adhesion-ue-progres-chapitres-fermes-juillet-2026",
+    "statut": "rejete_sensible",
+    "date": "2026-10-19T06:51:23",
+    "problemes_initiaux": 11,
+    "bloc5": [
+      "faux_debat"
+    ],
+    "article_type": "actu",
+    "titre": "Monténégro : deux chapitres fermés en juillet 2026, mais 18 autres en attente",
+    "n_sources": 4,
+    "n_mots": 798,
+    "titre_rss": "Albanie et Monténégro : un état des lieux des négociations d'adhésion à l'Union européenne - Rapport d'information n° 845",
+    "matiere_faits_distincts": 437,
+    "matiere_redondance": 0.03,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "vaccins-ebola-anticorps-bundibugyo-efficacité-non-prouvée",
+    "statut": "rejete_sensible",
+    "date": "2026-10-19T06:54:05",
+    "problemes_initiaux": 13,
+    "bloc5": [
+      "acteur_mis_en_cause_sans_reponse"
+    ],
+    "article_type": "actu",
+    "titre": "Vaccins Ebola : des anticorps détectés contre Bundibugyo, mais efficacité clinique non prouvée",
+    "n_sources": 4,
+    "n_mots": 838,
+    "titre_rss": "Épidémie d’Ebola Bundibugyo : des premiers résultats pour guider la recherche d’un vaccin efficace",
+    "matiere_faits_distincts": 894,
+    "matiere_redondance": 0.01,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "veille_heures_visible": 517.7,
+    "veille_passages": 311,
+    "veille_age_h": 1636.1,
+    "veille_n_flux_grappe": 9,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "sanofi-interdit-critiquer-recommandations-vaccinales-france-allemagne",
+    "statut": "rejete_sensible",
+    "date": "2026-10-19T06:57:01",
+    "problemes_initiaux": 18,
+    "bloc5": [
+      "acteur_mis_en_cause_sans_reponse"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "faits_repetitifs"
+    ],
+    "titre": "Sanofi interdit de critiquer les recommandations vaccinales en France et Allemagne",
+    "n_sources": 5,
+    "n_mots": 770,
+    "titre_rss": "Vaccins contre la grippe : Sanofi, accusé d’avoir dénigré un concurrent, sommé par l’UE de rectifier sa communication",
+    "matiere_faits_distincts": 1258,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 2,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "canicule-2026-hausse-mortalite-2025-deces-sante-publique-france",
+    "statut": "rejete_sensible",
+    "date": "2026-10-19T06:59:46",
+    "problemes_initiaux": 11,
+    "bloc5": [
+      "jugement_de_valeur"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "faits_repetitifs"
+    ],
+    "titre": "Canicule : +2 025 décès en une semaine en France, selon Santé publique France",
+    "n_sources": 3,
+    "n_mots": 466,
+    "titre_rss": "Point de situation sur la mortalité toutes causes confondues  sur la période du 22 au 28 juin 2026",
+    "matiere_faits_distincts": 407,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "inserm-demonstration-sept-idees-recues-vaccins-fausses",
+    "statut": "rejete_sensible",
+    "date": "2026-10-19T07:07:17",
+    "problemes_initiaux": 18,
+    "bloc5": [
+      "extrapolation"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "faits_repetitifs",
+      "titre_de_mauvaise_qualite"
+    ],
+    "titre": "Inserm démontre sept idées reçues sur les vaccins comme fausses",
+    "n_sources": 5,
+    "n_mots": 857,
+    "titre_rss": "Sept fausses idées sur les vaccins",
+    "matiere_faits_distincts": 1004,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 2,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "repas-1-euro-crous-impact-financier-etudiants",
+    "statut": "rejete_qualite",
+    "date": "2026-10-19T07:11:46",
+    "etape": "correction",
+    "tentative": 2,
+    "erreur": "JSON tronqué ou incomplet dans la réponse (max_tokens atteint ?)",
+    "bloquants_connus": 25,
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "faits_repetitifs"
+    ],
+    "titre": "Repas à 1 euro dans les Crous : files d'attente et coût réel sous-estimé",
+    "n_sources": 3,
+    "n_mots": 833,
+    "titre_rss": "De Jean-Luc Mélenchon à Marine Le Pen, l'illusion de la gratuité",
+    "matiere_faits_distincts": 833,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "assouplissement-reglementaire-micro-organismes-genetiquement-modifies-europe-risques",
+    "statut": "rejete_sensible",
+    "date": "2026-10-19T07:14:36",
+    "problemes_initiaux": 17,
+    "bloc5": [
+      "faux_debat"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "faits_repetitifs",
+      "titre_de_mauvaise_qualite"
+    ],
+    "titre": "Assouplissement des règles sur les MGM : un appel à la prudence face aux risques non évalués",
+    "n_sources": 4,
+    "n_mots": 804,
+    "titre_rss": "« Nous demandons à la Commission européenne de surseoir au projet de directive sur le marché de micro-organismes génétiquement modifiés »",
+    "matiere_faits_distincts": 458,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "cyberattaque-supermarches-france-vulnerabilite-systemes-frigorifiques",
+    "statut": "rejete_qualite",
+    "date": "2026-10-19T07:16:47",
+    "angle_insuffisant": true,
+    "raison": "Aucune phrase dans 'faits' ne lie un événement daté récent (cyberattaque spécifique) à une donnée chiffrée ou nommée propre. Le texte décrit des vulnérabilités générales et des risques sans mentionner une attaque concrète, une date précise ou un chiffre lié à un incident récent.",
+    "article_type": "breve",
+    "avertissements_garde_fous": [
+      "titre_de_mauvaise_qualite"
+    ],
+    "titre": "Cyberattaque sur les systèmes frigorifiques des supermarchés français révèle une vulnérabilité critique",
+    "n_sources": 3,
+    "n_mots": 187,
+    "titre_rss": "Piratage de supermarchés en France : \"Pas besoin de chars pour faire la guerre\", dit un expert",
+    "matiere_faits_distincts": 447,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "1084-especes-migrent-rechauffement-climatique-impacts-ecosystemes",
+    "statut": "rejete_sensible",
+    "date": "2026-10-19T07:21:54",
+    "problemes_initiaux": 13,
+    "tentative": 2,
+    "bloc5": true,
+    "article_type": "actu",
+    "titre": "1 084 espèces européennes migrent vers le nord ou en altitude à cause du réchauffement",
+    "n_sources": 5,
+    "n_mots": 771,
+    "titre_rss": "Biodiversité : ruée vers les pôles et les sommets",
+    "matiere_faits_distincts": 1408,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "etude_scientifique"
+  },
+  {
+    "slug": "idefix-premier-rover-microgravite-phobos-lune-mars-defis-scientifiques",
+    "statut": "rejete_sensible",
+    "date": "2026-10-19T07:28:03",
+    "problemes_initiaux": 14,
+    "bloc5": [
+      "compteur_incoherent"
+    ],
+    "article_type": "actu",
+    "titre": "IDEFIX : premier rover conçu pour rouler en microgravité sur Phobos",
+    "n_sources": 3,
+    "n_mots": 778,
+    "titre_rss": "Idefix, le rover franco-allemand qui devrait rouler sur Phobos, l’une des lunes de Mars",
+    "matiere_faits_distincts": 813,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "cop17-biodiversite-defis-financiers-operationnels-mi-parcours-2030",
+    "statut": "rejete_sensible",
+    "date": "2026-10-19T07:35:32",
+    "problemes_initiaux": 19,
+    "tentative": 3,
+    "bloc5": true,
+    "article_type": "actu",
+    "titre": "COP17 biodiversité : les défis financiers et opérationnels à mi-parcours",
+    "n_sources": 7,
+    "n_mots": 974,
+    "titre_rss": "COP17 sur la biodiversité à Erevan : les leviers dont dispose la communauté internationale pour corriger la trajectoire « avant qu’il ne soit trop tard »",
+    "matiere_faits_distincts": 887,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "france-641-046-deces-en-2024-cancers-maladies-cardiaques-dominent",
+    "statut": "rejete_sensible",
+    "date": "2026-10-19T07:39:12",
+    "problemes_initiaux": 11,
+    "bloc5": [
+      "compteur_incoherent"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "resume_repete_corps"
+    ],
+    "titre": "France : 641 046 décès en 2024, cancers et maladies cardiaques en tête",
+    "n_sources": 5,
+    "n_mots": 803,
+    "titre_rss": "Grandes causes de décès en France : tendances et causes associées en 2024",
+    "matiere_faits_distincts": 843,
+    "matiere_redondance": 0.18,
+    "matiere_donnees_chiffrees": 4,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "veille_heures_visible": 517.7,
+    "veille_passages": 311,
+    "veille_age_h": 1636.1,
+    "veille_n_flux_grappe": 1,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "station-meteo-professionnelle-7-en-1-prix-baisse-record-7490-euros",
+    "statut": "rejete_sensible",
+    "date": "2026-10-19T07:41:57",
+    "problemes_initiaux": 8,
+    "bloc5": [
+      "diffamation_potentielle"
+    ],
+    "article_type": "breve",
+    "avertissements_garde_fous": [
+      "article_sans_date"
+    ],
+    "titre": "Baisse historique du prix d'une station météo professionnelle 7-en-1",
+    "n_sources": 3,
+    "n_mots": 169,
+    "titre_rss": "Cette station météo professionnelle ultra-complète 7 en 1 voit son prix chuter à 74,90 € !",
+    "matiere_faits_distincts": 472,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "lue-repousse-2026-premiers-rapports-fuites-methane-secteur-energie",
+    "statut": "rejete_sensible",
+    "date": "2026-10-19T07:44:59",
+    "problemes_initiaux": 16,
+    "bloc5": [
+      "faux_debat"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "resume_repete_corps"
+    ],
+    "titre": "L’UE repousse à 2026 les premiers rapports sur les fuites de méthane",
+    "n_sources": 5,
+    "n_mots": 867,
+    "titre_rss": "Fuites de méthane : l'Europe cède aux lobbies de l'énergie",
+    "matiere_faits_distincts": 840,
+    "matiere_redondance": 0.05,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "hospitalisation-symptomes-inexpliques-chatgpt-etats-unis",
+    "statut": "rejete_sensible",
+    "date": "2026-10-19T07:48:07",
+    "problemes_initiaux": 13,
+    "bloc5": [
+      "compteur_incoherent"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "faits_repetitifs"
+    ],
+    "titre": "Hospitalisation pour symptômes inexpliqués après une interaction avec ChatGPT",
+    "n_sources": 4,
+    "n_mots": 721,
+    "titre_rss": "Un homme empoisonné après avoir consulté ChatGPT : l’alerte des chercheurs sur les dangers invisibles de l’IA",
+    "matiere_faits_distincts": 692,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "deces-carole-fritz-archeologue-grotte-chauvet-impact-recherches",
+    "statut": "rejete_sensible",
+    "date": "2026-10-19T07:51:22",
+    "problemes_initiaux": 15,
+    "bloc5": [
+      "compteur_incoherent"
+    ],
+    "article_type": "actu",
+    "titre": "Carole Fritz décédée : une archéologue majeure de la grotte Chauvet s'éteint à 60 ans",
+    "n_sources": 3,
+    "n_mots": 729,
+    "titre_rss": "Carole Fritz, archéologue et préhistorienne, grande amoureuse de l’art pariétal, est morte",
+    "matiere_faits_distincts": 635,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "cyberattaque-supermarches-destruction-stocks-alimentaires-octobre-2026",
+    "statut": "rejete_qualite",
+    "date": "2026-10-19T07:54:51",
+    "angle_insuffisant": true,
+    "raison": "L'article décrit un événement futur (octobre 2026) sans fournir d'éléments concrets datés et vérifiables pour justifier une publication en 2024. Aucune source ne confirme l'événement comme déjà survenu ou en cours, et les données citées (chiffres, rapports) sont soit antérieures (2024-2025), soit des projections. Le test opérationnel échoue : aucune phrase dans 'faits' ne combine un événement daté + une donnée chiffrée propre à cet événement. L'article ressemble à une anticipation spéculative plutôt qu'à une actualité factuelle.",
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "cliches_ia",
+      "nuances_vagues"
+    ],
+    "titre": "Cyberattaque sur 500 supermarchés français : destruction de stocks alimentaires en octobre 2026",
+    "n_sources": 5,
+    "n_mots": 959,
+    "titre_rss": "« La cyberattaque visant les congélateurs des supermarchés montre à quel point Internet et le monde physique sont désormais imbriqués »",
+    "matiere_faits_distincts": 1254,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "sujet_pedagogique"
+  },
+  {
+    "slug": "thrombinnov-inserm-strasbourg-tests-thrombose-medicaments-40-ans-expertise",
+    "statut": "rejete_sensible",
+    "date": "2026-10-19T07:57:59",
+    "problemes_initiaux": 14,
+    "bloc5": [
+      "compteur_incoherent"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "cliches_ia"
+    ],
+    "titre": "ThrombInnov utilise 40 ans d'expertise Inserm pour tester les risques thrombotiques des médicaments",
+    "n_sources": 3,
+    "n_mots": 640,
+    "titre_rss": "L’entrepreneuriat dans le sang !",
+    "matiere_faits_distincts": 1233,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "comptes-frauduleux-revenus-fausses-informations-reseaux-sociaux-2026",
+    "statut": "rejete_sensible",
+    "date": "2026-10-19T08:00:55",
+    "problemes_initiaux": 11,
+    "bloc5": [
+      "faux_debat"
+    ],
+    "article_type": "actu",
+    "titre": "Des comptes frauduleux génèrent des revenus via des fausses informations sur TikTok, Facebook et Instagram",
+    "n_sources": 10,
+    "n_mots": 467,
+    "titre_rss": "Les faux contenus d''informations font recette sur les réseaux sociaux",
+    "matiere_faits_distincts": 930,
+    "matiere_redondance": 0.03,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "fossiles-genomes-revelent-migrations-multiples-croisements-anciens-homo-sapiens",
+    "statut": "rejete_sensible",
+    "date": "2026-10-19T08:03:34",
+    "problemes_initiaux": 16,
+    "bloc5": [
+      "jugement_de_valeur"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "faits_repetitifs",
+      "titre_de_mauvaise_qualite"
+    ],
+    "titre": "Fossiles et génomes révèlent des migrations multiples et des croisements anciens",
+    "n_sources": 4,
+    "n_mots": 673,
+    "titre_rss": "Homo sapiens, l'enquête qui change tout : plongée dans l'histoire cachée de nos origines",
+    "matiere_faits_distincts": 672,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "ia-38-grandes-entreprises-europeennes-eurobarometre-2026",
+    "statut": "rejete_sensible",
+    "date": "2026-10-19T08:07:25",
+    "problemes_initiaux": 14,
+    "bloc5": [
+      "compteur_incoherent"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "resume_repete_corps"
+    ],
+    "titre": "L’IA utilisée par 38 % des grandes entreprises européennes en 2026, selon Eurobaromètre",
+    "n_sources": 7,
+    "n_mots": 404,
+    "titre_rss": "Une enquête Eurobaromètre met en évidence l'utilisation croissante de l'IA dans les entreprises européennes",
+    "matiere_faits_distincts": 913,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "rejet-recettes-plfss-2026-commission-scenarios-adoption",
+    "statut": "rejete_sensible",
+    "date": "2026-10-19T08:12:49",
+    "problemes_initiaux": 24,
+    "tentative": 1,
+    "bloc5": true,
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "resume_repete_corps",
+      "faits_repetitifs",
+      "titre_de_mauvaise_qualite"
+    ],
+    "titre": "Rejet des recettes du PLFSS 2026 en commission : quelles suites pour le budget de la Sécurité sociale ?",
+    "n_sources": 4,
+    "n_mots": 1088,
+    "titre_rss": "Budget de la Sécurité sociale : les députés rejettent en commission la partie « recettes » du texte",
+    "matiere_faits_distincts": 855,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 4,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "arcep-mesures-insuffisantes-coûts-fibre-rurale-2026",
+    "statut": "rejete_sensible",
+    "date": "2026-10-19T08:16:34",
+    "problemes_initiaux": 14,
+    "bloc5": [
+      "acteur_mis_en_cause_sans_reponse"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "titre_de_mauvaise_qualite"
+    ],
+    "titre": "Arcep : des mesures jugées insuffisantes pour équilibrer les coûts fibre en zones rurales",
+    "n_sources": 4,
+    "n_mots": 417,
+    "titre_rss": "Le régulateur des télécoms peine à rassurer la filière sur l’équilibre économique des réseaux ruraux de fibre optique",
+    "matiere_faits_distincts": 1224,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "europe-encadre-ia-generatives-modeles-fermes-ouverts-84-pourcent",
+    "statut": "erreur_verification",
+    "date": "2026-10-19T08:20:02",
+    "etape": "detection",
+    "erreur": "JSON tronqué ou incomplet dans la réponse (max_tokens atteint ?)",
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "resume_repete_corps",
+      "titre_de_mauvaise_qualite"
+    ],
+    "titre": "L'Europe encadre les IA génératives : modèles fermés à 84 % du marché, ouverts en croissance",
+    "n_sources": 5,
+    "n_mots": 426,
+    "titre_rss": "Derrière les appels à la régulation, l’affrontement entre IA fermées et IA ouvertes",
+    "matiere_faits_distincts": 862,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10
+  },
+  {
+    "slug": "europe-encadre-ia-generatives-modeles-fermes-ouverts-84-pourcent",
+    "statut": "rejete_qualite",
+    "date": "2026-10-19T08:20:02",
+    "raison": "verification_indisponible",
+    "statut_verification_initial": "erreur_verification"
+  },
+  {
+    "slug": "400-scientifiques-exigent-regulation-internationale-ia-autonome",
+    "statut": "rejete_sensible",
+    "date": "2026-10-19T08:23:11",
+    "problemes_initiaux": 18,
+    "bloc5": [
+      "faux_debat"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "faits_repetitifs"
+    ],
+    "titre": "400 scientifiques demandent un organisme international pour encadrer les IA autonomes",
+    "n_sources": 5,
+    "n_mots": 992,
+    "titre_rss": "IA : 400 scientifiques alertent sur les risques de cybersécurité",
+    "matiere_faits_distincts": 902,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "lune-formation-rapide-theorie-collisionnelle-heures",
+    "statut": "corrige_automatiquement",
+    "date": "2026-10-19T08:27:50",
+    "problemes_initiaux": 11,
+    "tentatives": 3,
+    "problemes_residuels_style": 16,
+    "rapport_initial": {
+      "conforme": false,
+      "sujet_sensible": false,
+      "sujet_sensible_raison": "",
+      "angle_insuffisant": false,
+      "angle_insuffisant_raison": "",
+      "nature_contenu": "actualite_factuelle",
+      "problemes": [
+        {
+          "bloc": 2,
+          "section": "sources",
+          "type": "source_derivee_comptee_comme_primaire",
+          "phrase_exacte": "",
+          "explication": "Les sources [2] et [3] (EUR-Lex et Europa) sont sans rapport avec le sujet scientifique traité (formation de la Lune). Elles ne sont pas des sources dérivées du même document, mais des éléments totalement hors contexte. Cela fausse le compteur de sources indépendantes et rend le champ 'nb_sources' incohérent (3 sources listées, mais seulement 1 utilisée)."
+        },
+        {
+          "bloc": 2,
+          "section": "sources",
+          "type": "compteur_incoherent",
+          "phrase_exacte": "",
+          "explication": "Le champ 'nb_sources' indique 3, mais seules les sources [1] (Sciences et Avenir) est pertinente pour le sujet. Les deux autres sources sont sans lien avec le contenu scientifique de l'article."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "fait_tranche_arbitrairement",
+          "phrase_exacte": "Cette rapidité expliquerait des particularités géochimiques, comme la similitude entre la composition isotopique de la Lune et celle du manteau terrestre, tout en résolvant des énigmes persistantes sur son origine.",
+          "explication": "La phrase généralise excessivement les résultats des simulations, qui ne 'résolvent pas' les énigmes de l'origine de la Lune, mais proposent une hypothèse parmi d'autres pour expliquer certaines anomalies géochimiques. La source [1] ne soutient pas cette conclusion définitive."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "niveau_preuve_insuffisant",
+          "phrase_exacte": "Les températures atteintes lors de cette formation ultra-rapide auraient dépassé 2 500 °C, selon les modèles, ce qui pourrait justifier certaines anomalies observées dans les échantillons lunaires rapportés par les missions Apollo.",
+          "explication": "La phrase présente une corrélation hypothétique ('pourrait justifier') comme un fait établi, sans préciser que ces températures sont une estimation modélisée et non une mesure directe. La source [1] ne confirme pas que ces températures expliquent définitivement les anomalies."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "niveau_preuve_insuffisant",
+          "phrase_exacte": "Cette temporalité, bien plus courte que les estimations antérieures (estimées entre 3 et 10 jours), s’appuie sur des modèles intégrant des dynamiques de condensation et de refroidissement accélérées des débris éjectés.",
+          "explication": "La phrase ne précise pas que les 'estimations antérieures' (3 à 10 jours) sont des hypothèses théoriques et non des faits confirmés, ni que les nouveaux modèles restent des simulations non validées expérimentalement. La source [1] mentionne ces limites, mais elles ne sont pas systématiquement rappelées."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "incoherence_inter_sections",
+          "phrase_exacte": "Les résultats, bien que prometteurs, restent préliminaires et nécessitent des validations expérimentales pour être confirmés, selon les chercheurs.",
+          "explication": "Cette réserve (présente dans le résumé) n'est pas reprise de manière systématique dans les 'faits' pour chaque affirmation. Par exemple, la phrase sur les températures de 2 500 °C et les anomalies lunaires n'est pas explicitement qualifiée de 'préliminaire' dans le corps principal."
+        },
+        {
+          "bloc": 4,
+          "section": "contexte",
+          "type": "contexte_hors_sujet",
+          "phrase_exacte": "La théorie collisionnelle, proposée dès 1975 par des travaux fondateurs, reste le scénario dominant pour expliquer la formation de la Lune. Elle postule qu’un impact géant entre la Terre et Théia aurait éjecté une quantité massive de matière, qui se serait ensuite agglomérée en orbite.",
+          "explication": "Cette partie du contexte, bien que vraie, ne répond pas à l'angle de l'article ('Quels éléments concrets ces nouvelles simulations apportent-elles...'). Elle répète une explication générale déjà connue et ne met pas en avant les nouveautés des simulations récentes."
+        },
+        {
+          "bloc": 4,
+          "section": "nuances",
+          "type": "redondance",
+          "phrase_exacte": "Les simulations actuelles ne permettent pas encore de conclure définitivement sur la validité de ce scénario ultra-rapide. Les chercheurs soulignent que les résultats restent préliminaires et dépendent de modèles numériques encore perfectibles.",
+          "explication": "Cette phrase répète une idée déjà présente dans le résumé ('restent préliminaires') et dans les 'faits' ('nécessitent des validations expérimentales'). Aucune nouvelle nuance n'est apportée."
+        },
+        {
+          "bloc": 4,
+          "section": "nuances",
+          "type": "redondance",
+          "phrase_exacte": "Les interactions magnétiques et les effets de la gravité à très haute température, non encore intégrés, pourraient influencer la dynamique de formation.",
+          "explication": "Cette phrase reformule une limite méthodologique déjà évoquée dans les 'faits' ('modèles encore perfectibles') sans apporter d'élément nouveau ou sourcé distinctement."
+        },
+        {
+          "bloc": 4,
+          "section": "titre",
+          "type": "jugement_de_valeur",
+          "phrase_exacte": "La Lune pourrait s'être formée en quelques heures selon des simulations récentes",
+          "explication": "Le titre utilise 'pourrait' (correct), mais le sous-titre 'Une formation ultra-rapide confirmée par modélisation' suggère une confirmation définitive ('confirmée'), alors que les sources et le corps de l'article insistent sur le caractère préliminaire des résultats."
+        },
+        {
+          "bloc": 4,
+          "section": "titre_faits",
+          "type": "jugement_de_valeur",
+          "phrase_exacte": "Une formation ultra-rapide confirmée par modélisation",
+          "explication": "Le terme 'confirmée' est trompeur : les simulations sont des modèles, non des confirmations expérimentales. La source [1] utilise des formulations comme 'suggèrent' ou 'pourraient expliquer', jamais 'confirmée'."
+        }
+      ]
+    },
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "faits_repetitifs"
+    ],
+    "titre": "La Lune pourrait s'être formée en quelques heures selon des simulations récentes",
+    "n_sources": 3,
+    "n_mots": 477,
+    "titre_rss": "Et, en quelques heures, naquit la Lune...",
+    "matiere_faits_distincts": 820,
+    "matiere_redondance": 0.01,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "les-taurides-du-sud-pic-d-activite-13-14-octobre-2026",
+    "statut": "corrige_automatiquement",
+    "date": "2026-10-19T08:33:19",
+    "problemes_initiaux": 8,
+    "tentatives": 3,
+    "problemes_residuels_style": 15,
+    "rapport_initial": {
+      "conforme": false,
+      "sujet_sensible": false,
+      "sujet_sensible_raison": "",
+      "angle_insuffisant": false,
+      "angle_insuffisant_raison": "",
+      "nature_contenu": "actualite_factuelle",
+      "problemes": [
+        {
+          "bloc": 2,
+          "section": "sources",
+          "type": "source_derivee_comptee_comme_primaire",
+          "phrase_exacte": "",
+          "explication": "Les sources [2] (IMF) et [3] (WHO) ne sont pas pertinentes pour le sujet astronomique traité dans l'article et ne sont pas utilisées dans le corps du texte. Elles ne renforcent pas l'analyse et ne sont pas des sources secondaires indépendantes, mais des entrées superflues dans la liste des sources autorisées."
+        },
+        {
+          "bloc": 2,
+          "section": "sources",
+          "type": "compteur_incoherent",
+          "phrase_exacte": "",
+          "explication": "Le champ `nb_sources` indique 3, mais seulement une source ([1]) est effectivement utilisée dans le corps de l'article. Les deux autres sources ([2] et [3]) ne sont pas citées et ne sont pas pertinentes pour le sujet."
+        },
+        {
+          "bloc": 1,
+          "section": "resume",
+          "type": "incoherence_inter_sections",
+          "phrase_exacte": "Les Taurides du Sud culmineront les nuits du 13 au 14 octobre et du 4 au 5 novembre 2026",
+          "explication": "Le résumé mentionne deux pics d'activité (13-14 octobre et 4-5 novembre 2026), alors que le titre et la section 'faits' ne citent explicitement que le pic des 13 et 14 octobre 2026 comme principal. Cela crée une incohérence entre le résumé et le reste de l'article."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "fait_tranche_arbitrairement",
+          "phrase_exacte": "leur fréquence reste modérée mais observable à l'œil nu sous un ciel dégagé",
+          "explication": "La source [1] ne précise pas explicitement que les Taurides sont 'modérées' en fréquence, mais seulement qu'elles sont 'moins spectaculaires' que d'autres essaims. Le terme 'modérée' est une interprétation subjective non directement sourcée."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "fait_tranche_arbitrairement",
+          "phrase_exacte": "leur lenteur les rend particulièrement adaptées à une observation détendue, sans besoin d'équipement spécifique",
+          "explication": "Bien que la source [1] mentionne que les Taurides sont plus lentes, elle ne précise pas explicitement qu'elles sont 'particulièrement adaptées' à une observation détendue sans équipement spécifique. Cela relève d'une interprétation subjective."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "fait_tranche_arbitrairement",
+          "phrase_exacte": "Le pic du 13 octobre 2026 coïncide avec une période où les conditions d'observation sont souvent favorables, notamment en l'absence de pleine lune",
+          "explication": "La source [1] ne confirme pas explicitement que le 13 octobre 2026 sera 'souvent' sans pleine lune. Cette affirmation est une généralisation non sourcée."
+        },
+        {
+          "bloc": 4,
+          "section": "contexte",
+          "type": "redondance",
+          "phrase_exacte": "Contrairement à d'autres essaims, les Taurides se caractérisent par une vitesse de 27 km/s, soit environ la moitié de celle des Léonides (71 km/s). Cette lenteur relative les rend plus faciles à distinguer, car leur traînée lumineuse persiste plus longtemps dans le ciel",
+          "explication": "Cette phrase répète une idée déjà exprimée dans la section 'faits' avec des termes similaires, sans apporter de nouvelle information."
+        },
+        {
+          "bloc": 4,
+          "section": "contexte",
+          "type": "redondance",
+          "phrase_exacte": "En comparaison avec d'autres essaims majeurs, comme les Perséides (août) ou les Géminides (décembre), les Taurides offrent une période d'observation plus longue, s'étalant sur près de deux mois, avec deux pics distincts en octobre et novembre",
+          "explication": "Cette phrase reprend des informations déjà mentionnées dans la section 'faits' sans ajouter de nouvelles précisions."
+        }
+      ]
+    },
+    "article_type": "actu",
+    "titre": "Les Taurides du Sud atteindront leur pic d'activité les 13 et 14 octobre 2026",
+    "n_sources": 3,
+    "n_mots": 419,
+    "titre_rss": "Pluie d'étoiles filantes : ne manquez pas l'essaim des Taurides du Sud le 13 octobre",
+    "matiere_faits_distincts": 746,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "duralex-repris-par-tome-155-emplois-sauves-transition-energetique-partielle",
+    "statut": "rejete_sensible",
+    "date": "2026-10-19T08:37:00",
+    "problemes_initiaux": 15,
+    "bloc5": [
+      "affaire_en_cours_presentee_comme_fait"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "titre_de_mauvaise_qualite"
+    ],
+    "titre": "Duralex repris par Tomé : 155 emplois sauvés, 16 millions d'euros pour une transition énergétique partielle",
+    "n_sources": 3,
+    "n_mots": 1066,
+    "titre_rss": "Fini la coopérative : Duralex repris pour en faire \"l'usine de verre la plus verte au monde\"",
+    "matiere_faits_distincts": 444,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "crises-geopolitiques-pertes-financieres-reputationnelles-entreprises",
+    "statut": "rejete_sensible",
+    "date": "2026-10-19T08:43:18",
+    "problemes_initiaux": 16,
+    "bloc5": [
+      "compteur_incoherent"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "faits_repetitifs",
+      "titre_de_mauvaise_qualite",
+      "prise_de_position"
+    ],
+    "titre": "Crises géopolitiques : comment les entreprises subissent des pertes financières et réputationnelles",
+    "n_sources": 4,
+    "n_mots": 1090,
+    "titre_rss": "Gare aux boycotts ! En temps de guerre, les entreprises doivent protéger leur réputation",
+    "matiere_faits_distincts": 648,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
   }
 ]
