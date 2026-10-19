@@ -104,6 +104,14 @@ _TPM_PAR_MODELE_GEN = {
     "gpt-oss-120b": 60_000,
     "llama-3.3-70b": 60_000,
     "qwen-3-235b-a22b-instruct-2507": 60_000,
+    # NVIDIA NIM, endpoints gratuits (integrate.api.nvidia.com/v1). Pas de TPM
+    # publié, ~40 requêtes/min : on déclare une grande fenêtre pour que rien ne
+    # soit coupé (contextes de 128 000 à 1 000 000). Identifiants SUPPOSÉS, à
+    # confirmer avec GET /v1/models au premier essai.
+    "nvidia/nemotron-3-ultra-550b-a55b": 500_000,
+    "nvidia/nemotron-3-super-120b-a12b": 500_000,
+    "deepseek-ai/deepseek-v4.1-flash": 500_000,
+    "google/gemma-4-31b-it": 500_000,
     "gemini-3.8-flash": 250_000,
     "gemini-2.5-flash": 250_000,
     "gemini-2.0-flash": 250_000,
