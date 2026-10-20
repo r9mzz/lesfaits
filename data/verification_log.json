@@ -37848,5 +37848,659 @@
     "n_sources_injectees": 10,
     "n_sources_trouvees": 10,
     "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "cop17-subventions-fossiles-impasse-energetique-2026",
+    "statut": "rejete_sensible",
+    "date": "2026-10-20T06:49:45",
+    "problemes_initiaux": 12,
+    "tentative": 1,
+    "bloc5": true,
+    "article_type": "actu",
+    "titre": "COP17 : les États face à l'impasse des subventions fossiles",
+    "n_sources": 3,
+    "n_mots": 440,
+    "titre_rss": "A la COP17, haro sur les subventions aux énergies fossiles",
+    "matiere_faits_distincts": 988,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "placement-produit-television-impact-financier-regies-publicitaires",
+    "statut": "rejete_sensible",
+    "date": "2026-10-20T06:52:48",
+    "problemes_initiaux": 14,
+    "bloc5": [
+      "compteur_incoherent"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "titre_de_mauvaise_qualite"
+    ],
+    "titre": "Placement de produit dans les émissions : entre 2 % et 5 % de budget en jeu",
+    "n_sources": 3,
+    "n_mots": 497,
+    "titre_rss": "Le placement de produit, espoir des producteurs de télévision pour financer leurs émissions",
+    "matiere_faits_distincts": 1091,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "grèves-generales-italie-espagne-portugal-dates-revendications",
+    "statut": "rejete_sensible",
+    "date": "2026-10-20T06:55:36",
+    "problemes_initiaux": 18,
+    "bloc5": [
+      "faux_debat"
+    ],
+    "article_type": "actu",
+    "titre": "Grèves générales en Italie, Espagne et Portugal : dates et revendications",
+    "n_sources": 5,
+    "n_mots": 429,
+    "titre_rss": "Italie, Espagne, Belgique, Portugal : en Europe, la colère sociale gagne du terrain, sur fond de flambée des prix de l’énergie et de crise du logement",
+    "matiere_faits_distincts": 547,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 2,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "albanie-montenegro-adhesion-ue-progres-et-defis-2026",
+    "statut": "rejete_sensible",
+    "date": "2026-10-20T07:00:54",
+    "problemes_initiaux": 15,
+    "bloc5": [
+      "compteur_incoherent"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "titre_de_mauvaise_qualite"
+    ],
+    "titre": "Albanie et Monténégro : deux pays en tête pour l'adhésion à l'UE, mais des réformes encore insuffisantes",
+    "n_sources": 3,
+    "n_mots": 367,
+    "titre_rss": "Albanie et Monténégro : un état des lieux des négociations d'adhésion à l'Union européenne - Rapport d'information n° 845",
+    "matiere_faits_distincts": 1028,
+    "matiere_redondance": 0.01,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "ebola-bundibugyo-vaccins-immunite-partielle-resultats-inserm-23-juillet-2026",
+    "statut": "rejete_sensible",
+    "date": "2026-10-20T07:04:06",
+    "problemes_initiaux": 13,
+    "bloc5": [
+      "compteur_incoherent"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "titre_de_mauvaise_qualite"
+    ],
+    "titre": "Ebola Bundibugyo : les vaccins contre la souche Zaïre induisent-ils une immunité partielle ?",
+    "n_sources": 6,
+    "n_mots": 676,
+    "titre_rss": "Épidémie d’Ebola Bundibugyo : des premiers résultats pour guider la recherche d’un vaccin efficace",
+    "matiere_faits_distincts": 945,
+    "matiere_redondance": 0.02,
+    "matiere_donnees_chiffrees": 2,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "veille_heures_visible": 517.7,
+    "veille_passages": 311,
+    "veille_age_h": 1660.2,
+    "veille_n_flux_grappe": 9,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "canicule-juin-2026-2025-deces-supplementaires-en-une-semaine",
+    "statut": "rejete_sensible",
+    "date": "2026-10-20T07:09:54",
+    "problemes_initiaux": 13,
+    "bloc5": [
+      "jugement_de_valeur"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "faits_repetitifs",
+      "titre_de_mauvaise_qualite"
+    ],
+    "titre": "Canicule juin 2026 : 2 025 décès supplémentaires en une semaine, surtout chez les plus de 45 ans",
+    "n_sources": 3,
+    "n_mots": 984,
+    "titre_rss": "Point de situation sur la mortalité toutes causes confondues  sur la période du 22 au 28 juin 2026",
+    "matiere_faits_distincts": 961,
+    "matiere_redondance": 0.01,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "enquete-eras-2026-20-000-hsh-prevention-vih-ist-sante-publique-france",
+    "statut": "rejete_qualite",
+    "date": "2026-10-20T07:16:15",
+    "etape": "correction",
+    "tentative": 1,
+    "erreur": "JSON tronqué ou incomplet dans la réponse (max_tokens atteint ?)",
+    "bloquants_connus": 6,
+    "article_type": "actu",
+    "titre": "L’enquête ERAS 2026 cible 20 000 HSH pour adapter la prévention du VIH",
+    "n_sources": 3,
+    "n_mots": 971,
+    "titre_rss": "Enquête « Rapport au sexe » (ERAS) 2026 à destination des hommes ayant des rapports sexuels avec des hommes",
+    "matiere_faits_distincts": 804,
+    "matiere_redondance": 0.09,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "maisons-connectees-economies-freins-deploiement-france",
+    "statut": "rejete_sensible",
+    "date": "2026-10-20T07:20:46",
+    "problemes_initiaux": 17,
+    "tentative": 1,
+    "bloc5": true,
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "resume_repete_corps"
+    ],
+    "titre": "Maisons connectées : économies réelles et freins à leur déploiement en France",
+    "n_sources": 5,
+    "n_mots": 432,
+    "titre_rss": "Éclairage, douche, chauffage... À la découverte de la maison qui obéit sur commande",
+    "matiere_faits_distincts": 966,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "inserm-demonstration-sept-idees-recues-vaccins-sans-fondement-scientifique",
+    "statut": "rejete_sensible",
+    "date": "2026-10-20T07:24:46",
+    "problemes_initiaux": 13,
+    "tentative": 1,
+    "bloc5": true,
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "resume_repete_corps",
+      "titre_de_mauvaise_qualite"
+    ],
+    "titre": "Inserm démontre sept idées reçues sur les vaccins sans fondement scientifique",
+    "n_sources": 7,
+    "n_mots": 686,
+    "titre_rss": "Sept fausses idées sur les vaccins",
+    "matiere_faits_distincts": 1154,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 2,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "1888-especes-migrent-rechauffement-climatique-impacts-ecosystemes",
+    "statut": "rejete_sensible",
+    "date": "2026-10-20T07:36:39",
+    "problemes_initiaux": 18,
+    "bloc5": [
+      "jugement_de_valeur"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "faits_repetitifs"
+    ],
+    "titre": "1 888 espèces européennes migrent vers les pôles et les sommets",
+    "n_sources": 4,
+    "n_mots": 1127,
+    "titre_rss": "Biodiversité : ruée vers les pôles et les sommets",
+    "matiere_faits_distincts": 987,
+    "matiere_redondance": 0.01,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "detournement-406-millions-energies-renouvelables-carburants-agriculteurs",
+    "statut": "rejete_sensible",
+    "date": "2026-10-20T07:40:14",
+    "problemes_initiaux": 18,
+    "bloc5": [
+      "acteur_mis_en_cause_sans_reponse"
+    ],
+    "article_type": "actu",
+    "titre": "406 millions d'euros détournés des renouvelables vers carburants et agriculteurs",
+    "n_sources": 6,
+    "n_mots": 970,
+    "titre_rss": "Des aides aux énergies renouvelables... redirigées vers le carburant",
+    "matiere_faits_distincts": 946,
+    "matiere_redondance": 0.01,
+    "matiere_donnees_chiffrees": 5,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "mission-japon-ramener-echantillons-phobos-etudier-origines-systeme-solaire",
+    "statut": "rejete_sensible",
+    "date": "2026-10-20T07:43:49",
+    "problemes_initiaux": 16,
+    "tentative": 1,
+    "bloc5": true,
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "titre_de_mauvaise_qualite"
+    ],
+    "titre": "La mission MMX du Japon vise à rapporter des échantillons de Phobos pour étudier les origines du Système solaire",
+    "n_sources": 4,
+    "n_mots": 688,
+    "titre_rss": "Le Japon lance une fusée pour une mission visant les lunes de Mars",
+    "matiere_faits_distincts": 803,
+    "matiere_redondance": 0.05,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "violences-urbaines-france-pillages-risques-institutionnels-sanitaires",
+    "statut": "rejete_sensible",
+    "date": "2026-10-20T07:49:17",
+    "problemes_initiaux": 12,
+    "tentative": 2,
+    "bloc5": true,
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "faits_repetitifs",
+      "cliches_ia"
+    ],
+    "titre": "Violences urbaines en France : pillages généralisés et risques institutionnels",
+    "n_sources": 5,
+    "n_mots": 609,
+    "titre_rss": "La France au bord du gouffre",
+    "matiere_faits_distincts": 1250,
+    "matiere_redondance": 0.01,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "mortalite-france-2024-641-046-deces-taux-baisse-hausse-maladies-respiratoires",
+    "statut": "rejete_sensible",
+    "date": "2026-10-20T07:52:30",
+    "problemes_initiaux": 11,
+    "bloc5": [
+      "compteur_incoherent"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "titre_de_mauvaise_qualite"
+    ],
+    "titre": "France : 641 046 décès en 2024, un taux de mortalité en baisse malgré des hausses ciblées",
+    "n_sources": 4,
+    "n_mots": 911,
+    "titre_rss": "Grandes causes de décès en France : tendances et causes associées en 2024",
+    "matiere_faits_distincts": 1138,
+    "matiere_redondance": 0.11,
+    "matiere_donnees_chiffrees": 2,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "veille_heures_visible": 517.7,
+    "veille_passages": 311,
+    "veille_age_h": 1660.2,
+    "veille_n_flux_grappe": 1,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "routine-matinale-harvard-lumiere-activite-physique-effets-reels",
+    "statut": "rejete_sensible",
+    "date": "2026-10-20T07:56:00",
+    "problemes_initiaux": 18,
+    "bloc5": [
+      "jugement_de_valeur"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "resume_repete_corps"
+    ],
+    "titre": "Routine matinale : ce que l'étude Harvard confirme sur la lumière et le mouvement",
+    "n_sources": 3,
+    "n_mots": 732,
+    "titre_rss": "Voici la routine matinale jugée parfaite par des chercheurs de Harvard pour être plus performant toute la journée",
+    "matiere_faits_distincts": 566,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "etude_scientifique"
+  },
+  {
+    "slug": "deces-carole-fritz-directrice-etude-grotte-chauvet-impact-recherche",
+    "statut": "rejete_sensible",
+    "date": "2026-10-20T07:59:57",
+    "tentative": 1,
+    "sujet_sensible": true,
+    "raison": "L'article porte sur le décès d'une personne identifiée (Carole Fritz), ce qui implique une dimension personnelle et sensible.",
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "faits_repetitifs"
+    ],
+    "titre": "Carole Fritz, directrice scientifique de la grotte Chauvet, est décédée",
+    "n_sources": 3,
+    "n_mots": 763,
+    "titre_rss": "Carole Fritz, archéologue et préhistorienne, grande amoureuse de l’art pariétal, est morte",
+    "matiere_faits_distincts": 1106,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "thrombinnov-inserm-strasbourg-tests-medicaments-thrombose-40-ans-expertise",
+    "statut": "rejete_sensible",
+    "date": "2026-10-20T08:04:37",
+    "problemes_initiaux": 13,
+    "tentative": 2,
+    "bloc5": true,
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "cliches_ia"
+    ],
+    "titre": "ThrombInnov utilise 40 ans d’expertise Inserm pour tester les risques thrombotiques des médicaments",
+    "n_sources": 4,
+    "n_mots": 615,
+    "titre_rss": "L’entrepreneuriat dans le sang !",
+    "matiere_faits_distincts": 683,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "france-ecarts-ecosystemes-restauration-2050-europe",
+    "statut": "rejete_sensible",
+    "date": "2026-10-20T08:08:01",
+    "problemes_initiaux": 15,
+    "bloc5": [
+      "acteur_mis_en_cause_sans_reponse"
+    ],
+    "article_type": "actu",
+    "titre": "La France ignore les exigences européennes sur la restauration des écosystèmes",
+    "n_sources": 7,
+    "n_mots": 707,
+    "titre_rss": "Plan pour la nature : la France voit grand mais ne propose rien",
+    "matiere_faits_distincts": 1237,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "ird-lance-formations-obligatoires-registre-rgpd-agents",
+    "statut": "rejete_sensible",
+    "date": "2026-10-20T08:11:41",
+    "problemes_initiaux": 12,
+    "bloc5": [
+      "compteur_incoherent"
+    ],
+    "article_type": "actu",
+    "titre": "IRD lance des formations obligatoires sur le registre RGPD pour ses agents",
+    "n_sources": 4,
+    "n_mots": 451,
+    "titre_rss": "Protection des données personnelles - Le registre des traitements",
+    "matiere_faits_distincts": 1331,
+    "matiere_redondance": 0.02,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "veille_heures_visible": 517.7,
+    "veille_passages": 326,
+    "veille_age_h": 1660.2,
+    "veille_n_flux_grappe": 1,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "chercheurs-innovent-etudier-adaptation-espèces-changement-climatique",
+    "statut": "rejete_sensible",
+    "date": "2026-10-20T08:15:59",
+    "problemes_initiaux": 10,
+    "tentative": 2,
+    "bloc5": true,
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "resume_repete_corps",
+      "faits_repetitifs",
+      "titre_de_mauvaise_qualite",
+      "cliches_ia"
+    ],
+    "titre": "Modèles mathématiques et expériences terrain pour étudier l'adaptation des espèces au climat",
+    "n_sources": 4,
+    "n_mots": 851,
+    "titre_rss": "La foisonnante inventivité des chercheurs pour étudier les capacités d’adaptation des espèces",
+    "matiere_faits_distincts": 904,
+    "matiere_redondance": 0.01,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "projet-erc-2-millions-euros-forets-tropicales-evolution",
+    "statut": "rejete_sensible",
+    "date": "2026-10-20T08:20:04",
+    "problemes_initiaux": 13,
+    "bloc5": [
+      "extrapolation"
+    ],
+    "article_type": "actu",
+    "titre": "Un projet ERC de 2 millions d'euros pour modéliser l'évolution des forêts tropicales",
+    "n_sources": 3,
+    "n_mots": 648,
+    "titre_rss": "Forêts tropicales humides : un financement ERC pour le chercheur IRD Thomas Couvreur",
+    "matiere_faits_distincts": 1036,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "veille_heures_visible": 517.7,
+    "veille_passages": 326,
+    "veille_age_h": 1660.2,
+    "veille_n_flux_grappe": 2,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "cop17-biodiversite-financements-bloques-objectifs-loin-atteints",
+    "statut": "rejete_sensible",
+    "date": "2026-10-20T08:23:31",
+    "problemes_initiaux": 17,
+    "bloc5": [
+      "faux_debat"
+    ],
+    "article_type": "actu",
+    "titre": "COP17 biodiversité : financements bloqués et objectifs loin d'être atteints",
+    "n_sources": 6,
+    "n_mots": 811,
+    "titre_rss": "COP17 sur la biodiversité à Erevan : les leviers dont dispose la communauté internationale pour corriger la trajectoire « avant qu’il ne soit trop tard »",
+    "matiere_faits_distincts": 907,
+    "matiere_redondance": 0.09,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "plfss-2027-rejet-recettes-commission-risque-blocage",
+    "statut": "rejete_sensible",
+    "date": "2026-10-20T08:27:21",
+    "problemes_initiaux": 14,
+    "bloc5": [
+      "faux_debat"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "titre_de_mauvaise_qualite"
+    ],
+    "titre": "PLFSS 2027 : le rejet des recettes en commission ouvre-t-il la voie à un blocage ?",
+    "n_sources": 7,
+    "n_mots": 500,
+    "titre_rss": "Budget de la Sécurité sociale : les députés rejettent en commission la partie « recettes » du texte",
+    "matiere_faits_distincts": 1136,
+    "matiere_redondance": 0.01,
+    "matiere_donnees_chiffrees": 3,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "fibre-rurale-surcoûts-arcep-risques-financiers-2026",
+    "statut": "rejete_sensible",
+    "date": "2026-10-20T08:31:15",
+    "problemes_initiaux": 15,
+    "bloc5": [
+      "faux_debat"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "titre_de_mauvaise_qualite"
+    ],
+    "titre": "Fibre optique rurale : coûts réels deux à quatre fois supérieurs aux prévisions",
+    "n_sources": 6,
+    "n_mots": 794,
+    "titre_rss": "Le régulateur des télécoms peine à rassurer la filière sur l’équilibre économique des réseaux ruraux de fibre optique",
+    "matiere_faits_distincts": 1329,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "400-scientifiques-reclament-organisme-international-reguler-risques-cybersecurite-ia-avancees",
+    "statut": "rejete_sensible",
+    "date": "2026-10-20T08:38:35",
+    "problemes_initiaux": 19,
+    "tentative": 1,
+    "bloc5": true,
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "resume_repete_corps",
+      "faits_repetitifs"
+    ],
+    "titre": "400 scientifiques réclament un organisme international pour réguler les risques cybersécurité des IA avancées",
+    "n_sources": 4,
+    "n_mots": 667,
+    "titre_rss": "IA : 400 scientifiques alertent sur les risques de cybersécurité",
+    "matiere_faits_distincts": 986,
+    "matiere_redondance": 0.02,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "duralex-repris-par-tome-155-emplois-sauves-et-16-millions-dinvestis-pour-transition-ecologique",
+    "statut": "rejete_sensible",
+    "date": "2026-10-20T08:43:59",
+    "problemes_initiaux": 33,
+    "tentative": 2,
+    "bloc5": true,
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "titre_de_mauvaise_qualite"
+    ],
+    "titre": "Duralex repris par Tomé : 155 emplois sauvés et 16 millions d'euros investis pour une transition écologique",
+    "n_sources": 3,
+    "n_mots": 766,
+    "titre_rss": "Fini la coopérative : Duralex repris pour en faire \"l'usine de verre la plus verte au monde\"",
+    "matiere_faits_distincts": 882,
+    "matiere_redondance": 0.01,
+    "matiere_donnees_chiffrees": 2,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "entreprises-zones-conflit-risques-reputationnels-financiers-2026",
+    "statut": "rejete_sensible",
+    "date": "2026-10-20T08:51:25",
+    "problemes_initiaux": 24,
+    "tentative": 1,
+    "bloc5": true,
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "titre_de_mauvaise_qualite",
+      "prise_de_position"
+    ],
+    "titre": "Les entreprises en zone de conflit subissent des pertes financières et des boycotts massifs",
+    "n_sources": 5,
+    "n_mots": 972,
+    "titre_rss": "Gare aux boycotts ! En temps de guerre, les entreprises doivent protéger leur réputation",
+    "matiere_faits_distincts": 643,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "sommet-europeen-octobre-2026-priorites-competitivite-ukraine-budget",
+    "statut": "rejete_sensible",
+    "date": "2026-10-20T08:54:37",
+    "problemes_initiaux": 11,
+    "bloc5": [
+      "compteur_incoherent"
+    ],
+    "article_type": "actu",
+    "titre": "Sommet européen : compétitivité, Ukraine et budget 2028-2034 au cœur des décisions",
+    "n_sources": 7,
+    "n_mots": 412,
+    "titre_rss": "EU Leaders discuss energy prices, budget, Ukraine during two-day summit in Brussels",
+    "matiere_faits_distincts": 633,
+    "matiere_redondance": 0.08,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "cern-mistral-ia-analyse-donnees-lhc-defis-reglementaires",
+    "statut": "rejete_sensible",
+    "date": "2026-10-20T08:57:15",
+    "problemes_initiaux": 17,
+    "bloc5": [
+      "jugement_de_valeur"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "resume_repete_corps",
+      "faits_repetitifs"
+    ],
+    "titre": "Cern et Mistral développent une IA pour analyser les données du LHC",
+    "n_sources": 4,
+    "n_mots": 729,
+    "titre_rss": "Une IA capable de débusquer l'inconnu : le pari du Cern et du français Mistral pour révolutionner la physique",
+    "matiere_faits_distincts": 501,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
   }
 ]
