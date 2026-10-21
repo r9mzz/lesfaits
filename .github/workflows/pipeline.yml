@@ -261,6 +261,9 @@ jobs:
           LLM_API_KEY_3: ${{ !contains(inputs.base_url || vars.LLM_BASE_URL, 'googleapis') && !contains(inputs.base_url || vars.LLM_BASE_URL, 'cerebras') && !contains(inputs.base_url || vars.LLM_BASE_URL, 'nvidia') && secrets.LLM_API_KEY_3 || '' }}
           LLM_API_KEY_4: ${{ !contains(inputs.base_url || vars.LLM_BASE_URL, 'googleapis') && !contains(inputs.base_url || vars.LLM_BASE_URL, 'cerebras') && !contains(inputs.base_url || vars.LLM_BASE_URL, 'nvidia') && secrets.LLM_API_KEY_4 || '' }}
           LLM_API_KEY_5: ${{ !contains(inputs.base_url || vars.LLM_BASE_URL, 'googleapis') && !contains(inputs.base_url || vars.LLM_BASE_URL, 'cerebras') && !contains(inputs.base_url || vars.LLM_BASE_URL, 'nvidia') && secrets.LLM_API_KEY_5 || '' }}
+          # Fournisseur gratuit (NVIDIA NIM) : étoffer plutôt que convertir en brève.
+          # Les seuils de la charte ne bougent pas (cf. pipeline.py).
+          ETOFFER_AU_LIEU_DE_CONVERTIR: ${{ contains(inputs.base_url || vars.LLM_BASE_URL, 'nvidia') && '1' || '' }}
           PYTHONIOENCODING: utf-8
           TZ: Europe/Paris
         run: |

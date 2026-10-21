@@ -3261,6 +3261,14 @@ def _seuils(article_type: str) -> dict:
 # comportement d'avant le 02/08 (relance puis rejet), pour comparer.
 CONVERSION_BREVE_SI_COURT = True
 
+# Sur un fournisseur GRATUIT, la raison d'être de la conversion (ne pas brûler
+# ~35 k tokens PAYANTS en étoffement avant un rejet) disparaît. Cet interrupteur
+# OPT-IN, posé par le workflow pour NVIDIA NIM seulement, fait relancer
+# l'étoffement au lieu de convertir. Aucun seuil n'est touché : plancher de 350
+# mots, sources, garde-fous, fact-check et grille vitrine s'appliquent tels quels.
+ETOFFER_AU_LIEU_DE_CONVERTIR = (
+    (os.getenv("ETOFFER_AU_LIEU_DE_CONVERTIR", "") or "").strip() == "1")
+
 
 def _mots_resume_faits(art: dict) -> int:
     """Mots du périmètre d'une BRÈVE : chapeau + 'faits'. Sert à savoir si un
@@ -8923,7 +8931,8 @@ def generer_article(item: dict, dry_run: bool, published: set, new_pub: set, dat
         # seuils du format réellement publié.
         # La charte n'est pas affaiblie : le plancher de l'ARTICLE reste 350
         # mots, aucun texte de 250 mots n'est publié « en tant qu'article ».
-        if (CONVERSION_BREVE_SI_COURT and article_type == "actu"
+        if (CONVERSION_BREVE_SI_COURT and not ETOFFER_AU_LIEU_DE_CONVERTIR
+                and article_type == "actu"
                 and isinstance(art, dict) and art
                 and _mots_totaux(art) < SEUILS_FORMAT["article"]["plancher"]
                 and _mots_resume_faits(art) >= SEUILS_FORMAT["breve"]["plancher"]):
@@ -9161,7 +9170,8 @@ def generer_article(item: dict, dry_run: bool, published: set, new_pub: set, dat
         # Second filet : la relance corrective peut avoir raccourci un article
         # qui passait avant elle. La conversion principale a lieu plus haut,
         # juste après le premier jet — voir [CONVERSION].
-        if (CONVERSION_BREVE_SI_COURT and article_type == "actu"
+        if (CONVERSION_BREVE_SI_COURT and not ETOFFER_AU_LIEU_DE_CONVERTIR
+                and article_type == "actu"
                 and mots < _seuil_fmt["plancher"]
                 and _mots_resume_faits(art) >= SEUILS_FORMAT["breve"]["plancher"]):
             _reduire_en_breve(art)
