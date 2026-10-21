@@ -39996,5 +39996,398 @@
     "n_sources_injectees": 10,
     "n_sources_trouvees": 10,
     "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "onu-trajectoire-rechauffement-climatique-2-6-degres",
+    "statut": "rejete_qualite",
+    "date": "2026-10-21T10:51:24",
+    "tentative": 1,
+    "angle_insuffisant": true,
+    "raison": "L'article ne contient aucune phrase dans la section 'faits' remplissant le double critère d'un événement précis daté (ou datable) associé à une donnée chiffrée/nommée propre à cet événement. Il expose des projections générales et des concepts climatiques sans rapporter un fait déclencheur récent (ex: publication d'un rapport spécifique à une date précise).",
+    "article_type": "actu",
+    "titre": "L'ONU prévoit un réchauffement de 2,6 °C d'ici la fin du siècle",
+    "n_sources": 3,
+    "n_mots": 467,
+    "titre_rss": "Climat : le monde vers un réchauffement de 2,6 °C selon l’ONU",
+    "matiere_faits_distincts": 992,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "rapport"
+  },
+  {
+    "slug": "sanofi-sommation-ue-communication-vaccins-grippe",
+    "statut": "rejete_sensible",
+    "date": "2026-10-21T11:29:16",
+    "sujet_sensible": true,
+    "raison": "L'article contient une affirmation négative visant nommément une entreprise (Sanofi) accusée de dénigrement.",
+    "article_type": "actu",
+    "titre": "L'Union européenne somme Sanofi de rectifier sa communication sur les vaccins antigrippaux",
+    "n_sources": 5,
+    "n_mots": 375,
+    "titre_rss": "Vaccins contre la grippe : Sanofi, accusé d’avoir dénigré un concurrent, sommé par l’UE de rectifier sa communication",
+    "matiere_faits_distincts": 1102,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 2,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "hausse-mortalite-france-juin-2026",
+    "statut": "rejete_qualite",
+    "date": "2026-10-21T11:38:28",
+    "angle_insuffisant": true,
+    "raison": "L'article ne répond pas à la question posée dans l'angle_reponse (« L'augmentation... est-elle directement imputable à la canicule ? ») et ne contient aucune phrase dans les faits liant explicitement la hausse des décès à la canicule avec une donnée chiffrée ou nommée, se contentant de juxtaposer les deux phénomènes.",
+    "article_type": "actu",
+    "titre": "Hausse de 29,1 % des décès en France fin juin 2026",
+    "n_sources": 3,
+    "n_mots": 522,
+    "titre_rss": "Point de situation sur la mortalité toutes causes confondues  sur la période du 22 au 28 juin 2026",
+    "matiere_faits_distincts": 905,
+    "matiere_redondance": 0.01,
+    "matiere_donnees_chiffrees": 3,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "veille_heures_visible": 221.3,
+    "veille_passages": 74,
+    "veille_age_h": 1391.6,
+    "veille_n_flux_grappe": 1,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "enquete-eras-2026-prevention-vih-ist-hommes",
+    "statut": "corrige_automatiquement",
+    "date": "2026-10-21T11:48:32",
+    "problemes_initiaux": 3,
+    "tentatives": 1,
+    "problemes_residuels_style": 2,
+    "rapport_initial": {
+      "conforme": false,
+      "sujet_sensible": false,
+      "sujet_sensible_raison": "",
+      "angle_insuffisant": false,
+      "angle_insuffisant_raison": "",
+      "nature_contenu": "actualite_factuelle",
+      "problemes": [
+        {
+          "bloc": 4,
+          "section": "contexte",
+          "type": "contexte_hors_sujet",
+          "phrase_exacte": "Le suivi de ces indicateurs de santé publique s'intègre dans un environnement administratif où, par exemple, la Bibliothèque des rapports publics répertorie depuis juillet 2026 l'ensemble des rapports officiels commandés par la présidence et le gouvernement pour orienter les politiques nationales [6].",
+          "explication": "L'existence d'une bibliothèque de rapports publics gouvernementaux est un fait administratif général qui n'éclaire pas et n'apporte aucune valeur ajoutée à la compréhension de l'enquête ERAS sur le VIH/IST."
+        },
+        {
+          "bloc": 2,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "la Bibliothèque des rapports publics répertorie depuis juillet 2026 l'ensemble des rapports officiels commandés par la présidence et le gouvernement pour orienter les politiques nationales [6].",
+          "explication": "Le renvoi [6] pointe vers une source inexistante dans la liste fournie (qui ne contient que 3 sources)."
+        },
+        {
+          "bloc": 2,
+          "section": "contexte",
+          "type": "compteur_incoherent",
+          "phrase_exacte": "nb_sources: 3",
+          "explication": "L'article utilise un renvoi [6] alors que le compteur indique 3 sources, créant une incohérence d'intégrité du sourcing."
+        }
+      ]
+    },
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "resume_repete_corps"
+    ],
+    "titre": "Lancement de la 5e enquête nationale sur les comportements sexuels des hommes",
+    "n_sources": 3,
+    "n_mots": 394,
+    "titre_rss": "Enquête « Rapport au sexe » (ERAS) 2026 à destination des hommes ayant des rapports sexuels avec des hommes",
+    "matiere_faits_distincts": 735,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "veille_heures_visible": 117.0,
+    "veille_passages": 24,
+    "veille_age_h": 1287.2,
+    "veille_n_flux_grappe": 1,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "inserm-vaccins-idees-recues-campagne-2026",
+    "statut": "rejete_qualite",
+    "date": "2026-10-21T12:24:32",
+    "problemes_initiaux": 1,
+    "tentatives": 3,
+    "problemes_restants": 1,
+    "bloquants_restants": 1,
+    "bloquants_types": [
+      "incoherence_inter_sections"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "incoherence_inter_sections",
+        "description": "Le fait est attribué à la source [1] (Inserm), alors que la phrase indique explicitement qu'il provient du Baromètre de Santé publique France, qui correspond à la source [2].",
+        "phrase": "La méfiance vaccinale en France est documentée par le Baromètre de Santé publique France 2024, qui indique que 36,7 % des adultes de 18 à 79 ans expriment des défiances envers certaines vaccinations, malgré un avis favor"
+      }
+    ],
+    "types_restants": [
+      "incoherence_inter_sections"
+    ],
+    "article_type": "actu",
+    "titre": "L'Inserm déconstruit sept idées reçues sur les vaccins pour la campagne 2026",
+    "n_sources": 3,
+    "n_mots": 527,
+    "titre_rss": "Sept fausses idées sur les vaccins",
+    "matiere_faits_distincts": 963,
+    "matiere_redondance": 0.2,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "migration-biodiversite-nord-altitude-changement-climatique",
+    "statut": "corrige_automatiquement",
+    "date": "2026-10-21T12:44:58",
+    "problemes_initiaux": 2,
+    "tentatives": 1,
+    "problemes_residuels_style": 1,
+    "rapport_initial": {
+      "conforme": false,
+      "sujet_sensible": false,
+      "sujet_sensible_raison": "",
+      "angle_insuffisant": false,
+      "angle_insuffisant_raison": "",
+      "nature_contenu": "actualite_factuelle",
+      "problemes": [
+        {
+          "bloc": 2,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "Parallèlement, le rapport Groundswell de la Banque mondiale estimait en 2021 que jusqu'à 216 millions de personnes pourraient être contraintes de migrer d'ici 2050 pour les mêmes raisons climatiques : canicules, sécheresses et montée des eaux [2].",
+          "explication": "Le fait est attribué à la source [2] (CNRS), mais mentionne un rapport de la Banque mondiale qui ne figure pas dans la liste des sources autorisées."
+        },
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "Une méta-analyse a prouvé qu'au moins 10 % des espèces de papillons connues voient leur répartition géographique changer, avec une remontée marquée vers le nord en Europe et en Amérique du Nord [2][6].",
+          "explication": "L'article utilise un renvoi [6] alors que la liste des sources autorisées ne contient que 3 éléments."
+        }
+      ]
+    },
+    "article_type": "actu",
+    "titre": "Le CNRS observe une migration massive des espèces vers le nord et les sommets",
+    "n_sources": 3,
+    "n_mots": 593,
+    "titre_rss": "Biodiversité : ruée vers les pôles et les sommets",
+    "matiere_faits_distincts": 1151,
+    "matiere_redondance": 0.02,
+    "matiere_donnees_chiffrees": 2,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "assemblee-nationale-extension-taxe-produits-sucres",
+    "statut": "corrige_automatiquement",
+    "date": "2026-10-21T13:02:48",
+    "problemes_initiaux": 3,
+    "tentatives": 2,
+    "problemes_residuels_style": 2,
+    "rapport_initial": {
+      "conforme": false,
+      "sujet_sensible": false,
+      "sujet_sensible_raison": "",
+      "angle_insuffisant": false,
+      "angle_insuffisant_raison": "",
+      "nature_contenu": "actualite_factuelle",
+      "problemes": [
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "chiffre_errone",
+          "phrase_exacte": "Le mardi 20 octobre, les députés ont entamé l'examen du projet de loi de financement de la Sécurité sociale pour l'année 2027 [1].",
+          "explication": "La source [1] date du 20 octobre 2026, or l'article mentionne l'examen d'un projet de loi pour 2027 le 20 octobre sans préciser l'année, créant une confusion ou une erreur de date par rapport à la source."
+        },
+        {
+          "bloc": 2,
+          "section": "contexte",
+          "type": "source_derivee_comptee_comme_primaire",
+          "phrase_exacte": "En France, l'efficacité de ces mesures a été analysée dans un rapport d'information du Sénat. Si la fiscalité comportementale contribue à lutter contre les addictions, elle n'est pas considérée comme le seul outil disponible [5].",
+          "explication": "La source [5] est un article de 'Vie Publique' qui synthétise un rapport du Sénat ; elle est donc une source secondaire. Le comptage des sources (nb_sources: 5) et la qualification (primaire: 3) traitent probablement Vie Publique comme une source primaire alors qu'elle relaie un document original."
+        },
+        {
+          "bloc": 4,
+          "section": "nuances",
+          "type": "redondance",
+          "phrase_exacte": "D'après Vie Publique, le rapport du Sénat précise que la fiscalité ne peut agir seule pour modifier durablement les habitudes alimentaires [5].",
+          "explication": "Cette idée est déjà présente mot pour mot dans le résumé (« la fiscalité ne peut constituer l'unique outil de lutte contre les addictions ») et dans le contexte (« elle n'est pas considérée comme le seul outil disponible »)."
+        }
+      ]
+    },
+    "article_type": "actu",
+    "titre": "L'Assemblée nationale examine l'extension de la taxe soda aux produits sucrés",
+    "n_sources": 5,
+    "n_mots": 404,
+    "titre_rss": "Le sucre bientôt taxé comme le tabac et l’alcool ?",
+    "matiere_faits_distincts": 565,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "el-nino-intensification-record-chaleur-2027",
+    "statut": "corrige_automatiquement",
+    "date": "2026-10-21T13:12:02",
+    "problemes_initiaux": 2,
+    "tentatives": 1,
+    "problemes_residuels_style": 2,
+    "rapport_initial": {
+      "conforme": false,
+      "sujet_sensible": false,
+      "sujet_sensible_raison": "",
+      "angle_insuffisant": false,
+      "angle_insuffisant_raison": "",
+      "nature_contenu": "actualite_factuelle",
+      "problemes": [
+        {
+          "bloc": 1,
+          "section": "titre",
+          "type": "fait_tranche_arbitrairement",
+          "phrase_exacte": "L'intensification d'un El Niño exceptionnel fait craindre un record thermique en 2027",
+          "explication": "Le titre présente le record thermique de 2027 comme une crainte/prévision liée à El Niño, alors que les sources [1][2] indiquent que El Niño devrait atteindre son maximum fin 2026 et persister jusqu'en février 2027 ; l'article généralise l'année 2027 entière sans que la source ne prédise explicitement que l'année complète sera la plus chaude."
+        },
+        {
+          "bloc": 1,
+          "section": "resume",
+          "type": "fait_tranche_arbitrairement",
+          "phrase_exacte": "L'intensification rapide du phénomène climatique El Niño dans le Pacifique laisse présager que l'année 2027 pourrait devenir la plus chaude jamais enregistrée [1][2].",
+          "explication": "Les sources [1][2] mentionnent des mois de chaleur extrême et une persistance du phénomène jusqu'en février 2027, mais ne prédisent pas explicitement que l'année civile 2027 sera la plus chaude jamais enregistrée."
+        }
+      ]
+    },
+    "article_type": "actu",
+    "titre": "L'intensification d'un El Niño exceptionnel fait craindre un record thermique en 2027",
+    "n_sources": 5,
+    "n_mots": 503,
+    "titre_rss": "Pourquoi 2027 sera l'année la plus chaude jamais enregistrée",
+    "matiere_faits_distincts": 1285,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "cour-comptes-rapport-durabilite-france-transition-ecologique",
+    "statut": "corrige_automatiquement",
+    "date": "2026-10-21T13:43:22",
+    "problemes_initiaux": 3,
+    "tentatives": 1,
+    "problemes_residuels_style": 1,
+    "rapport_initial": {
+      "conforme": false,
+      "sujet_sensible": false,
+      "sujet_sensible_raison": "",
+      "angle_insuffisant": false,
+      "angle_insuffisant_raison": "",
+      "nature_contenu": "rapport",
+      "problemes": [
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "acteur_mis_en_cause_sans_reponse",
+          "phrase_exacte": "Le bilan spécifique de l'État est jugé peu exemplaire avec seulement 11 cibles atteintes sur les 54 prévues dans son plan de transformation écologique [1].",
+          "explication": "L'État français est mis en cause pour son bilan insuffisant, mais aucune réponse de sa part n'est rapportée et il n'est pas précisé que sa réaction n'était pas disponible dans les sources."
+        },
+        {
+          "bloc": 2,
+          "section": "contexte",
+          "type": "compteur_incoherent",
+          "phrase_exacte": "nb_sources: 5",
+          "explication": "Le champ nb_sources indique 5, mais seules 4 sources distinctes sont effectivement utilisées dans le texte ([1], [7], [4], [2], [3] — attention, le renvoi [7] est incohérent avec une liste de 5 sources et la source [5] n'est jamais citée)."
+        },
+        {
+          "bloc": 2,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "La directive (UE) 2026/470 du 24 février 2026 a modifié les exigences d'information en matière de durabilité et le devoir de vigilance des entreprises [7].",
+          "explication": "Le renvoi [7] pointe vers une source inexistante dans la liste des sources autorisées (qui ne contient que 5 éléments)."
+        }
+      ]
+    },
+    "article_type": "actu",
+    "titre": "La Cour des comptes juge le plan de transition écologique français non financé",
+    "n_sources": 5,
+    "n_mots": 579,
+    "titre_rss": "Le rapport de durabilité de la France ne passerait pas l'audit",
+    "matiere_faits_distincts": 661,
+    "matiere_redondance": 0.08,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "rapport"
+  },
+  {
+    "slug": "fidji-transition-energetique-renouvelables",
+    "statut": "rejete_qualite",
+    "date": "2026-10-21T13:58:35",
+    "angle_insuffisant": true,
+    "raison": "L'article ne contient aucune phrase dans la section 'faits' remplissant le double critère d'un événement précis daté/datable et d'une donnée chiffrée/nommée lui étant propre. Il expose un objectif général sans préciser quand cet objectif a été annoncé ou quel acte officiel récent déclenche la publication.",
+    "article_type": "actu",
+    "titre": "Les Fidji visent la quasi-totalité de leurs besoins énergétiques en renouvelable",
+    "n_sources": 5,
+    "n_mots": 430,
+    "titre_rss": "Les Fidji font fi des fossiles et misent sur le renouvelable",
+    "matiere_faits_distincts": 770,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "causes-deces-france-2024-tendances",
+    "statut": "conforme_du_premier_coup",
+    "date": "2026-10-21T14:20:06",
+    "article_type": "actu",
+    "titre": "Les tumeurs restent la première cause de décès en France en 2024",
+    "n_sources": 4,
+    "n_mots": 511,
+    "titre_rss": "Grandes causes de décès en France : tendances et causes associées en 2024",
+    "matiere_faits_distincts": 1137,
+    "matiere_redondance": 0.03,
+    "matiere_donnees_chiffrees": 2,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "veille_heures_visible": 517.7,
+    "veille_passages": 311,
+    "veille_age_h": 1688.0,
+    "veille_n_flux_grappe": 1,
+    "nature_contenu": "rapport"
+  },
+  {
+    "slug": "cyberattaque-fuite-donnees-afd-allemagne",
+    "statut": "rejete_sensible",
+    "date": "2026-10-21T14:34:46",
+    "tentative": 1,
+    "sujet_sensible": true,
+    "raison": "L'article contient une affirmation négative visant nommément une organisation politique (AfD) et mentionne une cyberattaque",
+    "article_type": "actu",
+    "titre": "Le parti allemand AfD victime d'une fuite de 421 000 courriels",
+    "n_sources": 4,
+    "n_mots": 362,
+    "titre_rss": "Le parti d’extrême droite allemand AfD victime d’une cyberattaque et d’une fuite de données",
+    "matiere_faits_distincts": 1290,
+    "matiere_redondance": 0.01,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
   }
 ]
