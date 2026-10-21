@@ -39300,5 +39300,701 @@
     "n_sources_injectees": 10,
     "n_sources_trouvees": 10,
     "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "cop17-biodiversite-retards-financements-protection-ecosystemes",
+    "statut": "rejete_sensible",
+    "date": "2026-10-21T06:47:50",
+    "problemes_initiaux": 15,
+    "bloc5": [
+      "faux_debat"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "resume_repete_corps",
+      "faits_repetitifs"
+    ],
+    "titre": "COP17 biodiversité : les États en retard sur les financements et la protection",
+    "n_sources": 6,
+    "n_mots": 845,
+    "titre_rss": "COP17 biodiversité: des efforts insuffisants pour enrayer l'extinction de masse",
+    "matiere_faits_distincts": 1116,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "albanie-montenegro-adhesion-ue-progres-blocages-politiques",
+    "statut": "rejete_sensible",
+    "date": "2026-10-21T06:51:00",
+    "problemes_initiaux": 12,
+    "bloc5": [
+      "faux_debat"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "resume_repete_corps"
+    ],
+    "titre": "Adhésion à l'UE : Albanie et Monténégro, avancées techniques mais blocages politiques persistants",
+    "n_sources": 5,
+    "n_mots": 838,
+    "titre_rss": "Albanie et Monténégro : un état des lieux des négociations d'adhésion à l'Union européenne - Rapport d'information n° 845",
+    "matiere_faits_distincts": 750,
+    "matiere_redondance": 0.01,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "fin-encadrement-loyers-1-2-million-locataires-decision-senat",
+    "statut": "rejete_sensible",
+    "date": "2026-10-21T06:53:36",
+    "problemes_initiaux": 13,
+    "bloc5": [
+      "faux_debat"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "titre_de_mauvaise_qualite"
+    ],
+    "titre": "Fin programmée de l'encadrement des loyers : 1,2 million de locataires en attente d'une décision sénatoriale",
+    "n_sources": 5,
+    "n_mots": 946,
+    "titre_rss": "Encadrement des loyers : la proposition de loi visant à prolonger l’expérimentation en débat au Sénat",
+    "matiere_faits_distincts": 910,
+    "matiere_redondance": 0.05,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "vaccins-ebola-anticorps-bundibugyo-efficacite-non-prouvee",
+    "statut": "rejete_sensible",
+    "date": "2026-10-21T06:56:09",
+    "problemes_initiaux": 16,
+    "bloc5": [
+      "faux_debat"
+    ],
+    "article_type": "actu",
+    "titre": "Vaccins Ebola : des anticorps contre Bundibugyo détectés, mais efficacité non prouvée",
+    "n_sources": 4,
+    "n_mots": 788,
+    "titre_rss": "Épidémie d’Ebola Bundibugyo : des premiers résultats pour guider la recherche d’un vaccin efficace",
+    "matiere_faits_distincts": 715,
+    "matiere_redondance": 0.02,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "veille_heures_visible": 517.7,
+    "veille_passages": 311,
+    "veille_age_h": 1684.2,
+    "veille_n_flux_grappe": 9,
+    "nature_contenu": "etude_scientifique"
+  },
+  {
+    "slug": "sanofi-interdiction-communication-vaccins-antigrippaux-ue-france-allemagne",
+    "statut": "rejete_sensible",
+    "date": "2026-10-21T06:58:45",
+    "problemes_initiaux": 10,
+    "bloc5": [
+      "diffamation_potentielle"
+    ],
+    "article_type": "breve",
+    "avertissements_garde_fous": [
+      "resume_repete_corps"
+    ],
+    "titre": "Sanofi interdit de critiquer les recommandations vaccinales en France et Allemagne",
+    "n_sources": 6,
+    "n_mots": 286,
+    "titre_rss": "Vaccins contre la grippe : Sanofi, accusé d’avoir dénigré un concurrent, sommé par l’UE de rectifier sa communication",
+    "matiere_faits_distincts": 1065,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 2,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "budget-2027-psychiatrie-reformes-moyens-insuffisants",
+    "statut": "rejete_sensible",
+    "date": "2026-10-21T07:01:28",
+    "problemes_initiaux": 17,
+    "bloc5": [
+      "extrapolation"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "resume_repete_corps",
+      "faits_repetitifs"
+    ],
+    "titre": "Budget 2027 : la psychiatrie française en tension entre réformes et moyens insuffisants",
+    "n_sources": 4,
+    "n_mots": 655,
+    "titre_rss": "Budget 2027 : pour la psychiatrie, arrêtons les réformes sans moyens",
+    "matiere_faits_distincts": 883,
+    "matiere_redondance": 0.02,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "canicule-juin-2026-hausse-mortalite-29-pourcent-chiffres-incomplets",
+    "statut": "rejete_sensible",
+    "date": "2026-10-21T07:04:24",
+    "problemes_initiaux": 16,
+    "bloc5": [
+      "annonce_perimee"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "faits_repetitifs",
+      "titre_de_mauvaise_qualite"
+    ],
+    "titre": "Canicule juin 2026 : une hausse de mortalité de 29 % en une semaine, mais des chiffres encore incomplets",
+    "n_sources": 4,
+    "n_mots": 775,
+    "titre_rss": "Point de situation sur la mortalité toutes causes confondues  sur la période du 22 au 28 juin 2026",
+    "matiere_faits_distincts": 697,
+    "matiere_redondance": 0.01,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "veille_heures_visible": 221.3,
+    "veille_passages": 74,
+    "veille_age_h": 1387.8,
+    "veille_n_flux_grappe": 1,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "enquete-eras-2026-20-000-participants-prevention-vih-hommes-havant-rapports-sexuels",
+    "statut": "rejete_sensible",
+    "date": "2026-10-21T07:07:16",
+    "problemes_initiaux": 12,
+    "bloc5": [
+      "compteur_incoherent"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "titre_de_mauvaise_qualite"
+    ],
+    "titre": "Enquête ERAS 2026 : 20 000 participants pour affiner la prévention du VIH chez les HSH",
+    "n_sources": 3,
+    "n_mots": 456,
+    "titre_rss": "Enquête « Rapport au sexe » (ERAS) 2026 à destination des hommes ayant des rapports sexuels avec des hommes",
+    "matiere_faits_distincts": 827,
+    "matiere_redondance": 0.01,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "veille_heures_visible": 117.0,
+    "veille_passages": 24,
+    "veille_age_h": 1283.4,
+    "veille_n_flux_grappe": 1,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "inserm-demonstration-sept-idees-recues-vaccins-donnees-epidemiologiques",
+    "statut": "rejete_sensible",
+    "date": "2026-10-21T07:18:02",
+    "problemes_initiaux": 22,
+    "tentative": 1,
+    "bloc5": true,
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "faits_repetitifs",
+      "titre_de_mauvaise_qualite"
+    ],
+    "titre": "Inserm démontre sept idées reçues sur les vaccins avec des données épidémiologiques",
+    "n_sources": 5,
+    "n_mots": 1147,
+    "titre_rss": "Sept fausses idées sur les vaccins",
+    "matiere_faits_distincts": 1071,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 2,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "reformes-retraites-militaires-baisse-pensions-officiers-2026",
+    "statut": "rejete_sensible",
+    "date": "2026-10-21T07:21:07",
+    "problemes_initiaux": 16,
+    "bloc5": [
+      "extrapolation"
+    ],
+    "article_type": "actu",
+    "titre": "Réforme des retraites militaires : une baisse de 15 à 25 % menace les officiers",
+    "n_sources": 3,
+    "n_mots": 864,
+    "titre_rss": "«Il y a un risque de décapitation de la hiérarchie» : une mesure du budget de la Sécurité sociale fait craindre des démissions en cascade dans l’armée",
+    "matiere_faits_distincts": 652,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "1888-especes-europeennes-migrent-nord-altitude-risques-survie",
+    "statut": "rejete_sensible",
+    "date": "2026-10-21T07:30:33",
+    "problemes_initiaux": 12,
+    "bloc5": [
+      "compteur_incoherent"
+    ],
+    "article_type": "actu",
+    "titre": "1 888 espèces européennes migrent vers le nord ou en altitude, selon le CNRS",
+    "n_sources": 4,
+    "n_mots": 793,
+    "titre_rss": "Biodiversité : ruée vers les pôles et les sommets",
+    "matiere_faits_distincts": 1258,
+    "matiere_redondance": 0.02,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "extension-taxe-sucres-aliments-projet-loi-2027",
+    "statut": "rejete_sensible",
+    "date": "2026-10-21T07:33:52",
+    "problemes_initiaux": 16,
+    "bloc5": [
+      "acteur_mis_en_cause_sans_reponse"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "faits_repetitifs"
+    ],
+    "titre": "Projet de loi 2027 : extension de la taxe soda aux aliments sucrés transformés",
+    "n_sources": 9,
+    "n_mots": 553,
+    "titre_rss": "Le sucre bientôt taxé comme le tabac et l’alcool ?",
+    "matiere_faits_distincts": 609,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "2027-annee-record-chaleur-france-impacts-incertitudes",
+    "statut": "rejete_sensible",
+    "date": "2026-10-21T07:37:15",
+    "problemes_initiaux": 15,
+    "bloc5": [
+      "extrapolation"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "faits_repetitifs"
+    ],
+    "titre": "2027 pourrait dépasser les records de chaleur de 2026 en France",
+    "n_sources": 5,
+    "n_mots": 749,
+    "titre_rss": "Pourquoi 2027 sera l'année la plus chaude jamais enregistrée",
+    "matiere_faits_distincts": 980,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "detournement-406-millions-renouvelables-agriculture-carburants",
+    "statut": "rejete_sensible",
+    "date": "2026-10-21T07:40:18",
+    "problemes_initiaux": 12,
+    "bloc5": [
+      "faux_debat"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "faits_repetitifs",
+      "cliches_ia"
+    ],
+    "titre": "406 millions d'euros détournés des renouvelables vers agriculture et carburants",
+    "n_sources": 5,
+    "n_mots": 818,
+    "titre_rss": "Des aides aux énergies renouvelables... redirigées vers le carburant",
+    "matiere_faits_distincts": 1191,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "ecarts-objectifs-realites-climatiques-france-rapport-cour-des-comptes",
+    "statut": "rejete_sensible",
+    "date": "2026-10-21T07:43:27",
+    "problemes_initiaux": 10,
+    "bloc5": [
+      "diffamation_potentielle"
+    ],
+    "article_type": "breve",
+    "avertissements_garde_fous": [
+      "titre_de_mauvaise_qualite"
+    ],
+    "titre": "France : écarts persistants entre objectifs et réalisations climatiques",
+    "n_sources": 3,
+    "n_mots": 228,
+    "titre_rss": "Le rapport de durabilité de la France ne passerait pas l'audit",
+    "matiere_faits_distincts": 798,
+    "matiere_redondance": 0.04,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "rapport"
+  },
+  {
+    "slug": "20-9-millions-disparus-vente-foncieres-corse-oligarque-russe",
+    "statut": "rejete_sensible",
+    "date": "2026-10-21T07:46:45",
+    "sujet_sensible": true,
+    "raison": "Affaire judiciaire en cours visant des personnes nommément identifiées (Jean-Noël Marcellesi, oligarque russe) avec des accusations pénales (abus de confiance, blanchiment).",
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "resume_repete_corps",
+      "faits_repetitifs"
+    ],
+    "titre": "Corse : 20,9 millions d'euros disparus dans une vente foncière impliquant un oligarque russe",
+    "n_sources": 3,
+    "n_mots": 782,
+    "titre_rss": "L’oligarque russe contre le businessman corse : à Marseille, un procès expose les appétits fonciers dans l’île de Beauté",
+    "matiere_faits_distincts": 892,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "drone-evacuation-medicale-soldat-blesse-ukraine-62-kilometres",
+    "statut": "rejete_sensible",
+    "date": "2026-10-21T07:49:29",
+    "problemes_initiaux": 16,
+    "bloc5": [
+      "extrapolation"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "resume_repete_corps",
+      "cliches_ia"
+    ],
+    "titre": "Un drone transporte un soldat blessé sur 62 km en Ukraine",
+    "n_sources": 4,
+    "n_mots": 656,
+    "titre_rss": "\"L'évacuation se déroule en quelques minutes\" : un soldat blessé évacué par drone sur 62 km en Ukraine",
+    "matiere_faits_distincts": 682,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "mortalite-france-2024-causes-principales-et-evolutions",
+    "statut": "rejete_sensible",
+    "date": "2026-10-21T07:54:00",
+    "problemes_initiaux": 10,
+    "tentative": 2,
+    "bloc5": true,
+    "article_type": "actu",
+    "titre": "En France, 641 046 décès en 2024 : cancers et maladies respiratoires en hausse relative",
+    "n_sources": 4,
+    "n_mots": 772,
+    "titre_rss": "Grandes causes de décès en France : tendances et causes associées en 2024",
+    "matiere_faits_distincts": 926,
+    "matiere_redondance": 0.01,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "veille_heures_visible": 517.7,
+    "veille_passages": 311,
+    "veille_age_h": 1684.2,
+    "veille_n_flux_grappe": 1,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "cyberattaque-afd-421-000-emails-divulgues-risques-et-limites",
+    "statut": "rejete_sensible",
+    "date": "2026-10-21T07:56:57",
+    "problemes_initiaux": 19,
+    "bloc5": [
+      "source_inventee"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "faits_repetitifs"
+    ],
+    "titre": "Cyberattaque contre l'AfD : 421 000 e-mails divulgués, mais aucune attribution",
+    "n_sources": 4,
+    "n_mots": 755,
+    "titre_rss": "Le parti d’extrême droite allemand AfD victime d’une cyberattaque et d’une fuite de données",
+    "matiere_faits_distincts": 885,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "thrombinnov-startup-plaquettes-sang-accelerer-tests-medicaments",
+    "statut": "rejete_sensible",
+    "date": "2026-10-21T08:05:37",
+    "problemes_initiaux": 11,
+    "bloc5": [
+      "compteur_incoherent"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "cliches_ia"
+    ],
+    "titre": "ThrombInnov utilise 40 ans d’expertise strasbourgeoise pour tester les risques thrombotiques des médicaments",
+    "n_sources": 3,
+    "n_mots": 654,
+    "titre_rss": "L’entrepreneuriat dans le sang !",
+    "matiere_faits_distincts": 923,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 5,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "plan-nature-france-engagements-europeens-moyens-insuffisants",
+    "statut": "rejete_sensible",
+    "date": "2026-10-21T08:09:15",
+    "problemes_initiaux": 14,
+    "bloc5": [
+      "acteur_mis_en_cause_sans_reponse"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "faits_repetitifs"
+    ],
+    "titre": "La France ignore les exigences européennes sur la restauration écologique malgré les alertes scientifiques",
+    "n_sources": 9,
+    "n_mots": 835,
+    "titre_rss": "Plan pour la nature : la France voit grand mais ne propose rien",
+    "matiere_faits_distincts": 1167,
+    "matiere_redondance": 0.01,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "ird-formation-rgpd-registre-traitements-non-publie",
+    "statut": "rejete_sensible",
+    "date": "2026-10-21T08:12:46",
+    "problemes_initiaux": 13,
+    "bloc5": [
+      "extrapolation"
+    ],
+    "article_type": "actu",
+    "titre": "IRD forme ses employés au registre RGPD, mais ne le publie pas",
+    "n_sources": 6,
+    "n_mots": 372,
+    "titre_rss": "Protection des données personnelles - Le registre des traitements",
+    "matiere_faits_distincts": 819,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "veille_heures_visible": 517.7,
+    "veille_passages": 326,
+    "veille_age_h": 1684.2,
+    "veille_n_flux_grappe": 1,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "orionides-pic-etoiles-filantes-nuit-21-22-octobre-2026",
+    "statut": "rejete_qualite",
+    "date": "2026-10-21T08:15:50",
+    "angle_insuffisant": true,
+    "raison": "L'article ne répond pas à la question posée dans *angle_reponse* (« Quelles sont les **caractéristiques et les conditions d'observation** du pic des Orionides prévu en 2026 ? »). Bien que des détails techniques (vitesse, période, lien avec Halley) soient présents, il manque une **analyse des conditions spécifiques d'observation pour 2026** (ex : position de la Lune, heure exacte de pic, visibilité selon les latitudes, outils recommandés). Les sources ne fournissent **aucune donnée chiffrée ou nommée propre à 2026** (ex : « le pic sera visible à 2h30 TU avec une élévation de 45° à Paris »), seulement des généralités récurrentes. Le test opérationnel échoue : aucune phrase dans *faits* ne combine **un événement daté (2026)** + **une donnée exclusive à cette année** (ex : « en 2026, la Lune sera à 20% d'illumination, contre 50% en 2025 » ou « le pic sera décalé de 30 minutes par rapport à 2025 en raison de l'orbite terrestre »). L'article ressemble à une fiche pédagogique générale, pas à un fait d'actualité.",
+    "article_type": "actu",
+    "titre": "Les Orionides atteindront leur pic la nuit du 21 au 22 octobre 2026",
+    "n_sources": 4,
+    "n_mots": 509,
+    "titre_rss": "Orionides 2026 : admirez la pluie d'étoiles filantes de la nuit du 21 octobre",
+    "matiere_faits_distincts": 1290,
+    "matiere_redondance": 0.12,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "sujet_pedagogique"
+  },
+  {
+    "slug": "stellantis-chomage-partiel-mulhouse-poissy-risques-emplois",
+    "statut": "rejete_sensible",
+    "date": "2026-10-21T08:18:53",
+    "problemes_initiaux": 14,
+    "bloc5": [
+      "acteur_mis_en_cause_sans_reponse"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "faits_repetitifs"
+    ],
+    "titre": "Stellantis maintient chômage partiel à Mulhouse et Poissy malgré baisse durable d'activité",
+    "n_sources": 3,
+    "n_mots": 820,
+    "titre_rss": "Chez Stellantis, l’inquiétude gagne les ouvriers des sites de Mulhouse et Poissy qui tournent au ralenti",
+    "matiere_faits_distincts": 587,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "chercheurs-modeles-numeriques-mesocosmes-adaptation-especes-changement-climatique",
+    "statut": "rejete_sensible",
+    "date": "2026-10-21T08:22:10",
+    "problemes_initiaux": 13,
+    "bloc5": [
+      "compteur_incoherent"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "titre_de_mauvaise_qualite",
+      "cliches_ia"
+    ],
+    "titre": "Modèles numériques et mésocosmes : les outils pour prédire l’adaptation des espèces",
+    "n_sources": 4,
+    "n_mots": 650,
+    "titre_rss": "La foisonnante inventivité des chercheurs pour étudier les capacités d’adaptation des espèces",
+    "matiere_faits_distincts": 1306,
+    "matiere_redondance": 0.01,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "etude_scientifique"
+  },
+  {
+    "slug": "chine-europe-opposent-ia-fermees-ouvertes-juillet-2026",
+    "statut": "rejete_sensible",
+    "date": "2026-10-21T08:26:52",
+    "problemes_initiaux": 17,
+    "tentative": 1,
+    "bloc5": true,
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "article_sans_date"
+    ],
+    "titre": "IA : la Chine mise sur des modèles ouverts tandis que l'Europe encadre les fermés",
+    "n_sources": 4,
+    "n_mots": 461,
+    "titre_rss": "Derrière les appels à la régulation, l’affrontement entre IA fermées et IA ouvertes",
+    "matiere_faits_distincts": 824,
+    "matiere_redondance": 0.02,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "400-scientifiques-appellent-a-un-organisme-international-pour-securiser-les-ia",
+    "statut": "rejete_sensible",
+    "date": "2026-10-21T08:30:41",
+    "problemes_initiaux": 14,
+    "bloc5": [
+      "compteur_incoherent"
+    ],
+    "article_type": "actu",
+    "titre": "400 scientifiques demandent un organisme international pour réguler les risques des IA avancées",
+    "n_sources": 11,
+    "n_mots": 1040,
+    "titre_rss": "IA : 400 scientifiques alertent sur les risques de cybersécurité",
+    "matiere_faits_distincts": 1230,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "europe-deficit-munitions-gros-calibre-10-pourcent-production-mondiale",
+    "statut": "rejete_sensible",
+    "date": "2026-10-21T08:34:49",
+    "problemes_initiaux": 16,
+    "bloc5": [
+      "extrapolation"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "resume_repete_corps"
+    ],
+    "titre": "L'Europe produit 10 % des munitions mondiales de gros calibre, un déficit aggravé par les tensions géopolitiques",
+    "n_sources": 3,
+    "n_mots": 937,
+    "titre_rss": "Armes et munitions produites par les industries européennes de la défense - Texte de la commission n° 880",
+    "matiere_faits_distincts": 874,
+    "matiere_redondance": 0.06,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "veille_heures_visible": 517.7,
+    "veille_passages": 326,
+    "veille_age_h": 1684.2,
+    "veille_n_flux_grappe": 4,
+    "nature_contenu": "rapport"
+  },
+  {
+    "slug": "cyberattaque-supermarches-responsabilite-entreprises-14720-euros",
+    "statut": "rejete_sensible",
+    "date": "2026-10-21T08:38:55",
+    "problemes_initiaux": 16,
+    "bloc5": [
+      "faux_debat"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "resume_repete_corps",
+      "faits_repetitifs",
+      "titre_de_mauvaise_qualite"
+    ],
+    "titre": "Cyberattaque sur frigos de supermarchés : responsabilité des entreprises et coût moyen de 14 720 €",
+    "n_sources": 6,
+    "n_mots": 802,
+    "titre_rss": "Cyberattaques : faut-il mettre en place un « contrôle technique cyber » pour les entreprises ?",
+    "matiere_faits_distincts": 889,
+    "matiere_redondance": 0.05,
+    "matiere_donnees_chiffrees": 3,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "entreprises-zones-conflit-risques-financiers-reputationnels-2026",
+    "statut": "rejete_sensible",
+    "date": "2026-10-21T08:43:10",
+    "problemes_initiaux": 19,
+    "tentative": 1,
+    "bloc5": true,
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "resume_repete_corps",
+      "titre_de_mauvaise_qualite"
+    ],
+    "titre": "Entreprises en zones de conflit : risques financiers et réputationnels en hausse",
+    "n_sources": 3,
+    "n_mots": 459,
+    "titre_rss": "Gare aux boycotts ! En temps de guerre, les entreprises doivent protéger leur réputation",
+    "matiere_faits_distincts": 701,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
   }
 ]
