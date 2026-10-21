@@ -40389,5 +40389,524 @@
     "n_sources_injectees": 10,
     "n_sources_trouvees": 10,
     "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "vague-transmissions-entreprises-france-emploi",
+    "statut": "corrige_automatiquement",
+    "date": "2026-10-21T17:10:31",
+    "problemes_initiaux": 6,
+    "tentatives": 1,
+    "problemes_residuels_style": 2,
+    "rapport_initial": {
+      "conforme": false,
+      "sujet_sensible": false,
+      "sujet_sensible_raison": "",
+      "angle_insuffisant": false,
+      "angle_insuffisant_raison": "",
+      "nature_contenu": "actualite_factuelle",
+      "problemes": [
+        {
+          "bloc": 1,
+          "section": "titre",
+          "type": "fait_tranche_arbitrairement",
+          "phrase_exacte": "Le départ de 500 000 dirigeants d'entreprises d'ici 2032 menace l'emploi",
+          "explication": "Le titre présente le départ comme un fait établi et une menace certaine, alors que le corps et le résumé précisent qu'il s'agit d'un départ « potentiel » ou que les dirigeants « pourraient » quitter leurs fonctions."
+        },
+        {
+          "bloc": 4,
+          "section": "contexte",
+          "type": "contexte_hors_sujet",
+          "phrase_exacte": "Le Sénat a ainsi publié, le 20 octobre 2026, un rapport proposant 30 mesures pour reprendre le contrôle du maintien de l'ordre [3].",
+          "explication": "Le maintien de l'ordre n'a aucun lien avec la transmission des TPE/PME et ne sert qu'à remplir la section."
+        },
+        {
+          "bloc": 4,
+          "section": "contexte",
+          "type": "contexte_hors_sujet",
+          "phrase_exacte": "Parallèlement, les institutions parlementaires examinent les défaillances systémiques du périscolaire via 25 mesures proposées le 14 octobre 2026 [3].",
+          "explication": "Le périscolaire est totalement hors sujet par rapport à la transmission d'entreprises."
+        },
+        {
+          "bloc": 4,
+          "section": "contexte",
+          "type": "contexte_hors_sujet",
+          "phrase_exacte": "L'empreinte environnementale de l'intelligence artificielle fait également l'objet d'un suivi, avec un rapport du 21 septembre 2026 analysant les défis pour la planète et les opportunités pour la France et l'Europe [3].",
+          "explication": "L'empreinte environnementale de l'IA n'éclaire pas le sujet des départs de dirigeants d'entreprises."
+        },
+        {
+          "bloc": 4,
+          "section": "contexte",
+          "type": "contexte_hors_sujet",
+          "phrase_exacte": "Ces travaux, dont certains résultent d'auditions publiques comme celle du 2 avril 2026 sur les innovations de l'IA, témoignent d'une volonté de cadrer les mutations structurelles du pays [3].",
+          "explication": "L'innovation de l'IA est hors sujet."
+        },
+        {
+          "bloc": 4,
+          "section": "contexte",
+          "type": "contexte_hors_sujet",
+          "phrase_exacte": "En dehors du cadre national, l'Ined a publié des résultats fondés sur un échantillon représentatif de la diversité des populations de France métropolitaine pour analyser les discriminations et l'intégration [5].",
+          "explication": "L'analyse des discriminations et de l'intégration par l'Ined n'a aucun rapport avec la transmission d'entreprises."
+        }
+      ]
+    },
+    "article_type": "actu",
+    "titre": "Le départ de 500 000 dirigeants d'entreprises d'ici 2032 menace l'emploi",
+    "n_sources": 3,
+    "n_mots": 356,
+    "titre_rss": "\"Une vague de transmissions d’entreprises arrive\" : les propositions de l’ex-ministre Olivia Grégoire",
+    "matiere_faits_distincts": 854,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "vaccins-ebola-zaire-anticorps-souche-bundibugyo",
+    "statut": "corrige_automatiquement",
+    "date": "2026-10-21T17:42:59",
+    "problemes_initiaux": 1,
+    "tentatives": 3,
+    "problemes_residuels_style": 0,
+    "rapport_initial": {
+      "conforme": false,
+      "sujet_sensible": false,
+      "sujet_sensible_raison": "",
+      "angle_insuffisant": false,
+      "angle_insuffisant_raison": "",
+      "nature_contenu": "etude_scientifique",
+      "problemes": [
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "niveau_preuve_insuffisant",
+          "phrase_exacte": "L'analyse de sérums provenant de participants a permis d'établir que les vaccins conçus pour la souche Ebola Zaïre induisent des réponses immunitaires contre la souche Bundibugyo [1].",
+          "explication": "L'article omet de préciser le stade de la recherche (étude immunologique/observationnelle basée sur un essai clinique antérieur) alors que la source [1] détaille la méthodologie et l'origine des échantillons."
+        }
+      ]
+    },
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "article_sans_date"
+    ],
+    "titre": "Des vaccins contre Ebola Zaïre induisent des anticorps contre la souche Bundibugyo",
+    "n_sources": 3,
+    "n_mots": 475,
+    "titre_rss": "Épidémie d’Ebola Bundibugyo : des premiers résultats pour guider la recherche d’un vaccin efficace",
+    "matiere_faits_distincts": 939,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 2,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "veille_heures_visible": 517.7,
+    "veille_passages": 311,
+    "veille_age_h": 1694.5,
+    "veille_n_flux_grappe": 9,
+    "nature_contenu": "etude_scientifique"
+  },
+  {
+    "slug": "inserm-refutation-idees-recues-vaccination-2026",
+    "statut": "corrige_automatiquement",
+    "date": "2026-10-21T18:14:53",
+    "problemes_initiaux": 4,
+    "tentatives": 1,
+    "problemes_residuels_style": 0,
+    "rapport_initial": {
+      "conforme": false,
+      "sujet_sensible": false,
+      "sujet_sensible_raison": "",
+      "angle_insuffisant": false,
+      "angle_insuffisant_raison": "",
+      "nature_contenu": "actualite_factuelle",
+      "problemes": [
+        {
+          "bloc": 2,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "Le département de la santé de New York a ainsi créé une unité de réponse à la désinformation pour monitorer les messages sur les réseaux sociaux et réagir rapidement [6].",
+          "explication": "Le renvoi [6] pointe vers une source inexistante dans la liste des sources autorisées (qui n'en contient que 4)."
+        },
+        {
+          "bloc": 2,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "Parallèlement, le Sénat a produit des synthèses sur les effets indésirables des vaccins Covid-19 et les nouveaux outils de surveillance épidémiologique [7].",
+          "explication": "Le renvoi [7] pointe vers une source inexistante dans la liste des sources autorisées (qui n'en contient que 4)."
+        },
+        {
+          "bloc": 2,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "De même, l'Assemblée nationale a déposé le 30 mai 2024 un rapport d'information sur les évolutions des connaissances scientifiques liées à la Covid-19 [2].",
+          "explication": "Le renvoi [2] est utilisé ici, mais dans le tableau des sources, l'Assemblée nationale est bien la source n°2. Cependant, le fait est cité en contexte alors que le renvoi numérique est correct, mais l'ensemble du paragraphe utilise des index [6] et [7] erronés, créant une incohérence de sourcing."
+        },
+        {
+          "bloc": 2,
+          "section": "contexte",
+          "type": "compteur_incoherent",
+          "phrase_exacte": "nb_sources: 4",
+          "explication": "L'article utilise des appels de sources allant jusqu'à [7] alors que seules 4 sources sont listées et comptabilisées."
+        }
+      ]
+    },
+    "article_type": "actu",
+    "titre": "L'Inserm déconstruit sept idées reçues sur les vaccins pour la campagne 2026-2027",
+    "n_sources": 4,
+    "n_mots": 674,
+    "titre_rss": "Sept fausses idées sur les vaccins",
+    "matiere_faits_distincts": 1090,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "migration-biodiversite-europe-nord-altitude",
+    "statut": "corrige_automatiquement",
+    "date": "2026-10-21T18:46:59",
+    "problemes_initiaux": 1,
+    "tentatives": 1,
+    "problemes_residuels_style": 0,
+    "rapport_initial": {
+      "conforme": false,
+      "sujet_sensible": false,
+      "sujet_sensible_raison": "",
+      "angle_insuffisant": false,
+      "angle_insuffisant_raison": "",
+      "nature_contenu": "etude_scientifique",
+      "problemes": [
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "fait_tranche_arbitrairement",
+          "phrase_exacte": "Cependant, Jonathan Rolland, chercheur au CNRS, observe que les populations locales tendent à remonter vers les Pyrénées au sud pour maintenir leur température de préférence",
+          "explication": "L'article affirme que les populations remontent vers le sud (Pyrénées), ce qui est une contradiction géographique et biologique majeure avec le concept de 'remontée en altitude' et de 'migration vers le nord' décrit dans le reste de l'article et la source."
+        }
+      ]
+    },
+    "article_type": "actu",
+    "titre": "Plus de la moitié des espèces observées migrent vers le nord en Europe",
+    "n_sources": 4,
+    "n_mots": 554,
+    "titre_rss": "Biodiversité : ruée vers les pôles et les sommets",
+    "matiere_faits_distincts": 909,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "etude_scientifique"
+  },
+  {
+    "slug": "previsions-temperature-record-2027",
+    "statut": "corrige_automatiquement",
+    "date": "2026-10-21T19:06:04",
+    "problemes_initiaux": 3,
+    "tentatives": 1,
+    "problemes_residuels_style": 0,
+    "rapport_initial": {
+      "conforme": false,
+      "sujet_sensible": false,
+      "sujet_sensible_raison": "",
+      "angle_insuffisant": false,
+      "angle_insuffisant_raison": "",
+      "nature_contenu": "actualite_factuelle",
+      "problemes": [
+        {
+          "bloc": 1,
+          "section": "titre",
+          "type": "source_inventee",
+          "phrase_exacte": "L'année 2027 pressentie comme la plus chaude jamais enregistrée",
+          "explication": "Aucune des sources fournies n'affirme que l'année 2027 spécifiquement est pressentie pour être la plus chaude ; la source [3] mentionne une probabilité de 86 % qu'une année entre 2026 et 2030 batte le record."
+        },
+        {
+          "bloc": 1,
+          "section": "resume",
+          "type": "source_inventee",
+          "phrase_exacte": "L'intensification d'un phénomène El Niño exceptionnellement puissant laisse présager que l'année 2027 pourrait battre tous les records de température mondiale.",
+          "explication": "L'attribution de ce record spécifiquement à l'année 2027 n'est présente dans aucune source."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "Selon l'UN, la probabilité que ce cycle persiste jusqu'en février 2027 est désormais proche de 100 %, une certitude jamais exprimée auparavant par l'agence météorologique des Nations unies pour ce phénomène [1].",
+          "explication": "La source [1] ne mentionne pas de probabilité de 100 % de persistance jusqu'en février 2027, ni l'idée d'une certitude jamais exprimée auparavant."
+        }
+      ]
+    },
+    "article_type": "actu",
+    "titre": "L'année 2027 pressentie comme la plus chaude jamais enregistrée",
+    "n_sources": 5,
+    "n_mots": 455,
+    "titre_rss": "Pourquoi 2027 sera l'année la plus chaude jamais enregistrée",
+    "matiere_faits_distincts": 974,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "italie-durcissement-lois-anti-emeutes-deployement-armee",
+    "statut": "corrige_automatiquement",
+    "date": "2026-10-21T19:28:18",
+    "problemes_initiaux": 1,
+    "tentatives": 1,
+    "problemes_residuels_style": 0,
+    "rapport_initial": {
+      "conforme": false,
+      "sujet_sensible": false,
+      "sujet_sensible_raison": "",
+      "angle_insuffisant": false,
+      "angle_insuffisant_raison": "",
+      "nature_contenu": "actualite_factuelle",
+      "problemes": [
+        {
+          "bloc": 4,
+          "section": "contexte",
+          "type": "contexte_hors_sujet",
+          "phrase_exacte": "Parallèlement à cette ligne sécuritaire, le gouvernement a toutefois ouvert 450 000 titres de séjour pour les travailleurs étrangers, un volume record sur dix ans [5].",
+          "explication": "L'ouverture de titres de séjour pour travailleurs étrangers est un fait tangentiel qui n'éclaire pas le sujet principal des violences urbaines et du durcissement législatif anti-émeutes."
+        }
+      ]
+    },
+    "article_type": "actu",
+    "titre": "L'Italie durcit sa législation anti-émeutes et déploie l'armée à Milan",
+    "n_sources": 6,
+    "n_mots": 365,
+    "titre_rss": "Manifestations en Italie : Giorgia Meloni durcit les lois anti-émeutes et déploie l'armée",
+    "matiere_faits_distincts": 383,
+    "matiere_redondance": 0.02,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "europe-report-reporting-fuites-methane-energie",
+    "statut": "corrige_automatiquement",
+    "date": "2026-10-21T19:52:09",
+    "problemes_initiaux": 2,
+    "tentatives": 1,
+    "problemes_residuels_style": 2,
+    "rapport_initial": {
+      "conforme": false,
+      "sujet_sensible": false,
+      "sujet_sensible_raison": "",
+      "angle_insuffisant": false,
+      "angle_insuffisant_raison": "",
+      "nature_contenu": "actualite_factuelle",
+      "problemes": [
+        {
+          "bloc": 1,
+          "section": "nuances",
+          "type": "fait_tranche_arbitrairement",
+          "phrase_exacte": "Le rapport Global Methane Tracker 2026 indique d'ailleurs que les émissions liées aux énergies fossiles sont restées à des niveaux très élevés en 2025, sans signe de baisse mondiale [5].",
+          "explication": "L'article présente comme un fait établi un résultat issu d'un rapport daté de 2026 (futur par rapport à la date actuelle), ce qui constitue une extrapolation ou une erreur temporelle majeure non justifiée par les sources."
+        },
+        {
+          "bloc": 4,
+          "section": "nuances",
+          "type": "contexte_hors_sujet",
+          "phrase_exacte": "L'INSEE souligne que la transition énergétique nécessite une adaptation continue des dispositifs d'observation pour décrire les nouveaux leviers d'action [3].",
+          "explication": "Cette affirmation générale de l'INSEE sur les statistiques de l'énergie n'apporte aucune information spécifique au reporting des fuites de méthane ou à son report."
+        }
+      ]
+    },
+    "article_type": "actu",
+    "titre": "La Commission européenne reporte d'un an le reporting des fuites de méthane",
+    "n_sources": 5,
+    "n_mots": 452,
+    "titre_rss": "Fuites de méthane : l'Europe cède aux lobbies de l'énergie",
+    "matiere_faits_distincts": 726,
+    "matiere_redondance": 0.01,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "lancement-thrombinnov-tests-interactions-sanguines",
+    "statut": "corrige_automatiquement",
+    "date": "2026-10-21T20:43:59",
+    "problemes_initiaux": 16,
+    "tentatives": 1,
+    "problemes_residuels_style": 1,
+    "rapport_initial": {
+      "conforme": false,
+      "sujet_sensible": false,
+      "sujet_sensible_raison": "",
+      "angle_insuffisant": false,
+      "angle_insuffisant_raison": "",
+      "nature_contenu": "actualite_factuelle",
+      "problemes": [
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "ThrombInnov, une nouvelle entreprise, a été implantée au sein d'un laboratoire strasbourgeois spécialiste des plaquettes sanguines [2].",
+          "explication": "Le renvoi [2] pointe vers la source WHO (Blood safety and availability), qui traite de la sécurité sanguine mondiale et non de la création d'une startup à Strasbourg."
+        },
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "Cette structure propose l'élaboration de tests scientifiques spécifiques pour analyser comment des molécules en phase de développement interagissent avec le sang [2].",
+          "explication": "Le renvoi [2] pointe vers la source WHO, qui ne mentionne pas les services de ThrombInnov."
+        },
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "L'objectif technique consiste à détecter d'éventuels effets délétères lors de l'évaluation de nouvelles molécules [2].",
+          "explication": "Le renvoi [2] pointe vers la source WHO, qui ne mentionne pas ThrombInnov."
+        },
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "Ce processus permet d'analyser les interactions avec les thrombocytes, cellules du sang jouant un rôle primordial dans la coagulation [2].",
+          "explication": "Le renvoi [2] pointe vers la source WHO, qui ne mentionne pas ThrombInnov."
+        },
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "L'offre de services de la startup s'appuie sur la conversion de quarante années d'expertise scientifique [2].",
+          "explication": "Le renvoi [2] pointe vers la source WHO, qui ne mentionne pas ThrombInnov."
+        },
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "Portée par une chercheuse reconvertie en cheffe d'entreprise, cette aventure vise à accélérer le développement de médicaments innovants [2].",
+          "explication": "Le renvoi [2] pointe vers la source WHO, qui ne mentionne pas ThrombInnov."
+        },
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "Le fonctionnement biologique ciblé repose sur des fragments de cellules dépourvus de noyau et d'ADN, dont le nombre circulant chez l'humain est estimé entre 150 et 400 milliards par litre de sang [2].",
+          "explication": "Le renvoi [2] pointe vers la source WHO, qui ne fournit pas ces chiffres précis sur le nombre de plaquettes par litre."
+        },
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "Ces plaquettes sont essentielles pour stopper les hémorragies, mais leur dysfonctionnement peut mener à la formation d'un thrombus, un amas bouchant le vaisseau sanguin [2].",
+          "explication": "Le renvoi [2] pointe vers la source WHO, qui ne détaille pas ce mécanisme biologique spécifique."
+        },
+        {
+          "bloc": 2,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "L'émergence de ThrombInnov s'inscrit dans une volonté de créer de la valeur pour la société à partir de la recherche académique [2].",
+          "explication": "Le renvoi [2] pointe vers la source WHO, qui ne mentionne pas ThrombInnov."
+        },
+        {
+          "bloc": 2,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "Ce modèle permet de transformer des savoirs accumulés en laboratoire en applications concrètes pour le secteur médical [2].",
+          "explication": "Le renvoi [2] pointe vers la source WHO, qui ne mentionne pas ThrombInnov."
+        },
+        {
+          "bloc": 2,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "Sur les 120,4 millions de dons de sang collectés chaque année, 36 % proviennent de pays à revenu élevé où ne vit que 15 % de la population mondiale [6].",
+          "explication": "Le renvoi [6] est inexistant dans la liste des sources fournies (qui s'arrête à 3)."
+        },
+        {
+          "bloc": 2,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "Le taux de don varie fortement selon les revenus : on compte 28,9 dons pour 1000 habitants dans les pays à revenu élevé, contre seulement 4,5 dans les pays à faible revenu [6].",
+          "explication": "Le renvoi [6] est inexistant dans la liste des sources fournies."
+        },
+        {
+          "bloc": 2,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "Entre 2013 et 2023, une augmentation de 10,7 millions de dons provenant de donneurs volontaires non rémunérés a été observée [6].",
+          "explication": "Le renvoi [6] est inexistant dans la liste des sources fournies."
+        },
+        {
+          "bloc": 2,
+          "section": "resume",
+          "type": "source_inventee",
+          "phrase_exacte": "La startup ThrombInnov s'installe dans un laboratoire strasbourgeois pour proposer des tests scientifiques sur-mesure évaluant les interactions entre de nouvelles molécules et le sang [2].",
+          "explication": "Le renvoi [2] pointe vers la source WHO, qui ne mentionne pas ThrombInnov."
+        },
+        {
+          "bloc": 2,
+          "section": "resume",
+          "type": "source_inventee",
+          "phrase_exacte": "Ce projet vise à identifier d'éventuels effets délétères afin d'accélérer le développement de traitements innovants en s'appuyant sur quarante années d'expertise scientifique [2].",
+          "explication": "Le renvoi [2] pointe vers la source WHO, qui ne mentionne pas ThrombInnov."
+        },
+        {
+          "bloc": 2,
+          "section": "resume",
+          "type": "source_inventee",
+          "phrase_exacte": "L'initiative illustre une démarche de création de valeur issue de la recherche académique pour le bénéfice des patients [2].",
+          "explication": "Le renvoi [2] pointe vers la source WHO, qui ne mentionne pas ThrombInnov."
+        }
+      ]
+    },
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "article_sans_date"
+    ],
+    "titre": "Lancement de ThrombInnov pour tester les interactions médicamenteuses avec le sang",
+    "n_sources": 3,
+    "n_mots": 414,
+    "titre_rss": "L’entrepreneuriat dans le sang !",
+    "matiere_faits_distincts": 1052,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 4,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "inserm-recherche-sante-femmes-endometriose-infertilite",
+    "statut": "corrige_automatiquement",
+    "date": "2026-10-21T20:55:24",
+    "problemes_initiaux": 1,
+    "tentatives": 1,
+    "problemes_residuels_style": 2,
+    "rapport_initial": {
+      "conforme": false,
+      "sujet_sensible": false,
+      "sujet_sensible_raison": "",
+      "angle_insuffisant": false,
+      "angle_insuffisant_raison": "",
+      "nature_contenu": "actualite_factuelle",
+      "problemes": [
+        {
+          "bloc": 4,
+          "section": "contexte",
+          "type": "contexte_hors_sujet",
+          "phrase_exacte": "Sur le plan mondial, la Cochranelibrary rapporte que près de 300 000 décès maternels surviennent chaque année, dont 95 % dans les pays à revenu faible ou intermédiaire [3].",
+          "explication": "Le fait concerne la mortalité maternelle mondiale dans les pays pauvres, ce qui est tangentiel et n'éclaire pas le sujet principal qui porte sur les programmes de recherche de l'Inserm sur l'endométriose, l'infertilité et les cancers féminins."
+        }
+      ]
+    },
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "titre_de_mauvaise_qualite"
+    ],
+    "titre": "L'Inserm coordonne des programmes de recherche sur l'endométriose et l'infertilité féminine",
+    "n_sources": 3,
+    "n_mots": 478,
+    "titre_rss": "Mieux soigner les femmes",
+    "matiere_faits_distincts": 1058,
+    "matiere_redondance": 0.02,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
   }
 ]
