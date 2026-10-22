@@ -40908,5 +40908,131 @@
     "n_sources_injectees": 10,
     "n_sources_trouvees": 10,
     "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "hausse-mortalite-france-juin-2026-canicule",
+    "statut": "conforme_du_premier_coup",
+    "date": "2026-10-22T14:43:59",
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "resume_repete_corps"
+    ],
+    "titre": "Hausse de 29,1 % des décès en France durant la semaine du 22 juin 2026",
+    "n_sources": 3,
+    "n_mots": 546,
+    "titre_rss": "Point de situation sur la mortalité toutes causes confondues  sur la période du 22 au 28 juin 2026",
+    "matiere_faits_distincts": 1040,
+    "matiere_redondance": 0.01,
+    "matiere_donnees_chiffrees": 3,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "veille_heures_visible": 221.3,
+    "veille_passages": 74,
+    "veille_age_h": 1417.0,
+    "veille_n_flux_grappe": 1,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "enquete-eras-2026-sante-sexuelle-hommes",
+    "statut": "corrige_automatiquement",
+    "date": "2026-10-22T14:56:03",
+    "problemes_initiaux": 3,
+    "tentatives": 1,
+    "problemes_residuels_style": 0,
+    "rapport_initial": {
+      "conforme": false,
+      "sujet_sensible": false,
+      "sujet_sensible_raison": "",
+      "angle_insuffisant": false,
+      "angle_insuffisant_raison": "",
+      "nature_contenu": "actualite_factuelle",
+      "problemes": [
+        {
+          "bloc": 1,
+          "section": "resume",
+          "type": "incoherence_inter_sections",
+          "phrase_exacte": "Santé publique France a lancé, le 31 mars 2026, la cinquième édition de l'enquête « Rapport au sexe » (ERAS)",
+          "explication": "Le résumé indique un lancement le 31 mars 2026, alors que la section 'faits' précise que l'enquête se déroule 'Du 16 mars au 26 avril 2026', créant une contradiction sur la date de début."
+        },
+        {
+          "bloc": 4,
+          "section": "contexte",
+          "type": "contexte_hors_sujet",
+          "phrase_exacte": "Durant la semaine épidémiologique 39, du 21 au 27 septembre 2026, les équipes de WHO Public Health Intelligence ont utilisé la surveillance numérique basée sur les événements pour détecter précocement des risques sanitaires [5].",
+          "explication": "Ce fait concernant la méthodologie générale de surveillance de l'OMS n'éclaire pas le sujet spécifique de l'enquête ERAS sur la santé sexuelle des hommes en France."
+        },
+        {
+          "bloc": 2,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "les équipes de WHO Public Health Intelligence ont utilisé la surveillance numérique basée sur les événements pour détecter précocement des risques sanitaires [5].",
+          "explication": "Le renvoi [5] pointe vers une source inexistante dans la liste des sources autorisées (qui ne contient que 3 éléments)."
+        }
+      ]
+    },
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "faits_repetitifs"
+    ],
+    "titre": "Lancement de la 5e enquête nationale sur la santé sexuelle des hommes",
+    "n_sources": 3,
+    "n_mots": 482,
+    "titre_rss": "Enquête « Rapport au sexe » (ERAS) 2026 à destination des hommes ayant des rapports sexuels avec des hommes",
+    "matiere_faits_distincts": 601,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "veille_heures_visible": 117.0,
+    "veille_passages": 24,
+    "veille_age_h": 1312.7,
+    "veille_n_flux_grappe": 1,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "inserm-decryptage-idées-reçues-vaccination",
+    "statut": "corrige_automatiquement",
+    "date": "2026-10-22T15:14:03",
+    "problemes_initiaux": 2,
+    "tentatives": 1,
+    "problemes_residuels_style": 1,
+    "rapport_initial": {
+      "conforme": false,
+      "sujet_sensible": false,
+      "sujet_sensible_raison": "",
+      "angle_insuffisant": false,
+      "angle_insuffisant_raison": "",
+      "nature_contenu": "actualite_factuelle",
+      "problemes": [
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "niveau_preuve_insuffisant",
+          "phrase_exacte": "Deux études de 2026 renforcent ce constat : une analyse suédoise sur 300 000 femmes montre une baisse de 79 % du risque de cancer du col de l'utérus pour celles vaccinées avant 17 ans, tandis qu'une étude allemande sur un effectif similaire observe une réduction de 65 % chez les femmes complètement vaccinées [1].",
+          "explication": "L'article présente des résultats d'efficacité clinique sans préciser le stade ou la nature de ces études (observationnelles, cohortes, etc.) alors que le critère 'niveau_preuve_insuffisant' exige que le stade de la recherche apparaisse à côté du résultat principal pour les études d'efficacité."
+        },
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "compteur_incoherent",
+          "phrase_exacte": "nb_sources: 6",
+          "explication": "Le champ nb_sources indique 6, mais seules les sources [1], [2], [3] et [5] sont effectivement utilisées dans le texte. Les sources [4] et [6] ne sont jamais citées."
+        }
+      ]
+    },
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "titre_de_mauvaise_qualite"
+    ],
+    "titre": "L'Inserm publie un décryptage sur sept idées reçues avant la campagne vaccinale d'octobre",
+    "n_sources": 6,
+    "n_mots": 547,
+    "titre_rss": "Sept fausses idées sur les vaccins",
+    "matiere_faits_distincts": 1032,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
   }
 ]
