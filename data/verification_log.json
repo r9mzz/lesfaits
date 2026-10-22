@@ -41034,5 +41034,98 @@
     "n_sources_injectees": 10,
     "n_sources_trouvees": 10,
     "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "hausse-mortalite-toutes-causes-juin-2026",
+    "statut": "conforme_du_premier_coup",
+    "date": "2026-10-22T20:10:20",
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "resume_repete_corps"
+    ],
+    "titre": "Hausse de 29,1 % des décès toutes causes fin juin 2026",
+    "n_sources": 3,
+    "n_mots": 430,
+    "titre_rss": "Point de situation sur la mortalité toutes causes confondues  sur la période du 22 au 28 juin 2026",
+    "matiere_faits_distincts": 836,
+    "matiere_redondance": 0.01,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "veille_heures_visible": 221.3,
+    "veille_passages": 74,
+    "veille_age_h": 1423.0,
+    "veille_n_flux_grappe": 1,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "enquete-eras-2026-prevention-vih-ist-hommes",
+    "statut": "corrige_automatiquement",
+    "date": "2026-10-22T20:30:11",
+    "problemes_initiaux": 2,
+    "tentatives": 3,
+    "problemes_residuels_style": 1,
+    "rapport_initial": {
+      "conforme": false,
+      "sujet_sensible": false,
+      "sujet_sensible_raison": "",
+      "angle_insuffisant": false,
+      "angle_insuffisant_raison": "",
+      "nature_contenu": "actualite_factuelle",
+      "problemes": [
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "la cinquième édition de l'enquête Santé Sexualité-Prévention « Rapport au sexe » est menée en partenariat avec l'ANRS - Maladies infectieuses émergentes [2][7].",
+          "explication": "Le renvoi [7] pointe vers une source inexistante dans la liste des sources autorisées (qui n'en contient que 3)."
+        },
+        {
+          "bloc": 4,
+          "section": "contexte",
+          "type": "contexte_hors_sujet",
+          "phrase_exacte": "L'Organisation mondiale de la santé (WHO) utilise notamment la surveillance numérique basée sur les événements (DEBS) pour l'évaluation rapide de signaux épidémiologiques, comme observé lors de la semaine 39 (du 21 au 27 septembre 2026) pour divers risques sanitaires [6].",
+          "explication": "L'évocation du système DEBS de l'OMS et d'un rapport hebdomadaire général sur divers risques sanitaires n'éclaire pas spécifiquement l'enquête ERAS sur les comportements sexuels masculins."
+        }
+      ]
+    },
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "resume_repete_corps"
+    ],
+    "titre": "Santé publique France lance l'enquête ERAS 2026 sur les comportements sexuels masculins",
+    "n_sources": 3,
+    "n_mots": 418,
+    "titre_rss": "Enquête « Rapport au sexe » (ERAS) 2026 à destination des hommes ayant des rapports sexuels avec des hommes",
+    "matiere_faits_distincts": 761,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "veille_heures_visible": 117.0,
+    "veille_passages": 24,
+    "veille_age_h": 1318.6,
+    "veille_n_flux_grappe": 1,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "inserm-vaccins-idees-recues-campagne-hivernale",
+    "statut": "rejete_qualite",
+    "date": "2026-10-22T21:39:34",
+    "etape": "correction",
+    "tentative": 1,
+    "erreur": "HTTPSConnectionPool(host='integrate.api.nvidia.com', port=443): Read timed out. (read timeout=180)",
+    "bloquants_connus": 2,
+    "article_type": "actu",
+    "titre": "L'Inserm publie un guide contre sept idées reçues pour la campagne vaccinale 2026",
+    "n_sources": 5,
+    "n_mots": 590,
+    "titre_rss": "Sept fausses idées sur les vaccins",
+    "matiere_faits_distincts": 1119,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
   }
 ]
