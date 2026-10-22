@@ -9217,14 +9217,31 @@ def generer_article(item: dict, dry_run: bool, published: set, new_pub: set, dat
             if article_type == "breve":
                 expand_msg += (" N'ouvre PAS 'contexte' ni 'nuances' : elles doivent "
                                "rester vides, développe uniquement 'faits'.")
-            art_expanded = generate(content, cat, extra_sources=extra, rss_url=item.get("url"),
-                                    expand_feedback=expand_msg, article_type=article_type,
-                                    previous_article=art)
-            if isinstance(art_expanded, dict) and art_expanded:
-                art = art_expanded
-            if article_type == "breve":
-                _reduire_en_breve(art)
-            mots, nb_src = _deficit_longueur_sources(art)
+            # Fournisseur gratuit (ETOFFER_AU_LIEU_DE_CONVERTIR) : jusqu'à 3 tours,
+            # chacun ciblé sur des faits précis NON encore exploités. Les jetons ne
+            # coûtent rien ; les seuils, eux, ne bougent pas. Sinon : un seul tour.
+            _tours = 3 if (ETOFFER_AU_LIEU_DE_CONVERTIR and article_type != "breve") else 1
+            for _tour in range(_tours):
+                if _tour > 0:
+                    print(f"     [GARDE] Étoffement : tour {_tour + 1}/{_tours} "
+                          f"({mots} mots, minimum {MIN_MOTS_CORPS})…")
+                    expand_msg = (
+                        f"Ton texte fait encore {mots} mots (minimum {MIN_MOTS_CORPS}) et "
+                        f"cite {nb_src} source(s) (minimum {MIN_SOURCES}). Développe "
+                        f"'faits', 'contexte' et 'nuances' avec des faits PRÉCIS tirés des "
+                        f"sources et pas encore utilisés : chiffres, dates, noms, citations "
+                        f"attribuées. Aucune généralité, aucune répétition, aucune "
+                        f"reformulation d'une phrase déjà écrite.")
+                art_expanded = generate(content, cat, extra_sources=extra, rss_url=item.get("url"),
+                                        expand_feedback=expand_msg, article_type=article_type,
+                                        previous_article=art)
+                if isinstance(art_expanded, dict) and art_expanded:
+                    art = art_expanded
+                if article_type == "breve":
+                    _reduire_en_breve(art)
+                mots, nb_src = _deficit_longueur_sources(art)
+                if mots >= MIN_MOTS_CORPS and nb_src >= MIN_SOURCES:
+                    break
             if mots < MIN_MOTS_CORPS - TOLERANCE_MOTS or nb_src < MIN_SOURCES:
                 print(f"     [REJET QUALITÉ] Toujours insuffisant après relance "
                       f"({mots} mots, {nb_src} source(s)) — rejet définitif")
