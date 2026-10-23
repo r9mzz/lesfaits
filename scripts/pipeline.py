@@ -4580,6 +4580,14 @@ LLM_BASE_URL = os.getenv("LLM_BASE_URL", "").strip()
 # relance ce qui a vraiment échoué, on ne coupe pas ce qui travaille encore.
 _TIMEOUT_FOURNISSEUR_S = 180.0
 _RELANCES_FOURNISSEUR = 3
+# 23/10 — NVIDIA NIM, endpoint GRATUIT : débit de sortie faible et irrégulier.
+# Run du 22/10 : 13 sujets sur 17 morts en « APITimeoutError » — 4 tentatives de
+# 180 s (≈ 12 min perdues par sujet) pendant les tours d'étoffement, quand le
+# modèle écrit un texte long. On ne coupe pas ce qui travaille encore : délai
+# large, une seule relance de plus. Les autres fournisseurs gardent 180 s / 3.
+if "nvidia" in (os.getenv("LLM_BASE_URL", "") or "").lower():
+    _TIMEOUT_FOURNISSEUR_S = 600.0
+    _RELANCES_FOURNISSEUR = 1
 
 
 def _client(api_key: str):
