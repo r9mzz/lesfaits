@@ -41336,5 +41336,237 @@
     "n_sources_injectees": 10,
     "n_sources_trouvees": 10,
     "nature_contenu": "etude_scientifique"
+  },
+  {
+    "slug": "onu-objectif-rechauffement-1-5-degres-disparu",
+    "statut": "corrige_automatiquement",
+    "date": "2026-10-23T12:01:33",
+    "problemes_initiaux": 5,
+    "tentatives": 2,
+    "problemes_residuels_style": 2,
+    "rapport_initial": {
+      "conforme": false,
+      "sujet_sensible": false,
+      "sujet_sensible_raison": "",
+      "angle_insuffisant": false,
+      "angle_insuffisant_raison": "",
+      "nature_contenu": "actualite_factuelle",
+      "problemes": [
+        {
+          "bloc": 1,
+          "section": "titre",
+          "type": "chiffre_errone",
+          "phrase_exacte": "L'ONU estime que l'objectif de 1,5°C de réchauffement a disparu",
+          "explication": "Le titre affirme que l'objectif a 'disparu', alors que la source [1] indique que le monde se dirige vers un réchauffement de 2,6°C (et non 2,8°C comme dans le corps), sans utiliser le terme 'disparu' pour l'objectif lui-même."
+        },
+        {
+          "bloc": 1,
+          "section": "resume",
+          "type": "chiffre_errone",
+          "phrase_exacte": "L'absence de mesures drastiques et immédiates pourrait porter la hausse des températures mondiales jusqu'à 2,8°C d'ici la fin du siècle [1].",
+          "explication": "La source [1] mentionne un réchauffement de 2,6°C, et non 2,8°C."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "chiffre_errone",
+          "phrase_exacte": "2,8°C, c'est le niveau que pourrait atteindre le réchauffement mondial d'ici la fin du siècle d'après Sciences et Avenir [1].",
+          "explication": "La source [1] indique 2,6°C, pas 2,8°C."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "incoherence_inter_sections",
+          "phrase_exacte": "2,8°C, c'est le niveau que pourrait atteindre le réchauffement mondial d'ici la fin du siècle d'après Sciences et Avenir [1].",
+          "explication": "Le chiffre de 2,8°C dans les faits contredit le chiffre de 2,6°C présent dans le titre de la source [1] citée."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "fait_tranche_arbitrairement",
+          "phrase_exacte": "La possibilité de maintenir le réchauffement climatique sous la barre des 1,5°C est désormais considérée comme disparue [1].",
+          "explication": "La source [1] indique qu'il est 'encore temps d'agir', ce qui contredit l'affirmation catégorique que la possibilité a 'disparu'."
+        }
+      ]
+    },
+    "article_type": "actu",
+    "titre": "L'ONU estime que l'objectif de 1,5°C de réchauffement a disparu",
+    "n_sources": 7,
+    "n_mots": 450,
+    "titre_rss": "Climat: le monde vers un réchauffement de 2,6°C, mais il est encore temps d'agir, selon l'ONU",
+    "matiere_faits_distincts": 891,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "vaccins-ebola-zaire-anticorps-souche-bundibugyo",
+    "statut": "corrige_automatiquement",
+    "date": "2026-10-23T12:55:23",
+    "problemes_initiaux": 3,
+    "tentatives": 1,
+    "problemes_residuels_style": 0,
+    "rapport_initial": {
+      "conforme": false,
+      "sujet_sensible": false,
+      "sujet_sensible_raison": "",
+      "angle_insuffisant": false,
+      "angle_insuffisant_raison": "",
+      "nature_contenu": "etude_scientifique",
+      "problemes": [
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "niveau_preuve_insuffisant",
+          "phrase_exacte": "Pour parvenir à ce résultat, des chercheurs de l'Inserm et de l'Université de Bordeaux, basés aux laboratoires Vaccine Research Institute et Bordeaux Population Health center, ont analysé des échantillons de sérum issus de 179 participants [1].",
+          "explication": "L'article omet de préciser le stade de la recherche (étude observationnelle/immunologique sur sérums) alors que la source [1] définit précisément la nature des données comme immunologiques et non cliniques."
+        },
+        {
+          "bloc": 2,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "Face à l'absence de traitement homologué pour cette souche, un premier candidat-vaccin spécifique parmi quatre prévus est entré en essais cliniques le 5 août 2026 [7].",
+          "explication": "Le renvoi [7] pointe vers une source inexistante dans la liste des sources autorisées (la liste s'arrête à 5)."
+        },
+        {
+          "bloc": 2,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "En République démocratique du Congo, la circulation du virus est confirmée spécifiquement dans les provinces d'Ituri, du Nord Kivu et du Sud Kivu [6].",
+          "explication": "Le renvoi [6] pointe vers une source inexistante dans la liste des sources autorisées (la liste s'arrête à 5)."
+        }
+      ]
+    },
+    "article_type": "actu",
+    "titre": "Des vaccins contre Ebola Zaïre induisent des anticorps contre la souche Bundibugyo",
+    "n_sources": 5,
+    "n_mots": 423,
+    "titre_rss": "Épidémie d’Ebola Bundibugyo : des premiers résultats pour guider la recherche d’un vaccin efficace",
+    "matiere_faits_distincts": 881,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "veille_heures_visible": 517.7,
+    "veille_passages": 311,
+    "veille_age_h": 1737.2,
+    "veille_n_flux_grappe": 9,
+    "nature_contenu": "etude_scientifique"
+  },
+  {
+    "slug": "hausse-mortalite-toutes-causes-juin-2026",
+    "statut": "erreur_verification",
+    "date": "2026-10-23T13:54:02",
+    "etape": "correction",
+    "tentative": 1,
+    "erreur": "HTTPSConnectionPool(host='integrate.api.nvidia.com', port=443): Read timed out. (read timeout=180)",
+    "article_type": "actu",
+    "titre": "Hausse de 29,1 % des décès toutes causes fin juin 2026",
+    "n_sources": 3,
+    "n_mots": 484,
+    "titre_rss": "Point de situation sur la mortalité toutes causes confondues  sur la période du 22 au 28 juin 2026",
+    "matiere_faits_distincts": 887,
+    "matiere_redondance": 0.02,
+    "matiere_donnees_chiffrees": 3,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "veille_heures_visible": 221.3,
+    "veille_passages": 74,
+    "veille_age_h": 1440.8,
+    "veille_n_flux_grappe": 1,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "hausse-mortalite-toutes-causes-juin-2026",
+    "statut": "rejete_qualite",
+    "date": "2026-10-23T13:54:03",
+    "raison": "verification_indisponible",
+    "statut_verification_initial": "erreur_verification"
+  },
+  {
+    "slug": "inserm-preuves-scientifiques-contre-idees-recues-vaccins",
+    "statut": "conforme_du_premier_coup",
+    "date": "2026-10-23T14:12:52",
+    "article_type": "actu",
+    "titre": "L'Inserm publie un guide contre sept idées reçues pour la campagne vaccinale 2026",
+    "n_sources": 3,
+    "n_mots": 497,
+    "titre_rss": "Sept fausses idées sur les vaccins",
+    "matiere_faits_distincts": 973,
+    "matiere_redondance": 0.13,
+    "matiere_donnees_chiffrees": 2,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "test-auto-evaluation-bilan-prevention-sante",
+    "statut": "rejete_qualite",
+    "date": "2026-10-23T14:27:03",
+    "angle_insuffisant": true,
+    "raison": "L'article ne contient aucune phrase dans la section 'faits' associant un événement précis daté (ou datable) à une donnée chiffrée ou nommée. Il décrit un concept général de test d'auto-évaluation sans préciser quand l'étude a été publiée, qui l'a menée, ni quels sont les résultats chiffrés. De plus, il ne répond pas à la question posée dans l'angle_reponse.",
+    "article_type": "actu",
+    "titre": "Un test d'auto-évaluation et le dispositif Mon bilan prévention pour le suivi sanitaire",
+    "n_sources": 5,
+    "n_mots": 407,
+    "titre_rss": "Ce test très simple, à faire vous-même, en dit long sur votre état de santé et votre risque de mortalité",
+    "matiere_faits_distincts": 750,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 5,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "sujet_pedagogique"
+  },
+  {
+    "slug": "migration-biodiversite-nord-sommets-climat",
+    "statut": "corrige_automatiquement",
+    "date": "2026-10-23T14:39:56",
+    "problemes_initiaux": 3,
+    "tentatives": 1,
+    "problemes_residuels_style": 3,
+    "rapport_initial": {
+      "conforme": false,
+      "sujet_sensible": false,
+      "sujet_sensible_raison": "",
+      "angle_insuffisant": false,
+      "angle_insuffisant_raison": "",
+      "nature_contenu": "etude_scientifique",
+      "problemes": [
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "fait_tranche_arbitrairement",
+          "phrase_exacte": "Cependant, Jonathan Rolland, chercheur au CNRS, observe que les populations locales tendent à se diriger vers les Pyrénées au sud pour maintenir leur température de préférence [1].",
+          "explication": "L'article affirme que les populations se dirigent vers le sud (Pyrénées) pour maintenir leur température, ce qui contredit la logique globale de l'article et de la source [1] qui établit que les espèces fuient la chaleur vers le nord ou les sommets."
+        },
+        {
+          "bloc": 4,
+          "section": "contexte",
+          "type": "contexte_hors_sujet",
+          "phrase_exacte": "Au niveau européen, la politique arctique se structure autour de trois priorités : la protection de l'environnement, la lutte contre le changement climatique et le développement économique durable [5]. L'Assemblée nationale a suggéré d'y adjoindre un nouveau pilier consacré aux infrastructures spatiales pour gagner en efficacité [5].",
+          "explication": "Le développement sur les infrastructures spatiales dans la politique arctique est tangentiel et n'éclaire pas le sujet principal de la migration des espèces animales et végétales."
+        },
+        {
+          "bloc": 2,
+          "section": "contexte",
+          "type": "compteur_incoherent",
+          "phrase_exacte": "Au niveau européen, la politique arctique se structure autour de trois priorités : la protection de l'environnement, la lutte contre le changement climatique et le développement économique durable [5].",
+          "explication": "L'article utilise un renvoi [5] alors que la liste des sources n'en contient que trois. Le compteur de sources est donc incohérent avec les appels de notes."
+        }
+      ]
+    },
+    "article_type": "actu",
+    "titre": "Le CNRS observe la migration de 50 % des espèces analysées vers le nord",
+    "n_sources": 3,
+    "n_mots": 605,
+    "titre_rss": "Biodiversité : ruée vers les pôles et les sommets",
+    "matiere_faits_distincts": 775,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "etude_scientifique"
   }
 ]
