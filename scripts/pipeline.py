@@ -9260,6 +9260,39 @@ def generer_article(item: dict, dry_run: bool, published: set, new_pub: set, dat
             else:
                 print(f"     [OK] Étoffement réussi : {mots} mots, {nb_src} sources")
 
+        # ── Pré-contrôle vitrine AVANT le fact-check (fournisseur gratuit) ────────
+        # La grille vitrine est le DERNIER filtre et ne laisse aucune relance : un
+        # article refusé pour « nuances 86 mots (minimum 91) » est perdu. La
+        # corriger APRÈS le fact-check ferait échapper le texte réécrit à la
+        # vérification — interdit. On la joue donc ICI, avant la chaîne de
+        # vérification, avec la liste exacte des défauts, au plus 2 fois. La grille
+        # (`showcase_quality`) n'est PAS modifiée : seul le rédacteur reçoit une
+        # chance de corriger ce qu'elle refuse. Désactivé hors fournisseur gratuit.
+        if ETOFFER_AU_LIEU_DE_CONVERTIR and article_type == "actu" and isinstance(art, dict):
+            try:
+                from showcase_quality import validate_generated_article as _vitrine_pre
+            except Exception:
+                _vitrine_pre = None
+            if _vitrine_pre is not None:
+                for _tv in range(2):
+                    _ok_v, _why_v = _vitrine_pre(art, article_type)
+                    if _ok_v:
+                        break
+                    print(f"     [PRÉ-VITRINE] tour {_tv + 1}/2 — défauts : " + " ; ".join(_why_v))
+                    _fb_v = (
+                        "Le contrôle de publication refuse ton texte pour : "
+                        + " ; ".join(_why_v)
+                        + ". Corrige UNIQUEMENT ces points et garde tout le reste. "
+                        "Si une section est trop courte, ajoute des faits précis tirés des "
+                        "sources (chiffres, dates, noms) — jamais de généralité ni de "
+                        "répétition. Cite chaque source listée dans le texte par son "
+                        "numéro, ou retire-la de la liste.")
+                    _art_v = generate(content, cat, extra_sources=extra, rss_url=item.get("url"),
+                                      expand_feedback=_fb_v, article_type=article_type,
+                                      previous_article=art)
+                    if isinstance(_art_v, dict) and _art_v:
+                        art = _art_v
+
         # ── Règle de publication par QUALITÉ des sources (liste blanche) ──
         # « Au moins une source primaire OU deux sources secondaires
         # indépendantes » — une pile de sources tertiaires (vulgarisation,
