@@ -104,4 +104,31 @@ calls = []
 validate_provider_access(env_permanent, post=fake_post_from([503, 403, 403], calls))
 assert len(calls) == 3
 
+# NVIDIA NIM gratuit : si la sonde expire sur TOUTES les clés, on arrête avant la
+# collecte (un run entier se perdait en timeouts), mais seulement pour ce
+# fournisseur — ailleurs un timeout reste un incident transitoire.
+class _Expire(Exception):
+    pass
+
+
+_Expire.__name__ = "APITimeoutError"
+
+
+def post_qui_expire(*args, **kwargs):
+    raise _Expire("Request timed out.")
+
+
+env_nvidia = {
+    **env_permanent,
+    "LLM_BASE_URL": "https://integrate.api.nvidia.com/v1",
+    "GROQ_MODEL_OVERRIDE": "google/gemma-4-31b-it",
+}
+try:
+    validate_provider_access(env_nvidia, post=post_qui_expire)
+except RuntimeError as exc:
+    assert "injoignable" in str(exc) and "avant collecte" in str(exc)
+else:
+    raise AssertionError("une sonde NVIDIA expirée sur toutes les clés n'a pas arrêté le prévol")
+validate_provider_access(env_permanent, post=post_qui_expire)  # Mistral : transitoire
+
 print("OK provider runtime guard")

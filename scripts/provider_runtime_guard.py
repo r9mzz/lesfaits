@@ -76,6 +76,13 @@ def validate_provider_access(values=None, post=None) -> None:
     endpoint = base_url.rstrip("/") + "/chat/completions"
     permanent_failures: list[tuple[int, str]] = []
     transient_seen = False
+    # 24/10 — NVIDIA NIM gratuit : l'endpoint reste parfois muet des heures. Un
+    # run entier se perdait alors en timeouts (4 h pour 2 appels aboutis). La
+    # sonde y est donc plus patiente (30 s) et, si TOUTES les clés expirent, on
+    # arrête avant la collecte : le créneau suivant réessaiera.
+    est_nvidia = "nvidia" in base_url.lower()
+    delai_sonde = 30 if est_nvidia else 20
+    expirations = 0
     for key in keys:
         try:
             response = post(
@@ -87,10 +94,12 @@ def validate_provider_access(values=None, post=None) -> None:
                     "max_tokens": 1,
                     "temperature": 0,
                 },
-                timeout=20,
+                timeout=delai_sonde,
             )
         except Exception as exc:
             transient_seen = True
+            if "timeout" in type(exc).__name__.lower() or "timed out" in str(exc).lower():
+                expirations += 1
             print(f"[PRÉVOL FOURNISSEUR] sonde réseau transitoirement indisponible : {type(exc).__name__}")
             continue
 
@@ -105,6 +114,13 @@ def validate_provider_access(values=None, post=None) -> None:
         # 429, 5xx et statuts inconnus : laisser le pipeline appliquer ses
         # retries/rotations plutôt que conclure trop tôt à une panne permanente.
         transient_seen = True
+
+    if est_nvidia and expirations == len(keys):
+        raise RuntimeError(
+            f"Fournisseur injoignable avant génération : modèle {model}, la sonde a "
+            f"expiré ({delai_sonde} s) sur toutes les clés. Arrêt avant collecte : "
+            "inutile de perdre des heures en timeouts, le prochain créneau réessaiera."
+        )
 
     if permanent_failures and len(permanent_failures) == len(keys) and not transient_seen:
         statuses = ", ".join(str(status) for status, _ in permanent_failures)
