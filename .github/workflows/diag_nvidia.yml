@@ -1,0 +1,37 @@
+name: Diagnostic NVIDIA (temporaire)
+
+on:
+  workflow_dispatch:
+
+jobs:
+  diag:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    env:
+      NK: ${{ secrets.NVIDIA_API_KEY }}
+    steps:
+      - name: Latence réaliste par modèle (petit puis gros prompt, texte long)
+        run: |
+          B=https://integrate.api.nvidia.com/v1
+          python3 - <<'PY'
+          import json
+          txt = ("Le gouvernement a annoncé hier un plan de rénovation énergétique de 5 milliards d'euros sur trois ans, "
+                 "selon le ministère de la Transition. ") * 140
+          open('/tmp/gros.json','w').write(json.dumps({"model":"MODEL","max_tokens":1500,"temperature":0.2,
+            "messages":[{"role":"user","content":"Voici des extraits :\n"+txt+"\nRédige un article de 450 mots en français, structuré en trois parties, en citant les chiffres."}]}))
+          PY
+          for M in google/gemma-4-31b-it nvidia/nemotron-3-ultra-550b-a55b; do
+            for TAILLE in petit gros; do
+              if [ "$TAILLE" = petit ]; then
+                BODY="{\"model\":\"$M\",\"max_tokens\":60,\"messages\":[{\"role\":\"user\",\"content\":\"Réponds par une phrase.\"}]}"
+              else
+                BODY=$(sed "s#MODEL#$M#" /tmp/gros.json)
+              fi
+              T0=$(date +%s)
+              CODE=$(curl -sS -o /tmp/b.txt -m 240 -w "%{http_code}" "$B/chat/completions" -H "Authorization: Bearer $NK" -H "Content-Type: application/json" -d "$BODY" || echo TIMEOUT)
+              T1=$(date +%s)
+              TOK=$(python3 -c "import json;d=json.load(open('/tmp/b.txt'));print(d.get('usage',{}).get('completion_tokens'))" 2>/dev/null)
+              echo "RES $M | $TAILLE | HTTP $CODE | $((T1-T0))s | completion_tokens=$TOK"
+              sleep 3
+            done
+          done
