@@ -6,32 +6,32 @@ on:
 jobs:
   diag:
     runs-on: ubuntu-latest
-    timeout-minutes: 25
+    timeout-minutes: 30
     env:
       NK: ${{ secrets.NVIDIA_API_KEY }}
     steps:
-      - name: Latence réaliste par modèle (petit puis gros prompt, texte long)
+      - name: Liste complète puis réponse réelle par modèle (délai 45 s)
+        shell: bash {0}
         run: |
           B=https://integrate.api.nvidia.com/v1
+          curl -sS -m 40 "$B/models" -H "Authorization: Bearer $NK" -o /tmp/l.json
           python3 - <<'PY'
           import json
-          txt = ("Le gouvernement a annoncé hier un plan de rénovation énergétique de 5 milliards d'euros sur trois ans, "
-                 "selon le ministère de la Transition. ") * 140
-          open('/tmp/gros.json','w').write(json.dumps({"model":"MODEL","max_tokens":1500,"temperature":0.2,
-            "messages":[{"role":"user","content":"Voici des extraits :\n"+txt+"\nRédige un article de 450 mots en français, structuré en trois parties, en citant les chiffres."}]}))
+          ids = sorted(m['id'] for m in json.load(open('/tmp/l.json')).get('data', []))
+          print("NB", len(ids))
+          for i in range(0, len(ids), 12):
+              print("IDS", " ".join(ids[i:i+12]))
+          # candidats de texte : on écarte embeddings, vision seule, sécurité, parse, etc.
+          bad = ("embed", "guard", "safety", "rerank", "parse", "vl", "vision", "tts", "asr", "audio", "image", "flux", "diffusion", "clip", "retriev", "reward", "pii", "nemoguard", "content-safety", "topic-control", "bge", "e5", "gliner")
+          cand = [i for i in ids if not any(b in i.lower() for b in bad)]
+          open('/tmp/cand.txt', 'w').write("\n".join(cand))
+          print("CAND", len(cand))
           PY
-          for M in google/gemma-4-31b-it nvidia/nemotron-3-ultra-550b-a55b; do
-            for TAILLE in petit gros; do
-              if [ "$TAILLE" = petit ]; then
-                BODY="{\"model\":\"$M\",\"max_tokens\":60,\"messages\":[{\"role\":\"user\",\"content\":\"Réponds par une phrase.\"}]}"
-              else
-                BODY=$(sed "s#MODEL#$M#" /tmp/gros.json)
-              fi
-              T0=$(date +%s)
-              CODE=$(curl -sS -o /tmp/b.txt -m 240 -w "%{http_code}" "$B/chat/completions" -H "Authorization: Bearer $NK" -H "Content-Type: application/json" -d "$BODY" || echo TIMEOUT)
-              T1=$(date +%s)
-              TOK=$(python3 -c "import json;d=json.load(open('/tmp/b.txt'));print(d.get('usage',{}).get('completion_tokens'))" 2>/dev/null)
-              echo "RES $M | $TAILLE | HTTP $CODE | $((T1-T0))s | completion_tokens=$TOK"
-              sleep 3
-            done
+          for M in $(cat /tmp/cand.txt); do
+            T0=$(date +%s)
+            CODE=$(curl -sS -o /tmp/b.txt -m 45 -w "%{http_code}" "$B/chat/completions" -H "Authorization: Bearer $NK" -H "Content-Type: application/json" \
+              -d "{\"model\":\"$M\",\"max_tokens\":40,\"messages\":[{\"role\":\"user\",\"content\":\"Réponds par une courte phrase en français.\"}]}" 2>/dev/null)
+            T1=$(date +%s)
+            case "$CODE" in 200) R=$(python3 -c "import json;d=json.load(open('/tmp/b.txt'));c=d['choices'][0]['message'];print((c.get('content') or '(vide:'+str(bool(c.get('reasoning_content')))+')')[:60].replace(chr(10),' '))" 2>/dev/null);; *) R=$(head -c 60 /tmp/b.txt | tr '\n' ' ');; esac
+            echo "RES $M | HTTP ${CODE:-000} | $((T1-T0))s | $R"
           done
