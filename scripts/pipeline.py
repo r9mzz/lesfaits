@@ -744,7 +744,8 @@ def juger_pertinence_sources(titre: str, sources: list) -> bool:
             messages=[{"role": "system", "content": _PROMPT_PERTINENCE},
                       {"role": "user",
                        "content": f"ARTICLE : {titre}\n\n" + "\n".join(blocs)}],
-            temperature=0, max_tokens=12 * len(lot) + 20)
+            temperature=0, max_tokens=12 * len(lot) + 20,
+            **_extra_corps(JUGE_SOURCES_MODELE))
         reponse = (r.choices[0].message.content or "").strip().upper()
     except Exception as e:  # noqa: BLE001
         # On renonce sans insister : le juge n'est qu'un tri, il ne doit jamais
@@ -4590,6 +4591,13 @@ if "nvidia" in (os.getenv("LLM_BASE_URL", "") or "").lower():
     _RELANCES_FOURNISSEUR = 1
 
 
+def _extra_corps(modele: str) -> dict:
+    """`extra_body` du SDK pour couper la réflexion d'un modèle raisonneur (NVIDIA)."""
+    from modele_fournisseur import corps_sans_reflexion
+    extra = corps_sans_reflexion(modele)
+    return {"extra_body": extra} if extra else {}
+
+
 def _client(api_key: str):
     """Client de complétion, Groq par défaut, tout service compatible sinon."""
     if LLM_BASE_URL:
@@ -4761,7 +4769,8 @@ def _groq_call(api_key: str, messages: list, max_tokens: int = 3500) -> str:
     # fact-checker. Repli si le fournisseur refuse l'option : une
     # optimisation ne doit jamais coûter un sujet.
     _params = dict(model=GROQ_MODEL, max_tokens=max_tokens,
-                   temperature=0.1, messages=messages)
+                   temperature=0.1, messages=messages,
+                   **_extra_corps(GROQ_MODEL))
     try:
         response = client.chat.completions.create(
             response_format={"type": "json_object"}, **_params)

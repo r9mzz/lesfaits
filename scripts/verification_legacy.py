@@ -256,6 +256,8 @@ def _corps_requete(prompt: str, max_tokens: int) -> dict:
     }
     if _JSON_MODE[0]:
         corps["response_format"] = {"type": "json_object"}
+    from modele_fournisseur import corps_sans_reflexion
+    corps.update(corps_sans_reflexion(GROQ_MODEL))
     return corps
 
 

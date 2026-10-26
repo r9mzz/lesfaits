@@ -81,6 +81,7 @@ jobs:
           scripts/test_runtime_newsletter_v3.py
           scripts/test_runtime_preflight_v3.py
           scripts/test_runtime_sitemap_v3.py
+          scripts/test_sans_reflexion.py
           scripts/test_selection_sujets_manques.py
           scripts/test_showcase_quality.py
           scripts/test_showcase_source_floor_mandate.py

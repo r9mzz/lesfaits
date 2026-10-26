@@ -227,7 +227,7 @@ def generate_headings(article: ArticleRecord) -> dict[str, str]:
     user = json.dumps({"titre_article": article.title, "sections": sections}, ensure_ascii=False)
 
     try:
-        from pipeline import _client
+        from pipeline import _client, _extra_corps
     except Exception:
         return {}
 
@@ -241,6 +241,7 @@ def generate_headings(article: ArticleRecord) -> dict[str, str]:
                 temperature=0.15,
                 max_tokens=260,
                 response_format={"type": "json_object"},
+                **_extra_corps(model),
             )
             raw = response.choices[0].message.content or "{}"
             data = json.loads(raw)

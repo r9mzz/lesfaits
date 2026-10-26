@@ -83,3 +83,21 @@ def modele_redaction(env: dict | None = None) -> str:
         "par défaut ne peut être deviné. Nommer le modèle via "
         "GROQ_MODEL_OVERRIDE (ou l'entrée `modele` du workflow)."
     )
+
+
+def corps_sans_reflexion(modele: str, env: dict | None = None) -> dict:
+    """Paramètres de requête qui coupent la « réflexion » d'un modèle raisonneur.
+
+    24/10 — `nvidia/nemotron-3-ultra-550b-a55b` (NVIDIA NIM) réfléchit avant de
+    répondre et dépense tout son budget de sortie à ça : « Pas de JSON dans la
+    réponse » sur 15 vérifications, rédactions coupées à 3 500 tokens. Mesuré :
+    avec `chat_template_kwargs.enable_thinking = false`, la réflexion tombe à 0
+    caractère et le JSON arrive directement (45 tokens au lieu de 128).
+
+    Rend {} partout ailleurs : un paramètre inconnu ne doit pas être envoyé à un
+    autre fournisseur. Même corps pour le SDK (`extra_body`) et pour `requests`.
+    """
+    base = ((env or os.environ).get("LLM_BASE_URL", "") or "").lower()
+    if "nvidia" in base and "nemotron" in (modele or "").lower():
+        return {"chat_template_kwargs": {"enable_thinking": False}}
+    return {}
