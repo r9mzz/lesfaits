@@ -41568,5 +41568,1055 @@
     "n_sources_injectees": 10,
     "n_sources_trouvees": 10,
     "nature_contenu": "etude_scientifique"
+  },
+  {
+    "slug": "cop17-biodiversite-armenie-subventions-energies-fossiles-2026",
+    "statut": "rejete_sensible",
+    "date": "2026-10-26T18:24:59",
+    "problemes_initiaux": 11,
+    "tentative": 3,
+    "bloc5": true,
+    "article_type": "actu",
+    "titre": "COP17 biodiversité : 200 pays réunis en Arménie pour réduire les subventions aux fossiles",
+    "n_sources": 5,
+    "n_mots": 505,
+    "titre_rss": "A la COP17, haro sur les subventions aux énergies fossiles",
+    "matiere_faits_distincts": 655,
+    "matiere_redondance": 0.01,
+    "matiere_donnees_chiffrees": 2,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "banques-affaires-etude-biais-genre-bonus-banquieres",
+    "statut": "rejete_qualite",
+    "date": "2026-10-26T18:32:48",
+    "tentative": 1,
+    "angle_insuffisant": true,
+    "raison": "Aucune phrase des faits ne combine un événement précis daté (publication, décision, résultat récent) et une donnée chiffrée ou nommée qui lui est propre. L'article expose les résultats d'une thèse doctorale de 2024 sans indiquer de fait déclencheur récent (soutenance, publication, communication) qui justifierait une publication maintenant. Il répond à « qu'est-ce que cette étude dit ? » plutôt qu'à « pourquoi en parle-t-on aujourd'hui ? ».",
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "titre_de_mauvaise_qualite"
+    ],
+    "titre": "Banques d'affaires : une étude révèle l'impact des biais genrés sur les bonus des banquières",
+    "n_sources": 4,
+    "n_mots": 928,
+    "titre_rss": "Les rémunérations des banquiers d’affaires reposent moins sur des profits mesurables que sur des jugements genrés dans un univers masculin",
+    "matiere_faits_distincts": 811,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "etude_scientifique"
+  },
+  {
+    "slug": "rechauffement-onu-2-6-degres-objectif-1-5-inatteignable-cop30",
+    "statut": "rejete_sensible",
+    "date": "2026-10-26T18:48:17",
+    "problemes_initiaux": 13,
+    "bloc5": [
+      "compteur_incoherent"
+    ],
+    "article_type": "actu",
+    "titre": "Réchauffement : l'ONU prévoit 2,6 °C et juge l'objectif de 1,5 °C hors d'atteinte",
+    "n_sources": 7,
+    "n_mots": 665,
+    "titre_rss": "Climat: le monde vers un réchauffement de 2,6°C, mais il est encore temps d'agir, selon l'ONU",
+    "matiere_faits_distincts": 832,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "rapport"
+  },
+  {
+    "slug": "ebola-bundibugyo-vaccins-zaire-anticorps-croises-etude-inserm",
+    "statut": "corrige_automatiquement",
+    "date": "2026-10-26T18:57:25",
+    "problemes_initiaux": 10,
+    "tentatives": 3,
+    "problemes_residuels_style": 0,
+    "rapport_initial": {
+      "conforme": false,
+      "sujet_sensible": false,
+      "sujet_sensible_raison": "",
+      "angle_insuffisant": false,
+      "angle_insuffisant_raison": "",
+      "nature_contenu": "etude_scientifique",
+      "problemes": [
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "chiffre_errone",
+          "phrase_exacte": "L'épidémie d'Ebola due à la souche Bundibugyo, déclarée en mai 2026 en République démocratique du Congo et en Ouganda, a causé plus de 1 000 décès au 22 juillet 2026 [1].",
+          "explication": "La source [1] (Inserm) ne mentionne pas le chiffre de 'plus de 1 000 décès au 22 juillet 2026' ; ce chiffre provient probablement de la source [6] (The Lancet, 14 août 2026) qui indique 1 487 décès au 27 juillet, mais l'article l'attribue à tort à la source [1]."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "Face à cette situation, l'OMS a recommandé d'évaluer l'efficacité des stratégies vaccinales existantes [4].",
+          "explication": "La source [4] (WHO) n'est pas citée dans l'extrait fourni pour confirmer cette recommandation précise ; l'article attribue à la source [4] une information qui ne figure pas dans les extraits disponibles."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "chiffre_errone",
+          "phrase_exacte": "Au 27 juillet, l'Africa CDC recensait 3 360 cas confirmés et 1 487 décès [6].",
+          "explication": "La source [6] (The Lancet, 14 août 2026) n'est pas fournie en extrait ; le chiffre ne peut être vérifié par rapport aux sources autorisées listées, et l'article l'attribue à [6] sans que l'extrait ne soit disponible pour confirmation."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "La Banque mondiale mobilise 426,6 millions de dollars en financements d'urgence pour la riposte en RDC, Ouganda, Burundi, Soudan du Sud, Africa CDC et ECSA-HC [3].",
+          "explication": "La source [3] (World Bank) n'est pas fournie en extrait ; le montant précis de 426,6 millions de dollars et la liste des bénéficiaires ne peuvent être vérifiés par rapport aux extraits disponibles."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "En France, une réunion interministérielle s'est tenue à Matignon le 18 mai 2026 ; le risque d'importation en métropole est jugé très faible, mais des mesures de précaution sont prises à Mayotte [2].",
+          "explication": "La source [2] (Assemblée nationale, question écrite du 2 juin 2026) ne mentionne pas une réunion interministérielle à Matignon le 18 mai 2026 ni des mesures à Mayotte ; l'information est attribuée à une source qui ne la contient pas dans les extraits fournis."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "Santé publique France a publié le 2 juin 2026 les définitions de cas et contacts pour la surveillance [5].",
+          "explication": "La source [5] (Santé publique France) n'est pas fournie en extrait ; bien que le titre corresponde, l'article affirme la publication sans que l'extrait ne soit disponible pour vérification du contenu exact."
+        },
+        {
+          "bloc": 1,
+          "section": "nuances",
+          "type": "source_inventee",
+          "phrase_exacte": "L'OMS précise dans sa guidance d'urgence que les données disponibles restent insuffisantes pour déterminer si Ervebo® procure une protection cliniquement significative contre Bundibugyo [4].",
+          "explication": "La source [4] (WHO) n'est pas fournie en extrait ; la citation précise de la 'guidance d'urgence' et son contenu ne peuvent être vérifiés par rapport aux extraits disponibles."
+        },
+        {
+          "bloc": 1,
+          "section": "nuances",
+          "type": "source_inventee",
+          "phrase_exacte": "Quatre vaccins candidats spécifiques à Bundibugyo sont entrés en essais cliniques selon le BMJ du 5 août 2026 [7].",
+          "explication": "La source [7] (BMJ, 5 août 2026) n'est pas fournie en extrait ; l'information sur les quatre vaccins candidats en essais cliniques ne peut être vérifiée par rapport aux extraits disponibles."
+        },
+        {
+          "bloc": 1,
+          "section": "nuances",
+          "type": "fait_tranche_arbitrairement",
+          "phrase_exacte": "Les efforts de développement se sont accélérés depuis la fin déclarée de l'épidémie en Ouganda le 28 juillet, alors que la transmission augmente en RDC [6].",
+          "explication": "La source [6] (The Lancet, 14 août 2026) n'est pas fournie en extrait ; l'affirmation sur la fin de l'épidémie en Ouganda le 28 juillet et l'accélération des efforts de développement est présentée comme un fait établi sans que la source ne soit vérifiable dans les extraits."
+        },
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "compteur_incoherent",
+          "phrase_exacte": "nb_sources: 7",
+          "explication": "L'article cite 7 sources dans le tableau mais plusieurs faits sont attribués à des sources dont les extraits ne sont pas fournis (sources [2], [3], [4], [5], [6], [7]) ; le compteur ne reflète pas le nombre de sources effectivement utilisées et vérifiables à partir des extraits fournis."
+        }
+      ]
+    },
+    "article_type": "actu",
+    "titre": "Ebola Bundibugyo : les vaccins anti-Zaïre induisent des anticorps croisés, sans preuve d'efficacité clinique",
+    "n_sources": 7,
+    "n_mots": 625,
+    "titre_rss": "Épidémie d’Ebola Bundibugyo : des premiers résultats pour guider la recherche d’un vaccin efficace",
+    "matiere_faits_distincts": 1137,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 2,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "veille_heures_visible": 517.7,
+    "veille_passages": 311,
+    "veille_age_h": 1816.8,
+    "veille_n_flux_grappe": 9,
+    "nature_contenu": "etude_scientifique"
+  },
+  {
+    "slug": "olivier-bouygues-condamne-prison-sursis-destruction-oiseaux-proteges-sologne",
+    "statut": "rejete_sensible",
+    "date": "2026-10-26T19:00:49",
+    "sujet_sensible": true,
+    "raison": "L'article porte sur une affaire judiciaire en cours visant une personne physique identifiée (Olivier Bouygues), condamnée en première instance mais ayant fait appel, la procédure n'étant pas définitivement jugée.",
+    "article_type": "actu",
+    "titre": "Olivier Bouygues condamné à deux ans de prison avec sursis pour destruction d'oiseaux protégés",
+    "n_sources": 3,
+    "n_mots": 524,
+    "titre_rss": "Le milliardaire Olivier Bouygues condamné à deux ans de prison avec sursis pour destruction d’espèces d’oiseaux protégées",
+    "matiere_faits_distincts": 475,
+    "matiere_redondance": 0.05,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "inde-5-milliards-euros-subventions-batteries-transition-verte",
+    "statut": "rejete_qualite",
+    "date": "2026-10-26T19:07:35",
+    "problemes_initiaux": 11,
+    "tentatives": 3,
+    "problemes_restants": 11,
+    "bloquants_restants": 1,
+    "bloquants_types": [
+      "incoherence_inter_sections"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "incoherence_inter_sections",
+        "description": "Cette phrase est dupliquée mot pour mot entre la section 'faits' (dernier paragraphe) et la section 'contexte' (deuxième paragraphe), violant la règle d'unicité d'apparition d'une idée.",
+        "phrase": "L'Union européenne a tenu le 14 juillet 2026 la troisième réunion de son Conseil du commerce et des technologies avec New Delhi [3]."
+      }
+    ],
+    "types_restants": [
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "incoherence_inter_sections",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "compteur_incoherent"
+    ],
+    "article_type": "actu",
+    "titre": "L'Inde déploie 5 milliards d'euros de subventions pour bâtir sa filière batteries",
+    "n_sources": 5,
+    "n_mots": 501,
+    "titre_rss": "Avec 5 milliards d’euros de subventions, l’Inde se lance dans la course aux batteries pour accélérer sa transition verte",
+    "matiere_faits_distincts": 535,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 2,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "inserm-sept-fausses-idees-vaccins-campagne-grippe-covid-2026",
+    "statut": "rejete_sensible",
+    "date": "2026-10-26T19:15:33",
+    "problemes_initiaux": 22,
+    "tentative": 1,
+    "bloc5": true,
+    "article_type": "actu",
+    "titre": "L'Inserm déconstruit sept fausses idées sur les vaccins avant la campagne grippe-Covid du 13 octobre",
+    "n_sources": 5,
+    "n_mots": 1035,
+    "titre_rss": "Sept fausses idées sur les vaccins",
+    "matiere_faits_distincts": 751,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "activite-physique-qualite-vie-psychologique-post-menopause",
+    "statut": "rejete_qualite",
+    "date": "2026-10-26T19:22:27",
+    "angle_insuffisant": true,
+    "raison": "Aucune phrase des faits ne combine un événement précis daté (publication de la méta-analyse) et une donnée chiffrée propre à cet événement ; l'article répond à « qu'est-ce que la ménopause et l'activité physique ? » plutôt qu'à « pourquoi en parle-t-on maintenant ? ».",
+    "article_type": "actu",
+    "titre": "L'activité physique améliore la qualité de vie psychologique après la ménopause",
+    "n_sources": 7,
+    "n_mots": 517,
+    "titre_rss": "Ménopause: l’activité physique fait du bien au mental",
+    "matiere_faits_distincts": 1060,
+    "matiere_redondance": 0.01,
+    "matiere_donnees_chiffrees": 3,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "etude_scientifique"
+  },
+  {
+    "slug": "biodiversite-migration-especes-rechauffement-poles-sommets",
+    "statut": "rejete_qualite",
+    "date": "2026-10-26T19:30:23",
+    "tentative": 3,
+    "perte_substance": true,
+    "section": "contexte",
+    "mots_avant": 228,
+    "mots_apres": 108,
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "titre_de_mauvaise_qualite"
+    ],
+    "titre": "1 888 espèces suivies : le CNRS documente la migration vers le nord et les pièges altitudinaux",
+    "n_sources": 5,
+    "n_mots": 709,
+    "titre_rss": "Biodiversité : ruée vers les pôles et les sommets",
+    "matiere_faits_distincts": 1333,
+    "matiere_redondance": 0.02,
+    "matiere_donnees_chiffrees": 3,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "etude_scientifique"
+  },
+  {
+    "slug": "james-webb-premiere-image-directe-exoplanete-twa-7b",
+    "statut": "corrige_automatiquement",
+    "date": "2026-10-26T19:44:26",
+    "problemes_initiaux": 11,
+    "tentatives": 2,
+    "problemes_residuels_style": 19,
+    "rapport_initial": {
+      "conforme": false,
+      "sujet_sensible": false,
+      "sujet_sensible_raison": "",
+      "angle_insuffisant": false,
+      "angle_insuffisant_raison": "",
+      "nature_contenu": "etude_scientifique",
+      "problemes": [
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "chiffre_errone",
+          "phrase_exacte": "L'observation, réalisée le 21 juin 2024, a révélé une source infrarouge faible près de l'étoile TWA 7, une étoile jeune située dans le voisinage solaire [1].",
+          "explication": "La source [1] (Futura Sciences) ne mentionne pas la date du 21 juin 2024 pour l'observation ; cette date précise n'apparaît pas dans les extraits fournis."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "chiffre_errone",
+          "phrase_exacte": "L'analyse initiale suggère que TWA 7b aurait une masse d'environ 0,3 fois celle de Jupiter, soit environ 100 masses terrestres, avec une température proche de 320 kelvins (47 degrés Celsius) [1].",
+          "explication": "La source [1] ne fournit pas ces valeurs chiffrées précises (0,3 masse de Jupiter, 100 masses terrestres, 320 K / 47 °C) dans les extraits fournis."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "chiffre_errone",
+          "phrase_exacte": "Si cette détection est confirmée, elle représenterait la première découverte d'une exoplanète par imagerie directe avec James-Webb, et la planète la moins massive jamais détectée par cette technique [1].",
+          "explication": "La source [1] ne contient pas l'affirmation selon laquelle ce serait la première découverte par imagerie directe avec JWST ni la planète la moins massive détectée par cette technique."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "L'image publiée combine les données MIRI en orange avec une bande additionnelle de l'instrument SPHERE du Very Large Telescope de l'ESO en bleu, montrant la structure du disque et l'intervalle créé par la planète [1].",
+          "explication": "La source [1] (Futura Sciences) ne mentionne pas l'instrument SPHERE du VLT ni une combinaison d'images MIRI/SPHERE dans les extraits fournis."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "Le lancement de James-Webb le 25 décembre 2021 a marqué une nouvelle ère pour la caractérisation des exoplanètes, son miroir de 6,5 mètres et ses instruments refroidis à 7 kelvins offrant une sensibilité infrarouge sans précédent [2][3].",
+          "explication": "Les sources [2] (PNAS) et [3] (NIH) sont des articles de 2025 sur la caractérisation des exoplanètes à l'ère JWST ; elles ne contiennent pas les détails techniques du lancement (date, taille du miroir, température des instruments) dans les extraits fournis."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "chiffre_errone",
+          "phrase_exacte": "En septembre 2022, le télescope avait déjà obtenu ses premières mesures spectroscopiques de l'atmosphère d'une exoplanète, puis ses premières images directes d'une planète géante gazeuse [2].",
+          "explication": "La source [2] ne mentionne pas ces événements précis de septembre 2022 (premières mesures spectroscopiques, premières images directes d'une géante gazeuse) dans les extraits fournis."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "La technique de l'imagerie directe par coronographie reste toutefois limitée aux planètes jeunes, massives et éloignées de leur étoile, dont la lumière propre dans l'infrarouge thermique peut être distinguée de l'éblouissement stellaire [2]. La détection de planètes telluriques de la taille de la Terre dans la zone habitable d'étoiles semblables au Soleil demeure hors de portée des coronographes actuels [2].",
+          "explication": "La source [2] ne contient pas ces affirmations spécifiques sur les limites de la coronographie et l'inaccessibilité des planètes telluriques dans la zone habitable dans les extraits fournis."
+        },
+        {
+          "bloc": 1,
+          "section": "nuances",
+          "type": "source_inventee",
+          "phrase_exacte": "Le coronographe MIRI utilisé pour cette détection opère dans une fenêtre spectrale étroite qui ne permet pas de mesurer la composition atmosphérique ni la structure thermique verticale de l'objet [1]. Une confirmation par imagerie multi-bande ou par spectroscopie à haute résolution serait requise pour établir la nature planétaire au-delà de l'hypothèse de cohérence avec les modèles [1].",
+          "explication": "La source [1] ne mentionne pas les limitations spectrales du coronographe MIRI ni la nécessité d'imagerie multi-bande ou de spectroscopie à haute résolution dans les extraits fournis."
+        },
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "compteur_incoherent",
+          "phrase_exacte": "nb_sources: 4",
+          "explication": "Le champ nb_sources indique 4, mais la source [4] (European Court of Justice) n'est jamais citée dans le texte (aucun renvoi [4]) et est totalement hors sujet (jurisprudence européenne sans lien avec l'astronomie). Le nombre de sources effectivement utilisées est 3 au maximum."
+        },
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "source_derivee_comptee_comme_primaire",
+          "phrase_exacte": "qualite_sources: {\"primaire\": 3, \"secondaire\": 0, \"tertiaire\": 1}",
+          "explication": "Les sources [2] (PNAS) et [3] (NIH) sont le même article (version éditeur et version PubMed Central) — ce ne sont pas deux sources primaires indépendantes. La source [1] (Futura Sciences) est un média de vulgarisation (secondaire/tertiaire), pas une source primaire. Le comptage 'primaire: 3' est donc faux."
+        },
+        {
+          "bloc": 3,
+          "section": "faits",
+          "type": "cadrage_emprunte",
+          "phrase_exacte": "une planète qui n'a pas la même apparence de tous les côtés",
+          "explication": "Le titre de la source [1] ('une planète qui n'a pas la même apparence de tous les côtés') est un cadrage éditorial/journalistique de Futura Sciences, repris implicitement dans l'article comme description factuelle sans attribution explicite à ce média."
+        }
+      ]
+    },
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "resume_repete_corps"
+    ],
+    "titre": "James-Webb capture sa première image directe d'une exoplanète, TWA 7b",
+    "n_sources": 4,
+    "n_mots": 565,
+    "titre_rss": "Le télescope James-Webb révèle une planète qui n'a pas la même apparence de tous les côtés !",
+    "matiere_faits_distincts": 513,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "etude_scientifique"
+  },
+  {
+    "slug": "etude-nature-aging-ovaires-menopause-fonction-immunitaire-souris",
+    "statut": "rejete_qualite",
+    "date": "2026-10-26T19:52:08",
+    "problemes_initiaux": 7,
+    "tentatives": 3,
+    "problemes_restants": 4,
+    "bloquants_restants": 1,
+    "bloquants_types": [
+      "chiffre_errone"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "Les sources [2] et [3] (Vie Publique) ne contiennent pas le chiffre « 17 millions de femmes concernées » dans les extraits fournis ; ce chiffre n'est pas vérifié par les sources autorisées.",
+        "phrase": "En France, un rapport parlementaire de 2025 porté par la députée Stéphanie Rist formule 25 propositions pour améliorer l'information, l'accompagnement et la prise en charge des 17 millions de femmes concernées [...] [2]["
+      }
+    ],
+    "types_restants": [
+      "source_derivee_comptee_comme_primaire",
+      "compteur_incoherent",
+      "chiffre_errone",
+      "chronologie_confuse"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "resume_repete_corps",
+      "article_sans_date"
+    ],
+    "titre": "Une étude Nature Aging montre que l'ovaire devient un organe immunitaire chez la souris ménopausée",
+    "n_sources": 3,
+    "n_mots": 502,
+    "titre_rss": "On pensait cet organe « au repos » après la ménopause : cette étude nous révèle son rôle caché",
+    "matiere_faits_distincts": 850,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 3,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "etude_scientifique"
+  },
+  {
+    "slug": "conseil-etat-encadre-blocage-reseaux-sociaux-tiktok-nouvelle-caledonie",
+    "statut": "corrige_automatiquement",
+    "date": "2026-10-26T20:03:27",
+    "problemes_initiaux": 6,
+    "tentatives": 3,
+    "problemes_residuels_style": 9,
+    "rapport_initial": {
+      "conforme": false,
+      "sujet_sensible": false,
+      "sujet_sensible_raison": "",
+      "angle_insuffisant": false,
+      "angle_insuffisant_raison": "",
+      "nature_contenu": "decision_officielle",
+      "problemes": [
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "chronologie_confuse",
+          "phrase_exacte": "La Commission européenne a adopté en septembre 2026 la loi de l'UE sur les systèmes d'information clés pour renforcer la sécurité en ligne des enfants dans l'ensemble de l'Union [3].",
+          "explication": "La source [3] est datée du 17 septembre 2026, soit une date future par rapport à la décision du Conseil d'État du 1er avril 2025 qui est le sujet de l'article ; l'article présente cet événement futur comme un fait accompli ('a adopté') sans signaler qu'il s'agit d'une projection ou d'une date ultérieure, ce qui crée une confusion chronologique."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "chronologie_confuse",
+          "phrase_exacte": "En France, l'Assemblée nationale doit examiner en janvier 2026 une proposition de loi visant à interdire l'accès aux réseaux sociaux aux moins de 15 ans et à instaurer un couvre-feu numérique pour les 15-18 ans entre 22 heures et 8 heures [4].",
+          "explication": "La source [4] est datée du 12 décembre 2025 et annonce un examen prévu pour janvier 2026, soit une date future par rapport au sujet de l'article (avril 2025) ; l'article présente cet examen futur comme un événement à venir sans le situer explicitement dans le futur par rapport à la décision commentée, ce qui mélange deux époques."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "contexte_hors_sujet",
+          "phrase_exacte": "La Commission européenne a adopté en septembre 2026 la loi de l'UE sur les systèmes d'information clés pour renforcer la sécurité en ligne des enfants dans l'ensemble de l'Union [3].",
+          "explication": "Cette source [3] porte sur une loi européenne relative à la sécurité en ligne des enfants (accès aux réseaux sociaux pour les mineurs), un sujet distinct du blocage de TikTok en Nouvelle-Calédonie décidé sur le fondement des circonstances exceptionnelles ; elle n'éclaire pas le sujet principal de l'article."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "contexte_hors_sujet",
+          "phrase_exacte": "En France, l'Assemblée nationale doit examiner en janvier 2026 une proposition de loi visant à interdire l'accès aux réseaux sociaux aux moins de 15 ans et à instaurer un couvre-feu numérique pour les 15-18 ans entre 22 heures et 8 heures [4].",
+          "explication": "Cette source [4] concerne une proposition de loi sur l'interdiction d'accès aux réseaux sociaux pour les mineurs et un couvre-feu numérique, un sujet législatif distinct de la décision du Conseil d'État sur le blocage de TikTok en Nouvelle-Calédonie ; elle n'apporte pas d'éclairage direct sur ce contentieux."
+        },
+        {
+          "bloc": 2,
+          "section": "contexte",
+          "type": "source_derivee_comptee_comme_primaire",
+          "phrase_exacte": "La Commission européenne a adopté en septembre 2026 la loi de l'UE sur les systèmes d'information clés pour renforcer la sécurité en ligne des enfants dans l'ensemble de l'Union [3].",
+          "explication": "La source [3] est une communication de la Commission européenne (source institutionnelle primaire) mais elle est comptée comme 'primaire' dans qualite_sources alors qu'elle ne documente pas le sujet principal (décision du Conseil d'État) ; de plus, les sources [2], [3], [4] sont trois médias/institutions distinctes qui ne se recoupent pas sur le même fait, mais le champ 'primaire: 3' suggère une confusion dans le comptage des sources primaires réellement utilisées pour le cœur de l'article (seule la source [1] l'est)."
+        },
+        {
+          "bloc": 4,
+          "section": "contexte",
+          "type": "section_gonflee",
+          "phrase_exacte": "Par ailleurs, la Commission européenne a adopté en septembre 2026 la loi de l'UE sur les systèmes d'information clés pour renforcer la sécurité en ligne des enfants dans l'ensemble de l'Union [3]. En France, l'Assemblée nationale doit examiner en janvier 2026 une proposition de loi visant à interdire l'accès aux réseaux sociaux aux moins de 15 ans et à instaurer un couvre-feu numérique pour les 15-18 ans entre 22 heures et 8 heures [4].",
+          "explication": "La section 'contexte' est gonflée avec deux développements (sources [3] et [4]) qui n'ont pas de lien direct avec le sujet de l'article (blocage de TikTok en Nouvelle-Calédonie et cadre juridique des circonstances exceptionnelles) et servent uniquement à remplir la section sans apporter d'éclairage pertinent."
+        }
+      ]
+    },
+    "article_type": "actu",
+    "titre": "Le Conseil d'État encadre strictement le blocage des réseaux sociaux après l'affaire TikTok en Nouvelle-Calédonie",
+    "n_sources": 4,
+    "n_mots": 692,
+    "titre_rss": "Un amendement au Sénat obligerait TikTok, Instagram et X à retirer en une heure les appels à l’insurrection, sous peine de blocage",
+    "matiere_faits_distincts": 681,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 2,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "decision_officielle"
+  },
+  {
+    "slug": "mortalite-france-2024-641046-deces-taux-standardise-baisse",
+    "statut": "conforme_du_premier_coup",
+    "date": "2026-10-26T20:08:42",
+    "article_type": "actu",
+    "titre": "Mortalité 2024 : 641 046 décès, taux standardisé en baisse mais supérieur aux tendances pré-Covid",
+    "n_sources": 4,
+    "n_mots": 876,
+    "titre_rss": "Grandes causes de décès en France : tendances et causes associées en 2024",
+    "matiere_faits_distincts": 1051,
+    "matiere_redondance": 0.09,
+    "matiere_donnees_chiffrees": 2,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "veille_heures_visible": 517.7,
+    "veille_passages": 311,
+    "veille_age_h": 1816.8,
+    "veille_n_flux_grappe": 1,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "plfss-2027-assemblee-examine-extension-taxe-soda-aliments-sucres",
+    "statut": "rejete_qualite",
+    "date": "2026-10-26T20:18:35",
+    "problemes_initiaux": 13,
+    "tentatives": 3,
+    "problemes_restants": 8,
+    "bloquants_restants": 3,
+    "bloquants_types": [
+      "chiffre_errone",
+      "incoherence_inter_sections",
+      "niveau_preuve_insuffisant"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La date du 20 octobre 2026 est un mardi, mais le PLFSS pour 2027 est examiné à l'automne 2026 pour une entrée en vigueur 2027 ; la source [1] (Sciences et Avenir, 20/10/2026) confirme l'adoption ce jour-là, mais le titre",
+        "phrase": "L'Assemblée nationale a adopté mardi 20 octobre 2026 en première lecture l'article 8 du projet de loi de financement de la Sécurité sociale (PLFSS) pour 2027"
+      },
+      {
+        "bloc": 1,
+        "type": "incoherence_inter_sections",
+        "description": "Le résumé (chapeau) omet la mention 'en première lecture' pour l'adoption par les députés, alors que le corps des faits et le titre l'incluent ; cela crée une incohérence mineure sur le stade législatif exact entre le ré",
+        "phrase": "Mardi 20 octobre 2026, les députés ont adopté en première lecture l'article 8 du PLFSS 2027 qui étend la contribution sur les boissons sucrées à des produits alimentaires solides ; le texte doit encore être examiné par l"
+      },
+      {
+        "bloc": 1,
+        "type": "niveau_preuve_insuffisant",
+        "description": "Les conclusions du rapporteur public ne constituent pas une décision juridictionnelle du Conseil d'État ; l'article présente cet avis comme un constat établi ('a rappelé que...') sans préciser qu'il s'agit de conclusions",
+        "phrase": "Le rapporteur public du Conseil d'État a rappelé dans ses conclusions du 15 janvier 2026 que les travaux parlementaires montraient une intention initiale de protection de la santé publique, mais que le Parlement avait « "
+      }
+    ],
+    "types_restants": [
+      "chiffre_errone",
+      "incoherence_inter_sections",
+      "niveau_preuve_insuffisant",
+      "source_derivee_comptee_comme_primaire",
+      "compteur_incoherent",
+      "cadrage_emprunte",
+      "redondance",
+      "faux_debat"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "titre_de_mauvaise_qualite"
+    ],
+    "titre": "PLFSS 2027 : l'Assemblée examine l'extension de la taxe soda aux aliments sucrés mardi 20 octobre",
+    "n_sources": 4,
+    "n_mots": 557,
+    "titre_rss": "Le sucre bientôt taxé comme le tabac et l’alcool ?",
+    "matiere_faits_distincts": 772,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "californie-taxe-zucman-milliardaires-silicon-valley-elections",
+    "statut": "rejete_sensible",
+    "date": "2026-10-26T20:24:12",
+    "problemes_initiaux": 18,
+    "bloc5": [
+      "diffamation_potentielle"
+    ],
+    "article_type": "actu",
+    "titre": "Californie : une taxe sur les milliardaires divise la Silicon Valley avant les élections",
+    "n_sources": 4,
+    "n_mots": 743,
+    "titre_rss": "En Californie, une « taxe Zucman » fait trembler les milliardaires de la Silicon Valley",
+    "matiere_faits_distincts": 866,
+    "matiere_redondance": 0.02,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "lexpress-quatre-etapes-achat-immobilier-hausse-taux",
+    "statut": "rejete_qualite",
+    "date": "2026-10-26T20:27:53",
+    "angle_insuffisant": true,
+    "raison": "Aucune phrase dans 'faits' ne contient à la fois un événement précis daté ou datable (publication, décision, résultat récent) et une donnée chiffrée ou nommée qui lui est propre. L'article se contente de résumer un guide pratique de L'Express sans indiquer quand il a été publié ni quel fait nouveau justifie sa reprise maintenant. C'est une fiche pédagogique sans actualité identifiable.",
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "resume_repete_corps",
+      "titre_de_mauvaise_qualite"
+    ],
+    "titre": "L'Express détaille quatre étapes pour sécuriser un achat immobilier face à la hausse des taux",
+    "n_sources": 5,
+    "n_mots": 651,
+    "titre_rss": "Réussir son achat immobilier : les quatre étapes à suivre pour trouver le bon logement",
+    "matiere_faits_distincts": 652,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "sujet_pedagogique"
+  },
+  {
+    "slug": "soldat-ukrainien-evacue-drone-62-km-front",
+    "statut": "rejete_qualite",
+    "date": "2026-10-26T20:34:04",
+    "problemes_initiaux": 9,
+    "tentatives": 3,
+    "problemes_restants": 13,
+    "bloquants_restants": 7,
+    "bloquants_types": [
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [1] (titre seul fourni) mentionne 'en quelques minutes' mais ne confirme pas que le drone a 'traversé la zone de combat sans être intercepté par les systèmes de défense adverses' — cet ajout n'est pas sourcé et",
+        "phrase": "L'évacuation s'est déroulée en quelques minutes, l'appareil ayant traversé la zone de combat sans être intercepté par les systèmes de défense adverses."
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "Le rapport sénatorial [2] est daté 2026 (titre 'La guerre des drones : l'urgence d'un sursaut stratégique français') et ne peut contenir un chiffre précis de déploiement pour l'année 2024 déjà close — la source fournie n",
+        "phrase": "La guerre en Ukraine a fait basculer les drones du renseignement à la frappe de masse, avec plusieurs dizaines de milliers d'unités déployées par l'Ukraine en 2024 selon le Sénat [2]."
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [4] est datée du 3 juillet 2026 et ne peut pas contenir des données complètes pour le mois de juin 2026 (qui vient de s'achever) avec un chiffre précis de '437 civils tués et 2 610 blessés' et une 'hausse de 30",
+        "phrase": "L'ONU rapporte également qu'au cours de la période récente, les drones et missiles à longue portée causent près de 40 % des pertes civiles, et qu'en juin 2026, au moins 437 civils ont été tués et 2 610 blessés en Ukraine"
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "Le renvoi [1] attribue à France Info des détails précis ('position de première ligne', 'drone d'évacuation', 'homme suspendu à l'extérieur', 'traversé la zone de combat sans être intercepté') que le titre de la source fo",
+        "phrase": "Un soldat ukrainien blessé a été récupéré depuis une position de première ligne par un drone d'évacuation qui a volé sur 62 kilomètres avec l'homme suspendu à l'extérieur de l'appareil, selon le reportage de France Info "
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "Le renvoi [2] attribue au Sénat un chiffre précis ('plusieurs dizaines de milliers d'unités déployées par l'Ukraine en 2024') que le titre du rapport fourni ('La guerre des drones : l'urgence d'un sursaut stratégique fra",
+        "phrase": "La guerre en Ukraine a fait basculer les drones du renseignement à la frappe de masse, avec plusieurs dizaines de milliers d'unités déployées par l'Ukraine en 2024 selon le Sénat [2]."
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "Le renvoi [4] attribue à l'ONU des citations précises ('plus profond, plus large et plus létal', 'ratio morts/blessés inversé') que le titre de la source fournie ('Civilian dangers multiply as drones transform Ukraine's ",
+        "phrase": "L'ONU confirme, dans un article publié le 3 juillet 2026, que les drones transforment le champ de bataille en le rendant « plus profond, plus large et plus létal », avec un ratio morts/blessés inversé par rapport aux con"
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "Le renvoi [4] attribue à l'ONU des statistiques précises (40 % des pertes civiles, 437 tués, 2 610 blessés, hausse de 30 %) que le titre de la source fournie ne permet pas de vérifier — l'extrait source ne contient que l",
+        "phrase": "L'ONU rapporte également qu'au cours de la période récente, les drones et missiles à longue portée causent près de 40 % des pertes civiles, et qu'en juin 2026, au moins 437 civils ont été tués et 2 610 blessés en Ukraine"
+      }
+    ],
+    "types_restants": [
+      "fait_tranche_arbitrairement",
+      "chiffre_errone",
+      "chiffre_errone",
+      "chronologie_confuse",
+      "chiffre_errone",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "cadrage_emprunte",
+      "fait_tranche_arbitrairement",
+      "fait_tranche_arbitrairement",
+      "redondance"
+    ],
+    "article_type": "actu",
+    "titre": "Un soldat ukrainien évacué par drone sur 62 km depuis le front",
+    "n_sources": 4,
+    "n_mots": 475,
+    "titre_rss": "\"L'évacuation se déroule en quelques minutes\" : un soldat blessé évacué par drone sur 62 km en Ukraine",
+    "matiere_faits_distincts": 1352,
+    "matiere_redondance": 0.01,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "ird-six-projets-appel-anr-flash-covid-19",
+    "statut": "rejete_qualite",
+    "date": "2026-10-26T20:42:06",
+    "problemes_initiaux": 15,
+    "tentatives": 3,
+    "problemes_restants": 10,
+    "bloquants_restants": 9,
+    "bloquants_types": [
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "incoherence_inter_sections",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [1] liste 6 projets où l'IRD est porteur principal (COCONEL, COMESCOV, DigEpi, HospICOVID, TRACTRUST, DisCoVer) mais COCONEL est porté par l'INSERM avec l'IRD comme partenaire, pas comme porteur principal ; le ",
+        "phrase": "Six projets portés par des chercheurs de l'institut figurent parmi les lauréats principaux."
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [1] indique que COCONEL est porté par l'IRD (Eric Leroy, UMR MIVEGEC) et non par l'INSERM ; l'article inverse les rôles de porteur principal et de partenaire.",
+        "phrase": "Le projet COCONEL, porté par l'INSERM avec l'IRD comme partenaire via l'UMR VITROME, mène une enquête longitudinale sur le coronavirus et le confinement [1]."
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [1] précise que DisCoVer est porté par l'IRD (Eric Leroy, UMR MIVEGEC) avec la participation d'Eric Deharo et Sabrina Locatelli, et non sous la direction scientifique de Meriadeg Le Gouil (Université de Normand",
+        "phrase": "DisCoVer, porté par l'IRD avec la participation d'Eric Deharo (Pharmadev) et de Sabrina Locatelli (TransVIHMI), étudie les réservoirs au Nord-Laos sous la direction scientifique de Meriadeg Le Gouil (Université de Norman"
+      },
+      {
+        "bloc": 1,
+        "type": "incoherence_inter_sections",
+        "description": "Cette phrase des nuances contredit directement les faits qui affirment que DisCoVer est \"sous la direction scientifique de Meriadeg Le Gouil (Université de Normandie)\" ; l'article se contredit lui-même sur le porteur pri",
+        "phrase": "Le projet DisCoVer est porté par l'IRD (Eric Leroy, UMR MIVEGEC) et non par l'Université de Normandie, contrairement à une présentation possible erronée ; l'IRD en assure le portage principal avec la participation de ses"
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "L'extrait de la source [1] fourni ne contient aucune mention de l'appel RA-Covid-19, de sa date d'ouverture (15 avril 2020) ni de sa date de clôture (28 octobre 2020) ; cette information est attribuée à la source [1] mai",
+        "phrase": "L'ANR annonce l'ouverture le 15 avril 2020 d'un nouvel appel RA-Covid-19, dédié à des travaux de recherche à court terme (3 à 12 mois), qui restera ouvert en continu jusqu'au 28 octobre 2020 [1]."
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "L'extrait de la source [1] fourni ne mentionne pas la date de lancement (mars 2020) ni la procédure accélérée ; ces détails sont attribués à la source [1] mais n'y figurent pas dans les extraits fournis.",
+        "phrase": "L'appel Flash de l'ANR a été lancé en urgence dès mars 2020 pour mobiliser la recherche française face à la pandémie de Covid-19, selon une procédure accélérée de sélection et de financement [1]."
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "L'extrait de la source [1] fourni ne contient pas la description du statut juridique de l'IRD (EPST), de sa tutelle (ministère de la Recherche) ni de son ancrage géographique (une cinquantaine de pays, partenariat avec l",
+        "phrase": "L'IRD, établissement public à caractère scientifique et technologique placé sous la tutelle du ministère de la Recherche, opère dans une cinquantaine de pays en partenariat avec les pays du Sud [1]."
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "L'extrait de la source [1] fourni ne mentionne pas l'existence d'un \"plan d'urgence national\" ni le rôle de l'ANR dans son instruction et son suivi ; cette information est attribuée à la source [1] mais n'y figure pas da",
+        "phrase": "L'appel Flash s'inscrit dans le cadre du plan d'urgence national pour la recherche sur le Covid-19, dont l'ANR assure l'instruction et le suivi [1]."
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "L'extrait de la source [1] fourni ne contient aucune information sur l'appel RA-Covid-19, sa date d'annonce ni l'état de publication de ses lauréats ; cette affirmation est attribuée à la source [1] mais n'y figure pas d",
+        "phrase": "L'appel RA-Covid-19 annoncé pour le 15 avril 2020 n'avait pas encore publié ses lauréats à la date de cet article [1]."
+      }
+    ],
+    "types_restants": [
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "incoherence_inter_sections",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "compteur_incoherent"
+    ],
+    "article_type": "actu",
+    "titre": "L'IRD obtient six projets dans l'appel ANR Flash Covid-19",
+    "n_sources": 5,
+    "n_mots": 672,
+    "titre_rss": "Covid-19 – les projets IRD de l’appel ANR-Flash",
+    "matiere_faits_distincts": 959,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "veille_heures_visible": 517.7,
+    "veille_passages": 326,
+    "veille_age_h": 1816.8,
+    "veille_n_flux_grappe": 1,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "vaccin-anticancer-personnalise-melanome-essai-phase3-benefice",
+    "statut": "rejete_sensible",
+    "date": "2026-10-26T20:46:53",
+    "problemes_initiaux": 7,
+    "tentative": 1,
+    "bloc5": true,
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "titre_de_mauvaise_qualite"
+    ],
+    "titre": "Vaccin anticancer personnalisé : 42 % de risque en moins dans un essai de phase 3",
+    "n_sources": 4,
+    "n_mots": 604,
+    "titre_rss": "Un vaccin anticancer personnalisé montre, pour la première fois, un bénéfice chez des patients",
+    "matiere_faits_distincts": 984,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "etude_scientifique"
+  },
+  {
+    "slug": "agents-ia-dirigent-entreprise-fictive-experience-emploi-humain",
+    "statut": "rejete_qualite",
+    "date": "2026-10-26T20:57:36",
+    "angle_insuffisant": true,
+    "raison": "Aucune phrase dans 'faits' ne combine un événement précis daté (publication de l'étude, date de l'expérience) et une donnée chiffrée ou nommée propre à cet événement. L'article explique un concept général (simulation d'agents IA) sans dire ce qui vient de se passer concrètement (quand, où, par qui, avec quels résultats mesurables).",
+    "article_type": "actu",
+    "titre": "Des agents IA dirigent une fausse entreprise : l'expérience rassure sur l'emploi humain",
+    "n_sources": 7,
+    "n_mots": 706,
+    "titre_rss": "Ils ont laissé une IA diriger leur entreprise, ce qu'il s'est passé en dit long sur l'avenir du travail",
+    "matiere_faits_distincts": 844,
+    "matiere_redondance": 0.01,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "etude_scientifique"
+  },
+  {
+    "slug": "ird-formation-registre-traitements-donnees-personnelles-rgpd",
+    "statut": "rejete_qualite",
+    "date": "2026-10-26T21:04:56",
+    "angle_insuffisant": true,
+    "raison": "Aucune phrase des faits ne contient à la fois un événement précis daté (annonce, publication, décision, résultat récent) et une donnée chiffrée ou nommée qui lui est propre. L'article se contente d'expliquer l'obligation RGPD du registre des traitements et de citer des exemples d'autres organismes publics, sans jamais dire ce qui vient de se passer à l'IRD qui justifierait une publication maintenant.",
+    "article_type": "actu",
+    "titre": "L'IRD programme des formations au registre RGPD le 5 novembre 2026",
+    "n_sources": 5,
+    "n_mots": 533,
+    "titre_rss": "Protection des données personnelles - Le registre des traitements",
+    "matiere_faits_distincts": 1234,
+    "matiere_redondance": 0.04,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "veille_heures_visible": 517.7,
+    "veille_passages": 326,
+    "veille_age_h": 1816.8,
+    "veille_n_flux_grappe": 1,
+    "nature_contenu": "sujet_pedagogique"
+  },
+  {
+    "slug": "modele-ia-prevision-meteo-six-semaines-avancee",
+    "statut": "rejete_qualite",
+    "date": "2026-10-26T21:14:13",
+    "angle_insuffisant": true,
+    "raison": "Aucune phrase dans 'faits' ne combine un événement précis daté (publication de l'étude, annonce officielle) et une donnée chiffrée propre à cet événement. L'article explique le concept de prévision sub-saisonnière par IA sans dire ce qui vient de se passer concrètement (quelle étude, quand, par qui, quels résultats chiffrés de skill score).",
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "titre_de_mauvaise_qualite"
+    ],
+    "titre": "Un modèle d'IA prévoit la météo à six semaines, une avancée pour la prévision sub-saisonnière",
+    "n_sources": 5,
+    "n_mots": 557,
+    "titre_rss": "Un nouveau modèle d'IA prédit la météo jusqu'à 6 semaines",
+    "matiere_faits_distincts": 764,
+    "matiere_redondance": 0.16,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "etude_scientifique"
+  },
+  {
+    "slug": "canicules-2026-50391-morts-europe-60-pour-cent-climat",
+    "statut": "rejete_qualite",
+    "date": "2026-10-26T21:28:20",
+    "problemes_initiaux": 21,
+    "tentatives": 3,
+    "problemes_restants": 10,
+    "bloquants_restants": 3,
+    "bloquants_types": [
+      "niveau_preuve_insuffisant",
+      "niveau_preuve_insuffisant",
+      "incoherence_inter_sections"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "niveau_preuve_insuffisant",
+        "description": "L'article présente les résultats d'une étude scientifique (modélisation climatique avec simulations contrefactuelles) sans indiquer le stade de la recherche (pré-publication, publiée, peer-reviewed) ni la nature exacte d",
+        "phrase": "L'étude relayée par Reporterre chiffre à environ 50 000 le nombre de décès excédentaires toutes causes pendant l'été 2026 dans une trentaine de pays européens [1]."
+      },
+      {
+        "bloc": 1,
+        "type": "niveau_preuve_insuffisant",
+        "description": "L'article cite un chiffre précis (32 619 décès, 64,7 %) issu de simulations contrefactuelles sans mentionner les limites méthodologiques détaillées que la source [1] pourrait contenir (effectif, modèles utilisés, période",
+        "phrase": "Selon les auteurs, 32 619 décès — soit 64,7 % — sont attribués au réchauffement d'origine humaine, sur la base de simulations contrefactuelles qui comportent des incertitudes inhérentes, notamment sur le choix des modèle"
+      },
+      {
+        "bloc": 1,
+        "type": "incoherence_inter_sections",
+        "description": "L'article compare trois bilans (2003, 2022, 2026) en reconnaissant que les périmètres et méthodes diffèrent, mais ne signale pas explicitement l'ampleur des écarts méthodologiques ni ne réconcilie les sources : le chiffr",
+        "phrase": "Ce total 2026 dépasse les 48 000 morts estimées pour l'été 2003 mais reste inférieur aux 61 000 de 2022, ces derniers étant toutefois calculés sur un périmètre et une méthode légèrement différents [1]."
+      }
+    ],
+    "types_restants": [
+      "niveau_preuve_insuffisant",
+      "niveau_preuve_insuffisant",
+      "incoherence_inter_sections",
+      "source_derivee_comptee_comme_primaire",
+      "source_derivee_comptee_comme_primaire",
+      "compteur_incoherent",
+      "cadrage_emprunte",
+      "redondance",
+      "redondance",
+      "redondance"
+    ],
+    "article_type": "actu",
+    "titre": "Canicules 2026 : 50 391 morts en Europe, 60 % attribués au dérèglement climatique",
+    "n_sources": 5,
+    "n_mots": 773,
+    "titre_rss": "50 000 morts en Europe : le bilan sans précédents des canicules de 2026",
+    "matiere_faits_distincts": 1429,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "etude_scientifique"
+  },
+  {
+    "slug": "cop17-biodiversite-erevan-impasse-financement-objectifs-2030",
+    "statut": "rejete_qualite",
+    "date": "2026-10-26T21:35:09",
+    "problemes_initiaux": 10,
+    "tentatives": 3,
+    "problemes_restants": 13,
+    "bloquants_restants": 7,
+    "bloquants_types": [
+      "chiffre_errone",
+      "annonce_perimee",
+      "annonce_perimee",
+      "source_inventee",
+      "incoherence_inter_sections",
+      "source_inventee",
+      "source_inventee"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [6] (Vie Publique, 22/10/2026) indique pour les espèces : 22 % (2013-2018) et 14,4 % (2019-2024) — correct. Pour les habitats, elle indique 17 % (2013-2018) et 13,5 % (2019-2024) — correct. Cependant, le résumé",
+        "phrase": "la part d'espèces en bon état de conservation est passée de 22 % (2013-2018) à 14,4 % (2019-2024) et celle des habitats de 17 % à 13,5 % [6]"
+      },
+      {
+        "bloc": 1,
+        "type": "annonce_perimee",
+        "description": "La source [1] (RFI, 26/10/2026) indique que la COP17 « entame sa deuxième semaine » au 26 octobre 2026, ce qui confirme qu'elle s'est déjà ouverte le 25 octobre et est en cours. Le résumé utilise le présent « s'ouvre » c",
+        "phrase": "La COP17 biodiversité s'ouvre à Erevan le 25 octobre 2026 pour une session de deux semaines"
+      },
+      {
+        "bloc": 1,
+        "type": "annonce_perimee",
+        "description": "La source [2] (Vie Publique, 22/10/2026) est antérieure à l'ouverture (25/10) et la présente comme à venir. La source [1] (RFI, 26/10/2026) confirme qu'elle a bien ouvert et entame sa deuxième semaine. Le fait d'écrire «",
+        "phrase": "La dix-septième Conférence des Parties à la Convention sur la diversité biologique (COP17) s'est ouverte le 25 octobre 2026 à Erevan, en Arménie, pour une session de deux semaines réunissant les représentants de 196 État"
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "La source [1] (RFI, 26/10/2026) est citée pour cette déclaration. Cependant, l'extrait fourni de [1] ne contient pas ces noms (Arpine Porsughyan, David Cooper) ni le détail de leurs propos. L'article attribue à RFI des c",
+        "phrase": "Selon RFI, la présidente de la COP17, Arpine Porsughyan, et le secrétaire exécutif adjoint, David Cooper, ont souligné la nécessité de mobiliser des ressources adéquates et d'améliorer le suivi ainsi que la responsabilit"
+      },
+      {
+        "bloc": 1,
+        "type": "incoherence_inter_sections",
+        "description": "Le résumé (chapeau) dit : « les pays restant divisés sur l'élargissement de la base des contributeurs et la réforme de l'architecture financière actuelle ». Les faits disent : « sur l'élargissement de la base des donateu",
+        "phrase": "Les négociations butent cependant sur le volet financier. Selon le Parlement européen, les parties restent divisées sur la manière de mobiliser les 200 milliards de dollars par an prévus par la cible 19 du cadre mondial,"
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "La source [5] (Europa, Parlement européen, 2026) est citée pour ce contenu. L'extrait fourni ne contient pas le détail de ces divisions (cible 19, élargissement base donateurs, réforme/remplacement FEM). L'article attrib",
+        "phrase": "Selon le Parlement européen, les parties restent divisées sur la manière de mobiliser les 200 milliards de dollars par an prévus par la cible 19 du cadre mondial, sur l'élargissement de la base des donateurs au-delà des "
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "La source [4] (OCDE, octobre 2026) est citée pour cette participation et ce mandat. L'extrait fourni ne contient pas ces détails (suivi flux financiers, alignement politiques publiques). L'article prête à l'OCDE un rôle ",
+        "phrase": "L'OCDE participe à la COP17 pour appuyer le suivi des flux financiers et l'alignement des politiques publiques sur les objectifs du cadre, selon sa propre communication [4]"
+      }
+    ],
+    "types_restants": [
+      "chiffre_errone",
+      "annonce_perimee",
+      "annonce_perimee",
+      "source_inventee",
+      "incoherence_inter_sections",
+      "redondance",
+      "redondance",
+      "redondance",
+      "source_inventee",
+      "source_inventee",
+      "section_gonflee",
+      "section_gonflee",
+      "compteur_incoherent"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "faits_repetitifs"
+    ],
+    "titre": "COP17 biodiversité à Erevan : l'impasse persiste sur le financement des objectifs 2030",
+    "n_sources": 6,
+    "n_mots": 645,
+    "titre_rss": "COP-17 Biodiversité entame sa deuxième semaine toujours dans l'impasse sur les financements",
+    "matiere_faits_distincts": 961,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
   }
 ]
