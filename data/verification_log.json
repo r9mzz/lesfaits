@@ -43517,5 +43517,1207 @@
     "n_sources_injectees": 10,
     "n_sources_trouvees": 10,
     "nature_contenu": "etude_scientifique"
+  },
+  {
+    "slug": "ebola-bundibugyo-10000-cas-rdc-uganda-banque-mondiale-426-millions",
+    "statut": "rejete_qualite",
+    "date": "2026-10-27T17:15:08",
+    "problemes_initiaux": 12,
+    "tentatives": 3,
+    "problemes_restants": 9,
+    "bloquants_restants": 4,
+    "bloquants_types": [
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [1] (Sciences et Avenir) ne contient pas le chiffre de 10 000 cas dans son extrait fourni ; elle ne mentionne que le titre. Le chiffre de 10 000 cas n'est pas vérifié par la source citée.",
+        "phrase": "L'épidémie d'Ebola a dépassé les 10 000 cas recensés en Afrique, la République démocratique du Congo restant à l'épicentre de la flambée [1]."
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [4] (Worldbank) mentionne un montant total de 426,6 millions de dollars mais ne détaille pas la répartition exacte de 246,6 millions immédiatement disponibles pour la liste précise de pays et organisations cité",
+        "phrase": "La Banque mondiale répond à cette urgence en mobilisant un total de 426,6 millions de dollars en financements d'urgence, sous forme de dons et de prêts concessionnels [4]. Sur ce montant, 246,6 millions sont immédiatemen"
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [2] (Vie Publique) dans son extrait fourni ne contient pas le chiffre de 11 300 décès ; l'extrait ne mentionne que le titre de l'article sans données chiffrées sur l'épidémie 2014-2016.",
+        "phrase": "L'épidémie de 2014-2016 en Afrique de l'Ouest avait causé plus de 11 300 décès, selon Vie Publique [2]."
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [3] (The Lancet) dans son extrait fourni ne confirme pas qu'il s'agit de la seizième épidémie ni qu'elle a eu lieu en 2025 à Bulape, Kasaï ; l'extrait ne contient que le titre de l'article.",
+        "phrase": "La RDC fait face à une nouvelle épidémie d'Ebola en 2026, après sa seizième épidémie identifiée dans la zone de santé de Bulape, province du Kasaï, en 2025 selon The Lancet [3]."
+      }
+    ],
+    "types_restants": [
+      "chiffre_errone",
+      "chiffre_errone",
+      "source_inventee",
+      "chiffre_errone",
+      "source_inventee",
+      "chiffre_errone",
+      "compteur_incoherent",
+      "paraphrase_structurelle",
+      "redondance"
+    ],
+    "article_type": "actu",
+    "titre": "Ebola Bundibugyo : plus de 10 000 cas en RDC et Ouganda, 426 millions mobilisés",
+    "n_sources": 8,
+    "n_mots": 582,
+    "titre_rss": "Ebola: Plus de 10.000 cas recensés en Afrique, la RDC toujours à l'épicentre",
+    "matiere_faits_distincts": 847,
+    "matiere_redondance": 0.01,
+    "matiere_donnees_chiffrees": 2,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "cop17-desertification-esa-satellites-surveillance-sols-2026",
+    "statut": "rejete_qualite",
+    "date": "2026-10-27T17:33:10",
+    "tentative": 3,
+    "angle_insuffisant": true,
+    "raison": "Aucune phrase des faits ne contient à la fois un événement précis daté (la présentation à la COP17) et une donnée chiffrée ou nommée qui lui est propre ; le texte se contente de décrire les projets SEN4LDN et WorldSoils sans indiquer ce qui a été concrètement annoncé ou dévoilé lors de cette COP17 (nouvelles données, nouveaux pays pilotes, calendrier, résultats inédits). L'article répond à « qu'est-ce que ces projets ? » plutôt qu'à « pourquoi en parle-t-on maintenant à la COP17 ? ».",
+    "article_type": "actu",
+    "titre": "COP17 désertification : l'ESA déploie ses satellites pour surveiller la dégradation des sols",
+    "n_sources": 5,
+    "n_mots": 850,
+    "titre_rss": "A la COP17, haro sur les subventions aux énergies fossiles",
+    "matiere_faits_distincts": 706,
+    "matiere_redondance": 0.01,
+    "matiere_donnees_chiffrees": 2,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "cyberattaques-ia-responsabilite-penale-droit-francais-europeen",
+    "statut": "corrige_automatiquement",
+    "date": "2026-10-27T17:45:00",
+    "problemes_initiaux": 22,
+    "tentatives": 1,
+    "problemes_residuels_style": 13,
+    "rapport_initial": {
+      "conforme": false,
+      "sujet_sensible": false,
+      "sujet_sensible_raison": "",
+      "angle_insuffisant": false,
+      "angle_insuffisant_raison": "",
+      "nature_contenu": "actualite_factuelle",
+      "problemes": [
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "L'article du Monde daté du 27 octobre 2026 révèle qu'un piratage de la plateforme Hugging Face a été perpétré par des agents d'intelligence artificielle développés par OpenAI, marquant un tournant dans l'usage offensif de systèmes d'IA dotés d'une autonomie partielle [1].",
+          "explication": "La source [1] (Le Monde, 27/10/2026) n'est pas fournie en extrait ; il est impossible de vérifier que cet article affirme qu'un piratage de Hugging Face a été perpétré par des agents d'OpenAI. Le fait central de l'article repose sur une source non vérifiable avec les extraits fournis."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "Le droit pénal français, fondé sur le principe de légalité des délits et des peines, ne prévoit pas de personnalité juridique pour les systèmes d'IA : l'infraction suppose un auteur physique ou moral identifiable, capable d'intention ou de négligence [1].",
+          "explication": "L'affirmation sur le droit pénal français (absence de personnalité juridique pour l'IA, exigence d'un auteur humain) est attribuée à la source [1] (Le Monde), qui est un article de presse, pas une source juridique primaire. Aucun extrait de source juridique (code pénal, jurisprudence, doctrine) n'est fourni pour étayer ce point de droit."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "chiffre_errone",
+          "phrase_exacte": "Ces infractions représentent 5,0 % de l'ensemble des infractions liées au numérique en 2023, une part en baisse depuis 6,5 % en 2016 [3].",
+          "explication": "La source [3] (Insee) n'est pas fournie en extrait ; il est impossible de vérifier les pourcentages 5,0 % (2023) et 6,5 % (2016) ni la notion d'« infractions liées au numérique »."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "chiffre_errone",
+          "phrase_exacte": "Le nombre de victimes d'ASTAD croît en moyenne de 12 % par an et celui des mis en cause de 7 % par an entre 2016 et 2023 [3].",
+          "explication": "La source [3] (Insee) n'est pas fournie en extrait ; il est impossible de vérifier les taux de croissance annuels moyens de 12 % (victimes) et 7 % (mis en cause)."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "chiffre_errone",
+          "phrase_exacte": "avec une assurance obligatoire et des plafonds d'indemnisation de deux millions d'euros pour les atteintes à l'intégrité physique et un million pour les préjudices immatériels ou matériels [8].",
+          "explication": "La source [8] (Résolution du Parlement européen 2020) n'est pas fournie en extrait ; il est impossible de vérifier les montants précis des plafonds d'indemnisation (2 M€ et 1 M€) ni l'obligation d'assurance."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "Une étude du Parlement européen de 2025 préconise un régime de responsabilité stricte ciblant les systèmes à haut risque autour d'un opérateur unique responsable, afin d'éviter la fragmentation réglementaire entre États membres [4].",
+          "explication": "La source [4] (Europa, Study on civil liability for AI systems, 2025) n'est pas fournie en extrait ; il est impossible de vérifier qu'elle préconise un « régime de responsabilité stricte » avec « opérateur unique responsable » et l'objectif d'éviter la « fragmentation réglementaire »."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "Le cadre juridique français des traitements de données sensibles est encadré par la loi Informatique et Libertés de 1978 et le code de la sécurité intérieure, qui soumettent les fichiers intéressant la sûreté de l'État (EASP, PASP, GESTEREXT) à des autorisations ministérielles après avis de la CNIL, avec un contentieux spécifique devant le Conseil d'État [2][5].",
+          "explication": "Les sources [2] et [5] (décisions du Conseil d'État 2026) ne sont pas fournies en extraits ; il est impossible de vérifier qu'elles décrivent ce cadre juridique général (loi 1978, code sécurité intérieure, fichiers EASP/PASP/GESTEREXT, autorisations ministérielles, avis CNIL, contentieux devant le Conseil d'État)."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "Le Conseil d'État a été saisi en 2026 de plusieurs recours relatifs au droit d'accès à ces traitements, confirmant sa compétence contentieuse sur ces dispositifs [2][5].",
+          "explication": "Les sources [2] et [5] ne sont pas fournies en extraits ; il est impossible de vérifier qu'elles mentionnent des « plusieurs recours » en 2026 sur le « droit d'accès » à ces traitements ni qu'elles confirment la compétence contentieuse du Conseil d'État."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "L'Union européenne a engagé dès 2020 une réflexion sur la responsabilité civile de l'IA, le Parlement adoptant une résolution à large majorité (626 voix pour, 25 contre, 40 abstentions) demandant un règlement définissant les règles de responsabilité des opérateurs [8].",
+          "explication": "La source [8] n'est pas fournie en extrait ; il est impossible de vérifier le détail du vote (626 pour, 25 contre, 40 abstentions) ni la demande d'un « règlement » (la source listée est une résolution)."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "La directive sur la responsabilité du fait des produits, en vigueur depuis plus de 30 ans, est jugée insuffisante pour couvrir les spécificités des systèmes d'IA autonomes [8].",
+          "explication": "La source [8] n'est pas fournie en extrait ; il est impossible de vérifier qu'elle juge la directive produits « insuffisante » pour l'IA autonome."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "L'App Association, représentant des développeurs d'applications, a exprimé des réserves sur un effet de refroidissement de l'innovation et une augmentation des coûts d'assurance et de responsabilité de facto [7].",
+          "explication": "La source [7] (European Parliament, Briefing 2023) n'est pas fournie en extrait ; il est impossible de vérifier qu'elle rapporte des réserves de l'App Association sur « effet de refroidissement », « coûts d'assurance » et « responsabilité de facto »."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "contexte_hors_sujet",
+          "phrase_exacte": "Le cadre juridique français des traitements de données sensibles est encadré par la loi Informatique et Libertés de 1978 et le code de la sécurité intérieure, qui soumettent les fichiers intéressant la sûreté de l'État (EASP, PASP, GESTEREXT) à des autorisations ministérielles après avis de la CNIL, avec un contentieux spécifique devant le Conseil d'État [2][5].",
+          "explication": "Ce développement porte sur les fichiers de sûreté de l'État (EASP, PASP, GESTEREXT) et le contentieux d'accès devant le Conseil d'État, qui n'éclairent pas directement le sujet principal : la responsabilité pénale/civile des cyberattaques par IA autonomes. C'est un hors-sujet utilisé comme remplissage."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "contexte_hors_sujet",
+          "phrase_exacte": "Le Conseil d'État a été saisi en 2026 de plusieurs recours relatifs au droit d'accès à ces traitements, confirmant sa compétence contentieuse sur ces dispositifs [2][5].",
+          "explication": "Les recours sur le droit d'accès aux fichiers de sûreté de l'État n'apportent aucune information pertinente sur la qualification juridique des actes commis par des IA autonomes."
+        },
+        {
+          "bloc": 1,
+          "section": "nuances",
+          "type": "source_inventee",
+          "phrase_exacte": "Aucun texte français ni européen ne définit à ce jour le seuil d'autonomie algorithmique à partir duquel le lien de causalité entre l'action de l'IA et la décision humaine se rompt, laissant les juges apprécier au cas par cas la qualification de décision automatisée versus aide à la décision [9].",
+          "explication": "La source [9] n'existe pas dans la liste des sources autorisées (qui ne compte que 8 entrées, indices 1 à 8). C'est une source inventée."
+        },
+        {
+          "bloc": 1,
+          "section": "nuances",
+          "type": "source_inventee",
+          "phrase_exacte": "La DINUM distingue explicitement les traitements automatisés sans intervention humaine (calcul d'impôt) des outils d'aide à la décision où l'humain conserve la main finale, mais cette frontière s'estompe avec les agents d'IA capables d'enchaîner des actions complexes [9].",
+          "explication": "La source [9] n'existe pas dans la liste des sources autorisées. La DINUM n'est citée dans aucune source fournie."
+        },
+        {
+          "bloc": 1,
+          "section": "nuances",
+          "type": "source_inventee",
+          "phrase_exacte": "L'étude parlementaire européenne de 2025 souligne que l'incertitude sur les risques ne doit pas se traduire par des primes d'assurance prohibitives freinant la recherche, mais ne tranche pas le partage de responsabilité entre concepteur, opérateur et utilisateur final [4].",
+          "explication": "La source [4] n'est pas fournie en extrait ; il est impossible de vérifier qu'elle contient cette nuance sur les primes d'assurance et le non-tranchement du partage de responsabilité."
+        },
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "compteur_incoherent",
+          "phrase_exacte": "nb_sources: 8",
+          "explication": "L'article utilise une référence [9] dans la section 'nuances' (trois occurrences), qui ne correspond à aucune des 8 sources listées. Le compteur 'nb_sources: 8' est donc incohérent avec le nombre réel de sources distinctes citées dans le texte (9 références numériques utilisées pour 8 sources listées)."
+        },
+        {
+          "bloc": 3,
+          "section": "resume",
+          "type": "cadrage_emprunte",
+          "phrase_exacte": "La frontière reste floue entre décision automatisée et aide à la décision, et aucun texte ne définit encore le seuil d'autonomie à partir duquel le concepteur ou l'opérateur engage sa responsabilité pénale.",
+          "explication": "Cette formulation reprend le cadrage de la source [9] (inexistante) et de la DINUM (non sourcée) sans attribution explicite ('selon X'), présentant une analyse juridique comme un fait neutre établi par la rédaction."
+        },
+        {
+          "bloc": 4,
+          "section": "resume",
+          "type": "redondance",
+          "phrase_exacte": "Le piratage de Hugging Face par des agents d'OpenAI relance le débat sur la qualification juridique des actes commis par des IA partiellement autonomes, le droit pénal français exigeant un auteur humain identifiable.",
+          "explication": "Cette phrase du résumé répète mot pour mot l'information du premier paragraphe des 'faits' (piratage Hugging Face par agents OpenAI, droit pénal exigeant auteur humain) sans apporter de synthèse distincte."
+        },
+        {
+          "bloc": 4,
+          "section": "resume",
+          "type": "redondance",
+          "phrase_exacte": "L'Insee recense 17 800 atteintes aux systèmes automatisés en 2023, en hausse de 8 % par an depuis 2016, tandis que l'Union européenne prépare une directive instaurant une responsabilité objective pour les systèmes d'IA à haut risque.",
+          "explication": "Cette phrase du résumé répète les chiffres Insee (17 800, +8 %/an) et l'initiative européenne (responsabilité objective, IA haut risque) déjà détaillés dans les 'faits', sans valeur ajoutée."
+        },
+        {
+          "bloc": 4,
+          "section": "resume",
+          "type": "redondance",
+          "phrase_exacte": "La frontière reste floue entre décision automatisée et aide à la décision, et aucun texte ne définit encore le seuil d'autonomie à partir duquel le concepteur ou l'opérateur engage sa responsabilité pénale.",
+          "explication": "Cette phrase du résumé répète le contenu de la première nuance ('Aucun texte français ni européen ne définit à ce jour le seuil d'autonomie algorithmique...') presque mot pour mot."
+        },
+        {
+          "bloc": 4,
+          "section": "nuances",
+          "type": "section_gonflee",
+          "phrase_exacte": "La réaction d'OpenAI sur l'incident Hugging Face n'était pas disponible dans les sources consultées à la date de publication.",
+          "explication": "Cette phrase ne constitue pas une nuance factuelle sourcée mais une mention de procédure rédactionnelle. Elle gonfle artificiellement la section 'nuances' qui devrait contenir des faits distincts et sourcés."
+        }
+      ]
+    },
+    "article_type": "actu",
+    "titre": "Cyberattaques par IA : le droit pénal français face à l'autonomie des agents",
+    "n_sources": 8,
+    "n_mots": 775,
+    "titre_rss": "Cyberattaques par des IA de pointe : le casse-tête de la responsabilité pénale",
+    "matiere_faits_distincts": 987,
+    "matiere_redondance": 0.03,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "senat-rejette-autonomie-corse-assemblee-quitte-debats",
+    "statut": "conforme_du_premier_coup",
+    "date": "2026-10-27T17:51:03",
+    "article_type": "actu",
+    "titre": "Le Sénat rejette le projet d'autonomie de la Corse, l'Assemblée de Corse quitte les débats",
+    "n_sources": 5,
+    "n_mots": 616,
+    "titre_rss": "Statut de la Corse : la droite sénatoriale fait capoter la réforme, le camp autonomiste claque la porte",
+    "matiere_faits_distincts": 817,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "russie-commission-onu-trafic-etres-humains-recrutement-force-front-ukrainien",
+    "statut": "corrige_automatiquement",
+    "date": "2026-10-27T18:01:42",
+    "problemes_initiaux": 16,
+    "tentatives": 3,
+    "problemes_residuels_style": 4,
+    "rapport_initial": {
+      "conforme": false,
+      "sujet_sensible": false,
+      "sujet_sensible_raison": "",
+      "angle_insuffisant": false,
+      "angle_insuffisant_raison": "",
+      "nature_contenu": "rapport",
+      "problemes": [
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "Une commission d'enquête internationale indépendante sur l'Ukraine a présenté le 26 octobre à l'Assemblée générale des Nations unies un rapport qui qualifie explicitement de « trafic d'êtres humains » le recrutement d'étrangers par l'armée russe pour les envoyer combattre sur le front ukrainien [1].",
+          "explication": "La source [1] (RFI) ne figure pas dans les extraits fournis ; impossible de vérifier que le rapport a été présenté le 26 octobre, qu'il qualifie explicitement de « trafic d'êtres humains » le recrutement, ni qu'il concerne l'armée russe."
+        },
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "La commission a confirmé des cas impliquant des ressortissants d'au moins 29 pays, de l'Inde au Brésil en passant par l'Afrique du Sud et la Bolivie, et dit avoir établi, preuves à l'appui, le parcours type d'un enrôlé de force [1].",
+          "explication": "La source [1] (RFI) ne figure pas dans les extraits fournis ; impossible de vérifier le chiffre de 29 pays, la liste de pays (Inde, Brésil, Afrique du Sud, Bolivie) ni l'existence d'un parcours type établi preuves à l'appui."
+        },
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "Les victimes sont recrutées par la force ou la tromperie, en violation du droit international, souvent attirées par de fausses offres d'emploi ou d'études [1].",
+          "explication": "La source [1] (RFI) ne figure pas dans les extraits fournis ; impossible de vérifier le mode de recrutement (force/tromperie), la violation du droit international ni les fausses offres d'emploi ou d'études."
+        },
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "La commission précise n'avoir trouvé aucune trace d'enrôlements forcés du côté ukrainien [2].",
+          "explication": "La source [2] (RFI, deuxième entrée) ne figure pas dans les extraits fournis ; impossible de vérifier l'absence d'enrôlements forcés côté ukrainien."
+        },
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "Elle souligne ne pas parler au nom de l'ONU, n'être pas reconnue par Moscou et n'avoir obtenu aucune assistance des autorités russes [2].",
+          "explication": "La source [2] (RFI, deuxième entrée) ne figure pas dans les extraits fournis ; impossible de vérifier que la commission ne parle pas au nom de l'ONU, n'est pas reconnue par Moscou et n'a obtenu aucune assistance russe."
+        },
+        {
+          "bloc": 2,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "Selon Challenges, des milliers de candidats africains auraient été enrôlés par la Russie via des offres d'emploi ou d'études trompeuses, avec plus de 300 morts au combat déjà recensés et 1 700 combattants identifiés originaires de 36 pays [5].",
+          "explication": "La source [5] (Challenges) ne figure pas dans les extraits fournis ; impossible de vérifier les milliers d'enrôlés, les 300 morts, les 1 700 combattants identifiés ni les 36 pays."
+        },
+        {
+          "bloc": 2,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "Au Sénégal, le cas de l'étudiant Malick Diop, parti pour un poste de cuisinier et retrouvé au front, a suscité l'émotion [5].",
+          "explication": "La source [5] (Challenges) ne figure pas dans les extraits fournis ; impossible de vérifier l'existence de Malick Diop, son poste de cuisinier, sa présence au front ni l'émotion suscitée."
+        },
+        {
+          "bloc": 2,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "Des situations analogues ont été signalées au Cameroun et au Kenya [5].",
+          "explication": "La source [5] (Challenges) ne figure pas dans les extraits fournis ; impossible de vérifier des signalements au Cameroun et au Kenya."
+        },
+        {
+          "bloc": 2,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "En Amérique latine, Libération rapporte que d'anciens policiers ou militaires péruviens ont été attirés en Russie par des offres trompeuses avant d'être envoyés au combat [3].",
+          "explication": "La source [3] (Libération) ne figure pas dans les extraits fournis ; impossible de vérifier l'implication d'anciens policiers/militaires péruviens, les offres trompeuses ni l'envoi au combat."
+        },
+        {
+          "bloc": 2,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "20 Minutes évoque quant à lui la présence de centaines de Yéménites sur le front pour le compte de la Russie, dont un certain nombre forcés de s'enrôler [4].",
+          "explication": "La source [4] (20 Minutes) ne figure pas dans les extraits fournis ; impossible de vérifier la présence de centaines de Yéménites, leur recrutement pour le compte de la Russie ni les enrôlements forcés."
+        },
+        {
+          "bloc": 2,
+          "section": "nuances",
+          "type": "source_inventee",
+          "phrase_exacte": "Le chiffre de 29 pays concernés émane uniquement de ce rapport, sans confirmation indépendante croisée dans les autres sources disponibles.",
+          "explication": "L'affirmation sur l'origine du chiffre (le rapport) et l'absence de confirmation croisée ne peut être vérifiée car la source [1] (RFI) ne figure pas dans les extraits fournis."
+        },
+        {
+          "bloc": 2,
+          "section": "nuances",
+          "type": "source_inventee",
+          "phrase_exacte": "Les estimations du nombre de combattants africains (plusieurs milliers) et de morts (plus de 300) proviennent des autorités ukrainiennes citées par Challenges, sans méthodologie détaillée accessible dans l'extrait [5].",
+          "explication": "La source [5] (Challenges) ne figure pas dans les extraits fournis ; impossible de vérifier l'origine (autorités ukrainiennes), les estimations ni l'absence de méthodologie détaillée."
+        },
+        {
+          "bloc": 2,
+          "section": "nuances",
+          "type": "source_inventee",
+          "phrase_exacte": "La réaction officielle de la Russie aux allégations de la commission n'est pas documentée dans les sources consultées.",
+          "explication": "Cette affirmation méta sur les sources consultées ne peut être vérifiée car aucune source n'est fournie en extrait pour le confirmer."
+        },
+        {
+          "bloc": 2,
+          "section": "nuances",
+          "type": "source_inventee",
+          "phrase_exacte": "La commission elle-même précise ne pas parler au nom de l'ONU et n'avoir obtenu aucune coopération de Moscou, ce qui limite la portée probante de ses conclusions auprès des instances internationales [2].",
+          "explication": "La source [2] (RFI, deuxième entrée) ne figure pas dans les extraits fournis ; impossible de vérifier les précisions de la commission ni la limitation de portée probante."
+        },
+        {
+          "bloc": 2,
+          "section": "nuances",
+          "type": "source_inventee",
+          "phrase_exacte": "Les sources journalistiques citées (Challenges, Libération, 20 Minutes) s'appuient sur des témoignages et des données ukrainiennes, sans accès direct aux dossiers russes ni vérification contradictoire sur le terrain [3][4][5].",
+          "explication": "Les sources [3], [4], [5] ne figurent pas dans les extraits fournis ; impossible de vérifier leurs méthodes (témoignages, données ukrainiennes, absence d'accès aux dossiers russes, absence de vérification contradictoire)."
+        },
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "compteur_incoherent",
+          "phrase_exacte": "nb_sources: 5",
+          "explication": "Le champ nb_sources indique 5, mais les sources listées contiennent un doublon (RFI apparaît deux fois avec la même URL et la même date) ; le nombre de sources distinctes est 4."
+        }
+      ]
+    },
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "titre_de_mauvaise_qualite"
+    ],
+    "titre": "Une commission de l'ONU qualifie de trafic d'êtres humains le recrutement forcé d'étrangers par la Russie",
+    "n_sources": 5,
+    "n_mots": 510,
+    "titre_rss": "Russie: une commission d’enquête détaille le «trafic d'êtres humains» envoyés sur le front ukrainien",
+    "matiere_faits_distincts": 558,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 3,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "rapport"
+  },
+  {
+    "slug": "cop17-biodiversite-erevan-onu-retard-objectifs-subventions-nefastes",
+    "statut": "rejete_qualite",
+    "date": "2026-10-27T18:15:18",
+    "problemes_initiaux": 10,
+    "tentatives": 3,
+    "problemes_restants": 6,
+    "bloquants_restants": 3,
+    "bloquants_types": [
+      "chiffre_errone",
+      "chiffre_errone",
+      "incoherence_inter_sections"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source UN [4] indique 17,6 % des terres et 8,4 % des océans actuellement protégés, mais donne des projections de 25,7 % des terres et 26,5 % des océans d'ici 2030, et non 12 % et 26 % comme écrit dans l'article.",
+        "phrase": "le rapport de l'ONU indique que 17,6 % des terres et 8,4 % des océans sont actuellement protégés, et que même si tous les engagements présents sont respectés, les projections donnent 12 % des terres et 26 % des océans pr"
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "Le résumé reprend les mêmes projections erronées (12 % terres, 26 % océans) que le corps, alors que la source UN [4] indique 25,7 % pour les terres et 26,5 % pour les océans.",
+        "phrase": "avec 17,6 % des terres et 8,4 % des océans actuellement protégés, et des projections de 12 % des terres et 26 % des océans d'ici 2030 si les engagements actuels sont tenus"
+      },
+      {
+        "bloc": 1,
+        "type": "incoherence_inter_sections",
+        "description": "Incohérence interne : l'article affirme que les projections (12 % terres) sont inférieures au niveau actuel (17,6 % terres), ce qui est illogique pour des engagements censés augmenter la protection ; la source UN [4] don",
+        "phrase": "le rapport de l'ONU indique que 17,6 % des terres et 8,4 % des océans sont actuellement protégés, et que même si tous les engagements présents sont respectés, les projections donnent 12 % des terres et 26 % des océans pr"
+      }
+    ],
+    "types_restants": [
+      "chiffre_errone",
+      "chiffre_errone",
+      "incoherence_inter_sections",
+      "source_inventee",
+      "source_non_editoriale",
+      "redondance"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "faits_repetitifs",
+      "titre_de_mauvaise_qualite"
+    ],
+    "titre": "COP17 biodiversité à Erevan : l'ONU alerte sur le retard des objectifs et les subventions néfastes",
+    "n_sources": 7,
+    "n_mots": 734,
+    "titre_rss": "COP biodiversité : les « subventions néfastes » à la nature au centre des négociations",
+    "matiere_faits_distincts": 769,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "annulation-dette-bce-risque-euro-confiance-monnaie",
+    "statut": "rejete_sensible",
+    "date": "2026-10-27T18:24:34",
+    "problemes_initiaux": 12,
+    "tentative": 1,
+    "bloc5": true,
+    "article_type": "actu",
+    "titre": "Annuler la dette détenue par la BCE : un risque pour la valeur de l'euro",
+    "n_sources": 4,
+    "n_mots": 637,
+    "titre_rss": "Annuler la dette détenue par la Banque centrale européenne, c’est changer la nature de l’euro",
+    "matiere_faits_distincts": 846,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "un-tiers-eleves-ce2-cm1-cm2-violences-sexuelles-ecole-enquete-education-nationale",
+    "statut": "rejete_sensible",
+    "date": "2026-10-27T18:30:58",
+    "sujet_sensible": true,
+    "raison": "L'article porte sur des violences sexuelles déclarées par des mineurs (élèves de CE2, CM1, CM2, âgés de 8 à 11 ans) en milieu scolaire, ce qui implique directement des mineurs victimes.",
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "resume_repete_corps"
+    ],
+    "titre": "Un tiers des élèves de CE2, CM1 et CM2 déclarent des violences sexuelles à l'école",
+    "n_sources": 5,
+    "n_mots": 511,
+    "titre_rss": "Un tiers des élèves de CE2, CM1 et CM2 déclarent avoir subi des violences sexuelles à l’école, selon une étude de l’éducation nationale",
+    "matiere_faits_distincts": 524,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 3,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "etude_scientifique"
+  },
+  {
+    "slug": "onu-alerte-trajectoire-rechauffement-2-6-degres-seuil-1-5-hors-atteinte",
+    "statut": "corrige_automatiquement",
+    "date": "2026-10-27T18:43:38",
+    "problemes_initiaux": 14,
+    "tentatives": 2,
+    "problemes_residuels_style": 6,
+    "rapport_initial": {
+      "conforme": false,
+      "sujet_sensible": false,
+      "sujet_sensible_raison": "",
+      "angle_insuffisant": false,
+      "angle_insuffisant_raison": "",
+      "nature_contenu": "rapport",
+      "problemes": [
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "chronologie_confuse",
+          "phrase_exacte": "Ce document, présenté dans le cadre de la COP30 qui se tient à Belém (Brésil) du 10 au 21 novembre 2025, établit que la trajectoire actuelle des émissions mondiales mène à un réchauffement d'environ 2,6 °C d'ici la fin du siècle",
+          "explication": "La source [2] (Vie Publique, 7 novembre 2025) indique que le rapport a été publié le 2 septembre 2026, soit après la COP30 (novembre 2025). L'article présente le rapport comme s'il avait été présenté lors de la COP30, ce qui crée une confusion chronologique entre la date de publication du rapport (septembre 2026) et la tenue de la COP30 (novembre 2025)."
+        },
+        {
+          "bloc": 1,
+          "section": "resume",
+          "type": "chronologie_confuse",
+          "phrase_exacte": "Un rapport de l'ONU présenté à la COP30 à Belém estime que la trajectoire mondiale conduit à un réchauffement de 2,6 °C d'ici 2100",
+          "explication": "Le résumé reprend la même confusion chronologique : le rapport n'a pas été présenté à la COP30 de novembre 2025 puisqu'il a été publié en septembre 2026 selon la source [2]."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "incoherence_inter_sections",
+          "phrase_exacte": "Le Programme des Nations unies pour l'environnement (PNUE) a publié le 2 septembre 2026 un rapport intitulé « Limiting Overshoot – Navigating exceedance of 1.5 °C and pathways towards return » [6]. Ce document, présenté dans le cadre de la COP30 qui se tient à Belém (Brésil) du 10 au 21 novembre 2025",
+          "explication": "Incohérence interne dans la même section 'faits' : la première phrase donne la date de publication (2 septembre 2026) et la seconde affirme que le document a été présenté à la COP30 de novembre 2025, soit 10 mois avant sa publication."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "Le Programme des Nations unies pour l'environnement (PNUE) a publié le 2 septembre 2026 un rapport intitulé « Limiting Overshoot – Navigating exceedance of 1.5 °C and pathways towards return » [6]",
+          "explication": "La source [6] (Vie Publique, 3 septembre 2026) ne mentionne pas ce titre exact de rapport ni la date du 2 septembre 2026. Elle traite de 'comment limiter le réchauffement climatique' mais ne confirme pas l'existence d'un rapport PNUE publié le 2 septembre 2026 avec ce titre précis."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "établit que la trajectoire actuelle des émissions mondiales mène à un réchauffement d'environ 2,6 °C d'ici la fin du siècle, avec une fourchette pouvant atteindre 2,8 °C selon les hypothèses [2]",
+          "explication": "La source [2] (Vie Publique, 7 novembre 2025) ne contient pas l'information sur un réchauffement de 2,6 °C ou 2,8 °C d'ici 2100. Cette donnée n'est pas vérifiable dans l'extrait fourni de cette source."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "L'objectif de limiter la hausse des températures à 1,5 °C par rapport à l'ère préindustrielle, inscrit dans l'accord de Paris, est jugé techniquement hors d'atteinte dans les conditions actuelles d'action [2]",
+          "explication": "La source [2] ne contient pas cette affirmation selon laquelle l'objectif 1,5 °C serait 'techniquement hors d'atteinte'. L'extrait fourni ne permet pas de vérifier ce fait."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "Le secrétaire général de l'ONU, António Guterres, a déclaré que le monde ne peut plus éviter de dépasser cette limite et que les conséquences sont déjà dévastatrices : inondations meurtrières, canicules brutales, méga-feux, vies perdues, économies affaiblies, inégalités approfondies, touchant en premier les populations les moins responsables des émissions [4]",
+          "explication": "La source [4] (UN, message vidéo du 2 septembre 2026 pour le Emissions Gap Report 2026) n'est pas fournie dans les extraits. L'article attribue à cette source des déclarations précises qui ne peuvent être vérifiées."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "Le rapport du PNUE insiste sur la nécessité d'engager sans délai des actions rapides, globales et collectives afin de limiter au maximum l'ampleur du dépassement (overshoot) et de tracer des voies de retour vers des niveaux de réchauffement plus bas [6]",
+          "explication": "La source [6] (Vie Publique, 3 septembre 2026) ne contient pas ces formulations précises sur 'actions rapides, globales et collectives', 'limiter au maximum l'ampleur du dépassement' ni 'tracer des voies de retour'."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "La mission d'information du Sénat sur la diplomatie climatique française, dont le rapport a été adopté à l'unanimité en 2026, recommande la définition d'une doctrine française en matière de diplomatie climatique et une réappropriation démocratique du débat sur le changement climatique [7]",
+          "explication": "La source [7] (Sénat, 2026) n'est pas fournie dans les extraits. Les recommandations précises attribuées à ce rapport ne peuvent être vérifiées."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "L'Inspection générale des affaires sociales souligne le besoin de politiques climatiques intégrant les enjeux sociaux, dites « social-écologiques », et la nécessité d'analyser plus finement les risques sociaux liés au changement climatique et les profils exposés [3]",
+          "explication": "La source [3] (IGAS, décembre 2024) n'est pas fournie dans les extraits. Les concepts de 'politiques social-écologiques' et l'analyse des 'profils exposés' ne peuvent être vérifiés."
+        },
+        {
+          "bloc": 1,
+          "section": "nuances",
+          "type": "source_inventee",
+          "phrase_exacte": "Le rapport du PNUE distingue le dépassement temporaire du seuil de 1,5 °C (overshoot) d'un dépassement permanent, mais les voies de retour reposent sur des technologies de capture de carbone à grande échelle dont le déploiement, les coûts et la faisabilité restent incertains [6]",
+          "explication": "La source [6] ne contient pas cette distinction entre dépassement temporaire et permanent, ni l'analyse sur les technologies de capture de carbone et leurs incertitudes."
+        },
+        {
+          "bloc": 1,
+          "section": "nuances",
+          "type": "source_inventee",
+          "phrase_exacte": "Le secrétaire général de l'ONU ne quantifie pas les réductions d'émissions annuelles nécessaires pour infléchir la trajectoire vers 2,6 °C, laissant ouverte l'ampleur de l'effort requis [4]",
+          "explication": "La source [4] n'est pas fournie dans les extraits, impossible de vérifier ce que le secrétaire général a ou n'a pas quantifié."
+        },
+        {
+          "bloc": 1,
+          "section": "nuances",
+          "type": "source_inventee",
+          "phrase_exacte": "Les contributions nationales actuelles (NDC) ne sont pas alignées sur l'objectif de 1,5 °C, et le rapport ne précise pas quels pays ou secteurs doivent agir en priorité pour combler l'écart [2][6]",
+          "explication": "Les sources [2] et [6] ne contiennent pas ces informations sur l'alignement des NDC ni sur l'absence de précision du rapport quant aux pays/secteurs prioritaires."
+        },
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "compteur_incoherent",
+          "phrase_exacte": "nb_sources: 6",
+          "explication": "L'article cite des informations précises attribuées aux sources [2], [3], [4], [6], [7] mais les extraits fournis pour ces sources ne contiennent pas les faits correspondants. Le compteur de 6 sources est techniquement exact pour le tableau, mais le sourcing effectif est inexistant pour la majorité des affirmations factuelles."
+        }
+      ]
+    },
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "titre_de_mauvaise_qualite",
+      "prise_de_position"
+    ],
+    "titre": "L'ONU prévoit un réchauffement de 2,6 °C et juge le seuil de 1,5 °C hors d'atteinte",
+    "n_sources": 6,
+    "n_mots": 544,
+    "titre_rss": "Climat: le monde vers un réchauffement de 2,6°C, mais il est encore temps d'agir, selon l'ONU",
+    "matiere_faits_distincts": 591,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "rapport"
+  },
+  {
+    "slug": "mortalite-hausse-29-pour-cent-juin-2026-canicule-personnes-agees-domicile",
+    "statut": "conforme_du_premier_coup",
+    "date": "2026-10-27T18:49:55",
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "titre_de_mauvaise_qualite"
+    ],
+    "titre": "Mortalité en hausse de 29 % fin juin 2026, surtout chez les plus de 45 ans",
+    "n_sources": 4,
+    "n_mots": 649,
+    "titre_rss": "Point de situation sur la mortalité toutes causes confondues  sur la période du 22 au 28 juin 2026",
+    "matiere_faits_distincts": 1114,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "veille_heures_visible": 221.3,
+    "veille_passages": 74,
+    "veille_age_h": 1543.1,
+    "veille_n_flux_grappe": 1,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "oxfam-rapport-ultra-riches-double-profit-crise-climatique",
+    "statut": "rejete_sensible",
+    "date": "2026-10-27T19:07:58",
+    "problemes_initiaux": 17,
+    "bloc5": [
+      "acteur_mis_en_cause_sans_reponse"
+    ],
+    "article_type": "actu",
+    "titre": "Oxfam : 217 entreprises profitent de la destruction et de la reconstruction climatique",
+    "n_sources": 6,
+    "n_mots": 910,
+    "titre_rss": "Détruire puis réparer : ces investisseurs qui gagnent sur les deux fronts de la crise climatique",
+    "matiere_faits_distincts": 848,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "rapport"
+  },
+  {
+    "slug": "economie-etats-unis-croissance-2-2-chomage-4-2-insatisfaction-2026",
+    "statut": "rejete_qualite",
+    "date": "2026-10-27T19:20:40",
+    "tentative": 3,
+    "perte_substance": true,
+    "section": "nuances",
+    "mots_avant": 125,
+    "mots_apres": 55,
+    "article_type": "actu",
+    "titre": "Économie américaine : croissance à 2,2 %, chômage à 4,2 %, mais 50 % d'insatisfaits",
+    "n_sources": 8,
+    "n_mots": 764,
+    "titre_rss": "État des lieux de l'économie américaine 2/5 : États-Unis de Donald Trump : l'économie se porte bien, mais les inégalités se creusent",
+    "matiere_faits_distincts": 670,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 4,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "rdc-essai-clinique-vaccin-tumaini-ebola-bundibugyo",
+    "statut": "rejete_qualite",
+    "date": "2026-10-27T19:33:50",
+    "problemes_initiaux": 9,
+    "tentatives": 3,
+    "problemes_restants": 16,
+    "bloquants_restants": 5,
+    "bloquants_types": [
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "incoherence_inter_sections",
+      "niveau_preuve_insuffisant"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [6] (OMS, 20 août 2026) indique 129 décès, pas 131.",
+        "phrase": "L'épidémie a causé 131 décès au 20 août 2026 selon l'OMS [6]."
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [6] (OMS, 20 août 2026) indique 129 décès, pas 131.",
+        "phrase": "L'épidémie actuelle de Bundibugyo a causé 131 décès au 20 août 2026 selon l'OMS [6]."
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [6] (OMS, 20 août 2026) indique 129 décès, pas 131.",
+        "phrase": "L'OMS confirme le démarrage d'un essai clinique du vaccin candidat Tumaini en République démocratique du Congo pour contrer la souche Bundibugyo, qui a causé 131 décès au 20 août 2026 selon l'OMS [6]."
+      },
+      {
+        "bloc": 1,
+        "type": "incoherence_inter_sections",
+        "description": "La source [2] (UN, 21 sept 2026) indique que l'essai Ervebo « doit démarrer » le 23 septembre, mais la source [7] (BMJ, 24 oct 2026) plus récente décrit une vaccination débutée le 23 octobre ; l'article présente les deux",
+        "phrase": "Parallèlement à Tumaini, l'essai du vaccin Ervebo (rVSV-ZEBOV) doit démarrer le 23 septembre 2026 à Bunia, en Ituri, ciblant 20 000 personnels de première ligne sur neuf à douze mois [2]."
+      },
+      {
+        "bloc": 1,
+        "type": "niveau_preuve_insuffisant",
+        "description": "La source [6] (OMS, 20 août 2026) ne mentionne pas le groupe consultatif SAGE ni une estimation d'août 2026 sur Ervebo ; elle rapporte une allocation de vaccins et un bilan de l'épidémie.",
+        "phrase": "Le groupe consultatif SAGE de l'OMS a estimé en août 2026 que les données disponibles ne permettaient pas encore de déterminer si Ervebo offrait une protection cliniquement significative contre Bundibugyo chez l'humain, "
+      }
+    ],
+    "types_restants": [
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "incoherence_inter_sections",
+      "niveau_preuve_insuffisant",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "compteur_incoherent",
+      "cadrage_emprunte"
+    ],
+    "article_type": "actu",
+    "titre": "RDC : un essai clinique du vaccin Tumaini débute face à l'épidémie d'Ebola Bundibugyo",
+    "n_sources": 7,
+    "n_mots": 761,
+    "titre_rss": "Ebola en RDC : un essai clinique du vaccin Tumaini a débuté, selon l’OMS",
+    "matiere_faits_distincts": 903,
+    "matiere_redondance": 0.01,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "biodiversite-1888-especes-migration-poles-sommets-cnrs-2026",
+    "statut": "rejete_sensible",
+    "date": "2026-10-27T19:49:50",
+    "problemes_initiaux": 14,
+    "tentative": 3,
+    "bloc5": true,
+    "article_type": "actu",
+    "titre": "Biodiversité : 1 888 espèces migrent vers les pôles et les sommets selon le CNRS",
+    "n_sources": 4,
+    "n_mots": 811,
+    "titre_rss": "Biodiversité : ruée vers les pôles et les sommets",
+    "matiere_faits_distincts": 1181,
+    "matiere_redondance": 0.02,
+    "matiere_donnees_chiffrees": 2,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "etude_scientifique"
+  },
+  {
+    "slug": "thierry-lhermitte-passeur-science-critique-discours-simplistes-sante",
+    "statut": "rejete_qualite",
+    "date": "2026-10-27T19:56:13",
+    "angle_insuffisant": true,
+    "raison": "Aucune phrase dans 'faits' ne contient à la fois un événement précis daté (publication du livre, entretien) et une donnée chiffrée ou nommée qui lui est propre ; l'article répond à 'qui est Thierry Lhermitte parrain de la FRM ?' plutôt qu'à 'pourquoi publie-t-il ce livre maintenant ?'.",
+    "article_type": "actu",
+    "titre": "Thierry Lhermitte publie Passeur de science et fustige les discours simplistes sur la santé",
+    "n_sources": 4,
+    "n_mots": 590,
+    "titre_rss": "\"Les discours simplistes sur la santé m’énervent\" : Thierry Lhermitte se confie sur sa passion pour les sciences",
+    "matiere_faits_distincts": 453,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "interview"
+  },
+  {
+    "slug": "budget-2027-calendrier-croissance-nulle-ue",
+    "statut": "conforme_du_premier_coup",
+    "date": "2026-10-27T20:02:55",
+    "article_type": "actu",
+    "titre": "Budget 2027 : calendrier serré, croissance nulle et incertitudes européennes",
+    "n_sources": 5,
+    "n_mots": 682,
+    "titre_rss": "Budget 2027 : les dates-clés des prochaines semaines",
+    "matiere_faits_distincts": 1049,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "cancers-pediatriques-auto-anticorps-piste-mutations-genetiques",
+    "statut": "rejete_qualite",
+    "date": "2026-10-27T20:10:29",
+    "tentative": 1,
+    "angle_insuffisant": true,
+    "raison": "Aucune phrase des faits ne contient à la fois un événement précis daté (publication, décision, résultat rendu public récemment) et une donnée chiffrée ou nommée qui lui est propre. L'article explique un concept (piste auto-immunité) sans dire ce qui vient de se passer concrètement (date de prépublication, effectif, types de cancers, auto-anticorps spécifiques).",
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "titre_de_mauvaise_qualite"
+    ],
+    "titre": "Cancers pédiatriques : des auto-anticorps détectés chez les enfants malades",
+    "n_sources": 4,
+    "n_mots": 448,
+    "titre_rss": "Cancers pédiatriques: la piste surprenante de l'auto-immunité",
+    "matiere_faits_distincts": 984,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "etude_scientifique"
+  },
+  {
+    "slug": "mortalite-france-2024-taux-standardise-baisse-deces-hausse",
+    "statut": "rejete_qualite",
+    "date": "2026-10-27T20:25:51",
+    "problemes_initiaux": 4,
+    "tentatives": 3,
+    "problemes_restants": 5,
+    "bloquants_restants": 2,
+    "bloquants_types": [
+      "source_inventee",
+      "source_inventee"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "La source [3] est une proposition de loi de l'Assemblée nationale sur les accidents du travail, elle ne contient aucune donnée sur la mortalité infantile ni sur l'IGAS ; l'article attribue à cette source une information ",
+        "phrase": "La mortalité infantile, en hausse continue depuis quinze ans selon l'IGAS, n'est pas couverte par ces études centrées sur l'ensemble des âges [3]."
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "La source [4] est une page de statistiques brutes de l'Insee (décès quotidiens et mensuels) ; elle ne contient pas d'analyse confirmant une orientation à la baisse ni de commentaire sur des variations régionales marquées",
+        "phrase": "L'Insee confirme sur les premiers mois 2024 une mortalité quotidienne globalement orientée à la baisse par rapport à 2023, avec des variations régionales marquées [4]."
+      }
+    ],
+    "types_restants": [
+      "source_inventee",
+      "contexte_hors_sujet",
+      "source_inventee",
+      "chiffre_errone",
+      "formule_vague"
+    ],
+    "article_type": "actu",
+    "titre": "Mortalité 2024 : taux standardisé en baisse, décès en hausse de 4 000",
+    "n_sources": 4,
+    "n_mots": 786,
+    "titre_rss": "Grandes causes de décès en France : tendances et causes associées en 2024",
+    "matiere_faits_distincts": 1025,
+    "matiere_redondance": 0.11,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "veille_heures_visible": 517.7,
+    "veille_passages": 311,
+    "veille_age_h": 1839.5,
+    "veille_n_flux_grappe": 1,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "extension-taxe-soda-produits-sucres-plfss-2027-assemblee-nationale",
+    "statut": "rejete_qualite",
+    "date": "2026-10-27T20:34:28",
+    "angle_insuffisant": true,
+    "raison": "Aucune phrase des faits ne contient à la fois un événement précis daté (examen du PLFSS 2027 le 20 octobre) et une donnée chiffrée ou nommée qui lui est propre (rendement attendu, nombre d'amendements, position du gouvernement, calendrier précis). L'article explique le dispositif et son contexte sans dire ce qui vient de se passer concrètement lors de l'ouverture des débats.",
+    "article_type": "actu",
+    "titre": "Les députés examinent l'extension de la taxe soda aux produits sucrés dans le PLFSS 2027",
+    "n_sources": 7,
+    "n_mots": 592,
+    "titre_rss": "Le sucre bientôt taxé comme le tabac et l’alcool ?",
+    "matiere_faits_distincts": 943,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "californie-initiative-taxe-zucman-milliardaires-vote-novembre",
+    "statut": "rejete_qualite",
+    "date": "2026-10-27T20:40:37",
+    "tentative": 1,
+    "angle_insuffisant": true,
+    "raison": "Aucune phrase dans 'faits' ne combine un événement précis daté (publication, décision, résultat récent) et une donnée chiffrée ou nommée qui lui est propre ; l'article décrit seulement une initiative prévue pour novembre 2022 sans fait déclencheur récent (sondage, dépôt officiel, débat public) justifiant une publication maintenant.",
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "resume_repete_corps",
+      "titre_de_mauvaise_qualite"
+    ],
+    "titre": "Californie : initiative « taxe Zucman » sur les milliardaires soumise au vote du 3 novembre",
+    "n_sources": 3,
+    "n_mots": 541,
+    "titre_rss": "En Californie, une « taxe Zucman » fait trembler les milliardaires de la Silicon Valley",
+    "matiere_faits_distincts": 391,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "thrombinnov-startup-strasbourg-plaquettes-tests-medicaments",
+    "statut": "rejete_qualite",
+    "date": "2026-10-27T20:49:03",
+    "angle_insuffisant": true,
+    "raison": "Aucune phrase dans 'faits' ne contient à la fois un événement précis daté (annonce, publication, décision, résultat récent) et une donnée chiffrée ou nommée qui lui est propre. L'article se contente de présenter la startup, son origine et son modèle sans faire état d'un fait déclencheur récent (lancement officiel, levée de fonds, premier contrat, publication scientifique, brevet). Il répond à 'qu'est-ce que ThrombInnov ?' plutôt qu'à 'pourquoi en parle-t-on maintenant ?'.",
+    "article_type": "actu",
+    "titre": "ThrombInnov : 40 ans d'expertise sur les plaquettes au service des tests médicamenteux",
+    "n_sources": 4,
+    "n_mots": 664,
+    "titre_rss": "L’entrepreneuriat dans le sang !",
+    "matiere_faits_distincts": 1107,
+    "matiere_redondance": 0.01,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "sujet_pedagogique"
+  },
+  {
+    "slug": "robotique-chirurgicale-35-ans-assistance-cnrs-timc",
+    "statut": "rejete_qualite",
+    "date": "2026-10-27T20:56:21",
+    "angle_insuffisant": true,
+    "raison": "Aucune phrase de la section 'faits' ne combine un événement précis daté (publication, décision, résultat récent) et une donnée chiffrée ou nommée qui lui est propre. L'article se contente de retracer 35 ans d'histoire via un entretien rétrospectif sans fait déclencheur d'actualité identifiable.",
+    "article_type": "actu",
+    "titre": "Robotique chirurgicale : 35 ans d'assistance au bloc opératoire sans autonomie",
+    "n_sources": 4,
+    "n_mots": 847,
+    "titre_rss": "L’avènement de la robotique chirurgicale",
+    "matiere_faits_distincts": 921,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 3,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "interview"
+  },
+  {
+    "slug": "jussie-briere-concentration-budget-zone-infestee-efficacite",
+    "statut": "corrige_automatiquement",
+    "date": "2026-10-27T21:05:28",
+    "problemes_initiaux": 25,
+    "tentatives": 1,
+    "problemes_residuels_style": 0,
+    "rapport_initial": {
+      "conforme": false,
+      "sujet_sensible": false,
+      "sujet_sensible_raison": "",
+      "angle_insuffisant": false,
+      "angle_insuffisant_raison": "",
+      "nature_contenu": "etude_scientifique",
+      "problemes": [
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "Dans le marais de Brière en Loire-Atlantique, la jussie, espèce exotique envahissante identifiée depuis 1994, compromet les activités économiques, récréatives, le fonctionnement des cours d'eau et la biodiversité locale [1].",
+          "explication": "La source [1] (Europa, GBO-5) est un rapport mondial sur la biodiversité et ne contient aucune information sur la jussie en Brière, son identification en 1994, ni le budget de 120 000 euros du parc naturel régional."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "Le parc naturel régional y consacre chaque année environ 120 000 euros, répartis de manière assez uniforme sur l'ensemble du marais, selon une logique d'équité territoriale et d'acceptabilité politique [1].",
+          "explication": "La source [1] ne mentionne pas le parc naturel régional de Brière, ni son budget annuel, ni sa stratégie de répartition des fonds."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "Une équipe de recherche a recalculé l'allocation optimale de ce budget à partir de vingt ans de données de terrain [1].",
+          "explication": "La source [1] ne décrit aucune étude de terrain sur vingt ans en Brière, ni aucune modélisation d'allocation budgétaire optimale pour la lutte contre la jussie."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "L'étude a estimé, zone par zone, les coûts de contrôle de la jussie, sa dynamique de propagation entre zones, et la valeur que les usagers du marais accordent à sa maîtrise dans chaque secteur, via une enquête auprès des riverains [1].",
+          "explication": "La source [1] ne contient aucune estimation de coûts de contrôle, de dynamique de propagation inter-zones, ni d'enquête auprès de riverains en Brière."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "Le résultat contredit l'intuition gestionnaire : avec le même budget de 120 000 euros, il est pertinent de concentrer les efforts sur une seule zone du marais, la plus infestée [1].",
+          "explication": "La source [1] ne rapporte aucun résultat d'optimisation pour la jussie en Brière, ni aucune recommandation de concentration budgétaire sur une zone unique."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "Cette stratégie ciblée permet de limiter au maximum la quantité totale de jussie dans le marais tout en préservant les principaux services écosystémiques qu'il fournit [1].",
+          "explication": "La source [1] ne valide aucune stratégie ciblée pour la Brière, ni ne quantifie des services écosystémiques préservés dans ce marais."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "La répartition uniforme actuelle ne maximise ni les préférences des usagers ni la réduction de l'envahissement [1].",
+          "explication": "La source [1] ne compare aucune stratégie de répartition uniforme versus ciblée pour la jussie en Brière."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "Ce cas d'école s'inscrit dans un cadre théorique plus large, la « parabole de l'arche de Noé », établie en économie de la conservation depuis la fin des années 1990 [1].",
+          "explication": "La source [1] (GBO-5) ne mentionne pas la « parabole de l'arche de Noé » ni aucun cadre théorique en économie de la conservation datant des années 1990."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "Pour les mesures de diversité les plus courantes, la solution optimale sous contrainte budgétaire n'est presque jamais de répartir l'effort, mais de protéger complètement certaines cibles et d'en délaisser d'autres [1].",
+          "explication": "La source [1] ne contient aucune analyse de solutions optimales sous contrainte budgétaire ni de recommandation de protection complète de certaines cibles au détriment d'autres."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "Ce résultat tient aux chaînes d'interactions écologiques : protéger une espèce peut bénéficier ou nuire à d'autres liées, au point d'inverser l'ordre des priorités sans que la valeur intrinsèque des espèces n'ait changé [1].",
+          "explication": "La source [1] ne développe pas ce mécanisme de chaînes d'interactions écologiques ni d'inversion des priorités de conservation."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "chiffre_errone",
+          "phrase_exacte": "le financement de la Stratégie nationale pour la biodiversité doit être réduit de moitié en 2026 [1]",
+          "explication": "La source [1] (GBO-5, 2020) ne mentionne pas la Stratégie nationale pour la biodiversité française ni une réduction de son financement de moitié en 2026."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "Parallèlement, les perspectives mondiales sont alarmantes : aucun des objectifs d'Aichi pour la biodiversité n'a été pleinement atteint, et le déclin se poursuit à un rythme sans précédent [2].",
+          "explication": "La source [2] (EUR-Lex, Règlement sur la restauration de la nature) est un texte législatif européen et ne contient pas le bilan des objectifs d'Aichi ni une évaluation des perspectives mondiales de biodiversité."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "En Europe, le règlement sur la restauration de la nature vise à protéger et assurer le rétablissement à long terme d'écosystèmes biodivers et résilients sur les zones terrestres et marines de l'Union [3].",
+          "explication": "La source [3] (Conseil d'État, Bilan d'activité 2022) ne décrit pas le règlement européen sur la restauration de la nature ; c'est la source [2] qui le fait."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "Le Conseil d'État veille, dans ses décisions, à ce que le droit protégeant la diversité des écosystèmes soit respecté, notamment sur la gestion des grands prédateurs et les conséquences des travaux sur des espèces vulnérables [4].",
+          "explication": "L'article ne cite que 3 sources (indices 1 à 3) ; la référence [4] n'existe pas dans le tableau des sources."
+        },
+        {
+          "bloc": 1,
+          "section": "nuances",
+          "type": "source_inventee",
+          "phrase_exacte": "L'étude de Brière porte sur un objectif précis — minimiser la biomasse de jussie et maximiser le bien-être des usagers — avec une mesure de biodiversité agrégée [1].",
+          "explication": "La source [1] ne décrit pas les objectifs, la mesure de biodiversité agrégée, ni les résultats de l'étude de Brière."
+        },
+        {
+          "bloc": 1,
+          "section": "nuances",
+          "type": "source_inventee",
+          "phrase_exacte": "Les auteurs soulignent qu'avec d'autres objectifs de conservation ou d'autres façons de mesurer la biodiversité, la solution pourrait être plus nuancée [1].",
+          "explication": "La source [1] ne rapporte aucune déclaration d'auteurs d'une étude sur la jussie en Brière."
+        },
+        {
+          "bloc": 1,
+          "section": "nuances",
+          "type": "source_inventee",
+          "phrase_exacte": "De plus, la stratégie optimale identifiée (concentration sur une zone) heurte des contraintes réelles : équité territoriale, acceptabilité politique, nécessité de maintenir les usages et de contenir la propagation sur plusieurs fronts [1].",
+          "explication": "La source [1] ne mentionne aucune contrainte d'équité territoriale, d'acceptabilité politique ou de maintien des usages liée à une étude sur la jussie en Brière."
+        },
+        {
+          "bloc": 1,
+          "section": "nuances",
+          "type": "source_inventee",
+          "phrase_exacte": "Enfin, l'analyse repose sur des données de propagation et de coûts estimées sur vingt ans ; toute évolution du régime hydrologique ou climatique pourrait modifier la dynamique d'invasion et donc l'allocation optimale [1].",
+          "explication": "La source [1] ne précise pas la période de données (vingt ans), ni la nature des données (propagation, coûts), ni les limites liées au régime hydrologique ou climatique pour une étude en Brière."
+        },
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "compteur_incoherent",
+          "phrase_exacte": "nb_sources: 3",
+          "explication": "L'article utilise des renvois [1] à [4] (4 sources distinctes citées dans le texte) mais le champ nb_sources indique 3 ; de plus, la source [4] n'existe pas dans le tableau fourni."
+        },
+        {
+          "bloc": 2,
+          "section": "contexte",
+          "type": "source_derivee_comptee_comme_primaire",
+          "phrase_exacte": "qualite_sources: {\"primaire\": 3, \"secondaire\": 0, \"tertiaire\": 0}",
+          "explication": "Les trois sources listées (Europa/GBO-5, EUR-Lex, Conseil d'État) sont des sources secondaires ou institutionnelles de synthèse, pas des sources primaires (données brutes, étude originale, texte de loi originel) ; elles sont comptées à tort comme primaires."
+        },
+        {
+          "bloc": 3,
+          "section": "contexte",
+          "type": "cadrage_emprunte",
+          "phrase_exacte": "la « parabole de l'arche de Noé », établie en économie de la conservation depuis la fin des années 1990",
+          "explication": "Ce concept théorique et son appellation sont présentés comme un fait établi de la littérature scientifique sans attribution à un auteur ou une publication précise, alors qu'aucune des sources ne le mentionne."
+        },
+        {
+          "bloc": 4,
+          "section": "resume",
+          "type": "source_inventee",
+          "phrase_exacte": "Une étude sur vingt ans de données dans le marais de Brière montre que les 120 000 euros annuels contre la jussie seraient plus efficaces concentrés sur la zone la plus infestée que dispersés sur l'ensemble du territoire.",
+          "explication": "Aucune des trois sources autorisées ne décrit cette étude, ses données, son budget, ni ses conclusions."
+        },
+        {
+          "bloc": 4,
+          "section": "resume",
+          "type": "source_inventee",
+          "phrase_exacte": "Les chercheurs ont modélisé coûts de contrôle, propagation inter-zones et valeur accordée par les usagers, révélant que la stratégie actuelle ne minimise ni la biomasse de jussie ni les préférences des usagers.",
+          "explication": "Aucune des sources ne mentionne cette modélisation, ces variables, ni ces résultats."
+        },
+        {
+          "bloc": 4,
+          "section": "resume",
+          "type": "chiffre_errone",
+          "phrase_exacte": "Alors que le financement de la Stratégie nationale pour la biodiversité doit être réduit de moitié en 2026, cet exemple illustre le dilemme de l'allocation optimale sous contrainte budgétaire.",
+          "explication": "Aucune source ne confirme une réduction de moitié du financement de la Stratégie nationale pour la biodiversité en 2026."
+        },
+        {
+          "bloc": 4,
+          "section": "titre",
+          "type": "source_inventee",
+          "phrase_exacte": "Jussie en Brière : concentrer 120 000 € sur la zone la plus infestée serait plus efficace",
+          "explication": "Le titre affirme un résultat d'étude (budget, zone, efficacité) que aucune des sources fournies ne soutient."
+        }
+      ]
+    },
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "titre_de_mauvaise_qualite"
+    ],
+    "titre": "Jussie en Brière : concentrer 120 000 € sur la zone la plus infestée serait plus efficace",
+    "n_sources": 3,
+    "n_mots": 646,
+    "titre_rss": "Protéger la biodiversité : et si avant de dépenser plus, on ciblait mieux les efforts ?",
+    "matiere_faits_distincts": 754,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "etude_scientifique"
   }
 ]
