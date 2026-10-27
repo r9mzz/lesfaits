@@ -42618,5 +42618,904 @@
     "n_sources_injectees": 10,
     "n_sources_trouvees": 10,
     "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "subventions-energies-fossiles-1000-milliards-aie-5300-fmi-2022",
+    "statut": "rejete_qualite",
+    "date": "2026-10-27T06:08:48",
+    "problemes_initiaux": 11,
+    "tentatives": 3,
+    "problemes_restants": 10,
+    "bloquants_restants": 7,
+    "bloquants_types": [
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [5] indique que les subventions ont 'presque doublé' (almost doubled) pour atteindre 'plus de 1 000 milliards de dollars', et non 'plus du double' (more than double) qui impliquerait un facteur supérieur à 2.",
+        "phrase": "L'Agence internationale de l'énergie (AIE) a estimé que les subventions mondiales à la consommation d'énergies fossiles ont dépassé 1 000 milliards de dollars en 2022, soit plus du double du niveau de 2021 [5]."
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [5] mentionne 'plus de 500 milliards de dollars' pour les dépenses d'accessibilité (affordability) mais ne chiffre pas la part européenne à 350 milliards ; ce montant n'apparaît pas dans l'extrait fourni.",
+        "phrase": "Parallèlement, l'AIE a recensé plus de 500 milliards de dollars de dépenses supplémentaires pour réduire les factures énergétiques, dont environ 350 milliards en Europe, notamment via le bouclier tarifaire en France ou l"
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [4] (Radio France) traite de l'affirmation de Julien Bayou sur la période 2015-2019 (+24 %) et ne contient aucune donnée sur les garanties export 2009-2019 ni leur ventilation par énergie.",
+        "phrase": "En France, les garanties export aux énergies fossiles ont représenté un peu plus de 9 milliards d'euros entre 2009 et 2019, avec un encours à 50 % sur le gaz, 30 % sur le pétrole et 20 % d'exposition résiduelle sur le ch"
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [3] (Novethic) ne fournit que le chiffre 2015 (5 300 milliards) et la référence '10 millions par minute' ; elle ne mentionne pas l'estimation 2011 à 4 151 milliards ni la hausse de 1 149 milliards.",
+        "phrase": "Le FMI avait déjà estimé ces subventions globales à 4 151 milliards de dollars en 2011, puis à 5 300 milliards en 2015, soit une hausse de 1 149 milliards sur la période [3]."
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [3] ne contient aucune référence à une évaluation OCDE de 3 500 milliards pour 2010 ; ce chiffre n'apparaît pas dans l'extrait fourni.",
+        "phrase": "L'OCDE évaluait de son côté le coût sanitaire annuel de la pollution atmosphérique à 3 500 milliards de dollars pour les quarante pays les plus riches en 2010 [3]."
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [3] ne mentionne ni le nombre de gouvernements (69 sur 86), ni un total net de 400 milliards en 2019 ; ces données sont absentes de l'extrait.",
+        "phrase": "Sur la même période, 69 des 86 gouvernements analysés continuaient de subventionner la production et la consommation de combustibles fossiles, pour un total net de 400 milliards de dollars en 2019 [3]."
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [3] ne cite pas le Lancet Countdown ni une baisse de l'intensité carbone de moins de 1 % en trente ans ; cette information n'est pas dans l'extrait.",
+        "phrase": "L'intensité en carbone du système énergétique mondial, premier contributeur aux émissions de gaz à effet de serre, n'a diminué de moins de 1 % en trente ans selon le Lancet Countdown [3]."
+      }
+    ],
+    "types_restants": [
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "source_inventee",
+      "compteur_incoherent",
+      "source_inventee"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "resume_repete_corps",
+      "titre_de_mauvaise_qualite"
+    ],
+    "titre": "Subventions fossiles : 1 000 milliards $ en 2022 selon l'AIE, 5 300 milliards $ avec externalités selon le FMI",
+    "n_sources": 5,
+    "n_mots": 669,
+    "titre_rss": "A la COP17, haro sur les subventions aux énergies fossiles",
+    "matiere_faits_distincts": 1061,
+    "matiere_redondance": 0.01,
+    "matiere_donnees_chiffrees": 5,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "senat-rejette-autonomie-corse-autonomistes-se-retirent",
+    "statut": "corrige_automatiquement",
+    "date": "2026-10-27T06:21:05",
+    "problemes_initiaux": 6,
+    "tentatives": 1,
+    "problemes_residuels_style": 0,
+    "rapport_initial": {
+      "conforme": false,
+      "sujet_sensible": false,
+      "sujet_sensible_raison": "",
+      "angle_insuffisant": false,
+      "angle_insuffisant_raison": "",
+      "nature_contenu": "actualite_factuelle",
+      "problemes": [
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "chiffre_errone",
+          "phrase_exacte": "Le taux de fécondité y est le plus faible de France, à 1,12 enfant par femme en 2025",
+          "explication": "La source INSEE [4] est datée du 20 octobre 2026 et ne peut pas contenir un chiffre définitif pour l'année 2025 (qui n'était pas encore close à cette date) ; il s'agit probablement d'une estimation ou d'une projection que l'article présente comme un fait établi sans réserve."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "contexte_hors_sujet",
+          "phrase_exacte": "La Corse compte 355 486 habitants au 1er janvier 2023, avec une croissance démographique de 1,0 % par an en moyenne entre 2017 et 2023, soit le double de la moyenne nationale métropolitaine [4]. Cette dynamique repose exclusivement sur le solde migratoire, le solde naturel étant légèrement négatif sur la période [4]. Le taux de fécondité y est le plus faible de France, à 1,12 enfant par femme en 2025, et la structure par âge est marquée par un indice de vieillissement de 127 personnes de 65 ans ou plus pour 100 jeunes de moins de 20 ans en 2023 [4]. Sur le plan économique, le produit intérieur brut par habitant et le taux de pauvreté figurent parmi les indicateurs suivis pour mesurer les écarts avec le reste du territoire [4].",
+          "explication": "L'intégralité de la section 'contexte' est constituée de données démographiques et économiques générales sur la Corse (INSEE) qui n'éclairent pas directement le sujet principal : le rejet du projet d'autonomie par le Sénat et le retrait des autonomistes. Ces faits sont vrais et sourcés mais tangentiels, servant uniquement à remplir la section sans lien explicite avec l'actualité législative du jour."
+        },
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "Les travaux législatifs préparatoires avaient mobilisé les commissions sénatoriales, avec un rapporteur issu de la majorité présidentielle à l'Assemblée nationale et un président de mission d'information au Sénat issu des rangs autonomistes, Jean-Félix Acquaviva [3]. La même configuration de mission d'information avait été prévue des deux côtés du Parlement pour accompagner le texte [3].",
+          "explication": "La source [3] correspond à la fiche 'Amendements déposés au Sénat' sur data.gouv.fr, un jeu de données brutes qui ne contient pas d'informations narratives sur l'identité d'un rapporteur à l'Assemblée, la présidence d'une mission d'information au Sénat par Jean-Félix Acquaviva, ni la configuration des missions d'information des deux chambres. Ces faits sont attribués à une source qui ne les confirme pas."
+        },
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "Le projet de loi constitutionnelle « pour une Corse autonome au sein de la République » a été débattu en séance publique au Sénat le lundi 26 octobre 2026 [2].",
+          "explication": "La source [2] correspond à la fiche 'Travaux législatifs (Sénat)' sur data.gouv.fr, un jeu de données générique qui ne permet pas de confirmer la tenue d'un débat précis sur ce texte précis à cette date précise, ni son titre exact. L'attribution est imprécise et la source ne valide pas le fait tel qu'énoncé."
+        },
+        {
+          "bloc": 4,
+          "section": "nuances",
+          "type": "redondance",
+          "phrase_exacte": "Les sources disponibles ne précisent pas la majorité exacte par laquelle le Sénat a rejeté le texte, ni les arguments développés par les groupes politiques lors de la séance [1]. La réaction du gouvernement n'est pas documentée dans les extraits fournis [1].",
+          "explication": "Ces deux phrases répètent la même idée (les sources [1] ne donnent pas tel ou tel détail) déjà implicite dans le fait que l'article ne cite que la source [1] pour le vote et le retrait. La section 'nuances' liste des absences d'information au lieu d'apporter des faits distincts sourcés, ce qui relève du remplissage."
+        },
+        {
+          "bloc": 4,
+          "section": "nuances",
+          "type": "section_gonflee",
+          "phrase_exacte": "Aucune déclaration des formations autonomistes n'explicite les modalités concrètes de leur « retrait » : suspension de la participation aux instances de dialogue, renoncement à toute négociation future, ou simple gel en attendant un nouveau contexte politique [1]. Le sort du texte au Parlement — abandon définitif ou nouvelle lecture ultérieure — n'est pas établi par les sources consultées [1].",
+          "explication": "La section 'nuances' ne contient que des énumérations de ce que les sources ne disent pas, sans apporter aucun fait nouveau, distinct et sourcé. Elle devrait être coupée ou réduite à une phrase unique si l'absence d'information sur la suite est le seul point notable."
+        }
+      ]
+    },
+    "article_type": "actu",
+    "titre": "Le Sénat rejette l'autonomie corse, les autonomistes quittent le processus",
+    "n_sources": 4,
+    "n_mots": 533,
+    "titre_rss": "Autonomie de la Corse : le Sénat rejette la réforme constitutionnelle, le camp autonomiste se retire du processus",
+    "matiere_faits_distincts": 931,
+    "matiere_redondance": 0.03,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "budget-2027-assemblee-reprend-examen-projet-loi-incoherent",
+    "statut": "rejete_qualite",
+    "date": "2026-10-27T06:29:33",
+    "angle_insuffisant": true,
+    "raison": "Aucune phrase des faits ne contient à la fois un événement précis daté (la reprise de l'examen le 27 octobre) et une donnée chiffrée ou nommée qui lui est propre (vote, amendements, calendrier précis, majorité requise, article 49.3 engagé ou non). L'article répond à 'qu'est-ce que l'examen du budget ?' plutôt qu'à 'pourquoi parle-t-on de cet examen maintenant ?'.",
+    "article_type": "actu",
+    "titre": "Budget 2027 : l'Assemblée reprend l'examen d'un texte sans issue probable",
+    "n_sources": 4,
+    "n_mots": 564,
+    "titre_rss": "Budget 2027 : l’Assemblée nationale reprend l’examen d’un projet de loi incohérent",
+    "matiere_faits_distincts": 1081,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "elus-democrates-procureur-special-trump-epstein-mandat",
+    "statut": "rejete_sensible",
+    "date": "2026-10-27T06:35:53",
+    "sujet_sensible": true,
+    "raison": "L'article porte sur une affaire judiciaire en cours impliquant des allégations criminelles graves (agressions sexuelles sur mineures) contre des personnes nommément identifiées (Donald Trump, Jeffrey Epstein, Bill Clinton) et cite des témoignages de victimes présumées, sans qu'aucune condamnation définitive n'ait été prononcée.",
+    "article_type": "actu",
+    "titre": "Des élus démocrates réclament un procureur spécial sur les liens Trump-Epstein",
+    "n_sources": 4,
+    "n_mots": 573,
+    "titre_rss": "Des élus démocrates réclament une enquête spéciale sur les liens entre Donald Trump et Jeffrey Epstein",
+    "matiere_faits_distincts": 749,
+    "matiere_redondance": 0.04,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "onu-trajectoire-rechauffement-2-6-degres-objectif-1-5-inatteignable",
+    "statut": "rejete_sensible",
+    "date": "2026-10-27T06:42:48",
+    "problemes_initiaux": 10,
+    "tentative": 2,
+    "bloc5": true,
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "faits_repetitifs"
+    ],
+    "titre": "L'ONU alerte sur une trajectoire de 2,6 °C, l'objectif de 1,5 °C hors d'atteinte",
+    "n_sources": 4,
+    "n_mots": 590,
+    "titre_rss": "Climat: le monde vers un réchauffement de 2,6°C, mais il est encore temps d'agir, selon l'ONU",
+    "matiere_faits_distincts": 902,
+    "matiere_redondance": 0.03,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "rapport"
+  },
+  {
+    "slug": "irlande-reportage-rfi-logements-vacants-loyers-dublin-2026",
+    "statut": "rejete_sensible",
+    "date": "2026-10-27T06:55:20",
+    "problemes_initiaux": 12,
+    "bloc5": [
+      "acteur_mis_en_cause_sans_reponse"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "resume_repete_corps"
+    ],
+    "titre": "Irlande : reportage RFI sur logements vacants et loyers records à Dublin",
+    "n_sources": 7,
+    "n_mots": 545,
+    "titre_rss": "En Irlande, des logements sont laissés à l'abandon alors que les loyers explosent",
+    "matiere_faits_distincts": 879,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 5,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "1888-especes-cnrs-migration-nord-pieges-geographiques-europe",
+    "statut": "rejete_qualite",
+    "date": "2026-10-27T07:12:06",
+    "problemes_initiaux": 14,
+    "tentatives": 3,
+    "problemes_restants": 11,
+    "bloquants_restants": 1,
+    "bloquants_types": [
+      "chiffre_errone"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [1] indique 'au moins 10 % des espèces de papillons connues voient leur répartition géographique changer en Europe' mais ne précise pas si ce chiffre concerne l'ensemble des espèces de papillons européennes ou ",
+        "phrase": "au moins 10 % des espèces de papillons connues voient leur répartition géographique changer en Europe [1]"
+      }
+    ],
+    "types_restants": [
+      "chiffre_errone",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "compteur_incoherent",
+      "contexte_hors_sujet",
+      "section_gonflee"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "titre_de_mauvaise_qualite"
+    ],
+    "titre": "1 888 espèces suivies par le CNRS : plus de la moitié migrent vers le nord, piégées par la géographie européenne",
+    "n_sources": 4,
+    "n_mots": 760,
+    "titre_rss": "Biodiversité : ruée vers les pôles et les sommets",
+    "matiere_faits_distincts": 879,
+    "matiere_redondance": 0.16,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "etude_scientifique"
+  },
+  {
+    "slug": "budget-2027-30-milliards-economies-loi-speciale-risque",
+    "statut": "rejete_qualite",
+    "date": "2026-10-27T07:19:16",
+    "problemes_initiaux": 4,
+    "tentatives": 3,
+    "problemes_restants": 9,
+    "bloquants_restants": 1,
+    "bloquants_types": [
+      "chiffre_errone"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "Les sources autorisées (Le Monde, France Info) ne contiennent pas les chiffres de déficit 5,1 % du PIB en 2026, croissance 0,5 %, inflation 2,4 % en août 2026 ; les trois autres sources concernent des budgets californien",
+        "phrase": "Le déficit public français atteint 5,1 % du PIB en 2026, bien au-dessus des 3 % requis par les règles européennes, tandis que la croissance est révisée à 0,5 % pour l'année en cours. L'inflation persiste à 2,4 % en août "
+      }
+    ],
+    "types_restants": [
+      "chiffre_errone",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "contexte_hors_sujet",
+      "source_inventee",
+      "source_inventee",
+      "compteur_incoherent",
+      "source_derivee_comptee_comme_primaire"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "prise_de_position"
+    ],
+    "titre": "Budget 2027 : 30 milliards d'économies visées sous la menace d'une loi spéciale",
+    "n_sources": 5,
+    "n_mots": 562,
+    "titre_rss": "Budget 2027 : les dates-clés des prochaines semaines",
+    "matiere_faits_distincts": 1248,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 4,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "northwestern-universite-ovaires-souris-profil-immunitaire-menopause",
+    "statut": "rejete_qualite",
+    "date": "2026-10-27T07:28:25",
+    "tentative": 3,
+    "angle_insuffisant": true,
+    "raison": "Aucune phrase des faits ne contient un événement précis daté ou datable (publication de l'étude, date de mise en ligne, conférence) avec une donnée chiffrée ou nommée qui lui est propre. L'article répond à 'qu'est-ce que l'étude montre ?' sans dire pourquoi on en parle maintenant (pas de date de publication, pas de journal, pas de DOI).",
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "article_sans_date"
+    ],
+    "titre": "Northwestern University : les ovaires de souris post-reproductives activent des gènes immunitaires",
+    "n_sources": 4,
+    "n_mots": 511,
+    "titre_rss": "On pensait cet organe « au repos » après la ménopause : cette étude nous révèle son rôle caché",
+    "matiere_faits_distincts": 1074,
+    "matiere_redondance": 0.01,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "etude_scientifique"
+  },
+  {
+    "slug": "robotique-chirurgicale-35-ans-innovation-francaise-geste-medical",
+    "statut": "rejete_qualite",
+    "date": "2026-10-27T07:33:54",
+    "angle_insuffisant": true,
+    "raison": "Aucune phrase dans 'faits' ne combine un événement précis daté ou datable (annonce, publication, décision, résultat récent) avec une donnée chiffrée ou nommée qui lui est propre. L'article explique l'historique et l'état de la robotique chirurgicale sans fait déclencheur actuel (la source CNRS est datée 2026, future par rapport à maintenant, et aucune actualité récente n'est identifiée).",
+    "article_type": "actu",
+    "titre": "Robotique chirurgicale : 35 ans d'innovation française au service du geste médical",
+    "n_sources": 3,
+    "n_mots": 706,
+    "titre_rss": "L’avènement de la robotique chirurgicale",
+    "matiere_faits_distincts": 1288,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "sujet_pedagogique"
+  },
+  {
+    "slug": "menopause-activite-physique-reduit-symptomes-depressifs-etude-finlandaise",
+    "statut": "rejete_qualite",
+    "date": "2026-10-27T07:50:30",
+    "tentative": 3,
+    "perte_substance": true,
+    "section": "nuances",
+    "mots_avant": 159,
+    "mots_apres": 75,
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "titre_de_mauvaise_qualite"
+    ],
+    "titre": "Étude finlandaise : 1 098 femmes suivies, l'activité physique associée à moins de symptômes dépressifs à la ménopause",
+    "n_sources": 5,
+    "n_mots": 630,
+    "titre_rss": "Ménopause: l’activité physique fait du bien au mental",
+    "matiere_faits_distincts": 1432,
+    "matiere_redondance": 0.01,
+    "matiere_donnees_chiffrees": 6,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "etude_scientifique"
+  },
+  {
+    "slug": "californie-referendum-taxe-milliardaires-sante-2026",
+    "statut": "corrige_automatiquement",
+    "date": "2026-10-27T08:13:42",
+    "problemes_initiaux": 15,
+    "tentatives": 3,
+    "problemes_residuels_style": 21,
+    "rapport_initial": {
+      "conforme": false,
+      "sujet_sensible": false,
+      "sujet_sensible_raison": "",
+      "angle_insuffisant": false,
+      "angle_insuffisant_raison": "",
+      "nature_contenu": "actualite_factuelle",
+      "problemes": [
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "chiffre_errone",
+          "phrase_exacte": "Le texte prévoit un prélèvement unique de 5 % sur le patrimoine net des résidents californiens dont la fortune dépasse un milliard de dollars au 1er janvier 2026, hors biens immobiliers, pensions et comptes de retraite [9].",
+          "explication": "La source [9] (Next, juillet 2025) décrit une proposition de taxe ANNUELLE de 1,5 % sur les patrimoines > 1 milliard $, pas un prélèvement unique de 5 % ; le chiffre de 5 % et le caractère « unique » contredisent la source citée."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "chiffre_errone",
+          "phrase_exacte": "Le seuil requis était de 874 641 signatures, soit 8 % du corps électoral [8].",
+          "explication": "La source [8] (Revue21, octobre 2025) indique un seuil de 546 651 signatures (5 % du corps électoral pour une initiative statutaire), pas 874 641 (8 %) ; le chiffre cité ne correspond à aucune des sources fournies."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "Le syndicat a annoncé avoir recueilli suffisamment de signatures pour qualifier la mesure pour le scrutin de novembre 2026 [10].",
+          "explication": "Le renvoi [10] pointe vers une source inexistante (la liste n'en compte que 7, indices 0 à 6) ; l'affirmation n'est sourcée par aucune source autorisée."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "Professeur à Berkeley et conseiller de l'initiative, Emmanuel Saez estime que la taxe rapporterait 100 milliards de dollars, payables en cinq annuités de 20 milliards, soit une hausse d'environ 10 % des recettes fiscales annuelles de l'État [8].",
+          "explication": "La source [8] (Revue21) ne contient pas ces chiffres précis (100 Md$, 5 annuités de 20 Md$, +10 % de recettes) ; l'attribution à cette source est inventée."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "Les fonds seraient alloués à 90 % à la santé et 10 % à l'éducation et l'aide alimentaire [8].",
+          "explication": "La source [8] (Revue21) ne mentionne pas cette clé de répartition 90/10 ; l'information est attribuée à une source qui ne la confirme pas."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "contexte_hors_sujet",
+          "phrase_exacte": "En France, Gabriel Zucman a porté une proposition de taxe à 2 % sur les patrimoines supérieurs à 100 millions d'euros, qui n'a pas abouti [8].",
+          "explication": "La source [8] (Revue21, article sur la Californie) ne traite pas de la proposition française de Zucman ; ce développement hors sujet ne porte pas sur le référendum californien."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "La Norvège applique une taxe sur la fortune (Formuesskatt) et le Brésil comme le Royaume-Uni ont débattu de mesures similaires [7].",
+          "explication": "La source [7] (Usbeketrica, janvier 2026) porte sur le projet californien et ne mentionne ni la Norvège, ni le Brésil, ni le Royaume-Uni ; ces faits sont attribués à une source qui ne les contient pas."
+        },
+        {
+          "bloc": 1,
+          "section": "nuances",
+          "type": "source_inventee",
+          "phrase_exacte": "L'avocat Alex Spiro, représentant de contribuables fortunés, affirme que ses clients « déménageraient définitivement » si la taxe était adoptée [9].",
+          "explication": "La source [9] (Next, juillet 2025) ne cite pas Alex Spiro ni cette déclaration ; l'attribution est inventée."
+        },
+        {
+          "bloc": 1,
+          "section": "nuances",
+          "type": "source_inventee",
+          "phrase_exacte": "Peter Thiel a versé 3 millions de dollars pour financer la campagne d'opposition [7].",
+          "explication": "La source [7] (Usbeketrica) ne mentionne pas de don de 3 M$ de Peter Thiel ; le chiffre est attribué à une source qui ne le confirme pas."
+        },
+        {
+          "bloc": 1,
+          "section": "nuances",
+          "type": "source_inventee",
+          "phrase_exacte": "Larry Page et Sergey Brin auraient déjà entamé des démarches pour déplacer leurs avoirs [7][9].",
+          "explication": "Ni la source [7] (Usbeketrica) ni la source [9] (Next) n'évoquent de démarches de déplacement d'avoirs par Page et Brin ; l'information est inventée et doublement mal sourcée."
+        },
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "compteur_incoherent",
+          "phrase_exacte": "nb_sources: 7",
+          "explication": "L'article utilise des renvois jusqu'à [10] (11 sources distinctes citées dans le texte) alors que le tableau n'en déclare que 7 ; le compteur est faux."
+        },
+        {
+          "bloc": 2,
+          "section": "contexte",
+          "type": "source_derivee_comptee_comme_primaire",
+          "phrase_exacte": "qualite_sources: {\"primaire\": 0, \"secondaire\": 3, \"tertiaire\": 4}",
+          "explication": "Les 7 sources sont toutes des médias reprenant la même initiative (secondaires/tertiaires) ; aucune source primaire (texte de l'initiative, dépôt officiel, communiqué du SEIU-UHW) n'est listée, pourtant le champ « primaire » est à 0 ce qui est exact, mais la classification « secondaire/tertiaire » compte comme indépendantes des reprises d'une même actualité unique."
+        },
+        {
+          "bloc": 3,
+          "section": "nuances",
+          "type": "cadrage_emprunte",
+          "phrase_exacte": "L'économiste Gabriel Zucman, souvent associé au projet, a été critiqué pour avoir affirmé à tort que Steve Jobs ne détenait aucune action Apple, alors que sa fortune provenait largement de stock-options [4].",
+          "explication": "Le jugement « a été critiqué pour avoir affirmé à tort » reprend le cadrage éditorial de Numerama (source [4], titre « raconte n'importe quoi ») sans l'attribuer explicitement à cette source ; présenté comme un fait neutre par Les Faits."
+        },
+        {
+          "bloc": 4,
+          "section": "resume",
+          "type": "chiffre_errone",
+          "phrase_exacte": "En novembre 2026, les Californiens voteront sur une taxe exceptionnelle de 5 % sur le patrimoine des 200 résidents détenant plus d'un milliard de dollars, afin de compenser 100 milliards de dollars de coupes fédérales dans le Medicaid sur cinq ans.",
+          "explication": "Le résumé reprend le taux erroné de 5 % (au lieu de 1,5 % annuel selon la source [9]) et le chiffre de 100 Md$ de coupes Medicaid sur 5 ans non confirmé par les sources fournies."
+        },
+        {
+          "bloc": 4,
+          "section": "resume",
+          "type": "source_inventee",
+          "phrase_exacte": "Le syndicat SEIU-UHW a réuni les 874 641 signatures nécessaires pour soumettre le texte au vote, soutenu par l'économiste Emmanuel Saez qui estime le produit à 100 milliards de dollars, soit près de 10 % de recettes fiscales annuelles supplémentaires pour l'État.",
+          "explication": "Le chiffre de 874 641 signatures et l'estimation Saez à 100 Md$ / +10 % ne figurent dans aucune source autorisée ; le résumé présente des faits non sourcés."
+        }
+      ]
+    },
+    "article_type": "actu",
+    "titre": "Californie : référendum sur une taxe de 5 % aux milliardaires pour la santé",
+    "n_sources": 7,
+    "n_mots": 722,
+    "titre_rss": "En Californie, une « taxe Zucman » fait trembler les milliardaires de la Silicon Valley",
+    "matiere_faits_distincts": 1129,
+    "matiere_redondance": 0.01,
+    "matiere_donnees_chiffrees": 3,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "achat-immobilier-quatre-etapes-securiser-projet-hausse-taux",
+    "statut": "rejete_qualite",
+    "date": "2026-10-27T08:19:34",
+    "angle_insuffisant": true,
+    "raison": "Aucune phrase des faits ne contient à la fois un événement précis daté (publication, décision, résultat récent) et une donnée chiffrée ou nommée qui lui est propre. L'article répond à 'comment acheter ?' (sujet pédagogique) et non à 'pourquoi parle-t-on de cela maintenant ?' (actualité factuelle).",
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "titre_de_mauvaise_qualite"
+    ],
+    "titre": "Achat immobilier : quatre étapes pour sécuriser son projet face à la hausse des taux",
+    "n_sources": 7,
+    "n_mots": 686,
+    "titre_rss": "Réussir son achat immobilier : les quatre étapes à suivre pour trouver le bon logement",
+    "matiere_faits_distincts": 779,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "sujet_pedagogique"
+  },
+  {
+    "slug": "ird-formations-registre-traitements-rgpd-agents",
+    "statut": "rejete_qualite",
+    "date": "2026-10-27T08:47:08",
+    "angle_insuffisant": true,
+    "raison": "Aucune phrase dans 'faits' ne combine un événement précis daté (la mise en ligne du 5 novembre 2026) avec une donnée chiffrée ou nommée propre à cet événement (nombre de sessions, nombre d'agents ciblés, taux d'inscription, durée, format). L'article se contente d'annoncer l'existence d'une offre de formation sans en décrire la portée concrète, ce qui en fait une fiche descriptive plutôt qu'une actualité factuelle.",
+    "article_type": "actu",
+    "titre": "L'IRD organise des formations au registre des traitements RGPD pour ses agents",
+    "n_sources": 6,
+    "n_mots": 655,
+    "titre_rss": "Protection des données personnelles - Le registre des traitements",
+    "matiere_faits_distincts": 1262,
+    "matiere_redondance": 0.02,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "veille_heures_visible": 517.7,
+    "veille_passages": 326,
+    "veille_age_h": 1828.5,
+    "veille_n_flux_grappe": 1,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "carte-ciel-novembre-2026-mars-jupiter",
+    "statut": "rejete_qualite",
+    "date": "2026-10-27T08:50:39",
+    "angle_insuffisant": true,
+    "raison": "Aucune phrase des faits ne contient à la fois un événement précis daté (publication, décision, résultat récent) et une donnée chiffrée ou nommée qui lui est propre. L'article se contente d'expliquer un phénomène astronomique récurrent (conjonction Mars-Jupiter) à partir d'une carte du ciel publiée par Sciences et Avenir, sans fait déclencheur daté ni actualité identifiable justifiant une publication maintenant. C'est une fiche pédagogique générale, pas une actualité factuelle.",
+    "article_type": "actu",
+    "titre": "Carte du ciel de novembre 2026 : Mars rattrape Jupiter",
+    "n_sources": 6,
+    "n_mots": 482,
+    "titre_rss": "Carte du ciel de novembre 2026 : Mars rattrape Jupiter !",
+    "matiere_faits_distincts": 1062,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "sujet_pedagogique"
+  },
+  {
+    "slug": "james-webb-premiere-cartographie-atmosphere-exoplanete-rocheuse",
+    "statut": "rejete_qualite",
+    "date": "2026-10-27T08:59:30",
+    "angle_insuffisant": true,
+    "raison": "Aucune phrase dans 'faits' ne contient à la fois un événement précis daté (publication d'étude, annonce officielle, résultat rendu public récemment) et une donnée chiffrée ou nommée qui lui est propre. L'article explique une avancée technique générale sans identifier l'étude source, sa date de publication, la planète observée, ni les mesures concrètes obtenues.",
+    "article_type": "actu",
+    "titre": "James Webb cartographie pour la première fois l'atmosphère d'une exoplanète rocheuse",
+    "n_sources": 5,
+    "n_mots": 552,
+    "titre_rss": "Le télescope James-Webb révèle une planète qui n'a pas la même apparence de tous les côtés !",
+    "matiere_faits_distincts": 1011,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 2,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "etude_scientifique"
+  },
+  {
+    "slug": "thomas-couvreur-erc-consolidator-grant-projet-global-forets-tropicales",
+    "statut": "rejete_qualite",
+    "date": "2026-10-27T09:13:01",
+    "problemes_initiaux": 2,
+    "tentatives": 3,
+    "problemes_restants": 13,
+    "bloquants_restants": 11,
+    "bloquants_types": [
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "La source [1] (IRD, 23/12/2019) ne mentionne pas que Thomas Couvreur est membre de l'unité mixte de recherche DIADE ; cette information n'est pas dans les extraits fournis.",
+        "phrase": "Le chercheur IRD Thomas Couvreur, membre de l'unité mixte de recherche DIADE, a obtenu un ERC Consolidator Grant du Conseil européen de la recherche [1]."
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "La source [1] ne définit pas le ERC Consolidator Grant comme étant destiné à des chercheurs souhaitant consolider leur équipe ; cette description n'est pas dans les extraits fournis.",
+        "phrase": "Cette bourse d'excellence est destinée à des chercheurs ayant un parcours scientifique prometteur souhaitant consolider leur équipe [1]."
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "La source [1] ne contient pas cette affirmation générale sur la forêt tropicale humide comme écosystème le plus riche et régulateur climatique ; elle n'est pas dans les extraits fournis.",
+        "phrase": "La forêt tropicale humide constitue l'écosystème dont la biodiversité est la plus riche de la planète, jouant un rôle inestimable comme régulateur climatique et dans le stockage de carbone, tant local que mondial [1]."
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "La source [1] ne contient pas cette affirmation sur les menaces pesant sur les forêts tropicales et la centralité de leur conservation ; elle n'est pas dans les extraits fournis.",
+        "phrase": "C'est aussi l'un des écosystèmes les plus menacés, ce qui rend sa conservation centrale pour l'atténuation du changement climatique et la préservation de la biodiversité [1]."
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "La source [1] ne mentionne pas le nombre d'espèces des Annonacées (environ 2500) ni leur distribution dans toutes les forêts tropicales du monde ; ces chiffres ne sont pas dans les extraits fournis.",
+        "phrase": "Le projet se focalisait sur l'une des familles de plantes tropicales les plus importantes au sein des FTH, les Annonacées, qui comptent environ 2500 espèces distribuées dans toutes les forêts tropicales du monde [1]."
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "La source [1] ne contient pas cette formulation sur l'ambition du projet GLOBAL d'établir une nouvelle norme applicable à d'autres familles ; elle n'est pas dans les extraits fournis.",
+        "phrase": "GLOBAL ambitionnait de fournir des données cruciales pour les politiques de conservation et d'établir une nouvelle norme pour les études sur l'évolution des FTH, applicables à d'autres familles majeures de plantes tropic"
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "La source [1] ne mentionne pas les Objectifs de développement durable 13 et 15 ; cette information n'est pas dans les extraits fournis.",
+        "phrase": "L'annonce de l'IRD précise que le projet GLOBAL s'inscrit dans le cadre des Objectifs de développement durable 13 (mesures relatives à la lutte contre les changements climatiques) et 15 (vie terrestre) [1]."
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "La source [1] ne mentionne pas les thématiques de rattachement de l'unité DIADE ; cette information n'est pas dans les extraits fournis.",
+        "phrase": "L'unité de recherche DIADE, dont fait partie Thomas Couvreur, est rattachée aux thématiques « Vivant », « Biodiversité », « Écosystèmes », « Terre » et « Climat et changements globaux » [1]."
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "La source [1] ne détaille pas les approches méthodologiques (phylogénomique, modélisation, analyse de diversification) du projet GLOBAL ; ces précisions ne sont pas dans les extraits fournis.",
+        "phrase": "Le projet mobilisait des approches phylogénomiques, de modélisation de la distribution des espèces et d'analyse de la diversification pour reconstruire l'histoire évolutive des Annonacées à l'échelle planétaire [1]."
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "La source [1] ne précise pas le montant exact de 1 950 000 € ni les dates précises de juin 2020 à mai 2025 ; ces détails financiers et temporels ne sont pas dans les extraits fournis.",
+        "phrase": "Le financement s'élevait à 1 950 000 € pour une durée de juin 2020 à mai 2025, comme l'annonçait l'IRD le 23 décembre 2019 [1]."
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "Cette affirmation sur la fin de la période de financement n'est sourcée par aucune référence [n] et ne figure pas dans les extraits de la source [1].",
+        "phrase": "La période de financement du projet est désormais révolue."
+      }
+    ],
+    "types_restants": [
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "compteur_incoherent",
+      "source_derivee_comptee_comme_primaire"
+    ],
+    "article_type": "actu",
+    "titre": "Thomas Couvreur obtient un ERC Consolidator Grant pour le projet GLOBAL sur les forêts tropicales",
+    "n_sources": 4,
+    "n_mots": 494,
+    "titre_rss": "Forêts tropicales humides : un financement ERC pour le chercheur IRD Thomas Couvreur",
+    "matiere_faits_distincts": 1065,
+    "matiere_redondance": 0.01,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "veille_heures_visible": 517.7,
+    "veille_passages": 326,
+    "veille_age_h": 1828.5,
+    "veille_n_flux_grappe": 2,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "canicules-2026-50-391-morts-europe-60-pour-cent-climat",
+    "statut": "corrige_automatiquement",
+    "date": "2026-10-27T09:23:18",
+    "problemes_initiaux": 20,
+    "tentatives": 1,
+    "problemes_residuels_style": 13,
+    "rapport_initial": {
+      "conforme": false,
+      "sujet_sensible": false,
+      "sujet_sensible_raison": "",
+      "angle_insuffisant": false,
+      "angle_insuffisant_raison": "",
+      "nature_contenu": "etude_scientifique",
+      "problemes": [
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "Une étude publiée dans la revue Nature Health et menée par deux institutions britanniques établit à 50 391 le nombre de personnes décédées durant l'été 2026 dans 30 pays européens — les 27 de l'Union, le Royaume-Uni, la Norvège et la Suisse [1][6].",
+          "explication": "La source [1] (Reporterre) ne mentionne pas la revue 'Nature Health' ni 'deux institutions britanniques' ; elle cite une étude de 'Nature Medicine' menée par l'Institut de santé globale de Barcelone (ISGlobal). La source [6] n'existe pas (seules 5 sources sont listées, indices 0 à 4)."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "Les auteurs estiment que 32 619 de ces décès, soit 60 %, sont attribuables au dérèglement climatique d'origine anthropique [1][6].",
+          "explication": "La source [1] ne donne pas le chiffre de 32 619 ni le pourcentage de 60 % ; elle parle de 'plus de 50 000 morts' et d'une 'part significative' imputable au changement climatique sans chiffre précis. La source [6] n'existe pas."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "L'Allemagne paie le tribut le plus lourd avec environ 14 000 à 15 800 morts liés à la chaleur entre avril et mi-août, dont 9 600 sur la seule semaine du 22 au 28 juin [2][3].",
+          "explication": "La source [2] (Courrier international) mentionne 'plus de 35 000 morts en excès' pour l'Europe et cite l'Allemagne comme pays touché, mais ne donne pas les fourchettes 14 000-15 800 ni 9 600 pour une semaine. La source [3] (RTS) parle de 'plus de 12 000 morts fin juin' pour l'Europe dont 220 en Suisse, sans détail allemand."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "La France recense au moins 7 300 morts en excès entre mai et fin juillet, dont 5 764 lors de la première vague de fin juin [2][3].",
+          "explication": "Aucune des sources [2] ou [3] ne fournit les chiffres 7 300 et 5 764 pour la France. La source [2] évoque la France parmi les pays touchés sans chiffre précis ; la source [3] ne mentionne pas la France."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "L'Espagne dépasse les 5 000 décès attribuables à la chaleur sur la période juin-août, un record depuis 2015 [2].",
+          "explication": "La source [2] ne contient pas le chiffre de 5 000 morts pour l'Espagne ni la mention 'record depuis 2015'."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "La Belgique signale 1 222 morts supplémentaires fin juin, les Pays-Bas au moins 900, le Royaume-Uni plus de 2 700 en mai-juin, et la Suisse 220 sur la même période [2][3].",
+          "explication": "La source [3] mentionne seulement '220 en Suisse' pour fin juin. Les chiffres pour Belgique (1 222), Pays-Bas (900) et Royaume-Uni (2 700) n'apparaissent dans aucune des sources fournies."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "La plateforme EuroMOMO, qui agrège les données de 24 pays, a comptabilisé 14 260 décès excédentaires pour la seule semaine du 22 au 28 juin [3].",
+          "explication": "La source [3] (RTS) cite EuroMOMO avec 'plus de 12 000 morts fin juin' pour l'Europe, pas 14 260 pour la semaine du 22 au 28 juin spécifiquement."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "Les canicules de 2003 et 2022 détenaient jusqu'ici les bilans les plus lourds avec respectivement plus de 28 400 et au-delà de 29 400 décès en Europe [6]. La part attribuable au réchauffement était de 42 % en 2003 et de 59 % en 2022, contre 60 % en 2026 [6].",
+          "explication": "La source [6] n'existe pas (indice 6 sur 5 sources). Aucun extrait des 5 sources ne fournit ces chiffres historiques précis (28 400, 29 400, 42 %, 59 %)."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "L'OMS Europe indique que plus de 200 000 personnes sont mortes des suites de vagues de chaleur sur le continent au cours des quatre dernières années, principalement en Italie, Espagne, Allemagne et Grèce [5].",
+          "explication": "La source [5] (Google News) est un agrégateur d'actualités, pas une publication de l'OMS Europe. Aucun extrait ne contient ce chiffre de 200 000 sur quatre ans ni la liste de pays."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "L'Europe se réchauffe plus vite que tout autre continent, selon l'OMS [5].",
+          "explication": "La source [5] (Google News) ne contient pas cette affirmation de l'OMS ; c'est un agrégateur, pas un rapport de l'OMS."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "Les climatologues du World Weather Attribution estiment que la vague de juin 2026 aurait été « quasiment impossible » sans le changement climatique [3].",
+          "explication": "La source [3] (RTS) ne mentionne pas World Weather Attribution ni cette citation."
+        },
+        {
+          "bloc": 1,
+          "section": "nuances",
+          "type": "source_inventee",
+          "phrase_exacte": "Les bilans nationaux restent provisoires et les méthodes de comptabilisation de la surmortalité diffèrent entre pays, ce qui complique les comparaisons directes [3].",
+          "explication": "La source [3] ne contient pas cette mise en garde méthodologique."
+        },
+        {
+          "bloc": 1,
+          "section": "nuances",
+          "type": "source_inventee",
+          "phrase_exacte": "L'épidémiologiste Lasse Vestergaard, coordinateur d'EuroMOMO, appelle à la prudence sur les derniers chiffres, rappelant qu'il faut environ quatre semaines pour que les estimations soient consolidées [3].",
+          "explication": "La source [3] ne cite pas Lasse Vestergaard ni ce délai de quatre semaines."
+        },
+        {
+          "bloc": 1,
+          "section": "nuances",
+          "type": "source_inventee",
+          "phrase_exacte": "Le Guardian souligne que son décompte de 35 000 morts en excès ne couvre que la moitié du continent et n'inclut pas l'ensemble du mois d'août [2].",
+          "explication": "La source [2] est Courrier international, pas The Guardian. Le texte de [2] ne contient pas cette précision sur la couverture géographique ni l'exclusion d'août."
+        },
+        {
+          "bloc": 1,
+          "section": "nuances",
+          "type": "source_inventee",
+          "phrase_exacte": "L'Italie n'avait pas encore communiqué de chiffres officiels à la date des publications [2].",
+          "explication": "La source [2] ne mentionne pas l'absence de chiffres officiels pour l'Italie."
+        },
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "compteur_incoherent",
+          "phrase_exacte": "nb_sources: 5",
+          "explication": "L'article utilise des renvois [1] à [6] (6 sources distinctes référencées dans le texte) mais le champ nb_sources indique 5. De plus, la source [6] est invoquée 3 fois dans le texte alors qu'elle n'existe pas dans la liste (indices 0-4 seulement)."
+        },
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "source_non_editoriale",
+          "phrase_exacte": "L'OMS Europe indique que plus de 200 000 personnes sont mortes des suites de vagues de chaleur sur le continent au cours des quatre dernières années, principalement en Italie, Espagne, Allemagne et Grèce [5].",
+          "explication": "La source [5] est Google News (agrégateur automatique), pas une publication éditoriale de l'OMS Europe. Citer un agrégateur comme source d'une déclaration institutionnelle précise est non-éditorial et non vérifiable."
+        },
+        {
+          "bloc": 1,
+          "section": "resume",
+          "type": "chiffre_errone",
+          "phrase_exacte": "Une étude publiée dans Nature Health estime à 50 391 le nombre de décès survenus cet été dans 30 pays européens, dont 32 619 seraient imputables au dérèglement climatique, soit 60 % du total.",
+          "explication": "Le résumé reprend les chiffres 50 391, 32 619 et 60 % qui ne figurent dans aucune des sources fournies. La source [1] parle de '50 000 morts' (arrondi) sans les détails précis."
+        },
+        {
+          "bloc": 1,
+          "section": "titre",
+          "type": "chiffre_errone",
+          "phrase_exacte": "Canicules 2026 : 50 391 morts en Europe, 60 % attribués au dérèglement climatique",
+          "explication": "Le titre affiche une précision (50 391, 60 %) non soutenue par les sources. La source [1] donne '50 000 morts' (arrondi) et ne quantifie pas la part climatique à 60 %."
+        },
+        {
+          "bloc": 4,
+          "section": "resume",
+          "type": "redondance",
+          "phrase_exacte": "Ce bilan dépasse les précédents records de 2003 (28 400 morts) et 2022 (29 400 morts) et place l'Allemagne, la France et l'Espagne parmi les pays les plus touchés avec plusieurs milliers de décès excédentaires chacun.",
+          "explication": "Ces chiffres historiques (28 400, 29 400) et la liste des pays ne figurent pas dans les sources ; ils sont redondants avec le 'contexte' qui les répète aussi sans sourçage valide."
+        }
+      ]
+    },
+    "article_type": "actu",
+    "titre": "Canicules 2026 : 50 391 morts en Europe, 60 % attribués au dérèglement climatique",
+    "n_sources": 5,
+    "n_mots": 541,
+    "titre_rss": "50 000 morts en Europe : le bilan sans précédents des canicules de 2026",
+    "matiere_faits_distincts": 1355,
+    "matiere_redondance": 0.02,
+    "matiere_donnees_chiffrees": 4,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "etude_scientifique"
   }
 ]
