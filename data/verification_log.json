@@ -45985,5 +45985,1008 @@
     "n_sources_injectees": 10,
     "n_sources_trouvees": 10,
     "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "senat-adopte-loi-casseurs-payeurs-responsabilite-collective-surveillance",
+    "statut": "corrige_automatiquement",
+    "date": "2026-10-28T17:26:09",
+    "problemes_initiaux": 9,
+    "tentatives": 1,
+    "problemes_residuels_style": 12,
+    "rapport_initial": {
+      "conforme": false,
+      "sujet_sensible": false,
+      "sujet_sensible_raison": "",
+      "angle_insuffisant": false,
+      "angle_insuffisant_raison": "",
+      "nature_contenu": "actualite_factuelle",
+      "problemes": [
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "La commission des lois, dont les conclusions ont été présentées le 21 octobre 2026 par sa présidente Muriel Jourda et les rapporteurs David Margueritte et Olivier Bitz, a soutenu ces durcissements [3].",
+          "explication": "La source [3] (Sénat, mission d'information) ne mentionne ni Muriel Jourda, ni David Margueritte, ni Olivier Bitz dans l'extrait fourni ; ces noms sont donc inventés par rapport à la source citée."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "En cas de non-paiement, le projet de loi prévoit la possibilité de saisir les allocations familiales et l'aide personnalisée au logement (APL) du débiteur, sous certaines conditions [2].",
+          "explication": "L'extrait de la source [2] (Vie Publique) ne contient aucune mention de la saisie des allocations familiales ni de l'APL ; le fait est attribué à une source qui ne le confirme pas."
+        },
+        {
+          "bloc": 1,
+          "section": "nuances",
+          "type": "source_inventee",
+          "phrase_exacte": "La saisie des allocations familiales et de l'APL, mesure de contrainte financière inédite dans ce cadre, n'a pas encore fait l'objet d'une validation par le Conseil constitutionnel [2].",
+          "explication": "La source [2] ne mentionne pas le Conseil constitutionnel ni l'absence de validation ; cette information est inventée par rapport à la source citée."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "Lors de l'examen parlementaire, les sénateurs ont ajouté de nouvelles dispositions absentes du texte initial. Celles-ci incluent la possibilité d'ordonner le retrait de contenus diffusés sur les réseaux sociaux et l'autorisation de recourir à la vidéosurveillance algorithmique [1].",
+          "explication": "L'extrait de la source [1] (Mediapart) ne mentionne ni le retrait de contenus sur les réseaux sociaux, ni la vidéosurveillance algorithmique ; ces mesures sont attribuées à une source qui ne les confirme pas."
+        },
+        {
+          "bloc": 1,
+          "section": "nuances",
+          "type": "source_inventee",
+          "phrase_exacte": "Les dispositions relatives à la vidéosurveillance algorithmique et au retrait de contenus en ligne soulèvent des questions quant à leur articulation avec le règlement général sur la protection des données (RGPD) et la loi pour une République numérique, qui encadrent strictement le traitement automatisé d'images dans l'espace public [1].",
+          "explication": "La source [1] ne mentionne ni le RGPD, ni la loi pour une République numérique, ni l'articulation juridique de ces mesures ; le fait est inventé par rapport à la source citée."
+        },
+        {
+          "bloc": 2,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "En amont du vote, une mission d'information sur l'avenir du maintien de l'ordre avait été menée au Sénat. Ses conclusions, rendues publiques le 21 octobre 2026, préconisaient un renforcement des moyens juridiques et technologiques pour prévenir et sanctionner les troubles à l'ordre public [3].",
+          "explication": "L'extrait de la source [3] ne contient pas le contenu des conclusions de la mission d'information (renforcement des moyens juridiques et technologiques) ; cette affirmation est inventée par rapport à la source citée."
+        },
+        {
+          "bloc": 2,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "Les comptes rendus analytiques des séances du 27 et 28 octobre 2026, disponibles sur le site du Sénat, consignent l'intégralité des échanges ayant conduit à l'adoption du texte amendé [4].",
+          "explication": "L'extrait de la source [4] (Gouv, data.gouv.fr) ne confirme pas que ces comptes rendus consignent l'intégralité des échanges ; cette précision est inventée par rapport à la source citée."
+        },
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "compteur_incoherent",
+          "phrase_exacte": "nb_sources: 4",
+          "explication": "Le champ nb_sources indique 4, mais les faits du corps de texte ne sont étayés que par les sources [1] et [2] (les sources [3] et [4] sont citées uniquement dans le contexte) ; le compteur ne reflète pas le nombre de sources distinctes effectivement utilisées pour les faits principaux."
+        },
+        {
+          "bloc": 3,
+          "section": "positions",
+          "type": "cadrage_emprunte",
+          "phrase_exacte": "Mediapart | Qualifie le texte de « liberticide » et de « déchaînement répressif »",
+          "explication": "Le terme « liberticide » est un jugement de valeur éditorial de Mediapart, repris dans la rubrique positions comme une position factuelle sans être explicitement attribué comme une opinion dans le corps de l'article."
+        }
+      ]
+    },
+    "article_type": "actu",
+    "titre": "Le Sénat adopte la loi « casseurs-payeurs » avec responsabilité collective et surveillance algorithmique",
+    "n_sources": 4,
+    "n_mots": 490,
+    "titre_rss": "Le déchaînement répressif du Sénat sur la loi «casseurs-payeurs»",
+    "matiere_faits_distincts": 731,
+    "matiere_redondance": 0.04,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "ebola-bundibugyo-10000-cas-rdc-oms-efforts-soutenus",
+    "statut": "rejete_qualite",
+    "date": "2026-10-28T17:38:11",
+    "problemes_initiaux": 20,
+    "tentatives": 3,
+    "problemes_restants": 19,
+    "bloquants_restants": 18,
+    "bloquants_types": [
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [2] (UN News) indique 'more than 10,000 cases' sans distinguer cas confirmés et probables, alors que l'article écrit 'cas confirmés' ; la source [1] (Sciences et Avenir) parle de 'cas recensés' sans le qualific",
+        "phrase": "L'Organisation mondiale de la santé (OMS) a rapporté plus de 10 000 cas confirmés et près de 5 000 décès au 28 octobre 2026, marquant le franchissement symbolique du seuil des 10 000 infections [2]."
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [2] (UN News, 28 octobre 2026) ne mentionne pas de réunion du Comité d'urgence le 24 août 2026 ni de recommandations temporaires à cette date ; cette information n'est pas vérifiable dans les extraits fournis.",
+        "phrase": "Le 24 août 2026, le Comité d'urgence du Règlement sanitaire international s'est réuni pour la deuxième fois et a émis des recommandations temporaires [2]."
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [4] (The Lancet, 13 octobre 2025) ne contient pas ces taux de létalité (31 % et 34 %) pour les épidémies de 2007 et 2012 ; l'information n'est pas présente dans les extraits fournis.",
+        "phrase": "Le virus Bundibugyo a été identifié pour la première fois en 2007 en Ouganda, puis lors d'une épidémie en 2012 en RDC, avec des taux de létalité respectifs de 31 % et 34 % [4]."
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [3] (WHO, 26 août 2025) est un rapport sur le cas index présumé mais les extraits fournis ne confirment pas explicitement la date 'août 2025' ni la localisation précise 'zone de santé de Bulape, province du Kas",
+        "phrase": "Le cas index présumé a été signalé dans la zone de santé de Bulape, province du Kasaï, en août 2025 [3]."
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [4] (The Lancet, 13 octobre 2025) ne mentionne pas le chiffre '16e épidémie' dans les extraits fournis ; ce numéro d'ordre n'est pas vérifiable.",
+        "phrase": "Une étude parue dans The Lancet en octobre 2025 soulignait que cette 16e épidémie survenait dans un système de santé déjà éprouvé par le mpox, le choléra et l'instabilité politique [4]."
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [5] (CDC, 28 octobre 2026) est une page de situation générale ; les extraits fournis ne confirment pas explicitement la circulation virale 'dans plusieurs provinces congolaises et en Ouganda' à cette date préci",
+        "phrase": "Au 28 octobre 2026, le CDC confirmait la circulation virale dans plusieurs provinces congolaises et en Ouganda [5]."
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [6] (BMJ, 31 juillet 2026) n'est pas citée avec des extraits confirmant la citation de Patrick Otim ni le qualificatif 'plus rapide de l'histoire' ; l'information n'est pas vérifiable dans les sources fournies.",
+        "phrase": "Le BMJ rapportait fin juillet 2026 que l'épidémie était alors la plus rapide de l'histoire, selon Patrick Otim, responsable du programme régional de l'OMS [6]."
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [4] (The Lancet, 13 octobre 2025) ne contient pas cette affirmation sur l'absence de vaccin ou traitement homologué contre la souche Bundibugyo dans les extraits fournis.",
+        "phrase": "Selon The Lancet, aucun vaccin ni traitement n'est homologué à ce jour contre la souche Bundibugyo, ce qui limite l'arsenal thérapeutique aux soins de soutien [4]."
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [4] (The Lancet, 13 octobre 2025) ne mentionne pas le risque d'importation en France ni à Mayotte, ni l'absence de liaison aérienne directe ; cette information est absente des extraits.",
+        "phrase": "Le risque d'importation en France hexagonale et à Mayotte est jugé très faible en l'absence de liaison aérienne directe avec la zone épidémique, selon la même source [4]."
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [4] (The Lancet, 13 octobre 2025) ne contient pas cette affirmation sur l'absorption des ressources par le mpox et le choléra dans les extraits fournis.",
+        "phrase": "La co-circulation d'autres urgences sanitaires (mpox, choléra) absorbe une partie des ressources humaines et logistiques disponibles sur le terrain, selon The Lancet [4]."
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "Le renvoi [2] attribue cette information à la source UN News (28 octobre 2026), mais cette source ne contient pas cette information selon les extraits fournis ; le fait est inventé par rapport à la source citée.",
+        "phrase": "Le 24 août 2026, le Comité d'urgence du Règlement sanitaire international s'est réuni pour la deuxième fois et a émis des recommandations temporaires [2]."
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "Le renvoi [4] attribue ces taux de létalité précis à The Lancet (13 octobre 2025), mais les extraits de cette source ne les contiennent pas ; l'attribution est fausse.",
+        "phrase": "Le virus Bundibugyo a été identifié pour la première fois en 2007 en Ouganda, puis lors d'une épidémie en 2012 en RDC, avec des taux de létalité respectifs de 31 % et 34 % [4]."
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "Le renvoi [4] attribue le chiffre '16e épidémie' et le contexte mpox/choléra/instabilité à The Lancet, mais les extraits ne confirment ni l'un ni l'autre.",
+        "phrase": "Une étude parue dans The Lancet en octobre 2025 soulignait que cette 16e épidémie survenait dans un système de santé déjà éprouvé par le mpox, le choléra et l'instabilité politique [4]."
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "Le renvoi [5] attribue cette confirmation précise au CDC (page de situation au 28 octobre 2026), mais les extraits ne permettent pas de vérifier cette affirmation géographique détaillée.",
+        "phrase": "Au 28 octobre 2026, le CDC confirmait la circulation virale dans plusieurs provinces congolaises et en Ouganda [5]."
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "Le renvoi [6] attribue cette citation et ce qualificatif au BMJ (31 juillet 2026), mais les extraits fournis ne les contiennent pas ; l'attribution est non vérifiée.",
+        "phrase": "Le BMJ rapportait fin juillet 2026 que l'épidémie était alors la plus rapide de l'histoire, selon Patrick Otim, responsable du programme régional de l'OMS [6]."
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "Le renvoi [4] attribue cette affirmation thérapeutique à The Lancet (13 octobre 2025), mais les extraits ne la contiennent pas ; information inventée par rapport à la source.",
+        "phrase": "Selon The Lancet, aucun vaccin ni traitement n'est homologué à ce jour contre la souche Bundibugyo, ce qui limite l'arsenal thérapeutique aux soins de soutien [4]."
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "Le renvoi [4] attribue cette évaluation de risque pour la France à The Lancet, mais la source ne traite pas de ce sujet dans les extraits fournis.",
+        "phrase": "Le risque d'importation en France hexagonale et à Mayotte est jugé très faible en l'absence de liaison aérienne directe avec la zone épidémique, selon la même source [4]."
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "Le renvoi [4] attribue cette analyse sur l'absorption des ressources à The Lancet, mais les extraits ne la confirment pas.",
+        "phrase": "La co-circulation d'autres urgences sanitaires (mpox, choléra) absorbe une partie des ressources humaines et logistiques disponibles sur le terrain, selon The Lancet [4]."
+      }
+    ],
+    "types_restants": [
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "compteur_incoherent"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "titre_de_mauvaise_qualite"
+    ],
+    "titre": "Ebola Bundibugyo : plus de 10 000 cas en RDC, l'OMS appelle à des efforts soutenus",
+    "n_sources": 6,
+    "n_mots": 702,
+    "titre_rss": "Ebola: Plus de 10.000 cas recensés en Afrique, la RDC toujours à l'épicentre",
+    "matiere_faits_distincts": 992,
+    "matiere_redondance": 0.01,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "cyberattaques-ia-responsabilite-penale-civile-droit-francais-europeen",
+    "statut": "rejete_sensible",
+    "date": "2026-10-28T17:50:36",
+    "problemes_initiaux": 11,
+    "bloc5": [
+      "diffamation_potentielle"
+    ],
+    "article_type": "actu",
+    "titre": "Cyberattaques par IA : le flou juridique sur la responsabilité des systèmes autonomes",
+    "n_sources": 7,
+    "n_mots": 789,
+    "titre_rss": "Cyberattaques par des IA de pointe : le casse-tête de la responsabilité pénale",
+    "matiere_faits_distincts": 821,
+    "matiere_redondance": 0.04,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "canicule-juin-2026-mortalite-toutes-causes-hausse-29-pourcent",
+    "statut": "conforme_du_premier_coup",
+    "date": "2026-10-28T17:58:51",
+    "article_type": "actu",
+    "titre": "Canicule juin 2026 : mortalité toutes causes en hausse de 29 %",
+    "n_sources": 4,
+    "n_mots": 749,
+    "titre_rss": "Point de situation sur la mortalité toutes causes confondues  sur la période du 22 au 28 juin 2026",
+    "matiere_faits_distincts": 829,
+    "matiere_redondance": 0.01,
+    "matiere_donnees_chiffrees": 3,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "veille_heures_visible": 221.3,
+    "veille_passages": 74,
+    "veille_age_h": 1567.1,
+    "veille_n_flux_grappe": 1,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "inserm-dement-sept-idees-recues-vaccins-campagne-grippe-covid-13-octobre",
+    "statut": "rejete_sensible",
+    "date": "2026-10-28T18:09:10",
+    "problemes_initiaux": 15,
+    "bloc5": [
+      "compteur_incoherent"
+    ],
+    "article_type": "actu",
+    "titre": "L'Inserm dément sept idées reçues sur les vaccins pour la campagne grippe-Covid du 13 octobre",
+    "n_sources": 6,
+    "n_mots": 911,
+    "titre_rss": "Sept fausses idées sur les vaccins",
+    "matiere_faits_distincts": 851,
+    "matiere_redondance": 0.14,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "sylvie-chokron-monde-vetements-cognition-incarnee-carte-blanche",
+    "statut": "rejete_sensible",
+    "date": "2026-10-28T18:19:27",
+    "problemes_initiaux": 8,
+    "tentative": 1,
+    "bloc5": true,
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "titre_de_mauvaise_qualite"
+    ],
+    "titre": "Sylvie Chokron au Monde : les vêtements modifient l'attention et le comportement selon des expériences contrôlées",
+    "n_sources": 7,
+    "n_mots": 585,
+    "titre_rss": "L’habit fait bel et bien le moine",
+    "matiere_faits_distincts": 646,
+    "matiere_redondance": 0.06,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "declaration"
+  },
+  {
+    "slug": "chomage-demandeurs-emploi-hausse-2-1-un-an-troisieme-trimestre-2026",
+    "statut": "rejete_sensible",
+    "date": "2026-10-28T18:26:06",
+    "problemes_initiaux": 12,
+    "bloc5": [
+      "faux_debat"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "resume_repete_corps"
+    ],
+    "titre": "Chômage : hausse de 2,1 % des demandeurs d'emploi sur un an au T3 2026",
+    "n_sources": 6,
+    "n_mots": 592,
+    "titre_rss": "Chômage : le nombre de demandeurs d’emploi a augmenté de 2,1 % sur un an",
+    "matiere_faits_distincts": 633,
+    "matiere_redondance": 0.06,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "cop17-biodiversite-onu-alerte-retard-objectifs-2030-erevan",
+    "statut": "rejete_qualite",
+    "date": "2026-10-28T18:42:35",
+    "problemes_initiaux": 11,
+    "tentatives": 3,
+    "problemes_restants": 10,
+    "bloquants_restants": 7,
+    "bloquants_types": [
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [1] (Le Monde, 27 oct. 2026) rapporte les négociations de la COP16 à Cali, pas la COP17 à Erevan ; elle ne permet pas d'attribuer cet objectif à la présidence arménienne de la COP17.",
+        "phrase": "La présidence arménienne a placé au centre des négociations l'objectif décidé à Montréal de réduire les subventions néfastes à la biodiversité d'au moins 500 milliards de dollars par an d'ici 2030 [1]."
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [5] (UN, 19 oct. 2026) indique 20 milliards $/an d'ici 2025 et 30 milliards $/an d'ici 2030 pour les flux internationaux, pas 30 milliards dès maintenant.",
+        "phrase": "Le cadre mondial prévoit également de mobiliser au moins 200 milliards de dollars par an d'ici 2030 provenant de toutes les sources, dont au moins 30 milliards par an de financements internationaux pour la biodiversité v"
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "Même erreur que dans les faits : la source [5] prévoit 30 milliards $/an d'ici 2030, pas dès à présent ; la source [1] concerne la COP16, pas la COP17.",
+        "phrase": "Les négociations doivent porter sur le financement — au moins 200 milliards de dollars par an dont 30 milliards d'aide internationale — et la réduction des subventions néfastes d'au moins 500 milliards annuels d'ici 2030"
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "Le renvoi [1] (Le Monde, COP16 Cali) ne contient aucune information sur la présidence arménienne de la COP17 ni sur ses priorités de négociation ; le fait est inventé par rapport à la source citée.",
+        "phrase": "La présidence arménienne a placé au centre des négociations l'objectif décidé à Montréal de réduire les subventions néfastes à la biodiversité d'au moins 500 milliards de dollars par an d'ici 2030 [1]."
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "La source [5] (UN, 19 oct. 2026) ne mentionne pas le Fonds de Cali ni les informations de séquençage numérique (DSI) ; cette affirmation n'est pas sourcée.",
+        "phrase": "Les discussions porteront aussi sur la mise en œuvre du Fonds de Cali pour le partage des avantages issus de l'utilisation des informations de séquençage numérique sur les ressources génétiques [5]."
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "L'extrait fourni de la source [1] ne contient pas ces détails sur les blocages de définition ni sur les refus de certains pays ; l'article attribue à la source un contenu qu'elle ne livre pas dans les extraits.",
+        "phrase": "Le Monde rapporte que les négociations sur les subventions néfastes butent sur la définition même de ce qui constitue une subvention néfaste, certains pays refusant d'inclure les soutiens aux énergies fossiles ou à l'agr"
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "Même problème : l'extrait de la source [1] ne mentionne ni le Fonds de Cali, ni la DSI, ni le caractère volontaire des contributions ; l'information est inventée par rapport à la source citée.",
+        "phrase": "L'article précise également que le Fonds de Cali, censé redistribuer les bénéfices de l'utilisation des informations de séquençage numérique (DSI), n'a pas encore de mécanisme de contribution obligatoire, les versements "
+      }
+    ],
+    "types_restants": [
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "contexte_hors_sujet",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "compteur_incoherent",
+      "section_gonflee"
+    ],
+    "article_type": "actu",
+    "titre": "COP17 biodiversité : l'ONU alerte sur le retard des objectifs 2030 à l'ouverture d'Erevan",
+    "n_sources": 6,
+    "n_mots": 721,
+    "titre_rss": "COP biodiversité : les « subventions néfastes » à la nature au centre des négociations",
+    "matiere_faits_distincts": 954,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "rdc-essai-clinique-vaccin-tumaini-ebola-bundibugyo-10000-cas",
+    "statut": "conforme_du_premier_coup",
+    "date": "2026-10-28T18:49:39",
+    "article_type": "actu",
+    "titre": "RDC : essai clinique Tumaini lancé contre Ebola Bundibugyo, 10 000 cas dépassés",
+    "n_sources": 5,
+    "n_mots": 730,
+    "titre_rss": "Ebola en RDC : un essai clinique du vaccin Tumaini a débuté, selon l’OMS",
+    "matiere_faits_distincts": 839,
+    "matiere_redondance": 0.04,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "plfss-2027-rejete-assemblee-nationale-premiere-lecture",
+    "statut": "corrige_automatiquement",
+    "date": "2026-10-28T19:00:16",
+    "problemes_initiaux": 5,
+    "tentatives": 2,
+    "problemes_residuels_style": 0,
+    "rapport_initial": {
+      "conforme": false,
+      "sujet_sensible": false,
+      "sujet_sensible_raison": "",
+      "angle_insuffisant": false,
+      "angle_insuffisant_raison": "",
+      "nature_contenu": "actualite_factuelle",
+      "problemes": [
+        {
+          "bloc": 1,
+          "section": "resume",
+          "type": "chiffre_errone",
+          "phrase_exacte": "La Cour des comptes a appelé en mai 2026 à réduire le déficit structurel des comptes sociaux en 2027, ce qui cadre les marges de manœuvre des parlementaires pour la suite de l'examen.",
+          "explication": "La source [6] (Vie Publique, datée du 23 octobre 2026) rapporte l'appel de la Cour des comptes sans indiquer qu'il date de mai 2026 ; la date « mai 2026 » n'est pas confirmée par les extraits fournis."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "chiffre_errone",
+          "phrase_exacte": "La Cour des comptes a publié en mai 2026 son rapport sur l'application des lois de financement de la Sécurité sociale, appelant à réduire le déficit en 2027 [6].",
+          "explication": "La source [6] est datée du 23 octobre 2026 et ne précise pas que le rapport a été publié en mai 2026 ; cette date n'est pas dans les extraits fournis."
+        },
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "Le projet avait été déposé sur le bureau de l'Assemblée nationale le 1er octobre 2026, après sa présentation en Conseil des ministres le même jour [2].",
+          "explication": "La source [2] (Vie Publique, 2 octobre 2026) ne confirme pas la date de dépôt du 1er octobre 2026 ni la présentation en Conseil des ministres ce jour-là ; le fait est attribué à une source qui ne le contient pas."
+        },
+        {
+          "bloc": 2,
+          "section": "nuances",
+          "type": "source_inventee",
+          "phrase_exacte": "Le calendrier constitutionnel impose au Parlement d'adopter le texte dans un délai de 50 jours à compter de son dépôt, soit avant le 20 novembre 2026 [2].",
+          "explication": "La source [2] ne mentionne pas le délai de 50 jours ni la date limite du 20 novembre 2026 ; ces éléments sont attribués à une source qui ne les confirme pas."
+        },
+        {
+          "bloc": 2,
+          "section": "nuances",
+          "type": "source_inventee",
+          "phrase_exacte": "Si les deux assemblées ne parviennent pas à un accord, le gouvernement peut engager sa responsabilité sur le texte par l'article 49.3, ce qui entraînerait son adoption sans vote sauf motion de censure [1].",
+          "explication": "La source [1] (Le Monde, 23 octobre 2026) ne traite pas de l'article 49.3 ni de ses conséquences procédurales ; le fait est attribué à une source qui ne le contient pas."
+        }
+      ]
+    },
+    "article_type": "actu",
+    "titre": "Le PLFSS 2027 rejeté par l'Assemblée nationale en première lecture",
+    "n_sources": 4,
+    "n_mots": 492,
+    "titre_rss": "Le budget de la Sécurité sociale pour 2027 rejeté à la quasi-unanimité par l’Assemblée nationale en première lecture ; le texte transmis au Sénat",
+    "matiere_faits_distincts": 757,
+    "matiere_redondance": 0.06,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "vaccin-arnm-personnalise-melanome-reduit-42-risque-recidive-deces",
+    "statut": "corrige_automatiquement",
+    "date": "2026-10-28T19:16:46",
+    "problemes_initiaux": 8,
+    "tentatives": 3,
+    "problemes_residuels_style": 18,
+    "rapport_initial": {
+      "conforme": false,
+      "sujet_sensible": false,
+      "sujet_sensible_raison": "",
+      "angle_insuffisant": false,
+      "angle_insuffisant_raison": "",
+      "nature_contenu": "etude_scientifique",
+      "problemes": [
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "chiffre_errone",
+          "phrase_exacte": "La production, passée de neuf à moins de quatre semaines grâce à l'automatisation, reste un goulot d'étranglement logistique et financier supérieur à 100 000 dollars par traitement [7].",
+          "explication": "La source [7] (NIH) indique un délai de fabrication de 6 à 8 semaines, pas 'moins de quatre semaines'."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "chiffre_errone",
+          "phrase_exacte": "L'essai de phase 3 KEYNOTE-V940-001 (NCT05933577), lancé pour confirmer ce bénéfice en population plus large, a vu son calendrier prolongé jusqu'en 2029 en raison de complexités de recrutement et de fabrication [7].",
+          "explication": "La source [7] (NIH) indique une date d'achèvement estimée en décembre 2028, pas 2029."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "chiffre_errone",
+          "phrase_exacte": "L'étude NIH de 2025 confirme que le mélanome reste la cible privilégiée pour les vaccins à néoantigènes personnalisés en raison de son profil immunologique favorable [7].",
+          "explication": "La source [7] est datée de juin 2024 (publication en ligne), pas 2025."
+        },
+        {
+          "bloc": 1,
+          "section": "nuances",
+          "type": "chiffre_errone",
+          "phrase_exacte": "La FDA a approuvé en août 2026 l'immunothérapie oncolytique Tudriqev en combinaison avec le nivolumab pour le mélanome avancé après échec d'un anti-PD-1, illustrant la complexité du paysage thérapeutique adjuvant [4].",
+          "explication": "La source [4] n'existe pas dans la liste des sources autorisées (seules 3 sources sont listées, indices 1 à 3). De plus, la source [2] (FDA Tudriqev) ne contient pas de date d'approbation août 2026 dans les extraits fournis."
+        },
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "Futura Sciences rapporte que cette réduction de 42 % du risque combiné de récidive ou de décès constitue la première efficacité clinique majeure d'un vaccin néoantigénique personnalisé dans le mélanome adjuvant [1].",
+          "explication": "La source [1] (Futura Sciences) n'est pas citée dans les extraits fournis pour confirmer cette phrase spécifique ; l'extrait fourni pour [1] est vide."
+        },
+        {
+          "bloc": 2,
+          "section": "nuances",
+          "type": "source_inventee",
+          "phrase_exacte": "La FDA a approuvé en août 2026 l'immunothérapie oncolytique Tudriqev en combinaison avec le nivolumab pour le mélanome avancé après échec d'un anti-PD-1, illustrant la complexité du paysage thérapeutique adjuvant [4].",
+          "explication": "Le renvoi [4] désigne une source inexistante dans le tableau 'sources' (qui ne contient que 3 entrées)."
+        },
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "compteur_incoherent",
+          "phrase_exacte": "nb_sources: 3",
+          "explication": "Le champ 'nb_sources' vaut 3 mais l'article utilise un renvoi [4] inexistant, ce qui porte à 4 le nombre de sources distinctes référencées dans le texte."
+        },
+        {
+          "bloc": 4,
+          "section": "nuances",
+          "type": "contexte_hors_sujet",
+          "phrase_exacte": "La FDA a approuvé en août 2026 l'immunothérapie oncolytique Tudriqev en combinaison avec le nivolumab pour le mélanome avancé après échec d'un anti-PD-1, illustrant la complexité du paysage thérapeutique adjuvant [4].",
+          "explication": "L'approbation de Tudriqev (talimogene laherparepvec) pour le mélanome avancé en ligne ultérieure n'éclaire pas le sujet principal qui est l'adjuvant post-chirurgie au stade III/IV réséqué avec un vaccin ARNm personnalisé ; c'est un fait tangentiel sans lien direct avec l'essai KEYNOTE-942."
+        }
+      ]
+    },
+    "article_type": "actu",
+    "titre": "Vaccin ARNm personnalisé : 42 % de risque en moins pour le mélanome opéré",
+    "n_sources": 3,
+    "n_mots": 640,
+    "titre_rss": "Cancer de la peau : un vaccin personnalisé réduit de 42 % le risque de récidive ou de décès après l'opération",
+    "matiere_faits_distincts": 555,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "etude_scientifique"
+  },
+  {
+    "slug": "chaleur-710-000-deces-2023-record-climat-lancet-countdown",
+    "statut": "rejete_qualite",
+    "date": "2026-10-28T19:27:40",
+    "problemes_initiaux": 16,
+    "tentatives": 3,
+    "problemes_restants": 10,
+    "bloquants_restants": 8,
+    "bloquants_types": [
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "annonce_perimee",
+      "source_inventee"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [3] (Reporterre, 28 octobre 2026) cite le rapport 2024 du Lancet Countdown qui donne le chiffre de 2 100 milliards pour l'année 2023, pas 2025 ; le résumé déplace la date d'un an sans justification.",
+        "phrase": "les investissements dans les énergies propres ont atteint 2 100 milliards de dollars en 2025"
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "Le rapport 2024 du Lancet Countdown (source [3] et [6]) porte sur des données jusqu'à 2023 ; il ne peut pas fournir un chiffre pour 2025, qui est postérieur à sa publication.",
+        "phrase": "L'exposition à la chaleur a aussi coûté 573 milliards d'heures de travail potentielles perdues en 2025, évaluées à 1 070 milliards de dollars"
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "Même raison : le rapport 2024 ne couvre pas l'année 2025 ; les données s'arrêtent à 2023 au plus tard.",
+        "phrase": "La surface terrestre touchée par une sécheresse extrême au moins un mois par an a crû plus de 700 % plus vite sur 2006-2025 que sur 2006-2015, atteignant 51,8 % des terres émergées en 2025"
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La période de référence 2016-2025 dépasse la couverture temporelle du rapport 2024 (publié fin 2024) ; la source ne peut pas contenir de données 2025.",
+        "phrase": "La transmission potentielle de la dengue par Aedes albopictus a progressé de 24 % entre 1981-1990 et 2016-2025, celle par Aedes aegypti de 7 %"
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "Répétition de l'erreur du résumé : le rapport 2024 donne ce chiffre pour 2023, pas 2025.",
+        "phrase": "les investissements mondiaux dans les énergies propres ont atteint un record de 2 100 milliards de dollars en 2025"
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [6] (NIH, 30 octobre 2024) est le rapport 2024 lui-même ; l'article le cite comme s'il s'agissait d'un rapport antérieur distinct, créant une confusion chronologique.",
+        "phrase": "Le rapport 2024 du Lancet Countdown, publié en octobre 2024, alertait déjà sur des menaces record liées à l'inaction retardée, avec une mortalité liée à la chaleur en hausse chez les plus de 65 ans de 85 % entre 2000-200"
+      },
+      {
+        "bloc": 1,
+        "type": "annonce_perimee",
+        "description": "Le rapport 2024 a été publié en octobre 2024 (source [6]) ; le présenter comme 'relayé par l'OMS le 28 octobre 2026' suggère une publication ou un relais en 2026, ce qui est faux — l'OMS a seulement commenté le rapport e",
+        "phrase": "Le rapport 2024 du Lancet Countdown, relayé par l'OMS le 28 octobre 2026"
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "La source [1] (Reporterre, 28 octobre 2026) n'est pas fournie dans les extraits autorisés ; le fait attribué ([1]) ne peut pas être vérifié contre les extraits fournis.",
+        "phrase": "selon les experts du Lancet Countdown cités par Reporterre [1]"
+      }
+    ],
+    "types_restants": [
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "annonce_perimee",
+      "source_inventee",
+      "compteur_incoherent",
+      "redondance"
+    ],
+    "article_type": "actu",
+    "titre": "La chaleur a causé 710 000 décès en 2023, un record imputable au climat",
+    "n_sources": 6,
+    "n_mots": 608,
+    "titre_rss": "Les décès liés à la chaleur ont bondi de 36 % en un an selon les experts du Lancet Countdown",
+    "matiere_faits_distincts": 881,
+    "matiere_redondance": 0.01,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "rapport"
+  },
+  {
+    "slug": "exposition-georges-perec-bnf-ecriture-contrainte-ia",
+    "statut": "rejete_qualite",
+    "date": "2026-10-28T19:34:36",
+    "angle_insuffisant": true,
+    "raison": "Aucune phrase des faits ne contient à la fois un événement précis daté (l'ouverture de l'exposition le 18 juin 2024) et une donnée chiffrée ou nommée qui lui est propre et issue des sources. Les sources 2, 3, 4 portent sur l'IA européenne en 2025-2026 et n'éclairent pas l'exposition Perec. L'article répond à « qu'est-ce que l'exposition Perec ? » plutôt qu'à « pourquoi en parle-t-on maintenant ? » avec un angle IA non soutenu par les sources.",
+    "article_type": "actu",
+    "titre": "Exposition Georges Perec à la BnF : l'écriture sous contrainte face à l'IA",
+    "n_sources": 4,
+    "n_mots": 634,
+    "titre_rss": "Georges Perec, sans \"e\" ni IA",
+    "matiere_faits_distincts": 672,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "taux-france-10-ans-depasse-5-pour-cent-premiere-fois-2002",
+    "statut": "rejete_qualite",
+    "date": "2026-10-28T19:50:29",
+    "problemes_initiaux": 12,
+    "tentatives": 3,
+    "problemes_restants": 6,
+    "bloquants_restants": 2,
+    "bloquants_types": [
+      "chiffre_errone",
+      "source_inventee"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [6] est datée du 6 octobre 2026, soit une date future par rapport à l'événement principal de l'article (21 octobre 2024) ; l'article présente cette projection comme un fait établi alors qu'elle émane d'une sour",
+        "phrase": "Le rapport sur la dette des administrations publiques annexé au PLF 2027, publié le 6 octobre 2026, projette que la dette de l'État s'établirait à 3 595,5 milliards d'euros à la fin du deuxième trimestre 2026 [6]."
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "Le renvoi [6] pointe vers une source « Vie Publique | Rapport sur la dette des administrations publiques PLF 2027 » datée du 6 octobre 2026 ; or l'article est rédigé en octobre 2024 (événement du 21 octobre 2024) et cett",
+        "phrase": "Le rapport sur la dette des administrations publiques annexé au PLF 2027, publié le 6 octobre 2026, projette que la dette de l'État s'établirait à 3 595,5 milliards d'euros à la fin du deuxième trimestre 2026 [6]."
+      }
+    ],
+    "types_restants": [
+      "chiffre_errone",
+      "chronologie_confuse",
+      "chronologie_confuse",
+      "source_inventee",
+      "compteur_incoherent",
+      "redondance"
+    ],
+    "article_type": "actu",
+    "titre": "Taux français à 10 ans au-dessus de 5 %, une première depuis 2002",
+    "n_sources": 7,
+    "n_mots": 738,
+    "titre_rss": "Dette : à quel moment les taux deviennent-ils insoutenables ?",
+    "matiere_faits_distincts": 781,
+    "matiere_redondance": 0.01,
+    "matiere_donnees_chiffrees": 3,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "plfss-2027-assemblee-examine-extension-taxe-soda-aliments-sucres",
+    "statut": "corrige_automatiquement",
+    "date": "2026-10-28T20:02:03",
+    "problemes_initiaux": 16,
+    "tentatives": 3,
+    "problemes_residuels_style": 15,
+    "rapport_initial": {
+      "conforme": false,
+      "sujet_sensible": false,
+      "sujet_sensible_raison": "",
+      "angle_insuffisant": false,
+      "angle_insuffisant_raison": "",
+      "nature_contenu": "actualite_factuelle",
+      "problemes": [
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "incoherence_inter_sections",
+          "phrase_exacte": "L'Assemblée nationale entame ce mardi 20 octobre l'examen du projet de loi de financement de la Sécurité sociale pour 2027 [1].",
+          "explication": "La source [1] est datée du 20 octobre 2026, ce qui place l'examen du PLFSS 2027 en octobre 2026, alors que le PLFSS pour 2027 est normalement examiné à l'automne 2026 pour une entrée en vigueur 2027 ; la source confirme l'examen en octobre 2026, mais le titre et le résumé parlent de 'PLFSS 2027' sans clarifier que l'examen a lieu en 2026, créant une confusion temporelle entre l'année d'examen et l'année d'application."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "Instaurée en 2012, la taxe soda actuelle s'applique aux boissons relevant des codes NC 2009 (jus de fruits et légumes) et NC 2202 (eaux aromatisées, sodas, colas) qui contiennent des sucres ajoutés et sont conditionnées pour la vente au détail [2]. Son tarif, initialement fixé à 7,16 € par hectolitre, est revalorisé chaque 1er janvier selon l'indice des prix à la consommation hors tabac [2].",
+          "explication": "La source [2] correspond aux conclusions du Conseil d'État sur le recours Coca-Cola (15 janvier 2026) ; les extraits fournis ne contiennent pas les détails techniques sur les codes NC, le tarif initial de 7,16 €/hl ni l'indexation sur l'inflation — ces informations sont attribuées à une source qui ne les confirme pas dans les extraits."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "Le Conseil constitutionnel avait validé en 2012 le choix du Parlement de privilégier le rendement fiscal de cette contribution par rapport à l'objectif de santé publique initial [2].",
+          "explication": "La source [2] (conclusions Conseil d'État 2026) ne mentionne pas une décision du Conseil constitutionnel de 2012 sur la taxe soda ; cette affirmation historique est attribuée à une source qui ne la contient pas."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "Coca-Cola Europacific Partners France a saisi le Conseil d'État pour obtenir l'abrogation de cet impôt, une procédure dont les conclusions ont été rendues le 15 janvier 2026 [2].",
+          "explication": "Bien que la source [2] soit bien les conclusions du Conseil d'État du 15 janvier 2026 sur l'affaire Coca-Cola, les extraits fournis ne confirment pas explicitement que la demande visait l'abrogation de l'impôt ni l'objet exact du recours — l'attribution est trop précise par rapport au contenu vérifiable de l'extrait."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "La proposition de loi n° 452, déposée le 15 octobre 2024, vise à lutter contre la surcharge pondérale par la diminution des taux de sucres ajoutés dans les boissons sucrées et les produits ultra-transformés [9]. Elle a été renvoyée à la commission des affaires sociales [9].",
+          "explication": "La source [9] n'existe pas dans la liste des sources autorisées (qui ne compte que 6 entrées, indices 1 à 6) ; le renvoi [9] est une source inventée."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "Le Sénat a publié en octobre 2026 plusieurs rapports d'information, notamment sur le contrat d'objectifs et de moyens de l'Agence française de développement et sur la ratification de l'accord de protection des investissements entre l'Union européenne et le Vietnam [3].",
+          "explication": "La source [3] est la page 'Rapports récents' du Sénat (octobre 2026) ; les extraits fournis ne listent pas les rapports spécifiques mentionnés (AFD, accord UE-Vietnam) — l'article attribue à la source des contenus qu'elle ne détaille pas dans les extraits."
+        },
+        {
+          "bloc": 1,
+          "section": "nuances",
+          "type": "source_inventee",
+          "phrase_exacte": "Les données de Statistique Canada sur l'infrastructure de données spatiales de 2021 ne portent pas sur la fiscalité du sucre [7]. Le Journal officiel de l'Union européenne L 202601849 ne contient pas d'information exploitable sur ce sujet dans les extraits fournis [8].",
+          "explication": "Les sources [7] et [8] ne figurent pas dans la liste des sources autorisées (indices 1 à 6 seulement) ; ce sont des sources inventées citées dans la section nuances."
+        },
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "compteur_incoherent",
+          "phrase_exacte": "nb_sources: 6",
+          "explication": "L'article utilise des renvois [1], [2], [3], [9], [7], [8] soit 6 numéros distincts, mais les indices 7, 8, 9 n'existent pas dans le tableau sources (qui n'a que 6 entrées) ; le compteur nb_sources=6 est techniquement exact pour le tableau, mais les renvois dans le texte pointent vers des sources fantômes, ce qui rend le sourcing incohérent."
+        },
+        {
+          "bloc": 2,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "121 taxes sur les boissons sucrées (SSB) étaient en vigueur dans 106 pays et territoires en février 2023, couvrant 52 % de la population mondiale [10]. Pratiquement toutes ces taxes ciblent les sodas (99 %) et les boissons énergisantes (99 %), tandis que 76 % s'appliquent aussi aux boissons light sans sucre [10].",
+          "explication": "La source [10] n'existe pas dans la liste autorisée (max index 6) ; le chiffre précis de 121 taxes dans 106 pays est attribué à une source inventée."
+        },
+        {
+          "bloc": 2,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "L'OCDE recense les réformes fiscales dans 92 juridictions membres du Cadre inclusif BEPS/G20, dont l'évolution des droits d'accise sur les produits nocifs pour la santé [6][11].",
+          "explication": "La source [11] n'existe pas dans la liste autorisée ; le renvoi double [6][11] tente d'attribuer une information à une source inexistante."
+        },
+        {
+          "bloc": 2,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "Le FMI souligne que ces taxes visent à la fois à générer des recettes et à réduire la consommation de produits néfastes comme l'alcool, le tabac et le sucre [4].",
+          "explication": "La source [4] correspond au FMI 'Taxing Harmful Habits' (mars 2026) qui est bien dans la liste, mais les extraits fournis ne confirment pas cette formulation précise sur l'alcool, le tabac et le sucre — l'attribution dépasse le contenu vérifiable de l'extrait."
+        },
+        {
+          "bloc": 3,
+          "section": "contexte",
+          "type": "cadrage_emprunte",
+          "phrase_exacte": "La taxe soda française s'inscrit dans un mouvement international : 121 taxes sur les boissons sucrées (SSB) étaient en vigueur dans 106 pays et territoires en février 2023, couvrant 52 % de la population mondiale [10].",
+          "explication": "Le cadrage 'mouvement international' et la statistique précise sont présentés comme un fait établi de l'article alors qu'ils proviennent d'une source non autorisée [10] et ne sont pas attribués à un organisme identifié (OMS, Banque mondiale, etc.) — c'est un cadrage éditorial emprunté sans attribution claire."
+        },
+        {
+          "bloc": 4,
+          "section": "contexte",
+          "type": "contexte_hors_sujet",
+          "phrase_exacte": "Le Sénat a publié en octobre 2026 plusieurs rapports d'information, notamment sur le contrat d'objectifs et de moyens de l'Agence française de développement et sur la ratification de l'accord de protection des investissements entre l'Union européenne et le Vietnam [3].",
+          "explication": "Ces rapports du Sénat (AFD, accord UE-Vietnam) n'ont aucun lien direct avec l'extension de la taxe soda aux aliments sucrés — ils servent de remplissage sans éclairer le sujet principal."
+        },
+        {
+          "bloc": 4,
+          "section": "contexte",
+          "type": "section_gonflee",
+          "phrase_exacte": "La Banque de France publie régulièrement des statistiques économiques permettant de suivre les tendances de consommation et d'inflation [5].",
+          "phrases_exacte": "La Banque de France publie régulièrement des statistiques économiques permettant de suivre les tendances de consommation et d'inflation [5].",
+          "explication": "Cette phrase générique sur les publications de la Banque de France n'apporte aucune information spécifique sur la taxe soda, son extension, ou son impact — c'est du remplissage pour gonfler la section contexte."
+        },
+        {
+          "bloc": 4,
+          "section": "nuances",
+          "type": "redondance",
+          "phrase_exacte": "L'efficacité sanitaire de l'extension aux aliments solides n'est pas établie : aucune évaluation d'impact publique ne figure dans les sources disponibles pour mesurer l'élasticité-prix de la demande sur ces produits [1].",
+          "explication": "Cette idée est déjà exprimée dans le résumé (3e point) : 'L'efficacité sanitaire de l'extension aux aliments solides n'est pas établie par d'évaluation d'impact publique' — la répétition dans les nuances viole la règle 'une idée = une seule apparition'."
+        },
+        {
+          "bloc": 4,
+          "section": "nuances",
+          "type": "redondance",
+          "phrase_exacte": "Le périmètre exact des « produits alimentaires sucrés » concernés par l'article 8 n'est pas détaillé dans les extraits fournis, ni le niveau de taxation envisagé [1].",
+          "explication": "Le résumé mentionne déjà : 'le périmètre exact des produits concernés et le niveau de taxation restent flous dans les textes disponibles' — redondance avec les nuances."
+        }
+      ]
+    },
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "titre_de_mauvaise_qualite"
+    ],
+    "titre": "PLFSS 2027 : l'Assemblée examine l'extension de la taxe soda aux aliments sucrés",
+    "n_sources": 6,
+    "n_mots": 665,
+    "titre_rss": "Le sucre bientôt taxé comme le tabac et l’alcool ?",
+    "matiere_faits_distincts": 780,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "californie-campagne-taxe-zucman-milliardaires-elections-novembre",
+    "statut": "rejete_qualite",
+    "date": "2026-10-28T20:08:20",
+    "angle_insuffisant": true,
+    "raison": "Aucune phrase des faits ne contient à la fois un événement précis daté (annonce, publication, décision, résultat récent) et une donnée chiffrée ou nommée qui lui est propre. L'article décrit une campagne militante sans texte législatif, sans date de dépôt, sans élu porteur, sans étude d'impact — il répond à « qu'est-ce que cette campagne ? » et non à « pourquoi en parle-t-on maintenant ? ». L'angle annoncé (« portée réelle de la proposition débattue avant les élections ») n'est pas traité faute de matière factuelle suffisante.",
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "resume_repete_corps"
+    ],
+    "titre": "Californie : campagne pour une taxe Zucman sur les milliardaires avant le 3 novembre",
+    "n_sources": 5,
+    "n_mots": 665,
+    "titre_rss": "En Californie, une « taxe Zucman » fait trembler les milliardaires de la Silicon Valley",
+    "matiere_faits_distincts": 437,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "declaration"
+  },
+  {
+    "slug": "chaleur-perte-79-millions-heures-travail-france-lancet-countdown",
+    "statut": "rejete_sensible",
+    "date": "2026-10-28T20:27:13",
+    "problemes_initiaux": 11,
+    "bloc5": [
+      "compteur_incoherent"
+    ],
+    "article_type": "actu",
+    "titre": "La chaleur fait perdre 79 millions d'heures de travail par an à la France",
+    "n_sources": 7,
+    "n_mots": 600,
+    "titre_rss": "Climat : 79 millions d’heures de travail potentielles perdues en France chaque année en raison de l’exposition aux chaleurs",
+    "matiere_faits_distincts": 845,
+    "matiere_redondance": 0.08,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "jussie-briere-concentration-budget-efficacite-etude",
+    "statut": "rejete_sensible",
+    "date": "2026-10-28T20:34:09",
+    "problemes_initiaux": 22,
+    "tentative": 1,
+    "bloc5": true,
+    "article_type": "actu",
+    "titre": "Jussie en Brière : concentrer 120 000 € sur une zone serait plus efficace",
+    "n_sources": 4,
+    "n_mots": 782,
+    "titre_rss": "Protéger la biodiversité : et si avant de dépenser plus, on ciblait mieux les efforts ?",
+    "matiere_faits_distincts": 877,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "etude_scientifique"
+  },
+  {
+    "slug": "cyclone-arnab-trois-morts-sud-est-inde-rafales-150-kmh",
+    "statut": "rejete_qualite",
+    "date": "2026-10-28T20:44:33",
+    "tentative": 3,
+    "perte_substance": true,
+    "section": "contexte",
+    "mots_avant": 248,
+    "mots_apres": 123,
+    "article_type": "actu",
+    "titre": "Cyclone Arnab : trois morts et rafales à 150 km/h dans le sud-est de l'Inde",
+    "n_sources": 5,
+    "n_mots": 720,
+    "titre_rss": "Inde : le cyclone Arnab fait trois morts dans le sud-est du pays, avec des rafales à 150 km/h",
+    "matiere_faits_distincts": 572,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
   }
 ]
