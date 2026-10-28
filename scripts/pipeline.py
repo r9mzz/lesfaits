@@ -4591,6 +4591,32 @@ if "nvidia" in (os.getenv("LLM_BASE_URL", "") or "").lower():
     _RELANCES_FOURNISSEUR = 1
 
 
+def _equilibrer_hierarchie_sources(sources: list) -> list:
+    """Place en tête 2 primaires et 3 secondaires (si le pool en compte).
+
+    Run des 26-28/10 : « hiérarchie des sources insuffisante (3 primaires, 0-1
+    secondaire) » était le premier motif de refus à la grille vitrine, qui exige
+    1 primaire ET 2 secondaires (ou 5 secondaires). Cause : on injectait les 8 à
+    10 PREMIÈRES sources du pool « dans l'ordre de qualité », donc les primaires
+    d'abord ; le rédacteur ne pouvait pas citer des secondaires qu'on ne lui
+    donnait pas. Le pool, lui, en contenait (ex. 15 primaires, 11 secondaires).
+
+    On garantit la composition que la grille attend, puis on complète dans
+    l'ordre d'origine. Aucune source n'est ajoutée ni retirée du pool : on ne
+    change que l'ordre. Toute erreur rend la liste d'origine, intacte.
+    """
+    try:
+        from showcase_quality import _source_quality
+        classes = [(_source_quality(str(s.get("url") or "")), s) for s in sources]
+        primaires = [s for q, s in classes if q == "primaire"][:2]
+        secondaires = [s for q, s in classes if q == "secondaire"][:3]
+        tete = primaires + secondaires
+        ids = {id(s) for s in tete}
+        return tete + [s for s in sources if id(s) not in ids]
+    except Exception:
+        return sources
+
+
 def _extra_corps(modele: str) -> dict:
     """`extra_body` du SDK pour couper la réflexion d'un modèle raisonneur (NVIDIA)."""
     from modele_fournisseur import corps_sans_reflexion
@@ -8873,6 +8899,8 @@ def generer_article(item: dict, dry_run: bool, published: set, new_pub: set, dat
     # sous 6 injectées ferait échouer des sujets valides sur ce contrôle-là.
     if article_type == "breve":
         MIN_SOURCES_INJ, MAX_SOURCES_INJ = 6, 8
+    if ETOFFER_AU_LIEU_DE_CONVERTIR and article_type != "breve":
+        extra = _equilibrer_hierarchie_sources(extra)
     _retenues, _budget = [], 0
     for _s in extra:
         if len(_retenues) >= MAX_SOURCES_INJ:
@@ -9296,6 +9324,11 @@ def generer_article(item: dict, dry_run: bool, published: set, new_pub: set, dat
                         "sources (chiffres, dates, noms) — jamais de généralité ni de "
                         "répétition. Cite chaque source listée dans le texte par son "
                         "numéro, ou retire-la de la liste.")
+                    if any("hiérarchie des sources" in _w for _w in _why_v):
+                        _fb_v += (" La liste doit comporter au moins 1 source primaire "
+                                  "(institution, organisme officiel) ET 2 sources "
+                                  "secondaires (presse reconnue) : cite celles de la "
+                                  "liste fermée qui répondent à ces catégories.")
                     _art_v = generate(content, cat, extra_sources=extra, rss_url=item.get("url"),
                                       expand_feedback=_fb_v, article_type=article_type,
                                       previous_article=art)
