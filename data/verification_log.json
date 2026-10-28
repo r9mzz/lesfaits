@@ -44719,5 +44719,1271 @@
     "n_sources_injectees": 10,
     "n_sources_trouvees": 10,
     "nature_contenu": "etude_scientifique"
+  },
+  {
+    "slug": "changement-climatique-urgence-sanitaire-mondiale-lancet-countdown-2025",
+    "statut": "rejete_sensible",
+    "date": "2026-10-28T06:42:11",
+    "problemes_initiaux": 23,
+    "bloc5": [
+      "affaire_en_cours_presentee_comme_fait"
+    ],
+    "article_type": "actu",
+    "titre": "Le changement climatique qualifié d'urgence sanitaire mondiale par le Lancet Countdown 2025",
+    "n_sources": 8,
+    "n_mots": 813,
+    "titre_rss": "Le changement climatique est «une urgence sanitaire mondiale», selon le rapport The Lancet Countdown",
+    "matiere_faits_distincts": 1247,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "rapport"
+  },
+  {
+    "slug": "ebola-bundibugyo-rdc-10000-cas-sans-vaccin-ni-traitement",
+    "statut": "rejete_qualite",
+    "date": "2026-10-28T06:51:53",
+    "problemes_initiaux": 7,
+    "tentatives": 3,
+    "problemes_restants": 10,
+    "bloquants_restants": 6,
+    "bloquants_types": [
+      "chiffre_errone",
+      "incoherence_inter_sections",
+      "incoherence_inter_sections",
+      "niveau_preuve_insuffisant",
+      "source_inventee",
+      "source_inventee"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source BMJ [5] indique 3 360 cas confirmés et 1 487 décès au 27 juillet 2026, pas au 31 juillet 2026.",
+        "phrase": "La République démocratique du Congo concentre l'essentiel de cette flambée, avec 3 360 cas confirmés et 1 487 décès rapportés au 31 juillet 2026 selon le BMJ [5]."
+      },
+      {
+        "bloc": 1,
+        "type": "incoherence_inter_sections",
+        "description": "Le chapeau (résumé) et les faits affirment que le seuil des 10 000 cas a été franchi 'six mois après sa déclaration officielle', mais la source Sciences et Avenir [1] ne donne pas la date de déclaration officielle, renda",
+        "phrase": "L'épidémie d'Ebola causée par la souche Bundibugyo a franchi le cap des 10 000 cas recensés en Afrique, six mois après sa déclaration officielle [1]."
+      },
+      {
+        "bloc": 1,
+        "type": "incoherence_inter_sections",
+        "description": "La source BMJ [5] est datée du 27 juillet 2026 dans l'extrait, pas du 31 juillet 2026 comme écrit dans l'article (nuances) et dans les faits.",
+        "phrase": "Le chiffre de 3 360 cas confirmés en RDC provient du BMJ daté du 31 juillet 2026, soit potentiellement avant le franchissement du seuil des 10 000 cas au niveau continental [5]."
+      },
+      {
+        "bloc": 1,
+        "type": "niveau_preuve_insuffisant",
+        "description": "L'article rapporte que des candidats vaccins sont testés sans préciser le stade des essais (préclinique, phase 1, 2, 3), alors que la source OMS [4] ne le détaille pas non plus dans l'extrait fourni ; l'article ne doit p",
+        "phrase": "L'OMS indique toutefois que des travaux sont en cours pour tester des candidats vaccins, sans qu'aucun n'ait encore obtenu d'autorisation d'urgence pour cette souche spécifique [4]."
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "L'extrait de la source OMS [4] fourni ne mentionne pas le vaccin Ervebo ni l'évaluation de son efficacité croisée ; cette information n'est pas sourcée par les extraits autorisés.",
+        "phrase": "L'OMS évalue l'utilisation potentielle du vaccin Ervebo lors d'épidémies à virus Bundibugyo, mais son efficacité croisée n'est pas établie [4]."
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "L'extrait de la source OMS [4] fourni ne mentionne pas la souche Zaire, le vaccin Ervebo, ni la stratégie de vaccination en anneau ; ces affirmations ne sont pas appuyées par la source citée.",
+        "phrase": "Contrairement à la souche Zaire (Ebolavirus) pour laquelle le vaccin Ervebo est efficace et utilisé en stratégie de vaccination en anneau, la souche Bundibugyo ne bénéficie d'aucun contre-mesure médicale homologuée [4]."
+      }
+    ],
+    "types_restants": [
+      "chiffre_errone",
+      "incoherence_inter_sections",
+      "incoherence_inter_sections",
+      "niveau_preuve_insuffisant",
+      "source_inventee",
+      "source_inventee",
+      "paraphrase_structurelle",
+      "redondance",
+      "redondance",
+      "redondance"
+    ],
+    "article_type": "actu",
+    "titre": "Ebola Bundibugyo en RDC : plus de 10 000 cas, aucun vaccin ni traitement homologué",
+    "n_sources": 6,
+    "n_mots": 535,
+    "titre_rss": "Ebola: Plus de 10.000 cas recensés en Afrique, la RDC toujours à l'épicentre",
+    "matiere_faits_distincts": 923,
+    "matiere_redondance": 0.08,
+    "matiere_donnees_chiffrees": 2,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "cyberattaques-ia-responsabilite-penale-droit-francais",
+    "statut": "rejete_qualite",
+    "date": "2026-10-28T07:02:37",
+    "tentative": 1,
+    "angle_insuffisant": true,
+    "raison": "Aucune phrase des faits ne combine un événement précis daté (décision, publication, annonce récente) et une donnée chiffrée ou nommée qui lui est propre. L'article explique le cadre juridique et cite des statistiques annuelles, mais ne rapporte pas de fait déclencheur récent justifiant la publication maintenant (la procédure US est mentionnée sans date précise d'audience ou de dépôt, les stats sont annuelles 2023, la lettre ouverte date d'août 2026). Le texte répond à « qu'est-ce que la responsabilité pénale face aux IA ? » plutôt qu'à « pourquoi en parle-t-on aujourd'hui ? ».",
+    "article_type": "actu",
+    "titre": "Cyberattaques par IA : le casse-tête de la responsabilité pénale face aux agents autonomes",
+    "n_sources": 8,
+    "n_mots": 693,
+    "titre_rss": "Cyberattaques par des IA de pointe : le casse-tête de la responsabilité pénale",
+    "matiere_faits_distincts": 799,
+    "matiere_redondance": 0.09,
+    "matiere_donnees_chiffrees": 2,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "senat-rejette-projet-autonomie-corse-octobre-2026",
+    "statut": "corrige_automatiquement",
+    "date": "2026-10-28T07:11:50",
+    "problemes_initiaux": 9,
+    "tentatives": 3,
+    "problemes_residuels_style": 9,
+    "rapport_initial": {
+      "conforme": false,
+      "sujet_sensible": false,
+      "sujet_sensible_raison": "",
+      "angle_insuffisant": false,
+      "angle_insuffisant_raison": "",
+      "nature_contenu": "actualite_factuelle",
+      "problemes": [
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "chiffre_errone",
+          "phrase_exacte": "Le texte, numéroté 782 (2025-2026) à la Haute assemblée, a été voté défavorablement, mettant fin à son examen parlementaire [5].",
+          "explication": "La source [5] (dossier législatif Sénat) indique le numéro 869 (pjl24-869), pas 782 ; le chiffre 782 ne figure dans aucune source autorisée."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "La commission des lois du Sénat, saisie au fond, avait déposé son rapport n° 85 le 21 octobre 2026, présenté par la rapporteure Muriel Jourda [5].",
+          "explication": "Aucune source autorisée ne mentionne un rapport n° 85 ni la date du 21 octobre 2026 ; la source [5] ne confirme pas ces éléments."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "Le dossier législatif indique que le texte a été déposé au Sénat le 30 juillet 2025 par François Rebsamen, ministre de l'Aménagement du territoire et de la Décentralisation, avant d'être retiré par le Premier ministre le 27 avril 2026, puis redéposé à l'Assemblée nationale [5].",
+          "explication": "La source [5] (dossier législatif Sénat) ne contient pas ces dates ni le nom de François Rebsamen ; ces faits sont attribués à une source qui ne les confirme pas."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "Le Conseil d'État avait rendu un avis « particulièrement étayé et critique » sur le projet, dont les préconisations n'avaient pas été retenues par le gouvernement avant la transmission au Parlement [2].",
+          "explication": "La source [2] (Radiofrance, journal du 27/10/2026) ne mentionne pas d'avis du Conseil d'État ; cette citation est attribuée à une source qui ne la contient pas."
+        },
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "source_derivee_comptee_comme_primaire",
+          "phrase_exacte": "Le Sénat a rejeté le projet de loi constitutionnelle pour une Corse autonome au sein de la République lors de la séance publique du 26 octobre 2026 [5]. Ce projet, issu du « processus de Beauvau » engagé au printemps 2022 sous l'égide de Gérald Darmanin, alors ministre de l'Intérieur, avait été adopté en première lecture par l'Assemblée nationale le 23 juin 2026 [2].",
+          "explication": "Les sources [2] (Radiofrance) et [5] (dossier législatif Sénat) ne sont pas indépendantes : [2] relaie l'information issue du dossier parlementaire ; le compte 'primaire: 8' surestime le nombre de sources primaires distinctes."
+        },
+        {
+          "bloc": 2,
+          "section": "contexte",
+          "type": "compteur_incoherent",
+          "phrase_exacte": "nb_sources: 11",
+          "explication": "Sur les 11 sources listées, 3 (WHO, Europa COM(2026)0506, Europa Forward look 2026) sont totalement hors sujet (tuberculose, politique commerciale UE) et ne sont citées nulle part dans le texte ; le compteur intègre des sources fantômes."
+        },
+        {
+          "bloc": 4,
+          "section": "contexte",
+          "type": "contexte_hors_sujet",
+          "phrase_exacte": "Le Conseil d'État avait rendu un avis « particulièrement étayé et critique » sur le projet, dont les préconisations n'avaient pas été retenues par le gouvernement avant la transmission au Parlement [2].",
+          "explication": "Cet élément n'est pas documenté par la source [2] et n'éclaire pas directement le rejet du 26 octobre 2026 ; il s'agit d'un développement non sourcé inséré dans le contexte."
+        },
+        {
+          "bloc": 4,
+          "section": "nuances",
+          "type": "redondance",
+          "phrase_exacte": "Le rejet par le Sénat ne clôt pas nécessairement le débat sur l'évolution statutaire de la Corse, le gouvernement pouvant décider de relancer la procédure ou d'engager une nouvelle concertation [5].",
+          "explication": "Cette idée (suites incertaines, possibilité de relance) est déjà présente dans le titre_nuances 'Un compromis rompu, des suites incertaines' et dans le résumé ; la charte interdit la répétition d'une même idée d'une section à l'autre."
+        },
+        {
+          "bloc": 4,
+          "section": "nuances",
+          "type": "extrapolation",
+          "phrase_exacte": "Les données démographiques et sociales de l'île (vieillissement, pauvreté, croissance par solde migratoire) constituent un arrière-plan structurel que le texte constitutionnel ne traitait pas directement [9].",
+          "explication": "L'affirmation selon laquelle le texte constitutionnel ne traitait pas directement ces données est une interprétation non sourcée ; la source [9] (INSEE) ne fait que décrire la démographie, elle ne commente pas le contenu du projet de loi."
+        }
+      ]
+    },
+    "article_type": "actu",
+    "titre": "Le Sénat rejette le projet constitutionnel d'autonomie pour la Corse",
+    "n_sources": 11,
+    "n_mots": 733,
+    "titre_rss": "Autonomie de la Corse : le Sénat rejette la réforme constitutionnelle",
+    "matiere_faits_distincts": 1204,
+    "matiere_redondance": 0.04,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "rechauffement-onu-objectif-1-5-c-hors-atteinte-trajectoire-2-6-c",
+    "statut": "rejete_sensible",
+    "date": "2026-10-28T07:15:20",
+    "problemes_initiaux": 13,
+    "bloc5": [
+      "extrapolation"
+    ],
+    "article_type": "actu",
+    "titre": "Réchauffement : l'ONU juge l'objectif de 1,5 °C hors d'atteinte, trajectoire vers 2,6 °C",
+    "n_sources": 4,
+    "n_mots": 542,
+    "titre_rss": "Climat: le monde vers un réchauffement de 2,6°C, mais il est encore temps d'agir, selon l'ONU",
+    "matiere_faits_distincts": 876,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "rapport"
+  },
+  {
+    "slug": "ebola-bundibugyo-vaccins-zaire-anticorps-croises-preuves-insuffisantes",
+    "statut": "conforme_du_premier_coup",
+    "date": "2026-10-28T07:20:27",
+    "article_type": "actu",
+    "titre": "Ebola Bundibugyo : les vaccins anti-Zaïre induisent des anticorps croisés mais sans preuve d'efficacité clinique",
+    "n_sources": 5,
+    "n_mots": 650,
+    "titre_rss": "Épidémie d’Ebola Bundibugyo : des premiers résultats pour guider la recherche d’un vaccin efficace",
+    "matiere_faits_distincts": 874,
+    "matiere_redondance": 0.03,
+    "matiere_donnees_chiffrees": 2,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "veille_heures_visible": 517.7,
+    "veille_passages": 311,
+    "veille_age_h": 1853.1,
+    "veille_n_flux_grappe": 9,
+    "nature_contenu": "etude_scientifique"
+  },
+  {
+    "slug": "cop17-biodiversite-objectif-reduction-subventions-nefastes-500-milliards",
+    "statut": "rejete_qualite",
+    "date": "2026-10-28T07:28:55",
+    "problemes_initiaux": 14,
+    "tentatives": 3,
+    "problemes_restants": 14,
+    "bloquants_restants": 2,
+    "bloquants_types": [
+      "chiffre_errone",
+      "chiffre_errone"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [6] (UN, 19 octobre 2026) indique que la COP16 s'est tenue à Cali en octobre 2024 et que la COP17 aura lieu en Arménie en 2026 ; elle ne dit pas qu'elle s'est ouverte le 20 octobre 2026 à Erevan. La date et le ",
+        "phrase": "La dix-septième Conférence des parties (COP17) à la Convention sur la diversité biologique s'est ouverte lundi 20 octobre à Erevan, en Arménie, pour un premier bilan mondial à mi-parcours de l'accord de Kunming-Montréal "
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "Même erreur que dans les faits : la source [6] ne mentionne pas l'ouverture d'une COP17 à Erevan le 20 octobre 2026. Le résumé reprend une date et un lieu non confirmés par la source.",
+        "phrase": "La COP17 s'est ouverte à Erevan le 20 octobre avec un constat d'échec : les objectifs nationaux de biodiversité ne sont pas sur la bonne voie, et la cible phare de réduction des subventions néfastes n'a pas été engagée."
+      }
+    ],
+    "types_restants": [
+      "chiffre_errone",
+      "chiffre_errone",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "compteur_incoherent"
+    ],
+    "article_type": "actu",
+    "titre": "COP17 biodiversité : l'objectif de réduire de 500 milliards les subventions néfastes reste lettre morte",
+    "n_sources": 6,
+    "n_mots": 685,
+    "titre_rss": "COP biodiversité : les « subventions néfastes » à la nature au centre des négociations",
+    "matiere_faits_distincts": 1060,
+    "matiere_redondance": 0.14,
+    "matiere_donnees_chiffrees": 2,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "surmortalite-juin-2026-hausse-29-pour-cent-deces-supplementaires",
+    "statut": "conforme_du_premier_coup",
+    "date": "2026-10-28T07:31:22",
+    "article_type": "actu",
+    "titre": "Surmortalité de 29 % fin juin 2026 : 2 025 décès supplémentaires en une semaine",
+    "n_sources": 4,
+    "n_mots": 636,
+    "titre_rss": "Point de situation sur la mortalité toutes causes confondues  sur la période du 22 au 28 juin 2026",
+    "matiere_faits_distincts": 966,
+    "matiere_redondance": 0.01,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "veille_heures_visible": 221.3,
+    "veille_passages": 74,
+    "veille_age_h": 1556.7,
+    "veille_n_flux_grappe": 1,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "inserm-sept-fausses-idees-vaccins-campagne-grippe-covid-2026",
+    "statut": "rejete_qualite",
+    "date": "2026-10-28T07:41:49",
+    "tentative": 3,
+    "perte_substance": true,
+    "section": "contexte",
+    "mots_avant": 237,
+    "mots_apres": 115,
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "titre_de_mauvaise_qualite"
+    ],
+    "titre": "L'Inserm met à jour ses sept fausses idées sur les vaccins pour la campagne grippe-Covid du 13 octobre",
+    "n_sources": 5,
+    "n_mots": 1037,
+    "titre_rss": "Sept fausses idées sur les vaccins",
+    "matiere_faits_distincts": 1040,
+    "matiere_redondance": 0.07,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "melanome-vaccin-arnm-personnalise-reduit-42-recidive-deces",
+    "statut": "rejete_qualite",
+    "date": "2026-10-28T07:49:52",
+    "problemes_initiaux": 5,
+    "tentatives": 3,
+    "problemes_restants": 13,
+    "bloquants_restants": 10,
+    "bloquants_types": [
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "La source [1] (Futura Sciences) ne contient pas ces détails techniques (34 néo-antigènes, nanoparticules lipidiques, délai de production ramené à 4 semaines, coût >100 000 $) dans les extraits fournis : le renvoi [1] att",
+        "phrase": "Le vaccin mRNA-4157 est fabriqué individuellement pour chaque patient : le séquençage de la tumeur identifie jusqu'à 34 néo-antigènes spécifiques, encodés dans une seule molécule d'ARNm encapsulée dans des nanoparticules"
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "La source [1] (Futura Sciences) ne contient pas ces chiffres de toxicité (25 % vs 20 %, grade 3-4) dans les extraits fournis : le renvoi [1] attribue à cette source des faits qu'elle ne confirme pas.",
+        "phrase": "Les effets indésirables de grade 3 ou 4 liés au traitement sont survenus chez 25 % des patients du bras combiné contre 20 % sous pembrolizumab seul, sans nouveau signal de sécurité inattendu [1]."
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "La source [1] (Futura Sciences) ne contient pas ce chiffre de réduction de risque de 40 % versus placebo dans les extraits fournis : le renvoi [1] attribue à cette source un fait qu'elle ne confirme pas.",
+        "phrase": "Le traitement standard adjuvant des stades III-IV reposait jusqu'ici sur l'immunothérapie anti-PD-1 seule (pembrolizumab ou nivolumab), réduisant le risque de récidive d'environ 40 % versus placebo [1]."
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "La source [1] (Futura Sciences) ne contient pas ce chiffre de 120 essais ni les détails sur plateformes ARNm auto-amplifiant/circulaire dans les extraits fournis : le renvoi [1] attribue à cette source des faits qu'elle ",
+        "phrase": "Parallèlement, plus de 120 essais cliniques évaluent actuellement des vaccins à ARNm contre divers cancers solides, dont le pancréas et le glioblastome, avec des plateformes à ARNm auto-amplifiant ou circulaire en dévelo"
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "La source [1] (Futura Sciences) ne contient pas ces données épidémiologiques françaises (10 %, 17 900 cas 2023, triplement depuis 1990) dans les extraits fournis : le renvoi [1] attribue à cette source des faits qu'elle ",
+        "phrase": "Le mélanome cutané, bien que ne représentant que 10 % des cancers de la peau en France, en constitue la forme la plus létale avec environ 17 900 nouveaux cas estimés en 2023 et une incidence qui a plus que triplé depuis "
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "La source [1] (Futura Sciences) ne contient pas cette affirmation sur l'absence de voie de remboursement définie par aucun système de santé dans les extraits fournis : le renvoi [1] attribue à cette source un fait qu'ell",
+        "phrase": "La fabrication personnalisée, bien qu'accélérée, pose des défis logistiques et économiques majeurs pour un déploiement à grande échelle, aucun système de santé n'ayant encore défini de voie de remboursement pour ce type "
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "La source [1] (Futura Sciences) ne précise pas l'absence de randomisation en aveugle ni la nécessité d'une cohorte plus diverse dans les extraits fournis : le renvoi [1] attribue à cette source des faits qu'elle ne confi",
+        "phrase": "L'essai KEYNOTE-942 reste une étude de phase 2b à taille d'échantillon limitée (157 patients) sans randomisation en aveugle ; les résultats nécessitent une confirmation en phase 3 sur une cohorte plus large et plus diver"
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "La source [1] (Futura Sciences) ne contient pas cette affirmation sur le critère de référence pour l'approbation réglementaire dans les extraits fournis : le renvoi [1] attribue à cette source un fait qu'elle ne confirme",
+        "phrase": "Le suivi médian de trois ans est insuffisant pour établir l'impact sur la survie globale, critère de référence pour l'approbation réglementaire [1]."
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "La source [1] (Futura Sciences) ne contient pas l'affirmation 'première démonstration d'efficacité clinique d'un vaccin à ARNm personnalisé contre un cancer solide' dans les extraits fournis : le renvoi [1] attribue à ce",
+        "phrase": "Ce résultat, obtenu sur 157 patients randomisés, constitue la première démonstration d'efficacité clinique d'un vaccin à ARNm personnalisé contre un cancer solide, chaque dose étant conçue sur mesure à partir des mutatio"
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "La source [1] (Futura Sciences) ne contient pas l'expression 'approche onéreuse' ni la formulation sur l'efficacité réelle en pratique courante dans les extraits fournis : le renvoi [1] attribue à cette source des faits ",
+        "phrase": "L'essai n'ayant pas encore publié de données de survie globale à long terme ni de résultats en phase 3, l'efficacité réelle en pratique courante et la généralisation de cette approche onéreuse restent à confirmer [1]."
+      }
+    ],
+    "types_restants": [
+      "contexte_hors_sujet",
+      "contexte_hors_sujet",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "compteur_incoherent"
+    ],
+    "article_type": "actu",
+    "titre": "Vaccin ARNm personnalisé : 42 % de risque en moins après chirurgie du mélanome",
+    "n_sources": 4,
+    "n_mots": 620,
+    "titre_rss": "Cancer de la peau : un vaccin personnalisé réduit de 42 % le risque de récidive ou de décès après l'opération",
+    "matiere_faits_distincts": 995,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "etude_scientifique"
+  },
+  {
+    "slug": "plfss-2027-rejete-assemblee-nationale-transmis-senat",
+    "statut": "rejete_qualite",
+    "date": "2026-10-28T07:55:04",
+    "problemes_initiaux": 5,
+    "tentatives": 3,
+    "problemes_restants": 9,
+    "bloquants_restants": 4,
+    "bloquants_types": [
+      "chiffre_errone",
+      "chiffre_errone",
+      "incoherence_inter_sections",
+      "source_inventee"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "Le résumé affirme que les mesures proposées n'ont pas convaincu la représentation nationale, mais la source [1] (Le Monde) indique que le rejet a rassemblé 317 voix pour et 197 contre, soit une majorité large (quasi-unan",
+        "phrase": "Ce vote intervient alors que la Cour des comptes préconisait un effort de réduction du déficit pour l'exercice à venir, estimant le déficit prévisionnel à 15,4 milliards d'euros, sans que les mesures proposées n'aient co"
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [1] (Le Monde) titre 'rejeté à la quasi-unanimité' ; 317 pour / 197 contre représente environ 61,6 % pour le rejet, ce qui n'est pas une quasi-unanimité (terme qui implique >90 %). Le chiffre de voix est peut-ê",
+        "phrase": "Ce rejet a rassemblé 317 voix pour, 197 contre, un résultat attendu depuis l'ouverture des débats en séance publique le 20 octobre [1]."
+      },
+      {
+        "bloc": 1,
+        "type": "incoherence_inter_sections",
+        "description": "Le chapeau (résumé) dit 'lors du vote du 23 octobre 2026, une issue prévue dès l'ouverture des débats trois jours plus tôt' (soit le 20 octobre), mais les faits indiquent 'un résultat attendu depuis l'ouverture des débat",
+        "phrase": "Le projet de loi de financement de la Sécurité sociale (PLFSS) pour 2027 a été rejeté par l'Assemblée nationale le 23 octobre 2026 en première lecture [1]."
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "La source [2] (Vie Publique 'Projet de loi de financement de la sécurité sociale pour 2027') est citée pour des mesures précises (financement établissements de santé, régulation médicaments, évolution cotisations), mais ",
+        "phrase": "Le PLFSS 2027 prévoit des mesures structurelles sur le financement des établissements de santé, la régulation des dépenses de médicaments et l'évolution des cotisations sociales [2], dans un contexte où le déficit du rég"
+      }
+    ],
+    "types_restants": [
+      "chiffre_errone",
+      "chiffre_errone",
+      "incoherence_inter_sections",
+      "compteur_incoherent",
+      "source_inventee",
+      "cadrage_emprunte",
+      "redondance",
+      "redondance",
+      "section_gonflee"
+    ],
+    "article_type": "actu",
+    "titre": "Le PLFSS 2027 rejeté par l'Assemblée, le texte transmis au Sénat",
+    "n_sources": 6,
+    "n_mots": 491,
+    "titre_rss": "Le budget de la Sécurité sociale pour 2027 rejeté à la quasi-unanimité par l’Assemblée nationale en première lecture ; le texte transmis au Sénat",
+    "matiere_faits_distincts": 729,
+    "matiere_redondance": 0.05,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "biodiversite-migration-especes-rechauffement-poles-sommets",
+    "statut": "rejete_qualite",
+    "date": "2026-10-28T08:08:33",
+    "tentative": 3,
+    "perte_substance": true,
+    "section": "nuances",
+    "mots_avant": 130,
+    "mots_apres": 56,
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "titre_de_mauvaise_qualite"
+    ],
+    "titre": "1 888 espèces suivies : plus de la moitié migrent vers le nord selon le CNRS",
+    "n_sources": 4,
+    "n_mots": 718,
+    "titre_rss": "Biodiversité : ruée vers les pôles et les sommets",
+    "matiere_faits_distincts": 963,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 2,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "etude_scientifique"
+  },
+  {
+    "slug": "budget-2027-yael-braun-pivet-49-3-sebastien-lecornu",
+    "statut": "corrige_automatiquement",
+    "date": "2026-10-28T08:15:39",
+    "problemes_initiaux": 12,
+    "tentatives": 3,
+    "problemes_residuels_style": 9,
+    "rapport_initial": {
+      "conforme": false,
+      "sujet_sensible": false,
+      "sujet_sensible_raison": "",
+      "angle_insuffisant": false,
+      "angle_insuffisant_raison": "",
+      "nature_contenu": "actualite_factuelle",
+      "problemes": [
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "Yaël Braun-Pivet a appelé Sébastien Lecornu à « activer le 49.3 dans les prochains jours plutôt que de jouer la montre » concernant le budget 2027 [1].",
+          "explication": "La source [1] (20 Minutes) mentionne Yaël Braun-Pivet et Michel Barnier, pas Sébastien Lecornu. Le Premier ministre en octobre 2026 est Michel Barnier selon la source, l'article attribue la citation à un autre Premier ministre."
+        },
+        {
+          "bloc": 1,
+          "section": "titre",
+          "type": "source_inventee",
+          "phrase_exacte": "Budget 2027 : Yaël Braun-Pivet presse Sébastien Lecornu d'activer le 49.3",
+          "explication": "Le titre cite Sébastien Lecornu comme Premier ministre destinataire de l'appel, mais la source [1] ne mentionne que Michel Barnier comme Premier ministre concerné."
+        },
+        {
+          "bloc": 1,
+          "section": "resume",
+          "type": "source_inventee",
+          "phrase_exacte": "Yaël Braun-Pivet, présidente de l'Assemblée nationale, a publiquement incité le Premier ministre Sébastien Lecornu à recourir à l'article 49.3 de la Constitution pour faire adopter le projet de loi de finances 2027 sans vote.",
+          "explication": "Le résumé attribue l'incitation à Sébastien Lecornu, or la source [1] ne cite que Michel Barnier comme Premier ministre."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "incoherence_inter_sections",
+          "phrase_exacte": "Yaël Braun-Pivet a appelé Sébastien Lecornu à « activer le 49.3 dans les prochains jours plutôt que de jouer la montre » concernant le budget 2027 [1].",
+          "explication": "Contradiction interne : la source [1] cite Michel Barnier comme Premier ministre, l'article écrit Sébastien Lecornu. Deux noms différents pour la même fonction au même moment."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "chiffre_errone",
+          "phrase_exacte": "Depuis 2017, les gouvernements successifs y ont eu recours à de multiples reprises pour les lois de finances et de financement de la sécurité sociale.",
+          "explication": "Aucune source fournie ne chiffre le nombre de recours au 49.3 depuis 2017. L'affirmation « de multiples reprises » est une extrapolation non sourcée."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "chiffre_errone",
+          "phrase_exacte": "En 2023, Élisabeth Borne l'avait activé pour le budget 2024, survivant de justesse aux motions de censure qui avaient suivi.",
+          "explication": "Aucune source fournie ne mentionne Élisabeth Borne, le budget 2024, ni des motions de censure de 2023. Information absente des sources autorisées."
+        },
+        {
+          "bloc": 1,
+          "section": "nuances",
+          "type": "chiffre_errone",
+          "phrase_exacte": "Le gouvernement n'a pas réagi publiquement à cet appel dans les heures qui ont suivi.",
+          "explication": "La source [1] ne contient aucune information sur une réaction ou non-réaction du gouvernement dans les heures qui ont suivi. Affirmation non sourcée."
+        },
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "compteur_incoherent",
+          "phrase_exacte": "nb_sources: 6",
+          "explication": "Le champ nb_sources indique 6, mais la source [5] (Parlement européen - Informations prioritaires) n'est jamais citée dans le texte (aucun renvoi [5]). Une source listée mais inutilisée fausse le compteur."
+        },
+        {
+          "bloc": 4,
+          "section": "contexte",
+          "type": "redondance",
+          "phrase_exacte": "Le recours au 49.3 sur les textes budgétaires est devenu fréquent sous la Ve République. Depuis 2017, les gouvernements successifs y ont eu recours à de multiples reprises pour les lois de finances et de financement de la sécurité sociale.",
+          "explication": "Le titre de la section contexte « Un outil constitutionnel banalisé mais risqué sans majorité absolue » résume déjà l'idée de banalisation/fréquence. Le premier paragraphe répète cette idée sans apporter de fait nouveau sourcé."
+        },
+        {
+          "bloc": 4,
+          "section": "contexte",
+          "type": "contexte_hors_sujet",
+          "phrase_exacte": "Au niveau européen, le budget 2027 marque la fin du cadre financier pluriannuel 2021-2027. Les négociations entre le Conseil et le Parlement européen se déroulent selon la procédure budgétaire annuelle, avec une conciliation prévue en novembre 2026 pour aboutir à un accord final avant la fin de l'année [2][3][4]. Le Parlement européen a par ailleurs adopté en avril 2026 sa position de négociation pour le prochain cadre 2028-2034, prévoyant une augmentation modérée de l'enveloppe globale et de nouvelles ressources propres [6].",
+          "explication": "L'article porte sur l'appel de Yaël Braun-Pivet au Premier ministre français pour le budget national 2027. Le développement sur le budget européen 2027 et le cadre 2028-2034 n'éclaire pas le sujet principal (procédure budgétaire française, 49.3, majorité à l'Assemblée)."
+        },
+        {
+          "bloc": 4,
+          "section": "nuances",
+          "type": "redondance",
+          "phrase_exacte": "S'agissant du budget européen 2027, les positions du Conseil et du Parlement présentent des différences sur les montants alloués aux programmes phares et sur la flexibilité des marges, qui devront être résolues en conciliation. Le calendrier serré laisse peu de marge pour un accord avant le 1er janvier 2027 [3][4].",
+          "explication": "Répète l'information du contexte sur la conciliation budgétaire européenne (novembre 2026, accord avant fin d'année) sans lien avec le sujet principal (49.3 français)."
+        },
+        {
+          "bloc": 4,
+          "section": "nuances",
+          "type": "extrapolation",
+          "phrase_exacte": "Le choix du moment précis d'un éventuel 49.3 dépendra de l'avancement des discussions avec les groupes parlementaires et de l'évaluation du risque de censure.",
+          "explication": "Aucune source ne décrit le processus de décision du gouvernement pour le timing du 49.3. Spéculation non sourcée présentée comme analyse factuelle."
+        }
+      ]
+    },
+    "article_type": "actu",
+    "titre": "Budget 2027 : Yaël Braun-Pivet presse Sébastien Lecornu d'activer le 49.3",
+    "n_sources": 6,
+    "n_mots": 668,
+    "titre_rss": "Budget 2027 : Yaël Braun-Pivet incite Sébastien Lecornu à « activer le 49.3 »",
+    "matiere_faits_distincts": 562,
+    "matiere_redondance": 0.04,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "plfss-2027-assemblee-examine-extension-taxe-soda-produits-sucres",
+    "statut": "corrige_automatiquement",
+    "date": "2026-10-28T08:29:10",
+    "problemes_initiaux": 7,
+    "tentatives": 3,
+    "problemes_residuels_style": 13,
+    "rapport_initial": {
+      "conforme": false,
+      "sujet_sensible": false,
+      "sujet_sensible_raison": "",
+      "angle_insuffisant": false,
+      "angle_insuffisant_raison": "",
+      "nature_contenu": "actualite_factuelle",
+      "problemes": [
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "chiffre_errone",
+          "phrase_exacte": "Mardi 20 octobre, les députés ouvrent les débats sur le budget 2027 de la Sécurité sociale, avec à l'ordre du jour l'élargissement de la taxe soda aux aliments transformés riches en sucres ajoutés.",
+          "explication": "La source [1] est datée du 20 octobre 2026, donc l'événement se situe en 2026, pas en 2027 ; le PLFSS examiné est celui pour 2027, mais le débat a lieu en octobre 2026."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "chiffre_errone",
+          "phrase_exacte": "L'Assemblée nationale a ouvert mardi 20 octobre l'examen en première lecture du projet de loi de financement de la Sécurité sociale (PLFSS) pour 2027.",
+          "explication": "Même erreur : la source [1] porte la date du 20 octobre 2026, l'article omet l'année ce qui laisse croire à un 20 octobre 2027."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "chiffre_errone",
+          "phrase_exacte": "Son rapport 2026 indique que 116 pays taxent ces boissons, mais que la taxe médiane ne représente qu'environ 2 % du prix d'un soda courant",
+          "explication": "La source [3] est datée du 13 janvier 2026 et ne peut pas contenir un « rapport 2026 » ; il s'agit probablement du rapport 2025 ou antérieur publié début 2026."
+        },
+        {
+          "bloc": 1,
+          "section": "nuances",
+          "type": "source_inventee",
+          "phrase_exacte": "Le Parlement européen a étudié l'élasticité croisée entre cigarettes et tabac à rouler, fixée à 0,3 dans la littérature économique, ce qui illustre la complexité de modéliser les effets de substitution entre produits taxés et non taxés [6].",
+          "explication": "La source [6] est une étude du Parlement européen sur l'élasticité croisée cigarettes/tabac à rouler, sans lien avec la taxation des produits sucrés ; elle est utilisée hors sujet pour étayer un point sur la substitution sucre."
+        },
+        {
+          "bloc": 2,
+          "section": "contexte",
+          "type": "contexte_hors_sujet",
+          "phrase_exacte": "L'OCDE suit les réformes fiscales dans 92 juridictions membres du Cadre inclusif BEPS/G20 et publie chaque année un rapport comparatif sur les évolutions de politique fiscale, dont la taxation des produits sucrés fait partie [5].",
+          "explication": "La source [5] (OECD Tax Policy Reforms 2026) est un rapport général sur les réformes fiscales ; rien dans les extraits ne montre qu'elle documente spécifiquement la taxation des produits sucrés en France ou l'article 8 du PLFSS 2027."
+        },
+        {
+          "bloc": 4,
+          "section": "resume",
+          "type": "angle_annonce_non_tenu",
+          "phrase_exacte": "L'enjeu dépasse le seul rendement budgétaire : l'OMS considère que la fiscalité mondiale actuelle sur les boissons sucrées reste trop faible pour freiner l'obésité et le diabète, et recommande un taux minimal de 20 % du prix de vente.",
+          "explication": "Le résumé annonce un angle sur la recommandation OMS de 20 %, mais les « nuances » ne reviennent pas sur ce seuil ni sur son applicabilité au projet français ; l'angle n'est pas tenu."
+        },
+        {
+          "bloc": 4,
+          "section": "nuances",
+          "type": "extrapolation",
+          "phrase_exacte": "Le Parlement européen a étudié l'élasticité croisée entre cigarettes et tabac à rouler, fixée à 0,3 dans la littérature économique, ce qui illustre la complexité de modéliser les effets de substitution entre produits taxés et non taxés [6].",
+          "explication": "Utiliser une élasticité tabac (0,3) pour extrapoler la complexité des effets de substitution sur les produits sucrés n'est pas sourcé ; aucune source ne fait ce parallèle."
+        }
+      ]
+    },
+    "article_type": "actu",
+    "titre": "PLFSS 2027 : l'Assemblée examine l'extension de la taxe soda aux produits sucrés",
+    "n_sources": 6,
+    "n_mots": 859,
+    "titre_rss": "Le sucre bientôt taxé comme le tabac et l’alcool ?",
+    "matiere_faits_distincts": 866,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "oxfam-ultra-riches-double-profit-crise-climatique-rapport-27-octobre",
+    "statut": "rejete_sensible",
+    "date": "2026-10-28T08:40:07",
+    "problemes_initiaux": 11,
+    "tentative": 1,
+    "bloc5": true,
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "titre_de_mauvaise_qualite"
+    ],
+    "titre": "Oxfam : 217 entreprises profitent de la destruction et reconstruction climatique, 1 000 milliards d'investissements identifiés",
+    "n_sources": 4,
+    "n_mots": 693,
+    "titre_rss": "Détruire puis réparer : ces investisseurs qui gagnent sur les deux fronts de la crise climatique",
+    "matiere_faits_distincts": 768,
+    "matiere_redondance": 0.03,
+    "matiere_donnees_chiffrees": 2,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "rapport"
+  },
+  {
+    "slug": "soldat-ukrainien-evacue-drone-62-km-front",
+    "statut": "rejete_qualite",
+    "date": "2026-10-28T09:01:14",
+    "problemes_initiaux": 8,
+    "tentatives": 3,
+    "problemes_restants": 9,
+    "bloquants_restants": 3,
+    "bloquants_types": [
+      "source_inventee",
+      "source_inventee",
+      "source_inventee"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "La source [1] (France Info) ne traite que de l'évacuation d'un soldat par drone ; elle ne documente pas un « recours massif aux drones dans les dimensions aérienne, navale et terrestre ». Cette affirmation générale est i",
+        "phrase": "Le conflit en Ukraine a vu un recours massif aux drones dans les dimensions aérienne, navale et terrestre, selon France Info qui rapporte cette évolution technologique sur le terrain [1]."
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "La source [1] ne contient aucune analyse sur une « dynamique d'extension continue des missions » des drones (renseignement, attaque, logistique, secours). Ce cadrage éditorial est attribué à tort à France Info.",
+        "phrase": "L'usage de drones pour l'évacuation de blessés s'inscrit dans une dynamique d'extension continue des missions dévolues aux systèmes non habités, passant du renseignement à l'attaque, à la logistique et désormais au secou"
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "La source [1] mentionne que les moyens conventionnels restent la norme, mais l'article l'utilise pour étayer une affirmation de contexte général (« Cette première documentée intervient alors que… ») qui n'est pas dans la",
+        "phrase": "Cette première documentée intervient alors que les moyens conventionnels — hélicoptères ou véhicules blindés — restent la norme pour le secours au combat, selon le même média [1]."
+      }
+    ],
+    "types_restants": [
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "contexte_hors_sujet",
+      "contexte_hors_sujet",
+      "source_derivee_comptee_comme_primaire",
+      "section_gonflee",
+      "redondance",
+      "redondance"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "article_sans_date"
+    ],
+    "titre": "Un soldat ukrainien évacué par drone sur 62 km depuis le front",
+    "n_sources": 4,
+    "n_mots": 522,
+    "titre_rss": "\"L'évacuation se déroule en quelques minutes\" : un soldat blessé évacué par drone sur 62 km en Ukraine",
+    "matiere_faits_distincts": 979,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "thrombinnov-startup-deeptech-strasbourg-plaquettes-recherche",
+    "statut": "rejete_qualite",
+    "date": "2026-10-28T09:09:27",
+    "angle_insuffisant": true,
+    "raison": "Aucune phrase dans 'faits' ne contient à la fois un événement précis daté (annonce, publication, décision, résultat récent) et une donnée chiffrée ou nommée qui lui est propre. L'article explique le concept de la startup et son contexte sans jamais dire ce qui vient de se passer concrètement pour justifier une publication maintenant (ex: lancement officiel, premier contrat, levée de fonds, inauguration).",
+    "article_type": "actu",
+    "titre": "ThrombInnov : une startup deeptech strasbourgeoise valorise 40 ans de recherche sur les plaquettes",
+    "n_sources": 4,
+    "n_mots": 576,
+    "titre_rss": "L’entrepreneuriat dans le sang !",
+    "matiere_faits_distincts": 1151,
+    "matiere_redondance": 0.01,
+    "matiere_donnees_chiffrees": 3,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "sujet_pedagogique"
+  },
+  {
+    "slug": "deces-claude-cohen-tannoudji-prix-nobel-physique-1997-atomes-froids",
+    "statut": "rejete_qualite",
+    "date": "2026-10-28T09:18:31",
+    "problemes_initiaux": 8,
+    "tentatives": 3,
+    "problemes_restants": 8,
+    "bloquants_restants": 1,
+    "bloquants_types": [
+      "chiffre_errone"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [3] (CERN, 1998) ne mentionne pas les plateformes de calcul quantique à atomes neutres, technologie postérieure à 1998 ; l'attribution [3] est donc fausse pour cette partie de la phrase.",
+        "phrase": "Ces avancées ont rendu possible la manipulation d'atomes presque immobiles, condition indispensable aux horloges atomiques à fontaine de césium, aux interféromètres atomiques et plus récemment aux plateformes de calcul q"
+      }
+    ],
+    "types_restants": [
+      "chiffre_errone",
+      "contexte_hors_sujet",
+      "source_inventee",
+      "source_non_editoriale",
+      "compteur_incoherent",
+      "source_derivee_comptee_comme_primaire",
+      "section_gonflee",
+      "redondance"
+    ],
+    "article_type": "actu",
+    "titre": "Décès de Claude Cohen-Tannoudji, prix Nobel de physique 1997 et pionnier des atomes froids",
+    "n_sources": 4,
+    "n_mots": 459,
+    "titre_rss": "Il avait pavé la voie aux ordinateurs quantiques avec atomes froids : le prix Nobel Claude Cohen-Tannoudji est décédé",
+    "matiere_faits_distincts": 713,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "biodiversite-jussie-briere-ciblage-financements-publics",
+    "statut": "rejete_qualite",
+    "date": "2026-10-28T09:27:53",
+    "tentative": 1,
+    "angle_insuffisant": true,
+    "raison": "L'article ne répond pas à la question posée dans angle_reponse (la lutte contre la jussie en Brière et le ciblage de 120 000 euros annuels) : aucune source ne mentionne la jussie, la Brière, ni ce montant. Les faits exposent uniquement le sous-financement structurel de la biodiversité au niveau national et international, sans fait déclencheur daté ni donnée propre à l'exemple annoncé.",
+    "article_type": "actu",
+    "titre": "Jussie en Brière : l'étude qui préconise de concentrer les 120 000 euros annuels",
+    "n_sources": 4,
+    "n_mots": 752,
+    "titre_rss": "Protéger la biodiversité : et si avant de dépenser plus, on ciblait mieux les efforts ?",
+    "matiere_faits_distincts": 944,
+    "matiere_redondance": 0.01,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "etude_scientifique"
+  },
+  {
+    "slug": "couleuvres-naines-roseaux-fuite-roue-etude-japonaise",
+    "statut": "rejete_qualite",
+    "date": "2026-10-28T09:39:37",
+    "problemes_initiaux": 3,
+    "tentatives": 3,
+    "problemes_restants": 9,
+    "bloquants_restants": 6,
+    "bloquants_types": [
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "La source [1] (Le Monde) est citée pour l'ensemble des faits scientifiques détaillés (fréquence d'ondulation, rayon de courbure, vitesse de translation, coût énergétique, vulnérabilité), mais l'extrait fourni ne contient",
+        "phrase": "Le Monde rapporte qu'une équipe japonaise a mis en évidence le mécanisme biomécanique permettant aux couleuvres naines des roseaux (Pseudorabdion longiceps) de s'enfuir en roulant sur elles-mêmes comme une roue[1]."
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "L'extrait de la source [1] ne mentionne ni l'historique documentaire de ce comportement, ni le genre Pseudorabdion, ni l'absence d'analyse biomécanique rigoureuse antérieure ; ces affirmations sont inventées au nom de la",
+        "phrase": "Le Monde indique que la locomotion en roue était jusqu'ici documentée de façon anecdotique chez quelques espèces de serpents, notamment chez le genre Pseudorabdion, mais sans analyse biomécanique rigoureuse[1]."
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "L'extrait de la source [1] ne cite ni des larves d'insectes, ni le genre Crotaphytus, ni l'unicité de cette propulsion chez les squamates ; l'article prête à la source des comparaisons taxonomiques et des conclusions com",
+        "phrase": "Des comportements de roulement passif ont été observés chez d'autres vertébrés allongés, comme certaines larves d'insectes ou le lézard du genre Crotaphytus en fuite sur pente, mais la propulsion active par ondulation in"
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "L'extrait de la source [1] ne donne ni la taille de l'espèce (moins de 30 cm), ni aucune discussion sur l'allométrie de la force musculaire ou la transposition à des serpents plus grands ; ces détails techniques sont inv",
+        "phrase": "Les auteurs mentionnent que la taille réduite de l'espèce (moins de 30 cm) pourrait être un facteur limitant pour la transposition de ce mécanisme à des serpents de plus grande taille, la force musculaire nécessaire pour"
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "L'extrait de la source [1] ne mentionne pas l'absence de quantification sur le terrain de la fréquence du comportement ni de son efficacité face aux prédateurs ; cette limite méthodologique est attribuée à la source sans",
+        "phrase": "Enfin, la fréquence de ce comportement dans la nature et son efficacité réelle face aux prédateurs naturels n'ont pas été quantifiées sur le terrain[1]."
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "Bien que l'extrait de la source [1] mentionne un intérêt pour la robotique souple, il ne décrit pas de « courant récent de biomimétisme » ni ne détaille les capacités de franchissement d'obstacles ou de déplacement dans ",
+        "phrase": "Le Monde signale que cette découverte s'inscrit dans un courant récent de biomimétisme où la locomotion des animaux à corps mou inspire la conception de robots souples capables de franchir des obstacles ou de se déplacer"
+      }
+    ],
+    "types_restants": [
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_non_editoriale",
+      "compteur_incoherent",
+      "contexte_hors_sujet"
+    ],
+    "article_type": "actu",
+    "titre": "Le Monde révèle la biomécanique de la fuite en roue des couleuvres naines des roseaux",
+    "n_sources": 2,
+    "n_mots": 626,
+    "titre_rss": "Ces serpents qui s’enfuient en faisant la roue",
+    "matiere_faits_distincts": 1247,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 6,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "etude_scientifique"
+  },
+  {
+    "slug": "budget-2027-deputes-rejettent-taxe-produits-sucre",
+    "statut": "corrige_automatiquement",
+    "date": "2026-10-28T09:45:39",
+    "problemes_initiaux": 5,
+    "tentatives": 1,
+    "problemes_residuels_style": 5,
+    "rapport_initial": {
+      "conforme": false,
+      "sujet_sensible": false,
+      "sujet_sensible_raison": "",
+      "angle_insuffisant": false,
+      "angle_insuffisant_raison": "",
+      "nature_contenu": "actualite_factuelle",
+      "problemes": [
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "chiffre_errone",
+          "phrase_exacte": "Le projet de loi de finances déposé le 1er octobre 2026 entend contenir le déficit public à 5 % du PIB en 2027 [7].",
+          "explication": "La source [7] (OCDE) est un rapport général sur la restauration des finances publiques des pays membres, elle ne contient pas le chiffre du déficit public visé par le PLF 2027 français ; ce chiffre devrait être sourcé par le document budgétaire officiel (source [3] ou [4]) et non par l'OCDE."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "chiffre_errone",
+          "phrase_exacte": "Il comprend plusieurs leviers : maîtrise des dépenses de l'État hors défense, abaissement du plafond de l'abattement fiscal de 10 % sur les retraites, nouveau prêt à taux zéro « natalité » et mise à contribution des grandes entreprises [7].",
+          "explication": "La source [7] (OCDE) ne détaille pas les leviers du PLF 2027 français (abattement retraite, PTZ natalité, contribution grandes entreprises) ; ces mesures figurent dans les sources parlementaires ou gouvernementales ([3], [4]), pas dans le rapport OCDE."
+        },
+        {
+          "bloc": 2,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "Au niveau européen, l'OCDE souligne que les finances publiques des pays membres font face à une croissance ralentie, au vieillissement démographique et à un niveau de dette élevé issu des crises récentes, ce qui contraint les marges de manœuvre budgétaires [7].",
+          "explication": "L'OCDE n'est pas une institution européenne ; la qualifier de « niveau européen » est une attribution erronée qui présente la source comme une autorité européenne alors qu'elle est internationale."
+        },
+        {
+          "bloc": 2,
+          "section": "contexte",
+          "type": "contexte_hors_sujet",
+          "phrase_exacte": "Au niveau européen, l'OCDE souligne que les finances publiques des pays membres font face à une croissance ralentie, au vieillissement démographique et à un niveau de dette élevé issu des crises récentes, ce qui contraint les marges de manœuvre budgétaires [7].",
+          "explication": "Le rapport OCDE cité est une publication générale sur les finances publiques des pays membres, sans lien spécifique avec le rejet de la taxe sucrée ou le PLF 2027 français ; il ne sert qu'à remplir la section contexte sans éclairer le sujet principal."
+        },
+        {
+          "bloc": 4,
+          "section": "nuances",
+          "type": "redondance",
+          "phrase_exacte": "Les estimations chiffrées du projet de loi initial — y compris le rendement attendu de la taxe sucrée — sont des projections établies sur le texte déposé le 1er octobre, que la navette parlementaire modifiera [4].",
+          "explication": "Cette phrase répète l'idée déjà exprimée dans les faits (le texte n'est pas définitif, la navette modifiera le projet) sans apporter de nuance nouvelle distincte."
+        }
+      ]
+    },
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "faits_repetitifs"
+    ],
+    "titre": "Budget 2027 : les députés rejettent la taxe sur les produits sucrés du gouvernement",
+    "n_sources": 6,
+    "n_mots": 557,
+    "titre_rss": "Budget 2027 : les députés rejettent la taxe sur les produits sucrés proposée par le gouvernement",
+    "matiere_faits_distincts": 725,
+    "matiere_redondance": 0.01,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "toulouse-dix-jours-jeune-simulation-voyage-mars",
+    "statut": "rejete_qualite",
+    "date": "2026-10-28T09:53:18",
+    "problemes_initiaux": 3,
+    "tentatives": 3,
+    "problemes_restants": 8,
+    "bloquants_restants": 3,
+    "bloquants_types": [
+      "source_inventee",
+      "source_inventee",
+      "source_inventee"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "La source [1] (Sciences et Avenir) est citée pour l'ensemble du protocole (10 volontaires, 10 jours, 1 250 kcal/jour, alitement tête en bas, mesures musculaires/osseuses/cognitives), mais l'extrait fourni ne contient que",
+        "phrase": "Une expérience sans précédent se déroule à Toulouse : dix volontaires restent alités pendant dix jours avec un apport calorique drastiquement réduit, simulant ainsi les conditions physiologiques d'un transit vers Mars [1"
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "L'extrait de la source [1] se limite au titre « Dix jours de jeûne pour préparer le voyage sur Mars » ; il ne mentionne ni les vols paraboliques, ni la mission Year in Space, ni Scott Kelly, ni les simulations par alitem",
+        "phrase": "Selon Sciences et Avenir, les agences spatiales étudient depuis longtemps les effets de l'apesanteur sur le corps humain via des vols paraboliques, des séjours en station orbitale et des simulations au sol par alitement "
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "Aucune des trois sources autorisées ne figure dans les extraits fournis pour ces chiffres (coût au kg, fourchettes caloriques Mars vs sol, histoire des rations) ; l'article les présente comme des faits établis sans référ",
+        "phrase": "Côté nutrition, les rations spatiales ont évolué des tubes de purée des premiers vols vers des menus variés lyophilisés, mais la contrainte de masse demeure : chaque kilogramme embarqué coûte environ 20 000 euros en lanc"
+      }
+    ],
+    "types_restants": [
+      "contexte_hors_sujet",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "chiffre_errone",
+      "section_gonflee",
+      "redondance",
+      "compteur_incoherent"
+    ],
+    "article_type": "actu",
+    "titre": "À Toulouse, dix jours de jeûne simulent le voyage spatial vers Mars",
+    "n_sources": 3,
+    "n_mots": 578,
+    "titre_rss": "La restriction calorique au menu de l'exploration spatiale",
+    "matiere_faits_distincts": 561,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "etude_scientifique"
+  },
+  {
+    "slug": "bitchat-france-info-21-octobre-messagerie-bluetooth-decentralisee",
+    "statut": "corrige_automatiquement",
+    "date": "2026-10-28T09:57:39",
+    "problemes_initiaux": 12,
+    "tentatives": 1,
+    "problemes_residuels_style": 9,
+    "rapport_initial": {
+      "conforme": false,
+      "sujet_sensible": false,
+      "sujet_sensible_raison": "",
+      "angle_insuffisant": false,
+      "angle_insuffisant_raison": "",
+      "nature_contenu": "actualite_factuelle",
+      "problemes": [
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "chiffre_errone",
+          "phrase_exacte": "L'application Bitchat a été présentée mercredi 21 octobre dans l'émission « À suivre avec Loïc de la Mornais » sur France Info, où la journaliste Joséphine Boone, spécialiste de l'intelligence artificielle aux Échos, en a détaillé le fonctionnement [1].",
+          "explication": "La source [1] est datée du 21 octobre 2026, qui est un mercredi, mais l'article ne mentionne pas l'année 2026, créant une ambiguïté chronologique ; le titre mentionne '21 octobre' sans année, le résumé dit 'mercredi 21 octobre' sans année, seul le tableau sources donne 2026."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "L'application Bitchat a été présentée mercredi 21 octobre dans l'émission « À suivre avec Loïc de la Mornais » sur France Info, où la journaliste Joséphine Boone, spécialiste de l'intelligence artificielle aux Échos, en a détaillé le fonctionnement [1].",
+          "explication": "La source [1] (France Info) ne mentionne pas Joséphine Boone ni les Échos dans les extraits fournis ; l'attribution de cette information à la source [1] est non fondée."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "Cette conception la rend utilisable dans des situations où les réseaux cellulaires sont indisponibles — saturation lors de grands rassemblements, coupure volontaire par les autorités, ou zones blanches. Elle a été adoptée par des manifestants pour coordonner leurs déplacements et partager des informations en temps réel [1].",
+          "explication": "L'affirmation selon laquelle Bitchat 'a été adoptée par des manifestants' est attribuée à la source [1], mais les extraits de la source [1] fournis ne contiennent pas cette information spécifique sur l'adoption par des manifestants."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "fait_tranche_arbitrairement",
+          "phrase_exacte": "Les messages sont chiffrés de bout en bout entre expéditeur et destinataire.",
+          "explication": "Cette affirmation technique précise n'est pas présente dans les extraits de la source [1] fournis ; l'article la présente comme un fait établi sans source."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "contexte_hors_sujet",
+          "phrase_exacte": "L'Union européenne a par ailleurs conclu un accord politique en mai 2026 sur des règles simplifiées pour l'intelligence artificielle, incluant l'interdiction des applications de « nudification » [4].",
+          "explication": "Cette information sur l'accord IA de mai 2026 et l'interdiction des applications de 'nudification' (source [4]) n'a aucun lien direct avec Bitchat, les messageries décentralisées ou le Bluetooth maillé ; elle ne sert qu'à remplir la section contexte."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "Le règlement européen sur les services numériques (DSA), applicable depuis 2024, impose aux très grandes plateformes en ligne des obligations de modération et de transparence [2]. Ces règles ciblent les services centralisés disposant d'une infrastructure identifiable, ce qui laisse un flou juridique sur la qualification d'applications purement peer-to-peer sans opérateur unique.",
+          "explication": "La source [2] (Europa, briefing 2024 sur les technologies et la démocratie) ne traite pas du DSA ni de sa portée sur les applications peer-to-peer dans les extraits fournis ; l'interprétation juridique ('flou juridique') est une extrapolation non sourcée."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "L'Arcom publie annuellement un bilan de la lutte contre la manipulation de l'information sur les plateformes en ligne, documentant les techniques de coordination inauthentique et d'amplification artificielle [3]. Ces phénomènes, bien documentés sur les réseaux sociaux classiques, sont plus difficiles à détecter et à contrer sur des architectures décentralisées sans point de contrôle unique.",
+          "explication": "La source [3] (bilan Arcom 2026) n'est pas citée dans les extraits comme documentant spécifiquement la difficulté accrue sur architectures décentralisées ; cette analyse est une extrapolation de l'article non fondée sur la source."
+        },
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "L'application Bitchat a été présentée mercredi 21 octobre dans l'émission « À suivre avec Loïc de la Mornais » sur France Info, où la journaliste Joséphine Boone, spécialiste de l'intelligence artificielle aux Échos, en a détaillé le fonctionnement [1].",
+          "explication": "Même problème que ci-dessus : la source [1] ne confirme pas la présence de Joséphine Boone ni son affiliation aux Échos dans les extraits fournis."
+        },
+        {
+          "bloc": 2,
+          "section": "nuances",
+          "type": "acteur_mis_en_cause_sans_reponse",
+          "phrase_exacte": "La réaction de l'éditeur de Bitchat n'était pas disponible dans les sources consultées à la date de publication.",
+          "explication": "L'article mentionne l'absence de réaction de l'éditeur de Bitchat, mais cet acteur n'est pas identifié nommément (nom de l'entreprise/développeur) et aucune démarche de contact n'est décrite ; la formulation simule une tentative de contact qui n'est pas documentée dans les sources."
+        },
+        {
+          "bloc": 4,
+          "section": "resume",
+          "type": "redondance",
+          "phrase_exacte": "L'application Bitchat a été présentée mercredi 21 octobre sur France Info comme une messagerie peer-to-peer fonctionnant par Bluetooth maillé sans serveur central ni connexion internet.",
+          "explication": "Cette phrase du résumé répète mot pour mot l'information du premier paragraphe des faits sans apporter de synthèse distincte."
+        },
+        {
+          "bloc": 4,
+          "section": "nuances",
+          "type": "redondance",
+          "phrase_exacte": "Aucune évaluation indépendante de sécurité n'a été identifiée dans les sources : le code source, le modèle de menace et les audits éventuels ne sont pas documentés dans les extraits fournis [1].",
+          "explication": "Cette phrase répète l'idée déjà exprimée dans la nuance précédente ('Aucune donnée publique n'indique le nombre d'utilisateurs actifs de Bitchat ni sa résilience face à des attaques de type Sybil') sur l'absence d'audit/public data, sans fait nouveau."
+        },
+        {
+          "bloc": 4,
+          "section": "titre",
+          "type": "chiffre_errone",
+          "phrase_exacte": "Bitchat présentée sur France Info le 21 octobre : messagerie Bluetooth sans serveur central",
+          "explication": "Le titre omet l'année 2026 (présente dans la source [1]), créant une ambiguïté sur la date de l'événement (21 octobre 2026 vs une année antérieure)."
+        }
+      ]
+    },
+    "article_type": "actu",
+    "titre": "Bitchat présentée sur France Info le 21 octobre : messagerie Bluetooth sans serveur central",
+    "n_sources": 4,
+    "n_mots": 547,
+    "titre_rss": "Bitchat, l’application qui fait fureur chez les manifestants",
+    "matiere_faits_distincts": 556,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "geants-ia-levées-fonds-automne-2026-revenus-marginaux",
+    "statut": "rejete_sensible",
+    "date": "2026-10-28T10:02:00",
+    "problemes_initiaux": 20,
+    "bloc5": [
+      "annonce_perimee"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "titre_de_mauvaise_qualite"
+    ],
+    "titre": "Automne 2026 : les géants de l'IA lèvent des fonds massifs alors que leurs revenus restent marginaux",
+    "n_sources": 7,
+    "n_mots": 554,
+    "titre_rss": "De Meta à Space X : malgré les craintes de bulle, les géants de l’IA brûlent toujours plus de « cash »",
+    "matiere_faits_distincts": 595,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "bresil-lula-elu-president-51-79-pour-cent-second-tour",
+    "statut": "rejete_qualite",
+    "date": "2026-10-28T10:08:50",
+    "tentative": 1,
+    "angle_insuffisant": true,
+    "raison": "Aucune phrase dans 'faits' ne contient un événement précis daté lié à l'élection présidentielle brésilienne (Lula vs Bolsonaro) avec une donnée chiffrée propre (ex: 51,79 %). Les sources fournies ne traitent pas de ce sujet (fintechs, maintien de l'ordre en France, déclaration ONU du Brésil, cybermenaces UE). L'article ne répond pas à l'angle annoncé.",
+    "article_type": "actu",
+    "titre": "Lula élu président du Brésil avec 51,79 % des voix après un second tour décisif",
+    "n_sources": 4,
+    "n_mots": 871,
+    "titre_rss": "Brazil: Lula’s presidential win puts the brakes on the rise of the far right in Latin America",
+    "matiere_faits_distincts": 868,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "singapour-20-ordinateurs-biologiques-cl1-neurones-humains-dayone",
+    "statut": "rejete_sensible",
+    "date": "2026-10-28T10:15:55",
+    "problemes_initiaux": 11,
+    "tentative": 2,
+    "bloc5": true,
+    "article_type": "actu",
+    "titre": "Singapour : 20 ordinateurs biologiques CL1 à neurones humains déployés chez DayOne",
+    "n_sources": 7,
+    "n_mots": 606,
+    "titre_rss": "Ils ont mis des neurones humains vivants dans un ordinateur : leur objectif pourrait transformer l'IA",
+    "matiere_faits_distincts": 814,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
   }
 ]
