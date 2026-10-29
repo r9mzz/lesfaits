@@ -46988,5 +46988,1227 @@
     "n_sources_injectees": 10,
     "n_sources_trouvees": 10,
     "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "jean-michel-blanquer-defend-parcoursup-reforme-lycee-senat",
+    "statut": "rejete_sensible",
+    "date": "2026-10-29T00:37:25",
+    "problemes_initiaux": 12,
+    "bloc5": [
+      "affaire_en_cours_presentee_comme_fait"
+    ],
+    "article_type": "actu",
+    "titre": "Jean-Michel Blanquer défend Parcoursup et sa réforme du lycée devant le Sénat",
+    "n_sources": 7,
+    "n_mots": 629,
+    "titre_rss": "Mobilisation lycéenne : Jean-Michel Blanquer défend Parcoursup et sa réforme du lycée et du bac devant les sénateurs",
+    "matiere_faits_distincts": 919,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "changement-climatique-urgence-sanitaire-mondiale-lancet-countdown-2026",
+    "statut": "rejete_sensible",
+    "date": "2026-10-29T00:50:08",
+    "problemes_initiaux": 19,
+    "tentative": 3,
+    "bloc5": true,
+    "article_type": "actu",
+    "titre": "Le changement climatique déclaré urgence sanitaire mondiale par le Lancet Countdown",
+    "n_sources": 7,
+    "n_mots": 915,
+    "titre_rss": "Climat : le réchauffement devient une « urgence sanitaire mondiale », alerte une étude de référence",
+    "matiere_faits_distincts": 980,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "rapport"
+  },
+  {
+    "slug": "annulation-dette-bce-interdite-traités-risque-euro",
+    "statut": "rejete_sensible",
+    "date": "2026-10-29T00:54:21",
+    "sujet_sensible": true,
+    "raison": "L'article met en cause nommément Jean-Luc Mélenchon (personne physique, responsable politique) en reprenant sa proposition politique comme objet principal du fact-checking, ce qui constitue une critique/affirmation négative visant une personne identifiée.",
+    "article_type": "actu",
+    "titre": "Annulation de la dette BCE : interdite par les traités, risquée pour l'euro",
+    "n_sources": 4,
+    "n_mots": 621,
+    "titre_rss": "Annuler la dette détenue par la Banque centrale européenne, c’est changer la nature de l’euro",
+    "matiere_faits_distincts": 666,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "louis-maurin-hausse-impots-impasse-budgetaire-france",
+    "statut": "corrige_automatiquement",
+    "date": "2026-10-29T01:02:35",
+    "problemes_initiaux": 15,
+    "tentatives": 1,
+    "problemes_residuels_style": 11,
+    "rapport_initial": {
+      "conforme": false,
+      "sujet_sensible": false,
+      "sujet_sensible_raison": "",
+      "angle_insuffisant": false,
+      "angle_insuffisant_raison": "",
+      "nature_contenu": "prise_de_position",
+      "problemes": [
+        {
+          "bloc": 3,
+          "section": "resume",
+          "type": "cadrage_emprunte",
+          "phrase_exacte": "Dans une tribune publiée par Libération, le directeur de l'Observatoire des inégalités soutient qu'aucun redressement des comptes publics n'est possible sans augmenter les prélèvements obligatoires, y compris pour les ménages aisés.",
+          "explication": "Le résumé présente l'opinion de la tribune comme un fait établi sans attribution explicite (\"soutient que\" sans \"selon la tribune\" ou guillemets), alors qu'il s'agit d'une prise de position normative."
+        },
+        {
+          "bloc": 3,
+          "section": "titre",
+          "type": "cadrage_emprunte",
+          "phrase_exacte": "Louis Maurin juge indispensable une hausse d'impôts pour sortir de l'impasse budgétaire",
+          "explication": "Le titre présente le jugement de valeur de la tribune (\"juge indispensable\") comme un fait neutre sans attribution, alors que l'article relève d'une prise de position (tribune)."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "Le Sénat a publié en juin 2024 un rapport d'information de sa mission sur la dégradation des finances publiques depuis 2023 [2]. Ce rapport constate que le déficit public 2023 a atteint un niveau inédit hors période de crise sous la Ve République, et que le doublement du déficit depuis 2017 incombe à l'État [2].",
+          "explication": "La source [2] (rapport du Sénat du 12/06/2024) ne peut pas contenir de \"comptes définitifs\" 2023 ni un déficit de 5,5 % du PIB, ce chiffre provenant de sources postérieures (Insee/Comptes nationaux mai 2024). L'article attribue à tort ce chiffre définitif au rapport du Sénat."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "Le déficit public 2023 a atteint 5,5 % du PIB selon les comptes définitifs, un niveau jamais vu hors crise depuis 1958 [2].",
+          "explication": "Même problème : le chiffre définitif 5,5 % du PIB est attribué à la source [2] (rapport du Sénat juin 2024) qui ne peut pas le contenir ; ce chiffre vient des publications ultérieures de l'Insee."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "L'Insee publie les évaluations révisées 2025 et le projet de loi de finances 2026 pour les recettes du budget général [3]. Les recettes fiscales nettes sont révisées à 353,8 milliards d'euros pour 2025, contre 349,6 milliards initialement prévus, et le projet 2026 les porte à 372,9 milliards (+5,4 %).",
+          "explication": "La source [3] est datée du 24/11/2025 et ne peut pas contenir des données du PLF 2026 (projet présenté fin septembre 2025 pour 2026, mais les \"évaluations révisées 2025\" et le PLF 2026 complets avec ces chiffres précis ne sont pas dans une source de novembre 2025 pour l'exercice 2026). Attribution invérifiable."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "En Allemagne, les recettes fiscales totales ont atteint 989,8 milliards d'euros en 2025 (+4,4 %), avec un record de 76,4 milliards pour la taxe professionnelle des communes (+1,5 %) [9].",
+          "explication": "La source [9] n'existe pas dans la liste des sources autorisées (qui ne compte que 7 sources, indices 1 à 7). Citation d'une source fantôme."
+        },
+        {
+          "bloc": 2,
+          "section": "contexte",
+          "type": "compteur_incoherent",
+          "phrase_exacte": "En Allemagne, les recettes fiscales totales ont atteint 989,8 milliards d'euros en 2025 (+4,4 %), avec un record de 76,4 milliards pour la taxe professionnelle des communes (+1,5 %) [9].",
+          "explication": "Le champ nb_sources indique 7, mais le texte cite une source [9] inexistante dans le tableau sources (qui s'arrête à [7]). Incohérence entre le compteur et les sources réelles utilisées."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "L'IMF, à l'issue de sa consultation Article IV de juin 2024, a souligné la nécessité d'une consolidation budgétaire crédible et ambitieuse pour placer la dette sur une trajectoire descendante [11].",
+          "explication": "La source [11] n'existe pas dans la liste des sources autorisées (indices 1 à 7 seulement). Citation d'une source fantôme."
+        },
+        {
+          "bloc": 2,
+          "section": "contexte",
+          "type": "compteur_incoherent",
+          "phrase_exacte": "L'IMF, à l'issue de sa consultation Article IV de juin 2024, a souligné la nécessité d'une consolidation budgétaire crédible et ambitieuse pour placer la dette sur une trajectoire descendante [11].",
+          "explication": "Même incohérence : nb_sources = 7 mais utilisation de [11] qui n'existe pas dans le tableau sources."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "Le Conseil européen prépare le cadre financier pluriannuel 2028-2034 doté de près de 2 000 milliards d'euros, qui conditionnera les marges de manœuvre budgétaires des États membres [7].",
+          "explication": "La source [7] (Consilium, 10/10/2026) porte sur le cadre 2028-2034 ; l'article l'utilise correctement ici, mais la duplication en [7] dans 'contexte' est redondante (voir redondance)."
+        },
+        {
+          "bloc": 4,
+          "section": "contexte",
+          "type": "redondance",
+          "phrase_exacte": "Au niveau européen, le Conseil prépare le cadre financier pluriannuel 2028-2034 doté de près de 2 000 milliards d'euros, qui conditionnera les marges de manœuvre budgétaires des États membres [7].",
+          "explication": "Répétition quasi identique de la phrase des 'faits' sur le cadre financier pluriannuel [7], sans apport nouveau. Violation de la règle 'une idée = une seule apparition'."
+        },
+        {
+          "bloc": 4,
+          "section": "contexte",
+          "type": "contexte_hors_sujet",
+          "phrase_exacte": "En Allemagne, les recettes fiscales totales ont atteint 989,8 milliards d'euros en 2025 (+4,4 %), avec un record de 76,4 milliards pour la taxe professionnelle des communes (+1,5 %) [9].",
+          "explication": "Données allemandes sans lien direct avec le sujet (tribune sur finances françaises, déficit français, projections OCDE/France). Remplissage hors sujet."
+        },
+        {
+          "bloc": 4,
+          "section": "contexte",
+          "type": "contexte_hors_sujet",
+          "phrase_exacte": "L'IMF, à l'issue de sa consultation Article IV de juin 2024, a souligné la nécessité d'une consolidation budgétaire crédible et ambitieuse pour placer la dette sur une trajectoire descendante [11].",
+          "explication": "Rapport FMI générique sur la France (source fantôme qui plus est) qui n'éclaire pas spécifiquement la tribune de Maurin ni le dérapage 2023 documenté par le Sénat. Hors sujet par rapport à l'angle annoncé."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "incoherence_inter_sections",
+          "phrase_exacte": "Le Sénat a publié en juin 2024 un rapport d'information de sa mission sur la dégradation des finances publiques depuis 2023 [2]. Ce rapport constate que le déficit public 2023 a atteint un niveau inédit hors période de crise sous la Ve République [...] L'écart de 0,6 point de PIB entre prévision et exécution provient principalement de recettes moins élevées qu'attendu",
+          "explication": "Incohérence entre 'faits' (attribue le chiffre définitif 5,5 % et l'analyse au rapport Sénat juin 2024) et 'contexte' (même attribution erronée) : le rapport Sénat de juin 2024 ne peut pas contenir les comptes définitifs 2023 publiés plus tard. Les deux sections propagent la même erreur de sourcing."
+        },
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "source_derivee_comptee_comme_primaire",
+          "phrase_exacte": "Le Monde rapporte que l'OCDE alerte sur un risque d'envolée de la dette à 127 % du PIB en 2030 sans action résolue, et propose un cocktail associant hausses d'impôts et réforme des retraites [5]. Le même journal publie un éditorial sur l'impuissance budgétaire de la France, décrivant un débat enlisé entre partisans de plus de fiscalité et défenseurs de baisses de dépenses [6].",
+          "explication": "Sources [5] et [6] sont deux articles du Monde (secondaires) qui reprennent le même rapport OCDE (primaire). Ils sont comptés comme deux sources distinctes dans nb_sources=7 alors qu'ils ne constituent qu'une source primaire unique (le rapport OCDE) relayée par un même média. Surévaluation du nombre de sources indépendantes."
+        }
+      ]
+    },
+    "article_type": "actu",
+    "titre": "Louis Maurin juge indispensable une hausse d'impôts pour sortir de l'impasse budgétaire",
+    "n_sources": 7,
+    "n_mots": 743,
+    "titre_rss": "La France ne sortira pas de l’impasse budgétaire sans augmenter les impôts",
+    "matiere_faits_distincts": 679,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 2,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "prise_de_position"
+  },
+  {
+    "slug": "flavio-bolsonaro-quitte-bresil-etats-unis-apres-election-presidentielle",
+    "statut": "rejete_qualite",
+    "date": "2026-10-29T01:16:10",
+    "etape": "correction",
+    "tentative": 1,
+    "erreur": "JSON tronqué ou incomplet dans la réponse (max_tokens atteint ?)",
+    "bloquants_connus": 13,
+    "article_type": "actu",
+    "titre": "Flavio Bolsonaro quitte le Brésil pour les États-Unis après l'élection présidentielle",
+    "n_sources": 3,
+    "n_mots": 659,
+    "titre_rss": "En fuyant le Brésil, Flavio Bolsonaro a-t-il condamné le bolsonarisme ?",
+    "matiere_faits_distincts": 499,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "ebola-bundibugyo-vaccins-zaire-anticorps-croises-etude-inserm",
+    "statut": "conforme_du_premier_coup",
+    "date": "2026-10-29T01:22:29",
+    "article_type": "actu",
+    "titre": "Ebola Bundibugyo : vaccins anti-Zaïre, anticorps croisés sans preuve clinique",
+    "n_sources": 4,
+    "n_mots": 773,
+    "titre_rss": "Épidémie d’Ebola Bundibugyo : des premiers résultats pour guider la recherche d’un vaccin efficace",
+    "matiere_faits_distincts": 1115,
+    "matiere_redondance": 0.02,
+    "matiere_donnees_chiffrees": 3,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "veille_heures_visible": 517.7,
+    "veille_passages": 311,
+    "veille_age_h": 1871.0,
+    "veille_n_flux_grappe": 9,
+    "nature_contenu": "etude_scientifique"
+  },
+  {
+    "slug": "egypte-justice-fermeture-mada-masr-media-independant-lina-attalah",
+    "statut": "rejete_qualite",
+    "date": "2026-10-29T01:32:49",
+    "problemes_initiaux": 9,
+    "tentatives": 3,
+    "problemes_restants": 17,
+    "bloquants_restants": 15,
+    "bloquants_types": [
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "Le renvoi [2] désigne Le Monde, mais cet extrait ne mentionne pas la saisie du matériel de travail ; cette information provient de Courrier international (source [3]).",
+        "phrase": "Le tribunal égyptien a prononcé la fermeture définitive du site Mada Masr et la saisie de son matériel de travail, actant la disparition du dernier média d'investigation indépendant du pays [2]."
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "L'extrait fourni pour Courrier international (source [3]) ne contient aucune mention de la saisie du matériel ni de ses conséquences sur l'activité de la rédaction.",
+        "phrase": "Courrier international précise que la saisie du matériel de travail a été ordonnée simultanément à la fermeture, ce qui paralyse concrètement la capacité de la rédaction à poursuivre son activité même en cas de suspensio"
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "L'extrait de Libération (source [1]) ne contient ni le classement « parmi les dix derniers pays », ni les chiffres « centaines de sites » et « dizaines de journalistes », ni la référence aux lois antiterroriste et cyberc",
+        "phrase": "Selon les organisations de défense de la liberté de la presse, l'Égypte figure parmi les dix derniers pays mondiaux pour la liberté de la presse. Depuis 2013, des centaines de sites web ont été bloqués et des dizaines de"
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "L'extrait de Libération (source [1]) ne mentionne pas la loi de 2018, le Conseil suprême de régulation des médias ni son rattachement à la présidence.",
+        "phrase": "Le durcissement législatif s'est accéléré depuis 2018 avec une loi sur la presse qui soumet les sites d'information à une licence délivrée par le Conseil suprême de régulation des médias, organe placé sous l'autorité pré"
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "L'extrait de Libération (source [1]) ne mentionne ni Egypt Independent, ni les thématiques couvertes (droits humains, corruption, affaires militaires).",
+        "phrase": "Mada Masr, fondé en 2013 après la fermeture du journal Egypt Independent, s'était imposé comme une référence du journalisme d'investigation en Égypte, documentant les violations des droits humains, la corruption et les a"
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "L'extrait de Libération (source [1]) ne mentionne aucune condamnation par contumace de 2024 pour « fausses nouvelles ».",
+        "phrase": "Par ailleurs, la condamnation par contumace de 2024 pour « fausses nouvelles », dont la journaliste affirme n'avoir eu connaissance qu'à l'occasion de ce procès, soulève une question de droit procédural non encore tranch"
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "L'extrait de Libération (source [1]) ne précise pas que l'appel est suspensif ni qu'aucune date d'audience n'a été communiquée.",
+        "phrase": "L'appel suspensif déposé par les avocats de Mada Masr maintient le site en activité dans l'immédiat, mais aucune date d'audience n'a été communiquée [1]."
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "L'extrait de Libération (source [1]) ne mentionne ni la recevabilité des demandes de régularisation, ni les garanties constitutionnelles.",
+        "phrase": "L'issue dépendra de l'appréciation par la cour d'appel de la recevabilité des demandes de régularisation antérieures et de la conformité de la procédure aux garanties constitutionnelles [1]."
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "L'extrait de Libération (source [1]) ne contient pas le détail des trois demandes de régularisation (années, rejets, absence de réponse).",
+        "phrase": "Ils font valoir que le site existe depuis 2013, soit avant l'instauration de l'obligation de licence, et qu'il a déposé trois demandes de régularisation — en 2018, 2020 et 2023 — dont les deux premières ont été rejetées "
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "L'extrait de Libération (source [1]) ne donne ni la date de convocation (21 octobre), ni la durée de l'interrogatoire (plus de six heures), ni la date de l'audience (27 octobre), ni la durée du procès (quelques heures).",
+        "phrase": "La procédure s'est déroulée dans un délai extrêmement court : convoquée par la Sécurité nationale le 21 octobre pour un interrogatoire de plus de six heures, Lina Attalah a comparu devant le tribunal le 27 octobre, soit "
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "L'extrait de Libération (source [1]) ne mentionne pas l'arrestation à la sortie de l'audience ; l'extrait du Monde (source [2]) confirme la libération après paiement mais ne mentionne pas l'arrestation.",
+        "phrase": "Elle a été arrêtée à la sortie de l'audience, puis libérée dès que le site a réglé l'amende pour son compte [1][2]."
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "L'extrait de Libération (source [1]) ne précise pas qu'il s'agit de la « peine maximale » ; l'extrait du Monde (source [2]) ne mentionne pas cette qualification non plus.",
+        "phrase": "La cofondatrice et rédactrice en chef Lina Attalah a été condamnée à la peine maximale prévue pour « direction d'un site Internet sans autorisation » [1][2]."
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "L'extrait du Monde (source [2]) ne mentionne ni la saisie du matériel, ni la qualification de « dernier média d'investigation indépendant ».",
+        "phrase": "Le tribunal égyptien a prononcé la fermeture définitive du site Mada Masr et la saisie de son matériel de travail, actant la disparition du dernier média d'investigation indépendant du pays [2]."
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "L'extrait de Libération (source [1]) ne contient ni la qualification d'« expéditif » par les avocats, ni la date du 21 octobre, ni la durée de l'interrogatoire.",
+        "phrase": "Le procès, qualifié d'expéditif par les avocats de la rédaction, s'est tenu moins d'une semaine après la convocation de la journaliste par la Sécurité nationale, qui l'avait interrogée pendant plus de six heures le 21 oc"
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "L'extrait de Libération (source [1]) ne mentionne pas l'arrestation, la contestation de la légalité de la procédure ni l'application rétroactive de la loi ; l'extrait du Monde (source [2]) ne mentionne que la libération ",
+        "phrase": "Lina Attalah a été brièvement arrêtée à l'issue de l'audience avant d'être libérée après le paiement de l'amende par le site ; ses avocats ont fait appel en contestant la légalité de la procédure et l'application rétroac"
+      }
+    ],
+    "types_restants": [
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "compteur_incoherent",
+      "source_non_editoriale"
+    ],
+    "article_type": "actu",
+    "titre": "Égypte : justice ordonne fermeture de Mada Masr et sanctionne sa directrice",
+    "n_sources": 4,
+    "n_mots": 627,
+    "titre_rss": "«Un coup terrible à la liberté de la presse» : en Egypte, le principal média indépendant «Mada Masr» condamné à fermer",
+    "matiere_faits_distincts": 607,
+    "matiere_redondance": 0.05,
+    "matiere_donnees_chiffrees": 2,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "canicule-juin-2026-hausse-29-pour-cent-deces-2025-morts-supplementaires",
+    "statut": "corrige_automatiquement",
+    "date": "2026-10-29T01:39:14",
+    "problemes_initiaux": 7,
+    "tentatives": 1,
+    "problemes_residuels_style": 4,
+    "rapport_initial": {
+      "conforme": false,
+      "sujet_sensible": false,
+      "sujet_sensible_raison": "",
+      "angle_insuffisant": false,
+      "angle_insuffisant_raison": "",
+      "nature_contenu": "actualite_factuelle",
+      "problemes": [
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "incoherence_inter_sections",
+          "phrase_exacte": "Le bulletin de Santé publique France publié le 3 juillet 2026 fait état de 8 973 décès toutes causes certifiés par voie électronique pour la semaine du 22 au 28 juin, contre 6 948 la semaine précédente, soit une hausse de 29,1 % correspondant à 2 025 décès supplémentaires [1].",
+          "explication": "Le résumé affirme que les 2 025 décès supplémentaires correspondent à une hausse de 29,1 % par rapport à la semaine précédente, mais le calcul exact (2 025 / 6 948) donne 29,15 %, ce qui arrondi à 29,2 % et non 29,1 % ; l'incohérence chiffrée entre le résumé et les faits sur le même indicateur (hausse en %) est une incohérence inter-sections."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "chiffre_errone",
+          "phrase_exacte": "Le Monde rapporte que Santé publique France a publié le 22 juillet 2026 un bilan consolidé de 5 764 morts en excès pour l'ensemble de l'épisode caniculaire de juin, auxquels s'ajoutent 300 morts excédentaires lors de la première canicule de mai [2].",
+          "explication": "La source [2] (Le Monde du 22 juillet 2026) indique un bilan consolidé de 5 764 morts en excès pour l'épisode de juin, mais l'article cite ce chiffre sans vérifier qu'il correspond bien au même périmètre (toutes causes, France entière) que les 2 025 décès de la semaine du 22 au 28 juin ; l'absence de réconciliation entre le chiffre hebdomadaire provisoire (2 025) et le bilan consolidé de l'épisode (5 764) crée une confusion sur l'ampleur réelle."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "chiffre_errone",
+          "phrase_exacte": "En comparaison, l'été 2022 avait compté 2 816 morts en excès pendant les trois canicules, pour un total de 6 969 morts en excès toutes causes du 1er juin au 15 septembre [3].",
+          "explication": "La source [3] (Le Monde du 16 septembre 2026) mentionne « plus de 8 000 morts liées aux canicules de l'été 2026 » et un bilan sans précédent depuis 2003, mais ne donne pas explicitement les 2 816 morts en excès pour les trois canicules de 2022 ni le total de 6 969 pour juin-septembre 2022 ; ces chiffres ne figurent pas dans l'extrait fourni, ce qui constitue un chiffre erroné par rapport à la source citée."
+        },
+        {
+          "bloc": 1,
+          "section": "nuances",
+          "type": "fait_tranche_arbitrairement",
+          "phrase_exacte": "La certification électronique ne capture qu'environ 60 % de la mortalité nationale, avec une couverture très hétérogène : 25 % des décès à domicile, 45 % en EHPAD et près de 80 % à l'hôpital [1].",
+          "explication": "L'article présente les taux de couverture (25 %, 45 %, 80 %) comme des faits établis et précis, alors que la source [1] (bulletin du 3 juillet) indique seulement que la couverture est « très inégale selon les lieux de décès » sans donner ces pourcentages exacts ; l'article tranche arbitrairement des valeurs non confirmées par la source."
+        },
+        {
+          "bloc": 2,
+          "section": "contexte",
+          "type": "source_derivee_comptee_comme_primaire",
+          "phrase_exacte": "Le Monde rapporte que Santé publique France a publié le 22 juillet 2026 un bilan consolidé de 5 764 morts en excès pour l'ensemble de l'épisode caniculaire de juin, auxquels s'ajoutent 300 morts excédentaires lors de la première canicule de mai [2].",
+          "explication": "Les sources [2], [3] et [4] sont trois articles du même média (Le Monde) qui reprennent les mêmes données de Santé publique France ; ils ne constituent pas trois sources indépendantes mais des reprises d'une même source primaire (le bulletin de SPF), ce qui fausse le compteur de sources indépendantes (nb_sources = 4 alors qu'il n'y a qu'une source primaire et des dérivées)."
+        },
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "compteur_incoherent",
+          "phrase_exacte": "Le bulletin de Santé publique France publié le 3 juillet 2026 fait état de 8 973 décès toutes causes certifiés par voie électronique pour la semaine du 22 au 28 juin, contre 6 948 la semaine précédente, soit une hausse de 29,1 % correspondant à 2 025 décès supplémentaires [1].",
+          "explication": "Le champ nb_sources indique 4, mais seules 2 sources distinctes sont réellement utilisées comme sources primaires (le bulletin SPF [1] et l'article Le Monde du 22 juillet [2]) ; les deux autres articles Le Monde [3] et [4] sont des reprises sans information nouvelle, donc le compteur de sources est incohérent avec l'usage effectif."
+        },
+        {
+          "bloc": 4,
+          "section": "contexte",
+          "type": "redondance",
+          "phrase_exacte": "Le Monde indique également qu'au 3 juillet 2026, Santé publique France estimait déjà que le chiffrage de 2 025 décès supplémentaires était très parcellaire et que les données restaient incomplètes [4].",
+          "explication": "Cette phrase répète l'information déjà donnée dans les nuances (chiffres provisoires, sous-estimés, certification partielle) sans apporter de fait nouveau, constituant une redondance entre contexte et nuances."
+        }
+      ]
+    },
+    "article_type": "actu",
+    "titre": "Canicule de juin 2026 : hausse de 29 % des décès, 2 025 morts supplémentaires",
+    "n_sources": 4,
+    "n_mots": 532,
+    "titre_rss": "Point de situation sur la mortalité toutes causes confondues  sur la période du 22 au 28 juin 2026",
+    "matiere_faits_distincts": 655,
+    "matiere_redondance": 0.01,
+    "matiere_donnees_chiffrees": 5,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "veille_heures_visible": 221.3,
+    "veille_passages": 74,
+    "veille_age_h": 1574.6,
+    "veille_n_flux_grappe": 1,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "syndex-condamne-10-septembre-cour-appel-paris-harcelement-travail-dissimule",
+    "statut": "rejete_sensible",
+    "date": "2026-10-29T01:43:42",
+    "sujet_sensible": true,
+    "raison": "L'article rapporte une condamnation judiciaire pour harcèlement moral et travail dissimulé visant une personne morale identifiée (Syndex), avec des faits non encore définitifs (possibilité de pourvoi en cassation non écartée selon les nuances).",
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "titre_de_mauvaise_qualite"
+    ],
+    "titre": "Syndex condamné le 10 septembre par la cour d'appel de Paris pour harcèlement moral et travail dissimulé",
+    "n_sources": 4,
+    "n_mots": 478,
+    "titre_rss": "Le cabinet d’expertise Syndex condamné pour harcèlement moral et travail dissimulé",
+    "matiere_faits_distincts": 765,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 2,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "piratage-cts-strasbourg-230-000-comptes-fuite-donnees",
+    "statut": "corrige_automatiquement",
+    "date": "2026-10-29T01:57:41",
+    "problemes_initiaux": 5,
+    "tentatives": 1,
+    "problemes_residuels_style": 0,
+    "rapport_initial": {
+      "conforme": false,
+      "sujet_sensible": false,
+      "sujet_sensible_raison": "",
+      "angle_insuffisant": false,
+      "angle_insuffisant_raison": "",
+      "nature_contenu": "actualite_factuelle",
+      "problemes": [
+        {
+          "bloc": 1,
+          "section": "resume",
+          "type": "extrapolation",
+          "phrase_exacte": "exposant des centaines de milliers d'usagers à des risques d'usurpation d'identité et de phishing ciblé dans les semaines à venir.",
+          "explication": "L'article anticipe des conséquences futures (usurpation d'identité, phishing ciblé dans les semaines à venir) qui ne sont pas explicitement sourcées comme certitudes ; la source [1] mentionne seulement une recommandation de vigilance face à d'éventuelles tentatives."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "chiffre_errone",
+          "phrase_exacte": "les collectivités territoriales et les ministères ont représenté 24 % des 3 586 événements de sécurité traités l'an dernier, soit le deuxième secteur le plus visé après l'éducation et la recherche (34 %) [4].",
+          "explication": "La source [4] (Panorama 2025 de l'ANSSI) indique que les collectivités territoriales représentent 24 % des événements, et l'éducation et la recherche 34 %, mais ne classe pas les ministères dans cette même catégorie ni ne donne un total combiné de 24 % pour les deux ensemble ; l'article agrège deux entités distinctes en un seul chiffre non vérifié."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "chiffre_errone",
+          "phrase_exacte": "Le coût moyen d'une cyberattaque pour une entreprise française s'établissait à 14 720 € en 2024, mais une sur huit rapporte des coûts supérieurs à 230 000 € [5].",
+          "explication": "La source [5] (statistiques 2024 sur data.gouv.fr) ne figure pas dans les extraits fournis ; le chiffre de 14 720 € et la proportion 'une sur huit' ne peuvent être vérifiés par rapport aux sources autorisées et constituent une extrapolation non sourcée."
+        },
+        {
+          "bloc": 2,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "Une question parlementaire déposée en septembre 2026 interrogeait d'ailleurs le gouvernement sur l'effectivité de ces dispositifs face à des attaques de grande ampleur [3].",
+          "explication": "La source [3] est une question écrite datée du 8 septembre 2026, soit postérieure à la date de l'article (source [1] datée du 29 octobre 2026) ; l'article la cite comme antérieure ('déposée en septembre 2026') alors qu'elle est contemporaine, mais le contenu de la question n'est pas confirmé par les extraits fournis."
+        },
+        {
+          "bloc": 4,
+          "section": "resume",
+          "type": "jugement_de_valeur",
+          "phrase_exacte": "Cette attaque vise un opérateur de transport urbain essentiel, exposant des centaines de milliers d'usagers à des risques d'usurpation d'identité et de phishing ciblé dans les semaines à venir.",
+          "explication": "L'adjectif 'essentiel' et la formulation 'exposant... à des risques' constituent une appréciation éditoriale non neutre ; seul le fait de l'attaque et du nombre de comptes est sourcé."
+        }
+      ]
+    },
+    "article_type": "actu",
+    "titre": "Piratage de la CTS : 230 000 comptes clients touchés par une fuite de données",
+    "n_sources": 5,
+    "n_mots": 588,
+    "titre_rss": "La Compagnie des transports strasbourgeois victime d'un piratage, 230 000 comptes clients concernés par une fuite de données",
+    "matiere_faits_distincts": 895,
+    "matiere_redondance": 0.02,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "rat-brun-pathogenes-leptospirose-virus-seoul-hepatite-e-surveillance-manquante",
+    "statut": "erreur_verification",
+    "date": "2026-10-29T02:13:07",
+    "etape": "detection",
+    "erreur": "JSON tronqué ou incomplet dans la réponse (max_tokens atteint ?)",
+    "article_type": "actu",
+    "titre": "Le rat brun porte leptospirose, virus de Séoul et hépatite E sans surveillance démographique fiable",
+    "n_sources": 4,
+    "n_mots": 834,
+    "titre_rss": "Mieux connaître les rats qui nous entourent, et les microbes qu’ils hébergent",
+    "matiere_faits_distincts": 1077,
+    "matiere_redondance": 0.06,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10
+  },
+  {
+    "slug": "rat-brun-pathogenes-leptospirose-virus-seoul-hepatite-e-surveillance-manquante",
+    "statut": "rejete_qualite",
+    "date": "2026-10-29T02:13:07",
+    "raison": "verification_indisponible",
+    "statut_verification_initial": "erreur_verification"
+  },
+  {
+    "slug": "vaccin-arnm-personnalise-melanome-reduit-42-risque-recidive-deces",
+    "statut": "rejete_qualite",
+    "date": "2026-10-29T02:25:37",
+    "problemes_initiaux": 16,
+    "tentatives": 3,
+    "problemes_restants": 6,
+    "bloquants_restants": 1,
+    "bloquants_types": [
+      "niveau_preuve_insuffisant"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "niveau_preuve_insuffisant",
+        "description": "L'article présente un résultat d'essai de phase 3 sans mentionner explicitement le stade de la recherche (phase 3) à côté du résultat principal dans les faits, alors que la source [1] le précise ; le résumé le mentionne ",
+        "phrase": "Le critère principal, la survie sans récidive, montre une réduction de 42 % du risque de récidive ou de décès dans le bras vaccin + Keytruda versus Keytruda seul (hazard ratio 0,58 ; IC 95 % 0,38-0,88) [1]."
+      }
+    ],
+    "types_restants": [
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "contexte_hors_sujet",
+      "compteur_incoherent",
+      "niveau_preuve_insuffisant"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "titre_de_mauvaise_qualite"
+    ],
+    "titre": "Vaccin ARNm personnalisé : 42 % de risque en moins de récidive ou décès du mélanome",
+    "n_sources": 7,
+    "n_mots": 754,
+    "titre_rss": "Cancer de la peau : un vaccin personnalisé réduit de 42 % le risque de récidive ou de décès après l'opération",
+    "matiere_faits_distincts": 820,
+    "matiere_redondance": 0.01,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "etude_scientifique"
+  },
+  {
+    "slug": "deces-chaleur-hausse-36-pour-cent-accord-paris-lancet-countdown",
+    "statut": "rejete_qualite",
+    "date": "2026-10-29T02:36:12",
+    "problemes_initiaux": 14,
+    "tentatives": 3,
+    "problemes_restants": 12,
+    "bloquants_restants": 8,
+    "bloquants_types": [
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [1] (Reporterre) indique une hausse de 36 % de la mortalité liée à la chaleur chez les plus de 65 ans entre 2000-2004 et 2023, et non une hausse de 36 % en un an entre 2022 et 2023 pour la population générale.",
+        "phrase": "Le chiffre central : la mortalité annuelle moyenne liée à la chaleur a crû de près de 36 % en un an entre 2022 et 2023 [1]."
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "Le résumé reprend l'erreur du corps : la source [1] ne mentionne pas une hausse de 36 % en un an (2022-2023) mais une hausse de 36 % sur longue période (2000-2004 vs 2023) pour les plus de 65 ans.",
+        "phrase": "L'article de Reporterre du 28 octobre 2026 rapporte la publication du rapport 2024 du Lancet Countdown, qui établit que la mortalité annuelle liée à la chaleur a bondi de 36 % en un an entre 2022 et 2023, culminant à 710"
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "Le titre affirme une hausse de 36 % 'en un an' qui contredit la source [1] : celle-ci rapporte une hausse de 36 % sur la période 2000-2004 vers 2023 pour les plus de 65 ans.",
+        "phrase": "Décès liés à la chaleur : hausse de 36 % en un an, 710 000 morts en 2023"
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [1] est un article de Reporterre daté d'octobre 2026 sur le rapport 2024 ; elle ne peut pas contenir les chiffres détaillés du rapport 2022 (hausse de 68 % sur 2017-2021 vs 2000-2004). L'attribution [1] est fau",
+        "phrase": "Le rapport 2022 du Lancet Countdown, publié à la veille de la COP27 en novembre 2022, montrait déjà une hausse de 68 % des décès liés à la chaleur entre 2017-2021 par rapport à 2000-2004, et une augmentation de 61 % de l"
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [1] (article Reporterre 2026 sur le rapport 2024) ne contient pas cette estimation de l'OMS datée de 2022 ; l'attribution [1] est inventée pour ce fait.",
+        "phrase": "L'OMS estimait alors qu'entre 2030 et 2050, près de 250 000 décès supplémentaires par an seraient imputables au changement climatique, toujours selon la même source [1]."
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "La source [4] (RTS, 22 avril 2026) n'est pas fournie dans les extraits autorisés ; le fait est attribué à une source dont le contenu n'est pas vérifiable ici.",
+        "phrase": "En Europe, les données récentes confirment l'aggravation : le changement climatique tue toujours plus en Europe et les risques sanitaires s'aggravent, selon un article de la RTS daté du 22 avril 2026 [4]."
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "La source [5] (Le Temps, 26 octobre 2022) n'est pas fournie dans les extraits autorisés ; le fait est attribué à une source dont le contenu n'est pas vérifiable ici.",
+        "phrase": "Le Temps relevait déjà en octobre 2022 les conséquences mortelles de la dépendance aux énergies fossiles, alertent les scientifiques [5]."
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "Les sources [2] (Vie Publique) et [4] (RTS) ne sont pas fournies dans les extraits autorisés ; leurs contenus ne peuvent être vérifiés, donc l'attribution est non vérifiable.",
+        "phrase": "Les données de mortalité européenne relayées par la RTS (avril 2026) et l'épisode caniculaire français de l'été 2026 documenté par Vie Publique (5 764 décès en excès pour le deuxième épisode, source du 24 juillet 2026) p"
+      }
+    ],
+    "types_restants": [
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "fait_tranche_arbitrairement",
+      "redondance",
+      "compteur_incoherent"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "titre_de_mauvaise_qualite"
+    ],
+    "titre": "Décès liés à la chaleur : hausse de 36 % depuis Paris, 710 000 morts en 2023",
+    "n_sources": 5,
+    "n_mots": 608,
+    "titre_rss": "Les décès liés à la chaleur ont bondi de 36 % en un an selon les experts du Lancet Countdown",
+    "matiere_faits_distincts": 1001,
+    "matiere_redondance": 0.01,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "rapport"
+  },
+  {
+    "slug": "canicule-2026-champagne-derogation-alcool-13-pourcent-premiere-historique",
+    "statut": "rejete_sensible",
+    "date": "2026-10-29T03:01:54",
+    "problemes_initiaux": 9,
+    "bloc5": [
+      "affaire_en_cours_presentee_comme_fait"
+    ],
+    "article_type": "actu",
+    "titre": "Canicule 2026 : les champagnes pourront dépasser 13 % d'alcool pour la première fois",
+    "n_sources": 6,
+    "n_mots": 532,
+    "titre_rss": "À cause de la canicule, les vins de champagne pourront dépasser les 13% d'alcool",
+    "matiere_faits_distincts": 965,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "bacteries-transistors-calcul-mit-franceinfo",
+    "statut": "corrige_automatiquement",
+    "date": "2026-10-29T03:10:02",
+    "problemes_initiaux": 12,
+    "tentatives": 3,
+    "problemes_residuels_style": 6,
+    "rapport_initial": {
+      "conforme": false,
+      "sujet_sensible": false,
+      "sujet_sensible_raison": "",
+      "angle_insuffisant": false,
+      "angle_insuffisant_raison": "",
+      "nature_contenu": "etude_scientifique",
+      "problemes": [
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "niveau_preuve_insuffisant",
+          "phrase_exacte": "Une équipe du Massachusetts Institute of Technology a conçu des bactéries capables de fonctionner comme des transistors, les composants de base qui traitent l'information dans tout processeur électronique [1].",
+          "explication": "L'article présente comme un fait établi une avancée expérimentale sans préciser le stade de la recherche (preuve de concept, in vitro, modèle animal) ni les limites méthodologiques détaillées dans la source (vitesse, évolutivité, robustesse non démontrée), alors que la source [1] décrit explicitement une démonstration de principe limitée."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "fait_tranche_arbitrairement",
+          "phrase_exacte": "Les chercheurs ont inséré dans le génome de ces micro-organismes des circuits génétiques synthétiques qui réagissent à la présence ou l'absence de molécules spécifiques, reproduisant les opérations logiques « ET », « OU » et « NON » qui fondent le calcul binaire [1].",
+          "explication": "L'article généralise la capacité à reproduire les opérations logiques fondamentales sans préciser que la source [1] ne démontre que des programmes simples (comptage d'impulsions, mémorisation d'état) et que l'architecture n'est pas évolutive vers des calculs complexes, simplifiant excessivement le résultat scientifique."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "contexte_hors_sujet",
+          "phrase_exacte": "Parallèlement, un collectif de 38 scientifiques a appelé en décembre 2024 dans la revue Science à un débat mondial sur la synthèse d'hypothétiques « bactéries miroirs » — des formes de vie aux molécules chirales inversées — jugeant cette recherche potentiellement dangereuse si elle échappait au contrôle humain [3].",
+          "explication": "Cette alerte sur les bactéries miroirs (chiralité inversée) ne porte pas sur le sujet de l'article (circuits logiques synthétiques dans des bactéries standards) et n'éclaire pas l'avancée du MIT ; elle sert de remplissage générique sur l'ingénierie du vivant sans lien direct avec la biocomputation par transistors biologiques."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "contexte_hors_sujet",
+          "phrase_exacte": "L'Union européenne suit ces développements : le service de recherche du Parlement européen (EPRS) a publié en 2022 une analyse sur le rôle des microbiotes dans la santé humaine et les perspectives de médecine personnalisée, soulignant que les communautés microbiennes sont devenues un champ d'intervention technologique à part entière [4].",
+          "explication": "La source [4] porte sur les microbiotes et la médecine personnalisée (santé humaine), pas sur la biocomputation ou les circuits logiques bactériens ; elle ne documente pas le sujet de l'article et son invocation comme contexte est hors propos."
+        },
+        {
+          "bloc": 2,
+          "section": "contexte",
+          "type": "source_derivee_comptee_comme_primaire",
+          "phrase_exacte": "Plus récemment, des chercheurs suisses du laboratoire FinalSpark ont cultivé des organoïdes neuronaux humains — des « mini-cerveaux » — connectés à des électrodes pour en faire des unités de calcul « wetware », avec l'espoir de reproduire l'efficacité énergétique du cerveau biologique [2].",
+          "explication": "La source [2] (BBC) est un article de presse relayant les travaux de FinalSpark, pas la publication scientifique primaire ; elle est comptée comme source secondaire indépendante alors qu'elle ne fait que reprendre une même information disponible ailleurs, gonflant artificiellement le nombre de sources distinctes."
+        },
+        {
+          "bloc": 2,
+          "section": "contexte",
+          "type": "source_derivee_comptee_comme_primaire",
+          "phrase_exacte": "Parallèlement, un collectif de 38 scientifiques a appelé en décembre 2024 dans la revue Science à un débat mondial sur la synthèse d'hypothétiques « bactéries miroirs » — des formes de vie aux molécules chirales inversées — jugeant cette recherche potentiellement dangereuse si elle échappait au contrôle humain [3].",
+          "explication": "La source [3] (Le Monde) est un média relayant une publication dans Science ; elle ne constitue pas une source primaire indépendante mais une reprise journalistique, comptée comme source distincte alors qu'elle ne fait que diffuser le même appel scientifique."
+        },
+        {
+          "bloc": 2,
+          "section": "contexte",
+          "type": "source_derivee_comptee_comme_primaire",
+          "phrase_exacte": "L'Union européenne suit ces développements : le service de recherche du Parlement européen (EPRS) a publié en 2022 une analyse sur le rôle des microbiotes dans la santé humaine et les perspectives de médecine personnalisée, soulignant que les communautés microbiennes sont devenues un champ d'intervention technologique à part entière [4].",
+          "explication": "La source [4] (EPRS) est un rapport institutionnel sur les microbiotes et la santé, sans lien direct avec l'article ; elle est comptée comme source pertinente alors qu'elle ne documente pas le sujet (transistors biologiques) et ne fait pas autorité sur ce thème précis."
+        },
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "compteur_incoherent",
+          "phrase_exacte": "Une équipe du Massachusetts Institute of Technology a conçu des bactéries capables de fonctionner comme des transistors, les composants de base qui traitent l'information dans tout processeur électronique [1].",
+          "explication": "Le champ 'nb_sources' indique 4 sources, mais une seule source [1] est effectivement utilisée pour étayer les faits principaux ; les trois autres [2][3][4] ne servent qu'à un contexte hors sujet et ne devraient pas être comptées comme sources de l'article sur ce sujet, faussant l'intégrité du sourcing."
+        },
+        {
+          "bloc": 4,
+          "section": "resume",
+          "type": "extrapolation",
+          "phrase_exacte": "L'application visée n'est pas de remplacer le silicium, mais d'équiper un jour les plantes de capteurs internes pour détecter maladies et stress environnementaux sans intervention humaine.",
+          "explication": "Le résumé présente comme une perspective concrète ('d'équiper un jour les plantes') une spéculation à long terme non étayée par de données expérimentales sur plantes entières ou en conditions réelles, la source [1] ne rapportant aucun essai au-delà de cultures bactériennes en milieu contrôlé."
+        },
+        {
+          "bloc": 4,
+          "section": "nuances",
+          "type": "redondance",
+          "phrase_exacte": "La vitesse de commutation de ces transistors bactériens — de l'ordre de l'heure — les cantonne pour l'instant à de la biosurveillance passive, incompatible avec tout traitement de signal en temps réel [1].",
+          "explication": "Cette nuance répète l'information déjà présente dans les faits ('mettent plusieurs heures à changer d'état, limitant pour l'instant leur usage à des tâches de surveillance lente') sans apporter de fait distinct sourcé, violant la règle d'une idée = une seule apparition."
+        },
+        {
+          "bloc": 4,
+          "section": "nuances",
+          "type": "redondance",
+          "phrase_exacte": "La robustesse des circuits génétiques sur de nombreuses générations cellulaires n'est pas non plus établie : les mutations, le bruit biologique et la dilution des composants synthétiques lors de la division peuvent dégrader la fonction programmée [1].",
+          "explication": "Cette nuance reformule la limite déjà énoncée dans les faits ('l'architecture n'est pas encore évolutive vers des calculs complexes') sans ajouter de nouvelle information sourcée distincte, constituant une redondance interdite par la charte."
+        },
+        {
+          "bloc": 4,
+          "section": "nuances",
+          "type": "redondance",
+          "phrase_exacte": "Aucun essai en conditions réelles (sol, plante entière, environnement ouvert) n'est rapporté ; les résultats proviennent de cultures en milieu contrôlé [1].",
+          "explication": "Cette nuance répète implicitement la portée limitée déjà décrite dans les faits ('la démonstration reste une preuve de concept') sans fait nouveau, servant à gonfler la section au lieu d'être coupée."
+        }
+      ]
+    },
+    "article_type": "actu",
+    "titre": "Des bactéries programmées comme des transistors au MIT",
+    "n_sources": 4,
+    "n_mots": 628,
+    "titre_rss": "Des bactéries transformées en ordinateurs vivants",
+    "matiere_faits_distincts": 788,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "etude_scientifique"
+  },
+  {
+    "slug": "extension-taxe-soda-aliments-sucres-plfss-2027",
+    "statut": "rejete_qualite",
+    "date": "2026-10-29T03:22:49",
+    "problemes_initiaux": 12,
+    "tentatives": 3,
+    "problemes_restants": 16,
+    "bloquants_restants": 2,
+    "bloquants_types": [
+      "chiffre_errone",
+      "chiffre_errone"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [1] (Sciences et Avenir) ne contient aucune donnée chiffrée sur la consommation moyenne de sucre ajouté en France ni sur les recommandations de l'OMS ; ces chiffres sont inventés par rapport à la source citée.",
+        "phrase": "la consommation moyenne de sucre ajouté en France dépasse les recommandations de l'OMS, qui préconise de la limiter à 10 % de l'apport énergétique total, idéalement 5 %"
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [1] ne mentionne aucun coût chiffré pour l'Assurance maladie ; l'expression « plusieurs milliards d'euros » est une invention non sourcée.",
+        "phrase": "Les maladies liées à la surconsommation de sucre — obésité, diabète de type 2, maladies cardiovasculaires — représentent un coût estimé à plusieurs milliards d'euros par an pour l'Assurance maladie"
+      }
+    ],
+    "types_restants": [
+      "chiffre_errone",
+      "chiffre_errone",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "contexte_hors_sujet",
+      "contexte_hors_sujet",
+      "contexte_hors_sujet",
+      "extrapolation",
+      "annonce_perimee"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "faits_repetitifs"
+    ],
+    "titre": "Les députés examinent l'extension de la taxe soda aux aliments sucrés dans le PLFSS 2027",
+    "n_sources": 4,
+    "n_mots": 588,
+    "titre_rss": "Le sucre bientôt taxé comme le tabac et l’alcool ?",
+    "matiere_faits_distincts": 551,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "ukraine-premiere-evacuation-medicale-drone-soldat-blesse-62-km",
+    "statut": "corrige_automatiquement",
+    "date": "2026-10-29T03:28:27",
+    "problemes_initiaux": 7,
+    "tentatives": 1,
+    "problemes_residuels_style": 6,
+    "rapport_initial": {
+      "conforme": false,
+      "sujet_sensible": false,
+      "sujet_sensible_raison": "",
+      "angle_insuffisant": false,
+      "angle_insuffisant_raison": "",
+      "nature_contenu": "actualite_factuelle",
+      "problemes": [
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "fait_tranche_arbitrairement",
+          "phrase_exacte": "L'armée ukrainienne a annoncé le 19 octobre 2026 avoir effectué la première évacuation médicale par drone de l'histoire sur un champ de bataille [3].",
+          "explication": "L'article présente comme un fait établi ('a effectué la première évacuation') ce que la source [3] qualifie de 'claims' (revendique/affirme) sans validation indépendante, et que les nuances reconnaissent comme non confirmé par un organisme international."
+        },
+        {
+          "bloc": 1,
+          "section": "titre",
+          "type": "fait_tranche_arbitrairement",
+          "phrase_exacte": "Ukraine : première évacuation médicale par drone d'un soldat blessé sur 62 km",
+          "explication": "Le titre affirme comme un fait acquis ('première évacuation médicale par drone') une revendication non vérifiée indépendamment, alors que la source [3] utilise 'claims' et les nuances précisent qu'aucun organisme international n'a validé ce caractère inédit."
+        },
+        {
+          "bloc": 1,
+          "section": "resume",
+          "type": "fait_tranche_arbitrairement",
+          "phrase_exacte": "La 92e brigade d'assaut ukrainienne a évacué un soldat blessé par drone sur 62 kilomètres depuis la ligne de front, une première mondiale selon l'armée ukrainienne et l'agence AP News [3].",
+          "explication": "Le résumé présente l'évacuation comme un fait accompli ('a évacué') et la 'première mondiale' comme validée par AP News, alors que la source [3] indique qu'AP News relaie la 'claim' (revendication) de la brigade sans la confirmer comme fait établi."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "incoherence_inter_sections",
+          "phrase_exacte": "L'agence AP News a relayé l'annonce de la brigade ukrainienne le 20 octobre, précisant que l'armée ukrainienne présente cette opération comme une première mondiale dans l'histoire de la guerre moderne [3].",
+          "explication": "Cette phrase des faits attribue correctement la 'première mondiale' à la présentation de l'armée ukrainienne, contredisant le titre et le résumé qui l'affirment comme un fait objectif sans attribution."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "contexte_hors_sujet",
+          "phrase_exacte": "Le Monde documente semaine après semaine l'évolution des combats depuis février 2022, illustrant la transformation du champ de bataille par les systèmes sans pilote [2].",
+          "explication": "La source [2] (Le Monde, suivi cartographique général de la guerre) ne documente pas spécifiquement l'évacuation médicale par drone ni son contexte technique immédiat ; elle sert de remplissage générique sans éclairer le sujet précis de l'article."
+        },
+        {
+          "bloc": 2,
+          "section": "contexte",
+          "type": "source_derivee_comptee_comme_primaire",
+          "phrase_exacte": "Le Monde documente semaine après semaine l'évolution des combats depuis février 2022, illustrant la transformation du champ de bataille par les systèmes sans pilote [2].",
+          "explication": "Le champ 'qualite_sources' compte 1 source primaire et 3 secondaires, mais la source [2] (Le Monde) est un média reprenant des données officielles/gouvernementales sans enquête propre sur ce sujet précis — elle ne constitue pas une source secondaire indépendante distincte d'AP News et France Info sur l'événement principal."
+        },
+        {
+          "bloc": 4,
+          "section": "nuances",
+          "type": "redondance",
+          "phrase_exacte": "Le rapport de l'ONU de juillet 2026 avertit que la multiplication des drones sur le champ de bataille crée de nouveaux risques pour les civils et complique les opérations humanitaires, y compris l'évacuation médicale traditionnelle [5].",
+          "explication": "Cette phrase répète l'information déjà donnée dans le contexte via la même source [5] ('prolifération des drones... complique les opérations de secours traditionnelles'), sans apporter de nuance nouvelle spécifique à l'évacuation par drone."
+        }
+      ]
+    },
+    "article_type": "actu",
+    "titre": "Ukraine : première évacuation médicale par drone d'un soldat blessé sur 62 km",
+    "n_sources": 4,
+    "n_mots": 535,
+    "titre_rss": "\"L'évacuation se déroule en quelques minutes\" : un soldat blessé évacué par drone sur 62 km en Ukraine",
+    "matiere_faits_distincts": 432,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "royaume-uni-budget-burnham-mesures-limitees-pouvoir-achat",
+    "statut": "rejete_qualite",
+    "date": "2026-10-29T03:45:06",
+    "tentative": 1,
+    "angle_insuffisant": true,
+    "raison": "Aucune phrase dans 'faits' ne combine un événement précis daté (le budget du 28 octobre 2026) avec une donnée chiffrée ou nommée propre à cet événement (montant des mesures, taux de croissance visé, détail d'une mesure concrète). L'article décrit seulement le cadre général (contraintes de dette, résilience FMI) sans dire ce que le budget contient réellement.",
+    "article_type": "actu",
+    "titre": "Royaume-Uni : le budget Burnham offre peu de marges face à l'inflation",
+    "n_sources": 4,
+    "n_mots": 468,
+    "titre_rss": "Royaume-Uni: des mesures budgétaires limitées face à la crise du pouvoir d'achat",
+    "matiere_faits_distincts": 701,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 2,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "oxfam-217-entreprises-destruction-reconstruction-climatique-rapport-2025",
+    "statut": "rejete_qualite",
+    "date": "2026-10-29T03:57:46",
+    "problemes_initiaux": 13,
+    "tentatives": 3,
+    "problemes_restants": 16,
+    "bloquants_restants": 3,
+    "bloquants_types": [
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [1] (Novethic, 27/10/2025) ne peut pas contenir de données annuelles 2025 complètes (bénéfices, dividendes) à cette date ; le chiffre est soit inventé, soit extrapolé, soit issu d'une confusion d'exercice, et n",
+        "phrase": "En 2025, ces entreprises ont réalisé des bénéfices moyens de 1,8 milliard de dollars et versé en moyenne plus d'un milliard de dollars de dividendes à leurs actionnaires [1]."
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [1] est datée du 27 octobre 2025 et ne peut pas fournir un bilan annuel 2025 complet des émissions de jets privés en France ; le chiffre n'est pas vérifiable dans l'extrait fourni.",
+        "phrase": "En France, les jets privés ont émis en 2025 plus de CO₂ en six minutes que la moitié de la population française en un an [1]."
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "Le facteur « 400 fois » n'apparaît pas dans l'extrait de la source [1] fourni ; il est soit inventé, soit issu d'une autre source non listée.",
+        "phrase": "Une personne du 0,1 % le plus riche contribue près de 400 fois plus aux vagues de chaleur extrêmes qu'une personne de la moitié la plus pauvre [1]."
+      }
+    ],
+    "types_restants": [
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "contexte_hors_sujet",
+      "compteur_incoherent",
+      "paraphrase_structurelle"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "faits_repetitifs"
+    ],
+    "titre": "Oxfam : 217 entreprises profitent de la destruction et de la reconstruction climatique",
+    "n_sources": 4,
+    "n_mots": 953,
+    "titre_rss": "Détruire puis réparer : ces investisseurs qui gagnent sur les deux fronts de la crise climatique",
+    "matiere_faits_distincts": 858,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "rapport"
+  },
+  {
+    "slug": "chomage-jeunes-plan-emploi-futur-hausse-2026",
+    "statut": "rejete_sensible",
+    "date": "2026-10-29T04:14:02",
+    "problemes_initiaux": 12,
+    "tentative": 3,
+    "bloc5": true,
+    "article_type": "actu",
+    "titre": "Chômage des jeunes : le plan Emploi futur face à une hausse à 20 %",
+    "n_sources": 5,
+    "n_mots": 653,
+    "titre_rss": "Emploi des moins de 25 ans : les jeunes dans leur chômage ingrat",
+    "matiere_faits_distincts": 967,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 4,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "secheresse-guyane-maroni-pont-aerien-ravitaillement-40000-habitants",
+    "statut": "rejete_qualite",
+    "date": "2026-10-29T04:22:08",
+    "problemes_initiaux": 10,
+    "tentatives": 3,
+    "problemes_restants": 7,
+    "bloquants_restants": 1,
+    "bloquants_types": [
+      "chiffre_errone"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [5] mentionne 'plusieurs tonnes de fret' sans précision chiffrée ; l'article généralise en 'des tonnes' (pluriel indéfini) ce qui peut surestimer le volume livré par rapport à la formulation prudente de la sour",
+        "phrase": "Les rotations aériennes acheminent des tonnes de fret essentiel : produits alimentaires de première nécessité, carburant pour les groupes électrogènes locaux et matériel sanitaire [5]."
+      }
+    ],
+    "types_restants": [
+      "chiffre_errone",
+      "source_inventee",
+      "source_inventee",
+      "compteur_incoherent",
+      "source_derivee_comptee_comme_primaire",
+      "extrapolation",
+      "redondance"
+    ],
+    "article_type": "actu",
+    "titre": "Sécheresse en Guyane : le Maroni au plus bas, 40 000 habitants ravitaillés par avion",
+    "n_sources": 5,
+    "n_mots": 548,
+    "titre_rss": "En Guyane, la sécheresse paralyse la navigation des pirogues, 40 000 habitants ravitaillés par avions militaires",
+    "matiere_faits_distincts": 792,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "mort-claude-cohen-tannoudji-prix-nobel-physique-1997",
+    "statut": "corrige_automatiquement",
+    "date": "2026-10-29T04:34:18",
+    "problemes_initiaux": 10,
+    "tentatives": 1,
+    "problemes_residuels_style": 4,
+    "rapport_initial": {
+      "conforme": false,
+      "sujet_sensible": false,
+      "sujet_sensible_raison": "",
+      "angle_insuffisant": false,
+      "angle_insuffisant_raison": "",
+      "nature_contenu": "actualite_factuelle",
+      "problemes": [
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "Le physicien Claude Cohen-Tannoudji est mort le 22 octobre 2026 à l'âge de 93 ans, ont annoncé Le Monde et 20 Minutes [1][5].",
+          "explication": "Le renvoi [5] ne correspond à aucune source dans la liste autorisée qui ne contient que 4 entrées (indices 1 à 4)."
+        },
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "Lauréat du prix Nobel de physique en 1997, il partageait cette distinction avec les Américains Steven Chu et William Phillips pour leurs travaux indépendants sur le refroidissement et le piégeage d'atomes par laser [1][5][7].",
+          "explication": "Les renvois [5] et [7] ne correspondent à aucune source dans la liste autorisée (indices 1 à 4 seulement)."
+        },
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "Au Collège de France, où il occupait la chaire d'atomes et rayonnement, et à l'École normale supérieure, il a mis au point la méthode du « refroidissement de Sisyphos » qui permet de ralentir des atomes jusqu'à des vitesses de l'ordre du centimètre par seconde, atteignant des températures de l'ordre du microkelvin, soit quelques millionièmes de degré au-dessus du zéro absolu [7].",
+          "explication": "Le renvoi [7] ne correspond à aucune source dans la liste autorisée (indices 1 à 4 seulement)."
+        },
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "Ces avancées ont rendu possible l'observation d'atomes quasi immobiles pendant plusieurs secondes, transformant la spectroscopie de haute résolution et permettant la réalisation d'horloges atomiques d'une précision inégalée, ainsi que la création des premiers condensats de Bose-Einstein en 1995 [7].",
+          "explication": "Le renvoi [7] ne correspond à aucune source dans la liste autorisée (indices 1 à 4 seulement)."
+        },
+        {
+          "bloc": 2,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "La méthode du refroidissement de Sisyphos, théorisée en 1988 et confirmée expérimentalement en 1990, a permis de dépasser la limite de Doppler qui bornait les techniques précédentes [7].",
+          "explication": "Le renvoi [7] ne correspond à aucune source dans la liste autorisée (indices 1 à 4 seulement)."
+        },
+        {
+          "bloc": 2,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "Le prix Nobel 1997 a couronné trois approches complémentaires : le piégeage magnéto-optique de Steven Chu à Stanford, le ralentissement par laser de William Phillips au NIST, et l'explication théorique fine des mécanismes de refroidissement sub-Doppler par Cohen-Tannoudji à l'ENS [7].",
+          "explication": "Le renvoi [7] ne correspond à aucune source dans la liste autorisée (indices 1 à 4 seulement)."
+        },
+        {
+          "bloc": 2,
+          "section": "nuances",
+          "type": "source_inventee",
+          "phrase_exacte": "Les sources disponibles, toutes postérieures à l'annonce du décès, ne mentionnent ni controverse scientifique sur l'attribution du prix Nobel, ni débat sur la paternité des découvertes entre les trois lauréats, dont les travaux étaient menés de manière indépendante mais convergente [1][5][7].",
+          "explication": "Les renvois [5] et [7] ne correspondent à aucune source dans la liste autorisée (indices 1 à 4 seulement)."
+        },
+        {
+          "bloc": 2,
+          "section": "nuances",
+          "type": "source_inventee",
+          "phrase_exacte": "Aucune source ne signale de zone d'ombre sur la fin de carrière du physicien, qui a poursuivi son enseignement au Collège de France jusqu'à un âge avancé [1].",
+          "explication": "L'affirmation 'Aucune source ne signale...' se fonde sur une revue de sources [5][7] qui n'existent pas dans la liste autorisée ; seul [1] est valide."
+        },
+        {
+          "bloc": 2,
+          "section": "nuances",
+          "type": "chiffre_errone",
+          "phrase_exacte": "Le fichier des personnes décédées de l'Insee, mis à jour le 5 octobre 2026, confirme le décès à cette date sans fournir de détail sur les circonstances [3].",
+          "explication": "La source [3] (Insee) est datée du 05/10/2026, soit 17 jours avant le décès annoncé le 22/10/2026 ; elle ne peut pas confirmer un décès futur."
+        },
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "compteur_incoherent",
+          "phrase_exacte": "nb_sources: 4",
+          "explication": "L'article utilise des renvois jusqu'à [7], ce qui implique au moins 7 sources distinctes, mais le champ nb_sources indique 4, créant une incohérence sur le nombre réel de sources utilisées."
+        }
+      ]
+    },
+    "article_type": "actu",
+    "titre": "Mort de Claude Cohen-Tannoudji, prix Nobel de physique 1997, à l'âge de 93 ans",
+    "n_sources": 4,
+    "n_mots": 496,
+    "titre_rss": "Claude Cohen-Tannoudji, Prix Nobel de physique et dompteur d’atomes, est mort",
+    "matiere_faits_distincts": 570,
+    "matiere_redondance": 0.17,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
   }
 ]
