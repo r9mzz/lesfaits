@@ -49151,5 +49151,300 @@
     "n_sources_injectees": 10,
     "n_sources_trouvees": 10,
     "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "banques-affaires-bonus-biais-genre-etude-wall-street",
+    "statut": "rejete_sensible",
+    "date": "2026-10-29T17:10:21",
+    "problemes_initiaux": 12,
+    "bloc5": [
+      "diffamation_potentielle"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "titre_de_mauvaise_qualite"
+    ],
+    "titre": "Banques d'affaires : une étude révèle des biais genrés dans l'allocation des bonus à Wall Street",
+    "n_sources": 4,
+    "n_mots": 743,
+    "titre_rss": "Les rémunérations des banquiers d’affaires reposent moins sur des profits mesurables que sur des jugements genrés dans un univers masculin",
+    "matiere_faits_distincts": 660,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 2,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "etude_scientifique"
+  },
+  {
+    "slug": "restauration-nature-252-millions-hectares-record-insuffisant-onu",
+    "statut": "corrige_automatiquement",
+    "date": "2026-10-29T17:33:23",
+    "problemes_initiaux": 13,
+    "tentatives": 3,
+    "problemes_residuels_style": 13,
+    "rapport_initial": {
+      "conforme": false,
+      "sujet_sensible": false,
+      "sujet_sensible_raison": "",
+      "angle_insuffisant": false,
+      "angle_insuffisant_raison": "",
+      "nature_contenu": "rapport",
+      "problemes": [
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "chiffre_errone",
+          "phrase_exacte": "Un rapport des Nations unies publié jeudi 29 octobre, en marge de la COP17 sur la biodiversité à Cali, établit que 252 millions d'hectares d'écosystèmes dégradés font actuellement l'objet de mesures de restauration à l'échelle planétaire [1].",
+          "explication": "La source [1] (Libération, datée du 29 octobre 2026) indique que le rapport a été publié le 28 octobre 2026 (un mercredi), pas le 29 octobre (un jeudi). La date de publication du rapport est donc erronée dans l'article."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "chiffre_errone",
+          "phrase_exacte": "Le rythme annuel des mises en restauration devrait être multiplié par trois pour combler l'écart [1].",
+          "explication": "La source [1] indique explicitement que le rythme devrait être multiplié par 2,5 (« le rythme annuel devrait être multiplié par 2,5 »), et non par 3. Le chiffre est inexact par rapport à la source citée."
+        },
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "Le Conseil économique, social et environnemental souligne que le foncier, le financement long terme et l'acceptabilité locale restent des freins structurels non levés, malgré les outils juridiques existants [2].",
+          "explication": "La source [2] (Vie Publique, avis du CESE de janvier 2025) ne mentionne pas le règlement européen 2024/1991 (entré en vigueur en juin 2024) ni la stratégie nationale pour la biodiversité 2030. Elle ne peut donc pas confirmer que le CESE souligne ces freins « malgré les outils juridiques existants » en lien avec ce règlement. L'attribution [2] est inventée pour ce fait précis."
+        },
+        {
+          "bloc": 2,
+          "section": "nuances",
+          "type": "source_inventee",
+          "phrase_exacte": "En France, le Conseil économique, social et environnemental souligne que le foncier, le financement long terme et l'acceptabilité locale restent des freins structurels non levés, malgré les outils juridiques existants [2].",
+          "explication": "Même problème qu'en faits : la source [2] (janvier 2025) ne traite pas du règlement européen 2024/1991 ni de sa transposition française. L'attribution [2] ne valide pas ce lien."
+        },
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "Ce texte vise à pallier l'insuffisance des dispositifs précédents, jugés incapables d'inverser l'érosion de la biodiversité [3].",
+          "explication": "La source [3] (EUR-Lex, résumé du règlement 2024/1991) ne contient pas ce jugement sur les « dispositifs précédents jugés incapables d'inverser l'érosion de la biodiversité ». Cette interprétation n'est pas dans la source citée."
+        },
+        {
+          "bloc": 2,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "Dans l'Union européenne, 75 % de la surface terrestre est significativement altérée et 85 % des zones humides ont disparu depuis 1700 [3].",
+          "explication": "La source [3] (résumé EUR-Lex du règlement) ne fournit pas ces chiffres précis (75 % surface terrestre altérée, 85 % zones humides disparues depuis 1700). Ces données ne figurent pas dans l'extrait fourni de cette source."
+        },
+        {
+          "bloc": 2,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "Les populations d'oiseaux ont chuté de 25 % en quarante ans, et de près de 60 % pour les espèces des milieux agricoles [3].",
+          "explication": "La source [3] ne contient pas ces statistiques sur les populations d'oiseaux. L'attribution [3] est fausse pour ce fait."
+        },
+        {
+          "bloc": 2,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "Aucune source [n] n'est citée pour cette affirmation.",
+          "explication": "Cette affirmation factuelle précise (évaluation finale des objectifs d'Aichi) n'est attribuée à aucune source dans le tableau. Elle constitue une information non sourcée présentée comme un fait établi."
+        },
+        {
+          "bloc": 2,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "Il s'inscrit dans le paquet « Pacte vert » et vise aussi l'atténuation climatique, la sécurité alimentaire et la neutralité en matière de dégradation des sols [3].",
+          "explication": "La source [3] (résumé EUR-Lex) ne mentionne pas explicitement le « paquet Pacte vert », ni l'atténuation climatique, la sécurité alimentaire et la neutralité en matière de dégradation des sols comme objectifs visés par ce règlement. L'attribution [3] ne couvre pas ces éléments."
+        },
+        {
+          "bloc": 2,
+          "section": "nuances",
+          "type": "source_inventee",
+          "phrase_exacte": "Le chiffre de 252 millions d'hectares agrège des réalités très hétérogènes : il inclut aussi bien des projets de reforestation à grande échelle que des mesures de gestion durable ou de réhabilitation de sols agricoles, dont la qualité écologique et la pérennité ne sont pas uniformément vérifiées [1].",
+          "explication": "La source [1] (Libération) ne détaille pas la composition du chiffre de 252 millions d'hectares (reforestation, gestion durable, réhabilitation sols agricoles) ni la non-vérification uniforme de la qualité écologique. Ces précisions ne figurent pas dans l'extrait fourni."
+        },
+        {
+          "bloc": 2,
+          "section": "nuances",
+          "type": "source_inventee",
+          "phrase_exacte": "Ce décompte repose sur les déclarations nationales, sans audit indépendant systématique, ce qui laisse une marge d'incertitude sur la surface réellement restaurée de manière durable [1].",
+          "explication": "La source [1] ne mentionne pas que le décompte repose sur des déclarations nationales sans audit indépendant systématique. Cette limite méthodologique n'est pas dans l'extrait fourni."
+        },
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "compteur_incoherent",
+          "phrase_exacte": "nb_sources: 7",
+          "explication": "Seules 3 sources (Libération [1], Vie Publique [2], EUR-Lex [3]) sont réellement citées et utilisées dans le texte via des renvois [n]. Les 4 autres sources (European Court of Justice [4], Europa [5], Europa [6], Conseil Etat [7]) ne sont jamais référencées dans le corps de l'article. Le compteur nb_sources=7 est donc incohérent avec l'usage réel."
+        },
+        {
+          "bloc": 4,
+          "section": "nuances",
+          "type": "redondance",
+          "phrase_exacte": "En France, le Conseil économique, social et environnemental souligne que le foncier, le financement long terme et l'acceptabilité locale restent des freins structurels non levés, malgré les outils juridiques existants [2].",
+          "explication": "Cette phrase est une répétition quasi identique de la dernière phrase de la section « faits » (même contenu, même source [2], même formulation). Elle ne constitue pas une nuance distincte mais une redondance interdite par la charte."
+        }
+      ]
+    },
+    "article_type": "actu",
+    "titre": "252 millions d'hectares restaurés dans le monde : un record insuffisant selon l'ONU",
+    "n_sources": 7,
+    "n_mots": 588,
+    "titre_rss": "Avec 252 millions d’hectares de nature restaurés, le monde atteint un niveau inédit mais largement insuffisant",
+    "matiere_faits_distincts": 642,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "rapport"
+  },
+  {
+    "slug": "adhesion-ue-albanie-montenegro-progres-juin-2026",
+    "statut": "rejete_sensible",
+    "date": "2026-10-29T17:39:56",
+    "problemes_initiaux": 25,
+    "bloc5": [
+      "affaire_en_cours_presentee_comme_fait"
+    ],
+    "article_type": "actu",
+    "titre": "Adhésion UE : l'Albanie valide les critères du premier cluster, le Monténégro clôture 13 chapitres",
+    "n_sources": 8,
+    "n_mots": 730,
+    "titre_rss": "Albanie et Monténégro : un état des lieux des négociations d'adhésion à l'Union européenne - Rapport d'information n° 845",
+    "matiere_faits_distincts": 650,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "residences-artistes-500-structures-2000-createurs-selection-competitive-2025",
+    "statut": "rejete_qualite",
+    "date": "2026-10-29T17:46:20",
+    "angle_insuffisant": true,
+    "raison": "Aucune phrase dans 'faits' ne combine un événement précis daté (publication de l'enquête en 2025) et une donnée chiffrée qui lui est propre ; l'article expose un état des lieux général sans fait déclencheur récent identifiable.",
+    "article_type": "actu",
+    "titre": "Résidences d'artistes : 500 structures, 2 000 créateurs en 2025, sélection à 1 pour 150",
+    "n_sources": 4,
+    "n_mots": 469,
+    "titre_rss": "Enquête sur les résidences d'artistes en France",
+    "matiere_faits_distincts": 761,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "etude_scientifique"
+  },
+  {
+    "slug": "onu-rechauffement-1-5-degres-depasse-2-6-objectif",
+    "statut": "rejete_sensible",
+    "date": "2026-10-29T18:03:22",
+    "problemes_initiaux": 16,
+    "tentative": 3,
+    "bloc5": true,
+    "article_type": "actu",
+    "titre": "L'ONU acte le dépassement du seuil de 1,5 °C et vise 2,6 °C de réchauffement",
+    "n_sources": 6,
+    "n_mots": 773,
+    "titre_rss": "Climat: le monde vers un réchauffement de 2,6°C, mais il est encore temps d'agir, selon l'ONU",
+    "matiere_faits_distincts": 1018,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "rapport"
+  },
+  {
+    "slug": "ebola-bundibugyo-vaccins-ervabo-zabdeno-anticorps-croises-inserm",
+    "statut": "rejete_sensible",
+    "date": "2026-10-29T18:16:57",
+    "problemes_initiaux": 11,
+    "tentative": 1,
+    "bloc5": true,
+    "article_type": "actu",
+    "titre": "Ebola Bundibugyo : les vaccins anti-Zaïre induisent des anticorps croisés, sans preuve d'efficacité clinique",
+    "n_sources": 7,
+    "n_mots": 645,
+    "titre_rss": "Épidémie d’Ebola Bundibugyo : des premiers résultats pour guider la recherche d’un vaccin efficace",
+    "matiere_faits_distincts": 1159,
+    "matiere_redondance": 0.02,
+    "matiere_donnees_chiffrees": 3,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "veille_heures_visible": 517.7,
+    "veille_passages": 311,
+    "veille_age_h": 1887.5,
+    "veille_n_flux_grappe": 9,
+    "nature_contenu": "etude_scientifique"
+  },
+  {
+    "slug": "coree-sud-fsd-tesla-autorise-modeles-usa-bloque-chine-80-conducteurs-inculpes",
+    "statut": "rejete_qualite",
+    "date": "2026-10-29T18:34:19",
+    "problemes_initiaux": 7,
+    "tentatives": 3,
+    "problemes_restants": 12,
+    "bloquants_restants": 2,
+    "bloquants_types": [
+      "source_inventee",
+      "source_inventee"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "La source [1] ne mentionne pas l'origine des boîtiers (Europe, Chine, fabrication artisanale), ni le branchement sur le bus CAN, ni le trompage des calculateurs, ni le contournement du verrouillage géographique. Elle ind",
+        "phrase": "La police métropolitaine de Séoul a annoncé avoir transmis au parquet les dossiers de conducteurs et saisi des modules non autorisés, achetés en Europe ou en Chine ou fabriqués par les utilisateurs. Ces dispositifs, bran"
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "La source [1] ne mentionne pas les arguments détaillés du tribunal (Autopilot de base/Amélioré, droit aux futures mises à jour, connaissance des clients, absence de promesse de conduite entièrement autonome). Elle indiqu",
+        "phrase": "Parallèlement, le tribunal du district central de Séoul a rejeté la plainte de clients qui réclamaient l'annulation de leur contrat et le remboursement intégral de l'option FSD. Les juges ont estimé que Tesla n'avait pas"
+      }
+    ],
+    "types_restants": [
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "compteur_incoherent",
+      "source_derivee_comptee_comme_primaire"
+    ],
+    "article_type": "actu",
+    "titre": "Corée du Sud : FSD Tesla autorisé selon l'usine, 80 conducteurs inculpés",
+    "n_sources": 4,
+    "n_mots": 831,
+    "titre_rss": "Police, procès, dossier vide au ministère : le FSD de Tesla tourne au vaudeville en Corée du Sud",
+    "matiere_faits_distincts": 706,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "surmortalite-29-pour-cent-juin-2026-canicule-sante-publique-france",
+    "statut": "conforme_du_premier_coup",
+    "date": "2026-10-29T18:38:26",
+    "article_type": "actu",
+    "titre": "Surmortalité de 29 % fin juin 2026 : 2 025 décès supplémentaires en une semaine",
+    "n_sources": 4,
+    "n_mots": 638,
+    "titre_rss": "Point de situation sur la mortalité toutes causes confondues  sur la période du 22 au 28 juin 2026",
+    "matiere_faits_distincts": 708,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "veille_heures_visible": 221.3,
+    "veille_passages": 74,
+    "veille_age_h": 1591.1,
+    "veille_n_flux_grappe": 1,
+    "nature_contenu": "actualite_factuelle"
   }
 ]
