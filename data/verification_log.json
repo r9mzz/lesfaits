@@ -48210,5 +48210,946 @@
     "n_sources_injectees": 10,
     "n_sources_trouvees": 10,
     "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "piratage-securite-interieure-usa-41000-agents-divulgues",
+    "statut": "corrige_automatiquement",
+    "date": "2026-10-29T06:56:42",
+    "problemes_initiaux": 15,
+    "tentatives": 3,
+    "problemes_residuels_style": 16,
+    "rapport_initial": {
+      "conforme": false,
+      "sujet_sensible": false,
+      "sujet_sensible_raison": "",
+      "angle_insuffisant": false,
+      "angle_insuffisant_raison": "",
+      "nature_contenu": "actualite_factuelle",
+      "problemes": [
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "chiffre_errone",
+          "phrase_exacte": "Le fichier recense 21 000 agents de la Customs and Border Protection (CBP), près de 6 600 officiers de l'Immigration and Customs Enforcement (ICE), ainsi que des effectifs des Homeland Security Investigations, du Federal Protective Service et de la Cybersecurity and Infrastructure Security Agency [2].",
+          "explication": "La source BBC [2] indique 'more than 21,000 CBP employees' et 'more than 6,600 ICE employees' ; l'article omet le 'plus de' pour les deux chiffres, les présentant comme des valeurs exactes alors que les sources donnent des bornes inférieures."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "chiffre_errone",
+          "phrase_exacte": "Mercredi, le collectif Department of Peace a rendu publique une base de données dénommée Icepick contenant les informations personnelles de 41 000 membres du Department of Homeland Security (DHS) [2].",
+          "explication": "La source BBC [2] parle de 'more than 41,000 DHS employees' ; l'article transforme une borne inférieure ('plus de 41 000') en chiffre exact (41 000)."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "Les auteurs affirment avoir accédé aux profils via le service d'authentification unique Okta, ce que l'éditeur conteste en déclarant n'avoir « aucune preuve » de compromission de ses systèmes [2].",
+          "explication": "L'extrait BBC [2] ne mentionne ni Okta, ni une revendication d'accès via Okta, ni une déclaration d'Okta niant toute compromission ; ces éléments sont absents de la source citée."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "Le porte-parole de Department of Peace lie directement l'action aux déclarations du secrétaire à la Sécurité intérieure Markwayne Mullin, qui avait annoncé en juillet « monter la pression » sur l'ICE [2].",
+          "explication": "L'extrait BBC [2] ne cite pas Markwayne Mullin, ne rapporte pas de déclaration de juillet sur 'monter la pression' sur l'ICE, et ne mentionne pas de lien fait par un porte-parole de Department of Peace ; ces éléments sont absents de la source."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "Outre les identités, la fuite inclut adresses professionnelles, numéros de téléphone, descriptions de poste, noms de code d'opérations jusque-là inconnues, responsables de ces opérations et technologies employées — notamment des outils fournis par Cellebrite et Palantir [2].",
+          "explication": "L'extrait BBC [2] ne liste pas ces catégories de données (adresses pro, numéros, descriptions de poste, noms de code, responsables, technologies, Cellebrite, Palantir) ; le détail est absent de la source citée."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "Emma Best, cofondatrice de Distributed Denial of Secrets (DDoSecrets) qui héberge les données, explique que l'objectif est de substituer « l'anonymat par la responsabilité » en identifiant les responsables d'opérations secrètes et de programmes d'expulsion [2].",
+          "explication": "L'extrait BBC [2] ne cite pas Emma Best, ne mentionne pas DDoSecrets comme hébergeur, et ne rapporte pas cette explication sur l'objectif de la fuite ; ces éléments sont absents de la source."
+        },
+        {
+          "bloc": 2,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "Fin septembre, le groupe ShinyHunters avait déjà dérobé des données personnelles de milliers d'agents du FBI, revendiquant vouloir « défendre leur réputation » face à des allégations de l'agence [3].",
+          "explication": "L'extrait Le Monde [3] ne mentionne pas le groupe ShinyHunters, ne rapporte pas de revendication de 'défendre leur réputation', et ne lie pas la fuite à des allégations de l'agence ; ces éléments sont absents de la source."
+        },
+        {
+          "bloc": 2,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "Début octobre, ce sont 2,76 millions de dossiers liés à l'armée américaine — employés, anciens employés et membres de leur famille — qui ont été exposés après un accès non autorisé [4].",
+          "explication": "L'extrait Le Monde [4] ne donne pas le chiffre '2,76 millions', ne précise pas la ventilation (employés, anciens, familles) et ne mentionne pas 'accès non autorisé' ; ces détails sont absents de la source."
+        },
+        {
+          "bloc": 2,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "Le rapport annuel 2026 sur la cybercriminalité publié par le ministère français de l'Intérieur confirme une « pression cyber durable et structurelle », marquée par l'industrialisation du cybercrime, l'usage massif d'IA et la recherche de failles dans les chaînes d'approvisionnement numériques [5].",
+          "explication": "L'extrait Vie Publique [5] ne contient pas ces formulations ('pression cyber durable et structurelle', 'industrialisation du cybercrime', 'usage massif d'IA', 'recherche de failles dans les chaînes d'approvisionnement') ; le contenu attribué à la source n'y figure pas."
+        },
+        {
+          "bloc": 2,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "La même étude note la convergence entre hacktivisme idéologique, géopolitique et cybercriminalité, les groupes utilisant des plateformes chiffrées et des cryptoactifs pour structurer leurs opérations [5].",
+          "explication": "L'extrait Vie Publique [5] ne mentionne pas cette convergence, ni l'usage de plateformes chiffrées et de cryptoactifs par les groupes ; ces éléments sont absents de la source."
+        },
+        {
+          "bloc": 1,
+          "section": "nuances",
+          "type": "source_inventee",
+          "phrase_exacte": "L'authentification du mode d'accès reste contestée : Department of Peace pointe Okta, mais l'entreprise nie toute compromission de ses systèmes [2].",
+          "explication": "L'extrait BBC [2] ne mentionne pas Okta, ni une contestation sur le mode d'accès, ni un démenti d'Okta ; ces éléments sont absents de la source citée."
+        },
+        {
+          "bloc": 1,
+          "section": "nuances",
+          "type": "source_inventee",
+          "phrase_exacte": "Les auteurs précisent ne pas viser un « annuaire de chaque agent du DHS » [2].",
+          "explication": "L'extrait BBC [2] ne contient pas cette citation ni cette précision sur le périmètre visé par les auteurs ; l'élément est absent de la source."
+        },
+        {
+          "bloc": 1,
+          "section": "nuances",
+          "type": "source_inventee",
+          "phrase_exacte": "Distributed Denial of Secrets, qui héberge la fuite, précise que sa politique éditoriale exclut les données purement privées (numéros de sécurité sociale, coordonnées bancaires), mais la composition exacte du jeu de données publié n'a pas été vérifiée par un tiers indépendant.",
+          "explication": "Aucune des sources autorisées ne mentionne DDoSecrets comme hébergeur, ni sa politique éditoriale, ni l'exclusion de données privées, ni l'absence de vérification tierce ; ces éléments sont inventés."
+        },
+        {
+          "bloc": 1,
+          "section": "nuances",
+          "type": "source_inventee",
+          "phrase_exacte": "Le DHS n'a pas précisé le périmètre exact des systèmes compromis ni confirmé si la base Icepick correspond à un extrait unique ou à une agrégation de plusieurs sources internes.",
+          "explication": "L'extrait BBC [2] ne rapporte pas ces précisions manquantes du DHS sur le périmètre des systèmes ni sur la nature (extrait unique vs agrégation) de la base Icepick ; l'information est absente de la source."
+        },
+        {
+          "bloc": 1,
+          "section": "nuances",
+          "type": "source_inventee",
+          "phrase_exacte": "Les auteurs n'ont pas divulgué la date de l'intrusion initiale, ce qui empêche d'établir la fenêtre d'exposition des données.",
+          "explication": "Aucune source autorisée ne mentionne que les auteurs n'ont pas divulgué la date d'intrusion initiale ; l'élément est inventé."
+        }
+      ]
+    },
+    "article_type": "actu",
+    "titre": "Piratage massif au ministère américain de la Sécurité intérieure : 41 000 agents identifiés",
+    "n_sources": 5,
+    "n_mots": 678,
+    "titre_rss": "États-Unis : 41 000 noms d’agent de la Sécurité intérieure divulgués dans un piratage d’ampleur",
+    "matiere_faits_distincts": 1203,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "banques-affaires-bonus-jugements-genre-inegalites-etude",
+    "statut": "rejete_qualite",
+    "date": "2026-10-29T07:14:37",
+    "problemes_initiaux": 12,
+    "tentatives": 3,
+    "problemes_restants": 14,
+    "bloquants_restants": 2,
+    "bloquants_types": [
+      "chiffre_errone",
+      "chiffre_errone"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [3] indique que le salaire de base de 100 000 $ concerne un 'junior analyst' et que le bonus peut atteindre '100 % du salaire de base' pour les 'meilleurs analystes', pas pour un junior ; l'article généralise i",
+        "phrase": "Un junior à Wall Street perçoit un salaire fixe de 100 000 dollars, avec une part variable pouvant atteindre 100 % de ce fixe dans le meilleur des cas [3]."
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [3] ne mentionne pas de 'traders interrogés' ; l'étude de Pierre Lescoat porte sur des 'banquières d'affaires' (M&A/ECM/DCM) et non sur des traders, et la description du travail d'équipe et de la compensation d",
+        "phrase": "La majorité des traders interrogés contribuent aux profits d'une équipe et non à leurs profits propres, les positions pouvant se compenser entre membres [3]."
+      }
+    ],
+    "types_restants": [
+      "chiffre_errone",
+      "chiffre_errone",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "contexte_hors_sujet",
+      "source_derivee_comptee_comme_primaire",
+      "compteur_incoherent",
+      "cadrage_emprunte",
+      "redondance",
+      "redondance"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "titre_de_mauvaise_qualite"
+    ],
+    "titre": "Banques d'affaires : les bonus reposent sur des jugements genrés, pas sur des profits mesurables",
+    "n_sources": 4,
+    "n_mots": 793,
+    "titre_rss": "Les rémunérations des banquiers d’affaires reposent moins sur des profits mesurables que sur des jugements genrés dans un univers masculin",
+    "matiere_faits_distincts": 960,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 5,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "etude_scientifique"
+  },
+  {
+    "slug": "lancet-countdown-urgence-sanitaire-mondiale-climat-2026",
+    "statut": "rejete_qualite",
+    "date": "2026-10-29T07:34:14",
+    "problemes_initiaux": 19,
+    "tentatives": 3,
+    "problemes_restants": 10,
+    "bloquants_restants": 7,
+    "bloquants_types": [
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "incoherence_inter_sections",
+      "incoherence_inter_sections",
+      "source_inventee"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [1] (La Croix) indique 323 000 décès évités grâce à la baisse de la pollution, et non 233 000. Le chiffre de l'article ne correspond pas à la source citée.",
+        "phrase": "La pollution atmosphérique due aux énergies fossiles a diminué dans au moins 69 pays, évitant quelque 233 000 décès [1]."
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "Le résumé cite 323 000 morts évités (conforme à la source [1]), mais le corps de l'article (section faits) cite 233 000. L'incohérence interne entre le résumé et les faits sur un même chiffre issu de la même source est u",
+        "phrase": "Si les investissements dans les énergies propres ont doublé ceux des fossiles en 2025 et que 323 000 morts ont été évités grâce à la baisse de la pollution, 84 % du financement de la recherche climat-santé profite encore"
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [6] (Libération) indique que le rapport mobilise 146 experts de 57 institutions, et non 122 chercheurs. Le chiffre du nombre d'auteurs/contributeurs est erroné par rapport à la source citée.",
+        "phrase": "La 10e édition du rapport Lancet Countdown, publiée mercredi 28 octobre 2026 dans la revue The Lancet, mobilise 122 chercheurs de 57 institutions pour évaluer les conséquences sanitaires du changement climatique [6]."
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "Le résumé cite 146 auteurs (conforme à la source [6]), mais le corps de l'article (section faits) cite 122 chercheurs. Incohérence interne sur le nombre de contributeurs du rapport entre le résumé et les faits.",
+        "phrase": "Les 146 auteurs de l'étude réclament une reconnaissance formelle d'urgence sanitaire mondiale, sur le modèle du dispositif OMS pour les pandémies, afin de financer l'adaptation des systèmes de santé dans les pays les plu"
+      },
+      {
+        "bloc": 1,
+        "type": "incoherence_inter_sections",
+        "description": "Incohérence entre le résumé (146 auteurs, source [6]) et les faits (122 chercheurs, source [6]) pour une même donnée issue de la même source. L'article donne deux valeurs différentes pour le nombre de contributeurs du ra",
+        "phrase": "La 10e édition du rapport Lancet Countdown, publiée mercredi 28 octobre 2026 dans la revue The Lancet, mobilise 122 chercheurs de 57 institutions pour évaluer les conséquences sanitaires du changement climatique [6]."
+      },
+      {
+        "bloc": 1,
+        "type": "incoherence_inter_sections",
+        "description": "Incohérence entre le résumé (323 000 décès évités, source [1]) et les faits (233 000 décès évités, source [1]) pour une même donnée issue de la même source. L'article donne deux valeurs différentes sans les réconcilier.",
+        "phrase": "La pollution atmosphérique due aux énergies fossiles a diminué dans au moins 69 pays, évitant quelque 233 000 décès [1]."
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "Le renvoi [4] pointe vers l'article du Monde daté de 2025 (édition 2025 du rapport), alors que le fait cité (167 % d'augmentation) concerne vraisemblablement l'édition 2026 décrite par les sources [1] et [6]. La source [",
+        "phrase": "Le nombre de morts liées à la chaleur chez les plus de 65 ans a augmenté de 167 % depuis les années 1990, en majorité en raison du changement climatique, selon les experts du Lancet Countdown [4]."
+      }
+    ],
+    "types_restants": [
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "incoherence_inter_sections",
+      "incoherence_inter_sections",
+      "source_inventee",
+      "source_inventee",
+      "chronologie_confuse",
+      "contexte_hors_sujet"
+    ],
+    "article_type": "actu",
+    "titre": "Le Lancet Countdown appelle à déclarer le climat urgence sanitaire mondiale",
+    "n_sources": 7,
+    "n_mots": 1043,
+    "titre_rss": "Climat : le réchauffement devient une « urgence sanitaire mondiale », alerte une étude de référence",
+    "matiere_faits_distincts": 941,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "etude_scientifique"
+  },
+  {
+    "slug": "annulation-dette-bce-illegale-inutile-risque-euro",
+    "statut": "corrige_automatiquement",
+    "date": "2026-10-29T07:55:48",
+    "problemes_initiaux": 19,
+    "tentatives": 2,
+    "problemes_residuels_style": 10,
+    "rapport_initial": {
+      "conforme": false,
+      "sujet_sensible": false,
+      "sujet_sensible_raison": "",
+      "angle_insuffisant": false,
+      "angle_insuffisant_raison": "",
+      "nature_contenu": "actualite_factuelle",
+      "problemes": [
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "chiffre_errone",
+          "phrase_exacte": "Le gouverneur de la Banque de France Emmanuel Moulin a jugé la proposition « illégale, dangereuse et inutile » lors d'un entretien sur RTL le 11 septembre 2026 [3].",
+          "explication": "La source [3] est un article du Monde daté du 21 octobre 2026 ; elle ne peut pas confirmer un entretien daté du 11 septembre 2026 qui n'est pas mentionné dans l'extrait fourni."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "chiffre_errone",
+          "phrase_exacte": "Il souligne que la crédibilité de l'euro repose sur l'indépendance de la banque centrale et sa capacité à maintenir stable le pouvoir d'achat de sa propre dette, c'est-à-dire la monnaie [1].",
+          "explication": "La source [1] est un document du Trésor public de novembre 2020 ; elle ne contient pas de propos d'Emmanuel Moulin datés de septembre 2026."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "Le gouverneur de la Banque de France Emmanuel Moulin a jugé la proposition « illégale, dangereuse et inutile » lors d'un entretien sur RTL le 11 septembre 2026 [3].",
+          "explication": "L'entretien sur RTL du 11 septembre 2026 n'est pas documenté dans les sources autorisées ; la source [3] ne le mentionne pas."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "Il souligne que la crédibilité de l'euro repose sur l'indépendance de la banque centrale et sa capacité à maintenir stable le pouvoir d'achat de sa propre dette, c'est-à-dire la monnaie [1].",
+          "explication": "Cette citation est attribuée à la source [1] (Trésor public, 2020) qui ne la contient pas."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "incoherence_inter_sections",
+          "phrase_exacte": "Jean-Luc Mélenchon a relancé en cette rentrée l'idée d'annuler les quelque 600 milliards d'euros de dette française logés au bilan de la Banque de France, représentant 18 % de l'encours total [3].",
+          "explication": "Le chapeau (resume) indique que la proposition a été écartée par Christine Lagarde en 2021, alors que les faits la présentent comme relancée « en cette rentrée » (sous-entendu 2026) sans préciser la date exacte de cette relance, créant une confusion chronologique entre l'événement de 2021 et la reprise supposée en 2026."
+        },
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "source_derivee_comptee_comme_primaire",
+          "phrase_exacte": "Jean-Luc Mélenchon a relancé en cette rentrée l'idée d'annuler les quelque 600 milliards d'euros de dette française logés au bilan de la Banque de France, représentant 18 % de l'encours total [3].",
+          "explication": "La source [3] (Le Monde, 21 octobre 2026) et la source [5] (Le Monde, 22 octobre 2026) sont deux articles du même média publiés à un jour d'intervalle sur le même sujet ; ils ne constituent pas deux sources indépendantes pour le chiffre de 600 milliards et les 18 %."
+        },
+        {
+          "bloc": 2,
+          "section": "contexte",
+          "type": "chiffre_errone",
+          "phrase_exacte": "La charge des intérêts de la dette française atteint plus de 50 milliards d'euros en 2024, devenant le deuxième poste budgétaire après l'enseignement scolaire [6].",
+          "explication": "La source [6] est un document du Sénat daté du 10 juillet 2024 ; elle ne peut pas confirmer un chiffre annuel définitif pour l'année 2024 entière."
+        },
+        {
+          "bloc": 2,
+          "section": "contexte",
+          "type": "chiffre_errone",
+          "phrase_exacte": "Depuis l'été 2022, le relèvement du taux de dépôt de la BCE de -0,5 % à 4,0 % en septembre 2023 a fait passer le taux français à 10 ans de 1,00 % à 2,87 % en avril 2024 [6].",
+          "explication": "La source [6] (Sénat, juillet 2024) ne contient pas nécessairement ces taux précis jour par jour ; l'extrait fourni ne les mentionne pas."
+        },
+        {
+          "bloc": 2,
+          "section": "contexte",
+          "type": "chiffre_errone",
+          "phrase_exacte": "La dissolution de l'Assemblée nationale en juin 2024 a creusé l'écart avec le Bund allemand à 86 points de base fin juin, avant un léger retour à 63 points début juillet [6].",
+          "explication": "La source [6] datée du 10 juillet 2024 ne peut pas contenir une donnée « début juillet » postérieure à sa publication ; l'extrait ne mentionne pas ces écarts de spread."
+        },
+        {
+          "bloc": 2,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "La charge des intérêts de la dette française atteint plus de 50 milliards d'euros en 2024, devenant le deuxième poste budgétaire après l'enseignement scolaire [6].",
+          "explication": "Le document du Sénat [6] ne figure pas dans les extraits fournis avec ce chiffre précis pour 2024 ; l'attribution est non vérifiée."
+        },
+        {
+          "bloc": 2,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "Depuis l'été 2022, le relèvement du taux de dépôt de la BCE de -0,5 % à 4,0 % en septembre 2023 a fait passer le taux français à 10 ans de 1,00 % à 2,87 % en avril 2024 [6].",
+          "explication": "La source [6] ne confirme pas cette série de taux dans les extraits fournis."
+        },
+        {
+          "bloc": 2,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "La dissolution de l'Assemblée nationale en juin 2024 a creusé l'écart avec le Bund allemand à 86 points de base fin juin, avant un léger retour à 63 points début juillet [6].",
+          "explication": "La source [6] ne confirme pas ces chiffres de spread dans les extraits fournis."
+        },
+        {
+          "bloc": 2,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "La BCE a massivement acheté des titres publics (programmes APP et PEPP) pour ramener l'inflation vers 2 % lorsque les taux étaient au plancher, sans déclencher d'emballement inflationniste [1].",
+          "explication": "La source [1] (Trésor public, 2020) est antérieure aux programmes PEPP et à la période décrite ; elle ne peut pas confirmer ces faits."
+        },
+        {
+          "bloc": 2,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "L'inflation a fortement ralenti à partir de mi-2024, permettant à la BCE d'assouplir sa politique [1].",
+          "explication": "La source [1] date de novembre 2020 ; elle ne peut pas décrire l'évolution de l'inflation en 2024."
+        },
+        {
+          "bloc": 2,
+          "section": "nuances",
+          "type": "source_inventee",
+          "phrase_exacte": "Le Trésor public reconnaît qu'une banque centrale peut fonctionner avec des fonds propres négatifs sans faire faillite, contrairement à une banque commerciale [2].",
+          "explication": "La source [2] est le Journal officiel de l'UE (texte de l'article 123 TFUE) ; ce n'est pas un document du Trésor public et ne contient pas cette reconnaissance."
+        },
+        {
+          "bloc": 2,
+          "section": "nuances",
+          "type": "source_inventee",
+          "phrase_exacte": "Certains économistes arguent que la perte d'actifs serait virtuelle tandis que l'allègement de dette serait réel, mais cette thèse ne lève pas l'interdiction juridique [2].",
+          "explication": "La source [2] (Journal officiel, article 123 TFUE) ne contient pas cet argument d'économistes."
+        },
+        {
+          "bloc": 2,
+          "section": "nuances",
+          "type": "source_inventee",
+          "phrase_exacte": "Le débat porte aussi sur la distinction entre achats d'actifs temporaires pour la politique monétaire (légaux) et annulation définitive (financement monétaire interdit). La BCE a cessé ses rachats nets et réduit son bilan, signalant que les opérations passées étaient conjoncturelles [1].",
+          "explication": "La source [1] (Trésor public, 2020) ne décrit pas l'arrêt des rachats nets ni la réduction du bilan de la BCE postérieurs à 2020."
+        },
+        {
+          "bloc": 2,
+          "section": "nuances",
+          "type": "source_inventee",
+          "phrase_exacte": "Aucune majorité politique au Parlement européen ni au Conseil n'apparaît prête à modifier l'article 123 TFUE, condition sine qua non pour légaliser une telle annulation [2].",
+          "explication": "La source [2] est le texte juridique de l'article 123 TFUE ; elle ne contient pas d'analyse politique sur les majorités actuelles au Parlement européen et au Conseil."
+        },
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "compteur_incoherent",
+          "phrase_exacte": "nb_sources: 6",
+          "explication": "Les sources [3] et [5] sont deux articles du Monde sur le même sujet publiés à 24h d'intervalle ; ils ne constituent qu'une source indépendante pour les faits qu'ils rapportent, ce qui gonfle artificiellement le compteur de sources distinctes."
+        }
+      ]
+    },
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "resume_repete_corps"
+    ],
+    "titre": "Annulation de la dette BCE : illégale, inutile et risquée pour l'euro",
+    "n_sources": 6,
+    "n_mots": 748,
+    "titre_rss": "Annuler la dette détenue par la Banque centrale européenne, c’est changer la nature de l’euro",
+    "matiere_faits_distincts": 591,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 2,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "adhesion-ue-albanie-montenegro-progres-obstacles-juin-2026",
+    "statut": "conforme_du_premier_coup",
+    "date": "2026-10-29T08:00:38",
+    "article_type": "actu",
+    "titre": "Adhésion UE : l'Albanie et le Monténégro avancent, la corruption et l'environnement freinent",
+    "n_sources": 6,
+    "n_mots": 787,
+    "titre_rss": "Albanie et Monténégro : un état des lieux des négociations d'adhésion à l'Union européenne - Rapport d'information n° 845",
+    "matiere_faits_distincts": 547,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "rapport"
+  },
+  {
+    "slug": "ebola-bundibugyo-vaccins-ervabo-anticorps-croises-etude-inserm",
+    "statut": "corrige_automatiquement",
+    "date": "2026-10-29T08:16:25",
+    "problemes_initiaux": 8,
+    "tentatives": 3,
+    "problemes_residuels_style": 0,
+    "rapport_initial": {
+      "conforme": false,
+      "sujet_sensible": false,
+      "sujet_sensible_raison": "",
+      "angle_insuffisant": false,
+      "angle_insuffisant_raison": "",
+      "nature_contenu": "etude_scientifique",
+      "problemes": [
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "chiffre_errone",
+          "phrase_exacte": "L'épidémie de maladie à virus Ebola Bundibugyo sévit en République démocratique du Congo et en Ouganda depuis mai 2026, avec plus de 1 000 décès déclarés au 22 juillet et 3 626 cas confirmés au 1er août selon l'OMS [1][6].",
+          "explication": "La source [1] (communiqué Inserm du 23 juillet 2026) indique « plus de 1 000 décès » sans date précise, et la source [6] (rapport OMS du 18 mai 2026) ne peut pas contenir un chiffre au 1er août 2026 car elle est antérieure ; le chiffre de 3 626 cas confirmés au 1er août n'est attesté par aucune des sources fournies."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "annonce_perimee",
+          "phrase_exacte": "L'essai Tumaini, lancé le 23 octobre 2026 à Bunia (Ituri), utilise une vaccination en anneau pour tester l'efficacité d'Ervebo et des candidats spécifiques chez les contacts à haut risque, incluant femmes enceintes et enfants dès 12 ans [4][5].",
+          "explication": "L'article présente le lancement de l'essai Tumaini le 23 octobre 2026 comme un fait accompli (« lancé »), alors que les sources [4] et [5] (Le Monde et AFP du 23-24 octobre 2026) rapportent ce lancement comme une actualité du jour même ; le résumé et le chapeau de l'article, qui datent de la publication de l'étude Inserm (22 juillet 2026), présentent cet essai comme déjà démarré alors qu'il ne l'était pas à cette date."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "incoherence_inter_sections",
+          "phrase_exacte": "L'OMS a publié en août 2026 une guidance d'urgence recommandant l'utilisation d'Ervebo uniquement dans des protocoles de recherche, jugeant les preuves d'efficacité croisée insuffisantes pour un usage de routine [7].",
+          "explication": "Le résumé (chapeau) affirme « L'OMS recommande n'utiliser le vaccin Ervebo qu'en protocole de recherche » au présent, comme si cette recommandation était déjà en vigueur au moment de l'article (fin juillet 2026), alors que les faits indiquent que cette guidance a été publiée en août 2026, soit après la date de l'étude Inserm (22 juillet) qui sert de point d'ancrage temporel à l'article."
+        },
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "L'épidémie de maladie à virus Ebola Bundibugyo sévit en République démocratique du Congo et en Ouganda depuis mai 2026, avec plus de 1 000 décès déclarés au 22 juillet et 3 626 cas confirmés au 1er août selon l'OMS [1][6].",
+          "explication": "Le renvoi [6] pointe vers le rapport OMS hebdomadaire du 18 mai 2026, qui ne peut pas contenir des données au 1er août 2026 ; le chiffre de 3 626 cas confirmés au 1er août n'est présent dans aucune des sources listées, ce qui constitue une attribution à une source qui ne le confirme pas."
+        },
+        {
+          "bloc": 2,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "La Banque mondiale mobilise 426,6 millions de dollars en financements d'urgence pour la riposte en RDC, Ouganda, Burundi et Soudan du Sud, dont 245,6 millions immédiatement disponibles [3].",
+          "explication": "La source [3] (World Bank factsheet du 27 mai 2018, malgré l'URL indiquant 2026) ne mentionne pas ces montants précis (426,6 M$ et 245,6 M$) ni la liste de quatre pays (RDC, Ouganda, Burundi, Soudan du Sud) dans les extraits fournis ; l'information est attribuée à une source qui ne la contient pas."
+        },
+        {
+          "bloc": 2,
+          "section": "contexte",
+          "type": "compteur_incoherent",
+          "phrase_exacte": "nb_sources: 7",
+          "explication": "Le champ nb_sources indique 7, mais la source [3] (World Bank) a une URL datée de 2018 alors que le titre et la date affichée disent 2026, ce qui suggère une incohérence dans le comptage ou la qualification des sources distinctes ; de plus, les sources [5] et [6] sont toutes deux des rapports OMS hebdomadaires qui pourraient être des mises à jour d'une même série plutôt que des sources indépendantes."
+        },
+        {
+          "bloc": 4,
+          "section": "resume",
+          "type": "redondance",
+          "phrase_exacte": "Une étude de l'Inserm publiée le 22 juillet dans le New England Journal of Medicine montre que 179 participants vaccinés contre Ebola Zaïre ont développé des anticorps détectables contre la souche Bundibugyo, responsable d'une épidémie en RDC et en Ouganda avec plus de 1 000 décès au 22 juillet 2026.",
+          "explication": "Cette phrase du résumé répète presque mot pour mot l'information du premier paragraphe des faits (même étude, même effectif, même résultat, même chiffre de décès), sans apporter d'élément nouveau, ce qui contrevient à la règle d'une idée = une seule apparition."
+        },
+        {
+          "bloc": 4,
+          "section": "nuances",
+          "type": "redondance",
+          "phrase_exacte": "L'étude PREVAC mesure l'immunogénicité (production d'anticorps), non l'efficacité clinique (protection contre la maladie) : la corrélation entre taux d'anticorps et protection réelle contre Bundibugyo n'est pas établie [1].",
+          "explication": "Cette limitation est déjà explicitement énoncée dans les faits (« L'étude [...] ne permet pas d'évaluer directement l'efficacité clinique contre Bundibugyo [1] ») ; la répéter dans les nuances viole l'interdiction de redondance entre sections."
+        }
+      ]
+    },
+    "article_type": "actu",
+    "titre": "Ebola Bundibugyo : les vaccins anti-Zaïre induisent des anticorps croisés, sans preuve d'efficacité clinique",
+    "n_sources": 7,
+    "n_mots": 682,
+    "titre_rss": "Épidémie d’Ebola Bundibugyo : des premiers résultats pour guider la recherche d’un vaccin efficace",
+    "matiere_faits_distincts": 1188,
+    "matiere_redondance": 0.03,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "veille_heures_visible": 517.7,
+    "veille_passages": 311,
+    "veille_age_h": 1877.2,
+    "veille_n_flux_grappe": 9,
+    "nature_contenu": "etude_scientifique"
+  },
+  {
+    "slug": "canicule-juin-2026-hausse-29-pourcent-deces-semaine-22-28-juin",
+    "statut": "conforme_du_premier_coup",
+    "date": "2026-10-29T08:21:38",
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "titre_de_mauvaise_qualite"
+    ],
+    "titre": "Canicule juin 2026 : hausse de 29 % des décès, 8 973 morts en une semaine",
+    "n_sources": 3,
+    "n_mots": 669,
+    "titre_rss": "Point de situation sur la mortalité toutes causes confondues  sur la période du 22 au 28 juin 2026",
+    "matiere_faits_distincts": 1034,
+    "matiere_redondance": 0.01,
+    "matiere_donnees_chiffrees": 2,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "veille_heures_visible": 221.3,
+    "veille_passages": 74,
+    "veille_age_h": 1580.8,
+    "veille_n_flux_grappe": 1,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "billy-barr-releve-enneigement-rocheuses-colorado-climat",
+    "statut": "rejete_qualite",
+    "date": "2026-10-29T08:39:50",
+    "tentative": 1,
+    "angle_insuffisant": true,
+    "raison": "Aucune phrase des faits ne combine un événement précis daté (annonce, publication, décision, résultat récent) et une donnée chiffrée ou nommée qui lui est propre. L'article répond à 'qui est Billy Barr ?' plutôt qu'à 'pourquoi en parle-t-on maintenant ?' — le seul ancrage temporel récent (printemps 2026, campagne de mesures des hydrologues) est mentionné sans chiffre ni résultat nouveau qui lui soit propre.",
+    "article_type": "actu",
+    "titre": "Billy Barr, 50 ans de relevés d'enneigement dans les Rocheuses du Colorado",
+    "n_sources": 3,
+    "n_mots": 664,
+    "titre_rss": "Billy Barr, ermite moderne et vigie du climat dans les Rocheuses du Colorado",
+    "matiere_faits_distincts": 1294,
+    "matiere_redondance": 0.05,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "royaume-uni-andy-burnham-premier-budget-prudence-inflation",
+    "statut": "rejete_qualite",
+    "date": "2026-10-29T08:47:34",
+    "angle_insuffisant": true,
+    "raison": "Aucune phrase des faits ne contient un événement précis daté (annonce, publication, décision, résultat rendu public récemment) accompagné d'une donnée chiffrée ou nommée qui lui est propre. L'article décrit une situation générale (préparation d'un budget, inflation, déclarations) sans fait déclencheur daté justifiant la publication maintenant.",
+    "article_type": "actu",
+    "titre": "Royaume-Uni : Andy Burnham présente un premier budget de prudence face à l'inflation",
+    "n_sources": 4,
+    "n_mots": 445,
+    "titre_rss": "«Nous mènerons cela de manière responsable» : au Royaume-Uni, le premier ministre Andy Burnham contraint à un premier budget de prudence",
+    "matiere_faits_distincts": 666,
+    "matiere_redondance": 0.06,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "budget-securite-sociale-2027-rejete-assemblee-nationale",
+    "statut": "rejete_qualite",
+    "date": "2026-10-29T09:00:34",
+    "problemes_initiaux": 7,
+    "tentatives": 3,
+    "problemes_restants": 9,
+    "bloquants_restants": 1,
+    "bloquants_types": [
+      "chiffre_errone"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [1] (Le Monde) indique 115 voix contre 10, mais la source [6] (20 Minutes) indique 115 voix contre 11. Les deux sources donnent des valeurs différentes pour le même chiffre (voix contre) sans que l'article ne l",
+        "phrase": "Le texte a été repoussé par 115 voix contre 10, soit une quasi-unanimité des députés présents [1]."
+      }
+    ],
+    "types_restants": [
+      "chiffre_errone",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "compteur_incoherent",
+      "contexte_hors_sujet"
+    ],
+    "article_type": "actu",
+    "titre": "Le budget de la Sécurité sociale 2027 rejeté par l'Assemblée nationale",
+    "n_sources": 6,
+    "n_mots": 586,
+    "titre_rss": "Le budget de la Sécurité sociale pour 2027 rejeté à la quasi-unanimité par l’Assemblée nationale en première lecture ; le texte transmis au Sénat",
+    "matiere_faits_distincts": 695,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "1888-especes-suivies-migration-nord-piege-alpes-rechauffement",
+    "statut": "rejete_sensible",
+    "date": "2026-10-29T09:10:41",
+    "problemes_initiaux": 16,
+    "tentative": 1,
+    "bloc5": true,
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "titre_de_mauvaise_qualite"
+    ],
+    "titre": "1 888 espèces suivies : plus de la moitié migrent vers le nord, piégées par les Alpes",
+    "n_sources": 4,
+    "n_mots": 806,
+    "titre_rss": "Biodiversité : ruée vers les pôles et les sommets",
+    "matiere_faits_distincts": 1091,
+    "matiere_redondance": 0.05,
+    "matiere_donnees_chiffrees": 3,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "etude_scientifique"
+  },
+  {
+    "slug": "bbc-ex-trader-temoigne-traits-psychopathiques-finance",
+    "statut": "rejete_qualite",
+    "date": "2026-10-29T09:38:59",
+    "angle_insuffisant": true,
+    "raison": "Aucune phrase dans 'faits' ne combine un événement précis daté (publication BBC du 4 octobre 2026) et une donnée chiffrée ou nommée qui lui est propre ; l'article se contente d'expliquer un phénomène général (traits psychopathiques en entreprise) sans fait déclencheur daté justifiant la publication maintenant.",
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "resume_repete_corps",
+      "titre_de_mauvaise_qualite"
+    ],
+    "titre": "BBC : un ex-trader témoigne de traits psychopathiques récompensés dans la finance",
+    "n_sources": 3,
+    "n_mots": 734,
+    "titre_rss": "Le premier « psychopathe d'entreprise » aurait vécu il y a 400 ans : ses méthodes rappellent certains patrons actuels",
+    "matiere_faits_distincts": 355,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "sujet_pedagogique"
+  },
+  {
+    "slug": "simulation-lumina-fin-ages-sombres-univers",
+    "statut": "rejete_qualite",
+    "date": "2026-10-29T09:45:14",
+    "tentative": 1,
+    "angle_insuffisant": true,
+    "raison": "Aucune phrase dans 'faits' ne contient à la fois un événement précis daté (annonce, publication, décision récente) et une donnée chiffrée ou nommée qui lui est propre. L'article décrit le contenu d'une simulation (Lumina) et le cadre théorique général sans indiquer ce qui vient de se passer (nouvelle publication, mise en ligne, conférence, prépublication datée) qui justifierait une publication maintenant. Il répond à 'qu'est-ce que Lumina ?' plutôt qu'à 'pourquoi parle-t-on de Lumina maintenant ?'.",
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "article_sans_date"
+    ],
+    "titre": "La simulation Lumina reconstitue la fin des âges sombres cosmiques",
+    "n_sources": 6,
+    "n_mots": 611,
+    "titre_rss": "Une simulation géante fait revivre les débuts de l'Univers : voici ce qui a mis fin aux âges sombres",
+    "matiere_faits_distincts": 921,
+    "matiere_redondance": 0.09,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "etude_scientifique"
+  },
+  {
+    "slug": "canicule-2026-champagne-derogation-alcool-13-pourcent",
+    "statut": "corrige_automatiquement",
+    "date": "2026-10-29T09:54:52",
+    "problemes_initiaux": 14,
+    "tentatives": 1,
+    "problemes_residuels_style": 19,
+    "rapport_initial": {
+      "conforme": false,
+      "sujet_sensible": false,
+      "sujet_sensible_raison": "",
+      "angle_insuffisant": false,
+      "angle_insuffisant_raison": "",
+      "nature_contenu": "actualite_factuelle",
+      "problemes": [
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "chiffre_errone",
+          "phrase_exacte": "L'été 2026 a été le plus chaud jamais enregistré en France métropolitaine depuis 1900, avec une température moyenne de 24,0 °C soit +3,6 °C par rapport à la normale 1991-2020, et 53 jours en vague de chaleur contre 33 en 2022 [5].",
+          "explication": "La source [5] (Le Monde, 30 juillet 2026) est antérieure à la fin de l'été 2026 et ne peut pas contenir le bilan définitif de l'été (température moyenne, nombre de jours de vague de chaleur) ; ces chiffres sont donc inventés ou extrapolés par rapport à la source citée."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "chiffre_errone",
+          "phrase_exacte": "L'anomalie atteint +5 °C par rapport à l'ère préindustrielle, dont 2,4 °C imputables au changement climatique d'origine humaine selon Météo-France [5].",
+          "explication": "La source [5] (article du 30 juillet 2026) ne peut pas fournir une attribution climatique définitive pour l'été 2026 complet ; ce chiffre précis n'est pas présent dans l'extrait fourni."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "chiffre_errone",
+          "phrase_exacte": "Quatre-vingt-dix pour cent du territoire hexagonal a connu au moins une fois 35 °C, et 45 % a atteint ou dépassé 40 °C [5].",
+          "explication": "Ces statistiques géographiques précises sur l'été 2026 complet ne peuvent pas figurer dans une source du 30 juillet 2026 ; elles sont incompatibles avec la date de la source citée."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "chiffre_errone",
+          "phrase_exacte": "Le Citepa souligne que l'été 2026 préfigure ce qui pourrait devenir la norme dans une France à +4 °C : un été « ordinaire » y présenterait des caractéristiques comparables à ce millésime exceptionnel [5].",
+          "explication": "La source [5] est un article du Monde daté du 30 juillet 2026 sur les vendanges menacées par la sécheresse ; elle ne cite pas le Citepa ni une projection France à +4 °C pour l'été 2026."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "chiffre_errone",
+          "phrase_exacte": "Le Sénat a ouvert une mission d'information sur l'adaptation aux épisodes de chaleur extrême après la canicule de juin 2026, auditionnant notamment la ministre de l'Agriculture et la présidente de Météo-France [5].",
+          "explication": "La source [5] ne mentionne pas de mission d'information du Sénat, ni d'auditions de la ministre de l'Agriculture et de la présidente de Météo-France ; cette information est absente de l'extrait fourni."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "chiffre_errone",
+          "phrase_exacte": "L'Assemblée nationale a de son côté lancé une mission flash sur le coût économique de la canicule, incluant le volet agricole, clôturée le 5 octobre 2026 [2].",
+          "explication": "La source [2] est la page de la mission flash de l'Assemblée nationale ; l'extrait fourni ne confirme pas la date de clôture du 5 octobre 2026 ni le contenu exact de la mission (volet agricole)."
+        },
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "L'été 2026 a été le plus chaud jamais enregistré en France métropolitaine depuis 1900, avec une température moyenne de 24,0 °C soit +3,6 °C par rapport à la normale 1991-2020, et 53 jours en vague de chaleur contre 33 en 2022 [5].",
+          "explication": "Le renvoi [5] pointe vers un article du Monde du 30 juillet 2026 qui ne peut pas contenir le bilan définitif de l'été 2026 ; la source ne confirme pas les faits attribués."
+        },
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "L'anomalie atteint +5 °C par rapport à l'ère préindustrielle, dont 2,4 °C imputables au changement climatique d'origine humaine selon Météo-France [5].",
+          "explication": "La source [5] ne contient pas cette attribution climatique précise pour l'été 2026 complet ; le renvoi est inventé par rapport au contenu réel de la source."
+        },
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "Quatre-vingt-dix pour cent du territoire hexagonal a connu au moins une fois 35 °C, et 45 % a atteint ou dépassé 40 °C [5].",
+          "explication": "Ces statistiques ne peuvent pas provenir de la source [5] datée du 30 juillet 2026 ; le renvoi est faux."
+        },
+        {
+          "bloc": 2,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "Le Citepa souligne que l'été 2026 préfigure ce qui pourrait devenir la norme dans une France à +4 °C : un été « ordinaire » y présenterait des caractéristiques comparables à ce millésime exceptionnel [5].",
+          "explication": "La source [5] ne mentionne pas le Citepa ni cette projection ; le renvoi [5] ne confirme pas ce fait."
+        },
+        {
+          "bloc": 2,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "Le Sénat a ouvert une mission d'information sur l'adaptation aux épisodes de chaleur extrême après la canicule de juin 2026, auditionnant notamment la ministre de l'Agriculture et la présidente de Météo-France [5].",
+          "explication": "La source [5] ne contient aucune information sur une mission d'information du Sénat ni sur ces auditions ; le renvoi est inventé."
+        },
+        {
+          "bloc": 2,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "L'Assemblée nationale a de son côté lancé une mission flash sur le coût économique de la canicule, incluant le volet agricole, clôturée le 5 octobre 2026 [2].",
+          "explication": "La source [2] est la page officielle de la mission ; l'extrait fourni ne confirme pas la date de clôture ni le périmètre exact (volet agricole) ; le renvoi attribue des détails non vérifiés dans la source."
+        },
+        {
+          "bloc": 4,
+          "section": "nuances",
+          "type": "redondance",
+          "phrase_exacte": "La dérogation s'applique uniquement à la récolte 2026 et ne préjuge pas d'un relèvement permanent du plafond alcoolique [1].",
+          "explication": "Cette précision (mesure circonscrite au millésime 2026, pas de relèvement permanent) est déjà présente dans le résumé (première phrase) et dans les faits (arrêté dérogatoire pour la récolte 2026) ; sa répétition dans les nuances viole la règle 'une idée = une seule apparition'."
+        },
+        {
+          "bloc": 4,
+          "section": "nuances",
+          "type": "section_gonflee",
+          "phrase_exacte": "Aucune source disponible ne précise le volume exact de la récolte 2026 ni le degré moyen atteint dans les parcelles, ni le nombre d'hectares concernés par la dérogation. La réaction formelle du Comité Champagne (interprofession) n'apparaît pas dans les extraits fournis. L'impact organoleptique réel sur les vins qui sortiront dans plusieurs années reste incertain à ce stade.",
+          "explication": "Cette section 'nuances' ne contient que des aveux d'absence d'information (volumes, degrés, hectares, réaction du Comité Champagne, impact futur) sans apporter de fait distinct sourcé ; elle remplit la section avec du vide au lieu de la couper."
+        }
+      ]
+    },
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "nuances_vagues"
+    ],
+    "titre": "Canicule 2026 : dérogation inédite pour le champagne au-delà de 13 % d'alcool",
+    "n_sources": 4,
+    "n_mots": 591,
+    "titre_rss": "À cause de la canicule, les vins de champagne pourront dépasser les 13% d'alcool",
+    "matiere_faits_distincts": 812,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "mortalite-france-2024-641-mille-deces-taux-standardise-baisse",
+    "statut": "conforme_du_premier_coup",
+    "date": "2026-10-29T10:01:02",
+    "article_type": "actu",
+    "titre": "Mortalité 2024 : 641 046 décès, taux standardisé en baisse mais supérieur aux tendances pré-Covid",
+    "n_sources": 5,
+    "n_mots": 766,
+    "titre_rss": "Grandes causes de décès en France : tendances et causes associées en 2024",
+    "matiere_faits_distincts": 1104,
+    "matiere_redondance": 0.02,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "veille_heures_visible": 517.7,
+    "veille_passages": 311,
+    "veille_age_h": 1877.2,
+    "veille_n_flux_grappe": 1,
+    "nature_contenu": "etude_scientifique"
+  },
+  {
+    "slug": "royaume-uni-budget-28-octobre-surtaxe-banques-energie",
+    "statut": "rejete_qualite",
+    "date": "2026-10-29T10:12:57",
+    "tentative": 1,
+    "angle_insuffisant": true,
+    "raison": "Aucune phrase dans 'faits' ne combine un événement précis daté (le budget du 28 octobre 2026) avec une donnée chiffrée ou nommée qui lui est propre (montant de la surtaxe, enveloppe globale, calendrier des aides). L'article expose le cadre général sans dire ce qui a concrètement été décidé.",
+    "article_type": "actu",
+    "titre": "Budget britannique du 28 octobre : surtaxe bancaire pour l'énergie, marge réduite par les taux",
+    "n_sources": 6,
+    "n_mots": 536,
+    "titre_rss": "Royaume-Uni: des mesures budgétaires limitées face à la crise du pouvoir d'achat",
+    "matiere_faits_distincts": 718,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 2,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "oxfam-rapport-ultra-riches-double-profit-crise-climatique",
+    "statut": "rejete_sensible",
+    "date": "2026-10-29T10:18:25",
+    "problemes_initiaux": 12,
+    "bloc5": [
+      "diffamation_potentielle"
+    ],
+    "article_type": "actu",
+    "titre": "Oxfam : 217 entreprises profitent de la destruction et de la reconstruction climatique",
+    "n_sources": 5,
+    "n_mots": 632,
+    "titre_rss": "Détruire puis réparer : ces investisseurs qui gagnent sur les deux fronts de la crise climatique",
+    "matiere_faits_distincts": 703,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "rapport"
+  },
+  {
+    "slug": "guyane-secheresse-pont-aerien-ravitaillement-40000-habitants",
+    "statut": "rejete_sensible",
+    "date": "2026-10-29T10:32:40",
+    "problemes_initiaux": 10,
+    "tentative": 3,
+    "bloc5": true,
+    "article_type": "actu",
+    "titre": "Sécheresse en Guyane : 40 000 habitants ravitaillés par pont aérien",
+    "n_sources": 5,
+    "n_mots": 541,
+    "titre_rss": "En Guyane, la sécheresse paralyse la navigation des pirogues, 40 000 habitants ravitaillés par avions militaires",
+    "matiere_faits_distincts": 820,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "taux-dix-ans-france-depasse-5-premiere-fois-2002",
+    "statut": "rejete_qualite",
+    "date": "2026-10-29T10:45:33",
+    "tentative": 1,
+    "angle_insuffisant": true,
+    "raison": "Aucune phrase dans 'faits' ne contient à la fois un événement précis daté (publication, décision, résultat récent) et une donnée chiffrée ou nommée qui lui est propre. L'article décrit une tendance de fond (remontée des taux sur plusieurs semaines) sans fait déclencheur daté (ex: franchissement effectif du seuil, publication d'un chiffre officiel ce jour, décision de la BCE). Les sources les plus récentes datent de juillet 2024 (Sénat) et octobre 2026 (L'Express, Le Monde), mais l'article ne rapporte aucun événement nouveau justifiant une publication maintenant.",
+    "article_type": "actu",
+    "titre": "Taux français à dix ans au-dessus de 5 %, une première depuis 2002",
+    "n_sources": 6,
+    "n_mots": 577,
+    "titre_rss": "Dette : à quel moment les taux deviennent-ils insoutenables ?",
+    "matiere_faits_distincts": 953,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
   }
 ]
