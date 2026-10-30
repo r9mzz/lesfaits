@@ -51057,5 +51057,1464 @@
     "n_sources_injectees": 10,
     "n_sources_trouvees": 10,
     "nature_contenu": "decision_officielle"
+  },
+  {
+    "slug": "binance-piratage-6-3-milliards-dollars-coree-nord",
+    "statut": "rejete_qualite",
+    "date": "2026-10-30T16:37:59",
+    "problemes_initiaux": 11,
+    "tentatives": 3,
+    "problemes_restants": 11,
+    "bloquants_restants": 4,
+    "bloquants_types": [
+      "chiffre_errone",
+      "chiffre_errone",
+      "incoherence_inter_sections",
+      "accusation_presentee_comme_fait"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "Le titre affirme que 6,3 milliards de dollars ont été dérobés, mais le corps de l'article et la source AP News [2] indiquent qu'environ 3 milliards ont été gelés, ce qui signifie que le montant net dérobé serait d'enviro",
+        "phrase": "Binance piratée : 6,3 milliards de dollars dérobés selon L'Express, la Corée du Nord pointée du doigt"
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "Le résumé présente le montant brut du piratage (6,3 milliards) comme le montant du vol, sans mentionner que 3 milliards ont été gelés, ce qui fausse la réalité du préjudice net réel.",
+        "phrase": "La plateforme Binance a subi jeudi 29 octobre un piratage estimé à 6,3 milliards de dollars par L'Express [1], tandis qu'AP News évoque un impact « supérieur à 6 milliards » [2], deux estimations distinctes qui le placen"
+      },
+      {
+        "bloc": 1,
+        "type": "incoherence_inter_sections",
+        "description": "Le chapeau (titre_faits) annonce '3 milliards déjà gelés', mais les faits présentent le montant total de 6,3 milliards comme le préjudice sans intégrer l'information du gel de 3 milliards dans l'estimation du préjudice n",
+        "phrase": "La plus grande plateforme d'échange de cryptomonnaies au monde, Binance, a été victime jeudi 29 octobre d'un piratage massif dont le préjudice est estimé à 6,3 milliards de dollars par L'Express [1] et à « plus de 6 mill"
+      },
+      {
+        "bloc": 1,
+        "type": "accusation_presentee_comme_fait",
+        "description": "L'attribution à la Corée du Nord est présentée comme une information factuelle dans les faits, alors qu'elle repose sur des analyses privées non confirmées par des autorités étatiques ou judiciaires, comme le reconnaisse",
+        "phrase": "Selon L'Express, les auteurs de ce vol seraient originaires de Corée du Nord sur la base d'analyses d'entreprises spécialisées [1], tandis qu'AP News indique qu'une unité nord-coréenne serait probablement à l'origine du "
+      }
+    ],
+    "types_restants": [
+      "chiffre_errone",
+      "chiffre_errone",
+      "incoherence_inter_sections",
+      "accusation_presentee_comme_fait",
+      "acteur_mis_en_cause_sans_reponse",
+      "source_derivee_comptee_comme_primaire",
+      "compteur_incoherent",
+      "cadrage_emprunte",
+      "contexte_hors_sujet",
+      "redondance",
+      "redondance"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "resume_repete_corps"
+    ],
+    "titre": "Binance piratée : 6,3 milliards de dollars dérobés, la Corée du Nord pointée du doigt",
+    "n_sources": 4,
+    "n_mots": 479,
+    "titre_rss": "Cryptos : la plateforme Binance victime d'un piratage massif, 6,3 milliards de dollars dérobés",
+    "matiere_faits_distincts": 746,
+    "matiere_redondance": 0.06,
+    "matiere_donnees_chiffrees": 2,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "restauration-nature-onu-quadrupler-financements-objectifs-2030",
+    "statut": "rejete_qualite",
+    "date": "2026-10-30T16:46:59",
+    "tentative": 3,
+    "perte_substance": true,
+    "section": "nuances",
+    "mots_avant": 175,
+    "mots_apres": 60,
+    "article_type": "actu",
+    "titre": "Restauration de la nature : l'ONU appelle à quadrupler les financements d'ici 2030",
+    "n_sources": 6,
+    "n_mots": 868,
+    "titre_rss": "Pour protéger la nature, il faut quadrupler les financements",
+    "matiere_faits_distincts": 625,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 2,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "rapport"
+  },
+  {
+    "slug": "fossiles-quercy-grande-coupure-eocene-oligocene-phosphatieres-lot",
+    "statut": "rejete_qualite",
+    "date": "2026-10-30T16:53:11",
+    "angle_insuffisant": true,
+    "raison": "Aucune phrase dans 'faits' ne combine un événement précis daté récemment (annonce, publication, décision) avec une donnée chiffrée ou nommée qui lui est propre. L'article se contente d'expliquer un phénomène général (la Grande Coupure) et de citer une vidéo du CNRS/Le Monde publiée le 30/10/2026 comme support, sans qu'un fait déclencheur daté et spécifique ne justifie la publication maintenant. C'est une fiche pédagogique, pas une actualité factuelle.",
+    "article_type": "actu",
+    "titre": "Fossiles du Quercy : témoins de la Grande Coupure éocène-oligocène",
+    "n_sources": 4,
+    "n_mots": 491,
+    "titre_rss": "En images : les fossiles du Quercy, témoins d’un bouleversement climatique",
+    "matiere_faits_distincts": 685,
+    "matiere_redondance": 0.05,
+    "matiere_donnees_chiffrees": 3,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "sujet_pedagogique"
+  },
+  {
+    "slug": "annulation-dette-bce-france-interdite-juridiquement-inutile",
+    "statut": "corrige_automatiquement",
+    "date": "2026-10-30T16:59:55",
+    "problemes_initiaux": 12,
+    "tentatives": 1,
+    "problemes_residuels_style": 11,
+    "rapport_initial": {
+      "conforme": false,
+      "sujet_sensible": false,
+      "sujet_sensible_raison": "",
+      "angle_insuffisant": false,
+      "angle_insuffisant_raison": "",
+      "nature_contenu": "actualite_factuelle",
+      "problemes": [
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "Le gouverneur de la Banque de France, Emmanuel Moulin, a confirmé sur RTL le 11 septembre 2026 que cette opération est « illégale, dangereuse et inutile » [1].",
+          "explication": "La source [1] (EUR-Lex) est une base de données juridiques et ne contient pas d'interview d'Emmanuel Moulin sur RTL datée du 11 septembre 2026 ; cette citation n'est pas vérifiable via la source autorisée citée."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "La BCE est la propriété exclusive des États membres, et les titres de dette française qu'elle détient figurent au bilan de la Banque de France, elle-même détenue à 100 % par l'État français [1]. Annuler la dette équivaudrait à constater une perte à l'actif de la banque centrale, dévalorisant d'autant le portefeuille d'actifs de l'État actionnaire : l'endettement brut diminuerait, mais la valeur nette resterait identique [1].",
+          "explication": "La source [1] (EUR-Lex) ne contient pas cette analyse comptable détaillée sur la consolidation des comptes publics et la propriété de la Banque de France ; l'information n'est pas vérifiable via cette source."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "Ces opérations d'assouplissement quantitatif diffèrent fondamentalement d'une annulation : les titres restent au bilan de la banque centrale et doivent être remboursés à l'échéance, ce qui préserve la crédibilité de l'engagement de stabilité des prix [1].",
+          "explication": "La source [1] (EUR-Lex) ne contient pas cette explication sur le fonctionnement de l'assouplissement quantitatif et la distinction avec l'annulation de dette ; l'information n'est pas vérifiable via cette source."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "Le FMI note qu'après les chocs de 2008 et 2020, la dette publique dépasse désormais le PIB annuel dans plusieurs grands pays avancés, ravivant les débats sur sa soutenabilité [1].",
+          "explication": "La source [1] (EUR-Lex) est une base de données juridiques européennes et ne contient pas de notes du FMI sur la dette publique post-2008 et 2020 ; l'information n'est pas vérifiable via cette source."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "L'OCDE souligne pour sa part que l'annulation de dette ne saurait remplacer une aide structurelle et que la soutenabilité reste la condition sine qua non de tout allègement [3].",
+          "explication": "La source [3] (Le Monde, article du 22 octobre 2026 sur Nicolas Dufrêne) ne contient pas cette position de l'OCDE ; l'article de l'OCDE cité en source [2] porte sur l'annulation de la dette des pays pauvres, pas sur la dette française détenue par la BCE."
+        },
+        {
+          "bloc": 1,
+          "section": "nuances",
+          "type": "source_inventee",
+          "phrase_exacte": "Le débat porte sur la distinction entre illégalité formelle et contournement possible par modification des traités, ce qui exigerait l'unanimité des 27 États membres — un horizon politique incertain [1]. Certains économistes arguent qu'une banque centrale peut fonctionner avec des fonds propres négatifs sans faire faillite, contrairement à une banque commerciale, ce qui rendrait la perte comptable supportable [1]. Toutefois, cette vision minimise le risque de perte de confiance dans la monnaie elle-même : si les agents économiques anticipent que la banque centrale peut absorber les dettes des États, l'euro cesse d'être perçu comme une dette stable dans le temps, introduisant une prime de risque monétaire dans tous les contrats libellés en euros [1].",
+          "explication": "La source [1] (EUR-Lex) ne contient aucune de ces analyses économiques, juridiques ou politiques sur la modification des traités, les fonds propres négatifs des banques centrales, ou la prime de risque monétaire ; ces informations ne sont pas vérifiables via cette source."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "chiffre_errone",
+          "phrase_exacte": "Jean-Luc Mélenchon a relancé en cette rentrée l'idée d'annuler les quelque 600 milliards d'euros de dette publique française détenus par la Banque de France, représentant 18 % de l'encours total [6].",
+          "explication": "La source [6] (Europa, fiche thématique du Parlement européen) ne contient pas le chiffre de 600 milliards d'euros ni le pourcentage de 18 % ; ces données ne sont pas vérifiables via cette source."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "chiffre_errone",
+          "phrase_exacte": "Cette proposition, portée par le candidat de La France insoumise à l'approche de l'élection présidentielle de 2027, n'est pas nouvelle : une centaine d'économistes l'avaient déjà soutenue dans une tribune en février 2021, avant que la présidente de la BCE Christine Lagarde ne la juge « inenvisageable » [1].",
+          "explication": "La source [1] (EUR-Lex) ne mentionne ni la tribune de février 2021 signée par une centaine d'économistes, ni la qualification « inenvisageable » par Christine Lagarde ; ces faits ne sont pas vérifiables via cette source."
+        },
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "compteur_incoherent",
+          "phrase_exacte": "nb_sources: 6",
+          "explication": "L'article cite 6 sources dans le tableau mais la quasi-totalité des faits renvoient à la source [1] (EUR-Lex) qui ne confirme aucun des faits attribués ; les sources [2] à [6] sont listées mais quasiment jamais utilisées pour étayer les affirmations correspondantes, ce qui fausse le compteur de sources effectives."
+        },
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "source_derivee_comptee_comme_primaire",
+          "phrase_exacte": "qualite_sources: {\"primaire\": 3, \"secondaire\": 2, \"tertiaire\": 0}",
+          "explication": "Les sources listées (EUR-Lex, OCDE, Le Monde x2, Letemps, Europa) sont presque toutes des sources secondaires ou tertiaires (médias, fiches de synthèse) ; aucune n'est la source primaire des faits avancés (ex: discours de Mélenchon, interview de Moulin, tribune 2021, données chiffrées BCE/Banque de France) ; le classement en 3 sources primaires est incorrect."
+        },
+        {
+          "bloc": 3,
+          "section": "contexte",
+          "type": "contexte_hors_sujet",
+          "phrase_exacte": "Historiquement, la séparation entre pouvoir monétaire et pouvoir budgétaire s'est imposée dans les grandes économies avancées — zone euro, États-Unis, Royaume-Uni — pour éviter que la création monétaire ne serve à financer les dépenses publiques, au risque de déstabiliser les prix [7].",
+          "explication": "La source [7] n'existe pas dans la liste des 6 sources autorisées (indices 1 à 6) ; cette affirmation générale d'histoire économique n'est sourcée par aucune source autorisée et ne porte pas spécifiquement sur l'annulation de la dette française détenue par la BCE."
+        },
+        {
+          "bloc": 4,
+          "section": "resume",
+          "type": "angle_annonce_non_tenu",
+          "phrase_exacte": "Pourquoi l'annulation de la dette française détenue par la Banque centrale européenne est-elle juridiquement impossible et économiquement contre-productive ?",
+          "explication": "L'angle annoncé dans 'angle_reponse' promet d'expliquer pourquoi l'annulation est 'économiquement contre-productive', mais l'article ne démontre pas ce point : il explique seulement la neutralité comptable (endettement net inchangé) et le risque de confiance, sans établir de contre-productivité économique au sens strict."
+        }
+      ]
+    },
+    "article_type": "actu",
+    "titre": "Annuler la dette détenue par la BCE : une idée juridiquement interdite et économiquement neutre",
+    "n_sources": 6,
+    "n_mots": 640,
+    "titre_rss": "Annuler la dette détenue par la Banque centrale européenne, c’est changer la nature de l’euro",
+    "matiere_faits_distincts": 599,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "cout-virilite-travail-index-lucile-peytavin-elise-fabing",
+    "statut": "rejete_sensible",
+    "date": "2026-10-30T17:10:16",
+    "problemes_initiaux": 10,
+    "tentative": 2,
+    "bloc5": true,
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "titre_de_mauvaise_qualite"
+    ],
+    "titre": "Le coût de la virilité au travail : un essai chiffre l'impact et propose un index",
+    "n_sources": 4,
+    "n_mots": 629,
+    "titre_rss": "Lucile Peytavin : \"Si la virilité au travail rapporte à certains, elle coûte surtout cher aux entreprises\"",
+    "matiere_faits_distincts": 957,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 2,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "etude_scientifique"
+  },
+  {
+    "slug": "onu-trajectoire-rechauffement-2-5-2-6-degres-objectif-1-5-hors-atteinte",
+    "statut": "rejete_sensible",
+    "date": "2026-10-30T17:20:53",
+    "problemes_initiaux": 14,
+    "tentative": 2,
+    "bloc5": true,
+    "article_type": "actu",
+    "titre": "L'ONU : trajectoire mondiale vers 2,5-2,6 °C, objectif 1,5 °C hors d'atteinte",
+    "n_sources": 6,
+    "n_mots": 648,
+    "titre_rss": "Climat: le monde vers un réchauffement de 2,6°C, mais il est encore temps d'agir, selon l'ONU",
+    "matiere_faits_distincts": 843,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "nicholas-stern-croissance-verte-vingt-ans-rapport-climat",
+    "statut": "rejete_qualite",
+    "date": "2026-10-30T17:25:44",
+    "angle_insuffisant": true,
+    "raison": "Aucune phrase des faits ne contient un événement précis daté ou datable avec une donnée chiffrée ou nommée propre. L'article se contente de résumer un entretien non daté sans fait déclencheur identifiable, répondant à 'qu'est-ce que la position de Stern ?' plutôt qu'à 'pourquoi en parle-t-on maintenant ?'.",
+    "article_type": "actu",
+    "titre": "Nicholas Stern maintient son pari sur la croissance verte deux décennies après son rapport",
+    "n_sources": 4,
+    "n_mots": 463,
+    "titre_rss": "Vingt ans après son rapport sur le coût du changement climatique, Nicholas Stern continue de croire à la croissance verte",
+    "matiere_faits_distincts": 512,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "interview"
+  },
+  {
+    "slug": "italie-greve-generale-30-octobre-2026-manifestations-etudiants-travailleurs",
+    "statut": "rejete_qualite",
+    "date": "2026-10-30T17:36:54",
+    "problemes_initiaux": 10,
+    "tentatives": 3,
+    "problemes_restants": 17,
+    "bloquants_restants": 9,
+    "bloquants_types": [
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "chiffre_errone",
+      "chiffre_errone",
+      "annonce_perimee"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "Le renvoi [3] pointe vers la source Le Monde du 25/10, mais cette source ne confirme ni l'interdiction de manifester, ni les slogans français. Le fait attribué à la source n'y figure pas : c'est une source inventée pour ",
+        "phrase": "Cette mobilisation italienne fait suite à un épisode similaire cinq jours plus tôt à Milan, où des milliers de personnes avaient bravé une interdiction de manifester samedi 25 octobre en reprenant des slogans français [3"
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "Le renvoi [3] ne soutient pas les mentions de la culture, de la santé, des grands groupes ni du réarmement. La source est utilisée pour valider des affirmations qu'elle ne contient pas.",
+        "phrase": "Le mouvement exprime un ras-le-bol face aux coupes budgétaires touchant l'éducation, la culture et la santé, ainsi qu'une défiance envers des décisions politiques perçues comme sacrifiant l'avenir de la jeunesse au profi"
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "Le renvoi [2] (AFP) ne mentionne pas de projet de service militaire volontaire ni de crainte de conscription. La source est détournée pour valider un élément politique allemand inexistant dans le dépêche.",
+        "phrase": "Ce mouvement dénonce le coût de la vie, l'état des écoles, les coupes dans les services publics et le projet de service militaire volontaire qui fait craindre un retour de la conscription obligatoire [2]."
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "Le renvoi [2] ne mentionne ni commerçants barricadant leurs vitrines, ni violences en France. La source ne confirme pas ces détails d'ambiance et de causalité.",
+        "phrase": "Des commerçants allemands ont barricadé leurs vitrines par précaution, tandis que la police se prépare à d'éventuels débordements après les violences observées en France [2]."
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "Le renvoi [2] ne contient pas cette distinction ni ces termes. La source est invoquée pour une analyse qu'elle ne fournit pas.",
+        "phrase": "Les autorités allemandes distinguent les « manifestations étudiantes pacifiques » d'une « scène extrémiste violente » susceptible de détourner les cortèges, sans disposer à ce stade de preuves de plans concrets de violen"
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "Le renvoi [2] ne cite pas Christian Volk ni l'université Humboldt. L'attribution d'une citation d'expert à cette source est inventée.",
+        "phrase": "L'expert Christian Volk (université Humboldt de Berlin) note des différences majeures avec la France, qui possède une « tradition complètement différente en matière de formes de protestation confrontationnelles » [2]."
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [1] (Le Monde du 30/10) ne donne pas le nombre de villes ('une quarantaine') ni la liste exhaustive de huit villes ; elle mentionne des manifestations dans plusieurs villes dont Rome, Milan, Bologne, Gênes, Nap",
+        "phrase": "Une grève générale a mobilisé des milliers d'étudiants et de travailleurs italiens vendredi 30 octobre 2026 dans une quarantaine de villes, dont Rome, Milan, Bologne, Gênes, Naples, Turin, Palerme et Cagliari, pour exige"
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "Même problème : la source [1] ne quantifie pas le nombre de villes ('une quarantaine'). L'article ajoute une précision chiffrée non sourcée.",
+        "phrase": "Des cortèges ont défilé dans une quarantaine de villes du pays, notamment à Rome, Milan, Bologne, Gênes, Naples, Turin, Palerme et Cagliari, sous haute surveillance des forces de l'ordre [1]."
+      },
+      {
+        "bloc": 1,
+        "type": "annonce_perimee",
+        "description": "La source [2] est datée du 30/10 (jour de l'événement italien) et décrit l'appel allemand pour le samedi 31 octobre comme futur ('must se prolonger'). Or l'article est publié le 30/10 au soir ou le 31/10 : le résumé prés",
+        "phrase": "Ce mouvement s'inscrit dans une séquence européenne de contestation jeunesse qui a déjà secoué la France mi-octobre et doit se prolonger samedi en Allemagne avec un appel apartisane revendiquant environ 100 000 inscrits "
+      }
+    ],
+    "types_restants": [
+      "fait_tranche_arbitrairement",
+      "fait_tranche_arbitrairement",
+      "fait_tranche_arbitrairement",
+      "fait_tranche_arbitrairement",
+      "fait_tranche_arbitrairement",
+      "fait_tranche_arbitrairement",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "chiffre_errone",
+      "chiffre_errone",
+      "annonce_perimee",
+      "redondance",
+      "contexte_hors_sujet"
+    ],
+    "article_type": "actu",
+    "titre": "Italie : grève générale du 30 octobre, des milliers de manifestants dans 4 grandes villes",
+    "n_sources": 3,
+    "n_mots": 547,
+    "titre_rss": "En Italie, des milliers de jeunes et de travailleurs manifestent sous haute surveillance",
+    "matiere_faits_distincts": 583,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "ebola-bundibugyo-vaccins-anticorps-croises-preuves-limitees",
+    "statut": "rejete_qualite",
+    "date": "2026-10-30T17:47:17",
+    "tentative": 3,
+    "perte_substance": true,
+    "section": "contexte",
+    "mots_avant": 194,
+    "mots_apres": 60,
+    "article_type": "actu",
+    "titre": "Ebola Bundibugyo : les vaccins anti-Zaïre induisent des anticorps croisés mais sans preuve d'efficacité clinique",
+    "n_sources": 4,
+    "n_mots": 686,
+    "titre_rss": "Épidémie d’Ebola Bundibugyo : des premiers résultats pour guider la recherche d’un vaccin efficace",
+    "matiere_faits_distincts": 691,
+    "matiere_redondance": 0.02,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "veille_heures_visible": 517.7,
+    "veille_passages": 311,
+    "veille_age_h": 1911.0,
+    "veille_n_flux_grappe": 9,
+    "nature_contenu": "etude_scientifique"
+  },
+  {
+    "slug": "collision-trains-espagne-68-morts-vitesse-200-km-h-erreur-controle",
+    "statut": "rejete_qualite",
+    "date": "2026-10-30T18:04:19",
+    "problemes_initiaux": 8,
+    "tentatives": 3,
+    "problemes_restants": 16,
+    "bloquants_restants": 11,
+    "bloquants_types": [
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "source_inventee"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [4] (AFP) ne mentionne pas le président régional Emiliano García-Page ni le détail des 58 hospitalisés et 15 critiques ; elle donne seulement un bilan de 68 morts et plus de 100 blessés.",
+        "phrase": "Le choc a fait 68 morts selon le dernier bilan communiqué par le président de la région Emiliano García-Page, après une première estimation à 64, et plus de 100 blessés dont 58 hospitalisés et 15 en état critique [4]."
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [4] (AFP) ne contient pas cette précision sur les 25 km parcourus.",
+        "phrase": "Le ministre des Transports Oscar Puente a précisé que le train avait parcouru 25 kilomètres depuis la reprise de sa marche jusqu'au point de collision [4]."
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "Cette citation exacte n'apparaît pas dans la source [4] (AFP).",
+        "phrase": "Le centre de contrôle « avait plus que le temps nécessaire pour vérifier l'erreur, et ne l'a pas corrigée » [4]."
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [4] (AFP) ne mentionne pas la suspension de la ligne Madrid-Sud par Renfe.",
+        "phrase": "Renfe a confirmé la suspension de la ligne à grande vitesse Madrid-Sud [4]."
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [3] (Le Monde) n'est pas fournie dans les extraits ; impossible de vérifier ce déplacement royal.",
+        "phrase": "Le roi Felipe VI s'est rendu sur place jeudi pour rencontrer les victimes et les secours [3]."
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [4] (AFP) ne mentionne pas d'accident de janvier 2026 en Catalogne.",
+        "phrase": "C'est le deuxième accident mortel sur le réseau à grande vitesse espagnol en 2026, après la collision de janvier en Catalogne qui avait fait un mort et plusieurs blessés [4]."
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [4] (AFP) ne contient pas ce chiffre de 3 900 km ni le classement mondial.",
+        "phrase": "Le réseau espagnol à grande vitesse (AVE) est le deuxième au monde par sa longueur après la Chine, avec plus de 3 900 km de lignes [4]."
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "Aucune source fournie ne confirme cette date d'inauguration ni ce statut de première ligne.",
+        "phrase": "La ligne Madrid-Séville, inaugurée en 1992, était la première du pays."
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [4] (AFP) ne rapporte pas cette déclaration du président régional sur le caractère provisoire du bilan.",
+        "phrase": "Le bilan de 68 morts reste provisoire ; le président régional a prévenu que de nouvelles victimes pourraient être découvertes [4]."
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "Aucune source fournie ne mentionne l'ouverture d'une instruction par le parquet de Tolède.",
+        "phrase": "Le parquet de Tolède a ouvert une instruction pour homicides et blessures involontaires, mais aucune mise en examen n'a été annoncée."
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "La source [1] (20 Minutes) n'est pas fournie dans les extraits ; impossible de vérifier ce rapport d'enquête et la fourchette de vitesse.",
+        "phrase": "D'après un premier rapport d'enquête cité par 20 Minutes, le train Renfe roulait à une vitesse comprise entre 160 et 200 km/h au moment de l'impact [1]."
+      }
+    ],
+    "types_restants": [
+      "compteur_incoherent",
+      "source_derivee_comptee_comme_primaire",
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "source_inventee",
+      "fait_tranche_arbitrairement",
+      "fait_tranche_arbitrairement",
+      "fait_tranche_arbitrairement"
+    ],
+    "article_type": "actu",
+    "titre": "Collision de trains en Espagne : 68 morts, le train roulait à 200 km/h",
+    "n_sources": 4,
+    "n_mots": 666,
+    "titre_rss": "Collisions de trains en Espagne : L’AVE de la Renfe circulait à une vitesse de 160 à 200 km/h, selon un premier rapport",
+    "matiere_faits_distincts": 406,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 2,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "budget-2027-pacte-papin-taxes-grandes-entreprises-adoption-deputes",
+    "statut": "corrige_automatiquement",
+    "date": "2026-10-30T18:13:18",
+    "problemes_initiaux": 4,
+    "tentatives": 1,
+    "problemes_residuels_style": 0,
+    "rapport_initial": {
+      "conforme": false,
+      "sujet_sensible": false,
+      "sujet_sensible_raison": "",
+      "angle_insuffisant": false,
+      "angle_insuffisant_raison": "",
+      "nature_contenu": "actualite_factuelle",
+      "problemes": [
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "incoherence_inter_sections",
+          "phrase_exacte": "Le projet de loi de finances initial, déposé le 1er octobre 2026, prévoit de contenir le déficit public à 5 % du PIB en 2027 et comprend notamment la maîtrise des dépenses de l'État hors Défense, l'abaissement du plafond de l'abattement fiscal de 10 % sur les retraites, un nouveau prêt à taux zéro natalité et une mise à contribution des grandes entreprises [2].",
+          "explication": "La source [2] (Vie Publique, 02/10/2026) ne mentionne pas de 'prêt à taux zéro natalité' dans le PLF 2027 ; cette mesure n'apparaît pas dans les extraits fournis pour cette source, créant une incohérence entre ce que l'article attribue au projet initial et ce que la source documente."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "chiffre_errone",
+          "phrase_exacte": "Le Conseil de l'Union européenne (Ecofin) prépare la réunion du comité de conciliation budgétaire pour le budget de l'UE 2027, distinct du budget national français [5]. Le Parlement européen a voté le 22 octobre 2026 des augmentations ciblées de 1,17 milliard d'euros par rapport au projet de la Commission pour le budget UE 2027 [6].",
+          "explication": "Les sources [5] et [6] concernent le budget national français 2027 (contribution exceptionnelle des grandes entreprises, pacte Papin) et ne traitent pas du budget de l'Union européenne 2027 ni des votes du Parlement européen à ce sujet ; les chiffres et événements européens cités sont inventés par rapport à ces sources."
+        },
+        {
+          "bloc": 2,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "Le Conseil de l'Union européenne (Ecofin) prépare la réunion du comité de conciliation budgétaire pour le budget de l'UE 2027, distinct du budget national français [5]. Le Parlement européen a voté le 22 octobre 2026 des augmentations ciblées de 1,17 milliard d'euros par rapport au projet de la Commission pour le budget UE 2027 [6].",
+          "explication": "Les renvois [5] et [6] pointent vers des articles du Monde et de France Info sur le budget français 2027 ; ils ne contiennent aucune information sur le Conseil Ecofin, le comité de conciliation budgétaire de l'UE ni un vote du Parlement européen sur le budget UE 2027 — ces faits sont attribués à des sources qui ne les confirment pas."
+        },
+        {
+          "bloc": 4,
+          "section": "contexte",
+          "type": "contexte_hors_sujet",
+          "phrase_exacte": "Sur le plan européen, le Conseil de l'Union européenne (Ecofin) prépare la réunion du comité de conciliation budgétaire pour le budget de l'UE 2027, distinct du budget national français [5]. Le Parlement européen a voté le 22 octobre 2026 des augmentations ciblées de 1,17 milliard d'euros par rapport au projet de la Commission pour le budget UE 2027 [6].",
+          "explication": "Ce développement porte sur le budget de l'Union européenne 2027, qui est un sujet distinct du projet de loi de finances français 2027 traité dans l'article ; il n'éclaire pas le vote des députés sur les taxes et le pacte Papin et constitue un remplissage hors sujet."
+        }
+      ]
+    },
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "faits_repetitifs"
+    ],
+    "titre": "Budget 2027 : les députés votent taxes et pacte Papin contre l'avis du gouvernement",
+    "n_sources": 6,
+    "n_mots": 731,
+    "titre_rss": "Budget 2027 : les députés votent de nouvelles taxes sur les grandes entreprises et adoptent le « pacte Papin »",
+    "matiere_faits_distincts": 628,
+    "matiere_redondance": 0.1,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "chantiers-data-centers-europe-exploitation-travailleurs-cadre-legislatif",
+    "statut": "corrige_automatiquement",
+    "date": "2026-10-30T18:29:42",
+    "problemes_initiaux": 11,
+    "tentatives": 2,
+    "problemes_residuels_style": 6,
+    "rapport_initial": {
+      "conforme": false,
+      "sujet_sensible": false,
+      "sujet_sensible_raison": "",
+      "angle_insuffisant": false,
+      "angle_insuffisant_raison": "",
+      "nature_contenu": "actualite_factuelle",
+      "problemes": [
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "chiffre_errone",
+          "phrase_exacte": "La consommation énergétique du secteur pourrait passer de 2,7 % à 3,2 % de la consommation de l'UE d'ici 2030.",
+          "explication": "Le résumé attribue cette projection à la Commission européenne (source [3]), mais la source [3] est la proposition de règlement CADA du 8 juin 2026, qui ne contient pas ce chiffre. Ce chiffre provient de la source [10] (étude Commission 2020 citée dans rapport 2022), citée uniquement dans le contexte. L'attribution dans le résumé est donc erronée."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "chiffre_errone",
+          "phrase_exacte": "Au 30 octobre 2026, elle a recueilli 209 signatures sur le seuil de 100 000 requis pour une mise en ligne à visibilité accrue [7].",
+          "explication": "La source [7] (pétition Assemblée nationale) est datée du 28 août 2026. Elle ne peut pas contenir un chiffre au 30 octobre 2026, date postérieure à la publication de la source. Le chiffre est soit inventé, soit extrapolé, soit issu d'une source non listée."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "chiffre_errone",
+          "phrase_exacte": "Une étude de la Commission européenne de 2020, citée dans un rapport de décembre 2022, indique que les centres de données représentaient 2,7 % de la consommation d'énergie de l'UE en 2018, avec une projection à 3,2 % d'ici 2030 si rien n'est fait [10].",
+          "explication": "La source [10] est une étude de décembre 2022. Elle ne peut pas citer un 'rapport de décembre 2022' (elle est ce rapport). La formulation suggère une confusion entre la date de l'étude source (2020) et la date de publication du rapport qui la cite (2022), mais l'attribution 'citée dans un rapport de décembre 2022' appliquée à la source [10] elle-même est logiquement incohérente."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "chronologie_confuse",
+          "phrase_exacte": "Une étude DCESS (Data Centre and Energy Systems Synergies), lancée en janvier 2023 pour 18 mois, analyse comment intégrer la chaleur fatale et l'eau des data centers dans les réseaux énergétiques locaux, pour atteindre la neutralité carbone du secteur d'ici 2030 [8].",
+          "explication": "La source [8] est datée du 7 février 2023 et annonce le lancement de l'enquête ('Survey on synergies...'). L'article présente l'étude comme en cours d'analyse ('analyse comment intégrer'), mais une étude lancée en janvier 2023 pour 18 mois s'est achevée mi-2024. Au 30 octobre 2026 (date implicite de l'article), les résultats devraient être publiés. L'article fige l'action au présent alors que l'événement (fin de l'étude) est passé."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "incoherence_inter_sections",
+          "phrase_exacte": "Au niveau européen, la Commission a adopté le 8 juin 2026 une proposition de règlement sur le développement de l'informatique en nuage et de l'IA (CADA) [3].",
+          "explication": "Le résumé (chapeau) dit : 'la Commission a proposé en juin 2026 le règlement CADA'. Le corps (faits) dit : 'la Commission a adopté... une proposition de règlement'. 'Adopté une proposition' est un contresens juridique : la Commission *adopte* une proposition (acte interne) puis la *propose* aux colégislateurs. Le résumé utilise le verbe exact ('proposé'), le corps utilise un verbe ambigu ('adopté... une proposition'). Bien que techniquement exact (la Commission adopte sa propre proposition), la formulation du corps est trompeuse car elle suggère un aboutissement là où le résumé marque correctement le début de la procédure."
+        },
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "Au 30 octobre 2026, elle a recueilli 209 signatures sur le seuil de 100 000 requis pour une mise en ligne à visibilité accrue [7].",
+          "explication": "Le renvoi [7] pointe vers la page de la pétition (source datée du 28 août 2026). Cette source ne peut pas vérifier un chiffre au 30 octobre 2026. Le fait est attribué à une source qui ne le contient pas (source inventée pour ce fait précis)."
+        },
+        {
+          "bloc": 2,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "Une étude de la Commission européenne de 2020, citée dans un rapport de décembre 2022, indique que les centres de données représentaient 2,7 % de la consommation d'énergie de l'UE en 2018, avec une projection à 3,2 % d'ici 2030 si rien n'est fait [10].",
+          "explication": "Le renvoi [10] correspond à l'étude/rapport de décembre 2022 ('Study on greening cloud computing...'). Le texte décrit cette source comme citant un rapport de décembre 2022, alors qu'elle *est* ce document. L'attribution interne au fait ('citée dans un rapport...') ne correspond pas à la nature de la source [10] fournie."
+        },
+        {
+          "bloc": 4,
+          "section": "resume",
+          "type": "redondance",
+          "phrase_exacte": "Une enquête transnationale de cinq mois menée par Investigate Europe avec Le Monde révèle des pratiques dangereuses et un climat de « terreur » sur les chantiers de data centers dans plusieurs pays européens, touchant des travailleurs souvent précaires et sous-traités.",
+          "explication": "Cette phrase du résumé répète quasi mot pour mot la première phrase des faits ('Une enquête de cinq mois menée par le consortium Investigate Europe avec des partenaires dans huit pays, dont Le Monde, documente des conditions de travail qualifiées de « terreur »...'). La charte interdit la redondance entre sections (règle 1 : une idée = une seule apparition)."
+        },
+        {
+          "bloc": 4,
+          "section": "nuances",
+          "type": "redondance",
+          "phrase_exacte": "La proposition de loi sénatoriale n° 348 a été adoptée en première lecture au Sénat mais n'est pas encore loi : elle doit encore être examinée et votée par l'Assemblée nationale, puis éventuellement faire l'objet d'une navette parlementaire [2].",
+          "explication": "Cette précision sur le statut législatif (adoptée en 1ère lecture, pas encore loi, navette possible) est déjà intégrée dans les faits ('adopté le 25 mars 2026, en première lecture... transmis à l'Assemblée nationale... examiné par la commission'). La répéter dans les nuances viole la règle de non-redondance (une idée = une apparition)."
+        },
+        {
+          "bloc": 4,
+          "section": "nuances",
+          "type": "redondance",
+          "phrase_exacte": "Le règlement CADA proposé par la Commission européenne n'est qu'une proposition : il doit être négocié et adopté par le Parlement européen et le Conseil avant d'entrer en vigueur, ce qui peut prendre plusieurs mois voire années [3].",
+          "explication": "Le statut de 'proposition' et la procédure d'adoption (Parlement + Conseil) sont implicites dans les faits ('la Commission a adopté... une proposition de règlement'). La nuance répète le statut juridique déjà établi par le vocabulaire utilisé dans les faits ('proposition de règlement')."
+        },
+        {
+          "bloc": 4,
+          "section": "nuances",
+          "type": "redondance",
+          "phrase_exacte": "L'enquête Investigate Europe porte sur les chantiers de construction, pas sur l'exploitation des data centers en service : les conditions de travail une fois les sites opérationnels ne sont pas couvertes par cette investigation [1].",
+          "explication": "Le titre des faits ('Enquête transnationale : exploitation et danger sur les chantiers européens') et la première phrase des faits ('sur les chantiers de construction de centres de données') limitent déjà explicitement le périmètre aux chantiers. La nuance répète cette limite déjà posée."
+        }
+      ]
+    },
+    "article_type": "actu",
+    "titre": "Chantiers de data centers en Europe : exploitation des travailleurs et cadre législatif en construction",
+    "n_sources": 10,
+    "n_mots": 989,
+    "titre_rss": "Data centers : sur les chantiers de construction européens, des travailleurs exploités dans un climat de « terreur »",
+    "matiere_faits_distincts": 1185,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "indonesie-incendies-pollution-3560-morts-septembre-2026-crea",
+    "statut": "corrige_automatiquement",
+    "date": "2026-10-30T18:35:27",
+    "problemes_initiaux": 10,
+    "tentatives": 1,
+    "problemes_residuels_style": 5,
+    "rapport_initial": {
+      "conforme": false,
+      "sujet_sensible": false,
+      "sujet_sensible_raison": "",
+      "angle_insuffisant": false,
+      "angle_insuffisant_raison": "",
+      "nature_contenu": "actualite_factuelle",
+      "problemes": [
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "chiffre_errone",
+          "phrase_exacte": "En septembre, quelque 57,8 millions de personnes en Indonésie ont respiré un air dont la qualité allait de « malsaine » à « dangereuse », indique le rapport du CREA [3].",
+          "explication": "La source [3] (Le Monde, 30 octobre) indique « près de 58 millions » et non « 57,8 millions » ; l'article introduit une précision chiffrée (une décimale) que la source ne donne pas."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "Le Centre pour la recherche sur l'énergie et la propreté de l'air (CREA), un groupe de réflexion basé à Helsinki, a publié jeudi 29 octobre un rapport estimant à 3 560 le nombre de décès prématurés attribuables à la pollution de l'air issue des incendies en Indonésie pour le seul mois de septembre 2026 [3][4].",
+          "explication": "Les renvois [3] et [4] pointent vers deux articles du Monde (30 octobre et 15 octobre) ; aucun des extraits fournis ne mentionne que le CREA a publié son rapport le « jeudi 29 octobre » — cette date n'est pas dans les sources autorisées."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "Ce chiffre représente un doublement par rapport au mois d'août, selon la même source [3].",
+          "explication": "L'extrait de la source [3] ne contient aucune comparaison avec le mois d'août ni le terme « doublement » ; l'affirmation n'est pas soutenue par la source citée."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "Les incendies, qui ravagent le pays depuis des mois, sont aggravés par une sécheresse liée au phénomène climatique El Niño [1].",
+          "explication": "L'extrait de la source [1] (France Info, 30 octobre) ne mentionne pas El Niño ; le lien entre la sécheresse et El Niño n'est pas documenté dans cette source."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "Environ 90 % de la masse totale des particules émises par les feux de forêt consiste en particules fines PM2,5, qui peuvent voyager sur des milliers de kilomètres [5].",
+          "explication": "L'extrait de la source [5] (Le Monde, 15 octobre) ne contient pas le chiffre « 90 % » ni la précision sur la distance de transport des PM2,5 ; l'information n'est pas dans la source citée."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "Le GIEC projette que les incendies extrêmes pourraient devenir jusqu'à 50 % plus fréquents d'ici la fin du siècle [5].",
+          "explication": "L'extrait de la source [5] ne mentionne pas le GIEC ni une projection de « 50 % plus fréquents » ; l'affirmation n'est pas étayée par la source indiquée."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "L'Anses, dans un avis de juin 2026, confirme les effets de l'exposition à la pollution générée par les incendies de végétation de grande ampleur sur la santé de la population générale et des pompiers [6].",
+          "explication": "La source [6] n'existe pas dans la liste des sources autorisées (qui ne compte que 5 entrées, indices 1 à 5) ; le renvoi [6] est donc une source inventée."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "L'OCDE note que les effets de la pollution atmosphérique sont les impacts des particules fines en suspension sur la mortalité humaine [2].",
+          "explication": "L'extrait de la source [2] (OCDE, « Air pollution effects ») ne contient pas cette phrase ; l'article lui attribue un énoncé que la source ne fournit pas."
+        },
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "compteur_incoherent",
+          "phrase_exacte": "nb_sources: 5",
+          "explication": "Le champ nb_sources vaut 5, mais le corps de l'article utilise des renvois jusqu'à [6] (six sources distinctes citées) ; le compteur ne correspond pas au nombre réel de sources utilisées."
+        },
+        {
+          "bloc": 2,
+          "section": "contexte",
+          "type": "source_derivee_comptee_comme_primaire",
+          "phrase_exacte": "qualite_sources: {\"primaire\": 1, \"secondaire\": 3, \"tertiaire\": 0}",
+          "explication": "Les cinq sources listées sont toutes des médias (France Info, Le Monde ×2, RFI) qui reprennent le même rapport du CREA ; il n'y a qu'UNE source primaire (le rapport du CREA lui-même, absent de la liste) et quatre reprises secondaires, mais le tableau compte 1 primaire et 3 secondaires, ce qui surévalue l'indépendance des sources."
+        }
+      ]
+    },
+    "article_type": "actu",
+    "titre": "Indonésie : 3 560 morts liés à la pollution des incendies en septembre",
+    "n_sources": 5,
+    "n_mots": 474,
+    "titre_rss": "La pollution due aux incendies a tué 3 560 personnes en septembre en Indonésie, selon un rapport scientifique",
+    "matiere_faits_distincts": 552,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "biodiversite-migration-especes-rechauffement-poles-sommets",
+    "statut": "rejete_qualite",
+    "date": "2026-10-30T18:53:02",
+    "problemes_initiaux": 11,
+    "tentatives": 3,
+    "problemes_restants": 11,
+    "bloquants_restants": 2,
+    "bloquants_types": [
+      "chiffre_errone",
+      "chiffre_errone"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [1] (article CNRS) ne mentionne pas le chiffre '1 598 espèces' ni l'analyse d'insectes, plantes, oiseaux et poissons sur leurs bordures thermiques chaudes avec un résultat de 59 % vers le nord et 41 % vers le s",
+        "phrase": "Une étude publiée par des chercheurs du CNRS, dont Jonathan Rolland et Jonathan Lenoir, a analysé les déplacements d'espèces — insectes, plantes, oiseaux et poissons — sur leurs bordures thermiques chaudes [1]. Résultat "
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [1] cite une méta-analyse sur 1 598 espèces de papillons (59 % vers le nord), mais l'article l'attribue à tort à l'étude de Rolland et Lenoir qui porte sur les plantes forestières, créant une confusion entre de",
+        "phrase": "Les papillons, étudiés depuis les travaux de Camille Parmesan dans les années 1990, font figure de sentinelles : une méta-analyse récente sur 1 598 espèces établit que 59 % d'entre elles déplacent leur limite chaude vers"
+      }
+    ],
+    "types_restants": [
+      "chiffre_errone",
+      "chiffre_errone",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "compteur_incoherent",
+      "source_derivee_comptee_comme_primaire",
+      "chiffre_errone"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "titre_de_mauvaise_qualite"
+    ],
+    "titre": "1 888 espèces étudiées : plus de la moitié migrent vers le nord, les forêts vers l'ouest",
+    "n_sources": 3,
+    "n_mots": 645,
+    "titre_rss": "Biodiversité : ruée vers les pôles et les sommets",
+    "matiere_faits_distincts": 814,
+    "matiere_redondance": 0.04,
+    "matiere_donnees_chiffrees": 2,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "etude_scientifique"
+  },
+  {
+    "slug": "activite-physique-apres-40-ans-vieillir-sante-science",
+    "statut": "rejete_qualite",
+    "date": "2026-10-30T19:00:19",
+    "angle_insuffisant": true,
+    "raison": "Aucune phrase dans 'faits' ne contient à la fois un événement précis daté (publication de la chronique Le Monde le 30/10/2026) ET une donnée chiffrée ou nommée qui lui est propre. La chronique ne fait que reprendre l'étude Harvard/BBC déjà publiée en janvier 2026 ; l'article répond à 'qu'est-ce que la science dit ?' plutôt qu'à 'pourquoi en parle-t-on maintenant ?'.",
+    "article_type": "actu",
+    "titre": "Après 40 ans, l'activité physique reste un levier majeur pour vieillir en santé",
+    "n_sources": 4,
+    "n_mots": 540,
+    "titre_rss": "Après 40 ans, l’activité physique est un levier de choix pour vieillir en restant jeune",
+    "matiere_faits_distincts": 653,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 2,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "chronique"
+  },
+  {
+    "slug": "adaptation-climatique-investissement-dirigeants-casino-poincare-viennot",
+    "statut": "rejete_qualite",
+    "date": "2026-10-30T19:05:17",
+    "angle_insuffisant": true,
+    "raison": "Aucune phrase dans 'faits' ne combine un événement précis daté (la tribune du 30/10/2026) avec une donnée chiffrée ou nommée propre à cet événement (coût de l'inaction, rendement d'investissement, seuil de rentabilité, montant d'investissement requis). L'article répond à 'qu'est-ce que proposent ces experts ?' mais pas à 'pourquoi parle-t-on de cela maintenant avec des faits nouveaux ?'.",
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "titre_de_mauvaise_qualite"
+    ],
+    "titre": "Antoine Poincaré et Mathilde Viennot : l'inaction climatique des dirigeants comparée à un pari de casino",
+    "n_sources": 7,
+    "n_mots": 432,
+    "titre_rss": "« Un dirigeant qui n’investit pas dans l’adaptation climatique aujourd’hui se comporte comme un joueur de casino »",
+    "matiere_faits_distincts": 418,
+    "matiere_redondance": 0.03,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "tribune"
+  },
+  {
+    "slug": "pib-france-recule-01-troisieme-trimestre-recession-technique",
+    "statut": "corrige_automatiquement",
+    "date": "2026-10-30T19:13:50",
+    "problemes_initiaux": 7,
+    "tentatives": 3,
+    "problemes_residuels_style": 10,
+    "rapport_initial": {
+      "conforme": false,
+      "sujet_sensible": false,
+      "sujet_sensible_raison": "",
+      "angle_insuffisant": false,
+      "angle_insuffisant_raison": "",
+      "nature_contenu": "actualite_factuelle",
+      "problemes": [
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "L'Institut national de la statistique a publié vendredi 30 octobre 2026 sa première estimation des comptes nationaux trimestriels : le produit intérieur brut a diminué de 0,1 % au troisième trimestre, après avoir stagné au deuxième trimestre (0,0 %) et reculé de 0,2 % au premier [1][4].",
+          "explication": "La source [4] (RFI) ne contient pas les chiffres détaillés du PIB par trimestre (0,0 % au T2, -0,2 % au T1) ; seul le Monde [1] les donne. Le renvoi [4] sur cette phrase attribue à RFI une information qu'elle ne fournit pas dans l'extrait."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "Le ministre de l'Économie, Roland Lescure, a réagi dans la foulée en déclarant que « l'économie française est à l'arrêt » et qu'elle « ira dans le mur » sans le redressement budgétaire inscrit dans le projet de loi de finances pour 2027, actuellement en discussion au Parlement [4].",
+          "explication": "La citation « ira dans le mur » n'apparaît pas dans l'extrait de la source [4] (RFI) ; seule la formule « à l'arrêt » y figure. Le renvoi [4] attribue à cette source une citation qu'elle ne contient pas."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "La Banque de France, dans ses projections macroéconomiques de septembre 2026, anticipe un tassement de l'activité pour les mois à venir [2]. L'institution centrale dresse par ailleurs un bilan de l'activité économique française sur 15 ans et établit trois scénarios sur les conséquences du conflit au Moyen-Orient, notamment le blocage du détroit d'Ormuz [2].",
+          "explication": "L'extrait de la source [2] (Vie Publique) ne mentionne ni des projections de septembre 2026, ni un bilan sur 15 ans, ni trois scénarios sur le conflit au Moyen-Orient et le détroit d'Ormuz. Ces détails sont inventés par rapport à la source fournie."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "La Banque de France a publié en juin 2026 une analyse prospective sur 15 ans d'activité économique, intégrant trois scénarios sur les conséquences du conflit au Moyen-Orient et le blocage du détroit d'Ormuz [2].",
+          "explication": "Même problème : l'extrait de la source [2] ne contient aucune mention d'une publication de juin 2026, d'une analyse sur 15 ans, ni de scénarios sur le Moyen-Orient et le détroit d'Ormuz."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "Le Sénat a examiné en 2026 plusieurs rapports sur les prélèvements obligatoires, le financement des infrastructures et la fiscalité locale, reflétant les tensions budgétaires structurelles [3].",
+          "explication": "L'extrait de la source [3] (Sénat) ne liste aucun rapport précis ni thématique (prélèvements obligatoires, infrastructures, fiscalité locale) ; l'article attribue à cette source un contenu détaillé qu'elle ne fournit pas."
+        },
+        {
+          "bloc": 1,
+          "section": "nuances",
+          "type": "source_inventee",
+          "phrase_exacte": "L'Insee publie depuis octobre 2026 des « comptes augmentés » qui intègrent des dimensions environnementales et sociales au-delà du PIB, dont un Produit Intérieur Net ajusté des émissions de carbone estimant à 94 milliards d'euros la valeur perdue en 2023 du fait du changement climatique [5]. Le Conseil économique, social et environnemental interroge parallèlement la compatibilité de la croissance du PIB avec les limites planétaires [5].",
+          "explication": "L'extrait de la source [5] (Novethic) ne mentionne ni une publication d'octobre 2026, ni un « Produit Intérieur Net ajusté », ni le chiffre de 94 milliards d'euros pour 2023. L'article prête à cette source des données absentes de l'extrait."
+        },
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "compteur_incoherent",
+          "phrase_exacte": "nb_sources: 5",
+          "explication": "Le champ nb_sources indique 5, mais les renvois [1] à [5] sont utilisés dans le texte ; le compteur est donc cohérent sur le nombre, en revanche plusieurs renvois attribuent des faits non confirmés par les sources correspondantes (voir source_inventee), ce qui fausse la réalité du sourcing effectif."
+        }
+      ]
+    },
+    "article_type": "actu",
+    "titre": "Le PIB français recule de 0,1 % au troisième trimestre, l'économie flirte avec la récession",
+    "n_sources": 5,
+    "n_mots": 465,
+    "titre_rss": "Avec un recul surprise du PIB au troisième trimestre, l’économie française flirte avec la récession",
+    "matiere_faits_distincts": 804,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "philippines-digues-bambou-huitres-montee-eaux",
+    "statut": "corrige_automatiquement",
+    "date": "2026-10-30T19:23:13",
+    "problemes_initiaux": 9,
+    "tentatives": 3,
+    "problemes_residuels_style": 11,
+    "rapport_initial": {
+      "conforme": false,
+      "sujet_sensible": false,
+      "sujet_sensible_raison": "",
+      "angle_insuffisant": false,
+      "angle_insuffisant_raison": "",
+      "nature_contenu": "actualite_factuelle",
+      "problemes": [
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "chiffre_errone",
+          "phrase_exacte": "La Banque mondiale estime que l'inaction pourrait réduire le PIB de 13,6 % d'ici 2040, les ménages les plus pauvres étant les plus touchés [3].",
+          "explication": "La source [3] (World Bank CCDR) indique une perte de PIB de 13,6 % d'ici 2040 dans un scénario à fortes émissions (RCP8.5/SSP5-8.5), sans conditionner explicitement ce chiffre à l'inaction ; l'article ajoute une causalité ('l'inaction pourrait réduire') non présente dans l'extrait fourni."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "chiffre_errone",
+          "phrase_exacte": "Le rapport Philippines Country Climate and Development Report de la Banque mondiale souligne que le pays perd en moyenne 1,2 % de son PIB par an du fait des typhons et des inondations, avec des pointes bien supérieures lors des événements extrêmes [3].",
+          "explication": "L'extrait de la source [3] fourni ne contient pas le chiffre de 1,2 % de perte moyenne annuelle de PIB ; ce chiffre n'est pas vérifiable dans les extraits autorisés."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "contexte_hors_sujet",
+          "phrase_exacte": "En Europe, l'Agence européenne pour l'environnement promeut la restauration des plaines inondables et des cours d'eau comme mesure d'adaptation aux inondations et sécheresses, soulignant que les infrastructures grigées unilatérales ne sont plus optimales [5][6]. Le Sénat français a également pointé le défi de l'adaptation des territoires face aux inondations, appelant à simplifier l'action et renforcer la solidarité [4].",
+          "explication": "Les sources [4], [5], [6] portent sur l'Europe et la France, sans lien direct avec le projet de digues bambou-huîtres aux Philippines ; elles ne servent qu'à remplir la section sans éclairer le sujet principal."
+        },
+        {
+          "bloc": 1,
+          "section": "nuances",
+          "type": "source_inventee",
+          "phrase_exacte": "L'efficacité à long terme des barrières en bambou et huîtres face à des typhons de catégorie supérieure n'est pas encore documentée dans les sources disponibles [1]. La durabilité du bambou en milieu marin tropical, la capacité de piégeage sédimentaire sous régime de mousson extrême et le temps nécessaire à l'installation de mangroves fonctionnelles restent des incertitudes majeures [1].",
+          "explication": "L'extrait de la source [1] fourni ne mentionne aucune de ces incertitudes techniques précises (durabilité du bambou, piégeage sédimentaire en mousson, temps d'installation des mangroves) ; l'article leur attribue une source qui ne les contient pas."
+        },
+        {
+          "bloc": 1,
+          "section": "nuances",
+          "type": "source_inventee",
+          "phrase_exacte": "Aucune source ne fournit de données de suivi sur plusieurs saisons cycloniques pour valider l'approche comme standard reproductible [1].",
+          "explication": "L'extrait de la source [1] ne contient pas d'information sur l'absence de données de suivi pluriannuelles ; l'article prête à la source une limitation qu'elle n'énonce pas."
+        },
+        {
+          "bloc": 1,
+          "section": "nuances",
+          "type": "chiffre_errone",
+          "phrase_exacte": "Le rapport de la Banque mondiale note par ailleurs que les mesures d'adaptation fondées sur la nature nécessitent une gouvernance foncière claire et des financements pérennes, deux conditions souvent absentes dans les zones côtières philippines les plus vulnérables [3].",
+          "explication": "L'extrait de la source [3] fourni ne mentionne ni 'gouvernance foncière claire', ni 'financements pérennes', ni leur absence dans les zones côtières vulnérables ; l'article attribue à la source des affirmations absentes de l'extrait."
+        },
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "compteur_incoherent",
+          "phrase_exacte": "nb_sources: 6",
+          "explication": "Le champ nb_sources indique 6, mais la source [2] (Le Monde, 10 août 2026) est postérieure à la source [1] (Sciences et Avenir, datée 2026 sans jour) ; si l'article est publié après le 10 août 2026, les 6 sources sont utilisées, mais l'absence de date précise pour [1] empêche de vérifier la cohérence chronologique du sourcing — le compteur n'est pas fiable sans datation exacte de chaque source."
+        },
+        {
+          "bloc": 4,
+          "section": "resume",
+          "type": "redondance",
+          "phrase_exacte": "Ces structures visent à piéger les sédiments et favoriser la régénération naturelle de mangroves, barrières vivantes contre la montée du niveau de la mer.",
+          "explication": "Cette phrase du résumé répète l'information déjà présente dans le premier paragraphe des faits ('Conçues pour ralentir la force des vagues et piéger les sédiments, ces installations doivent aussi créer les conditions favorables au développement de mangroves protectrices [1]')."
+        },
+        {
+          "bloc": 4,
+          "section": "nuances",
+          "type": "redondance",
+          "phrase_exacte": "L'efficacité à long terme des barrières en bambou et huîtres face à des typhons de catégorie supérieure n'est pas encore documentée dans les sources disponibles [1].",
+          "explication": "Cette idée est déjà exprimée dans le résumé ('dont l'efficacité à long terme reste à démontrer face à l'intensification des cyclones') ; la charte interdit de répéter une même réserve dans deux sections."
+        }
+      ]
+    },
+    "article_type": "actu",
+    "titre": "Aux Philippines, des digues en bambou et coquilles d'huîtres contre la montée des eaux",
+    "n_sources": 6,
+    "n_mots": 493,
+    "titre_rss": "Aux Philippines, le bambou et les huîtres contre les inondations",
+    "matiere_faits_distincts": 906,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "cop17-erevan-pas-accord-financement-suivi-biodiversite",
+    "statut": "rejete_qualite",
+    "date": "2026-10-30T19:39:09",
+    "problemes_initiaux": 13,
+    "tentatives": 3,
+    "problemes_restants": 9,
+    "bloquants_restants": 3,
+    "bloquants_types": [
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [2] (question écrite du Sénat) ne mentionne ni le nombre de pays participants (195 États + UE), ni les dates exactes de la conférence (19-30 octobre 2026), ni le lieu (Erevan, Arménie). Ces informations factuel",
+        "phrase": "La dix-septième Conférence des Parties à la Convention sur la diversité biologique (COP17) s'est tenue à Erevan, en Arménie, du 19 au 30 octobre 2026, réunissant 195 États et l'Union européenne [2]."
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [5] (rapport AEE 2025 sur la France) n'est pas fournie dans les extraits ; il est impossible de vérifier le chiffre précis de 31,3 % ni l'affirmation que la France a atteint cet objectif \"dès 2025\". Le renvoi [",
+        "phrase": "La France a atteint l'objectif de 30 % de territoires protégés dès 2025 (31,3 % du territoire national) [5]."
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [5] n'est pas fournie dans les extraits ; le chiffre de 15 % d'habitats d'intérêt communautaire en bon état de conservation ne peut être vérifié. Le renvoi [5] attribue une statistique non confirmée par l'extra",
+        "phrase": "seulement 15 % en bon état de conservation"
+      }
+    ],
+    "types_restants": [
+      "chiffre_errone",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "chiffre_errone",
+      "chiffre_errone",
+      "compteur_incoherent",
+      "source_inventee",
+      "source_inventee"
+    ],
+    "article_type": "actu",
+    "titre": "COP17 à Erevan : pas d'accord final sur le financement et le suivi",
+    "n_sources": 5,
+    "n_mots": 630,
+    "titre_rss": "Biodiversité : pas d'accord à l'horizon, au dernier jour de la COP17",
+    "matiere_faits_distincts": 1001,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "inflation-france-octobre-2026-energie-3-4-pour-cent",
+    "statut": "rejete_qualite",
+    "date": "2026-10-30T19:49:29",
+    "tentative": 3,
+    "perte_substance": true,
+    "section": "contexte",
+    "mots_avant": 167,
+    "mots_apres": 81,
+    "article_type": "actu",
+    "titre": "Inflation à 3,4 % en octobre : l'énergie tire les prix vers le haut",
+    "n_sources": 5,
+    "n_mots": 498,
+    "titre_rss": "Inflation : les prix à la consommation ont augmenté de 3,4 % sur un an, selon l’Insee",
+    "matiere_faits_distincts": 807,
+    "matiere_redondance": 0.01,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "mortalite-france-2024-641-046-deces-taux-standardise-baisse",
+    "statut": "corrige_automatiquement",
+    "date": "2026-10-30T19:56:25",
+    "problemes_initiaux": 12,
+    "tentatives": 1,
+    "problemes_residuels_style": 5,
+    "rapport_initial": {
+      "conforme": false,
+      "sujet_sensible": false,
+      "sujet_sensible_raison": "",
+      "angle_insuffisant": false,
+      "angle_insuffisant_raison": "",
+      "nature_contenu": "actualite_factuelle",
+      "problemes": [
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "chiffre_errone",
+          "phrase_exacte": "Le taux de mortalité standardisé, qui neutralise l'effet du vieillissement, s'établit à 777,9 pour 100 000 habitants, en baisse de 11 points sur un an, mais ce repli est moins marqué qu'entre 2022 et 2023 [1].",
+          "explication": "La source [1] indique un taux standardisé de 777,9 pour 100 000 en 2024 contre 828,3 en 2023, soit une baisse de 50,4 points, et non de 11 points comme écrit dans l'article."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "chiffre_errone",
+          "phrase_exacte": "La diminution toutes causes confondues est tirée par le recul de la mortalité due à la Covid-19 (-7 pour 100 000) [1].",
+          "explication": "La source [1] indique une baisse de la mortalité Covid-19 de 11,8 pour 100 000 (de 14,1 en 2023 à 2,3 en 2024), et non de 7 pour 100 000."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "chiffre_errone",
+          "phrase_exacte": "À l'inverse, la mortalité par maladies respiratoires hors Covid progresse de 5 pour 100 000, portée par grippes et pneumonies [1].",
+          "explication": "La source [1] indique une hausse de 4,6 pour 100 000 (de 44,8 à 49,4), et non de 5 pour 100 000."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "chiffre_errone",
+          "phrase_exacte": "En 2023, 637 082 décès avaient été comptabilisés, soit 36 000 de moins qu'en 2022, et le taux standardisé avait chuté à 828,3 pour 100 000 (-60 points), retrouvant un niveau sous celui de 2019 [1].",
+          "explication": "La source [1] indique une baisse de 59,5 points du taux standardisé entre 2022 (887,8) et 2023 (828,3), et non de 60 points."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "chiffre_errone",
+          "phrase_exacte": "Plus de 60 % de ce recul s'expliquait alors par la baisse de la Covid-19 [1].",
+          "explication": "La source [1] indique que la baisse de la mortalité Covid-19 explique 54 % de la baisse du taux standardisé toutes causes (32,2 points sur 59,5), et non plus de 60 %."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "chiffre_errone",
+          "phrase_exacte": "Parallèlement, la mortalité périnatale s'oriente à la hausse depuis 2021, avec 7 398 décès en 2024, selon une étude Drees de juillet 2026 [2].",
+          "explication": "La source [2] (Vie Publique) ne mentionne pas l'institution 'Drees' ni la date 'juillet 2026' dans son titre ; l'attribution 'selon une étude Drees de juillet 2026' n'est pas confirmée par la source listée."
+        },
+        {
+          "bloc": 1,
+          "section": "nuances",
+          "type": "chiffre_errone",
+          "phrase_exacte": "Les canicules de l'été 2026 ont généré des excès de mortalité significatifs : 1 243 décès en excès entre le 3 et le 22 juillet, et 817 entre le 27 juillet et le 20 août, selon Santé publique France [3][4].",
+          "explication": "La source [4] (Le Monde, 16 sept 2026) indique 'plus de 800 morts en excès', et non le chiffre précis de 817 ; l'article présente une approximation comme un chiffre exact."
+        },
+        {
+          "bloc": 2,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "Parallèlement, la mortalité périnatale s'oriente à la hausse depuis 2021, avec 7 398 décès en 2024, selon une étude Drees de juillet 2026 [2].",
+          "explication": "La source [2] est attribuée à 'Vie Publique' dans la liste des sources, mais le texte cite 'une étude Drees de juillet 2026' ; l'institution Drees n'apparaît pas dans les sources autorisées pour ce fait."
+        },
+        {
+          "bloc": 2,
+          "section": "contexte",
+          "type": "source_derivee_comptee_comme_primaire",
+          "phrase_exacte": "À l'échelle mondiale, les maladies non transmissibles (cancers, maladies cardiovasculaires) demeurent les premières causes de décès standardisées, une stabilité observée depuis 1990 selon l'étude Global Burden of Disease 2021 couvrant 204 pays [7].",
+          "explication": "La source [7] (MDB / WHO Mortality Database) est une base de données primaire ; l'article cite l'étude 'Global Burden of Disease 2021' qui est une publication dérivée (IHME) réutilisant ces données, et non la base WHO elle-même ; la source primaire n'est pas celle citée dans le texte."
+        },
+        {
+          "bloc": 2,
+          "section": "contexte",
+          "type": "compteur_incoherent",
+          "phrase_exacte": "nb_sources: 6",
+          "explication": "Le champ nb_sources indique 6, mais la source [7] (MDB / WHO Mortality Database) est citée dans le contexte sans numéro de renvoi [7] dans le corps du texte (les renvois vont de [1] à [4]) ; le compteur ne correspond pas aux sources effectivement utilisées et référencées."
+        },
+        {
+          "bloc": 4,
+          "section": "contexte",
+          "type": "contexte_hors_sujet",
+          "phrase_exacte": "Parallèlement, la mortalité périnatale s'oriente à la hausse depuis 2021, avec 7 398 décès en 2024, selon une étude Drees de juillet 2026 [2].",
+          "explication": "La mortalité périnatale est un sujet distinct de la mortalité générale toutes causes et par grandes causes traitée dans l'article ; ce fait n'éclaire pas le sujet principal (mortalité France 2024) et sert à remplir la section."
+        },
+        {
+          "bloc": 4,
+          "section": "nuances",
+          "type": "extrapolation",
+          "phrase_exacte": "Ces épisodes, survenus après la période couverte par l'étude 2024, illustrent la sensibilité persistante de la mortalité aux aléas climatiques et la difficulté de projeter les tendances sur la seule base des causes médicales structurelles [3][4].",
+          "explication": "L'article tire une conclusion prospective ('difficulté de projeter les tendances') qui n'est pas explicitement énoncée dans les sources [3] et [4] ; ces sources rapportent des chiffres d'excès de mortalité, mais ne formulent pas cette interprétation méthodologique."
+        }
+      ]
+    },
+    "article_type": "actu",
+    "titre": "Mortalité France 2024 : 641 046 décès, taux standardisé en baisse",
+    "n_sources": 6,
+    "n_mots": 709,
+    "titre_rss": "Grandes causes de décès en France : tendances et causes associées en 2024",
+    "matiere_faits_distincts": 734,
+    "matiere_redondance": 0.07,
+    "matiere_donnees_chiffrees": 4,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "veille_heures_visible": 517.7,
+    "veille_passages": 311,
+    "veille_age_h": 1911.0,
+    "veille_n_flux_grappe": 1,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "drone-evacue-soldat-blesse-62-km-front-ukraine",
+    "statut": "rejete_qualite",
+    "date": "2026-10-30T20:04:57",
+    "problemes_initiaux": 8,
+    "tentatives": 3,
+    "problemes_restants": 7,
+    "bloquants_restants": 4,
+    "bloquants_types": [
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "chiffre_errone"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "La source [1] (France Info) ne traite que de l'évacuation par drone du 19 octobre 2026 et ne contient aucune information sur l'évolution des usages des drones depuis 2022 ni sur le caractère théorique de l'évacuation san",
+        "phrase": "Depuis 2022, les drones ont transformé le champ de bataille ukrainien en outils d'observation, de frappe et de logistique, mais leur emploi pour l'évacuation sanitaire restait théorique [1]."
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "La source [2] (UN, 31 octobre 2025) indique que les drones sont responsables d'environ un tiers des morts et blessés de civils *enregistrés* en 2025, et non d'un tiers des victimes civiles *totales* (qui incluent les vic",
+        "phrase": "Les Nations unies estiment qu'environ un tiers des victimes civiles enregistrées en 2025 sont dues aux drones, illustrant leur omniprésence létale [2]."
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "La source [3] (UN, 3 juillet 2026) contient la citation sur l'espace « plus profond, plus large et plus létal », mais ne mentionne nulle part l'impossibilité de l'approche médicale traditionnelle par hélicoptère ou ambul",
+        "phrase": "Selon l'ONU, les drones transforment le champ de bataille ukrainien en un espace « plus profond, plus large et plus létal » pour les civils, multipliant les dangers et rendant l'approche médicale traditionnelle par hélic"
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [2] précise qu'il s'agit d'environ un tiers des morts et blessés de civils *enregistrés* par le HCDH en 2025, et non de l'ensemble des victimes civiles. Le chiffre est déformé par omission du périmètre 'enregis",
+        "phrase": "Les Nations unies estiment qu'environ un tiers des victimes civiles enregistrées en 2025 sont dues aux drones, illustrant leur omniprésence létale [2]."
+      }
+    ],
+    "types_restants": [
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "chiffre_errone",
+      "contexte_hors_sujet",
+      "compteur_incoherent",
+      "fait_tranche_arbitrairement"
+    ],
+    "article_type": "actu",
+    "titre": "Un drone évacue un soldat blessé sur 62 km depuis le front ukrainien",
+    "n_sources": 4,
+    "n_mots": 489,
+    "titre_rss": "\"L'évacuation se déroule en quelques minutes\" : un soldat blessé évacué par drone sur 62 km en Ukraine",
+    "matiere_faits_distincts": 573,
+    "matiere_redondance": 0.07,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "ird-six-projets-appel-anr-flash-covid-19-avril-2020",
+    "statut": "rejete_qualite",
+    "date": "2026-10-30T20:16:39",
+    "problemes_initiaux": 9,
+    "tentatives": 3,
+    "problemes_restants": 14,
+    "bloquants_restants": 9,
+    "bloquants_types": [
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "chiffre_errone",
+      "chiffre_errone",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "La source [2] correspond au jeu de données data.gouv.fr sur les appels à projets ANR ; elle ne contient aucune information sur EU-RESPONSE, Horizon 2020, l'essai Discovery ou l'implication de l'Inserm dans dix projets eu",
+        "phrase": "L'Inserm coordonnait dès septembre 2020 le projet européen EU-RESPONSE (15,7 millions d'euros sur 5 ans, Horizon 2020) pour créer un réseau d'essais cliniques adaptatifs à l'échelle du continent, prolongeant l'essai Disc"
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "La source [2] (jeu de données ANR sur data.gouv.fr) ne mentionne pas les projets européens H2020 ni l'implication de l'Inserm.",
+        "phrase": "L'Inserm était alors impliqué dans dix projets européens Covid-19 financés par H2020, dont quatre en coordination [2]."
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "La source [3] est la page ANSM « Dossier thématique - Covid-19 » ; les extraits fournis ne confirment ni la date de mise à jour d'octobre 2026 ni le contenu détaillé décrit.",
+        "phrase": "L'ANSM a mis à jour son dossier thématique Covid-19 jusqu'en octobre 2026, documentant l'évolution des connaissances sur la transmission, les variants et la prise en charge [3]."
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "Bien que la source [2] soit bien ce jeu de données, l'article l'utilise pour valider des affirmations sur des projets européens (EU-RESPONSE, H2020) qui n'y figurent pas ; la citation [2] est donc détournée.",
+        "phrase": "Le jeu de données officiel des appels à projets ANR, publié sur data.gouv.fr, recense l'ensemble des projets retenus et participants identifiés, permettant une traçabilité des financements d'urgence [2]."
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "Ce chiffre (15,7 M€) et ce projet ne sont attestés par aucune des sources fournies ; la source [2] ne les mentionne pas.",
+        "phrase": "l'Inserm coordonnait dès septembre 2020 le projet européen EU-RESPONSE (15,7 millions d'euros sur 5 ans, Horizon 2020)"
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "Les nombres « dix » et « quatre » ne figurent dans aucune source autorisée ; la source [2] ne traite pas des projets H2020.",
+        "phrase": "L'Inserm était alors impliqué dans dix projets européens Covid-19 financés par H2020, dont quatre en coordination"
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "La source [1] (page IRD) ne mentionne ni Jean-François Etard ni le projet COVEHPAD dans les extraits fournis.",
+        "phrase": "Jean-François Etard est associé à COVEHPAD, plateforme de simulation pour les EHPAD et unités de soins de longue durée [1]."
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "Les noms Eric Deharo, Sabrina Locatelli, Eric Leroy, Martine Peeters et les projets DisCoVer / ZooCov n'apparaissent pas dans les extraits de la source [1].",
+        "phrase": "Des chercheurs de l'IRD — Eric Deharo, Sabrina Locatelli, Eric Leroy — contribuent au projet DisCoVer sur les réservoirs viraux au Nord-Laos, et Martine Peeters participe à ZooCov sur les réservoirs animaux au Cambodge ["
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "Patrick Mavingui, Samuel Alizon et la notion de « liste complémentaire » sont absents des extraits de la source [1].",
+        "phrase": "Deux projets supplémentaires, menés par Patrick Mavingui (UMR PIMIT) et Samuel Alizon (UMR MIVEGEC, CNRS), figurent en liste complémentaire [1]."
+      }
+    ],
+    "types_restants": [
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "contexte_hors_sujet",
+      "chiffre_errone",
+      "chiffre_errone",
+      "source_non_editoriale",
+      "source_derivee_comptee_comme_primaire",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "redondance",
+      "compteur_incoherent"
+    ],
+    "article_type": "actu",
+    "titre": "L'IRD obtient six projets dans l'appel ANR Flash Covid-19 d'avril 2020",
+    "n_sources": 4,
+    "n_mots": 598,
+    "titre_rss": "Covid-19 – les projets IRD de l’appel ANR-Flash",
+    "matiere_faits_distincts": 833,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 2,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "veille_heures_visible": 517.7,
+    "veille_passages": 326,
+    "veille_age_h": 1911.0,
+    "veille_n_flux_grappe": 1,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "james-webb-atmosphere-55-cancri-e-dioxyde-carbone-monoxyde",
+    "statut": "rejete_qualite",
+    "date": "2026-10-30T20:26:33",
+    "problemes_initiaux": 7,
+    "tentatives": 3,
+    "problemes_restants": 7,
+    "bloquants_restants": 1,
+    "bloquants_types": [
+      "incoherence_inter_sections"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "incoherence_inter_sections",
+        "description": "La source [3] (Ouest-France, 31/03/2026) est citée pour la détection de CO₂ et CO, mais la source [1] (Le Monde, 08/07/2026) traite d'une exoplanète ayant survécu à l'explosion de son étoile, et la source [2] (Le Monde, ",
+        "phrase": "Les observations, rapportées par Ouest-France le 31 mars 2026, ont mis en évidence la présence de dioxyde de carbone (CO₂) et de monoxyde de carbone (CO) dans l'enveloppe gazeuse de cette exoplanète [3]."
+      }
+    ],
+    "types_restants": [
+      "incoherence_inter_sections",
+      "source_inventee",
+      "compteur_incoherent",
+      "source_derivee_comptee_comme_primaire",
+      "cadrage_emprunte",
+      "redondance",
+      "redondance"
+    ],
+    "article_type": "actu",
+    "titre": "James-Webb détecte CO₂ et CO sur la planète de lave 55 Cancri e",
+    "n_sources": 4,
+    "n_mots": 612,
+    "titre_rss": "James-Webb révèle une planète de lave qui brille comme un miroir : ce qui se passe dans son atmosphère est du jamais vu !",
+    "matiere_faits_distincts": 683,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
   }
 ]
