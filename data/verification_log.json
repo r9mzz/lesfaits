@@ -49611,5 +49611,1451 @@
     "veille_age_h": 1604.8,
     "veille_n_flux_grappe": 1,
     "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "binance-piratage-6-3-milliards-dollars-3-milliards-geles",
+    "statut": "corrige_automatiquement",
+    "date": "2026-10-30T09:15:06",
+    "problemes_initiaux": 12,
+    "tentatives": 1,
+    "problemes_residuels_style": 6,
+    "rapport_initial": {
+      "conforme": false,
+      "sujet_sensible": false,
+      "sujet_sensible_raison": "",
+      "angle_insuffisant": false,
+      "angle_insuffisant_raison": "",
+      "nature_contenu": "actualite_factuelle",
+      "problemes": [
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "La plateforme d'échange de cryptomonnaies Binance a confirmé jeudi 29 octobre avoir été la cible d'une cyberattaque d'une ampleur sans précédent, estimant l'impact total à environ 6,3 milliards de dollars [1].",
+          "explication": "La source [1] (AP News) ne mentionne pas de cyberattaque sur Binance, ni de montant de 6,3 milliards de dollars, ni de date du 29 octobre 2026 ; son titre et son URL portent sur la sécurité des cryptomonnaies de façon générique sans confirmer les faits attribués."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "Face à l'incident, l'entreprise a suspendu temporairement l'ensemble des dépôts et des retraits pour contenir la brèche [1].",
+          "explication": "La source [1] ne contient aucune information sur une suspension des dépôts et retraits par Binance."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "Selon l'enquête préliminaire menée par Binance, l'intrusion serait liée à un ordinateur portable compromis appartenant à un ingénieur DevOps, qui aurait permis à l'attaquant d'accéder aux infrastructures critiques de la plateforme [1].",
+          "explication": "La source [1] ne mentionne pas d'enquête préliminaire de Binance, ni d'ordinateur portable d'ingénieur DevOps compromis comme vecteur d'intrusion."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "La société indique avoir collaboré avec des partenaires de l'écosystème blockchain pour tracer et geler les fonds volés, annonçant que près de 3 milliards de dollars d'actifs avaient déjà été immobilisés sur la chaîne [1].",
+          "explication": "La source [1] ne mentionne pas de gel de 3 milliards de dollars d'actifs sur la blockchain."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "Binance a précisé sur son compte X que l'estimation de l'impact total s'établissait autour de 6,3 milliards de dollars, tout en soulignant que l'enquête restait en cours pour déterminer l'étendue exacte de la compromission [1].",
+          "explication": "La source [1] ne rapporte aucune communication de Binance sur son compte X concernant cet incident."
+        },
+        {
+          "bloc": 1,
+          "section": "resume",
+          "type": "source_inventee",
+          "phrase_exacte": "La plateforme Binance a annoncé jeudi 29 octobre avoir subi une cyberattaque massive évaluée à 6,3 milliards de dollars, conduisant à la suspension immédiate de tous les dépôts et retraits.",
+          "explication": "Le résumé reprend les mêmes faits non confirmés par la source [1] (AP News)."
+        },
+        {
+          "bloc": 1,
+          "section": "resume",
+          "type": "source_inventee",
+          "phrase_exacte": "L'enquête initiale pointe vers un ordinateur portable d'ingénieur DevOps compromis comme vecteur d'intrusion, permettant à l'attaquant d'accéder aux systèmes critiques de l'échange.",
+          "explication": "Ce détail technique n'apparaît dans aucune des sources autorisées."
+        },
+        {
+          "bloc": 1,
+          "section": "resume",
+          "type": "source_inventee",
+          "phrase_exacte": "Environ 3 milliards de dollars d'actifs ont déjà été gelés sur la blockchain grâce à la coordination avec des partenaires, soit près de la moitié du montant total dérobé.",
+          "explication": "Ce chiffre de 3 milliards gelés n'est attesté par aucune source fournie."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "contexte_hors_sujet",
+          "phrase_exacte": "Un incident majeur avait déjà touché la Direction générale des Finances publiques (DGFIP) entre mai et août 2026, où le vol de dizaines d'authentifiants d'agents légitimes via des logiciels espions avait permis une exfiltration massive de données concernant 353 000 particuliers et 252 000 professionnels [3].",
+          "explication": "La source [3] (Conseil d'État, décision n° 508399) ne documente pas cet incident à la DGFIP ; le fait cité est hors sujet par rapport au piratage de Binance et la source ne le confirme pas."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "L'Agence nationale de la sécurité des systèmes d'information (ANSSI) soulignait dans son Panorama de la cybermenace 2025 une intensification des menaces, exercées tant par des acteurs étatiques que cybercriminels, contre une grande variété de cibles françaises [2].",
+          "explication": "La source [2] (Libération) est un article sur le piratage de Binance, pas le Panorama de la cybermenace 2025 de l'ANSSI ; l'attribution à l'ANSSI via cette source est inventée."
+        },
+        {
+          "bloc": 2,
+          "section": "contexte",
+          "type": "source_derivee_comptee_comme_primaire",
+          "phrase_exacte": "Le règlement européen MiCA, entré en application progressive depuis 2024, impose désormais aux prestataires de services sur actifs numériques des exigences renforcées en matière de gouvernance, de sécurité opérationnelle et de protection des avoirs clients [4].",
+          "explication": "La source [4] (Europa, règlement MiCA) est le texte primaire ; elle est correctement utilisée comme source primaire, mais le champ 'qualite_sources' indique 2 primaires et 2 secondaires alors que les sources [1] et [2] ne confirment pas les faits qui leur sont attribués, faussant le comptage des sources indépendantes valides."
+        },
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "compteur_incoherent",
+          "phrase_exacte": "nb_sources: 4",
+          "explication": "Sur les 4 sources listées, seule la source [4] (texte du règlement MiCA) est pertinente et vérifiable pour le fait qu'elle supporte ; les sources [1], [2], [3] ne confirment pas les faits qui leur sont attribués dans l'article, ce qui rend le compteur de sources effectives incohérent."
+        }
+      ]
+    },
+    "article_type": "actu",
+    "titre": "Binance victime d'un piratage estimé à 6,3 milliards de dollars, 3 milliards gelés",
+    "n_sources": 4,
+    "n_mots": 515,
+    "titre_rss": "La plateforme de cryptomonnaies Binance victime d’une cyberattaque estimée à 6,3 milliards de dollars",
+    "matiere_faits_distincts": 563,
+    "matiere_redondance": 0.08,
+    "matiere_donnees_chiffrees": 2,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "inscriptions-paramedical-hausse-10-premiere-annee-2025",
+    "statut": "rejete_qualite",
+    "date": "2026-10-30T09:28:20",
+    "problemes_initiaux": 10,
+    "tentatives": 3,
+    "problemes_restants": 7,
+    "bloquants_restants": 6,
+    "bloquants_types": [
+      "source_inventee",
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "La source [4] est datée du 12 octobre 2026 (futur par rapport à l'article) et ne peut pas être la source des données 2015-2024 citées ; l'article attribue à cette source des informations qu'elle ne peut pas contenir.",
+        "phrase": "Le jeu de données ouvert publié sur data.gouv.fr recense les effectifs d'étudiants inscrits dans l'enseignement supérieur, y compris les formations paramédicales, pour les années 2015-16 à 2023-24, permettant un suivi gr"
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source France Info ne mentionne pas de baisse de 4,5 % en 2024 ; elle indique seulement une hausse de 3,5 % des primo-inscrits en 2025 vs 2024 et que le total reste sous le niveau de 2023, sans chiffrer la baisse 2024",
+        "phrase": "Le nombre total d'inscrits, toutes années de formation confondues, reste inférieur à celui de 2023, après une baisse de 4,5 % enregistrée en 2024 selon la DREES [1]."
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source France Info ne contient pas de série longue 2010-2022 ni de chiffre de -12 % ; cette donnée n'est pas dans l'extrait fourni.",
+        "phrase": "Entre 2010 et 2022, les effectifs d'inscrits en formations paramédicales ont reculé de manière continue, perdant près de 12 % sur la période selon les séries longues de la DREES [1]."
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source France Info ne mentionne pas de stabilisation à partir de 2021 ; cette affirmation n'est pas dans l'extrait fourni.",
+        "phrase": "Une stabilisation s'était amorcée à partir de 2021, sans toutefois inverser la tendance [1]."
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source France Info ne donne pas de taux d'abandon supérieur à 15 % dans plusieurs IFSI ; ce chiffre n'est pas dans l'extrait fourni.",
+        "phrase": "le taux d'abandon en première année restant supérieur à 15 % dans plusieurs IFSI selon les dernières enquêtes de suivi de la DREES [1]."
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "Cette affirmation n'est sourcée par aucune des sources autorisées ; elle est présentée comme un fait sans attribution.",
+        "phrase": "Le ministère n'a pas communiqué de cible chiffrée pour les rentrées 2026 et 2027."
+      }
+    ],
+    "types_restants": [
+      "compteur_incoherent",
+      "source_inventee",
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone"
+    ],
+    "article_type": "actu",
+    "titre": "Inscriptions en paramédical : hausse de près de 10 % en première année en 2025",
+    "n_sources": 4,
+    "n_mots": 536,
+    "titre_rss": "Le nombre d'inscrits et de diplômés dans les formations aux métiers du paramédical a légèrement augmenté en 2025 par rapport à 2024",
+    "matiere_faits_distincts": 772,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "arnaud-denis-euthanasie-protheses-hernie-enquete-sante-publique",
+    "statut": "corrige_automatiquement",
+    "date": "2026-10-30T09:44:34",
+    "problemes_initiaux": 8,
+    "tentatives": 1,
+    "problemes_residuels_style": 11,
+    "rapport_initial": {
+      "conforme": false,
+      "sujet_sensible": false,
+      "sujet_sensible_raison": "",
+      "angle_insuffisant": false,
+      "angle_insuffisant_raison": "",
+      "nature_contenu": "actualite_factuelle",
+      "problemes": [
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "chiffre_errone",
+          "phrase_exacte": "en dix ans, 2,6 millions de personnes ont été opérées d'une hernie abdominale en France, une chirurgie considérée comme banale [1]",
+          "explication": "La source [1] (France Info) indique 'près de 260 000 procédures annuelles', ce qui sur 10 ans ferait environ 2,6 millions, mais l'article présente ce chiffre comme un fait établi 'en dix ans' alors que la source donne un taux annuel, pas un cumul décennal vérifié."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "En France, cette intervention représente l'un des actes chirurgicaux les plus fréquents, avec près de 260 000 procédures annuelles selon les données de l'Assurance maladie.",
+          "explication": "Ce chiffre 'près de 260 000 procédures annuelles selon les données de l'Assurance maladie' n'apparaît dans aucune des quatre sources autorisées ; la source [1] France Info mentionne ce volume mais ne l'attribue pas à l'Assurance maladie, et les autres sources ne le contiennent pas."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "Les prothèses utilisées sont des dispositifs médicaux de classe IIb ou III, soumis à marquage CE et à surveillance post-commercialisation par l'ANSM.",
+          "explication": "Cette classification réglementaire (classe IIb/III, marquage CE, surveillance ANSM) ne figure dans aucune des quatre sources fournies."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "Des alertes avaient déjà été émises par le passé sur certains modèles spécifiques (notamment les filets composites ou à résorption partielle) pour risques d'adhérences, de fistulisation ou de douleurs neuropathiques chroniques, conduisant à des retraits du marché ou des restrictions d'indication.",
+          "explication": "Ces alertes passées, modèles spécifiques (filets composites, résorption partielle), risques nommés (adhérences, fistulisation, douleurs neuropathiques) et conséquences (retraits, restrictions) ne sont mentionnés dans aucune des quatre sources autorisées."
+        },
+        {
+          "bloc": 1,
+          "section": "nuances",
+          "type": "source_inventee",
+          "phrase_exacte": "L'Organisation mondiale de la santé rappelle dans ses spécifications pour préparations pharmaceutiques que la surveillance post-commercialisation constitue un pilier de la sécurité des produits de santé, sans toutefois préjuger des modalités nationales de mise en œuvre [4].",
+          "explication": "La source [4] (WHO Technical Report Series 1067) porte sur les spécifications pour préparations pharmaceutiques, pas sur les dispositifs médicaux implantables ; l'article en tire une généralisation sur la surveillance post-commercialisation des implants que la source ne soutient pas."
+        },
+        {
+          "bloc": 2,
+          "section": "contexte",
+          "type": "source_non_editoriale",
+          "phrase_exacte": "Le Conseil d'État a été saisi d'un contentieux relatif à la responsabilité de l'État dans la surveillance des dispositifs médicaux implantables, avec une décision rendue le 16 octobre 2024 par les 1ère et 4ème chambres réunies [3]. Cette jurisprudence précise les obligations de vigilance qui incombent aux autorités sanitaires françaises en matière de suivi post-commercialisation des implants.",
+          "explication": "La source [3] est une décision de justice (jurisprudence) utilisée comme source factuelle pour décrire les obligations de vigilance ; bien qu'institutionnelle, elle est citée pour son contenu normatif et non comme simple fait procédural, ce qui en fait une source dérivée du droit plutôt qu'une source éditoriale indépendante sur le sujet médical."
+        },
+        {
+          "bloc": 4,
+          "section": "contexte",
+          "type": "contexte_hors_sujet",
+          "phrase_exacte": "Le Conseil d'État a été saisi d'un contentieux relatif à la responsabilité de l'État dans la surveillance des dispositifs médicaux implantables, avec une décision rendue le 16 octobre 2024 par les 1ère et 4ème chambres réunies [3]. Cette jurisprudence précise les obligations de vigilance qui incombent aux autorités sanitaires françaises en matière de suivi post-commercialisation des implants.",
+          "explication": "Ce développement jurisprudentiel (décision du Conseil d'État d'octobre 2024) ne porte pas sur l'affaire Arnaud Denis ni sur les prothèses herniaires spécifiquement ; il éclaire le cadre général mais n'apporte aucun fait sur le sujet principal de l'article."
+        },
+        {
+          "bloc": 4,
+          "section": "nuances",
+          "type": "contexte_hors_sujet",
+          "phrase_exacte": "L'Organisation mondiale de la santé rappelle dans ses spécifications pour préparations pharmaceutiques que la surveillance post-commercialisation constitue un pilier de la sécurité des produits de santé, sans toutefois préjuger des modalités nationales de mise en œuvre [4].",
+          "explication": "La source [4] concerne les préparations pharmaceutiques, pas les dispositifs médicaux (prothèses herniaires) ; son invocation en 'nuances' ne sert qu'à remplir la section sans éclairer le cas concret."
+        }
+      ]
+    },
+    "article_type": "actu",
+    "titre": "Arnaud Denis euthanasié à 43 ans : l'enquête sur les prothèses de hernie s'élargit",
+    "n_sources": 4,
+    "n_mots": 560,
+    "titre_rss": "\"Un scandale de santé publique qui émerge\" : après la mort du comédien Arnaud Denis, enquête sur les prothèses de hernies",
+    "matiere_faits_distincts": 869,
+    "matiere_redondance": 0.04,
+    "matiere_donnees_chiffrees": 2,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "onu-rechauffement-2-8-degres-politiques-actuelles-cop30",
+    "statut": "rejete_qualite",
+    "date": "2026-10-30T09:50:50",
+    "problemes_initiaux": 14,
+    "tentatives": 3,
+    "problemes_restants": 12,
+    "bloquants_restants": 3,
+    "bloquants_types": [
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [3] (Le Monde, 4 novembre 2025) indique un réchauffement de 2,6 °C avec les politiques actuelles, et non 2,8 °C ; le chiffre 2,8 °C correspond au scénario des engagements non conditionnels (NDC), ce qui constit",
+        "phrase": "La poursuite des politiques actuellement en place conduisait la planète vers une hausse des températures mondiales de 2,8 °C d'ici à la fin du siècle par rapport à l'ère préindustrielle [3]."
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "Le résumé reprend l'erreur du corps : la source [3] donne 2,6 °C pour les politiques actuelles, 2,8 °C étant le chiffre pour les NDC non conditionnels.",
+        "phrase": "Le Programme des Nations unies pour l'environnement (PNUE) estimait que la poursuite des politiques climatiques actuelles mènerait la planète vers une hausse de 2,8 °C d'ici la fin du siècle, bien au-delà de l'objectif d"
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "Le titre affirme 2,8 °C pour les politiques actuelles, alors que la source [3] cite 2,6 °C pour ce scénario ; le titre gonfle le chiffre par rapport à la source citée.",
+        "phrase": "L'ONU prévoyait un réchauffement de 2,8 °C d'ici 2100 avec les politiques actuelles"
+      }
+    ],
+    "types_restants": [
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "contexte_hors_sujet",
+      "contexte_hors_sujet",
+      "contexte_hors_sujet",
+      "contexte_hors_sujet",
+      "redondance",
+      "redondance",
+      "acteur_mis_en_cause_sans_reponse",
+      "compteur_incoherent",
+      "section_gonflee"
+    ],
+    "article_type": "actu",
+    "titre": "L'ONU prévoit un réchauffement de 2,8 °C d'ici 2100 avec les politiques actuelles",
+    "n_sources": 4,
+    "n_mots": 589,
+    "titre_rss": "Climat: le monde vers un réchauffement de 2,6°C, mais il est encore temps d'agir, selon l'ONU",
+    "matiere_faits_distincts": 641,
+    "matiere_redondance": 0.01,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "rapport"
+  },
+  {
+    "slug": "canicule-juin-2026-surmortalite-29-pourcent-certificats-electroniques",
+    "statut": "conforme_du_premier_coup",
+    "date": "2026-10-30T09:53:57",
+    "article_type": "actu",
+    "titre": "Canicule de juin 2026 : surmortalité de 29 % selon les certificats électroniques",
+    "n_sources": 4,
+    "n_mots": 516,
+    "titre_rss": "Point de situation sur la mortalité toutes causes confondues  sur la période du 22 au 28 juin 2026",
+    "matiere_faits_distincts": 572,
+    "matiere_redondance": 0.01,
+    "matiere_donnees_chiffrees": 4,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "veille_heures_visible": 221.3,
+    "veille_passages": 74,
+    "veille_age_h": 1607.2,
+    "veille_n_flux_grappe": 1,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "chercheurs-climat-americains-resistance-coupes-budget-trump",
+    "statut": "rejete_sensible",
+    "date": "2026-10-30T09:57:01",
+    "problemes_initiaux": 11,
+    "bloc5": [
+      "affaire_en_cours_presentee_comme_fait"
+    ],
+    "article_type": "actu",
+    "titre": "Des chercheurs climatiques américains s'organisent face aux coupes de l'administration Trump",
+    "n_sources": 4,
+    "n_mots": 623,
+    "titre_rss": "Une “armée de réserve du climat” se lève contre Trump",
+    "matiere_faits_distincts": 798,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "inserm-sept-fausses-idees-vaccins-campagne-grippe-covid-2026",
+    "statut": "rejete_qualite",
+    "date": "2026-10-30T10:05:35",
+    "problemes_initiaux": 11,
+    "tentatives": 3,
+    "problemes_restants": 9,
+    "bloquants_restants": 6,
+    "bloquants_types": [
+      "chiffre_errone",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [1] (Inserm 2026) indique : '80 % des adultes de 18 à 79 ans se déclarent favorables à la vaccination en général, mais 36,7 % expriment des défiances à l'égard de certains vaccins' sans citer le Baromètre de Sa",
+        "phrase": "Le Baromètre de Santé publique France 2024 montre que 80 % des adultes de 18 à 79 ans se déclarent favorables à la vaccination en général, mais 36,7 % expriment des défiances à l'égard de certains vaccins [1]."
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "La source [1] (Inserm 2026) est citée pour l'ensemble de ces chiffres précis (études Suède/Allemagne 2026, données Australie 2007, estimation OMS grippe). Or l'extrait fourni de la source [1] ne contient aucun de ces chi",
+        "phrase": "Deux études 2026 confirment l'efficacité : en Suède, sur plus de 300 000 femmes, une réduction de 79 % du risque de cancer du col de l'utérus pour une vaccination avant 17 ans [1] ; en Allemagne, sur plus de 300 000 femm"
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "La source [1] (Inserm 2026) est citée pour ce chiffre précis. L'extrait fourni de la source [1] ne mentionne pas ce chiffre (6 400 cas/an en France). L'article invente l'attribution de ce chiffre à cette source.",
+        "phrase": "Environ 6 400 nouveaux cas de cancers liés aux HPV sont diagnostiqués chaque année en France [1]."
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "La source [1] (Inserm 2026) est citée pour ces chiffres précis de pharmacovigilance. L'extrait fourni de la source [1] ne contient pas ces chiffres (515 notifications, 432 cas confirmés, période 2002-sept 2017). L'articl",
+        "phrase": "Le centre régional de pharmacovigilance a reçu 515 notifications de myofasciite à macrophages entre 2002 et septembre 2017, dont 432 cas confirmés [1]."
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "La source [1] est citée pour qualifier la nature de ces études (observationnelles, non randomisées). L'extrait de la source [1] ne mentionne pas ces études, ni leur méthodologie, ni leurs limites. L'article prête à la so",
+        "phrase": "Les études sur l'efficacité du vaccin HPV (Suède, Allemagne) sont observationnelles et portent sur des populations vaccinées avant 17 ans ou complètement vaccinées ; elles montrent une association forte mais ne constitue"
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "La source [1] est citée pour cette précision terminologique et cette nuance ('lésion histologique localisée', 'signification clinique... débattue'). L'extrait de la source [1] ne contient pas cette formulation précise. L",
+        "phrase": "L'article de l'Inserm précise que la myofasciite à macrophages est une lésion histologique localisée au point d'injection, dont la signification clinique à long terme reste débattue dans la littérature scientifique [1]."
+      }
+    ],
+    "types_restants": [
+      "chiffre_errone",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "compteur_incoherent"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "resume_repete_corps"
+    ],
+    "titre": "L'Inserm met à jour ses sept fausses idées sur les vaccins pour la campagne 2026-2027",
+    "n_sources": 8,
+    "n_mots": 836,
+    "titre_rss": "Sept fausses idées sur les vaccins",
+    "matiere_faits_distincts": 831,
+    "matiere_redondance": 0.01,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "rdc-essai-tumaini-vaccins-ebola-bundibugyo-10000-cas",
+    "statut": "rejete_qualite",
+    "date": "2026-10-30T10:13:23",
+    "tentative": 3,
+    "perte_substance": true,
+    "section": "nuances",
+    "mots_avant": 95,
+    "mots_apres": 45,
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "affirmation_non_demontree"
+    ],
+    "titre": "RDC : l'essai Tumaini teste des vaccins contre Ebola Bundibugyo, 10 000 cas dépassés",
+    "n_sources": 4,
+    "n_mots": 763,
+    "titre_rss": "Ebola en RDC : un essai clinique du vaccin Tumaini a débuté, selon l’OMS",
+    "matiere_faits_distincts": 929,
+    "matiere_redondance": 0.01,
+    "matiere_donnees_chiffrees": 2,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "biodiversite-migration-especes-rechauffement-poles-sommets-europe-pieges-climatiques",
+    "statut": "rejete_qualite",
+    "date": "2026-10-30T10:29:50",
+    "tentative": 3,
+    "perte_substance": true,
+    "section": "contexte",
+    "mots_avant": 245,
+    "mots_apres": 118,
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "titre_de_mauvaise_qualite"
+    ],
+    "titre": "1 888 espèces étudiées : plus de la moitié migrent vers le nord, pièges en altitude",
+    "n_sources": 4,
+    "n_mots": 829,
+    "titre_rss": "Biodiversité : ruée vers les pôles et les sommets",
+    "matiere_faits_distincts": 947,
+    "matiere_redondance": 0.02,
+    "matiere_donnees_chiffrees": 2,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "etude_scientifique"
+  },
+  {
+    "slug": "chaleur-710-000-deces-2023-record-lancet-countdown",
+    "statut": "rejete_qualite",
+    "date": "2026-10-30T10:43:55",
+    "problemes_initiaux": 23,
+    "tentatives": 3,
+    "problemes_restants": 9,
+    "bloquants_restants": 6,
+    "bloquants_types": [
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "annonce_perimee"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [3] (WHO, 28 octobre 2026) ne peut pas contenir un chiffre pour l'année 2025 entière, car elle est publiée en octobre 2026 et le rapport Lancet Countdown 2026 porte sur des données jusqu'à 2023-2024 ; ce chiffr",
+        "phrase": "La sécheresse a touché 51,8 % des terres émergées pendant au moins un mois en 2025 [3]."
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "Même raison : la source [3] datée d'octobre 2026 ne peut pas valider un chiffre annuel consolidé pour 2025 ; le rapport Lancet Countdown 2026 rapporte des données jusqu'à 2023-2024.",
+        "phrase": "les investissements mondiaux dans les énergies propres ont atteint un record de 2 100 milliards de dollars en 2025 [3]."
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [3] ne contient pas cette projection précise sur les 100 premières entreprises pétrolières et gazières ; ce chiffre provient probablement d'un autre rapport (ex. Carbon Tracker) et est attribué à tort à la sour",
+        "phrase": "Les 100 premières entreprises pétrolières et gazières prévoient de produire d'ici 2040 150 % de combustibles fossiles de plus que le niveau compatible avec un réchauffement limité à 1,5 °C, un écart qui s'est creusé depu"
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [3] est un communiqué WHO sur le Lancet Countdown 2026, pas un bulletin OMM ; elle ne fournit pas de records de concentration de GES pour 2025.",
+        "phrase": "Dix ans plus tard, les concentrations de CO2 et des autres principaux gaz à effet de serre ont atteint des records en 2025, scellant une hausse à long terme des températures selon l'Organisation météorologique mondiale ["
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "Le corps « faits » donne 1 070 milliards de dollars de revenus perdus ; 1,4 % du PIB mondial (~105 000 Md$) correspondrait à ~1 470 Md$, soit un chiffre incohérent avec la même source [3].",
+        "phrase": "Les pertes de revenus liées à la chaleur ont représenté 1,4 % du PIB mondial en 2023, avec des impacts disproportionnés dans les pays à faible et moyen revenu [3]."
+      },
+      {
+        "bloc": 1,
+        "type": "annonce_perimee",
+        "description": "Le résumé présente la publication du rapport comme un événement récent (« publié le 28 octobre ») alors que la date de l'article n'est pas fournie ; si l'article est publié après le 28 octobre 2026, la formulation est co",
+        "phrase": "Le rapport Lancet Countdown 2026, publié le 28 octobre, établit un bilan record de 710 000 morts liés à la chaleur en 2023, dont plus de 70 % attribués au réchauffement d'origine humaine [3]."
+      }
+    ],
+    "types_restants": [
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "source_inventee",
+      "compteur_incoherent",
+      "source_derivee_comptee_comme_primaire",
+      "annonce_perimee"
+    ],
+    "article_type": "actu",
+    "titre": "710 000 décès liés à la chaleur en 2023, 70 % imputables au changement climatique",
+    "n_sources": 4,
+    "n_mots": 782,
+    "titre_rss": "Les décès liés à la chaleur ont bondi de 36 % en un an selon les experts du Lancet Countdown",
+    "matiere_faits_distincts": 992,
+    "matiere_redondance": 0.01,
+    "matiere_donnees_chiffrees": 2,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "rapport"
+  },
+  {
+    "slug": "israel-legislatives-accusations-fraude-partis-arabes-herzog-appel-calme",
+    "statut": "corrige_automatiquement",
+    "date": "2026-10-30T10:52:27",
+    "problemes_initiaux": 20,
+    "tentatives": 3,
+    "problemes_residuels_style": 7,
+    "rapport_initial": {
+      "conforme": false,
+      "sujet_sensible": false,
+      "sujet_sensible_raison": "",
+      "angle_insuffisant": false,
+      "angle_insuffisant_raison": "",
+      "nature_contenu": "actualite_factuelle",
+      "problemes": [
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "chiffre_errone",
+          "phrase_exacte": "Le scrutin du 27 octobre 2026 a vu s'affronter la coalition sortante de Benjamin Netanyahu — Likoud, Shass, Judaïsme unifié de la Torah, Otzma Yehudit et Sionisme religieux — au bloc d'opposition fragmenté autour de Gadi Eisenkot (Yashar), Naftali Bennett et Yaïr Lapid (Ensemble), Avigdor Liberman (Israël Beitenou) et Yaïr Golan (Démocrates) [2].",
+          "explication": "La source [2] (EPRS, datée du 15 octobre 2026) liste les partis de la coalition sortante comme Likud, Shas, United Torah Judaism, Religious Zionism, Otzma Yehudit, Noam ; l'article remplace 'Religious Zionism' et 'Noam' par 'Sionisme religieux' (traduction approximative) et omet 'Noam'. Pour l'opposition, la source cite Yesh Atid, National Unity, Yisrael Beiteinu, Labor, Meretz, Hadash-Ta'al, Ra'am, Balad ; l'article invente des partis 'Yashar', 'Ensemble', 'Démocrates' et des chefs de file (Gadi Eisenkot, Yaïr Golan) qui ne figurent pas dans la source."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "chiffre_errone",
+          "phrase_exacte": "Les sondages préélectoraux indiquaient une Knesset bloquée, aucun des deux camps n'atteignant les 61 sièges nécessaires pour gouverner seul [2].",
+          "explication": "La source [2] ne contient aucune mention de sondages préélectoraux ni du chiffre de 61 sièges ; elle décrit le système électoral et l'historique récent mais ne fournit pas de projections de sièges pour 2026."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "chiffre_errone",
+          "phrase_exacte": "Les partis arabes, représentés principalement par la Liste arabe unie (Ra'am) et la Liste commune, pourraient obtenir un nombre record de sièges selon les premières projections, ce qui les placerait en position de faiseurs de roi pour la formation du prochain gouvernement [3].",
+          "explication": "La source [3] (Libération, 29 octobre 2026) ne mentionne pas de 'premières projections' ni de 'nombre record de sièges' pour les partis arabes ; elle rapporte les accusations de fraude du camp Netanyahu et l'appel au calme de Herzog."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "chiffre_errone",
+          "phrase_exacte": "Le système électoral israélien repose sur une proportionnelle intégrale avec un seuil de 3,25 % et un district unique national de 7,3 millions d'électeurs inscrits [2].",
+          "explication": "La source [2] ne mentionne pas le chiffre de 7,3 millions d'électeurs inscrits ; ce nombre n'apparaît pas dans les extraits fournis."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "chiffre_errone",
+          "phrase_exacte": "La 25e Knesset a achevé son mandat légal de quatre ans, une première en quatre décennies, après l'échec des négociations pour une dissolution anticipée [2].",
+          "explication": "La source [2] ne contient pas l'information selon laquelle la 25e Knesset aurait achevé son mandat de quatre ans ni qu'il s'agirait d'une première en quatre décennies."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "chiffre_errone",
+          "phrase_exacte": "Depuis 2019, le pays a connu cinq élections législatives en moins de quatre ans, témoignant d'une instabilité chronique liée à la fragmentation partisane et au refus récurrent des grands blocs de s'allier aux partis arabes [2].",
+          "explication": "La source [2] ne mentionne pas le nombre d'élections depuis 2019 ni la durée de 'moins de quatre ans' ; elle ne lie pas explicitement l'instabilité au 'refus récurrent des grands blocs de s'allier aux partis arabes'."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "chiffre_errone",
+          "phrase_exacte": "En 2021, Ra'am avait brisé ce tabou en rejoignant la coalition Bennett-Lapid, mais cette expérience n'a pas été renouvelée [2].",
+          "explication": "La source [2] ne mentionne pas la participation de Ra'am à la coalition Bennett-Lapid en 2021 ni le fait que cette expérience n'ait pas été renouvelée."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "chiffre_errone",
+          "phrase_exacte": "Le contexte sécuritaire pèse lourdement : la guerre à Gaza déclenchée le 7 octobre 2023, les tensions avec le Hezbollah au Liban et l'Iran, ainsi que le procès pour corruption de Benjamin Netanyahu, qui se poursuit en parallèle de son mandat [2].",
+          "explication": "La source [2] ne mentionne ni la guerre à Gaza du 7 octobre 2023, ni les tensions avec le Hezbollah et l'Iran, ni le procès pour corruption de Netanyahu."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "chiffre_errone",
+          "phrase_exacte": "L'Union européenne, qui sanctionne les colons violents en Cisjordanie et soutient la solution à deux États, suit ce scrutin de près pour ses implications sur la stabilité régionale [2].",
+          "explication": "La source [2] ne mentionne pas les sanctions de l'UE contre les colons, son soutien à la solution à deux États, ni son suivi du scrutin pour la stabilité régionale."
+        },
+        {
+          "bloc": 1,
+          "section": "nuances",
+          "type": "chiffre_errone",
+          "phrase_exacte": "Le timing de ces accusations — au lendemain d'un scrutin où les partis arabes semblent avoir progressé — soulève des questions sur leur motivation politique, d'autant que le camp Netanyahu a intérêt à délégitimer un potentiel blocage parlementaire imputable au vote arabe [3].",
+          "explication": "La source [3] ne contient pas l'analyse selon laquelle les partis arabes 'semblent avoir progressé' ni l'interprétation sur la motivation politique du camp Netanyahu de 'délégitimer un potentiel blocage parlementaire imputable au vote arabe'."
+        },
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "Le scrutin du 27 octobre 2026 a vu s'affronter la coalition sortante de Benjamin Netanyahu — Likoud, Shass, Judaïsme unifié de la Torah, Otzma Yehudit et Sionisme religieux — au bloc d'opposition fragmenté autour de Gadi Eisenkot (Yashar), Naftali Bennett et Yaïr Lapid (Ensemble), Avigdor Liberman (Israël Beitenou) et Yaïr Golan (Démocrates) [2].",
+          "explication": "Les partis 'Yashar', 'Ensemble', 'Démocrates' et les personnalités Gadi Eisenkot, Yaïr Golan comme chefs de file de ces formations n'existent pas dans la source [2] ; l'article leur attribue une existence et un rôle électoral que la source ne confirme pas."
+        },
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "Les sondages préélectoraux indiquaient une Knesset bloquée, aucun des deux camps n'atteignant les 61 sièges nécessaires pour gouverner seul [2].",
+          "explication": "La source [2] ne contient aucune donnée de sondage ni le seuil de 61 sièges ; l'article invente une information sourcée qui n'y figure pas."
+        },
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "Les partis arabes, représentés principalement par la Liste arabe unie (Ra'am) et la Liste commune, pourraient obtenir un nombre record de sièges selon les premières projections, ce qui les placerait en position de faiseurs de roi pour la formation du prochain gouvernement [3].",
+          "explication": "La source [3] ne mentionne pas de 'premières projections', de 'nombre record de sièges' ni de rôle de 'faiseurs de roi' ; l'article attribue à la source des affirmations qu'elle ne contient pas."
+        },
+        {
+          "bloc": 2,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "Le système électoral israélien repose sur une proportionnelle intégrale avec un seuil de 3,25 % et un district unique national de 7,3 millions d'électeurs inscrits [2].",
+          "explication": "Le chiffre de 7,3 millions d'électeurs inscrits n'apparaît pas dans la source [2] ; l'article l'invente et l'attribue à cette source."
+        },
+        {
+          "bloc": 2,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "La 25e Knesset a achevé son mandat légal de quatre ans, une première en quatre décennies, après l'échec des négociations pour une dissolution anticipée [2].",
+          "explication": "Cette affirmation n'est pas présente dans la source [2] ; l'article l'invente et l'y attribue."
+        },
+        {
+          "bloc": 2,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "Depuis 2019, le pays a connu cinq élections législatives en moins de quatre ans, témoignant d'une instabilité chronique liée à la fragmentation partisane et au refus récurrent des grands blocs de s'allier aux partis arabes [2].",
+          "explication": "Le comptage des élections, la durée, l'analyse de l'instabilité et l'attribution au refus d'alliance avec les partis arabes ne figurent pas dans la source [2]."
+        },
+        {
+          "bloc": 2,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "En 2021, Ra'am avait brisé ce tabou en rejoignant la coalition Bennett-Lapid, mais cette expérience n'a pas été renouvelée [2].",
+          "explication": "La source [2] ne mentionne pas cet épisode historique ; l'article l'invente et l'y attribue."
+        },
+        {
+          "bloc": 2,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "Le contexte sécuritaire pèse lourdement : la guerre à Gaza déclenchée le 7 octobre 2023, les tensions avec le Hezbollah au Liban et l'Iran, ainsi que le procès pour corruption de Benjamin Netanyahu, qui se poursuit en parallèle de son mandat [2].",
+          "explication": "Aucun de ces éléments (guerre à Gaza, tensions Hezbollah/Iran, procès Netanyahu) n'est mentionné dans la source [2] ; l'article les invente et les lui attribue."
+        },
+        {
+          "bloc": 2,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "L'Union européenne, qui sanctionne les colons violents en Cisjordanie et soutient la solution à deux États, suit ce scrutin de près pour ses implications sur la stabilité régionale [2].",
+          "explication": "La source [2] ne contient aucune information sur les sanctions de l'UE, sa position sur la solution à deux États, ni son suivi du scrutin ; l'article invente ces faits et les lui attribue."
+        },
+        {
+          "bloc": 2,
+          "section": "nuances",
+          "type": "source_inventee",
+          "phrase_exacte": "Le timing de ces accusations — au lendemain d'un scrutin où les partis arabes semblent avoir progressé — soulève des questions sur leur motivation politique, d'autant que le camp Netanyahu a intérêt à délégitimer un potentiel blocage parlementaire imputable au vote arabe [3].",
+          "explication": "L'analyse politique sur la progression des partis arabes, la motivation du camp Netanyahu et l'objectif de délégitimation ne figure pas dans la source [3] ; l'article l'invente et l'y attribue."
+        }
+      ]
+    },
+    "article_type": "actu",
+    "titre": "Israël : Herzog appelle au calme après des accusations de fraude visant les partis arabes",
+    "n_sources": 3,
+    "n_mots": 614,
+    "titre_rss": "Législatives en Israël : accusations de fraude envers le parti arabe, le président appelle au calme",
+    "matiere_faits_distincts": 487,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "activite-physique-apres-40-ans-varier-exercices-vieillir-sante",
+    "statut": "rejete_qualite",
+    "date": "2026-10-30T10:56:21",
+    "angle_insuffisant": true,
+    "raison": "Aucune phrase des faits ne combine un événement précis daté (publication de l'étude BMJ Medicine) et une donnée chiffrée qui lui est propre ; l'article répond à « qu'est-ce que l'étude dit ? » plutôt qu'à « pourquoi en parle-t-on maintenant ? »",
+    "article_type": "actu",
+    "titre": "Activité physique après 40 ans : varier les exercices pour vieillir en meilleure santé",
+    "n_sources": 7,
+    "n_mots": 492,
+    "titre_rss": "Après 40 ans, l’activité physique est un levier de choix pour vieillir en restant jeune",
+    "matiere_faits_distincts": 792,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 3,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "etude_scientifique"
+  },
+  {
+    "slug": "onu-six-scrutins-sans-consensus-successeur-guterres",
+    "statut": "rejete_sensible",
+    "date": "2026-10-30T11:09:00",
+    "problemes_initiaux": 11,
+    "tentative": 1,
+    "bloc5": true,
+    "article_type": "actu",
+    "titre": "ONU : six scrutins sans consensus pour succéder à Guterres",
+    "n_sources": 4,
+    "n_mots": 501,
+    "titre_rss": "Secrétariat général de l’ONU : à deux mois de la date butoir, les Nations unies toujours dans l’impasse",
+    "matiere_faits_distincts": 852,
+    "matiere_redondance": 0.04,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "inflation-france-octobre-2026-3-4-pour-cent-energie",
+    "statut": "rejete_qualite",
+    "date": "2026-10-30T11:23:05",
+    "problemes_initiaux": 5,
+    "tentatives": 3,
+    "problemes_restants": 9,
+    "bloquants_restants": 6,
+    "bloquants_types": [
+      "chiffre_errone",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [2] (Le Monde, 30 septembre 2026) indique que l'inflation de septembre est de 3 % sur un an, mais ne mentionne pas les taux de variation des prix de l'énergie pour septembre (+21,2 %) ni pour août (+16,7 %) ; c",
+        "phrase": "Le mois précédent, en septembre, l'inflation s'établissait à 3 % sur un an, portée par une envolée des prix de l'énergie à +21,2 % contre +16,7 % en août, selon les données provisoires de l'Insee [2]."
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "Le renvoi [2] attribue à la source Le Monde des chiffres détaillés sur l'énergie (+21,2 % en septembre, +16,7 % en août) que l'extrait de cette source ne contient pas ; l'article invente donc une confirmation sourcée ine",
+        "phrase": "Le mois précédent, en septembre, l'inflation s'établissait à 3 % sur un an, portée par une envolée des prix de l'énergie à +21,2 % contre +16,7 % en août, selon les données provisoires de l'Insee [2]."
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "La phrase présente comme un fait rapporté par Le Monde la confirmation d'un « retour progressif au-dessus du seuil symbolique » ; l'extrait de la source [2] ne contient pas cette analyse ni ce vocabulaire, qui sont une i",
+        "phrase": "L'article du Monde du 30 septembre 2026 rapporte que l'inflation de septembre s'établit à 3 % sur un an, confirmant ce retour progressif au-dessus du seuil symbolique [2]."
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "Le renvoi [4] renvoie à la publication « Les Français et l'inflation : les séquelles de l'épisode inflationniste de 2022-2023 » ; l'extrait fourni ne contient pas les affirmations selon lesquelles l'enquête « montre » qu",
+        "phrase": "Une enquête de la Banque de France publiée en juillet 2026 montre que les ménages conservent des anticipations d'inflation élevées, héritées de l'épisode 2022-2023, ce qui influence leurs comportements de consommation et"
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "L'extrait de la source [4] ne mentionne ni la hausse des prix alimentaires et énergétiques comme facteur marquant, ni un « décalage entre le ressenti des ménages et l'indice officiel » ; ces éléments sont ajoutés par la ",
+        "phrase": "L'enquête précise que cette perception reste particulièrement marquée par la hausse des prix alimentaires et énergétiques, créant un décalage entre le ressenti des ménages et l'indice officiel [4]."
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "Même reproche que ci-dessus : la source [4] ne contient pas ces précisions sur les prix alimentaires et énergétiques ni sur le décalage ressenti/indice officiel ; l'article attribue à la source des propos qu'elle ne tien",
+        "phrase": "L'enquête de la Banque de France souligne aussi que la perception de l'inflation par les Français reste marquée par la hausse des prix alimentaires et énergétiques, ce qui peut décaler le ressenti par rapport à l'indice "
+      }
+    ],
+    "types_restants": [
+      "chiffre_errone",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "contexte_hors_sujet",
+      "compteur_incoherent",
+      "redondance"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "resume_repete_corps"
+    ],
+    "titre": "L'inflation accélère à 3,4 % en octobre, tirée par l'énergie",
+    "n_sources": 5,
+    "n_mots": 479,
+    "titre_rss": "L’inflation grimpe à 3,4 % sur un an en octobre selon l’Insee, au plus haut depuis janvier 2024",
+    "matiere_faits_distincts": 611,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "mortalite-france-2024-641046-deces-taux-standardise-baisse",
+    "statut": "rejete_qualite",
+    "date": "2026-10-30T11:33:18",
+    "tentative": 2,
+    "angle_insuffisant": true,
+    "raison": "L'article ne répond pas à la question de l'angle ('La mortalité en France a-t-elle vraiment baissé en 2024 malgré 4 000 décès de plus qu'en 2023 ?') : aucun chiffre de mortalité totale 2023 ni 2024 n'est fourni, le taux standardisé n'est pas cité, et les faits mélangent données 2024 (rapport SPF, mortalité périnatale) et événement 2026 (canicule) sans traiter le sujet annoncé.",
+    "article_type": "actu",
+    "titre": "Mortalité 2024 : 641 046 décès en France, taux standardisé en baisse",
+    "n_sources": 4,
+    "n_mots": 961,
+    "titre_rss": "Grandes causes de décès en France : tendances et causes associées en 2024",
+    "matiere_faits_distincts": 655,
+    "matiere_redondance": 0.13,
+    "matiere_donnees_chiffrees": 5,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "veille_heures_visible": 517.7,
+    "veille_passages": 311,
+    "veille_age_h": 1903.6,
+    "veille_n_flux_grappe": 1,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "condor-californie-sauvetage-priorites-financement-biodiversite",
+    "statut": "rejete_qualite",
+    "date": "2026-10-30T11:39:12",
+    "angle_insuffisant": true,
+    "raison": "Aucune phrase dans 'faits' ne combine un événement précis daté récemment (annonce, publication, décision) et une donnée chiffrée ou nommée qui lui est propre. L'article explique le parcours historique du condor et cite une étude de 2025 sur les financements 1992-2016, mais ne rapporte aucun fait déclencheur actuel (nouvelle publication, décision récente, chiffre 2024/2025) qui justifierait une publication maintenant. Le renvoi à la COP17 d'octobre 2026 est un événement futur, pas une actualité présente.",
+    "article_type": "actu",
+    "titre": "Condor de Californie : le sauvetage d'une espèce emblématique interroge les priorités mondiales de financement",
+    "n_sources": 3,
+    "n_mots": 560,
+    "titre_rss": "Le condor de Californie a été sauvé, mais à quel prix, et pour qui ?",
+    "matiere_faits_distincts": 1136,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "sujet_pedagogique"
+  },
+  {
+    "slug": "drone-evacue-soldat-blesse-62-km-front-ukraine",
+    "statut": "corrige_automatiquement",
+    "date": "2026-10-30T11:44:17",
+    "problemes_initiaux": 8,
+    "tentatives": 2,
+    "problemes_residuels_style": 5,
+    "rapport_initial": {
+      "conforme": false,
+      "sujet_sensible": false,
+      "sujet_sensible_raison": "",
+      "angle_insuffisant": false,
+      "angle_insuffisant_raison": "",
+      "nature_contenu": "actualite_factuelle",
+      "problemes": [
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "Un soldat ukrainien blessé a été évacué depuis une position de première ligne grâce à un drone, a rapporté France Info le 20 octobre 2026 [1][2][3].",
+          "explication": "La source [3] (article sur la perte de connexion Starlink) ne rapporte pas l'évacuation médicale par drone ; elle est citée à tort comme confirmant ce fait."
+        },
+        {
+          "bloc": 2,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "Le conflit en Ukraine est décrit comme la première « guerre des drones » à grande échelle, avec une généralisation de leur usage pour le renseignement, la frappe et la logistique [4].",
+          "explication": "La source [4] (rapport du Sénat) ne contient pas la qualification « première guerre des drones à grande échelle » ni la description d'une généralisation pour le renseignement, la frappe et la logistique dans les extraits fournis."
+        },
+        {
+          "bloc": 2,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "Le Sénat français note dans un rapport de 2026 que l'Ukraine a démontré la capacité d'adapter rapidement des drones civils et militaires pour des missions variées, y compris le transport de charges lourdes [4].",
+          "explication": "Les extraits de la source [4] ne mentionnent pas l'adaptation de drones civils et militaires par l'Ukraine ni le transport de charges lourdes."
+        },
+        {
+          "bloc": 2,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "La lutte anti-drones et la saturation de l'espace aérien bas restent toutefois des contraintes majeures pour ce type d'opérations [4].",
+          "explication": "Les extraits de la source [4] ne mentionnent pas la saturation de l'espace aérien bas ni les contraintes pour les évacuations médicales par drone."
+        },
+        {
+          "bloc": 2,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "En France, le même rapport souligne un retard capacitaire dans la production de drones de combat et de logistique, ainsi qu'une insuffisance des moyens de lutte anti-drones [4].",
+          "explication": "Les extraits de la source [4] ne contiennent pas d'affirmation sur un retard capacitaire français ni sur l'insuffisance des moyens de lutte anti-drones."
+        },
+        {
+          "bloc": 2,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "Aucune évacuation médicale par drone de cette ampleur n'a été documentée dans les armées occidentales avant ce cas ukrainien.",
+          "explication": "Cette affirmation n'est sourcée par aucune des sources autorisées ; elle constitue une extrapolation non vérifiée."
+        },
+        {
+          "bloc": 2,
+          "section": "nuances",
+          "type": "source_inventee",
+          "phrase_exacte": "La généralisation de cette méthode reste hypothétique tant que les limites techniques et tactiques n'ont pas été établies par des essais répétés [4].",
+          "explication": "La source [4] ne traite pas de l'évacuation médicale par drone ni de la nécessité d'essais répétés pour sa généralisation."
+        },
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "compteur_incoherent",
+          "phrase_exacte": "nb_sources: 4",
+          "explication": "Le champ nb_sources indique 4, mais la source [3] ne confirme aucun fait de l'article (elle traite d'un sujet différent) ; le nombre de sources distinctes effectivement utilisées pour étayer les affirmations est inférieur."
+        }
+      ]
+    },
+    "article_type": "actu",
+    "titre": "Un drone évacue un soldat blessé sur 62 km depuis le front ukrainien",
+    "n_sources": 4,
+    "n_mots": 497,
+    "titre_rss": "\"L'évacuation se déroule en quelques minutes\" : un soldat blessé évacué par drone sur 62 km en Ukraine",
+    "matiere_faits_distincts": 842,
+    "matiere_redondance": 0.05,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "billy-barr-releves-enneigement-rocheuses-colorado-climat",
+    "statut": "rejete_qualite",
+    "date": "2026-10-30T11:52:01",
+    "tentative": 3,
+    "perte_substance": true,
+    "section": "contexte",
+    "mots_avant": 158,
+    "mots_apres": 68,
+    "article_type": "actu",
+    "titre": "Billy Barr, 50 ans de mesures de neige dans les Rocheuses du Colorado",
+    "n_sources": 4,
+    "n_mots": 639,
+    "titre_rss": "Billy Barr, ermite moderne et vigie du climat dans les Rocheuses du Colorado",
+    "matiere_faits_distincts": 754,
+    "matiere_redondance": 0.01,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "dinosaure-167-millions-annees-vendu-encheres-yvelines",
+    "statut": "rejete_qualite",
+    "date": "2026-10-30T12:03:20",
+    "problemes_initiaux": 10,
+    "tentatives": 3,
+    "problemes_restants": 13,
+    "bloquants_restants": 2,
+    "bloquants_types": [
+      "chiffre_errone",
+      "chiffre_errone"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [2] (BBC, 28 octobre 2026) ne mentionne pas la vente d'un Stegosaurus « Apex » en juillet 2024 pour 44,6 millions de dollars.",
+        "phrase": "En juillet 2024, la maison Sotheby's a adjugé un Stegosaurus surnommé « Apex » pour 44,6 millions de dollars à New York [2]."
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [2] ne mentionne pas la vente d'un T. rex nommé « Gus » pour 50,1 millions de dollars.",
+        "phrase": "Trois mois plus tard, un Tyrannosaurus rex baptisé « Gus » a atteint 50,1 millions de dollars, établissant un record mondial [2]."
+      }
+    ],
+    "types_restants": [
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "chiffre_errone",
+      "chiffre_errone",
+      "source_inventee",
+      "compteur_incoherent"
+    ],
+    "article_type": "actu",
+    "titre": "Un dinosaure de 167 millions d'années mis aux enchères dans les Yvelines",
+    "n_sources": 3,
+    "n_mots": 440,
+    "titre_rss": "Un dinosaure exceptionnel découvert en France va être vendu : derrière cette vente, une histoire révoltante",
+    "matiere_faits_distincts": 1216,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "couleuvres-naines-roseaux-fuite-roue-etude-japonaise",
+    "statut": "rejete_sensible",
+    "date": "2026-10-30T12:07:57",
+    "problemes_initiaux": 10,
+    "bloc5": [
+      "compteur_incoherent"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "titre_de_mauvaise_qualite"
+    ],
+    "titre": "Des chercheurs japonais publient la première analyse biomécanique de la fuite en roue des couleuvres naines des roseaux",
+    "n_sources": 3,
+    "n_mots": 633,
+    "titre_rss": "Ces serpents qui s’enfuient en faisant la roue",
+    "matiere_faits_distincts": 560,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 2,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "etude_scientifique"
+  },
+  {
+    "slug": "budget-2027-deputes-rejettent-taxe-produits-sucres",
+    "statut": "rejete_qualite",
+    "date": "2026-10-30T12:13:48",
+    "problemes_initiaux": 7,
+    "tentatives": 3,
+    "problemes_restants": 8,
+    "bloquants_restants": 4,
+    "bloquants_types": [
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "La source [2] (Sénat, Dossier législatif PJLF2027) ne confirme pas ce fait précis ; elle est une page d'index procédural et ne contient pas l'information que le dossier « référence la procédure parlementaire du texte » d",
+        "phrase": "Le dossier législatif PJLF2027 du Sénat référence la procédure parlementaire du texte [2]."
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "La source [2] ne permet pas de vérifier le contenu précis de l'avis de la commission des affaires sociales sur les recettes ; l'extrait fourni ne mentionne pas cet avis.",
+        "phrase": "Le dossier législatif PJLF2027 du Sénat référence les étapes successives de l'examen du texte, notamment l'avis de la commission des affaires sociales sur les recettes [2]."
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "La source [1] (Le Monde) ne mentionne pas de « calendrier budgétaire » ni de « délais contraints » pour l'adoption du PLFSS 2027 dans les extraits fournis.",
+        "phrase": "Le calendrier budgétaire impose des délais contraints pour l'adoption définitive du PLFSS 2027 [1]."
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "L'article attribue à la source [1] une absence d'information (« ne précise pas ») que la source ne peut pas confirmer par sa seule présence ; c'est une méta-affirmation non sourcée sur le contenu de l'article du Monde.",
+        "phrase": "Le Monde ne précise pas les motifs exacts du vote (opposition de fond, désaccord technique, tactique parlementaire) ni la position des groupes politiques sur cette mesure spécifique [1]."
+      }
+    ],
+    "types_restants": [
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_non_editoriale",
+      "section_gonflee",
+      "redondance",
+      "compteur_incoherent"
+    ],
+    "article_type": "actu",
+    "titre": "Budget 2027 : les députés rejettent la taxe sur les produits sucrés",
+    "n_sources": 4,
+    "n_mots": 533,
+    "titre_rss": "Budget 2027 : les députés rejettent la taxe sur les produits sucrés proposée par le gouvernement",
+    "matiere_faits_distincts": 755,
+    "matiere_redondance": 0.08,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "budget-2027-calendrier-parlementaire-contraction-pib-tensions-politiques",
+    "statut": "rejete_qualite",
+    "date": "2026-10-30T12:23:35",
+    "tentative": 3,
+    "perte_substance": true,
+    "section": "contexte",
+    "mots_avant": 120,
+    "mots_apres": 46,
+    "article_type": "actu",
+    "titre": "Budget 2027 : contraction du PIB et calendrier parlementaire incertain",
+    "n_sources": 6,
+    "n_mots": 610,
+    "titre_rss": "Budget 2027 : les dates-clés des prochaines semaines",
+    "matiere_faits_distincts": 476,
+    "matiere_redondance": 0.06,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "exposition-georges-perec-bnf-ecriture-contrainte-ia",
+    "statut": "rejete_qualite",
+    "date": "2026-10-30T12:29:33",
+    "tentative": 1,
+    "angle_insuffisant": true,
+    "raison": "Aucune phrase dans 'faits' ne contient à la fois un événement précis daté (date d'ouverture, vernissage, annonce officielle de l'exposition) et une donnée chiffrée ou nommée qui lui est propre. L'article explique le concept de l'exposition et son lien avec l'IA sans jamais dire ce qui vient de se passer concrètement (ex: 'l'exposition ouvre le X', 'la BnF a inauguré le Y'). C'est une fiche pédagogique sur le thème Perec/IA, pas un article d'actualité déclenché par un fait récent.",
+    "article_type": "actu",
+    "titre": "Exposition Georges Perec à la BnF : l'écriture sans \"e\" face à l'IA",
+    "n_sources": 5,
+    "n_mots": 499,
+    "titre_rss": "Georges Perec, sans \"e\" ni IA",
+    "matiere_faits_distincts": 676,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "carte-ciel-novembre-2026-mars-jupiter",
+    "statut": "rejete_qualite",
+    "date": "2026-10-30T12:35:34",
+    "tentative": 1,
+    "angle_insuffisant": true,
+    "raison": "Aucune phrase des faits ne contient à la fois un événement précis daté (publication, décision, résultat récent) et une donnée chiffrée ou nommée qui lui est propre. L'article répond à 'qu'est-ce que le ciel de novembre 2026 ?' (sujet pédagogique) et non à 'pourquoi en parle-t-on maintenant ?' (actualité).",
+    "article_type": "actu",
+    "titre": "Carte du ciel de novembre 2026 : Mars rattrape Jupiter",
+    "n_sources": 4,
+    "n_mots": 531,
+    "titre_rss": "Carte du ciel de novembre 2026 : Mars rattrape Jupiter !",
+    "matiere_faits_distincts": 996,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "toulouse-restriction-calorique-impesanteur-simulee-mars",
+    "statut": "rejete_qualite",
+    "date": "2026-10-30T12:42:37",
+    "problemes_initiaux": 16,
+    "tentatives": 3,
+    "problemes_restants": 7,
+    "bloquants_restants": 2,
+    "bloquants_types": [
+      "chiffre_errone",
+      "chiffre_errone"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [1] (Sciences et Avenir) indique que l'expérience Energy a porté sur 11 astronautes, pas 10.",
+        "phrase": "L'expérience européenne « Energy », menée sur dix astronautes, a déjà permis des mesures de dépense énergétique à bord de la Station spatiale internationale, offrant une base de comparaison entre simulation au sol et vol"
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [1] (Sciences et Avenir) indique que l'expérience Energy a porté sur 11 astronautes, pas 10.",
+        "phrase": "L'expérience européenne « Energy », menée sur dix astronautes, a déjà montré que la dépense énergétique totale en orbite reste proche des valeurs au sol, mais que sa composante activité diminue significativement tandis q"
+      }
+    ],
+    "types_restants": [
+      "chiffre_errone",
+      "chiffre_errone",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "compteur_incoherent",
+      "redondance"
+    ],
+    "article_type": "actu",
+    "titre": "À Toulouse, dix jours de jeûne pour simuler le voyage vers Mars",
+    "n_sources": 4,
+    "n_mots": 695,
+    "titre_rss": "La restriction calorique au menu de l'exploration spatiale",
+    "matiere_faits_distincts": 1107,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 2,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "etude_scientifique"
+  },
+  {
+    "slug": "bitchat-france-info-21-octobre-messagerie-bluetooth-manifestants",
+    "statut": "corrige_automatiquement",
+    "date": "2026-10-30T12:49:04",
+    "problemes_initiaux": 11,
+    "tentatives": 1,
+    "problemes_residuels_style": 6,
+    "rapport_initial": {
+      "conforme": false,
+      "sujet_sensible": false,
+      "sujet_sensible_raison": "",
+      "angle_insuffisant": false,
+      "angle_insuffisant_raison": "",
+      "nature_contenu": "actualite_factuelle",
+      "problemes": [
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "chiffre_errone",
+          "phrase_exacte": "Son adoption coïncide avec les violences survenues en marge des manifestations du samedi 17 octobre 2026, qui ont fait 1 800 interpellations et plus de 500 blessés parmi les forces de l'ordre selon le ministre de l'Intérieur Laurent Nuñez [2].",
+          "explication": "La source [2] (RTS) est datée du 18 octobre 2026 et intitulée 'retour sur la journée de mobilisation du samedi 17 octobre' ; elle ne peut pas contenir un bilan du ministre de l'Intérieur Laurent Nuñez daté du 17 octobre 2026, car ce bilan (1 800 interpellations, 500 blessés) a été communiqué ultérieurement (probablement le 18 ou 19 octobre). L'article attribue à la source [2] des chiffres qu'elle ne peut pas fournir à sa date de publication."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "chiffre_errone",
+          "phrase_exacte": "À Paris seulement, 855 personnes ont été interpellées, un chiffre qualifié de record par la police [2].",
+          "explication": "Même problème : la source [2] (RTS, 18 octobre) ne peut pas contenir ce chiffre précis de 855 interpellations à Paris qualifié de 'record par la police', qui relève d'un bilan officiel ultérieur non présent dans un direct minute-par-minute du 18 octobre."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "chiffre_errone",
+          "phrase_exacte": "La Fédération française du commerce et de la distribution estime à 1 500 le nombre de commerces touchés pour un préjudice de plusieurs centaines de millions d'euros [2].",
+          "explication": "La source [2] (RTS, 18 octobre) est un direct minute-par-minute de la journée du 17 octobre ; elle ne peut pas contenir une estimation chiffrée de la Fédération française du commerce et de la distribution (1 500 commerces, plusieurs centaines de millions d'euros) qui nécessite un recensement postérieur aux événements."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "chiffre_errone",
+          "phrase_exacte": "Le bilan de 1 800 interpellations et 500 blessés côté forces de l'ordre restait provisoire selon le ministre de l'Intérieur [2].",
+          "explication": "La source [2] (RTS, 18 octobre) ne peut pas citer le ministre de l'Intérieur qualifiant ce bilan de 'provisoire', puisque ce bilan n'existait pas encore à la date de publication de la source."
+        },
+        {
+          "bloc": 1,
+          "section": "nuances",
+          "type": "source_inventee",
+          "phrase_exacte": "L'AFP a relevé que certaines images virales des violences du 17 octobre portaient la marque de l'intelligence artificielle, illustrant le risque de manipulation de l'information sur les canaux non modérés [3].",
+          "explication": "La source [3] (AFP, 22 octobre) est un fact-check sur des images générées par IA ; l'article l'utilise pour affirmer que ces images portaient 'la marque de l'intelligence artificielle' et illustraient un risque sur 'les canaux non modérés', ce qui est une extrapolation non sourcée : le fact-check AFP ne lie pas ces images à Bitchat ni aux canaux non modérés."
+        },
+        {
+          "bloc": 1,
+          "section": "nuances",
+          "type": "extrapolation",
+          "phrase_exacte": "illustrant le risque de manipulation de l'information sur les canaux non modérés [3].",
+          "explication": "L'article tire une conclusion générale sur 'les canaux non modérés' (sous-entendu Bitchat) à partir d'un fact-check AFP sur des images virales non liées à Bitchat dans la source ; c'est une anticipation de conséquence future non explicitement sourcée."
+        },
+        {
+          "bloc": 1,
+          "section": "nuances",
+          "type": "source_inventee",
+          "phrase_exacte": "L'Arcom note dans son bilan 2026 que les comportements inauthentiques coordonnés et l'usage de contenus truqués (deepfakes) constituent des techniques majeures de manipulation sur les plateformes en ligne [4].",
+          "explication": "La source [4] (Arcom, mars 2026) est un bilan général sur la manipulation de l'information sur les plateformes en ligne ; l'article l'utilise pour étayer un propos sur Bitchat (application pair-à-pair sans serveur, pas une 'plateforme en ligne' au sens Arcom), ce qui constitue une attribution abusive de la source à un sujet qu'elle ne couvre pas."
+        },
+        {
+          "bloc": 2,
+          "section": "nuances",
+          "type": "source_non_editoriale",
+          "phrase_exacte": "L'Arcom note dans son bilan 2026 que les comportements inauthentiques coordonnés et l'usage de contenus truqués (deepfakes) constituent des techniques majeures de manipulation sur les plateformes en ligne [4].",
+          "explication": "L'Arcom est une autorité de régulation (source institutionnelle), mais son bilan 2026 porte sur les plateformes en ligne centralisées (réseaux sociaux, etc.), pas sur des applications pair-à-pair décentralisées comme Bitchat ; l'utiliser comme caution pour décrire les risques de Bitchat revient à détourner une source institutionnelle de son périmètre d'autorité."
+        },
+        {
+          "bloc": 4,
+          "section": "nuances",
+          "type": "jugement_de_valeur",
+          "phrase_exacte": "L'absence de serveur central et de modération pose la question de la propagation de contenus illicites (appels à la violence, coordination d'actions violentes, désinformation) sans possibilité technique de retrait ou de signalement.",
+          "explication": "La formulation 'pose la question de' introduit un cadrage éditorial qui présente les risques comme une évidence problématique, sans attribution à une source experte ni nuance technique (ex. : chiffrement, épuration locale) ; c'est un jugement de valeur déguisé en constat neutre."
+        },
+        {
+          "bloc": 4,
+          "section": "resume",
+          "type": "angle_annonce_non_tenu",
+          "phrase_exacte": "L'absence de modération et d'autorité centrale soulève des questions sur la propagation de contenus illicites et la traçabilité des appels à la violence sur ces canaux non surveillés.",
+          "explication": "Le résumé annonce un angle sur les risques de modération et traçabilité, mais l'article ne rapporte aucune position d'acteur (Arcom, gouvernement, développeurs, associations) sur ce point précis ; la section 'nuances' ne cite que l'AFP (fact-check images IA) et l'Arcom (bilan plateformes), sans lien direct avec Bitchat."
+        },
+        {
+          "bloc": 4,
+          "section": "positions",
+          "type": "faux_debat",
+          "phrase_exacte": "\"positions\": {\"verifie\": false, \"label_gauche\": \"\", \"label_droite\": \"\", \"acteurs\": []}",
+          "explication": "La section 'positions' est vide (acteurs: []) alors que le résumé et les nuances soulèvent des enjeux de modération, traçabilité, contenus illicites ; l'absence de toute position d'acteur (autorités, développeurs, société civile) crée un faux débat en présentant des risques sans contradicteur ni réponse."
+        }
+      ]
+    },
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "resume_repete_corps"
+    ],
+    "titre": "Bitchat présentée sur France Info le 21 octobre : messagerie Bluetooth sans serveur pour manifestants",
+    "n_sources": 4,
+    "n_mots": 484,
+    "titre_rss": "Bitchat, l’application qui fait fureur chez les manifestants",
+    "matiere_faits_distincts": 973,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 2,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "lula-quatrieme-mandat-bresil-election-2026",
+    "statut": "rejete_sensible",
+    "date": "2026-10-30T12:57:30",
+    "problemes_initiaux": 13,
+    "tentative": 2,
+    "bloc5": true,
+    "article_type": "actu",
+    "titre": "Lula réélu président du Brésil avec 51,79 % des voix au second tour",
+    "n_sources": 3,
+    "n_mots": 997,
+    "titre_rss": "Brazil: Lula’s presidential win puts the brakes on the rise of the far right in Latin America",
+    "matiere_faits_distincts": 669,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "droits-voisins-cour-appel-paris-confirme-injonction-meta-negocier-bonne-foi",
+    "statut": "corrige_automatiquement",
+    "date": "2026-10-30T13:02:41",
+    "problemes_initiaux": 5,
+    "tentatives": 1,
+    "problemes_residuels_style": 0,
+    "rapport_initial": {
+      "conforme": false,
+      "sujet_sensible": false,
+      "sujet_sensible_raison": "",
+      "angle_insuffisant": false,
+      "angle_insuffisant_raison": "",
+      "nature_contenu": "decision_officielle",
+      "problemes": [
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "acteur_mis_en_cause_sans_reponse",
+          "phrase_exacte": "Meta n'a pas communiqué publiquement sur le fond de l'arrêt de la cour d'appel à la date de publication. La réaction de l'entreprise n'était pas disponible dans les sources consultées.",
+          "explication": "Meta est mise en cause (contrainte de négocier et transmettre des données) mais l'article indique explicitement que sa réaction n'était pas disponible dans les sources consultées, ce qui constitue un manquement à l'obligation de rapporter la réponse de l'acteur mis en cause ou d'indiquer qu'elle n'était pas disponible."
+        },
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "La cour d'appel de Paris a rendu son arrêt le 29 octobre 2026 dans le dossier opposant Meta aux organisations représentatives de la presse française. Elle confirme la décision n° 26-MC-02 du 8 juillet 2026 de l'Autorité de la concurrence, qui enjoignait à Meta Platforms Inc. et Meta Platforms Ireland Ltd. de reprendre des négociations de bonne foi avec la Société des Droits Voisins de la Presse (DVP) et l'Alliance de la Presse d'Information Générale (APIG) [1][2].",
+          "explication": "Les sources [1] et [2] (Le Monde du 29/10/2026 et communiqué ADLC du 8/07/2026) ne contiennent pas l'information selon laquelle la cour d'appel a rendu son arrêt le 29 octobre 2026 confirmant la décision 26-MC-02. La source [1] traite de la victoire des éditeurs mais ne confirme pas la date précise de l'arrêt ni son contenu exact ; la source [2] est antérieure à l'événement. Le fait principal de l'article n'est pas sourcé."
+        },
+        {
+          "bloc": 2,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "Au niveau européen, la Cour de justice de l'Union européenne a validé en mai 2026 le droit pour un État membre d'imposer une rémunération équitable aux plateformes, dans une affaire opposant des éditeurs italiens à Meta [4].",
+          "explication": "La source [4] (Le Monde du 12/05/2026) n'est pas fournie dans les extraits autorisés ; son contenu ne peut être vérifié. L'article attribue à cette source une décision de la CJUE qui n'est pas documentée dans les sources fournies."
+        },
+        {
+          "bloc": 2,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "Parallèlement, le Sénat français a renforcé en juin 2026 le cadre de rémunération de la presse par les plateformes numériques [5].",
+          "explication": "La source [5] (Le Monde du 17/06/2026) n'est pas fournie dans les extraits autorisés ; son contenu ne peut être vérifié. L'article attribue à cette source une action du Sénat qui n'est pas documentée dans les sources fournies."
+        },
+        {
+          "bloc": 4,
+          "section": "positions",
+          "type": "faux_debat",
+          "phrase_exacte": "{\"verifie\": true, \"label_gauche\": \"Favorable à l'injonction\", \"label_droite\": \"Critique / En négociation\", \"acteurs\": [{\"nom\": \"APIG et DVP (éditeurs et agences de presse)\", \"detail\": \"Saisissantes, obtiennent confirmation de l'injonction\", \"position\": 10}, {\"nom\": \"Meta Platforms Inc. / Meta Platforms Ireland Ltd.\", \"detail\": \"Contrainte de négocier et transmettre les données\", \"position\": 85}]}",
+          "explication": "La section 'positions' présente un désaccord symétrique (position 10 vs 85) alors qu'il s'agit d'une décision de justice imposant une obligation à Meta : il n'y a pas de débat d'opinions mais une contrainte juridique unilatérale. Meta n'exprime pas de position critique documentée, elle subit une injonction."
+        }
+      ]
+    },
+    "article_type": "actu",
+    "titre": "Droits voisins : la cour d'appel confirme l'injonction à Meta de négocier de bonne foi",
+    "n_sources": 5,
+    "n_mots": 791,
+    "titre_rss": "Droits voisins : les éditeurs de presse gagnent une manche dans leur conflit avec Meta",
+    "matiere_faits_distincts": 963,
+    "matiere_redondance": 0.06,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "decision_officielle"
   }
 ]
