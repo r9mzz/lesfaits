@@ -49446,5 +49446,170 @@
     "veille_age_h": 1591.1,
     "veille_n_flux_grappe": 1,
     "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "perou-enquete-sterilisations-forcees-classee-victimes-contestent",
+    "statut": "rejete_qualite",
+    "date": "2026-10-30T06:48:16",
+    "tentative": 3,
+    "perte_substance": true,
+    "section": "contexte",
+    "mots_avant": 158,
+    "mots_apres": 64,
+    "article_type": "actu",
+    "titre": "Pérou : classement de l'enquête sur 300 000 stérilisations forcées, les victimes contestent",
+    "n_sources": 3,
+    "n_mots": 516,
+    "titre_rss": "Stérilisations forcées au Pérou : après le classement de l’enquête, les victimes estiment que « la recherche de justice n’est pas terminée »",
+    "matiere_faits_distincts": 911,
+    "matiere_redondance": 0.01,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "senat-bilan-negociations-adhesion-albanie-montenegro-ue",
+    "statut": "rejete_qualite",
+    "date": "2026-10-30T06:57:33",
+    "problemes_initiaux": 13,
+    "tentatives": 3,
+    "problemes_restants": 10,
+    "bloquants_restants": 3,
+    "bloquants_types": [
+      "chiffre_errone",
+      "incoherence_inter_sections",
+      "chiffre_errone"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "Le résumé affirme que le Monténégro « vise » 2028 comme objectif national, alors que le corps des faits [1][5] rapporte que la délégation sénatoriale le « considère comme le 28e État membre en 2028 » — c'est une apprécia",
+        "phrase": "Le Monténégro vise une entrée effective en 2028"
+      },
+      {
+        "bloc": 1,
+        "type": "incoherence_inter_sections",
+        "description": "Le résumé présente corruption et normes environnementales comme tests pour « ces candidatures » (pluriel, les deux pays), alors que les faits limitent explicitement ces deux enjeux à l'Albanie uniquement ; pour le Montén",
+        "phrase": "résumé: « la corruption et les normes environnementales restent les tests décisifs pour la crédibilité de ces candidatures » ; faits: « Deux enjeux majeurs subsistent toutefois : la lutte contre la corruption, test de cr"
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "Cet intervalle chiffré n'apparaît dans aucun des extraits fournis des six sources autorisées ; il est introduit sans renvoi de source [n] et ne peut être vérifié contre les sources listées.",
+        "phrase": "PIB par habitant à 30-45 % de la moyenne UE"
+      }
+    ],
+    "types_restants": [
+      "compteur_incoherent",
+      "source_derivee_comptee_comme_primaire",
+      "chiffre_errone",
+      "incoherence_inter_sections",
+      "redondance",
+      "redondance",
+      "chiffre_errone",
+      "chronologie_confuse",
+      "cadrage_emprunte",
+      "extrapolation"
+    ],
+    "article_type": "actu",
+    "titre": "Le Sénat dresse le bilan des négociations d'adhésion de l'Albanie et du Monténégro à l'UE",
+    "n_sources": 6,
+    "n_mots": 874,
+    "titre_rss": "Albanie et Monténégro : un état des lieux des négociations d'adhésion à l'Union européenne - Rapport d'information n° 845",
+    "matiere_faits_distincts": 750,
+    "matiere_redondance": 0.08,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "rapport"
+  },
+  {
+    "slug": "protheses-hernie-scandale-sante-publique-arnaud-denis-temoignages",
+    "statut": "rejete_qualite",
+    "date": "2026-10-30T07:03:02",
+    "tentative": 3,
+    "perte_substance": true,
+    "section": "contexte",
+    "mots_avant": 196,
+    "mots_apres": 85,
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "resume_repete_corps",
+      "titre_de_mauvaise_qualite"
+    ],
+    "titre": "Prothèses de hernie : 2,6 millions d'opérés, la parole se libère",
+    "n_sources": 3,
+    "n_mots": 667,
+    "titre_rss": "\"Un scandale de santé publique qui émerge\" : après la mort du comédien Arnaud Denis, enquête sur les prothèses de hernies",
+    "matiere_faits_distincts": 1118,
+    "matiere_redondance": 0.02,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "onu-rechauffement-2-6-degres-objectif-1-5-disparu",
+    "statut": "rejete_sensible",
+    "date": "2026-10-30T07:06:56",
+    "problemes_initiaux": 16,
+    "bloc5": [
+      "chiffre_errone",
+      "chiffre_errone"
+    ],
+    "article_type": "actu",
+    "titre": "L'ONU prévoit un réchauffement de 2,6°C d'ici 2100, l'objectif de 1,5°C hors d'atteinte",
+    "n_sources": 5,
+    "n_mots": 651,
+    "titre_rss": "Climat: le monde vers un réchauffement de 2,6°C, mais il est encore temps d'agir, selon l'ONU",
+    "matiere_faits_distincts": 857,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "rapport"
+  },
+  {
+    "slug": "operateurs-etat-economies-deficit-public-sante-retraites",
+    "statut": "rejete_qualite",
+    "date": "2026-10-30T07:10:33",
+    "angle_insuffisant": true,
+    "raison": "Aucune phrase dans 'faits' ne combine un événement précis daté (annonce, décision, publication récente) et une donnée chiffrée ou nommée qui lui est propre. L'article explique un phénomène général (poids des opérateurs dans le déficit) sans fait déclencheur daté ni chiffre nouveau ; il répond à 'qu'est-ce que c'est ?' plutôt qu'à 'pourquoi maintenant ?'.",
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "titre_de_mauvaise_qualite"
+    ],
+    "titre": "Opérateurs de l'État : coupes budgétaires ciblées mais part infime dans le déficit",
+    "n_sources": 4,
+    "n_mots": 384,
+    "titre_rss": "«Les vraies économies sont ailleurs» : les nécessaires coupes sur les opérateurs de l’État ne doivent pas éclipser les causes profondes du déficit",
+    "matiere_faits_distincts": 558,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "sujet_pedagogique"
+  },
+  {
+    "slug": "mortalite-hausse-29-pour-cent-juin-2026-canicule-sante-publique-france",
+    "statut": "conforme_du_premier_coup",
+    "date": "2026-10-30T07:14:32",
+    "article_type": "actu",
+    "titre": "Mortalité en hausse de 29 % fin juin 2026 : 2 025 décès supplémentaires",
+    "n_sources": 4,
+    "n_mots": 690,
+    "titre_rss": "Point de situation sur la mortalité toutes causes confondues  sur la période du 22 au 28 juin 2026",
+    "matiere_faits_distincts": 1141,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 3,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "veille_heures_visible": 221.3,
+    "veille_passages": 74,
+    "veille_age_h": 1604.8,
+    "veille_n_flux_grappe": 1,
+    "nature_contenu": "actualite_factuelle"
   }
 ]
