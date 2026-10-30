@@ -7261,11 +7261,11 @@ def build_article_html(art: dict, date_pub: str) -> str:
     titre_faits    = _esc(art.get("titre_faits") or "").strip()    or "Les faits"
     titre_contexte = _esc(art.get("titre_contexte") or "").strip() or "Contexte"
     titre_nuances  = _esc(art.get("titre_nuances") or "").strip()  or "Débats et nuances"
-    sections_html = f'<h2 class="art__h2">{titre_faits}</h2><p>{faits}</p>'
+    sections_html = f'<h2 class="art__h2" data-section="faits">{titre_faits}</h2><p>{faits}</p>'
     if contexte.strip():
-        sections_html += f'\n  <h2 class="art__h2">{titre_contexte}</h2><p>{contexte}</p>'
+        sections_html += f'\n  <h2 class="art__h2" data-section="contexte">{titre_contexte}</h2><p>{contexte}</p>'
     if nuances.strip():
-        sections_html += f'\n  <h2 class="art__h2">{titre_nuances}</h2><p>{nuances}</p>'
+        sections_html += f'\n  <h2 class="art__h2" data-section="nuances">{titre_nuances}</h2><p>{nuances}</p>'
     format_badge = (
         '<span class="meta__sep" aria-hidden="true">·</span>'
         '<span class="art__format" title="Format court : le fait du jour, établi et sourcé, '
@@ -9738,7 +9738,10 @@ def generer_article(item: dict, dry_run: bool, published: set, new_pub: set, dat
 
         # Fix 1 — sync nb_sources avec les vrais <li> rendus dans le HTML
         sources_block = re.search(r'<(?:div|section) class="sources[^"]*".*?</(?:div|section)>', html, re.DOTALL)
-        real_nb = len(re.findall(r'<li>', sources_block.group())) if sources_block else 0
+        # `<li` et non `<li>` : les notes numérotées sont rendues
+        # `<li id="source-n">`, que l'ancien motif ne voyait pas — il comptait 0
+        # et réécrivait l'en-tête en « 0 sources vérifiées » (run du 30/10).
+        real_nb = len(re.findall(r'<li', sources_block.group())) if sources_block else 0
         if real_nb != art.get("nb_sources", 0):
             # Patcher le HTML inline pour que le chiffre affiché soit juste
             html = re.sub(

@@ -83,6 +83,7 @@ jobs:
           scripts/test_runtime_sitemap_v3.py
           scripts/test_sans_reflexion.py
           scripts/test_mise_en_forme_vitrine.py
+          scripts/test_lecture_sections.py
           scripts/test_selection_sujets_manques.py
           scripts/test_showcase_quality.py
           scripts/test_showcase_source_floor_mandate.py

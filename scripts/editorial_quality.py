@@ -266,13 +266,34 @@ def _changed_article_paths() -> set[Path]:
 
 
 def _section_texts(soup: BeautifulSoup) -> dict[str, str]:
+    """Texte de chaque section, TOUS paragraphes compris.
+
+    30/10 — deux défauts de lecture faisaient rejeter un article de 705 mots
+    comme « section factuelle trop mince » et « sans contexte ni nuance » :
+    seul le PREMIER <p> après l'intertitre était lu (le rendu crée un <p> par
+    retour à la ligne), et la section se reconnaissait au texte de l'intertitre
+    (« contexte », « nuance ») alors que la grille vitrine exige des intertitres
+    ÉDITORIAUX — tout tombait dans « faits », la dernière section écrasant les
+    autres. On lit désormais l'attribut `data-section` posé par le rendu ; les
+    articles antérieurs (sans attribut) gardent la reconnaissance par libellé.
+    """
     sections = {"facts": "", "context": "", "nuances": ""}
+    cible = {"faits": "facts", "contexte": "context", "nuances": "nuances"}
     for h2 in soup.select("h2.art__h2"):
-        label = _norm(h2.get_text(" ", strip=True))
-        p = h2.find_next_sibling("p")
-        if not p:
+        morceaux = []
+        for frere in h2.find_next_siblings():
+            if frere.name == "h2":
+                break
+            if frere.name == "p":
+                morceaux.append(frere.get_text(" ", strip=True))
+        text = " ".join(m for m in morceaux if m)
+        if not text:
             continue
-        text = p.get_text(" ", strip=True)
+        marque = cible.get(str(h2.get("data-section") or "").strip())
+        if marque:
+            sections[marque] = text
+            continue
+        label = _norm(h2.get_text(" ", strip=True))
         if "contexte" in label:
             sections["context"] = text
         elif "nuance" in label or "debat" in label:
