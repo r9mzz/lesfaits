@@ -4617,6 +4617,76 @@ def _equilibrer_hierarchie_sources(sources: list) -> list:
         return sources
 
 
+_MIN_PARAGRAPHES_VITRINE = (("faits", 3), ("contexte", 2), ("nuances", 2))
+
+
+def _mise_en_forme_vitrine(art: dict) -> list[str]:
+    """Corrige, SANS toucher au fond, deux défauts de forme refusés par la grille.
+
+    Runs des 28-29/10 : 9 refus vitrine sur 13 pour « sources listées mais non
+    citées », 14 pour « insuffisamment aéré ». Les deux sont mécaniques :
+
+    1. Aération : une section écrite d'un seul bloc est coupée en paragraphes
+       aux frontières de phrases (retour à la ligne simple, la convention du
+       rendu et de la grille). Aucun mot n'est ajouté, retiré ni déplacé.
+    2. Bibliographie : une source que le texte ne cite JAMAIS ne soutient aucune
+       affirmation. Elle est retirée de la liste et les appels [n] restants sont
+       renumérotés. Si le nombre de sources tombe sous le minimum, la grille
+       refusera comme avant : on n'invente rien pour l'atteindre.
+
+    Ne fait rien si une citation pointe hors de la liste (cas laissé au
+    rédacteur). Rend la liste des corrections appliquées, pour le log.
+    """
+    faites: list[str] = []
+    corps = art.get("corps")
+    if not isinstance(corps, dict):
+        return faites
+
+    for cle, minimum in _MIN_PARAGRAPHES_VITRINE:
+        texte = str(corps.get(cle) or "").strip()
+        if not texte:
+            continue
+        paragraphes = [x for x in re.split(r"[\r\n]+", texte) if x.strip()]
+        if len(paragraphes) >= minimum:
+            continue
+        phrases = [x for x in re.split(r"(?<=[.!?»])\s+(?=[«\"A-ZÀ-ÖØ-Ý0-9])",
+                                        " ".join(p.strip() for p in paragraphes)) if x.strip()]
+        if len(phrases) < minimum:
+            continue
+        taille = len(phrases) / minimum
+        blocs = [" ".join(phrases[round(i * taille):round((i + 1) * taille)])
+                 for i in range(minimum)]
+        corps[cle] = "\n".join(b for b in blocs if b)
+        faites.append(f"{cle} aéré en {minimum} paragraphes")
+
+    sources = art.get("sources")
+    if isinstance(sources, list) and sources:
+        resume = art.get("resume") or []
+        champs_resume = resume if isinstance(resume, list) else [resume]
+        texte_total = " ".join([str(x) for x in champs_resume]
+                               + [str(corps.get(k) or "") for k in ("faits", "contexte", "nuances")])
+        cites = {int(n) for n in re.findall(r"\[(\d+)\]", texte_total)}
+        valides = all(1 <= n <= len(sources) for n in cites)
+        if cites and valides and len(cites) < len(sources):
+            garder = sorted(cites)
+            nouveau = {ancien: i for i, ancien in enumerate(garder, 1)}
+
+            def _renum(t: str) -> str:
+                return re.sub(r"\[(\d+)\]", lambda m: f"[{nouveau[int(m.group(1))]}]", t)
+
+            if isinstance(resume, list):
+                art["resume"] = [_renum(str(x)) for x in resume]
+            elif isinstance(resume, str):
+                art["resume"] = _renum(resume)
+            for k in ("faits", "contexte", "nuances"):
+                if corps.get(k):
+                    corps[k] = _renum(str(corps[k]))
+            retirees = len(sources) - len(garder)
+            art["sources"] = [sources[i - 1] for i in garder]
+            faites.append(f"{retirees} source(s) jamais citée(s) retirée(s), appels renumérotés")
+    return faites
+
+
 def _extra_corps(modele: str) -> dict:
     """`extra_body` du SDK pour couper la réflexion d'un modèle raisonneur (NVIDIA)."""
     from modele_fournisseur import corps_sans_reflexion
@@ -9312,6 +9382,8 @@ def generer_article(item: dict, dry_run: bool, published: set, new_pub: set, dat
                 _vitrine_pre = None
             if _vitrine_pre is not None:
                 for _tv in range(2):
+                    for _fait in _mise_en_forme_vitrine(art):
+                        print(f"     [MISE EN FORME] {_fait}")
                     _ok_v, _why_v = _vitrine_pre(art, article_type)
                     if _ok_v:
                         break
@@ -9334,6 +9406,8 @@ def generer_article(item: dict, dry_run: bool, published: set, new_pub: set, dat
                                       previous_article=art)
                     if isinstance(_art_v, dict) and _art_v:
                         art = _art_v
+                for _fait in _mise_en_forme_vitrine(art):
+                    print(f"     [MISE EN FORME] {_fait}")
 
         # ── Règle de publication par QUALITÉ des sources (liste blanche) ──
         # « Au moins une source primaire OU deux sources secondaires
