@@ -262,6 +262,13 @@ def _prepared_pipeline_source() -> str:
 
     html_marker = "        try:\n            html = build_article_html(art, date_pub)"
     showcase_guard = """        from showcase_quality import validate_generated_article
+        # Après le fact-check, la correction automatique peut recoller une
+        # section en un seul bloc : on rejoue la mise en forme (découpage aux
+        # frontières de phrases, sources jamais citées) qui ne change aucun mot
+        # de fond. Fournisseur gratuit seulement, comme le reste du dispositif.
+        if ETOFFER_AU_LIEU_DE_CONVERTIR:
+            for _fait_mef in _mise_en_forme_vitrine(art):
+                print(f"     [MISE EN FORME] (après vérification) {_fait_mef}")
         _showcase_ok, _showcase_reasons = validate_generated_article(art, article_type)
         if not _showcase_ok:
             print("     [REJET VITRINE] " + " ; ".join(_showcase_reasons))
