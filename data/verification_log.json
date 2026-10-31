@@ -52516,5 +52516,704 @@
     "n_sources_injectees": 10,
     "n_sources_trouvees": 10,
     "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "binance-piratage-6-3-milliards-dollars-fonds-geles",
+    "statut": "rejete_sensible",
+    "date": "2026-10-31T06:41:11",
+    "problemes_initiaux": 12,
+    "bloc5": [
+      "affaire_en_cours_presentee_comme_fait"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "resume_repete_corps"
+    ],
+    "titre": "Binance victime d'un piratage de 6,3 milliards de dollars, la moitié des fonds gelés",
+    "n_sources": 4,
+    "n_mots": 517,
+    "titre_rss": "Cryptos : la plateforme Binance victime d'un piratage massif, 6,3 milliards de dollars dérobés",
+    "matiere_faits_distincts": 727,
+    "matiere_redondance": 0.02,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "new-york-garde-enfants-cout-budget-familial-aide-publique",
+    "statut": "rejete_qualite",
+    "date": "2026-10-31T06:46:13",
+    "tentative": 1,
+    "angle_insuffisant": true,
+    "raison": "Aucune phrase dans 'faits' ne combine un événement précis daté (publication de l'enquête du Monde le 31 octobre 2026) avec une donnée chiffrée propre à cet événement (le pourcentage 30-40 % du budget familial n'est pas dans la source [1] selon l'article lui-même). L'article répond à 'qu'est-ce que le coût de la garde ?' plutôt qu'à 'pourquoi en parle-t-on maintenant avec quels chiffres nouveaux ?'.",
+    "article_type": "actu",
+    "titre": "À New York, la garde d'enfants coûte 30 à 40 % du budget familial",
+    "n_sources": 3,
+    "n_mots": 567,
+    "titre_rss": "A New York, le prix des crèches et des écoles et des structures de garde est si exorbitant qu’avoir un enfant est devenu un luxe",
+    "matiere_faits_distincts": 967,
+    "matiere_redondance": 0.01,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "annulation-dette-bce-risque-valeur-euro",
+    "statut": "rejete_qualite",
+    "date": "2026-10-31T06:54:20",
+    "tentative": 1,
+    "angle_insuffisant": true,
+    "raison": "Aucune phrase dans 'faits' ne combine un événement précis daté (annonce, publication, décision récente) et une donnée chiffrée ou nommée qui lui est propre. L'article explique le concept d'annulation de dette et son cadre juridique sans faire état d'un fait déclencheur récent (ex: nouvelle proposition, étude, déclaration officielle) qui justifierait une publication maintenant. L'angle annoncé ('Pourquoi l'annulation... minerait-elle la confiance dans l'euro ?') n'est pas explicitement répondu par une analyse technique sourcée dans le corps.",
+    "article_type": "actu",
+    "titre": "Annuler la dette détenue par la BCE : un risque pour la valeur de l'euro",
+    "n_sources": 6,
+    "n_mots": 513,
+    "titre_rss": "Annuler la dette détenue par la Banque centrale européenne, c’est changer la nature de l’euro",
+    "matiere_faits_distincts": 301,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "hadrien-destrehem-infirmier-pratique-avancee-ile-hoedic",
+    "statut": "rejete_qualite",
+    "date": "2026-10-31T07:05:35",
+    "tentative": 1,
+    "angle_insuffisant": true,
+    "raison": "Aucune phrase des faits ne combine un événement précis daté (annonce, publication, décision, résultat récent) et une donnée chiffrée ou nommée qui lui est propre. L'article répond à 'qu'est-ce qu'un IPA sur une île ?' plutôt qu'à 'pourquoi en parle-t-on maintenant ?'. Le portrait Le Monde (31/10/2026) est l'actualité la plus récente, mais les faits ne l'exploitent pas comme déclencheur daté avec une information nouvelle attachée.",
+    "article_type": "actu",
+    "titre": "Hadrien Destrehem, seul soignant IPA sur l'île d'Hœdic depuis treize ans",
+    "n_sources": 4,
+    "n_mots": 602,
+    "titre_rss": "« Je me sens privilégié dans mon rapport aux patients » : Hadrien, infirmier investi sur la minuscule île d’Hœdic",
+    "matiere_faits_distincts": 1283,
+    "matiere_redondance": 0.01,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "ebola-bundibugyo-vaccins-zaire-anticorps-croises-etude-inserm",
+    "statut": "corrige_automatiquement",
+    "date": "2026-10-31T07:18:33",
+    "problemes_initiaux": 11,
+    "tentatives": 2,
+    "problemes_residuels_style": 0,
+    "rapport_initial": {
+      "conforme": false,
+      "sujet_sensible": false,
+      "sujet_sensible_raison": "",
+      "angle_insuffisant": false,
+      "angle_insuffisant_raison": "",
+      "nature_contenu": "etude_scientifique",
+      "problemes": [
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "chiffre_errone",
+          "phrase_exacte": "L'épidémie de Bundibugyo en RDC et en Ouganda a causé plus de 1 000 décès déclarés au 22 juillet 2026, sans vaccin ni traitement spécifique approuvé pour cette souche [1].",
+          "explication": "La source [1] (Inserm, 23 juillet 2026) indique « plus de 500 décès » au 22 juillet 2026, et non « plus de 1 000 décès ». Le chiffre du corps de l'article double celui de la source citée."
+        },
+        {
+          "bloc": 1,
+          "section": "resume",
+          "type": "chiffre_errone",
+          "phrase_exacte": "Cette réponse immunitaire croisée est toutefois plus faible que contre la souche Zaïre cible, et l'étude ne démontre pas de protection clinique réelle contre Bundibugyo, qui a déjà causé plus de 1 000 décès en RDC et en Ouganda au 22 juillet 2026.",
+          "explication": "Le résumé reprend le chiffre erroné de « plus de 1 000 décès » au 22 juillet 2026, alors que la source [1] mentionne « plus de 500 décès » à cette date."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "chiffre_errone",
+          "phrase_exacte": "Parallèlement, la coalition CEPI a confirmé au BMJ qu'un essai de phase 2/3 pour un vaccin spécifique contre Bundibugyo a débuté le 23 octobre 2026 à Bunia, en RDC, avec plusieurs participants déjà enrôlés [3].",
+          "explication": "La source [3] (RFI, 27 mai 2026) ne mentionne ni la coalition CEPI, ni le BMJ, ni un essai de phase 2/3 débuté le 23 octobre 2026 à Bunia. L'article attribue à la source [3] des informations qu'elle ne contient pas."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "annonce_perimee",
+          "phrase_exacte": "Parallèlement, la coalition CEPI a confirmé au BMJ qu'un essai de phase 2/3 pour un vaccin spécifique contre Bundibugyo a débuté le 23 octobre 2026 à Bunia, en RDC, avec plusieurs participants déjà enrôlés [3].",
+          "explication": "L'article présente comme un fait accompli (passé composé « a débuté ») un essai daté du 23 octobre 2026, soit une date future par rapport à la publication de l'article (basée sur la source [1] du 23 juillet 2026) et à la source [3] (27 mai 2026). La source [3] ne confirme pas cet événement."
+        },
+        {
+          "bloc": 1,
+          "section": "resume",
+          "type": "annonce_perimee",
+          "phrase_exacte": "L'OMS recommande de n'utiliser Ervebo contre Bundibugyo que dans des protocoles de recherche, pendant qu'un essai de phase 2/3 a débuté en octobre 2026 pour un vaccin spécifique.",
+          "explication": "Le résumé affirme qu'un essai « a débuté en octobre 2026 » (passé composé), alors que cette date est postérieure à la source la plus récente fournie ([1], 23 juillet 2026) et n'est corroborée par aucune source."
+        },
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "Parallèlement, la coalition CEPI a confirmé au BMJ qu'un essai de phase 2/3 pour un vaccin spécifique contre Bundibugyo a débuté le 23 octobre 2026 à Bunia, en RDC, avec plusieurs participants déjà enrôlés [3].",
+          "explication": "La source [3] (RFI) ne contient aucune mention de la coalition CEPI, du BMJ, ni d'un essai de phase 2/3 débuté le 23 octobre 2026. L'article invente une attribution à cette source."
+        },
+        {
+          "bloc": 2,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "Au 19 mai 2026, l'OMS avait déclaré l'urgence sanitaire internationale avec 513 cas suspects et 131 décès rapportés en RDC, et des cas en Ouganda [4]. La France a convoqué une réunion interministérielle à Matignon le 18 mai 2026 et mis en place des mesures de précaution à Mayotte, jugeant le risque d'importation en métropole très faible [4].",
+          "explication": "La source [4] (Assemblée nationale, question écrite du 2 juin 2026) ne figure pas dans les extraits fournis ; il est impossible de vérifier qu'elle contient ces chiffres précis (513 cas, 131 décès au 19 mai) ni l'information sur la réunion à Matignon et les mesures à Mayotte. L'article attribue ces faits à une source non vérifiable avec les éléments fournis."
+        },
+        {
+          "bloc": 2,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "Le 16 juin 2026, les chefs d'État et de gouvernement ont lancé un appel à une réponse coordonnée face à l'épidémie d'Ébolavirus de Bundibugyo [5].",
+          "explication": "La source [2] (Vie Publique, 16 juin 2026) correspond à cet événement, mais l'article la cite comme source [5] dans le texte alors que le tableau des sources ne compte que 4 entrées (indices 1 à 4). La référence [5] n'existe pas dans la liste autorisée."
+        },
+        {
+          "bloc": 2,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "RFI rapportait fin mai que la recherche scientifique était à pied d'œuvre en RDC pour trouver un vaccin [6].",
+          "explication": "La source [3] (RFI, 27 mai 2026) correspond à ce contenu, mais l'article la cite comme source [6] dans le texte alors que le tableau des sources ne compte que 4 entrées. La référence [6] n'existe pas dans la liste autorisée."
+        },
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "compteur_incoherent",
+          "phrase_exacte": "nb_sources: 4",
+          "explication": "Le corps de l'article utilise des renvois jusqu'à [6] (six sources distinctes citées dans le texte), alors que le champ 'nb_sources' indique 4 et que le tableau 'sources' ne contient que 4 entrées. Le compteur est incohérent avec l'usage réel des sources dans le texte."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "chronologie_confuse",
+          "phrase_exacte": "L'essai PREVAC (Partnership for Research on Ebola Vaccinations) de phase II, mené de 2018 à 2020 en Guinée, Libéria, Mali et Sierra Leone, avait évalué la sécurité et l'immunogénicité de trois schémas vaccinaux contre Ebola Zaire chez 1 400 adultes et enfants [1].",
+          "explication": "L'article mentionne « trois schémas vaccinaux » testés dans PREVAC, alors que la section 'faits' (et la source [1]) ne décrit que deux schémas (Ervebo et le schéma Janssen). Cette incohérence interne mélange la description historique de l'essai et l'analyse actuelle portée sur deux bras seulement."
+        }
+      ]
+    },
+    "article_type": "actu",
+    "titre": "Ebola Bundibugyo : les vaccins anti-Zaïre induisent des anticorps croisés mais sans preuve d'efficacité clinique",
+    "n_sources": 4,
+    "n_mots": 803,
+    "titre_rss": "Épidémie d’Ebola Bundibugyo : des premiers résultats pour guider la recherche d’un vaccin efficace",
+    "matiere_faits_distincts": 841,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 2,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "veille_heures_visible": 517.7,
+    "veille_passages": 311,
+    "veille_age_h": 1925.1,
+    "veille_n_flux_grappe": 9,
+    "nature_contenu": "etude_scientifique"
+  },
+  {
+    "slug": "cop17-erevan-accord-bilan-mondial-financement-biodiversite",
+    "statut": "corrige_automatiquement",
+    "date": "2026-10-31T07:40:26",
+    "problemes_initiaux": 17,
+    "tentatives": 3,
+    "problemes_residuels_style": 0,
+    "rapport_initial": {
+      "conforme": false,
+      "sujet_sensible": false,
+      "sujet_sensible_raison": "",
+      "angle_insuffisant": false,
+      "angle_insuffisant_raison": "",
+      "nature_contenu": "actualite_factuelle",
+      "problemes": [
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "chiffre_errone",
+          "phrase_exacte": "623 millions d'acres (252 millions d'hectares) de terres dégradées ont été placées en protection, une surface supérieure au Groenland [6].",
+          "explication": "La source [6] (Le Monde) ne contient pas ce chiffre précis de 623 millions d'acres / 252 millions d'hectares ni la comparaison au Groenland ; ce fait n'est pas vérifiable dans les extraits fournis."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "chiffre_errone",
+          "phrase_exacte": "Plus de 1 milliard de dollars de nouveaux engagements ont été annoncés durant la conférence, dont la moitié provenant de philanthropes comme l'organisation Re:wild de Leonardo DiCaprio [6].",
+          "explication": "La source [6] (Le Monde) ne mentionne pas ce montant total de 1 milliard de dollars ni la contribution de Re:wild / Leonardo DiCaprio ; le fait n'est pas sourcé dans les extraits fournis."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "chiffre_errone",
+          "phrase_exacte": "L'accord de 2022 prévoyait 30 milliards de dollars annuels d'aide publique internationale d'ici 2030, complétés par 170 milliards mobilisés auprès du secteur privé [6].",
+          "explication": "La source [6] (Le Monde) ne contient pas ces chiffres précis (30 milliards d'aide publique + 170 milliards secteur privé) ; ils ne sont pas vérifiables dans les extraits fournis."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "chiffre_errone",
+          "phrase_exacte": "Ces flux sont restés très en deçà, plusieurs pays ayant réorienté leur aide au développement vers la défense et la gestion de chocs énergétiques répétés [6].",
+          "explication": "La source [6] (Le Monde) ne mentionne pas la réorientation de l'aide vers la défense et les chocs énergétiques ; cette explication causale n'est pas dans les extraits fournis."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "chiffre_errone",
+          "phrase_exacte": "Le « Fonds de Cali », mécanisme onusien censé capter 1 milliard de dollars par an auprès des entreprises utilisant des ressources génétiques, n'a engrangé que 10 000 dollars depuis son lancement début 2025 [4].",
+          "explication": "La source [4] (AFP) ne contient pas le chiffre de 10 000 dollars collectés ni la date de lancement début 2025 ; le fait n'est pas vérifiable dans les extraits fournis."
+        },
+        {
+          "bloc": 1,
+          "section": "nuances",
+          "type": "chiffre_errone",
+          "phrase_exacte": "Le Fonds de Cali, après près de deux ans d'existence, n'a collecté que 10 000 dollars contre un objectif annuel d'un milliard, interrogeant sa viabilité [4].",
+          "explication": "La source [4] (AFP) ne mentionne pas le montant de 10 000 dollars ni l'objectif annuel d'un milliard ; ces chiffres ne sont pas dans les extraits fournis."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "chiffre_errone",
+          "phrase_exacte": "selon les Nations unies, le monde est en passe de n'atteindre qu'un seul des 24 objectifs fixés pour 2030, notamment la protection de 30 % des terres et des océans [4].",
+          "explication": "La source [4] (AFP) ne contient pas la référence aux Nations unies ni le chiffre précis d'un seul objectif sur 24 en voie d'être atteint ; le fait n'est pas sourcé dans les extraits."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "chiffre_errone",
+          "phrase_exacte": "estimées à 2 400 milliards de dollars par an pour les seules énergies fossiles, agriculture intensive et surpêche [4].",
+          "explication": "La source [4] (AFP) ne mentionne pas le chiffre de 2 400 milliards de dollars pour les subventions nuisibles ; ce montant n'est pas dans les extraits fournis."
+        },
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "623 millions d'acres (252 millions d'hectares) de terres dégradées ont été placées en protection, une surface supérieure au Groenland [6].",
+          "explication": "Le renvoi [6] attribue ce fait à la source Le Monde, mais l'extrait fourni de cette source ne contient pas cette information ; le fait est inventé par rapport à la source citée."
+        },
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "Plus de 1 milliard de dollars de nouveaux engagements ont été annoncés durant la conférence, dont la moitié provenant de philanthropes comme l'organisation Re:wild de Leonardo DiCaprio [6].",
+          "explication": "Le renvoi [6] attribue ce fait à la source Le Monde, mais l'extrait fourni ne mentionne ni ce montant total ni la contribution de Re:wild / Leonardo DiCaprio."
+        },
+        {
+          "bloc": 2,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "L'accord de 2022 prévoyait 30 milliards de dollars annuels d'aide publique internationale d'ici 2030, complétés par 170 milliards mobilisés auprès du secteur privé [6].",
+          "explication": "Le renvoi [6] attribue ces chiffres à la source Le Monde, mais l'extrait fourni ne les contient pas ; l'information est inventée par rapport à la source citée."
+        },
+        {
+          "bloc": 2,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "Ces flux sont restés très en deçà, plusieurs pays ayant réorienté leur aide au développement vers la défense et la gestion de chocs énergétiques répétés [6].",
+          "explication": "Le renvoi [6] attribue cette analyse causale à la source Le Monde, mais l'extrait fourni ne mentionne pas la réorientation vers la défense et les chocs énergétiques."
+        },
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "Le « Fonds de Cali », mécanisme onusien censé capter 1 milliard de dollars par an auprès des entreprises utilisant des ressources génétiques, n'a engrangé que 10 000 dollars depuis son lancement début 2025 [4].",
+          "explication": "Le renvoi [4] attribue ces chiffres précis à la source AFP, mais l'extrait fourni ne contient ni le montant collecté (10 000 $), ni l'objectif annuel (1 milliard $), ni la date de lancement (début 2025)."
+        },
+        {
+          "bloc": 2,
+          "section": "nuances",
+          "type": "source_inventee",
+          "phrase_exacte": "Le Fonds de Cali, après près de deux ans d'existence, n'a collecté que 10 000 dollars contre un objectif annuel d'un milliard, interrogeant sa viabilité [4].",
+          "explication": "Le renvoi [4] attribue ces chiffres à la source AFP, mais l'extrait fourni ne les mentionne pas ; l'information est inventée par rapport à la source citée."
+        },
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "selon les Nations unies, le monde est en passe de n'atteindre qu'un seul des 24 objectifs fixés pour 2030, notamment la protection de 30 % des terres et des océans [4].",
+          "explication": "Le renvoi [4] attribue cette évaluation aux Nations unies via la source AFP, mais l'extrait fourni ne contient ni la référence aux Nations unies ni le chiffre d'un seul objectif sur 24."
+        },
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "estimées à 2 400 milliards de dollars par an pour les seules énergies fossiles, agriculture intensive et surpêche [4].",
+          "explication": "Le renvoi [4] attribue ce chiffre à la source AFP, mais l'extrait fourni ne mentionne pas le montant de 2 400 milliards de dollars pour les subventions nuisibles."
+        },
+        {
+          "bloc": 4,
+          "section": "contexte",
+          "type": "redondance",
+          "phrase_exacte": "L'OCDE y a participé pour apporter son expertise sur les indicateurs de suivi et l'alignement des politiques sectorielles [7].",
+          "explication": "Cette phrase répète exactement l'information déjà donnée dans la section 'faits' : 'L'OCDE a participé à la conférence pour apporter son expertise sur les indicateurs de suivi et l'alignement des politiques sectorielles [7]'."
+        }
+      ]
+    },
+    "article_type": "actu",
+    "titre": "COP17 d'Erevan : 196 parties adoptent un bilan mondial et un texte sur le financement",
+    "n_sources": 6,
+    "n_mots": 783,
+    "titre_rss": "A la COP17 d’Erevan, malgré les divergences, les Etats s’entendent sur des textes pour tenter de protéger la nature",
+    "matiere_faits_distincts": 810,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "trade-republic-services-investissement-automatique-agrement-mica-france",
+    "statut": "rejete_sensible",
+    "date": "2026-10-31T07:47:42",
+    "problemes_initiaux": 16,
+    "bloc5": [
+      "affaire_en_cours_presentee_comme_fait"
+    ],
+    "article_type": "actu",
+    "titre": "Trade Republic : services d'investissement automatique et agrément MiCA en France",
+    "n_sources": 6,
+    "n_mots": 495,
+    "titre_rss": "Trade Republic : la néo-banque bien connue pour l’épargne permet d’investir automatiquement avec sa carte",
+    "matiere_faits_distincts": 439,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "novaia-gazeta-fermeture-presse-independante-russie-fsb",
+    "statut": "corrige_automatiquement",
+    "date": "2026-10-31T07:52:36",
+    "problemes_initiaux": 9,
+    "tentatives": 1,
+    "problemes_residuels_style": 0,
+    "rapport_initial": {
+      "conforme": false,
+      "sujet_sensible": false,
+      "sujet_sensible_raison": "",
+      "angle_insuffisant": false,
+      "angle_insuffisant_raison": "",
+      "nature_contenu": "actualite_factuelle",
+      "problemes": [
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "fait_tranche_arbitrairement",
+          "phrase_exacte": "constituait le dernier organe de presse d'investigation indépendant opérant sur le territoire russe [2]",
+          "explication": "La source [2] (Le Monde, article sur le chant du cygne) qualifie Novaïa Gazeta de « dernier grand média d'investigation indépendant » et non de dernier organe tout court ; l'article généralise en supprimant le qualificatif « grand » qui restreint la portée de l'affirmation."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "fait_tranche_arbitrairement",
+          "phrase_exacte": "La rédaction a explicitement désigné le Service fédéral de sécurité (FSB) comme l'instrument de cette fermeture forcée, affirmant : « C'est le FSB qui s'occupe de notre rédaction » [1]",
+          "explication": "La citation attribuée à la rédaction via la source [1] (Le Figaro) est une déclaration rapportée par le média, non une citation directe de la rédaction elle-même ; l'article la présente comme une affirmation explicite de la rédaction sans nuance."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "fait_tranche_arbitrairement",
+          "phrase_exacte": "TV Rain (Dojd), Meduza, The Insider et d'autres ont transféré leurs rédactions à l'étranger, opérant depuis la Lettonie, la Lituanie ou les Pays-Bas sous le statut d'« agents de l'étranger » imposé par Moscou [2]",
+          "explication": "La source [2] ne détaille pas les pays d'installation de chaque média ni ne confirme que tous opèrent sous le statut d'« agents de l'étranger » ; l'article agrège des informations non présentes dans l'extrait fourni."
+        },
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "Le comité Nobel norvégien a réagi dans la foulée, appelant la Russie à mettre fin à la répression contre la liberté d'expression et le droit à l'information, qualifiant cet arrêt de « chant du cygne » pour la presse libre dans le pays [4]",
+          "explication": "La source [4] (Le Monde, article sur l'appel du comité Nobel) n'est pas citée dans les extraits fournis ; le contenu attribué à cette source ne peut être vérifié et constitue une invention de source."
+        },
+        {
+          "bloc": 2,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "En 2021, le prix Nobel de la paix décerné à Dmitri Mouratov, partagé avec la journaliste philippine Maria Ressa, avait constitué une reconnaissance internationale rare pour la presse russe, sans toutefois la protéger des représailles ultérieures [4]",
+          "explication": "La source [4] ne contient pas d'information sur le prix Nobel 2021 ni sur Maria Ressa ; cette attribution est inventée par rapport aux extraits fournis."
+        },
+        {
+          "bloc": 2,
+          "section": "nuances",
+          "type": "source_inventee",
+          "phrase_exacte": "Le comité Nobel dénonce une violation du droit à l'information mais ne dispose d'aucun levier contraignant pour faire pression sur les autorités russes [4]",
+          "explication": "L'affirmation sur l'absence de levier contraignant du comité Nobel n'est pas présente dans la source [4] (non fournie dans les extraits) ; il s'agit d'une extrapolation non sourcée."
+        },
+        {
+          "bloc": 4,
+          "section": "resume",
+          "type": "redondance",
+          "phrase_exacte": "Le comité Nobel a dénoncé une atteinte grave à la liberté d'expression, tandis que la rédaction publie ses adieux, actant la disparition du dernier espace de contre-pouvoir médiatique dans le pays.",
+          "explication": "Cette phrase du résumé répète des informations déjà présentes dans les faits (réaction du comité Nobel, adieux de la rédaction, disparition du dernier espace) sans apporter de nouvel élément."
+        },
+        {
+          "bloc": 4,
+          "section": "nuances",
+          "type": "redondance",
+          "phrase_exacte": "La version européenne Novaïa Gazeta Europe, basée en Lettonie, poursuit son activité éditorialement indépendamment de l'entité russe fermée [2]",
+          "explication": "Cette information est déjà mentionnée dans le contexte (« Novaïa Gazeta avait tenté de résister en créant une version européenne, Novaïa Gazeta Europe, dirigée par Kirill Martynov depuis Riga ») ; sa reprise dans les nuances constitue une redondance interdite par la charte."
+        },
+        {
+          "bloc": 4,
+          "section": "nuances",
+          "type": "extrapolation",
+          "phrase_exacte": "son accès est bloqué sur le territoire russe, limitant sa portée auprès du public national",
+          "explication": "Le blocage de l'accès en Russie n'est mentionné dans aucune des sources fournies ; il s'agit d'une anticipation non sourcée."
+        }
+      ]
+    },
+    "article_type": "actu",
+    "titre": "Novaïa Gazeta cesse de paraître sous la pression du FSB",
+    "n_sources": 4,
+    "n_mots": 569,
+    "titre_rss": "« C’est le FSB qui s’occupe de notre rédaction » : le journal Novaïa Gazeta contraint de mettre la clé sous la porte",
+    "matiere_faits_distincts": 482,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "nasa-esa-images-halloween-hubble-webb-galaxies",
+    "statut": "corrige_automatiquement",
+    "date": "2026-10-31T07:58:07",
+    "problemes_initiaux": 8,
+    "tentatives": 2,
+    "problemes_residuels_style": 21,
+    "rapport_initial": {
+      "conforme": false,
+      "sujet_sensible": false,
+      "sujet_sensible_raison": "",
+      "angle_insuffisant": false,
+      "angle_insuffisant_raison": "",
+      "nature_contenu": "actualite_factuelle",
+      "problemes": [
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "compteur_incoherent",
+          "phrase_exacte": "nb_sources: 4",
+          "explication": "Le champ nb_sources indique 4 alors que seules 3 sources distinctes sont listées dans le tableau sources (Le Monde, AAAS, ESA)."
+        },
+        {
+          "bloc": 2,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "Le télescope spatial James Webb, opérationnel depuis juillet 2022, observe l'univers dans l'infrarouge avec une sensibilité cent fois supérieure à celle de son prédécesseur Spitzer grâce à son miroir de 6,6 mètres de diamètre [2].",
+          "explication": "La source [2] (AAAS/Science) ne contient aucune information sur la date de mise en service de Webb (juillet 2022), sa sensibilité par rapport à Spitzer (cent fois), ni le diamètre de son miroir (6,6 m). Ces faits sont attribués à une source qui ne les confirme pas."
+        },
+        {
+          "bloc": 2,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "Fruit d'une collaboration entre la NASA, l'ESA et l'Agence spatiale canadienne, il a notamment permis de détecter des galaxies parmi les plus anciennes jamais observées, comme JADES-GS-z14-0 qui existait il y a 13,57 milliards d'années [2].",
+          "explication": "La source [2] (AAAS/Science) ne mentionne pas la collaboration NASA/ESA/CSA ni la galaxie JADES-GS-z14-0 avec son âge de 13,57 milliards d'années. Ces faits sont attribués à une source qui ne les confirme pas."
+        },
+        {
+          "bloc": 2,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "Le télescope Hubble, son aîné, continue de fournir des observations cruciales dans le visible et l'ultraviolet, comme en témoigne son suivi de l'expansion de la nébuleuse du Crabe sur vingt-quatre ans [1].",
+          "explication": "La source [1] (Le Monde, 2026-04-02) n'est pas fournie en extrait ; il est impossible de vérifier qu'elle mentionne un suivi sur vingt-quatre ans de la nébuleuse du Crabe. L'attribution [1] ne peut être validée."
+        },
+        {
+          "bloc": 2,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "La combinaison de leurs données offre une vue multi-longueurs d'onde inédite des processus astrophysiques, de la formation stellaire à l'évolution des galaxies [3][2].",
+          "explication": "La source [2] (AAAS/Science) ne traite pas de la combinaison Hubble/Webb ni d'une vue multi-longueurs d'onde inédite. L'attribution [2] est infondée pour cette affirmation."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "chiffre_errone",
+          "phrase_exacte": "Chaque année, les deux galaxies produisent l'équivalent de deux douzaines de nouvelles étoiles de la taille du Soleil, contre seulement deux ou trois pour la Voie lactée [3].",
+          "explication": "La source [3] (ESA) indique « two dozen new stars the size of the Sun » (≈ 24), alors que l'article écrit « deux douzaines » (24) mais le résumé et le corps utilisent « deux douzaines » correctement ; cependant la source précise « the equivalent of two dozen » ce qui est correct. En revanche, la source [3] donne « two or three » pour la Voie lactée, ce qui correspond. Aucun écart chiffré détecté sur ce point précis. (Note : le reproche initial était infondé, mais la vérification a révélé un autre écart — voir ci-dessous.)"
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "chiffre_errone",
+          "phrase_exacte": "Elles ont également accueilli sept supernovae connues au cours des dernières décennies, un nombre élevé comparé à la moyenne d'une tous les 50 ans dans notre galaxie [3].",
+          "explication": "La source [3] (ESA) indique « seven known supernovae » et « average of one every 50 years in our galaxy » — les chiffres correspondent. Aucun écart."
+        },
+        {
+          "bloc": 1,
+          "section": "resume",
+          "type": "chiffre_errone",
+          "phrase_exacte": "L'image révèle une interaction gravitationnelle qui a déjà étiré les bras spiralés et déclenché une formation d'étoiles vingt fois plus intense que dans la Voie lactée, avec sept supernovae recensées ces dernières décennies [3].",
+          "explication": "La source [3] (ESA) donne un taux de formation stellaire de « two dozen » (≈24) étoiles/an pour la paire contre « two or three » pour la Voie lactée, soit un rapport de 8 à 12 fois, pas « vingt fois ». Le chiffre « vingt fois » n'est pas dans la source et constitue une extrapolation erronée."
+        }
+      ]
+    },
+    "article_type": "actu",
+    "titre": "La NASA et l'ESA publient des images spectrales d'Halloween d'une paire de galaxies",
+    "n_sources": 3,
+    "n_mots": 625,
+    "titre_rss": "La Nasa fête Halloween avec des images spectrales effrayantes d'Hubble et James-Webb d'une nébuleuse !",
+    "matiere_faits_distincts": 652,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "vaccin-arn-personnalise-moderna-melanome-recidive-phase-3",
+    "statut": "rejete_qualite",
+    "date": "2026-10-31T08:10:38",
+    "problemes_initiaux": 6,
+    "tentatives": 3,
+    "problemes_restants": 11,
+    "bloquants_restants": 3,
+    "bloquants_types": [
+      "source_inventee",
+      "source_inventee",
+      "source_inventee"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "La source [4] est un article du Monde daté du 30 octobre 2026, pas de 2023 ; l'article cite une source 2023 qui n'existe pas dans la liste autorisée (la seule source Monde 2023 est [5] avec un titre différent).",
+        "phrase": "Selon Le Monde (2023), le domaine connaît un « foisonnement de résultats prometteurs » mais les avancées cliniques majeures restaient jusqu'ici cantonnées aux phases précoces [4]."
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "La source [3] est un article du Monde daté du 30 octobre 2026, soit une date future par rapport à l'événement décrit (octobre 2025) ; cette source ne peut pas être utilisée pour confirmer des faits d'octobre 2025.",
+        "phrase": "L'article de 2026 confirme que les vaccins à ARN messager personnalisés représentent une piste majeure, testés désormais en combinaison avec les inhibiteurs de points de contrôle immunitaire [3]."
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "Les sources [1] et [2] sont des articles de presse (L'Express, Sciences et Avenir) datés du 24 octobre 2025, pas des communications officielles de Moderna et Merck ; l'article attribue à tort l'information aux laboratoir",
+        "phrase": "comme l'indiquent les communications de Moderna et Merck relayées par L'Express et Sciences et Avenir [1][2]."
+      }
+    ],
+    "types_restants": [
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "contexte_hors_sujet",
+      "contexte_hors_sujet",
+      "contexte_hors_sujet",
+      "source_non_editoriale",
+      "compteur_incoherent",
+      "section_gonflee",
+      "redondance",
+      "redondance"
+    ],
+    "article_type": "actu",
+    "titre": "Moderna réduit de 42 % le risque de récidive du mélanome en phase III",
+    "n_sources": 6,
+    "n_mots": 722,
+    "titre_rss": "Cancer : le vaccin personnalisé de Moderna fonctionne… mais personne ne sait vraiment pourquoi",
+    "matiere_faits_distincts": 632,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "etude_scientifique"
+  },
+  {
+    "slug": "changement-climatique-3-millions-morts-chaleur-lancet-countdown-2026",
+    "statut": "rejete_qualite",
+    "date": "2026-10-31T08:19:15",
+    "problemes_initiaux": 10,
+    "tentatives": 3,
+    "problemes_restants": 12,
+    "bloquants_restants": 7,
+    "bloquants_types": [
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [3] (Le Temps) indique 122 experts de 52 institutions, pas 57 institutions.",
+        "phrase": "Le 10e rapport annuel du Lancet Countdown, publié le 28 octobre 2026 par la revue médicale The Lancet à l'approche de la COP31 (9-20 novembre), mobilise 122 experts de 57 institutions pour évaluer les conséquences sanita"
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [3] (Le Temps) indique 56 pays sur 101 ayant soumis des données, pas sur 194 pays membres de l'OMS.",
+        "phrase": "Cinquante-six des 194 pays membres de l'OMS ont adapté leur système de santé, et des systèmes d'alerte anticipent désormais les événements extrêmes [3][5]."
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [3] (Le Temps) mentionne 800 milliards de dollars de pertes de productivité du travail en 2023 seulement, pas une moyenne annuelle sur trois ans.",
+        "phrase": "Le réchauffement a coûté plus de 800 milliards de dollars par an à l'économie mondiale ces trois dernières années, notamment par la réduction de la productivité des travailleurs [3]."
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [3] (Le Temps) indique 56 pays sur 101 ayant soumis des données, pas sur 194 pays membres de l'OMS.",
+        "phrase": "Cinquante-six des 194 pays membres de l'OMS ont adapté leur système de santé, et des systèmes d'alerte anticipent désormais les événements extrêmes [3][5]."
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [3] (Le Temps) indique 1 900 milliards de dollars en 2024, pas 2 100 milliards.",
+        "phrase": "Les investissements mondiaux dans les énergies propres ont atteint un record de 2 100 milliards de dollars en 2024, presque doublés depuis 2016 [3][5]."
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [3] (Le Temps) indique 1 900 milliards de dollars en 2024, pas 2 100 milliards, et 56 pays sur 101 ayant soumis des données, pas sur 194.",
+        "phrase": "Parallèlement, les investissements mondiaux dans les énergies propres ont atteint un record de 2 100 milliards de dollars en 2024, presque doublés depuis 2016, et 56 pays ont adapté leur système de santé, des progrès rée"
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [3] (Le Temps) mentionne 800 milliards de dollars de pertes de productivité du travail en 2023 seulement, pas une moyenne annuelle sur trois ans.",
+        "phrase": "Le réchauffement a coûté plus de 800 milliards de dollars par an à l'économie mondiale ces trois dernières années, avec des pertes de productivité du travail notamment [3]."
+      }
+    ],
+    "types_restants": [
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "contexte_hors_sujet",
+      "compteur_incoherent"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "titre_de_mauvaise_qualite"
+    ],
+    "titre": "Le changement climatique a causé près de 3 millions de morts par la chaleur depuis 2016",
+    "n_sources": 6,
+    "n_mots": 933,
+    "titre_rss": "Le changement climatique doit devenir \"urgence sanitaire mondiale\", selon le rapport The Lancet Countdown",
+    "matiere_faits_distincts": 808,
+    "matiere_redondance": 0.02,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "rapport"
+  },
+  {
+    "slug": "budget-2027-deputes-taxes-grandes-entreprises-pacte-papin",
+    "statut": "conforme_du_premier_coup",
+    "date": "2026-10-31T08:22:49",
+    "article_type": "actu",
+    "titre": "Budget 2027 : les députés adoptent taxes entreprises et pacte Papin",
+    "n_sources": 6,
+    "n_mots": 610,
+    "titre_rss": "Budget 2027 : les députés votent de nouvelles taxes sur les grandes entreprises et adoptent le « pacte Papin »",
+    "matiere_faits_distincts": 639,
+    "matiere_redondance": 0.05,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
   }
 ]
