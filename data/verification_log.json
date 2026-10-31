@@ -53215,5 +53215,406 @@
     "n_sources_injectees": 10,
     "n_sources_trouvees": 10,
     "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "binance-piratage-6-3-milliards-dollars-record-historique",
+    "statut": "rejete_sensible",
+    "date": "2026-10-31T17:07:22",
+    "problemes_initiaux": 12,
+    "tentative": 1,
+    "bloc5": true,
+    "article_type": "actu",
+    "titre": "Binance piratée : 6,3 milliards de dollars dérobés, un record historique",
+    "n_sources": 4,
+    "n_mots": 586,
+    "titre_rss": "Cryptos : la plateforme Binance victime d'un piratage massif, 6,3 milliards de dollars dérobés",
+    "matiere_faits_distincts": 739,
+    "matiere_redondance": 0.01,
+    "matiere_donnees_chiffrees": 2,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "pouvoir-achat-deuxieme-annee-consecutive-baisse-2026-insee",
+    "statut": "rejete_qualite",
+    "date": "2026-10-31T17:16:02",
+    "problemes_initiaux": 9,
+    "tentatives": 3,
+    "problemes_restants": 11,
+    "bloquants_restants": 3,
+    "bloquants_types": [
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [3] (Insee, données trimestrielles T1-1949 à T2-2026) fournit des données observées jusqu'au T2 2026 ; elle ne contient pas de calcul d'acquis de croissance pour l'année 2026 ni de projection annuelle de -0,6 %",
+        "phrase": "L'acquis de croissance pour 2026, calculé à partir des deux premiers trimestres, indique une contraction de -0,6 % sur l'ensemble de l'année [3]."
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "Le résumé présente le -0,6 % comme une donnée issue des publications de l'Insee d'octobre 2026, alors que la source [3] ne donne que des valeurs trimestrielles observées (T1 et T2 2026) et ne projette pas l'année complèt",
+        "phrase": "Le pouvoir d'achat du revenu disponible brut par unité de consommation devrait reculer de 0,6 % sur l'ensemble de l'année 2026, après une baisse de 0,7 % en 2025, selon les données trimestrielles publiées par l'Insee fin"
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [3] ne contient pas de taux de variation annuel pour 2026 (l'année n'est pas achevée au 30 octobre 2026) ; l'article présente comme une donnée annuelle observée un chiffre que la source ne fournit pas.",
+        "phrase": "pour une hausse annuelle de 1,1 % en 2026 après +0,2 % en 2025 [3]."
+      }
+    ],
+    "types_restants": [
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "compteur_incoherent",
+      "cadrage_emprunte",
+      "redondance",
+      "extrapolation"
+    ],
+    "article_type": "actu",
+    "titre": "Pouvoir d'achat : deuxième année consécutive de baisse en 2026 selon l'Insee",
+    "n_sources": 6,
+    "n_mots": 589,
+    "titre_rss": "Fabrice Lenglart, directeur général de l'Insee : \"La crise du pouvoir d'achat que nous vivons n’est pas inédite\"",
+    "matiere_faits_distincts": 886,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "new-york-garde-enfants-cout-40-pour-cent-budget-familial",
+    "statut": "rejete_qualite",
+    "date": "2026-10-31T17:26:37",
+    "angle_insuffisant": true,
+    "raison": "Aucune phrase dans 'faits' ne contient à la fois un événement précis daté (annonce, publication, décision récente) et une donnée chiffrée propre à cet événement. L'article se contente de reprendre les conclusions générales d'une enquête du Monde datée d'octobre 2026 sans identifier de fait déclencheur nouveau (publication d'un rapport officiel, décision politique, nouvelle statistique) qui justifierait une publication maintenant. Il répond à 'qu'est-ce que le coût de la garde à New York ?' plutôt qu'à 'pourquoi en parle-t-on aujourd'hui ?'.",
+    "article_type": "actu",
+    "titre": "À New York, la garde d'enfants coûte jusqu'à 40 % du budget familial",
+    "n_sources": 4,
+    "n_mots": 457,
+    "titre_rss": "A New York, le prix des crèches et des écoles et des structures de garde est si exorbitant qu’avoir un enfant est devenu un luxe",
+    "matiere_faits_distincts": 458,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "etude_scientifique"
+  },
+  {
+    "slug": "cancers-france-incidence-mortalite-jeunes-adultes-hausse",
+    "statut": "rejete_qualite",
+    "date": "2026-10-31T18:04:43",
+    "tentative": 3,
+    "perte_substance": true,
+    "section": "contexte",
+    "mots_avant": 174,
+    "mots_apres": 77,
+    "article_type": "actu",
+    "titre": "Cancers en France : incidence en hausse, mortalité en baisse, alerte jeunes adultes",
+    "n_sources": 6,
+    "n_mots": 671,
+    "titre_rss": "\"Le nombre de cancers augmente, mais la mortalité diminue\"",
+    "matiere_faits_distincts": 918,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 4,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "onu-alerte-trajectoire-rechauffement-2-5-2-6-degres-objectif-1-5-hors-atteinte",
+    "statut": "rejete_qualite",
+    "date": "2026-10-31T19:06:16",
+    "problemes_initiaux": 9,
+    "tentatives": 3,
+    "problemes_restants": 14,
+    "bloquants_restants": 9,
+    "bloquants_types": [
+      "chiffre_errone",
+      "incoherence_inter_sections",
+      "niveau_preuve_insuffisant",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [5] (L'Express) n'est pas fournie dans les extraits ; le chiffre 2,5 °C n'est pas vérifiable par rapport à la source citée. De plus, la source [1] (Sciences et Avenir) mentionne 2,6 °C, créant une incohérence n",
+        "phrase": "D'après L'Express, le Programme des Nations unies pour l'environnement (PNUE) a publié un rapport d'évaluation des engagements climatiques nationaux (NDC) indiquant que les politiques et engagements actuels des pays orie"
+      },
+      {
+        "bloc": 1,
+        "type": "incoherence_inter_sections",
+        "description": "Le résumé cite L'Express pour 2,5 °C [5], Sciences et Avenir pour 2,6 °C [1], et le Sénat pour 3 °C [3] sans expliquer que ces chiffres correspondent à des scénarios différents (politiques actuelles, engagements annoncés",
+        "phrase": "D'après L'Express, le Programme des Nations unies pour l'environnement (PNUE) a publié un rapport d'évaluation des engagements climatiques nationaux (NDC) indiquant que les politiques et engagements actuels des pays orie"
+      },
+      {
+        "bloc": 1,
+        "type": "niveau_preuve_insuffisant",
+        "description": "La formulation « la Terre a perdu sa chance » et « s'est évanouie » présente une conclusion politique comme un fait scientifique établi, sans attribuer explicitement ce jugement à l'ONU ou au PNUE. La source [1] n'est pa",
+        "phrase": "Sciences et Avenir rapporte que les Nations unies reconnaissent que la possibilité de maintenir le réchauffement sous la barre des 1,5 °C s'est évanouie et que la Terre a perdu sa chance d'éviter certains des pires impac"
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "La source [5] (L'Express) figure dans la liste autorisée mais aucun extrait n'est fourni pour vérifier le fait. Le renvoi [5] attribue un chiffre précis (2,5 °C) que la source listée ne permet pas de confirmer avec les é",
+        "phrase": "D'après L'Express, le Programme des Nations unies pour l'environnement (PNUE) a publié un rapport d'évaluation des engagements climatiques nationaux (NDC) indiquant que les politiques et engagements actuels des pays orie"
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "La source [1] (Sciences et Avenir) est listée mais aucun extrait n'est fourni. L'attribution d'une citation forte (« s'est évanouie », « perdu sa chance ») ne peut être vérifiée.",
+        "phrase": "Sciences et Avenir rapporte que les Nations unies reconnaissent que la possibilité de maintenir le réchauffement sous la barre des 1,5 °C s'est évanouie [1]."
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "La source [7] (Vie Publique, 3 septembre 2026) est listée mais aucun extrait n'est fourni pour confirmer le titre exact du rapport du PNUE ni son contenu.",
+        "phrase": "Vie Publique signale, dans un article du 3 septembre 2026, qu'un rapport du PNUE intitulé « Limiting Overshoot - Navigating exceedance of 1.5 °C and pathways towards return » souligne que des actions rapides, globales et"
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "La source [3] (Sénat, 7 juillet 2026) est listée mais aucun extrait n'est fourni pour vérifier ces chiffres précis (125 000 ans, trois années les plus chaudes).",
+        "phrase": "Le rapport du Sénat adopté à l'unanimité en juillet 2026 rappelle que la décennie 2011-2020 a été la plus chaude depuis environ 125 000 ans, et que les années 2023, 2024 et 2025 figurent déjà parmi les trois plus chaudes"
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "La source [6] (OCDE) est listée mais aucun extrait n'est fourni. L'affirmation est une appréciation qualitative non vérifiable.",
+        "phrase": "L'OCDE souligne que malgré des progrès considérables, une action plus audacieuse et une coopération mondiale approfondie sont nécessaires pour atteindre la neutralité carbone [6]."
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "La source [7] ne dispose d'aucun extrait fourni. L'affirmation sur la capture de carbone et son incertitude ne peut être sourcée.",
+        "phrase": "Le rapport « Limiting Overshoot » du PNUE, relayé par Vie Publique, précise que les voies de retour sous 1,5 °C après dépassement reposent sur des technologies de capture de carbone à grande échelle dont le déploiement r"
+      }
+    ],
+    "types_restants": [
+      "chiffre_errone",
+      "incoherence_inter_sections",
+      "niveau_preuve_insuffisant",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "compteur_incoherent",
+      "cadrage_emprunte",
+      "redondance",
+      "redondance",
+      "contexte_hors_sujet"
+    ],
+    "article_type": "actu",
+    "titre": "L'ONU alerte : trajectoire mondiale vers 2,5-2,6 °C, objectif 1,5 °C hors d'atteinte",
+    "n_sources": 8,
+    "n_mots": 634,
+    "titre_rss": "Climat: le monde vers un réchauffement de 2,6°C, mais il est encore temps d'agir, selon l'ONU",
+    "matiere_faits_distincts": 750,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "rapport"
+  },
+  {
+    "slug": "canicule-juin-2026-mortalite-hausse-29-pour-cent",
+    "statut": "corrige_automatiquement",
+    "date": "2026-10-31T19:37:31",
+    "problemes_initiaux": 1,
+    "tentatives": 1,
+    "problemes_residuels_style": 0,
+    "rapport_initial": {
+      "conforme": false,
+      "sujet_sensible": false,
+      "sujet_sensible_raison": "",
+      "angle_insuffisant": false,
+      "angle_insuffisant_raison": "",
+      "nature_contenu": "actualite_factuelle",
+      "problemes": [
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "compteur_incoherent",
+          "phrase_exacte": "nb_sources: 4",
+          "explication": "Le champ nb_sources indique 4 alors que seules 2 sources distinctes sont listées dans le tableau sources et utilisées dans le texte (renvois [1] et [2])."
+        }
+      ]
+    },
+    "article_type": "actu",
+    "titre": "Canicule de juin 2026 : mortalité en hausse de 29 % en une semaine",
+    "n_sources": 2,
+    "n_mots": 749,
+    "titre_rss": "Point de situation sur la mortalité toutes causes confondues  sur la période du 22 au 28 juin 2026",
+    "matiere_faits_distincts": 628,
+    "matiere_redondance": 0.01,
+    "matiere_donnees_chiffrees": 4,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "veille_heures_visible": 221.3,
+    "veille_passages": 74,
+    "veille_age_h": 1639.1,
+    "veille_n_flux_grappe": 1,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "rdc-essai-clinique-tumaini-vaccins-ebola-bundibugyo",
+    "statut": "conforme_du_premier_coup",
+    "date": "2026-10-31T20:07:03",
+    "article_type": "actu",
+    "titre": "RDC : l'essai clinique Tumaini évalue deux vaccins candidats contre Ebola Bundibugyo",
+    "n_sources": 4,
+    "n_mots": 693,
+    "titre_rss": "Ebola en RDC : un essai clinique du vaccin Tumaini a débuté, selon l’OMS",
+    "matiere_faits_distincts": 887,
+    "matiere_redondance": 0.01,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "1888-especes-europeennes-migrent-nord-pieges-alpes-pyrenees",
+    "statut": "rejete_qualite",
+    "date": "2026-10-31T20:26:46",
+    "problemes_initiaux": 12,
+    "tentatives": 3,
+    "problemes_restants": 14,
+    "bloquants_restants": 10,
+    "bloquants_types": [
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "chiffre_errone"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "La source [1] (article CNRS du 15/10/2026) ne mentionne pas Camille Parmesan ni ses travaux des années 1990 dans les extraits fournis ; cette information est attribuée à une source qui ne la contient pas.",
+        "phrase": "L'article du CNRS du 15 octobre 2026 rappelle que les travaux de Camille Parmesan dans les années 1990 avaient établi les papillons comme sentinelles du climat, documentant la première empreinte biologique du réchauffeme"
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "La source [1] ne contient pas ce chiffre de gradient thermique (0,6 °C/100 m) dans les extraits fournis ; l'information est inventée par rapport à la source citée.",
+        "phrase": "Le gradient thermique en altitude — perte de 0,6 °C par 100 m de dénivelé, soit 6 °C par kilomètre — structure ces déplacements verticaux [1]."
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "Les extraits de la source [1] ne mentionnent ni le concept de « dette d'extinction », ni l'expression « escalator vers l'extinction », ni un déséquilibre natalité-mortalité ; tout ce passage est attribué à une source qui",
+        "phrase": "L'article du CNRS évoque également le concept de « dette d'extinction » pour distinguer le sort des espèces longues-vies de l'image de l'« escalator vers l'extinction » : le taux de mortalité de certaines populations dép"
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "La source [1] ne cite pas l'exemple des chênes ni la survie des individus centenaires versus la mortalité des jeunes plants ; cette illustration est inventée par rapport à la source.",
+        "phrase": "L'exemple des chênes illustre ce décalage : les individus centenaires aux racines profondes survivent aux canicules, mais les jeunes plants meurent, programmant l'extinction de l'espèce si les étés extrêmes persistent [1"
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "Le chiffre précis de 16,9 km par décennie et la référence à des méta-analyses depuis les années 2000 n'apparaissent pas dans les extraits de la source [1] ; cette donnée est attribuée à tort.",
+        "phrase": "L'étude s'inscrit dans la continuité de travaux antérieurs sur les déplacements d'aires de répartition : les méta-analyses menées depuis les années 2000 ont documenté des migrations moyennes vers les pôles de 16,9 km par"
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "L'affirmation sur ce que l'étude « ne quantifie pas » est présentée comme une connaissance tirée de la source [1], mais les extraits fournis ne permettent pas de vérifier cette absence ; c'est une inférence non sourcée.",
+        "phrase": "L'étude sur 1 888 espèces, relayée par le CNRS, ne quantifie pas la vitesse moyenne de migration ni ne la compare au rythme du réchauffement climatique [1]."
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "La source [1] ne mentionne ni « dette d'extinction », ni chênes, ni déséquilibre natalité-mortalité ; la nuance est construite sur des éléments absents de la source citée.",
+        "phrase": "La « dette d'extinction » évoquée pour les chênes et d'autres espèces longues-vies repose sur l'observation d'un déséquilibre natalité-mortalité actuel, mais l'horizon temporel de l'extinction effective n'est pas établi "
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "L'article affirme que la source [1] ne précise pas la période ni la méthode, mais les extraits fournis ne contiennent aucune information sur la migration forestière vers l'ouest ni sur l'azote résiduel ; on ne peut pas a",
+        "phrase": "La migration forestière vers l'ouest, liée à l'azote résiduel, a été mesurée à l'échelle du continent, mais la source [1] ne précise pas sur quelle période ni avec quelle méthode statistique."
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "Cette phrase n'est rattachée à aucune source (pas de [n]) et présente une spéculation prospective non ancrée dans les extraits fournis ; elle constitue une extrapolation non sourcée.",
+        "phrase": "L'interaction entre cette dérive vers l'ouest et le réchauffement qui pousse vers le nord pourrait créer de nouveaux pièges non encore modélisés."
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "Le titre affirme que 1 888 espèces migrent vers le nord, alors que le corps de l'article (source [1]) indique que l'étude a analysé 1 888 espèces et que « plus de la moitié » se déplacent vers le nord ; le titre générali",
+        "phrase": "1 888 espèces européennes migrent vers le nord, piégées par les Alpes et les Pyrénées"
+      }
+    ],
+    "types_restants": [
+      "compteur_incoherent",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "chiffre_errone",
+      "fait_tranche_arbitrairement",
+      "fait_tranche_arbitrairement",
+      "fait_tranche_arbitrairement"
+    ],
+    "article_type": "actu",
+    "titre": "1 888 espèces européennes migrent vers le nord, piégées par les Alpes et les Pyrénées",
+    "n_sources": 3,
+    "n_mots": 823,
+    "titre_rss": "Biodiversité : ruée vers les pôles et les sommets",
+    "matiere_faits_distincts": 1076,
+    "matiere_redondance": 0.12,
+    "matiere_donnees_chiffrees": 2,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "etude_scientifique"
+  },
+  {
+    "slug": "cop17-erevan-textes-adoptes-insuffisants-biodiversite",
+    "statut": "conforme_du_premier_coup",
+    "date": "2026-10-31T21:13:35",
+    "article_type": "actu",
+    "titre": "COP17 à Erevan : des textes adoptés mais jugés insuffisants face à l'urgence",
+    "n_sources": 5,
+    "n_mots": 741,
+    "titre_rss": "Biodiversité : en Arménie, la COP17 adopte de maigres avancées entre beaux discours, patates chaudes et postures anti-science",
+    "matiere_faits_distincts": 720,
+    "matiere_redondance": 0.2,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
   }
 ]
