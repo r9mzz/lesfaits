@@ -53949,5 +53949,614 @@
     "n_sources_injectees": 10,
     "n_sources_trouvees": 10,
     "nature_contenu": "sujet_pedagogique"
+  },
+  {
+    "slug": "sante-jeunes-milliard-menaces-2030-rapport-experts",
+    "statut": "rejete_qualite",
+    "date": "2026-11-01T17:36:44",
+    "angle_insuffisant": true,
+    "raison": "Aucune phrase des faits ne contient à la fois un événement précis daté (publication d'un rapport, décision, annonce) et une donnée chiffrée qui lui est propre. L'article se contente de reprendre des estimations OMS 2021 et une projection non sourcée d'un rapport non identifié relayé par Futura Sciences, sans fait déclencheur récent.",
+    "article_type": "actu",
+    "titre": "Santé des jeunes : un rapport alerte sur un milliard d'adolescents menacés d'ici 2030",
+    "n_sources": 4,
+    "n_mots": 594,
+    "titre_rss": "Santé : cette bombe à retardement menacerait un milliard de jeunes dans le monde, selon un rapport qui inquiète les experts",
+    "matiere_faits_distincts": 778,
+    "matiere_redondance": 0.01,
+    "matiere_donnees_chiffrees": 6,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "sujet_pedagogique"
+  },
+  {
+    "slug": "gaz-pneus-neige-expulsions-changements-1er-novembre-2026",
+    "statut": "rejete_qualite",
+    "date": "2026-11-01T18:05:05",
+    "problemes_initiaux": 16,
+    "tentatives": 3,
+    "problemes_restants": 14,
+    "bloquants_restants": 12,
+    "bloquants_types": [
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "incoherence_inter_sections"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [1] (Vie Publique, 16/09/2026) ne peut pas confirmer une hausse au 1er octobre 2026 car elle est publiée avant cette date ; la hausse du 1er octobre n'est pas dans les extraits fournis.",
+        "phrase": "Le prix repère du gaz naturel augmente de 6,3 % TTC au 1er octobre 2026, impactant les clients abonnés aux offres de marché indexées sur ce repère [1]."
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [1] (Vie Publique, 16/09/2026) ne mentionne pas de hausse au 1er octobre 2026 ; cette date est postérieure à la publication de la source.",
+        "phrase": "Le prix repère de vente de gaz naturel, qui sert de référence aux offres de marché depuis la fin des tarifs réglementés en juin 2023, a été relevé de 6,3 % TTC au 1er octobre 2026 par la Commission de régulation de l'éne"
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [5] (Sénat, 30/07/2026) est une question écrite sur l'augmentation des coûts fixes, elle ne confirme pas qu'une hausse de 7,5 % a été appliquée au 1er juillet 2026.",
+        "phrase": "Parallèlement, la part fixe d'abonnement a connu une augmentation de 7,5 % au 1er juillet 2026, alourdissant la facture des foyers à consommation modérée, notamment les personnes seules et les retraités [5]."
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [3] (France Info, 01/11/2026) n'est pas fournie dans les extraits ; le chiffre 1,6 % et la comparaison à l'inflation ne sont pas vérifiables sur les sources autorisées.",
+        "phrase": "Les pensions du régime complémentaire Agirc-Arrco sont revalorisées de 1,6 % au 1er novembre 2026, soit une hausse inférieure à l'inflation prévisionnelle [3]."
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [4] (Assemblée nationale, question écrite 03/06/2025) ne contient pas ces chiffres précis de la Cour des comptes ; ils ne figurent pas dans les extraits fournis.",
+        "phrase": "selon la Cour des comptes, 97 % des contrats pratiquent désormais une tarification à l'âge, contre 64 % en 2006, et le taux de non-couverture atteint 10 % chez les retraités pauvres contre 4 % dans la population générale"
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [6] (Vie Publique, rapport COR juin 2026) n'est pas fournie dans les extraits ; cette affirmation n'est pas vérifiable.",
+        "phrase": "Le COR analyse chaque année les évolutions et perspectives des régimes de retraite obligatoires [6]."
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [5] ne confirme ni le chiffre 7,5 %, ni la date du 1er juillet, ni l'analyse d'effet de seuil ; ces éléments ne sont pas dans les extraits.",
+        "phrase": "La hausse de la part fixe d'abonnement (+7,5 % au 1er juillet) réduit l'intérêt économique des économies d'énergie pour les petits consommateurs, créant un effet de seuil défavorable aux ménages modestes ayant rénové leu"
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "La source [2] (France Info, 01/11/2026) n'est pas fournie dans les extraits ; la liste des 34 départements et le détail des massifs ne sont pas vérifiables.",
+        "phrase": "L'obligation d'équipement hivernal (pneus neige, chaînes ou chaussettes) s'applique du 1er novembre au 31 mars dans 34 départements massifs (Alpes, Pyrénées, Massif central, Jura, Vosges, Corse) [2]."
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "Ces détails (montant amende, immobilisation, dates précises trêve, prolongation préfectorale) sont attribués à la source [2] dont les extraits ne sont pas fournis.",
+        "phrase": "Le non-respect expose à une amende de 135 euros et à l'immobilisation du véhicule. La trêve hivernale, qui interdit les expulsions locatives, court du 1er novembre 2026 au 31 mars 2027, avec une prolongation possible par"
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "Ces informations historiques et juridiques (loi Montagne II, cinquième hiver, périmètre inchangé) sont attribuées à la source [2] non fournie dans les extraits.",
+        "phrase": "L'obligation pneus neige, issue de la loi Montagne II (2021), s'applique pour le cinquième hiver consécutif. Le périmètre des 34 départements concernés n'a pas changé depuis 2021. La trêve hivernale suspend les procédure"
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "Le contenu du rapport COR (excédentaire court terme, hypothèses productivité/emploi) est attribué à la source [6] dont les extraits ne sont pas fournis.",
+        "phrase": "Sur les retraites complémentaires, le rapport annuel du COR (juin 2026) confirme que le régime Agirc-Arrco reste excédentaire à court terme mais que son équilibre à long terme dépend des hypothèses de productivité et d'e"
+      },
+      {
+        "bloc": 1,
+        "type": "incoherence_inter_sections",
+        "description": "Le résumé mentionne une hausse au 1er octobre 2026, alors que le corps des faits parle aussi d'une hausse de la part fixe au 1er juillet 2026 [5] ; les deux hausses sont présentées comme simultanées ou liées sans clarifi",
+        "phrase": "Le prix repère du gaz naturel augmente de 6,3 % TTC au 1er octobre 2026, impactant les clients abonnés aux offres de marché indexées sur ce repère [1]."
+      }
+    ],
+    "types_restants": [
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "source_inventee",
+      "chiffre_errone",
+      "chiffre_errone",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "incoherence_inter_sections"
+    ],
+    "article_type": "actu",
+    "titre": "Gaz, pneus neige, expulsions locatives : ce qui change au 1er novembre 2026",
+    "n_sources": 6,
+    "n_mots": 688,
+    "titre_rss": "Prix du gaz, pneus neige, retraites complémentaires... Ce qui change au 1er novembre",
+    "matiere_faits_distincts": 778,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "anthropic-prospectus-entree-bourse-alertes-cybersecurite-ia",
+    "statut": "corrige_automatiquement",
+    "date": "2026-11-01T18:22:51",
+    "problemes_initiaux": 10,
+    "tentatives": 1,
+    "problemes_residuels_style": 21,
+    "rapport_initial": {
+      "conforme": false,
+      "sujet_sensible": false,
+      "sujet_sensible_raison": "",
+      "angle_insuffisant": false,
+      "angle_insuffisant_raison": "",
+      "nature_contenu": "actualite_factuelle",
+      "problemes": [
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "chiffre_errone",
+          "phrase_exacte": "dérobade de plusieurs milliards de dollars en cryptoactifs jeudi 29 octobre",
+          "explication": "La source [1] (L'Express, 29 octobre 2026) ne mentionne aucun vol de plusieurs milliards de dollars en cryptoactifs le 29 octobre ; elle traite uniquement du prospectus S-1 d'Anthropic et de l'analyse d'Azeem Azhar sur la cybersécurité."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "chiffre_errone",
+          "phrase_exacte": "découverte d'une faille dans le langage PHP qui menace 70 % des sites web",
+          "explication": "La source [1] ne mentionne aucune faille PHP ni le chiffre de 70 % des sites web vulnérables ; ce fait n'est pas sourcé."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "chiffre_errone",
+          "phrase_exacte": "vol de données personnelles au fisc cet été",
+          "explication": "La source [1] ne mentionne aucun vol de données au fisc cet été ; ce fait n'est pas sourcé."
+        },
+        {
+          "bloc": 1,
+          "section": "nuances",
+          "type": "chiffre_errone",
+          "phrase_exacte": "La faille PHP mentionnée affecte des versions spécifiques et des correctifs existent ; le chiffre de 70 % des sites web vulnérables dépend du taux d'application des mises à jour par les administrateurs",
+          "explication": "La source [1] ne mentionne pas de faille PHP, ni de correctifs, ni le chiffre de 70 % ; cette nuance commente un fait non établi par la source."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "vol de données personnelles au fisc cet été, dérobade de plusieurs milliards de dollars en cryptoactifs jeudi 29 octobre, et découverte d'une faille dans le langage PHP qui menace 70 % des sites web",
+          "explication": "Ces trois faits sont attribués à la source [1] (L'Express) mais n'y figurent pas ; ils constituent des informations inventées par rapport à la source citée."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "contexte_hors_sujet",
+          "phrase_exacte": "Le 24 septembre, Les Échos rapportaient que deux recours administratifs allaient être déposés contre le projet de méga data center de 1,4 gigawatt porté par MGX et Mistral en Seine-et-Marne, destiné à devenir l'un des plus gros campus d'IA d'Europe",
+          "explication": "Ce fait (projet de data center MGX/Mistral en France) n'éclaire pas directement le sujet principal (prospectus S-1 d'Anthropic, risques cyber, entrée en Bourse aux États-Unis) ; c'est un développement tangentiel sans lien direct."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "contexte_hors_sujet",
+          "phrase_exacte": "L'AFP notait le 16 octobre un rebond des actions après une période de ventes massives liée aux inquiétudes sur la bulle IA, dans un contexte de déclarations du président de la Fed Kevin Warsh sur le potentiel de la technologie",
+          "explication": "Ce fait (rebond boursier tech, déclarations de Kevin Warsh) est un contexte macroéconomique général qui ne porte pas spécifiquement sur l'entrée en Bourse d'Anthropic ni sur ses risques cyber documentés dans le S-1."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "dans un contexte de déclarations du président de la Fed Kevin Warsh sur le potentiel de la technologie",
+          "explication": "La source [3] (AFP, 16 octobre 2026) ne mentionne pas Kevin Warsh ni ses déclarations ; cette attribution est inventée par rapport à la source citée."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "le règlement sur l'IA (AI Act) entre en application progressive, imposant des obligations de cybersécurité pour les modèles à risque systémique",
+          "explication": "La source [4] (texte officiel de l'AI Act, 12 juillet 2024) n'est pas citée avec des extraits confirmant le calendrier d'entrée en application progressive ni les obligations précises de cybersécurité pour modèles à risque systémique ; l'article en déduit un contenu non vérifié dans les extraits fournis."
+        },
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "compteur_incoherent",
+          "phrase_exacte": "nb_sources: 4",
+          "explication": "Seule la source [1] est réellement utilisée pour étayer les faits principaux (prospectus S-1, analyse Azhar) ; les sources [2], [3], [4] ne servent qu'à un contexte hors sujet ou non vérifié. Le compteur de 4 sources distinctes utilisées est donc incohérent avec l'usage effectif."
+        }
+      ]
+    },
+    "article_type": "actu",
+    "titre": "Anthropic alerte sur les risques cyber de ses modèles dans son prospectus d'entrée en Bourse",
+    "n_sources": 4,
+    "n_mots": 607,
+    "titre_rss": "Azeem Azhar (Exponential View) : \"Le prochain grand gisement de revenus de l'IA viendra de la cybersécurité\"",
+    "matiere_faits_distincts": 172,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "senat-etat-lieux-negociations-adhesion-albanie-montenegro-ue",
+    "statut": "corrige_automatiquement",
+    "date": "2026-11-01T18:41:31",
+    "problemes_initiaux": 21,
+    "tentatives": 1,
+    "problemes_residuels_style": 16,
+    "rapport_initial": {
+      "conforme": false,
+      "sujet_sensible": false,
+      "sujet_sensible_raison": "",
+      "angle_insuffisant": false,
+      "angle_insuffisant_raison": "",
+      "nature_contenu": "rapport",
+      "problemes": [
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "incoherence_inter_sections",
+          "phrase_exacte": "Une délégation de la commission des affaires européennes du Sénat, conduite par son président, s'est déplacée en Albanie et au Monténégro du 14 au 17 juin 2026, quelques jours après le sommet UE-Balkans occidentaux organisé à Tivat le 5 juin [1][2].",
+          "explication": "La source [1] (notice du rapport du Sénat datée du 8 octobre 2026) ne peut pas confirmer un déplacement du 14 au 17 juin 2026 car elle est publiée après cette date ; la source [2] (article Le Monde du 4 juin 2026) est antérieure au déplacement et ne peut pas le décrire rétrospectivement. Les sources fournies ne permettent pas de vérifier la date exacte de la mission."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "chiffre_errone",
+          "phrase_exacte": "Pour l'Albanie, la délégation a constaté une détermination gouvernementale qualifiée de « sans plan B » et une accélération notable depuis l'ouverture de l'ensemble des chapitres de négociation en octobre 2024 [4].",
+          "explication": "La source [4] (synthèse PDF du rapport du Sénat) n'est pas fournie en extrait ; il est impossible de vérifier si l'ouverture de l'ensemble des chapitres de négociation a eu lieu en octobre 2024 ni si la formule « sans plan B » figure dans le rapport."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "chiffre_errone",
+          "phrase_exacte": "Au Monténégro, pays le plus avancé techniquement, la rédaction du traité d'adhésion a officiellement débuté, ce qui alimente l'objectif affiché d'une adhésion possible en 2028 [3][4].",
+          "explication": "La source [3] (version HTML intégrale du rapport du Sénat) et la source [4] (synthèse PDF) ne sont pas fournies en extrait ; il est impossible de vérifier le début officiel de la rédaction du traité d'adhésion ni l'objectif d'adhésion en 2028."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "chiffre_errone",
+          "phrase_exacte": "Un Eurobaromètre de septembre 2025 plaçait la France parmi les États membres les plus réservés sur de nouveaux élargissements [2].",
+          "explication": "La source [2] (article Le Monde du 4 juin 2026) ne mentionne pas d'Eurobaromètre de septembre 2025 dans les extraits fournis ; ce chiffre n'est pas vérifiable avec les sources autorisées."
+        },
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "Une délégation de la commission des affaires européennes du Sénat, conduite par son président, s'est déplacée en Albanie et au Monténégro du 14 au 17 juin 2026, quelques jours après le sommet UE-Balkans occidentaux organisé à Tivat le 5 juin [1][2].",
+          "explication": "Les sources [1] et [2] ne confirment pas la date du déplacement (14-17 juin 2026) ni le sommet à Tivat le 5 juin ; l'attribution à ces sources est donc inventée par rapport au contenu des extraits fournis."
+        },
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "Ce déplacement s'inscrit dans une mobilisation française sans précédent à tous les niveaux institutionnels en direction de ces deux pays candidats [2].",
+          "explication": "La source [2] (article Le Monde du 4 juin 2026) ne mentionne pas de « mobilisation française sans précédent à tous les niveaux institutionnels » dans les extraits fournis ; cette affirmation n'est pas sourcée."
+        },
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "Le rapport d'information qui en résulte précise la procédure d'élargissement et dresse un bilan contrasté de l'avancement des négociations [1].",
+          "explication": "La source [1] (notice du rapport du Sénat) n'est pas fournie en extrait ; il est impossible de vérifier qu'elle précise la procédure d'élargissement et dresse un bilan contrasté."
+        },
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "L'Albanie et le Monténégro sont les deux pays les plus avancés parmi les neuf candidats officiels à l'adhésion [1][2].",
+          "explication": "Les sources [1] et [2] ne contiennent pas cette affirmation dans les extraits fournis ; elle est attribuée sans fondement dans les sources autorisées."
+        },
+        {
+          "bloc": 2,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "Depuis le traité de Rome de 1957, l'Union européenne a connu sept élargissements et un départ (le Royaume-Uni), chaque étape modifiant son fonctionnement institutionnel [2].",
+          "explication": "La source [2] (article Le Monde du 4 juin 2026) ne traite pas de l'historique des élargissements de l'UE depuis 1957 ; cette information générale n'y figure pas dans les extraits."
+        },
+        {
+          "bloc": 2,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "L'article 49 du traité sur l'Union européenne (TUE) pose le principe : tout État européen respectant les valeurs de l'article 2 (dignité humaine, liberté, démocratie, État de droit, droits de l'homme) peut demander son adhésion [2].",
+          "explication": "La source [2] ne cite pas l'article 49 du TUE ni l'article 2 dans les extraits fournis ; cette référence juridique n'est pas présente dans l'article du Monde."
+        },
+        {
+          "bloc": 2,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "La méthodologie d'adhésion a été révisée en 2020 à l'initiative de la France pour la rendre plus prévisible, plus crédible et plus dynamique, en y intégrant un principe de réversibilité et un pilotage politique renforcé [2][4].",
+          "explication": "Les sources [2] et [4] ne contiennent pas cette description de la révision de la méthodologie d'adhésion de 2020 dans les extraits fournis ; l'attribution est inventée."
+        },
+        {
+          "bloc": 2,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "Neuf pays sont aujourd'hui candidats, avec une dynamique très variable : l'Ukraine, la Moldavie et la Géorgie ont obtenu le statut plus récemment, tandis que la Turquie, candidate depuis 1999, voit ses négociations au point mort [4].",
+          "explication": "La source [4] (synthèse PDF du rapport du Sénat) n'est pas fournie en extrait ; il est impossible de vérifier cette liste de pays candidats et leur statut."
+        },
+        {
+          "bloc": 2,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "Un dispositif spécifique de soutien aux Balkans occidentaux, dont la « perspective européenne » a été réaffirmée à de multiples reprises, accompagne ce processus [4].",
+          "explication": "La source [4] ne contient pas cette mention dans les extraits fournis ; l'affirmation n'est pas vérifiable."
+        },
+        {
+          "bloc": 2,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "En France, la ratification d'un traité d'adhésion suit l'article 88-5 de la Constitution : le projet de loi est soumis au référendum, sauf si le Parlement, réuni en Congrès, l'adopte à la majorité des trois cinquièmes après vote d'une motion identique dans chaque assemblée à la même majorité [2].",
+          "explication": "La source [2] (article Le Monde) ne décrit pas la procédure de l'article 88-5 de la Constitution française dans les extraits fournis ; cette explication juridique n'y figure pas."
+        },
+        {
+          "bloc": 2,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "Cette procédure solennelle n'a jamais été mise en œuvre : l'adhésion de la Croatie en 2013 avait été approuvée à la majorité simple par les deux assemblées [2].",
+          "explication": "La source [2] ne mentionne pas l'adhésion de la Croatie en 2013 ni la procédure de ratification utilisée dans les extraits fournis."
+        },
+        {
+          "bloc": 2,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "Un Eurobaromètre de septembre 2025 plaçait la France parmi les États membres les plus réservés sur de nouveaux élargissements [2].",
+          "explication": "La source [2] ne cite pas d'Eurobaromètre de septembre 2025 dans les extraits fournis ; ce sondage n'y est pas mentionné."
+        },
+        {
+          "bloc": 2,
+          "section": "nuances",
+          "type": "source_inventee",
+          "phrase_exacte": "Le calendrier d'une adhésion du Monténégro en 2028, évoqué dans le rapport du Sénat, reste une projection politique et non un engagement juridiquement contraignant [4].",
+          "explication": "La source [4] (synthèse PDF) n'est pas fournie en extrait ; il est impossible de vérifier que le rapport du Sénat évoque un calendrier 2028 pour le Monténégro."
+        },
+        {
+          "bloc": 2,
+          "section": "nuances",
+          "type": "source_inventee",
+          "phrase_exacte": "La clôture effective des chapitres de négociation dépend de l'appréciation par la Commission de la mise en œuvre concrète des réformes, notamment en matière d'État de droit et d'environnement, dont l'évaluation peut varier selon les rapports annuels [3][4].",
+          "explication": "Les sources [3] et [4] (rapport du Sénat version HTML et synthèse PDF) ne sont pas fournies en extraits ; cette affirmation sur le rôle de la Commission n'est pas vérifiable."
+        },
+        {
+          "bloc": 2,
+          "section": "nuances",
+          "type": "source_inventee",
+          "phrase_exacte": "La position française, bien que favorable à une dynamique d'élargissement vue comme un investissement géostratégique, intègre des « garde-fous » dont la portée opérationnelle n'est pas encore définie dans les traités [2][4].",
+          "explication": "Les sources [2] et [4] ne contiennent pas cette analyse de la position française avec des « garde-fous » non définis dans les traités dans les extraits fournis."
+        },
+        {
+          "bloc": 2,
+          "section": "nuances",
+          "type": "source_inventee",
+          "phrase_exacte": "Enfin, la capacité d'absorption de l'Union par de nouveaux membres — fonctionnement institutionnel, budget, politiques communes — est identifiée comme une dimension trop souvent laissée de côté dans le débat public, sans que les sources précisent de seuil ou de critère technique précis [4].",
+          "explication": "La source [4] ne mentionne pas la capacité d'absorption de l'Union ni son absence de seuils techniques dans les extraits fournis ; l'affirmation est attribuée sans fondement."
+        },
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "compteur_incoherent",
+          "phrase_exacte": "nb_sources: 4",
+          "explication": "L'article cite 4 sources dans le tableau mais la grande majorité des affirmations factuelles leur sont attribuées sans que les extraits fournis ne les confirment ; le compteur de sources ne reflète pas le nombre de sources réellement utilisées et vérifiées."
+        }
+      ]
+    },
+    "article_type": "actu",
+    "titre": "Le Sénat évalue les négociations d'adhésion de l'Albanie et du Monténégro à l'UE",
+    "n_sources": 4,
+    "n_mots": 736,
+    "titre_rss": "Albanie et Monténégro : un état des lieux des négociations d'adhésion à l'Union européenne - Rapport d'information n° 845",
+    "matiere_faits_distincts": 1101,
+    "matiere_redondance": 0.02,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "rapport"
+  },
+  {
+    "slug": "ebola-bundibugyo-vaccins-zaire-anticorps-croises-inserm",
+    "statut": "rejete_qualite",
+    "date": "2026-11-01T19:04:31",
+    "problemes_initiaux": 10,
+    "tentatives": 3,
+    "problemes_restants": 10,
+    "bloquants_restants": 8,
+    "bloquants_types": [
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "incoherence_inter_sections",
+      "niveau_preuve_insuffisant",
+      "niveau_preuve_insuffisant",
+      "source_inventee",
+      "source_inventee"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [2] (Le Monde, 27 août 2026) indique 2 242 décès, pas 2 233. Le chiffre exact de la source doit être respecté.",
+        "phrase": "L'épidémie actuelle en RDC a causé 2 233 décès recensés par l'Africa CDC au 27 août 2026, sans vaccin ni traitement spécifique approuvé contre cette souche émergente [2]."
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [2] indique 3 563 cas confirmés et 2 242 décès (et non 2 233). Le chiffre des décès est incohérent avec la source citée.",
+        "phrase": "Au 27 août 2026, l'Africa CDC recensait 3 563 cas confirmés et 2 233 décès en RDC, tandis que l'Ouganda a déclaré la fin de son épidémie le 28 juillet 2026 [2]."
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "Le résumé reprend le chiffre erroné de 2 233 décès au lieu de 2 242 indiqué par la source [2].",
+        "phrase": "L'épidémie en RDC totalisait 3 563 cas confirmés et 2 233 décès au 27 août 2026 selon l'Africa CDC, sans vaccin spécifique disponible contre cette souche."
+      },
+      {
+        "bloc": 1,
+        "type": "incoherence_inter_sections",
+        "description": "Incohérence interne : les faits citent 2 233 décès [2], le contexte cite 2 233 décès [2], mais la source [2] donne 2 242 décès. Les deux sections sont incohérentes avec la source commune.",
+        "phrase": "L'épidémie actuelle en RDC a causé 2 233 décès recensés par l'Africa CDC au 27 août 2026 [...] [2]."
+      },
+      {
+        "bloc": 1,
+        "type": "niveau_preuve_insuffisant",
+        "description": "L'article ne précise pas le stade de l'essai PREVAC (phase II) ni le fait qu'il n'y avait pas de groupe placebo, alors que la source [1] le mentionne explicitement. Pour une étude d'immunogénicité, l'absence de groupe pl",
+        "phrase": "L'étude a analysé des sérums de 179 participants de l'essai clinique PREVAC, mené en Afrique de l'Ouest entre 2018 et 2020, ayant reçu soit le vaccin rVSV-ZEBOV (Ervebo®, MSD), soit la combinaison Ad26.ZEBOV / MVA-BN-Fil"
+      },
+      {
+        "bloc": 1,
+        "type": "niveau_preuve_insuffisant",
+        "description": "L'article présente un résultat d'immunogénicité (anticorps détectables) sans rappeler explicitement que la corrélation entre taux d'anticorps et protection clinique n'est pas établie pour Bundibugyo, alors que la source ",
+        "phrase": "Les deux stratégies vaccinales ont induit des réponses immunitaires précoces détectables contre la souche Bundibugyo, quel que soit l'âge des participants ou le moment du prélèvement (28 jours ou 3 mois post-vaccination)"
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "La source [4] dans le tableau est un article du Monde daté du 26 mai 2026, mais le renvoi [4] dans le texte attribue à cette source une analyse sur l'absence d'essai clinique et le partage des chercheurs. Or la source [4",
+        "phrase": "Dès le 26 mai 2026, Le Monde soulignait qu'aucun essai clinique n'était en cours contre la souche Bundibugyo et que, selon son analyse, les chercheurs étaient partagés entre adapter les produits existants ou attendre des"
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "La source [5] est 'Vie Publique | Appel des chefs d'État et de gouvernement à une réponse coordonnée à l'épidémie d'Ébolavirus de Bundibugyo'. Le renvoi [5] attribue le lancement de l'appel à cette source. Il faut vérifi",
+        "phrase": "Le 16 juin 2026, les chefs d'État et de gouvernement ont lancé un appel à une réponse coordonnée face à cette épidémie [5]."
+      }
+    ],
+    "types_restants": [
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "incoherence_inter_sections",
+      "niveau_preuve_insuffisant",
+      "niveau_preuve_insuffisant",
+      "source_inventee",
+      "source_inventee",
+      "redondance",
+      "acteur_mis_en_cause_sans_reponse"
+    ],
+    "article_type": "actu",
+    "titre": "Ebola Bundibugyo : les vaccins anti-Zaïre induisent des anticorps croisés, selon l'Inserm",
+    "n_sources": 5,
+    "n_mots": 761,
+    "titre_rss": "Épidémie d’Ebola Bundibugyo : des premiers résultats pour guider la recherche d’un vaccin efficace",
+    "matiere_faits_distincts": 761,
+    "matiere_redondance": 0.01,
+    "matiere_donnees_chiffrees": 2,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "veille_heures_visible": 517.7,
+    "veille_passages": 311,
+    "veille_age_h": 1959.5,
+    "veille_n_flux_grappe": 9,
+    "nature_contenu": "etude_scientifique"
+  },
+  {
+    "slug": "fossiles-quercy-refroidissement-climatique-grande-coupure-34-millions-annees",
+    "statut": "rejete_qualite",
+    "date": "2026-11-01T19:28:05",
+    "problemes_initiaux": 11,
+    "tentatives": 3,
+    "problemes_restants": 5,
+    "bloquants_restants": 1,
+    "bloquants_types": [
+      "niveau_preuve_insuffisant"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "niveau_preuve_insuffisant",
+        "description": "L'article signale lui-même l'absence de groupe de comparaison dans l'étude, ce qui constitue une limite méthodologique majeure pour établir une causalité climatique exclusive ; cette limite n'est pas contrebalancée par d",
+        "phrase": "L'étude ne précise pas la présence d'un groupe de comparaison explicite pour quantifier l'impact relatif du refroidissement versus la concurrence, se fondant sur l'analyse compilée des fossiles du Quercy [2]."
+      }
+    ],
+    "types_restants": [
+      "compteur_incoherent",
+      "source_derivee_comptee_comme_primaire",
+      "niveau_preuve_insuffisant",
+      "fait_tranche_arbitrairement",
+      "fait_tranche_arbitrairement"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "article_sans_date"
+    ],
+    "titre": "Fossiles du Quercy : le refroidissement climatique cause principale de la Grande Coupure",
+    "n_sources": 4,
+    "n_mots": 624,
+    "titre_rss": "En images : les fossiles du Quercy, témoins d’un bouleversement climatique",
+    "matiere_faits_distincts": 607,
+    "matiere_redondance": 0.04,
+    "matiere_donnees_chiffrees": 3,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "etude_scientifique"
+  },
+  {
+    "slug": "cancers-france-incidence-mortalite-prevention-demi-teinte",
+    "statut": "rejete_sensible",
+    "date": "2026-11-01T19:47:47",
+    "problemes_initiaux": 23,
+    "tentative": 3,
+    "bloc5": true,
+    "article_type": "actu",
+    "titre": "Cancers en France : l'incidence progresse mais la mortalité baisse, la prévention reste en demi-teinte",
+    "n_sources": 5,
+    "n_mots": 657,
+    "titre_rss": "\"Le nombre de cancers augmente, mais la mortalité diminue\"",
+    "matiere_faits_distincts": 1053,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 3,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "inserm-sept-fausses-idees-vaccins-campagne-grippe-covid-2026",
+    "statut": "conforme_du_premier_coup",
+    "date": "2026-11-01T20:17:58",
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "resume_repete_corps",
+      "titre_de_mauvaise_qualite"
+    ],
+    "titre": "L'Inserm met à jour ses sept fausses idées sur les vaccins avant la campagne grippe-Covid",
+    "n_sources": 6,
+    "n_mots": 1096,
+    "titre_rss": "Sept fausses idées sur les vaccins",
+    "matiere_faits_distincts": 992,
+    "matiere_redondance": 0.02,
+    "matiere_donnees_chiffrees": 2,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "sebastien-dutreuil-sciences-environnement-attaquees-promesse-puissances",
+    "statut": "conforme_du_premier_coup",
+    "date": "2026-11-01T21:24:26",
+    "article_type": "actu",
+    "titre": "Sébastien Dutreuil : les sciences de l'environnement attaquées pour avoir trahi les puissances",
+    "n_sources": 5,
+    "n_mots": 518,
+    "titre_rss": "« Les sciences sont attaquées parce qu’elles ont trahi la promesse faite aux puissances »",
+    "matiere_faits_distincts": 345,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "tribune"
   }
 ]
