@@ -53616,5 +53616,338 @@
     "n_sources_injectees": 10,
     "n_sources_trouvees": 10,
     "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "annulation-dette-bce-france-risque-euro-confiance",
+    "statut": "rejete_sensible",
+    "date": "2026-11-01T07:36:03",
+    "problemes_initiaux": 6,
+    "tentative": 2,
+    "bloc5": true,
+    "article_type": "actu",
+    "titre": "Annuler la dette détenue par la BCE : un risque pour la valeur de l'euro",
+    "n_sources": 5,
+    "n_mots": 562,
+    "titre_rss": "Annuler la dette détenue par la Banque centrale européenne, c’est changer la nature de l’euro",
+    "matiere_faits_distincts": 753,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "cancers-france-incidence-mortalite-prevention-senat-2025",
+    "statut": "rejete_qualite",
+    "date": "2026-11-01T08:01:25",
+    "problemes_initiaux": 18,
+    "tentatives": 3,
+    "problemes_restants": 11,
+    "bloquants_restants": 2,
+    "bloquants_types": [
+      "chiffre_errone",
+      "chiffre_errone"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [6] (Santé publique France, 2019) indique 382 000 nouveaux cas estimés en 2018, mais avec une répartition 55 % hommes / 45 % femmes, et non 54 % / 46 % comme écrit dans l'article.",
+        "phrase": "Selon les estimations nationales issues du partenariat FRANCIM-INCa-Santé publique France-HCL, 382 000 nouveaux cas de cancers invasifs ont été estimés en France métropolitaine en 2018, dont 54 % chez les hommes et 46 % "
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [6] indique environ 280 000 nouveaux cas en 1990 (et non 250 000), ce qui correspond à une hausse d'environ 36 % et non de plus de 50 %.",
+        "phrase": "Depuis 1990, l'incidence tous cancers a augmenté de façon continue en France, passant d'environ 250 000 à 382 000 cas estimés en 2018, soit une hausse de plus de 50 % en près de trois décennies [6]."
+      }
+    ],
+    "types_restants": [
+      "chiffre_errone",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "chiffre_errone",
+      "source_inventee",
+      "source_inventee",
+      "compteur_incoherent",
+      "cadrage_emprunte"
+    ],
+    "article_type": "actu",
+    "titre": "Cancers en France : l'incidence progresse mais la mortalité recule, la prévention reste en demi-teinte",
+    "n_sources": 8,
+    "n_mots": 894,
+    "titre_rss": "\"Le nombre de cancers augmente, mais la mortalité diminue\"",
+    "matiere_faits_distincts": 1209,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 8,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "rapport"
+  },
+  {
+    "slug": "inserm-sept-fausses-idees-vaccins-campagne-grippe-covid-2026",
+    "statut": "corrige_automatiquement",
+    "date": "2026-11-01T09:05:48",
+    "problemes_initiaux": 16,
+    "tentatives": 1,
+    "problemes_residuels_style": 3,
+    "rapport_initial": {
+      "conforme": false,
+      "sujet_sensible": false,
+      "sujet_sensible_raison": "",
+      "angle_insuffisant": false,
+      "angle_insuffisant_raison": "",
+      "nature_contenu": "actualite_factuelle",
+      "problemes": [
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "chiffre_errone",
+          "phrase_exacte": "environ 6 400 nouveaux cas de cancers liés aux papillomavirus sont diagnostiqués chaque année en France, dont près de la moitié au col de l'utérus [1]",
+          "explication": "La source [1] (Inserm 2026) indique 'environ 6 400 nouveaux cas de cancers liés aux papillomavirus sont diagnostiqués chaque année en France, dont 2 900 cancers du col de l'utérus' ; 2 900 représente 45 %, pas 'près de la moitié' (50 %)."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "chiffre_errone",
+          "phrase_exacte": "une cohorte de plus de 300 000 filles et femmes suivies de 2006 à 2023 montre une réduction de 79 % du risque de cancer du col de l'utérus pour une vaccination avant 17 ans [1]",
+          "explication": "La source [1] précise 'réduction de 87 % du risque de cancer du col de l'utérus pour une vaccination avant 17 ans' (et 79 % pour une vaccination avant 18 ans) ; l'article inverse les seuils d'âge et les pourcentages."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "chiffre_errone",
+          "phrase_exacte": "en Allemagne, sur la période 2008-2024 avec plus de 300 000 participantes, la réduction atteint 65 % pour les schémas complets [1]",
+          "explication": "La source [1] indique une réduction de 65 % pour une vaccination avant 14 ans, et non 'pour les schémas complets' sans qualification d'âge ; la période couverte est 2007-2020 dans la source, pas 2008-2024."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "chiffre_errone",
+          "phrase_exacte": "Entre 2002 et septembre 2017, 515 notifications de MFM-maladie ont été reçues par le centre régional de pharmacovigilance [1]",
+          "explication": "La source [1] mentionne '515 notifications de MFM-maladie ont été reçues par les centres régionaux de pharmacovigilance' (pluriel), et non par un centre unique."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "un sondage Gallup/Wellcome de 2018 plaçait déjà le pays en tête des 144 nations les plus vaccino-sceptiques, avec un tiers des Français doutant de la sécurité des vaccins [3]",
+          "explication": "La référence [3] renvoie à la source 'Inserm | Sept fausses idées sur les vaccins - Canal Détox (version 2025)' qui ne contient pas ce sondage Gallup/Wellcome ; l'information n'est pas dans les extraits fournis."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "l'audition du professeur Christian Perronne devant la Chambre des députés du Luxembourg en janvier 2022, où il a qualifié les vaccins à ARNm de « traitement expérimental » et suggéré une modification du génome, des affirmations réfutées par l'AFP, la RTBF et de nombreux scientifiques [4]",
+          "explication": "La source [4] (RTBF) ne mentionne ni l'AFP ni 'de nombreux scientifiques' parmi les auteurs de la réfutation ; l'article attribue à cette source des éléments qu'elle ne contient pas."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "L'AP-HP l'avait démis de ses fonctions de chef de service en décembre 2020 pour propos jugés « indignes » [4]",
+          "explication": "La source [4] (RTBF) ne contient pas cette information sur la décision de l'AP-HP ; elle est absente des extraits fournis."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "le Sénat a publié en 2023 un rapport complet sur les effets indésirables des vaccins Covid-19, la pharmacovigilance, le Covid long et la désinformation en santé, soulignant l'impact de la crise sur la perception de l'ensemble des vaccinations [6]",
+          "explication": "La référence [6] n'existe pas dans la liste des sources autorisées (qui ne compte que 5 entrées, indices 1 à 5) ; l'article invente une source inexistante."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "L'Assemblée nationale avait aussi produit un rapport en mai 2024 sur les effets indésirables et l'évolution des connaissances scientifiques [2]",
+          "explication": "La source [2] (Assemblée nationale) est bien listée, mais les extraits fournis ne confirment pas qu'elle 'souligne l'impact de la crise sur la perception de l'ensemble des vaccinations' ; l'article prête à cette source un contenu non vérifié."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "l'OMS estime entre 290 000 et 650 000 les décès annuels mondiaux par complications grippales [1]",
+          "explication": "La source [1] (Inserm 2026) ne contient pas cette estimation de l'OMS dans les extraits fournis ; l'information est attribuée à une source qui ne la mentionne pas."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "l'Assemblée générale de l'ONU a adopté en avril 2021 une déclaration politique engageant les États à lutter contre la désinformation vaccinale [5]",
+          "explication": "La source [5] (UN) traite de la riposte aux fausses informations et à l'hésitation vaccinale, mais les extraits ne confirment pas l'adoption d'une 'déclaration politique' en avril 2021 par l'Assemblée générale ; l'article sur-interprète la source."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "l'UNICEF avait alerté en 2019 sur le danger de la désinformation pour la vaccination des enfants [7]",
+          "explication": "La référence [7] n'existe pas dans la liste des sources autorisées (indices 1 à 5 seulement) ; source inventée."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "le BMJ signalait en octobre 2025 un « effet domino » de la désinformation vaccinale venue des États-Unis sur les chercheurs et patients européens [8]",
+          "explication": "La référence [8] n'existe pas dans la liste des sources autorisées ; source inventée."
+        },
+        {
+          "bloc": 2,
+          "section": "contexte",
+          "type": "compteur_incoherent",
+          "phrase_exacte": "\"nb_sources\": 5",
+          "explication": "L'article cite des références [6], [7], [8] qui n'existent pas dans le tableau sources (5 entrées seulement) ; le compteur nb_sources=5 est incohérent avec les indices utilisés dans le texte."
+        },
+        {
+          "bloc": 1,
+          "section": "nuances",
+          "type": "source_inventee",
+          "phrase_exacte": "le rapport du Sénat 2023 note que certains signaux (surmortalité, troubles de type Covid long) font l'objet d'investigations en cours sans conclusion établie [6]",
+          "explication": "La référence [6] n'existe pas dans les sources autorisées ; l'article attribue un contenu à une source fantôme."
+        },
+        {
+          "bloc": 1,
+          "section": "nuances",
+          "type": "acteur_mis_en_cause_sans_reponse",
+          "phrase_exacte": "La réaction des personnes mises en cause par les vérifications (ex. Christian Perronne) n'est pas rapportée dans les sources consultées.",
+          "explication": "Christian Perronne est nommé et mis en cause (propos 'indignes', affirmations 'réfutées') dans le contexte ; l'article admet ne pas avoir sa réaction, ce qui constitue une mise en cause sans réponse."
+        }
+      ]
+    },
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "titre_de_mauvaise_qualite"
+    ],
+    "titre": "L'Inserm déconstruit sept fausses idées sur les vaccins à l'ouverture de la campagne grippe-Covid",
+    "n_sources": 5,
+    "n_mots": 955,
+    "titre_rss": "Sept fausses idées sur les vaccins",
+    "matiere_faits_distincts": 730,
+    "matiere_redondance": 0.1,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "france-culture-rediffusion-emission-desert-maroc-1992",
+    "statut": "rejete_qualite",
+    "date": "2026-11-01T09:23:27",
+    "angle_insuffisant": true,
+    "raison": "Aucune phrase des faits ne contient à la fois un événement précis daté (mise en ligne récente) et une donnée chiffrée ou nommée qui lui est propre ; l'article répond à « qu'est-ce que cette émission ? » plutôt qu'à « pourquoi en parle-t-on maintenant ? »",
+    "article_type": "actu",
+    "titre": "France Culture rediffuse une exploration sonore du désert marocain de 1992",
+    "n_sources": 3,
+    "n_mots": 658,
+    "titre_rss": "À l'écoute du désert 6 : Expériences dans le désert marocain, à la découverte de soi",
+    "matiere_faits_distincts": 763,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "sujet_pedagogique"
+  },
+  {
+    "slug": "rdc-essai-vaccinal-tumaini-ebola-bundibugyo-depasse-10000-cas",
+    "statut": "rejete_sensible",
+    "date": "2026-11-01T09:50:29",
+    "problemes_initiaux": 12,
+    "tentative": 3,
+    "bloc5": true,
+    "article_type": "actu",
+    "titre": "RDC : l'essai vaccinal Tumaini débute à Bunia, 10 000 cas d'Ebola Bundibugyo",
+    "n_sources": 6,
+    "n_mots": 766,
+    "titre_rss": "Ebola en RDC : un essai clinique du vaccin Tumaini a débuté, selon l’OMS",
+    "matiere_faits_distincts": 1001,
+    "matiere_redondance": 0.05,
+    "matiere_donnees_chiffrees": 3,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "loi-montagne-2-equipements-obligatoires-zone-montagneuse-1er-novembre-2026",
+    "statut": "rejete_qualite",
+    "date": "2026-11-01T10:12:32",
+    "problemes_initiaux": 10,
+    "tentatives": 3,
+    "problemes_restants": 13,
+    "bloquants_restants": 1,
+    "bloquants_types": [
+      "chiffre_errone"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [3] (Senat - Lois promulguées 2026) ne contient pas la date de promulgation ni le numéro de loi dans les extraits fournis ; l'article attribue à cette source une information qu'elle ne confirme pas.",
+        "phrase": "La loi Montagne II, promulguée le 18 août 2026 sous le numéro 2026-797, active son volet équipements à compter du 1er novembre 2026 [3]."
+      }
+    ],
+    "types_restants": [
+      "chiffre_errone",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "compteur_incoherent"
+    ],
+    "article_type": "actu",
+    "titre": "Loi Montagne II : équipements obligatoires en zone montagneuse dès le 1er novembre 2026",
+    "n_sources": 4,
+    "n_mots": 522,
+    "titre_rss": "Automobilistes : la loi Montagne entre en vigueur demain, voici ce que vous devez changer sur votre voiture",
+    "matiere_faits_distincts": 1020,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "rats-urbains-reservoirs-maladies-surveillance-france",
+    "statut": "rejete_qualite",
+    "date": "2026-11-01T10:36:20",
+    "angle_insuffisant": true,
+    "raison": "Aucune phrase dans 'faits' ne contient à la fois un événement précis daté ou datable (annonce, publication, décision, résultat rendu public récemment) et une donnée chiffrée ou nommée qui lui est propre. L'article répond à 'qu'est-ce que X ?' (rats urbains et pathogènes) plutôt qu'à 'pourquoi parle-t-on de X maintenant ?', sans fait déclencheur daté justifiant la publication immédiate.",
+    "article_type": "actu",
+    "titre": "Rats urbains : des réservoirs de maladies encore mal surveillés en France",
+    "n_sources": 4,
+    "n_mots": 685,
+    "titre_rss": "Mieux connaître les rats qui nous entourent, et les microbes qu’ils hébergent",
+    "matiere_faits_distincts": 758,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "sujet_pedagogique"
+  },
+  {
+    "slug": "salles-sport-fitness-musculation-jeunes-investisseurs-croissance",
+    "statut": "rejete_qualite",
+    "date": "2026-11-01T11:09:52",
+    "angle_insuffisant": true,
+    "raison": "Aucune phrase des faits ne contient à la fois un événement précis daté (annonce, publication, décision, résultat récent) et une donnée chiffrée ou nommée qui lui est propre. L'article explique un phénomène général (croissance des salles de sport, engouement des jeunes) sans identifier de fait déclencheur récent justifiant la publication maintenant. La source la plus récente (Le Monde, 2026/11/01) n'est pas exploitée pour en extraire un événement daté précis.",
+    "article_type": "actu",
+    "titre": "Salles de sport : 43 % des 16-25 ans pratiquent la musculation, les investisseurs suivent",
+    "n_sources": 5,
+    "n_mots": 388,
+    "titre_rss": "L’attrait des jeunes pour le fitness et la musculation porte le succès commercial des salles de sport",
+    "matiere_faits_distincts": 604,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "sujet_pedagogique"
   }
 ]
