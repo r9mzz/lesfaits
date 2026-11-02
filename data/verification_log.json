@@ -54558,5 +54558,775 @@
     "n_sources_injectees": 10,
     "n_sources_trouvees": 10,
     "nature_contenu": "tribune"
+  },
+  {
+    "slug": "cyberattaques-applications-alerte-urgence-ukraine-russie",
+    "statut": "corrige_automatiquement",
+    "date": "2026-11-02T17:12:30",
+    "problemes_initiaux": 10,
+    "tentatives": 3,
+    "problemes_residuels_style": 6,
+    "rapport_initial": {
+      "conforme": false,
+      "sujet_sensible": false,
+      "sujet_sensible_raison": "",
+      "angle_insuffisant": false,
+      "angle_insuffisant_raison": "",
+      "nature_contenu": "actualite_factuelle",
+      "problemes": [
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "chiffre_errone",
+          "phrase_exacte": "Dans la nuit du dimanche 1er novembre, le ministère ukrainien de la Transformation numérique a annoncé sur Telegram que l'application mobile officielle d'alerte à la population avait été piratée [5].",
+          "explication": "La source [5] (France 24, 2026-11-02) ne mentionne pas le jour de la semaine ; l'article ajoute \"dimanche\" sans que la source ne le confirme. Le 1er novembre 2026 est un dimanche, mais cette précision n'est pas dans la source citée."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "Le communiqué russe ne détaille pas le contenu des éventuels messages frauduleux diffusés ni l'étendue technique de la compromission [1].",
+          "explication": "La source [1] (France 24, vidéo générale) ne contient pas de détail sur le communiqué russe ; l'AP News [4] indique que les autorités russes n'ont pas précisé la nature des messages. Le renvoi [1] ne confirme pas ce fait."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "Leur compromission simultanée soulève des questions sur la résilience de ces infrastructures numériques critiques face à des opérations coordonnées [1].",
+          "explication": "La source [1] ne traite pas de résilience ni d'opérations coordonnées ; cette analyse éditoriale n'est pas sourcée."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "Le panorama 2025 de l'ANSSI note que de tels événements constituent désormais le \"quotidien ukrainien\" et qu'une série d'attaques coordonnées a visé les infrastructures électriques polonaises fin 2025, une première pour un État membre de l'UE [2].",
+          "explication": "La source [2] (Vie Publique, Panorama 2025) ne mentionne ni le terme \"quotidien ukrainien\" ni des attaques sur infrastructures électriques polonaises fin 2025."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "En réponse, l'Union européenne a renforcé sa coopération cyber avec Kiev : le 5e dialogue cyber UE-Ukraine d'octobre 2026 a acté l'approfondissement de la coopération opérationnelle, l'alignement sur la directive NIS2 et le Cyber Resilience Act, ainsi que la signature d'un arrangement administratif entre CERT-EU et CERT-UA pour améliorer la détection et la réponse aux incidents [3].",
+          "explication": "La source [3] (Europa, 5e dialogue cyber) ne mentionne ni NIS2, ni Cyber Resilience Act, ni arrangement CERT-EU/CERT-UA."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "En juin 2026, l'Ukraine a été intégrée à la réserve de cybersécurité de l'UE, gérée par l'ENISA, lui donnant accès à des services de réponse à incident de fournisseurs de confiance pour faire face aux incidents de grande ampleur [6].",
+          "explication": "La source [6] (Europa, juin 2026) ne mentionne pas l'ENISA, ni des fournisseurs de confiance, ni des services de réponse à incident."
+        },
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "compteur_incoherent",
+          "phrase_exacte": "nb_sources: 6",
+          "explication": "Deux entrées (1 et 5) renvoient à la même URL France 24 ; il y a 5 sources distinctes, pas 6."
+        },
+        {
+          "bloc": 3,
+          "section": "contexte",
+          "type": "paraphrase_structurelle",
+          "phrase_exacte": "L'Ukraine fait face depuis 2022 à une intensification sans précédent des cyberattaques à visée destructive contre ses infrastructures critiques, notamment énergétiques et de communication, attribuées à des acteurs étatiques russes ou affiliés [2].",
+          "explication": "Reprend la structure et le vocabulaire du Panorama ANSSI 2025 sans guillemets ni attribution explicite au-delà du renvoi [2]."
+        },
+        {
+          "bloc": 4,
+          "section": "contexte",
+          "type": "contexte_hors_sujet",
+          "phrase_exacte": "Le panorama 2025 de l'ANSSI note que de tels événements constituent désormais le \"quotidien ukrainien\" et qu'une série d'attaques coordonnées a visé les infrastructures électriques polonaises fin 2025, une première pour un État membre de l'UE [2].",
+          "explication": "Les attaques sur infrastructures polonaises (fin 2025) n'éclairent pas directement les cyberattaques du 1er novembre 2026 sur applications d'alerte en Ukraine et Russie."
+        },
+        {
+          "bloc": 4,
+          "section": "contexte",
+          "type": "section_gonflee",
+          "phrase_exacte": "En réponse, l'Union européenne a renforcé sa coopération cyber avec Kiev : le 5e dialogue cyber UE-Ukraine d'octobre 2026 a acté l'approfondissement de la coopération opérationnelle, l'alignement sur la directive NIS2 et le Cyber Resilience Act, ainsi que la signature d'un arrangement administratif entre CERT-EU et CERT-UA pour améliorer la détection et la réponse aux incidents [3].",
+          "explication": "Développement long sur la coopération UE-Ukraine qui n'apporte pas de fait distinct sourcé sur l'incident du 1er novembre ; remplit la section sans lien direct avec le sujet."
+        }
+      ]
+    },
+    "article_type": "actu",
+    "titre": "Cyberattaques simultanées sur les applications d'alerte d'urgence en Ukraine et en Russie",
+    "n_sources": 6,
+    "n_mots": 517,
+    "titre_rss": "Ukraine - Russie : les deux pays touchés par des cyberattaques",
+    "matiere_faits_distincts": 790,
+    "matiere_redondance": 0.01,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "cyberattaque-frigos-supermarches-europe-sept-pays-danfoss",
+    "statut": "rejete_qualite",
+    "date": "2026-11-02T17:20:47",
+    "tentative": 3,
+    "perte_substance": true,
+    "section": "nuances",
+    "mots_avant": 116,
+    "mots_apres": 46,
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "titre_de_mauvaise_qualite"
+    ],
+    "titre": "Cyberattaque sur les frigos de supermarchés : sept pays européens touchés",
+    "n_sources": 4,
+    "n_mots": 683,
+    "titre_rss": "Des réfrigérateurs de magasins belges, luxembourgeois et suédois victimes de cyberattaques",
+    "matiere_faits_distincts": 953,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "canada-proces-jeunes-inaction-climatique-sante-mentale",
+    "statut": "rejete_sensible",
+    "date": "2026-11-02T17:27:21",
+    "sujet_sensible": true,
+    "raison": "L'article porte sur une affaire judiciaire en cours (procès devant la Cour fédérale du Canada) visant des personnes (quinze jeunes plaignants nommés et le gouvernement fédéral), non définitivement jugée.",
+    "article_type": "actu",
+    "titre": "Au Canada, quinze jeunes poursuivent l'État pour inaction climatique et atteintes à leur santé mentale",
+    "n_sources": 6,
+    "n_mots": 779,
+    "titre_rss": "Climat : la santé mentale des jeunes dans un procès inédit au Canada",
+    "matiere_faits_distincts": 921,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 2,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "enquete-371000-adultes-fruits-entiers-infarctus-hypertension",
+    "statut": "corrige_automatiquement",
+    "date": "2026-11-02T17:39:40",
+    "problemes_initiaux": 4,
+    "tentatives": 1,
+    "problemes_residuels_style": 8,
+    "rapport_initial": {
+      "conforme": false,
+      "sujet_sensible": false,
+      "sujet_sensible_raison": "",
+      "angle_insuffisant": false,
+      "angle_insuffisant_raison": "",
+      "nature_contenu": "etude_scientifique",
+      "problemes": [
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "chiffre_errone",
+          "phrase_exacte": "Une revue systématique de 15 essais contrôlés portant sur 639 participants a par ailleurs rapporté une réduction de la résistance à l'insuline associée à la consommation régulière de jus d'orange [2].",
+          "explication": "La source [2] (BBC) ne mentionne aucune revue systématique de 15 essais contrôlés sur 639 participants ni de réduction de la résistance à l'insuline liée au jus d'orange ; ce chiffre est inventé par rapport à la source citée."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "Les effets variaient selon la corpulence : les personnes en surpoids présentaient des changements plus marqués sur les gènes du métabolisme lipidique, tandis que les volontaires plus minces montraient une réponse plus forte sur les gènes de l'inflammation [2].",
+          "explication": "La source [2] (BBC) ne contient aucune information sur une variation des effets selon la corpulence, ni sur des gènes du métabolisme lipidique ou de l'inflammation différenciés par IMC ; ces détails sont inventés et attribués faussement à la source."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "contexte_hors_sujet",
+          "phrase_exacte": "Une étude publiée dans The Conversation souligne que la relation médecin-patient reste une composante importante de la prise en charge, rappelant que les progrès disruptifs de la médecine ont considérablement amélioré l'espérance de vie et la qualité des soins [3].",
+          "explication": "La source [3] (The Conversation) traite de l'éthique médicale et des limites de la médecine, sans lien avec la consommation de fruits, de jus d'orange ou les facteurs de risque cardiovasculaire ; ce développement est hors sujet par rapport à l'article."
+        },
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "compteur_incoherent",
+          "phrase_exacte": "\"nb_sources\": 4",
+          "explication": "Le champ nb_sources indique 4 alors que le tableau sources ne contient que 3 entrées distinctes (Futura Sciences, BBC, The Conversation) ; le compteur est incohérent avec le nombre réel de sources listées."
+        }
+      ]
+    },
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "resume_repete_corps",
+      "article_sans_date"
+    ],
+    "titre": "Enquête sur 371 000 adultes : moins de fruits entiers chez les infarctus",
+    "n_sources": 3,
+    "n_mots": 593,
+    "titre_rss": "Fruit entier ou jus de fruits : une enquête  révèle une différence chez ceux qui ont fait un infarctus",
+    "matiere_faits_distincts": 1509,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "etude_scientifique"
+  },
+  {
+    "slug": "bulgarie-iliana-iotova-elu-presidente-57-6-pour-cent",
+    "statut": "rejete_sensible",
+    "date": "2026-11-02T17:45:58",
+    "problemes_initiaux": 11,
+    "bloc5": [
+      "diffamation_potentielle"
+    ],
+    "article_type": "actu",
+    "titre": "Iliana Iotova élue présidente de Bulgarie avec 57,6 % des voix",
+    "n_sources": 5,
+    "n_mots": 520,
+    "titre_rss": "Bulgarie : la prorusse Iliana Iotova remporte l'élection présidentielle",
+    "matiere_faits_distincts": 1099,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "ebola-bundibugyo-vaccins-zaire-anticorps-croises",
+    "statut": "rejete_qualite",
+    "date": "2026-11-02T18:02:24",
+    "problemes_initiaux": 9,
+    "tentatives": 3,
+    "problemes_restants": 8,
+    "bloquants_restants": 3,
+    "bloquants_types": [
+      "chiffre_errone",
+      "chiffre_errone",
+      "incoherence_inter_sections"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [1] (Inserm, 23 juillet 2026) indique que l'épidémie a été déclarée le 30 janvier 2025, soit environ 18 mois avant la publication de l'article, et non 'il y a moins de trois mois'.",
+        "phrase": "L'épidémie de Bundibugyo, déclarée par l'OMS il y a moins de trois mois, touche la RDC et l'Ouganda [1]."
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [2] (Vie Publique, 16 juin 2026) ne mentionne aucun montant de 426,6 millions de dollars mobilisé par la Banque mondiale ; ce chiffre n'apparaît pas dans l'extrait fourni.",
+        "phrase": "La Banque mondiale mobilise 426,6 millions de dollars pour la riposte en RDC, Ouganda et pays limitrophes [2]."
+      },
+      {
+        "bloc": 1,
+        "type": "incoherence_inter_sections",
+        "description": "Le chapeau (résumé) mentionne une épidémie 'en RDC et en Ouganda' sans datation relative, tandis que les faits affirment qu'elle a été déclarée 'il y a moins de trois mois', ce qui contredit la source [1] qui la date de ",
+        "phrase": "L'épidémie de Bundibugyo, déclarée par l'OMS il y a moins de trois mois, touche la RDC et l'Ouganda [1]."
+      }
+    ],
+    "types_restants": [
+      "chiffre_errone",
+      "chiffre_errone",
+      "source_inventee",
+      "source_inventee",
+      "incoherence_inter_sections",
+      "compteur_incoherent",
+      "compteur_incoherent",
+      "compteur_incoherent"
+    ],
+    "article_type": "actu",
+    "titre": "Ebola Bundibugyo : les vaccins anti-Zaïre induisent des anticorps croisés mais sans preuve d'efficacité clinique",
+    "n_sources": 4,
+    "n_mots": 581,
+    "titre_rss": "Épidémie d’Ebola Bundibugyo : des premiers résultats pour guider la recherche d’un vaccin efficace",
+    "matiere_faits_distincts": 896,
+    "matiere_redondance": 0.03,
+    "matiere_donnees_chiffrees": 4,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "veille_heures_visible": 517.7,
+    "veille_passages": 311,
+    "veille_age_h": 1983.5,
+    "veille_n_flux_grappe": 9,
+    "nature_contenu": "etude_scientifique"
+  },
+  {
+    "slug": "fossiles-quercy-grande-coupure-climat-extinction-34-millions-annees",
+    "statut": "corrige_automatiquement",
+    "date": "2026-11-02T18:21:19",
+    "problemes_initiaux": 5,
+    "tentatives": 1,
+    "problemes_residuels_style": 0,
+    "rapport_initial": {
+      "conforme": false,
+      "sujet_sensible": false,
+      "sujet_sensible_raison": "",
+      "angle_insuffisant": false,
+      "angle_insuffisant_raison": "",
+      "nature_contenu": "etude_scientifique",
+      "problemes": [
+        {
+          "bloc": 1,
+          "section": "titre",
+          "type": "chiffre_errone",
+          "phrase_exacte": "Fossiles du Quercy : le climat cause de la Grande Coupure",
+          "explication": "Le titre affirme que le climat est LA cause de la Grande Coupure (généralisation à l'ensemble de l'événement), alors que les sources [1][2] limitent cette conclusion aux artiodactyles du Quercy uniquement ; le résumé et les nuances le précisent, mais le titre, lu seul, sur-généralise un résultat partiel."
+        },
+        {
+          "bloc": 1,
+          "section": "resume",
+          "type": "chiffre_errone",
+          "phrase_exacte": "Le refroidissement global, non la concurrence asiatique, est identifié comme moteur principal de cette extinction, mais l'étude ne couvre que les artiodactyles.",
+          "explication": "La première phrase présente la conclusion climatique comme valable pour \"cette extinction\" (la Grande Coupure dans son ensemble), alors que la seconde phrase admet que l'étude ne porte que sur les artiodactyles ; le résumé contredit donc sa propre réserve en affirmant d'abord le résultat généralisé."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "chiffre_errone",
+          "phrase_exacte": "L'hypothèse d'une concurrence avec les espèces asiatiques ayant mené à l'extinction des espèces endémiques a longtemps été privilégiée mais est écartée par cette étude.",
+          "explication": "Cette phrase se trouve dans la section \"faits\" mais n'est sourcée par aucun renvoi [n] ; elle rapporte une conclusion de l'étude (source [2]) sans attribution numérique, ce qui la fait passer pour un fait établi par la rédaction plutôt que par la source."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "chiffre_errone",
+          "phrase_exacte": "L'hypothèse d'une concurrence avec les espèces asiatiques ayant mené à l'extinction des espèces endémiques a longtemps été privilégiée mais est écartée par cette étude.",
+          "explication": "Même phrase que dans \"faits\", répétée dans \"contexte\" sans renvoi [n] ; doublon non sourcé qui enfreint la règle d'attribution par numéro de source."
+        },
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "compteur_incoherent",
+          "phrase_exacte": "nb_sources: 4",
+          "explication": "Le champ nb_sources indique 4, mais le tableau \"sources\" ne contient que 3 entrées distinctes (deux CNRS + un Le Monde) ; le compteur est donc faux."
+        }
+      ]
+    },
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "resume_repete_corps"
+    ],
+    "titre": "Fossiles du Quercy : le climat cause de la Grande Coupure",
+    "n_sources": 3,
+    "n_mots": 618,
+    "titre_rss": "En images : les fossiles du Quercy, témoins d’un bouleversement climatique",
+    "matiere_faits_distincts": 900,
+    "matiere_redondance": 0.01,
+    "matiere_donnees_chiffrees": 4,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "etude_scientifique"
+  },
+  {
+    "slug": "cancers-incidence-augmente-mortalite-baisse-objectif-guerison-2040",
+    "statut": "erreur_verification",
+    "date": "2026-11-02T18:32:30",
+    "etape": "correction",
+    "tentative": 1,
+    "erreur": "JSON tronqué ou incomplet dans la réponse (max_tokens atteint ?)",
+    "article_type": "actu",
+    "titre": "Cancers : incidence en hausse, mortalité en baisse, objectif 80 % guérison 2040",
+    "n_sources": 6,
+    "n_mots": 489,
+    "titre_rss": "\"Le nombre de cancers augmente, mais la mortalité diminue\"",
+    "matiere_faits_distincts": 794,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 5,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "cancers-incidence-augmente-mortalite-baisse-objectif-guerison-2040",
+    "statut": "rejete_qualite",
+    "date": "2026-11-02T18:32:30",
+    "raison": "verification_indisponible",
+    "statut_verification_initial": "erreur_verification"
+  },
+  {
+    "slug": "canicule-juin-2026-mortalite-toutes-causes-bondit-29-pour-cent",
+    "statut": "corrige_automatiquement",
+    "date": "2026-11-02T18:40:20",
+    "problemes_initiaux": 3,
+    "tentatives": 2,
+    "problemes_residuels_style": 0,
+    "rapport_initial": {
+      "conforme": false,
+      "sujet_sensible": false,
+      "sujet_sensible_raison": "",
+      "angle_insuffisant": false,
+      "angle_insuffisant_raison": "",
+      "nature_contenu": "actualite_factuelle",
+      "problemes": [
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "contexte_hors_sujet",
+          "phrase_exacte": "Une question écrite déposée à l'Assemblée nationale le 24 mars 2026 par la députée Nathalie Da Conceicao Carvalho (Rassemblement National, Essonne) demande au ministre de l'Intérieur de communiquer les statistiques officielles sur le nombre total de morts violentes en France, ainsi que le nombre total de personnes vivant sur le territoire [3].",
+          "explication": "Cette question écrite porte sur les morts violentes et la population totale, sans lien avec la surmortalité liée à la canicule de juin 2026 qui est le sujet de l'article."
+        },
+        {
+          "bloc": 2,
+          "section": "contexte",
+          "type": "source_derivee_comptee_comme_primaire",
+          "phrase_exacte": "Une question écrite déposée à l'Assemblée nationale le 24 mars 2026 par la députée Nathalie Da Conceicao Carvalho (Rassemblement National, Essonne) demande au ministre de l'Intérieur de communiquer les statistiques officielles sur le nombre total de morts violentes en France, ainsi que le nombre total de personnes vivant sur le territoire [3].",
+          "explication": "La source [3] est citée dans le contexte mais n'apporte aucune information sur le sujet de l'article (surmortalité canicule juin 2026) ; elle est comptée dans nb_sources=4 alors qu'elle ne documente pas le fait traité."
+        },
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "compteur_incoherent",
+          "phrase_exacte": "nb_sources: 4",
+          "explication": "Le champ nb_sources indique 4 mais le tableau sources ne contient que 3 entrées distinctes ; de plus la source [3] est hors sujet et ne devrait pas être comptée comme source utile pour ce sujet."
+        }
+      ]
+    },
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "faits_repetitifs",
+      "titre_de_mauvaise_qualite"
+    ],
+    "titre": "Canicule de juin 2026 : la mortalité toutes causes bondit de 29 % en une semaine",
+    "n_sources": 3,
+    "n_mots": 730,
+    "titre_rss": "Point de situation sur la mortalité toutes causes confondues  sur la période du 22 au 28 juin 2026",
+    "matiere_faits_distincts": 1270,
+    "matiere_redondance": 0.02,
+    "matiere_donnees_chiffrees": 4,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "veille_heures_visible": 221.3,
+    "veille_passages": 74,
+    "veille_age_h": 1687.1,
+    "veille_n_flux_grappe": 1,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "inserm-sept-fausses-idees-vaccins-campagne-grippe-covid-2026",
+    "statut": "rejete_qualite",
+    "date": "2026-11-02T18:50:19",
+    "tentative": 3,
+    "perte_substance": true,
+    "section": "contexte",
+    "mots_avant": 230,
+    "mots_apres": 105,
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "resume_repete_corps"
+    ],
+    "titre": "L'Inserm actualise ses sept fausses idées sur les vaccins avant la campagne du 13 octobre",
+    "n_sources": 6,
+    "n_mots": 987,
+    "titre_rss": "Sept fausses idées sur les vaccins",
+    "matiere_faits_distincts": 930,
+    "matiere_redondance": 0.02,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "manosphere-enjeu-sante-publique-etude-lancet",
+    "statut": "rejete_qualite",
+    "date": "2026-11-02T19:07:55",
+    "tentative": 3,
+    "angle_insuffisant": true,
+    "raison": "Aucune phrase des faits ne contient à la fois un événement précis daté (publication du commentaire dans The Lancet) et une donnée chiffrée ou nommée qui lui est propre. L'article répond à \"qu'est-ce que la manosphère ?\" plutôt qu'à \"pourquoi en parle-t-on maintenant ?\" — la date exacte de parution du commentaire n'est pas fournie, ni son titre, ni ses auteurs, ni un chiffre nouveau qu'il apporterait.",
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "article_sans_date"
+    ],
+    "titre": "The Lancet classe la manosphère en enjeu de santé publique",
+    "n_sources": 3,
+    "n_mots": 553,
+    "titre_rss": "La \"manosphère\" : un enjeu de santé publique selon une étude britannique",
+    "matiere_faits_distincts": 1556,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "etude_scientifique"
+  },
+  {
+    "slug": "proces-dubai-papers-fraude-fiscale-hélin-international",
+    "statut": "rejete_sensible",
+    "date": "2026-11-02T19:14:34",
+    "sujet_sensible": true,
+    "raison": "L'article porte sur un procès pénal en cours visant des personnes nommées (treize prévenus identifiés par leurs fonctions : responsables d'Hélin International, avocats, expert-comptable) pour des faits de fraude fiscale aggravée et blanchiment en bande organisée, non définitivement jugés.",
+    "article_type": "actu",
+    "titre": "Procès des \"Dubai Papers\" : neuf prévenus jugés pour fraude fiscale massive",
+    "n_sources": 4,
+    "n_mots": 607,
+    "titre_rss": "« Dubai Papers » : l’heure du procès pour une « officine de fraude fiscale à grande échelle »",
+    "matiere_faits_distincts": 404,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "sophie-adenot-retour-terre-mission-huit-mois-iss",
+    "statut": "rejete_qualite",
+    "date": "2026-11-02T19:32:57",
+    "tentative": 1,
+    "angle_insuffisant": true,
+    "raison": "L'angle annoncé ('retour de Sophie Adenot après sa mission de huit mois dans l'espace') n'est pas traité : aucune phrase des faits ne mentionne un retour récent, une mission de huit mois, ni de réadaptation post-vol datée. L'article parle de la certification d'avril 2024 et d'une EVA de septembre 2026 sans lien avec Sophie Adenot.",
+    "article_type": "actu",
+    "titre": "Sophie Adenot de retour sur Terre après une mission de huit mois à l'ISS",
+    "n_sources": 4,
+    "n_mots": 603,
+    "titre_rss": "Sophie Adenot \"rêve\" d'aller sur la Lune",
+    "matiere_faits_distincts": 730,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "binance-piratage-record-6-3-milliards-dollars-cryptomonnaies",
+    "statut": "rejete_qualite",
+    "date": "2026-11-02T19:59:56",
+    "problemes_initiaux": 11,
+    "tentatives": 3,
+    "problemes_restants": 9,
+    "bloquants_restants": 3,
+    "bloquants_types": [
+      "chiffre_errone",
+      "incoherence_inter_sections",
+      "chiffre_errone"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "Le titre affirme un préjudice de 6,3 milliards de dollars alors que les sources [1] et [2] indiquent un préjudice estimé à 6,3 milliards de dollars, mais la source [3] précise qu'il s'agit d'une estimation d'analystes on",
+        "phrase": "Binance victime d'une cyberattaque importante, préjudice estimé à 6,3 milliards de dollars selon des analystes on-chain, estimation à confirmer"
+      },
+      {
+        "bloc": 1,
+        "type": "incoherence_inter_sections",
+        "description": "Le résumé cite Le Monde [1] pour l'estimation à 6,3 milliards, mais la source [1] est un article du 30 octobre 2026 qui rapporte l'annonce de Binance et l'estimation d'analystes on-chain, sans confirmer le chiffre. Le ré",
+        "phrase": "La plateforme d'échange Binance a confirmé avoir subi une cyberattaque importante dans la nuit du 29 au 30 octobre 2026, avec un préjudice estimé à 6,3 milliards de dollars selon des analystes on-chain cités par Le Monde"
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La phrase attribue à Le Monde [1] l'affirmation que ce serait le plus gros vol de l'histoire, mais la source [1] ne contient pas cette comparaison historique. C'est la source [3] qui fait cette comparaison. Attribution d",
+        "phrase": "Le préjudice est estimé à 6,3 milliards de dollars par des analystes on-chain, ce qui en ferait, si ce montant est confirmé, le plus important vol de cryptomonnaies jamais enregistré selon Le Monde [1]."
+      }
+    ],
+    "types_restants": [
+      "chiffre_errone",
+      "incoherence_inter_sections",
+      "chiffre_errone",
+      "source_inventee",
+      "compteur_incoherent",
+      "redondance",
+      "redondance",
+      "cadrage_emprunte",
+      "jugement_de_valeur"
+    ],
+    "article_type": "actu",
+    "titre": "Binance victime d'un piratage record estimé à 6,3 milliards de dollars",
+    "n_sources": 4,
+    "n_mots": 514,
+    "titre_rss": "Cryptomonnaies : la plateforme Binance annonce avoir été victime d’un important piratage, dont le préjudice est estimé à 6,3 milliards de dollars",
+    "matiere_faits_distincts": 1066,
+    "matiere_redondance": 0.02,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "billy-barr-ermite-rocheuses-50-ans-mesures-neige-climat",
+    "statut": "conforme_du_premier_coup",
+    "date": "2026-11-02T20:14:42",
+    "article_type": "actu",
+    "titre": "Billy Barr, ermite des Rocheuses, 50 ans de mesures de neige au service du climat",
+    "n_sources": 3,
+    "n_mots": 510,
+    "titre_rss": "Billy Barr, ermite moderne et vigie du climat dans les Rocheuses du Colorado",
+    "matiere_faits_distincts": 937,
+    "matiere_redondance": 0.01,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "chantiers-data-centers-europe-travailleurs-exploites-climat-terreur",
+    "statut": "rejete_qualite",
+    "date": "2026-11-02T20:25:19",
+    "problemes_initiaux": 14,
+    "tentatives": 3,
+    "problemes_restants": 13,
+    "bloquants_restants": 2,
+    "bloquants_types": [
+      "source_inventee",
+      "source_inventee"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "Le renvoi [1] pointe vers la source \"Le Monde | Centres de données : sur les chantiers de construction européens...\" qui est un article *relayant* l'enquête Investigate Europe, pas l'enquête elle-même. L'article attribue",
+        "phrase": "Une enquête de cinq mois menée par le consortium journalistique Investigate Europe, avec des partenaires dans huit pays dont Le Monde, met en lumière des conditions de travail qualifiées de \"climat de terreur\" par l'enqu"
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "Le renvoi [4] pointe vers l'article du Monde \"Comment le lobby de la tech a fait entrer le secret dans le droit européen...\" qui documente l'action du lobby tech/CISPE. L'article cite \"le CISPE\" comme acteur ayant \"obten",
+        "phrase": "Le secret maintenu sur les données environnementales des centres de données, obtenu par le CISPE auprès de l'Union européenne, complique l'évaluation indépendante de l'impact réel de ces infrastructures [4]."
+      }
+    ],
+    "types_restants": [
+      "fait_tranche_arbitrairement",
+      "fait_tranche_arbitrairement",
+      "fait_tranche_arbitrairement",
+      "contexte_hors_sujet",
+      "contexte_hors_sujet",
+      "redondance",
+      "source_inventee",
+      "source_inventee",
+      "compteur_incoherent",
+      "cadrage_emprunte",
+      "cadrage_emprunte",
+      "extrapolation",
+      "section_gonflee"
+    ],
+    "article_type": "actu",
+    "titre": "Chantiers de data centers en Europe : des travailleurs exploités dans un climat de terreur",
+    "n_sources": 6,
+    "n_mots": 584,
+    "titre_rss": "Data centers : sur les chantiers de construction européens, des travailleurs exploités dans un climat de « terreur »",
+    "matiere_faits_distincts": 1149,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "assemblee-vote-taxe-donnees-numeriques-5-5-centimes-gigaoctet",
+    "statut": "rejete_sensible",
+    "date": "2026-11-02T20:36:03",
+    "problemes_initiaux": 13,
+    "tentative": 3,
+    "bloc5": true,
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "faits_repetitifs"
+    ],
+    "titre": "L'Assemblée vote une taxe sur les données numériques à 5,5 centimes le gigaoctet",
+    "n_sources": 5,
+    "n_mots": 627,
+    "titre_rss": "«Ces fous vont nous mettre au fond du ravin» : après le vote d’une taxe sur les données numériques, la colère d’utilisateurs et de patrons",
+    "matiere_faits_distincts": 1030,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "megafeu-corbieres-un-an-apres-suites-etat-attendues",
+    "statut": "rejete_qualite",
+    "date": "2026-11-02T20:46:32",
+    "tentative": 3,
+    "angle_insuffisant": true,
+    "raison": "L'article ne rapporte aucun événement nouveau ni aucune donnée propre à l'actualité : il se borne à signaler le dépôt d'une question écrite parlementaire restée sans réponse, sans qu'aucun fait déclencheur daté (décision, publication, annonce, résultat) ne justifie une publication maintenant. Le lecteur ne sait pas ce qui s'est passé récemment sur le fond (plan de sauvegarde, mission interministérielle, attentes des maires) — l'angle annoncé (« quelles suites concrètes ? ») n'obtient aucune réponse dans les faits.",
+    "article_type": "actu",
+    "titre": "Megafeu des Corbières : un an après, les élus attendent les suites promises",
+    "n_sources": 4,
+    "n_mots": 624,
+    "titre_rss": "« Après le mégafeu de Gironde, créons la plus grande réserve naturelle d’Europe de l’Ouest »",
+    "matiere_faits_distincts": 748,
+    "matiere_redondance": 0.14,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "etude-museum-arret-nocturne-eoliennes-mortalite-chauves-souris",
+    "statut": "rejete_sensible",
+    "date": "2026-11-02T21:00:24",
+    "problemes_initiaux": 3,
+    "tentative": 3,
+    "bloc5": true,
+    "article_type": "actu",
+    "titre": "Étude du Muséum : l'arrêt nocturne des éoliennes divise par cinq la mortalité des chauves-souris",
+    "n_sources": 5,
+    "n_mots": 596,
+    "titre_rss": "Stopper les éoliennes la nuit : cinq fois moins de collisions pour les chauves-souris",
+    "matiere_faits_distincts": 1274,
+    "matiere_redondance": 0.03,
+    "matiere_donnees_chiffrees": 2,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "etude_scientifique"
+  },
+  {
+    "slug": "projet-global-erc-forets-tropicales-humides-evolution",
+    "statut": "rejete_qualite",
+    "date": "2026-11-02T21:08:30",
+    "problemes_initiaux": 3,
+    "tentatives": 3,
+    "problemes_restants": 12,
+    "bloquants_restants": 4,
+    "bloquants_types": [
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "La source [1] (communiqué IRD) ne mentionne pas l'unité DIADE ; cette affiliation est une information absente de la source citée.",
+        "phrase": "Le Conseil européen de la recherche a attribué un ERC Consolidator Grant au chercheur Thomas Couvreur, rattaché à l'unité mixte de recherche DIADE de l'IRD [1]."
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "La source [1] ne contient aucune mention de données génomiques, phylogénétiques, de distribution géographique, de séquençage de nouvelle génération, de modélisation de niches écologiques ni d'analyses macroévolutives.",
+        "phrase": "Le communiqué de l'IRD précise que le projet GLOBAL mobilisera des données génomiques, phylogénétiques et de distribution géographique pour reconstruire l'histoire évolutive des Annonacées à l'échelle planétaire [1]."
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "La source [1] ne contient aucune de ces précisions méthodologiques ; elles sont inventées et attribuées faussement à la source [1].",
+        "phrase": "Cette approche intégrée combine séquençage de nouvelle génération, modélisation de niches écologiques et analyses macroévolutives pour identifier les moteurs de la diversification dans les forêts tropicales humides [1]."
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "La source [1] ne contient pas cette formulation sur le 'soutien de la recherche européenne aux approches intégrées' ; c'est une interprétation non sourcée présentée comme fait.",
+        "phrase": "Le financement ERC obtenu par Thomas Couvreur, d'un montant de 1 998 750 euros sur cinq ans, illustre le soutien de la recherche européenne aux approches intégrées à l'échelle planétaire pour comprendre l'évolution de ce"
+      }
+    ],
+    "types_restants": [
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "contexte_hors_sujet",
+      "contexte_hors_sujet",
+      "contexte_hors_sujet",
+      "source_non_editoriale",
+      "source_non_editoriale",
+      "source_non_editoriale",
+      "compteur_incoherent",
+      "section_gonflee"
+    ],
+    "article_type": "actu",
+    "titre": "Le projet GLOBAL obtient 1,95 million d'euros pour étudier l'évolution des forêts tropicales",
+    "n_sources": 3,
+    "n_mots": 391,
+    "titre_rss": "Forêts tropicales humides : un financement ERC pour le chercheur IRD Thomas Couvreur",
+    "matiere_faits_distincts": 886,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "veille_heures_visible": 517.7,
+    "veille_passages": 326,
+    "veille_age_h": 1983.5,
+    "veille_n_flux_grappe": 2,
+    "nature_contenu": "actualite_factuelle"
   }
 ]
