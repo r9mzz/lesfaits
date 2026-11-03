@@ -55825,5 +55825,197 @@
     "n_sources_injectees": 10,
     "n_sources_trouvees": 10,
     "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "afd-contrat-objectifs-moyens-2027-2029-transmis-parlement",
+    "statut": "rejete_qualite",
+    "date": "2026-11-03T18:31:44",
+    "problemes_initiaux": 25,
+    "tentatives": 3,
+    "problemes_restants": 7,
+    "bloquants_restants": 4,
+    "bloquants_types": [
+      "chiffre_errone",
+      "incoherence_inter_sections",
+      "source_inventee",
+      "source_inventee"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [1] (rapport du Sénat) n'est pas vérifiée pour contenir un chiffre ou une confirmation chiffrée du recul de l'APD par rapport à l'objectif 0,7 % ; l'article attribue à la source [1] une affirmation chiffrée non",
+        "phrase": "L'aide publique au développement a connu de puissants bouleversements sur cette période, éloignant la France de l'objectif de 0,7 % du revenu national brut fixé par la loi du 4 août 2021 de programmation relative au déve"
+      },
+      {
+        "bloc": 1,
+        "type": "incoherence_inter_sections",
+        "description": "Le résumé cite le rapport d'information n° 3282 de l'Assemblée déposé le 7 octobre 2026, tandis que les faits citent le rapport sénatorial n° 119 daté du 28 octobre 2026 comme source [1] pour l'ensemble des affirmations,",
+        "phrase": "Au Sénat, le rapport d'information n° 119 de la commission des affaires étrangères, de la défense et des forces armées, daté du 28 octobre 2026 et rédigé par MM. Christian Cambon et François Rebsamen, traite du même suje"
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "La source [1] est le rapport du Sénat (avis sur le projet de COM), pas l'acte de transmission gouvernemental lui-même ; l'article attribue à cette source le fait de la transmission par le gouvernement, que le rapport sén",
+        "phrase": "Le gouvernement a transmis aux commissions compétentes du Parlement le projet de contrat d'objectifs et de moyens (COM) de l'Agence française de développement pour la période 2027-2029 [1]"
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "La source [4] est le jeu de données data.gouv.fr lui-même, pas un rapport confirmant sa publication ; l'article utilise la source comme autorité pour affirmer sa propre existence, ce qui est circulaire.",
+        "phrase": "Les données de l'aide au développement de l'AFD sont publiées en open data sur data.gouv.fr [4]"
+      }
+    ],
+    "types_restants": [
+      "fait_tranche_arbitrairement",
+      "chiffre_errone",
+      "incoherence_inter_sections",
+      "source_inventee",
+      "source_inventee",
+      "redondance",
+      "section_gonflee"
+    ],
+    "article_type": "actu",
+    "titre": "L'AFD reçoit son contrat 2027-2029 le 13 juillet 2026 après cinq ans sans cadre",
+    "n_sources": 4,
+    "n_mots": 681,
+    "titre_rss": "Enfin ! Le COM 2027-2029 de l'AFD - Rapport d'information n° 119",
+    "matiere_faits_distincts": 557,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "senat-resolution-bei-financement-armes-munitions-defense",
+    "statut": "rejete_qualite",
+    "date": "2026-11-03T18:52:37",
+    "tentative": 3,
+    "perte_substance": true,
+    "section": "nuances",
+    "mots_avant": 142,
+    "mots_apres": 57,
+    "article_type": "actu",
+    "titre": "Le Sénat adopte une résolution pour ouvrir les financements de la BEI aux armes",
+    "n_sources": 4,
+    "n_mots": 654,
+    "titre_rss": "Armes et munitions produites par les industries européennes de la défense - Rapport n° 879",
+    "matiere_faits_distincts": 918,
+    "matiere_redondance": 0.02,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "veille_heures_visible": 517.7,
+    "veille_passages": 326,
+    "veille_age_h": 2007.5,
+    "veille_n_flux_grappe": 4,
+    "nature_contenu": "decision_officielle"
+  },
+  {
+    "slug": "cancers-france-incidence-double-mortalite-recule-2026",
+    "statut": "rejete_qualite",
+    "date": "2026-11-03T19:11:11",
+    "problemes_initiaux": 11,
+    "tentatives": 3,
+    "problemes_restants": 9,
+    "bloquants_restants": 7,
+    "bloquants_types": [
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "incoherence_inter_sections",
+      "source_inventee",
+      "source_inventee"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [2] (dataset data.gouv.fr publié le 16 mars 2026) ne fournit que des estimations d'incidence (nouveaux cas) pour 2023, pas de mortalité ; le chiffre de 162 400 décès n'y figure pas.",
+        "phrase": "En 2023, 162 400 décès par cancer étaient estimés selon les données les plus récentes [2]."
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [2] ne contient pas de données de mortalité par localisation ; ces chiffres de décès ne sont pas présents dans le dataset d'incidence cité.",
+        "phrase": "Le cancer du poumon reste la première cause de décès par cancer chez l'homme (20 867), devant le colorectal (9 294) et la prostate (8 197) [2]."
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [2] ne fournit pas de données de mortalité par sexe ni par localisation ; l'affirmation n'est pas sourcée.",
+        "phrase": "Chez la femme, le trio sein, poumon, colorectal concentre l'essentiel de la mortalité [2]."
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [2] est datée du 16 mars 2026 et porte sur les estimations 2023 avec tendances 1990-2023 ; elle ne mentionne pas que les données 2019-2023 sont des projections arrêtées à 2018.",
+        "phrase": "Les données 2019-2023 sont des projections basées sur les tendances observées jusqu'en 2018 [2]."
+      },
+      {
+        "bloc": 1,
+        "type": "incoherence_inter_sections",
+        "description": "La source [5] (AFP, 30 sept. 2026) donne 61 000 cas 'chaque année' comme chiffre récurrent, tandis que la source [2] donne 61 214 cas spécifiquement pour 2023 ; l'article présente les deux comme compatibles sans préciser",
+        "phrase": "L'agence AFP indique 61 000 nouveaux cas de cancer du sein chaque année en France, un ordre de grandeur compatible avec l'estimation 2023 [5]."
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "La source [3] (communiqué Santé publique France du 2 juillet 2019) n'est pas fournie en extrait ; l'article lui attribue une description détaillée de la production des estimations (acteurs, méthodologie révisée) que la s",
+        "phrase": "Les estimations nationales d'incidence et de mortalité par cancer sont produites par Santé publique France, l'Institut national du cancer (INCa), le réseau des registres des cancers FRANCIM et le service de biostatistiqu"
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "Même source [3] non fournie en extrait ; la mention d'une révision méthodologique précise n'est pas vérifiable à partir des sources autorisées communiquées.",
+        "phrase": "La méthodologie a été révisée pour s'appuyer sur les données des registres et des modèles statistiques performants [3]."
+      }
+    ],
+    "types_restants": [
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "incoherence_inter_sections",
+      "redondance",
+      "source_inventee",
+      "source_inventee",
+      "compteur_incoherent"
+    ],
+    "article_type": "actu",
+    "titre": "Cancers en France : l'incidence double depuis 1990 mais la mortalité recule",
+    "n_sources": 5,
+    "n_mots": 679,
+    "titre_rss": "\"Le nombre de cancers augmente, mais la mortalité diminue\"",
+    "matiere_faits_distincts": 934,
+    "matiere_redondance": 0.01,
+    "matiere_donnees_chiffrees": 2,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "arizona-durcissement-aides-sociales-pauvrete-midterms-2026",
+    "statut": "rejete_qualite",
+    "date": "2026-11-03T19:59:35",
+    "tentative": 1,
+    "angle_insuffisant": true,
+    "raison": "Aucune phrase dans 'faits' ne combine un événement précis daté (ex: publication d'un rapport, décision administrative, chiffre officiel rendu public) et une donnée chiffrée ou nommée qui lui est propre. Le texte décrit une situation générale ('afflux', 'files d'attente') attribuée aux associations via une source unique (RFI) sans indiquer ce qui vient de se passer concrètement (ex: rapport publié le X, chiffre officiel du Y, témoignage daté du Z). L'article répond à 'qu'est-ce qui se passe en Arizona ?' plutôt qu'à 'pourquoi en parle-t-on maintenant ?'.",
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "titre_de_mauvaise_qualite"
+    ],
+    "titre": "Arizona : afflux dans les banques alimentaires après le durcissement fédéral des aides",
+    "n_sources": 6,
+    "n_mots": 494,
+    "titre_rss": "Midterms 2026: en Arizona, le durcissement de l'accès aux aides sociales a accentué la pauvreté",
+    "matiere_faits_distincts": 861,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
   }
 ]
