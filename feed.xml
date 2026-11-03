@@ -5,13 +5,22 @@
   <link>https://lesfaits.info/</link>
   <description>Journal numérique français rédigé par IA. Juste les faits. Aucun parti pris.</description>
   <language>fr</language>
-  <lastBuildDate>Thu, 20 Aug 2026 13:05:51 GMT</lastBuildDate>
+  <lastBuildDate>Tue, 03 Nov 2026 07:29:26 GMT</lastBuildDate>
   <atom:link href="https://lesfaits.info/feed.xml" rel="self" type="application/rss+xml"/>
   <image>
     <url>https://lesfaits.info/assets/images/og-default.jpg</url>
     <title>Les Faits</title>
     <link>https://lesfaits.info/</link>
   </image>
+  <item>
+    <title>Les fossiles du Quercy racontent la Grande Coupure il y a 34 millions d’années</title>
+    <link>https://lesfaits.info/articles/fossiles-quercy-grande-coupure-bouleversement-climatique.html</link>
+    <guid isPermaLink="true">https://lesfaits.info/articles/fossiles-quercy-grande-coupure-bouleversement-climatique.html</guid>
+    <description>Un reportage vidéo du CNRS et de Le Monde explore les phosphatières du Lot, où des milliers de fossiles datés de 52 à 20 millions d'années documentent la Grande Coupure. Cette extinction massive survenue il y a 34 millions d'années a renouvelé la faune européenne, avec une conservation exceptionnelle incluant tissus mous et globes oculaires. Les chercheurs y cherchent des repères pour comprendre la vitesse actuelle du changement climatique et la sixième extinction en cours.</description>
+    <category>science</category>
+    <enclosure url="https://lesfaits.info/assets/images/fossiles-quercy-grande-coupure-bouleversement-climatique.jpg" type="image/jpeg" length="0"/>
+    <pubDate>Tue, 03 Nov 2026 07:29:22 GMT</pubDate>
+  </item>
   <item>
     <title>Inflation à 2,1% en France sur un an en juillet</title>
     <link>https://lesfaits.info/articles/inflation-france-juillet-2026.html</link>
@@ -182,15 +191,6 @@
     <category>sante</category>
     <enclosure url="https://lesfaits.info/assets/images/morts-elephants-kenya.jpg" type="image/jpeg" length="0"/>
     <pubDate>Thu, 30 Jul 2026 12:54:21 GMT</pubDate>
-  </item>
-  <item>
-    <title>Amazon Prime Video organise Obsessed Fest pour les fans de comédies romantiques</title>
-    <link>https://lesfaits.info/articles/obsessed-fest-prime-video-romcom.html</link>
-    <guid isPermaLink="true">https://lesfaits.info/articles/obsessed-fest-prime-video-romcom.html</guid>
-    <description>Amazon Prime Video a organisé la première édition de l'Obsessed Fest, un festival pour les fans de comédies romantiques, avec des activités et des rencontres avec les acteurs de la série Off Campus, qui a généré 36 millions de visionnages sur Prime Video pour sa première saison, selon Numerama. Cette initiative montre l'engagement de la plateforme de streaming dans le genre romantique, qui connaît un succès grandissant auprès des jeunes adultes, avec des séries comme Off Campus qui deviennent des phénomènes culturels. Selon Avclub, les comédies romantiques peuvent renforcer les stéréotypes de genre et la culture de fandom, qui peuvent être problématiques, notamment avec des séries qui présentent des relations idéalisées et peu réalistes.</description>
-    <category>societe</category>
-    <enclosure url="https://lesfaits.info/assets/images/obsessed-fest-prime-video-romcom.jpg" type="image/jpeg" length="0"/>
-    <pubDate>Thu, 30 Jul 2026 03:27:07 GMT</pubDate>
   </item>
 </channel>
 </rss>

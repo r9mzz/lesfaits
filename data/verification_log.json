@@ -55705,5 +55705,125 @@
     "n_sources_injectees": 10,
     "n_sources_trouvees": 10,
     "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "senat-resolution-bei-financement-armes-munitions-europeennes",
+    "statut": "rejete_sensible",
+    "date": "2026-11-03T08:14:54",
+    "problemes_initiaux": 10,
+    "tentative": 3,
+    "bloc5": true,
+    "article_type": "actu",
+    "titre": "Le Sénat adopte une résolution pour inclure les armes dans les financements de la BEI",
+    "n_sources": 4,
+    "n_mots": 618,
+    "titre_rss": "Armes et munitions produites par les industries européennes de la défense - Rapport n° 879",
+    "matiere_faits_distincts": 989,
+    "matiere_redondance": 0.02,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "veille_heures_visible": 517.7,
+    "veille_passages": 326,
+    "veille_age_h": 1998.2,
+    "veille_n_flux_grappe": 4,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "madagascar-fouilles-archeologiques-tresors-pirates-ocean-indien",
+    "statut": "corrige_automatiquement",
+    "date": "2026-11-03T08:24:07",
+    "problemes_initiaux": 7,
+    "tentatives": 2,
+    "problemes_residuels_style": 6,
+    "rapport_initial": {
+      "conforme": false,
+      "sujet_sensible": false,
+      "sujet_sensible_raison": "",
+      "angle_insuffisant": false,
+      "angle_insuffisant_raison": "",
+      "nature_contenu": "etude_scientifique",
+      "problemes": [
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "incoherence_inter_sections",
+          "phrase_exacte": "La même publication indique que ces découvertes concernent un comptoir de contrebande et des traces de traite négrière, éléments qui redéfinissent la piraterie comme un système économique intégré aux réseaux d'échange de l'océan Indien [4].",
+          "explication": "La source [4] (article du Monde du 20 avril 2026 sur des biens archéologiques volés retrouvés en France) ne traite pas des fouilles à Madagascar ni de la piraterie dans l'océan Indien ; elle ne peut pas confirmer les affirmations qui lui sont attribuées."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "contexte_hors_sujet",
+          "phrase_exacte": "D'autres découvertes archéologiques récentes en France illustrent la diversité des biens culturels récupérés hors des circuits illicites : pièces d'or, blocs antiques et figurines médiévales ont pu être étudiés et rendus à l'État après être sortis du marché, selon un article du Monde daté du 20 avril 2026 [6].",
+          "explication": "Ce développement porte sur des restitutions d'objets volés en France, sans lien avec les fouilles pirates à Madagascar ni avec l'histoire de la piraterie dans l'océan Indien ; il ne sert qu'à remplir la section."
+        },
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "La même publication indique que ces découvertes concernent un comptoir de contrebande et des traces de traite négrière, éléments qui redéfinissent la piraterie comme un système économique intégré aux réseaux d'échange de l'océan Indien [4].",
+          "explication": "Le renvoi [4] désigne la quatrième source du tableau (article de l'ONU sur le rapatriement d'animaux sauvages), qui ne contient aucune information sur les fouilles archéologiques à Madagascar."
+        },
+        {
+          "bloc": 2,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "D'autres découvertes archéologiques récentes en France illustrent la diversité des biens culturels récupérés hors des circuits illicites : pièces d'or, blocs antiques et figurines médiévales ont pu être étudiés et rendus à l'État après être sortis du marché, selon un article du Monde daté du 20 avril 2026 [6].",
+          "explication": "Le renvoi [6] dépasse le nombre de sources listées (4) ; aucune source à cet indice n'existe dans le tableau fourni."
+        },
+        {
+          "bloc": 2,
+          "section": "contexte",
+          "type": "formule_vague",
+          "phrase_exacte": "Des travaux historiques antérieurs, notamment ceux de l'historien Jean Soulat, avaient déjà documenté l'installation de pirates à Sainte-Marie (Nosy Boraha) et sur la côte nord-est au tournant du XVIIIe siècle.",
+          "explication": "Jean Soulat et ses travaux ne figurent dans aucune des sources autorisées ; l'affirmation est présentée comme un fait établi sans référence vérifiable."
+        },
+        {
+          "bloc": 4,
+          "section": "contexte",
+          "type": "section_gonflee",
+          "phrase_exacte": "D'autres découvertes archéologiques récentes en France illustrent la diversité des biens culturels récupérés hors des circuits illicites : pièces d'or, blocs antiques et figurines médiévales ont pu être étudiés et rendus à l'État après être sortis du marché, selon un article du Monde daté du 20 avril 2026 [6].",
+          "explication": "Ce paragraphe n'apporte aucun fait distinct sourcé sur le sujet principal (fouilles pirates à Madagascar) et ne fait qu'allonger artificiellement la section contexte."
+        },
+        {
+          "bloc": 4,
+          "section": "contexte",
+          "type": "compteur_incoherent",
+          "phrase_exacte": "nb_sources: 4",
+          "explication": "Le champ nb_sources indique 4, mais le texte utilise des renvois [1], [4] et [6] — l'indice [6] n'existe pas dans la liste, ce qui fausse le comptage des sources effectivement utilisées."
+        }
+      ]
+    },
+    "article_type": "actu",
+    "titre": "Madagascar : des fouilles archéologiques révèlent les trésors des pirates de l'océan Indien",
+    "n_sources": 4,
+    "n_mots": 505,
+    "titre_rss": "A Madagascar, des fouilles archéologiques font parler les trésors des pirates de l’océan Indien",
+    "matiere_faits_distincts": 828,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "etude_scientifique"
+  },
+  {
+    "slug": "fossiles-quercy-grande-coupure-bouleversement-climatique",
+    "statut": "conforme_du_premier_coup",
+    "date": "2026-11-03T08:29:20",
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "article_sans_date"
+    ],
+    "titre": "Les fossiles du Quercy racontent la Grande Coupure il y a 34 millions d'années",
+    "n_sources": 4,
+    "n_mots": 498,
+    "titre_rss": "En images : les fossiles du Quercy, témoins d’un bouleversement climatique",
+    "matiere_faits_distincts": 1127,
+    "matiere_redondance": 0.03,
+    "matiere_donnees_chiffrees": 4,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
   }
 ]
