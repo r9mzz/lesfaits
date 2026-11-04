@@ -56862,5 +56862,660 @@
     "n_sources_injectees": 10,
     "n_sources_trouvees": 10,
     "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "onu-rapport-ecart-adaptation-deficit-financement-dix-fois",
+    "statut": "rejete_qualite",
+    "date": "2026-11-04T17:12:38",
+    "tentative": 2,
+    "angle_insuffisant": true,
+    "raison": "Aucune phrase dans 'faits' ne combine un événement précis daté (publication du rapport PNUE) avec une donnée chiffrée propre à cet événement (montant du déficit, besoins en milliards, pourcentage de couverture). L'article répond à 'qu'est-ce que l'écart d'adaptation ?' sans dire ce que le rapport publié le 4 novembre 2026 apporte de nouveau chiffré.",
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "titre_de_mauvaise_qualite"
+    ],
+    "titre": "L'ONU publie son rapport sur l'écart d'adaptation : un déficit dix fois supérieur aux financements actuels",
+    "n_sources": 4,
+    "n_mots": 564,
+    "titre_rss": "Avant la COP31 en Turquie, l’ONU alerte d’un « déficit ahurissant » entre les besoins et les financements réels de l’adaptation des pays en développement",
+    "matiere_faits_distincts": 693,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "budget-culture-2027-baisse-06-pourcent-audition-senat",
+    "statut": "rejete_qualite",
+    "date": "2026-11-04T17:29:43",
+    "problemes_initiaux": 11,
+    "tentatives": 3,
+    "problemes_restants": 10,
+    "bloquants_restants": 5,
+    "bloquants_types": [
+      "chiffre_errone",
+      "incoherence_inter_sections",
+      "chiffre_errone",
+      "chiffre_errone",
+      "source_inventee"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "Le calcul est mathématiquement incohérent : 0,6 % de 3,9 milliards d'euros équivaut à 23,4 millions, mais 3,9 milliards représente un arrondi de 3,9 milliards ; le montant exact du budget 2026 selon la source [4] (Le Mon",
+        "phrase": "Le projet de loi de finances pour 2027 inscrit les crédits de la mission « Culture » en baisse de 0,6 % par rapport à la loi de finances initiale 2026, soit une réduction d'environ 23,4 millions d'euros sur un total d'en"
+      },
+      {
+        "bloc": 1,
+        "type": "incoherence_inter_sections",
+        "description": "La source [2] (Vie Publique, discours du 21/09/2026) est antérieure à l'audition du 3 novembre [1] et ne peut pas contenir les propos tenus lors de cette audition ; la source [3] (Assemblée nationale, 22/10/2026) concern",
+        "phrase": "La ministre a défendu un budget qu'elle a qualifié de « stabilisé en volume » après deux années de hausses exceptionnelles liées au plan de relance post-Covid, arguant que la baisse ne remettait pas en cause les grands c"
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [3] (Assemblée nationale, audition du 22/10/2026) ne contient pas ces chiffres précis (3,7 et 3,4 milliards) dans les extraits fournis ; ils sont inventés ou extrapolés.",
+        "phrase": "L'audiovisuel public, financé via le compte d'avances, a vu ses dotations passer de 3,7 milliards d'euros en 2022 à 3,4 milliards en 2026, dans le cadre de la réforme de la contribution à l'audiovisuel public votée en 20"
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [5] (Insee, données annuelles 2000-2025 publiée le 29/05/2026) fournit des séries historiques mais l'extrait ne confirme pas une progression en 2025 ni sa décomposition par postes ; l'article affirme une tendan",
+        "phrase": "Selon l'Insee, les dépenses culturelles des ménages ont progressé en 2025, tirées par les services récréatifs et sportifs ainsi que les services culturels [5]."
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "La source [2] (Vie Publique, 21/09/2026) est un discours antérieur à l'audition du 3 novembre et ne peut pas rendre compte des questions posées par les sénateurs ce jour-là ; l'attribution est fausse.",
+        "phrase": "Les sénateurs ont questionné la ministre sur la capacité du ministère à maintenir les engagements pris pour la rénovation du Louvre, la sécurisation des musées nationaux et le soutien aux industries culturelles dans un c"
+      }
+    ],
+    "types_restants": [
+      "chiffre_errone",
+      "incoherence_inter_sections",
+      "source_inventee",
+      "chiffre_errone",
+      "chiffre_errone",
+      "source_inventee",
+      "source_inventee",
+      "source_derivee_comptee_comme_primaire",
+      "redondance",
+      "contexte_hors_sujet"
+    ],
+    "article_type": "actu",
+    "titre": "Budget culture 2027 : baisse de 0,6 % et audition de la ministre au Sénat",
+    "n_sources": 5,
+    "n_mots": 672,
+    "titre_rss": "Budget de la culture en baisse : auditionnée au Sénat, la ministre Catherine Pégard dans le dur",
+    "matiere_faits_distincts": 740,
+    "matiere_redondance": 0.05,
+    "matiere_donnees_chiffrees": 2,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "cyberattaque-efs-trois-sites-vises-aucun-produit-perdu",
+    "statut": "rejete_qualite",
+    "date": "2026-11-04T17:46:14",
+    "tentative": 3,
+    "perte_substance": true,
+    "section": "contexte",
+    "mots_avant": 72,
+    "mots_apres": 27,
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "titre_de_mauvaise_qualite"
+    ],
+    "titre": "Cyberattaque contre l'EFS : trois sites visés, aucun produit sanguin perdu",
+    "n_sources": 5,
+    "n_mots": 361,
+    "titre_rss": "Cyberattaque : les chambres froides de l'EFS prises pour cible",
+    "matiere_faits_distincts": 523,
+    "matiere_redondance": 0.18,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "six-mesures-climatiques-oms-sauver-1-6-million-vies-annee",
+    "statut": "corrige_automatiquement",
+    "date": "2026-11-04T17:54:44",
+    "problemes_initiaux": 7,
+    "tentatives": 2,
+    "problemes_residuels_style": 7,
+    "rapport_initial": {
+      "conforme": false,
+      "sujet_sensible": false,
+      "sujet_sensible_raison": "",
+      "angle_insuffisant": false,
+      "angle_insuffisant_raison": "",
+      "nature_contenu": "rapport",
+      "problemes": [
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "chiffre_errone",
+          "phrase_exacte": "Le rapport estime un bénéfice de bien-être de 3 900 milliards de dollars par an et des gains budgétaires de 5 400 milliards de dollars [1].",
+          "explication": "La source [1] indique un bénéfice de bien-être de 3 900 milliards de dollars et des gains budgétaires de 5 400 milliards de dollars, mais ne précise pas 'par an' pour ces montants ; l'article ajoute une périodicité annuelle non confirmée par la source."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "chiffre_errone",
+          "phrase_exacte": "Pour cinq des six actions, chaque dollar investi rapporterait 24 dollars de bénéfices.",
+          "explication": "La source [1] indique un ratio de 24:1 pour cinq des six actions, mais l'article omet que ce ratio concerne les bénéfices de bien-être (welfare benefits) et non les gains budgétaires, créant une confusion entre les deux types de retours économiques."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "chiffre_errone",
+          "phrase_exacte": "La tarification efficace des énergies fossiles — suppression des subventions inefficaces et taxation adaptée — génère à elle seule 1,2 million de vies sauvées, 3 000 milliards de dollars de bénéfices économiques et 5 400 milliards de gains budgétaires [1].",
+          "explication": "La source [1] attribue 1,2 million de vies sauvées et 3 000 milliards de dollars de bénéfices économiques à la tarification des énergies fossiles, mais les 5 400 milliards de gains budgétaires correspondent au total des six mesures, pas à cette seule mesure ; l'article attribue à tort la totalité des gains budgétaires à une seule intervention."
+        },
+        {
+          "bloc": 1,
+          "section": "nuances",
+          "type": "redondance",
+          "phrase_exacte": "Les ratios de retour sur investissement varient considérablement selon les interventions, de 24 pour un pour la majorité à 835 pour un pour les systèmes d'alerte chaleur-santé, ce qui suggère des priorités d'allocation très différentes selon les contextes nationaux [1].",
+          "explication": "Cette information sur la variation des ratios (24:1 et 835:1) est déjà présente dans la section 'faits' ; sa répétition dans 'nuances' viole la règle d'une idée = une seule apparition."
+        },
+        {
+          "bloc": 2,
+          "section": "contexte",
+          "type": "contexte_hors_sujet",
+          "phrase_exacte": "La responsable de la biodiversité des Nations unies a qualifié les négociations de la COP15 à Montréal en décembre 2022 de « dernière chance » pour inverser la destruction du monde naturel, soulignant que la biodiversité est vitale pour la santé humaine [4].",
+          "explication": "Cette source [4] (BBC, décembre 2022) porte sur la COP15 biodiversité et n'éclaire pas directement le sujet de l'article (rapport OMS novembre 2026 sur six mesures climat-santé) ; c'est un fait tangentiel qui ne sert qu'à remplir la section contexte."
+        },
+        {
+          "bloc": 2,
+          "section": "contexte",
+          "type": "contexte_hors_sujet",
+          "phrase_exacte": "Un rapport mondial publié le 29 octobre 2026 juge les efforts de restauration de la nature encourageants mais encore très insuffisants pour atteindre les objectifs fixés [5].",
+          "explication": "Cette source [5] (Le Monde, octobre 2026) porte sur la restauration de la nature et les objectifs de biodiversité, sans lien direct avec le rapport OMS sur les six mesures climat-santé publié le 4 novembre 2026 ; elle ne contextualise pas le sujet principal."
+        },
+        {
+          "bloc": 4,
+          "section": "contexte",
+          "type": "section_gonflee",
+          "phrase_exacte": "En Europe, les facteurs environnementaux provoquent environ 1,4 million de décès évitables chaque année selon des données OMS de 2017 citées dans un rapport inter-inspections français [2]. Le concept de « santé-environnement », défini par l'OMS en 1994, vise à prévenir ces risques d'origine physique, chimique et biologique dans une approche globale « Une seule santé » [2].",
+          "explication": "La section 'contexte' mobilise deux sources [2] et [3] qui apportent des informations générales sur la santé-environnement en Europe et des engagements sur la qualité de l'air, mais ne contextualisent pas spécifiquement le nouveau rapport OMS du 4 novembre 2026 ; la section est gonflée avec du générique au lieu de faits distincts sourcés sur le sujet précis."
+        }
+      ]
+    },
+    "article_type": "actu",
+    "titre": "Six mesures climatiques de l'OMS pourraient sauver 1,6 million de vies par an",
+    "n_sources": 5,
+    "n_mots": 717,
+    "titre_rss": "Six mesures pour sauver 1,6 million de vies chaque année, selon l'OMS",
+    "matiere_faits_distincts": 1031,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 2,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "rapport"
+  },
+  {
+    "slug": "sante-mentale-femmes-deux-fois-plus-touchees-travail",
+    "statut": "rejete_qualite",
+    "date": "2026-11-04T18:12:39",
+    "tentative": 3,
+    "angle_insuffisant": true,
+    "raison": "Aucune phrase des faits ne combine un événement précis daté (publication du rapport HCE ou de la synthèse SPF) et une donnée chiffrée qui lui est propre ; l'article répond à « qu'est-ce que les inégalités de santé mentale ? » plutôt qu'à « pourquoi en parle-t-on maintenant ? »",
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "resume_repete_corps",
+      "titre_de_mauvaise_qualite"
+    ],
+    "titre": "Santé mentale : les femmes deux fois plus touchées par la souffrance psychique au travail",
+    "n_sources": 5,
+    "n_mots": 631,
+    "titre_rss": "Dépression, troubles psy : les femmes paient le prix fort des inégalités, selon un rapport",
+    "matiere_faits_distincts": 927,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 4,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "rapport"
+  },
+  {
+    "slug": "chomage-jeunes-21-6-igase-alerte-apprentissage-negociations",
+    "statut": "rejete_sensible",
+    "date": "2026-11-04T18:54:54",
+    "problemes_initiaux": 11,
+    "tentative": 3,
+    "bloc5": true,
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "resume_repete_corps"
+    ],
+    "titre": "Chômage jeunes à 21,6 % : l'Igas alerte sur l'apprentissage avant négociations",
+    "n_sources": 4,
+    "n_mots": 645,
+    "titre_rss": "Au cœur d’un automne social, syndicats et patronat entament des négociations sur l’emploi des jeunes",
+    "matiere_faits_distincts": 751,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "cyberattaque-refrigerateurs-don-sang-temperature-110-degres",
+    "statut": "corrige_automatiquement",
+    "date": "2026-11-04T19:26:07",
+    "problemes_initiaux": 11,
+    "tentatives": 3,
+    "problemes_residuels_style": 13,
+    "rapport_initial": {
+      "conforme": false,
+      "sujet_sensible": false,
+      "sujet_sensible_raison": "",
+      "angle_insuffisant": false,
+      "angle_insuffisant_raison": "",
+      "nature_contenu": "actualite_factuelle",
+      "problemes": [
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "chiffre_errone",
+          "phrase_exacte": "En octobre 2026, une cyberattaque d'ampleur a touché près de 400 supermarchés français via le logiciel de gestion à distance de l'équipementier danois Danfoss, faisant chauffer des centaines de congélateurs jusqu'à 50 °C pendant plusieurs heures [2].",
+          "explication": "La source BBC [2] datée du 12 octobre 2026 rapporte une attaque survenue 'last week' (donc début octobre 2026), pas 'en octobre 2026' de manière générale ; l'article déplace la datation de l'événement d'une semaine, ce qui est une imprécision factuelle sur la chronologie."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "chiffre_errone",
+          "phrase_exacte": "Les enseignes Intermarché, Netto, Coopérative U, Carrefour et Monoprix avaient été affectées, avec des pertes estimées à plusieurs millions d'euros [2].",
+          "explication": "La source BBC [2] ne mentionne ni la liste exhaustive de ces cinq enseignes, ni une estimation chiffrée des pertes à 'plusieurs millions d'euros' ; ces détails sont ajoutés sans source."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "chiffre_errone",
+          "phrase_exacte": "L'ANSSI anticipe une augmentation massive d'ici 2030 des attaques hybrides, dont les cyberattaques constituent un pan majeur, avec des effets destructeurs sur les infrastructures critiques [3].",
+          "explication": "Les extraits fournis des sources ANSSI [3] et Vie Publique [4] ne contiennent pas de mention explicite d'une 'augmentation massive d'ici 2030' ni d'une projection chiffrée à cet horizon ; l'article prête aux sources une prévision temporelle qu'elles ne formulent pas dans les extraits."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "fait_tranche_arbitrairement",
+          "phrase_exacte": "L'attaque contre les infrastructures électriques polonaises fin 2025, première du genre dans un État membre de l'UE, illustre ce scénario de sabotage à visée déstabilisatrice [3].",
+          "explication": "Les extraits des sources [3] et [4] ne mentionnent pas d'attaque contre les infrastructures électriques polonaises fin 2025 ; cet exemple est introduit comme un fait établi sans être sourcé dans les documents fournis."
+        },
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "En octobre 2026, une cyberattaque d'ampleur a touché près de 400 supermarchés français via le logiciel de gestion à distance de l'équipementier danois Danfoss, faisant chauffer des centaines de congélateurs jusqu'à 50 °C pendant plusieurs heures [2].",
+          "explication": "Le renvoi [2] pointe vers la source BBC, mais les détails 'près de 400 supermarchés', 'logiciel de gestion à distance de l'équipementier danois Danfoss', '50 °C pendant plusieurs heures' ne figurent pas dans l'extrait BBC fourni ; l'article attribue à cette source des informations qu'elle ne contient pas."
+        },
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "Les enseignes Intermarché, Netto, Coopérative U, Carrefour et Monoprix avaient été affectées, avec des pertes estimées à plusieurs millions d'euros [2].",
+          "explication": "La source BBC [2] ne cite aucune de ces enseignes ni aucun montant de pertes ; l'article invente une attribution à cette source."
+        },
+        {
+          "bloc": 2,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "L'ANSSI anticipe une augmentation massive d'ici 2030 des attaques hybrides, dont les cyberattaques constituent un pan majeur, avec des effets destructeurs sur les infrastructures critiques [3].",
+          "explication": "L'extrait de la source ANSSI [3] ne contient pas cette projection à 2030 ; l'article prête à la source un contenu absent des extraits fournis."
+        },
+        {
+          "bloc": 2,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "L'attaque contre les infrastructures électriques polonaises fin 2025, première du genre dans un État membre de l'UE, illustre ce scénario de sabotage à visée déstabilisatrice [3].",
+          "explication": "La source ANSSI [3] ne mentionne pas cet incident polonais dans les extraits fournis ; l'article l'attribue faussement à cette source."
+        },
+        {
+          "bloc": 4,
+          "section": "nuances",
+          "type": "redondance",
+          "phrase_exacte": "L'origine de l'attaque contre Coolworld n'est pas attribuée dans les sources disponibles. Aucune revendication n'a été signalée, et l'ANSSI ne lie pas cet incident précis à un acteur étatique ou criminel identifié dans son panorama 2025 [3][4].",
+          "explication": "Cette idée est déjà présente dans le résumé (troisième point) : 'sans que l'origine de cette attaque précise ne soit encore établie' ; la charte interdit de répéter une même idée dans plusieurs sections."
+        },
+        {
+          "bloc": 4,
+          "section": "nuances",
+          "type": "redondance",
+          "phrase_exacte": "Le parallèle avec l'attaque Danfoss d'octobre 2026 reste une analogie de méthode (ciblage de logiciels de gestion de froid à distance) et non une preuve de lien technique ou d'auteur commun entre les deux opérations [2].",
+          "explication": "Le contexte précise déjà que l'attaque Danfoss est citée comme exemple d'une 'série d'attaques récentes contre des systèmes de réfrigération connectés' ; la nuance répète cette qualification d'analogie sans ajouter de fait nouveau sourcé."
+        },
+        {
+          "bloc": 4,
+          "section": "contexte",
+          "type": "section_gonflee",
+          "phrase_exacte": "Le secteur de la santé n'est pas épargné : les établissements hospitaliers et leurs prestataires font l'objet de tentatives d'intrusion régulières, motivées par l'espionnage, l'extorsion ou la déstabilisation [3]. La chaîne du froid du sang, comme celle de l'alimentaire, repose sur des systèmes industriels connectés (OT) souvent anciens, difficiles à mettre à jour sans interrompre le service.",
+          "explication": "Ces affirmations générales sur le secteur de la santé et les systèmes OT ne sont pas étayées par des faits précis dans les extraits des sources [3] et [4] fournis ; elles servent de remplissage générique sans apporter d'information distincte sur l'incident Coolworld."
+        }
+      ]
+    },
+    "article_type": "actu",
+    "titre": "Cyberattaque : les réfrigérateurs du don du sang visés, températures poussées à 110 °C",
+    "n_sources": 4,
+    "n_mots": 564,
+    "titre_rss": "Cyberattaque : De -30 à 110 °C… Les réfrigérateurs du don du sang piratés à leur tour",
+    "matiere_faits_distincts": 1015,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 3,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "inserm-sept-fausses-idees-vaccins-campagne-2026",
+    "statut": "rejete_sensible",
+    "date": "2026-11-04T19:46:05",
+    "problemes_initiaux": 16,
+    "tentative": 2,
+    "bloc5": true,
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "resume_repete_corps"
+    ],
+    "titre": "L'Inserm met à jour ses sept fausses idées sur les vaccins le 10 octobre 2026",
+    "n_sources": 6,
+    "n_mots": 778,
+    "titre_rss": "Sept fausses idées sur les vaccins",
+    "matiere_faits_distincts": 893,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "new-delhi-pollution-30-fois-seuil-oms-mercredi",
+    "statut": "rejete_qualite",
+    "date": "2026-11-04T19:58:17",
+    "problemes_initiaux": 9,
+    "tentatives": 3,
+    "problemes_restants": 7,
+    "bloquants_restants": 5,
+    "bloquants_types": [
+      "chiffre_errone",
+      "chiffre_errone",
+      "incoherence_inter_sections",
+      "niveau_preuve_insuffisant",
+      "source_inventee"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [3] (AFP) indique un dépassement de 'plus de 30 fois' le seuil OMS, l'article écrit '30 fois' sans le 'plus de', ce qui sous-estime le chiffre rapporté par la source.",
+        "phrase": "Mercredi, les capteurs de qualité de l'air à New Delhi ont enregistré des concentrations de particules fines PM2,5 dépassant 30 fois la limite quotidienne de 25 µg/m³ recommandée par l'Organisation mondiale de la santé ["
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "Le calcul 461 / 25 = 18,44, soit environ 18,4 fois, est correct, mais la nuance présente ce chiffre comme une conversion exacte alors que la source [4] (Lesoir) donne 461 µg/m³ comme un relevé ponctuel, sans confirmer qu",
+        "phrase": "461 µg/m³ correspondant à environ 18,4 fois le seuil OMS."
+      },
+      {
+        "bloc": 1,
+        "type": "incoherence_inter_sections",
+        "description": "Les sources [3] et [4] donnent deux indicateurs différents : l'AFP parle d'un dépassement de 'plus de 30 fois' le seuil quotidien OMS (25 µg/m³), ce qui impliquerait >750 µg/m³, tandis que Lesoir cite un relevé de 461 µg",
+        "phrase": "Mercredi, les capteurs de qualité de l'air à New Delhi ont enregistré des concentrations de particules fines PM2,5 dépassant 30 fois la limite quotidienne de 25 µg/m³ recommandée par l'Organisation mondiale de la santé ["
+      },
+      {
+        "bloc": 1,
+        "type": "niveau_preuve_insuffisant",
+        "description": "L'article présente le chiffre de 200 000 cas comme un lien établi ('lie... à'), alors que la source [2] (Le Monde) rapporte probablement une estimation statistique avec intervalles de confiance, biais de confusion, etc. ",
+        "phrase": "Une étude épidémiologique publiée par Le Monde en décembre 2025, portant sur la période 2022-2024, lie la pollution atmosphérique à 200 000 cas de maladies respiratoires sur trois ans dans la capitale indienne [2]."
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "La source [4] (Lesoir) est citée pour l'origine industrielle et automobile, mais l'extrait fourni mentionne aussi la combustion des résidus agricoles (Pendjab/Haryana) comme facteur majeur. L'article omet cette cause cit",
+        "phrase": "La pollution provient principalement des émissions industrielles et de la circulation automobile, qui génèrent en permanence ce brouillard selon Lesoir [4]."
+      }
+    ],
+    "types_restants": [
+      "chiffre_errone",
+      "chiffre_errone",
+      "incoherence_inter_sections",
+      "niveau_preuve_insuffisant",
+      "source_inventee",
+      "redondance",
+      "redondance"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "faits_repetitifs"
+    ],
+    "titre": "New Delhi : pollution 30 fois au-dessus du seuil OMS mercredi",
+    "n_sources": 5,
+    "n_mots": 484,
+    "titre_rss": "New Delhi suffoque sous un brouillard toxique, la pollution atteint des niveaux alarmants",
+    "matiere_faits_distincts": 990,
+    "matiere_redondance": 0.02,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "taxe-carbone-martingale-economistes-william-nordhaus-fressoz",
+    "statut": "rejete_qualite",
+    "date": "2026-11-04T20:27:17",
+    "angle_insuffisant": true,
+    "raison": "Aucune phrase des faits ne contient à la fois un événement précis daté (publication de la chronique le 4 novembre 2026) et une donnée chiffrée ou nommée qui lui est propre ; l'article se contente de résumer le point de vue d'un historien sans fait déclencheur nouveau ni information originale datée.",
+    "article_type": "actu",
+    "titre": "La taxe carbone, martingale des économistes face au climat selon Jean-Baptiste Fressoz",
+    "n_sources": 3,
+    "n_mots": 401,
+    "titre_rss": "« La taxe carbone, principale recommandation de William Nordhaus, est devenue la martingale des économistes contre le réchauffement climatique »",
+    "matiere_faits_distincts": 496,
+    "matiere_redondance": 0.03,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "chronique"
+  },
+  {
+    "slug": "operateurs-telecoms-hausses-tarifs-rachat-sfr-autorite-concurrence",
+    "statut": "rejete_qualite",
+    "date": "2026-11-04T20:39:21",
+    "problemes_initiaux": 6,
+    "tentatives": 3,
+    "problemes_restants": 9,
+    "bloquants_restants": 4,
+    "bloquants_types": [
+      "chiffre_errone",
+      "annonce_perimee",
+      "chiffre_errone",
+      "source_inventee"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [1] est datée du 4 novembre 2026, soit une date future par rapport à la date de coupure des connaissances ; l'article présente comme un fait établi une hausse de tarifs qui n'a pas encore eu lieu à la date de r",
+        "phrase": "Orange, SFR, Bouygues Telecom et Free ont tous majoré les prix de certains forfaits mobiles ou abonnements Internet fixe, rapporte Le Monde dans son édition du 4 novembre 2026 [1]."
+      },
+      {
+        "bloc": 1,
+        "type": "annonce_perimee",
+        "description": "La source [4] est un communiqué du 15 juillet 2026 qui annonce que l'Autorité *sera* l'autorité en charge de l'examen ; l'article utilise le passé composé ('a été saisie', 'ayant été initiées') pour décrire des événement",
+        "phrase": "L'Autorité a été saisie par renvoi de la Commission européenne le 15 juillet 2026 pour examiner l'opération Iliad, les deux autres notifications d'Orange et Bouygues Telecom ayant été initiées dès le 30 juin 2026 par des"
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [6] est le rapport de la commission d'enquête de l'Assemblée nationale daté du 8 juillet 2026, pas un article du Monde du 24 septembre 2026 ; la référence à un article du Monde à cette date avec ce contenu est ",
+        "phrase": "L'article de Le Monde daté du 24 septembre 2026 rapporte que les salariés de SFR ont manifesté en nombre contre les conditions du rachat, les syndicats contestant les engagements du trio d'acheteurs sur l'emploi et le ma"
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "Le texte attribue à la source [6] un article du Monde du 24 septembre 2026 qui n'existe pas dans la liste des sources autorisées ; la source [6] est un rapport parlementaire, pas un article de presse.",
+        "phrase": "L'article de Le Monde daté du 24 septembre 2026 rapporte que les salariés de SFR ont manifesté en nombre contre les conditions du rachat, les syndicats contestant les engagements du trio d'acheteurs sur l'emploi et le ma"
+      }
+    ],
+    "types_restants": [
+      "chiffre_errone",
+      "annonce_perimee",
+      "chiffre_errone",
+      "source_inventee",
+      "source_derivee_comptee_comme_primaire",
+      "compteur_incoherent",
+      "redondance",
+      "contexte_hors_sujet",
+      "angle_annonce_non_tenu"
+    ],
+    "article_type": "actu",
+    "titre": "Les opérateurs augmentent leurs tarifs pendant l'examen du rachat de SFR",
+    "n_sources": 6,
+    "n_mots": 571,
+    "titre_rss": "Les opérateurs de télécoms augmentent leurs tarifs en plein rachat de SFR",
+    "matiere_faits_distincts": 867,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "james-webb-age-extraordinaire-comete-interstellaire-3i-atlas",
+    "statut": "rejete_sensible",
+    "date": "2026-11-04T20:58:46",
+    "problemes_initiaux": 10,
+    "tentative": 3,
+    "bloc5": true,
+    "article_type": "actu",
+    "titre": "James-Webb confirme un âge extraordinaire pour la comète interstellaire 3I/Atlas",
+    "n_sources": 4,
+    "n_mots": 553,
+    "titre_rss": "Le télescope spatial James-Webb confirme un âge extraordinaire pour la comète interstellaire 3I/Atlas",
+    "matiere_faits_distincts": 521,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "etude_scientifique"
+  },
+  {
+    "slug": "perseverance-45-km-cratere-jezero-lac-ancien-mars",
+    "statut": "rejete_qualite",
+    "date": "2026-11-04T21:11:49",
+    "problemes_initiaux": 27,
+    "tentatives": 3,
+    "problemes_restants": 13,
+    "bloquants_restants": 11,
+    "bloquants_types": [
+      "chiffre_errone",
+      "chiffre_errone",
+      "incoherence_inter_sections",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "Le titre indique 'plus de 30 km' alors que le corps de l'article et la source [1] mentionnent 'plus de 45 km' (le titre sous-estime la distance parcourue d'un facteur 1,5).",
+        "phrase": "Perseverance parcourt plus de 30 km dans le cratère Jezero et confirme un lac ancien"
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "Le résumé répète l'erreur du titre : 'plus de 30 kilomètres' au lieu de 'plus de 45 kilomètres' selon la source [1] et le corps de l'article.",
+        "phrase": "Le rover Perseverance a parcouru plus de 30 kilomètres dans le cratère Jezero depuis son atterrissage le 18 février 2021, confirmant l'existence d'un lac ancien."
+      },
+      {
+        "bloc": 1,
+        "type": "incoherence_inter_sections",
+        "description": "Incohérence entre le chapeau/résumé/titre ('plus de 30 km') et le corps des faits qui cite la source [1] pour 'plus de 30 kilomètres' alors que la source [1] (Radiofrance, 2026) indique explicitement 'plus de 45 km' dans",
+        "phrase": "Le rover Perseverance de la NASA a parcouru plus de 30 kilomètres depuis son atterrissage le 18 février 2021 dans le cratère Jezero [1]."
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "La source [2] (CNRS, 10.07.2021) ne mentionne pas le chiffre '35 kilomètres de diamètre' pour le cratère Jezero (diamètre réel ~45-49 km) — cette donnée n'est pas dans l'extrait fourni et est attribuée à tort au CNRS.",
+        "phrase": "Selon le CNRS, les données publiées indiquent qu'il y a 3,7 milliards d'années, le cratère de 35 kilomètres de diamètre abritait un plan d'eau alimenté par une rivière qui a construit un delta sédimentaire [2]."
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "L'extrait de la source [2] fourni ne contient aucune mention de 'gros blocs déplacés par le courant' ni d''épisodes de crues importantes' — cette affirmation détaillée n'est pas sourcée.",
+        "phrase": "L'étude des dépôts fluviaux au sommet du delta a mis en évidence la présence de gros blocs déplacés par le courant, suggérant des épisodes de crues importantes [2]."
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "L'extrait de la source [4] (AP News, 2024) fourni ne mentionne pas de 'minéraux secondaires' ni de 'circulation d'eau liquide postérieure à leur formation' — cette interprétation détaillée n'est pas dans la source citée.",
+        "phrase": "Selon l'AP News, des minéraux secondaires indiquent une circulation d'eau liquide postérieure à leur formation [4]."
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "L'extrait de la source [3] (BBC, 2024) fourni ne contient pas l'affirmation sur la 'cartographie détaillée du delta' ni la 'confirmation de l'intérêt exobiologique' — attribution non vérifiée.",
+        "phrase": "La BBC rapporte que des missions orbitales avaient cartographié le delta en détail, confirmant l'intérêt exobiologique du site [3]."
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "L'extrait de la source [4] ne mentionne pas la 'datation radiométrique future' ni le 'calage de l'échelle des temps martiens' — extrapolation non sourcée.",
+        "phrase": "Les roches magmatiques découvertes au fond du cratère offrent par ailleurs une opportunité inédite : leur datation radiométrique future sur Terre pourrait permettre de caler l'échelle des temps martiens [4]."
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "L'extrait de la source [2] (CNRS, 2021) ne contient pas cette précision sur l'indétermination de la durée du lac (milliers vs millions d'années) — information absente de la source citée.",
+        "phrase": "La durée exacte de l'épisode lacustre reste indéterminée : selon le CNRS, les données actuelles ne permettent pas de savoir si le lac a persisté des milliers ou des millions d'années, un paramètre critique pour l'émergen"
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "L'extrait de la source [4] ne mentionne aucun 'débat entre équipes scientifiques' sur l'origine des roches (cumulats vs coulées) ni d'implications pour l'histoire thermique — affirmation non sourcée.",
+        "phrase": "L'origine des roches magmatiques du fond de cratère — cumulats d'olivine formés en profondeur vs coulées de surface — fait encore l'objet de débats entre les équipes scientifiques, avec des implications différentes pour "
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "L'extrait de la source [4] ne mentionne pas les 'révisions de l'architecture et du calendrier' de Mars Sample Return par la NASA et l'ESA — information non présente dans la source citée.",
+        "phrase": "Le retour des échantillons dépend du financement et de la faisabilité technique de la mission Mars Sample Return, dont l'architecture et le calendrier font l'objet de révisions par la NASA et l'ESA [4]."
+      }
+    ],
+    "types_restants": [
+      "chiffre_errone",
+      "chiffre_errone",
+      "incoherence_inter_sections",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "redondance",
+      "extrapolation"
+    ],
+    "article_type": "actu",
+    "titre": "Perseverance parcourt 45 km dans le cratère Jezero et confirme un lac ancien",
+    "n_sources": 4,
+    "n_mots": 594,
+    "titre_rss": "Jezero : anatomie d’un lac sur Mars",
+    "matiere_faits_distincts": 1209,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
   }
 ]
