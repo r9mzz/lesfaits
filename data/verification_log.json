@@ -56017,5 +56017,850 @@
     "n_sources_injectees": 10,
     "n_sources_trouvees": 10,
     "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "sante-mentale-femmes-deux-fois-plus-troubles-psychiques-travail-rapport-hce",
+    "statut": "rejete_sensible",
+    "date": "2026-11-04T07:21:08",
+    "problemes_initiaux": 8,
+    "tentative": 2,
+    "bloc5": true,
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "titre_de_mauvaise_qualite"
+    ],
+    "titre": "HCE : troubles psychiques liés au travail deux fois plus fréquents chez les femmes",
+    "n_sources": 6,
+    "n_mots": 603,
+    "titre_rss": "Dépression, troubles psy : les femmes paient le prix fort des inégalités, selon un rapport",
+    "matiere_faits_distincts": 1047,
+    "matiere_redondance": 0.06,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "rapport"
+  },
+  {
+    "slug": "cyberattaque-frigos-supermarches-neuf-pays-europeens-tonnes-nourriture-jetees",
+    "statut": "rejete_qualite",
+    "date": "2026-11-04T07:33:22",
+    "problemes_initiaux": 7,
+    "tentatives": 3,
+    "problemes_restants": 9,
+    "bloquants_restants": 4,
+    "bloquants_types": [
+      "chiffre_errone",
+      "chiffre_errone",
+      "source_inventee",
+      "source_inventee"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [1] (Sciences et Avenir) ne mentionne pas le piratage à distance des congélateurs ni la perte de 'tonnes de marchandises' ; elle évoque une perturbation de la chaîne du froid sans préciser le mode d'attaque ni ",
+        "phrase": "Des congélateurs ont été piratés à distance, entraînant la perte de tonnes de marchandises [1]."
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [4] (AFP) est datée du 3 novembre 2026 et son titre indique une attaque touchant des supermarchés en Europe, mais l'extrait fourni ne confirme pas explicitement le chiffre 'au moins neuf pays' ni la date précis",
+        "phrase": "L'AFP confirme que l'attaque du 2 novembre a touché des enseignes de la grande distribution dans au moins neuf pays [4]."
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "La source [5] (ONU) est citée pour des chiffres mondiaux de coûts et une tendance d'attaques étatiques, mais l'extrait fourni ne contient pas ces données précises ; l'attribution est donc non vérifiée.",
+        "phrase": "Les coûts mondiaux de la cybercriminalité s'élèvent à des milliers de milliards de dollars, et les attaques liées à des États contre des infrastructures civiles augmentent, alerte l'ONU dans un rapport de mai 2026 [5]."
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "La source [2] (Insee) renvoie à la page d'accueil de l'institut sans article ni étude spécifique ; les chiffres cités (14 720 €, une sur huit > 230 000 €) ne sont pas présents dans l'extrait fourni.",
+        "phrase": "En France, le coût moyen d'une cyberattaque pour une entreprise s'établissait à environ 14 720 € en 2024, mais une entreprise sur huit rapporte des coûts dépassant 230 000 € selon les données de l'Insee [2]."
+      }
+    ],
+    "types_restants": [
+      "chiffre_errone",
+      "chiffre_errone",
+      "fait_tranche_arbitrairement",
+      "source_inventee",
+      "source_inventee",
+      "contexte_hors_sujet",
+      "section_gonflee",
+      "redondance",
+      "extrapolation"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "titre_de_mauvaise_qualite"
+    ],
+    "titre": "Cyberattaque sur les frigos de supermarchés : neuf pays touchés, tonnes de nourriture jetées",
+    "n_sources": 5,
+    "n_mots": 503,
+    "titre_rss": "Une cyberattaque d'ampleur européenne détruit des tonnes de nourriture",
+    "matiere_faits_distincts": 697,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "ebola-rdc-plus-10-000-cas-plus-grande-epidemie-histoire",
+    "statut": "rejete_qualite",
+    "date": "2026-11-04T07:46:37",
+    "problemes_initiaux": 18,
+    "tentatives": 3,
+    "problemes_restants": 15,
+    "bloquants_restants": 11,
+    "bloquants_types": [
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "incoherence_inter_sections",
+      "niveau_preuve_insuffisant",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [6] (UN News, 28 octobre 2026) indique 4 887 décès, pas 'plus de 4 800' ; l'arrondi à la baisse perd la précision du chiffre officiel.",
+        "phrase": "Au 27 octobre 2026, le ministère de la Santé congolais recensait plus de 10 000 cas d'Ebola, dont plus de 4 800 décès, selon les données relayées par l'OMS [6]."
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [3] (Le Monde, 27 octobre 2026) donne 11 325 décès pour l'épidémie 2014-2016, pas 11 300 ; l'arrondi n'est pas signalé.",
+        "phrase": "Elle est également la deuxième plus vaste au monde après l'épidémie d'Afrique de l'Ouest de 2014-2016, qui avait causé 11 300 morts [3]."
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [3] indique 28 646 cas et 11 325 décès ; les deux chiffres sont arrondis sans mention.",
+        "phrase": "L'épidémie de 2014-2016 en Afrique de l'Ouest reste la référence mondiale avec 28 600 cas et 11 300 décès [3]."
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [5] (Le Monde, 3 octobre 2026) cite 3 360 cas confirmés au 2 octobre 2026, pas 'en juillet 2026' ; la date est erronée.",
+        "phrase": "En juillet 2026, le BMJ qualifiait déjà cette épidémie de \"la plus rapide de l'histoire\" avec 3 360 cas confirmés à cette date, selon un article du Monde daté du 3 octobre 2026 qui rapporte cette évaluation [5]."
+      },
+      {
+        "bloc": 1,
+        "type": "incoherence_inter_sections",
+        "description": "Le résumé (chapeau) affirme 'plus de 10 000 cas' et 'plus de 4 800 décès' ; les faits donnent les mêmes chiffres arrondis, mais la source [6] précise 10 000 cas et 4 887 morts — l'incohérence est l'arrondi systématique à",
+        "phrase": "Au 27 octobre 2026, le ministère de la Santé congolais recensait plus de 10 000 cas d'Ebola, dont plus de 4 800 décès, selon les données relayées par l'OMS [6]."
+      },
+      {
+        "bloc": 1,
+        "type": "niveau_preuve_insuffisant",
+        "description": "La source [6] ne contient pas cette affirmation sur l'absence de protection croisée d'Ervebo contre Bundibugyo ; l'article avance une propriété immunologique non documentée dans l'extrait fourni.",
+        "phrase": "Les vaccins disponibles, comme l'Ervebo, ne protègent que contre la souche Zaire [6]."
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "La source [1] (Sciences et Avenir, 27 octobre 2026) n'est pas fournie dans les extraits ; le renvoi [1] attribue un fait (souche Bundibugyo, rareté) que je ne peux vérifier — source potentiellement inventée ou non confir",
+        "phrase": "Le virus en cause est la souche Bundibugyo, plus rare que la souche Zaire habituellement rencontrée [1]."
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "Les sources [1] et [6] ne sont pas fournies dans les extraits pour confirmer l'absence de vaccin/traitement homologué contre Bundibugyo ; l'attribution est non vérifiable.",
+        "phrase": "Cette distinction est majeure : il n'existe à ce jour aucun vaccin ni traitement homologués contre cette souche spécifique [1][6]."
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "La source [5] (Le Monde, 3 octobre 2026) ne mentionne ni une déclaration le 4 septembre 2025, ni la province du Kasaï, ni un typage initial Zaire ; le renvoi [5] ne soutient pas ces affirmations.",
+        "phrase": "L'actuelle flambée, déclarée le 4 septembre 2025 dans la province du Kasaï, a été initialement typée comme souche Zaire selon les premières analyses de l'OMS rapportées par Le Monde [5]."
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "La source [6] (UN News, 28 octobre 2026) ne mentionne pas l'essai TUMAINI, ni Bunia, ni une évaluation de protection croisée d'Ervebo ; l'information est attribuée à une source qui ne la contient pas.",
+        "phrase": "L'essai clinique TUMAINI, lancé à Bunia, teste si le vaccin Ervebo (anti-Zaire) peut offrir une protection croisée contre la souche Bundibugyo, mais ses résultats ne sont pas encore connus [6]."
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "La source [6] ne mentionne pas de vaccins candidats anti-Bundibugyo ni d'évaluation OMS avec conclusions attendues la semaine du 28 octobre ; attribution non fondée.",
+        "phrase": "Deux autres vaccins candidats spécifiquement conçus contre Bundibugyo sont en cours d'évaluation par des groupes d'experts de l'OMS, avec des conclusions attendues pour la semaine du 28 octobre [6]."
+      }
+    ],
+    "types_restants": [
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "chronologie_confuse",
+      "incoherence_inter_sections",
+      "niveau_preuve_insuffisant",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "compteur_incoherent",
+      "redondance",
+      "extrapolation"
+    ],
+    "article_type": "actu",
+    "titre": "Ebola en RDC : plus de 10 000 cas, épidémie la plus meurtrière de l'histoire",
+    "n_sources": 6,
+    "n_mots": 608,
+    "titre_rss": "Ebola: Plus de 10.000 cas recensés en Afrique, la RDC toujours à l'épicentre",
+    "matiere_faits_distincts": 687,
+    "matiere_redondance": 0.03,
+    "matiere_donnees_chiffrees": 2,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "ebola-bundibugyo-vaccins-zaire-anticorps-croises-efficacite-inconnue",
+    "statut": "rejete_qualite",
+    "date": "2026-11-04T07:57:48",
+    "problemes_initiaux": 7,
+    "tentatives": 3,
+    "problemes_restants": 7,
+    "bloquants_restants": 5,
+    "bloquants_types": [
+      "chiffre_errone",
+      "chiffre_errone",
+      "source_inventee",
+      "source_inventee",
+      "incoherence_inter_sections"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [1] (Inserm, 23 juillet 2026) indique « plus de 500 cas confirmés et plus de 200 décès » au 22 juillet 2026, et non « plus de 600 cas » et « plus de 300 décès ». Les chiffres du corps et du résumé (point 2) son",
+        "phrase": "L'épidémie déclarée par l'OMS mi-mai 2026 en République démocratique du Congo totalisait plus de 600 cas confirmés et plus de 300 décès au 22 juillet 2026 [1]."
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "Le résumé reprend les mêmes chiffres erronés (600 cas / 300 décès) que le corps, contredisant la source [1] qui donne 500 cas / 200 décès.",
+        "phrase": "L'épidémie en cours en République démocratique du Congo a causé plus de 600 cas confirmés et plus de 300 décès au 22 juillet 2026, sans vaccin ni traitement spécifique homologué pour cette souche émergente."
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "La source [5] dans le tableau 'sources' du corps de l'article est 'Letemps | Marges santé publique : le modèle pharma remis en cause' (18 mars 2020), qui ne traite pas d'Ebola ni d'essai clinique au Congo. La source AP N",
+        "phrase": "L'AP News confirme qu'un essai clinique de vaccin contre la souche Bundibugyo est en cours au Congo [5]."
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "Le renvoi [3] pointe vers la 3e source du tableau 'sources' du corps, qui est 'Le Monde' (27 août 2026). Bien que cette source existe dans la liste autorisée, l'article du Monde est daté du 27 août 2026, soit après la da",
+        "phrase": "Le Monde rapporte que des traitements et des vaccins sont à l'essai face à cette épidémie en RDC, la pire de l'histoire du pays [3]."
+      },
+      {
+        "bloc": 1,
+        "type": "incoherence_inter_sections",
+        "description": "La source [2] (Vie Publique, 16 juin 2026) est citée pour un appel des chefs d'État. Or, la source [1] (Inserm, 23 juillet 2026) mentionne que l'épidémie a été déclarée 'mi-mai 2026'. L'appel du 16 juin est cohérent chro",
+        "phrase": "Le 16 juin 2026, les chefs d'État et de gouvernement ont lancé un appel à une réponse coordonnée face à l'épidémie d'Ébolavirus de Bundibugyo [2]."
+      }
+    ],
+    "types_restants": [
+      "chiffre_errone",
+      "chiffre_errone",
+      "source_inventee",
+      "source_inventee",
+      "contexte_hors_sujet",
+      "compteur_incoherent",
+      "incoherence_inter_sections"
+    ],
+    "article_type": "actu",
+    "titre": "Ebola Bundibugyo : les vaccins anti-Zaïre induisent des anticorps croisés mais l'efficacité clinique reste inconnue",
+    "n_sources": 6,
+    "n_mots": 574,
+    "titre_rss": "Épidémie d’Ebola Bundibugyo : des premiers résultats pour guider la recherche d’un vaccin efficace",
+    "matiere_faits_distincts": 827,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 2,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "veille_heures_visible": 517.7,
+    "veille_passages": 311,
+    "veille_age_h": 2021.7,
+    "veille_n_flux_grappe": 9,
+    "nature_contenu": "etude_scientifique"
+  },
+  {
+    "slug": "madagascar-fouilles-archeologiques-pirates-ocean-indien",
+    "statut": "rejete_qualite",
+    "date": "2026-11-04T08:08:27",
+    "tentative": 3,
+    "perte_substance": true,
+    "section": "contexte",
+    "mots_avant": 214,
+    "mots_apres": 46,
+    "article_type": "actu",
+    "titre": "Madagascar : des fouilles archéologiques révèlent l'envers de la piraterie dans l'océan Indien",
+    "n_sources": 6,
+    "n_mots": 591,
+    "titre_rss": "A Madagascar, des fouilles archéologiques font parler les trésors des pirates de l’océan Indien",
+    "matiere_faits_distincts": 260,
+    "matiere_redondance": 0.14,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "etude_scientifique"
+  },
+  {
+    "slug": "pesticides-plus-cent-scientifiques-tribune-monde-anses",
+    "statut": "rejete_sensible",
+    "date": "2026-11-04T08:30:45",
+    "problemes_initiaux": 11,
+    "tentative": 2,
+    "bloc5": true,
+    "article_type": "actu",
+    "titre": "Plus de cent scientifiques alertent sur l'affaiblissement de l'ANSES dans une tribune au Monde",
+    "n_sources": 7,
+    "n_mots": 703,
+    "titre_rss": "Pesticides : « Il est urgent de renverser le rapport de force asymétrique avec les fabricants »",
+    "matiere_faits_distincts": 746,
+    "matiere_redondance": 0.18,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "declaration"
+  },
+  {
+    "slug": "canada-proces-jeunes-inaction-climatique-sante-mentale",
+    "statut": "rejete_sensible",
+    "date": "2026-11-04T08:43:06",
+    "tentative": 2,
+    "sujet_sensible": true,
+    "raison": "L'article implique des mineurs (plaignants âgés de 16 à 17 ans au moment du dépôt de la procédure en 2019) dans une affaire judiciaire en cours non définitivement jugée.",
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "nuances_vagues"
+    ],
+    "titre": "Au Canada, quinze jeunes poursuivent l'État pour inaction climatique et atteintes à leur santé mentale",
+    "n_sources": 5,
+    "n_mots": 818,
+    "titre_rss": "Climat : la santé mentale des jeunes dans un procès inédit au Canada",
+    "matiere_faits_distincts": 533,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 2,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "midterms-2026-democrates-majorite-senat-chambre-controle-congres",
+    "statut": "corrige_automatiquement",
+    "date": "2026-11-04T09:25:14",
+    "problemes_initiaux": 13,
+    "tentatives": 3,
+    "problemes_residuels_style": 0,
+    "rapport_initial": {
+      "conforme": false,
+      "sujet_sensible": false,
+      "sujet_sensible_raison": "",
+      "angle_insuffisant": false,
+      "angle_insuffisant_raison": "",
+      "nature_contenu": "actualite_factuelle",
+      "problemes": [
+        {
+          "bloc": 1,
+          "section": "titre",
+          "type": "annonce_perimee",
+          "phrase_exacte": "Midterms 2026 : les démocrates remportent le Sénat et la Chambre, prenant le contrôle du Congrès",
+          "explication": "Le titre affirme au présent indicatif que les démocrates ont remporté les deux chambres, alors que les sources [1] et [2] indiquent que les résultats reposent sur des projections médiatiques en cours de dépouillement et que la composition exacte de la Chambre n'est pas finalisée ; le titre présente comme acquis un état que les sources qualifient de provisoire."
+        },
+        {
+          "bloc": 1,
+          "section": "resume",
+          "type": "annonce_perimee",
+          "phrase_exacte": "Les démocrates ont obtenu la majorité au Sénat et à la Chambre des représentants lors des élections de mi-mandat du 3 novembre 2026, prenant le contrôle des deux chambres du Congrès pour la fin du mandat de Donald Trump [1][2].",
+          "explication": "Le résumé énonce au passé composé l'obtention des majorités comme un fait accompli, alors que la source [1] précise que les résultats restent basés sur des projections en cours de dépouillement et que la Chambre n'est pas finalisée dans tous les districts."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "annonce_perimee",
+          "phrase_exacte": "Les démocrates ont remporté la majorité au Sénat mardi 3 novembre 2026, selon les projections des médias américains, en faisant basculer une série de sièges tenus par les républicains [1].",
+          "explication": "La phrase affirme au passé composé que les démocrates ont remporté la majorité, tout en citant les projections comme source ; les projections ne constituent pas un résultat officiel et la source [1] indique que le dépouillement se poursuit."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "annonce_perimee",
+          "phrase_exacte": "À la Chambre des représentants, les démocrates ont également obtenu la majorité, prenant le contrôle des deux chambres du Congrès pour la première fois depuis 2022 [1].",
+          "explication": "L'article présente l'obtention de la majorité à la Chambre comme un fait accompli au passé composé, alors que la source [1] signale que la composition exacte n'est pas encore finalisée dans tous les districts et que les résultats reposent sur des projections."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "chiffre_errone",
+          "phrase_exacte": "Libération confirme que le basculement de l'Iowa a porté le total démocrate à 51 sièges assurés, scellant la majorité à la chambre haute [2].",
+          "explication": "La source [2] est un direct de Libération daté du 3 novembre 2026 (jour du scrutin) ; elle ne peut pas confirmer un total définitif de 51 sièges assurés alors que le dépouillement est en cours et que les projections sont provisoires selon la source [1]."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "chiffre_errone",
+          "phrase_exacte": "Historiquement, le parti du président en exercice perd en moyenne 28 sièges à la Chambre et 4 au Sénat lors des midterms, une tendance que ce scrutin 2026 confirme avec une ampleur notable [1].",
+          "explication": "La source [1] (BBC, résultats du 4 novembre) ne fournit pas de moyenne historique de pertes de sièges ni ne confirme que le scrutin 2026 valide cette moyenne ; le chiffre « 28 sièges à la Chambre et 4 au Sénat » n'est pas attesté par les extraits fournis."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "chiffre_errone",
+          "phrase_exacte": "En 2022, les républicains avaient repris la Chambre de justesse (222-213) tandis que les démocrates avaient conservé le Sénat (51-49).",
+          "explication": "Aucune des trois sources autorisées ne contient ces chiffres précis pour 2022 ; l'article les énonce sans attribution sourcée dans les extraits fournis."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "chiffre_errone",
+          "phrase_exacte": "Le cycle 2026 présentait une carte sénatoriale défavorable aux républicains, qui défendaient 22 sièges contre 12 pour les démocrates, dont plusieurs dans des États devenus compétitifs [1].",
+          "explication": "La source [1] (BBC résultats 2026) ne détaille pas la répartition des sièges défendus (22 républicains vs 12 démocrates) dans les extraits fournis ; ce chiffre n'est pas vérifié par la source citée."
+        },
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "Le Parlement européen notait avant le scrutin que les républicains détenaient une majorité étroite de 219 contre 214 sièges, avec deux vacances, ce qui rendait la bascule mathématiquement accessible [3].",
+          "explication": "La source [3] est un briefing du Parlement européen (Europa) ; l'article l'attribue à « Le Parlement européen » comme s'il s'agissait d'une déclaration politique, alors qu'il s'agit d'une étude administrative (EPRS_BRI) ; plus important, les extraits fournis pour la source [3] ne contiennent pas les chiffres 219-214 avec deux vacances, ce qui constitue une invention de contenu attribué à cette source."
+        },
+        {
+          "bloc": 2,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "Les élections de mi-mandat américaines renouvellent l'intégralité des 435 sièges de la Chambre des représentants et un tiers du Sénat (34 sièges en 2026) tous les deux ans, à mi-parcours du mandat présidentiel de quatre ans [3].",
+          "explication": "La source [3] (briefing EPRS du Parlement européen) n'est pas citée dans les extraits fournis pour confirmer ces règles institutionnelles générales ; l'article attribue à cette source des faits de droit constitutionnel américain qu'elle ne documente pas visiblement dans les extraits."
+        },
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "formule_vague",
+          "phrase_exacte": "selon les projections des médias américains",
+          "explication": "L'expression « les médias américains » est une formule vague sans référence précise à une source de la liste ; seule la BBC [1] est citée comme source de projections, pas un ensemble indéfini de médias."
+        },
+        {
+          "bloc": 4,
+          "section": "resume",
+          "type": "redondance",
+          "phrase_exacte": "Cette bascule prive le président républicain de toute marge législative pour ses deux dernières années, avec 51 sièges assurés au Sénat dont des gains dans des bastions républicains comme le Texas, l'Ohio et le Kansas [1][2].",
+          "explication": "Cette phrase du résumé répète l'idée déjà présente dans la première phrase du résumé (contrôle des deux chambres) et dans les faits (gains au Texas, Ohio, Kansas, 51 sièges), sans apporter d'information nouvelle distincte."
+        },
+        {
+          "bloc": 4,
+          "section": "nuances",
+          "type": "redondance",
+          "phrase_exacte": "Les projections de majorité reposent sur des estimations des médias basées sur des résultats partiels ; la certification officielle des résultats par chaque État interviendra dans les semaines suivantes [1][2].",
+          "explication": "Cette nuance répète l'information déjà donnée dans le résumé (« résultats restent basés sur des projections médiatiques en cours de dépouillement ») et dans les faits (« selon les projections des médias américains »), sans ajout factuel distinct."
+        }
+      ]
+    },
+    "article_type": "actu",
+    "titre": "Midterms 2026 : les démocrates remportent le Sénat et la Chambre, prenant le contrôle du Congrès",
+    "n_sources": 3,
+    "n_mots": 509,
+    "titre_rss": "Midterms 2026 : les démocrates obtiennent la majorité au Sénat",
+    "matiere_faits_distincts": 611,
+    "matiere_redondance": 0.04,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "ird-formation-registre-traitements-donnees-personnelles-rgpd",
+    "statut": "rejete_sensible",
+    "date": "2026-11-04T09:54:27",
+    "problemes_initiaux": 17,
+    "bloc5": [
+      "diffamation_potentielle"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "resume_repete_corps"
+    ],
+    "titre": "L'IRD forme ses agents à la tenue du registre des traitements RGPD",
+    "n_sources": 7,
+    "n_mots": 570,
+    "titre_rss": "Protection des données personnelles - Le registre des traitements",
+    "matiere_faits_distincts": 862,
+    "matiere_redondance": 0.01,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "veille_heures_visible": 517.7,
+    "veille_passages": 326,
+    "veille_age_h": 2021.7,
+    "veille_n_flux_grappe": 1,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "philippe-brossard-patrimoine-net-etat-750-milliards-euros",
+    "statut": "corrige_automatiquement",
+    "date": "2026-11-04T10:09:04",
+    "problemes_initiaux": 4,
+    "tentatives": 2,
+    "problemes_residuels_style": 8,
+    "rapport_initial": {
+      "conforme": false,
+      "sujet_sensible": false,
+      "sujet_sensible_raison": "",
+      "angle_insuffisant": false,
+      "angle_insuffisant_raison": "",
+      "nature_contenu": "tribune",
+      "problemes": [
+        {
+          "bloc": 3,
+          "section": "resume",
+          "type": "cadrage_emprunte",
+          "phrase_exacte": "L'auteur souligne que cette estimation ne prend pas en compte les actifs non financiers emblématiques comme la Joconde, ce qui laisse entrevoir une richesse publique encore sous-évaluée.",
+          "explication": "Le résumé présente comme un fait établi ('laisse entrevoir une richesse publique encore sous-évaluée') ce qui est un cadrage éditorial de la tribune ; il faut attribuer explicitement : 'selon Philippe Brossard, cette estimation laisse entrevoir...'."
+        },
+        {
+          "bloc": 3,
+          "section": "faits",
+          "type": "cadrage_emprunte",
+          "phrase_exacte": "Dans une tribune publiée le 3 novembre 2026 dans Le Monde, l'économiste Philippe Brossard, ancien membre de la direction du Trésor, avance que le secteur public français est « riche de 750 milliards d'euros » une fois l'ensemble de ses dettes retranchées de ses actifs [1].",
+          "explication": "L'introduction ne signale pas explicitement qu'il s'agit d'une tribune d'opinion ; elle présente l'analyse comme un fait neutre. Il faut écrire : 'Dans une tribune publiée..., Philippe Brossard plaide/affirme...' pour distinguer l'opinion de la rédaction."
+        },
+        {
+          "bloc": 4,
+          "section": "nuances",
+          "type": "redondance",
+          "phrase_exacte": "La tribune de Philippe Brossard expose une analyse d'économiste et non une statistique officielle publiée par l'Insee ou la direction du Trésor. Le chiffre de 750 milliards d'euros n'est pas sourcé dans l'extrait disponible à une publication comptable précise ni à une méthode de valorisation détaillée [1].",
+          "explication": "Cette nuance répète l'information déjà présente dans les faits (tribune d'économiste, chiffre non officiel, absence de méthode détaillée) sans apporter de fait distinct sourcé."
+        },
+        {
+          "bloc": 4,
+          "section": "nuances",
+          "type": "section_gonflee",
+          "phrase_exacte": "La réaction des institutions officielles (Insee, Trésor, Haut Conseil des finances publiques) à cette estimation n'était pas disponible dans les sources consultées à la date de publication.",
+          "explication": "Cette phrase ne rapporte aucun fait sourcé distinct ; elle ne fait que constater l'absence de réaction dans les sources fournies, ce qui gonfle artificiellement la section nuances."
+        }
+      ]
+    },
+    "article_type": "actu",
+    "titre": "Philippe Brossard chiffre le patrimoine net de l'État à 750 milliards d'euros",
+    "n_sources": 6,
+    "n_mots": 492,
+    "titre_rss": "« Net de toutes dettes, notre secteur public est riche  de 750 milliards d’euros. Et c’est sans compter “La Joconde” »",
+    "matiere_faits_distincts": 519,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 3,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "tribune"
+  },
+  {
+    "slug": "orques-fuient-cris-globicephales-superpredateur",
+    "statut": "rejete_qualite",
+    "date": "2026-11-04T10:20:22",
+    "problemes_initiaux": 8,
+    "tentatives": 3,
+    "problemes_restants": 13,
+    "bloquants_restants": 6,
+    "bloquants_types": [
+      "niveau_preuve_insuffisant",
+      "niveau_preuve_insuffisant",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "niveau_preuve_insuffisant",
+        "description": "L'article présente les résultats d'une étude scientifique (expériences de diffusion sonore, mesure de vitesse) sans indiquer le stade de la recherche, la taille de l'échantillon, la période de l'étude ni les limites méth",
+        "phrase": "D'après un article de Futura Sciences relayant une étude publiée dans Scientific Reports, des chercheurs ont conduit des expériences de diffusion sonore auprès de groupes d'orques en mer."
+      },
+      {
+        "bloc": 1,
+        "type": "niveau_preuve_insuffisant",
+        "description": "Une comparaison chiffrée ('double') est donnée sans que le comparateur soit identifié précisément (vitesse de croisière habituelle mesurée comment, sur combien d'individus, dans quelles conditions) et sans mention de la ",
+        "phrase": "Leur vitesse de déplacement double alors par rapport à leur vitesse de croisière habituelle, selon les mesures rapportées par l'étude [1]."
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "L'article attribue des faits à une 'étude publiée dans Scientific Reports' et à des 'chercheurs', mais la source [1] fournie est uniquement l'article de Futura Sciences ; la publication scientifique originale (Scientific",
+        "phrase": "D'après un article de Futura Sciences relayant une étude publiée dans Scientific Reports, des chercheurs ont conduit des expériences de diffusion sonore auprès de groupes d'orques en mer."
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "Le texte fait référence à l'étude publiée dans Scientific Reports comme source d'informations méthodologiques (conditions contrôlées, mesures précises), mais cette publication primaire n'est pas dans la liste des sources",
+        "phrase": "L'étude publiée dans Scientific Reports, relayée par Futura Sciences, a été menée en mer dans des conditions de diffusion sonore contrôlées, ce qui permet d'isoler l'effet des vocalises de globicéphales sur le comporteme"
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "L'attribution [1] renvoie à Futura Sciences, mais la phrase présente des détails méthodologiques ('mesurer précisément la vitesse... avant, pendant et après') qui ne sont pas explicitement confirmés comme tels dans l'ext",
+        "phrase": "Les chercheurs ont pu mesurer précisément la vitesse de déplacement avant, pendant et après la diffusion, confirmant l'amplitude de la réaction de fuite [1]."
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "Le texte énumère des limites absentes de l'article de Futura Sciences, mais l'attribution [1] laisse entendre que ces limites proviennent de la source [1] ; or la source [1] (Futura Sciences) ne contient pas nécessaireme",
+        "phrase": "L'article de Futura Sciences ne précise pas si cette fuite est innée ou apprise par expérience, ni la taille de l'échantillon d'orques testées, ni la variabilité des réponses individuelles ni la significativité statistiq"
+      }
+    ],
+    "types_restants": [
+      "niveau_preuve_insuffisant",
+      "niveau_preuve_insuffisant",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "compteur_incoherent",
+      "redondance",
+      "redondance",
+      "redondance",
+      "redondance",
+      "redondance",
+      "contexte_hors_sujet"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "titre_de_mauvaise_qualite",
+      "article_sans_date"
+    ],
+    "titre": "Les orques fuient à vitesse doublée face aux cris de globicéphales",
+    "n_sources": 4,
+    "n_mots": 540,
+    "titre_rss": "Les orques sont les reines de l’océan… Pourtant, les cris de ce petit cétacé suffisent à les faire fuir",
+    "matiere_faits_distincts": 1168,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "etude_scientifique"
+  },
+  {
+    "slug": "thomas-couvreur-erc-consolidator-grant-projet-global-forets-tropicales",
+    "statut": "rejete_qualite",
+    "date": "2026-11-04T10:32:23",
+    "tentative": 1,
+    "angle_insuffisant": true,
+    "raison": "Aucune phrase des faits ne contient à la fois un événement précis daté ou datable (annonce, publication, décision, résultat rendu public récemment) et une donnée chiffrée ou nommée qui lui est propre. L'article rapporte l'obtention d'une bourse en décembre 2019 et la durée du projet (2020-2025) sans présenter de résultat récent, de publication, de décision ou d'actualité datée justifiant une publication maintenant. Le contexte cite un rapport du Sénat de juillet 2026 et un podcast RFI de janvier 2025, mais les faits ne s'y rattachent à aucun événement déclencheur actuel. L'article répond à \"qu'est-ce que le projet GLOBAL ?\" plutôt qu'à \"pourquoi en parle-t-on maintenant ?\".",
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "faits_repetitifs"
+    ],
+    "titre": "Thomas Couvreur obtient un ERC Consolidator Grant pour le projet GLOBAL sur les forêts tropicales",
+    "n_sources": 3,
+    "n_mots": 612,
+    "titre_rss": "Forêts tropicales humides : un financement ERC pour le chercheur IRD Thomas Couvreur",
+    "matiere_faits_distincts": 902,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "veille_heures_visible": 517.7,
+    "veille_passages": 326,
+    "veille_age_h": 2021.7,
+    "veille_n_flux_grappe": 2,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "travailleurs-plateformes-mission-presomption-salariat-transparence-algorithmes",
+    "statut": "rejete_sensible",
+    "date": "2026-11-04T10:41:38",
+    "problemes_initiaux": 15,
+    "tentative": 1,
+    "bloc5": true,
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "titre_de_mauvaise_qualite"
+    ],
+    "titre": "Mission sur les plateformes : présomption de salariat, revenu minimum et transparence algorithmique proposés",
+    "n_sources": 6,
+    "n_mots": 554,
+    "titre_rss": "Présomption de salariat, revenu minimum, transparence des algorithmes : les propositions de la mission sur les travailleurs des plateformes",
+    "matiere_faits_distincts": 603,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "rapport"
+  },
+  {
+    "slug": "velo-violences-motorisees-barometre-fub-2025",
+    "statut": "rejete_sensible",
+    "date": "2026-11-04T10:49:34",
+    "problemes_initiaux": 7,
+    "tentative": 1,
+    "bloc5": true,
+    "article_type": "actu",
+    "titre": "Près de huit cyclistes sur dix déclarent avoir subi des violences motorisées en 2025",
+    "n_sources": 2,
+    "n_mots": 588,
+    "titre_rss": "\"Il y a un climat d’agressivité générale\" : ce que montrent les chiffres des violences motorisées dont sont victimes les cyclistes en France",
+    "matiere_faits_distincts": 360,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "rapport"
+  },
+  {
+    "slug": "fossiles-quercy-grande-coupure-climat-extinction-34-millions-annees",
+    "statut": "corrige_automatiquement",
+    "date": "2026-11-04T11:02:59",
+    "problemes_initiaux": 2,
+    "tentatives": 1,
+    "problemes_residuels_style": 0,
+    "rapport_initial": {
+      "conforme": false,
+      "sujet_sensible": false,
+      "sujet_sensible_raison": "",
+      "angle_insuffisant": false,
+      "angle_insuffisant_raison": "",
+      "nature_contenu": "etude_scientifique",
+      "problemes": [
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "chiffre_errone",
+          "phrase_exacte": "Ces grottes calcaires, au nombre d'environ 200, livrent depuis 60 ans des milliers de fossiles d'animaux conservés de façon exceptionnelle, datés de 52 millions à 20 millions d'années [1][2].",
+          "explication": "La source [1] (CNRS) indique que les fossiles sont datés de 52 à 34 millions d'années, et non 52 à 20 millions d'années."
+        },
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "compteur_incoherent",
+          "phrase_exacte": "\"nb_sources\": 4",
+          "explication": "Le champ nb_sources indique 4, mais seules 2 sources distinctes sont listées dans le tableau sources (CNRS et Le Monde)."
+        }
+      ]
+    },
+    "article_type": "actu",
+    "titre": "Fossiles du Quercy : le climat cause de la Grande Coupure",
+    "n_sources": 2,
+    "n_mots": 511,
+    "titre_rss": "En images : les fossiles du Quercy, témoins d’un bouleversement climatique",
+    "matiere_faits_distincts": 837,
+    "matiere_redondance": 0.02,
+    "matiere_donnees_chiffrees": 4,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "etude_scientifique"
+  },
+  {
+    "slug": "indonesie-incendies-pollution-air-3560-morts-septembre-2026",
+    "statut": "corrige_automatiquement",
+    "date": "2026-11-04T11:11:52",
+    "problemes_initiaux": 11,
+    "tentatives": 2,
+    "problemes_residuels_style": 1,
+    "rapport_initial": {
+      "conforme": false,
+      "sujet_sensible": false,
+      "sujet_sensible_raison": "",
+      "angle_insuffisant": false,
+      "angle_insuffisant_raison": "",
+      "nature_contenu": "actualite_factuelle",
+      "problemes": [
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "L'organisme Nusantara Atlas indique que les flammes ont consumé plus de 1,9 million d'hectares au cours des neuf premiers mois de 2026, une étendue alimentée par une sécheresse sévère liée au phénomène climatique El Niño [5].",
+          "explication": "La source [5] renvoie à la troisième entrée du tableau (Anses), qui ne mentionne pas Nusantara Atlas ni le chiffre de 1,9 million d'hectares brûlés en Indonésie en 2026."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "En septembre, 57,8 millions de personnes — soit plus d'un cinquième de la population indonésienne — respiraient un air classé de « malsain » à « dangereux » selon les seuils de l'Organisation mondiale de la santé, d'après les modélisations du CREA [6].",
+          "explication": "La source [6] n'existe pas : le tableau des sources ne contient que 3 entrées (indices 1 à 3)."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "Le phénomène El Niño, qui réduit les précipitations sur l'archipel, a prolongé la saison sèche bien au-delà de la normale, asséchant les tourbières qui brûlent alors en profondeur et dégagent une fumée particulièrement chargée en particules fines [5].",
+          "explication": "La source [5] (Anses) ne traite pas d'El Niño en Indonésie ni de tourbières indonésiennes."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "L'Organisation météorologique mondiale (OMM) note dans son bulletin 2024 que les saisons d'incendies s'allongent et s'intensifient sous l'effet du réchauffement climatique, avec des panaches de fumée capables de traverser les océans et de dégrader la qualité de l'air à l'échelle continentale [4]. En 2024, les feux canadiens avaient ainsi pollué l'air européen, illustrant la portée transfrontière de ces épisodes [4].",
+          "explication": "La source [4] n'existe pas : le tableau des sources ne contient que 3 entrées."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "En France, l'Anses documente une extension du risque incendie du sud vers le nord, avec 18 millions d'hectares de forêts exposées et une augmentation prévue des surfaces brûlées d'ici 2050 dans les massifs méditerranéens et landais [3].",
+          "explication": "L'extrait fourni de la source [3] (Anses) ne contient pas ces chiffres ni cette description géographique pour la France."
+        },
+        {
+          "bloc": 1,
+          "section": "nuances",
+          "type": "source_inventee",
+          "phrase_exacte": "Le bilan de 3 560 morts repose sur une modélisation épidémiologique du CREA appliquant des fonctions de risque concentration-réponse aux données satellitaires de PM2,5, et non sur un décompte clinique individuel [6].",
+          "explication": "La source [6] n'existe pas (seules 3 sources dans le tableau)."
+        },
+        {
+          "bloc": 1,
+          "section": "nuances",
+          "type": "source_inventee",
+          "phrase_exacte": "L'Anses souligne que la composition des fumées varie selon le type de végétation, l'humidité et la température de combustion, ce qui modifie la toxicité des particules inhalées [3]. Les tourbières indonésiennes, riches en carbone, génèrent des fumées distinctes de celles des feux de forêts tempérées étudiés en Europe, limitant la transférabilité directe des seuils sanitaires.",
+          "explication": "L'extrait fourni de la source [3] ne mentionne pas les tourbières indonésiennes ni une comparaison de toxicité avec les feux européens."
+        },
+        {
+          "bloc": 1,
+          "section": "nuances",
+          "type": "acteur_mis_en_cause_sans_reponse",
+          "phrase_exacte": "La réaction des autorités indonésiennes n'était pas disponible dans les sources consultées à la date de publication.",
+          "explication": "Les autorités indonésiennes ne sont pas mises en cause dans l'article ; ce paragraphe simule un équilibre inexistant (fausse entrée dans 'positions')."
+        },
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "compteur_incoherent",
+          "phrase_exacte": "\"nb_sources\": 3",
+          "explication": "L'article utilise des renvois jusqu'à [6], ce qui implique au moins 6 sources distinctes, mais le champ nb_sources indique 3."
+        },
+        {
+          "bloc": 4,
+          "section": "contexte",
+          "type": "contexte_hors_sujet",
+          "phrase_exacte": "En France, l'Anses documente une extension du risque incendie du sud vers le nord, avec 18 millions d'hectares de forêts exposées et une augmentation prévue des surfaces brûlées d'ici 2050 dans les massifs méditerranéens et landais [3].",
+          "explication": "Ce développement sur la France n'éclaire pas le sujet principal (bilan sanitaire des incendies en Indonésie en septembre 2026) et sert de remplissage."
+        },
+        {
+          "bloc": 4,
+          "section": "contexte",
+          "type": "section_gonflee",
+          "phrase_exacte": "L'Organisation météorologique mondiale (OMM) note dans son bulletin 2024 que les saisons d'incendies s'allongent et s'intensifient sous l'effet du réchauffement climatique, avec des panaches de fumée capables de traverser les océans et de dégrader la qualité de l'air à l'échelle continentale [4]. En 2024, les feux canadiens avaient ainsi pollué l'air européen, illustrant la portée transfrontière de ces épisodes [4].",
+          "explication": "Ce paragraphe repose sur une source inexistante [4] et développe un contexte général (feux canadiens, OMM) sans lien direct avec l'événement indonésien de septembre 2026."
+        }
+      ]
+    },
+    "article_type": "actu",
+    "titre": "Indonésie : 3 560 morts liés à la pollution des incendies en septembre 2026",
+    "n_sources": 3,
+    "n_mots": 548,
+    "titre_rss": "En Indonésie, la pollution de l’air due aux incendies a causé la mort de 3 560 personnes en septembre",
+    "matiere_faits_distincts": 666,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 2,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
   }
 ]
