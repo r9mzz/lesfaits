@@ -57517,5 +57517,763 @@
     "n_sources_injectees": 10,
     "n_sources_trouvees": 10,
     "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "cyberattaque-credit-mutuel-arkea-118-millions-euros-detournement",
+    "statut": "rejete_qualite",
+    "date": "2026-11-05T07:54:28",
+    "tentative": 3,
+    "perte_substance": true,
+    "section": "contexte",
+    "mots_avant": 124,
+    "mots_apres": 60,
+    "article_type": "actu",
+    "titre": "Cyberattaque au Crédit mutuel Arkéa : un détournement estimé à 118 millions d'euros",
+    "n_sources": 6,
+    "n_mots": 467,
+    "titre_rss": "Avec la cyberattaque au Crédit mutuel Arkéa, les banques européennes prennent conscience de l’ampleur de leur vulnérabilité",
+    "matiere_faits_distincts": 562,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "production-record-hydrocarbures-etats-unis-factures-energie-hausse",
+    "statut": "rejete_qualite",
+    "date": "2026-11-05T08:04:19",
+    "tentative": 1,
+    "angle_insuffisant": true,
+    "raison": "Aucune phrase dans 'faits' ne contient à la fois un événement précis daté (annonce, publication, décision, résultat récent) et une donnée chiffrée ou nommée qui lui est propre. L'article explique un phénomène général (production record vs factures en hausse) sans identifier le fait déclencheur daté qui justifie la publication maintenant (ex: publication d'un rapport récent, nouvelle statistique EIA, décision politique précise). Les sources citées portent sur des sujets distincts (abrogation limites émissions, réserves stratégiques, déclaration Trump) et ne documentent pas le lien central 'production record -> factures en hausse'.",
+    "article_type": "actu",
+    "titre": "Production record d'hydrocarbures aux États-Unis, factures d'énergie en hausse",
+    "n_sources": 3,
+    "n_mots": 774,
+    "titre_rss": "Après les élections de mi-mandat, l’échec de la promesse de Trump d’une énergie moins chère",
+    "matiere_faits_distincts": 508,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "sante-mentale-femmes-deux-fois-plus-touchees-troubles-psychiques-travail",
+    "statut": "rejete_sensible",
+    "date": "2026-11-05T08:15:24",
+    "problemes_initiaux": 15,
+    "bloc5": [
+      "chiffre_errone"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "titre_de_mauvaise_qualite"
+    ],
+    "titre": "HCE : les femmes deux fois plus touchées par les troubles psychiques au travail",
+    "n_sources": 4,
+    "n_mots": 517,
+    "titre_rss": "Dépression, troubles psy : les femmes paient le prix fort des inégalités, selon un rapport",
+    "matiere_faits_distincts": 1072,
+    "matiere_redondance": 0.01,
+    "matiere_donnees_chiffrees": 2,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "rapport"
+  },
+  {
+    "slug": "californie-rejette-taxe-zucman-milliardaires-referendum-proposition-40",
+    "statut": "rejete_qualite",
+    "date": "2026-11-05T08:38:44",
+    "problemes_initiaux": 8,
+    "tentatives": 3,
+    "problemes_restants": 21,
+    "bloquants_restants": 12,
+    "bloquants_types": [
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [2] (France 24) indique des résultats de 59,4 % contre et 40,6 % pour, et non 59,9 % / 40,1 %.",
+        "phrase": "La proposition 40 a été rejetée par 59,9 % des électeurs californiens contre 40,1 % en sa faveur, sur la base de près de 60 % des bulletins dépouillés [2]."
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "Le résumé reprend les mêmes pourcentages erronés (59,9 % / 40,1 %) que la section faits, contredisant la source [2] qui donne 59,4 % / 40,6 %.",
+        "phrase": "La proposition 40, qui prévoyait un impôt unique de 5 % sur la fortune des personnes résidant en Californie au 1er janvier 2026 dont le patrimoine dépasse 50 millions de dollars, a été rejetée par 59,9 % des votants cont"
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "Le titre affiche des pourcentages (59,9 % / 40,1 %) qui ne correspondent pas à ceux de la source [2] (59,4 % / 40,6 %).",
+        "phrase": "La Californie rejette la taxe Zucman sur les milliardaires à 59,9 % contre 40,1 %"
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [1] (L'Express) précise que le seuil d'imposition est de 1 milliard de dollars, et non 50 millions de dollars.",
+        "phrase": "Le texte prévoyait un prélèvement unique de 5 % sur le patrimoine net des personnes dont la fortune dépasse 50 millions de dollars et qui étaient résidentes de Californie au 1er janvier 2026 [1]."
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "Le résumé indique un seuil de 50 millions de dollars, alors que la source [1] mentionne un seuil à 1 milliard de dollars.",
+        "phrase": "La proposition 40, qui prévoyait un impôt unique de 5 % sur la fortune des personnes résidant en Californie au 1er janvier 2026 dont le patrimoine dépasse 50 millions de dollars, a été rejetée par 59,9 % des votants cont"
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [1] indique qu'environ 150 personnes auraient été concernées, et non 200.",
+        "phrase": "Environ 200 contribuables auraient été concernés par cette mesure exceptionnelle [1]."
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "Le résumé reprend le chiffre erroné de 200 personnes concernées, la source [1] en mentionnant environ 150.",
+        "phrase": "Soutenue par les économistes Gabriel Zucman et Emmanuel Saez ainsi que par le sénateur Bernie Sanders, la mesure visait environ 200 personnes et promettait 100 milliards de dollars de recettes pour la santé."
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [1] mentionne 75 milliards de dollars de recettes attendues, et non 100 milliards.",
+        "phrase": "Les partisans de l'initiative, parmi lesquels figuraient les économistes français Gabriel Zucman et Emmanuel Saez, ainsi que le sénateur du Vermont Bernie Sanders, avançaient que la taxe générerait environ 100 milliards "
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "Le résumé reprend le montant erroné de 100 milliards de dollars, la source [1] indiquant 75 milliards.",
+        "phrase": "Soutenue par les économistes Gabriel Zucman et Emmanuel Saez ainsi que par le sénateur Bernie Sanders, la mesure visait environ 200 personnes et promettait 100 milliards de dollars de recettes pour la santé."
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [1] décrit un taux progressif (1,5 % entre 1 et 2 milliards, 2 % entre 2 et 5 milliards, 2,5 % entre 5 et 10 milliards, 3 % au-delà), et non un prélèvement unique de 5 %.",
+        "phrase": "La proposition 40 se distinguait par son caractère ponctuel (un prélèvement unique de 5 %) et non récurrent, conçu pour contourner les obstacles constitutionnels et politiques qui bloquent habituellement les projets d'im"
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [1] décrit un barème progressif par tranches de patrimoine, et non un taux unique de 5 %.",
+        "phrase": "Le texte prévoyait un prélèvement unique de 5 % sur le patrimoine net des personnes dont la fortune dépasse 50 millions de dollars et qui étaient résidentes de Californie au 1er janvier 2026 [1]."
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "Le résumé présente la mesure comme un impôt unique à 5 %, alors que la source [1] détaille un barème progressif.",
+        "phrase": "La proposition 40, qui prévoyait un impôt unique de 5 % sur la fortune des personnes résidant en Californie au 1er janvier 2026 dont le patrimoine dépasse 50 millions de dollars, a été rejetée par 59,9 % des votants cont"
+      }
+    ],
+    "types_restants": [
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "fait_tranche_arbitrairement",
+      "compteur_incoherent"
+    ],
+    "article_type": "actu",
+    "titre": "La Californie rejette la taxe Zucman sur les milliardaires à 55 % contre 45 %",
+    "n_sources": 3,
+    "n_mots": 542,
+    "titre_rss": "La \"taxe Zucman\" échoue en Californie, mais la campagne anti-riches a fait des dégâts, par l'essayiste Rainer Zitelmann",
+    "matiere_faits_distincts": 486,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "senat-bei-financement-armes-munitions-defense-europeenne",
+    "statut": "corrige_automatiquement",
+    "date": "2026-11-05T08:52:33",
+    "problemes_initiaux": 4,
+    "tentatives": 2,
+    "problemes_residuels_style": 0,
+    "rapport_initial": {
+      "conforme": false,
+      "sujet_sensible": false,
+      "sujet_sensible_raison": "",
+      "angle_insuffisant": false,
+      "angle_insuffisant_raison": "",
+      "nature_contenu": "actualite_factuelle",
+      "problemes": [
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "Parallèlement, la France fait face à ses propres limites budgétaires : le gouvernement projette de créer une société baptisée France Munitions, qui jouerait le rôle de grossiste pour l'État afin d'acheter massivement des munitions [2].",
+          "explication": "La source [2] (Le Monde, mai 2023) porte sur le plan européen ASAP de Thierry Breton pour accélérer la production de munitions, elle ne mentionne pas la création d'une société 'France Munitions' par le gouvernement français."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "La Commission européenne entend mobiliser 500 millions d'euros pour financer la montée en cadence de la quinzaine d'usines européennes de munitions, avec pour objectif d'être capable de fabriquer davantage [2]. Les usines slovaques de fabrication d'obus, notamment celles du groupe tchèque CSG, tournent à plein régime portées par la demande due à la guerre en Ukraine [2].",
+          "explication": "La source [2] (Le Monde, mai 2023) annonce le programme ASAP (500 M€) mais ne mentionne pas une 'quinzaine d'usines', ni des usines slovaques du groupe CSG tournant à plein régime."
+        },
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "compteur_incoherent",
+          "phrase_exacte": "nb_sources: 4",
+          "explication": "Le champ 'nb_sources' indique 4, mais seules 2 sources distinctes sont listées dans le tableau 'sources' et utilisées dans le texte (renvois [1] et [2])."
+        },
+        {
+          "bloc": 2,
+          "section": "qualite_sources",
+          "type": "compteur_incoherent",
+          "phrase_exacte": "primaire: 1, secondaire: 1, tertiaire: 0",
+          "explication": "La source [1] (proposition de résolution du Sénat) est un document primaire, la source [2] (article Le Monde) est une source secondaire ; le décompte 'primaire: 1, secondaire: 1' est correct pour 2 sources, mais incohérent avec 'nb_sources: 4'."
+        }
+      ]
+    },
+    "article_type": "actu",
+    "titre": "Le Sénat presse la BEI de financer les armes et munitions européennes",
+    "n_sources": 2,
+    "n_mots": 883,
+    "titre_rss": "Armes et munitions produites par les industries européennes de la défense - Rapport n° 879",
+    "matiere_faits_distincts": 829,
+    "matiere_redondance": 0.05,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "veille_heures_visible": 517.7,
+    "veille_passages": 326,
+    "veille_age_h": 2046.2,
+    "veille_n_flux_grappe": 4,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "cyberattaque-efs-chambres-froides-stocks-sang-preserves",
+    "statut": "rejete_qualite",
+    "date": "2026-11-05T09:00:01",
+    "tentative": 3,
+    "perte_substance": true,
+    "section": "nuances",
+    "mots_avant": 136,
+    "mots_apres": 35,
+    "article_type": "actu",
+    "titre": "Cyberattaque sur l'EFS le 4 novembre : trois sites visés, aucun produit sanguin perdu",
+    "n_sources": 5,
+    "n_mots": 538,
+    "titre_rss": "Cyberattaque : les chambres froides de l'EFS prises pour cible",
+    "matiere_faits_distincts": 693,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "oms-six-mesures-sauver-1-6-million-vies-pollution-climat",
+    "statut": "rejete_qualite",
+    "date": "2026-11-05T09:08:26",
+    "problemes_initiaux": 10,
+    "tentatives": 3,
+    "problemes_restants": 12,
+    "bloquants_restants": 11,
+    "bloquants_types": [
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "source_inventee",
+      "source_inventee"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [1] (Sciences et Avenir) indique que les six mesures permettraient d'éviter 1,6 million de décès prématurés par an, mais ne mentionne pas le chiffre de 17 milliards de tonnes de CO2 ; ce chiffre n'est pas confi",
+        "phrase": "L'OMS estime que la combinaison de ces mesures sanitaires, environnementales et économiques permettrait d'éviter près de 1,6 million de décès prématurés chaque année et près de 17 milliards de tonnes d'émissions de CO2 ["
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [5] (Citepa, 28/09/2026) ne contient pas l'information selon laquelle sept limites planétaires auraient été franchies en septembre 2025 ; cet extrait ne mentionne ni ce chiffre ni cette date.",
+        "phrase": "Sur le plan planétaire, sept des neuf limites planétaires ont été franchies en septembre 2025, dont le changement climatique, l'érosion de la biodiversité et l'augmentation des aérosols atmosphériques [5]."
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [5] ne mentionne pas l'acidification des océans comme septième limite planétaire dépassée ; cette information n'est pas présente dans l'extrait fourni.",
+        "phrase": "L'acidification des océans, liée à l'absorption du CO2 atmosphérique, a constitué la septième limite dépassée [5]."
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [5] ne contient pas cette explication sur l'interdépendance des limites planétaires ; l'information n'est pas sourcée.",
+        "phrase": "Ces limites sont interdépendantes : la perte de biodiversité dépend du changement d'usage des sols, et la perturbation du cycle de l'eau douce contribue à la dégradation des écosystèmes aquatiques [5]."
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [5] ne mentionne pas les lignes directrices de 2021 de l'OMS ni leur respect futur ; l'extrait fourni ne contient pas cette affirmation.",
+        "phrase": "L'Organisation météorologique mondiale (OMM) prévient que le respect des lignes directrices de 2021 de l'OMS relatives à la qualité de l'air deviendra plus difficile, car les conditions météorologiques extrêmes propices "
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [5] ne contient pas ces chiffres précis (triplement depuis les années 1990, 99 000 décès/an, répartition géographique 28%/24%) ; ils ne sont pas confirmés par l'extrait fourni.",
+        "phrase": "Les épisodes d'exposition aux PM2,5 liés aux incendies ont triplé depuis les années 1990, et l'exposition aiguë aux fumées d'incendie aurait contribué à près de 99 000 décès supplémentaires par an entre 2010 et 2018, par"
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [5] ne mentionne pas de doublement de l'exposition concomitante vagues de chaleur/ozone ni de dizaines de milliers de décès supplémentaires ; cette projection n'est pas dans l'extrait.",
+        "phrase": "L'OMM anticipe aussi un doublement de l'exposition concomitante aux vagues de chaleur et à la pollution à l'ozone, entraînant plusieurs dizaines de milliers de décès prématurés supplémentaires [5]."
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [5] ne contient pas cette comparaison entre la baisse des PM2,5 en Europe/Amérique du Nord et l'augmentation due aux incendies ; l'information n'est pas sourcée.",
+        "phrase": "Par ailleurs, alors que les concentrations de PM2,5 ont diminué en Europe et en Amérique du Nord grâce à des réglementations strictes sur les émissions industrielles et automobiles, l'exposition aux PM2,5 liées aux incen"
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [4] (Citepa, 14/05/2025) ne précise pas que l'objectif repose sur des engagements volontaires sans mécanisme contraignant ; cette qualification n'est pas dans l'extrait.",
+        "phrase": "L'objectif de réduction de 50 % d'ici 2040 repose sur des engagements volontaires, sans mécanisme contraignant [4]."
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "L'ensemble de ce passage sur les limites planétaires (sept franchies en septembre 2025, acidification comme septième limite, interdépendances) est attribué à la source [5] mais n'apparaît pas dans l'extrait fourni de cet",
+        "phrase": "Sur le plan planétaire, sept des neuf limites planétaires ont été franchies en septembre 2025, dont le changement climatique, l'érosion de la biodiversité et l'augmentation des aérosols atmosphériques [5]. L'acidificatio"
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "L'ensemble de ces affirmations chiffrées et projections attribuées à l'OMM via la source [5] ne figurent pas dans l'extrait fourni de cette source ; elles sont inventées par rapport à la source citée.",
+        "phrase": "L'Organisation météorologique mondiale (OMM) prévient que le respect des lignes directrices de 2021 de l'OMS relatives à la qualité de l'air deviendra plus difficile, car les conditions météorologiques extrêmes propices "
+      }
+    ],
+    "types_restants": [
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "source_inventee",
+      "source_inventee",
+      "contexte_hors_sujet"
+    ],
+    "article_type": "actu",
+    "titre": "L'OMS propose six mesures pour sauver 1,6 million de vies par an",
+    "n_sources": 5,
+    "n_mots": 733,
+    "titre_rss": "Six mesures pour sauver 1,6 million de vies chaque année, selon l'OMS",
+    "matiere_faits_distincts": 1142,
+    "matiere_redondance": 0.03,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "ue-commission-revision-directives-oiseaux-habitats-2027",
+    "statut": "rejete_qualite",
+    "date": "2026-11-05T09:39:40",
+    "problemes_initiaux": 9,
+    "tentatives": 3,
+    "problemes_restants": 17,
+    "bloquants_restants": 13,
+    "bloquants_types": [
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [1] (La Croix, 4 novembre 2026) ne mentionne pas la date précise du 4 novembre 2026 pour la présentation du programme de travail 2027 ; l'article attribue une date exacte non confirmée par la source citée.",
+        "phrase": "La Commission européenne a présenté mercredi 4 novembre 2026 son programme de travail 2027"
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [3] (Europa, 10 décembre 2025) porte sur l'accélération des évaluations environnementales mais ne confirme pas qu'il s'agit d'un paquet nommé « Omnibus VIII » ni qu'il a été présenté par la Commission à cette d",
+        "phrase": "Le paquet « Omnibus VIII » sur l'accélération des évaluations environnementales a été présenté par la Commission le 10 décembre 2025 [3]."
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [2] (Vie Publique, 31 mai 2023) est antérieure à la date mentionnée (fin 2024) et ne peut pas confirmer un report initialement prévu fin 2024 ; l'article attribue à cette source une information qu'elle ne conti",
+        "phrase": "Le report de l'entrée en vigueur du règlement européen contre la déforestation, initialement prévu fin 2024, illustre cette dynamique d'assouplissement [2]."
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "Le renvoi [1] attribue à la source La Croix des détails précis (date exacte, troisième trimestre, trois piliers nommés) que l'extrait fourni de cette source ne confirme pas ; le fait n'est pas vérifiable avec la source c",
+        "phrase": "La Commission européenne a présenté mercredi 4 novembre 2026 son programme de travail 2027, qui prévoit au troisième trimestre la révision de trois piliers de la politique européenne de biodiversité : la directive Oiseau"
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "La citation entre guillemets est attribuée à la source [1] mais l'extrait fourni de La Croix ne contient pas cette formulation exacte ; l'article invente une citation non présente dans la source autorisée.",
+        "phrase": "L'exécutif européen justifie cette démarche par la nécessité de « déterminer s'il est nécessaire de modifier le cadre législatif afin qu'il reste efficace (…) tout en étant plus simple à appliquer » [1]."
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "Les propos précis attribués à Valdis Dombrovskis (citation sur la protection de la nature, ampleur non tranchée) sont renvoyés à la source [1] mais n'apparaissent pas dans l'extrait fourni de La Croix ; l'article prête d",
+        "phrase": "Le commissaire Valdis Dombrovskis, chargé de la simplification, a assuré que l'Union continuerait à « protéger la nature et la biodiversité » et que l'ampleur de la révision n'était pas tranchée [1]."
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "L'affirmation selon laquelle Bruxelles lie explicitement la simplification à l'accélération des permis pour ces trois catégories de projets stratégiques est attribuée à la source [1] mais n'est pas confirmée par l'extrai",
+        "phrase": "Bruxelles lie explicitement cette simplification à l'accélération des permis pour des projets stratégiques : énergies renouvelables, mines de matières premières critiques et déploiement de réseaux électriques [1]."
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "La source [3] (Europa) ne mentionne pas l'expression « Omnibus VIII » ni une présentation par la Commission à cette date ; l'article invente une dénomination et un acte non présents dans la source.",
+        "phrase": "Le paquet « Omnibus VIII » sur l'accélération des évaluations environnementales a été présenté par la Commission le 10 décembre 2025 [3]."
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "La source [2] (Vie Publique, mai 2023) ne traite pas d'un report prévu fin 2024 ; l'article lui fait dire une information postérieure à sa publication et absente de l'extrait.",
+        "phrase": "Le report de l'entrée en vigueur du règlement européen contre la déforestation, initialement prévu fin 2024, illustre cette dynamique d'assouplissement [2]."
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "La lettre ouverte du BEE, la citation « pas rouvrir » et la qualification d'« instruments de conservation les plus importants » sont attribuées à la source [1] (La Croix) mais n'apparaissent pas dans l'extrait fourni.",
+        "phrase": "Le Bureau européen de l'environnement (BEE) a publié une lettre ouverte de scientifiques appelant à ne « pas rouvrir » ces lois, qu'ils qualifient d'« instruments de conservation de la nature les plus importants » depuis"
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "La déclaration de Marie Toussaint et la citation « mettre à bas 40 ans de législation » sont renvoyées à la source [1] mais ne figurent pas dans l'extrait de La Croix fourni.",
+        "phrase": "L'eurodéputée écologiste Marie Toussaint accuse la Commission de vouloir « mettre à bas 40 ans de législation de protection du vivant » [1]."
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "Les propos de Peter Liese (directives « complètement dépassées », exemple du grand cormoran) sont attribués à la source [1] mais absents de l'extrait de La Croix.",
+        "phrase": "À l'inverse, l'eurodéputé Peter Liese (PPE) juge les directives « complètement dépassées » et cite l'exemple du grand cormoran, espèce protégée qui serait devenue une menace pour d'autres espèces [1]."
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "Cette synthèse détaillée (protection effective, ampleur non tranchée, lien avec projets stratégiques) est attribuée à la source [5] (Le Monde, 10 décembre 2025) mais l'extrait fourni ne la confirme pas ; l'article invent",
+        "phrase": "Le Monde note que la Commission, par la voix de Valdis Dombrovskis, assure que la protection de la nature et de la biodiversité restera effective et que l'ampleur de la révision n'est pas tranchée, tout en liant la simpl"
+      }
+    ],
+    "types_restants": [
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_derivee_comptee_comme_primaire",
+      "redondance",
+      "redondance",
+      "contexte_hors_sujet"
+    ],
+    "article_type": "actu",
+    "titre": "La Commission européenne prévoit de réviser les directives Oiseaux et Habitats en 2027",
+    "n_sources": 5,
+    "n_mots": 537,
+    "titre_rss": "L’UE promet de simplifier encore des lois environnementales, les ONG s’inquiètent",
+    "matiere_faits_distincts": 536,
+    "matiere_redondance": 0.01,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "changement-climatique-urgence-sanitaire-mondiale-lancet-countdown-2026",
+    "statut": "rejete_sensible",
+    "date": "2026-11-05T10:08:48",
+    "problemes_initiaux": 12,
+    "tentative": 1,
+    "bloc5": true,
+    "article_type": "actu",
+    "titre": "Le changement climatique qualifié d'urgence sanitaire mondiale par le Lancet Countdown 2026",
+    "n_sources": 8,
+    "n_mots": 806,
+    "titre_rss": "Le changement climatique doit devenir \"urgence sanitaire mondiale\", selon le rapport The Lancet Countdown",
+    "matiere_faits_distincts": 1010,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "rapport"
+  },
+  {
+    "slug": "new-delhi-pollution-30-fois-seuils-oms-diwali",
+    "statut": "rejete_qualite",
+    "date": "2026-11-05T10:26:37",
+    "problemes_initiaux": 9,
+    "tentatives": 3,
+    "problemes_restants": 6,
+    "bloquants_restants": 2,
+    "bloquants_types": [
+      "chiffre_errone",
+      "chiffre_errone"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [1] (Sciences et Avenir, 22/10/2025) indique que la valeur guide journalière OMS pour les PM2,5 est de 25 µg/m³, et non 15 µg/m³ (qui est la valeur guide annuelle 2021). Le chiffre 15 µg/m³ dans l'article est d",
+        "phrase": "Mercredi 22 octobre 2025, les concentrations de particules fines PM2,5 ont atteint jusqu'à 30 fois la valeur guide journalière de l'Organisation mondiale de la santé (15 µg/m³) dans la capitale indienne, d'après Sciences"
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [3] (Le Monde, 03/12/2025) mentionne 10 000 à 12 000 décès prématurés par an (selon une étude de 2023), et non 'plus de 17 000'. Le chiffre 17 000 n'est pas confirmé par la source citée.",
+        "phrase": "Selon une enquête du Monde publiée le 3 décembre 2025, cette pollution chronique serait responsable de plus de 17 000 décès prématurés par an dans la capitale et de 200 000 cas de maladies respiratoires recensés sur troi"
+      }
+    ],
+    "types_restants": [
+      "chiffre_errone",
+      "chiffre_errone",
+      "source_inventee",
+      "source_non_editoriale",
+      "redondance",
+      "compteur_incoherent"
+    ],
+    "article_type": "actu",
+    "titre": "New Delhi : pollution 30 fois supérieure aux seuils OMS après Diwali",
+    "n_sources": 5,
+    "n_mots": 606,
+    "titre_rss": "New Delhi suffoque sous un brouillard toxique, la pollution atteint des niveaux alarmants",
+    "matiere_faits_distincts": 712,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "naines-blanches-couleurs-rouges-roses-vertes-voie-lactee",
+    "statut": "rejete_qualite",
+    "date": "2026-11-05T10:35:01",
+    "angle_insuffisant": true,
+    "raison": "Aucune phrase des faits ne combine un événement précis daté (publication de l'étude, date de l'observation) et une donnée chiffrée ou nommée propre à cet événement. L'article répond à 'qu'est-ce que les naines blanches ?' et 'quelles couleurs peuvent-elles avoir ?' sans dire ce qui vient de se passer (date de l'étude Sciences et Avenir absente, échantillon non daté).",
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "article_sans_date"
+    ],
+    "titre": "Des naines blanches rouges, roses et vertes détectées dans la Voie lactée",
+    "n_sources": 4,
+    "n_mots": 509,
+    "titre_rss": "Il existe des naines blanches... rouges, roses et vertes dans notre galaxie !",
+    "matiere_faits_distincts": 904,
+    "matiere_redondance": 0.02,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "etude_scientifique"
+  },
+  {
+    "slug": "pesticides-scientifiques-alertent-affaiblissement-expertise-anses-industriels",
+    "statut": "rejete_sensible",
+    "date": "2026-11-05T10:48:56",
+    "problemes_initiaux": 14,
+    "bloc5": [
+      "affaire_en_cours_presentee_comme_fait"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "titre_de_mauvaise_qualite"
+    ],
+    "titre": "Plus de cent scientifiques alertent sur l'affaiblissement de l'expertise de l'Anses face aux industriels",
+    "n_sources": 8,
+    "n_mots": 518,
+    "titre_rss": "Pesticides : « Il est urgent de renverser le rapport de force asymétrique avec les fabricants »",
+    "matiere_faits_distincts": 589,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "declaration"
+  },
+  {
+    "slug": "ird-formations-registre-traitements-donnees-personnelles-rgpd",
+    "statut": "rejete_qualite",
+    "date": "2026-11-05T11:14:48",
+    "angle_insuffisant": true,
+    "raison": "Aucune phrase des faits ne contient à la fois un événement précis daté (annonce, publication, décision) et une donnée chiffrée ou nommée qui lui est propre. L'article se contente d'expliquer l'obligation RGPD du registre et d'indiquer que l'IRD organise des formations à partir du 5 novembre 2026, sans préciser ce qui s'est passé concrètement à cette date (publication d'une note, lancement effectif, ouverture des inscriptions). Le lecteur ne sait pas ce qui justifie une publication maintenant.",
+    "article_type": "actu",
+    "titre": "L'IRD lance des formations au registre des traitements le 5 novembre 2026",
+    "n_sources": 5,
+    "n_mots": 515,
+    "titre_rss": "Protection des données personnelles - Le registre des traitements",
+    "matiere_faits_distincts": 742,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "veille_heures_visible": 517.7,
+    "veille_passages": 326,
+    "veille_age_h": 2046.2,
+    "veille_n_flux_grappe": 1,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "taxe-carbone-martingale-economistes-fressoz-nordhaus",
+    "statut": "rejete_sensible",
+    "date": "2026-11-05T11:20:49",
+    "problemes_initiaux": 13,
+    "tentative": 1,
+    "bloc5": true,
+    "article_type": "actu",
+    "titre": "La taxe carbone, martingale des économistes selon Jean-Baptiste Fressoz",
+    "n_sources": 6,
+    "n_mots": 496,
+    "titre_rss": "« La taxe carbone, principale recommandation de William Nordhaus, est devenue la martingale des économistes contre le réchauffement climatique »",
+    "matiere_faits_distincts": 398,
+    "matiere_redondance": 0.03,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "chronique"
+  },
+  {
+    "slug": "bresil-interdiction-paris-en-ligne-hausse-consommation-alimentaire",
+    "statut": "rejete_sensible",
+    "date": "2026-11-05T11:32:43",
+    "problemes_initiaux": 15,
+    "bloc5": [
+      "diffamation_potentielle"
+    ],
+    "article_type": "actu",
+    "titre": "Brésil : interdiction des paris en ligne, hausse de 6,5 % de la consommation alimentaire",
+    "n_sources": 3,
+    "n_mots": 434,
+    "titre_rss": "Au Brésil, l'interdiction des paris redonne du pouvoir d'achat alimentaire",
+    "matiere_faits_distincts": 460,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "wardrobing-ultra-fast-fashion-france-penalites-2026",
+    "statut": "rejete_qualite",
+    "date": "2026-11-05T11:43:06",
+    "problemes_initiaux": 16,
+    "tentatives": 3,
+    "problemes_restants": 6,
+    "bloquants_restants": 4,
+    "bloquants_types": [
+      "annonce_perimee",
+      "annonce_perimee",
+      "incoherence_inter_sections",
+      "source_inventee"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "annonce_perimee",
+        "description": "Le résumé présente l'entrée en vigueur du malus comme un événement du jour (« jour même de sa mise en application »), alors que la source Le Monde est datée du 1er septembre 2026 et l'article cite aussi une source Le Fig",
+        "phrase": "Le 1er septembre 2026, un malus financier sur les produits d'ultra-fast fashion entre en vigueur en France, selon Le Monde, jour même de sa mise en application."
+      },
+      {
+        "bloc": 1,
+        "type": "annonce_perimee",
+        "description": "Le verbe « entre » au présent de narration présente l'entrée en vigueur comme un événement actuel, or les sources montrent que l'article est rédigé après le 5 novembre 2026 (source Le Figaro) : l'événement est révolu, il",
+        "phrase": "Le 1er septembre 2026, un malus financier sur les produits d'ultra-fast fashion entre en vigueur en France, selon Le Monde [3]."
+      },
+      {
+        "bloc": 1,
+        "type": "incoherence_inter_sections",
+        "description": "Le résumé (point 2) affirme que « le Parlement a adopté une loi textile » (passé composé, loi adoptée), alors que les faits précisent que le texte « doit encore aboutir à une version définitive après navette parlementair",
+        "phrase": "Le Sénat a adopté à l'unanimité, le 19 mars 2025, la proposition de loi visant à réduire l'impact environnemental de l'industrie textile « fast fashion » [2]. Le texte, déjà voté par l'Assemblée nationale un an plus tôt,"
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "La source [2] est le rapport sénatorial « Proposition de loi visant à réduire l'impact environnemental de l'industrie textile « FAST FASHION » : UN EFFET DE MODE À RÉGULER » ; elle ne mentionne pas une « commission de l'",
+        "phrase": "La commission de l'aménagement du territoire a souhaité sécuriser l'application du texte face au droit européen et éviter de pénaliser injustement les acteurs français ou européens du secteur [2]."
+      }
+    ],
+    "types_restants": [
+      "annonce_perimee",
+      "annonce_perimee",
+      "incoherence_inter_sections",
+      "redondance",
+      "source_inventee",
+      "contexte_hors_sujet"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "resume_repete_corps"
+    ],
+    "titre": "Wardrobing et ultra-fast fashion : la France durcit le ton",
+    "n_sources": 4,
+    "n_mots": 520,
+    "titre_rss": "L’astuce à la mode pour porter une veste à 2000 euros sans débourser le moindre centime",
+    "matiere_faits_distincts": 802,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
   }
 ]
