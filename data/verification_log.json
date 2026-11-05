@@ -58275,5 +58275,688 @@
     "n_sources_injectees": 10,
     "n_sources_trouvees": 10,
     "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "cyberattaque-credit-mutuel-arkea-plus-100-millions-euros-detournes",
+    "statut": "rejete_sensible",
+    "date": "2026-11-05T18:10:33",
+    "problemes_initiaux": 8,
+    "tentative": 1,
+    "bloc5": true,
+    "article_type": "actu",
+    "titre": "Cyberattaque contre Crédit Mutuel Arkéa : plus de 100 millions d'euros dérobés",
+    "n_sources": 5,
+    "n_mots": 552,
+    "titre_rss": "Avec la cyberattaque au Crédit mutuel Arkéa, les banques européennes prennent conscience de l’ampleur de leur vulnérabilité",
+    "matiere_faits_distincts": 676,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 2,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "hongkong-joshua-wong-condamne-dix-ans-prison-collusion-etranger",
+    "statut": "rejete_sensible",
+    "date": "2026-11-05T18:27:51",
+    "sujet_sensible": true,
+    "raison": "L'article porte sur une affaire judiciaire en cours visant une personne nommée (Joshua Wong), avec une condamnation pénale prononcée récemment (novembre 2026) qui n'est pas définitivement jugée (possibilité d'appel, réclusion à perpétuité comme peine maximale).",
+    "article_type": "actu",
+    "titre": "Joshua Wong condamné à dix ans de prison supplémentaires pour collusion avec l'étranger",
+    "n_sources": 5,
+    "n_mots": 528,
+    "titre_rss": "A Hongkong, Joshua Wong, figure du mouvement prodémocratie, condamné à dix ans de prison supplémentaires : « Cela doit avoir un effet dissuasif » d’après le juge",
+    "matiere_faits_distincts": 436,
+    "matiere_redondance": 0.07,
+    "matiere_donnees_chiffrees": 3,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "finlande-capitaine-russe-marin-condamnes-coupure-cables-baltique",
+    "statut": "rejete_sensible",
+    "date": "2026-11-05T18:35:18",
+    "tentative": 1,
+    "sujet_sensible": true,
+    "raison": "L'article rapporte la condamnation pénale de deux personnes nommément identifiées (un capitaine russe et un matelot) dans le cadre d'un procès judiciaire, ce qui constitue une affaire pénale visant des personnes physiques.",
+    "article_type": "actu",
+    "titre": "Finlande : deux marins russes condamnés pour la coupure de câbles en Baltique",
+    "n_sources": 3,
+    "n_mots": 511,
+    "titre_rss": "Sabotage de câbles en mer Baltique : un capitaine russe et un membre d’équipage condamnés en Finlande",
+    "matiere_faits_distincts": 435,
+    "matiere_redondance": 0.05,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "hce-femmes-deux-fois-plus-touchées-souffrance-psychique-travail",
+    "statut": "rejete_sensible",
+    "date": "2026-11-05T18:48:32",
+    "problemes_initiaux": 16,
+    "tentative": 1,
+    "bloc5": true,
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "titre_de_mauvaise_qualite"
+    ],
+    "titre": "HCE : les femmes deux fois plus touchées que les hommes par la souffrance psychique au travail",
+    "n_sources": 4,
+    "n_mots": 571,
+    "titre_rss": "Dépression, troubles psy : les femmes paient le prix fort des inégalités, selon un rapport",
+    "matiere_faits_distincts": 977,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 3,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "rapport"
+  },
+  {
+    "slug": "senat-resolution-bei-financement-armes-munitions-defense",
+    "statut": "rejete_qualite",
+    "date": "2026-11-05T19:09:44",
+    "problemes_initiaux": 7,
+    "tentatives": 3,
+    "problemes_restants": 5,
+    "bloquants_restants": 2,
+    "bloquants_types": [
+      "incoherence_inter_sections",
+      "source_inventee"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "incoherence_inter_sections",
+        "description": "La source [1] (proposition n° 653) est datée du 22 mai 2026, mais la source [2] (rapport n° 879) est datée du 8 juillet 2026. L'article affirme que le Sénat a adopté la résolution, mais les sources fournies ne confirment",
+        "phrase": "Le Sénat a adopté une résolution européenne issue de la proposition n° 653, déposée le 22 mai 2026 par le sénateur Pascal Allizard et plusieurs collègues, visant à inclure les armes et munitions produites par les industr"
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "La source [3] (AP News, 27 mars 2023) est citée dans le tableau des sources mais n'est jamais référencée par un crochet [3] dans le corps de l'article. Elle traite d'un programme polonais de munitions de 2023, sans lien ",
+        "phrase": "Le Sénat a adopté une résolution européenne issue de la proposition n° 653, déposée le 22 mai 2026 par le sénateur Pascal Allizard et plusieurs collègues, visant à inclure les armes et munitions produites par les industr"
+      }
+    ],
+    "types_restants": [
+      "incoherence_inter_sections",
+      "source_inventee",
+      "compteur_incoherent",
+      "contexte_hors_sujet",
+      "redondance"
+    ],
+    "article_type": "actu",
+    "titre": "Le Sénat adopte une résolution pour ouvrir les financements de la BEI aux armes",
+    "n_sources": 3,
+    "n_mots": 518,
+    "titre_rss": "Armes et munitions produites par les industries européennes de la défense - Rapport n° 879",
+    "matiere_faits_distincts": 1450,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "veille_heures_visible": 517.7,
+    "veille_passages": 326,
+    "veille_age_h": 2056.3,
+    "veille_n_flux_grappe": 4,
+    "nature_contenu": "decision_officielle"
+  },
+  {
+    "slug": "conseil-europeen-innovation-1-8-milliard-deep-tech-2027",
+    "statut": "corrige_automatiquement",
+    "date": "2026-11-05T19:18:40",
+    "problemes_initiaux": 6,
+    "tentatives": 1,
+    "problemes_residuels_style": 6,
+    "rapport_initial": {
+      "conforme": false,
+      "sujet_sensible": false,
+      "sujet_sensible_raison": "",
+      "angle_insuffisant": false,
+      "angle_insuffisant_raison": "",
+      "nature_contenu": "decision_officielle",
+      "problemes": [
+        {
+          "bloc": 1,
+          "section": "resume",
+          "type": "chiffre_errone",
+          "phrase_exacte": "un levier de trois pour un qui reste à confirmer sur la durée",
+          "explication": "La source [2] indique un effet de levier de 3 euros privés pour 1 euro public (ratio 3:1), ce qui correspond à 'trois pour un' ; le résumé écrit 'trois pour un' mais l'explication du fait dans le corps précise '3 euros privés pour 1 euro public', ce qui est cohérent. Cependant, le résumé dit 'un levier de trois pour un' alors que la source [2] parle de '3 euros privés pour 1 euro public' — c'est la même chose. Aucun chiffre erroné détecté sur ce point. En revanche, le résumé affirme '5 700 jeunes pousses accompagnées ayant attiré 5 milliards de capitaux privés' : la source [2] dit 'plus de 5 700 start-up et PME' et 'plus de 5 milliards d'euros', les arrondis sont acceptables. Le problème réel est ailleurs : le titre annonce '1,8 milliard d'euros pour la deep tech en 2027' mais le corps précise que ce montant couvre l'ensemble du cycle (Pathfinder, Transition, Accelerator) et pas seulement la deep tech au sens strict — la source [1] parle de 'soutenir les entrepreneurs et chercheurs de deep tech les plus prometteurs' mais le programme inclut aussi de la recherche exploratoire. Le titre simplifie excessivement."
+        },
+        {
+          "bloc": 1,
+          "section": "titre",
+          "type": "fait_tranche_arbitrairement",
+          "phrase_exacte": "Le Conseil européen de l'innovation débloque 1,8 milliard d'euros pour la deep tech en 2027",
+          "explication": "Le titre présente le financement comme exclusivement destiné à la 'deep tech', alors que la source [1] indique que le programme de travail 2027 du CEI soutient 'les entrepreneurs et chercheurs de deep tech les plus prometteurs' mais le corps de l'article précise que le CEI opère sur l'ensemble du cycle d'innovation (Pathfinder, Transition, Accelerator) incluant de la recherche exploratoire qui ne relève pas toutes de la 'deep tech' au sens strict. La source [2] décrit le CEI comme ciblant 'spécifiquement les technologies de rupture — intelligence artificielle, biotechnologies, quantique, nouveaux matériaux, énergie' mais le titre généralise l'enveloppe 2027 à la 'deep tech' sans la nuance que Pathfinder finance de la recherche amont, pas seulement de la deep tech mature. C'est une simplification excessive qui tranche arbitrairement le périmètre."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "incoherence_inter_sections",
+          "phrase_exacte": "Ce montant représente l'enveloppe annuelle la plus importante depuis le lancement du CEI sous Horizon Europe.",
+          "explication": "Le corps des faits affirme que 1,8 milliard est 'l'enveloppe annuelle la plus importante depuis le lancement du CEI sous Horizon Europe', mais aucune des sources [1] ou [2] ne contient cette comparaison historique ni ne confirme qu'il s'agit d'un record annuel. La source [1] annonce le montant 2027 sans le comparer aux exercices précédents. C'est une affirmation non sourcée qui crée une incohérence avec le niveau de preuve des sources fournies."
+        },
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "Ce montant représente l'enveloppe annuelle la plus importante depuis le lancement du CEI sous Horizon Europe.",
+          "explication": "L'affirmation selon laquelle 1,8 milliard serait l'enveloppe annuelle la plus importante depuis le lancement du CEI n'est étayée par aucune des trois sources autorisées. Les sources [1] et [2] annoncent le montant 2027 mais ne fournissent pas de série historique des budgets annuels du CEI pour permettre cette comparaison. C'est une information inventée par rapport aux sources listées."
+        },
+        {
+          "bloc": 4,
+          "section": "contexte",
+          "type": "contexte_hors_sujet",
+          "phrase_exacte": "Le rapport de la commission des affaires européennes de l'Assemblée nationale, déposé le 14 octobre 2026, souligne que le financement de la transition énergétique reste un défi majeur pour l'Union, avec des besoins d'investissement estimés à plusieurs centaines de milliards d'euros par an d'ici 2030 [3].",
+          "explication": "La source [3] porte sur le financement de la transition énergétique dans l'Union, un sujet distinct du programme de travail 2027 du Conseil européen de l'innovation. Bien que la deep tech inclue l'énergie, ce rapport ne documente pas le CEI, son budget, son fonctionnement ou ses résultats. Il est cité comme 'contexte' mais n'éclaire pas directement le sujet principal (l'adoption du programme de travail 2027 du CEI). C'est un fait vrai mais tangentiel qui ne sert qu'à remplir la section contexte."
+        },
+        {
+          "bloc": 2,
+          "section": "corps",
+          "type": "compteur_incoherent",
+          "phrase_exacte": "nb_sources: 4",
+          "explication": "Le champ 'nb_sources' indique 4, mais le tableau 'sources' ne contient que 3 entrées distinctes (deux d'Europa, une de l'Assemblée nationale). Il n'y a pas de quatrième source. Le compteur est incohérent avec le nombre réel de sources listées."
+        }
+      ]
+    },
+    "article_type": "actu",
+    "titre": "Le Conseil européen de l'innovation débloque 1,8 milliard d'euros pour la deep tech en 2027",
+    "n_sources": 3,
+    "n_mots": 498,
+    "titre_rss": "Le Conseil européen de l'innovation lance un financement de 1,8 milliard d'euros pour 2027",
+    "matiere_faits_distincts": 553,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "decision_officielle"
+  },
+  {
+    "slug": "onu-rapport-ecart-adaptation-financements-dix-fois-faibles",
+    "statut": "corrige_automatiquement",
+    "date": "2026-11-05T19:27:54",
+    "problemes_initiaux": 19,
+    "tentatives": 3,
+    "problemes_residuels_style": 7,
+    "rapport_initial": {
+      "conforme": false,
+      "sujet_sensible": false,
+      "sujet_sensible_raison": "",
+      "angle_insuffisant": false,
+      "angle_insuffisant_raison": "",
+      "nature_contenu": "rapport",
+      "problemes": [
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "incoherence_inter_sections",
+          "phrase_exacte": "L'Organisation des Nations unies a publié mercredi son « Rapport sur l'écart d'adaptation » à l'approche de la COP31 prévue en Turquie [1][4].",
+          "explication": "La source [4] (20 Minutes, 17/09/2026) traite de la baisse des réserves d'eau douce et ne mentionne ni le rapport sur l'écart d'adaptation ni la COP31 en Turquie ; elle ne confirme pas ce fait."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "incoherence_inter_sections",
+          "phrase_exacte": "Le document établit que l'aide au financement apportée par les pays les plus riches aux pays en développement pour s'adapter au changement climatique est jugée dix fois trop basse par rapport aux besoins identifiés [1][4][5].",
+          "explication": "Les sources [4] et [5] n'existent pas dans la liste autorisée (seules 4 sources, indices 1 à 4) ; le renvoi [5] est invalide et [4] ne traite pas de ce sujet."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "incoherence_inter_sections",
+          "phrase_exacte": "France 24 rapporte que les financements de l'adaptation doivent être décuplés selon les conclusions de ce rapport onusien [5].",
+          "explication": "Le renvoi [5] est invalide (seules 4 sources) ; la source France 24 est à l'indice [3]."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "incoherence_inter_sections",
+          "phrase_exacte": "Le rapport qualifie cet écart d'« ahurissant » et souligne que les flux financiers actuels ne permettent pas de couvrir les coûts d'adaptation déjà engagés par les pays en développement [1][4].",
+          "explication": "La source [4] ne traite pas du rapport sur l'écart d'adaptation ni de ses conclusions ; elle ne confirme pas ce fait."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "incoherence_inter_sections",
+          "phrase_exacte": "L'alerte intervient alors que la COP31 doit se tenir en Turquie, marquant une étape clé pour les négociations sur le financement climatique international [1][4].",
+          "explication": "La source [4] ne mentionne pas la COP31 en Turquie ; elle ne confirme pas ce fait."
+        },
+        {
+          "bloc": 1,
+          "section": "nuances",
+          "type": "incoherence_inter_sections",
+          "phrase_exacte": "Le rapport de l'ONU ne communique pas dans les extraits disponibles les montants chiffrés précis des besoins d'adaptation ni ceux des flux financiers actuels, ce qui empêche d'évaluer concrètement l'ampleur du déficit en valeur absolue [1][4][5].",
+          "explication": "Le renvoi [5] est invalide (seules 4 sources) et la source [4] ne traite pas de ce rapport."
+        },
+        {
+          "bloc": 1,
+          "section": "nuances",
+          "type": "incoherence_inter_sections",
+          "phrase_exacte": "L'expression « dix fois trop basse » constitue une estimation d'ordre de grandeur dont la méthodologie de calcul n'est pas détaillée dans les sources consultées [1][4].",
+          "explication": "La source [4] ne traite pas de ce rapport ni de cette estimation ; elle ne confirme pas ce fait."
+        },
+        {
+          "bloc": 1,
+          "section": "nuances",
+          "type": "incoherence_inter_sections",
+          "phrase_exacte": "L'écart entre les engagements annoncés lors des COP successives et les décaissements effectifs reste un point de friction récurrent dans les négociations climat, sans que ce rapport ne propose de mécanisme contraignant pour le combler [1][4][5].",
+          "explication": "Le renvoi [5] est invalide et la source [4] ne traite pas de ce rapport."
+        },
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "L'Organisation des Nations unies a publié mercredi son « Rapport sur l'écart d'adaptation » à l'approche de la COP31 prévue en Turquie [1][4].",
+          "explication": "Le renvoi [4] attribue ce fait à la source 20 Minutes (baisse réserves d'eau) qui ne le confirme pas ; c'est une attribution inventée."
+        },
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "Le document établit que l'aide au financement apportée par les pays les plus riches aux pays en développement pour s'adapter au changement climatique est jugée dix fois trop basse par rapport aux besoins identifiés [1][4][5].",
+          "explication": "Les renvois [4] et [5] attribuent ce fait à des sources qui ne le confirment pas ([4] hors sujet, [5] inexistante) ; attribution inventée."
+        },
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "France 24 rapporte que les financements de l'adaptation doivent être décuplés selon les conclusions de ce rapport onusien [5].",
+          "explication": "Le renvoi [5] n'existe pas (seules 4 sources) ; attribution inventée."
+        },
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "Le rapport qualifie cet écart d'« ahurissant » et souligne que les flux financiers actuels ne permettent pas de couvrir les coûts d'adaptation déjà engagés par les pays en développement [1][4].",
+          "explication": "Le renvoi [4] attribue ce fait à une source qui ne le traite pas ; attribution inventée."
+        },
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "L'alerte intervient alors que la COP31 doit se tenir en Turquie, marquant une étape clé pour les négociations sur le financement climatique international [1][4].",
+          "explication": "Le renvoi [4] attribue ce fait à une source qui ne mentionne pas la COP31 ; attribution inventée."
+        },
+        {
+          "bloc": 2,
+          "section": "nuances",
+          "type": "source_inventee",
+          "phrase_exacte": "Le rapport de l'ONU ne communique pas dans les extraits disponibles les montants chiffrés précis des besoins d'adaptation ni ceux des flux financiers actuels, ce qui empêche d'évaluer concrètement l'ampleur du déficit en valeur absolue [1][4][5].",
+          "explication": "Les renvois [4] et [5] attribuent cette observation à des sources qui ne la confirment pas ([4] hors sujet, [5] inexistante)."
+        },
+        {
+          "bloc": 2,
+          "section": "nuances",
+          "type": "source_inventee",
+          "phrase_exacte": "L'expression « dix fois trop basse » constitue une estimation d'ordre de grandeur dont la méthodologie de calcul n'est pas détaillée dans les sources consultées [1][4].",
+          "explication": "Le renvoi [4] attribue cette observation à une source qui ne traite pas de ce rapport."
+        },
+        {
+          "bloc": 2,
+          "section": "nuances",
+          "type": "source_inventee",
+          "phrase_exacte": "L'écart entre les engagements annoncés lors des COP successives et les décaissements effectifs reste un point de friction récurrent dans les négociations climat, sans que ce rapport ne propose de mécanisme contraignant pour le combler [1][4][5].",
+          "explication": "Les renvois [4] et [5] attribuent ce fait à des sources qui ne le confirment pas."
+        },
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "compteur_incoherent",
+          "phrase_exacte": "France 24 rapporte que les financements de l'adaptation doivent être décuplés selon les conclusions de ce rapport onusien [5].",
+          "explication": "Le champ nb_sources indique 4 mais le texte utilise un renvoi [5] qui n'existe pas dans la liste des sources (indices 1 à 4 seulement)."
+        },
+        {
+          "bloc": 2,
+          "section": "nuances",
+          "type": "compteur_incoherent",
+          "phrase_exacte": "Le rapport de l'ONU ne communique pas dans les extraits disponibles les montants chiffrés précis des besoins d'adaptation ni ceux des flux financiers actuels, ce qui empêche d'évaluer concrètement l'ampleur du déficit en valeur absolue [1][4][5].",
+          "explication": "Le renvoi [5] est utilisé alors que nb_sources = 4 ; incohérence entre le compteur et les renvois effectifs."
+        },
+        {
+          "bloc": 2,
+          "section": "nuances",
+          "type": "compteur_incoherent",
+          "phrase_exacte": "L'écart entre les engagements annoncés lors des COP successives et les décaissements effectifs reste un point de friction récurrent dans les négociations climat, sans que ce rapport ne propose de mécanisme contraignant pour le combler [1][4][5].",
+          "explication": "Le renvoi [5] est utilisé alors que nb_sources = 4 ; incohérence entre le compteur et les renvois effectifs."
+        }
+      ]
+    },
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "resume_repete_corps",
+      "titre_de_mauvaise_qualite"
+    ],
+    "titre": "L'ONU publie son rapport sur l'écart d'adaptation : financements dix fois trop faibles",
+    "n_sources": 4,
+    "n_mots": 484,
+    "titre_rss": "Avant la COP31 en Turquie, l’ONU alerte d’un « déficit ahurissant » entre les besoins et les financements réels de l’adaptation des pays en développement",
+    "matiere_faits_distincts": 469,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "rapport"
+  },
+  {
+    "slug": "cyberattaque-chambres-froides-efs-stocks-sang-preserves",
+    "statut": "corrige_automatiquement",
+    "date": "2026-11-05T19:47:52",
+    "problemes_initiaux": 14,
+    "tentatives": 1,
+    "problemes_residuels_style": 6,
+    "rapport_initial": {
+      "conforme": false,
+      "sujet_sensible": false,
+      "sujet_sensible_raison": "",
+      "angle_insuffisant": false,
+      "angle_insuffisant_raison": "",
+      "nature_contenu": "actualite_factuelle",
+      "problemes": [
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "chiffre_errone",
+          "phrase_exacte": "L'alerte du CERT-FR, publiée le 12 octobre 2026 et mise à jour le 16 octobre, identifie quatre gammes d'équipements ciblées : les contrôleurs Danfoss séries AK-SM et AK-SC, ainsi que les systèmes Copeland xweb et Dixell xweb [2].",
+          "explication": "La source [2] (CERT-FR) ne mentionne pas les systèmes Copeland xweb et Dixell xweb ; elle ne cite que les contrôleurs Danfoss séries AK-SM et AK-SC. L'article ajoute deux gammes d'équipements non présentes dans la source citée."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "chiffre_errone",
+          "phrase_exacte": "L'activité de reconnaissance a débuté au moins dix jours avant la seconde vague d'attaques, avec un ciblage exclusif de l'Europe : aucun leurre en Afrique, en Amérique du Sud ou en Ukraine n'a été sollicité [3].",
+          "explication": "La source [3] (Le Monde) ne contient aucune information sur des leurres (honeypots) déployés par Previdian, Lupovis et Sekoia, ni sur une activité de reconnaissance débutée dix jours avant une seconde vague, ni sur un ciblage exclusif de l'Europe avec absence de sollicitation en Afrique, Amérique du Sud ou Ukraine. Ces détails sont absents de l'extrait fourni."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "chiffre_errone",
+          "phrase_exacte": "La simultanéité des élévations de température, programmée pour la nuit afin de maximiser les dégâts, indique une planification et une coordination délibérées, selon Ryan Dewhurst de Previdian [3].",
+          "explication": "La source [3] (Le Monde) ne cite pas Ryan Dewhurst de Previdian, ne mentionne pas la simultanéité des élévations de température programmée pour la nuit, ni une planification et coordination délibérées. Ces éléments sont absents de l'extrait fourni."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "chiffre_errone",
+          "phrase_exacte": "Le point d'entrée technique n'était pas sophistiqué : les interfaces d'administration exposées sur Internet avec des mots de passe par défaut ou des firmwares obsolètes [2].",
+          "explication": "La source [2] (CERT-FR) indique que les dispositifs étaient accessibles directement sur Internet via leur interface de gestion, mais ne mentionne pas les mots de passe par défaut ni les firmwares obsolètes. L'article ajoute des détails techniques non présents dans la source."
+        },
+        {
+          "bloc": 1,
+          "section": "nuances",
+          "type": "chiffre_errone",
+          "phrase_exacte": "Des groupes hacktivistes russes, Noname057(16) et Z-Pentest Alliance, ont revendiqué le piratage de l'équipementier Danfoss, mais les analystes doutent qu'ils soient directement à l'origine des intrusions sur les sites ciblés [3].",
+          "explication": "La source [3] (Le Monde) ne mentionne pas les groupes Noname057(16) et Z-Pentest Alliance, ni leurs revendications sur le piratage de Danfoss, ni les doutes d'analystes sur leur implication directe. Ces informations sont absentes de l'extrait fourni."
+        },
+        {
+          "bloc": 1,
+          "section": "nuances",
+          "type": "chiffre_errone",
+          "phrase_exacte": "Le cabinet Sekoia note que l'activité observée pourrait correspondre à des acteurs alignés sur la Russie ou l'Iran, sans trancher [3].",
+          "explication": "La source [3] (Le Monde) ne cite pas le cabinet Sekoia, ne mentionne pas d'acteurs alignés sur la Russie ou l'Iran, et ne rapporte pas cette analyse. L'information est absente de l'extrait fourni."
+        },
+        {
+          "bloc": 1,
+          "section": "nuances",
+          "type": "chiffre_errone",
+          "phrase_exacte": "D'autres experts évoquent la possibilité d'adolescents exploitant des vulnérabilités connues [3].",
+          "explication": "La source [3] (Le Monde) ne mentionne pas la possibilité d'adolescents exploitant des vulnérabilités connues. Cette hypothèse est absente de l'extrait fourni."
+        },
+        {
+          "bloc": 2,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "Des chercheurs de trois sociétés de cybersécurité — Previdian, Lupovis et Sekoia — ont déployé des leurres (honeypots) simulant ces équipements pour analyser les méthodes des attaquants [3].",
+          "explication": "La source [3] (Le Monde) ne mentionne pas Previdian, Lupovis, Sekoia, ni le déploiement de leurres (honeypots) par ces sociétés. L'article attribue à la source [3] des informations qu'elle ne contient pas."
+        },
+        {
+          "bloc": 2,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "La simultanéité des élévations de température, programmée pour la nuit afin de maximiser les dégâts, indique une planification et une coordination délibérées, selon Ryan Dewhurst de Previdian [3].",
+          "explication": "La source [3] (Le Monde) ne cite pas Ryan Dewhurst ni Previdian. L'article invente une attribution à un expert et une société absents de la source."
+        },
+        {
+          "bloc": 2,
+          "section": "nuances",
+          "type": "source_inventee",
+          "phrase_exacte": "Des groupes hacktivistes russes, Noname057(16) et Z-Pentest Alliance, ont revendiqué le piratage de l'équipementier Danfoss, mais les analystes doutent qu'ils soient directement à l'origine des intrusions sur les sites ciblés [3].",
+          "explication": "La source [3] (Le Monde) ne mentionne pas ces groupes hacktivistes, ni leurs revendications, ni les doutes d'analystes. L'article attribue à la source [3] des informations qu'elle ne contient pas."
+        },
+        {
+          "bloc": 2,
+          "section": "nuances",
+          "type": "source_inventee",
+          "phrase_exacte": "Le cabinet Sekoia note que l'activité observée pourrait correspondre à des acteurs alignés sur la Russie ou l'Iran, sans trancher [3].",
+          "explication": "La source [3] (Le Monde) ne mentionne pas le cabinet Sekoia ni cette analyse d'attribution. L'article invente une source et son analyse."
+        },
+        {
+          "bloc": 2,
+          "section": "nuances",
+          "type": "source_inventee",
+          "phrase_exacte": "D'autres experts évoquent la possibilité d'adolescents exploitant des vulnérabilités connues [3].",
+          "explication": "La source [3] (Le Monde) ne mentionne pas cette hypothèse d'adolescents. L'article attribue à la source [3] une information absente de l'extrait."
+        },
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "Jusqu'à cette affaire, seuls des supermarchés étaient connus pour avoir été touchés par ce type d'intrusion sur des systèmes de réfrigération [3].",
+          "explication": "La source [3] (Le Monde) n'est pas citée dans les extraits fournis comme confirmant que seuls des supermarchés étaient touchés auparavant. L'article utilise [3] pour affirmer un antécédent non documenté dans l'extrait."
+        },
+        {
+          "bloc": 2,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "La directive européenne NIS2, qui impose un niveau de cybersécurité élevé aux entités essentielles, n'est pas encore pleinement transposée en droit français, comme le soulignait une question sénatoriale de juin 2026 [4].",
+          "explication": "La source [4] (Sénat) n'est pas fournie dans les extraits ; on ne peut vérifier qu'elle contienne cette affirmation sur la transposition de NIS2. L'article cite une source dont le contenu n'est pas accessible pour vérification."
+        }
+      ]
+    },
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "titre_de_mauvaise_qualite"
+    ],
+    "titre": "Cyberattaque sur trois sites de l'EFS : les stocks de sang préservés",
+    "n_sources": 4,
+    "n_mots": 571,
+    "titre_rss": "Cyberattaque : les chambres froides de l'EFS prises pour cible",
+    "matiere_faits_distincts": 1081,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "oms-six-mesures-climat-sante-1-6-million-vies-sauvees",
+    "statut": "rejete_qualite",
+    "date": "2026-11-05T19:57:15",
+    "problemes_initiaux": 15,
+    "tentatives": 3,
+    "problemes_restants": 8,
+    "bloquants_restants": 3,
+    "bloquants_types": [
+      "chiffre_errone",
+      "chiffre_errone",
+      "niveau_preuve_insuffisant"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [3] indique 16,7 GtCO₂e évitées (31 % des émissions hors UTCATF) pour la seule tarification des combustibles fossiles, pas pour l'ensemble des six mesures ; l'article attribue à tort ce chiffre au paquet comple",
+        "phrase": "L'ensemble des six mesures éviterait l'émission de 16,7 milliards de tonnes de CO₂ équivalent par an, soit 31 % des émissions mondiales annuelles de gaz à effet de serre hors utilisation des terres, changement d'affectat"
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [3] donne un ratio de 24:1 pour les systèmes d'alerte canicule uniquement, et non une moyenne sur cinq mesures ; l'article généralise indûment ce chiffre.",
+        "phrase": "Pour cinq des six mesures, chaque dollar investi rapporterait en moyenne 24 dollars [3]."
+      },
+      {
+        "bloc": 1,
+        "type": "niveau_preuve_insuffisant",
+        "description": "L'article présente l'étude comme une « analyse économique inédite » sans préciser qu'il s'agit d'une modélisation prospective (2024-2075) et non d'une évaluation d'interventions réelles, ce qui surestime le niveau de pre",
+        "phrase": "L'Organisation mondiale de la santé (OMS) a publié le 4 novembre 2026 une analyse économique inédite dont rend compte une dépêche UN News intitulée « Santé et climat : six mesures pour sauver 1,6 million de vies » [3]."
+      }
+    ],
+    "types_restants": [
+      "chiffre_errone",
+      "chiffre_errone",
+      "niveau_preuve_insuffisant",
+      "contexte_hors_sujet",
+      "contexte_hors_sujet",
+      "section_gonflee",
+      "chiffre_errone",
+      "chiffre_errone"
+    ],
+    "article_type": "actu",
+    "titre": "L'OMS chiffre à 1,6 million de vies sauvables par an grâce à six mesures climat-santé",
+    "n_sources": 4,
+    "n_mots": 741,
+    "titre_rss": "Six mesures pour sauver 1,6 million de vies chaque année, selon l'OMS",
+    "matiere_faits_distincts": 1116,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 4,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "rapport"
+  },
+  {
+    "slug": "mars-chlorure-hydrogene-volcanisme-actif-atmosphere",
+    "statut": "rejete_qualite",
+    "date": "2026-11-05T20:09:31",
+    "angle_insuffisant": true,
+    "raison": "Aucune phrase des faits ne combine un événement précis daté (publication, annonce, décision récente) et une donnée chiffrée ou nommée qui lui est propre. L'article explique un phénomène général (détection de HCl, structure interne) sans fait déclencheur daté justifiant la publication maintenant. La source principale (Sciences et Avenir) n'est pas datée, les études Nature sont d'octobre 2023, la mission InSight de 2021. L'angle réponse promet une révélation sur l'activité volcanique actuelle, mais l'article n'apporte pas de nouvelle observation récente.",
+    "article_type": "actu",
+    "titre": "Mars : du chlorure d'hydrogène détecté, indice d'un volcanisme récent selon Sciences et Avenir",
+    "n_sources": 4,
+    "n_mots": 451,
+    "titre_rss": "Mars : du magma coulerait encore dans les entrailles de la planète Rouge",
+    "matiere_faits_distincts": 644,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "etude_scientifique"
+  },
+  {
+    "slug": "mars-motifs-hexagonaux-climat-cyclique-origine-vie-curiosity",
+    "statut": "rejete_qualite",
+    "date": "2026-11-05T20:34:33",
+    "problemes_initiaux": 6,
+    "tentatives": 3,
+    "problemes_restants": 8,
+    "bloquants_restants": 1,
+    "bloquants_types": [
+      "chiffre_errone"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source CNRS [1] indique une datation de 3,8 à 3,6 milliards d'années, l'article inverse l'ordre chronologique (3,6 à 3,8 milliards d'années) ce qui change le sens géologique.",
+        "phrase": "La datation des couches sédimentaires situe ce climat cyclique entre 3,6 et 3,8 milliards d'années, une période charnière pour l'émergence potentielle de la vie [1]."
+      }
+    ],
+    "types_restants": [
+      "chiffre_errone",
+      "source_inventee",
+      "chronologie_confuse",
+      "source_derivee_comptee_comme_primaire",
+      "compteur_incoherent",
+      "contexte_hors_sujet",
+      "contexte_hors_sujet",
+      "section_gonflee"
+    ],
+    "article_type": "actu",
+    "titre": "Mars : le rover Curiosity découvre des motifs hexagonaux fossiles dans le cratère Gale",
+    "n_sources": 4,
+    "n_mots": 675,
+    "titre_rss": "Sous les volcans endormis de Mars, quelque chose serait encore actif et ouvre une piste pour trouver la vie extraterrestre !",
+    "matiere_faits_distincts": 1027,
+    "matiere_redondance": 0.02,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "etude_scientifique"
+  },
+  {
+    "slug": "desert-fayoum-egypte-observation-etoiles-astronomie",
+    "statut": "rejete_qualite",
+    "date": "2026-11-05T20:48:51",
+    "angle_insuffisant": true,
+    "raison": "Aucune phrase dans 'faits' ne contient à la fois un événement précis daté (publication du reportage, décision, résultat récent) et une donnée chiffrée ou nommée qui lui est propre. L'article répond à 'qu'est-ce que le désert du Fayoum pour l'astronomie ?' sans actualité déclenchante identifiable.",
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "resume_repete_corps",
+      "article_sans_date"
+    ],
+    "titre": "Le désert du Fayoum, site d'exception pour l'observation des étoiles",
+    "n_sources": 6,
+    "n_mots": 461,
+    "titre_rss": "\"Un ciel comme ça, on a rarement la chance d'en voir\" : la magie des étoiles dans le désert égyptien",
+    "matiere_faits_distincts": 748,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "sujet_pedagogique"
+  },
+  {
+    "slug": "new-delhi-pollution-30-fois-seuils-oms-novembre-2025",
+    "statut": "rejete_qualite",
+    "date": "2026-11-05T21:17:15",
+    "problemes_initiaux": 13,
+    "tentatives": 3,
+    "problemes_restants": 6,
+    "bloquants_restants": 3,
+    "bloquants_types": [
+      "incoherence_inter_sections",
+      "incoherence_inter_sections",
+      "source_inventee"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "incoherence_inter_sections",
+        "description": "Le résumé signale un écart entre le titre du Monde (17 000) et le corps du texte (11 500) sans le réconcilier, alors que les faits reproduisent exactement la même contradiction sans l'expliquer non plus — l'incohérence i",
+        "phrase": "Le quotidien Le Monde rapporte qu'une étude de The Lancet Planetary Health estime à 11 500 le nombre de décès prématurés annuels attribuables à la pollution chronique dans la capitale indienne, tandis que son titre menti"
+      },
+      {
+        "bloc": 1,
+        "type": "incoherence_inter_sections",
+        "description": "Deux valeurs différentes (11 500 et 17 000+) pour le même indicateur (décès annuels attribuables à la pollution à Delhi) issues de la même source [2] sont présentées sans réconciliation ni mention de l'écart méthodologiq",
+        "phrase": "Le quotidien Le Monde rapporte qu'une étude de The Lancet Planetary Health estime à 11 500 le nombre de décès prématurés annuels attribuables à la pollution de l'air à Delhi, principalement par maladies cardiovasculaires"
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "La source [1] (WHO, « Air pollution data and health impacts », 2024-09-23) est une page de données générique ; les extraits fournis ne contiennent pas la valeur guide journalière de 15 µg/m³ pour les PM2,5, donc le renvo",
+        "phrase": "L'Organisation mondiale de la santé fixe une valeur guide journalière pour les PM2,5 à 15 µg/m³, seuil largement dépassé lors de cet épisode [1]."
+      }
+    ],
+    "types_restants": [
+      "incoherence_inter_sections",
+      "incoherence_inter_sections",
+      "redondance",
+      "source_inventee",
+      "compteur_incoherent",
+      "contexte_hors_sujet"
+    ],
+    "article_type": "actu",
+    "titre": "New Delhi : pollution 30 fois supérieure aux seuils OMS",
+    "n_sources": 5,
+    "n_mots": 523,
+    "titre_rss": "New Delhi suffoque sous un brouillard toxique, la pollution atteint des niveaux alarmants",
+    "matiere_faits_distincts": 627,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
   }
 ]
