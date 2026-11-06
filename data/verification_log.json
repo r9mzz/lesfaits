@@ -58958,5 +58958,651 @@
     "n_sources_injectees": 10,
     "n_sources_trouvees": 10,
     "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "sante-mentale-femmes-deux-fois-plus-troubles-psychiques-travail",
+    "statut": "rejete_qualite",
+    "date": "2026-11-06T08:13:42",
+    "tentative": 3,
+    "perte_substance": true,
+    "section": "contexte",
+    "mots_avant": 209,
+    "mots_apres": 78,
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "titre_de_mauvaise_qualite"
+    ],
+    "titre": "HCE : les femmes deux fois plus touchées par les troubles psychiques liés au travail",
+    "n_sources": 5,
+    "n_mots": 614,
+    "titre_rss": "Dépression, troubles psy : les femmes paient le prix fort des inégalités, selon un rapport",
+    "matiere_faits_distincts": 738,
+    "matiere_redondance": 0.02,
+    "matiere_donnees_chiffrees": 3,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "rapport"
+  },
+  {
+    "slug": "truth-social-acces-prioritaire-publications-trump-delit-initie",
+    "statut": "rejete_qualite",
+    "date": "2026-11-06T08:23:19",
+    "tentative": 3,
+    "perte_substance": true,
+    "section": "nuances",
+    "mots_avant": 129,
+    "mots_apres": 63,
+    "article_type": "actu",
+    "titre": "Truth Social vend un accès prioritaire aux publications de Trump",
+    "n_sources": 3,
+    "n_mots": 669,
+    "titre_rss": "Trump et Truth Social : parole publique, intérêts privés",
+    "matiere_faits_distincts": 467,
+    "matiere_redondance": 0.02,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "pauvrete-france-record-15-4-pour-cent-2024-manifestations-vie-chere",
+    "statut": "rejete_sensible",
+    "date": "2026-11-06T08:31:46",
+    "problemes_initiaux": 15,
+    "tentative": 1,
+    "bloc5": true,
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "titre_de_mauvaise_qualite"
+    ],
+    "titre": "Pauvreté en France : 15,4 % de la population sous le seuil en 2024, record historique",
+    "n_sources": 6,
+    "n_mots": 651,
+    "titre_rss": "Manifestations contre la vie chère en France : le taux de pauvreté au plus haut",
+    "matiere_faits_distincts": 994,
+    "matiere_redondance": 0.03,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "smic-augmentation-130-euros-niveau-2012-coup-de-pouce",
+    "statut": "rejete_qualite",
+    "date": "2026-11-06T08:46:37",
+    "problemes_initiaux": 8,
+    "tentatives": 3,
+    "problemes_restants": 7,
+    "bloquants_restants": 4,
+    "bloquants_types": [
+      "chiffre_errone",
+      "chiffre_errone",
+      "incoherence_inter_sections",
+      "incoherence_inter_sections"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "Le résumé cite 1 398,69 € comme niveau actuel du smic net (source [3]), alors que le titre de la source Le Parisien [3] indique « Smic à 1 478 euros nets » ; le chiffre 1 398,69 € ne figure pas dans le titre de la source",
+        "phrase": "Le smic net s'établit actuellement à 1 398,69 euros pour un temps plein [3]."
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "Le fait cite 1 398,69 € comme niveau actuel du smic net en attribuant ce chiffre à la source [3] (Le Parisien), or le titre de cette source annonce « Smic à 1 478 euros nets » ; l'écart d'environ 80 € n'est pas justifié ",
+        "phrase": "Le Parisien rapporte que le smic net s'établit actuellement à 1 398,69 euros pour un temps plein [3]."
+      },
+      {
+        "bloc": 1,
+        "type": "incoherence_inter_sections",
+        "description": "La hausse syndicale de ~201 € n'est cohérente qu'avec un smic actuel de ~1 399 € (1 600 - 1 399 = 201), alors que le titre de la même source [3] donne 1 478 € nets (1 600 - 1 478 = 122) ; l'article utilise deux valeurs i",
+        "phrase": "Le Parisien rapporte que le smic net s'établit actuellement à 1 398,69 euros pour un temps plein [3]. Les organisations syndicales réclament un smic net à 1 600 euros, soit une hausse d'environ 201 euros par rapport au n"
+      },
+      {
+        "bloc": 1,
+        "type": "incoherence_inter_sections",
+        "description": "Même incohérence dans le résumé : la hausse de 201 € ne correspond pas à l'écart avec 1 478 € (titre de la source [3]), ce qui crée une contradiction interne entre le niveau actuel cité et la revendication syndicale rapp",
+        "phrase": "Le smic net s'établit actuellement à 1 398,69 euros pour un temps plein [3]. Les organisations syndicales réclament un smic net à 1 600 euros, soit une hausse d'environ 201 euros par rapport au niveau actuel de 1 398,69 "
+      }
+    ],
+    "types_restants": [
+      "chiffre_errone",
+      "chiffre_errone",
+      "incoherence_inter_sections",
+      "incoherence_inter_sections",
+      "contexte_hors_sujet",
+      "section_gonflee",
+      "redondance"
+    ],
+    "article_type": "actu",
+    "titre": "Le smic aurait besoin de 130 euros de plus pour retrouver son niveau de 2012",
+    "n_sources": 5,
+    "n_mots": 490,
+    "titre_rss": "« Il faudrait une augmentation du smic de plus de 130 euros par mois pour un temps plein uniquement pour retrouver le niveau de 2012 »",
+    "matiere_faits_distincts": 490,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "californie-rejette-impot-fortune-milliardaires-referendum",
+    "statut": "rejete_sensible",
+    "date": "2026-11-06T09:00:30",
+    "problemes_initiaux": 16,
+    "tentative": 1,
+    "bloc5": true,
+    "article_type": "actu",
+    "titre": "La Californie rejette l'impôt sur la fortune des milliardaires par référendum",
+    "n_sources": 4,
+    "n_mots": 537,
+    "titre_rss": "La \"taxe Zucman\" échoue en Californie, mais la campagne anti-riches a fait des dégâts, par l'essayiste Rainer Zitelmann",
+    "matiere_faits_distincts": 1039,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "madagascar-fouilles-archeologiques-pirates-ocean-indien",
+    "statut": "corrige_automatiquement",
+    "date": "2026-11-06T09:09:31",
+    "problemes_initiaux": 13,
+    "tentatives": 1,
+    "problemes_residuels_style": 13,
+    "rapport_initial": {
+      "conforme": false,
+      "sujet_sensible": false,
+      "sujet_sensible_raison": "",
+      "angle_insuffisant": false,
+      "angle_insuffisant_raison": "",
+      "nature_contenu": "actualite_factuelle",
+      "problemes": [
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "Le ministère de la Culture recense et met à disposition du public la liste des chantiers de fouille archéologique ouverts aux bénévoles, encadrés par des directeurs de chantier responsables de l'organisation scientifique et logistique [2].",
+          "explication": "La source [2] (Gouv) n'est pas citée dans l'extrait fourni ; le fait est attribué à une source qui ne le confirme pas dans les extraits disponibles."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "L'initiative « Franceinfo junior » propose des contenus pédagogiques sur la méthodologie des fouilles archéologiques, présentés par des spécialistes comme Hélène Salomon, afin de sensibiliser le jeune public aux pratiques de la discipline [5].",
+          "explication": "La source [5] n'existe pas dans la liste des sources autorisées (seulement 4 sources, indices 1 à 4)."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "En France, le ministère de la Culture recense et met à disposition du public la liste des chantiers de fouille archéologique ouverts aux bénévoles, encadrés par des directeurs de chantier responsables de l'organisation scientifique et logistique [2].",
+          "explication": "La source [2] (Gouv) n'est pas citée dans l'extrait fourni ; le fait est attribué à une source qui ne le confirme pas dans les extraits disponibles."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "L'initiative « Franceinfo junior » propose des contenus pédagogiques sur la méthodologie des fouilles archéologiques, présentés par des spécialistes comme Hélène Salomon, afin de sensibiliser le jeune public aux pratiques de la discipline [5].",
+          "explication": "La source [5] n'existe pas dans la liste des sources autorisées (seulement 4 sources, indices 1 à 4)."
+        },
+        {
+          "bloc": 1,
+          "section": "nuances",
+          "type": "source_inventee",
+          "phrase_exacte": "Le directeur du chantier est seul responsable de l'organisation de sa fouille : inscription, accueil, hébergement, rythme de travail et programme scientifique proposé, ce qui peut introduire une variabilité dans les méthodes selon les sites [2].",
+          "explication": "La source [2] (Gouv) n'est pas citée dans l'extrait fourni ; le fait est attribué à une source qui ne le confirme pas dans les extraits disponibles."
+        },
+        {
+          "bloc": 1,
+          "section": "nuances",
+          "type": "source_inventee",
+          "phrase_exacte": "Les chantiers qui acceptent les mineurs sont signalés par un pictogramme, mais les équipes sont vite au complet, limitant l'accès à la participation bénévole [2].",
+          "explication": "La source [2] (Gouv) n'est pas citée dans l'extrait fourni ; le fait est attribué à une source qui ne le confirme pas dans les extraits disponibles."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "contexte_hors_sujet",
+          "phrase_exacte": "Par ailleurs, des travaux récents en Amazonie ont démontré, grâce à l'archéologie, que cette région était densément peuplée avant l'arrivée des colons européens, renversant le paradigme d'une forêt vierge inhabitée [4].",
+          "explication": "La source [4] (Amazonie) ne porte pas sur le sujet de l'article (piraterie à Madagascar) et n'éclaire pas directement ce sujet."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "redondance",
+          "phrase_exacte": "L'article du Monde daté du 31 octobre 2026 rapporte que ces trouvailles révèlent l'envers de la piraterie entre pillages, contrebande, échanges commerciaux et métissages [1].",
+          "explication": "Cette phrase répète le contenu des phrases précédentes des faits sans apporter d'information nouvelle."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "redondance",
+          "phrase_exacte": "En France, le ministère de la Culture recense et met à disposition du public la liste des chantiers de fouille archéologique ouverts aux bénévoles, encadrés par des directeurs de chantier responsables de l'organisation scientifique et logistique [2].",
+          "explication": "Répétition exacte d'une phrase déjà présente dans les faits."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "redondance",
+          "phrase_exacte": "L'initiative « Franceinfo junior » propose des contenus pédagogiques sur la méthodologie des fouilles archéologiques, présentés par des spécialistes comme Hélène Salomon, afin de sensibiliser le jeune public aux pratiques de la discipline [5].",
+          "explication": "Répétition exacte d'une phrase déjà présente dans les faits."
+        },
+        {
+          "bloc": 1,
+          "section": "nuances",
+          "type": "redondance",
+          "phrase_exacte": "Le directeur du chantier est seul responsable de l'organisation de sa fouille : inscription, accueil, hébergement, rythme de travail et programme scientifique proposé, ce qui peut introduire une variabilité dans les méthodes selon les sites [2].",
+          "explication": "Information déjà présente dans le contexte (via la source [2]) et répétée sans nécessité."
+        },
+        {
+          "bloc": 1,
+          "section": "nuances",
+          "type": "redondance",
+          "phrase_exacte": "Les chantiers qui acceptent les mineurs sont signalés par un pictogramme, mais les équipes sont vite au complet, limitant l'accès à la participation bénévole [2].",
+          "explication": "Information déjà présente dans le contexte (via la source [2]) et répétée sans nécessité."
+        },
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "compteur_incoherent",
+          "phrase_exacte": "nb_sources: 4",
+          "explication": "Le champ nb_sources indique 4, mais le texte utilise des renvois [5] qui n'existent pas dans la liste des sources (seulement 4 sources). Le compteur ne reflète pas les sources réellement utilisées dans le texte."
+        }
+      ]
+    },
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "resume_repete_corps",
+      "article_sans_date"
+    ],
+    "titre": "Madagascar : fouilles archéologiques sur les traces des pirates de l'océan Indien",
+    "n_sources": 4,
+    "n_mots": 619,
+    "titre_rss": "A Madagascar, des fouilles archéologiques font parler les trésors des pirates de l’océan Indien",
+    "matiere_faits_distincts": 682,
+    "matiere_redondance": 0.03,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "cyberattaque-efs-3-novembre-trois-sites-stocks-preserves",
+    "statut": "rejete_sensible",
+    "date": "2026-11-06T09:20:02",
+    "problemes_initiaux": 9,
+    "tentative": 2,
+    "bloc5": true,
+    "article_type": "actu",
+    "titre": "Cyberattaque contre l'EFS le 3 novembre : trois sites touchés, stocks de sang préservés",
+    "n_sources": 6,
+    "n_mots": 442,
+    "titre_rss": "Cyberattaque : les chambres froides de l'EFS prises pour cible",
+    "matiere_faits_distincts": 760,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "mutuelles-cotisations-hausse-40-pour-cent-courtiers-frais-gestion",
+    "statut": "rejete_sensible",
+    "date": "2026-11-06T09:57:59",
+    "problemes_initiaux": 24,
+    "tentative": 2,
+    "bloc5": true,
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "attributions_trop_repetitives"
+    ],
+    "titre": "Mutuelles : cotisations en hausse de 40 % depuis 2011, frais de courtage pointés",
+    "n_sources": 7,
+    "n_mots": 526,
+    "titre_rss": "Les coûts cachés des mutuelles : comment les courtiers font grimper vos cotisations",
+    "matiere_faits_distincts": 454,
+    "matiere_redondance": 0.01,
+    "matiere_donnees_chiffrees": 2,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "gaia-430-chercheurs-catalogue-galactique-3000-milliards-observations",
+    "statut": "rejete_qualite",
+    "date": "2026-11-06T10:13:49",
+    "problemes_initiaux": 11,
+    "tentatives": 3,
+    "problemes_restants": 10,
+    "bloquants_restants": 4,
+    "bloquants_types": [
+      "chiffre_errone",
+      "chiffre_errone",
+      "source_inventee",
+      "source_inventee"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [1] (Le Monde, 2025-02-02) indique explicitement 'more than 3 trillion individual observations' (plus de 3 000 milliards d'observations individuelles) et 'several petabytes of scientific data' (plusieurs pétaoc",
+        "phrase": "Le satellite a réalisé plus de 3 000 milliards d'observations brutes entre le 25 juillet 2014 et cette date, générant un volume de plusieurs pétaoctets de données scientifiques exploitables [1]."
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [1] (Le Monde) mentionne 'a community of 430 scientists and engineers from 24 nationalities'. La source [4] (ESA, 2018) mentionnait 'environ 450 scientifiques et ingénieurs'. L'article cite 430 dans les faits e",
+        "phrase": "une communauté de 430 scientifiques et ingénieurs de 24 nationalités majoritairement européennes"
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "La source [1] (Le Monde) est citée pour cette liste de six centres, mais les extraits fournis de la source [1] ne contiennent pas cette liste précise de villes. L'article attribue cette information à [1] mais elle n'appa",
+        "phrase": "six centres de calcul situés à Barcelone, Cambridge, Madrid, Rome, Toulouse et Turin [1]"
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "La source [4] (ESA, 2018) est citée pour ce chiffre 'plus d'un milliard de mesures quotidiennes', mais les extraits fournis de la source [4] ne contiennent pas ce chiffre précis. L'information n'est pas vérifiable dans l",
+        "phrase": "effectuant plus d'un milliard de mesures quotidiennes grâce à ses deux télescopes et trois instruments [4]"
+      }
+    ],
+    "types_restants": [
+      "chiffre_errone",
+      "chiffre_errone",
+      "fait_tranche_arbitrairement",
+      "source_inventee",
+      "source_inventee",
+      "chiffre_errone",
+      "chiffre_errone",
+      "redondance",
+      "incoherence_inter_sections",
+      "chiffre_errone"
+    ],
+    "article_type": "actu",
+    "titre": "Gaia : 430 chercheurs transforment 3 000 milliards d'observations en catalogue galactique",
+    "n_sources": 4,
+    "n_mots": 601,
+    "titre_rss": "La constellation humaine derrière Gaia, le plus grand catalogue d’étoiles jamais réalisé",
+    "matiere_faits_distincts": 967,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 2,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "cyberattaques-fausses-alertes-nucleaires-ukraine-russie",
+    "statut": "corrige_automatiquement",
+    "date": "2026-11-06T10:49:27",
+    "problemes_initiaux": 20,
+    "tentatives": 2,
+    "problemes_residuels_style": 22,
+    "rapport_initial": {
+      "conforme": false,
+      "sujet_sensible": false,
+      "sujet_sensible_raison": "",
+      "angle_insuffisant": false,
+      "angle_insuffisant_raison": "",
+      "nature_contenu": "actualite_factuelle",
+      "problemes": [
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "chiffre_errone",
+          "phrase_exacte": "Dans la nuit du dimanche 1er au lundi 2 novembre",
+          "explication": "La source [2] (RTS, datée du 2 novembre 2026) indique que les cyberattaques ont eu lieu \"dans la nuit de dimanche à lundi\" sans préciser les dates calendaires ; le 1er novembre 2026 était un dimanche, mais le 2 novembre 2026 était un lundi, donc la nuit du 1er au 2 novembre est correcte. Cependant, l'article écrit \"dimanche 1er au lundi 2 novembre\" sans année ; la source ne donne pas l'année non plus, mais le contexte (trêve à Olechky, sources 2026) suggère 2026. Le problème est que l'article présente cette date comme un fait établi alors que la source ne la confirme pas explicitement (elle dit seulement \"nuit de dimanche à lundi\")."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "chiffre_errone",
+          "phrase_exacte": "Cette application compte plus de 46 millions de téléchargements et 6,7 millions d'utilisateurs quotidiens selon son développeur [2]",
+          "explication": "La source [2] (RTS) ne mentionne aucun chiffre de téléchargements ni d'utilisateurs quotidiens pour l'application ukrainienne ; ces chiffres sont absents de l'extrait fourni."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "chiffre_errone",
+          "phrase_exacte": "Il s'agissait du plus long cessez-le-feu depuis le début de l'invasion russe à grande échelle de l'Ukraine [2]",
+          "explication": "La source [2] ne contient pas cette affirmation sur la durée record de la trêve ; l'extrait fourni ne mentionne pas ce superlatif."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "L'armée ukrainienne a d'abord indiqué qu'elle avait \"probablement été victime d'une ingérence hostile\" [2]",
+          "explication": "La source [2] (RTS) ne cite pas cette déclaration de l'armée ukrainienne dans l'extrait fourni ; l'attribution [2] ne correspond pas au contenu de la source."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "Sur un compte Telegram \"HitcoreCorp\" créé peu avant, un message en russe adressé aux services de sécurité ukrainiens (SBU) affirmait : \"Votre gouvernement est en train de perdre\" et exhortait les agents à faire défection [2]",
+          "explication": "La source [2] ne mentionne pas le nom du compte Telegram \"HitcoreCorp\", ni la date de création du compte, ni le texte exact du message adressé au SBU dans l'extrait fourni."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "Le porte-parole du Kremlin Dmitri Peskov a estimé que la menace des cyberattaques s'intensifiait avec l'essor de l'intelligence artificielle, indiquant que Moscou prenait des \"mesures appropriées\" sans préciser qui pouvait être responsable selon la Russie [2]",
+          "explication": "La source [2] ne contient aucune citation de Dmitri Peskov ni de déclaration du Kremlin sur l'IA et les mesures appropriées dans l'extrait fourni."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "Le Panorama de la cybermenace 2025 de l'ANSSI souligne que les frontières entre acteurs étatiques et cybercriminels s'érodent, les attaquants partageant outils et méthodes tout en se spécialisant [4]",
+          "explication": "La source [4] est un article du Monde daté de mars 2026 intitulé \"La menace nucléaire : défi permanent du Kremlin à l'Occident\" ; il ne s'agit pas du Panorama de la cybermenace 2025 de l'ANSSI, et l'extrait fourni ne contient pas ce passage."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "L'agence note une augmentation massive attendue d'ici 2030 des attaques dites \"hybrides\", dont les cyberattaques constituent un pan majeur, avec effets concrets sur les infrastructures critiques [4]",
+          "explication": "La source [4] (Le Monde, mars 2026) ne contient pas cette projection de l'ANSSI à horizon 2030 dans l'extrait fourni."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "En France, la commission de la Défense nationale de l'Assemblée nationale a identifié dans un rapport de janvier 2024 trois doctrines de lutte informatique : la LID (lutte informatique défensive), la LIO (lutte informatique offensive) et la L2I (lutte informatique d'influence) [1]",
+          "explication": "La source [1] est le rapport d'information de l'Assemblée nationale du 17 janvier 2024 ; l'extrait fourni ne confirme pas la mention explicite des trois doctrines LID, LIO, L2I ni leurs définitions."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "Ce dernier volet, la L2I, vise précisément les opérations d'influence et de déstabilisation cognitive, dont le piratage de canaux d'alerte officiels pour y injecter de fausses informations est une illustration textbook [1]",
+          "explication": "La source [1] ne contient pas cette qualification de \"textbook\" ni l'application explicite au piratage de canaux d'alerte dans l'extrait fourni."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "Le rapport souligne le rôle central du COMCYBER, de la DGA, de la DGSE, ainsi que de l'ANSSI et de la DGSI au-delà du ministère des Armées [1]",
+          "explication": "La source [1] ne liste pas ces entités (COMCYBER, DGA, DGSE, ANSSI, DGSI) dans l'extrait fourni."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "L'Union européenne a dénoncé en juillet 2026 le \"cyberécosystème malveillant de la Russie ciblant l'UE, ses États membres et des partenaires internationaux\", soulignant sa détermination à faire respecter l'obligation de rendre des comptes dans le cyberespace [3]",
+          "explication": "La source [3] est un fact-check de Fullfact daté d'octobre 2026 sur une vidéo IA de champignon nucléaire ; elle ne contient aucune déclaration de l'UE de juillet 2026 sur un \"cyberécosystème malveillant de la Russie\"."
+        },
+        {
+          "bloc": 1,
+          "section": "nuances",
+          "type": "source_inventee",
+          "phrase_exacte": "L'attribution de la cyberattaque contre l'Ukraine au groupe Hitcore, présenté comme prorusse, repose sur sa revendication et sur l'analyse du Centre ukrainien pour les communications stratégiques (Spravdi) qui note l'apparition d'alertes inhabituelles et un message en russe mentionnant un missile russe [2]",
+          "explication": "La source [2] ne mentionne pas le Centre ukrainien pour les communications stratégiques (Spravdi) ni son analyse dans l'extrait fourni."
+        },
+        {
+          "bloc": 1,
+          "section": "nuances",
+          "type": "source_inventee",
+          "phrase_exacte": "Toutefois, l'usage de faux drapeaux (false flag) est une tactique documentée en cyberopérations, rendant l'attribution technique délicate sans analyse forensique indépendante [4]",
+          "explication": "La source [4] (Le Monde, mars 2026) ne traite pas des faux drapeaux en cyberopérations ni de l'attribution technique dans l'extrait fourni."
+        },
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "compteur_incoherent",
+          "phrase_exacte": "\"nb_sources\": 4",
+          "explication": "L'article utilise des renvois [1], [2], [3], [4] mais la grande majorité des faits attribués à ces sources ne sont pas confirmés par les extraits fournis ; le compteur de 4 sources est techniquement exact pour le tableau, mais le sourcing effectif est largement inventé, ce qui rend le chiffre trompeur sur la qualité réelle du sourcing."
+        },
+        {
+          "bloc": 2,
+          "section": "contexte",
+          "type": "source_derivee_comptee_comme_primaire",
+          "phrase_exacte": "\"primaire\": 1, \"secondaire\": 3",
+          "explication": "La source [1] (rapport Assemblée nationale) est comptée comme primaire, mais l'article en tire des affirmations non présentes dans l'extrait ; les sources [2], [3], [4] sont des médias (secondaires) mais l'article leur attribue des contenus absents de leurs extraits, ce qui fausse la qualification de sources indépendantes."
+        },
+        {
+          "bloc": 3,
+          "section": "contexte",
+          "type": "cadrage_emprunte",
+          "phrase_exacte": "illustre une évolution majeure de la cybermenace : le ciblage direct d'infrastructures critiques d'information au service de la désinformation et de la déstabilisation psychologique",
+          "explication": "Ce cadrage éditorial (\"évolution majeure\", \"déstabilisation psychologique\") est présenté comme un fait neutre par Les Faits alors qu'il provient d'une interprétation non sourcée (la source [4] ne le contient pas) ; il devrait être attribué ou reformulé factuellement."
+        },
+        {
+          "bloc": 4,
+          "section": "contexte",
+          "type": "section_gonflee",
+          "phrase_exacte": "Le Panorama de la cybermenace 2025 de l'ANSSI souligne que les frontières entre acteurs étatiques et cybercriminels s'érodent, les attaquants partageant outils et méthodes tout en se spécialisant [4]. L'agence note une augmentation massive attendue d'ici 2030 des attaques dites \"hybrides\", dont les cyberattaques constituent un pan majeur, avec effets concrets sur les infrastructures critiques [4].",
+          "explication": "Cette section \"contexte\" est remplie avec des affirmations non vérifiées par les sources citées (source [4] ne correspond pas au Panorama ANSSI 2025) ; elle gonfle artificiellement l'article avec du contenu non sourcé au lieu d'apporter des faits distincts et vérifiés."
+        },
+        {
+          "bloc": 4,
+          "section": "contexte",
+          "type": "contexte_hors_sujet",
+          "phrase_exacte": "L'Union européenne a dénoncé en juillet 2026 le \"cyberécosystème malveillant de la Russie ciblant l'UE, ses États membres et des partenaires internationaux\", soulignant sa détermination à faire respecter l'obligation de rendre des comptes dans le cyberespace [3]",
+          "explication": "La source [3] est un fact-check de Fullfact sur une vidéo IA (octobre 2026) ; elle n'a aucun lien avec une déclaration de l'UE de juillet 2026 sur la Russie ; ce fait cité en \"contexte\" n'éclaire pas le sujet principal (cyberattaques sur applications d'alerte en Ukraine/Russie) et utilise une source sans rapport."
+        },
+        {
+          "bloc": 4,
+          "section": "nuances",
+          "type": "extrapolation",
+          "phrase_exacte": "La simultanéité des deux attaques, dans un contexte de fin de trêve localisée, suggère une possible coordination, mais les sources disponibles ne permettent pas d'établir de lien formel entre les deux événements ni d'identifier avec certitude les commanditaires.",
+          "explication": "L'article avance une hypothèse de coordination (\"suggère une possible coordination\") qui n'est pas explicitement sourcée ; les sources ne permettent pas cette inférence, c'est une anticipation de conséquence future non sourcée."
+        }
+      ]
+    },
+    "article_type": "actu",
+    "titre": "Cyberattaques : fausses alertes nucléaires sur les applications d'alerte en Ukraine et en Russie",
+    "n_sources": 4,
+    "n_mots": 808,
+    "titre_rss": "Cyberattaque : de fausses alertes nucléaires envoyées aux Ukrainiens et aux Russes",
+    "matiere_faits_distincts": 1002,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 2,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "lancet-countdown-urgence-sanitaire-mondiale-changement-climatique",
+    "statut": "rejete_sensible",
+    "date": "2026-11-06T11:13:11",
+    "problemes_initiaux": 14,
+    "tentative": 1,
+    "bloc5": true,
+    "article_type": "actu",
+    "titre": "Le Lancet Countdown appelle à déclarer le changement climatique urgence sanitaire mondiale",
+    "n_sources": 9,
+    "n_mots": 575,
+    "titre_rss": "Le changement climatique doit devenir \"urgence sanitaire mondiale\", selon le rapport The Lancet Countdown",
+    "matiere_faits_distincts": 725,
+    "matiere_redondance": 0.01,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "etude_scientifique"
+  },
+  {
+    "slug": "mars-couche-magma-150-km-chlorure-hydrogene-volcanisme-actuel",
+    "statut": "rejete_qualite",
+    "date": "2026-11-06T11:32:30",
+    "tentative": 2,
+    "angle_insuffisant": true,
+    "raison": "Aucune phrase des faits ne contient à la fois un événement précis daté (publication, décision, résultat récent) et une donnée chiffrée ou nommée qui lui est propre. L'article explique un phénomène général (structure interne de Mars) en citant des publications de 2021 et 2023 sans identifier de fait déclencheur actuel justifiant la publication maintenant.",
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "resume_repete_corps",
+      "titre_de_mauvaise_qualite"
+    ],
+    "titre": "Mars : une couche de magma de 150 km et du chlorure d'hydrogène signalent un volcanisme actuel",
+    "n_sources": 4,
+    "n_mots": 473,
+    "titre_rss": "Mars : du magma coulerait encore dans les entrailles de la planète Rouge",
+    "matiere_faits_distincts": 927,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "etude_scientifique"
+  },
+  {
+    "slug": "midterms-2026-nasdaq-chute-5-5-pour-cent-victoire-democrate",
+    "statut": "rejete_qualite",
+    "date": "2026-11-06T12:01:43",
+    "problemes_initiaux": 5,
+    "tentatives": 3,
+    "problemes_restants": 8,
+    "bloquants_restants": 3,
+    "bloquants_types": [
+      "chiffre_errone",
+      "annonce_perimee",
+      "incoherence_inter_sections"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "Le titre indique une chute de 4,5 % alors que le slug de l'article mentionne 5,5 % (\"midterms-2026-nasdaq-chute-5-5-pour-cent-victoire-democrate\"), créant une incohérence interne sur le chiffre principal.",
+        "phrase": "Midterms 2026 : le Nasdaq perd 4,5 % après la victoire démocrate"
+      },
+      {
+        "bloc": 1,
+        "type": "annonce_perimee",
+        "description": "La source [2] (Vie Publique) est datée du 4 août 2026 ; elle ne peut pas confirmer que des dispositions \"imposent depuis août 2026\" le jour même de leur entrée en vigueur supposée. L'article présente comme un fait accomp",
+        "phrase": "Le règlement européen sur l'intelligence artificielle (AI Act) impose depuis août 2026 des obligations aux fournisseurs de systèmes d'IA à usage général (GPAI) et interdit certains systèmes jugés attentatoires aux droits"
+      },
+      {
+        "bloc": 1,
+        "type": "incoherence_inter_sections",
+        "description": "La source [4] date de novembre 2024 (deux ans avant les faits) ; elle ne peut pas éclairer la situation réglementaire américaine post-élections de novembre 2026. L'article utilise une source obsolète pour nuancer l'actua",
+        "phrase": "Le rapport de l'Assemblée nationale (novembre 2024) souligne que l'encadrement réglementaire de l'IA générative reste en construction aux États-Unis, avec des approches sectorielles plutôt qu'une loi horizontale unique, "
+      }
+    ],
+    "types_restants": [
+      "chiffre_errone",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "annonce_perimee",
+      "source_inventee",
+      "incoherence_inter_sections",
+      "compteur_incoherent"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "titre_de_mauvaise_qualite",
+      "cliches_ia"
+    ],
+    "titre": "Midterms 2026 : le Nasdaq perd plus de 5,5 % après la victoire démocrate",
+    "n_sources": 4,
+    "n_mots": 359,
+    "titre_rss": "A Wall Street, la victoire démocrate aux midterms a fait exploser la bulle de l’IA",
+    "matiere_faits_distincts": 536,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
   }
 ]
