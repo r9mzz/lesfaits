@@ -59604,5 +59604,583 @@
     "n_sources_injectees": 10,
     "n_sources_trouvees": 10,
     "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "italie-projet-loi-finances-2027-taxe-sortie-grandes-fortunes",
+    "statut": "rejete_sensible",
+    "date": "2026-11-06T17:24:57",
+    "problemes_initiaux": 11,
+    "bloc5": [
+      "compteur_incoherent"
+    ],
+    "article_type": "actu",
+    "titre": "Italie : une taxe de sortie pour les grandes fortunes dans le budget 2027",
+    "n_sources": 3,
+    "n_mots": 545,
+    "titre_rss": "En Italie, une « taxe de sortie » pour les grandes fortunes",
+    "matiere_faits_distincts": 766,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "collision-urda-parquet-europeen-enquete-fraudes-aides-renovation",
+    "statut": "rejete_sensible",
+    "date": "2026-11-06T17:34:42",
+    "problemes_initiaux": 12,
+    "tentative": 3,
+    "bloc5": true,
+    "article_type": "actu",
+    "titre": "Collision d'Urda : le Parquet européen enquête sur de possibles fraudes aux aides de rénovation",
+    "n_sources": 6,
+    "n_mots": 709,
+    "titre_rss": "Après la collision d'Urda en Espagne, le Parquet européen ouvre une enquête sur d'éventuelles fraudes aux aides destinées à la rénovation de la ligne ferroviaire",
+    "matiere_faits_distincts": 749,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "urgences-rurales-senateurs-alerte-plfss-2027",
+    "statut": "rejete_sensible",
+    "date": "2026-11-06T17:53:33",
+    "problemes_initiaux": 13,
+    "bloc5": [
+      "compteur_incoherent"
+    ],
+    "article_type": "actu",
+    "titre": "Urgences rurales : les sénateurs alertent sur un point de rupture avant le PLFSS 2027",
+    "n_sources": 4,
+    "n_mots": 489,
+    "titre_rss": "Urgences rurales : le pronostic vital est engagé, alertent des sénateurs avant le PLFSS 2027",
+    "matiere_faits_distincts": 646,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "declaration"
+  },
+  {
+    "slug": "salaires-prive-baisse-1-1-pour-cent-reel-troisieme-trimestre-2025",
+    "statut": "rejete_qualite",
+    "date": "2026-11-06T18:05:10",
+    "problemes_initiaux": 9,
+    "tentatives": 3,
+    "problemes_restants": 8,
+    "bloquants_restants": 4,
+    "bloquants_types": [
+      "incoherence_inter_sections",
+      "chiffre_errone",
+      "source_inventee",
+      "annonce_perimee"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "incoherence_inter_sections",
+        "description": "Le titre et le résumé annoncent une baisse de 1,1 % sur un an, mais le corps indique une hausse de 0,3 % au T3 2025 par rapport au trimestre précédent (variation trimestrielle) et 1,8 % sur un an (variation annuelle) en ",
+        "phrase": "L'indice du salaire mensuel de base des salariés du secteur privé a augmenté de 0,3 % au troisième trimestre 2025 par rapport au trimestre précédent, et de 1,8 % sur un an en euros courants, selon les données de l'INSEE "
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [2] est datée de juin 2026 et porte sur le T1 2026. Elle ne peut pas contenir une donnée 'sur un an au premier trimestre 2026' car cela impliquerait une comparaison avec le T1 2025, mais la source est une publi",
+        "phrase": "Sur le front des négociations, les minima de branche n'ont progressé que de 1,2 % sur un an au premier trimestre 2026, contre 1,4 % au trimestre précédent, selon la publication de la Banque de France datée de juin 2026 ["
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "La source [1] est un article du Monde daté du 2026-11-06. L'article cite des données INSEE (indice SHBOE) pour le T3 2025. Or, à la date de publication de la source (novembre 2026), les données du T3 2025 sont définitive",
+        "phrase": "L'indice du salaire mensuel de base des salariés du secteur privé a augmenté de 0,3 % au troisième trimestre 2025 par rapport au trimestre précédent, et de 1,8 % sur un an en euros courants, selon les données de l'INSEE "
+      },
+      {
+        "bloc": 1,
+        "type": "annonce_perimee",
+        "description": "Le résumé présente cette donnée comme un fait actuel ('n'avançant plus que'), or elle provient de la source [2] datée de juin 2026 qui rapporte une donnée du T1 2026 (janvier-mars 2026). À la date de l'article (impliquée",
+        "phrase": "les minima de branche n'avançant plus que de 1,2 % début 2026"
+      }
+    ],
+    "types_restants": [
+      "incoherence_inter_sections",
+      "chiffre_errone",
+      "source_inventee",
+      "fait_tranche_arbitrairement",
+      "redondance",
+      "contexte_hors_sujet",
+      "compteur_incoherent",
+      "annonce_perimee"
+    ],
+    "article_type": "actu",
+    "titre": "Salaires du privé : baisse de 1,1 % en réel sur un an",
+    "n_sources": 5,
+    "n_mots": 503,
+    "titre_rss": "Les salaires du privé ont baissé de 1,1 % sur un an, en prenant en compte l’inflation",
+    "matiere_faits_distincts": 564,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "sante-mentale-femmes-deux-fois-plus-troubles-travail",
+    "statut": "rejete_qualite",
+    "date": "2026-11-06T18:25:55",
+    "tentative": 3,
+    "perte_substance": true,
+    "section": "contexte",
+    "mots_avant": 133,
+    "mots_apres": 65,
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "titre_de_mauvaise_qualite"
+    ],
+    "titre": "HCE : les femmes deux fois plus touchées par les troubles psychiques au travail",
+    "n_sources": 5,
+    "n_mots": 526,
+    "titre_rss": "Dépression, troubles psy : les femmes paient le prix fort des inégalités, selon un rapport",
+    "matiere_faits_distincts": 837,
+    "matiere_redondance": 0.02,
+    "matiere_donnees_chiffrees": 3,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "rapport"
+  },
+  {
+    "slug": "aie-renouvelables-croissance-blocage-detroit-ormuz-2026",
+    "statut": "corrige_automatiquement",
+    "date": "2026-11-06T18:39:05",
+    "problemes_initiaux": 19,
+    "tentatives": 1,
+    "problemes_residuels_style": 18,
+    "rapport_initial": {
+      "conforme": false,
+      "sujet_sensible": false,
+      "sujet_sensible_raison": "",
+      "angle_insuffisant": false,
+      "angle_insuffisant_raison": "",
+      "nature_contenu": "rapport",
+      "problemes": [
+        {
+          "bloc": 1,
+          "section": "titre",
+          "type": "fait_tranche_arbitrairement",
+          "phrase_exacte": "L'AIE lie la croissance des renouvelables au blocage du détroit d'Ormuz",
+          "explication": "Le titre affirme un lien causal direct ('lie... au blocage') que la source RFI [1] ne confirme pas : elle mentionne la crise énergétique mondiale comme facteur, sans évoquer un blocage du détroit d'Ormuz."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "fait_tranche_arbitrairement",
+          "phrase_exacte": "Cette expansion viserait à assurer leur sécurité énergétique, mise à mal par le blocage du détroit d'Ormuz [1].",
+          "explication": "La source RFI [1] ne mentionne pas le détroit d'Ormuz ni son blocage ; l'article invente ce détail géographique et causal absent de la source citée."
+        },
+        {
+          "bloc": 1,
+          "section": "resume",
+          "type": "fait_tranche_arbitrairement",
+          "phrase_exacte": "Cette expansion viserait à compenser la fragilité créée par le blocage du détroit d'Ormuz, point de passage critique pour les approvisionnements fossiles.",
+          "explication": "Le résumé reprend l'affirmation non sourcée du blocage du détroit d'Ormuz, absent de la source RFI [1] qui ne parle que de crise énergétique mondiale."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "incoherence_inter_sections",
+          "phrase_exacte": "L'Agence internationale de l'énergie (AIE) a publié vendredi 6 novembre un rapport jugeant que la crise mondiale de l'énergie va doper la croissance des énergies renouvelables, le solaire en tête, dans les pays émergents et en développement [1].",
+          "explication": "La source RFI [1] est datée du 6 novembre 2026, mais les sources Le Monde [2] et [4] datées du 12 novembre 2025 évoquent le World Energy Outlook 2025 ; l'article mélange deux rapports distincts (WEO 2025 et un rapport AIE de novembre 2026) sans les distinguer, créant une confusion chronologique et factuelle."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "Le World Energy Outlook 2025, rendu public le 12 novembre 2025, présente trois scénarios d'évolution énergétique dont aucun ne constitue une prévision [4][6].",
+          "explication": "Les renvois [4] et [6] pointent vers des sources qui n'existent pas dans la liste autorisée (seuls 5 sources sont listées, indices 1 à 5) ; l'article attribue des faits à des sources fantômes."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "Parmi ces scénarios, l'un envisage que la demande de pétrole et de gaz augmente jusqu'en 2050 [4][6]. L'AIE appelle à tripler la production d'énergie renouvelable et estime que les consommations de charbon, de pétrole et de gaz pourraient décliner [5].",
+          "explication": "Même problème : les indices [4], [5], [6] renvoient au-delà de la liste des 5 sources autorisées ; le contenu attribué n'est pas vérifiable."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "Le Parlement européen reconnaît que les énergies renouvelables, parallèlement à l'énergie nucléaire pour les États membres qui décident de l'utiliser, sont essentielles pour atteindre un bouquet énergétique propre et sûr [3].",
+          "explication": "La source [3] (Le Monde, 16 octobre 2024) ne traite pas de la position du Parlement européen sur le bouquet énergétique ; l'attribution est inventée."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "Le scénario « Zéro émission nette d'ici 2050 » repose sur quatre piliers centraux largement applicables pour limiter le réchauffement bien en dessous de 2 °C [7].",
+          "explication": "L'indice [7] dépasse le nombre de sources autorisées (5) ; aucune source ne correspond à ce renvoi."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "Dans chacun des trois scénarios du WEO 2025, le monde dépassera 1,5 °C de réchauffement [4][6].",
+          "explication": "Renvois [4] et [6] inexistants dans la liste des sources autorisées."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "Le rapport Tracking SDG 7 de 2023, piloté par l'AIE, l'IRENA, l'ONU, la Banque mondiale et l'OMS, indiquait déjà que le monde n'était pas en voie d'atteindre l'ODD 7 sur l'énergie d'ici 2030 [9].",
+          "explication": "L'indice [9] n'existe pas dans la liste des 5 sources autorisées."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "La crise énergétique mondiale devrait stimuler le déploiement des renouvelables et améliorer l'efficacité énergétique, plusieurs politiques publiques indiquant une augmentation des investissements [9].",
+          "explication": "Même source fantôme [9]."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "Cependant, les flux financiers publics internationaux à l'appui de l'énergie propre dans les pays à revenu faible ou intermédiaire ont diminué depuis la période pré-COVID et le financement reste circonscrit à un petit nombre de pays [9]. 1,9 milliard de personnes seront dépourvues de modes de cuisson propres et 660 millions n'auront pas accès à l'électricité en 2030 sans nouvelles mesures [9].",
+          "explication": "Source [9] inexistante ; chiffres non vérifiables."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "En 2021, l'AIE constatait déjà l'insuffisance de la transition actuelle dans son WEO 2021, proposant quatre grandes mesures dont le doublement du déploiement solaire et éolien [10]. Le secteur de l'énergie reste responsable de près des trois quarts des émissions passées [10].",
+          "explication": "Source [10] inexistante dans la liste autorisée."
+        },
+        {
+          "bloc": 1,
+          "section": "nuances",
+          "type": "source_inventee",
+          "phrase_exacte": "Le WEO 2025 précise que ses trois scénarios sont exploratoires ou normatifs, et qu'aucun ne constitue une prévision [4][6].",
+          "explication": "Sources [4] et [6] inexistantes."
+        },
+        {
+          "bloc": 1,
+          "section": "nuances",
+          "type": "source_inventee",
+          "phrase_exacte": "L'évaluation de la nouvelle série de contributions déterminées au niveau national (CDN) devant couvrir la période jusqu'en 2035 sera réalisée ultérieurement [4][6].",
+          "explication": "Sources [4] et [6] inexistantes."
+        },
+        {
+          "bloc": 1,
+          "section": "nuances",
+          "type": "source_inventee",
+          "phrase_exacte": "Le financement international pour l'énergie propre dans les pays en développement a reculé depuis la pandémie, ce qui limite la portée effective de la croissance projetée [9].",
+          "explication": "Source [9] inexistante."
+        },
+        {
+          "bloc": 1,
+          "section": "nuances",
+          "type": "source_inventee",
+          "phrase_exacte": "La dette croissante et la hausse des prix de l'énergie assombrissent les perspectives d'accès universel à l'électricité et aux modes de cuisson propres [9].",
+          "explication": "Source [9] inexistante."
+        },
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "compteur_incoherent",
+          "phrase_exacte": "\"nb_sources\": 5",
+          "explication": "L'article utilise des renvois jusqu'à [10], soit 10 sources distinctes citées dans le texte, mais le champ nb_sources indique 5 ; le compteur est faux."
+        },
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "source_derivee_comptee_comme_primaire",
+          "phrase_exacte": "\"qualite_sources\": {\"primaire\": 1, \"secondaire\": 2, \"tertiaire\": 0}",
+          "explication": "Les sources listées sont toutes des articles de presse (RFI, Le Monde x3, Citepa) qui reprennent des rapports de l'AIE ; aucune n'est le rapport original de l'AIE (source primaire). Le classement 'primaire': 1 est erroné."
+        }
+      ]
+    },
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "resume_repete_corps",
+      "faits_repetitifs",
+      "titre_de_mauvaise_qualite"
+    ],
+    "titre": "L'AIE lie la croissance des renouvelables au blocage du détroit d'Ormuz",
+    "n_sources": 5,
+    "n_mots": 533,
+    "titre_rss": "La crise mondiale de l'énergie va doper la croissance du renouvelable, juge l'AIE",
+    "matiere_faits_distincts": 847,
+    "matiere_redondance": 0.05,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "rapport"
+  },
+  {
+    "slug": "senat-resolution-bei-financement-armes-munitions-europeennes",
+    "statut": "rejete_sensible",
+    "date": "2026-11-06T18:59:04",
+    "problemes_initiaux": 10,
+    "tentative": 1,
+    "bloc5": true,
+    "article_type": "actu",
+    "titre": "Le Sénat adopte une résolution pour financer les armes européennes par la BEI",
+    "n_sources": 4,
+    "n_mots": 675,
+    "titre_rss": "Armes et munitions produites par les industries européennes de la défense - Rapport n° 879",
+    "matiere_faits_distincts": 968,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "veille_heures_visible": 517.7,
+    "veille_passages": 326,
+    "veille_age_h": 2079.5,
+    "veille_n_flux_grappe": 4,
+    "nature_contenu": "decision_officielle"
+  },
+  {
+    "slug": "onu-rapport-ecart-adaptation-financement-dix-fois-faible-cop31",
+    "statut": "rejete_sensible",
+    "date": "2026-11-06T19:23:05",
+    "problemes_initiaux": 22,
+    "bloc5": [
+      "compteur_incoherent"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "titre_de_mauvaise_qualite"
+    ],
+    "titre": "L'ONU publie son rapport sur l'écart d'adaptation : financement dix fois trop faible",
+    "n_sources": 7,
+    "n_mots": 530,
+    "titre_rss": "Avant la COP31 en Turquie, l’ONU alerte d’un « déficit ahurissant » entre les besoins et les financements réels de l’adaptation des pays en développement",
+    "matiere_faits_distincts": 638,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "oms-six-mesures-sauver-1-6-million-vies-pollution-air",
+    "statut": "rejete_sensible",
+    "date": "2026-11-06T19:55:54",
+    "problemes_initiaux": 9,
+    "bloc5": [
+      "extrapolation"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "faits_repetitifs"
+    ],
+    "titre": "L'OMS propose six mesures pour sauver 1,6 million de vies par an",
+    "n_sources": 5,
+    "n_mots": 694,
+    "titre_rss": "Six mesures pour sauver 1,6 million de vies chaque année, selon l'OMS",
+    "matiere_faits_distincts": 1117,
+    "matiere_redondance": 0.02,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "cancers-objectif-guerir-80-patients-2040",
+    "statut": "rejete_qualite",
+    "date": "2026-11-06T20:09:16",
+    "problemes_initiaux": 12,
+    "tentatives": 3,
+    "problemes_restants": 7,
+    "bloquants_restants": 3,
+    "bloquants_types": [
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [5] (AFP Factuel) indique 61 000 nouveaux cas et 12 000 décès (chiffres arrondis), l'article donne 61 214 et 12 600 (chiffres précis) sans que la source ne les confirme.",
+        "phrase": "Le cancer du sein reste le plus fréquent et le plus meurtrier chez les femmes, avec 61 214 nouveaux cas et 12 600 décès en 2023 [5]."
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [4] (data.gouv.fr) porte sur la France métropolitaine uniquement, l'article généralise à la France entière sans préciser ce périmètre.",
+        "phrase": "En France, 433 136 nouveaux cas de cancers ont été estimés en 2023, toutes localisations confondues hors mélanomes cutanés non épithéliaux [4]."
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "Même problème : la source [4] concerne la France métropolitaine, l'article l'applique à la France sans qualification.",
+        "phrase": "Ce nombre a presque doublé en trente-trois ans, passant de 215 000 cas en 1990 à 433 136 en 2023 [4]."
+      }
+    ],
+    "types_restants": [
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "source_inventee",
+      "source_inventee",
+      "redondance",
+      "compteur_incoherent"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "resume_repete_corps"
+    ],
+    "titre": "Cancers : l'objectif de guérir 80 % des patients d'ici 2040",
+    "n_sources": 6,
+    "n_mots": 482,
+    "titre_rss": "\"Le nombre de cancers augmente, mais la mortalité diminue\"",
+    "matiere_faits_distincts": 678,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 2,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "canicule-juin-2026-mortalite-hausse-30-pour-cent-sante-publique-france",
+    "statut": "corrige_automatiquement",
+    "date": "2026-11-06T20:19:14",
+    "problemes_initiaux": 6,
+    "tentatives": 1,
+    "problemes_residuels_style": 0,
+    "rapport_initial": {
+      "conforme": false,
+      "sujet_sensible": false,
+      "sujet_sensible_raison": "",
+      "angle_insuffisant": false,
+      "angle_insuffisant_raison": "",
+      "nature_contenu": "actualite_factuelle",
+      "problemes": [
+        {
+          "bloc": 1,
+          "section": "titre",
+          "type": "chiffre_errone",
+          "phrase_exacte": "Canicule de juin 2026 : hausse de 29 % des décès en une semaine",
+          "explication": "Le titre arrondit 29,1 % à 29 % sans signaler l'arrondi, alors que la source [1] donne précisément 29,1 % ; la charte exige le chiffre exact ou un arrondi signalé."
+        },
+        {
+          "bloc": 1,
+          "section": "resume",
+          "type": "chiffre_errone",
+          "phrase_exacte": "Santé publique France signale une hausse de 29,1 % des décès toutes causes entre les semaines du 15-21 juin et du 22-28 juin 2026, soit 2 025 morts supplémentaires pour un total de 8 973 décès enregistrés par certification électronique.",
+          "explication": "Le résumé écrit « entre les semaines du 15-21 juin et du 22-28 juin 2026 » alors que la source [1] compare la semaine du 22-28 juin (8 973 décès) à la semaine précédente (6 948 décès), soit la semaine du 15-21 juin ; la formulation du résumé laisse croire à une comparaison inter-semaines explicite dans la source, ce qui n'est pas le cas."
+        },
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "compteur_incoherent",
+          "phrase_exacte": "nb_sources: 4",
+          "explication": "Le champ nb_sources indique 4 alors que le tableau sources ne contient que 3 entrées distinctes (deux articles du Monde et un bulletin de Santé publique France)."
+        },
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "source_derivee_comptee_comme_primaire",
+          "phrase_exacte": "Le Monde rapporte que Santé publique France estime à 2 025 le nombre de décès supplémentaires enregistrés entre le 22 et le 28 juin, au plus fort des pics de chaleur, tout en soulignant que ce chiffrage est très parcellaire [2].",
+          "explication": "La source [2] (Le Monde) ne fait que relayer le bulletin de Santé publique France [1] sans apporter d'information indépendante ; les deux sont comptées comme sources distinctes alors qu'il s'agit d'une reprise de la même source primaire."
+        },
+        {
+          "bloc": 4,
+          "section": "nuances",
+          "type": "redondance",
+          "phrase_exacte": "Santé publique France insiste sur le caractère provisoire et sous-estimé des chiffres publiés : la mortalité réelle sera \"plus élevée que ces premières données\", particulièrement pour les décès à domicile dont seule une fraction est captée [1].",
+          "explication": "Cette phrase répète l'idée déjà présente dans les faits (données partielles, sous-estimation, couverture 25 % au domicile) et dans le résumé (bilan consolidé attendu dans trois semaines), sans apporter de nuance nouvelle."
+        },
+        {
+          "bloc": 4,
+          "section": "contexte",
+          "type": "redondance",
+          "phrase_exacte": "Le système de surveillance reposant sur la certification électronique ne capte habituellement qu'environ 60 % de la mortalité nationale, avec une couverture très inégale selon le lieu de décès : 25 % pour le domicile, 45 % pour les EHPAD et près de 80 % pour les établissements hospitaliers [1].",
+          "explication": "Ces taux de couverture sont déjà cités dans les faits et le résumé ; le contexte ne fait que les répéter sans ajouter d'information distincte."
+        }
+      ]
+    },
+    "article_type": "actu",
+    "titre": "Canicule de juin 2026 : hausse de 29 % des décès en une semaine",
+    "n_sources": 3,
+    "n_mots": 644,
+    "titre_rss": "Point de situation sur la mortalité toutes causes confondues  sur la période du 22 au 28 juin 2026",
+    "matiere_faits_distincts": 907,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "trump-abolit-limites-emissions-centrales-reduit-reserves-utah",
+    "statut": "rejete_qualite",
+    "date": "2026-11-06T20:50:07",
+    "tentative": 3,
+    "perte_substance": true,
+    "section": "nuances",
+    "mots_avant": 110,
+    "mots_apres": 34,
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "resume_repete_corps",
+      "faits_repetitifs",
+      "titre_de_mauvaise_qualite"
+    ],
+    "titre": "Trump abolit les limites d'émissions des centrales et réduit deux réserves dans l'Utah",
+    "n_sources": 4,
+    "n_mots": 465,
+    "titre_rss": "Deux ans après le retour de Donald Trump au pouvoir, le bilan alarmant des climatologues américains",
+    "matiere_faits_distincts": 586,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "smic-hausse-130-euros-retrouver-niveau-2012",
+    "statut": "rejete_sensible",
+    "date": "2026-11-06T21:00:48",
+    "problemes_initiaux": 14,
+    "tentative": 3,
+    "bloc5": true,
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "resume_repete_corps"
+    ],
+    "titre": "SMIC : une hausse de 130 euros nécessaire pour retrouver le niveau de 2012",
+    "n_sources": 4,
+    "n_mots": 550,
+    "titre_rss": "« Il faudrait une augmentation du smic de plus de 130 euros par mois pour un temps plein uniquement pour retrouver le niveau de 2012 »",
+    "matiere_faits_distincts": 775,
+    "matiere_redondance": 0.01,
+    "matiere_donnees_chiffrees": 3,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "tribune"
+  },
+  {
+    "slug": "sous-vetements-hommes-etude-27000-erection-fertilite",
+    "statut": "rejete_qualite",
+    "date": "2026-11-06T21:09:20",
+    "tentative": 3,
+    "perte_substance": true,
+    "section": "contexte",
+    "mots_avant": 128,
+    "mots_apres": 62,
+    "article_type": "actu",
+    "titre": "Étude sur 27 000 hommes : lien entre sous-vêtements, érection et fertilité",
+    "n_sources": 2,
+    "n_mots": 592,
+    "titre_rss": "Slip, boxer ou caleçon : une étude sur près de 27 000 hommes révèle un lien avec l’érection et la fertilité",
+    "matiere_faits_distincts": 816,
+    "matiere_redondance": 0.04,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "etude_scientifique"
   }
 ]
