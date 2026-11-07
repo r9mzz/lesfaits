@@ -60826,5 +60826,754 @@
     "n_sources_injectees": 10,
     "n_sources_trouvees": 10,
     "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "sante-mentale-femmes-deux-fois-plus-troubles-travail-rapport-hce",
+    "statut": "rejete_qualite",
+    "date": "2026-11-07T17:11:50",
+    "angle_insuffisant": true,
+    "raison": "Aucune phrase de la section 'faits' ne contient à la fois un événement précis daté ou datable (annonce, publication, décision, résultat rendu public récemment) et une donnée chiffrée ou nommée qui lui est propre. Le texte explique un phénomène général (l'écart de prévalence dépressive entre femmes et hommes) en citant des données sur plusieurs années (2010-2023, 2013-2019, 2017-2022) et mentionne la publication du rapport du HCE 'ce lundi' sans date précise ni chiffre nouveau issu de ce rapport. L'article répond à 'qu'est-ce que l'écart de santé mentale selon le genre ?' plutôt qu'à 'pourquoi en parle-t-on maintenant ?'.",
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "titre_de_mauvaise_qualite"
+    ],
+    "titre": "Santé mentale : les femmes deux fois plus touchées par les troubles liés au travail, selon le HCE",
+    "n_sources": 4,
+    "n_mots": 519,
+    "titre_rss": "Dépression, troubles psy : les femmes paient le prix fort des inégalités, selon un rapport",
+    "matiere_faits_distincts": 774,
+    "matiere_redondance": 0.02,
+    "matiere_donnees_chiffrees": 3,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "rapport"
+  },
+  {
+    "slug": "truth-social-acces-anticipe-publications-trump-sec-enquete",
+    "statut": "rejete_sensible",
+    "date": "2026-11-07T17:19:36",
+    "sujet_sensible": true,
+    "raison": "L'article porte sur une enquête potentielle pour délit d'initié visant le président des États-Unis en exercice (Donald Trump) et son entreprise, impliquant des personnes physiques nommément dans une affaire pénale non jugée.",
+    "article_type": "actu",
+    "titre": "Truth Social vend un accès anticipé aux publications de Trump, la SEC saisie",
+    "n_sources": 3,
+    "n_mots": 606,
+    "titre_rss": "Trump et Truth Social : parole publique, intérêts privés",
+    "matiere_faits_distincts": 907,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "piratage-binance-6-3-milliards-dollars-fbi-coree-nord",
+    "statut": "rejete_qualite",
+    "date": "2026-11-07T17:39:51",
+    "problemes_initiaux": 9,
+    "tentatives": 3,
+    "problemes_restants": 10,
+    "bloquants_restants": 8,
+    "bloquants_types": [
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "Le résumé attribue au FBI l'estimation du préjudice à 1,4 milliard de dollars, alors que la source [1] (Le Monde, 7 novembre) indique que ce montant provient de la communication de Binance, et la source [2] (AP News, 1er",
+        "phrase": "Le FBI attribue formellement à des hackers nord-coréens le piratage de Binance survenu fin octobre 2026, estimant le préjudice à 1,4 milliard de dollars."
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [2] est AP News, pas Le Monde ; l'article du Monde qui qualifie ce vol de 'plus gros de l'histoire' est la source [3] (30 octobre), qui n'est pas citée à cet endroit.",
+        "phrase": "Selon Le Monde, il s'agit du plus gros vol de cryptomonnaies de l'histoire [2]."
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [2] (AP News, 1er novembre) ne mentionne pas la reprise des retraits annoncée un dimanche ; cette information figure dans la source [3] (Le Monde, 30 octobre) qui rapporte la reprise du dimanche 29 octobre.",
+        "phrase": "Binance a annoncé dimanche la reprise progressive des retraits après avoir suspendu l'ensemble des opérations le temps de sécuriser ses infrastructures [2]."
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [1] (Le Monde, 7 novembre) cite un rapport de l'ONU de 2024 (publié en mai 2024) estimant le total à 3 milliards sur 2017-2023, pas un rapport 2023 ; la période de comparaison ('période précédente') n'est pas p",
+        "phrase": "Les Nations unies estiment dans un rapport 2023 que les cyberopérations nord-coriennes ont rapporté plus de 3 milliards de dollars entre 2017 et 2023, soit un doublement du produit par rapport à la période précédente [1]"
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "Le renvoi [1] pointe vers l'article du Monde du 7 novembre, mais cet extrait ne contient pas d'attribution formelle du FBI ; l'attribution du FBI figure dans la source [2] (AP News, 1er novembre).",
+        "phrase": "Le Federal Bureau of Investigation a formellement attribué aux services de renseignement nord-coréens le piratage de Binance survenu fin octobre 2026 [1]."
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "L'extrait de la source [1] (Le Monde, 7 novembre) ne mentionne ni le vol sur Ronin (2022), ni celui sur Harmony (2023), ni les attributions du Trésor américain et du FBI à ce sujet.",
+        "phrase": "Le groupe Lazarus, identifié comme l'opérateur technique, a été impliqué dans des attaques majeures précédentes, notamment le vol de 625 millions de dollars sur le pont Ronin en 2022 et de 100 millions sur Harmony en 202"
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "L'extrait de la source [1] ne contient pas ces détails techniques (zero-day, ingénierie sociale ciblant des développeurs, remplacement progressif des échanges centralisés).",
+        "phrase": "La sophistication technique s'accroît : exploitation de failles zero-day, ingénierie sociale ciblant des développeurs, et blanchiment via la finance décentralisée (DeFi) remplacent progressivement les échanges centralisé"
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "L'extrait de la source [1] ne mentionne ni les protocoles DeFi, ni le 'chain-hopping', ni l'affinage des techniques de blanchiment.",
+        "phrase": "L'article du 7 novembre du Monde précise que les enquêteurs traquent désormais les fonds volés sur la blockchain, notant que les pirates nord-coréens ont affiné leurs techniques de blanchiment en passant par des protocol"
+      }
+    ],
+    "types_restants": [
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "redondance",
+      "redondance"
+    ],
+    "article_type": "actu",
+    "titre": "Piratage de Binance : 6,3 milliards volés, le FBI accuse la Corée du Nord",
+    "n_sources": 3,
+    "n_mots": 496,
+    "titre_rss": "Derrière le piratage de Binance, le savoir-faire redoutable des hackeurs nord-coréens",
+    "matiere_faits_distincts": 530,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "tribune-urgence-climatique-entite-financement-innovations-rupture",
+    "statut": "corrige_automatiquement",
+    "date": "2026-11-07T17:46:01",
+    "problemes_initiaux": 8,
+    "tentatives": 1,
+    "problemes_residuels_style": 9,
+    "rapport_initial": {
+      "conforme": false,
+      "sujet_sensible": false,
+      "sujet_sensible_raison": "",
+      "angle_insuffisant": false,
+      "angle_insuffisant_raison": "",
+      "nature_contenu": "tribune",
+      "problemes": [
+        {
+          "bloc": 3,
+          "section": "resume",
+          "type": "cadrage_emprunte",
+          "phrase_exacte": "Les signataires soulignent que les phénomènes climatiques extrêmes sont déjà une réalité quotidienne en France, justifiant un investissement massif immédiat dans l'innovation de rupture plutôt que dans la seule adaptation.",
+          "explication": "Le résumé présente l'argument des signataires (\"justifiant un investissement massif immédiat\") comme un fait établi par la rédaction, sans attribution explicite (\"selon les signataires\", \"ils estiment que\")."
+        },
+        {
+          "bloc": 3,
+          "section": "titre",
+          "type": "cadrage_emprunte",
+          "phrase_exacte": "Tribune du 6 novembre 2026 : Bocquet, De Temmerman et Laszlo proposent une agence d'innovation climatique",
+          "explication": "Le titre ne signale pas explicitement qu'il s'agit d'une tribune (opinion), présentant la proposition comme une actualité factuelle neutre. L'introduction devrait indiquer explicitement le format (ex: \"Dans une tribune publiée par Le Monde...\")."
+        },
+        {
+          "bloc": 4,
+          "section": "contexte",
+          "type": "contexte_hors_sujet",
+          "phrase_exacte": "La France dispose déjà d'outils de planification écologique renouvelés à l'aune de l'accord de Paris, notamment via la stratégie nationale bas-carbone et la programmation pluriannuelle de l'énergie, mais le Sénat souligne que la diplomatie climatique française reste insuffisamment ouverte aux territoires ultramarins, en première ligne du dérèglement [2].",
+          "explication": "La source [2] (rapport Sénat sur la diplomatie climatique et les territoires ultramarins) ne porte pas sur le financement de l'innovation de rupture, sujet de la tribune. Le fait cité (diplomatie climatique/outre-mer) n'éclaire pas la proposition d'une agence type ARPA-E."
+        },
+        {
+          "bloc": 4,
+          "section": "contexte",
+          "type": "contexte_hors_sujet",
+          "phrase_exacte": "Au niveau européen, le Pacte pour une industrie propre, le système d'échange de quotas d'émission (SEQE-UE) et le mécanisme d'ajustement carbone aux frontières (MACF) constituent le cadre réglementaire et financier principal, complétés par la Banque européenne d'investissement comme bras financier de l'ambition climatique [2].",
+          "explication": "Ces éléments de cadre réglementaire européen (source [2]) sont génériques et ne documentent pas spécifiquement le financement de l'innovation de rupture ou le modèle ARPA-E, objet de l'article."
+        },
+        {
+          "bloc": 4,
+          "section": "contexte",
+          "type": "contexte_hors_sujet",
+          "phrase_exacte": "Le FMI, dans une analyse de juillet 2024, confirme que si la France a progressé dans la réduction des émissions de gaz à effet de serre, des efforts supplémentaires significatifs sont nécessaires pour atteindre les objectifs d'atténuation, et que les coûts et risques de la décarbonation appellent des politiques fiscales et réglementaires efficaces et équitables [4].",
+          "explication": "L'analyse macroéconomique du FMI [4] sur la transition climatique française (émissions, politiques fiscales) ne traite pas du financement de l'innovation de rupture ni de la création d'une agence type ARPA-E."
+        },
+        {
+          "bloc": 4,
+          "section": "contexte",
+          "type": "contexte_hors_sujet",
+          "phrase_exacte": "Parallèlement, une tribune de chercheurs en droit publiée en novembre 2025 dans Le Monde proposait la création d'un « super fonds climatique » pour compléter le droit face au risque global et irréversible [3].",
+          "explication": "La source [3] (tribune juridique sur un \"super fonds climatique\") porte sur le droit et la responsabilité climatique, non sur le financement opérationnel de l'innovation technologique de rupture (modèle ARPA-E) proposé par Bocquet et al."
+        },
+        {
+          "bloc": 4,
+          "section": "contexte",
+          "type": "section_gonflee",
+          "phrase_exacte": "La France dispose déjà d'outils de planification écologique renouvelés à l'aune de l'accord de Paris, notamment via la stratégie nationale bas-carbone et la programmation pluriannuelle de l'énergie, mais le Sénat souligne que la diplomatie climatique française reste insuffisamment ouverte aux territoires ultramarins, en première ligne du dérèglement [2]. Au niveau européen, le Pacte pour une industrie propre, le système d'échange de quotas d'émission (SEQE-UE) et le mécanisme d'ajustement carbone aux frontières (MACF) constituent le cadre réglementaire et financier principal, complétés par la Banque européenne d'investissement comme bras financier de l'ambition climatique [2]. Le FMI, dans une analyse de juillet 2024, confirme que si la France a progressé dans la réduction des émissions de gaz à effet de serre, des efforts supplémentaires significatifs sont nécessaires pour atteindre les objectifs d'atténuation, et que les coûts et risques de la décarbonation appellent des politiques fiscales et réglementaires efficaces et équitables [4]. Parallèlement, une tribune de chercheurs en droit publiée en novembre 2025 dans Le Monde proposait la création d'un « super fonds climatique » pour compléter le droit face au risque global et irréversible [3].",
+          "explication": "La section 'contexte' est entièrement remplie de faits hors sujet (diplomatie ultramarine, cadre réglementaire européen générique, analyse macro FMI, fonds juridique) qui n'éclairent pas le sujet précis : la proposition d'une agence d'innovation de rupture type ARPA-E. Elle ne contient aucun fait distinct sourcé pertinent pour ce sujet."
+        },
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "source_derivee_comptee_comme_primaire",
+          "phrase_exacte": "Le 6 novembre 2026, Le Monde publie une tribune cosignée par Lydéric Bocquet, physicien, Greg De Temmerman, directeur de Techleap, et Yves Laszlo, mathématicien [1].",
+          "explication": "Le champ 'qualite_sources' compte 2 sources primaires, mais seule la source [1] (la tribune elle-même) est primaire. Les sources [2], [3], [4] sont des documents tiers (rapport Sénat, autre tribune, rapport FMI) qui ne sont pas la source primaire de l'événement principal (cette tribune). Elles sont secondaires/tertiaires et ne devraient pas être comptées comme primaires pour cet article."
+        }
+      ]
+    },
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "titre_de_mauvaise_qualite"
+    ],
+    "titre": "Tribune du 6 novembre 2026 : Bocquet, De Temmerman et Laszlo proposent une agence d'innovation climatique",
+    "n_sources": 4,
+    "n_mots": 565,
+    "titre_rss": "Urgence climatique : « La France doit créer une entité dévolue au financement des innovations de rupture »",
+    "matiere_faits_distincts": 877,
+    "matiere_redondance": 0.13,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "tribune"
+  },
+  {
+    "slug": "cyberattaque-efs-trois-sites-zero-perte-sang",
+    "statut": "rejete_qualite",
+    "date": "2026-11-07T17:52:29",
+    "problemes_initiaux": 8,
+    "tentatives": 3,
+    "problemes_restants": 7,
+    "bloquants_restants": 2,
+    "bloquants_types": [
+      "chiffre_errone",
+      "incoherence_inter_sections"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "Ce chiffre (1 366 incidents en 2023) est attribué à la source [2] (Question écrite du Sénat), mais cet extrait ne contient aucune donnée chiffrée sur le nombre d'incidents traités par l'ANSSI en 2023. La source [1] (Scie",
+        "phrase": "L'Agence nationale de la sécurité des systèmes d'information (ANSSI) a traité ou signalé 1 366 incidents de sécurité en 2023"
+      },
+      {
+        "bloc": 1,
+        "type": "incoherence_inter_sections",
+        "description": "Le titre et le résumé affirment « trois sites touchés » / « trois sites hexagonaux ». Le corps (faits) dit « sur trois sites en France ». La source [1] (Sciences et Avenir), d'après son titre, parle de « chambres froides",
+        "phrase": "Une cyberattaque a visé un prestataire informatique de l'Établissement français du sang (EFS), perturbant le fonctionnement de chambres froides sur trois sites en France [1]."
+      }
+    ],
+    "types_restants": [
+      "chiffre_errone",
+      "source_inventee",
+      "source_inventee",
+      "incoherence_inter_sections",
+      "source_derivee_comptee_comme_primaire",
+      "redondance",
+      "section_gonflee"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "titre_de_mauvaise_qualite"
+    ],
+    "titre": "Cyberattaque sur l'EFS : trois sites touchés, zéro poche de sang perdue",
+    "n_sources": 4,
+    "n_mots": 476,
+    "titre_rss": "Cyberattaque : les chambres froides de l'EFS prises pour cible",
+    "matiere_faits_distincts": 830,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "oms-six-mesures-sauver-vies-reduire-emissions-co2",
+    "statut": "rejete_qualite",
+    "date": "2026-11-07T17:59:23",
+    "problemes_initiaux": 9,
+    "tentatives": 3,
+    "problemes_restants": 10,
+    "bloquants_restants": 5,
+    "bloquants_types": [
+      "niveau_preuve_insuffisant",
+      "niveau_preuve_insuffisant",
+      "incoherence_inter_sections",
+      "source_inventee",
+      "source_inventee"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "niveau_preuve_insuffisant",
+        "description": "L'article présente les résultats de modélisation comme des faits établis (\"établissant qu'un ensemble... permettrait d'éviter\") sans mentionner qu'il s'agit d'estimations théoriques basées sur des modélisations, comme le",
+        "phrase": "L'Organisation mondiale de la santé a publié une étude établissant qu'un ensemble de six mesures coordonnées permettrait d'éviter 1,6 million de décès par an dans le monde [1]."
+      },
+      {
+        "bloc": 1,
+        "type": "niveau_preuve_insuffisant",
+        "description": "Même problème : présentation au conditionnel de fait (\"entraîneraient\") de résultats de modélisation sans préciser la nature théorique de ces estimations.",
+        "phrase": "Ces mêmes mesures entraîneraient une réduction de près de 17 milliards de tonnes d'émissions de dioxyde de carbone, soit un double bénéfice pour la santé humaine et le climat [1]."
+      },
+      {
+        "bloc": 1,
+        "type": "incoherence_inter_sections",
+        "description": "Le résumé affirme que les 7 millions de décès sont imputables à la pollution de l'air \"selon l'OMS\" (source [1] implicite), mais les faits attribuent ce chiffre à l'OMS \"relayée par RTBF\" [6] — deux attributions différen",
+        "phrase": "La pollution de l'air constitue le premier risque environnemental pour la santé. Selon l'OMS, relayée par RTBF, elle est responsable de 7 millions de décès prématurés par an dans le monde, dont plus de 90 % surviennent d"
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "La source [6] est un article RTBF qui relaie l'OMS, mais l'article cite ce chiffre comme venant de l'OMS via RTBF sans que la source primaire OMS ne figure dans les sources autorisées — attribution dérivée comptée comme ",
+        "phrase": "La pollution de l'air constitue le premier risque environnemental pour la santé. Selon l'OMS, relayée par RTBF, elle est responsable de 7 millions de décès prématurés par an dans le monde, dont plus de 90 % surviennent d"
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "La source [3] est un rapport inter-inspections français de 2021 sur la gouvernance nationale/européenne, elle ne mentionne pas d'appels à projets européens conjoints récents — fait inventé non soutenu par la source.",
+        "phrase": "La recherche en santé-environnement s'intensifie également au niveau européen, avec des appels à projets conjoints visant à renforcer la base de données probantes sur les expositions multiples et leurs effets combinés su"
+      }
+    ],
+    "types_restants": [
+      "niveau_preuve_insuffisant",
+      "niveau_preuve_insuffisant",
+      "incoherence_inter_sections",
+      "source_inventee",
+      "contexte_hors_sujet",
+      "contexte_hors_sujet",
+      "source_inventee",
+      "compteur_incoherent",
+      "redondance",
+      "niveau_preuve_insuffisant"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "titre_de_mauvaise_qualite"
+    ],
+    "titre": "L'OMS propose six mesures pour sauver 1,6 million de vies et réduire 17 milliards de tonnes de CO2",
+    "n_sources": 6,
+    "n_mots": 624,
+    "titre_rss": "Six mesures pour sauver 1,6 million de vies chaque année, selon l'OMS",
+    "matiere_faits_distincts": 983,
+    "matiere_redondance": 0.02,
+    "matiere_donnees_chiffrees": 3,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "etude_scientifique"
+  },
+  {
+    "slug": "canicule-juin-2026-hausse-29-pourcent-deces-semaine",
+    "statut": "corrige_automatiquement",
+    "date": "2026-11-07T18:05:23",
+    "problemes_initiaux": 7,
+    "tentatives": 1,
+    "problemes_residuels_style": 0,
+    "rapport_initial": {
+      "conforme": false,
+      "sujet_sensible": false,
+      "sujet_sensible_raison": "",
+      "angle_insuffisant": false,
+      "angle_insuffisant_raison": "",
+      "nature_contenu": "actualite_factuelle",
+      "problemes": [
+        {
+          "bloc": 1,
+          "section": "resume",
+          "type": "chiffre_errone",
+          "phrase_exacte": "Santé publique France a enregistré 8 973 décès toutes causes du 22 au 28 juin 2026, soit 2 025 de plus que la semaine précédente, une hausse de 29,1 % concentrée chez les 45 ans et plus.",
+          "explication": "Le résumé attribue à Santé publique France l'enregistrement de 8 973 décès, mais la source [1] précise que ces données proviennent des certificats électroniques de décès et sont 'encore partielles et non consolidées' ; l'article lui-même le rappelle dans les faits et nuances. Le résumé omet cette réserve méthodologique majeure, présentant un chiffre partiel comme un enregistrement exhaustif."
+        },
+        {
+          "bloc": 1,
+          "section": "resume",
+          "type": "chiffre_errone",
+          "phrase_exacte": "Cette augmentation touche tous les lieux de décès mais s'avère particulièrement marquée à domicile (+91 %), où la couverture du système de certification électronique ne dépasse pas 25 %.",
+          "explication": "Le résumé indique une couverture de 25 % à domicile, alors que la source [1] et le corps de l'article mentionnent 'environ 60 % de la mortalité nationale, avec une forte hétérogénéité : 25 % des décès à domicile' — la formulation du résumé suggère que la couverture globale ne dépasse pas 25 %, ce qui est inexact."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "incoherence_inter_sections",
+          "phrase_exacte": "Au niveau régional, toutes les régions hexagonales affichent une hausse, hormis l'Occitanie et Auvergne-Rhône-Alpes [1].",
+          "explication": "L'affirmation 'toutes les régions hexagonales affichent une hausse, hormis l'Occitanie et Auvergne-Rhône-Alpes' est logiquement contradictoire : si deux régions ne haussent pas, ce n'est pas 'toutes' qui haussent. La source [1] doit être vérifiée pour savoir si ces deux régions sont stables, en baisse, ou si les données manquent."
+        },
+        {
+          "bloc": 2,
+          "section": "contexte",
+          "type": "source_derivee_comptee_comme_primaire",
+          "phrase_exacte": "Le bulletin du 22 juillet 2026 a ultérieurement comptabilisé un excès de mortalité de 5 764 décès sur la période plus large du 17 juin au 2 juillet [2]. À titre de comparaison, l'été 2022 avait enregistré 2 816 morts en excès lors des trois canicules, pour un total de 6 969 morts en excès toutes causes du 1er juin au 15 septembre [3].",
+          "explication": "Les sources [2] et [3] sont deux articles du Monde qui reprennent probablement les mêmes données de Santé publique France (bulletin du 22 juillet et bilan 2022). Elles ne constituent pas deux sources indépendantes distinctes pour ces chiffres historiques ; le compteur 'primaire: 1, secondaire: 1' surestime l'indépendance des sources."
+        },
+        {
+          "bloc": 4,
+          "section": "nuances",
+          "type": "redondance",
+          "phrase_exacte": "Le chiffrage du 3 juillet reste très parcellaire : le système de certification électronique ne capture qu'environ 60 % de la mortalité nationale, et seulement 25 % des décès survenant à domicile, là où la hausse est la plus forte (+91 %) [1]. Le bilan consolidé attendu trois semaines après la fin de l'épisode permettra d'atteindre environ 95 % des décès [1].",
+          "explication": "Ces deux phrases répètent presque mot pour mot les limites méthodologiques déjà exposées dans la section 'contexte' (couverture 60 % / 25 % à domicile, bilan consolidé à 3 semaines / 95 %). La charte interdit de répéter une même idée d'une section à l'autre."
+        },
+        {
+          "bloc": 4,
+          "section": "nuances",
+          "type": "acteur_mis_en_cause_sans_reponse",
+          "phrase_exacte": "La réaction des autorités sanitaires sur les mesures de prévention déployées durant cet épisode n'était pas disponible dans les sources consultées à la date de publication.",
+          "explication": "Les autorités sanitaires (Santé publique France, ministère de la Santé) sont implicitement mises en cause sur l'absence de communication sur les mesures de prévention. L'article note l'absence de réaction dans les sources consultées, ce qui satisfait la règle, mais la formulation 'n'était pas disponible dans les sources consultées' est correcte — ce n'est pas un problème. Cependant, la présence de cette phrase dans 'nuances' alors qu'elle ne nuance aucun fait mais signale une absence d'information est une section_gonflee."
+        },
+        {
+          "bloc": 4,
+          "section": "nuances",
+          "type": "section_gonflee",
+          "phrase_exacte": "La réaction des autorités sanitaires sur les mesures de prévention déployées durant cet épisode n'était pas disponible dans les sources consultées à la date de publication.",
+          "explication": "Cette phrase ne constitue pas une nuance factuelle (limite méthodologique, incertitude, précision) mais un constat d'absence de source sur un sujet annexe (mesures de prévention). Elle gonfle artificiellement la section 'nuances' sans apporter d'éclairage sur le sujet principal (surmortalité)."
+        }
+      ]
+    },
+    "article_type": "actu",
+    "titre": "Canicule de juin 2026 : hausse de 29 % des décès en une semaine",
+    "n_sources": 4,
+    "n_mots": 651,
+    "titre_rss": "Point de situation sur la mortalité toutes causes confondues  sur la période du 22 au 28 juin 2026",
+    "matiere_faits_distincts": 592,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 2,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "estonie-mise-ia-petite-taille-menace-russe",
+    "statut": "rejete_qualite",
+    "date": "2026-11-07T18:11:50",
+    "angle_insuffisant": true,
+    "raison": "Aucune phrase des faits ne combine un événement précis daté (publication, décision, résultat récent) et une donnée chiffrée ou nommée qui lui est propre. L'article explique un phénomène général (numérisation, stratégie IA, présence OTAN) sans fait déclencheur daté justifiant la publication maintenant.",
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "resume_repete_corps"
+    ],
+    "titre": "L'Estonie mise sur l'IA pour compenser sa petite taille face à la Russie",
+    "n_sources": 4,
+    "n_mots": 589,
+    "titre_rss": "\"Une lutte constante\" : l’Estonie, ce \"Petit Poucet\" en pointe contre la cybermenace russe",
+    "matiere_faits_distincts": 626,
+    "matiere_redondance": 0.02,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "sujet_pedagogique"
+  },
+  {
+    "slug": "midterms-americains-nasdaq-chute-apres-victoire-democrate",
+    "statut": "rejete_qualite",
+    "date": "2026-11-07T18:25:05",
+    "angle_insuffisant": true,
+    "raison": "Aucune phrase des faits ne contient à la fois un événement précis daté (résultat électoral, annonce officielle) et une donnée chiffrée propre (variation du Nasdaq en points ou en %). Les sources ne confirment ni la « large victoire démocrate » aux midterms 2026, ni le « décrochage brutal » du Nasdaq au lendemain, ni son ampleur chiffrée. L'article répond à « qu'est-ce que l'IA ? » plutôt qu'à « pourquoi en parle-t-on maintenant ? ».",
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "titre_de_mauvaise_qualite",
+      "cliches_ia"
+    ],
+    "titre": "Midterms américains : le Nasdaq chute après la victoire démocrate",
+    "n_sources": 4,
+    "n_mots": 438,
+    "titre_rss": "La bulle de l’IA se heurte à la réalité",
+    "matiere_faits_distincts": 263,
+    "matiere_redondance": 0.01,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "maxime-menuet-propose-regle-budgetaire-education-65-milliards-interets-dette",
+    "statut": "rejete_sensible",
+    "date": "2026-11-07T18:31:09",
+    "problemes_initiaux": 6,
+    "tentative": 1,
+    "bloc5": true,
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "resume_repete_corps"
+    ],
+    "titre": "Maxime Menuet propose d'aligner le budget de l'école sur 65 milliards d'intérêts de la dette",
+    "n_sources": 5,
+    "n_mots": 463,
+    "titre_rss": "« L’Etat doit consacrer au moins autant à l’école qu’aux intérêts de sa dette »",
+    "matiere_faits_distincts": 222,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 2,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "tribune"
+  },
+  {
+    "slug": "premier-patient-traite-virus-ia-bacteries-resistantes-antibiotiques",
+    "statut": "rejete_qualite",
+    "date": "2026-11-07T18:53:56",
+    "tentative": 1,
+    "angle_insuffisant": true,
+    "raison": "L'angle annoncé dans angle_reponse porte sur la 'première administration à un patient' et ce que cela change pour la lutte contre l'antibiorésistance, mais aucune source ne mentionne d'administration à un patient : les faits décrivent uniquement des tests in vitro sur 302 phages synthétisés, dont 18 actifs sur E. coli en boîte de Pétri. L'article ne répond donc pas à sa propre question et n'a pas de fait déclencheur daté correspondant à l'angle.",
+    "article_type": "actu",
+    "titre": "Premier patient traité par un virus créé par IA contre les superbactéries",
+    "n_sources": 4,
+    "n_mots": 503,
+    "titre_rss": "Une IA a créé des virus pour détruire des bactéries résistantes aux antibiotiques : un patient les a déjà reçus",
+    "matiere_faits_distincts": 941,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "etude_scientifique"
+  },
+  {
+    "slug": "infirmier-pratique-avancee-ile-hoedic-suivi-medical",
+    "statut": "rejete_qualite",
+    "date": "2026-11-07T19:09:55",
+    "tentative": 1,
+    "angle_insuffisant": true,
+    "raison": "Aucune phrase dans 'faits' ne combine un événement précis daté ou datable (annonce, publication, décision, résultat rendu public récemment) avec une donnée chiffrée ou nommée qui lui est propre. L'article décrit une situation continue (13 ans d'exercice) et rapporte l'existence d'une mission flash (juillet 2026) sans citer de publication, décision ou résultat récent émanant de cette mission. Le lecteur ne sait pas ce qui s'est passé récemment pour justifier la publication maintenant.",
+    "article_type": "actu",
+    "titre": "Hadrien Destrehem, infirmier en pratique avancée, seul soignant de l'île d'Hœdic depuis 13 ans",
+    "n_sources": 3,
+    "n_mots": 568,
+    "titre_rss": "« Je me sens privilégié dans mon rapport aux patients » : Hadrien, infirmier investi sur la minuscule île d’Hœdic",
+    "matiere_faits_distincts": 1002,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "autoroute-a69-ouverte-validation-conseil-etat",
+    "statut": "rejete_sensible",
+    "date": "2026-11-07T19:16:25",
+    "problemes_initiaux": 10,
+    "tentative": 1,
+    "bloc5": true,
+    "article_type": "actu",
+    "titre": "L'autoroute A69 ouverte après validation définitive du Conseil d'État",
+    "n_sources": 4,
+    "n_mots": 606,
+    "titre_rss": "L’autoroute A69 ouverte aux automobilistes, après quatre ans de contestation, avec un péage à 20,40 euros",
+    "matiere_faits_distincts": 458,
+    "matiere_redondance": 0.02,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "naines-blanches-couleurs-rouges-roses-vertes-voie-lactee",
+    "statut": "rejete_qualite",
+    "date": "2026-11-07T19:27:38",
+    "angle_insuffisant": true,
+    "raison": "Aucune phrase dans 'faits' ne contient à la fois un événement précis daté (publication, décision, résultat récent) et une donnée chiffrée ou nommée qui lui est propre. L'article se contente d'expliquer un phénomène général (couleurs des naines blanches) en citant une source sans date précise ('Non précisée dans l'extrait'), sans indiquer ce qui vient de se passer (nouvelle étude ? nouvelle observation ?) ni quand. C'est une fiche pédagogique, pas une actualité.",
+    "article_type": "actu",
+    "titre": "Des naines blanches rouges, roses et vertes découvertes dans la Voie lactée",
+    "n_sources": 6,
+    "n_mots": 585,
+    "titre_rss": "Il existe des naines blanches... rouges, roses et vertes dans notre galaxie !",
+    "matiere_faits_distincts": 911,
+    "matiere_redondance": 0.02,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "sujet_pedagogique"
+  },
+  {
+    "slug": "etats-europeens-reportent-legislation-methane-un-an",
+    "statut": "rejete_qualite",
+    "date": "2026-11-07T19:58:11",
+    "problemes_initiaux": 9,
+    "tentatives": 3,
+    "problemes_restants": 6,
+    "bloquants_restants": 2,
+    "bloquants_types": [
+      "chiffre_errone",
+      "chiffre_errone"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [2] (EUR-Lex) indique une publication au Journal officiel le 15 juillet 2024, pas le 13 juin 2024.",
+        "phrase": "Le règlement (UE) 2024/1787, publié au Journal officiel le 13 juin 2024, établit un cadre contraignant pour la mesure, la déclaration et la vérification des émissions de méthane issues du pétrole, du gaz et du charbon [2"
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [2] (EUR-Lex) ne contient pas ces valeurs de PRG ; elles proviennent probablement du GIEC (source non citée pour ce chiffre).",
+        "phrase": "Son pouvoir de réchauffement global est 82,5 fois supérieur à celui du CO2 sur 20 ans et 29,8 fois sur 100 ans [2]."
+      }
+    ],
+    "types_restants": [
+      "chiffre_errone",
+      "chiffre_errone",
+      "formule_vague",
+      "source_inventee",
+      "compteur_incoherent",
+      "contexte_hors_sujet"
+    ],
+    "article_type": "actu",
+    "titre": "Les États européens reportent d'un an la législation sur le méthane",
+    "n_sources": 5,
+    "n_mots": 519,
+    "titre_rss": "Les États européens reportent d'un an l'entrée en vigueur de la législation sur le méthane",
+    "matiere_faits_distincts": 650,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "emploi-etats-unis-octobre-2026-bond-creations-chomage-recul",
+    "statut": "rejete_qualite",
+    "date": "2026-11-07T20:13:23",
+    "problemes_initiaux": 16,
+    "tentatives": 3,
+    "problemes_restants": 13,
+    "bloquants_restants": 9,
+    "bloquants_types": [
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "incoherence_inter_sections",
+      "incoherence_inter_sections",
+      "chiffre_errone",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "Le chiffre de 12 000 créations nettes pour octobre 2026 contredit le titre et le résumé qui annoncent un 'bond' et une accélération 'plus que quadruplé' par rapport à septembre (254 000). 12 000 est 21 fois inférieur à 2",
+        "phrase": "L'économie américaine a créé 12 000 postes nets en octobre, selon le chiffre principal du BLS rapporté par Le Monde, après 254 000 emplois nets en septembre (chiffre BLS cité par la même source) [1][3]."
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "Le titre annonce un 'bond des créations' alors que le corps de l'article indique 12 000 créations nettes en octobre contre 254 000 en septembre, soit une chute brutale et non un bond.",
+        "phrase": "Emploi américain : bond des créations en octobre 2026, chômage en léger recul"
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "Le résumé affirme que les créations ont 'plus que quadruplé par rapport à septembre' (254 000), ce qui impliquerait plus d'un million d'emplois, alors que le corps donne 12 000, soit une division par 21.",
+        "phrase": "Les statistiques officielles américaines pour octobre 2026 font état d'un bond des créations d'emplois qui ont plus que quadruplé par rapport à septembre, accompagnées d'un léger recul du taux de chômage."
+      },
+      {
+        "bloc": 1,
+        "type": "incoherence_inter_sections",
+        "description": "Incohérence entre le chiffre de créations nettes (12 000, très faible) et la baisse du chômage (4,2% → 4,1%) qui suggère un marché du travail tendu. Les deux indicateurs du même rapport BLS [1] semblent contradictoires s",
+        "phrase": "Le taux de chômage s'établissait à 4,1 % en octobre selon les données du BLS, contre 4,2 % en septembre, confirmant la tension persistante sur le marché du travail [1]."
+      },
+      {
+        "bloc": 1,
+        "type": "incoherence_inter_sections",
+        "description": "La somme des gains sectoriels cités (53k + 52k + 47k = 152 000) dépasse déjà le total net national (12 000), impliquant des pertes massives non quantifiées ni sourcées ailleurs. L'article ne cite pas les secteurs en pert",
+        "phrase": "Les créations ont touché l'ensemble des grands secteurs. Les loisirs et l'hôtellerie ont mené la danse avec 53 000 postes, suivis de la santé et de l'action sociale à 52 000 et des services aux entreprises à 47 000 [1]. "
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [3] est datée du 2 octobre 2026 et traite probablement des chiffres d'août 2026 (publiés début septembre). Elle ne peut pas confirmer le chiffre de septembre 2026 (publié début novembre) ni le qualifier de 'ral",
+        "phrase": "En septembre 2026, la création nette de 254 000 postes (chiffre BLS) avait marqué un net ralentissement par rapport aux mois précédents, le secteur des soins concentrant alors l'essentiel de l'embauche [3]."
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "La source [4] (BBC, 'How is the US economy really doing under President Trump?', 20 octobre 2026) ne peut pas analyser l'impact de droits de douane 'instaurés en avril 2025' sous la présidence Trump, dont le mandat a déb",
+        "phrase": "L'inflation reste supérieure aux niveaux d'avant 2025. Les économistes estiment que les droits de douane instaurés en avril 2025 contribuent à ce surcroît d'inflation, selon la BBC [4]."
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "Même problème : la source [4] date d'octobre 2026, sous présidence Trump. Elle ne peut pas valider que la vigueur de l'emploi 'précède le mandat Trump' (débuté janvier 2025) pour des chiffres d'octobre 2026, soit 21 mois",
+        "phrase": "La vigueur de l'emploi précède le mandat Trump, selon les analystes cités par la BBC [4]."
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "Réutilisation de l'attribution invraisemblable à la source [4] pour des affirmations chronologiquement incompatibles avec la date de l'article et le mandat présidentiel.",
+        "phrase": "Le président Trump revendique la performance économique comme un succès de sa politique, mais les analystes soulignent que la vigueur de l'emploi précède son mandat et que l'inflation reste supérieure aux niveaux d'avant"
+      }
+    ],
+    "types_restants": [
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "incoherence_inter_sections",
+      "incoherence_inter_sections",
+      "chiffre_errone",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "contexte_hors_sujet",
+      "redondance",
+      "extrapolation",
+      "section_gonflee"
+    ],
+    "article_type": "actu",
+    "titre": "Emploi américain : bond des créations en octobre 2026, chômage en léger recul",
+    "n_sources": 5,
+    "n_mots": 545,
+    "titre_rss": "Aux Etats-Unis, l’accélération inattendue des créations d’emplois",
+    "matiere_faits_distincts": 793,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "emprunt-populaire-dette-france-budget-2027-tribune",
+    "statut": "rejete_sensible",
+    "date": "2026-11-07T20:17:45",
+    "problemes_initiaux": 6,
+    "bloc5": [
+      "diffamation_potentielle"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "faits_repetitifs",
+      "titre_de_mauvaise_qualite"
+    ],
+    "titre": "Deux économistes proposent un emprunt populaire inspiré du modèle japonais pour la dette française",
+    "n_sources": 6,
+    "n_mots": 605,
+    "titre_rss": "Budget 2027 : « Si nous croyons dans l’avenir de la France, il faut inciter les épargnants français à investir dans sa dette »",
+    "matiere_faits_distincts": 680,
+    "matiere_redondance": 0.1,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "prise_de_position"
+  },
+  {
+    "slug": "sophie-adenot-readaptation-retour-iss-huit-mois",
+    "statut": "conforme_du_premier_coup",
+    "date": "2026-11-07T20:31:03",
+    "article_type": "actu",
+    "titre": "Sophie Adenot entame sa réadaptation après huit mois dans l'espace",
+    "n_sources": 4,
+    "n_mots": 548,
+    "titre_rss": "Sophie Adenot \"rêve\" d'aller sur la Lune",
+    "matiere_faits_distincts": 844,
+    "matiere_redondance": 0.05,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
   }
 ]

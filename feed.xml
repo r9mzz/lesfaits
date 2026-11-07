@@ -5,13 +5,22 @@
   <link>https://lesfaits.info/</link>
   <description>Journal numérique français rédigé par IA. Juste les faits. Aucun parti pris.</description>
   <language>fr</language>
-  <lastBuildDate>Tue, 03 Nov 2026 07:29:26 GMT</lastBuildDate>
+  <lastBuildDate>Sat, 07 Nov 2026 19:31:08 GMT</lastBuildDate>
   <atom:link href="https://lesfaits.info/feed.xml" rel="self" type="application/rss+xml"/>
   <image>
     <url>https://lesfaits.info/assets/images/og-default.jpg</url>
     <title>Les Faits</title>
     <link>https://lesfaits.info/</link>
   </image>
+  <item>
+    <title>Sophie Adenot entame sa réadaptation après huit mois dans l’espace</title>
+    <link>https://lesfaits.info/articles/sophie-adenot-readaptation-retour-iss-huit-mois.html</link>
+    <guid isPermaLink="true">https://lesfaits.info/articles/sophie-adenot-readaptation-retour-iss-huit-mois.html</guid>
+    <description>L'astronaute française Sophie Adenot a regagné la Terre le 2 octobre 2026 après 235 jours passés à bord de la Station spatiale internationale, établissant un nouveau record européen de durée pour un vol spatial unique. Sa réadaptation à la gravité terrestre, supervisée par le Centre européen des astronautes à Cologne, mobilise des protocoles médicaux et physiques quotidiens pour restaurer sa masse musculaire, sa densité osseuse et son système vestibulaire. Elle a exprimé son souhait de participer aux futures missions lunaires du programme Artemis, sous réserve de sa sélection par l'Agence spatiale européenne.</description>
+    <category>science</category>
+    <enclosure url="https://lesfaits.info/assets/images/sophie-adenot-readaptation-retour-iss-huit-mois.jpg" type="image/jpeg" length="0"/>
+    <pubDate>Sat, 07 Nov 2026 19:31:05 GMT</pubDate>
+  </item>
   <item>
     <title>Les fossiles du Quercy racontent la Grande Coupure il y a 34 millions d’années</title>
     <link>https://lesfaits.info/articles/fossiles-quercy-grande-coupure-bouleversement-climatique.html</link>
@@ -182,15 +191,6 @@
     <category>sante</category>
     <enclosure url="https://lesfaits.info/assets/images/cancer-pancreas-essai-clinique-anticorps.jpg" type="image/jpeg" length="0"/>
     <pubDate>Fri, 31 Jul 2026 03:56:11 GMT</pubDate>
-  </item>
-  <item>
-    <title>Mort inexpliquée de 15 éléphants au Kenya</title>
-    <link>https://lesfaits.info/articles/morts-elephants-kenya.html</link>
-    <guid isPermaLink="true">https://lesfaits.info/articles/morts-elephants-kenya.html</guid>
-    <description>Une enquête a été ouverte après la mort inexpliquée de 15 éléphants dans le parc national d'Amboseli au Kenya, entre le 24 juin et le 24 juillet 2026, comme rapporté par Le Figaro. Les autorités kényanes sont préoccupées par la santé de la population d'éléphants dans le parc et cherchent à déterminer les causes de ces décès, selon Ouest-France. La mort de ces éléphants soulève des questions sur la sécurité de l'écosystème et les mesures à prendre pour prévenir de telles tragédies à l'avenir, souligne Sciences et Avenir.</description>
-    <category>sante</category>
-    <enclosure url="https://lesfaits.info/assets/images/morts-elephants-kenya.jpg" type="image/jpeg" length="0"/>
-    <pubDate>Thu, 30 Jul 2026 12:54:21 GMT</pubDate>
   </item>
 </channel>
 </rss>
