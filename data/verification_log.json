@@ -60182,5 +60182,649 @@
     "n_sources_injectees": 10,
     "n_sources_trouvees": 10,
     "nature_contenu": "etude_scientifique"
+  },
+  {
+    "slug": "urgences-rurales-senateurs-alerte-plfss-2027-rupture-service",
+    "statut": "rejete_qualite",
+    "date": "2026-11-07T07:21:39",
+    "tentative": 3,
+    "perte_substance": true,
+    "section": "nuances",
+    "mots_avant": 102,
+    "mots_apres": 45,
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "resume_repete_corps"
+    ],
+    "titre": "Urgences rurales : les sénateurs alertent sur le point de rupture avant le PLFSS 2027",
+    "n_sources": 5,
+    "n_mots": 452,
+    "titre_rss": "Urgences rurales : le pronostic vital est engagé, alertent des sénateurs avant le PLFSS 2027",
+    "matiere_faits_distincts": 572,
+    "matiere_redondance": 0.04,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "piratage-binance-fbi-accuse-coree-nord-vol-record-6-3-milliards",
+    "statut": "rejete_sensible",
+    "date": "2026-11-07T07:29:23",
+    "problemes_initiaux": 9,
+    "tentative": 2,
+    "bloc5": true,
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "titre_de_mauvaise_qualite"
+    ],
+    "titre": "Piratage de Binance : le FBI accuse la Corée du Nord d'un vol record de 6,3 milliards",
+    "n_sources": 3,
+    "n_mots": 578,
+    "titre_rss": "Derrière le piratage de Binance, le savoir-faire redoutable des hackeurs nord-coréens",
+    "matiere_faits_distincts": 767,
+    "matiere_redondance": 0.01,
+    "matiere_donnees_chiffrees": 2,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "production-record-hydrocarbures-etats-unis-factures-energie-hausse",
+    "statut": "rejete_qualite",
+    "date": "2026-11-07T07:40:52",
+    "tentative": 1,
+    "angle_insuffisant": true,
+    "raison": "L'article ne répond pas à la question posée dans angle_reponse (pourquoi la hausse record de production d'hydrocarbures n'a pas empêché la flambée des factures) : aucune donnée sur la production d'hydrocarbures, les prix de l'énergie ou les factures des ménages ne figure dans les sources autorisées, et la section faits ne contient aucun événement daté ni chiffre propre sur ce sujet — elle ne rapporte que le résultat des midterms 2026.",
+    "article_type": "actu",
+    "titre": "Production record d'hydrocarbures aux États-Unis, factures d'énergie en hausse pour les ménages",
+    "n_sources": 3,
+    "n_mots": 828,
+    "titre_rss": "Après les élections de mi-mandat, l’échec de la promesse de Trump d’une énergie moins chère",
+    "matiere_faits_distincts": 626,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "sante-mentale-femmes-deux-fois-plus-touchees-troubles-psychiques-travail",
+    "statut": "rejete_qualite",
+    "date": "2026-11-07T08:06:16",
+    "problemes_initiaux": 13,
+    "tentatives": 3,
+    "problemes_restants": 11,
+    "bloquants_restants": 3,
+    "bloquants_types": [
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [3] (Rapport d'information de l'Assemblée nationale) indique un ratio de 1,6 fois (\"1,6 fois plus élevée chez les femmes\") et non 1,8 fois ; le titre et le résumé reprennent aussi 1,8 fois, ce qui contredit la ",
+        "phrase": "Sur la période 2013-2019, la prévalence de la souffrance psychique liée au travail était 1,8 fois plus importante chez les femmes que chez les hommes et variait selon le secteur professionnel [3]."
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "Le titre affiche 1,8 fois alors que la source [3] donne 1,6 fois ; le chiffre du titre ne correspond pas à la source.",
+        "phrase": "HCE : les femmes 1,8 fois plus touchées par les troubles psychiques au travail"
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "Le résumé répète le ratio 1,8 fois qui ne figure pas dans la source [3] (1,6 fois).",
+        "phrase": "La prévalence de la souffrance psychique liée au travail est 1,8 fois plus élevée chez les femmes que chez les hommes sur la période 2013-2019, avec une hausse marquée des épisodes dépressifs chez les 18-24 ans depuis 20"
+      }
+    ],
+    "types_restants": [
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "source_inventee",
+      "source_inventee",
+      "redondance",
+      "redondance",
+      "redondance",
+      "redondance",
+      "redondance",
+      "redondance"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "titre_de_mauvaise_qualite"
+    ],
+    "titre": "HCE : les femmes deux fois plus touchées par les troubles psychiques au travail",
+    "n_sources": 4,
+    "n_mots": 588,
+    "titre_rss": "Dépression, troubles psy : les femmes paient le prix fort des inégalités, selon un rapport",
+    "matiere_faits_distincts": 1063,
+    "matiere_redondance": 0.04,
+    "matiere_donnees_chiffrees": 2,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "rapport"
+  },
+  {
+    "slug": "bocquet-de-temmerman-laszlo-entite-financement-innovation-rupture-climatique",
+    "statut": "rejete_qualite",
+    "date": "2026-11-07T08:34:54",
+    "angle_insuffisant": true,
+    "raison": "Aucune phrase dans 'faits' ne combine un événement précis daté (la tribune du 6 novembre 2026) avec une donnée chiffrée ou nommée propre à cette tribune (montant, gouvernance, calendrier, mécanisme de financement). L'article se contente de relayer l'appel sans en détailler le contenu concret, ne répondant pas à la question posée dans angle_reponse.",
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "resume_repete_corps"
+    ],
+    "titre": "Bocquet, De Temmerman et Laszlo réclament une entité nationale pour financer l'innovation de rupture",
+    "n_sources": 4,
+    "n_mots": 493,
+    "titre_rss": "Urgence climatique : « La France doit créer une entité dévolue au financement des innovations de rupture »",
+    "matiere_faits_distincts": 834,
+    "matiere_redondance": 0.14,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "tribune"
+  },
+  {
+    "slug": "onu-rapport-ecart-adaptation-financement-dix-fois-trop-faible-cop31",
+    "statut": "rejete_qualite",
+    "date": "2026-11-07T08:49:00",
+    "angle_insuffisant": true,
+    "raison": "Aucune phrase des faits ne contient à la fois un événement précis daté (publication du rapport mercredi) et une donnée chiffrée propre à cet événement (montants des besoins, flux financiers, ratio exact). Les sources ne fournissent pas les chiffres clés annoncés dans l'angle (combien les pays riches financent-ils réellement). L'article répond à 'qu'est-ce que le rapport dit ?' sans jamais donner les données quantitatives promises.",
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "titre_de_mauvaise_qualite"
+    ],
+    "titre": "L'ONU alerte sur un déficit d'adaptation dix fois trop faible avant la COP31",
+    "n_sources": 5,
+    "n_mots": 421,
+    "titre_rss": "Avant la COP31 en Turquie, l’ONU alerte d’un « déficit ahurissant » entre les besoins et les financements réels de l’adaptation des pays en développement",
+    "matiere_faits_distincts": 529,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 2,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "rapport"
+  },
+  {
+    "slug": "cyberattaque-efs-trois-sites-chambres-froides-stocks-intacts",
+    "statut": "corrige_automatiquement",
+    "date": "2026-11-07T09:06:43",
+    "problemes_initiaux": 14,
+    "tentatives": 3,
+    "problemes_residuels_style": 14,
+    "rapport_initial": {
+      "conforme": false,
+      "sujet_sensible": false,
+      "sujet_sensible_raison": "",
+      "angle_insuffisant": false,
+      "angle_insuffisant_raison": "",
+      "nature_contenu": "actualite_factuelle",
+      "problemes": [
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "fait_tranche_arbitrairement",
+          "phrase_exacte": "L'EFS n'a pas communiqué sur le nom du prestataire visé ni sur la faille technique exploitée, invoquant le secret de l'enquête en cours.",
+          "explication": "La source [1] ne mentionne pas le secret de l'enquête comme motif de non-communication ; l'article présente cette justification comme un fait établi alors qu'elle n'est pas sourcée."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "fait_tranche_arbitrairement",
+          "phrase_exacte": "Ce schéma — intrusion via un prestataire de maintenance à distance — figure parmi les scénarios les plus documentés par l'ANSSI pour les opérateurs d'importance vitale.",
+          "explication": "La source [1] ne contient pas cette affirmation sur les scénarios documentés par l'ANSSI ; l'article généralise au-delà de ce que la source confirme."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "contexte_hors_sujet",
+          "phrase_exacte": "Le Fonds monétaire international souligne que l'accélération de la transition numérique et les tensions géopolitiques augmentent le risque d'attaques aux répercussions systémiques [2].",
+          "explication": "La source [2] (FMI, avril 2024) porte sur la stabilité financière, pas sur le secteur de la santé ni sur l'EFS ; elle n'éclaire pas directement le sujet de l'article."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "contexte_hors_sujet",
+          "phrase_exacte": "Le FMI note par ailleurs que l'analyse du paysage des menaces reste entravée par l'incomplétude des données d'incidents, le cloisonnement des sources et l'absence de standards de signalement harmonisés entre pays [3].",
+          "explication": "La source [3] (FMI, 2026) traite des risques cyber dans le secteur financier, pas de la santé ; son utilisation pour qualifier l'opacité statistique du secteur santé est un hors-sujet."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "contexte_hors_sujet",
+          "phrase_exacte": "Le Parlement européen identifie les rançongiciels, les logiciels malveillants de vol de données et les attaques contre la chaîne d'approvisionnement comme les trois menaces principales pour 2024 [4].",
+          "explication": "La source [4] (Parlement européen, janvier 2022) est antérieure à 2024 et ne peut pas identifier les menaces principales pour 2024 ; l'article lui fait dire une projection qu'elle ne contient pas."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "chronologie_confuse",
+          "phrase_exacte": "Le Parlement européen identifie les rançongiciels, les logiciels malveillants de vol de données et les attaques contre la chaîne d'approvisionnement comme les trois menaces principales pour 2024 [4].",
+          "explication": "La source [4] date de janvier 2022 ; l'article lui attribue une identification prospective pour 2024, mélangeant deux époques sans expliciter le décalage."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "fait_tranche_arbitrairement",
+          "phrase_exacte": "La guerre en Ukraine a intensifié l'activité de groupes affiliés à des États, brouillant la frontière entre cybercriminalité lucrative et opérations de déstabilisation géopolitique.",
+          "explication": "Aucune des sources fournies ne mentionne la guerre en Ukraine ni son effet sur l'activité de groupes affiliés à des États ; l'article présente cette analyse comme un fait établi sans source."
+        },
+        {
+          "bloc": 1,
+          "section": "nuances",
+          "type": "redondance",
+          "phrase_exacte": "Le FMI note par ailleurs que l'analyse du paysage des menaces reste entravée par l'incomplétude des données d'incidents, le cloisonnement des sources et l'absence de standards de signalement harmonisés entre pays [3]. Cette opacité statistique limite la capacité à quantifier précisément l'évolution du risque pour le secteur de la santé.",
+          "explication": "Cette phrase répète, en la reformulant, l'idée déjà exprimée dans le contexte avec la même source [3] ; la charte interdit la répétition d'une même idée d'une section à l'autre."
+        },
+        {
+          "bloc": 2,
+          "section": "contexte",
+          "type": "source_non_editoriale",
+          "phrase_exacte": "Le Fonds monétaire international souligne que l'accélération de la transition numérique et les tensions géopolitiques augmentent le risque d'attaques aux répercussions systémiques [2].",
+          "explication": "Le FMI n'est pas une source journalistique ou institutionnelle de référence pour la cybersécurité du secteur de la santé ; son blog sur la stabilité financière est utilisé comme autorité factuelle hors de son domaine de compétence."
+        },
+        {
+          "bloc": 2,
+          "section": "contexte",
+          "type": "source_non_editoriale",
+          "phrase_exacte": "Le FMI note par ailleurs que l'analyse du paysage des menaces reste entravée par l'incomplétude des données d'incidents, le cloisonnement des sources et l'absence de standards de signalement harmonisés entre pays [3].",
+          "explication": "Le working paper du FMI sur les risques cyber dans le secteur financier n'est pas une source éditoriale pour qualifier l'opacité statistique du secteur de la santé ; même logique que pour [2]."
+        },
+        {
+          "bloc": 2,
+          "section": "contexte",
+          "type": "source_derivee_comptee_comme_primaire",
+          "phrase_exacte": "Le Fonds monétaire international souligne que l'accélération de la transition numérique et les tensions géopolitiques augmentent le risque d'attaques aux répercussions systémiques [2]. En France, l'ANSSI recense une hausse constante des incidents touchant les opérateurs d'importance vitale, dont les établissements de santé font partie. L'Union européenne renforce par ailleurs son cadre réglementaire avec la directive NIS 2, qui élargit les obligations de cybersécurité à de nouveaux secteurs dont la santé [4].",
+          "explication": "Les sources [2], [3], [4] sont des sources secondaires (blog FMI, working paper FMI, article Parlement européen) qui ne font pas état de données primaires françaises sur l'EFS ; elles sont comptées comme sources distinctes alors qu'elles ne fournissent pas d'informations indépendantes sur l'événement principal."
+        },
+        {
+          "bloc": 2,
+          "section": "contexte",
+          "type": "compteur_incoherent",
+          "phrase_exacte": "nb_sources: 4",
+          "explication": "Le champ nb_sources indique 4, mais seules la source [1] (Sciences et Avenir) est une source primaire sur l'événement ; les trois autres sont des sources secondaires génériques hors-sujet, ce qui fausse le compte de sources indépendantes pertinentes."
+        },
+        {
+          "bloc": 4,
+          "section": "contexte",
+          "type": "section_gonflee",
+          "phrase_exacte": "Les établissements de santé constituent des cibles privilégiées pour les cybercriminels en raison de la criticité de leurs données et de l'urgence vitale de leurs services. Le Fonds monétaire international souligne que l'accélération de la transition numérique et les tensions géopolitiques augmentent le risque d'attaques aux répercussions systémiques [2]. En France, l'ANSSI recense une hausse constante des incidents touchant les opérateurs d'importance vitale, dont les établissements de santé font partie. L'Union européenne renforce par ailleurs son cadre réglementaire avec la directive NIS 2, qui élargit les obligations de cybersécurité à de nouveaux secteurs dont la santé [4]. Le secteur de la santé figure parmi les plus touchés par les rançongiciels en Europe, avec une augmentation des signalements d'incidents majeurs ces dernières années. La dépendance croissante aux prestataires externes pour la maintenance des systèmes industriels et de bâtiment élargit la surface d'attaque, comme l'illustre ce cas où le vecteur initial n'est pas l'EFS lui-même mais l'un de ses sous-traitants.",
+          "explication": "La section contexte est gonflée avec des généralités (FMI, NIS 2, rançongiciels en Europe, guerre en Ukraine) qui n'apportent aucun fait distinct sourcé sur l'attaque de l'EFS ; elle devrait être coupée ou recentrée sur des faits directement liés à l'événement."
+        },
+        {
+          "bloc": 4,
+          "section": "contexte",
+          "type": "extrapolation",
+          "phrase_exacte": "La guerre en Ukraine a intensifié l'activité de groupes affiliés à des États, brouillant la frontière entre cybercriminalité lucrative et opérations de déstabilisation géopolitique.",
+          "explication": "Anticipation d'une conséquence géopolitique non explicitement sourcée par les documents fournis ; aucune source ne lie la guerre en Ukraine à cette attaque ni à l'évolution générale des menaces sur l'EFS."
+        }
+      ]
+    },
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "titre_de_mauvaise_qualite",
+      "article_sans_date"
+    ],
+    "titre": "Cyberattaque contre l'EFS : trois sites touchés, zéro poche de sang perdue",
+    "n_sources": 4,
+    "n_mots": 774,
+    "titre_rss": "Cyberattaque : les chambres froides de l'EFS prises pour cible",
+    "matiere_faits_distincts": 619,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "oms-six-mesures-climat-sante-1-6-million-vies-sauvees",
+    "statut": "conforme_du_premier_coup",
+    "date": "2026-11-07T09:10:39",
+    "article_type": "actu",
+    "titre": "L'OMS chiffre à 1,6 million de vies sauvables par an grâce à six actions climat-santé",
+    "n_sources": 4,
+    "n_mots": 728,
+    "titre_rss": "Six mesures pour sauver 1,6 million de vies chaque année, selon l'OMS",
+    "matiere_faits_distincts": 1134,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 4,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "rapport"
+  },
+  {
+    "slug": "canicule-juin-2026-2025-deces-supplementaires-bilan-partiel",
+    "statut": "corrige_automatiquement",
+    "date": "2026-11-07T09:23:54",
+    "problemes_initiaux": 5,
+    "tentatives": 1,
+    "problemes_residuels_style": 0,
+    "rapport_initial": {
+      "conforme": false,
+      "sujet_sensible": false,
+      "sujet_sensible_raison": "",
+      "angle_insuffisant": false,
+      "angle_insuffisant_raison": "",
+      "nature_contenu": "actualite_factuelle",
+      "problemes": [
+        {
+          "bloc": 1,
+          "section": "titre",
+          "type": "chiffre_errone",
+          "phrase_exacte": "Canicule de juin 2026 : 2 025 décès supplémentaires en une semaine",
+          "explication": "Le titre affirme 2 025 décès supplémentaires sans préciser qu'il s'agit de décès certifiés électroniquement (couverture partielle ~60 %), ce que le corps et les nuances qualifient de 'très parcellaire' et 'non consolidées' ; le chiffre du titre présente une estimation brute comme un bilan définitif."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "incoherence_inter_sections",
+          "phrase_exacte": "Santé publique France a publié le 3 juillet 2026 son point de situation hebdomadaire sur la mortalité toutes causes confondues pour la semaine du 22 au 28 juin [1]. L'agence recense 8 973 décès certifiés par voie électronique, contre 6 948 la semaine du 15 au 21 juin, soit une augmentation de 29,1 % correspondant à 2 025 décès supplémentaires [1].",
+          "explication": "Le chapeau (résumé) indique que la hausse de 29,1 % est 'concentrée chez les 45 ans et plus', alors que les faits précisent que cette tranche d'âge concentre 2 001 des 2 025 décès en excès (98,8 %) ; la formulation 'concentrée' sous-estime l'exclusivité quasi-totale de l'excès chez les aînés."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "Le Monde rapporte que Santé publique France estime à 2 025 le nombre de décès supplémentaires enregistrés entre le 22 et le 28 juin, au plus fort des pics de chaleur, mais souligne que ce chiffrage est très parcellaire [2].",
+          "explication": "La source [2] (Le Monde, 3 juillet 2026) est citée pour attribuer l'estimation de 2 025 décès à Santé publique France, mais l'extrait fourni ne contient pas ce chiffre ni cette attribution ; le fait est déjà couvert par la source primaire [1], le renvoi à [2] est donc une attribution inventée."
+        },
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "compteur_incoherent",
+          "phrase_exacte": "nb_sources: 4",
+          "explication": "Le champ nb_sources indique 4 alors que le tableau 'sources' ne contient que 3 entrées distinctes (une de Santé publique France et deux du Monde) ; le compteur est erroné."
+        },
+        {
+          "bloc": 4,
+          "section": "nuances",
+          "type": "redondance",
+          "phrase_exacte": "Le bulletin d'excès de mortalité caniculaire, attendu trois semaines après la fin de l'épisode, permettra une estimation robuste sur la base des données Insee [1].",
+          "explication": "Cette phrase répète l'information déjà donnée dans le résumé (troisième point) et dans le contexte (deuxième paragraphe) sur la publication du bulletin consolidé sous trois semaines à partir des données Insee."
+        }
+      ]
+    },
+    "article_type": "actu",
+    "titre": "Canicule de juin 2026 : 2 025 décès supplémentaires en une semaine",
+    "n_sources": 3,
+    "n_mots": 652,
+    "titre_rss": "Point de situation sur la mortalité toutes causes confondues  sur la période du 22 au 28 juin 2026",
+    "matiere_faits_distincts": 882,
+    "matiere_redondance": 0.01,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "inserm-sept-fausses-idees-vaccins-campagne-grippe-covid-2026",
+    "statut": "rejete_qualite",
+    "date": "2026-11-07T09:42:33",
+    "tentative": 3,
+    "perte_substance": true,
+    "section": "contexte",
+    "mots_avant": 211,
+    "mots_apres": 50,
+    "article_type": "actu",
+    "titre": "L'Inserm met à jour ses sept fausses idées sur les vaccins le 10 octobre 2026",
+    "n_sources": 7,
+    "n_mots": 956,
+    "titre_rss": "Sept fausses idées sur les vaccins",
+    "matiere_faits_distincts": 801,
+    "matiere_redondance": 0.02,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "canada-proces-jeunes-inaction-climatique-sante-mentale",
+    "statut": "rejete_sensible",
+    "date": "2026-11-07T09:56:59",
+    "tentative": 2,
+    "sujet_sensible": true,
+    "raison": "L'article porte sur une affaire judiciaire en cours (procès fédéral ouvert le 27 octobre 2026) visant l'État fédéral canadien, avec des jeunes plaignants (mineurs ou jeunes adultes) dont la santé mentale est au cœur du contentieux. Bien qu'aucun mineur ne soit identifié nommément, le sujet implique des jeunes dans une procédure pénale/civile en cours.",
+    "article_type": "actu",
+    "titre": "Au Canada, des jeunes poursuivent l'État pour inaction climatique et atteinte à leur santé mentale",
+    "n_sources": 4,
+    "n_mots": 493,
+    "titre_rss": "Climat : la santé mentale des jeunes dans un procès inédit au Canada",
+    "matiere_faits_distincts": 669,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "gaia-430-chercheurs-catalogue-etoiles-donnees-brutes",
+    "statut": "rejete_qualite",
+    "date": "2026-11-07T10:15:26",
+    "problemes_initiaux": 16,
+    "tentatives": 3,
+    "problemes_restants": 9,
+    "bloquants_restants": 8,
+    "bloquants_types": [
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "incoherence_inter_sections",
+      "source_inventee",
+      "source_inventee"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [1] (Le Monde, 2025-02-02) indique « more than three trillion observations of two billion stars » (plus de 3 000 milliards d'observations de deux milliards d'étoiles) ; l'article écrit « 3 000 milliards » sans ",
+        "phrase": "Le satellite Gaia, lancé en 2013 par l'Agence spatiale européenne, a cessé sa collecte de données le 15 janvier 2025 après avoir réalisé 3 000 milliards d'observations sur plus de deux milliards de sources stellaires [1]"
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [1] mentionne « 450 researchers, engineers, developers and coordinators from 24 countries » (450 chercheurs, ingénieurs, développeurs et coordinateurs de 24 pays) ; l'article remplace 450 par 430 sans justifica",
+        "phrase": "une communauté de 430 chercheurs, ingénieurs, développeurs et coordinateurs de 24 nationalités, majoritairement européennes, qui opèrent depuis six centres de traitement des données [1]."
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [3] (Sciences et Avenir, 2022-06-13) indique « 120 000 étoiles » pour le catalogue Hipparcos ; l'article écrit 118 000, ce qui ne correspond pas à la source citée.",
+        "phrase": "premier catalogue astrométrique spatial qui avait mesuré 118 000 étoiles avec une précision de l'ordre du milliarcseconde."
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [3] précise « un facteur 100 à 1 000 fois plus précise » et « plus de 1,8 milliard d'objets » ; l'article arrondit à « plus de deux milliards », ce qui n'est pas le chiffre de la source.",
+        "phrase": "Gaia améliore cette précision d'un facteur 100 à 1 000 selon les magnitudes, et étend le recensement à plus de deux milliards d'objets [3]."
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [2] (BBC, 2022-06-13) indique « spectra for around 220 million stars » (spectres pour environ 220 millions d'étoiles) ; « centaines de millions » (au moins 200 millions) est techniquement vrai mais imprécis par",
+        "phrase": "Le troisième catalogue de données (Gaia DR3), publié en juin 2022, a déjà livré des informations spectroscopiques pour des centaines de millions d'étoiles [2]."
+      },
+      {
+        "bloc": 1,
+        "type": "incoherence_inter_sections",
+        "description": "Le résumé (chapeau) affirme « Le satellite Gaia [...] a cessé sa collecte de données le 15 janvier 2025 » (passé composé, action accomplie), alors que les faits écrivent « sera déplacé [...] où il sera passivé » (futur, ",
+        "phrase": "Le satellite a épuisé ses réserves de gaz et sera déplacé vers son orbite héliocentrique finale, hors de la sphère d'influence terrestre, où il sera passivé, marquant la fin de la phase d'observation après plus de dix an"
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "La source [3] (Sciences et Avenir) ne contient aucune mention du satellite Hipparcos, ni de ses dates (1989-1993), ni du chiffre 118 000 étoiles, ni du facteur 100-1 000, ni de « plus de deux milliards d'objets » ; ces f",
+        "phrase": "La mission Gaia s'inscrit dans la continuité du satellite Hipparcos (1989-1993), premier catalogue astrométrique spatial qui avait mesuré 118 000 étoiles avec une précision de l'ordre du milliarcseconde. Gaia améliore ce"
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "La source [2] (BBC) ne mentionne ni les oscillations sismiques stellaires, ni l'accès à la structure interne des étoiles, ni l'affinage de la cartographie des bras spiraux ; ces affirmations sont attribuées à [2] sans y ",
+        "phrase": "Le troisième catalogue de données (Gaia DR3), publié en juin 2022, a déjà livré des informations spectroscopiques pour des centaines de millions d'étoiles [2]. La mission a aussi permis de détecter des oscillations sismi"
+      }
+    ],
+    "types_restants": [
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "incoherence_inter_sections",
+      "source_inventee",
+      "source_inventee",
+      "compteur_incoherent"
+    ],
+    "article_type": "actu",
+    "titre": "Gaia : 430 chercheurs transforment 3 000 milliards d'observations en catalogue stellaire",
+    "n_sources": 3,
+    "n_mots": 748,
+    "titre_rss": "La constellation humaine derrière Gaia, le plus grand catalogue d’étoiles jamais réalisé",
+    "matiere_faits_distincts": 1045,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "violences-17-octobre-debat-guerre-civile-experts",
+    "statut": "rejete_qualite",
+    "date": "2026-11-07T10:22:14",
+    "angle_insuffisant": true,
+    "raison": "Aucune phrase des faits ne contient à la fois un événement précis daté (annonce, publication, décision, résultat récent) et une donnée chiffrée ou nommée qui lui est propre. L'article expose un débat d'opinion sans fait déclencheur daté ni donnée nouvelle propre à l'événement du 17 octobre 2026.",
+    "article_type": "actu",
+    "titre": "Violences du 17 octobre : le débat sur le risque de guerre civile",
+    "n_sources": 3,
+    "n_mots": 547,
+    "titre_rss": "\"Deux camps s'organisent dans un embryon de guerre civile\" : l'alerte de Pierre-Henri Tavoillot et Eric Delbecque",
+    "matiere_faits_distincts": 397,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "declaration"
+  },
+  {
+    "slug": "cyberattaque-fausses-alertes-nucleaires-ukraine-russie",
+    "statut": "rejete_qualite",
+    "date": "2026-11-07T10:36:46",
+    "problemes_initiaux": 10,
+    "tentatives": 3,
+    "problemes_restants": 13,
+    "bloquants_restants": 2,
+    "bloquants_types": [
+      "chiffre_errone",
+      "chiffre_errone"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [2] (La Croix) indique « plus de 120 fausses alertes » sans préciser qu'elles sont à la fois nucléaires ET chimiques ; l'article ajoute « et chimiques » qui n'est pas dans la source.",
+        "phrase": "Dans la nuit du dimanche 1er au lundi 2 novembre, l'application ukrainienne « Alerte aérienne » a diffusé plus de 120 fausses notifications d'alertes nucléaires et chimiques à travers tout le pays [2]."
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [2] mentionne une chaîne Telegram mais ne donne aucun chiffre d'abonnés (ni 15 000, ni « en quelques minutes ») ; ce chiffre est inventé.",
+        "phrase": "un lien vers une chaîne Telegram nouvellement créée, qui a rassemblé plus de 15 000 abonnés en quelques minutes [2]"
+      }
+    ],
+    "types_restants": [
+      "chiffre_errone",
+      "chiffre_errone",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "contexte_hors_sujet",
+      "contexte_hors_sujet",
+      "contexte_hors_sujet",
+      "contexte_hors_sujet",
+      "compteur_incoherent",
+      "cadrage_emprunte",
+      "redondance",
+      "redondance"
+    ],
+    "article_type": "actu",
+    "titre": "Cyberattaque : fausses alertes nucléaires simultanées en Ukraine et en Russie",
+    "n_sources": 3,
+    "n_mots": 699,
+    "titre_rss": "Cyberattaque : de fausses alertes nucléaires envoyées aux Ukrainiens et aux Russes",
+    "matiere_faits_distincts": 831,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "autoroute-a69-ouverture-toulouse-castres-peage-contestation",
+    "statut": "rejete_qualite",
+    "date": "2026-11-07T10:52:27",
+    "problemes_initiaux": 12,
+    "tentatives": 3,
+    "problemes_restants": 7,
+    "bloquants_restants": 1,
+    "bloquants_types": [
+      "chiffre_errone"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "Le titre de la source Le Monde [1] et le titre de 20 Minutes [4] mentionnent un péage à 20,40 euros (probablement pour l'aller simple), ce qui contredit le chiffre de 10,20 euros pour l'aller simple donné dans l'article.",
+        "phrase": "Le prix du péage pour un aller simple Toulouse-Castres est fixé à 10,20 euros pour un véhicule léger, soit 20,40 euros pour un aller-retour complet"
+      }
+    ],
+    "types_restants": [
+      "chronologie_confuse",
+      "chiffre_errone",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "compteur_incoherent"
+    ],
+    "article_type": "actu",
+    "titre": "L'autoroute A69 ouvre entre Toulouse et Castres après quatre ans de contestation",
+    "n_sources": 5,
+    "n_mots": 650,
+    "titre_rss": "L’autoroute A69 ouverte aux automobilistes, après quatre ans de contestation, avec un péage à 20,40 euros",
+    "matiere_faits_distincts": 599,
+    "matiere_redondance": 0.19,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "cyberattaque-frigos-connectes-supermarches-protection-entreprises",
+    "statut": "rejete_sensible",
+    "date": "2026-11-07T10:58:03",
+    "problemes_initiaux": 6,
+    "tentative": 2,
+    "bloc5": true,
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "resume_repete_corps",
+      "titre_de_mauvaise_qualite"
+    ],
+    "titre": "Cyberattaque sur frigos de supermarchés : les entreprises françaises et belges visées",
+    "n_sources": 5,
+    "n_mots": 472,
+    "titre_rss": "Après l’affaire des frigos de supermarchés piratés, les entreprises contraintes d’élever leur niveau de protection",
+    "matiere_faits_distincts": 640,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
   }
 ]
