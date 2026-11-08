@@ -61575,5 +61575,774 @@
     "n_sources_injectees": 10,
     "n_sources_trouvees": 10,
     "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "alcool-reseaux-sociaux-loi-evin-addictions-france-rapport",
+    "statut": "corrige_automatiquement",
+    "date": "2026-11-08T07:09:31",
+    "problemes_initiaux": 6,
+    "tentatives": 3,
+    "problemes_residuels_style": 8,
+    "rapport_initial": {
+      "conforme": false,
+      "sujet_sensible": false,
+      "sujet_sensible_raison": "",
+      "angle_insuffisant": false,
+      "angle_insuffisant_raison": "",
+      "nature_contenu": "rapport",
+      "problemes": [
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "chiffre_errone",
+          "phrase_exacte": "Le premier, en 2014, avait déjà révélé que les marques s'appuyaient sur les réseaux sociaux pour contourner la loi Evin [4].",
+          "explication": "La source [4] (Le Monde, 2014) n'est pas accessible dans les extraits fournis ; il est impossible de vérifier que ce rapport de 2014 a bien révélé ce contournement. L'article affirme un fait historique précis sans source vérifiable dans le périmètre autorisé."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "chiffre_errone",
+          "phrase_exacte": "Le rapport Delaporte-Vojetta, remis au gouvernement en janvier 2026, analyse les mutations rapides de l'influence commerciale et de la création de contenus, ainsi que les dérives émergentes dans ce secteur [5].",
+          "explication": "La source [5] n'existe pas dans la liste des sources autorisées (qui ne compte que 4 entrées, indices 1 à 4). L'article cite une source inexistante pour un rapport daté de janvier 2026, soit postérieure à la publication de l'article (5 novembre 2026 selon les sources 1 et 2), ce qui est chronologiquement incohérent."
+        },
+        {
+          "bloc": 2,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "Le rapport Delaporte-Vojetta, remis au gouvernement en janvier 2026, analyse les mutations rapides de l'influence commerciale et de la création de contenus, ainsi que les dérives émergentes dans ce secteur [5].",
+          "explication": "Le renvoi [5] pointe vers une source absente du tableau 'sources' (qui s'arrête à [4]). Aucune source autorisée ne mentionne ce rapport Delaporte-Vojetta ni sa remise en janvier 2026."
+        },
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "Le premier, en 2014, avait déjà révélé que les marques s'appuyaient sur les réseaux sociaux pour contourner la loi Evin [4].",
+          "explication": "La source [4] (Le Monde, 2014) est listée mais son extrait n'est pas fourni ; l'article lui attribue un contenu précis ('avait déjà révélé que...') qui ne peut être vérifié. Si l'extrait ne confirme pas cette affirmation, le renvoi [4] constitue une source inventée pour ce fait."
+        },
+        {
+          "bloc": 4,
+          "section": "contexte",
+          "type": "contexte_hors_sujet",
+          "phrase_exacte": "Le rapport Delaporte-Vojetta, remis au gouvernement en janvier 2026, analyse les mutations rapides de l'influence commerciale et de la création de contenus, ainsi que les dérives émergentes dans ce secteur [5].",
+          "explication": "Ce paragraphe entier repose sur une source inexistante [5] et décrit un rapport postérieur à l'article (janvier 2026 vs novembre 2026). Il n'éclaire pas le sujet principal (le rapport Addictions France du 5 novembre 2026) et introduit un élément chronologiquement impossible et non sourcé."
+        },
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "compteur_incoherent",
+          "phrase_exacte": "nb_sources: 4",
+          "explication": "Le champ 'nb_sources' vaut 4, mais l'article utilise un renvoi [5] inexistant dans le contexte. Le compteur ne reflète pas le nombre réel de sources distinctes effectivement utilisées et vérifiables (3 sources avec extraits fournis, 1 source [4] sans extrait, 1 source fantôme [5])."
+        }
+      ]
+    },
+    "article_type": "actu",
+    "titre": "Alcool : Addictions France dénonce le contournement de la loi Evin sur les réseaux sociaux",
+    "n_sources": 4,
+    "n_mots": 502,
+    "titre_rss": "Les marques d'alcool inondent les réseaux sociaux, dénonce un rapport",
+    "matiere_faits_distincts": 917,
+    "matiere_redondance": 0.04,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "rapport"
+  },
+  {
+    "slug": "cyberattaques-frigos-supermarches-europe-novembre-2026",
+    "statut": "rejete_qualite",
+    "date": "2026-11-08T07:20:54",
+    "problemes_initiaux": 14,
+    "tentatives": 3,
+    "problemes_restants": 9,
+    "bloquants_restants": 2,
+    "bloquants_types": [
+      "incoherence_inter_sections",
+      "chiffre_errone"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "incoherence_inter_sections",
+        "description": "L'article cite deux sources primaires (Le Temps [1] et Le Figaro [2]) donnant des chiffres contradictoires pour le même événement (800 vs 1 000+ magasins touchés) sans les réconcilier, sans privilégier l'une, ni signaler",
+        "phrase": "Le Figaro relève pour sa part plus de 1 000 magasins et plus de 10 000 équipements touchés [2], un écart que les deux titres n'expliquent pas."
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "Le résumé attribue au commissaire Hansen la qualification d'\"avertissement sérieux pour la sécurité alimentaire du continent\", mais la source [1] citée dans les faits ne lui fait dire que \"tentative délibérée de perturbe",
+        "phrase": "Le commissaire européen à l'Agriculture Christophe Hansen qualifie cette répétition d'avertissement sérieux pour la sécurité alimentaire du continent."
+      }
+    ],
+    "types_restants": [
+      "incoherence_inter_sections",
+      "chiffre_errone",
+      "contexte_hors_sujet",
+      "contexte_hors_sujet",
+      "source_derivee_comptee_comme_primaire",
+      "compteur_incoherent",
+      "section_gonflee",
+      "redondance",
+      "redondance"
+    ],
+    "article_type": "actu",
+    "titre": "Cyberattaque : 800 supermarchés touchés dans dix pays européens, des tonnes de nourriture jetées",
+    "n_sources": 5,
+    "n_mots": 607,
+    "titre_rss": "Une cyberattaque d'ampleur européenne détruit des tonnes de nourriture",
+    "matiere_faits_distincts": 1007,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "senat-resolution-bei-financement-armes-munitions-europeennes",
+    "statut": "rejete_sensible",
+    "date": "2026-11-08T07:33:38",
+    "problemes_initiaux": 8,
+    "bloc5": [
+      "affaire_en_cours_presentee_comme_fait"
+    ],
+    "article_type": "actu",
+    "titre": "Le Sénat adopte une résolution pour que la BEI finance armes et munitions européennes",
+    "n_sources": 4,
+    "n_mots": 774,
+    "titre_rss": "Armes et munitions produites par les industries européennes de la défense - Rapport n° 879",
+    "matiere_faits_distincts": 792,
+    "matiere_redondance": 0.09,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "veille_heures_visible": 517.7,
+    "veille_passages": 326,
+    "veille_age_h": 2117.4,
+    "veille_n_flux_grappe": 4,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "guerre-ukraine-cereales-blocage-mer-noire-reponses-europeennes",
+    "statut": "rejete_sensible",
+    "date": "2026-11-08T07:38:28",
+    "problemes_initiaux": 11,
+    "tentative": 1,
+    "bloc5": true,
+    "article_type": "actu",
+    "titre": "Guerre en Ukraine : blocus, pillages et réponses européennes sur les céréales",
+    "n_sources": 7,
+    "n_mots": 723,
+    "titre_rss": "La guerre des céréales entre l’Ukraine et la Russie redessine les rapports de force géopolitiques",
+    "matiere_faits_distincts": 677,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "piratage-binance-6-3-milliards-fbi-coree-nord",
+    "statut": "corrige_automatiquement",
+    "date": "2026-11-08T07:58:41",
+    "problemes_initiaux": 14,
+    "tentatives": 1,
+    "problemes_residuels_style": 10,
+    "rapport_initial": {
+      "conforme": false,
+      "sujet_sensible": false,
+      "sujet_sensible_raison": "",
+      "angle_insuffisant": false,
+      "angle_insuffisant_raison": "",
+      "nature_contenu": "actualite_factuelle",
+      "problemes": [
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "chiffre_errone",
+          "phrase_exacte": "La plateforme d'échange Binance, premier acteur mondial du secteur, a subi un piratage d'une ampleur inédite avec un préjudice estimé à 6,3 milliards de dollars en actifs numériques [4].",
+          "explication": "La source [4] (Le Monde, 30/10/2026) indique un vol de 1,4 à 1,5 milliard de dollars, pas 6,3 milliards. Le chiffre de 6,3 milliards n'est pas confirmé par cette source."
+        },
+        {
+          "bloc": 1,
+          "section": "resume",
+          "type": "chiffre_errone",
+          "phrase_exacte": "Le piratage de la plateforme Binance a entraîné le vol de 6,3 milliards de dollars en cryptomonnaies, constituant le plus important braquage numérique de l'histoire selon les informations disponibles.",
+          "explication": "Le résumé reprend le chiffre erroné de 6,3 milliards de dollars, non soutenu par la source [4] qui mentionne 1,4 à 1,5 milliard de dollars."
+        },
+        {
+          "bloc": 1,
+          "section": "titre",
+          "type": "chiffre_errone",
+          "phrase_exacte": "Piratage de Binance : 6,3 milliards volés, le FBI accuse la Corée du Nord",
+          "explication": "Le titre affiche 6,3 milliards volés, contredisant la source [4] qui évoque 1,4 à 1,5 milliard de dollars."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "L'annonce a été faite par la plateforme elle-même, qui a indiqué dimanche la reprise progressive des retraits pour ses utilisateurs après l'incident [5].",
+          "explication": "La source [5] (Le Monde, 07/11/2026) ne mentionne pas d'annonce de Binance sur la reprise des retraits dimanche ; elle traite du savoir-faire des hackers nord-coréens."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "Le Bureau fédéral d'enquête (FBI) a formellement accusé la Corée du Nord d'être à l'origine de cette opération, désignant spécifiquement le groupe de pirates informatiques connu sous le nom de TraderTraitor comme responsable du vol [5].",
+          "explication": "La source [5] ne contient pas d'accusation formelle du FBI désignant TraderTraitor pour ce piratage spécifique ; elle décrit le savoir-faire général des hackers nord-coréens."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "Le groupe TraderTraitor a été identifié par la police fédérale américaine comme l'auteur du vol de 6,3 milliards de dollars d'actifs numériques [6].",
+          "explication": "La source [6] (Le Monde, 03/11/2026) rapporte le démenti nord-coréen face aux accusations du FBI, mais ne confirme pas que le FBI a identifié TraderTraitor comme auteur d'un vol de 6,3 milliards."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "L'article du 30 octobre précisait que la poussière n'était pas encore retombée sur ce qui apparaît comme le plus gros vol de cryptomonnaies de l'histoire après le piratage ayant visé Binance [4].",
+          "explication": "La source [4] est l'article du 30 octobre lui-même ; elle ne peut pas se citer comme précisant quelque chose sur elle-même. La formulation suggère une source distincte."
+        },
+        {
+          "bloc": 1,
+          "section": "nuances",
+          "type": "source_inventee",
+          "phrase_exacte": "Le parquet européen n'a pas communiqué sur d'éventuelles poursuites judiciaires transfrontalières liées à ce piratage, dont la qualification juridique reste en suspens [2].",
+          "explication": "La source [2] (Cour de justice européenne, affaire C-526/14) est une décision de 2015 sur la directive ePrivacy, sans lien avec le piratage de Binance."
+        },
+        {
+          "bloc": 1,
+          "section": "nuances",
+          "type": "source_inventee",
+          "phrase_exacte": "Aucune donnée publique issue des registres de recherche français ne documente à ce stade l'analyse technique des flux de cryptomonnaies volés [3].",
+          "explication": "La source [3] (entrepot.recherche.data.gouv.fr) est un dépôt de données générique, sans contenu spécifique sur l'analyse technique de ce piratage."
+        },
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "compteur_incoherent",
+          "phrase_exacte": "nb_sources: 5",
+          "explication": "Seules 3 sources (Le Monde x3) sont pertinentes et utilisées pour le sujet ; les sources [2] et [3] sont hors sujet et ne devraient pas être comptées comme sources valides pour cet article."
+        },
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "source_derivee_comptee_comme_primaire",
+          "phrase_exacte": "qualite_sources: {\"primaire\": 2, \"secondaire\": 1, \"tertiaire\": 0}",
+          "explication": "Les trois sources Le Monde sont des articles de presse (secondaires) reprenant des informations du FBI/Binance ; aucune n'est une source primaire (communiqué officiel FBI, rapport on-chain, déclaration Binance). Le classement 'primaire: 2' est incorrect."
+        },
+        {
+          "bloc": 3,
+          "section": "contexte",
+          "type": "cadrage_emprunte",
+          "phrase_exacte": "Les activités de cybercriminalité attribuées à la Corée du Nord ne datent pas d'hier. Depuis plus d'une décennie, les services de renseignement occidentaux documentent une implication systématique de groupes liés à Pyongyang dans le vol de cryptomonnaies, utilisé pour contourner les sanctions internationales et financer les programmes d'armement du régime [1].",
+          "explication": "La formulation 'documentent une implication systématique' et 'utilisé pour contourner les sanctions' reprend le cadrage éditorial de la source [1] sans l'attribuer explicitement comme analyse de ce média."
+        },
+        {
+          "bloc": 4,
+          "section": "nuances",
+          "type": "section_gonflee",
+          "phrase_exacte": "Le parquet européen n'a pas communiqué sur d'éventuelles poursuites judiciaires transfrontalières liées à ce piratage, dont la qualification juridique reste en suspens [2].\nAucune donnée publique issue des registres de recherche français ne documente à ce stade l'analyse technique des flux de cryptomonnaies volés [3].",
+          "explication": "Ces deux phrases invoquent des sources [2] et [3] sans rapport avec le piratage de Binance pour combler la section 'nuances' ; elles n'apportent aucune nuance pertinente sur le sujet."
+        },
+        {
+          "bloc": 4,
+          "section": "contexte",
+          "type": "redondance",
+          "phrase_exacte": "Depuis plus d'une décennie, les services de renseignement occidentaux documentent une implication systématique de groupes liés à Pyongyang dans le vol de cryptomonnaies, utilisé pour contourner les sanctions internationales et financer les programmes d'armement du régime [1].",
+          "explication": "Cette idée (financement programme balistique par cybercriminalité depuis 10+ ans) est déjà présente dans 'faits' : 'depuis plus de dix ans, Pyongyang finance son programme balistique et nucléaire à travers des opérations de cybercriminalité' [1]."
+        }
+      ]
+    },
+    "article_type": "actu",
+    "titre": "Piratage de Binance : 6,3 milliards volés, le FBI accuse la Corée du Nord",
+    "n_sources": 5,
+    "n_mots": 463,
+    "titre_rss": "Derrière le piratage de Binance, le savoir-faire redoutable des hackeurs nord-coréens",
+    "matiere_faits_distincts": 581,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "canicule-juin-2026-surmortalite-29-pour-cent-2025-deces-supplementaires",
+    "statut": "corrige_automatiquement",
+    "date": "2026-11-08T08:13:41",
+    "problemes_initiaux": 7,
+    "tentatives": 3,
+    "problemes_residuels_style": 0,
+    "rapport_initial": {
+      "conforme": false,
+      "sujet_sensible": false,
+      "sujet_sensible_raison": "",
+      "angle_insuffisant": false,
+      "angle_insuffisant_raison": "",
+      "nature_contenu": "actualite_factuelle",
+      "problemes": [
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "chiffre_errone",
+          "phrase_exacte": "Le bulletin national du 7 juillet, basé sur les données des bureaux d'état civil transmis à l'Insee, confirme un excès de mortalité d'au moins +35 % tous âges confondus et par classe d'âge au-delà de 15 ans pour la semaine 26 [2].",
+          "explication": "La source [2] (bulletin du 7 juillet) indique un excès de mortalité de +35 % pour la semaine 26 (22-28 juin) pour les 75 ans et plus, et non pour tous les âges confondus ni pour toutes les classes d'âge au-delà de 15 ans. L'article généralise un chiffre spécifique à une tranche d'âge à l'ensemble de la population."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "incoherence_inter_sections",
+          "phrase_exacte": "Un bilan intermédiaire du 22 juillet fait état de 5 764 décès en excès entre le 17 juin et le 2 juillet, déjà proche du total 2022 mais inférieur à la canicule de 2003 [4].",
+          "explication": "Le même chiffre (5 764 décès en excès sur la même période 17 juin - 2 juillet) est cité deux fois dans 'faits' : une première fois au dernier paragraphe via la source [4] (Le Monde du 22 juillet), et une seconde fois dans 'contexte' via la source [5] (été 2022) qui ne contient pas ce chiffre pour 2026. Cela crée une redondance factuelle et une confusion de sourcing."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "chiffre_errone",
+          "phrase_exacte": "Pour comparaison, l'été 2022 avait généré 2 816 morts en excès lors des trois canicules, pour un total de 6 969 morts en excès toutes causes du 1er juin au 15 septembre [5].",
+          "explication": "La source [5] est un article du Monde du 16 septembre 2026 sur l'été 2026 ('Plus de 8 000 morts liées aux canicules de l'été 2026'). Elle ne contient pas les chiffres de l'été 2022 (2 816 et 6 969). L'attribution de ces chiffres historiques à la source [5] est erronée."
+        },
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "Le Monde rapporte que Santé publique France estime à 2 025 les décès supplémentaires entre le 22 et le 28 juin, au plus fort des pics de chaleur, mais souligne que ce chiffrage est très parcellaire [3].",
+          "explication": "La source [3] (Le Monde du 3 juillet) est citée pour attribuer l'estimation de 2 025 décès à Santé publique France. Or ce chiffre (2 025) provient directement de la source primaire [1] (SPF du 3 juillet). Le Monde [3] relaie ce chiffre mais ne l'estime pas lui-même. L'article présente une source secondaire comme origine de l'estimation primaire, ce qui constitue une attribution trompeuse (source dérivée comptée comme primaire)."
+        },
+        {
+          "bloc": 2,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "Un bilan intermédiaire du 22 juillet 2026 faisant état de 5 764 décès en excès entre le 17 juin et le 2 juillet, déjà proche du total 2022 mais inférieur à la canicule de 2003 [4].",
+          "explication": "La source [4] (Le Monde du 22 juillet) est citée dans 'contexte' pour ce chiffre, mais ce même chiffre est déjà cité dans 'faits' avec la même source [4]. Bien que la source soit autorisée, son utilisation redondante dans deux sections pour le même fait sans valeur ajoutée contrevient à l'exigence de sourcing distinct et non dérivé. De plus, la source [5] est invoquée à tort pour les chiffres 2022 (voir problème chiffre_errone sur [5])."
+        },
+        {
+          "bloc": 4,
+          "section": "contexte",
+          "type": "redondance",
+          "phrase_exacte": "Un bilan intermédiaire du 22 juillet 2026 faisant état de 5 764 décès en excès entre le 17 juin et le 2 juillet, déjà proche du total 2022 mais inférieur à la canicule de 2003 [4].",
+          "explication": "Ce paragraphe entier du 'contexte' répète mot pour mot la dernière phrase de la section 'faits' (même chiffre, même période, même source [4], même comparaison 2022/2003). La charte interdit la répétition d'une même idée d'une section à l'autre."
+        },
+        {
+          "bloc": 4,
+          "section": "nuances",
+          "type": "redondance",
+          "phrase_exacte": "La certification électronique n'intègre que les certificats remontés à date, avec une couverture de 25 % seulement pour les décès à domicile — précisément le lieu où la hausse est la plus forte (+91 %) [1].",
+          "explication": "Cette phrase répète une information déjà explicitement donnée dans 'faits' (couverture 25 % à domicile, hausse +91 % à domicile) et dans le premier paragraphe de 'contexte' (couvertures inégales : 25 % à domicile, 45 % en EHPAD, 80 % hôpital). La nuance n'apporte pas de fait distinct sourcé."
+        }
+      ]
+    },
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "faits_repetitifs",
+      "titre_de_mauvaise_qualite",
+      "affirmation_non_demontree"
+    ],
+    "titre": "Canicule de juin 2026 : surmortalité de 29 % en une semaine, 2 025 décès supplémentaires",
+    "n_sources": 5,
+    "n_mots": 834,
+    "titre_rss": "Point de situation sur la mortalité toutes causes confondues  sur la période du 22 au 28 juin 2026",
+    "matiere_faits_distincts": 607,
+    "matiere_redondance": 0.01,
+    "matiere_donnees_chiffrees": 5,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "inserm-sept-fausses-idees-vaccins-mise-a-jour-10-octobre-2026",
+    "statut": "rejete_sensible",
+    "date": "2026-11-08T08:27:08",
+    "problemes_initiaux": 11,
+    "bloc5": [
+      "compteur_incoherent"
+    ],
+    "article_type": "actu",
+    "titre": "L'Inserm met à jour ses sept fausses idées sur les vaccins le 10 octobre 2026",
+    "n_sources": 5,
+    "n_mots": 991,
+    "titre_rss": "Sept fausses idées sur les vaccins",
+    "matiere_faits_distincts": 1265,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "gaia-430-chercheurs-catalogue-galactique-3000-milliards-observations",
+    "statut": "rejete_qualite",
+    "date": "2026-11-08T08:48:09",
+    "problemes_initiaux": 8,
+    "tentatives": 3,
+    "problemes_restants": 14,
+    "bloquants_restants": 7,
+    "bloquants_types": [
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [2] (Le Monde) indique que la phase d'observation s'est terminée le 15 janvier 2025, mais ne mentionne pas le lancement du 19 décembre 2013. Ce chiffre de date de lancement n'est pas confirmé par la source cité",
+        "phrase": "Le satellite Gaia, mission phare de l'Agence spatiale européenne (ESA), a poursuivi sa phase d'observation en orbite autour du point de Lagrange L2 depuis son lancement le 19 décembre 2013 jusqu'au 15 janvier 2025 [2]."
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [2] (Le Monde) ne mentionne ni la date de lancement du 19 décembre 2013, ni le site de lancement Kourou, ni la liste détaillée des instruments embarqués. Ces informations ne sont pas confirmées par la source ci",
+        "phrase": "Lancé le 19 décembre 2013 depuis Kourou, Gaia embarque deux télescopes et trois instruments : un astromètre, un spectrophotomètre et un spectrographe à vitesse radiale [2]."
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [2] (Le Monde) ne contient aucune de ces informations détaillées sur les livraisons DR1, DR2 et DR3 (dates précises, nombres de sources, quasars, astéroïdes). Ces chiffres ne sont pas confirmés par la source ci",
+        "phrase": "Le premier catalogue Gaia (DR1), publié en septembre 2016, indexait 1,2 milliard d'étoiles avec leur position et leur magnitude [2]. La deuxième livraison (DR2) en avril 2018 a porté le total à 1,7 milliard de sources av"
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [2] (Le Monde) ne mentionne pas la précision des parallaxes (sept microsecondes d'arc) ni la comparaison avec Hipparcos (millième de seconde d'arc). Ces chiffres ne sont pas confirmés par la source citée.",
+        "phrase": "Chaque livraison a réduit les incertitudes : les parallaxes atteignent désormais sept microsecondes d'arc pour les étoiles les plus brillantes, contre un millième de seconde d'arc pour Hipparcos [2]."
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [2] (Le Monde) ne mentionne pas la collision future avec Andromède. Cette information n'est pas confirmée par la source citée.",
+        "phrase": "Cette précision permet de mesurer des distances dans toute la Voie lactée et d'en reconstruire l'histoire dynamique, y compris la future collision avec Andromède dans plusieurs milliards d'années [2]."
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "Bien que la source [2] (Le Monde) mentionne l'épuisement des réserves de gaz froid, la phrase duplique l'information déjà donnée dans le contexte sans apporter de nuance nouvelle, mais le chiffre/l'information est confir",
+        "phrase": "Cependant, l'épuisement des réserves de gaz froid du satellite a mis fin à sa capacité de maintenir l'orientation précise requise pour de nouvelles observations [2]."
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "Le titre mentionne '430 chercheurs' alors que le corps de l'article (et la source [1]) parle de '430 personnes — scientifiques, ingénieurs, développeurs et coordinateurs'. Le terme 'chercheurs' est réducteur et inexact p",
+        "phrase": "Gaia : 430 chercheurs ont transformé plus de 1 500 milliards d'observations en catalogue galactique"
+      }
+    ],
+    "types_restants": [
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "chiffre_errone",
+      "compteur_incoherent",
+      "chiffre_errone"
+    ],
+    "article_type": "actu",
+    "titre": "Gaia : 430 chercheurs transforment 3 000 milliards d'observations en catalogue galactique",
+    "n_sources": 3,
+    "n_mots": 716,
+    "titre_rss": "La constellation humaine derrière Gaia, le plus grand catalogue d’étoiles jamais réalisé",
+    "matiere_faits_distincts": 814,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "cyberattaque-fausses-alertes-nucleaires-ukraine-russie-novembre-2026",
+    "statut": "corrige_automatiquement",
+    "date": "2026-11-08T09:03:31",
+    "problemes_initiaux": 4,
+    "tentatives": 1,
+    "problemes_residuels_style": 4,
+    "rapport_initial": {
+      "conforme": false,
+      "sujet_sensible": false,
+      "sujet_sensible_raison": "",
+      "angle_insuffisant": false,
+      "angle_insuffisant_raison": "",
+      "nature_contenu": "actualite_factuelle",
+      "problemes": [
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "chiffre_errone",
+          "phrase_exacte": "Dans la nuit du dimanche 1er au lundi 2 novembre 2026, les applications mobiles d'alerte à la population de l'Ukraine et de la Russie ont été la cible de cyberattaques quasi simultanées [1][4].",
+          "explication": "La source [1] (Reporterre, datée du 1er novembre 2026) ne peut pas décrire un événement survenu dans la nuit du 1er au 2 novembre 2026, car elle est publiée avant cet événement. Le renvoi [1] à cette phrase est donc une attribution inventée : la source ne confirme pas le fait daté du 2 novembre."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "chiffre_errone",
+          "phrase_exacte": "L'application ukrainienne \"Alerte aérienne\" a émis 122 fausses alertes en quelques minutes, dont certaines mentionnaient le missile russe Orechnik, tandis que l'application russe du ministère des Situations d'urgence avertissait de lancements d'ogives nucléaires vers toutes les régions.",
+          "explication": "Le résumé affirme \"122 fausses alertes en quelques minutes\" alors que le corps des faits (et la source [4] citée) indique \"122 fausses notifications à travers tout le pays\" sans préciser la durée \"en quelques minutes\". Cette précision temporelle n'est pas sourcée et gonfle la gravité perçue de l'attaque."
+        },
+        {
+          "bloc": 2,
+          "section": "contexte",
+          "type": "contexte_hors_sujet",
+          "phrase_exacte": "En juillet 2026, l'Union européenne a publié une déclaration dénonçant le \"cyberécosystème malveillant de la Russie ciblant l'UE, ses États membres et des partenaires internationaux\", soulignant sa détermination à faire respecter l'obligation de rendre des comptes dans le cyberespace [3].",
+          "explication": "La source [3] est une déclaration de l'UE du 13 juillet 2026 sur le cyberécosystème russe ciblant l'UE et ses partenaires. Elle ne documente pas l'attaque du 1er-2 novembre 2026 contre les applications d'alerte ukrainienne et russe, ni ses auteurs. Ce contexte est générique et ne sert qu'à remplir la section sans éclairer le sujet précis de l'article."
+        },
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "Dans la nuit du dimanche 1er au lundi 2 novembre 2026, les applications mobiles d'alerte à la population de l'Ukraine et de la Russie ont été la cible de cyberattaques quasi simultanées [1][4].",
+          "explication": "Le renvoi [1] attribue le fait principal (date, cible, nature de l'attaque) à la source Reporterre du 1er novembre 2026, qui est antérieure à l'événement et ne peut pas le confirmer. C'est une attribution inventée : la source n'existe pas pour ce fait à cette date."
+        }
+      ]
+    },
+    "article_type": "actu",
+    "titre": "Cyberattaque : fausses alertes nucléaires envoyées aux Ukrainiens et aux Russes",
+    "n_sources": 3,
+    "n_mots": 609,
+    "titre_rss": "Cyberattaque : de fausses alertes nucléaires envoyées aux Ukrainiens et aux Russes",
+    "matiere_faits_distincts": 1173,
+    "matiere_redondance": 0.01,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "insee-menages-aises-1-6-fois-degats-catastrophes-naturelles",
+    "statut": "rejete_qualite",
+    "date": "2026-11-08T09:31:21",
+    "problemes_initiaux": 8,
+    "tentatives": 3,
+    "problemes_restants": 12,
+    "bloquants_restants": 9,
+    "bloquants_types": [
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [1] (Reporterre) indique que le RGA représente 54 % du coût moyen annuel des catastrophes naturelles sur la période 1989-2019, mais ne précise pas que c'est le premier poste de sinistralité « pour l'habitation ",
+        "phrase": "Le retrait-gonflement des argiles (RGA) constitue le premier poste de sinistralité pour l'habitation, représentant 54 % du coût moyen annuel des catastrophes naturelles sur la période 1989-2019 [1]."
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [2] (Sénat) ne contient aucune mention du taux de surprime CatNat (12 % ou 20 %) ni de sa date d'entrée en vigueur ; ce chiffre n'est pas sourcé.",
+        "phrase": "La surprime CatNat, fixée à 12 % de la prime de base depuis 2022, passera à 20 % au 1er janvier 2025 pour rééquilibrer le régime [2]."
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [2] (Sénat) ne mentionne ni l'ACPR, ni le chiffre de 7 %, ni le département des Côtes-d'Armor ; cette information n'est pas dans la source citée.",
+        "phrase": "L'ACPR estime que dans un scénario d'aggravation climatique, 7 % des logements pourraient devenir inassurables d'ici 2050 dans certains départements comme les Côtes-d'Armor [2]."
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [3] (ONU, 16 septembre 2008) porte sur les tempêtes et inondations récentes à cette date (2008), pas sur l'année 2008 entière, et ne fait aucune référence à une étude de l'Insee en 2024 ; le contraste est const",
+        "phrase": "L'ONU indique que les populations les plus pauvres ont été les plus exposées aux tempêtes et inondations de 2008 à travers le monde, une réalité qui contraste avec l'exposition matérielle mesurée en France par l'Insee en"
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [3] ne contient pas cette formulation précise sur la « valeur des biens possédés » ; l'article attribue à la source un contenu qu'elle ne dit pas.",
+        "phrase": "Le rapport de l'ONU de septembre 2008 soulignait déjà que la pauvreté amplifie la vulnérabilité face aux aléas climatiques, indépendamment de la valeur des biens possédés [3]."
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "L'information sur le taux de surprime CatNat et sa hausse programmée n'apparaît pas dans la source [2] (question écrite au Sénat) ; elle est inventée par rapport à cette source.",
+        "phrase": "La surprime CatNat, fixée à 12 % de la prime de base depuis 2022, passera à 20 % au 1er janvier 2025 pour rééquilibrer le régime [2]."
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "La source [2] ne mentionne ni l'ACPR, ni ce chiffre, ni ce département ; l'attribution [2] est fausse.",
+        "phrase": "L'ACPR estime que dans un scénario d'aggravation climatique, 7 % des logements pourraient devenir inassurables d'ici 2050 dans certains départements comme les Côtes-d'Armor [2]."
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "La source [3] ne mentionne pas l'Insee ni une étude de 2024 ; le contraste est une construction de l'article non présente dans la source.",
+        "phrase": "L'ONU indique que les populations les plus pauvres ont été les plus exposées aux tempêtes et inondations de 2008 à travers le monde, une réalité qui contraste avec l'exposition matérielle mesurée en France par l'Insee en"
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "La source [3] ne contient pas cette phrase ni l'idée de « valeur des biens possédés » ; l'attribution [3] est fausse.",
+        "phrase": "Le rapport de l'ONU de septembre 2008 soulignait déjà que la pauvreté amplifie la vulnérabilité face aux aléas climatiques, indépendamment de la valeur des biens possédés [3]."
+      }
+    ],
+    "types_restants": [
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "contexte_hors_sujet",
+      "contexte_hors_sujet",
+      "redondance"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "resume_repete_corps",
+      "titre_de_mauvaise_qualite"
+    ],
+    "titre": "Insee : les 10 % les plus aisés subissent 1,6 fois plus de dégâts aux catastrophes naturelles",
+    "n_sources": 3,
+    "n_mots": 427,
+    "titre_rss": "Les plus riches les plus exposés aux catastrophes naturelles… parce qu'ils ont plus de maisons",
+    "matiere_faits_distincts": 934,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "etude_scientifique"
+  },
+  {
+    "slug": "ia-mathematiques-cryptographie-menace-securite-numerique",
+    "statut": "rejete_qualite",
+    "date": "2026-11-08T09:35:52",
+    "angle_insuffisant": true,
+    "raison": "Aucune phrase dans 'faits' ne combine un événement précis daté (publication OpenAI, décision FCA, création du collectif) avec une donnée chiffrée ou nommée qui lui est propre ; l'article explique un phénomène général sans dire ce qui vient de se passer concrètement.",
+    "article_type": "actu",
+    "titre": "OpenAI publie des preuves IA et la FCA presse de changer le chiffrement",
+    "n_sources": 4,
+    "n_mots": 517,
+    "titre_rss": "L’IA devient si forte en maths qu’elle ébranle les règles de la cryptographie",
+    "matiere_faits_distincts": 894,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "sujet_pedagogique"
+  },
+  {
+    "slug": "vih-femmes-transgenres-etude-longitudinale-france-27-ans",
+    "statut": "rejete_sensible",
+    "date": "2026-11-08T09:42:44",
+    "problemes_initiaux": 11,
+    "tentative": 1,
+    "bloc5": true,
+    "article_type": "actu",
+    "titre": "VIH chez les femmes transgenres : 27 ans de suivi révèlent progrès et inégalités",
+    "n_sources": 3,
+    "n_mots": 748,
+    "titre_rss": "30 ans de parcours de soins chez les femmes transgenres vivant avec le VIH",
+    "matiere_faits_distincts": 911,
+    "matiere_redondance": 0.01,
+    "matiere_donnees_chiffrees": 2,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "etude_scientifique"
+  },
+  {
+    "slug": "autoroute-a69-ouverte-quatre-ans-contestation-peage-20-40-euros",
+    "statut": "rejete_qualite",
+    "date": "2026-11-08T10:09:58",
+    "tentative": 3,
+    "perte_substance": true,
+    "section": "contexte",
+    "mots_avant": 145,
+    "mots_apres": 0,
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "faits_repetitifs"
+    ],
+    "titre": "L'autoroute A69 ouvre après quatre ans de contestation, péage à 20,40 euros",
+    "n_sources": 5,
+    "n_mots": 652,
+    "titre_rss": "L’autoroute A69 ouverte aux automobilistes, après quatre ans de contestation, avec un péage à 20,40 euros",
+    "matiere_faits_distincts": 456,
+    "matiere_redondance": 0.02,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "climat-trump-demantelement-recherche-abrogation-limites-emissions",
+    "statut": "rejete_sensible",
+    "date": "2026-11-08T10:36:34",
+    "problemes_initiaux": 11,
+    "bloc5": [
+      "fait_tranche_arbitrairement"
+    ],
+    "article_type": "actu",
+    "titre": "Climat : l'administration Trump démantèle la recherche fédérale et abroge les limites d'émissions",
+    "n_sources": 7,
+    "n_mots": 459,
+    "titre_rss": "Deux ans après le retour de Donald Trump au pouvoir, le bilan alarmant des climatologues américains",
+    "matiere_faits_distincts": 440,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 2,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "sous-vetements-hommes-etude-lien-erection-fertilite",
+    "statut": "rejete_qualite",
+    "date": "2026-11-08T10:46:43",
+    "tentative": 3,
+    "perte_substance": true,
+    "section": "contexte",
+    "mots_avant": 156,
+    "mots_apres": 50,
+    "article_type": "actu",
+    "titre": "Sous-vêtements : une étude sur 27 000 hommes lie le slip aux troubles de l'érection",
+    "n_sources": 3,
+    "n_mots": 595,
+    "titre_rss": "Slip, boxer ou caleçon : une étude sur près de 27 000 hommes révèle un lien avec l’érection et la fertilité",
+    "matiere_faits_distincts": 626,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "etude_scientifique"
+  },
+  {
+    "slug": "italie-meloni-revision-taxe-sortie-grandes-fortunes",
+    "statut": "rejete_sensible",
+    "date": "2026-11-08T10:54:44",
+    "problemes_initiaux": 9,
+    "bloc5": [
+      "compteur_incoherent"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "nuances_vagues"
+    ],
+    "titre": "Italie : Meloni envisage de modifier la taxe de sortie sur les grandes fortunes",
+    "n_sources": 4,
+    "n_mots": 472,
+    "titre_rss": "\"Exit tax\" en Italie : face aux critiques, Giorgia Meloni prête à revoir sa copie",
+    "matiere_faits_distincts": 720,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
   }
 ]
