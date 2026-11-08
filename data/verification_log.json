@@ -62344,5 +62344,747 @@
     "n_sources_injectees": 10,
     "n_sources_trouvees": 10,
     "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "alcool-reseaux-sociaux-loi-evin-contournement-rapport-addictions-france",
+    "statut": "rejete_sensible",
+    "date": "2026-11-08T17:07:30",
+    "problemes_initiaux": 15,
+    "bloc5": [
+      null
+    ],
+    "article_type": "actu",
+    "titre": "Alcool sur les réseaux : un rapport dénonce le contournement de la loi Evin",
+    "n_sources": 2,
+    "n_mots": 534,
+    "titre_rss": "Les marques d'alcool inondent les réseaux sociaux, dénonce un rapport",
+    "matiere_faits_distincts": 679,
+    "matiere_redondance": 0.02,
+    "matiere_donnees_chiffrees": 3,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "rapport"
+  },
+  {
+    "slug": "truth-social-acces-anticipe-publications-trump-legalite-debat",
+    "statut": "rejete_sensible",
+    "date": "2026-11-08T17:13:08",
+    "sujet_sensible": true,
+    "raison": "L'article porte sur une affaire judiciaire en cours visant une personne physique (Donald Trump) pour des faits potentiellement pénaux (délit d'initié), non définitivement jugée.",
+    "article_type": "actu",
+    "titre": "Truth Social vend un accès anticipé aux publications de Trump, la légalité divise les juristes",
+    "n_sources": 3,
+    "n_mots": 665,
+    "titre_rss": "Trump et Truth Social : parole publique, intérêts privés",
+    "matiere_faits_distincts": 906,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "cyberattaque-chaine-froid-supermarches-europe-novembre-2026",
+    "statut": "rejete_qualite",
+    "date": "2026-11-08T17:24:26",
+    "problemes_initiaux": 23,
+    "tentatives": 3,
+    "problemes_restants": 15,
+    "bloquants_restants": 2,
+    "bloquants_types": [
+      "incoherence_inter_sections",
+      "chiffre_errone"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "incoherence_inter_sections",
+        "description": "Le résumé cite six pays identifiés et neuf au total, mais les faits listent six pays nommés (Belgique, Suède, Finlande, Estonie, Luxembourg, Irlande) sans que Le Monde [2] ne soit cité pour le chiffre neuf ; l'AFP [3] ne",
+        "phrase": "Une offensive nocturne a neutralisé les systèmes frigorifiques de supermarchés dans six pays identifiés, Le Monde évoquant neuf nations au total, provoquant la destruction massive de denrées périssables [2][3]."
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [2] (Le Monde) n'est pas fournie dans les extraits ; la liste précise de six pays nommés ne peut être confirmée par les sources autorisées fournies.",
+        "phrase": "Dans la nuit du 1er au 2 novembre 2026, des pirates ont pris le contrôle à distance des systèmes de régulation frigorifiques de supermarchés dans au moins six pays européens : Belgique, Suède, Finlande, Estonie, Luxembou"
+      }
+    ],
+    "types_restants": [
+      "incoherence_inter_sections",
+      "source_inventee",
+      "chiffre_errone",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "compteur_incoherent"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "titre_de_mauvaise_qualite"
+    ],
+    "titre": "Cyberattaque sur la chaîne du froid : neuf pays européens touchés, tonnes de nourriture jetées",
+    "n_sources": 6,
+    "n_mots": 500,
+    "titre_rss": "Une cyberattaque d'ampleur européenne détruit des tonnes de nourriture",
+    "matiere_faits_distincts": 642,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "afd-contrat-objectifs-moyens-2027-2029-transmis-parlement",
+    "statut": "rejete_sensible",
+    "date": "2026-11-08T17:33:04",
+    "problemes_initiaux": 8,
+    "tentative": 3,
+    "bloc5": true,
+    "article_type": "actu",
+    "titre": "L'AFD obtient son contrat 2027-2029 après cinq ans d'attente",
+    "n_sources": 3,
+    "n_mots": 528,
+    "titre_rss": "Enfin ! Le COM 2027-2029 de l'AFD - Rapport d'information n° 119",
+    "matiere_faits_distincts": 709,
+    "matiere_redondance": 0.08,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "tribune-bocquet-de-temmerman-laszlo-financement-innovation-rupture-6-novembre",
+    "statut": "corrige_automatiquement",
+    "date": "2026-11-08T17:45:31",
+    "problemes_initiaux": 5,
+    "tentatives": 1,
+    "problemes_residuels_style": 9,
+    "rapport_initial": {
+      "conforme": false,
+      "sujet_sensible": false,
+      "sujet_sensible_raison": "",
+      "angle_insuffisant": false,
+      "angle_insuffisant_raison": "",
+      "nature_contenu": "tribune",
+      "problemes": [
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "incoherence_inter_sections",
+          "phrase_exacte": "Le Fonds monétaire international souligne que la France a réalisé des progrès significatifs dans la réduction de ses émissions de gaz à effet de serre, mais que des efforts politiques supplémentaires importants seront nécessaires pour atteindre les objectifs d'atténuation clés [2]. L'institution met en avant la nécessité d'identifier des politiques fiscales et réglementaires efficaces et équitables face aux coûts et risques de la décarbonation [2].",
+          "explication": "Le résumé affirme que le FMI souligne que les coûts de la décarbonation imposeront des arbitrages budgétaires non détaillés par les auteurs, mais les faits ne mentionnent pas d'arbitrages budgétaires imposés par le FMI, seulement la nécessité d'identifier des politiques fiscales et réglementaires efficaces et équitables."
+        },
+        {
+          "bloc": 1,
+          "section": "nuances",
+          "type": "redondance",
+          "phrase_exacte": "Le FMI note que les coûts de la décarbonation peuvent être significatifs, ce qui implique des arbitrages budgétaires que la proposition ne détaille pas [2].",
+          "explication": "Cette phrase répète l'idée déjà présente dans le résumé selon laquelle le FMI souligne des coûts de décarbonation impliquant des arbitrages budgétaires non détaillés par les auteurs."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "redondance",
+          "phrase_exacte": "Le FMI indique que les coûts et risques de la décarbonation peuvent être significatifs, ce qui souligne la nécessité d'identifier des politiques fiscales et réglementaires efficaces et équitables [2].",
+          "explication": "Cette phrase répète presque mot pour mot l'information déjà donnée dans les faits sur le FMI (source [2]) concernant les coûts de la décarbonation et la nécessité de politiques fiscales et réglementaires."
+        },
+        {
+          "bloc": 3,
+          "section": "resume",
+          "type": "cadrage_emprunte",
+          "phrase_exacte": "La proposition n'engage pas l'État : aucune annonce officielle n'a suivi, et le FMI souligne que les coûts de la décarbonation imposeront des arbitrages budgétaires non détaillés par les auteurs.",
+          "explication": "Le résumé présente comme un fait établi que le FMI souligne des arbitrages budgétaires imposés, alors que la source [2] ne mentionne que la nécessité d'identifier des politiques fiscales et réglementaires efficaces et équitables, sans parler d'arbitrages budgétaires imposés."
+        },
+        {
+          "bloc": 4,
+          "section": "resume",
+          "type": "jugement_de_valeur",
+          "phrase_exacte": "La proposition n'engage pas l'État : aucune annonce officielle n'a suivi, et le FMI souligne que les coûts de la décarbonation imposeront des arbitrages budgétaires non détaillés par les auteurs.",
+          "explication": "L'expression 'imposeront des arbitrages budgétaires' constitue un jugement de valeur prospectif non explicitement sourcé dans ces termes par le FMI, qui parle seulement de nécessité d'identifier des politiques efficaces et équitables."
+        }
+      ]
+    },
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "titre_de_mauvaise_qualite"
+    ],
+    "titre": "Tribune : Bocquet, De Temmerman et Laszlo réclament une entité pour l'innovation de rupture",
+    "n_sources": 4,
+    "n_mots": 540,
+    "titre_rss": "Urgence climatique : « La France doit créer une entité dévolue au financement des innovations de rupture »",
+    "matiere_faits_distincts": 731,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "tribune"
+  },
+  {
+    "slug": "cyberattaque-prestataire-efs-chambres-froides-trois-sites",
+    "statut": "rejete_sensible",
+    "date": "2026-11-08T17:56:23",
+    "problemes_initiaux": 5,
+    "tentative": 2,
+    "bloc5": true,
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "resume_repete_corps",
+      "titre_de_mauvaise_qualite"
+    ],
+    "titre": "Cyberattaque sur un prestataire de l'EFS : trois sites touchés, stocks préservés",
+    "n_sources": 4,
+    "n_mots": 515,
+    "titre_rss": "Cyberattaque : les chambres froides de l'EFS prises pour cible",
+    "matiere_faits_distincts": 729,
+    "matiere_redondance": 0.13,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "canicule-juin-2026-2025-deces-supplementaires-bilan-partiel",
+    "statut": "corrige_automatiquement",
+    "date": "2026-11-08T18:02:11",
+    "problemes_initiaux": 2,
+    "tentatives": 1,
+    "problemes_residuels_style": 0,
+    "rapport_initial": {
+      "conforme": false,
+      "sujet_sensible": false,
+      "sujet_sensible_raison": "",
+      "angle_insuffisant": false,
+      "angle_insuffisant_raison": "",
+      "nature_contenu": "actualite_factuelle",
+      "problemes": [
+        {
+          "bloc": 1,
+          "section": "resume",
+          "type": "chiffre_errone",
+          "phrase_exacte": "Ce chiffre ne couvre qu'environ 60 % de la mortalité nationale et seulement 25 % des décès à domicile, ce qui laisse présager un bilan final nettement plus lourd.",
+          "explication": "Le résumé attribue à tort les 25 % de couverture aux décès à domicile ; la source [1] indique 25 % pour les décès à domicile, 45 % en EHPAD et près de 80 % à l'hôpital, le résumé omet les deux autres lieux et présente le 25 % comme s'il s'appliquait à l'ensemble de la phrase."
+        },
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "compteur_incoherent",
+          "phrase_exacte": "nb_sources: 4",
+          "explication": "Le champ nb_sources indique 4 alors que le tableau sources ne contient que 3 entrées distinctes (une source Santé publique France et deux articles du Monde)."
+        }
+      ]
+    },
+    "article_type": "actu",
+    "titre": "Canicule de juin : 2 025 décès supplémentaires recensés, un bilan encore très partiel",
+    "n_sources": 3,
+    "n_mots": 637,
+    "titre_rss": "Point de situation sur la mortalité toutes causes confondues  sur la période du 22 au 28 juin 2026",
+    "matiere_faits_distincts": 749,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "logement-lutte-espace-urbain-marqueur-politique-europe",
+    "statut": "rejete_qualite",
+    "date": "2026-11-08T18:13:07",
+    "angle_insuffisant": true,
+    "raison": "Aucune phrase des faits ne combine un événement précis daté (décision, publication, annonce récente) et une donnée chiffrée ou nommée qui lui est propre. Le texte explique un phénomène général (luttes pour le logement en Europe) sans dire ce qui vient de se passer pour justifier la publication maintenant : l'expulsion de Madrid date de septembre-novembre (non datée précisément dans les faits), l'analyse NZZ est reprise via Courrier international sans date de l'article original, la décision du Conseil d'État date de juin 2023, l'enquête du Défenseur des droits est de juillet 2026. L'article répond à \"qu'est-ce que la lutte pour le logement ?\" plutôt qu'à \"pourquoi en parle-t-on maintenant ?\".",
+    "article_type": "actu",
+    "titre": "Logement : la lutte pour l'espace urbain devient un marqueur politique en Europe",
+    "n_sources": 5,
+    "n_mots": 571,
+    "titre_rss": "Partout dans le monde, l’accès au logement est au cœur d’une “nouvelle lutte des classes”",
+    "matiere_faits_distincts": 798,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "sujet_pedagogique"
+  },
+  {
+    "slug": "vaccin-arn-personnalise-benefice-melanome-essai-colorectal-arrete-2026",
+    "statut": "rejete_qualite",
+    "date": "2026-11-08T18:37:18",
+    "problemes_initiaux": 9,
+    "tentatives": 3,
+    "problemes_restants": 7,
+    "bloquants_restants": 2,
+    "bloquants_types": [
+      "chiffre_errone",
+      "chiffre_errone"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "Le titre indique que l'essai colorectal a été arrêté 'fin août 2026', mais la source [2] (Le Monde, 23 octobre 2026) ne mentionne aucune date précise pour cet arrêt, se contentant d'évoquer un arrêt récent sans le dater.",
+        "phrase": "Vaccin ARN personnalisé : bénéfice sur mélanome, essai colorectal arrêté fin août 2026"
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La phrase attribue à la source [2] la date précise 'fin août 2026' pour l'annonce de l'arrêt de l'essai colorectal, or l'extrait de cette source ne contient aucune date pour cet événement.",
+        "phrase": "En revanche, les laboratoires BioNTech et Roche ont annoncé fin août 2026 l'arrêt d'un essai clinique évaluant un vaccin personnalisé à ARN contre le cancer colorectal, faute de données probantes d'efficacité [2]."
+      }
+    ],
+    "types_restants": [
+      "chiffre_errone",
+      "chiffre_errone",
+      "source_inventee",
+      "source_inventee",
+      "compteur_incoherent",
+      "source_inventee",
+      "source_inventee"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "resume_repete_corps"
+    ],
+    "titre": "Vaccin ARN personnalisé : bénéfice sur mélanome, essai colorectal arrêté fin août 2026",
+    "n_sources": 2,
+    "n_mots": 618,
+    "titre_rss": "Le vaccin, nouvel outil de lutte contre le cancer",
+    "matiere_faits_distincts": 849,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 2,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "mortalite-france-2024-taux-baisse-4000-deces-plus-2023",
+    "statut": "rejete_qualite",
+    "date": "2026-11-08T18:48:18",
+    "problemes_initiaux": 6,
+    "tentatives": 3,
+    "problemes_restants": 8,
+    "bloquants_restants": 6,
+    "bloquants_types": [
+      "chiffre_errone",
+      "chiffre_errone",
+      "incoherence_inter_sections",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La baisse est de 50,4 points (828,3 - 777,9 = 50,4) mais le résumé indique une baisse de 50 points, ce qui est un arrondi non signalé.",
+        "phrase": "Le taux de mortalité standardisé, qui neutralise l'effet du vieillissement, s'établit à 777,9 décès pour 100 000 habitants, en baisse de 50,4 points sur un an par rapport à 828,3 en 2023 selon la même source [1]."
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "Le résumé arrondit la baisse du taux standardisé à 50 points au lieu de 50,4 points, sans signaler l'arrondi.",
+        "phrase": "En 2024, 641 046 personnes sont décédées en France, soit 4 000 de plus qu'en 2023, mais le taux standardisé recule à 777,9 pour 100 000 habitants grâce au vieillissement démographique."
+      },
+      {
+        "bloc": 1,
+        "type": "incoherence_inter_sections",
+        "description": "Le chapeau (résumé) indique une baisse de 50 points alors que les faits donnent 50,4 points, créant une incohérence entre les deux sections pour le même indicateur.",
+        "phrase": "Le taux de mortalité standardisé, qui neutralise l'effet du vieillissement, s'établit à 777,9 décès pour 100 000 habitants, en baisse de 50,4 points sur un an par rapport à 828,3 en 2023 selon la même source [1]."
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "La source [2] (Santé publique France, 23 juin 2026) porte sur les données 2024 ; elle ne peut pas contenir les chiffres détaillés 2022, 2023, 2019 ni la projection de tendance 2015-2019 cités comme provenant de cette sou",
+        "phrase": "En 2022, le taux standardisé culminait à 887,4 pour 100 000 habitants selon Santé publique France [2]. En 2023, 637 082 décès avaient été recensés, soit 36 000 de moins qu'en 2022, et le taux standardisé s'établissait à "
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "La source [2] ne porte que sur 2024 ; elle ne peut pas fournir les parts 2023 (27 %, 21,4 %), l'état 2023 des cancers du pancréas et du poumon chez les femmes, ni la hausse 2023 des maladies respiratoires et infectieuses",
+        "phrase": "La part des tumeurs dans la mortalité totale était de 27 % en 2023 selon Santé publique France [2], contre 27,1 % en 2024 selon l'Inserm [1] ; celle des maladies cardio-neurovasculaires passait de 21,4 % à 21,2 % sur la "
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "Les sources [1] et [2] datées du 23 juin 2026 portent sur 2024 ; elles ne peuvent pas contenir la courbe de baisse 2015-2019 ni le chiffre 887,4 pour 2022 attribué à Santé publique France dans ce paragraphe.",
+        "phrase": "Les données 2024 confirment le retour progressif vers les niveaux d'avant crise sanitaire, avec un taux standardisé qui s'éloigne du pic de 2022 (887,4 pour 100 000 selon Santé publique France) mais qui n'a pas encore re"
+      }
+    ],
+    "types_restants": [
+      "chiffre_errone",
+      "chiffre_errone",
+      "incoherence_inter_sections",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "compteur_incoherent",
+      "contexte_hors_sujet"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "faits_repetitifs"
+    ],
+    "titre": "Mortalité 2024 : taux en baisse mais 4 000 décès de plus qu'en 2023",
+    "n_sources": 5,
+    "n_mots": 818,
+    "titre_rss": "Grandes causes de décès en France : tendances et causes associées en 2024",
+    "matiere_faits_distincts": 950,
+    "matiere_redondance": 0.11,
+    "matiere_donnees_chiffrees": 3,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "veille_heures_visible": 517.7,
+    "veille_passages": 311,
+    "veille_age_h": 2127.5,
+    "veille_n_flux_grappe": 1,
+    "nature_contenu": "etude_scientifique"
+  },
+  {
+    "slug": "autoroute-a69-ouverture-circulation-conseil-etat-validation-definitive",
+    "statut": "rejete_qualite",
+    "date": "2026-11-08T18:56:48",
+    "tentative": 3,
+    "perte_substance": true,
+    "section": "contexte",
+    "mots_avant": 165,
+    "mots_apres": 69,
+    "article_type": "actu",
+    "titre": "L'autoroute A69 ouvre à la circulation après la validation définitive du Conseil d'État",
+    "n_sources": 7,
+    "n_mots": 673,
+    "titre_rss": "L’autoroute A69 ouverte aux automobilistes, après quatre ans de contestation, avec un péage à 20,40 euros",
+    "matiere_faits_distincts": 465,
+    "matiere_redondance": 0.22,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "bull-double-capacite-production-angers-ia-souverainete",
+    "statut": "rejete_sensible",
+    "date": "2026-11-08T19:04:00",
+    "problemes_initiaux": 14,
+    "bloc5": [
+      "affaire_en_cours_presentee_comme_fait"
+    ],
+    "article_type": "actu",
+    "titre": "Bull double sa capacité de production à Angers pour répondre à la demande d'IA",
+    "n_sources": 4,
+    "n_mots": 488,
+    "titre_rss": "La renaissance de Bull, leader européen du calcul : \"L'intelligence artificielle nous apporte du volume\"",
+    "matiere_faits_distincts": 1016,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "ird-six-projets-anr-flash-covid-19-avril-2020",
+    "statut": "conforme_du_premier_coup",
+    "date": "2026-11-08T19:10:05",
+    "article_type": "actu",
+    "titre": "L'IRD obtient six projets dans l'appel ANR Flash Covid-19",
+    "n_sources": 3,
+    "n_mots": 570,
+    "titre_rss": "Covid-19 – les projets IRD de l’appel ANR-Flash",
+    "matiere_faits_distincts": 1048,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 3,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "veille_heures_visible": 517.7,
+    "veille_passages": 326,
+    "veille_age_h": 2127.5,
+    "veille_n_flux_grappe": 1,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "thrombinnov-deeptech-strasbourg-plaquettes-recherche-medicaments",
+    "statut": "rejete_qualite",
+    "date": "2026-11-08T19:33:25",
+    "angle_insuffisant": true,
+    "raison": "Aucun événement précis daté ou datable (annonce, publication, décision, résultat récent) n'est identifié dans les faits : l'article se contente de présenter la startup, son modèle et des généralités sur le sang sans fait déclencheur actualité. Le lecteur ne sait pas pourquoi cet article est publié maintenant.",
+    "article_type": "actu",
+    "titre": "ThrombInnov : une deeptech strasbourgeoise valorise 40 ans de recherche sur les plaquettes",
+    "n_sources": 3,
+    "n_mots": 779,
+    "titre_rss": "L’entrepreneuriat dans le sang !",
+    "matiere_faits_distincts": 1021,
+    "matiere_redondance": 0.09,
+    "matiere_donnees_chiffrees": 3,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "sujet_pedagogique"
+  },
+  {
+    "slug": "italie-gouvernement-meloni-revoir-taxe-sortie-grandes-fortunes",
+    "statut": "corrige_automatiquement",
+    "date": "2026-11-08T19:40:40",
+    "problemes_initiaux": 14,
+    "tentatives": 2,
+    "problemes_residuels_style": 17,
+    "rapport_initial": {
+      "conforme": false,
+      "sujet_sensible": false,
+      "sujet_sensible_raison": "",
+      "angle_insuffisant": false,
+      "angle_insuffisant_raison": "",
+      "nature_contenu": "actualite_factuelle",
+      "problemes": [
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "Le projet de loi de finances pour 2027 présenté par le gouvernement de Giorgia Meloni prévoit une taxe de sortie de 26 % sur les plus-values latentes des particuliers détenant des investissements financiers d'une valeur d'au moins 800 000 euros qui transfèrent leur domicile fiscal hors d'Italie [1][4].",
+          "explication": "La source [4] (Le Monde, 29 octobre 2025) traite du budget 2026, pas du projet de loi de finances pour 2027 ; elle ne mentionne pas de taxe de sortie à 26 % sur les plus-values latentes avec seuil à 800 000 €. Le fait est attribué à une source qui ne le confirme pas."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "Face aux vives critiques d'experts fiscaux et de conseillers en gestion de patrimoine, le vice-ministre de l'Économie Maurizio Leo a déclaré que l'Italie est disposée à examiner les propositions visant à améliorer cette taxe de sortie, affirmant que le gouvernement reste ouvert au dialogue [1][4].",
+          "explication": "La source [4] ne contient aucune déclaration de Maurizio Leo sur une taxe de sortie 2027 ; elle porte sur le budget 2026. L'attribution à [4] est inventée."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "Les conseillers en gestion de patrimoine ont notamment averti que cette taxe pourrait nuire à l'attrait de l'Italie, annulant les efforts des gouvernements précédents pour attirer les capitaux [1][4].",
+          "explication": "La source [4] ne mentionne pas d'avertissement de conseillers en gestion de patrimoine sur une taxe de sortie 2027. L'attribution à [4] est inventée."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "Aucune modification concrète n'a toutefois été annoncée à ce stade. La déclaration du vice-ministre marque une inflexion par rapport à la position initiale, sans pour autant préciser quels aménagements pourraient être envisagés [1][4].",
+          "explication": "La source [4] ne documente ni la position initiale, ni l'inflexion, ni l'absence de modification annoncée pour une taxe de sortie 2027. L'attribution à [4] est inventée."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "Au niveau européen, la Commission européenne suit les réformes fiscales des États membres via le questionnaire annuel conjoint avec l'OCDE, dont l'édition 2026 recense les réformes annoncées, légiférées ou mises en œuvre durant 2025 [3].",
+          "explication": "La source [3] (Sénat, « La pratique de la dépense fiscale : étude de cas européens », 22 octobre 2026) ne mentionne pas de questionnaire annuel conjoint Commission/OCDE édition 2026 recensant les réformes 2025. Le fait est attribué à une source qui ne le confirme pas."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "Le Conseil de l'Union européenne travaille par ailleurs à l'actualisation des règles fiscales à l'ère numérique, tant pour l'imposition directe des sociétés que pour la TVA et les droits d'accise [2].",
+          "explication": "La source [2] (Europa, RPEX - infocuria.curia.europa.eu) est une page de jurisprudence de la Cour de justice (docid=241191) ; elle ne traite pas des travaux du Conseil sur l'actualisation des règles fiscales à l'ère numérique. Le fait est attribué à une source qui ne le confirme pas."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "Le projet de budget 2026 présenté en octobre 2025 visait déjà à ramener le déficit public sous la barre des 3 % du PIB en 2026, selon Le Monde [5].",
+          "explication": "La source [5] (Le Monde, 29 octobre 2025) a pour titre « L'Italie présente un budget avec baisse d'impôt et taxe sur les banques » ; l'extrait fourni ne confirme pas l'objectif de ramener le déficit sous 3 % du PIB en 2026. Le fait est attribué à une source qui ne le confirme pas dans les extraits fournis."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "L'Italie de Giorgia Meloni s'inscrit dans la continuité des politiques d'austérité décidées en 2011, note le même quotidien [6].",
+          "explication": "La source [6] (Le Monde, 17 octobre 2025, rubrique Idées) a pour titre « L'Italie de Giorgia Meloni s'inscrit toujours dans les politiques d'austérité décidées en 2011 » ; l'extrait fourni ne permet pas de vérifier le contenu de l'article. Le fait est attribué à une source dont l'extrait ne confirme pas l'affirmation."
+        },
+        {
+          "bloc": 1,
+          "section": "nuances",
+          "type": "source_inventee",
+          "phrase_exacte": "La portée exacte de la révision annoncée reste indéterminée : le vice-ministre n'a pas précisé s'il s'agirait d'un relèvement du seuil de 800 000 euros, d'une modulation du taux de 26 %, d'exemptions sectorielles ou d'un report d'entrée en vigueur [1][4].",
+          "explication": "La source [4] ne contient aucune information sur le seuil de 800 000 €, le taux de 26 %, ni les options de révision pour une taxe de sortie 2027. L'attribution à [4] est inventée."
+        },
+        {
+          "bloc": 1,
+          "section": "nuances",
+          "type": "source_inventee",
+          "phrase_exacte": "Le calendrier parlementaire du budget 2027 sera déterminant : le texte doit être adopté d'ici la fin de l'année 2026 pour une application en 2027 [1][4].",
+          "explication": "La source [4] traite du budget 2026, pas du calendrier parlementaire du budget 2027. L'attribution à [4] est inventée."
+        },
+        {
+          "bloc": 1,
+          "section": "nuances",
+          "type": "source_inventee",
+          "phrase_exacte": "Aucune source consultée ne mentionne de réaction formelle de la Commission européenne sur cette taxe de sortie spécifique, ni d'évaluation indépendante de son effet sur les flux de capitaux réels. Le FMI, dans son rapport sur la stabilité financière mondiale d'octobre 2026, n'aborde pas cette mesure italienne [7].",
+          "explication": "La source [7] (FMI, Global Financial Stability Report, 13 octobre 2026) n'est pas fournie dans les extraits ; l'article affirme qu'elle n'aborde pas la mesure, mais cette absence ne peut être vérifiée sur la base des extraits fournis. De plus, la source [7] est référencée comme [7] alors que le tableau sources ne contient que 6 entrées (indices 1 à 6)."
+        },
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "compteur_incoherent",
+          "phrase_exacte": "Le projet de loi de finances pour 2027 présenté par le gouvernement de Giorgia Meloni prévoit une taxe de sortie de 26 % sur les plus-values latentes des particuliers détenant des investissements financiers d'une valeur d'au moins 800 000 euros qui transfèrent leur domicile fiscal hors d'Italie [1][4].",
+          "explication": "L'article cite la source [7] dans les nuances (« Le FMI [...] n'aborde pas cette mesure italienne [7] »), mais le champ nb_sources vaut 6 et le tableau sources ne contient que 6 entrées (indices 1 à 6). Le compteur est incohérent : une source fantôme [7] est utilisée mais non comptée, ou le nb_sources est sous-évalué."
+        },
+        {
+          "bloc": 4,
+          "section": "contexte",
+          "type": "contexte_hors_sujet",
+          "phrase_exacte": "Au niveau européen, la Commission européenne suit les réformes fiscales des États membres via le questionnaire annuel conjoint avec l'OCDE, dont l'édition 2026 recense les réformes annoncées, légiférées ou mises en œuvre durant 2025 [3]. Le Conseil de l'Union européenne travaille par ailleurs à l'actualisation des règles fiscales à l'ère numérique, tant pour l'imposition directe des sociétés que pour la TVA et les droits d'accise [2].",
+          "explication": "Ces deux paragraphes portent sur des processus européens généraux (questionnaire Commission/OCDE, travaux du Conseil sur la fiscalité numérique) qui n'éclairent pas directement la taxe de sortie italienne sur les grandes fortunes, sujet principal de l'article. Les sources [2] et [3] ne documentent pas ce sujet précis."
+        },
+        {
+          "bloc": 4,
+          "section": "contexte",
+          "type": "contexte_hors_sujet",
+          "phrase_exacte": "Le projet de budget 2026 présenté en octobre 2025 visait déjà à ramener le déficit public sous la barre des 3 % du PIB en 2026, selon Le Monde [5]. L'Italie de Giorgia Meloni s'inscrit dans la continuité des politiques d'austérité décidées en 2011, note le même quotidien [6].",
+          "explication": "Ces faits concernent le budget 2026 et une analyse d'austérité, sans lien direct avec la taxe de sortie 2027 qui fait l'objet de l'article. Ils ne servent qu'à remplir la section contexte sans éclairer le sujet principal."
+        }
+      ]
+    },
+    "article_type": "actu",
+    "titre": "Italie : le gouvernement Meloni prêt à revoir sa taxe de sortie",
+    "n_sources": 6,
+    "n_mots": 543,
+    "titre_rss": "\"Exit tax\" en Italie : face aux critiques, Giorgia Meloni prête à revoir sa copie",
+    "matiere_faits_distincts": 780,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "emprunt-populaire-pinay-dette-france-bourcieu-duchesne",
+    "statut": "rejete_sensible",
+    "date": "2026-11-08T19:58:34",
+    "problemes_initiaux": 11,
+    "bloc5": [
+      "affaire_en_cours_presentee_comme_fait"
+    ],
+    "article_type": "actu",
+    "titre": "Deux économistes proposent un emprunt populaire type Pinay pour financer la dette",
+    "n_sources": 4,
+    "n_mots": 509,
+    "titre_rss": "Budget 2027 : « Si nous croyons dans l’avenir de la France, il faut inciter les épargnants français à investir dans sa dette »",
+    "matiere_faits_distincts": 323,
+    "matiere_redondance": 0.09,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "tribune"
+  },
+  {
+    "slug": "budget-2027-assemblee-rejette-plf-unanimite-calendrier",
+    "statut": "rejete_qualite",
+    "date": "2026-11-08T20:06:03",
+    "tentative": 3,
+    "perte_substance": true,
+    "section": "contexte",
+    "mots_avant": 142,
+    "mots_apres": 50,
+    "article_type": "actu",
+    "titre": "Budget 2027 : l'Assemblée rejette le texte à l'unanimité, calendrier sous tension",
+    "n_sources": 5,
+    "n_mots": 508,
+    "titre_rss": "Budget 2027 : les dates-clés des prochaines semaines",
+    "matiere_faits_distincts": 759,
+    "matiere_redondance": 0.03,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "bresil-hausse-consommation-alimentaire-interdiction-paris-en-ligne",
+    "statut": "rejete_qualite",
+    "date": "2026-11-08T20:12:33",
+    "angle_insuffisant": true,
+    "raison": "Aucune phrase dans 'faits' ne combine un événement précis daté (date d'entrée en vigueur de l'interdiction, période d'observation exacte) et une donnée chiffrée propre à cet événement. L'article répond à 'qu'est-ce qui s'est passé ?' par une observation unique sans méthodologie, sans date, sans série historique — c'est une fiche pédagogique sur un phénomène supposé, pas une actualité factuelle datée.",
+    "article_type": "actu",
+    "titre": "Brésil : la consommation alimentaire progresse de 6,5 % après l'interdiction des paris",
+    "n_sources": 4,
+    "n_mots": 488,
+    "titre_rss": "Au Brésil, l'interdiction des paris redonne du pouvoir d'achat alimentaire",
+    "matiere_faits_distincts": 699,
+    "matiere_redondance": 0.1,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "californie-electeurs-rejettent-taxe-zucman-milliardaires",
+    "statut": "rejete_sensible",
+    "date": "2026-11-08T20:33:42",
+    "problemes_initiaux": 8,
+    "tentative": 1,
+    "bloc5": true,
+    "article_type": "actu",
+    "titre": "En Californie, les électeurs rejettent la taxe Zucman sur les grandes fortunes",
+    "n_sources": 5,
+    "n_mots": 563,
+    "titre_rss": "En Californie, la « taxe Zucman » rejetée par les électeurs",
+    "matiere_faits_distincts": 717,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "reportage-astronomique-desert-fayoum-egypte",
+    "statut": "rejete_qualite",
+    "date": "2026-11-08T20:38:56",
+    "angle_insuffisant": true,
+    "raison": "Aucune phrase des faits ne contient à la fois un événement précis daté ou datable (publication, décision, résultat récent) et une donnée chiffrée ou nommée qui lui est propre. L'article décrit seulement l'existence d'un reportage magazine sans actualité déclenchante, répondant à 'qu'est-ce que ce reportage ?' plutôt qu'à 'pourquoi en parle-t-on maintenant ?'.",
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "article_sans_date"
+    ],
+    "titre": "Reportage astronomique dans le désert du Fayoum en Égypte",
+    "n_sources": 5,
+    "n_mots": 517,
+    "titre_rss": "\"Un ciel comme ça, on a rarement la chance d'en voir\" : la magie des étoiles dans le désert égyptien",
+    "matiere_faits_distincts": 823,
+    "matiere_redondance": 0.08,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "sujet_pedagogique"
+  },
+  {
+    "slug": "mit-bacteries-transistors-informatique-vivante",
+    "statut": "rejete_qualite",
+    "date": "2026-11-08T20:45:58",
+    "tentative": 2,
+    "angle_insuffisant": true,
+    "raison": "Aucune phrase des faits ne contient à la fois un événement précis daté (publication, décision, résultat rendu public récemment) et une donnée chiffrée ou nommée qui lui est propre. L'article se fonde uniquement sur une émission radio grand public (France Info) sans publication peer-reviewed, sans nom d'équipe, sans souche bactérienne, sans métrique de performance ; il répond à « qu'est-ce que c'est ? » plutôt qu'à « pourquoi en parle-t-on maintenant ? ».",
+    "article_type": "actu",
+    "titre": "Des chercheurs du MIT transforment des bactéries en transistors",
+    "n_sources": 3,
+    "n_mots": 501,
+    "titre_rss": "Des transistors à partir d'êtres vivants",
+    "matiere_faits_distincts": 655,
+    "matiere_redondance": 0.13,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "jeunes-avocats-ia-generative-taches-juniors-cabinets-2031",
+    "statut": "rejete_sensible",
+    "date": "2026-11-08T20:52:54",
+    "problemes_initiaux": 8,
+    "tentative": 2,
+    "bloc5": true,
+    "article_type": "actu",
+    "titre": "Jeunes avocats : l'IA pourrait exécuter 100 % des tâches juniors d'ici 2031",
+    "n_sources": 5,
+    "n_mots": 475,
+    "titre_rss": "Dans les cabinets d’affaires, l’inquiétude des jeunes avocats : « D’ici à cinq ans, l’IA sera capable d’exécuter la quasi-totalité des tâches aujourd’hui confiées à un stagiaire ou à un jeune collabor",
+    "matiere_faits_distincts": 619,
+    "matiere_redondance": 0.03,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
   }
 ]
