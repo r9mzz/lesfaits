@@ -63941,5 +63941,659 @@
     "n_sources_injectees": 10,
     "n_sources_trouvees": 10,
     "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "retraite-francais-epargne-personnelle-confiance-securite-financiere",
+    "statut": "corrige_automatiquement",
+    "date": "2026-11-09T17:27:36",
+    "problemes_initiaux": 15,
+    "tentatives": 1,
+    "problemes_residuels_style": 12,
+    "rapport_initial": {
+      "conforme": false,
+      "sujet_sensible": false,
+      "sujet_sensible_raison": "",
+      "angle_insuffisant": false,
+      "angle_insuffisant_raison": "",
+      "nature_contenu": "etude_scientifique",
+      "problemes": [
+        {
+          "bloc": 1,
+          "section": "resume",
+          "type": "source_inventee",
+          "phrase_exacte": "Paul Krugman attribue la méfiance des marchés envers la dette française à l'absence de réforme structurelle des retraites, pendant que la Cour des comptes anticipe une bascule déficitaire d'ici 2045.",
+          "explication": "La source [1] (L'Express) ne mentionne pas Paul Krugman ni ses propos sur la dette française ; cette attribution est inventée par rapport aux sources autorisées."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "Paul Krugman, prix Nobel d'économie 2008, estime que la défiance des investisseurs étrangers à l'égard de la France, qui se traduit par une hausse de ses taux d'emprunt, serait liée à une incapacité persistante à regarder en face la réalité des retraites [1].",
+          "explication": "La source [1] (L'Express) ne contient aucune citation ni référence à Paul Krugman ; le fait lui est faussement attribué."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "chiffre_errone",
+          "phrase_exacte": "La DREES publie son panorama annuel 2026 qui rassemble les éléments de cadrage et les chiffres clés sur les retraites, premier poste de dépenses de la protection sociale avec 395 milliards d'euros [3].",
+          "explication": "La source [3] (Panorama DREES 2026) indique 378,4 milliards d'euros de dépenses de retraite en 2023, et non 395 milliards ; le chiffre est erroné par rapport à la source citée."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "chiffre_errone",
+          "phrase_exacte": "Les retraites représentent le premier poste de dépenses de la protection sociale avec 395 milliards d'euros selon le panorama 2026 de la DREES [3].",
+          "explication": "Même erreur que dans les faits : la source [3] donne 378,4 milliards d'euros, pas 395 milliards."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "incoherence_inter_sections",
+          "phrase_exacte": "En 2025, le régime de la fonction publique de l'État a versé 65,1 milliards d'euros de prestations à deux millions de pensionnés, soit un septième des dépenses de retraite en France [4].",
+          "explication": "Si les dépenses totales étaient de 395 milliards (chiffre utilisé dans l'article), un septième correspondrait à ~56,4 milliards, et non 65,1 milliards ; l'incohérence interne n'est pas signalée."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "niveau_preuve_insuffisant",
+          "phrase_exacte": "L'étude Decoding Investors publiée par la société de gestion Amundi montre que les investisseurs français anticipent que leur épargne personnelle constituera leur principale source de revenus à la retraite [1].",
+          "explication": "La source [1] est un article de L'Express qui rapporte l'étude Amundi ; l'étude originale Amundi ne figure pas dans les sources autorisées, ce qui affaiblit le niveau de preuve pour un résultat d'enquête présenté comme fait établi."
+        },
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "source_derivee_comptee_comme_primaire",
+          "phrase_exacte": "L'étude Decoding Investors publiée par la société de gestion Amundi montre que les investisseurs français anticipent que leur épargne personnelle constituera leur principale source de revenus à la retraite [1].",
+          "explication": "La source [1] (L'Express) est une reprise médiatique de l'étude Amundi ; l'étude primaire n'est pas fournie, pourtant le champ qualite_sources compte 2 sources primaires, ce qui surévalue l'indépendance du sourcing."
+        },
+        {
+          "bloc": 2,
+          "section": "contexte",
+          "type": "source_derivee_comptee_comme_primaire",
+          "phrase_exacte": "La Cour des comptes, dans son rapport de février 2025, indique que le système de retraites a affiché un excédent en 2023 permis par une succession de réformes, mais prévoit une nette dégradation de la situation financière à l'horizon 2045 malgré les réformes successives [2].",
+          "explication": "La source [2] (Vie Publique) est une synthèse du rapport de la Cour des comptes ; le rapport original de la Cour n'est pas dans les sources, mais qualite_sources le compte comme primaire."
+        },
+        {
+          "bloc": 2,
+          "section": "contexte",
+          "type": "source_derivee_comptee_comme_primaire",
+          "phrase_exacte": "Les retraites représentent le premier poste de dépenses de la protection sociale avec 395 milliards d'euros selon le panorama 2026 de la DREES [3].",
+          "explication": "La source [3] est la publication officielle DREES (primaire pour ce chiffre), mais le chiffre 395 milliards est erroné (voir chiffre_errone) ; par ailleurs, la source [4] (Vie Publique) est une reprise de données DREES, comptée comme primaire alors qu'elle est dérivée."
+        },
+        {
+          "bloc": 2,
+          "section": "contexte",
+          "type": "compteur_incoherent",
+          "phrase_exacte": "nb_sources: 4",
+          "explication": "Le champ nb_sources indique 4, mais qualite_sources déclare 2 primaires + 1 secondaire = 3 sources distinctes qualifiées ; le total des sources distinctes utilisées dans le texte est 4, mais la ventilation primaire/secondaire est incohérente avec la nature réelle des sources (toutes dérivées sauf [3])."
+        },
+        {
+          "bloc": 3,
+          "section": "resume",
+          "type": "cadrage_emprunte",
+          "phrase_exacte": "Paul Krugman attribue la méfiance des marchés envers la dette française à l'absence de réforme structurelle des retraites, pendant que la Cour des comptes anticipe une bascule déficitaire d'ici 2045.",
+          "explication": "Le résumé présente l'opinion de Paul Krugman (absente des sources) comme un fait neutre et l'associe à la Cour des comptes pour créer un cadrage éditorial non sourcé."
+        },
+        {
+          "bloc": 4,
+          "section": "contexte",
+          "type": "redondance",
+          "phrase_exacte": "Les retraites représentent le premier poste de dépenses de la protection sociale avec 395 milliards d'euros selon le panorama 2026 de la DREES [3].",
+          "explication": "Ce chiffre (même erroné) est déjà énoncé dans les faits ; le répéter dans le contexte sans information additionnelle constitue une redondance interdite par la charte."
+        },
+        {
+          "bloc": 4,
+          "section": "nuances",
+          "type": "redondance",
+          "phrase_exacte": "Le panorama DREES 2026 précise que les dépenses de retraite ont progressé de 4,1 % en 2023, portées par la revalorisation des pensions et l'augmentation du nombre de retraités, ce qui pèse sur la trajectoire budgétaire [3].",
+          "explication": "Cette précision sur l'évolution 2023 (+4,1 %) n'apparaît nulle part dans les faits ni le contexte ; elle est introduite pour la première fois dans les nuances, ce qui n'est pas une redondance mais un fait nouveau non annoncé — toutefois, la charte interdit d'introduire un fait nouveau dans les nuances ; cela relève d'une structuration défectueuse (section_gonflee)."
+        },
+        {
+          "bloc": 4,
+          "section": "nuances",
+          "type": "section_gonflee",
+          "phrase_exacte": "Le panorama DREES 2026 précise que les dépenses de retraite ont progressé de 4,1 % en 2023, portées par la revalorisation des pensions et l'augmentation du nombre de retraités, ce qui pèse sur la trajectoire budgétaire [3].",
+          "explication": "Les nuances doivent porter sur les limites des faits déjà exposés, pas introduire de nouvelles données chiffrées (ici +4,1 % en 2023) absentes du corps de l'article."
+        },
+        {
+          "bloc": 4,
+          "section": "resume",
+          "type": "angle_annonce_non_tenu",
+          "phrase_exacte": "Paul Krugman attribue la méfiance des marchés envers la dette française à l'absence de réforme structurelle des retraites, pendant que la Cour des comptes anticipe une bascule déficitaire d'ici 2045.",
+          "explication": "L'angle annoncé dans le résumé (Krugman + Cour des comptes) n'est pas tenu dans les faits : Krugman n'y figure pas (source inventée) et la Cour des comptes n'est citée que dans le contexte, sans lien avec l'étude Amundi qui est le sujet principal."
+        }
+      ]
+    },
+    "article_type": "actu",
+    "titre": "Retraite : les Français misent sur leur épargne personnelle mais doutent de leur sécurité financière",
+    "n_sources": 4,
+    "n_mots": 512,
+    "titre_rss": "Retraite : ce qu’un bilan peut vous faire gagner",
+    "matiere_faits_distincts": 487,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 2,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "etude_scientifique"
+  },
+  {
+    "slug": "loi-resilience-retour-assemblee-apres-un-an-blocage",
+    "statut": "rejete_sensible",
+    "date": "2026-11-09T17:35:16",
+    "problemes_initiaux": 17,
+    "bloc5": [
+      "faux_debat"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "titre_de_mauvaise_qualite"
+    ],
+    "titre": "La loi résilience examinée à l'Assemblée ce lundi après un an de blocage",
+    "n_sources": 7,
+    "n_mots": 532,
+    "titre_rss": "Après un été de cyberattaques et un an de blocage, la loi « résilience » de retour à l’Assemblée nationale",
+    "matiere_faits_distincts": 626,
+    "matiere_redondance": 0.05,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "truth-social-acces-prioritaire-publications-trump-legalite-question",
+    "statut": "rejete_sensible",
+    "date": "2026-11-09T17:43:55",
+    "sujet_sensible": true,
+    "raison": "L'article porte sur une affaire judiciaire en cours visant une personne physique (Donald Trump) et son entreprise, avec des allégations de délit d'initié non définitivement jugées.",
+    "article_type": "actu",
+    "titre": "Truth Social vend un accès prioritaire aux publications de Trump, la légalité en question",
+    "n_sources": 3,
+    "n_mots": 686,
+    "titre_rss": "Trump et Truth Social : parole publique, intérêts privés",
+    "matiere_faits_distincts": 858,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "label-bas-carbone-tourbieres-methode-approuvee-consultation",
+    "statut": "rejete_sensible",
+    "date": "2026-11-09T17:56:20",
+    "problemes_initiaux": 10,
+    "tentative": 2,
+    "bloc5": true,
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "titre_de_mauvaise_qualite"
+    ],
+    "titre": "Label bas carbone tourbières : méthode approuvée après consultation publique",
+    "n_sources": 4,
+    "n_mots": 591,
+    "titre_rss": "Nouveau label bas carbone tourbières : \"Il y a un intérêt business, au-delà de la stratégie climat\"",
+    "matiere_faits_distincts": 1023,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "precarite-energetique-un-francais-sur-dix-concerne-appel-temoignages",
+    "statut": "rejete_qualite",
+    "date": "2026-11-09T18:13:59",
+    "angle_insuffisant": true,
+    "raison": "Aucune phrase dans 'faits' ne combine un événement précis daté (lancement de l'appel à témoignages) avec une donnée chiffrée ou nommée qui lui est propre ; l'article répond à 'qu'est-ce que la précarité énergétique ?' plutôt qu'à 'pourquoi en parle-t-on maintenant ?'.",
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "faits_repetitifs"
+    ],
+    "titre": "Précarité énergétique : un Français sur dix concerné, franceinfo lance un appel à témoignages",
+    "n_sources": 5,
+    "n_mots": 511,
+    "titre_rss": "Vous avez du mal à vous chauffer ou à payer vos factures d'énergie ? Dites-nous quelles mesures vous attendez du prochain président pour y remédier",
+    "matiere_faits_distincts": 687,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "ebola-bundibugyo-vaccins-anticorps-croises-preuves-protection",
+    "statut": "corrige_automatiquement",
+    "date": "2026-11-09T18:31:49",
+    "problemes_initiaux": 10,
+    "tentatives": 2,
+    "problemes_residuels_style": 0,
+    "rapport_initial": {
+      "conforme": false,
+      "sujet_sensible": false,
+      "sujet_sensible_raison": "",
+      "angle_insuffisant": false,
+      "angle_insuffisant_raison": "",
+      "nature_contenu": "etude_scientifique",
+      "problemes": [
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "chiffre_errone",
+          "phrase_exacte": "L'épidémie d'Ebola causée par la souche Bundibugyo, déclarée urgence sanitaire internationale par l'OMS le 17 mai 2026, a fait plus de 1 000 décès en République démocratique du Congo et en Ouganda au 22 juillet 2026 [1].",
+          "explication": "La source [1] (Inserm, 23 juillet 2026) indique « plus de 1 000 cas confirmés » et non « plus de 1 000 décès » ; le nombre de décès n'est pas précisé dans cet extrait."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "chiffre_errone",
+          "phrase_exacte": "Au 1er novembre 2026, plus de 10 500 cas confirmés et 5 126 décès étaient recensés [2].",
+          "explication": "La source [2] (Le Monde, 9 novembre 2026) mentionne « plus de 10 500 cas confirmés » mais ne donne pas le chiffre de 5 126 décès dans l'extrait fourni."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "chiffre_errone",
+          "phrase_exacte": "La Banque mondiale mobilise 426,6 millions de dollars en financements actuels et prévus pour la riposte en RDC, Ouganda, Burundi et Soudan du Sud, dont 245,6 millions déjà disponibles [3].",
+          "explication": "La source [3] (AP News, 1er octobre 2026) ne contient aucune information sur des financements de la Banque mondiale ni sur les montants cités."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "chiffre_errone",
+          "phrase_exacte": "Le CDC a décrit dès juin 2026 une flambée majeure de maladie à virus Bundibugyo en RDC et Ouganda [3].",
+          "explication": "La source [3] (AP News, 1er octobre 2026) ne mentionne pas le CDC ni de description d'une flambée en juin 2026."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "Au 1er novembre 2026, plus de 10 500 cas confirmés et 5 126 décès étaient recensés [2].",
+          "explication": "Le chiffre de 5 126 décès est attribué à la source [2] mais n'y figure pas dans l'extrait fourni."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "La Banque mondiale mobilise 426,6 millions de dollars en financements actuels et prévus pour la riposte en RDC, Ouganda, Burundi et Soudan du Sud, dont 245,6 millions déjà disponibles [3].",
+          "explication": "Cette information est attribuée à la source [3] mais n'y figure pas dans l'extrait fourni."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "Le CDC a décrit dès juin 2026 une flambée majeure de maladie à virus Bundibugyo en RDC et Ouganda [3].",
+          "explication": "Cette information est attribuée à la source [3] mais n'y figure pas dans l'extrait fourni."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "incoherence_inter_sections",
+          "phrase_exacte": "Au 1er novembre 2026, plus de 10 500 cas confirmés et 5 126 décès étaient recensés [2].",
+          "explication": "Le chapeau et les faits mentionnent « plus de 1 000 décès au 22 juillet 2026 » alors que le contexte donne « 5 126 décès au 1er novembre 2026 » ; l'article ne signale pas explicitement qu'il s'agit de deux dates différentes ni ne réconcilie les deux bilans."
+        },
+        {
+          "bloc": 2,
+          "section": "contexte",
+          "type": "compteur_incoherent",
+          "phrase_exacte": "nb_sources: 4",
+          "explication": "Le tableau sources ne liste que 3 entrées (Inserm, Le Monde, AP News) alors que le champ nb_sources indique 4."
+        },
+        {
+          "bloc": 4,
+          "section": "contexte",
+          "type": "redondance",
+          "phrase_exacte": "L'épidémie actuelle de Bundibugyo est la plus importante de l'histoire de la RDC selon l'OMS [2].",
+          "explication": "Cette phrase répète l'information déjà donnée dans les faits selon laquelle l'épidémie a été déclarée urgence sanitaire internationale et a fait plus de 1 000 cas/décès, sans apporter de fait distinct supplémentaire."
+        }
+      ]
+    },
+    "article_type": "actu",
+    "titre": "Ebola Bundibugyo : les vaccins anti-Zaïre induisent des anticorps croisés sans preuve clinique",
+    "n_sources": 3,
+    "n_mots": 748,
+    "titre_rss": "Épidémie d’Ebola Bundibugyo : des premiers résultats pour guider la recherche d’un vaccin efficace",
+    "matiere_faits_distincts": 1014,
+    "matiere_redondance": 0.02,
+    "matiere_donnees_chiffrees": 2,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "veille_heures_visible": 517.7,
+    "veille_passages": 311,
+    "veille_age_h": 2151.5,
+    "veille_n_flux_grappe": 9,
+    "nature_contenu": "etude_scientifique"
+  },
+  {
+    "slug": "tribune-le-monde-bocquet-de-temmerman-laszlo-agence-innovation-rupture-climat",
+    "statut": "conforme_du_premier_coup",
+    "date": "2026-11-09T18:39:46",
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "titre_de_mauvaise_qualite"
+    ],
+    "titre": "Tribune : Bocquet, De Temmerman et Laszlo proposent une agence type ARPA-E pour le climat",
+    "n_sources": 5,
+    "n_mots": 735,
+    "titre_rss": "Urgence climatique : « La France doit créer une entité dévolue au financement des innovations de rupture »",
+    "matiere_faits_distincts": 755,
+    "matiere_redondance": 0.15,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "tribune"
+  },
+  {
+    "slug": "pesticides-redevance-pollutions-diffuses-agences-eau-90-millions-perdus",
+    "statut": "rejete_sensible",
+    "date": "2026-11-09T18:50:41",
+    "problemes_initiaux": 15,
+    "tentative": 3,
+    "bloc5": true,
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "titre_de_mauvaise_qualite"
+    ],
+    "titre": "Pesticides : le gouvernement a privé les agences de l'eau de plus de 90 millions d'euros",
+    "n_sources": 4,
+    "n_mots": 681,
+    "titre_rss": "Pollution aux pesticides : en restreignant la portée d’une taxe, le gouvernement a privé les agences de l’eau de plus de 90 millions d’euros de redevance",
+    "matiere_faits_distincts": 1218,
+    "matiere_redondance": 0.01,
+    "matiere_donnees_chiffrees": 3,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "piratage-binance-6-3-milliards-coree-nord-fbi",
+    "statut": "rejete_qualite",
+    "date": "2026-11-09T18:59:42",
+    "problemes_initiaux": 10,
+    "tentatives": 3,
+    "problemes_restants": 11,
+    "bloquants_restants": 8,
+    "bloquants_types": [
+      "chiffre_errone",
+      "chiffre_errone",
+      "incoherence_inter_sections",
+      "chiffre_errone",
+      "accusation_presentee_comme_fait",
+      "accusation_presentee_comme_fait",
+      "source_inventee",
+      "source_inventee"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "Le titre affirme que 6,3 milliards ont été volés comme un fait établi, alors que le corps de l'article (source [3]) indique que Binance a démenti ce chiffre et que les estimations feraient état de 100 à 110 millions de d",
+        "phrase": "Piratage de Binance : 6,3 milliards volés, la Corée du Nord accusée par le FBI"
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "Le résumé présente le chiffre de 6,3 milliards comme un fait acquis, sans mentionner le démenti de Binance ni l'estimation bien inférieure (100-110 millions) rapportée dans les faits via la source [3].",
+        "phrase": "La plateforme Binance a subi un piratage historique de 6,3 milliards de dollars d'actifs numériques, attribué par le FBI à des pirates nord-coréens du groupe TraderTraitor."
+      },
+      {
+        "bloc": 1,
+        "type": "incoherence_inter_sections",
+        "description": "Le même paragraphe affirme d'abord que 6,3 milliards ont été dérobés (source [4]), puis rapporte que Binance dément ce chiffre et cite une estimation de 100-110 millions (source [3]), sans réconcilier les deux valeurs ni",
+        "phrase": "La première plateforme d'échange de cryptomonnaies au monde, Binance, a annoncé la reprise progressive des retraits dimanche après un piratage d'une ampleur inédite : 6,3 milliards de dollars d'actifs numériques dérobés "
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "Le contexte présente le vol de 6,3 milliards comme un fait établi qui dépasse le record du Ronin (620 millions), alors que la source [3] citée dans les faits indique que Binance dément ce chiffre et que l'estimation réel",
+        "phrase": "Le piratage de Binance, survenu fin octobre 2026, dépasse largement les précédents records : le vol de 620 millions de dollars sur le réseau Ronin en mars 2022, déjà attribué à des acteurs nord-coréens, apparaissait comm"
+      },
+      {
+        "bloc": 1,
+        "type": "accusation_presentee_comme_fait",
+        "description": "L'affirmation que la Corée du Nord finance son programme nucléaire par des cyberattaques est présentée comme un fait établi, alors qu'il s'agit d'une accusation/analyse d'agences de renseignement et d'experts qui devrait",
+        "phrase": "Ce piratage s'inscrit dans une stratégie de longue date : depuis 2017, soit environ neuf ans, Pyongyang finance son programme balistique et nucléaire à coup de « cybercasses », faisant de l'industrie des cryptomonnaies s"
+      },
+      {
+        "bloc": 1,
+        "type": "accusation_presentee_comme_fait",
+        "description": "Même accusation présentée comme fait établi dans le contexte, sans attribution aux sources qui l'émettent (services de renseignement, ONU, experts en cybersécurité).",
+        "phrase": "Depuis 2017, soit environ neuf ans, Pyongyang finance son programme balistique et nucléaire à coup de « cybercasses ». Les pirates nord-coréens ont fait de l'industrie des cryptomonnaies leur cible principale, avec succè"
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "Le renvoi [4] pointe vers la source France 24 (4e source), mais cette source ne confirme pas le chiffre de 6,3 milliards volés ; elle rapporte l'accusation du FBI. Le chiffre de 6,3 milliards provient de la source [3] (L",
+        "phrase": "La première plateforme d'échange de cryptomonnaies au monde, Binance, a annoncé la reprise progressive des retraits dimanche après un piratage d'une ampleur inédite : 6,3 milliards de dollars d'actifs numériques dérobés "
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "Le renvoi [3] est utilisé pour affirmer que le piratage de Binance 'dépasse largement les précédents records' avec 6,3 milliards, mais la source [3] (Le Monde du 30/10) indique au contraire que Binance dément ce chiffre ",
+        "phrase": "Le piratage de Binance, survenu fin octobre 2026, dépasse largement les précédents records : le vol de 620 millions de dollars sur le réseau Ronin en mars 2022, déjà attribué à des acteurs nord-coréens, apparaissait comm"
+      }
+    ],
+    "types_restants": [
+      "chiffre_errone",
+      "chiffre_errone",
+      "incoherence_inter_sections",
+      "chiffre_errone",
+      "accusation_presentee_comme_fait",
+      "accusation_presentee_comme_fait",
+      "fait_tranche_arbitrairement",
+      "source_inventee",
+      "source_inventee",
+      "redondance",
+      "redondance"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "faits_repetitifs",
+      "article_sans_date"
+    ],
+    "titre": "Piratage de Binance : 6,3 milliards volés, la Corée du Nord accusée par le FBI",
+    "n_sources": 4,
+    "n_mots": 485,
+    "titre_rss": "Derrière le piratage de Binance, le savoir-faire redoutable des hackeurs nord-coréens",
+    "matiere_faits_distincts": 590,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "prix-reference-gaz-hausse-5-8-decembre-6-millions-foyers",
+    "statut": "rejete_qualite",
+    "date": "2026-11-09T19:10:35",
+    "problemes_initiaux": 11,
+    "tentatives": 3,
+    "problemes_restants": 8,
+    "bloquants_restants": 5,
+    "bloquants_types": [
+      "chiffre_errone",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "Le calcul exact donne 12,47 % (1,063 × 1,058 = 1,124654), arrondi à 12,5 % c'est une extrapolation non signalée ; la source [5] ne fournit pas ce cumul.",
+        "phrase": "Sur deux mois, le prix de référence aura donc progressé de 12,5 % cumulé (1,063 × 1,058 = 1,1247)."
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "La citation attribuée à la source [1] (France Info du 9 novembre 2026) ne figure pas dans les extraits fournis ; l'attribution est inventée.",
+        "phrase": "Emmanuelle Wargon, présidente de la CRE, a précisé que la France « subit un prix de marché international » du fait qu'elle importe 95 % de son gaz [1]."
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "Le renvoi [5] désigne la source France Info du 9 novembre 2026, qui ne contient pas cette analyse rétrospective sur 2025 ; l'information est inventée.",
+        "phrase": "Selon France Info, le prix de référence européen a annulé au printemps 2025 tous les gains accumulés fin 2024 et début 2025, sous l'effet d'une moindre concurrence asiatique pour le GNL, avant de repartir à la hausse [5]"
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "Même source [5] : ces projections 2025-2026 ne figurent pas dans l'article France Info du 9 novembre 2026 ; l'information est inventée.",
+        "phrase": "La consommation européenne est restée stable en 2024 après deux années de recul, tandis que la demande mondiale devrait ralentir en 2025 puis repartir en 2026, portée par l'Asie-Pacifique et le Moyen-Orient [5]."
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "La source [3] (Le Figaro du 9 novembre 2026) ne contient pas cette analyse sur le premier semestre 2026 dans les extraits fournis ; l'attribution est inventée.",
+        "phrase": "Le Figaro rapporte que cette série de hausses mensuelles marque un retour à la volatilité après une période de relative stabilité au premier semestre 2026 [3]."
+      }
+    ],
+    "types_restants": [
+      "chiffre_errone",
+      "fait_tranche_arbitrairement",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_derivee_comptee_comme_primaire",
+      "compteur_incoherent"
+    ],
+    "article_type": "actu",
+    "titre": "Le prix de référence du gaz augmente de 5,8 % en décembre",
+    "n_sources": 4,
+    "n_mots": 519,
+    "titre_rss": "Le prix de référence du gaz augmentera encore en décembre, de 5,8%",
+    "matiere_faits_distincts": 777,
+    "matiere_redondance": 0.06,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "claudette-27-ans-morte-accouchement-medecin-infirmier-condamnes-homicide-involontaire",
+    "statut": "rejete_sensible",
+    "date": "2026-11-09T19:36:13",
+    "sujet_sensible": true,
+    "raison": "L'article porte sur une affaire judiciaire pénale (homicide involontaire) visant des personnes physiques nommées (médecin anesthésiste et infirmier) qui ont été condamnées en première instance (novembre 2026). L'affaire n'est pas définitivement jugée (possibilité d'appel).",
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "resume_repete_corps"
+    ],
+    "titre": "Mort de Claudette à la clinique : le médecin et l'infirmier condamnés pour homicide involontaire",
+    "n_sources": 5,
+    "n_mots": 494,
+    "titre_rss": "Claudette, 27 ans, morte la nuit de son accouchement : le médecin et l’infirmier condamnés pour homicide involontaire",
+    "matiere_faits_distincts": 834,
+    "matiere_redondance": 0.02,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "coup-pouce-smic-critique-economistes-emploi-pauvrete",
+    "statut": "rejete_qualite",
+    "date": "2026-11-09T20:38:10",
+    "etape": "correction",
+    "tentative": 3,
+    "erreur": "HTTPSConnectionPool(host='integrate.api.nvidia.com', port=443): Read timed out. (read timeout=180)",
+    "bloquants_connus": 1,
+    "article_type": "actu",
+    "titre": "Deux économistes critiquent le coup de pouce au Smic de 1,6 %",
+    "n_sources": 4,
+    "n_mots": 585,
+    "titre_rss": "Stéphane Carcillo et Gilbert Cette, économistes : « Le coup de pouce au smic est une mauvaise nouvelle pour l’emploi et la lutte contre la pauvreté »",
+    "matiere_faits_distincts": 419,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "tribune"
+  },
+  {
+    "slug": "science-une-analogues-glp1-efficacite-prudence-novembre-2026",
+    "statut": "corrige_automatiquement",
+    "date": "2026-11-09T21:28:06",
+    "problemes_initiaux": 8,
+    "tentatives": 3,
+    "problemes_residuels_style": 9,
+    "rapport_initial": {
+      "conforme": false,
+      "sujet_sensible": false,
+      "sujet_sensible_raison": "",
+      "angle_insuffisant": false,
+      "angle_insuffisant_raison": "",
+      "nature_contenu": "actualite_factuelle",
+      "problemes": [
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "Le dossier rapporte qu'ils sont désormais prescrits à des personnes souhaitant simplement maigrir, sans obésité ni trouble métabolique associé [1][4].",
+          "explication": "La source [4] (Radiofrance, podcast du 13 avril 2026) ne figure pas dans les extraits fournis ; le renvoi [4] attribue un fait que cette source ne peut pas confirmer dans le cadre de la vérification."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "Par ailleurs, des effets potentiels sont explorés dans le cancer, les pathologies neurologiques et psychiatriques, l'infertilité et les addictions [1][4].",
+          "explication": "La source [4] (Radiofrance) ne figure pas dans les extraits fournis ; le renvoi [4] attribue un fait que cette source ne peut pas confirmer dans le cadre de la vérification."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "La revue souligne toutefois que « ce n'est pas la panacée » : certains patients supportent des effets secondaires importants, une dépendance psychologique naît de la crainte de reprendre les kilos perdus à l'arrêt des injections, et l'accès reste inéquitable du fait de coûts très élevés [1][4].",
+          "explication": "La source [4] (Radiofrance) ne figure pas dans les extraits fournis ; le renvoi [4] attribue un fait que cette source ne peut pas confirmer dans le cadre de la vérification."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "Face à cet enthousiasme tempéré par les réserves, Science appelle à poursuivre la recherche vers d'autres cibles que le récepteur GLP-1 pour développer des mécanismes différents ou moins délétères [1][4].",
+          "explication": "La source [4] (Radiofrance) ne figure pas dans les extraits fournis ; le renvoi [4] attribue un fait que cette source ne peut pas confirmer dans le cadre de la vérification."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "Une revue en parapluie de 123 méta-analyses couvrant 464 issues cliniques a été publiée en janvier 2026 dans Nature Communications, confirmant un potentiel thérapeutique large mais une efficacité et une sécurité incomplètement comprises [6].",
+          "explication": "La source [6] (Nature Communications) n'est pas listée dans les sources autorisées (seules 5 sources sont fournies, indices 1 à 5)."
+        },
+        {
+          "bloc": 1,
+          "section": "nuances",
+          "type": "source_inventee",
+          "phrase_exacte": "Une étude américaine a suggéré une baisse d'efficacité de la contraception orale chez des femmes obèses sous GLP-1, et un précédent anti-obésité avait été retiré pour risque dépressif et suicidaire majoré [4].",
+          "explication": "La source [4] (Radiofrance) ne figure pas dans les extraits fournis ; le renvoi [4] attribue un fait que cette source ne peut pas confirmer dans le cadre de la vérification."
+        },
+        {
+          "bloc": 2,
+          "section": "contexte",
+          "type": "compteur_incoherent",
+          "phrase_exacte": "\"nb_sources\": 5",
+          "explication": "Le champ nb_sources indique 5, mais le texte utilise des renvois jusqu'à [6] (six sources distinctes citées), ce qui rend le compteur incohérent avec le sourcing réel de l'article."
+        },
+        {
+          "bloc": 1,
+          "section": "nuances",
+          "type": "acteur_mis_en_cause_sans_reponse",
+          "phrase_exacte": "La réaction des laboratoires concernés (Novo Nordisk, Eli Lilly, Sun Pharma) n'était pas disponible dans les sources consultées à la date de publication.",
+          "explication": "Les laboratoires sont nommés comme acteurs concernés sans que leur réponse soit rapportée ; l'article indique explicitement qu'elle n'était pas disponible dans les sources, ce qui constitue une mise en cause sans réponse documentée."
+        }
+      ]
+    },
+    "article_type": "actu",
+    "titre": "Science consacre sa une aux analogues du GLP-1 : efficacité élargie mais prudence de rigueur",
+    "n_sources": 5,
+    "n_mots": 662,
+    "titre_rss": "Les médicaments analogues du GLP-1 : un succès à la loupe",
+    "matiere_faits_distincts": 1452,
+    "matiere_redondance": 0.01,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
   }
 ]
