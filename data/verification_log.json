@@ -63086,5 +63086,860 @@
     "n_sources_injectees": 10,
     "n_sources_trouvees": 10,
     "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "loi-resilience-retour-assemblee-9-novembre-apres-19-mois-blocage",
+    "statut": "rejete_qualite",
+    "date": "2026-11-09T07:35:04",
+    "problemes_initiaux": 20,
+    "tentatives": 3,
+    "problemes_restants": 6,
+    "bloquants_restants": 5,
+    "bloquants_types": [
+      "chiffre_errone",
+      "chiffre_errone",
+      "incoherence_inter_sections",
+      "chiffre_errone",
+      "source_inventee"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "Le titre indique '24 mois de blocage' alors que le résumé et les faits précisent un blocage d'un an (12 mois) depuis la transmission par le Sénat le 14 mars 2025 jusqu'au 10 novembre 2026 ; 24 mois correspondent à deux a",
+        "phrase": "La loi résilience revient à l'Assemblée le 10 novembre après 24 mois de blocage"
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "Le résumé répète l'erreur du titre : '24 mois d'interruption' entre mars 2025 et novembre 2026 ne fait qu'environ 20 mois, et le corps du texte parle explicitement d'un 'an de blocage' (12 mois), contredisant le chiffre ",
+        "phrase": "Le projet de loi résilience revient en discussion à l'Assemblée nationale le 10 novembre 2026 après 24 mois d'interruption parlementaire depuis sa transmission par le Sénat le 14 mars 2025."
+      },
+      {
+        "bloc": 1,
+        "type": "incoherence_inter_sections",
+        "description": "Les faits indiquent 'un an de blocage' (12 mois) alors que le titre et le résumé annoncent '24 mois' ; cette incohérence interne sur la durée du blocage doit être corrigée pour que toutes les sections décrivent la même r",
+        "phrase": "Le projet de loi relatif à la résilience des infrastructures critiques et au renforcement de la cybersécurité revient en discussion à l'Assemblée nationale le mardi 10 novembre 2026, après un an de blocage depuis sa tran"
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "Le contexte reprend le chiffre erroné de '24 mois' alors que la source [1] et le corps des faits mentionnent un blocage d'un an ; la durée réelle entre mars 2025 et novembre 2026 est d'environ 20 mois, pas 24.",
+        "phrase": "La procédure accélérée n'a pas empêché un enlisement de 24 mois à l'Assemblée, où le texte attendait son inscription à l'ordre du jour depuis mars 2025 [1]."
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "La source [1] (article Le Monde du 9 novembre 2026) n'est pas citée dans les extraits fournis comme confirmant explicitement que 'de multiples cyberattaques ont visé les administrations françaises durant l'été 2026' ; ce",
+        "phrase": "De multiples cyberattaques ont visé les administrations françaises durant l'été 2026 [1]."
+      }
+    ],
+    "types_restants": [
+      "chiffre_errone",
+      "chiffre_errone",
+      "incoherence_inter_sections",
+      "chiffre_errone",
+      "source_inventee",
+      "cadrage_emprunte"
+    ],
+    "article_type": "actu",
+    "titre": "La loi résilience revient à l'Assemblée le 9 novembre après 19 mois de blocage",
+    "n_sources": 4,
+    "n_mots": 528,
+    "titre_rss": "Après un été de cyberattaques et un an de blocage, la loi « résilience » de retour à l’Assemblée nationale",
+    "matiere_faits_distincts": 574,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "afd-contrat-objectifs-moyens-transmis-parlement-2026",
+    "statut": "rejete_qualite",
+    "date": "2026-11-09T07:48:19",
+    "problemes_initiaux": 7,
+    "tentatives": 3,
+    "problemes_restants": 6,
+    "bloquants_restants": 3,
+    "bloquants_types": [
+      "incoherence_inter_sections",
+      "chiffre_errone",
+      "source_inventee"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "incoherence_inter_sections",
+        "description": "Le titre et le chapeau annoncent un événement daté du 13 juillet 2026, mais la source [3] (Rapport des évaluations du groupe AFD) est datée du 10 septembre 2026, soit postérieure à l'événement décrit. Cette source ne peu",
+        "phrase": "Le contrat d'objectifs et de moyens (COM) de l'Agence française de développement a été transmis le 13 juillet 2026 aux commissions compétentes du Parlement, après une période sans cadre pluriannuel validé depuis l'expira"
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "Le chiffre de 261 évaluations est attribué à la source [3] mais les extraits fournis pour cette source ne contiennent pas ce chiffre précis, rendant la vérification impossible et constituant une extrapolation non sourcée",
+        "phrase": "Le groupe AFD a fait l'objet de 261 évaluations de projets en 2023 et 2024, selon le rapport d'évaluations publié sur Vie Publique le 10 septembre 2026 [3]."
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "L'information chiffrée (261 évaluations) n'apparaît pas dans les extraits fournis pour la source [3], ce qui équivaut à une invention de fait attribué à cette source.",
+        "phrase": "Le groupe AFD a fait l'objet de 261 évaluations de projets en 2023 et 2024, selon le rapport d'évaluations publié sur Vie Publique le 10 septembre 2026 [3]."
+      }
+    ],
+    "types_restants": [
+      "incoherence_inter_sections",
+      "chiffre_errone",
+      "source_inventee",
+      "contexte_hors_sujet",
+      "redondance",
+      "section_gonflee"
+    ],
+    "article_type": "actu",
+    "titre": "L'AFD reçoit son contrat d'objectifs 2026 après cinq ans sans cadre parlementaire",
+    "n_sources": 3,
+    "n_mots": 645,
+    "titre_rss": "Enfin ! Le COM 2027-2029 de l'AFD - Rapport d'information n° 119",
+    "matiere_faits_distincts": 503,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "nvidia-enquete-interne-jensen-huang-relation-espionne-chinoise",
+    "statut": "rejete_sensible",
+    "date": "2026-11-09T08:01:36",
+    "sujet_sensible": true,
+    "raison": "L'article met en cause nommément une personne physique (Jensen Huang, PDG de Nvidia) dans une affaire impliquant des allégations d'espionnage et une enquête interne, ce qui constitue une mise en cause personnelle dans un contexte sensible.",
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "resume_repete_corps",
+      "titre_de_mauvaise_qualite"
+    ],
+    "titre": "Nvidia ouvre une enquête sur son PDG après des révélations sur une relation avec une présumée espionne chinoise",
+    "n_sources": 3,
+    "n_mots": 429,
+    "titre_rss": "Le géant de la tech Nvidia lance une enquête interne sur son patron, qui a entretenu une relation avec une femme soupçonnée d'être une espionne chinoise",
+    "matiere_faits_distincts": 670,
+    "matiere_redondance": 0.01,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "ebola-bundibugyo-vaccins-zaire-reponse-immunitaire-croisee",
+    "statut": "rejete_sensible",
+    "date": "2026-11-09T08:10:06",
+    "problemes_initiaux": 10,
+    "bloc5": [
+      "compteur_incoherent"
+    ],
+    "article_type": "actu",
+    "titre": "Ebola Bundibugyo : les vaccins anti-Zaïre induisent une réponse immunitaire croisée mais non prouvée cliniquement",
+    "n_sources": 5,
+    "n_mots": 699,
+    "titre_rss": "Épidémie d’Ebola Bundibugyo : des premiers résultats pour guider la recherche d’un vaccin efficace",
+    "matiere_faits_distincts": 720,
+    "matiere_redondance": 0.03,
+    "matiere_donnees_chiffrees": 2,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "veille_heures_visible": 517.7,
+    "veille_passages": 311,
+    "veille_age_h": 2141.8,
+    "veille_n_flux_grappe": 9,
+    "nature_contenu": "etude_scientifique"
+  },
+  {
+    "slug": "tribune-le-monde-financement-innovations-rupture-climatique",
+    "statut": "corrige_automatiquement",
+    "date": "2026-11-09T08:16:24",
+    "problemes_initiaux": 3,
+    "tentatives": 1,
+    "problemes_residuels_style": 8,
+    "rapport_initial": {
+      "conforme": false,
+      "sujet_sensible": false,
+      "sujet_sensible_raison": "",
+      "angle_insuffisant": false,
+      "angle_insuffisant_raison": "",
+      "nature_contenu": "tribune",
+      "problemes": [
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "compteur_incoherent",
+          "phrase_exacte": "nb_sources: 4",
+          "explication": "Le champ nb_sources indique 4 mais seules 3 sources distinctes sont listées dans le tableau sources."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "redondance",
+          "phrase_exacte": "L'OCDE note dans son Observateur de l'action climatique 2026 que les dépenses publiques de R&D énergie en France restent stables autour de 0,07 % du PIB depuis une décennie, bien en deçà des 0,15 % recommandés par l'Agence internationale de l'énergie pour aligner l'innovation sur la trajectoire zéro émission nette [2].",
+          "explication": "Ce paragraphe est une répétition exacte d'un passage déjà présent dans la section faits (même source [2], même chiffre, même formulation)."
+        },
+        {
+          "bloc": 3,
+          "section": "resume",
+          "type": "cadrage_emprunte",
+          "phrase_exacte": "Dans une tribune publiée le 6 novembre 2026 dans Le Monde, le physicien Lydéric Bocquet, le directeur de Techleap Greg De Temmerman et le mathématicien Yves Laszlo estiment que la transition écologique française nécessite des innovations de rupture que les circuits actuels ne financent pas.",
+          "explication": "L'article présente le contenu d'une tribune (opinion) comme s'il s'agissait d'un fait établi, sans indiquer explicitement dans le résumé qu'il s'agit d'une tribune / prise de position."
+        }
+      ]
+    },
+    "article_type": "actu",
+    "titre": "Tribune dans Le Monde : trois chercheurs proposent une agence type ARPA pour le climat",
+    "n_sources": 3,
+    "n_mots": 803,
+    "titre_rss": "Urgence climatique : « La France doit créer une entité dévolue au financement des innovations de rupture »",
+    "matiere_faits_distincts": 741,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 2,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "tribune"
+  },
+  {
+    "slug": "pesticides-redevance-pollutions-diffuses-agences-eau-90-millions-euros-perdus",
+    "statut": "rejete_sensible",
+    "date": "2026-11-09T08:22:34",
+    "problemes_initiaux": 14,
+    "bloc5": [
+      "affaire_en_cours_presentee_comme_fait"
+    ],
+    "article_type": "actu",
+    "titre": "Pesticides : une taxe allégée coûte 90 millions aux agences de l'eau",
+    "n_sources": 7,
+    "n_mots": 581,
+    "titre_rss": "Pollution aux pesticides : en restreignant la portée d’une taxe, le gouvernement a privé les agences de l’eau de plus de 90 millions d’euros de redevance",
+    "matiere_faits_distincts": 770,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "piratage-binance-6-3-milliards-fbi-coree-nord",
+    "statut": "rejete_sensible",
+    "date": "2026-11-09T08:36:33",
+    "problemes_initiaux": 7,
+    "tentative": 3,
+    "bloc5": true,
+    "article_type": "actu",
+    "titre": "Piratage record de Binance : 6,3 milliards volés, le FBI désigne la Corée du Nord",
+    "n_sources": 4,
+    "n_mots": 714,
+    "titre_rss": "Derrière le piratage de Binance, le savoir-faire redoutable des hackeurs nord-coréens",
+    "matiere_faits_distincts": 909,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "cop31-turquie-australie-objectif-electrification-2035",
+    "statut": "rejete_qualite",
+    "date": "2026-11-09T08:48:30",
+    "tentative": 3,
+    "perte_substance": true,
+    "section": "contexte",
+    "mots_avant": 188,
+    "mots_apres": 84,
+    "article_type": "actu",
+    "titre": "COP31 : la Turquie et l'Australie veulent imposer l'électricité comme énergie centrale",
+    "n_sources": 4,
+    "n_mots": 597,
+    "titre_rss": "COP31 : la Turquie et l’Australie, coorganisatrices du sommet, veulent faire de l’électricité l’énergie reine",
+    "matiere_faits_distincts": 574,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "cyberattaque-efs-trois-sites-touches-aucun-produit-perdu",
+    "statut": "rejete_qualite",
+    "date": "2026-11-09T08:57:14",
+    "tentative": 3,
+    "perte_substance": true,
+    "section": "nuances",
+    "mots_avant": 147,
+    "mots_apres": 63,
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "resume_repete_corps",
+      "titre_de_mauvaise_qualite"
+    ],
+    "titre": "Cyberattaque contre l'EFS : trois sites touchés, aucun produit sanguin perdu",
+    "n_sources": 3,
+    "n_mots": 474,
+    "titre_rss": "Cyberattaque : les chambres froides de l'EFS prises pour cible",
+    "matiere_faits_distincts": 691,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "inserm-sept-fausses-idees-vaccins-campagne-grippe-covid-2026",
+    "statut": "rejete_sensible",
+    "date": "2026-11-09T09:21:43",
+    "problemes_initiaux": 19,
+    "bloc5": [
+      "compteur_incoherent"
+    ],
+    "article_type": "actu",
+    "titre": "L'Inserm met à jour ses sept fausses idées sur les vaccins le 10 octobre 2026",
+    "n_sources": 7,
+    "n_mots": 927,
+    "titre_rss": "Sept fausses idées sur les vaccins",
+    "matiere_faits_distincts": 752,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "italie-ministre-tajani-fuite-donnees-meloni-hackers-prorusses",
+    "statut": "corrige_automatiquement",
+    "date": "2026-11-09T09:31:55",
+    "problemes_initiaux": 7,
+    "tentatives": 3,
+    "problemes_residuels_style": 5,
+    "rapport_initial": {
+      "conforme": false,
+      "sujet_sensible": false,
+      "sujet_sensible_raison": "",
+      "angle_insuffisant": false,
+      "angle_insuffisant_raison": "",
+      "nature_contenu": "actualite_factuelle",
+      "problemes": [
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "fait_tranche_arbitrairement",
+          "phrase_exacte": "Aucune revendication formelle n'a été identifiée sur les canaux habituels utilisés par les groupes cybercriminels ou hacktivistes prorusses, ce qui laisse ouverte l'hypothèse d'une opération de renseignement discrète plutôt que d'une action de sabotage médiatique [1].",
+          "explication": "L'article présente comme un fait établi l'absence de revendication sur les canaux habituels et en déduit une hypothèse d'opération de renseignement, alors que la source [1] ne contient aucune information sur la surveillance de ces canaux ni sur l'absence de revendication — c'est une extrapolation non sourcée présentée comme un constat."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "contexte_hors_sujet",
+          "phrase_exacte": "La commission des affaires étrangères de l'Assemblée nationale française a remis en décembre 2025 un rapport d'information sur l'irruption de l'intelligence artificielle dans les ingérences étrangères, soulignant l'évolution des techniques vers une automatisation accrue de la désinformation et du ciblage de personnalités [2].",
+          "explication": "Ce rapport porte sur l'IA dans les ingérences étrangères en général, sans lien direct avec la cyberattaque ciblant Tajani en Italie — il ne documente ni l'événement, ni ses auteurs, ni sa méthode, et ne sert qu'à remplir la section contexte."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "contexte_hors_sujet",
+          "phrase_exacte": "L'Italie, comme la France où l'ANSSI a publié en septembre 2026 un rapport d'incident sur les cyberattaques ayant touché la DGFiP [3], fait face à une exposition croissante de ses administrations.",
+          "explication": "Le rapport de l'ANSSI concerne des cyberattaques contre la DGFiP française, un service fiscal, sans rapport avec l'attaque contre le ministre italien des Affaires étrangères — la source ne documente ni le même pays, ni la même cible, ni le même type d'incident."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "contexte_hors_sujet",
+          "phrase_exacte": "Le rapport français identifiait trois failles majeures : gestion des identités, architecture exposée et détection défaillante, des vulnérabilités structurelles partagées par de nombreuses administrations européennes [3].",
+          "explication": "Ces failles sont extraites du rapport ANSSI sur la DGFiP française et généralisées sans source aux administrations européennes — la source [3] ne établit pas qu'elles sont « partagées par de nombreuses administrations européennes »."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "contexte_hors_sujet",
+          "phrase_exacte": "Le FMI note dans ses « Selected Issues » sur l'Italie de juillet 2026 que le pays doit renforcer la résilience de ses infrastructures numériques face aux risques systémiques, y compris les menaces cybernétiques pesant sur les administrations publiques [4].",
+          "explication": "Ce rapport du FMI de juillet 2026 est une analyse macroéconomique générale qui recommande de renforcer la résilience numérique — il ne mentionne pas la cyberattaque contre Tajani (survenue en novembre 2026 selon l'article) et n'éclaire pas cet événement précis."
+        },
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "Aucune revendication formelle n'a été identifiée sur les canaux habituels utilisés par les groupes cybercriminels ou hacktivistes prorusses, ce qui laisse ouverte l'hypothèse d'une opération de renseignement discrète plutôt que d'une action de sabotage médiatique [1].",
+          "explication": "Le renvoi [1] attribue à la source Le Monde l'affirmation qu'aucune revendication n'a été identifiée sur les canaux habituels et l'hypothèse d'opération de renseignement — or la source [1] ne contient aucune de ces informations, ce qui constitue une source inventée pour ces faits précis."
+        },
+        {
+          "bloc": 4,
+          "section": "contexte",
+          "type": "section_gonflee",
+          "phrase_exacte": "Les services de renseignement et agences de cybersécurité de plusieurs pays membres de l'UE documentent depuis 2022 une multiplication des opérations d'espionnage et de sabotage attribuées à des acteurs étatiques ou para-étatiques russes, ciblant ministères, partis politiques et infrastructures critiques [2].",
+          "explication": "La section contexte est gonflée avec trois sources [2], [3], [4] qui ne portent pas sur l'événement principal (cyberattaque contre Tajani) mais sur des sujets voisins (IA dans les ingérences, attaque DGFiP France, recommandation FMI) — elles ne servent qu'à remplir la section sans apporter de fait distinct sourcé sur le sujet de l'article."
+        }
+      ]
+    },
+    "article_type": "actu",
+    "titre": "Italie : Tajani visé par une fuite de données, Meloni accuse des hackers prorusses",
+    "n_sources": 4,
+    "n_mots": 472,
+    "titre_rss": "Italie : le ministre des affaires étrangères dit être visé par une fuite de données, Giorgia Meloni dénonce des « hackers prorusses »",
+    "matiere_faits_distincts": 721,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "canada-proces-inaction-climatique-sante-mentale-jeunes",
+    "statut": "corrige_automatiquement",
+    "date": "2026-11-09T09:41:02",
+    "problemes_initiaux": 14,
+    "tentatives": 1,
+    "problemes_residuels_style": 9,
+    "rapport_initial": {
+      "conforme": false,
+      "sujet_sensible": false,
+      "sujet_sensible_raison": "",
+      "angle_insuffisant": false,
+      "angle_insuffisant_raison": "",
+      "nature_contenu": "actualite_factuelle",
+      "problemes": [
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "chiffre_errone",
+          "phrase_exacte": "Le procès s'est ouvert lundi 2 novembre devant la Cour suprême de la Colombie-Britannique à Vancouver [1].",
+          "explication": "La source [1] (France 24, datée du 30 octobre 2026) indique que le procès « doit s'ouvrir » le 2 novembre, soit au futur, alors que l'article l'écrit au passé (« s'est ouvert ») comme s'il avait déjà eu lieu."
+        },
+        {
+          "bloc": 1,
+          "section": "resume",
+          "type": "annonce_perimee",
+          "phrase_exacte": "Un procès intenté par de jeunes Canadiens contre leur gouvernement pour inaction climatique s'est ouvert le 2 novembre à Vancouver, plaidant que la dégradation de l'environnement cause dépression, anxiété et stress post-traumatique chez leur génération [1].",
+          "explication": "Le résumé présente l'ouverture du procès comme un fait accompli (« s'est ouvert ») alors que la source [1], la plus récente sur cet événement, le décrit comme à venir (« doit s'ouvrir ») à sa date de publication du 30 octobre."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "chiffre_errone",
+          "phrase_exacte": "En France, le Haut Conseil de la famille, de l'enfance et de l'âge (HCFEA) a confirmé en 2026 une hausse de la consommation de psychotropes chez les enfants et d'une progression de 49 % des prescriptions d'antipsychotiques, 155 % pour les hypnotiques et 63 % pour les antidépresseurs entre 2014 et 2021 [5].",
+          "explication": "La source [5] est le Panorama de la santé 2025 de l'OCDE, qui ne mentionne pas le HCFEA ni ces chiffres précis sur les prescriptions de psychotropes en France entre 2014 et 2021."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "chiffre_errone",
+          "phrase_exacte": "Le rapport Lancet Countdown 2026, produit en collaboration avec l'OMS, indique que les impacts sanitaires du changement climatique s'accélèrent, avec une augmentation de 36 % des décès liés à la chaleur depuis l'accord de Paris et 710 000 morts attribuables à la chaleur en 2023, dont plus de 70 % imputables à l'activité humaine [2].",
+          "explication": "La source [2] est une page de jurisprudence de la Cour de justice européenne (affaire C-493/17), sans lien avec le Lancet Countdown, l'OMS ou des statistiques de mortalité liée à la chaleur."
+        },
+        {
+          "bloc": 1,
+          "section": "nuances",
+          "type": "chiffre_errone",
+          "phrase_exacte": "Aux États-Unis, la Cour suprême a rejeté en 2024 le recours Juliana au motif que la réparation demandée relevait du pouvoir législatif et non judiciaire [2].",
+          "explication": "La source [2] (Cour de justice européenne, affaire C-493/17) ne traite pas de l'affaire Juliana v. United States ni d'une décision de la Cour suprême américaine en 2024."
+        },
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "Le procès s'est ouvert lundi 2 novembre devant la Cour suprême de la Colombie-Britannique à Vancouver [1].",
+          "explication": "Le renvoi [1] attribue à la source France 24 le fait que le procès « s'est ouvert » (passé), alors que cette source dit qu'il « doit s'ouvrir » (futur) ; le fait tel qu'écrit n'est pas confirmé par la source citée."
+        },
+        {
+          "bloc": 2,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "En France, le Haut Conseil de la famille, de l'enfance et de l'âge (HCFEA) a confirmé en 2026 une hausse de la consommation de psychotropes chez les enfants et d'une progression de 49 % des prescriptions d'antipsychotiques, 155 % pour les hypnotiques et 63 % pour les antidépresseurs entre 2014 et 2021 [5].",
+          "explication": "Le renvoi [5] (OCDE, Panorama de la santé 2025) ne contient pas ces chiffres ni ne cite le HCFEA ; l'information est inventée par rapport à la source indiquée."
+        },
+        {
+          "bloc": 2,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "Le rapport Lancet Countdown 2026, produit en collaboration avec l'OMS, indique que les impacts sanitaires du changement climatique s'accélèrent, avec une augmentation de 36 % des décès liés à la chaleur depuis l'accord de Paris et 710 000 morts attribuables à la chaleur en 2023, dont plus de 70 % imputables à l'activité humaine [2].",
+          "explication": "Le renvoi [2] (Cour de justice européenne) ne correspond pas au Lancet Countdown ni aux statistiques citées ; la source réelle de ces chiffres n'est pas dans la liste autorisée."
+        },
+        {
+          "bloc": 2,
+          "section": "nuances",
+          "type": "source_inventee",
+          "phrase_exacte": "Aux États-Unis, la Cour suprême a rejeté en 2024 le recours Juliana au motif que la réparation demandée relevait du pouvoir législatif et non judiciaire [2].",
+          "explication": "Le renvoi [2] ne documente pas l'affaire Juliana ni une décision de la Cour suprême américaine ; la source de cette affirmation juridique est absente de la liste autorisée."
+        },
+        {
+          "bloc": 2,
+          "section": "contexte",
+          "type": "contexte_hors_sujet",
+          "phrase_exacte": "En France, le Haut Conseil de la famille, de l'enfance et de l'âge (HCFEA) a confirmé en 2026 une hausse de la consommation de psychotropes chez les enfants et d'une progression de 49 % des prescriptions d'antipsychotiques, 155 % pour les hypnotiques et 63 % pour les antidépresseurs entre 2014 et 2021 [5].",
+          "explication": "Ce développement porte sur la France et des données de prescription de psychotropes, sans lien direct avec le procès canadien ou l'éco-anxiété comme argument juridique ; il ne sert qu'à remplir la section contexte."
+        },
+        {
+          "bloc": 2,
+          "section": "contexte",
+          "type": "contexte_hors_sujet",
+          "phrase_exacte": "Le rapport Lancet Countdown 2026, produit en collaboration avec l'OMS, indique que les impacts sanitaires du changement climatique s'accélèrent, avec une augmentation de 36 % des décès liés à la chaleur depuis l'accord de Paris et 710 000 morts attribuables à la chaleur en 2023, dont plus de 70 % imputables à l'activité humaine [2].",
+          "explication": "Ces statistiques de mortalité par chaleur mondiale n'éclairent pas le sujet précis de l'article (un procès canadien liant inaction climatique et santé mentale des jeunes) et la source citée est erronée."
+        },
+        {
+          "bloc": 4,
+          "section": "contexte",
+          "type": "section_gonflee",
+          "phrase_exacte": "La santé mentale des jeunes s'est dégradée de manière continue au cours de la dernière décennie dans les pays occidentaux. En France, le Haut Conseil de la famille, de l'enfance et de l'âge (HCFEA) a confirmé en 2026 une hausse de la consommation de psychotropes chez les enfants et d'une progression de 49 % des prescriptions d'antipsychotiques, 155 % pour les hypnotiques et 63 % pour les antidépresseurs entre 2014 et 2021 [5].\n\nL'Organisation mondiale de la santé (OMS) relie explicitement cette détérioration aux risques climatiques. Le rapport Lancet Countdown 2026, produit en collaboration avec l'OMS, indique que les impacts sanitaires du changement climatique s'accélèrent, avec une augmentation de 36 % des décès liés à la chaleur depuis l'accord de Paris et 710 000 morts attribuables à la chaleur en 2023, dont plus de 70 % imputables à l'activité humaine [2]. L'OMS appelle à reconnaître le changement climatique comme une urgence sanitaire mondiale [2].\n\nAu Canada, la Société canadienne de pédiatrie publiait en 2023 un positionnement sur la promotion de la santé mentale des enfants et adolescents, soulignant la vulnérabilité particulière de cette tranche d'âge face aux déterminants environnementaux [3].",
+          "explication": "La section contexte est gonflée avec des faits hors sujet (France, mortalité chaleur mondiale) et des sources qui ne confirment pas les affirmations (sources [2], [3], [5] inadéquates), au lieu d'apporter un éclairage direct et sourcé sur le procès canadien."
+        },
+        {
+          "bloc": 2,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "Au Canada, la Société canadienne de pédiatrie publiait en 2023 un positionnement sur la promotion de la santé mentale des enfants et adolescents, soulignant la vulnérabilité particulière de cette tranche d'âge face aux déterminants environnementaux [3].",
+          "explication": "La source [3] est un rapport de l'Assemblée nationale française sur TikTok et les mineurs, sans lien avec la Société canadienne de pédiatrie ni la santé mentale environnementale au Canada."
+        },
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "compteur_incoherent",
+          "phrase_exacte": "Le procès s'est ouvert lundi 2 novembre devant la Cour suprême de la Colombie-Britannique à Vancouver [1]. Les demandeurs, des jeunes Canadiens, reprochent au gouvernement fédéral et à la province de ne pas avoir réduit les émissions de gaz à effet de serre conformément aux engagements internationaux, ce qui porterait atteinte à leurs droits garantis par la Charte canadienne des droits et libertés [1].\n\nLes plaidoiries font valoir que l'exposition aux catastrophes climatiques — incendies, inondations, vagues de chaleur — et la perspective d'un avenir dégradé génèrent des troubles anxio-dépressifs et des états de stress post-traumatique chez les plaignants [1]. Des experts en santé mentale et en sciences du climat doivent être entendus pour établir le lien de causalité entre les politiques publiques et les pathologies observées [1].\n\nL'affaire, portée par l'organisation Our Children's Trust, s'inspire de la procédure Juliana v. United States aux États-Unis, mais se distingue par son ancrage dans la Charte canadienne, qui protège explicitement le droit à la vie, à la liberté et à la sécurité de la personne [1]. Le jugement n'est pas attendu avant plusieurs mois.",
+          "explication": "L'article ne renvoie qu'à la source [1] (France 24) pour l'ensemble des faits, alors que le champ nb_sources indique 5 sources et que les sources [2], [3], [4], [5] ne sont pas utilisées dans la section faits ; le compteur ne reflète pas les sources distinctes effectivement utilisées pour les faits principaux."
+        }
+      ]
+    },
+    "article_type": "actu",
+    "titre": "Au Canada, un procès inédit lie inaction climatique et santé mentale des jeunes",
+    "n_sources": 5,
+    "n_mots": 597,
+    "titre_rss": "Climat : la santé mentale des jeunes dans un procès inédit au Canada",
+    "matiere_faits_distincts": 746,
+    "matiere_redondance": 0.02,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "cop31-antalya-electrification-negociations-climatiques",
+    "statut": "rejete_qualite",
+    "date": "2026-11-09T09:50:42",
+    "problemes_initiaux": 9,
+    "tentatives": 3,
+    "problemes_restants": 20,
+    "bloquants_restants": 17,
+    "bloquants_types": [
+      "annonce_perimee",
+      "annonce_perimee",
+      "annonce_perimee",
+      "annonce_perimee",
+      "annonce_perimee",
+      "chiffre_errone",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "incoherence_inter_sections"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "annonce_perimee",
+        "description": "Le résumé présente les discussions de juin 2026 comme un événement passé (« ont acté »), alors que la COP31 elle-même est datée de novembre 2025 dans l'article ; juin 2026 est postérieur à novembre 2025, ce qui crée une ",
+        "phrase": "Les discussions préparatoires de juin 2026 à Bonn (sessions SB-64) ont acté cet appel à l'électrification massive, mais les clivages persistent sur le financement de la transition, notamment pour les pays en développemen"
+      },
+      {
+        "bloc": 1,
+        "type": "annonce_perimee",
+        "description": "La tribune du 3 novembre 2026 et l'audition du Sénat du 21 octobre 2026 sont présentées comme antérieures à l'ouverture de la COP31, mais la COP31 s'est tenue du 9 au 20 novembre 2025 selon l'article ; ces événements de ",
+        "phrase": "Une tribune d'experts et d'ONG publiée le 3 novembre 2026 a appelé les responsables politiques français à présenter leur vision énergétique avant l'ouverture de la conférence, tandis que le Sénat auditionnait le négociat"
+      },
+      {
+        "bloc": 1,
+        "type": "annonce_perimee",
+        "description": "Le texte présente les discussions de Bonn de juin 2026 comme antérieures à la COP31 d'Antalya (« Ce rendez-vous d'Antalya devait transformer cet appel »), or la COP31 est datée de novembre 2025 dans la même phrase ; juin",
+        "phrase": "Les discussions préparatoires de juin 2026 à Bonn (sessions SB-64) se sont conclues sur un appel en faveur d'un objectif mondial d'électrification, selon le compte-rendu des négociations [4]. Ce rendez-vous d'Antalya dev"
+      },
+      {
+        "bloc": 1,
+        "type": "annonce_perimee",
+        "description": "Le contexte présente la session SB-64 de juin 2026 comme ayant inscrit l'objectif à l'agenda d'Antalya, alors que la COP31 d'Antalya a eu lieu en novembre 2025 selon l'article ; une réunion de juin 2026 ne peut pas prépa",
+        "phrase": "La présidence turque de la COP31 a fait de l'objectif mondial d'électrification sa priorité, prolongeant la dynamique de Bonn (SB-64, juin 2026) où les parties ont convenu d'inscrire cet objectif à l'agenda d'Antalya [4]"
+      },
+      {
+        "bloc": 1,
+        "type": "annonce_perimee",
+        "description": "La tribune du 3 novembre 2026 est utilisée pour commenter les engagements pris à Antalya en novembre 2025, mais elle est publiée un an après la conférence ; l'article la présente comme éclairant l'incertitude « sur les e",
+        "phrase": "La tribune publiée dans Le Monde le 3 novembre 2026 souligne que la vision énergétique française pour la période post-2030 n'est pas encore arrêtée, créant une incertitude sur les engagements que la France a pu prendre à"
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "Le titre ne contient pas de chiffre, mais l'incohérence de datation (COP31 en 2025 vs sources 2026) rend le titre trompeur sur la temporalité réelle de l'événement ; le problème principal étant la chronologie, ce signale",
+        "phrase": "COP31 à Antalya : l'électrification au cœur des négociations climatiques"
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "La source [1] (France 24, datée du 9 novembre 2026) ne peut pas confirmer qu'une COP31 s'est tenue en novembre 2025 ; la date de la source (2026) et son titre (« COP31 : le pari de l'électricité ») suggèrent qu'elle couv",
+        "phrase": "La COP31 s'est tenue du 9 au 20 novembre 2025 à Antalya, en Turquie, sous la présidence turque avec l'Australie comme présidente des négociations formelles [1]."
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "Même source [1] : l'article France 24 du 9 novembre 2026 ne peut pas attester d'un « tournant » pour une conférence qui aurait eu lieu un an plus tôt (novembre 2025) ; la source est contemporaine d'une COP31 2026, pas 20",
+        "phrase": "Cette conférence a marqué un tournant : pour la première fois, l'objectif affiché était de pousser les États à se tourner massivement vers l'électricité comme levier principal de sortie des énergies fossiles [1]."
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "La source [4] (Le Monde, 19 juin 2026) traite bien de la session SB-64 de juin 2026, mais l'article l'utilise comme source pour des discussions « préparatoires » à une COP31 d'Antalya datée de novembre 2025, ce qui est c",
+        "phrase": "Les discussions préparatoires de juin 2026 à Bonn (sessions SB-64) se sont conclues sur un appel en faveur d'un objectif mondial d'électrification, selon le compte-rendu des négociations [4]."
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "La source [2] (Sénat, 21 octobre 2026) confirme l'audition d'octobre 2026, mais l'article la rattache à la préparation de la COP31 d'Antalya de novembre 2025 ; une audition d'octobre 2026 ne peut pas préparer une confére",
+        "phrase": "Côté français, la commission de l'aménagement du territoire et du développement durable du Sénat a auditionné le 21 octobre 2026 Benoît Faraco, ambassadeur chargé des négociations sur le changement climatique, pour les é"
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "La source [3] (OCDE, 26 octobre 2026) annonce un pavillon virtuel pour novembre 2025, mais la source est publiée en octobre 2026 ; elle ne peut pas décrire un événement de novembre 2025 comme futur ou en cours depuis une",
+        "phrase": "Parallèlement, l'OCDE organise un pavillon virtuel du 2 au 20 novembre 2025 avec 20 sessions interactives réunissant experts, décideurs publics et représentants de la société civile pour explorer les implications économi"
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "La source [6] (Europa, étude 2026) est une analyse prospective sur la COP31 2026, pas un compte-rendu de la COP28 2023 ; elle ne peut pas être citée comme source directe sur le contenu de l'accord de la COP28.",
+        "phrase": "L'électrification comme levier de sortie des énergies fossiles s'impose comme thème central des négociations climat depuis la COP28 à Dubaï (2023), où l'accord final a appelé pour la première fois à une « transition hors"
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "La source [4] (Le Monde, juin 2026) rapporte la session SB-64 de juin 2026 ; elle ne peut pas confirmer qu'une « présidence turque de la COP31 » a prolongé cette dynamique pour une conférence d'Antalya de novembre 2025, ",
+        "phrase": "La présidence turque de la COP31 a fait de l'objectif mondial d'électrification sa priorité, prolongeant la dynamique de Bonn (SB-64, juin 2026) où les parties ont convenu d'inscrire cet objectif à l'agenda d'Antalya [4]"
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "Les sources [4] et [6] datent de 2026 et portent sur la COP31 2026 (ou sa préparation) ; elles ne documentent pas les débats d'une COP31 2025 à Antalya.",
+        "phrase": "L'objectif mondial d'électrification porté à Antalya ne précise pas le mix électrique visé : le recours au gaz comme énergie de transition divise, certains pays le considérant comme compatible avec la décarbonation, d'au"
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "Même problème : les sources [4] et [6] sont de 2026 et concernent la COP31 2026 ; « textes de négociation actuels » à la date de ces sources (2026) ne sont pas les textes d'une conférence 2025.",
+        "phrase": "Le financement de l'électrification massive dans les pays en développement n'est pas chiffré dans les textes de négociation actuels [4][6]."
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "La source [5] (Le Monde, 3 novembre 2026) est une tribune postérieure d'un an à la COP31 2025 ; elle ne peut pas éclairer les engagements pris à Antalya en 2025, elle commente la situation pour la COP31 2026.",
+        "phrase": "La tribune publiée dans Le Monde le 3 novembre 2026 souligne que la vision énergétique française pour la période post-2030 n'est pas encore arrêtée, créant une incertitude sur les engagements que la France a pu prendre à"
+      },
+      {
+        "bloc": 1,
+        "type": "incoherence_inter_sections",
+        "description": "Incohérence majeure entre la date de la COP31 dans les faits (novembre 2025) et les dates de toutes les sources (2026) qui documentent une COP31 2026 ; le chapeau/résumé et les faits mélangent deux COP différentes (2025 ",
+        "phrase": "La COP31 s'est tenue du 9 au 20 novembre 2025 à Antalya, en Turquie, sous la présidence turque avec l'Australie comme présidente des négociations formelles [1]."
+      }
+    ],
+    "types_restants": [
+      "annonce_perimee",
+      "annonce_perimee",
+      "annonce_perimee",
+      "annonce_perimee",
+      "annonce_perimee",
+      "chiffre_errone",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "incoherence_inter_sections",
+      "redondance",
+      "redondance",
+      "compteur_incoherent"
+    ],
+    "article_type": "actu",
+    "titre": "COP31 à Antalya : l'électrification au cœur des négociations climatiques",
+    "n_sources": 8,
+    "n_mots": 569,
+    "titre_rss": "À la COP31, le pari de l'électricité pour sortir de l'impasse climatique",
+    "matiere_faits_distincts": 838,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "autoroute-a69-ouverte-validation-conseil-etat",
+    "statut": "rejete_qualite",
+    "date": "2026-11-09T10:17:58",
+    "tentative": 3,
+    "perte_substance": true,
+    "section": "contexte",
+    "mots_avant": 202,
+    "mots_apres": 99,
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "faits_repetitifs"
+    ],
+    "titre": "L'autoroute A69 ouverte après validation définitive du Conseil d'État",
+    "n_sources": 5,
+    "n_mots": 700,
+    "titre_rss": "L’autoroute A69 ouverte aux automobilistes, après quatre ans de contestation, avec un péage à 20,40 euros",
+    "matiere_faits_distincts": 430,
+    "matiere_redondance": 0.02,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "estonie-cyberdefense-modele-face-menace-russe",
+    "statut": "rejete_qualite",
+    "date": "2026-11-09T10:25:07",
+    "angle_insuffisant": true,
+    "raison": "Aucune phrase des faits ne contient à la fois un événement précis daté ou datable (annonce, publication, décision, résultat récent) et une donnée chiffrée ou nommée qui lui est propre. L'article explique un phénomène général (la stratégie cyber de l'Estonie) sans fait déclencheur daté justifiant la publication maintenant.",
+    "article_type": "actu",
+    "titre": "Estonie : 1,3 million d'habitants, 300 km de frontière russe, 100 % services publics numérisés",
+    "n_sources": 6,
+    "n_mots": 470,
+    "titre_rss": "\"Une lutte constante\" : l’Estonie, ce \"Petit Poucet\" en pointe contre la cybermenace russe",
+    "matiere_faits_distincts": 529,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "sujet_pedagogique"
+  },
+  {
+    "slug": "ird-projets-recherche-covid-19-appel-anr-flash-avril-2020",
+    "statut": "rejete_qualite",
+    "date": "2026-11-09T10:32:34",
+    "angle_insuffisant": true,
+    "raison": "L'article ne rapporte aucun événement récent : il décrit une sélection de projets annoncée le 13 avril 2020 et des initiatives européennes postérieures, sans fait déclencheur daté justifiant une publication aujourd'hui. Le texte répond à 'quels projets l'IRD a-t-il lancés en avril 2020 ?' (question pédagogique) et non à 'pourquoi en parle-t-on maintenant ?'.",
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "resume_repete_corps"
+    ],
+    "titre": "L'IRD lance six projets pluridisciplinaires sur le Covid-19 via l'appel ANR-Flash",
+    "n_sources": 2,
+    "n_mots": 669,
+    "titre_rss": "Covid-19 – les projets IRD de l’appel ANR-Flash",
+    "matiere_faits_distincts": 807,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 2,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "veille_heures_visible": 517.7,
+    "veille_passages": 326,
+    "veille_age_h": 2141.8,
+    "veille_n_flux_grappe": 1,
+    "nature_contenu": "sujet_pedagogique"
+  },
+  {
+    "slug": "maladie-charcot-exosquelette-atalante-x-etude-preliminaire",
+    "statut": "rejete_qualite",
+    "date": "2026-11-09T10:49:04",
+    "problemes_initiaux": 16,
+    "tentatives": 3,
+    "problemes_restants": 10,
+    "bloquants_restants": 6,
+    "bloquants_types": [
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "source_inventee",
+      "source_inventee"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [1] (Inserm) ne contient pas le chiffre de 8 000 personnes vivant avec la SLA en France ; ce chiffre n'est pas vérifiable dans les extraits fournis.",
+        "phrase": "En France, environ 8 000 personnes vivent avec la sclérose latérale amyotrophique (SLA), ou maladie de Charcot, une affection neurodégénérative incurable qui paralyse progressivement les muscles [1]."
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [1] indique une durée totale de 24 semaines (environ 5,5 mois), pas 4 mois et demi.",
+        "phrase": "L'équipe du neurologue Pierre-François Pradat, au Laboratoire d'imagerie biomédicale (Inserm/CNRS/Sorbonne Université) à Paris, a testé l'exosquelette Atalante X sur une dizaine de patients pendant 4 mois et demi [1]."
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [1] mentionne 18 séances sur 9 semaines (2 séances/semaine), pas sur 6 semaines.",
+        "phrase": "Le protocole prévoyait 6 semaines d'observation de l'évolution naturelle de la maladie, suivies de 18 séances d'entraînement sur 6 semaines — 30 minutes de marche et 10 minutes d'exercices pour les membres supérieurs (bo"
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [1] indique que les évaluations ont lieu à la semaine 15 (fin de l'entraînement, après 9 semaines), pas à la semaine 12.",
+        "phrase": "Les capacités évaluées au début, à la fin de l'entraînement (semaine 12) et à la fin du suivi (semaine 24) incluaient la force musculaire, la marche, l'équilibre, le contrôle postural, la capacité pulmonaire, la spastici"
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "Le renvoi [4] attribue ces chiffres à la source L'Express, mais les extraits de cette source ne contiennent aucune donnée OMS sur 394 millions d'Européens ni sur l'accès à la rééducation.",
+        "phrase": "Au niveau européen, 394 millions de personnes — soit 2 sur 5 — présentaient en 2019 une affection pouvant bénéficier de rééducation, selon l'OMS [4]. Plus de 50 % d'entre elles n'y ont pas accès, la rééducation restant s"
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "Le renvoi [3] (Le Temps) est cité pour cet exosquelette souple, mais les extraits fournis ne confirment pas le nombre de patients testés (\"une dizaine\") ni les résultats sur la symétrie de la marche.",
+        "phrase": "L'équipe de Conor Walsh à Harvard a développé dès 2016 un exosquelette souple, textile et léger, testé sur une dizaine de patients post-AVC avec des résultats prometteurs sur la symétrie de la marche [3]."
+      }
+    ],
+    "types_restants": [
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "contexte_hors_sujet",
+      "contexte_hors_sujet",
+      "contexte_hors_sujet",
+      "source_inventee",
+      "source_inventee",
+      "compteur_incoherent"
+    ],
+    "article_type": "actu",
+    "titre": "Maladie de Charcot : l'exosquelette Atalante X testé sur une dizaine de patients",
+    "n_sources": 4,
+    "n_mots": 778,
+    "titre_rss": "Remarcher grâce à un exosquelette",
+    "matiere_faits_distincts": 1078,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "etude_scientifique"
+  },
+  {
+    "slug": "californie-electeurs-rejettent-taxe-5-pour-cent-milliardaires-proposition-40",
+    "statut": "rejete_sensible",
+    "date": "2026-11-09T11:20:05",
+    "problemes_initiaux": 8,
+    "tentative": 3,
+    "bloc5": true,
+    "article_type": "actu",
+    "titre": "Californie : les électeurs rejettent la taxe de 5 % sur les milliardaires",
+    "n_sources": 5,
+    "n_mots": 483,
+    "titre_rss": "En Californie, la « taxe Zucman » rejetée par les électeurs",
+    "matiere_faits_distincts": 415,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
   }
 ]
