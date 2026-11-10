@@ -64595,5 +64595,936 @@
     "n_sources_injectees": 10,
     "n_sources_trouvees": 10,
     "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "alcool-reseaux-sociaux-loi-evin-addictions-france-rapport",
+    "statut": "rejete_qualite",
+    "date": "2026-11-09T23:24:15",
+    "problemes_initiaux": 8,
+    "tentatives": 3,
+    "problemes_restants": 11,
+    "bloquants_restants": 5,
+    "bloquants_types": [
+      "annonce_perimee",
+      "chiffre_errone",
+      "chiffre_errone",
+      "incoherence_inter_sections",
+      "chiffre_errone"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "annonce_perimee",
+        "description": "Le titre présente la publication du rapport comme un événement à venir (\"dénonce\" au présent) alors que les sources [2] et [3] datées du 5 novembre 2026 confirment que le rapport a déjà été publié et que l'article le déc",
+        "phrase": "Alcool sur les réseaux : Addictions France dénonce le contournement de la loi Evin"
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "Le résumé indique la date du 5 novembre 2026 pour la publication du rapport, alors que le corps de l'article (faits) précise \"mercredi 5 novembre 2025\" et les sources [2] et [3] sont datées du 5 novembre 2026 pour rendre",
+        "phrase": "Addictions France a publié son troisième rapport le 5 novembre 2026"
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "Le 5 novembre 2025 était un mercredi, mais les sources [2] et [3] datées du 5 novembre 2026 (un jeudi) rapportent la publication du rapport comme récente, ce qui suggère que la date réelle de publication est le 5 novembr",
+        "phrase": "L'association Addictions France a rendu public mercredi 5 novembre 2025 un troisième rapport"
+      },
+      {
+        "bloc": 1,
+        "type": "incoherence_inter_sections",
+        "description": "La question écrite [1] est datée du 10 décembre 2024, soit près d'un an avant la publication du rapport d'Addictions France (novembre 2025/2026). L'article la présente comme liée au rapport (\"sur ce sujet\") sans préciser",
+        "phrase": "Le député Arthur Delaporte a adressé une question écrite au gouvernement le 10 décembre 2024 sur ce sujet [1]."
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [1] (question écrite de décembre 2024) ne mentionne pas une loi de juin 2023 dans les extraits fournis. Cette date et ce contenu législatif ne sont pas vérifiés par la source citée.",
+        "phrase": "la loi de juin 2023 a cherché à encadrer en étendant les obligations de transparence aux influenceurs [1]"
+      }
+    ],
+    "types_restants": [
+      "annonce_perimee",
+      "chiffre_errone",
+      "chiffre_errone",
+      "incoherence_inter_sections",
+      "chiffre_errone",
+      "source_inventee",
+      "source_inventee",
+      "source_derivee_comptee_comme_primaire",
+      "compteur_incoherent",
+      "contexte_hors_sujet",
+      "redondance"
+    ],
+    "article_type": "actu",
+    "titre": "Alcool sur les réseaux : Addictions France dénonce le contournement de la loi Evin",
+    "n_sources": 3,
+    "n_mots": 571,
+    "titre_rss": "Les marques d'alcool inondent les réseaux sociaux, dénonce un rapport",
+    "matiere_faits_distincts": 760,
+    "matiere_redondance": 0.02,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "rapport"
+  },
+  {
+    "slug": "cop31-antalya-ouverture-tensions-financements-climatiques",
+    "statut": "rejete_qualite",
+    "date": "2026-11-09T23:29:51",
+    "tentative": 2,
+    "angle_insuffisant": true,
+    "raison": "Aucune phrase des faits ne combine un événement précis daté (annonce, décision, résultat récent) et une donnée chiffrée ou nommée qui lui est propre. Le texte se contente d'énoncer l'ouverture calendaire de la COP31 et des appels génériques du SG de l'ONU, sans fait déclencheur concret (chiffre de financement, accord, blocage nommé, position d'un pays) justifiant une publication maintenant.",
+    "article_type": "actu",
+    "titre": "La COP31 s'ouvre à Antalya sous tension financière",
+    "n_sources": 5,
+    "n_mots": 499,
+    "titre_rss": "COP31 : le monde face au défi climatique",
+    "matiere_faits_distincts": 653,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "cop31-antalya-nations-pacifique-financement-deception-diplomatique",
+    "statut": "corrige_automatiquement",
+    "date": "2026-11-09T23:36:13",
+    "problemes_initiaux": 18,
+    "tentatives": 1,
+    "problemes_residuels_style": 21,
+    "rapport_initial": {
+      "conforme": false,
+      "sujet_sensible": false,
+      "sujet_sensible_raison": "",
+      "angle_insuffisant": false,
+      "angle_insuffisant_raison": "",
+      "nature_contenu": "actualite_factuelle",
+      "problemes": [
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "La COP31 s'est ouverte le 9 novembre 2026 à Antalya, en Turquie, pour une session de deux semaines qui doit s'achever le 20 novembre [1].",
+          "explication": "La source [1] (France 24, 9 nov 2026) ne mentionne pas la date de clôture du 20 novembre ; cette information n'est pas dans les extraits fournis."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "Ce sommet international a pour objectif principal de mobiliser des financements face à l'urgence climatique, notamment pour la transition énergétique des pays pauvres [1].",
+          "explication": "La source [1] ne contient pas cette formulation précise sur l'objectif principal ni sur la transition énergétique des pays pauvres."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "La conférence est co-présidée par la Turquie, pays hôte, et l'Australie, qui assure la présidence des négociations formelles [7].",
+          "explication": "La source [7] (UN SDG Pavilion) ne mentionne pas la co-présidence turco-australienne ni la répartition des rôles."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "Canberra a souhaité s'associer aux nations insulaires du Pacifique, dont la survie est directement menacée par l'élévation du niveau de la mer, pour donner une visibilité politique à leurs revendications [1].",
+          "explication": "La source [1] ne contient pas cette explication sur la motivation de Canberra."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "Cinq pays insulaires du Pacifique avaient réclamé une action urgente et ambitieuse lors de la 80e session de l'Assemblée générale des Nations unies à New York le 26 septembre 2025 [6].",
+          "explication": "La source [6] (France Info, 26 sept 2025) ne précise pas le nombre de pays (cinq) ni la 80e session de l'AGNU."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "En amont de la COP31, une pré-COP inédite s'est tenue du 5 au 8 octobre 2026 aux Fidji et aux Tuvalu, première du genre dans la région, destinée à mettre l'accent sur les difficultés spécifiques de ces archipels [4].",
+          "explication": "La source [4] (RFI, 5 oct 2026) ne confirme pas les dates exactes 5-8 octobre ni le caractère « première du genre dans la région »."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "Le Premier ministre australien Anthony Albanese s'y est rendu, déclarant en marge de l'Assemblée générale de l'ONU en septembre \"promettre à [la] famille du Pacifique qu'elle ne sera pas livrée à elle-même face à la crise climatique\" [5].",
+          "explication": "La source [5] (Courrier international, 6 oct 2026) ne contient pas cette citation exacte d'Albanese en marge de l'AGNU de septembre."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "Cette pré-COP s'est toutefois heurtée à une faible participation internationale : seuls 14 chefs d'État et de gouvernement ont fait le déplacement, tous originaires de la région Pacifique à l'exception du Timor oriental et de Maurice [5].",
+          "explication": "La source [5] ne donne pas le chiffre précis de 14 chefs d'État ni la liste des exceptions (Timor oriental, Maurice)."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "Les principaux pays émetteurs de gaz à effet de serre étaient absents.",
+          "explication": "Aucune source ne confirme explicitement l'absence des « principaux pays émetteurs » ; les extraits parlent d'absence des grands émetteurs mais sans les nommer ni les quantifier."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "Maina Talia, ministre du Climat et de l'Environnement des Tuvalu, où deux des neuf atolls sont déjà partiellement submergés, a exprimé sa déception et sa colère face à cette absence [5].",
+          "explication": "La source [5] ne mentionne pas que deux des neuf atolls de Tuvalu sont « déjà partiellement submergés »."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "L'Australie, malgré son soutien affiché, reste l'un des plus grands exportateurs mondiaux de charbon et de gaz naturel liquéfié, et a récemment autorisé l'expansion de la mine de charbon de Hunter Valley et l'exploitation du gisement de gaz de schiste de Beetaloo [5].",
+          "explication": "La source [5] ne contient pas ces détails sur le rang d'exportateur de l'Australie ni les autorisations récentes de Hunter Valley et Beetaloo."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "La COP31 fait suite à la COP30 qui s'est tenue au Brésil en 2025.",
+          "explication": "Aucune source ne mentionne la COP30 au Brésil en 2025."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "Faute d'accord sur le pays hôte de la COP31, il avait été décidé qu'elle se tiendrait à Antalya sous présidence turque, mais que les négociations seraient dirigées par l'Australie [5].",
+          "explication": "La source [5] ne raconte pas l'historique de la désignation d'Antalya ni l'accord sur la présidence partagée."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "L'Union européenne a mis à jour son règlement sur la déforestation importée, applicable depuis septembre 2026, qui s'inscrit dans le cadre plus large des engagements climatiques internationaux discutés à Antalya [2].",
+          "explication": "La source [2] (Europa, règlement 2023/1115 version consolidée 18 sept 2026) ne dit pas qu'une mise à jour est « applicable depuis septembre 2026 » ni qu'elle est discutée à Antalya."
+        },
+        {
+          "bloc": 1,
+          "section": "nuances",
+          "type": "source_inventee",
+          "phrase_exacte": "Le ministre tuvaluan Maina Talia interroge la cohérence de la position australienne : comment un pays peut-il se présenter en voisin protecteur (\"atuakoi\") tout en autorisant l'expansion de mines de charbon et de gisements de gaz qualifiés de \"bombes climatiques\" [5] ?",
+          "explication": "La source [5] ne contient pas le terme « atuakoi » ni l'expression « bombes climatiques » attribuée à Talia."
+        },
+        {
+          "bloc": 1,
+          "section": "nuances",
+          "type": "source_inventee",
+          "phrase_exacte": "La décision d'invalider l'extension de la mine de Hunter Valley par la Haute Cour d'Australie le 7 octobre, pour défaut d'évaluation des émissions à l'exportation, montre une tension juridique interne [5].",
+          "explication": "La source [5] ne mentionne pas une décision de la Haute Cour d'Australie le 7 octobre sur Hunter Valley."
+        },
+        {
+          "bloc": 1,
+          "section": "nuances",
+          "type": "source_inventee",
+          "phrase_exacte": "L'absence des grands émetteurs à la pré-COP réduit le levier de négociation des nations insulaires pour obtenir des engagements financiers contraignants à Antalya.",
+          "explication": "Aucune source ne établit ce lien de causalité entre l'absence à la pré-COP et le levier de négociation à Antalya."
+        },
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "compteur_incoherent",
+          "phrase_exacte": "nb_sources: 7",
+          "explication": "L'article utilise des renvois [1] à [7] mais de nombreux faits attribués ne sont pas confirmés par les sources correspondantes ; le compteur de 7 sources distinctes est techniquement exact mais l'intégrité du sourcing est compromise par les attributions non vérifiées."
+        }
+      ]
+    },
+    "article_type": "actu",
+    "titre": "COP31 à Antalya : les nations du Pacifique entre espoir de financement et déception diplomatique",
+    "n_sources": 7,
+    "n_mots": 685,
+    "titre_rss": "COP31: les nations insulaires du Pacifique entre peur et espoir",
+    "matiere_faits_distincts": 876,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "label-bas-carbone-tourbieres-consultation-methode-validee",
+    "statut": "rejete_sensible",
+    "date": "2026-11-09T23:42:42",
+    "problemes_initiaux": 8,
+    "tentative": 1,
+    "bloc5": true,
+    "article_type": "actu",
+    "titre": "Label bas carbone tourbières : consultation close, méthode validée par les experts en octobre 2026",
+    "n_sources": 5,
+    "n_mots": 477,
+    "titre_rss": "Nouveau label bas carbone tourbières : \"Il y a un intérêt business, au-delà de la stratégie climat\"",
+    "matiere_faits_distincts": 852,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "retraite-francais-epargne-confiance-etude-amundi",
+    "statut": "rejete_qualite",
+    "date": "2026-11-09T23:48:33",
+    "angle_insuffisant": true,
+    "raison": "Aucune phrase dans 'faits' ne contient un événement précis daté ou datable (publication de l'étude Amundi, date de l'intervention de Krugman) accompagné d'une donnée chiffrée ou nommée qui lui est propre. L'article répond à 'qu'est-ce que l'étude dit ?' plutôt qu'à 'pourquoi en parle-t-on maintenant ?'.",
+    "article_type": "actu",
+    "titre": "Retraite : les Français misent sur leur épargne mais doutent de leur sécurité financière",
+    "n_sources": 5,
+    "n_mots": 499,
+    "titre_rss": "Retraite : ce qu’un bilan peut vous faire gagner",
+    "matiere_faits_distincts": 743,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "etude_scientifique"
+  },
+  {
+    "slug": "tribune-financement-innovations-rupture-climatique-france",
+    "statut": "rejete_sensible",
+    "date": "2026-11-09T23:59:52",
+    "problemes_initiaux": 12,
+    "bloc5": [
+      "compteur_incoherent"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "titre_de_mauvaise_qualite"
+    ],
+    "titre": "Tribune dans Le Monde : trois chercheurs réclament une entité pour financer les innovations de rupture",
+    "n_sources": 4,
+    "n_mots": 491,
+    "titre_rss": "Urgence climatique : « La France doit créer une entité dévolue au financement des innovations de rupture »",
+    "matiere_faits_distincts": 687,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "tribune"
+  },
+  {
+    "slug": "loi-resilience-retour-assemblee-retrait-portes-derobees",
+    "statut": "rejete_qualite",
+    "date": "2026-11-10T00:08:52",
+    "problemes_initiaux": 10,
+    "tentatives": 3,
+    "problemes_restants": 8,
+    "bloquants_restants": 3,
+    "bloquants_types": [
+      "chiffre_errone",
+      "incoherence_inter_sections",
+      "source_inventee"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [2] (dossier législatif de l'Assemblée nationale) indique un dépôt le 15 octobre 2024, mais l'article affirme un retour en séance le 9 novembre 2026. Or la source [1] (Le Monde du 9 novembre 2026) précise que l",
+        "phrase": "Le projet de loi relatif à la résilience des infrastructures critiques et au renforcement de la cybersécurité (n° 1779) revient en séance publique à l'Assemblée nationale le 9 novembre 2026, après avoir été déposé à l'As"
+      },
+      {
+        "bloc": 1,
+        "type": "incoherence_inter_sections",
+        "description": "Le résumé (chapeau) indique un retour en discussion le 9 novembre 2026, tandis que le corps des faits donne la même date. Mais la source [1] (Le Monde, 9 novembre 2026) indique explicitement que le texte revient en séanc",
+        "phrase": "Le projet de loi relatif à la résilience des infrastructures critiques et au renforcement de la cybersécurité (n° 1779) revient en séance publique à l'Assemblée nationale le 9 novembre 2026"
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "La source [5] est le document final du Cyber Resilience Act sur le site Europa (OEIL), qui est une source primaire institutionnelle. Cependant, l'article attribue à cette source [5] l'information sur la date d'adoption (",
+        "phrase": "Au niveau européen, le Cyber Resilience Act (règlement UE 2024/2847) a été adopté le 20 novembre 2024, imposant des exigences de cybersécurité horizontales pour les produits à éléments numériques [5]."
+      }
+    ],
+    "types_restants": [
+      "chiffre_errone",
+      "incoherence_inter_sections",
+      "fait_tranche_arbitrairement",
+      "source_inventee",
+      "formule_vague",
+      "redondance",
+      "extrapolation",
+      "redondance"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "resume_repete_corps",
+      "titre_de_mauvaise_qualite"
+    ],
+    "titre": "La loi résilience revient à l'Assemblée après le retrait de l'article sur les portes dérobées",
+    "n_sources": 6,
+    "n_mots": 519,
+    "titre_rss": "Après un été de cyberattaques et un an de blocage, la loi « résilience » de retour à l’Assemblée nationale",
+    "matiere_faits_distincts": 738,
+    "matiere_redondance": 0.02,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "prix-repere-gaz-hausse-5-8-decembre-2026",
+    "statut": "rejete_sensible",
+    "date": "2026-11-10T00:22:03",
+    "problemes_initiaux": 7,
+    "tentative": 3,
+    "bloc5": true,
+    "article_type": "actu",
+    "titre": "Le prix repère du gaz augmente de 5,8 % au 1er décembre 2026",
+    "n_sources": 5,
+    "n_mots": 572,
+    "titre_rss": "Le prix de référence du gaz augmentera encore en décembre, de 5,8%",
+    "matiere_faits_distincts": 411,
+    "matiere_redondance": 0.26,
+    "matiere_donnees_chiffrees": 3,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "cyberattaque-chambres-froides-efs-trois-sites-touches-stocks-preserves",
+    "statut": "rejete_qualite",
+    "date": "2026-11-10T00:30:07",
+    "problemes_initiaux": 17,
+    "tentatives": 3,
+    "problemes_restants": 10,
+    "bloquants_restants": 6,
+    "bloquants_types": [
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "source_inventee"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [2] (Le Monde, 12/10/2026) indique « plusieurs centaines de magasins » sans donner de décompte précis par enseigne ; les chiffres « Plus de 100 supermarchés Coopérative U, 180 magasins Intermarché et Netto » n'",
+        "phrase": "L'attaque contre la grande distribution, survenue dans la nuit du 11 au 12 octobre 2026, avait touché plusieurs centaines de magasins en France, provoquant la surchauffe de congélateurs et chambres froides et des tonnes "
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [4] (Le Monde, 04/11/2026) mentionne une seconde vague touchant « plus d'une centaine de magasins en Europe » mais ne liste pas les pays (Belgique, Luxembourg, Suède, Irlande, Pays-Bas, Estonie, Finlande) dans ",
+        "phrase": "Une seconde vague début novembre a frappé plus de 100 magasins en Europe, notamment en Belgique, au Luxembourg, en Suède, en Irlande, aux Pays-Bas, en Estonie et en Finlande [4]."
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [4] ne mentionne ni Charlie Hebdo (2023) ni une entreprise d'affichage vidéo lors des JO Paris 2024 dans l'extrait fourni ; ces exemples sont ajoutés sans fondement dans les sources autorisées.",
+        "phrase": "Elle s'ajoute à d'autres opérations observées depuis 2020, dont des attaques contre Charlie Hebdo en 2023 et contre une entreprise d'affichage vidéo lors des JO Paris 2024 [4]."
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [4] (Le Monde, 04/11/2026) ne contient pas cette information sur l'ouverture d'une enquête par le parquet de Paris visant des individus nommés ; le fait est attribué à une source qui ne le confirme pas.",
+        "phrase": "Le parquet de Paris a ouvert une enquête visant le chef d'une unité offensive cyber associée au CGRI et ses deux adjoints [4]."
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "Même problème que ci-dessus : la source [3] n'est pas un rapport du CERT-FR du 9 novembre ; l'article invente l'existence et le contenu d'un document absent des sources autorisées.",
+        "phrase": "Le rapport du CERT-FR du 9 novembre documente une campagne d'activités offensives iraniennes contre la France depuis 2020, mais ne mentionne pas explicitement l'incident EFS du 4 novembre dans ses exemples [3]."
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "Le renvoi [4] pointe vers l'article Le Monde du 4 novembre sur l'EFS, mais la phrase attribue à cet article une précision sur le lien avec les attaques d'octobre que l'extrait fourni ne contient pas ; le fait est imputé ",
+        "phrase": "L'incident a été révélé le 4 novembre 2026 par Le Monde, qui précise qu'on ignore pour l'instant s'il existe un lien avec les attaques ayant visé les installations de froid de la grande distribution à la mi-octobre [4]."
+      }
+    ],
+    "types_restants": [
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "source_inventee",
+      "chiffre_errone",
+      "chiffre_errone",
+      "source_inventee",
+      "source_derivee_comptee_comme_primaire",
+      "redondance",
+      "section_gonflee"
+    ],
+    "article_type": "actu",
+    "titre": "Cyberattaque sur l'EFS : trois sites touchés le 4 novembre, aucun produit sanguin perdu",
+    "n_sources": 4,
+    "n_mots": 548,
+    "titre_rss": "Cyberattaque : les chambres froides de l'EFS prises pour cible",
+    "matiere_faits_distincts": 910,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "radiateur-aigostar-bain-huile-2300w-11-elements-thermostat-prix",
+    "statut": "rejete_qualite",
+    "date": "2026-11-10T00:38:29",
+    "angle_insuffisant": true,
+    "raison": "L'article ne répond pas à sa propre question d'angle ('Ce radiateur offre-t-il un rapport puissance-prix pertinent ?') : aucune donnée de consommation réelle, de performance mesurée, de comparaison de prix ou de test indépendant n'est fournie pour évaluer la pertinence du rapport puissance-prix. Les faits se limitent à reprendre les allégations commerciales de la source unique [1] sans aucune vérification.",
+    "article_type": "actu",
+    "titre": "Radiateur Aigostar 2 300 W : 11 éléments, 3 puissances, thermostat, sous les 50 €",
+    "n_sources": 7,
+    "n_mots": 590,
+    "titre_rss": "Plus de 50 € d’économies sur ce radiateur à bain d'huile Aigostar : de quoi préparer l’hiver sans attendre les grands froids",
+    "matiere_faits_distincts": 1019,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "sujet_pedagogique"
+  },
+  {
+    "slug": "byou-offre-fibre-24-99-euros-sans-decodeur-tv",
+    "statut": "rejete_sensible",
+    "date": "2026-11-10T00:46:52",
+    "problemes_initiaux": 7,
+    "tentative": 3,
+    "bloc5": true,
+    "article_type": "actu",
+    "titre": "B&YOU lance une offre fibre à 24,99 €/mois sans décodeur TV",
+    "n_sources": 4,
+    "n_mots": 553,
+    "titre_rss": "À 24,99 €/mois, cette offre fibre de B&YOU fait l'impasse sur le décodeur TV",
+    "matiere_faits_distincts": 796,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "canicule-juin-2026-mortalite-toutes-causes-bondit-29-pour-cent",
+    "statut": "corrige_automatiquement",
+    "date": "2026-11-10T00:53:42",
+    "problemes_initiaux": 4,
+    "tentatives": 1,
+    "problemes_residuels_style": 0,
+    "rapport_initial": {
+      "conforme": false,
+      "sujet_sensible": false,
+      "sujet_sensible_raison": "",
+      "angle_insuffisant": false,
+      "angle_insuffisant_raison": "",
+      "nature_contenu": "actualite_factuelle",
+      "problemes": [
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "compteur_incoherent",
+          "phrase_exacte": "nb_sources: 4",
+          "explication": "Le champ nb_sources indique 4 alors que seules 2 sources distinctes sont listées dans le tableau sources et utilisées dans le texte (renvois [1] et [2])."
+        },
+        {
+          "bloc": 1,
+          "section": "resume",
+          "type": "chiffre_errone",
+          "phrase_exacte": "une hausse de 29,1 % selon les certificats électroniques transmis à Santé publique France.",
+          "explication": "Le résumé attribue le chiffre de +29,1 % aux certificats électroniques transmis à Santé publique France, alors que la source [1] indique que ce sont les certificats électroniques transmis à l'Insee (et non à Santé publique France) qui permettent cet enregistrement."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "chiffre_errone",
+          "phrase_exacte": "elle enregistre 25 % de décès survenant à domicile, 45 % de ceux en EHPAD et près de 80 % en établissement hospitalier [1]",
+          "explication": "La source [1] indique des taux de couverture de 25 % pour les décès à domicile, 45 % en EHPAD et 80 % en établissement de santé (et non 80 % « près de » et « établissement hospitalier » au lieu de « établissement de santé »)."
+        },
+        {
+          "bloc": 1,
+          "section": "nuances",
+          "type": "chiffre_errone",
+          "phrase_exacte": "notamment pour les décès à domicile où la couverture électronique n'est que de 25 % [1][2]",
+          "explication": "La source [2] (bulletin du 7 juillet) ne mentionne pas le taux de couverture de 25 % pour les décès à domicile ; ce chiffre ne figure que dans la source [1]. Le renvoi [2] est donc inexact."
+        }
+      ]
+    },
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "titre_de_mauvaise_qualite"
+    ],
+    "titre": "Canicule de juin 2026 : la mortalité toutes causes bondit de 29 % en une semaine",
+    "n_sources": 2,
+    "n_mots": 682,
+    "titre_rss": "Point de situation sur la mortalité toutes causes confondues  sur la période du 22 au 28 juin 2026",
+    "matiere_faits_distincts": 973,
+    "matiere_redondance": 0.01,
+    "matiere_donnees_chiffrees": 7,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "veille_heures_visible": 221.3,
+    "veille_passages": 74,
+    "veille_age_h": 1861.3,
+    "veille_n_flux_grappe": 1,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "france-accuse-iran-cyberattaque-frigos-supermarches-enquete-gardiens-revolution",
+    "statut": "corrige_automatiquement",
+    "date": "2026-11-10T01:16:48",
+    "problemes_initiaux": 10,
+    "tentatives": 1,
+    "problemes_residuels_style": 3,
+    "rapport_initial": {
+      "conforme": false,
+      "sujet_sensible": false,
+      "sujet_sensible_raison": "",
+      "angle_insuffisant": false,
+      "angle_insuffisant_raison": "",
+      "nature_contenu": "actualite_factuelle",
+      "problemes": [
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "chiffre_errone",
+          "phrase_exacte": "Dans la nuit du 11 au 12 octobre 2026, une cyberattaque a ciblé les contrôleurs à distance d'installations de réfrigération industrielles sur 700 sites de supermarchés à travers la France, provoquant un emballement des températures [1][3].",
+          "explication": "Le chiffre \"700 sites\" n'est confirmé par aucune des sources citées [1] (France Info) ni [3] (AP News) dans les extraits fournis ; la source [4] (CERT-FR alerte) ne mentionne pas non plus ce chiffre précis. L'article avance un chiffre exact non sourcé."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "chiffre_errone",
+          "phrase_exacte": "Le 9 novembre 2026, le ministre des Affaires étrangères Jean-Noël Barrot a déclaré que la responsabilité de cette attaque revient au Corps des Gardiens de la Révolution islamique d'Iran, qualifiant l'opération d'une ampleur et d'une agressivité inédites [3][4].",
+          "explication": "La citation attribuée à Jean-Noël Barrot (\"ampleur et d'une agressivité inédites\") n'apparaît pas dans les extraits des sources [3] (AP News) ni [4] (CERT-FR alerte) fournis. L'article prête des propos précis au ministre non vérifiables sur les sources listées."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "chiffre_errone",
+          "phrase_exacte": "Une information judiciaire a été ouverte par le parquet de Paris contre le chef du groupe iranien Shahid Kaveh, ses deux adjoints et toute autre personne qui serait identifiée [3].",
+          "explication": "L'expression \"ses deux adjoints\" (chiffre précis : deux) n'est pas confirmée par l'extrait de la source [3] (AP News) fourni. L'article précise un nombre d'adjoints non attesté dans la source citée."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "chiffre_errone",
+          "phrase_exacte": "Au niveau européen, la Commission a saisi la Cour de justice de l'UE le 9 juillet 2026 contre la France, l'Espagne, l'Irlande et les Pays-Bas pour défaut de transposition de la directive NIS2 sur la cybersécurité des réseaux et systèmes d'information, dont l'échéance était fixée au 17 octobre 2024 [5].",
+          "explication": "La date précise \"9 juillet 2026\" et la liste exacte des quatre pays (France, Espagne, Irlande, Pays-Bas) ne figurent pas dans l'extrait de la source [5] (Le Monde) fourni. L'article avance des détails factuels (date, liste de pays) non vérifiables sur la source citée."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "Dans la nuit du 11 au 12 octobre 2026, une cyberattaque a ciblé les contrôleurs à distance d'installations de réfrigération industrielles sur 700 sites de supermarchés à travers la France, provoquant un emballement des températures [1][3].",
+          "explication": "Le renvoi [1] (France Info) et [3] (AP News) ne contiennent pas, dans les extraits fournis, le chiffre \"700 sites\" ni la confirmation explicite de \"700 sites de supermarchés\". Le fait est attribué à des sources qui ne le confirment pas dans les extraits."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "Le 9 novembre 2026, le ministre des Affaires étrangères Jean-Noël Barrot a déclaré que la responsabilité de cette attaque revient au Corps des Gardiens de la Révolution islamique d'Iran, qualifiant l'opération d'une ampleur et d'une agressivité inédites [3][4].",
+          "explication": "La citation précise \"ampleur et d'une agressivité inédites\" attribuée à Barrot n'est pas présente dans les extraits des sources [3] (AP News) ni [4] (CERT-FR alerte). L'attribution de propos exacts à une source qui ne les contient pas dans l'extrait constitue une source inventée pour ce fait."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "Une information judiciaire a été ouverte par le parquet de Paris contre le chef du groupe iranien Shahid Kaveh, ses deux adjoints et toute autre personne qui serait identifiée [3].",
+          "explication": "Le détail \"ses deux adjoints\" (nombre précis : deux) n'est pas dans l'extrait de la source [3] (AP News). Le renvoi [3] ne confirme pas ce chiffre ; l'article invente une précision en l'attribuant à la source."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "Au niveau européen, la Commission a saisi la Cour de justice de l'UE le 9 juillet 2026 contre la France, l'Espagne, l'Irlande et les Pays-Bas pour défaut de transposition de la directive NIS2 sur la cybersécurité des réseaux et systèmes d'information, dont l'échéance était fixée au 17 octobre 2024 [5].",
+          "explication": "La date \"9 juillet 2026\" et la liste nominative des quatre États membres ne figurent pas dans l'extrait de la source [5] (Le Monde). L'article attribue à la source [5] des détails factuels qu'elle ne contient pas dans l'extrait fourni."
+        },
+        {
+          "bloc": 1,
+          "section": "nuances",
+          "type": "acteur_mis_en_cause_sans_reponse",
+          "phrase_exacte": "La réaction officielle des autorités iraniennes n'était pas disponible dans les sources consultées à la date de publication.",
+          "explication": "L'Iran (via le CGRI, les unités Shahid Shoostari et Shahid Kaveh) est mis en cause nominalement comme auteur de l'attaque dans les sections faits et contexte, mais l'article se borne à constater l'absence de réaction dans les sources consultées sans indiquer explicitement qu'une demande de réaction a été faite ou que l'Iran n'était pas joignable, ce qui est requis par la charte pour un acteur mis en cause."
+        },
+        {
+          "bloc": 2,
+          "section": "contexte",
+          "type": "contexte_hors_sujet",
+          "phrase_exacte": "Au niveau européen, la Commission a saisi la Cour de justice de l'UE le 9 juillet 2026 contre la France, l'Espagne, l'Irlande et les Pays-Bas pour défaut de transposition de la directive NIS2 sur la cybersécurité des réseaux et systèmes d'information, dont l'échéance était fixée au 17 octobre 2024 [5].",
+          "explication": "Ce développement sur la procédure d'infraction NIS2 contre la France et trois autres pays n'éclaire pas directement la cyberattaque iranienne contre des frigos de supermarchés (sujet principal) : c'est un fait vrai mais tangentiel, sans lien causal ou explicatif avec l'incident traité, servant à remplir la section contexte."
+        }
+      ]
+    },
+    "article_type": "actu",
+    "titre": "La France attribue à l'Iran une cyberattaque massive contre 700 sites frigorifiques",
+    "n_sources": 5,
+    "n_mots": 671,
+    "titre_rss": "La France accuse l'Iran de la cyberattaque contre des frigos de supermarchés, une unité des Gardiens de la Révolution visée par une enquête",
+    "matiere_faits_distincts": 1024,
+    "matiere_redondance": 0.02,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "11-novembre-ceremonie-obligatoire-ecole-divise-enseignants",
+    "statut": "rejete_sensible",
+    "date": "2026-11-10T01:24:52",
+    "problemes_initiaux": 9,
+    "tentative": 3,
+    "bloc5": true,
+    "article_type": "actu",
+    "titre": "11-Novembre : la cérémonie obligatoire à l'école divise les enseignants",
+    "n_sources": 5,
+    "n_mots": 604,
+    "titre_rss": "11-Novembre : la commémoration obligatoire à l’école divise les enseignants",
+    "matiere_faits_distincts": 610,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "tabac-exclu-reglement-europeen-deforestation-60000-hectares-zimbabwe",
+    "statut": "rejete_sensible",
+    "date": "2026-11-10T01:40:23",
+    "problemes_initiaux": 12,
+    "tentative": 3,
+    "bloc5": true,
+    "article_type": "actu",
+    "titre": "Tabac exclu du règlement européen déforestation : 60 000 hectares perdus au Zimbabwe",
+    "n_sources": 4,
+    "n_mots": 634,
+    "titre_rss": "Le tabac dans l’angle mort du règlement européen contre la déforestation",
+    "matiere_faits_distincts": 581,
+    "matiere_redondance": 0.21,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "mortalite-france-2024-641046-deces-taux-standardise-baisse",
+    "statut": "conforme_du_premier_coup",
+    "date": "2026-11-10T01:54:07",
+    "article_type": "actu",
+    "titre": "Mortalité 2024 : 641 046 décès, taux standardisé en baisse mais supérieur aux tendances pré-Covid",
+    "n_sources": 4,
+    "n_mots": 812,
+    "titre_rss": "Grandes causes de décès en France : tendances et causes associées en 2024",
+    "matiere_faits_distincts": 1116,
+    "matiere_redondance": 0.11,
+    "matiere_donnees_chiffrees": 2,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "veille_heures_visible": 517.7,
+    "veille_passages": 311,
+    "veille_age_h": 2157.7,
+    "veille_n_flux_grappe": 1,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "chantiers-data-centers-europe-exploitation-travailleurs-cadre-legislatif",
+    "statut": "rejete_sensible",
+    "date": "2026-11-10T02:07:00",
+    "problemes_initiaux": 14,
+    "bloc5": [
+      "affaire_en_cours_presentee_comme_fait"
+    ],
+    "article_type": "actu",
+    "titre": "Chantiers de data centers en Europe : exploitation des travailleurs et cadre législatif en construction",
+    "n_sources": 6,
+    "n_mots": 506,
+    "titre_rss": "Data centers : sur les chantiers de construction européens, des travailleurs exploités dans un climat de « terreur »",
+    "matiere_faits_distincts": 829,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "smic-revalorisation-1-6-pour-cent-decembre-2026-cgt",
+    "statut": "rejete_qualite",
+    "date": "2026-11-10T02:33:46",
+    "problemes_initiaux": 10,
+    "tentatives": 3,
+    "problemes_restants": 8,
+    "bloquants_restants": 5,
+    "bloquants_types": [
+      "chiffre_errone",
+      "chiffre_errone",
+      "niveau_preuve_insuffisant",
+      "source_inventee",
+      "source_inventee"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [1] (RFI) cite Hadrien Clouet parlant d'une hausse de « 20 euros » sans préciser « par mois » ni « pour un temps plein » ; l'article ajoute ces précisions qui ne figurent pas dans l'extrait fourni.",
+        "phrase": "Ce coup de pouce représente une augmentation d'environ 20 euros par mois pour un temps plein, selon le député LFI Hadrien Clouet [1]."
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [2] (Vie Publique) est datée du 28/05/2026 et son extrait ne contient aucune valeur de Smic au 1er mai 2026 ; le chiffre 1 801,80 € et le calcul qui en découle ne sont pas sourcés.",
+        "phrase": "Selon la source [2], le Smic brut mensuel s'établissait à 1 801,80 euros au 1er mai 2026, ce qui porterait le nouveau montant à environ 1 830 euros bruts après application de la hausse de 1,6 %."
+      },
+      {
+        "bloc": 1,
+        "type": "niveau_preuve_insuffisant",
+        "description": "L'article présente cette réserve comme une nuance générale alors qu'elle ne figure dans aucune des sources fournies ; le rédacteur ne peut pas l'inventer pour combler un manque de sourcing.",
+        "phrase": "Le montant exact de la hausse de 20 euros avancé par Hadrien Clouet est une estimation ; le gain réel dépend de la situation fiscale et sociale de chaque salarié (prélèvement à la source, cotisations)."
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "Le renvoi [1] pointe vers la source RFI qui ne mentionne ni « par mois » ni « pour un temps plein » ; l'attribution est donc inexacte par rapport au contenu réel de la source.",
+        "phrase": "Ce coup de pouce représente une augmentation d'environ 20 euros par mois pour un temps plein, selon le député LFI Hadrien Clouet [1]."
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "La source [2] ne contient pas la valeur 1 801,80 € au 1er mai 2026 ; le fait est attribué à une source qui ne le confirme pas.",
+        "phrase": "Selon la source [2], le Smic brut mensuel s'établissait à 1 801,80 euros au 1er mai 2026, ce qui porterait le nouveau montant à environ 1 830 euros bruts après application de la hausse de 1,6 %."
+      }
+    ],
+    "types_restants": [
+      "chiffre_errone",
+      "chiffre_errone",
+      "chronologie_confuse",
+      "niveau_preuve_insuffisant",
+      "source_inventee",
+      "source_inventee",
+      "redondance",
+      "extrapolation"
+    ],
+    "article_type": "actu",
+    "titre": "Le Smic revalorisé de 1,6 % au 1er décembre, la CGT dénonce des miettes",
+    "n_sources": 4,
+    "n_mots": 593,
+    "titre_rss": "L'augmentation du Smic de «20 euros» est «presque une provocation», juge le député LFI Hadrien Clouet",
+    "matiere_faits_distincts": 723,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 3,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "glucksmann-200-milliards-sortie-energies-fossiles-presidentielle",
+    "statut": "rejete_sensible",
+    "date": "2026-11-10T02:37:13",
+    "problemes_initiaux": 8,
+    "bloc5": [
+      "compteur_incoherent"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "resume_repete_corps"
+    ],
+    "titre": "Glucksmann annonce 200 milliards d'euros pour la sortie des énergies fossiles",
+    "n_sources": 4,
+    "n_mots": 502,
+    "titre_rss": "Présidentielle : Glucksmann promet 200 milliards d'euros pour la sortie des énergies fossiles",
+    "matiere_faits_distincts": 517,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 2,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "declaration"
+  },
+  {
+    "slug": "budget-2027-calendrier-parlementaire-tension-presidentielle",
+    "statut": "rejete_qualite",
+    "date": "2026-11-10T02:50:57",
+    "problemes_initiaux": 7,
+    "tentatives": 3,
+    "problemes_restants": 8,
+    "bloquants_restants": 6,
+    "bloquants_types": [
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "annonce_perimee",
+      "annonce_perimee",
+      "source_inventee"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "Le 3 novembre 2026 est un mardi, mais la source [3] (Le Monde, 4 novembre 2026) indique que le rejet a eu lieu le 4 novembre 2026 (un mercredi), pas le 3 novembre.",
+        "phrase": "L'Assemblée nationale a rejeté mardi 3 novembre, en première lecture et à l'unanimité, le projet de loi de finances pour 2027 [3]."
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "Même erreur de date que dans les faits : le rejet a eu lieu le 4 novembre 2026 selon la source [3], pas le 3 novembre.",
+        "phrase": "L'Assemblée nationale a rejeté à l'unanimité le projet de loi de finances 2027 en première lecture le 3 novembre, ouvrant une séquence parlementaire incertaine à quatorze mois de l'élection présidentielle."
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "L'article 47 de la Constitution impose un délai de 70 jours. Du 1er octobre au 10 décembre inclus, cela fait 70 jours. 'Mi-décembre' (vers le 15) dépasse ce délai constitutionnel.",
+        "phrase": "Le dépôt du texte le 1er octobre laisse théoriquement jusqu'à mi-décembre pour l'adoption définitive."
+      },
+      {
+        "bloc": 1,
+        "type": "annonce_perimee",
+        "description": "La source [3] (Le Monde, 4 novembre 2026) rapporte un événement déjà survenu (le rejet du 4 novembre). Le présent 's'annonce' présente comme futur un exercice dont la première étape (rejet à l'Assemblée) est déjà accompl",
+        "phrase": "Pour la troisième année consécutive, l'exercice budgétaire s'annonce périlleux [3]."
+      },
+      {
+        "bloc": 1,
+        "type": "annonce_perimee",
+        "description": "Le résumé présente le risque d'ordonnances/loi spéciale comme futur ('font courir le risque'), alors que les faits et le contexte indiquent que le rejet à l'Assemblée a déjà eu lieu (4 novembre) et que la navette parleme",
+        "phrase": "Le calendrier serré et les désaccords politiques font courir le risque d'une adoption par ordonnances ou d'une loi spéciale, reproduisant le schéma des deux exercices précédents où ces procédures d'urgence ont déjà dû êt"
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "La source [1] est datée du 6 novembre 2026, soit après le dépôt du 1er octobre. L'article affirme que le jeu de données est 'sur la base du texte déposé le 1er octobre', mais la source [1] ne confirme pas explicitement c",
+        "phrase": "Un jeu de données officiel détaille l'impact estimé de ces mesures pour les communes, intercommunalités et départements, sur la base du texte déposé le 1er octobre [1]."
+      }
+    ],
+    "types_restants": [
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "annonce_perimee",
+      "annonce_perimee",
+      "source_inventee",
+      "redondance",
+      "redondance"
+    ],
+    "article_type": "actu",
+    "titre": "Budget 2027 : le calendrier parlementaire sous tension avant la présidentielle",
+    "n_sources": 5,
+    "n_mots": 590,
+    "titre_rss": "Budget 2027 : les dates-clés des prochaines semaines",
+    "matiere_faits_distincts": 560,
+    "matiere_redondance": 0.02,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "mit-transistors-bacteries-ordinateurs-vivants",
+    "statut": "rejete_sensible",
+    "date": "2026-11-10T03:06:56",
+    "problemes_initiaux": 20,
+    "bloc5": [
+      "affaire_en_cours_presentee_comme_fait"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "resume_repete_corps"
+    ],
+    "titre": "Des chercheurs du MIT transforment des bactéries en transistors fonctionnels",
+    "n_sources": 4,
+    "n_mots": 473,
+    "titre_rss": "Des transistors à partir d'êtres vivants",
+    "matiere_faits_distincts": 606,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "etude_scientifique"
   }
 ]
