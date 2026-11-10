@@ -43,7 +43,8 @@ def _validate(entries: list[dict], known_slugs: set[str]) -> None:
     if len(retired) != len(entries):
         raise ValueError("Un slug figure plusieurs fois dans retirements.json")
 
-    redirects = {str(e["slug"]): str(e.get("redirect_to", "")) for e in entries}
+    redirects = {str(e["slug"]): str(e.get("redirect_to", "")) for e in entries
+                 if str(e.get("type", "")) != "erreur"}
     for slug, target in redirects.items():
         if not target:
             raise ValueError(f"{slug}: redirect_to manquant")
@@ -85,6 +86,34 @@ def _stub(slug: str, target: str, target_title: str, reason: str, date: str) -> 
     <p>Deux publications couvraient le même événement. Pour éviter les doublons, cette page renvoie désormais vers la version retenue :</p>
     <p><a href="{target_url}" style="font-weight:700;color:var(--blue)">{safe_target_title} →</a></p>
     <p style="color:var(--muted);font-size:.9rem"><strong>Motif :</strong> {safe_reason}<br/><strong>Date :</strong> {safe_date}</p>
+  </main>
+</body>
+</html>
+'''
+
+
+def _stub_erreur(slug: str, reason: str, date: str) -> str:
+    """Page d'un article RETIRÉ POUR ERREUR : pas de redirection, motif visible."""
+    safe_reason = html.escape(reason)
+    safe_date = html.escape(date)
+    return f'''<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="robots" content="noindex, follow"/>
+  <meta name="description" content="Cet article a été retiré par la rédaction après vérification."/>
+  <title>Article retiré — Les Faits</title>
+  <base href="/"/>
+  <link rel="stylesheet" href="/src/style.css?v=2"/>
+</head>
+<body>
+  <main style="max-width:680px;margin:100px auto;padding:0 24px;line-height:1.7">
+    <p style="font-size:.8rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)">Correction</p>
+    <h1 style="font-size:2rem;line-height:1.2">Cet article a été retiré</h1>
+    <p>Une vérification après publication a montré que cet article contenait des informations inexactes ou non étayées par ses sources. Nous l’avons retiré plutôt que de laisser en ligne un texte qui ne respecte pas notre charte.</p>
+    <p style="color:var(--muted);font-size:.9rem"><strong>Motif :</strong> {safe_reason}<br/><strong>Date :</strong> {safe_date}</p>
+    <p><a href="/corrections.html" style="font-weight:700;color:var(--blue)">Toutes nos corrections →</a> · <a href="/" style="color:var(--blue)">Accueil</a></p>
   </main>
 </body>
 </html>
@@ -137,14 +166,22 @@ def apply_retirements(root: Path | None = None) -> dict:
     stubs = 0
     for entry in entries:
         slug = str(entry["slug"])
-        target = str(entry["redirect_to"])
-        target_meta = by_slug.get(target, {})
-        target_title = str(target_meta.get("titre") or target.replace("-", " ").capitalize())
-        desired = _stub(
-            slug, target, target_title,
-            str(entry.get("reason") or "Contenu consolidé avec une version plus complète."),
-            str(entry.get("date") or ""),
-        )
+        if str(entry.get("type", "")) == "erreur":
+            target = "(retrait pour erreur)"
+            desired = _stub_erreur(
+                slug,
+                str(entry.get("reason") or "Informations inexactes ou non sourcées."),
+                str(entry.get("date") or ""),
+            )
+        else:
+            target = str(entry["redirect_to"])
+            target_meta = by_slug.get(target, {})
+            target_title = str(target_meta.get("titre") or target.replace("-", " ").capitalize())
+            desired = _stub(
+                slug, target, target_title,
+                str(entry.get("reason") or "Contenu consolidé avec une version plus complète."),
+                str(entry.get("date") or ""),
+            )
         path = ROOT / "articles" / f"{slug}.html"
         old = path.read_text(encoding="utf-8", errors="replace") if path.exists() else ""
         if old != desired:

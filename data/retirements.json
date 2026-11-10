@@ -10,5 +10,17 @@
     "redirect_to": "eclipse-solaire-12-aout-2026",
     "date": "2026-08-06",
     "reason": "Doublon consolidé vers la version comportant davantage de sources et un périmètre plus directement lié à l’éclipse."
+  },
+  {
+    "slug": "sophie-adenot-readaptation-retour-iss-huit-mois",
+    "type": "erreur",
+    "date": "2026-11-10",
+    "reason": "Les circonstances du retour étaient inexactes : Sophie Adenot a amerri dans le Pacifique le 8 octobre 2026 à bord de Crew-12 (et non atterri au Kazakhstan le 2 octobre à bord d’un Soyouz), après environ 237 jours dans l’espace ; le précédent record européen et l’équipage de relève étaient également mal identifiés."
+  },
+  {
+    "slug": "fossiles-quercy-grande-coupure-bouleversement-climatique",
+    "type": "erreur",
+    "date": "2026-11-10",
+    "reason": "Plusieurs affirmations n’étaient pas étayées par les sources citées (exemples d’espèces disparues et durée de la Grande Coupure attribués à tort à une page du CNRS, sites de comparaison et « séquence continue » sans source) et une date était inexacte (la notion de Grande Coupure remonte au début du XXe siècle, pas au XIXe)."
   }
 ]

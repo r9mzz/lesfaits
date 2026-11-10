@@ -11,6 +11,29 @@ from apply_retirements import apply_retirements  # noqa: E402
 
 
 class RetirementTests(unittest.TestCase):
+    def test_retrait_pour_erreur_sans_redirection(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            (root / "data").mkdir()
+            (root / "articles").mkdir()
+            articles = [{"slug": "faux", "titre": "Faux"}, {"slug": "bon", "titre": "Bon"}]
+            for name in ("articles.json", "search.json"):
+                (root / "data" / name).write_text(json.dumps(articles), encoding="utf-8")
+            (root / "data" / "retirements.json").write_text(json.dumps([{
+                "slug": "faux", "type": "erreur", "date": "2026-11-10",
+                "reason": "Date et vaisseau du retour inexacts.",
+            }]), encoding="utf-8")
+            (root / "articles" / "faux.html").write_text("texte faux", encoding="utf-8")
+            apply_retirements(root)
+            kept = json.loads((root / "data" / "articles.json").read_text(encoding="utf-8"))
+            self.assertEqual(["bon"], [a["slug"] for a in kept])
+            stub = (root / "articles" / "faux.html").read_text(encoding="utf-8")
+            self.assertIn("Cet article a été retiré", stub)
+            self.assertIn("Date et vaisseau du retour inexacts.", stub)
+            self.assertIn('content="noindex, follow"', stub)
+            self.assertNotIn("http-equiv=\"refresh\"", stub)
+            self.assertNotIn("texte faux", stub)
+
     def test_consolidation_filters_indexes_and_writes_redirect(self):
         with tempfile.TemporaryDirectory() as tmp:
             root = Path(tmp)
