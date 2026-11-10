@@ -66682,5 +66682,1292 @@
     "n_sources_injectees": 10,
     "n_sources_trouvees": 10,
     "nature_contenu": "etude_scientifique"
+  },
+  {
+    "slug": "marques-alcool-reseaux-sociaux-loi-evin-addictions-france",
+    "statut": "rejete_qualite",
+    "date": "2026-11-10T17:13:27",
+    "problemes_initiaux": 8,
+    "tentatives": 3,
+    "problemes_restants": 14,
+    "bloquants_restants": 8,
+    "bloquants_types": [
+      "accusation_presentee_comme_fait",
+      "accusation_presentee_comme_fait",
+      "accusation_presentee_comme_fait",
+      "accusation_presentee_comme_fait",
+      "accusation_presentee_comme_fait",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "accusation_presentee_comme_fait",
+        "description": "Le titre présente le contournement de la loi Evin comme un fait établi (« contournent ») alors que les sources décrivent une analyse associative et une lecture de la loi que les annonceurs peuvent contester (nuances, sou",
+        "phrase": "Selon Addictions France, les marques d'alcool contournent la loi Evin via les réseaux sociaux"
+      },
+      {
+        "bloc": 1,
+        "type": "accusation_presentee_comme_fait",
+        "description": "Le résumé affirme que ces contenus « échappent à l'interdiction » comme un fait, alors que la frontière juridique est débattue et non tranchée (nuances, source [2]).",
+        "phrase": "Selon l'association, des contenus sponsorisés et partenariats d'influence normalisent la consommation chez les jeunes, échappant à l'interdiction de publicité directe."
+      },
+      {
+        "bloc": 1,
+        "type": "accusation_presentee_comme_fait",
+        "description": "L'article présente l'échappement au cadre légal comme une réalité (« échapperaient » au conditionnel mais sans attribution claire à l'analyse de l'association), alors que les nuances précisent que cette lecture est conte",
+        "phrase": "des formats qui échapperaient au cadre strict de la loi Evin"
+      },
+      {
+        "bloc": 1,
+        "type": "accusation_presentee_comme_fait",
+        "description": "Formulation qui présente le dépassement des limites légales comme un fait constaté (« dépasseraient ») sans attribution explicite au rapport d'Addictions France, alors que c'est l'interprétation de l'association (source ",
+        "phrase": "les contenus insérés par les marques dans les fils d'actualité dépasseraient régulièrement les limites imposées par cette législation"
+      },
+      {
+        "bloc": 1,
+        "type": "accusation_presentee_comme_fait",
+        "description": "Affirmation présentée comme un fait établi de zone grise réglementaire, alors que les nuances indiquent que la frontière est juridiquement débattue et non tranchée (source [2]).",
+        "phrase": "les publications sponsorisées, les placements de produits dans les vidéos et les partenariats avec des créateurs de contenu ne rentrent pas clairement dans les catégories visées par la loi"
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "La source [1] est Sciences et Avenir (article de presse), pas le rapport original d'Addictions France ; l'article attribue la publication du rapport à la source [1] qui ne fait que le relayer.",
+        "phrase": "Addictions France a publié jeudi 5 novembre un troisième rapport consacré à la promotion de l'alcool sur les grandes plateformes numériques [1]."
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "Le renvoi [1] (Sciences et Avenir) est utilisé pour attribuer un contenu du rapport d'Addictions France, mais la source [1] n'est pas le rapport lui-même.",
+        "phrase": "Selon le rapport, les contenus insérés par les marques dans les fils d'actualité dépasseraient régulièrement les limites imposées par cette législation [1]."
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "Le renvoi [3] pointe vers le deuxième article du Monde (URL /alcool/) qui est une duplication de la source [2] et ne constitue pas une source distincte confirmant cet élargissement d'analyse.",
+        "phrase": "Après avoir épinglé par le passé le rôle des influenceurs, Addictions France élargit son analyse aux mécanismes algorithmiques qui amplifient la visibilité de ces contenus auprès des jeunes publics [3]."
+      }
+    ],
+    "types_restants": [
+      "accusation_presentee_comme_fait",
+      "accusation_presentee_comme_fait",
+      "accusation_presentee_comme_fait",
+      "accusation_presentee_comme_fait",
+      "accusation_presentee_comme_fait",
+      "redondance",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_derivee_comptee_comme_primaire",
+      "source_derivee_comptee_comme_primaire",
+      "compteur_incoherent",
+      "redondance",
+      "redondance"
+    ],
+    "article_type": "actu",
+    "titre": "Les marques d'alcool contournent la loi Evin via les réseaux sociaux",
+    "n_sources": 3,
+    "n_mots": 447,
+    "titre_rss": "Les marques d'alcool inondent les réseaux sociaux, dénonce un rapport",
+    "matiere_faits_distincts": 579,
+    "matiere_redondance": 0.02,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "rapport"
+  },
+  {
+    "slug": "chelles-elue-aspergee-essence-lycee-gaston-bachelard-enquete-tentative-homicide",
+    "statut": "rejete_sensible",
+    "date": "2026-11-10T17:24:46",
+    "sujet_sensible": true,
+    "raison": "L'article rapporte une agression violente visant une élue identifiée nommément (conseillère régionale, adjointe au maire de Chelles) et mentionne un lycéen comme auteur présumé, dans le cadre d'une enquête judiciaire pour tentative d'homicide volontaire en cours — mise en cause pénale de personnes physiques non jugée définitivement.",
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "resume_repete_corps"
+    ],
+    "titre": "Chelles : une élue aspergée d'essence devant le lycée Gaston-Bachelard, enquête pour tentative d'homicide",
+    "n_sources": 3,
+    "n_mots": 402,
+    "titre_rss": "Seine-et-Marne : une bouteille d’essence lancée sur une élue, une enquête pour tentative d’homicide ouverte",
+    "matiere_faits_distincts": 772,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "emissions-mondiales-co2-baisse-2026-record-2025",
+    "statut": "rejete_sensible",
+    "date": "2026-11-10T17:31:06",
+    "problemes_initiaux": 13,
+    "bloc5": [
+      "affaire_en_cours_presentee_comme_fait"
+    ],
+    "article_type": "actu",
+    "titre": "Émissions mondiales de CO2 : baisse de 0,4 % attendue en 2026 après record 2025",
+    "n_sources": 7,
+    "n_mots": 561,
+    "titre_rss": "Changement climatique : une légère baisse des émissions CO2 \"encourageante\"",
+    "matiere_faits_distincts": 1029,
+    "matiere_redondance": 0.01,
+    "matiere_donnees_chiffrees": 2,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "senat-adopte-resolution-bei-financement-armes-munitions",
+    "statut": "corrige_automatiquement",
+    "date": "2026-11-10T17:40:03",
+    "problemes_initiaux": 6,
+    "tentatives": 1,
+    "problemes_residuels_style": 4,
+    "rapport_initial": {
+      "conforme": false,
+      "sujet_sensible": false,
+      "sujet_sensible_raison": "",
+      "angle_insuffisant": false,
+      "angle_insuffisant_raison": "",
+      "nature_contenu": "decision_officielle",
+      "problemes": [
+        {
+          "bloc": 1,
+          "section": "nuances",
+          "type": "extrapolation",
+          "phrase_exacte": "Par ailleurs, le président américain Donald Trump a remis en cause l'engagement américain au sein de l'Otan le 6 mars 2025, estimant que les États-Unis ne devaient pas venir au secours des pays qui ne dépensent pas assez pour leur défense, ce qui renforce l'argument d'une autonomie stratégique européenne [5].",
+          "explication": "La source [5] (France 24, 7 mars 2025) ne permet pas d'affirmer que cet événement « renforce l'argument d'une autonomie stratégique européenne » : c'est une interprétation prospective non sourcée, présentée comme un fait établi dans la section nuances."
+        },
+        {
+          "bloc": 1,
+          "section": "nuances",
+          "type": "acteur_mis_en_cause_sans_reponse",
+          "phrase_exacte": "La réaction de la BEI à cette résolution n'était pas disponible dans les sources consultées à la date de publication [1].",
+          "explication": "La BEI est mise en cause implicitement (on attend sa réaction) mais l'article indique seulement que sa réaction n'était pas dans les sources [1] ; il ne mentionne pas avoir sollicité la BEI ni que celle-ci a refusé de répondre, ce qui est requis pour lever ce motif."
+        },
+        {
+          "bloc": 2,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "Un rapport français cité par Les Échos met en garde contre une ingérence de Bruxelles dans les choix militaires nationaux, soulignant les réserves de la France sur le nouveau rôle militaire de l'Union européenne [4].",
+          "explication": "La source [4] est un article des Échos (média) ; l'article attribue le contenu à un « rapport français cité par Les Échos » comme si le rapport était la source primaire, or le rapport lui-même ne figure pas dans les sources autorisées — seul l'article des Échos y figure."
+        },
+        {
+          "bloc": 2,
+          "section": "contexte",
+          "type": "contexte_hors_sujet",
+          "phrase_exacte": "Par ailleurs, le président américain Donald Trump a remis en cause l'engagement américain au sein de l'Otan le 6 mars 2025, estimant que les États-Unis ne devaient pas venir au secours des pays qui ne dépensent pas assez pour leur défense, ce qui renforce l'argument d'une autonomie stratégique européenne [5].",
+          "explication": "Cet extrait (source [5], mars 2025) porte sur les déclarations de Trump à l'égard de l'OTAN ; il n'éclaire pas directement l'adoption de la résolution sénatoriale d'octobre 2026 sur le financement de la BEI et sert uniquement de remplissage contextuel générique."
+        },
+        {
+          "bloc": 4,
+          "section": "nuances",
+          "type": "redondance",
+          "phrase_exacte": "La résolution n'a pas de portée juridique contraignante : elle constitue une prise de position politique adressée aux États membres, seuls habilités à modifier les statuts et la politique de prêt de la BEI [1].",
+          "explication": "Cette idée (résolution non contraignante, compétence des États membres) est déjà exprimée dans les faits : « La décision d'élargir le champ de financement de la BEI relève de la compétence des États membres actionnaires de la banque, le Parlement européen et le Sénat n'ayant qu'un rôle d'impulsion politique [1] »."
+        },
+        {
+          "bloc": 4,
+          "section": "nuances",
+          "type": "redondance",
+          "phrase_exacte": "La BEI n'a pas formellement révisé sa position publique d'exclusion des armes et munitions à la date d'adoption de la résolution [1].",
+          "explication": "Le contexte indique déjà que « les armes et munitions restent explicitement exclues de son champ d'intervention » (source [1]) ; la nuance répète ce même état de fait sans apporter d'information distincte."
+        }
+      ]
+    },
+    "article_type": "actu",
+    "titre": "Le Sénat adopte une résolution pour que la BEI finance armes et munitions",
+    "n_sources": 4,
+    "n_mots": 626,
+    "titre_rss": "Armes et munitions produites par les industries européennes de la défense - Rapport n° 879",
+    "matiere_faits_distincts": 665,
+    "matiere_redondance": 0.03,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "veille_heures_visible": 517.7,
+    "veille_passages": 326,
+    "veille_age_h": 2175.5,
+    "veille_n_flux_grappe": 4,
+    "nature_contenu": "decision_officielle"
+  },
+  {
+    "slug": "france-iran-cyberattaque-supermarches-frigos-octobre-2026",
+    "statut": "corrige_automatiquement",
+    "date": "2026-11-10T17:47:24",
+    "problemes_initiaux": 5,
+    "tentatives": 1,
+    "problemes_residuels_style": 10,
+    "rapport_initial": {
+      "conforme": false,
+      "sujet_sensible": false,
+      "sujet_sensible_raison": "",
+      "angle_insuffisant": false,
+      "angle_insuffisant_raison": "",
+      "nature_contenu": "actualite_factuelle",
+      "problemes": [
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "chiffre_errone",
+          "phrase_exacte": "La température des appareils est montée au-delà de 50 degrés Celsius",
+          "explication": "La source [1] (Radiofrance) indique que la température est montée \"jusqu'à 50 degrés\" (jusqu'à = maximum 50), alors que l'article écrit \"au-delà de 50 degrés\" (strictement supérieur à 50), ce qui contredit la source."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "Le Conseil de l'Union européenne a imposé des mesures restrictives contre six personnes responsables de violations graves des droits humains en Iran le 24 juillet 2026 [5].",
+          "explication": "La source [5] (Europa) concerne des sanctions pour violations des droits humains en Iran, sans lien avec la cyberattaque sur les supermarchés ; elle est utilisée hors sujet pour remplir le contexte."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "contexte_hors_sujet",
+          "phrase_exacte": "Le Conseil de l'Union européenne a imposé des mesures restrictives contre six personnes responsables de violations graves des droits humains en Iran le 24 juillet 2026 [5].",
+          "explication": "Ce fait, bien que vrai et sourcé, ne porte pas sur la cyberattaque, l'unité Shahid Kaveh, la chaîne du froid ou la réponse française ; il ne sert qu'à gonfler la section contexte sans éclairer le sujet principal."
+        },
+        {
+          "bloc": 2,
+          "section": "contexte",
+          "type": "source_non_editoriale",
+          "phrase_exacte": "Le Conseil de l'Union européenne a imposé des mesures restrictives contre six personnes responsables de violations graves des droits humains en Iran le 24 juillet 2026 [5].",
+          "explication": "La source [5] est une communication institutionnelle (Conseil UE) citée pour un fait hors sujet ; elle ne constitue pas une source éditoriale pertinente pour l'angle de l'article (cyberattaque supermarchés)."
+        },
+        {
+          "bloc": 4,
+          "section": "contexte",
+          "type": "section_gonflee",
+          "phrase_exacte": "Le Conseil de l'Union européenne a imposé des mesures restrictives contre six personnes responsables de violations graves des droits humains en Iran le 24 juillet 2026 [5].",
+          "explication": "Cette phrase unique, sans lien avec le sujet, remplit artificiellement la section contexte ; la section n'apporte rien sur la cyberattaque et devrait être coupée ou recentrée."
+        }
+      ]
+    },
+    "article_type": "actu",
+    "titre": "La France attribue à l'Iran le piratage de 700 supermarchés en octobre",
+    "n_sources": 5,
+    "n_mots": 585,
+    "titre_rss": "L'Iran auteur désigné par la France de la cyberattaque des frigos",
+    "matiere_faits_distincts": 673,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "parcoursup-intersyndicale-quitte-reunion-matignon-extreme-droite",
+    "statut": "rejete_sensible",
+    "date": "2026-11-10T17:55:25",
+    "problemes_initiaux": 23,
+    "bloc5": [
+      "diffamation_potentielle"
+    ],
+    "article_type": "actu",
+    "titre": "Parcoursup : l'intersyndicale quitte la réunion de Matignon en dénonçant la présence de l'extrême droite",
+    "n_sources": 5,
+    "n_mots": 518,
+    "titre_rss": "Mobilisation lycéenne et étudiante : l’intersyndicale claque la porte du comité de réforme de Parcoursup à Matignon",
+    "matiere_faits_distincts": 636,
+    "matiere_redondance": 0.03,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "chomage-stable-8-2-pour-cent-troisieme-trimestre-2026",
+    "statut": "corrige_automatiquement",
+    "date": "2026-11-10T18:04:55",
+    "problemes_initiaux": 14,
+    "tentatives": 1,
+    "problemes_residuels_style": 5,
+    "rapport_initial": {
+      "conforme": false,
+      "sujet_sensible": false,
+      "sujet_sensible_raison": "",
+      "angle_insuffisant": false,
+      "angle_insuffisant_raison": "",
+      "nature_contenu": "actualite_factuelle",
+      "problemes": [
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "chiffre_errone",
+          "phrase_exacte": "Le PIB a légèrement reculé au troisième trimestre (−0,1 % après 0,0 % au trimestre précédent) [1].",
+          "explication": "La source [1] (Le Monde) ne mentionne pas le PIB du troisième trimestre 2026 ; elle indique seulement que le PIB a reculé de 0,1 % au deuxième trimestre 2026. Le chiffre −0,1 % pour le T3 2026 n'est pas dans la source citée."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "chiffre_errone",
+          "phrase_exacte": "Au deuxième trimestre 2026, le nombre de chômeurs au sens du BIT s'élevait à 2,7 millions, en hausse de 62 000 sur le trimestre et de 0,7 point sur un an [3].",
+          "explication": "La source [3] (Insee) ne fournit pas le nombre de chômeurs au T2 2026 ni sa variation trimestrielle de +62 000 ; elle donne le taux de chômage à 7,6 % au T2 2026 et le nombre de chômeurs à 2,7 millions pour le T3 2026. Le chiffre de 2,7 millions et la hausse de 62 000 sont attribués à tort au T2 2026."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "chiffre_errone",
+          "phrase_exacte": "L'inflation annuelle s'établit à 3,4 % en octobre 2026 selon l'Insee [3].",
+          "explication": "La source [3] (Insee) ne contient aucune donnée d'inflation pour octobre 2026 ; elle s'arrête aux données de chômage du T3 2026. Le chiffre de 3,4 % n'est pas sourcé."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "contexte_hors_sujet",
+          "phrase_exacte": "L'inflation annuelle s'établit à 3,4 % en octobre 2026 selon l'Insee [3], un contexte de pouvoir d'achat qui alimente les mobilisations sociales observées depuis plusieurs semaines en France [4][6].",
+          "explication": "Le chiffre d'inflation n'est pas dans la source [3] et les sources [4] (AP News) et [6] (BBC) traitent de manifestations en Europe, pas spécifiquement en France, et ne lient pas l'inflation d'octobre 2026 aux mobilisations françaises. Ce développement n'éclaire pas le sujet principal (chômage T3 2026)."
+        },
+        {
+          "bloc": 1,
+          "section": "nuances",
+          "type": "contexte_hors_sujet",
+          "phrase_exacte": "Au niveau européen, le Parlement européen note une baisse générale du taux de chômage dans l'UE ces dernières années, mais souligne des disparités persistantes entre États membres et la nécessité de politiques ciblées pour les jeunes et les chômeurs de longue durée [7].",
+          "explication": "La source [7] (Parlement européen) est une page générique sur le chômage dans l'UE, sans lien avec la publication du T3 2026 en France. Ce fait vrai mais tangentiel ne sert qu'à remplir la section nuances."
+        },
+        {
+          "bloc": 1,
+          "section": "nuances",
+          "type": "extrapolation",
+          "phrase_exacte": "Ce phénomène structurel suggère que le taux de chômage au sens du BIT ne capture pas l'ensemble de la précarité du marché du travail [2].",
+          "explication": "L'article tire une conclusion interprétative (« suggère que… ») à partir de la source [2] (Vie Publique) qui ne fait que constater le non-recours au RSA en 2021. Cette extrapolation n'est pas explicitement sourcée."
+        },
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "Le PIB a légèrement reculé au troisième trimestre (−0,1 % après 0,0 % au trimestre précédent) [1].",
+          "explication": "Le renvoi [1] attribue à la source Le Monde un chiffre (PIB T3 2026 = −0,1 %) que cette source ne contient pas. C'est une source inventée pour ce fait."
+        },
+        {
+          "bloc": 2,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "Au deuxième trimestre 2026, le nombre de chômeurs au sens du BIT s'élevait à 2,7 millions, en hausse de 62 000 sur le trimestre et de 0,7 point sur un an [3].",
+          "explication": "Le renvoi [3] attribue à la source Insee des chiffres (2,7 millions de chômeurs au T2 2026, +62 000 sur le trimestre, +0,7 point sur un an) que cette source ne confirme pas pour le T2 2026."
+        },
+        {
+          "bloc": 2,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "L'inflation annuelle s'établit à 3,4 % en octobre 2026 selon l'Insee [3].",
+          "explication": "Le renvoi [3] attribue à la source Insee un chiffre d'inflation (3,4 % en octobre 2026) absent de cette source."
+        },
+        {
+          "bloc": 2,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "un contexte de pouvoir d'achat qui alimente les mobilisations sociales observées depuis plusieurs semaines en France [4][6].",
+          "explication": "Les renvois [4] (AP News) et [6] (BBC) sont utilisés pour affirmer que des mobilisations sociales ont lieu en France depuis plusieurs semaines, mais ces sources traitent de manifestations en Europe de manière générale et ne confirment pas spécifiquement des mobilisations en France sur la période récente."
+        },
+        {
+          "bloc": 2,
+          "section": "nuances",
+          "type": "source_inventee",
+          "phrase_exacte": "Au niveau européen, le Parlement européen note une baisse générale du taux de chômage dans l'UE ces dernières années, mais souligne des disparités persistantes entre États membres et la nécessité de politiques ciblées pour les jeunes et les chômeurs de longue durée [7].",
+          "explication": "Le renvoi [7] attribue au Parlement européen une analyse synthétique (baisse générale, disparités, politiques ciblées) que la source listée (page thématique générique) ne contient pas sous cette forme ; la source ne documente pas la situation récente de l'UE en lien avec l'article."
+        },
+        {
+          "bloc": 2,
+          "section": "nuances",
+          "type": "source_derivee_comptee_comme_primaire",
+          "phrase_exacte": "L'Insee signale par ailleurs que l'enquête Emploi a été rénovée en 2021 et que les séries antérieures ont été recalculées pour assurer la cohérence [3].",
+          "explication": "La source [3] (Insee) est catégorisée comme primaire dans le tableau (primaire=3), mais l'article cite aussi la source [1] (Le Monde) qui reprend l'information de l'Insee. Les deux sources ne sont pas indépendantes pour ce fait : Le Monde relaie la communication de l'Insee. Le compteur de sources indépendantes est donc surévalué."
+        },
+        {
+          "bloc": 4,
+          "section": "contexte",
+          "type": "section_gonflee",
+          "phrase_exacte": "L'inflation annuelle s'établit à 3,4 % en octobre 2026 selon l'Insee [3], un contexte de pouvoir d'achat qui alimente les mobilisations sociales observées depuis plusieurs semaines en France [4][6].",
+          "explication": "Cette phrase remplit la section contexte avec un chiffre non sourcé (inflation) et un lien non établi (mobilisations), au lieu d'apporter un fait distinct et sourcé éclairant le chômage T3 2026. La section serait plus pertinente coupée à ce niveau."
+        },
+        {
+          "bloc": 4,
+          "section": "nuances",
+          "type": "section_gonflee",
+          "phrase_exacte": "Au niveau européen, le Parlement européen note une baisse générale du taux de chômage dans l'UE ces dernières années, mais souligne des disparités persistantes entre États membres et la nécessité de politiques ciblées pour les jeunes et les chômeurs de longue durée [7].",
+          "explication": "Ce paragraphe n'apporte aucune nuance spécifique à la publication du T3 2026 en France ; c'est un rappel générique qui gonfle la section sans valeur ajoutée pour le sujet."
+        }
+      ]
+    },
+    "article_type": "actu",
+    "titre": "Chômage stable à 8,2 % au troisième trimestre 2026, en hausse sur un an",
+    "n_sources": 6,
+    "n_mots": 548,
+    "titre_rss": "Le chômage se stabilise au troisième trimestre en France, à 8,2 %",
+    "matiere_faits_distincts": 727,
+    "matiere_redondance": 0.04,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "bocquet-de-temmerman-laszlo-appellent-agence-arpa-e-climat",
+    "statut": "rejete_sensible",
+    "date": "2026-11-10T18:13:13",
+    "problemes_initiaux": 9,
+    "bloc5": [
+      "compteur_incoherent"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "faits_repetitifs"
+    ],
+    "titre": "Bocquet, De Temmerman et Laszlo appellent à créer une agence type ARPA-E pour le climat",
+    "n_sources": 4,
+    "n_mots": 762,
+    "titre_rss": "Urgence climatique : « La France doit créer une entité dévolue au financement des innovations de rupture »",
+    "matiere_faits_distincts": 639,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "tribune"
+  },
+  {
+    "slug": "cyberattaque-chambres-froides-efs-stocks-preserves-iran-accuse",
+    "statut": "corrige_automatiquement",
+    "date": "2026-11-10T18:24:17",
+    "problemes_initiaux": 19,
+    "tentatives": 3,
+    "problemes_residuels_style": 9,
+    "rapport_initial": {
+      "conforme": false,
+      "sujet_sensible": false,
+      "sujet_sensible_raison": "",
+      "angle_insuffisant": false,
+      "angle_insuffisant_raison": "",
+      "nature_contenu": "actualite_factuelle",
+      "problemes": [
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "Selon RFI, les chambres froides de l'Établissement français du sang ont été victimes d'une cyberattaque, confirmant l'ampleur de l'incident sur l'infrastructure médicale [6].",
+          "explication": "Le renvoi [6] désigne une source inexistante : la liste fournie ne contient que 4 sources (indices 1 à 4)."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "L'agence rapporte également que la France durcit le ton face aux ingérences étrangères alors que les cyberattaques se poursuivent [6].",
+          "explication": "Le renvoi [6] désigne une source inexistante : la liste fournie ne contient que 4 sources (indices 1 à 4)."
+        },
+        {
+          "bloc": 1,
+          "section": "nuances",
+          "type": "chiffre_errone",
+          "phrase_exacte": "L'EFS n'a pas communiqué le nombre exact de poches de sang concernées ni la durée précise de l'élévation de température sur les trois sites [1][2].",
+          "explication": "La source [2] (BBC) ne traite pas de l'EFS ; elle ne peut donc pas confirmer l'absence de communication sur les poches de sang. Le renvoi [2] est inapproprié pour ce fait."
+        },
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "compteur_incoherent",
+          "phrase_exacte": "\"nb_sources\": 4",
+          "explication": "Le corps de l'article utilise des renvois [1], [2], [3] et [6] — quatre indices distincts mais le plus haut est 6, ce qui implique au moins 6 entrées dans le tableau sources ; or il n'y en a que 4. Le compteur est donc incohérent avec les renvois réels."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "incoherence_inter_sections",
+          "phrase_exacte": "Une cyberattaque a ciblé un prestataire informatique de l'Établissement français du sang (EFS), affectant le fonctionnement de chambres froides sur trois sites en France [1].",
+          "explication": "La source [1] (Sciences et Avenir) n'est pas fournie en extrait ; il est impossible de vérifier que ce fait y figure. Le renvoi [1] ne peut être validé sans l'extrait correspondant."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "incoherence_inter_sections",
+          "phrase_exacte": "Les paramètres de température ont été modifiés à distance, mais l'intervention rapide des équipes sur place a permis de maintenir les produits sanguins dans les normes de conservation [2].",
+          "explication": "La source [2] (BBC) n'est pas fournie en extrait ; il est impossible de vérifier que ce fait y figure. Le renvoi [2] ne peut être validé sans l'extrait correspondant."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "incoherence_inter_sections",
+          "phrase_exacte": "L'EFS confirme qu'aucun impact sanitaire n'a été identifié et qu'aucune perte de produits sanguins n'est à déplorer [2].",
+          "explication": "La source [2] (BBC) n'est pas fournie en extrait ; il est impossible de vérifier que ce fait y figure. Le renvoi [2] ne peut être validé sans l'extrait correspondant."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "incoherence_inter_sections",
+          "phrase_exacte": "Cette offensive intervient après une première vague mi-octobre ayant touché des centaines de supermarchés français — Coopérative U, Intermarché, Netto, Carrefour, Monoprix, E.Leclerc — via le même logiciel de gestion de réfrigération Danfoss [2].",
+          "explication": "La source [2] (BBC) n'est pas fournie en extrait ; il est impossible de vérifier que ce fait y figure. Le renvoi [2] ne peut être validé sans l'extrait correspondant."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "incoherence_inter_sections",
+          "phrase_exacte": "Une seconde vague début novembre a étendu les perturbations à plus de 100 magasins en Belgique, Luxembourg, Suède, Irlande, Pays-Bas, Estonie et Finlande [2].",
+          "explication": "La source [2] (BBC) n'est pas fournie en extrait ; il est impossible de vérifier que ce fait y figure. Le renvoi [2] ne peut être validé sans l'extrait correspondant."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "incoherence_inter_sections",
+          "phrase_exacte": "Le 9 novembre, le ministre des Affaires étrangères Jean-Noël Barrot a imputé la responsabilité de l'attaque d'octobre aux unités Shahid Shoostari et Shahid Kaveh du Centre électronique et cyber du Corps des Gardiens de la Révolution islamique (CGRI) [3].",
+          "explication": "La source [3] (Gouv/CERT-FR) n'est pas fournie en extrait ; il est impossible de vérifier que ce fait y figure. Le renvoi [3] ne peut être validé sans l'extrait correspondant."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "incoherence_inter_sections",
+          "phrase_exacte": "Le CERT-FR qualifie cette attaque d'inédite par son ampleur et son niveau d'agressivité, s'ajoutant à des opérations de déstabilisation observées depuis 2020 contre Charlie Hebdo en 2023 et une entreprise d'affichage vidéo lors des JO 2024 [3].",
+          "explication": "La source [3] (Gouv/CERT-FR) n'est pas fournie en extrait ; il est impossible de vérifier que ce fait y figure. Le renvoi [3] ne peut être validé sans l'extrait correspondant."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "incoherence_inter_sections",
+          "phrase_exacte": "Le parquet de Paris a ouvert une enquête confiée à la DGSI [3].",
+          "explication": "La source [3] (Gouv/CERT-FR) n'est pas fournie en extrait ; il est impossible de vérifier que ce fait y figure. Le renvoi [3] ne peut être validé sans l'extrait correspondant."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "incoherence_inter_sections",
+          "phrase_exacte": "Les contrôleurs de réfrigération industriels Danfoss, utilisés pour la supervision à distance des installations frigorifiques, présentent des vulnérabilités connues et faiblement protégées, avec des méthodes d'exploitation déjà diffusées en ligne [2].",
+          "explication": "La source [2] (BBC) n'est pas fournie en extrait ; il est impossible de vérifier que ce fait y figure. Le renvoi [2] ne peut être validé sans l'extrait correspondant."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "incoherence_inter_sections",
+          "phrase_exacte": "Des chercheurs de trois sociétés de cybersécurité — Previdian, Lupovis et Sekoia — ont déployé des « pots de miel » (honeypots) simulant ces équipements pour analyser les tactiques des attaquants [2].",
+          "explication": "La source [2] (BBC) n'est pas fournie en extrait ; il est impossible de vérifier que ce fait y figure. Le renvoi [2] ne peut être validé sans l'extrait correspondant."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "incoherence_inter_sections",
+          "phrase_exacte": "Lupovis a détecté une activité de reconnaissance ciblant exclusivement l'Europe dix jours avant la seconde vague, sans toucher à ses leurres en Afrique, Amérique du Sud ou Ukraine [2].",
+          "explication": "La source [2] (BBC) n'est pas fournie en extrait ; il est impossible de vérifier que ce fait y figure. Le renvoi [2] ne peut être validé sans l'extrait correspondant."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "incoherence_inter_sections",
+          "phrase_exacte": "Previdian note que la simultanéité des élévations de température, programmées la nuit pour maximiser les dégâts, témoigne d'une planification coordonnée [2].",
+          "explication": "La source [2] (BBC) n'est pas fournie en extrait ; il est impossible de vérifier que ce fait y figure. Le renvoi [2] ne peut être validé sans l'extrait correspondant."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "incoherence_inter_sections",
+          "phrase_exacte": "Sekoia relève que le mode opératoire correspond aussi bien à des hacktivistes russes qu'à des acteurs iraniens, ces derniers disposant d'un historique documenté d'opérations de « guerre hybride » en Europe [2].",
+          "explication": "La source [2] (BBC) n'est pas fournie en extrait ; il est impossible de vérifier que ce fait y figure. Le renvoi [2] ne peut être validé sans l'extrait correspondant."
+        },
+        {
+          "bloc": 1,
+          "section": "nuances",
+          "type": "incoherence_inter_sections",
+          "phrase_exacte": "L'attribution formelle à l'Iran repose sur l'analyse technique du CERT-FR et du C4, mais le gouvernement français n'a pas divulgué les preuves techniques précises permettant d'écarter d'autres hypothèses [3].",
+          "explication": "La source [3] (Gouv/CERT-FR) n'est pas fournie en extrait ; il est impossible de vérifier que ce fait y figure. Le renvoi [3] ne peut être validé sans l'extrait correspondant."
+        },
+        {
+          "bloc": 1,
+          "section": "nuances",
+          "type": "incoherence_inter_sections",
+          "phrase_exacte": "Des groupes hacktivistes russes (Noname057(16) et Z-Pentest Alliance) ont revendiqué le piratage de Danfoss, sans que leur implication effective dans les attaques sur supermarchés et EFS soit confirmée [2].",
+          "explication": "La source [2] (BBC) n'est pas fournie en extrait ; il est impossible de vérifier que ce fait y figure. Le renvoi [2] ne peut être validé sans l'extrait correspondant."
+        }
+      ]
+    },
+    "article_type": "actu",
+    "titre": "Cyberattaque sur les chambres froides de l'EFS : stocks préservés, Iran accusé",
+    "n_sources": 4,
+    "n_mots": 560,
+    "titre_rss": "Cyberattaque : les chambres froides de l'EFS prises pour cible",
+    "matiere_faits_distincts": 873,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "retraites-cour-comptes-degradation-financiere-horizon-2045",
+    "statut": "rejete_qualite",
+    "date": "2026-11-10T18:43:17",
+    "problemes_initiaux": 9,
+    "tentatives": 3,
+    "problemes_restants": 5,
+    "bloquants_restants": 3,
+    "bloquants_types": [
+      "chiffre_errone",
+      "chiffre_errone",
+      "source_inventee"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [3] (Vie Publique, \"Retraite : le régime de la fonction publique de l'État en 2025\", datée 27 octobre 2026) ne mentionne pas le chiffre de 395 milliards d'euros ni le Panorama annuel de la DREES édition 2026 ; ",
+        "phrase": "Le système de retraites français représente le premier poste de dépenses de la protection sociale avec 395 milliards d'euros selon le Panorama annuel de la DREES édition 2026 [3]."
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [3] ne contient pas ce chiffre ni cette référence ; l'attribution à la source [3] est fausse.",
+        "phrase": "Le système de retraites français représente le premier poste de dépenses de la protection sociale avec 395 milliards d'euros selon le Panorama annuel de la DREES édition 2026 [3]."
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "Le \"Panorama annuel de la DREES édition 2026\" est cité comme autorité factuelle mais n'apparaît pas dans la liste des sources autorisées ; seule la source [3] (Vie Publique, régime fonction publique) est listée, qui ne c",
+        "phrase": "Le système de retraites français représente le premier poste de dépenses de la protection sociale avec 395 milliards d'euros selon le Panorama annuel de la DREES édition 2026 [3]."
+      }
+    ],
+    "types_restants": [
+      "chiffre_errone",
+      "chiffre_errone",
+      "source_inventee",
+      "compteur_incoherent",
+      "contexte_hors_sujet"
+    ],
+    "article_type": "actu",
+    "titre": "Retraites : la Cour des comptes alerte sur une dégradation nette à l'horizon 2045",
+    "n_sources": 4,
+    "n_mots": 670,
+    "titre_rss": "Retraite : ce qu’un bilan peut vous faire gagner",
+    "matiere_faits_distincts": 755,
+    "matiere_redondance": 0.02,
+    "matiere_donnees_chiffrees": 2,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "rapport"
+  },
+  {
+    "slug": "tabac-absent-reglement-europeen-deforestation-afrique-est",
+    "statut": "rejete_qualite",
+    "date": "2026-11-10T19:17:03",
+    "problemes_initiaux": 11,
+    "tentatives": 3,
+    "problemes_restants": 7,
+    "bloquants_restants": 6,
+    "bloquants_types": [
+      "chiffre_errone",
+      "chiffre_errone",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [1] (Le Monde) indique que les exportations de tabac brut de ces 19 pays vers l'UE atteignaient 702 millions de DOLLARS, et non d'euros. La conversion de devise n'est pas neutre et modifie le chiffre.",
+        "phrase": "Pour le seul tabac brut, les exportations de ces 19 pays vers l'UE atteignaient 702 millions d'euros [1]."
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [3] (Consilium) indique que le règlement s'applique depuis le 29 juin 2023, avec une application à partir du 30 décembre 2024 (grandes entreprises) et 30 juin 2025 (PME). Les dates de 2025/2026 dans l'article c",
+        "phrase": "Le règlement européen contre la déforestation importée (EUDR) s'appliquera à compter du 30 décembre 2025 pour les grandes entreprises et du 30 juin 2026 pour les PME [3]."
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "Le renvoi [3] attribue ces dates à la source Consilium, mais l'extrait de cette source ne les confirme pas (elle donne les dates initiales de 2024/2025). Le fait est donc sourcé sur une information absente de la source c",
+        "phrase": "Le règlement européen contre la déforestation importée (EUDR) s'appliquera à compter du 30 décembre 2025 pour les grandes entreprises et du 30 juin 2026 pour les PME [3]."
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "Le renvoi [3] attribue ces détails à la source Consilium, mais l'extrait fourni de cette source ne mentionne ni le système d'évaluation comparative, ni les niveaux de risque, ni les taux de contrôle différenciés.",
+        "phrase": "Il établit un système d'évaluation comparative attribuant un niveau de risque (faible, standard, élevé) aux pays, avec des taux de contrôle différenciés selon le niveau de risque [3]."
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "Le renvoi [3] attribue cette définition précise et cette explication technique à la source Consilium, mais l'extrait fourni ne contient ni la définition légale de la déforestation, ni l'analyse de sa portée sur le bois-é",
+        "phrase": "La définition de la déforestation retenue est la conversion d'une forêt vers un usage agricole [3], ce qui permet d'identifier une forêt transformée en plantation de café ou de cacao, mais pas le prélèvement de bois-éner"
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "Le renvoi [3] attribue cette analyse juridique (définition comme conversion de parcelle) à la source Consilium, mais l'extrait fourni ne contient pas cette définition ni cette analyse.",
+        "phrase": "L'exclusion du tabac révèle une limite structurelle du dispositif : la déforestation y est définie comme conversion de parcelle, or une partie de l'empreinte forestière du tabac se situe hors parcelle, dans le bois préle"
+      }
+    ],
+    "types_restants": [
+      "chiffre_errone",
+      "chiffre_errone",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "compteur_incoherent"
+    ],
+    "article_type": "actu",
+    "titre": "Le tabac exclu du règlement européen anti-déforestation malgré son empreinte en Afrique de l'Est",
+    "n_sources": 3,
+    "n_mots": 793,
+    "titre_rss": "Le tabac dans l’angle mort du règlement européen contre la déforestation",
+    "matiere_faits_distincts": 1193,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "label-bas-carbone-tourbieres-consultation-publique-restauration-hydraulique",
+    "statut": "rejete_sensible",
+    "date": "2026-11-10T19:23:58",
+    "problemes_initiaux": 10,
+    "bloc5": [
+      "compteur_incoherent"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "resume_repete_corps",
+      "titre_de_mauvaise_qualite"
+    ],
+    "titre": "Label bas carbone tourbières : consultation publique lancée sur la méthode de restauration hydraulique",
+    "n_sources": 7,
+    "n_mots": 552,
+    "titre_rss": "Nouveau label bas carbone tourbières : \"Il y a un intérêt business, au-delà de la stratégie climat\"",
+    "matiere_faits_distincts": 763,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "cyberattaques-alertes-nucleaires-ukraine-russie-novembre-2026",
+    "statut": "rejete_sensible",
+    "date": "2026-11-10T19:37:53",
+    "problemes_initiaux": 13,
+    "tentative": 3,
+    "bloc5": true,
+    "article_type": "actu",
+    "titre": "Cyberattaques simultanées contre les alertes nucléaires en Ukraine et en Russie",
+    "n_sources": 4,
+    "n_mots": 498,
+    "titre_rss": "Cyberattaque : de fausses alertes nucléaires envoyées aux Ukrainiens et aux Russes",
+    "matiere_faits_distincts": 873,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "moisissures-asthme-adulte-etude-moldasth-resultats",
+    "statut": "corrige_automatiquement",
+    "date": "2026-11-10T20:04:10",
+    "problemes_initiaux": 25,
+    "tentatives": 1,
+    "problemes_residuels_style": 25,
+    "rapport_initial": {
+      "conforme": false,
+      "sujet_sensible": false,
+      "sujet_sensible_raison": "",
+      "angle_insuffisant": false,
+      "angle_insuffisant_raison": "",
+      "nature_contenu": "etude_scientifique",
+      "problemes": [
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "L'étude, pilotée par Rachel Nadif, épidémiologiste à l'Inserm, et Margaux Sanchez, cheffe de mission à l'Observatoire de la qualité des environnements intérieurs (OQEI) de l'Anses, a analysé les données de 28 596 participants de la cohorte CONSTANCES, la plus grande cohorte en population générale adulte en France [1].",
+          "explication": "La source [1] (Vie Publique, rapport IGAS/IGEDD) ne mentionne pas l'étude MOLDASTH, Rachel Nadif, Margaux Sanchez, la cohorte CONSTANCES, ni le chiffre de 28 596 participants."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "Les résultats, issus de la thèse de Tajidine Tsiavia encadrée par Rachel Nadif et Laurent Orsi, ont fait l'objet de publications dans des revues scientifiques d'envergure [1].",
+          "explication": "La source [1] ne mentionne pas Tajidine Tsiavia, sa thèse, Laurent Orsi, ni des publications dans des revues scientifiques."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "Pour la première fois, une association est mise en évidence chez l'adulte entre la présence de moisissures visibles, quelle que soit leur surface — y compris la plus petite —, et une augmentation du risque d'asthme actuel, défini par une crise, un symptôme ou un traitement dans les douze derniers mois, ainsi qu'un score de symptômes d'asthme plus élevé [1].",
+          "explication": "La source [1] ne contient aucun résultat de l'étude MOLDASTH sur l'association entre surface moisie et asthme chez l'adulte."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "Ces associations ne varient pas selon le type de logement (appartement ou maison) ni selon le sexe du participant [1].",
+          "explication": "La source [1] ne mentionne pas ces résultats de non-variation selon le type de logement ou le sexe."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "Sur le plan biologique, l'étude montre l'implication de la voie d'inflammation de type T2 (dite \"éosinophilique\"), une réponse immunitaire caractérisée par la production de substances inflammatoires favorisant les allergies, l'augmentation des cellules éosinophiles et la production de mucus, voie impliquée dans l'asthme allergique [1].",
+          "explication": "La source [1] ne mentionne pas la voie d'inflammation T2, les cellules éosinophiles, ni les mécanismes biologiques de l'étude MOLDASTH."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "Le projet se poursuit avec l'identification de différents endotypes d'asthme liés à cette exposition [1].",
+          "explication": "La source [1] ne mentionne pas la poursuite du projet ni l'identification d'endotypes d'asthme."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "Concernant la prévalence, en 2019 au sein de la cohorte CONSTANCES, 22 % des participants déclaraient observer des moisissures à leur domicile et près de 2 % une surface moisie de plus d'un mètre carré [1].",
+          "explication": "La source [1] ne contient pas ces chiffres de prévalence issus de la cohorte CONSTANCES en 2019."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "Les résultats de la Campagne nationale Logements 2 (CNL2), menée de 2020 à 2023, estiment la présence de moisissures visibles dans 24 % des résidences principales [1].",
+          "explication": "La source [1] ne mentionne pas la CNL2 ni le chiffre de 24 % de résidences principales avec moisissures visibles."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "Les moisissures sont deux fois plus fréquentes dans les pièces humides, notamment les salles de bain, que dans les chambres, cuisines ou séjours [1].",
+          "explication": "La source [1] ne mentionne pas cette répartition par type de pièce."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "L'Anses avait déjà souligné en 2016 que les caractéristiques du bâti jouaient un rôle plus important que les comportements des habitants dans la survenue des moisissures [1].",
+          "explication": "La source [1] (rapport IGAS/IGEDD 2025 sur la surveillance des pollens/moisissures dans l'air ambiant) ne contient pas le rapport Anses 2016 ni cette conclusion sur le bâti vs comportements."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "Cette analyse est corroborée par les données de la CNL2 qui identifient l'humidité et les défauts d'isolation comme déterminants principaux de la contamination fongique [1].",
+          "explication": "La source [1] ne mentionne pas la CNL2 ni ses résultats sur l'humidité et l'isolation."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "La surveillance nationale des pollens et moisissures dans l'air ambiant, pilotée par le RNSA et évaluée dans un rapport IGAS-IGEDD de janvier 2025, reste par ailleurs dissociée des politiques de qualité de l'air intérieur, limitant la prévention croisée [2].",
+          "explication": "La source [2] (Question écrite Assemblée nationale n°16908) ne mentionne pas le RNSA, le rapport IGAS-IGEDD 2025, ni la dissociation entre surveillance air ambiant et air intérieur."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "Un arrêté d'avril 2021 a toutefois désigné les organismes chargés de coordonner cette surveillance pour l'air ambiant [2].",
+          "explication": "La source [2] ne mentionne pas d'arrêté d'avril 2021 désignant des organismes pour la surveillance air ambiant."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "Dans les écoles, une évaluation quantitative d'impact sur la santé publiée par Santé publique France en janvier 2024 a mis en évidence la présence de moisissures visibles dans 6 % des écoles primaires, avec un lien établi entre cette exposition et des cas d'asthme aigu chez des élèves [3][4].",
+          "explication": "Les sources [3] (Le Monde) et [4] (Assemblée nationale) ne contiennent pas le chiffre de 6 % d'écoles primaires avec moisissures visibles, ni une évaluation quantitative d'impact sur la santé de Santé publique France de janvier 2024."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "L'étude estimait qu'en l'absence de moisissures dans les écoles, plus de 12 000 cas de sifflements et presque 8 000 cas d'asthme chez l'enfant seraient évitables chaque année [3][4].",
+          "explication": "Les sources [3] et [4] ne mentionnent pas les chiffres de 12 000 cas de sifflements et 8 000 cas d'asthme évitables."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "Le Commissariat général au développement durable estime que les polluants chimiques sont souvent plus nombreux et plus concentrés à l'intérieur qu'à l'extérieur des logements [5].",
+          "explication": "La source [5] (Radiofrance) ne mentionne pas le Commissariat général au développement durable ni cette estimation sur les polluants chimiques."
+        },
+        {
+          "bloc": 1,
+          "section": "nuances",
+          "type": "source_inventee",
+          "phrase_exacte": "L'étude MOLDASTH repose sur des données déclaratives de présence de moisissures visibles par les participants, sans mesure environnementale directe de la charge fongique ni identification des espèces en cause [1].",
+          "explication": "La source [1] ne mentionne pas la méthodologie de l'étude MOLDASTH (données déclaratives, absence de mesure environnementale, identification des espèces)."
+        },
+        {
+          "bloc": 1,
+          "section": "nuances",
+          "type": "source_inventee",
+          "phrase_exacte": "L'association observée ne permet pas, à ce stade, d'établir une relation de causalité directe entre l'exposition aux moisissures et l'apparition de l'asthme, ni d'exclure un biais de rappel ou de confusion résiduelle [1].",
+          "explication": "La source [1] ne mentionne pas les limites de l'étude MOLDASTH (causalité, biais de rappel, confusion résiduelle)."
+        },
+        {
+          "bloc": 1,
+          "section": "nuances",
+          "type": "source_inventee",
+          "phrase_exacte": "Les résultats portent sur l'asthme actuel (symptômes ou traitement sur 12 mois) et non sur l'incidence de nouveaux cas d'asthme, ce qui ne permet pas de distinguer l'effet déclencheur de l'effet aggravant de l'exposition [1].",
+          "explication": "La source [1] ne mentionne pas la distinction entre asthme actuel et incidence, ni effet déclencheur vs aggravant."
+        },
+        {
+          "bloc": 1,
+          "section": "nuances",
+          "type": "source_inventee",
+          "phrase_exacte": "La réaction des acteurs du bâtiment et des pouvoirs publics face à ces données, notamment sur l'évolution des normes d'isolation et de ventilation, n'est pas documentée dans les sources disponibles à ce jour.",
+          "explication": "Cette phrase ne cite pas de source [n] mais affirme un fait sur l'absence de documentation dans les sources — or les sources fournies ne documentent pas l'étude MOLDASTH, donc cette affirmation ne peut être vérifiée."
+        },
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "compteur_incoherent",
+          "phrase_exacte": "nb_sources: 4",
+          "explication": "L'article cite des faits attribués à [1] qui ne figurent pas dans la source [1] fournie (Vie Publique, rapport IGAS/IGEDD). Les 4 sources listées ne documentent pas l'étude MOLDASTH, ses résultats, sa méthodologie, ni la plupart des chiffres cités. Le sourcing est factice : les renvois [1] à [5] pointent vers des sources qui ne confirment pas les faits attribués."
+        },
+        {
+          "bloc": 1,
+          "section": "resume",
+          "type": "source_inventee",
+          "phrase_exacte": "L'étude MOLDASTH, menée sur 28 596 adultes de la cohorte CONSTANCES, établit pour la première fois une association entre la présence de moisissures visibles, même sur de très petites surfaces, et un risque accru d'asthme actuel ainsi qu'un score de symptômes plus élevé.",
+          "explication": "Aucune des 4 sources autorisées ne mentionne l'étude MOLDASTH, la cohorte CONSTANCES, le chiffre 28 596, ni ces résultats."
+        },
+        {
+          "bloc": 1,
+          "section": "resume",
+          "type": "source_inventee",
+          "phrase_exacte": "Les caractéristiques du bâti, notamment l'humidité et l'isolation, apparaissent comme des déterminants majeurs de cette contamination, bien plus que les comportements des occupants, selon les analyses croisées des données de la cohorte et de la campagne nationale Logements 2.",
+          "explication": "Aucune source ne mentionne d'analyses croisées entre la cohorte CONSTANCES et la CNL2, ni cette conclusion sur le bâti vs comportements."
+        },
+        {
+          "bloc": 1,
+          "section": "resume",
+          "type": "source_inventee",
+          "phrase_exacte": "Ces résultats, publiés dans des revues scientifiques majeures, comblent un vide identifié par l'Anses en 2016 qui pointait l'absence d'études épidémiologiques chez l'adulte fondées sur l'étendue des surfaces moisies dans les pièces d'habitation.",
+          "explication": "Aucune source ne mentionne le rapport Anses 2016, le vide identifié, ni la publication dans des revues majeures."
+        },
+        {
+          "bloc": 1,
+          "section": "titre",
+          "type": "source_inventee",
+          "phrase_exacte": "Moisissures et asthme : l'étude MOLDASTH confirme un risque même pour de petites surfaces",
+          "explication": "Le titre affirme un résultat de l'étude MOLDASTH que aucune source fournie ne confirme."
+        }
+      ]
+    },
+    "article_type": "actu",
+    "titre": "Moisissures et asthme : l'étude MOLDASTH confirme un risque même pour de petites surfaces",
+    "n_sources": 4,
+    "n_mots": 833,
+    "titre_rss": "Les moisissures dans l’air intérieur des logements favorisent l’asthme. Pourtant, ce risque est évitable",
+    "matiere_faits_distincts": 835,
+    "matiere_redondance": 0.03,
+    "matiere_donnees_chiffrees": 2,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "etude_scientifique"
+  },
+  {
+    "slug": "france-vaccins-deploiement-100-millions-euros-preparation-pandemies",
+    "statut": "corrige_automatiquement",
+    "date": "2026-11-10T20:16:44",
+    "problemes_initiaux": 6,
+    "tentatives": 2,
+    "problemes_residuels_style": 5,
+    "rapport_initial": {
+      "conforme": false,
+      "sujet_sensible": false,
+      "sujet_sensible_raison": "",
+      "angle_insuffisant": false,
+      "angle_insuffisant_raison": "",
+      "nature_contenu": "actualite_factuelle",
+      "problemes": [
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "contexte_hors_sujet",
+          "phrase_exacte": "Parallèlement, la Cour des comptes souligne qu'en pratique, un tiers des assurés sociaux ont activé leur espace vaccination et, parmi eux, seuls 11 % disposent de données de vaccination à jour [2].",
+          "explication": "Ce fait issu de la source [2] (Le Monde, 07/09/2026) porte sur la connaissance par les Français de leur propre statut vaccinal via l'espace vaccination, sans lien direct avec le programme France Vaccins (développement de candidats vaccins, préparation pandémique, financement France 2030)."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "contexte_hors_sujet",
+          "phrase_exacte": "Une vaccination élargie contre de nouvelles souches de méningocoques devient obligatoire chez les nourrissons à partir de 2025, s'ajoutant aux dix vaccins déjà obligatoires en France [3].",
+          "explication": "Ce fait issu de la source [3] (AFP, 12/07/2024) concerne l'extension du calendrier vaccinal obligatoire aux nourrissons, sans rapport avec le programme France Vaccins qui vise l'accélération du développement de vaccins contre maladies émergentes."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "contexte_hors_sujet",
+          "phrase_exacte": "L'annonce de la création d'un réseau de 5 000 maisons « France Santé » d'ici à 2027 suscite des réserves chez les soignants, notamment sur les conditions d'exercice et la gouvernance [4].",
+          "explication": "Ce fait issu de la source [4] (France Info, 15/09/2025) porte sur l'organisation des soins de premier recours (maisons de santé pluriprofessionnelles), sans lien avec le programme France Vaccins (recherche vaccinale, ARNm, modèles d'infection contrôlée)."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "contexte_hors_sujet",
+          "phrase_exacte": "Les inspections générales ont conduit des travaux prospectifs sur la stratégie organisationnelle d'un futur plan médecine génomique, intégrant le modèle médico-économique, le financement, la formation, les ressources humaines, la gestion des données, les infrastructures, les enjeux éthiques et le contexte réglementaire [5].",
+          "explication": "Ce fait issu de la source [5] (Gouv, Oct 2026) concerne un plan médecine génomique (IGAS-IGESR), sans rapport avec le programme France Vaccins qui est un programme de recherche et développement vaccinal financé par France 2030."
+        },
+        {
+          "bloc": 2,
+          "section": "contexte",
+          "type": "source_derivee_comptee_comme_primaire",
+          "phrase_exacte": "Le plan France 2030, qui finance ce programme, mobilise 54 milliards d'euros pour transformer durablement les secteurs clés de l'économie française, dont la santé, avec l'objectif de positionner la France en leader technologique [1].",
+          "explication": "L'article cite la source [1] (communiqué Inserm) pour un chiffre structurel du plan France 2030 (54 milliards d'euros) qui n'est pas l'information primaire de cette source ; le communiqué Inserm reprend ce chiffre officiel sans en être la source primaire. Le compteur nb_sources=5 et la ventilation qualite_sources (primaire=2) comptent cette reprise comme une source primaire distincte, ce qui gonfle artificiellement le nombre de sources primaires indépendantes."
+        },
+        {
+          "bloc": 4,
+          "section": "contexte",
+          "type": "section_gonflee",
+          "phrase_exacte": "Parallèlement, la Cour des comptes souligne qu'en pratique, un tiers des assurés sociaux ont activé leur espace vaccination et, parmi eux, seuls 11 % disposent de données de vaccination à jour [2]. Une vaccination élargie contre de nouvelles souches de méningocoques devient obligatoire chez les nourrissons à partir de 2025, s'ajoutant aux dix vaccins déjà obligatoires en France [3]. L'annonce de la création d'un réseau de 5 000 maisons « France Santé » d'ici à 2027 suscite des réserves chez les soignants, notamment sur les conditions d'exercice et la gouvernance [4]. Les inspections générales ont conduit des travaux prospectifs sur la stratégie organisationnelle d'un futur plan médecine génomique, intégrant le modèle médico-économique, le financement, la formation, les ressources humaines, la gestion des données, les infrastructures, les enjeux éthiques et le contexte réglementaire [5].",
+          "explication": "La section « Contexte » est gonflée avec quatre faits distincts (sources [2] à [5]) qui n'éclairent pas le sujet principal (France Vaccins) et servent uniquement à remplir la section, alors qu'aucun ne porte sur la préparation pandémique, le financement de la recherche vaccinale ou la vallée de la mort préclinique-clinique."
+        }
+      ]
+    },
+    "article_type": "actu",
+    "titre": "France Vaccins déploie 100 millions d'euros pour accélérer les vaccins de demain",
+    "n_sources": 5,
+    "n_mots": 777,
+    "titre_rss": "Annonce du déploiement complet du programme France Vaccins. Un programme ambitieux pour une réponse française aux futures crises sanitaires.",
+    "matiere_faits_distincts": 899,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "taxe-pesticides-gouvernement-agences-eau-90-millions-euros",
+    "statut": "corrige_automatiquement",
+    "date": "2026-11-10T20:32:13",
+    "problemes_initiaux": 20,
+    "tentatives": 3,
+    "problemes_residuels_style": 0,
+    "rapport_initial": {
+      "conforme": false,
+      "sujet_sensible": false,
+      "sujet_sensible_raison": "",
+      "angle_insuffisant": false,
+      "angle_insuffisant_raison": "",
+      "nature_contenu": "actualite_factuelle",
+      "problemes": [
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "En consultant la liste officielle des substances soumises à la redevance pour pollutions diffuses, l'association Générations futures a constaté que les taux appliqués aux molécules les plus problématiques ont été largement minorés depuis 2019 [1].",
+          "explication": "La source [1] (Le Monde 2026-11-09) n'est pas fournie en extrait ; il est impossible de vérifier que l'association Générations futures a consulté la liste officielle et constaté la minoration des taux depuis 2019. Le renvoi [1] attribue un fait que la source correspondante ne peut être confirmée ici."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "Cette restriction de la portée de la taxe a privé les six agences de l'eau et les offices de l'eau d'outre-mer de plus de 90 millions d'euros de redevances annuelles [1].",
+          "explication": "Même source [1] non fournie en extrait ; le chiffre de 90 millions d'euros et l'imputation au gouvernement ne peuvent être vérifiés contre les extraits fournis."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "Ces redevances constituent une ressource majeure pour financer les actions de réduction des pollutions diffuses, l'accompagnement des agriculteurs vers des pratiques moins émettrices et la protection des captages d'eau potable [1].",
+          "explication": "Source [1] non fournie en extrait ; l'affirmation sur la destination des redevances n'est pas vérifiable."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "La baisse mécanique des recettes réduit d'autant la capacité d'intervention des agences sur les territoires les plus contaminés [1].",
+          "explication": "Source [1] non fournie en extrait ; le lien de causalité direct n'est pas vérifiable."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "Le rapport inter-inspections de mai 2026, mandaté à l'automne 2025, souligne que le financement curatif de la dépollution de l'eau potable reste un angle mort des politiques publiques actuelles [4].",
+          "explication": "La source [4] (Le Monde 2026-08-06) n'est pas fournie en extrait ; le contenu précis du rapport inter-inspections (mandat, date, conclusion sur l'angle mort) ne peut être vérifié."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "En 2024, un peu plus de 29 % de la population française a été exposée à des dépassements des limites de qualité européennes pour les pesticides ou les PFAS dans l'eau du robinet [2].",
+          "explication": "La source [2] (Vie Publique, rapport PDF) n'est pas fournie en extrait ; le chiffre de 29 % et l'année 2024 ne peuvent être vérifiés."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "Les non-conformités touchent particulièrement les régions du Nord et de l'Est, où la présence diffuse de métabolites de pesticides et de PFAS rend le respect des normes de plus en plus difficile [2].",
+          "explication": "Source [2] non fournie en extrait ; la localisation géographique des non-conformités n'est pas vérifiable."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "La majorité des dépassements actuels proviennent de l'usage passé de substances désormais interdites, ce qui nécessite des solutions curatives coûteuses comme le traitement de l'eau ou l'interconnexion des réseaux [2].",
+          "explication": "Source [2] non fournie en extrait ; l'origine des dépassements (usages passés) et les solutions curatives mentionnées ne sont pas vérifiables."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "L'Agence européenne de l'environnement confirme qu'entre 2013 et 2023, 19 % à 27 % des masses d'eau de surface et 11 % à 18 % des nappes phréatiques en Europe présentaient des dépassements de seuils pour au moins un pesticide [3].",
+          "explication": "La source [3] (Europa/EEA) n'est pas fournie en extrait ; les pourcentages et la période 2013-2023 ne peuvent être vérifiés."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "Face à cette situation, le gouvernement a mandaté à l'automne 2025 une mission inter-inspections (IGEDD, IGAS, IGF, CGAAER) pour élaborer des scénarios de financement de la dépollution de l'eau potable [4].",
+          "explication": "Source [4] non fournie en extrait ; le mandat, la date (automne 2025) et la composition de la mission (IGEDD, IGAS, IGF, CGAAER) ne sont pas vérifiables."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "Le rapport, remis en mai 2026, souligne que la réduction générale des pollutions fait l'objet de politiques transversales comme les plans Ecophyto, mais que le financement curatif reste un angle mort [2].",
+          "explication": "Incohérence de sourcing : le renvoi [2] pointe vers le rapport Vie Publique, mais le fait décrit (rapport inter-inspections remis en mai 2026, plans Ecophyto, angle mort) correspond à la source [4] (Le Monde août 2026). La source [2] ne peut confirmer ce fait."
+        },
+        {
+          "bloc": 1,
+          "section": "nuances",
+          "type": "source_inventee",
+          "phrase_exacte": "Le rapport inter-inspections précise que la détection de nouveaux micropolluants (métabolites, PFAS) élargit constamment le périmètre des substances à surveiller et à traiter, ce qui pourrait aggraver les non-conformités à venir [2].",
+          "explication": "Renvoi [2] incorrect : ce contenu provient du rapport inter-inspections (source [4]), non du rapport Vie Publique [2]. La source [2] ne contient pas cette information."
+        },
+        {
+          "bloc": 1,
+          "section": "nuances",
+          "type": "source_inventee",
+          "phrase_exacte": "Les missionnaires notent que les politiques de réduction à la source (Ecophyto, plan PFAS) sont distinctes du financement de la dépollution curative, créant un risque de dissociation entre prévention et remédiation [2].",
+          "explication": "Même erreur de renvoi : l'analyse des missionnaires (rapport inter-inspections) est sourcée [4], pas [2]."
+        },
+        {
+          "bloc": 1,
+          "section": "nuances",
+          "type": "source_inventee",
+          "phrase_exacte": "L'estimation citée par l'Office français de la biodiversité sur le coût global de la mise en conformité n'était pas finalisée au moment du rapport [2].",
+          "explication": "Source [2] (Vie Publique) ne peut confirmer une information sur l'Office français de la biodiversité et l'état d'avancement d'une estimation au moment du rapport inter-inspections (source [4])."
+        },
+        {
+          "bloc": 1,
+          "section": "nuances",
+          "type": "source_inventee",
+          "phrase_exacte": "Aucune source disponible ne quantifie précisément la part des 90 millions d'euros manquants qui aurait été allouée spécifiquement à la dépollution de l'eau potable versus d'autres actions des agences.",
+          "explication": "Cette phrase présente une absence de source comme un fait établi (« aucune source disponible ») sans attribution ni renvoi ; elle ne repose sur aucune des sources autorisées et constitue une affirmation non sourcée."
+        },
+        {
+          "bloc": 2,
+          "section": "contexte",
+          "type": "incoherence_inter_sections",
+          "phrase_exacte": "Le rapport, remis en mai 2026, souligne que la réduction générale des pollutions fait l'objet de politiques transversales comme les plans Ecophyto, mais que le financement curatif reste un angle mort [2].",
+          "explication": "Le même fait (contenu du rapport inter-inspections de mai 2026) est attribué à la source [2] dans le contexte et à la source [4] dans les faits, créant une incohérence de sourcing interne : une même information ne peut provenir de deux sources différentes sans que l'article ne le signale."
+        },
+        {
+          "bloc": 2,
+          "section": "nuances",
+          "type": "incoherence_inter_sections",
+          "phrase_exacte": "Le rapport inter-inspections précise que la détection de nouveaux micropolluants (métabolites, PFAS) élargit constamment le périmètre des substances à surveiller et à traiter, ce qui pourrait aggraver les non-conformités à venir [2].",
+          "explication": "Incohérence de sourcing : les nuances attribuent au rapport inter-inspections (source [4]) des propos via le renvoi [2] (Vie Publique), alors que les faits attribuent le même rapport à la source [4]."
+        },
+        {
+          "bloc": 2,
+          "section": "nuances",
+          "type": "incoherence_inter_sections",
+          "phrase_exacte": "Les missionnaires notent que les politiques de réduction à la source (Ecophyto, plan PFAS) sont distinctes du financement de la dépollution curative, créant un risque de dissociation entre prévention et remédiation [2].",
+          "explication": "Même incohérence : contenu du rapport inter-inspections (source [4]) renvoyé vers source [2]."
+        },
+        {
+          "bloc": 2,
+          "section": "nuances",
+          "type": "incoherence_inter_sections",
+          "phrase_exacte": "L'estimation citée par l'Office français de la biodiversité sur le coût global de la mise en conformité n'était pas finalisée au moment du rapport [2].",
+          "explication": "Information relative au rapport inter-inspections (source [4]) attribuée à la source [2]."
+        },
+        {
+          "bloc": 2,
+          "section": "sources",
+          "type": "compteur_incoherent",
+          "phrase_exacte": "\"nb_sources\": 4",
+          "explication": "Le champ nb_sources indique 4, mais aucune des 4 sources n'est fournie en extrait dans le matériel de vérification ; le fact-checker ne peut valider qu'aucune source fantôme n'est comptée ni qu'aucune source utilisée n'est omise. L'intégrité du compteur ne peut être confirmée."
+        }
+      ]
+    },
+    "article_type": "actu",
+    "titre": "Taxe pesticides : le gouvernement prive les agences de l'eau de 90 millions d'euros",
+    "n_sources": 4,
+    "n_mots": 574,
+    "titre_rss": "Pollution aux pesticides : en restreignant la portée d’une taxe, le gouvernement a privé les agences de l’eau de plus de 90 millions d’euros de redevance",
+    "matiere_faits_distincts": 750,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "climat-chercheurs-americains-denoncent-demantelement-systematique-trump",
+    "statut": "rejete_sensible",
+    "date": "2026-11-10T20:44:23",
+    "problemes_initiaux": 11,
+    "bloc5": [
+      "affaire_en_cours_presentee_comme_fait"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "nuances_vagues"
+    ],
+    "titre": "Climat : les chercheurs américains dénoncent un démantèlement systématique sous Trump",
+    "n_sources": 7,
+    "n_mots": 612,
+    "titre_rss": "Deux ans après le retour de Donald Trump au pouvoir, le bilan alarmant des climatologues américains",
+    "matiere_faits_distincts": 590,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "coup-de-pouce-smic-mauvaise-nouvelle-emploi-pauvrete-economistes",
+    "statut": "rejete_sensible",
+    "date": "2026-11-10T20:50:45",
+    "problemes_initiaux": 11,
+    "tentative": 1,
+    "bloc5": true,
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "resume_repete_corps",
+      "prise_de_position"
+    ],
+    "titre": "Deux économistes s'opposent au coup de pouce au Smic de 1,6 %",
+    "n_sources": 7,
+    "n_mots": 563,
+    "titre_rss": "Stéphane Carcillo et Gilbert Cette, économistes : « Le coup de pouce au smic est une mauvaise nouvelle pour l’emploi et la lutte contre la pauvreté »",
+    "matiere_faits_distincts": 904,
+    "matiere_redondance": 0.02,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "tribune"
+  },
+  {
+    "slug": "exosquelette-atalante-x-maladie-charcot-essai-preliminaire",
+    "statut": "rejete_sensible",
+    "date": "2026-11-10T21:03:25",
+    "problemes_initiaux": 5,
+    "tentative": 1,
+    "bloc5": true,
+    "article_type": "actu",
+    "titre": "Un exosquelette français testé contre la maladie de Charcot montre des effets préliminaires",
+    "n_sources": 3,
+    "n_mots": 624,
+    "titre_rss": "Remarcher grâce à un exosquelette",
+    "matiere_faits_distincts": 865,
+    "matiere_redondance": 0.06,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "etude_scientifique"
   }
 ]
