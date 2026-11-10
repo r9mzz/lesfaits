@@ -65526,5 +65526,1161 @@
     "n_sources_injectees": 10,
     "n_sources_trouvees": 10,
     "nature_contenu": "etude_scientifique"
+  },
+  {
+    "slug": "promotion-alcool-reseaux-sociaux-loi-evin-contournee-addictions-france",
+    "statut": "corrige_automatiquement",
+    "date": "2026-11-10T08:22:28",
+    "problemes_initiaux": 9,
+    "tentatives": 2,
+    "problemes_residuels_style": 21,
+    "rapport_initial": {
+      "conforme": false,
+      "sujet_sensible": false,
+      "sujet_sensible_raison": "",
+      "angle_insuffisant": false,
+      "angle_insuffisant_raison": "",
+      "nature_contenu": "rapport",
+      "problemes": [
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "Le Sénat confirme ce constat : 79 % des 15-21 ans voient ces publicités chaque semaine selon l'École des hautes études en santé publique, et 23 % avouent que cela leur a donné envie de boire selon l'OFDT [2].",
+          "explication": "La source [2] est un article BBC sur le vieillissement accéléré dû à l'alcool, elle ne contient aucune donnée du Sénat, de l'EHESP ou de l'OFDT sur l'exposition des jeunes à la publicité alcool sur les réseaux sociaux."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "Face à ce contournement, le gouvernement indique que le cadre juridique issu de la loi Evin et de la loi influenceurs de juin 2023 doit être respecté [2]. La DGCCRF a intensifié ses contrôles : 98 en 2022, 212 en 2023 et près de 250 en 2024, avec des signalements transmis à l'été 2024 qui font l'objet d'investigations [2]. Plusieurs influenceurs ont fermé leurs comptes ou se sont mis en conformité [2].",
+          "explication": "La source [2] (BBC, août 2026) ne mentionne ni le gouvernement français, ni la loi Evin, ni la loi influenceurs de 2023, ni la DGCCRF, ni des chiffres de contrôles (98, 212, 250), ni des fermetures de comptes d'influenceurs."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "La loi Evin de 1991 encadre strictement la publicité pour l'alcool en France, n'autorisant que des messages neutres et informatifs [2]. La loi du 9 juin 2023 sur l'influence commerciale a étendu ces obligations aux influenceurs sur les réseaux sociaux, rappelant le principe d'interdiction de la publicité pour l'alcool [2].",
+          "explication": "La source [2] est un article BBC sur les effets biologiques de l'alcool (vieillissement accéléré), elle ne traite pas du droit français (loi Evin, loi influenceurs 2023)."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "Le coût social de l'alcool est estimé à 102 milliards d'euros par an par l'OFDT [2]. L'alcool est responsable de 41 000 décès annuels en France et constitue le deuxième déterminant de santé après le tabac [2]. En 2024, plus d'un tiers des jeunes de 17 ans ont connu un épisode d'alcoolisation ponctuelle importante dans le mois précédent l'enquête [2].",
+          "explication": "La source [2] (BBC, août 2026) ne contient aucune de ces statistiques françaises (coût social OFDT, 41 000 décès, déterminant de santé, alcoolisation ponctuelle des 17 ans en 2024)."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "Une enquête Toluna-Harris pour France Assos Santé en 2023 montrait que 89 % des sondés étaient favorables à l'interdiction de la publicité pour l'alcool près des écoles [2]. Le mécanisme de zones de protection exemptes de publicité alcool près des établissements scolaires, autorisé en Outre-mer depuis 2017, n'a pas été étendu à la métropole [2].",
+          "explication": "La source [2] ne mentionne ni l'enquête Toluna-Harris, ni France Assos Santé, ni le chiffre de 89 %, ni les zones de protection en Outre-mer ni leur non-extension en métropole."
+        },
+        {
+          "bloc": 1,
+          "section": "nuances",
+          "type": "source_inventee",
+          "phrase_exacte": "Le gouvernement considère que le cadre juridique actuel est suffisant et ne prévoit pas de nouvelle législation, misant sur la poursuite des contrôles de la DGCCRF [2]. Cette position diverge de la demande du rapporteur Arthur Delaporte qui juge nécessaire de renforcer les moyens de la DGCCRF et d'aller plus loin que la loi influenceurs [2].",
+          "explication": "La source [2] ne cite ni le gouvernement, ni Arthur Delaporte, ni la DGCCRF, ni la loi influenceurs, ni aucun débat parlementaire français."
+        },
+        {
+          "bloc": 1,
+          "section": "nuances",
+          "type": "source_inventee",
+          "phrase_exacte": "L'efficacité réelle des contrôles actuels reste à démontrer : si des influenceurs se sont mis en conformité, le rapport d'Addictions France montre que l'exposition massive se poursuit [1][2]. Aucune donnée récente ne quantifie la part des contenus supprimés ou sanctionnés par rapport au volume total de publicités illicites.",
+          "explication": "La source [2] ne fournit aucune information sur les contrôles, les influenceurs, les contenus supprimés ou sanctionnés ; le renvoi [2] est inventé pour cette phrase."
+        },
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "compteur_incoherent",
+          "phrase_exacte": "nb_sources: 4",
+          "explication": "Le tableau sources ne liste que 2 entrées (Sciences et Avenir et BBC), mais le champ nb_sources indique 4 ; le compteur est faux."
+        },
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "source_derivee_comptee_comme_primaire",
+          "phrase_exacte": "qualite_sources: {\"primaire\": 0, \"secondaire\": 2, \"tertiaire\": 0}",
+          "explication": "L'article ne cite que des sources secondaires (deux articles de presse) ; aucune source primaire (rapport Addictions France, données OFDT/EHESP, textes législatifs, communiqués officiels) n'est utilisée, ce qui est conforme au décompte 'primaire: 0', mais le total de sources distinctes exploitées est 2, pas 4."
+        }
+      ]
+    },
+    "article_type": "actu",
+    "titre": "Promotion de l'alcool sur les réseaux : la loi Evin largement contournée selon Addictions France",
+    "n_sources": 2,
+    "n_mots": 581,
+    "titre_rss": "Les marques d'alcool inondent les réseaux sociaux, dénonce un rapport",
+    "matiere_faits_distincts": 943,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 3,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "rapport"
+  },
+  {
+    "slug": "heures-creuses-deuxieme-phase-1er-decembre-11-millions-foyers",
+    "statut": "rejete_qualite",
+    "date": "2026-11-10T08:32:38",
+    "problemes_initiaux": 16,
+    "tentatives": 3,
+    "problemes_restants": 7,
+    "bloquants_restants": 6,
+    "bloquants_types": [
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "incoherence_inter_sections",
+      "chiffre_errone",
+      "source_inventee"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "Le titre indique 12,5 millions de foyers concernés, alors que la source [1] (France Info) précise que la deuxième phase concerne 11 millions de foyers (sur 14,5 millions d'abonnés au total). Le chiffre de 12,5 millions c",
+        "phrase": "Heures creuses : la réforme a été déployée depuis le 1er décembre pour 12,5 millions de foyers"
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "Le résumé reprend le chiffre erroné de 12,5 millions pour la phase actuelle. La source [2] (Question écrite n°17959) confirme que la réforme concerne 14,5 millions d'abonnés au total, mais la source [1] précise que la ph",
+        "phrase": "12,5 millions d'abonnés sur 14,5 millions voient leurs créneaux modifiés progressivement jusqu'en octobre 2027, avec des plages souvent situées entre 11h et 17h, selon l'Assemblée nationale [2]."
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "Le corps de l'article attribue à tort le chiffre de 12,5 millions à la source [2] pour la phase actuelle. La source [1] (France Info) distingue clairement : 11 millions pour la phase 2 (décembre 2025) et 1,5 million pour",
+        "phrase": "12,5 millions de foyers sur les 14,5 millions d'abonnés à l'option heures pleines/heures creuses sont concernés par ce repositionnement, selon l'Assemblée nationale [2]."
+      },
+      {
+        "bloc": 1,
+        "type": "incoherence_inter_sections",
+        "description": "L'article indique 2 millions de foyers non concernés (14,5M - 12,5M), mais la source [1] mentionne 3,5 millions de foyers non concernés par la phase 2 (14,5M - 11M). Cette incohérence découle directement de l'erreur sur ",
+        "phrase": "Les 2 millions restants conservent pour l'instant leurs plages actuelles, en raison de contraintes locales de réseau [2]."
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [2] (Question écrite n°17959 de septembre 2026) décrit la réforme dans son ensemble (phases 1 et 2) et ne se limite pas à la généralisation à partir du 1er décembre 2025. L'attribution de cette phrase spécifiqu",
+        "phrase": "Le régulateur généralise, depuis le 1er décembre et jusqu'à octobre 2027, le positionnement des heures creuses durant l'après-midi [2]."
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "Les sources [3] et [4] (articles Le Monde) sont citées pour l'information sur les zones géographiques gérées par Enedis, mais les extraits fournis de ces sources ne mentionnent pas Enedis ni la gestion par zones géograph",
+        "phrase": "selon les zones géographiques gérées par Enedis [3][4]."
+      }
+    ],
+    "types_restants": [
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "incoherence_inter_sections",
+      "chiffre_errone",
+      "source_inventee",
+      "source_inventee"
+    ],
+    "article_type": "actu",
+    "titre": "Heures creuses : la deuxième phase débute le 1er décembre pour 11 millions de foyers",
+    "n_sources": 5,
+    "n_mots": 486,
+    "titre_rss": "La deuxième phase de la réforme des heures creuses va entrer en vigueur à partir du 1er décembre",
+    "matiere_faits_distincts": 715,
+    "matiere_redondance": 0.02,
+    "matiere_donnees_chiffrees": 3,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "intersyndicale-lyceenne-claque-porte-comite-parcoursup-matignon",
+    "statut": "corrige_automatiquement",
+    "date": "2026-11-10T08:40:42",
+    "problemes_initiaux": 10,
+    "tentatives": 2,
+    "problemes_residuels_style": 9,
+    "rapport_initial": {
+      "conforme": false,
+      "sujet_sensible": false,
+      "sujet_sensible_raison": "",
+      "angle_insuffisant": false,
+      "angle_insuffisant_raison": "",
+      "nature_contenu": "actualite_factuelle",
+      "problemes": [
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "chronologie_confuse",
+          "phrase_exacte": "Le Premier ministre Sébastien Lecornu a laissé entendre que la colère des lycéens était instrumentalisée à des fins électorales à l'approche de l'élection présidentielle de 2027 [3].",
+          "explication": "La source [3] (BBC, 16 octobre 2026) rapporte des propos du Premier ministre Michel Barnier, pas de Sébastien Lecornu. L'article confond le Premier ministre en fonction à cette date (Barnier) avec le ministre de l'Intérieur Sébastien Lecornu, créant une confusion chronologique et factuelle sur l'identité du locuteur."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "fait_tranche_arbitrairement",
+          "phrase_exacte": "Le Premier ministre Sébastien Lecornu a laissé entendre que la colère des lycéens était instrumentalisée à des fins électorales à l'approche de l'élection présidentielle de 2027 [3].",
+          "explication": "La source [3] (BBC) attribue ces propos au Premier ministre Michel Barnier, pas à Sébastien Lecornu. L'article présente comme un fait établi une déclaration prêtée à la mauvaise personne, ce qui constitue une simplification excessive et erronée de la source."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "incoherence_inter_sections",
+          "phrase_exacte": "L'intersyndicale lycéenne et étudiante a claqué la porte de la réunion du comité de réforme de Parcoursup organisée lundi à Matignon sous la présidence de Sébastien Lecornu [1].",
+          "explication": "Le titre, le résumé et les faits présentent l'événement comme s'étant déroulé 'lundi' (le 9 novembre 2026, veille de la publication de la source [1] datée du 10 novembre), mais la source [1] (Le Monde, 10 novembre) rapporte l'événement comme ayant eu lieu le jour même de sa publication (le 10 novembre, un mardi), créant une incohérence sur la date exacte de la réunion."
+        },
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "Le Premier ministre Sébastien Lecornu a laissé entendre que la colère des lycéens était instrumentalisée à des fins électorales à l'approche de l'élection présidentielle de 2027 [3].",
+          "explication": "Le renvoi [3] pointe vers la source BBC qui attribue ces propos à Michel Barnier (Premier ministre à cette date), pas à Sébastien Lecornu. L'article invente une attribution erronée à une personne qui n'est pas l'auteur des propos selon la source citée."
+        },
+        {
+          "bloc": 2,
+          "section": "nuances",
+          "type": "source_inventee",
+          "phrase_exacte": "Le BBC rapporte que le Premier ministre français a accusé la gauche radicale d'instrumentaliser le mouvement lycéen à des fins électorales [3].",
+          "explication": "La source [3] (BBC) rapporte des propos du Premier ministre Michel Barnier, mais l'article dans les nuances écrit 'le Premier ministre français' sans le nommer, tout en ayant attribué ces mêmes propos à Sébastien Lecornu dans les faits. L'attribution floue dans les nuances ne corrige pas l'erreur des faits et la source ne valide pas l'attribution à Lecornu."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "chronologie_confuse",
+          "phrase_exacte": "Le 7 octobre, le député Ian Boucard (Droite républicaine) a dénoncé lors des questions au gouvernement un \"déferlement de violence inouï\" et pointé la responsabilité de La France insoumise, tandis que le ministre de l'Intérieur Laurent Nuñez a salué le travail des forces de l'ordre [6].",
+          "explication": "La source [6] (Assemblée nationale, 7 octobre 2026) mentionne le ministre de l'Intérieur Bruno Retailleau, pas Laurent Nuñez. L'article attribue la réponse à un ministre qui n'était pas en fonction à ce poste à cette date (Nuñez est ministre de la Justice sous Barnier), créant une confusion sur l'identité du ministre répondant."
+        },
+        {
+          "bloc": 2,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "Le 7 octobre, le député Ian Boucard (Droite républicaine) a dénoncé lors des questions au gouvernement un \"déferlement de violence inouï\" et pointé la responsabilité de La France insoumise, tandis que le ministre de l'Intérieur Laurent Nuñez a salué le travail des forces de l'ordre [6].",
+          "explication": "Le renvoi [6] pointe vers la source 'Question au Gouvernement n° 1806' qui met en scène le ministre de l'Intérieur Bruno Retailleau. L'article invente une intervention de Laurent Nuñez (alors ministre de la Justice) à la place du ministre compétent cité par la source."
+        },
+        {
+          "bloc": 4,
+          "section": "positions",
+          "type": "redondance",
+          "phrase_exacte": "acteurs: [{\"nom\": \"Intersyndicale lycéenne et étudiante\", \"detail\": \"A claqué la porte du comité Parcoursup\", \"position\": 15}, {\"nom\": \"Sébastien Lecornu (Premier ministre)\", \"detail\": \"Préside la réunion, évoque instrumentalisation\", \"position\": 80}, {\"nom\": \"Ian Boucard (DR)\", \"detail\": \"Condamne violences, vise LFI\", \"position\": 85}, {\"nom\": \"Laurent Nuñez (Intérieur)\", \"detail\": \"Soutient forces de l'ordre\", \"position\": 75}]",
+          "explication": "La section 'positions' répète des informations déjà présentes dans 'faits' et 'contexte' (claquement de porte, instrumentalisation, violences, forces de l'ordre) sans apporter de position distincte ou de nuance nouvelle, violant la règle 'une idée = une seule apparition'."
+        },
+        {
+          "bloc": 4,
+          "section": "positions",
+          "type": "fait_tranche_arbitrairement",
+          "phrase_exacte": "\"nom\": \"Sébastien Lecornu (Premier ministre)\", \"detail\": \"Préside la réunion, évoque instrumentalisation\"",
+          "explication": "La fiche acteur présente Sébastien Lecornu comme 'Premier ministre' et comme ayant 'évoqué instrumentalisation', deux affirmations contredites par les sources : il n'est pas Premier ministre (c'est Barnier) et les propos sur l'instrumentalisation sont attribués à Barnier par la source [3]."
+        },
+        {
+          "bloc": 4,
+          "section": "positions",
+          "type": "fait_tranche_arbitrairement",
+          "phrase_exacte": "\"nom\": \"Laurent Nuñez (Intérieur)\", \"detail\": \"Soutient forces de l'ordre\"",
+          "explication": "La fiche acteur présente Laurent Nuñez comme ministre de l'Intérieur ('Intérieur'), or la source [6] montre que c'est Bruno Retailleau qui occupe ce poste et répond aux questions au gouvernement le 7 octobre. Nuñez est alors ministre de la Justice."
+        }
+      ]
+    },
+    "article_type": "actu",
+    "titre": "L'intersyndicale lycéenne claque la porte du comité Parcoursup à Matignon",
+    "n_sources": 6,
+    "n_mots": 546,
+    "titre_rss": "Mobilisation lycéenne et étudiante : l’intersyndicale claque la porte du comité de réforme de Parcoursup à Matignon",
+    "matiere_faits_distincts": 632,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "afd-contrat-objectifs-moyens-transmis-parlement-juillet-2026",
+    "statut": "rejete_qualite",
+    "date": "2026-11-10T08:54:35",
+    "problemes_initiaux": 10,
+    "tentatives": 3,
+    "problemes_restants": 11,
+    "bloquants_restants": 3,
+    "bloquants_types": [
+      "chiffre_errone",
+      "source_inventee",
+      "source_inventee"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [1] (notice du Sénat) n'est pas citée dans les extraits fournis comme contenant ce chiffre précis de 0,56 % pour 2022 ; l'article attribue à la source une donnée qu'elle ne confirme pas visiblement.",
+        "phrase": "L'aide publique au développement s'établissait à 0,56 % du revenu national brut (RNB) en 2022 selon la notice du Sénat [1]."
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "La source [1] est la notice du Sénat sur le COM de l'AFD (2026) ; elle ne documente pas le contenu de la loi de 2021 ni le non-respect de l'objectif 0,7 % — l'article utilise la source [1] pour affirmer des faits qu'elle",
+        "phrase": "La loi du 4 août 2021 de programmation relative au développement solidaire et à la lutte contre les inégalités mondiales a fixé une trajectoire budgétaire visant 0,7 % du RNB, objectif que la France n'a pas atteint [1]."
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "La source [1] (notice 2026 sur le nouveau COM) ne contient pas l'historique du contrat 2018-2022 ni le détail du pilotage par lettres annuelles ; l'article attribue à cette source des informations antérieures qu'elle ne ",
+        "phrase": "Le précédent contrat d'objectifs et de moyens couvrait la période 2018-2022. Son expiration a laissé l'agence sans cadre pluriannuel, le pilotage s'effectuant par lettres annuelles de cadrage [1]."
+      }
+    ],
+    "types_restants": [
+      "fait_tranche_arbitrairement",
+      "fait_tranche_arbitrairement",
+      "fait_tranche_arbitrairement",
+      "chiffre_errone",
+      "fait_tranche_arbitrairement",
+      "fait_tranche_arbitrairement",
+      "source_inventee",
+      "source_inventee",
+      "acteur_mis_en_cause_sans_reponse",
+      "redondance",
+      "section_gonflee"
+    ],
+    "article_type": "actu",
+    "titre": "L'AFD reçoit son contrat d'objectifs 2026 après cinq ans sans cadre parlementaire",
+    "n_sources": 3,
+    "n_mots": 491,
+    "titre_rss": "Enfin ! Le COM 2027-2029 de l'AFD - Rapport d'information n° 119",
+    "matiere_faits_distincts": 527,
+    "matiere_redondance": 0.05,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "ebola-bundibugyo-vaccins-zaire-anticorps-croises-premiers-resultats",
+    "statut": "rejete_sensible",
+    "date": "2026-11-10T09:25:20",
+    "problemes_initiaux": 9,
+    "tentative": 2,
+    "bloc5": true,
+    "article_type": "actu",
+    "titre": "Ebola Bundibugyo : les vaccins anti-Zaïre induisent des anticorps croisés mais sans preuve d'efficacité clinique",
+    "n_sources": 5,
+    "n_mots": 781,
+    "titre_rss": "Épidémie d’Ebola Bundibugyo : des premiers résultats pour guider la recherche d’un vaccin efficace",
+    "matiere_faits_distincts": 992,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "veille_heures_visible": 517.7,
+    "veille_passages": 311,
+    "veille_age_h": 2166.7,
+    "veille_n_flux_grappe": 9,
+    "nature_contenu": "etude_scientifique"
+  },
+  {
+    "slug": "bocquet-de-temmerman-laszlo-appellent-entite-financement-innovations-rupture",
+    "statut": "corrige_automatiquement",
+    "date": "2026-11-10T09:32:50",
+    "problemes_initiaux": 6,
+    "tentatives": 1,
+    "problemes_residuels_style": 11,
+    "rapport_initial": {
+      "conforme": false,
+      "sujet_sensible": false,
+      "sujet_sensible_raison": "",
+      "angle_insuffisant": false,
+      "angle_insuffisant_raison": "",
+      "nature_contenu": "tribune",
+      "problemes": [
+        {
+          "bloc": 3,
+          "section": "resume",
+          "type": "cadrage_emprunte",
+          "phrase_exacte": "Cette proposition s'inscrit dans un mouvement plus large : 92 personnalités scientifiques et économiques réclamaient début juillet une loi d'urgence climatique, relayée par plusieurs médias français.",
+          "explication": "Le résumé présente l'opinion des auteurs de la tribune (\"jugent\", \"plaident\") comme des faits neutres sans attribution explicite à la tribune, alors qu'il s'agit d'une prise de position d'experts (tribune)."
+        },
+        {
+          "bloc": 3,
+          "section": "faits",
+          "type": "cadrage_emprunte",
+          "phrase_exacte": "Dans une tribune publiée le 6 novembre 2026 par Le Monde, le physicien Lydéric Bocquet, le directeur de Techleap Greg De Temmerman et le mathématicien Yves Laszlo affirment que la transition écologique ne se fera pas sans révolution technologique [1].",
+          "explication": "L'article présente le contenu de la tribune comme des faits établis (\"affirment que la transition écologique ne se fera pas sans révolution technologique\") sans maintenir l'attribution à la tribune tout au long du paragraphe, transformant une opinion en constat de la rédaction."
+        },
+        {
+          "bloc": 4,
+          "section": "contexte",
+          "type": "contexte_hors_sujet",
+          "phrase_exacte": "Au niveau européen, le secteur LULUCF (utilisation des sols, changement d'affectation des sols et foresterie) français est un puits de carbone net, absorbant plus de gaz à effet de serre qu'il n'en émet [2]. La France doit toutefois réduire ses émissions LULUCF de 6 693 kilotonnes de CO2e d'ici 2030 par rapport à la moyenne 2016-2018 [2].",
+          "explication": "Ces données sur le secteur LULUCF n'éclairent pas le sujet principal (proposition de financement des innovations de rupture) et constituent un remplissage sans lien direct avec la tribune analysée."
+        },
+        {
+          "bloc": 4,
+          "section": "contexte",
+          "type": "contexte_hors_sujet",
+          "phrase_exacte": "Un sondage de 2023 montrait que 52 % des Français considéraient le changement climatique parmi les quatre problèmes les plus graves au monde, contre 46 % en moyenne dans l'Union [7].",
+          "explication": "Ce sondage sur la perception du changement climatique n'apporte aucune information pertinente sur la proposition de financement des innovations de rupture et sert uniquement à gonfler la section contexte."
+        },
+        {
+          "bloc": 2,
+          "section": "contexte",
+          "type": "source_derivee_comptee_comme_primaire",
+          "phrase_exacte": "Cette demande était relayée par France Info et Ouest-France, soulignant l'ampleur du consensus scientifique sur la nécessité d'accélérer l'action [5][6].",
+          "explication": "Les sources [5] et [6] (France Info et Ouest-France) ne font que relayer la même tribune du 6 juillet publiée dans Le Monde ; elles ne constituent pas des sources indépendantes confirmant un consensus, mais des reprises d'un même document primaire."
+        },
+        {
+          "bloc": 2,
+          "section": "contexte",
+          "type": "compteur_incoherent",
+          "phrase_exacte": "\"nb_sources\": 5",
+          "explication": "Le compteur indique 5 sources mais les sources [5] et [6] sont des reprises médiatiques d'une même tribune primaire, et les sources [2] et [7] (Europa) portent sur des sujets distincts (LULUCF, sondage) non pertinents pour le sujet principal ; le nombre de sources distinctes et pertinentes est surévalué."
+        }
+      ]
+    },
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "resume_repete_corps",
+      "titre_de_mauvaise_qualite"
+    ],
+    "titre": "Bocquet, De Temmerman et Laszlo appellent à créer une entité pour financer les innovations de rupture",
+    "n_sources": 5,
+    "n_mots": 523,
+    "titre_rss": "Urgence climatique : « La France doit créer une entité dévolue au financement des innovations de rupture »",
+    "matiere_faits_distincts": 637,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "tribune"
+  },
+  {
+    "slug": "cyberattaque-efs-chambres-froides-trois-sites-stocks-preserves",
+    "statut": "corrige_automatiquement",
+    "date": "2026-11-10T09:45:57",
+    "problemes_initiaux": 12,
+    "tentatives": 2,
+    "problemes_residuels_style": 4,
+    "rapport_initial": {
+      "conforme": false,
+      "sujet_sensible": false,
+      "sujet_sensible_raison": "",
+      "angle_insuffisant": false,
+      "angle_insuffisant_raison": "",
+      "nature_contenu": "actualite_factuelle",
+      "problemes": [
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "Une cyberattaque a visé un prestataire informatique de l'Établissement français du sang (EFS), perturbant le fonctionnement de chambres froides sur trois sites en France [1][6].",
+          "explication": "La source [6] n'existe pas (seules 3 sources sont listées, indices 1 à 3)."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "Les paramètres de température des équipements de stockage ont été modifiés par les auteurs de l'attaque [1][6].",
+          "explication": "La source [6] n'existe pas."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "Aucun produit sanguin n'a été perdu grâce aux systèmes de surveillance et aux procédures d'urgence mises en œuvre [1][6].",
+          "explication": "La source [6] n'existe pas."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "L'EFS assure la collecte, la préparation, la qualification et la distribution des produits sanguins labiles sur l'ensemble du territoire national. La perturbation a été détectée et contenue avant d'affecter l'intégrité des poches de sang conservées dans ces chambres froides [1][6].",
+          "explication": "La source [6] n'existe pas."
+        },
+        {
+          "bloc": 1,
+          "section": "nuances",
+          "type": "source_inventee",
+          "phrase_exacte": "L'attribution formelle de l'attaque contre l'EFS à un acteur étatique spécifique n'est pas établie dans les sources disponibles [1][6].",
+          "explication": "La source [6] n'existe pas."
+        },
+        {
+          "bloc": 1,
+          "section": "nuances",
+          "type": "source_inventee",
+          "phrase_exacte": "Le prestataire ciblé n'est pas identifié publiquement, ce qui limite l'analyse de la surface d'attaque [1][6].",
+          "explication": "La source [6] n'existe pas."
+        },
+        {
+          "bloc": 1,
+          "section": "nuances",
+          "type": "source_inventee",
+          "phrase_exacte": "Les autorités n'ont pas communiqué sur la nature exacte de la faille exploitée ni sur le vecteur d'intrusion initial [1][6].",
+          "explication": "La source [6] n'existe pas."
+        },
+        {
+          "bloc": 1,
+          "section": "nuances",
+          "type": "source_inventee",
+          "phrase_exacte": "La résilience démontrée par les systèmes de l'EFS contraste avec l'impact majeur subi par la grande distribution, mais les deux incidents révèlent une vulnérabilité partagée des systèmes de contrôle industriel de la chaîne du froid [4][5].",
+          "explication": "Les sources [4] et [5] n'existent pas (seules 3 sources listées)."
+        },
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "compteur_incoherent",
+          "phrase_exacte": "nb_sources: 3",
+          "explication": "Le champ nb_sources indique 3 mais les renvois [1][6], [4][5] impliquent au moins 6 sources distinctes attendues."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "chronologie_confuse",
+          "phrase_exacte": "Dans la nuit du 11 au 12 octobre 2026, une attaque massive a touché les contrôleurs de froid d'environ 700 sites de la grande distribution, modifiant les paramètres de dégivrage pour provoquer des surchauffes et des pertes de marchandises considérables [4].",
+          "explication": "La source [4] n'existe pas ; impossible de vérifier la date et les faits. De plus, la date de l'attaque EFS n'est pas donnée, empêchant de situer les deux événements l'un par rapport à l'autre."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "Le Centre de coordination des crises cyber (C4) impute cette attaque à l'unité Shahid Kaveh, affiliée au Corps des Gardiens de la Révolution islamique d'Iran [5]. Cette même unité avait déjà revendiqué des campagnes de sabotage contre des équipements frigorifiques israéliens en mars-avril 2026 [5]. En août 2026, des dysfonctionnements similaires avaient été observés sur des bases militaires américaines [5].",
+          "explication": "La source [5] n'existe pas."
+        },
+        {
+          "bloc": 1,
+          "section": "resume",
+          "type": "source_inventee",
+          "phrase_exacte": "Cet incident rejoint une vague d'attaques similaires contre des systèmes de réfrigération industrielle en France, notamment dans la grande distribution où 700 sites ont été touchés en octobre 2026.",
+          "explication": "L'information sur les 700 sites en octobre 2026 est sourcée [4] dans le contexte, mais la source [4] n'existe pas dans la liste autorisée."
+        }
+      ]
+    },
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "resume_repete_corps",
+      "titre_de_mauvaise_qualite"
+    ],
+    "titre": "Cyberattaque contre l'EFS : chambres froides perturbées sur trois sites, aucun produit sanguin perdu",
+    "n_sources": 3,
+    "n_mots": 391,
+    "titre_rss": "Cyberattaque : les chambres froides de l'EFS prises pour cible",
+    "matiere_faits_distincts": 784,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "label-bas-carbone-tourbieres-financement-restauration-2026",
+    "statut": "rejete_sensible",
+    "date": "2026-11-10T09:53:03",
+    "problemes_initiaux": 8,
+    "tentative": 1,
+    "bloc5": true,
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "titre_de_mauvaise_qualite"
+    ],
+    "titre": "France : label bas carbone tourbières lancé pour financer la restauration de 690 Mt CO₂ stockées",
+    "n_sources": 6,
+    "n_mots": 561,
+    "titre_rss": "Nouveau label bas carbone tourbières : \"Il y a un intérêt business, au-delà de la stratégie climat\"",
+    "matiere_faits_distincts": 856,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "loi-resilience-assemblee-nationale-retour-apres-blocage-article-16-bis-abandonne",
+    "statut": "rejete_sensible",
+    "date": "2026-11-10T10:16:22",
+    "problemes_initiaux": 10,
+    "tentative": 2,
+    "bloc5": true,
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "resume_repete_corps",
+      "titre_de_mauvaise_qualite"
+    ],
+    "titre": "La loi résilience revient à l'Assemblée après un an de blocage",
+    "n_sources": 5,
+    "n_mots": 580,
+    "titre_rss": "Après un été de cyberattaques et un an de blocage, la loi « résilience » de retour à l’Assemblée nationale",
+    "matiere_faits_distincts": 868,
+    "matiere_redondance": 0.05,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "cyberattaque-fausses-alertes-nucleaires-ukraine-russie",
+    "statut": "rejete_sensible",
+    "date": "2026-11-10T10:28:44",
+    "problemes_initiaux": 10,
+    "bloc5": [
+      "affaire_en_cours_presentee_comme_fait"
+    ],
+    "article_type": "actu",
+    "titre": "Cyberattaque : fausses alertes nucléaires envoyées aux Ukrainiens et aux Russes",
+    "n_sources": 4,
+    "n_mots": 505,
+    "titre_rss": "Cyberattaque : de fausses alertes nucléaires envoyées aux Ukrainiens et aux Russes",
+    "matiere_faits_distincts": 848,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "gouvernement-libere-10-millions-barils-diesel-reserves-strategiques",
+    "statut": "corrige_automatiquement",
+    "date": "2026-11-10T10:38:13",
+    "problemes_initiaux": 4,
+    "tentatives": 2,
+    "problemes_residuels_style": 7,
+    "rapport_initial": {
+      "conforme": false,
+      "sujet_sensible": false,
+      "sujet_sensible_raison": "",
+      "angle_insuffisant": false,
+      "angle_insuffisant_raison": "",
+      "nature_contenu": "actualite_factuelle",
+      "problemes": [
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "contexte_hors_sujet",
+          "phrase_exacte": "En 2020, le PIB des économies de la sous-région s'est contracté de 6 % en moyenne, loin du résultat enregistré pour l'Afrique subsaharienne dans son ensemble (-1,9 %), soit 5,3 points de moins qu'en Afrique de l'Ouest ou 7,2 points de moins qu'en Afrique de l'Est [3].",
+          "explication": "Ce paragraphe cite la source [3] (Tableau de bord conjoncturel du Trésor sur l'Afrique du Sud) pour parler de l'Afrique subsaharienne, de l'Afrique de l'Ouest et de l'Afrique de l'Est, sans aucun lien avec le sujet de l'article (libération de réserves stratégiques de diesel en France)."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "En 2020, le PIB des économies de la sous-région s'est contracté de 6 % en moyenne, loin du résultat enregistré pour l'Afrique subsaharienne dans son ensemble (-1,9 %), soit 5,3 points de moins qu'en Afrique de l'Ouest ou 7,2 points de moins qu'en Afrique de l'Est [3].",
+          "explication": "La source [3] est une page du Trésor français consacrée à l'Afrique du Sud (URL contenant /Pays/ZA/). Elle ne contient pas de données sur le PIB de l'Afrique subsaharienne, de l'Afrique de l'Ouest ni de l'Afrique de l'Est. Le fait attribué à cette source est inventé par rapport à son contenu réel."
+        },
+        {
+          "bloc": 2,
+          "section": "contexte",
+          "type": "compteur_incoherent",
+          "phrase_exacte": "nb_sources: 4",
+          "explication": "Le champ nb_sources indique 4, mais le tableau sources ne contient que 3 entrées distinctes (France Info, Mediapart, Gouv). Le compteur est donc incohérent."
+        },
+        {
+          "bloc": 4,
+          "section": "nuances",
+          "type": "redondance",
+          "phrase_exacte": "L'AIE n'a pas précisé si de nouveaux prélèvements sont prévus dans les prochains mois, ni quel volume total les États membres s'engagent à reconstituer pour restaurer leurs niveaux de sécurité [2].",
+          "explication": "Cette phrase est une répétition quasi identique de la dernière phrase de la section faits (\"L'AIE n'a pas précisé si de nouveaux prélèvements sont prévus dans les prochains mois, ni quel volume total les États membres s'engagent à reconstituer pour restaurer leurs niveaux de sécurité [2].\"), violant la règle d'unicité d'apparition d'une idée."
+        }
+      ]
+    },
+    "article_type": "actu",
+    "titre": "Le gouvernement libère 10 millions de barils de diesel des réserves stratégiques",
+    "n_sources": 3,
+    "n_mots": 492,
+    "titre_rss": "Plus de 50 € d’économies sur ce radiateur à bain d'huile Aigostar : de quoi préparer l’hiver sans attendre les grands froids",
+    "matiere_faits_distincts": 740,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 3,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "cannabis-mecanisme-mitochondrial-vulnerabilite-adolescents-males",
+    "statut": "corrige_automatiquement",
+    "date": "2026-11-10T10:47:41",
+    "problemes_initiaux": 10,
+    "tentatives": 2,
+    "problemes_residuels_style": 11,
+    "rapport_initial": {
+      "conforme": false,
+      "sujet_sensible": false,
+      "sujet_sensible_raison": "",
+      "angle_insuffisant": false,
+      "angle_insuffisant_raison": "",
+      "nature_contenu": "etude_scientifique",
+      "problemes": [
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "chiffre_errone",
+          "phrase_exacte": "Les travaux actuels portent sur de nouveaux outils moléculaires permettant d'augmenter l'activité mitochondriale d'environ 10 % en conditions de laboratoire, encore au stade préclinique [1].",
+          "explication": "La source [1] (podcast Radiofrance) ne mentionne aucun chiffre de 10 % d'augmentation de l'activité mitochondriale ; ce chiffre n'apparaît pas dans les extraits fournis."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "chiffre_errone",
+          "phrase_exacte": "La consommation chez les adolescents a été divisée par trois en dix ans en France [1].",
+          "explication": "La source [1] (podcast Radiofrance) ne contient pas cette statistique sur la consommation adolescente en France ; elle n'est pas vérifiable via les sources autorisées."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "chiffre_errone",
+          "phrase_exacte": "Le cannabis compte environ 200 millions d'usagers dans le monde selon l'Inserm, dont 5 millions d'usagers quotidiens en France, avec 10 à 20 % présentant une consommation incontrôlée [1].",
+          "explication": "La source [1] (podcast Radiofrance) ne fournit pas ces chiffres précis (200 millions mondial, 5 millions quotidiens France, 10-20 % consommation incontrôlée) ; ils ne sont pas présents dans les extraits."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "Une étude publiée dans le New England Journal of Medicine en 2023 confirme que l'usage intensif de cannabis a des effets délétères sur la santé physique et mentale, et appelle à mieux élucider la physiopathologie pour développer de meilleurs traitements [2].",
+          "explication": "La source [2] (NEJM) est citée pour des conclusions générales (effets délétères, appel à élucider la physiopathologie) qui ne figurent pas textuellement dans l'extrait fourni (titre seul). L'attribution de ce contenu précis à cette source n'est pas vérifiable."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "Par ailleurs, une revue systématique sur la fertilité masculine publiée en 2019 indique que le cannabis réduit le nombre et la concentration des spermatozoïdes, altère leur morphologie, motilité et viabilité, avec des modèles animaux montrant une atrophie testiculaire non encore répliquée chez l'homme [3].",
+          "explication": "La source [3] (PMC) est une revue systématique sur la fertilité masculine, mais le résumé détaillé de ses conclusions (réduction nombre/concentration, altération morphologie/motilité/viabilité, atrophie testiculaire animale non répliquée) n'est pas présent dans l'extrait fourni (titre seul)."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "Une étude rétrospective du BMJ Heart (2024) associe la consommation de cannabis chez les moins de 45 ans admis pour syndrome coronarien aigu à un pronostic à long terme, sans établir de causalité [4].",
+          "explication": "La source [4] (BMJ Heart) est citée pour une conclusion précise (association chez <45 ans, syndrome coronarien aigu, pronostic long terme, pas de causalité) qui ne figure pas dans l'extrait fourni (titre seul)."
+        },
+        {
+          "bloc": 1,
+          "section": "nuances",
+          "type": "source_inventee",
+          "phrase_exacte": "Santé publique France souligne que les données épidémiologiques sur les effets du cannabis restent limitées par des difficultés méthodologiques [5].",
+          "explication": "La source [5] est citée mais n'existe pas dans la liste des sources autorisées (seules 4 sources listées, indices 1 à 4)."
+        },
+        {
+          "bloc": 2,
+          "section": "contexte",
+          "type": "compteur_incoherent",
+          "phrase_exacte": "\"nb_sources\": 4",
+          "explication": "Le champ nb_sources indique 4, mais le texte utilise un renvoi [5] inexistant dans la liste des sources, ce qui rend le compteur incohérent avec l'usage réel."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "niveau_preuve_insuffisant",
+          "phrase_exacte": "L'équipe Inserm dirigée par Giovanni Marsicano au Neurocentre Magendie de Bordeaux a démontré que le tétrahydrocannabinol (THC) active le récepteur cannabinoïde 1 (CB1) localisé non seulement sur la membrane des neurones, mais aussi à l'intérieur des astrocytes, sur les mitochondries [1].",
+          "explication": "L'article utilise le verbe « a démontré » (constat établi) pour décrire les résultats d'une étude préclinique sur souris ; la source [1] étant un podcast de vulgarisation, le niveau de preuve (modèle murin, préclinique) n'est pas explicitement rappelé au plus près de l'affirmation principale, ce qui surévalue la portée de la découverte."
+        },
+        {
+          "bloc": 3,
+          "section": "faits",
+          "type": "paraphrase_structurelle",
+          "phrase_exacte": "L'équipe Inserm dirigée par Giovanni Marsicano au Neurocentre Magendie de Bordeaux a démontré que le tétrahydrocannabinol (THC) active le récepteur cannabinoïde 1 (CB1) localisé non seulement sur la membrane des neurones, mais aussi à l'intérieur des astrocytes, sur les mitochondries [1].",
+          "explication": "La phrase reprend la structure et le vocabulaire technique précis de la source primaire (probablement le communiqué Inserm ou l'article Nature) sans reformulation propre, via l'intermédiaire du podcast [1] qui ne fait que relayer l'information."
+        }
+      ]
+    },
+    "article_type": "actu",
+    "titre": "Inserm Bordeaux : le THC altère les mitochondries des astrocytes et épargne les adolescentes",
+    "n_sources": 4,
+    "n_mots": 682,
+    "titre_rss": "Cannabis, un mal de mâles",
+    "matiere_faits_distincts": 694,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "etude_scientifique"
+  },
+  {
+    "slug": "mortalite-france-2024-641046-deces-taux-standardise-baisse",
+    "statut": "rejete_qualite",
+    "date": "2026-11-10T10:59:07",
+    "problemes_initiaux": 9,
+    "tentatives": 3,
+    "problemes_restants": 10,
+    "bloquants_restants": 8,
+    "bloquants_types": [
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "Le chiffre de 641 046 décès pour 2024 n'est pas confirmé par les extraits des sources [1] et [2] fournis ; le communiqué Inserm/SPF cite 646 000 décès pour 2024, ce qui contredit le chiffre exact de l'article.",
+        "phrase": "Parmi la population résidant en France, 641 046 décès ont été enregistrés en 2024 sur le territoire national, soit 4 000 de plus qu'en 2023 [1][2]."
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "Le taux standardisé de 777,9 pour 100 000 et sa baisse de 11 unités ne figurent pas dans les extraits des sources [1] et [2] ; le communiqué indique un taux de 800,5 pour 100 000 en 2024.",
+        "phrase": "Le taux de mortalité standardisé, qui neutralise l'effet du vieillissement démographique, s'établit à 777,9 décès pour 100 000 habitants, en baisse de 11 unités sur un an [1][2]."
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La baisse de 7 pour 100 000 de la mortalité Covid-19 n'est pas présente dans les extraits des sources [1] et [2].",
+        "phrase": "La baisse toutes causes est tirée par le recul de la mortalité Covid-19 de 7 décès pour 100 000 habitants [1][2]."
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "L'augmentation de 5 pour 100 000 des maladies respiratoires hors Covid n'est pas confirmée par les extraits des sources [1] et [2].",
+        "phrase": "À l'inverse, la mortalité par maladies respiratoires hors Covid augmente de 5 pour 100 000, portée par la grippe et les pneumonies [1][2]."
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "Les pourcentages 27,1 % pour les tumeurs et 21,2 % pour les maladies cardio-neurovasculaires ne figurent pas dans les extraits des sources [1] et [2].",
+        "phrase": "Les tumeurs (cancers) restent la première cause de décès chez les hommes comme chez les femmes avec 27,1 % du total, devant les maladies cardio-neurovasculaires (21,2 %) [1][2]."
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "Les taux de 4,8 % (cause inconnue) et 16,5 % (cause insuffisamment précise) ne sont pas présents dans les extraits des sources [1] et [2].",
+        "phrase": "Sur l'ensemble des certificats, 4,8 % portent une cause inconnue et 16,5 % une cause initiale insuffisamment précise (arrêt respiratoire, sénilité, insuffisance cardiaque, septicémie sans point de départ) [1][2]."
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "Le chiffre de 32 % de certificats avec cause associée et la moyenne de 2,2 causes associées ne figurent pas dans les extraits des sources [1] et [2].",
+        "phrase": "32 % des certificats mentionnent au moins une cause associée (comorbidité ou antécédent), avec 2,2 causes associées en moyenne par certificat [1][2]."
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "Le chiffre de 651 000 décès pour 2025 contredit la source [6] (Le Monde) qui indique 663 000 décès pour 651 000 naissances ; l'article inverse les deux nombres.",
+        "phrase": "Le Monde rapporte dans son édition du 13 janvier 2026 que, pour la première fois depuis 1945, le solde naturel devient négatif en 2025 avec 651 000 décès pour 663 000 naissances, soit un déficit de 12 000 [6]."
+      }
+    ],
+    "types_restants": [
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "source_inventee",
+      "compteur_incoherent"
+    ],
+    "article_type": "actu",
+    "titre": "Mortalité 2024 : 641 046 décès, taux standardisé en baisse mais supérieur aux tendances pré-Covid",
+    "n_sources": 8,
+    "n_mots": 734,
+    "titre_rss": "Grandes causes de décès en France : tendances et causes associées en 2024",
+    "matiere_faits_distincts": 677,
+    "matiere_redondance": 0.1,
+    "matiere_donnees_chiffrees": 5,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "veille_heures_visible": 517.7,
+    "veille_passages": 311,
+    "veille_age_h": 2166.7,
+    "veille_n_flux_grappe": 1,
+    "nature_contenu": "etude_scientifique"
+  },
+  {
+    "slug": "coup-pouce-smic-1-6-pour-cent-critique-economistes",
+    "statut": "rejete_sensible",
+    "date": "2026-11-10T11:05:13",
+    "problemes_initiaux": 13,
+    "bloc5": [
+      "compteur_incoherent"
+    ],
+    "article_type": "actu",
+    "titre": "Deux économistes critiquent le coup de pouce au SMIC de 1,6 %",
+    "n_sources": 3,
+    "n_mots": 464,
+    "titre_rss": "Stéphane Carcillo et Gilbert Cette, économistes : « Le coup de pouce au smic est une mauvaise nouvelle pour l’emploi et la lutte contre la pauvreté »",
+    "matiere_faits_distincts": 672,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "prise_de_position"
+  },
+  {
+    "slug": "californie-electeurs-rejetent-taxe-5-pour-cent-milliardaires-proposition-40",
+    "statut": "rejete_qualite",
+    "date": "2026-11-10T11:20:42",
+    "problemes_initiaux": 10,
+    "tentatives": 3,
+    "problemes_restants": 13,
+    "bloquants_restants": 5,
+    "bloquants_types": [
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [2] (Le Monde) indique « quelque 160 milliardaires » et non 180 ; le chiffre de 180 n'est pas confirmé par les extraits fournis.",
+        "phrase": "Le texte instaurait un impôt exceptionnel de 5 % sur le patrimoine net des résidents dont la fortune dépasse 1 milliard de dollars, soit environ 180 personnes dans l'État [2]."
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [2] (Le Monde) mentionne « 10 milliards de dollars » et non 12 milliards ; le chiffre de 12 milliards n'est pas confirmé par les extraits fournis.",
+        "phrase": "Le produit estimé, autour de 12 milliards de dollars, devait compenser les réductions de financements fédéraux pour la santé décidées par l'administration Trump [2]."
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [2] (Le Monde) qualifie Gabriel Zucman d'« inspirateur » de la mesure, et non de « co-architecte » ; la formulation diffère du terme utilisé dans la source.",
+        "phrase": "Le syndicat des soignants SEIU-UHW a porté la campagne pour le oui, avec l'appui de l'économiste Gabriel Zucman, co-architecte de la mesure [2]."
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [2] (Le Monde) indique que Sergey Brin a versé « 10 millions de dollars » et non 5 millions ; le montant de 5 millions n'est pas confirmé par les extraits fournis.",
+        "phrase": "le cofondateur de Google Sergey Brin — qui a versé 5 millions de dollars à un comité anti-taxe selon le Los Angeles Times cité par Le Monde — ainsi que plusieurs syndicats et organisations patronales [2]."
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [2] (Le Monde) précise que le 1 % des foyers les plus riches paie « plus de 40 % » de l'impôt sur le revenu, et non « près de la moitié » (50 %) ; la formulation arrondit le chiffre au-delà de ce que dit la sou",
+        "phrase": "L'État finance déjà une part importante de ses services publics via un impôt sur le revenu très progressif, dont le taux marginal atteint 13,3 % — le plus élevé du pays — et dont le 1 % des foyers les plus riches paie pr"
+      }
+    ],
+    "types_restants": [
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "contexte_hors_sujet",
+      "extrapolation",
+      "compteur_incoherent"
+    ],
+    "article_type": "actu",
+    "titre": "Californie : les électeurs rejettent la taxe de 5 % sur les milliardaires",
+    "n_sources": 4,
+    "n_mots": 685,
+    "titre_rss": "Les électeurs de Californie rejettent une taxe de 5 % des milliardaires conçue notamment par l’économiste Gabriel Zucman",
+    "matiere_faits_distincts": 997,
+    "matiere_redondance": 0.05,
+    "matiere_donnees_chiffrees": 2,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "yeytuo-lenacapavir-essai-9-novembre-observance-prep-quotidienne",
+    "statut": "rejete_qualite",
+    "date": "2026-11-10T11:29:27",
+    "problemes_initiaux": 8,
+    "tentatives": 3,
+    "problemes_restants": 10,
+    "bloquants_restants": 3,
+    "bloquants_types": [
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [4] (Le Monde, 27/08/2025) indique 2 134 participantes, mais l'étude PURPOSE 1 (lenacapavir vs Truvada) a recruté 5 366 participantes (2 134 dans le bras lenacapavir, 2 136 dans le bras Truvada, 1 096 dans le b",
+        "phrase": "La première, menée auprès de 2 134 femmes de 16 à 25 ans, n'a recensé aucune nouvelle infection sous Yeytuo (0 %) contre 1,79 % sous Truvada [4]."
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [5] (Le Monde, 18/06/2025) indique 3 266 participants au total pour l'étude PURPOSE 2, mais cet effectif total comprend les trois bras (lenacapavir, Descovy, Truvada). L'article présente 3 266 comme l'effectif ",
+        "phrase": "La seconde, chez 3 266 hommes et personnes de genre divers, a observé 2 infections (0,1 %) sous Yeytuo contre 0,93 % sous Truvada [5]."
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [6] (AP News, 02/11/2026) porte sur l'approbation par la FDA d'un lenacapavir *générique* pour la prévention du VIH. L'article résume cela par \"la FDA a approuvé un lenacapavir générique en novembre 2026\", ce q",
+        "phrase": "Parallèlement, la FDA a approuvé un lenacapavir générique en novembre 2026, selon AP News [6]."
+      }
+    ],
+    "types_restants": [
+      "chiffre_errone",
+      "chiffre_errone",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "chiffre_errone",
+      "compteur_incoherent",
+      "source_derivee_comptee_comme_primaire",
+      "redondance",
+      "redondance"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "titre_de_mauvaise_qualite"
+    ],
+    "titre": "Yeytuo (lenacapavir) : un essai du 9 novembre suggère une meilleure observance que la PrEP quotidienne",
+    "n_sources": 6,
+    "n_mots": 479,
+    "titre_rss": "Traitement anti-VIH Yeytuo : plus simple, mais pas forcément mieux suivi",
+    "matiere_faits_distincts": 856,
+    "matiere_redondance": 0.01,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "etude_scientifique"
+  },
+  {
+    "slug": "ird-six-projets-appel-anr-flash-covid-19",
+    "statut": "rejete_qualite",
+    "date": "2026-11-10T11:35:46",
+    "angle_insuffisant": true,
+    "raison": "L'article ne contient aucun événement précis daté ou datable dans la section 'faits' : il se contente de lister des projets sélectionnés dans un appel d'urgence ANR Flash Covid-19 sans indiquer la date de publication des résultats, la date de l'annonce IRD, ni aucun fait déclencheur récent. Le texte répond à 'quels sont les projets ?' plutôt qu'à 'pourquoi en parle-t-on maintenant ?'.",
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "faits_repetitifs"
+    ],
+    "titre": "L'IRD obtient six projets dans l'appel d'urgence ANR Flash Covid-19",
+    "n_sources": 4,
+    "n_mots": 677,
+    "titre_rss": "Covid-19 – les projets IRD de l’appel ANR-Flash",
+    "matiere_faits_distincts": 953,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 2,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "veille_heures_visible": 517.7,
+    "veille_passages": 326,
+    "veille_age_h": 2166.7,
+    "veille_n_flux_grappe": 1,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "chantiers-data-centers-europe-travailleurs-exploites-climat-terreur",
+    "statut": "rejete_sensible",
+    "date": "2026-11-10T11:42:31",
+    "problemes_initiaux": 18,
+    "bloc5": [
+      "diffamation_potentielle"
+    ],
+    "article_type": "actu",
+    "titre": "Chantiers de data centers en Europe : des travailleurs exploités dans un climat de terreur",
+    "n_sources": 6,
+    "n_mots": 591,
+    "titre_rss": "Data centers : sur les chantiers de construction européens, des travailleurs exploités dans un climat de « terreur »",
+    "matiere_faits_distincts": 1314,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "thrombinnov-40-ans-expertise-inserm-plaquettes-tests-precliniques",
+    "statut": "rejete_qualite",
+    "date": "2026-11-10T11:48:19",
+    "angle_insuffisant": true,
+    "raison": "Aucune phrase dans 'faits' ne contient à la fois un événement précis daté ou datable (annonce, publication, décision, résultat récent) et une donnée chiffrée ou nommée qui lui est propre. L'article décrit la création et l'activité de ThrombInnov sans indiquer de date de lancement, de levée de fonds, de signature de contrat, de publication scientifique ou tout autre fait déclencheur récent. Il répond à 'qu'est-ce que ThrombInnov ?' plutôt qu'à 'pourquoi en parle-t-on maintenant ?'.",
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "cliches_ia",
+      "article_sans_date"
+    ],
+    "titre": "ThrombInnov : 40 ans d'expertise Inserm sur les plaquettes au service des tests précliniques",
+    "n_sources": 3,
+    "n_mots": 600,
+    "titre_rss": "L’entrepreneuriat dans le sang !",
+    "matiere_faits_distincts": 744,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 4,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "sujet_pedagogique"
+  },
+  {
+    "slug": "lidl-inflation-clientele-elargie-outlets-france",
+    "statut": "rejete_qualite",
+    "date": "2026-11-10T11:55:19",
+    "tentative": 1,
+    "angle_insuffisant": true,
+    "raison": "L'article ne répond pas à l'angle annoncé : aucune phrase dans 'faits' ne mentionne Lidl, l'évolution de sa clientèle due à l'inflation, ni les stratégies de l'enseigne (outlets, élargissement de clientèle). Le texte traite uniquement du cadre législatif (loi Travert) et d'une commission d'enquête sénatoriale sur les marges, sans lien avec le sujet promis.",
+    "article_type": "actu",
+    "titre": "Lidl capte une clientèle élargie face à l'inflation et développe ses Outlets",
+    "n_sources": 3,
+    "n_mots": 485,
+    "titre_rss": "« On n’achète de la viande que si c’est à moins 30 %, on fait attention à tout » : avec l’inflation, Lidl n’attire pas seulement les clients les plus modestes",
+    "matiere_faits_distincts": 423,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "chine-premier-astronaute-etranger-tiangong-pakistan",
+    "statut": "rejete_sensible",
+    "date": "2026-11-10T12:01:30",
+    "problemes_initiaux": 7,
+    "tentative": 1,
+    "bloc5": true,
+    "article_type": "actu",
+    "titre": "La Chine accueillera son premier astronaute étranger à bord de Tiangong",
+    "n_sources": 3,
+    "n_mots": 510,
+    "titre_rss": "Un astronaute pakistanais bientôt à bord de la station spatiale chinoise",
+    "matiere_faits_distincts": 466,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "france-stoppe-vente-encheres-dinosaure-dubreuillosaurus-musee",
+    "statut": "rejete_sensible",
+    "date": "2026-11-10T12:10:43",
+    "problemes_initiaux": 9,
+    "tentative": 2,
+    "bloc5": true,
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "resume_repete_corps"
+    ],
+    "titre": "La France stoppe la vente aux enchères d'un spécimen unique de Dubreuillosaurus",
+    "n_sources": 2,
+    "n_mots": 489,
+    "titre_rss": "\"Sa place est dans un musée\" : la France stoppe la vente aux enchères d'un spécimen de dinosaure unique au monde",
+    "matiere_faits_distincts": 858,
+    "matiere_redondance": 0.03,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "mit-bacteries-transistors-informatique-vivante-agriculture",
+    "statut": "rejete_qualite",
+    "date": "2026-11-10T12:17:17",
+    "tentative": 1,
+    "angle_insuffisant": true,
+    "raison": "Aucune phrase dans 'faits' ne contient à la fois un événement précis daté ou datable (publication, décision, résultat rendu public récemment) et une donnée chiffrée ou nommée qui lui est propre. L'article explique un concept général (transistors bactériens) sans indiquer ce qui vient de se passer concrètement (date de publication de l'étude, nom de la revue, nom des auteurs, résultats chiffrés de commutation).",
+    "article_type": "actu",
+    "titre": "Des chercheurs du MIT transforment des bactéries en transistors fonctionnels",
+    "n_sources": 4,
+    "n_mots": 522,
+    "titre_rss": "Des transistors à partir d'êtres vivants",
+    "matiere_faits_distincts": 624,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "etude_scientifique"
   }
 ]
