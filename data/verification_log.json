@@ -67969,5 +67969,794 @@
     "n_sources_injectees": 10,
     "n_sources_trouvees": 10,
     "nature_contenu": "etude_scientifique"
+  },
+  {
+    "slug": "afd-contrat-objectifs-moyens-2027-2029-transmis-parlement",
+    "statut": "rejete_sensible",
+    "date": "2026-11-11T07:36:51",
+    "problemes_initiaux": 8,
+    "tentative": 1,
+    "bloc5": true,
+    "article_type": "actu",
+    "titre": "L'AFD retrouve un contrat d'objectifs 2027-2029 après cinq ans d'attente",
+    "n_sources": 4,
+    "n_mots": 552,
+    "titre_rss": "Enfin ! Le COM 2027-2029 de l'AFD - Rapport d'information n° 119",
+    "matiere_faits_distincts": 709,
+    "matiere_redondance": 0.01,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "senat-resolution-bei-financement-armes-munitions-europeennes",
+    "statut": "corrige_automatiquement",
+    "date": "2026-11-11T07:55:45",
+    "problemes_initiaux": 8,
+    "tentatives": 3,
+    "problemes_residuels_style": 11,
+    "rapport_initial": {
+      "conforme": false,
+      "sujet_sensible": false,
+      "sujet_sensible_raison": "",
+      "angle_insuffisant": false,
+      "angle_insuffisant_raison": "",
+      "nature_contenu": "decision_officielle",
+      "problemes": [
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "chiffre_errone",
+          "phrase_exacte": "Le Sénat a adopté le 23 octobre 2026 la résolution n° 17 (2026-2027), issue de la proposition de résolution européenne n° 653 déposée le 22 mai 2026 par le sénateur Pascal Allizard et plusieurs de ses collègues [1][2].",
+          "explication": "La source [1] (Rapport n° 879) est datée du 8 juillet 2026 et ne peut pas confirmer une adoption le 23 octobre 2026, date postérieure à la publication du rapport. La source [2] (Dossier législatif) est datée du 22 mai 2026, date du dépôt de la proposition, et ne confirme pas non plus l'adoption en octobre. Le chiffre de la date d'adoption n'est pas sourcé."
+        },
+        {
+          "bloc": 1,
+          "section": "resume",
+          "type": "chiffre_errone",
+          "phrase_exacte": "Le Sénat a adopté le 23 octobre 2026 la résolution n° 17 demandant à la Banque européenne d'investissement d'inclure les armes et munitions produites par les industries européennes dans son champ de financement.",
+          "explication": "Même problème que dans les faits : la date du 23 octobre 2026 n'est confirmée par aucune des sources fournies, toutes antérieures à cette date."
+        },
+        {
+          "bloc": 1,
+          "section": "titre",
+          "type": "annonce_perimee",
+          "phrase_exacte": "Le Sénat demande à la BEI de financer les armes et munitions",
+          "explication": "Le titre utilise le présent \"demande\" alors que les faits et le résumé décrivent une adoption passée (\"a adopté\"). Si l'adoption a eu lieu le 23 octobre 2026, le titre devrait refléter cet accompli (\"a demandé\") ou au moins le processus achevé. La formulation au présent suggère une action en cours ou à venir, contredite par le corps de l'article."
+        },
+        {
+          "bloc": 2,
+          "section": "contexte",
+          "type": "contexte_hors_sujet",
+          "phrase_exacte": "Parallèlement, l'Union européenne a imposé des sanctions à près de 1 600 individus et entreprises russes liés à l'industrie de l'armement [3], tandis que la Pologne et l'UE ont discuté d'un programme de 2 milliards d'euros pour la fabrication de munitions d'artillerie destinées à l'Ukraine [4].",
+          "explication": "Ces deux faits (sanctions russes [3] et programme Pologne-UE de mars 2023 [4]) n'éclairent pas directement le sujet principal : l'adoption par le Sénat d'une résolution sur le mandat de la BEI. Ils relèvent d'un contexte géopolitique large sans lien direct avec la décision sénatoriale française."
+        },
+        {
+          "bloc": 2,
+          "section": "nuances",
+          "type": "contexte_hors_sujet",
+          "phrase_exacte": "Le marché mondial de l'armement reste dominé par les États-Unis, la France confirmant sa place parmi les principaux fournisseurs [5]. L'Insee met à disposition des données économiques détaillées sur le secteur industriel français [6].",
+          "explication": "La source [5] (BBC, juin 2026) sur le classement mondial des fournisseurs d'armes et la source [6] (catalogue INSEE, octobre 2026) ne portent pas sur la résolution du Sénat ni sur le financement de la BEI. Elles sont hors sujet par rapport à l'objet de l'article."
+        },
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "compteur_incoherent",
+          "phrase_exacte": "Le Sénat a adopté le 23 octobre 2026 la résolution n° 17 (2026-2027), issue de la proposition de résolution européenne n° 653 déposée le 22 mai 2026 par le sénateur Pascal Allizard et plusieurs de ses collègues [1][2].",
+          "explication": "L'article cite 6 sources dans le tableau mais seulement 2 sources ([1] et [2]) sont réellement utilisées pour étayer le fait principal (l'adoption de la résolution). Les 4 autres sources ([3], [4], [5], [6]) sont citées dans des sections hors sujet. Le champ nb_sources=6 suggère 6 sources pertinentes pour le cœur du sujet, ce qui est trompeur."
+        },
+        {
+          "bloc": 4,
+          "section": "contexte",
+          "type": "section_gonflee",
+          "phrase_exacte": "Parallèlement, l'Union européenne a imposé des sanctions à près de 1 600 individus et entreprises russes liés à l'industrie de l'armement [3], tandis que la Pologne et l'UE ont discuté d'un programme de 2 milliards d'euros pour la fabrication de munitions d'artillerie destinées à l'Ukraine [4].",
+          "explication": "Cette section \"contexte\" est gonflée avec deux faits géopolitiques sans lien direct avec la résolution sénatoriale sur la BEI, servant à remplir plutôt qu'à éclairer le sujet."
+        },
+        {
+          "bloc": 4,
+          "section": "nuances",
+          "type": "section_gonflee",
+          "phrase_exacte": "Le marché mondial de l'armement reste dominé par les États-Unis, la France confirmant sa place parmi les principaux fournisseurs [5]. L'Insee met à disposition des données économiques détaillées sur le secteur industriel français [6].",
+          "explication": "La section \"nuances\" est gonflée avec des informations générales sur le marché de l'armement et une référence au catalogue de l'Insee, qui n'apportent aucune nuance spécifique à la résolution adoptée ni à sa portée politique."
+        }
+      ]
+    },
+    "article_type": "actu",
+    "titre": "Le Sénat demande à la BEI de financer les armes et munitions",
+    "n_sources": 6,
+    "n_mots": 557,
+    "titre_rss": "Armes et munitions produites par les industries européennes de la défense - Rapport n° 879",
+    "matiere_faits_distincts": 786,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "veille_heures_visible": 517.7,
+    "veille_passages": 326,
+    "veille_age_h": 2189.6,
+    "veille_n_flux_grappe": 4,
+    "nature_contenu": "decision_officielle"
+  },
+  {
+    "slug": "trois-chercheurs-appellent-entite-financement-innovations-rupture-climatiques",
+    "statut": "corrige_automatiquement",
+    "date": "2026-11-11T08:10:31",
+    "problemes_initiaux": 11,
+    "tentatives": 2,
+    "problemes_residuels_style": 10,
+    "rapport_initial": {
+      "conforme": false,
+      "sujet_sensible": false,
+      "sujet_sensible_raison": "",
+      "angle_insuffisant": false,
+      "angle_insuffisant_raison": "",
+      "nature_contenu": "tribune",
+      "problemes": [
+        {
+          "bloc": 3,
+          "section": "resume",
+          "type": "cadrage_emprunte",
+          "phrase_exacte": "Le FMI estime qu'en dépit de progrès récents, la France devra renforcer significativement ses politiques fiscales et réglementaires pour tenir ses objectifs d'émissions [2].",
+          "explication": "Le résumé présente l'avis du FMI comme un fait établi sans l'attribuer explicitement à l'institution dans la phrase (seul le renvoi [2] figure), ce qui emprunte le cadrage éditorial de la source au lieu de le reformuler factuellement."
+        },
+        {
+          "bloc": 3,
+          "section": "resume",
+          "type": "cadrage_emprunte",
+          "phrase_exacte": "Ils jugent les outils actuels — Bpifrance, ANR, France 2030 — incapables d'assumer le risque financier inhérent aux percées technologiques majeures.",
+          "explication": "Le résumé reprend le jugement de valeur des auteurs de la tribune (\"incapables\") sans l'attribuer explicitement à eux, présentant leur opinion comme un fait neutre."
+        },
+        {
+          "bloc": 3,
+          "section": "titre",
+          "type": "cadrage_emprunte",
+          "phrase_exacte": "Trois chercheurs appellent à créer une entité pour financer les innovations de rupture climatiques",
+          "explication": "Le titre présente la tribune comme un appel factuel sans indiquer qu'il s'agit d'une tribune d'opinion publiée dans Le Monde, ce qui emprunte le cadrage de la source sans le signaler."
+        },
+        {
+          "bloc": 4,
+          "section": "resume",
+          "type": "redondance",
+          "phrase_exacte": "Le physicien Lydéric Bocquet, le directeur de Techleap Greg De Temmerman et le mathématicien Yves Laszlo publient une tribune dans Le Monde le 6 novembre 2026 pour réclamer une structure publique dédiée aux innovations de rupture climatiques.",
+          "explication": "Cette phrase du résumé répète l'information déjà présente dans le titre (trois chercheurs, tribune, entité de financement) sans apporter de fait nouveau."
+        },
+        {
+          "bloc": 4,
+          "section": "nuances",
+          "type": "redondance",
+          "phrase_exacte": "La tribune exprime une position d'acteurs de la recherche et de l'innovation, non une décision politique actée [1].",
+          "explication": "Cette nuance répète l'idée déjà exprimée dans le titre_nuances (\"Une proposition d'acteurs de la recherche, non une politique arrêtée\") et dans le corps des faits (\"affirment\", \"plaident\", \"appellent\")."
+        },
+        {
+          "bloc": 4,
+          "section": "nuances",
+          "type": "redondance",
+          "phrase_exacte": "Les auteurs plaident pour une prise de risque accrue, mais les modalités de gouvernance, le montant du financement et l'articulation avec les structures existantes (Bpifrance, ANR, programme France 2030) ne sont pas détaillées dans le texte [1].",
+          "explication": "Cette phrase répète l'information déjà contenue dans les faits (\"jugent les dispositifs existants insuffisants\", \"plaide pour une prise de risque assumée par l'État\") en ajoutant seulement que les modalités ne sont pas détaillées, ce qui est implicite dans une tribune d'appel."
+        },
+        {
+          "bloc": 4,
+          "section": "contexte",
+          "type": "contexte_hors_sujet",
+          "phrase_exacte": "En novembre 2023, le FMI avait déjà indiqué que les politiques macroéconomiques et financières sont indispensables pour exploiter les opportunités de la transition écologique, rappelant qu'aucun pays ne peut s'attaquer au changement climatique isolément [3].",
+          "explication": "Cette source de novembre 2023 (presque 3 ans avant la tribune) ne porte pas spécifiquement sur la France ni sur le financement des innovations de rupture, mais sur la transition écologique mondiale ; elle n'éclaire pas directement le sujet de l'article."
+        },
+        {
+          "bloc": 4,
+          "section": "contexte",
+          "type": "contexte_hors_sujet",
+          "phrase_exacte": "L'OCDE rappelle qu'il est essentiel d'intensifier les financements et investissements axés sur le climat pour accélérer la réduction des émissions mondiales, renforcer la résilience climatique et maintenir l'objectif de 1,5 °C à portée de main, conformément à l'article 2.1(c) de l'Accord de Paris [4].",
+          "explication": "Cette source OCDE est une page thématique générale sur le financement climatique mondial, sans lien spécifique avec la proposition française d'entité pour innovations de rupture ; elle ne sert qu'à remplir la section contexte."
+        },
+        {
+          "bloc": 4,
+          "section": "contexte",
+          "type": "section_gonflee",
+          "phrase_exacte": "Le FMI a souligné en juillet 2024 que si la France a réalisé des progrès significatifs dans la réduction de ses émissions de gaz à effet de serre, des efforts politiques supplémentaires importants seront nécessaires pour atteindre les objectifs d'atténuation clés [2]. L'institution internationale insiste sur la nécessité d'identifier des politiques fiscales et réglementaires efficaces et équitables pour gérer les coûts et risques de la décarbonation [2].\nEn novembre 2023, le FMI avait déjà indiqué que les politiques macroéconomiques et financières sont indispensables pour exploiter les opportunités de la transition écologique, rappelant qu'aucun pays ne peut s'attaquer au changement climatique isolément [3].\nL'OCDE rappelle qu'il est essentiel d'intensifier les financements et investissements axés sur le climat pour accélérer la réduction des émissions mondiales, renforcer la résilience climatique et maintenir l'objectif de 1,5 °C à portée de main, conformément à l'article 2.1(c) de l'Accord de Paris [4].",
+          "explication": "La section contexte est gonflée avec trois sources institutionnelles génériques qui ne portent pas sur le sujet précis de l'article (la tribune et sa proposition d'entité de financement), mais sur la transition climatique en général."
+        },
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "source_derivee_comptee_comme_primaire",
+          "phrase_exacte": "Dans une tribune publiée le 6 novembre 2026 dans Le Monde, trois chercheurs — le physicien Lydéric Bocquet, le directeur de Techleap Greg De Temmerman et le mathématicien Yves Laszlo — affirment que la transition écologique ne se fera pas sans révolution technologique [1].\nIls estiment qu'il est temps de prendre des risques et de repenser radicalement la manière de financer la recherche en France.\nLes auteurs appellent à la création d'une entité dévolue spécifiquement au financement des innovations de rupture, jugeant les dispositifs existants insuffisants pour porter des projets à haut risque scientifique et technologique [1].\nIls ciblent notamment les limites de Bpifrance, de l'Agence nationale de la recherche (ANR) et du programme France 2030, qu'ils considèrent inadaptés au portage de risques financiers inhérents aux percées majeures [1].\nLa tribune plaide pour une prise de risque assumée par l'État, seule à même de débloquer des trajectoires technologiques aujourd'hui hors de portée des financements classiques [1].",
+          "explication": "Le champ qualite_sources indique 'primaire': 2, mais seule la source [1] (Le Monde) est une source primaire (la tribune elle-même) ; les sources [2], [3], [4] (FMI, OCDE) sont des sources secondaires/tertiaires citées en contexte, pas des sources primaires distinctes sur le même fait."
+        },
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "compteur_incoherent",
+          "phrase_exacte": "Dans une tribune publiée le 6 novembre 2026 dans Le Monde, trois chercheurs — le physicien Lydéric Bocquet, le directeur de Techleap Greg De Temmerman et le mathématicien Yves Laszlo — affirment que la transition écologique ne se fera pas sans révolution technologique [1].\nIls estiment qu'il est temps de prendre des risques et de repenser radicalement la manière de financer la recherche en France.\nLes auteurs appellent à la création d'une entité dévolue spécifiquement au financement des innovations de rupture, jugeant les dispositifs existants insuffisants pour porter des projets à haut risque scientifique et technologique [1].\nIls ciblent notamment les limites de Bpifrance, de l'Agence nationale de la recherche (ANR) et du programme France 2030, qu'ils considèrent inadaptés au portage de risques financiers inhérents aux percées majeures [1].\nLa tribune plaide pour une prise de risque assumée par l'État, seule à même de débloquer des trajectoires technologiques aujourd'hui hors de portée des financements classiques [1].",
+          "explication": "Le champ nb_sources indique 4, mais les sources [2], [3], [4] ne sont pas utilisées pour établir les faits de l'article (la tribune et son contenu) ; elles ne servent qu'en contexte générique, ce qui gonfle artificiellement le compteur de sources effectives."
+        }
+      ]
+    },
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "titre_de_mauvaise_qualite"
+    ],
+    "titre": "Trois chercheurs appellent à créer une entité pour financer les innovations de rupture climatiques",
+    "n_sources": 4,
+    "n_mots": 502,
+    "titre_rss": "Urgence climatique : « La France doit créer une entité dévolue au financement des innovations de rupture »",
+    "matiere_faits_distincts": 736,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "tribune"
+  },
+  {
+    "slug": "cyberattaque-chambres-froides-efs-supermarches-france-octobre-2026",
+    "statut": "rejete_qualite",
+    "date": "2026-11-11T08:24:23",
+    "problemes_initiaux": 13,
+    "tentatives": 3,
+    "problemes_restants": 13,
+    "bloquants_restants": 3,
+    "bloquants_types": [
+      "chiffre_errone",
+      "chiffre_errone",
+      "incoherence_inter_sections"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source BBC [3] indique 'more than 400 supermarkets' (plus de 400), l'article écrit 'environ 400' ce qui sous-estime le chiffre et change la borne (environ = approximation autour de 400, alors que la source donne un mi",
+        "phrase": "environ 400 supermarchés ont été touchés, selon des chiffres communiqués par la BBC [3]"
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source BBC [3] mentionne 'temperatures rising to 20C' (20 °C) pour les supermarchés, l'article écrit 50 °C qui correspond à la température visée pour l'EFS selon Sciences et Avenir [1] (110 °C pour l'EFS, 20 °C pour l",
+        "phrase": "des températures montées jusqu'à 50 °C dans les rayons surgelés pendant plusieurs heures [3]"
+      },
+      {
+        "bloc": 1,
+        "type": "incoherence_inter_sections",
+        "description": "Le titre et les faits écrivent 'environ 400' alors que la source BBC [3] dit 'more than 400' (plus de 400) — incohérence entre l'article et sa source sur la borne du chiffre.",
+        "phrase": "titre : \"Cyberattaque sur le froid : l'EFS et environ 400 supermarchés touchés, les stocks de sang préservés\" / faits : \"environ 400 supermarchés ont été touchés, selon des chiffres communiqués par la BBC [3]\""
+      }
+    ],
+    "types_restants": [
+      "chiffre_errone",
+      "chiffre_errone",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "incoherence_inter_sections",
+      "compteur_incoherent"
+    ],
+    "article_type": "actu",
+    "titre": "Cyberattaque sur le froid : l'EFS et 400 supermarchés touchés, les stocks de sang préservés",
+    "n_sources": 5,
+    "n_mots": 671,
+    "titre_rss": "Cyberattaque : les chambres froides de l'EFS prises pour cible",
+    "matiere_faits_distincts": 836,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "retraite-francais-epargne-personnelle-confiance-securite-financiere",
+    "statut": "rejete_qualite",
+    "date": "2026-11-11T08:44:38",
+    "angle_insuffisant": true,
+    "raison": "Aucune phrase dans 'faits' ne contient à la fois un événement précis daté ou datable (publication de l'étude Amundi, date de l'intervention de Krugman) et une donnée chiffrée ou nommée qui lui est propre. L'article répond à 'qu'est-ce que l'étude Amundi dit ?' plutôt qu'à 'pourquoi parle-t-on de cette étude maintenant ?'. La date de l'étude Amundi n'est pas mentionnée, ni celle des propos de Krugman.",
+    "article_type": "actu",
+    "titre": "Retraite : les Français misent sur leur épargne personnelle mais doutent de leur sécurité financière",
+    "n_sources": 4,
+    "n_mots": 505,
+    "titre_rss": "Retraite : ce qu’un bilan peut vous faire gagner",
+    "matiere_faits_distincts": 599,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "etude_scientifique"
+  },
+  {
+    "slug": "emissions-ue-baisse-8-pourcent-2023-objectif-2030",
+    "statut": "rejete_qualite",
+    "date": "2026-11-11T09:08:55",
+    "tentative": 3,
+    "perte_substance": true,
+    "section": "contexte",
+    "mots_avant": 150,
+    "mots_apres": 62,
+    "article_type": "actu",
+    "titre": "Les émissions de l'UE chutent de 8 % en 2023, l'objectif 2030 reste hors d'atteinte",
+    "n_sources": 5,
+    "n_mots": 611,
+    "titre_rss": "Les émissions de l'UE continuent de baisser à mesure que l'énergie propre gagne du terrain",
+    "matiere_faits_distincts": 652,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "rapport"
+  },
+  {
+    "slug": "tabac-angle-mort-reglement-europeen-deforestation",
+    "statut": "rejete_qualite",
+    "date": "2026-11-11T09:37:02",
+    "problemes_initiaux": 8,
+    "tentatives": 3,
+    "problemes_restants": 6,
+    "bloquants_restants": 6,
+    "bloquants_types": [
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "incoherence_inter_sections",
+      "source_inventee"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [2] (The Conversation) indique 'plus de 500 000 tonnes' et non 'environ 550 000 tonnes' ; le chiffre exact de la source n'est pas respecté.",
+        "phrase": "L'Union européenne importe environ 550 000 tonnes de feuilles de tabac brut chaque année selon The Conversation [2]."
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [2] précise 'premier poste d'exportation agricole hors Afrique' (c'est-à-dire vers des pays non africains), l'article omet la précision 'hors Afrique' qui change la portée de l'affirmation.",
+        "phrase": "En 2022, le tabac constituait le premier poste d'exportation agricole extra-africaine de ces pays, devant le café, thé, maté et épices selon The Conversation [2]."
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [2] donne une fourchette de '8 à 10 kg de bois pour 1 kg de tabac', l'article élargit la borne basse à 7 kg sans justification.",
+        "phrase": "Selon des travaux cités par The Conversation, le séchage peut nécessiter de 7 à 10 kg de bois pour 1 kg de tabac, attribuant à cette production une part significative de la déforestation au Zimbabwe [2]."
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [3] (Le Monde) cite '15 à 20 % de la déforestation annuelle au Zimbabwe' mais ne mentionne pas de chiffre pour la Tanzanie (3,5 %) ni pour le Malawi ('niveaux significatifs') ; ces deux derniers chiffres sont a",
+        "phrase": "Le Monde indiquait en 2023 que la culture du tabac est à l'origine d'une part notable de la déforestation mondiale, avec 15 à 20 % de la déforestation annuelle au Zimbabwe, 3,5 % en Tanzanie et des niveaux significatifs "
+      },
+      {
+        "bloc": 1,
+        "type": "incoherence_inter_sections",
+        "description": "Le titre annonce '550 000 tonnes' alors que la source [2] cite 'plus de 500 000 tonnes' ; le chapeau (résumé) reprend aussi '550 000 tonnes' créant une incohérence entre le titre/chapeau et la source réelle.",
+        "phrase": "L'Union européenne importe environ 550 000 tonnes de feuilles de tabac brut chaque année selon The Conversation [2]."
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "Les chiffres '3,5 % en Tanzanie' et 'niveaux significatifs au Malawi' sont attribués à la source [3] (Le Monde) mais n'apparaissent pas dans l'extrait fourni de cette source ; ils constituent une information inventée au ",
+        "phrase": "Le Monde indiquait en 2023 que la culture du tabac est à l'origine d'une part notable de la déforestation mondiale, avec 15 à 20 % de la déforestation annuelle au Zimbabwe, 3,5 % en Tanzanie et des niveaux significatifs "
+      }
+    ],
+    "types_restants": [
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "incoherence_inter_sections",
+      "source_inventee"
+    ],
+    "article_type": "actu",
+    "titre": "Tabac : l'UE importe 550 000 tonnes hors champ du règlement déforestation",
+    "n_sources": 3,
+    "n_mots": 678,
+    "titre_rss": "Le tabac dans l’angle mort du règlement européen contre la déforestation",
+    "matiere_faits_distincts": 770,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "label-bas-carbone-tourbieres-restauration-credits-carbone",
+    "statut": "rejete_sensible",
+    "date": "2026-11-11T09:51:28",
+    "problemes_initiaux": 9,
+    "bloc5": [
+      "annonce_perimee"
+    ],
+    "article_type": "actu",
+    "titre": "Label bas carbone tourbières : consultation publique close, méthode présentée à l'ADEME en octobre 2026",
+    "n_sources": 5,
+    "n_mots": 519,
+    "titre_rss": "Nouveau label bas carbone tourbières : \"Il y a un intérêt business, au-delà de la stratégie climat\"",
+    "matiere_faits_distincts": 607,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "moisissures-asthme-adulte-etude-moldasth-resultats",
+    "statut": "corrige_automatiquement",
+    "date": "2026-11-11T10:01:58",
+    "problemes_initiaux": 21,
+    "tentatives": 1,
+    "problemes_residuels_style": 20,
+    "rapport_initial": {
+      "conforme": false,
+      "sujet_sensible": false,
+      "sujet_sensible_raison": "",
+      "angle_insuffisant": false,
+      "angle_insuffisant_raison": "",
+      "nature_contenu": "etude_scientifique",
+      "problemes": [
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "Le projet MOLDASTH (Moisissures dans les habitations, inflammation, réponse immunitaire et endotypes d'asthme dans la cohorte CONSTANCES) a été lancé pour répondre aux recommandations de l'Anses de 2016, qui soulignait l'absence d'études épidémiologiques chez l'adulte fondées sur l'étendue des surfaces moisies [1].",
+          "explication": "La source [1] (Gouv - données historiques de surveillance des pollens et moisissures) ne mentionne ni le projet MOLDASTH, ni les recommandations de l'Anses de 2016, ni l'absence d'études épidémiologiques chez l'adulte."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "L'analyse porte sur 28 596 participants de la cohorte CONSTANCES, la plus grande cohorte en population générale adulte en France, avec des données recueillies en 2019 [1]. Les résultats, issus de la thèse de Tajidine Tsiavia encadrée par Rachel Nadif (Inserm) et Laurent Orsi, ont fait l'objet de publications dans des revues scientifiques d'envergure [1].",
+          "explication": "La source [1] ne contient aucune information sur la cohorte CONSTANCES, le nombre de participants (28 596), la thèse de Tajidine Tsiavia, Rachel Nadif, Laurent Orsi, ni des publications scientifiques."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "Pour la première fois, une association est mise en évidence entre la surface moisie, même de la plus petite taille, et une augmentation du risque d'asthme actuel — défini par une crise, un symptôme ou un traitement dans les douze derniers mois — ainsi qu'un score de symptômes d'asthme plus élevé [1]. Ces résultats ne différaient pas selon le type de logement (appartement ou maison) ni selon le sexe du participant [1].",
+          "explication": "La source [1] ne rapporte aucun résultat de l'étude MOLDASTH, aucune association entre surface moisie et asthme, aucune définition d'asthme actuel, aucune analyse par type de logement ou sexe."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "Sur le plan biologique, l'étude montre que la voie inflammatoire de type T2 (dite éosinophilique), impliquée dans l'asthme allergique et caractérisée par la production de substances inflammatoires favorisant les allergies, l'augmentation des cellules éosinophiles et la production de mucus, est impliquée dans ce lien [1].",
+          "explication": "La source [1] ne mentionne pas la voie inflammatoire T2, les cellules éosinophiles, ni aucun mécanisme biologique lié à l'asthme."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "En France, la contamination par les moisissures concerne une part importante de la population : 22 % des participants à CONSTANCES déclaraient observer des moisissures à leur domicile en 2019, et près de 2 % une surface moisie de plus d'un mètre carré [1]. La Campagne nationale Logements 2 (CNL2), menée de 2020 à 2023, estime leur présence dans 24 % des résidences principales [1]. Les moisissures sont deux fois plus fréquentes dans les pièces humides, notamment les salles de bain, que dans les chambres, cuisines ou séjours [1].",
+          "explication": "La source [1] ne contient aucune donnée sur la prévalence des moisissures dans CONSTANCES (22 %, 2 %), ni sur la Campagne nationale Logements 2 (24 %), ni sur la répartition par pièce (salles de bain vs chambres/cuisines/séjours)."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "Le Commissariat général au développement durable estime que souvent, les polluants chimiques sont plus nombreux et plus concentrés à l'intérieur qu'à l'extérieur [3].",
+          "explication": "La source [3] (Ouest-France - 10 trucs et astuces pour chasser la pollution de la maison) ne cite pas le Commissariat général au développement durable ni cette estimation."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "L'air intérieur est souvent plus pollué que l'air extérieur, en raison des matériaux de construction, des meubles, des produits ménagers mais aussi des acariens [4].",
+          "explication": "La source [4] (WHO - lignes directrices OMS sur humidité et prolifération microbienne) ne traite pas de la pollution de l'air intérieur par les matériaux, meubles, produits ménagers ou acariens, ni de la comparaison air intérieur/extérieur."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "L'Anses avait conclu en 2016 à un niveau de preuve suffisant pour l'effet de l'exposition aux moisissures sur l'apparition et le développement de l'asthme chez l'enfant, mais les résultats étaient moins probants chez l'adulte [1]. L'agence encourageait alors la poursuite d'études épidémiologiques intégrant la taille des surfaces moisies [1].",
+          "explication": "La source [1] ne mentionne pas l'Anses, ses conclusions de 2016, le niveau de preuve chez l'enfant, ni ses recommandations d'études chez l'adulte."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "Au niveau international, l'OMS publie des lignes directrices sur la protection contre les risques liés à l'humidité, à la prolifération microbienne et à la contamination des espaces intérieurs [6].",
+          "explication": "La source [6] n'existe pas : la liste des sources autorisées ne contient que 4 entrées (indices 1 à 4). Le renvoi [6] est un indice invalide."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "Le Réseau National de Surveillance Aérobiologique compile des données historiques de surveillance des pollens et des moisissures depuis 1987 [2].",
+          "explication": "La source [2] (Radiofrance - podcast sur la pollution dans l'air intérieur) ne mentionne pas le Réseau National de Surveillance Aérobiologique, ni une compilation de données depuis 1987."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "Une étude publiée dans le NEJM en 2011 avait montré que l'exposition environnementale aux micro-organismes était inversement liée à la manifestation de maladies atopiques comme l'asthme, suggérant un effet protecteur de certaines expositions microbiennes précoces [1].",
+          "explication": "La source [1] ne mentionne pas d'étude NEJM 2011, ni de lien inverse entre exposition microbienne et maladies atopiques."
+        },
+        {
+          "bloc": 1,
+          "section": "nuances",
+          "type": "source_inventee",
+          "phrase_exacte": "Le projet MOLDASTH se poursuit avec l'identification de différents endotypes d'asthme, ce qui suggère que les résultats actuels ne couvrent pas encore l'ensemble de la diversité des profils inflammatoires [1].",
+          "explication": "La source [1] ne mentionne pas la poursuite du projet MOLDASTH, l'identification d'endotypes d'asthme, ni la diversité des profils inflammatoires."
+        },
+        {
+          "bloc": 1,
+          "section": "nuances",
+          "type": "source_inventee",
+          "phrase_exacte": "L'association observée repose sur des données déclaratives de présence de moisissures visibles par les participants, sans mesure environnementale directe de la charge fongique ni identification des espèces en cause [1].",
+          "explication": "La source [1] ne décrit pas la méthodologie de l'étude MOLDASTH (données déclaratives, absence de mesure environnementale, non-identification des espèces)."
+        },
+        {
+          "bloc": 1,
+          "section": "nuances",
+          "type": "source_inventee",
+          "phrase_exacte": "Le caractère transversal de l'analyse ne permet pas d'établir de relation de causalité formelle entre l'exposition aux moisissures et l'apparition de l'asthme, ni d'exclure un biais de rappel ou de déclaration [1].",
+          "explication": "La source [1] ne mentionne pas le caractère transversal de l'analyse, ni les limites de causalité, ni les biais de rappel ou de déclaration."
+        },
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "compteur_incoherent",
+          "phrase_exacte": "nb_sources: 4",
+          "explication": "L'article utilise des renvois [1] à [6] (6 sources distinctes citées dans le texte), mais le champ nb_sources indique 4. De plus, la source [6] n'existe pas dans la liste autorisée (qui ne contient que 4 entrées)."
+        },
+        {
+          "bloc": 2,
+          "section": "contexte",
+          "type": "source_derivee_comptee_comme_primaire",
+          "phrase_exacte": "qualite_sources: {\"primaire\": 2, \"secondaire\": 2, \"tertiaire\": 0}",
+          "explication": "Les 4 sources autorisées sont toutes secondaires/tertiaires (données ouvertes, podcast, article grand public, lignes directrices OMS). Aucune n'est la publication scientifique primaire de l'étude MOLDASTH (thèse, articles dans revues scientifiques). Le classement 'primaire: 2' est donc faux."
+        },
+        {
+          "bloc": 1,
+          "section": "resume",
+          "type": "source_inventee",
+          "phrase_exacte": "L'étude MOLDASTH, menée sur 28 596 adultes de la cohorte CONSTANCES, établit pour la première fois une association entre la présence de moisissures visibles, même sur de très petites surfaces, et un risque accru d'asthme actuel ainsi qu'un score de symptômes plus élevé.",
+          "explication": "Aucune des 4 sources autorisées ne contient l'information sur l'étude MOLDASTH, ses résultats, la cohorte CONSTANCES, ni les chiffres 28 596, risque accru d'asthme, score de symptômes."
+        },
+        {
+          "bloc": 1,
+          "section": "resume",
+          "type": "source_inventee",
+          "phrase_exacte": "Ce lien ne varie ni selon le type de logement (maison ou appartement) ni selon le sexe, et il s'accompagne d'une implication de la voie inflammatoire de type T2, caractéristique de l'asthme allergique.",
+          "explication": "Aucune source autorisée ne mentionne l'absence de variation selon type de logement ou sexe, ni la voie inflammatoire T2."
+        },
+        {
+          "bloc": 1,
+          "section": "resume",
+          "type": "source_inventee",
+          "phrase_exacte": "Environ un quart des logements français présentent des moisissures visibles, ce qui fait de cette exposition un enjeu de santé publique majeur, d'autant que les caractéristiques du bâti pèsent davantage que les comportements des occupants.",
+          "explication": "Aucune source autorisée ne donne la prévalence 'un quart des logements français', ni l'affirmation sur les caractéristiques du bâti vs comportements des occupants."
+        },
+        {
+          "bloc": 1,
+          "section": "titre",
+          "type": "source_inventee",
+          "phrase_exacte": "Moisissures et asthme : l'étude MOLDASTH confirme un risque même pour de petites surfaces",
+          "explication": "Le titre affirme des résultats de l'étude MOLDASTH qui ne figurent dans aucune des 4 sources autorisées."
+        },
+        {
+          "bloc": 1,
+          "section": "titre_faits",
+          "type": "source_inventee",
+          "phrase_exacte": "Premier lien établi entre surface moisie et asthme chez l'adulte en population générale",
+          "explication": "Ce sous-titre affirme un résultat scientifique ('premier lien établi') qui ne figure dans aucune source autorisée."
+        }
+      ]
+    },
+    "article_type": "actu",
+    "titre": "Moisissures et asthme : l'étude MOLDASTH confirme un risque même pour de petites surfaces",
+    "n_sources": 4,
+    "n_mots": 682,
+    "titre_rss": "Les moisissures dans l’air intérieur des logements favorisent l’asthme. Pourtant, ce risque est évitable",
+    "matiere_faits_distincts": 703,
+    "matiere_redondance": 0.01,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "etude_scientifique"
+  },
+  {
+    "slug": "mortalite-france-2024-taux-standardise-baisse-tendances-pre-pandemie",
+    "statut": "rejete_qualite",
+    "date": "2026-11-11T10:19:30",
+    "problemes_initiaux": 6,
+    "tentatives": 3,
+    "problemes_restants": 6,
+    "bloquants_restants": 4,
+    "bloquants_types": [
+      "chiffre_errone",
+      "chiffre_errone",
+      "annonce_perimee",
+      "incoherence_inter_sections"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source Insee [2] indique 50 123 décès en juillet 2024, soit +3,6 % sur un an, et non 49 234 décès (+2,6 %) comme écrit dans l'article.",
+        "phrase": "En juillet 2024, 49 234 décès ont été comptabilisés, en hausse de 2,6 % sur un an [2]."
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source Insee [2] indique une hausse de 1,5 % sur les sept premiers mois (janvier-juillet 2024 vs 2023), et non 1,0 % comme écrit dans l'article.",
+        "phrase": "Sur les sept premiers mois de 2024, le nombre cumulé de décès augmente de 1,0 % par rapport à 2023 (+0,5 % corrigé de l'année bissextile) [2]."
+      },
+      {
+        "bloc": 1,
+        "type": "annonce_perimee",
+        "description": "La source AP News [4] est datée de 2024 et rapporte un événement passé (canicule de juillet 2024) ; l'article le présente comme une information actuelle sans dater l'événement, créant une confusion chronologique.",
+        "phrase": "L'AP News rapporte qu'une surmortalité d'au moins 2 000 décès a été enregistrée durant la semaine la plus chaude d'une canicule record en France, selon Santé publique France [4]."
+      },
+      {
+        "bloc": 1,
+        "type": "incoherence_inter_sections",
+        "description": "Le résumé affirme que le taux standardisé est 'sous son niveau de 2019', alors que les faits (source [1]) indiquent qu'il 'demeure supérieure à ce qu'elle aurait été si la tendance baissière d'avant pandémie s'était prol",
+        "phrase": "Parmi la population résidant en France, le nombre de décès a augmenté en 2024 par rapport à 2023, mais le taux de mortalité standardisé, qui neutralise l'effet du vieillissement démographique, a reculé sur un an pour se "
+      }
+    ],
+    "types_restants": [
+      "chiffre_errone",
+      "chiffre_errone",
+      "annonce_perimee",
+      "incoherence_inter_sections",
+      "source_derivee_comptee_comme_primaire",
+      "contexte_hors_sujet"
+    ],
+    "article_type": "actu",
+    "titre": "Mortalité 2024 : taux standardisé en baisse, niveau supérieur aux tendances pré-Covid",
+    "n_sources": 4,
+    "n_mots": 765,
+    "titre_rss": "Grandes causes de décès en France : tendances et causes associées en 2024",
+    "matiere_faits_distincts": 901,
+    "matiere_redondance": 0.03,
+    "matiere_donnees_chiffrees": 2,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "veille_heures_visible": 517.7,
+    "veille_passages": 311,
+    "veille_age_h": 2189.6,
+    "veille_n_flux_grappe": 1,
+    "nature_contenu": "etude_scientifique"
+  },
+  {
+    "slug": "pesticides-baisse-taux-redevance-pollutions-diffuses-agences-eau-90-millions",
+    "statut": "corrige_automatiquement",
+    "date": "2026-11-11T10:44:12",
+    "problemes_initiaux": 10,
+    "tentatives": 1,
+    "problemes_residuels_style": 15,
+    "rapport_initial": {
+      "conforme": false,
+      "sujet_sensible": false,
+      "sujet_sensible_raison": "",
+      "angle_insuffisant": false,
+      "angle_insuffisant_raison": "",
+      "nature_contenu": "actualite_factuelle",
+      "problemes": [
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "un rapport inter-inspections de mai 2026 estime qu'un peu plus de 29 % de la population française a été exposée en 2024 à des concentrations de pesticides ou de PFAS supérieures aux limites de qualité européennes dans l'eau du robinet [2]",
+          "explication": "La source [2] (Vie Publique, rapport mai 2026) n'est pas un \"rapport inter-inspections\" : son titre est \"Dépollution de l'eau potable : stratégies et pistes de financement\". L'article attribue à cette source une nature institutionnelle (inter-inspections) qu'elle n'a pas selon les extraits fournis."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "chiffre_errone",
+          "phrase_exacte": "un rapport inter-inspections de mai 2026 estime qu'un peu plus de 29 % de la population française a été exposée en 2024 à des concentrations de pesticides ou de PFAS supérieures aux limites de qualité européennes dans l'eau du robinet [2]",
+          "explication": "Le chiffre \"un peu plus de 29 %\" n'est pas présent dans les extraits de la source [2] fournis. L'article cite une statistique précise non vérifiable dans les sources autorisées."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "chiffre_errone",
+          "phrase_exacte": "une question écrite de la députée Perrine Goulet (Nièvre) révélée en mai 2026 souligne une indexation tardive de +1,94 % des taux 2026, appliquée rétroactivement au 1er janvier 2026 sans communication préalable, générant un surcoût estimé à 4 millions d'euros pour les distributeurs et une insécurité administrative [4]",
+          "explication": "Les chiffres +1,94 %, 4 millions d'euros, et les détails sur l'indexation rétroactive ne figurent pas dans les extraits de la source [4] (Le Monde, décembre 2023) qui traite de l'abandon de la hausse des taxes, pas d'une indexation 2026."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "chiffre_errone",
+          "phrase_exacte": "Le projet de loi de finances pour 2024 a finalement abandonné ces deux mesures, amputant le plan Eau de 47 millions d'euros annuels sur les 475 millions promis [3]",
+          "explication": "Les chiffres 47 millions d'euros et 475 millions ne sont pas présents dans les extraits de la source [3] (Sénat, question n°998) fournis."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "chiffre_errone",
+          "phrase_exacte": "Historiquement, l'agriculture représente 58 % de la consommation d'eau en France selon la Cour des comptes [3]",
+          "explication": "Le chiffre 58 % et l'attribution à la Cour des comptes ne figurent pas dans les extraits de la source [3] fournis."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "le Conseil d'État a été saisi en 2025 d'un recours d'associations (Notre Affaire à Tous, Pollinis, ASPAS) contestant les carences de l'État dans l'évaluation et l'autorisation des produits phytopharmaceutiques, après une injonction du tribunal administratif de Paris en juin 2023 [5]",
+          "explication": "La source [5] n'existe pas dans la liste des sources autorisées (qui ne contient que 4 entrées, indices 1 à 4). L'article invente une source [5] et lui attribue des faits juridiques précis non vérifiables."
+        },
+        {
+          "bloc": 1,
+          "section": "nuances",
+          "type": "chiffre_errone",
+          "phrase_exacte": "Le rapport inter-inspections de mai 2026 note que la très grande majorité des dépassements actuels de limites de qualité découlent de l'usage passé de substances désormais interdites [2]",
+          "explication": "Cette affirmation précise sur l'origine historique des dépassements n'est pas présente dans les extraits de la source [2] fournis."
+        },
+        {
+          "bloc": 1,
+          "section": "nuances",
+          "type": "source_inventee",
+          "phrase_exacte": "le rapport de mai 2026 précise que la mission interministérielle a produit deux rapports disjoints sur les scénarios de financement, dont les conclusions ne sont pas encore publiques [2]",
+          "explication": "L'existence d'une \"mission interministérielle\" ayant produit \"deux rapports disjoints\" n'est pas mentionnée dans les extraits de la source [2] fournis."
+        },
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "compteur_incoherent",
+          "phrase_exacte": "nb_sources: 4",
+          "explication": "L'article utilise des renvois [1] à [5] (5 sources distinctes citées dans le texte) mais le champ nb_sources indique 4. De plus, la source [5] n'appartient pas à la liste autorisée."
+        },
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "[5]",
+          "explication": "Le renvoi [5] dans le contexte renvoie à une source inexistante dans le tableau sources autorisé (qui ne contient que 4 entrées)."
+        }
+      ]
+    },
+    "article_type": "actu",
+    "titre": "Pesticides : la baisse des taux de redevance coûte 90 millions aux agences de l'eau",
+    "n_sources": 4,
+    "n_mots": 628,
+    "titre_rss": "Pollution aux pesticides : en restreignant la portée d’une taxe, le gouvernement a privé les agences de l’eau de plus de 90 millions d’euros de redevance",
+    "matiere_faits_distincts": 895,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "france-accuse-iran-cyberattaque-systemes-refrigeration-octobre-2026",
+    "statut": "rejete_qualite",
+    "date": "2026-11-11T11:05:05",
+    "problemes_initiaux": 5,
+    "tentatives": 3,
+    "problemes_restants": 7,
+    "bloquants_restants": 1,
+    "bloquants_types": [
+      "chiffre_errone"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source AP [3] indique \"hundreds of supermarket refrigeration systems\" (des centaines de systèmes de réfrigération de supermarchés) sans préciser qu'ils sont installés dans des supermarchés sur le territoire national ;",
+        "phrase": "La France a accusé l'Iran d'être à l'origine d'une cyberattaque survenue les 11 et 12 octobre 2026 contre plusieurs centaines de systèmes de réfrigération installés dans des supermarchés sur le territoire national [3][4]"
+      }
+    ],
+    "types_restants": [
+      "chiffre_errone",
+      "source_inventee",
+      "source_inventee",
+      "redondance",
+      "source_derivee_comptee_comme_primaire",
+      "jugement_de_valeur",
+      "extrapolation"
+    ],
+    "article_type": "actu",
+    "titre": "La France accuse l'Iran d'une cyberattaque massive contre des centaines de systèmes de réfrigération",
+    "n_sources": 5,
+    "n_mots": 501,
+    "titre_rss": "La France dénonce des cyberattaques iraniennes",
+    "matiere_faits_distincts": 712,
+    "matiere_redondance": 0.01,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
   }
 ]
