@@ -68758,5 +68758,29 @@
     "n_sources_injectees": 10,
     "n_sources_trouvees": 10,
     "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "label-bas-carbone-tourbieres-financement-restauration-690-millions-tonnes-co2",
+    "statut": "erreur_verification",
+    "date": "2026-11-11T19:48:36",
+    "etape": "detection",
+    "erreur": "JSON tronqué ou incomplet dans la réponse (max_tokens atteint ?)",
+    "article_type": "actu",
+    "titre": "Label bas carbone tourbières : un outil pour financer la restauration de 690 millions de tonnes de CO₂",
+    "n_sources": 7,
+    "n_mots": 606,
+    "titre_rss": "Nouveau label bas carbone tourbières : \"Il y a un intérêt business, au-delà de la stratégie climat\"",
+    "matiere_faits_distincts": 975,
+    "matiere_redondance": 0.01,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10
+  },
+  {
+    "slug": "label-bas-carbone-tourbieres-financement-restauration-690-millions-tonnes-co2",
+    "statut": "rejete_qualite",
+    "date": "2026-11-11T19:48:36",
+    "raison": "verification_indisponible",
+    "statut_verification_initial": "erreur_verification"
   }
 ]
