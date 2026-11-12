@@ -68782,5 +68782,649 @@
     "date": "2026-11-11T19:48:36",
     "raison": "verification_indisponible",
     "statut_verification_initial": "erreur_verification"
+  },
+  {
+    "slug": "marques-alcool-reseaux-sociaux-loi-evin-addictions-france",
+    "statut": "rejete_sensible",
+    "date": "2026-11-12T08:17:11",
+    "problemes_initiaux": 8,
+    "bloc5": [
+      "affaire_en_cours_presentee_comme_fait"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "resume_repete_corps"
+    ],
+    "titre": "Les marques d'alcool contournent la loi Evin sur les réseaux sociaux, dénonce Addictions France",
+    "n_sources": 3,
+    "n_mots": 568,
+    "titre_rss": "Les marques d'alcool inondent les réseaux sociaux, dénonce un rapport",
+    "matiere_faits_distincts": 778,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "rapport"
+  },
+  {
+    "slug": "france-attribue-iran-sabotage-700-supermarches-octobre",
+    "statut": "rejete_qualite",
+    "date": "2026-11-12T08:23:36",
+    "problemes_initiaux": 8,
+    "tentatives": 3,
+    "problemes_restants": 11,
+    "bloquants_restants": 7,
+    "bloquants_types": [
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "annonce_perimee",
+      "annonce_perimee",
+      "source_inventee",
+      "source_inventee"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "Le titre mentionne 'centaines de supermarchés' alors que la source [1] (déclaration officielle) parle de 'plus de 700 supermarchés' et la source [6] (AP News) de '700 supermarkets' — le chiffre précis est disponible dans",
+        "phrase": "La France attribue à l'Iran le sabotage de centaines de supermarchés en octobre"
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "Le résumé utilise 'centaines de supermarchés' au lieu du chiffre précis 'plus de 700' ou '700' donné par les sources [1] et [6].",
+        "phrase": "une cyberattaque massive ayant paralysé les systèmes de réfrigération de centaines de supermarchés le mois dernier"
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "Le corps de l'article utilise 'centaines de supermarchés' alors que la source [6] (AP News) indique explicitement '700 supermarkets' et la source [1] 'plus de 700 supermarchés' — imprécision évitable.",
+        "phrase": "une cyberattaque a visé des contrôleurs de réfrigération déployés dans des centaines de supermarchés en France [6]"
+      },
+      {
+        "bloc": 1,
+        "type": "annonce_perimee",
+        "description": "La source [1] (déclaration du 9 novembre 2026) indique que la France 'a proposé' (passé composé) l'adoption de sanctions — l'article utilise le futur 'proposera' alors que l'action est déjà accomplie selon la source offi",
+        "phrase": "proposera à ses partenaires européens l'adoption de nouvelles sanctions contre des entités et individus iraniens impliqués [1][6]"
+      },
+      {
+        "bloc": 1,
+        "type": "annonce_perimee",
+        "description": "Le résumé présente les sanctions comme 'futures' alors que la source [1] indique que la proposition a déjà été faite ('a proposé') — contradiction avec l'état le plus récent établi par la source officielle.",
+        "phrase": "annonce de futures sanctions européennes"
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "La source [2] est le 'Panorama de la cybermenace 2025' de Vie Publique — rien dans les extraits fournis ne confirme que ce rapport contient cette observation spécifique attribuée à l'ANSSI ; attribution non vérifiée.",
+        "phrase": "L'ANSSI observe une érosion des frontières entre acteurs étatiques et cybercriminels, avec des attaquants toujours plus difficiles à suivre et à imputer [2]"
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "La source [3] est le 'Rapport annuel sur la cybercriminalité 2026' de Vie Publique — les extraits fournis ne contiennent pas cette formulation précise ; contenu non confirmé par la source citée.",
+        "phrase": "Le rapport annuel sur la cybercriminalité confirme une pression cyber durable et structurelle, marquée par l'industrialisation du cybercrime et l'usage massif de l'intelligence artificielle [3]"
+      }
+    ],
+    "types_restants": [
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "annonce_perimee",
+      "annonce_perimee",
+      "source_inventee",
+      "source_inventee",
+      "contexte_hors_sujet",
+      "contexte_hors_sujet",
+      "section_gonflee",
+      "redondance"
+    ],
+    "article_type": "actu",
+    "titre": "La France attribue à l'Iran le sabotage de 700 supermarchés en octobre",
+    "n_sources": 6,
+    "n_mots": 538,
+    "titre_rss": "« Une campagne inédite par son ampleur et son niveau d’agressivité » contre la France : ce que révèle la cyberattaque iranienne",
+    "matiere_faits_distincts": 635,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "budget-2027-cir-pacte-dutreil-epargnes-reforme",
+    "statut": "rejete_qualite",
+    "date": "2026-11-12T08:29:22",
+    "tentative": 1,
+    "angle_insuffisant": true,
+    "raison": "L'article ne répond pas à la question posée dans angle_reponse : aucune phrase des faits ne dit si le projet de budget 2027 maintient ou non le statu quo sur le CIR et le pacte Dutreil. Les faits décrivent une tribune critique, un rapport de la Cour des comptes (juin 2025), un vote sur le budget 2026 (fin 2025) et une décision du Conseil d'État (juin 2026), mais ne mentionnent jamais le contenu du projet de budget 2027 lui-même. Le lecteur ne sait pas ce qui a été décidé pour 2027.",
+    "article_type": "actu",
+    "titre": "Budget 2027 : le CIR et le pacte Dutreil épargnés par la réforme",
+    "n_sources": 6,
+    "n_mots": 559,
+    "titre_rss": "Crédit d’impôt recherche, pacte Dutreil… : « Quitte à mettre un “pognon de dingue” dans les aides publiques aux entreprises, encore faudrait-il que la collectivité en ait pour son argent »",
+    "matiere_faits_distincts": 856,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "tribune"
+  },
+  {
+    "slug": "italie-alertes-bombe-ecoles-meloni-rien-trouve",
+    "statut": "rejete_qualite",
+    "date": "2026-11-12T08:35:26",
+    "tentative": 3,
+    "perte_substance": true,
+    "section": "contexte",
+    "mots_avant": 138,
+    "mots_apres": 46,
+    "article_type": "actu",
+    "titre": "Giorgia Meloni : aucune bombe trouvée après des milliers d'alertes dans les écoles italiennes",
+    "n_sources": 3,
+    "n_mots": 425,
+    "titre_rss": "\"On n'a rien trouvé, dans aucune école\", assure Giorgia Meloni après les milliers d'alertes à la bombe ayant visé des écoles italiennes",
+    "matiere_faits_distincts": 509,
+    "matiere_redondance": 0.08,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "espagne-premiere-greve-generale-14-ans-logement-salaires",
+    "statut": "rejete_qualite",
+    "date": "2026-11-12T08:42:54",
+    "problemes_initiaux": 15,
+    "tentatives": 3,
+    "problemes_restants": 7,
+    "bloquants_restants": 3,
+    "bloquants_types": [
+      "chiffre_errone",
+      "source_inventee",
+      "source_inventee"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [3] (Le Monde) ne contient aucune mention d'un chiffre de croissance économique de 0,7 % au T2 2026 ; ce chiffre n'est pas vérifiable dans les extraits fournis.",
+        "phrase": "L'économie espagnole croît de 0,7 % au deuxième trimestre 2026, sans que cela n'endigue la hausse des loyers [3]."
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "La source [2] est un règlement européen (EUR-Lex), pas une étude du Parlement européen ; l'attribution à une étude du Parlement européen est une invention de source.",
+        "phrase": "Au niveau européen, une étude du Parlement européen de 2023 préconise de faire évoluer les systèmes de lutte contre le sans-abrisme, passant d'une approche centrée sur les défaillances individuelles à des politiques stru"
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "La source [2] ne décrit pas une présentation de nouvelles règles en septembre 2026 ; l'événement et la date sont inventés par rapport au contenu réel de la source (règlement 2024/1157).",
+        "phrase": "En septembre 2026, la Commission européenne a présenté de nouvelles règles pour aider les collectivités locales face aux difficultés de logement dans les zones à forte densité touristique comme Barcelone, Paris ou Rome ["
+      }
+    ],
+    "types_restants": [
+      "chiffre_errone",
+      "contexte_hors_sujet",
+      "contexte_hors_sujet",
+      "contexte_hors_sujet",
+      "source_inventee",
+      "source_inventee",
+      "redondance"
+    ],
+    "article_type": "actu",
+    "titre": "Espagne : première grève générale en 14 ans pour le logement et les salaires",
+    "n_sources": 4,
+    "n_mots": 724,
+    "titre_rss": "« En Espagne, l’accès au logement, au cœur d’un appel à la grève générale, concentre les colères »",
+    "matiere_faits_distincts": 756,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "pauvrete-france-9-8-millions-personnes-seuil-60-niveau-vie-median",
+    "statut": "rejete_sensible",
+    "date": "2026-11-12T08:54:38",
+    "problemes_initiaux": 15,
+    "bloc5": [
+      "chiffre_errone"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "resume_repete_corps"
+    ],
+    "titre": "Pauvreté en France : 9,8 millions sous le seuil, hausse continue depuis 2005",
+    "n_sources": 5,
+    "n_mots": 577,
+    "titre_rss": "Pauvreté : ne pas s’habituer",
+    "matiere_faits_distincts": 743,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 4,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "rapport"
+  },
+  {
+    "slug": "senat-resolution-bei-financement-armes-munitions-europeennes",
+    "statut": "rejete_sensible",
+    "date": "2026-11-12T09:04:14",
+    "problemes_initiaux": 8,
+    "bloc5": [
+      "chronologie_confuse"
+    ],
+    "article_type": "actu",
+    "titre": "Le Sénat adopte une résolution pour financer les armes européennes par la BEI",
+    "n_sources": 5,
+    "n_mots": 668,
+    "titre_rss": "Armes et munitions produites par les industries européennes de la défense - Rapport n° 879",
+    "matiere_faits_distincts": 1010,
+    "matiere_redondance": 0.04,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "veille_heures_visible": 517.7,
+    "veille_passages": 326,
+    "veille_age_h": 2214.6,
+    "veille_n_flux_grappe": 4,
+    "nature_contenu": "decision_officielle"
+  },
+  {
+    "slug": "cop31-antalya-onu-taxes-energies-fossiles-financement-climatique",
+    "statut": "rejete_qualite",
+    "date": "2026-11-12T09:16:55",
+    "problemes_initiaux": 7,
+    "tentatives": 3,
+    "problemes_restants": 9,
+    "bloquants_restants": 3,
+    "bloquants_types": [
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source AFP [2] indique 95,3 milliards de dollars, l'article arrondit à 95 milliards sans signaler l'arrondi.",
+        "phrase": "soulignant que les neuf plus grandes compagnies pétrolières ont engrangé 95 milliards de dollars de profits au premier semestre 2023"
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source AFP [2] indique 2,6-3,1 °C, l'article omet la fourchette haute et présente une borne unique.",
+        "phrase": "la planète se dirige vers plus de 2,6 °C de réchauffement d'ici 2100"
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source Vie Publique [1] indique que l'objectif a été atteint pour la première fois en 2022, l'article omet 'pour la première fois'.",
+        "phrase": "n'a été atteint qu'en 2022"
+      }
+    ],
+    "types_restants": [
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "chronologie_confuse",
+      "redondance",
+      "compteur_incoherent",
+      "cadrage_emprunte",
+      "annonce_perimee",
+      "annonce_perimee"
+    ],
+    "article_type": "actu",
+    "titre": "COP31 à Antalya : l'ONU appelle à taxer les profits fossiles",
+    "n_sources": 5,
+    "n_mots": 608,
+    "titre_rss": "A la COP31, l’ONU presse les dirigeants d’agir contre les énergies fossiles : « La vérité, brutale, est que la crise du climat nous dépasse », déclare Antonio Guterres",
+    "matiere_faits_distincts": 585,
+    "matiere_redondance": 0.09,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "oxfam-rapport-derreglement-climatique-inflation-alimentaire-zone-euro",
+    "statut": "rejete_qualite",
+    "date": "2026-11-12T09:37:02",
+    "tentative": 1,
+    "angle_insuffisant": true,
+    "raison": "Aucune phrase dans 'faits' ne combine un événement précis daté (publication du rapport Oxfam) avec une donnée chiffrée ou nommée propre à cet événement (ex: pourcentage d'inflation attribué au climat, variation de prix spécifique, nom du rapport). Le texte se contente d'affirmations qualitatives génériques sans fait déclencheur quantifié.",
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "resume_repete_corps",
+      "titre_de_mauvaise_qualite"
+    ],
+    "titre": "Oxfam publie un rapport liant dérèglement climatique et inflation alimentaire en zone euro",
+    "n_sources": 8,
+    "n_mots": 476,
+    "titre_rss": "Le dérèglement climatique pèse lourd sur l'inflation, notamment dans la zone euro, alerte Oxfam",
+    "matiere_faits_distincts": 795,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "rapport"
+  },
+  {
+    "slug": "moisissures-asthme-adulte-etude-moldasth-resultats",
+    "statut": "rejete_sensible",
+    "date": "2026-11-12T10:17:28",
+    "problemes_initiaux": 11,
+    "tentative": 1,
+    "bloc5": true,
+    "article_type": "actu",
+    "titre": "Moisissures et asthme : l'étude MOLDASTH confirme un risque chez l'adulte",
+    "n_sources": 4,
+    "n_mots": 689,
+    "titre_rss": "Les moisissures dans l’air intérieur des logements favorisent l’asthme. Pourtant, ce risque est évitable",
+    "matiere_faits_distincts": 614,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "etude_scientifique"
+  },
+  {
+    "slug": "cop31-antalya-limites-conferences-climat-onu",
+    "statut": "rejete_qualite",
+    "date": "2026-11-12T10:23:58",
+    "angle_insuffisant": true,
+    "raison": "Aucune phrase dans 'faits' ne combine un événement précis daté (annonce, décision, publication récente) et une donnée chiffrée ou nommée qui lui est propre. L'article explique le fonctionnement et les critiques structurelles des COP sans identifier de fait déclencheur nouveau justifiant une publication le 9 novembre 2026 (ouverture de la COP31). Les sources datées des 7, 9 et 12 novembre 2026 sont postérieures ou contemporaines à l'événement d'ouverture, mais le texte ne rapporte aucune annonce, décision ou résultat concret émanant de cette session d'ouverture.",
+    "article_type": "actu",
+    "titre": "COP31 à Antalya : les conférences climat face à leurs limites structurelles",
+    "n_sources": 3,
+    "n_mots": 507,
+    "titre_rss": "\"Personne ne peut contraindre les États\" : les limites des COP climat",
+    "matiere_faits_distincts": 903,
+    "matiere_redondance": 0.01,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "chantiers-data-centers-europe-exploitation-travailleurs-reponse-legislative",
+    "statut": "rejete_qualite",
+    "date": "2026-11-12T10:38:21",
+    "problemes_initiaux": 9,
+    "tentatives": 3,
+    "problemes_restants": 6,
+    "bloquants_restants": 3,
+    "bloquants_types": [
+      "incoherence_inter_sections",
+      "source_inventee",
+      "source_inventee"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "incoherence_inter_sections",
+        "description": "Le résumé (chapeau) ne mentionne pas l'événement du 5 novembre 2026 (intrusion sur le chantier Microsoft à Amsterdam) alors que les faits le présentent comme un élément clé postérieur à l'enquête, créant une incohérence ",
+        "phrase": "Le 5 novembre 2026, selon l'agence AP News, des manifestants ont pénétré sur un chantier de centre de données Microsoft à Amsterdam, certains grimpant sur une grue et allumant des fumigènes, tandis que des affrontements "
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "La source [1] est un article du Monde, mais le texte attribue la coordination de l'enquête à 'Investigate Europe' et la réalisation à des 'partenaires dans huit pays', des informations qui ne figurent pas dans l'extrait ",
+        "phrase": "Une enquête de cinq mois coordonnée par Investigate Europe, réalisée avec des partenaires dans huit pays dont Le Monde, documente la multiplication de pratiques dangereuses sur les chantiers de construction de centres de"
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "L'extrait de la source [6] (UN News) fourni ne contient pas cette affirmation précise sur la vitesse de construction des centres de données dépassant celle des réseaux électriques ni sur des 'risques de défaillances en c",
+        "phrase": "L'ONU avertit que les centres de données sont construits plus vite que les réseaux électriques nécessaires pour les alimenter, créant des risques de défaillances en cascade [6]."
+      }
+    ],
+    "types_restants": [
+      "incoherence_inter_sections",
+      "redondance",
+      "source_inventee",
+      "source_inventee",
+      "angle_annonce_non_tenu",
+      "faux_debat"
+    ],
+    "article_type": "actu",
+    "titre": "Chantiers de data centers en Europe : exploitation des travailleurs et réponse législative française",
+    "n_sources": 6,
+    "n_mots": 538,
+    "titre_rss": "Data centers : sur les chantiers de construction européens, des travailleurs exploités dans un climat de « terreur »",
+    "matiere_faits_distincts": 873,
+    "matiere_redondance": 0.02,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "maladie-charcot-exosquelette-atalante-x-etude-pilote",
+    "statut": "rejete_sensible",
+    "date": "2026-11-12T10:52:39",
+    "problemes_initiaux": 15,
+    "tentative": 2,
+    "bloc5": true,
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "article_sans_date"
+    ],
+    "titre": "Maladie de Charcot : l'exosquelette Atalante X freine les symptômes dans une étude pilote",
+    "n_sources": 3,
+    "n_mots": 668,
+    "titre_rss": "Remarcher grâce à un exosquelette",
+    "matiere_faits_distincts": 824,
+    "matiere_redondance": 0.04,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "etude_scientifique"
+  },
+  {
+    "slug": "cyberattaques-refrigerateurs-supermarches-iran-europe-vulnerable",
+    "statut": "corrige_automatiquement",
+    "date": "2026-11-12T11:10:53",
+    "problemes_initiaux": 13,
+    "tentatives": 1,
+    "problemes_residuels_style": 15,
+    "rapport_initial": {
+      "conforme": false,
+      "sujet_sensible": false,
+      "sujet_sensible_raison": "",
+      "angle_insuffisant": false,
+      "angle_insuffisant_raison": "",
+      "nature_contenu": "actualite_factuelle",
+      "problemes": [
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "chiffre_errone",
+          "phrase_exacte": "Environ 700 sites de grande distribution (Casino, Leclerc, Coopérative U, Metro, Carrefour, Intermarché) ont vu leurs paramètres de dégivrage modifiés pour atteindre de hautes températures, causant d'importantes pertes de marchandises et au moins 15 départs de feu [7].",
+          "explication": "La source [7] (CERTFR-2026-CTI-009.pdf) indique \"plus de 700 sites\" et non \"environ 700 sites\" ; l'article arrondit à la baisse un chiffre que la source donne comme un plancher."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "chiffre_errone",
+          "phrase_exacte": "Dans la nuit du 1er au 2 novembre 2026, des pirates ont pris le contrôle de systèmes de régulation frigorifiques dans des supermarchés de Belgique, Suède, Finlande, Estonie, Luxembourg, Irlande, Italie, Pays-Bas, Portugal et Allemagne [3].",
+          "explication": "La source [3] (Le Monde du 2 novembre) liste 9 pays (Belgique, Suède, Finlande, Estonie, Luxembourg, Irlande, Italie, Pays-Bas, Portugal) et ne mentionne pas l'Allemagne ; l'Allemagne n'apparaît que dans la source [4] (BBC du 3 novembre) pour le cas Rewe Büsken. L'article attribue à tort la liste des 10 pays à la seule source [3]."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "En Allemagne, le système du fournisseur Danfoss chez Rewe Büsken a été ciblé, le service étant rétabli l'après-midi même [4].",
+          "explication": "La source [4] (BBC) ne mentionne pas le nom \"Rewe Büsken\" ni le détail \"système du fournisseur Danfoss\" ; elle évoque seulement \"a German supermarket chain\" et \"Danfoss controllers\". L'article ajoute des précisions nominatives absentes de la source citée."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "Au Portugal, sept magasins Intermarché du groupe Mosqueteiros ont été touchés via un prestataire externe de gestion de la réfrigération [4].",
+          "explication": "La source [4] (BBC) ne cite ni le nombre \"sept\", ni l'enseigne \"Intermarché\", ni le groupe \"Mosqueteiros\", ni le mode \"via un prestataire externe\" pour le Portugal. Ces détails n'apparaissent pas dans l'extrait fourni."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "En Italie, au moins quatre supermarchés Coop en Sicile et une entreprise en Toscane ont été affectés, le gouvernement Meloni soulignant que les victimes utilisaient majoritairement \"des systèmes de sécurité obsolètes, avec des interfaces directement exposées sur internet et des mécanismes d'authentification inadéquats\" [4].",
+          "explication": "La source [4] (BBC) ne contient pas le chiffre \"quatre\", la localisation \"Sicile\" et \"Toscane\", l'enseigne \"Coop\", ni la citation attribuée au gouvernement Meloni. L'article invente des détails factuels en les attribuant à une source qui ne les confirme pas."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "En Irlande, 13 magasins SuperValu du groupe Musgrave ont été impactés [4].",
+          "explication": "La source [4] (BBC) mentionne l'Irlande et des perturbations mais ne donne ni le nombre \"13\", ni l'enseigne \"SuperValu\", ni le groupe \"Musgrave\". L'article attribue à la source des précisions qu'elle ne contient pas."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "Aux Pays-Bas, quelques supérettes ont subi des perturbations [4].",
+          "explication": "La source [4] (BBC) cite les Pays-Bas parmi les pays touchés mais ne précise ni \"quelques supérettes\" ni la nature \"perturbations\" pour ce pays spécifiquement. L'article généralise un détail non sourcé."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "En Belgique, des dizaines de magasins Delhaize ont signalé des pannes, le parquet fédéral ouvrant une enquête [4].",
+          "explication": "La source [4] (BBC) mentionne la Belgique et \"dozens of stores\" sans nommer \"Delhaize\" ni indiquer l'ouverture d'une enquête par le parquet fédéral. L'article ajoute l'enseigne et l'action judiciaire absentes de la source citée."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "contexte_hors_sujet",
+          "phrase_exacte": "Le rapport annuel 2025 de l'Arcom note une baisse de 35 % du piratage depuis 2022 mais ne traite pas des infrastructures industrielles [2].",
+          "explication": "La source [2] (rapport Arcom 2025) porte sur le piratage audiovisuel et n'a aucun lien avec les cyberattaques sur infrastructures frigorifiques industrielles ; son évocation ne sert qu'à remplir la section sans éclairer le sujet."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "contexte_hors_sujet",
+          "phrase_exacte": "Le Sénat a adopté en 2017 une résolution sur le principe de subsidiarité face au renforcement de l'ENISA, et une proposition de résolution tendant à créer une commission d'enquête sur les cyberattaques a été déposée en mai 2026 [1][7].",
+          "explication": "La source [1] (Sénat, exposé des motifs janvier 2026) ne mentionne ni une résolution de 2017 sur la subsidiarité/ENISA, ni un dépôt de proposition en mai 2026 ; la source [7] (CERTFR-2026-CTI-009) est un bulletin technique sans contenu parlementaire. Les faits parlementaires cités sont inventés ou attribués à de mauvaises sources."
+        },
+        {
+          "bloc": 2,
+          "section": "contexte",
+          "type": "source_derivee_comptee_comme_primaire",
+          "phrase_exacte": "Le règlement NIS 2, que les États membres doivent transposer depuis le 17 octobre 2024, étend les obligations de cybersécurité à un plus grand nombre d'opérateurs de services essentiels, dont la chaîne alimentaire [1]. Le Cyber Resilience Act, entré en vigueur fin 2024, impose aux fabricants de produits numériques des exigences de sécurité tout au long du cycle de vie, avec mise en conformité attendue pour 2027 [1]. La Commission a présenté le 20 janvier 2026 un paquet \"cybersécurité 2\" renforçant les prérogatives de l'ENISA et alignant la directive NIS 2 sur ce nouveau cadre [1]. L'ENISA soulignait dans son rapport 2024 que le paysage des menaces s'était durci, avec des attaques hybrides amplifiées par l'IA [1].",
+          "explication": "Quatre affirmations distinctes sont toutes attribuées à la seule source [1] (exposé des motifs Sénat, janvier 2026), qui ne peut pas être la source primaire simultanée du règlement NIS 2, du Cyber Resilience Act, d'un paquet Commission de janvier 2026 et d'un rapport ENISA 2024. L'article compte une source secondaire unique comme si elle validait indépendamment quatre faits réglementaires différents."
+        },
+        {
+          "bloc": 4,
+          "section": "contexte",
+          "type": "section_gonflee",
+          "phrase_exacte": "Le rapport annuel 2025 de l'Arcom note une baisse de 35 % du piratage depuis 2022 mais ne traite pas des infrastructures industrielles [2].",
+          "explication": "Cette phrase n'apporte aucune information pertinente sur les cyberattaques de supermarchés ; elle remplit la section avec un fait vrai mais hors sujet, reconnu comme tel par l'article lui-même (\"ne traite pas des infrastructures industrielles\")."
+        },
+        {
+          "bloc": 4,
+          "section": "contexte",
+          "type": "section_gonflee",
+          "phrase_exacte": "Le Sénat a adopté en 2017 une résolution sur le principe de subsidiarité face au renforcement de l'ENISA, et une proposition de résolution tendant à créer une commission d'enquête sur les cyberattaques a été déposée en mai 2026 [1][7].",
+          "explication": "Ces éléments parlementaires anciens ou non confirmés par les sources citées n'éclairent pas l'actualité des attaques de novembre 2026 ; ils gonflent artificiellement la section sans valeur ajoutée factuelle."
+        }
+      ]
+    },
+    "article_type": "actu",
+    "titre": "Cyberattaques sur 700 supermarchés français puis 10 pays européens : l'Iran visé",
+    "n_sources": 8,
+    "n_mots": 855,
+    "titre_rss": "Cyberattaque: pourquoi les réfrigérateurs européens sont des cibles faciles",
+    "matiere_faits_distincts": 1096,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "mobilisation-lyceenne-inquietudes-examens-notes-parcoursup-blocages",
+    "statut": "rejete_qualite",
+    "date": "2026-11-12T11:29:43",
+    "problemes_initiaux": 20,
+    "tentatives": 3,
+    "problemes_restants": 16,
+    "bloquants_restants": 3,
+    "bloquants_types": [
+      "chiffre_errone",
+      "chiffre_errone",
+      "incoherence_inter_sections"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [4] (Le Monde du 13 octobre) ne figure pas dans les extraits fournis ; il est impossible de vérifier que ces six chiffres y apparaissent exactement. Un chiffre cité sans confirmation dans les extraits fournis c",
+        "phrase": "Selon l'article du Monde du 13 octobre, la mobilisation s'appuie sur six indicateurs chiffrés : 3 000 postes d'enseignants non pourvus à la rentrée, 12 % d'élèves sans professeur principal, une hausse de 15 % des effecti"
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [6] (20 Minutes du 29 septembre) ne figure pas dans les extraits fournis ; il est impossible de vérifier la présence et l'exactitude de ces « sept chiffres ». Citation d'un chiffre non confirmé par les extraits",
+        "phrase": "L'article de 20 Minutes du 29 septembre rapporte également sept chiffres alimentant la contestation, dont le nombre de postes non pourvus et la hausse des effectifs par classe [6]."
+      },
+      {
+        "bloc": 1,
+        "type": "incoherence_inter_sections",
+        "description": "La source [1] est datée du 12 novembre 2026 ; elle ne peut pas confirmer une mobilisation « déclenchée fin septembre 2026 » et se poursuivant « depuis plus d'un mois et demi » au moment de l'article, car l'article n'a pa",
+        "phrase": "La mobilisation lycéenne, déclenchée fin septembre 2026, se poursuit depuis plus d'un mois et demi avec des blocages et fermetures d'établissements sur l'ensemble du territoire [1]."
+      }
+    ],
+    "types_restants": [
+      "chiffre_errone",
+      "chiffre_errone",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "incoherence_inter_sections",
+      "formule_vague",
+      "acteur_mis_en_cause_sans_reponse",
+      "acteur_mis_en_cause_sans_reponse",
+      "faux_debat",
+      "compteur_incoherent"
+    ],
+    "article_type": "actu",
+    "titre": "Mobilisation lycéenne : inquiétudes sur les examens, notes et Parcoursup après six semaines de blocages",
+    "n_sources": 6,
+    "n_mots": 656,
+    "titre_rss": "Mouvement lycéen : une inquiétude grandissante pour la préparation des examens, les notes du premier trimestre et les dossiers Parcoursup",
+    "matiere_faits_distincts": 793,
+    "matiere_redondance": 0.19,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "bruit-routier-petite-enfance-difficultes-emotionnelles-10-ans",
+    "statut": "conforme_du_premier_coup",
+    "date": "2026-11-12T11:40:07",
+    "article_type": "actu",
+    "titre": "Bruit routier précoce : un lien avec des difficultés émotionnelles à 10 ans",
+    "n_sources": 4,
+    "n_mots": 795,
+    "titre_rss": "Une exposition élevée et persistante au bruit routier au début de l’enfance est associée à un risque accru de difficultés émotionnelles et relationnelles à 10 ans",
+    "matiere_faits_distincts": 1209,
+    "matiere_redondance": 0.03,
+    "matiere_donnees_chiffrees": 3,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "veille_heures_visible": 198.4,
+    "veille_passages": 55,
+    "veille_age_h": 1895.2,
+    "veille_n_flux_grappe": 2,
+    "nature_contenu": "etude_scientifique"
   }
 ]
