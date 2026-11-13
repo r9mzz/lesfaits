@@ -70554,5 +70554,454 @@
     "n_sources_injectees": 10,
     "n_sources_trouvees": 10,
     "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "addictions-france-denonce-contournement-loi-evin-alcool-reseaux-sociaux",
+    "statut": "rejete_qualite",
+    "date": "2026-11-13T20:42:53",
+    "problemes_initiaux": 9,
+    "tentatives": 3,
+    "problemes_restants": 13,
+    "bloquants_restants": 7,
+    "bloquants_types": [
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "incoherence_inter_sections",
+      "incoherence_inter_sections"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "Le chiffre 1 550 pour BrewDog n'apparaît dans aucune des quatre sources autorisées ; les extraits fournis ne contiennent aucun décompte par marque, seulement le total de 11 300 contenus et 802 marques.",
+        "phrase": "Sur 20 marques observées, BrewDog (bière) arrive en tête avec 1 550 contenus publicitaires produits sur un an, contre 210 en moyenne pour les autres marques [2][4]."
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "Les chiffres 655 (Jägermeister) et 630 (Gérard Bertrand) sont absents des extraits des sources autorisées.",
+        "phrase": "La liqueur Jägermeister suit avec 655 contenus, puis le vin Gérard Bertrand avec 630 [2][4]."
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "Les chiffres 87 publications et 35 influenceurs pour Saint-Germain ne figurent dans aucun extrait fourni.",
+        "phrase": "L'alcool de sureau Saint-Germain a été repéré dans 87 publications de 35 influenceurs différents [2][4]."
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "L'échantillon de 54 contenus pour ces trois marques et le détail des infractions (personnages, célébrités, tatoueurs, etc.) ne sont présents dans aucun extrait des sources autorisées.",
+        "phrase": "Sur 54 contenus publiés par Label 5, Bavaria 8.6 et Jägermeister, selon Addictions France, la moitié « dépasse le cadre réglementaire » : présence de personnages, de célébrités, références à des tatoueurs, jeux-concours,"
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "Le chiffre 79 % et la référence à une étude EHESP ne figurent dans aucun des extraits fournis.",
+        "phrase": "Une étude de l'EHESP citée par l'association indique que 79 % des 15-21 ans déclarent être exposés chaque semaine à de la publicité pour l'alcool sur les réseaux sociaux [2][4]."
+      },
+      {
+        "bloc": 1,
+        "type": "incoherence_inter_sections",
+        "description": "Les guillemets « interstitielles », « invasives », « immersion et l'interaction », « instrumentalisant le cercle amical » suggèrent des citations directes du rapport, mais aucun extrait des sources [2][4] ne reproduit ce",
+        "phrase": "L'association dénonce particulièrement les publicités « interstitielles » ou « invasives » insérées dans les fils d'actualité, qui privilégient « l'immersion et l'interaction » via des recettes de mixologie, quiz, sondag"
+      },
+      {
+        "bloc": 1,
+        "type": "incoherence_inter_sections",
+        "description": "Les extraits des sources [2][4] ne mentionnent pas l'existence d'un rapport précédent d'Addictions France sur les influenceurs ; l'affirmation n'est pas sourcée.",
+        "phrase": "Le rapport d'Addictions France s'inscrit dans la continuité d'un précédent travail publié l'an dernier qui pointait déjà le rôle des influenceurs comme relais privilégiés des marques [2][4]."
+      }
+    ],
+    "types_restants": [
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "incoherence_inter_sections",
+      "incoherence_inter_sections",
+      "compteur_incoherent"
+    ],
+    "article_type": "actu",
+    "titre": "Addictions France dénonce le contournement de la loi Evin par les marques d'alcool",
+    "n_sources": 4,
+    "n_mots": 718,
+    "titre_rss": "Les marques d'alcool inondent les réseaux sociaux, dénonce un rapport",
+    "matiere_faits_distincts": 722,
+    "matiere_redondance": 0.15,
+    "matiere_donnees_chiffrees": 3,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "rapport"
+  },
+  {
+    "slug": "incendies-indonesie-trois-millions-hectares-el-nino-responsable-2026",
+    "statut": "rejete_qualite",
+    "date": "2026-11-13T20:48:09",
+    "tentative": 1,
+    "angle_insuffisant": true,
+    "raison": "Aucune phrase des faits ne combine un événement précis daté (décision, publication, résultat récent) et une donnée chiffrée ou nommée qui lui est propre. L'article se contente d'expliquer le lien général entre El Niño et les incendies en Indonésie sans dire ce qui vient de se passer concrètement pour justifier une publication maintenant (pas de nouveau rapport daté, pas de bilan officiel 2026, pas de décision récente).",
+    "article_type": "actu",
+    "titre": "Incendies en Indonésie : près de trois millions d'hectares brûlés, El Niño principal responsable",
+    "n_sources": 4,
+    "n_mots": 581,
+    "titre_rss": "El Niño est le principal responsable des incendies en Indonésie, conclut un rapport",
+    "matiere_faits_distincts": 828,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "senat-adopte-taxe-produits-sucres-ultratransformes-2027",
+    "statut": "rejete_qualite",
+    "date": "2026-11-13T20:55:08",
+    "tentative": 3,
+    "perte_substance": true,
+    "section": "contexte",
+    "mots_avant": 173,
+    "mots_apres": 62,
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "resume_repete_corps"
+    ],
+    "titre": "Le Sénat adopte une taxe sur les produits sucrés et ultratransformés",
+    "n_sources": 3,
+    "n_mots": 449,
+    "titre_rss": "Pour lutter contre la malbouffe, le Sénat veut taxer les produits sucrés",
+    "matiere_faits_distincts": 1098,
+    "matiere_redondance": 0.13,
+    "matiere_donnees_chiffrees": 3,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "cop31-antalya-negociations-financement-energies-fossiles",
+    "statut": "rejete_qualite",
+    "date": "2026-11-13T21:04:05",
+    "problemes_initiaux": 24,
+    "tentatives": 3,
+    "problemes_restants": 7,
+    "bloquants_restants": 2,
+    "bloquants_types": [
+      "incoherence_inter_sections",
+      "incoherence_inter_sections"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "incoherence_inter_sections",
+        "description": "La source [6] (UN News) indique explicitement que la COP31 se tient à Antalya, en Turquie, contredisant la localisation à Belém, Brésil, donnée dans l'article et attribuée aux sources [2] et [3] (UNFCCC).",
+        "phrase": "La 31e conférence des Nations unies sur le climat (COP31) se tient à Belém, au Brésil, du 9 au 20 novembre 2026 sous la présidence d'André Corrêa do Lago [2][3]."
+      },
+      {
+        "bloc": 1,
+        "type": "incoherence_inter_sections",
+        "description": "Le contexte situe la COP30 à Belém en 2025, alors que les faits situent la COP31 à Belém en 2026. La source [6] place la COP31 à Antalya, créant une incohérence géographique et chronologique majeure entre les sections et",
+        "phrase": "La COP31 fait suite à la COP30 prévue à Belém (Brésil) en 2025."
+      }
+    ],
+    "types_restants": [
+      "incoherence_inter_sections",
+      "incoherence_inter_sections",
+      "source_inventee",
+      "source_inventee",
+      "compteur_incoherent",
+      "fait_tranche_arbitrairement",
+      "fait_tranche_arbitrairement"
+    ],
+    "article_type": "actu",
+    "titre": "COP31 à Antalya : négociations bloquées sur financement et fossiles",
+    "n_sources": 7,
+    "n_mots": 669,
+    "titre_rss": "COP31 : argent, énergies fossiles… les sujets qui mettent les négociations à l’épreuve",
+    "matiere_faits_distincts": 697,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "senat-bei-financement-armes-munitions-industrie-defense-europeenne",
+    "statut": "rejete_qualite",
+    "date": "2026-11-13T21:10:25",
+    "problemes_initiaux": 15,
+    "tentatives": 3,
+    "problemes_restants": 5,
+    "bloquants_restants": 3,
+    "bloquants_types": [
+      "source_inventee",
+      "source_inventee",
+      "chiffre_errone"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "La source [1] (Rapport n° 879) ne contient pas d'information sur la compétence des États membres pour modifier les statuts ou orientations stratégiques de la BEI ; ce fait juridique n'est pas documenté dans les extraits ",
+        "phrase": "La décision d'élargir le mandat de la BEI relève de la compétence politique des États membres actionnaires de la banque, qui doivent se prononcer sur une modification de ses statuts ou de ses orientations stratégiques [1"
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "La source [1] (Rapport n° 879) ne mentionne pas la taxonomie européenne ni le règlement SFDR dans les extraits fournis ; cette précision réglementaire n'est pas sourcée.",
+        "phrase": "Parallèlement, le cadre réglementaire européen a été clarifié pour concilier finance durable et financement de la défense, notamment via la taxonomie et les règlements sur la divulgation d'informations de durabilité (SFD"
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [1] est datée du 8 juillet 2025 dans la liste des sources autorisées (2025-07-08), l'article indique 2026 ; la date est erronée.",
+        "phrase": "Le rapport n° 879 de la commission des affaires européennes du Sénat, daté du 8 juillet 2026, documente les besoins de financement structurels de l'industrie européenne, malgré une commande publique en hausse [1]."
+      }
+    ],
+    "types_restants": [
+      "source_inventee",
+      "source_inventee",
+      "chiffre_errone",
+      "compteur_incoherent",
+      "contexte_hors_sujet"
+    ],
+    "article_type": "actu",
+    "titre": "Le Sénat demande à la BEI de financer les armes et munitions européennes",
+    "n_sources": 4,
+    "n_mots": 569,
+    "titre_rss": "Armes et munitions produites par les industries européennes de la défense - Rapport n° 879",
+    "matiere_faits_distincts": 323,
+    "matiere_redondance": 0.04,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "veille_heures_visible": 517.7,
+    "veille_passages": 326,
+    "veille_age_h": 2251.0,
+    "veille_n_flux_grappe": 4,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "etude-nature-limites-imc-exces-graisse-tour-taille",
+    "statut": "rejete_qualite",
+    "date": "2026-11-13T21:13:49",
+    "angle_insuffisant": true,
+    "raison": "Aucune phrase des faits ne contient un événement précis daté ou datable (publication de l'étude dans Nature) avec une donnée chiffrée ou nommée qui lui est propre. L'article répond à 'qu'est-ce que l'IMC ?' plutôt qu'à 'pourquoi parle-t-on de cette étude maintenant ?'.",
+    "article_type": "actu",
+    "titre": "Une étude sur 844 000 adultes confirme les limites de l'IMC",
+    "n_sources": 2,
+    "n_mots": 515,
+    "titre_rss": "Surpoids et obésité : l’IMC montre ses limites, une étude le confirme",
+    "matiere_faits_distincts": 747,
+    "matiere_redondance": 0.01,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "etude_scientifique"
+  },
+  {
+    "slug": "retraite-epargne-personnelle-principale-ressource-confiance-faible-amundi",
+    "statut": "rejete_qualite",
+    "date": "2026-11-13T21:23:24",
+    "angle_insuffisant": true,
+    "raison": "Aucune phrase des faits ne contient un événement précis daté ou datable (publication de l'étude, annonce, décision) accompagné d'une donnée chiffrée ou nommée qui lui est propre. L'article se contente d'expliquer un phénomène général (épargne retraite, confiance) sans dire ce qui vient de se passer pour justifier la publication maintenant.",
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "resume_repete_corps"
+    ],
+    "titre": "Retraite : l'épargne personnelle première ressource anticipée, mais 85 % des Français peu confiants",
+    "n_sources": 4,
+    "n_mots": 507,
+    "titre_rss": "PER : les bons réflexes à l'heure de la retraite",
+    "matiere_faits_distincts": 892,
+    "matiere_redondance": 0.13,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "etude_scientifique"
+  },
+  {
+    "slug": "cop31-antyalya-ouverture-sommet-climat-2026",
+    "statut": "rejete_qualite",
+    "date": "2026-11-13T21:36:26",
+    "problemes_initiaux": 16,
+    "tentatives": 3,
+    "problemes_restants": 9,
+    "bloquants_restants": 2,
+    "bloquants_types": [
+      "chiffre_errone",
+      "chiffre_errone"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [6] (The Guardian live blog du 10 novembre 2026) ne mentionne pas le chiffre de 1 770 lobbyistes des énergies fossiles dans les extraits fournis ; ce chiffre n'est attesté par aucune source listée.",
+        "phrase": "En marge du sommet, le décompte des accréditations fait état d'au moins 1 770 lobbyistes des énergies fossiles présents à la COP31 [6]."
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [3] (The Guardian du 12 novembre 2026) indique que la Chine exclut d'accueillir la COP33 en 2028, mais ne mentionne pas que la COP33 est « prévue fin 2028 » ni que cela laisse le champ libre à d'autres pays asi",
+        "phrase": "La Chine a annoncé qu'elle ne candidatera pas pour organiser la COP33 prévue fin 2028, laissant le champ libre à d'autres pays asiatiques [3]."
+      }
+    ],
+    "types_restants": [
+      "chiffre_errone",
+      "source_inventee",
+      "chiffre_errone",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "compteur_incoherent"
+    ],
+    "article_type": "actu",
+    "titre": "La COP31 s'ouvre à Antalya sous le signe des énergies fossiles",
+    "n_sources": 6,
+    "n_mots": 655,
+    "titre_rss": "COP31 : le pastoralisme, un allié oublié du climat",
+    "matiere_faits_distincts": 883,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "cop31-antalya-turquie-sommet-climat-2026",
+    "statut": "rejete_qualite",
+    "date": "2026-11-13T21:43:45",
+    "tentative": 2,
+    "angle_insuffisant": true,
+    "raison": "Aucune phrase des faits ne contient à la fois un événement précis daté (annonce, décision, résultat récent) et une donnée chiffrée ou nommée qui lui est propre. Le texte décrit le processus COP, l'agenda et la présidence turque sans jamais dire ce qui vient de se passer concrètement pour justifier une publication maintenant (ex. : adoption d'un texte, chiffre d'émissions publié, engagement financier annoncé). L'article répond à « qu'est-ce que la COP31 ? » plutôt qu'à « pourquoi en parle-t-on aujourd'hui ? ».",
+    "article_type": "actu",
+    "titre": "COP31 à Antalya : la Turquie hôte d'un sommet sous tension géopolitique",
+    "n_sources": 6,
+    "n_mots": 825,
+    "titre_rss": "COP31 : ces grandes conférences sur le climat peuvent-elles encore changer la donne ?",
+    "matiere_faits_distincts": 907,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "allemagne-reforme-bnd-bfv-piratage-sabotage-etranger",
+    "statut": "rejete_qualite",
+    "date": "2026-11-13T21:55:48",
+    "problemes_initiaux": 8,
+    "tentatives": 3,
+    "problemes_restants": 3,
+    "bloquants_restants": 2,
+    "bloquants_types": [
+      "chiffre_errone",
+      "source_inventee"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "L'intervalle entre août 2026 et novembre 2026 est de trois mois, mais la source [2] ne mentionne pas le Conseil des ministres de novembre 2026 et ne permet pas d'établir ce lien temporel ; l'article construit une chronol",
+        "phrase": "En août 2026, soit trois mois avant le Conseil des ministres, la campagne Storm-1516, attribuée à la Russie, a été identifiée comme une opération de désinformation et d'ingérence électorale visant l'Allemagne [2]."
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "Le renvoi [2] pointe vers l'article de L'Express du 12 août 2026, mais cet extrait ne contient pas l'information selon laquelle la campagne Storm-1516 a été identifiée trois mois avant le Conseil des ministres de novembr",
+        "phrase": "En août 2026, soit trois mois avant le Conseil des ministres, la campagne Storm-1516, attribuée à la Russie, a été identifiée comme une opération de désinformation et d'ingérence électorale visant l'Allemagne [2]."
+      }
+    ],
+    "types_restants": [
+      "chronologie_confuse",
+      "chiffre_errone",
+      "source_inventee"
+    ],
+    "article_type": "actu",
+    "titre": "L'Allemagne réforme le BND et le BfV pour autoriser piratage et sabotage à l'étranger",
+    "n_sources": 2,
+    "n_mots": 507,
+    "titre_rss": "L’Allemagne renforce ses services de renseignement, face à la menace russe et aux cyberattaques",
+    "matiere_faits_distincts": 986,
+    "matiere_redondance": 0.01,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "mars-chlorure-hydrogene-magma-activite-volcanique",
+    "statut": "rejete_sensible",
+    "date": "2026-11-13T22:08:05",
+    "problemes_initiaux": 8,
+    "tentative": 1,
+    "bloc5": true,
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "titre_de_mauvaise_qualite",
+      "article_sans_date"
+    ],
+    "titre": "Mars : du chlorure d'hydrogène détecté, indice possible d'un magma encore actif",
+    "n_sources": 5,
+    "n_mots": 505,
+    "titre_rss": "Mars : du magma coulerait toujours dans les entrailles de la planète Rouge",
+    "matiere_faits_distincts": 973,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 4,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "etude_scientifique"
+  },
+  {
+    "slug": "etude-evenement-tectonique-japon-grand-canyon-9000-km",
+    "statut": "rejete_qualite",
+    "date": "2026-11-13T22:12:05",
+    "angle_insuffisant": true,
+    "raison": "Aucune phrase des faits ne contient à la fois un événement précis daté (publication de l'étude, nom des auteurs, revue) et une donnée chiffrée ou nommée qui lui est propre. L'article ne dit pas ce qui vient de se passer : il rapporte seulement qu'un média (Futura Sciences) relaie une étude dont la référence bibliographique, la date, les auteurs et la revue sont absents des sources. C'est une fiche pédagogique sur une hypothèse géologique, pas une actualité factuelle déclenchée par une publication identifiable.",
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "resume_repete_corps",
+      "article_sans_date"
+    ],
+    "titre": "Une étude lie un événement tectonique japonais à la formation du Grand Canyon",
+    "n_sources": 6,
+    "n_mots": 478,
+    "titre_rss": "Un événement géologique survenu au Japon aurait contribué à façonner le Grand Canyon, à 9 000 kilomètres de là !",
+    "matiere_faits_distincts": 656,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "sujet_pedagogique"
+  },
+  {
+    "slug": "maladie-charcot-exosquelette-atalante-x-etude-preliminaire",
+    "statut": "rejete_sensible",
+    "date": "2026-11-13T22:17:56",
+    "problemes_initiaux": 16,
+    "bloc5": [
+      "compteur_incoherent"
+    ],
+    "article_type": "actu",
+    "titre": "Maladie de Charcot : l'exosquelette Atalante X testé sur une dizaine de patients",
+    "n_sources": 3,
+    "n_mots": 726,
+    "titre_rss": "Remarcher grâce à un exosquelette",
+    "matiere_faits_distincts": 1097,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "etude_scientifique"
   }
 ]
