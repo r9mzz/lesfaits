@@ -69886,5 +69886,673 @@
     "n_sources_injectees": 10,
     "n_sources_trouvees": 10,
     "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "voile-ecole-insoumis-abrogation-loi-2004-melenchon",
+    "statut": "rejete_qualite",
+    "date": "2026-11-13T07:48:30",
+    "problemes_initiaux": 5,
+    "tentatives": 3,
+    "problemes_restants": 8,
+    "bloquants_restants": 3,
+    "bloquants_types": [
+      "source_inventee",
+      "source_inventee",
+      "source_inventee"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "Toutes les affirmations factuelles de l'article (citation de TataDrapi, réponse de Mélenchon, tensions internes, absence au programme) sont attribuées à la seule source [1], mais les extraits fournis pour la source [1] n",
+        "phrase": "L'Express rapporte dans son édition du 12 novembre 2026 que la créatrice de contenu TataDrapi a interpellé Jean-Luc Mélenchon sur la loi de 2004 interdisant les signes religieux ostentatoires à l'école publique [1]."
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "Le contexte attribue à la source [1] des informations (titre d'article, révélations sur la gauche/LFI) qui ne figurent pas dans les extraits fournis pour cette source.",
+        "phrase": "L'Express du 12 novembre 2006 consacre un article à \"l'autre bataille culturelle chez les insoumis\" sur la question du voile à l'école, révélant que la contestation de la loi de 2004 traverse à nouveau la gauche, cette f"
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "Les nuances critiquent des manques de la source [1], mais les extraits fournis pour cette source ne permettent pas de vérifier ce qu'elle contient ou ne contient pas — la source est invoquée comme autorité sans contenu v",
+        "phrase": ""
+      }
+    ],
+    "types_restants": [
+      "chronologie_confuse",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "compteur_incoherent",
+      "paraphrase_structurelle",
+      "redondance",
+      "contexte_hors_sujet"
+    ],
+    "article_type": "actu",
+    "titre": "Voile à l'école : des insoumis veulent abroger la loi de 2004",
+    "n_sources": 4,
+    "n_mots": 513,
+    "titre_rss": "Voile à l'école : l'autre bataille culturelle chez les insoumis",
+    "matiere_faits_distincts": 767,
+    "matiere_redondance": 0.11,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "alcool-reseaux-sociaux-loi-evin-addictions-france-rapport",
+    "statut": "rejete_qualite",
+    "date": "2026-11-13T07:58:17",
+    "tentative": 3,
+    "perte_substance": true,
+    "section": "nuances",
+    "mots_avant": 168,
+    "mots_apres": 58,
+    "article_type": "actu",
+    "titre": "Alcool sur les réseaux sociaux : Addictions France dénonce le contournement de la loi Evin",
+    "n_sources": 4,
+    "n_mots": 637,
+    "titre_rss": "Les marques d'alcool inondent les réseaux sociaux, dénonce un rapport",
+    "matiere_faits_distincts": 878,
+    "matiere_redondance": 0.01,
+    "matiere_donnees_chiffrees": 3,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "rapport"
+  },
+  {
+    "slug": "reservations-logements-neufs-chute-24-4-troisieme-trimestre-2026",
+    "statut": "rejete_qualite",
+    "date": "2026-11-13T08:07:03",
+    "problemes_initiaux": 6,
+    "tentatives": 3,
+    "problemes_restants": 10,
+    "bloquants_restants": 1,
+    "bloquants_types": [
+      "chiffre_errone"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [6] (data.gouv.fr) est un portail de jeux de données bruts, pas un communiqué publié le 12 novembre 2026 contenant ce chiffre précis ; aucun extrait fourni ne confirme la valeur 24,4 % ni sa date de publication",
+        "phrase": "Les données nationales sur la commercialisation des logements neufs publiées le 12 novembre 2026 font état d'un recul de 24,4 % des réservations au troisième trimestre 2026 sur un an [6]."
+      }
+    ],
+    "types_restants": [
+      "chiffre_errone",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "compteur_incoherent"
+    ],
+    "article_type": "actu",
+    "titre": "Réservations de logements neufs en chute de 24,4 % au troisième trimestre 2026",
+    "n_sources": 6,
+    "n_mots": 459,
+    "titre_rss": "Logements : les promoteurs immobiliers s’enfoncent un peu plus dans la crise",
+    "matiere_faits_distincts": 703,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "afd-contrat-objectifs-moyens-transmis-parlement-2026",
+    "statut": "rejete_sensible",
+    "date": "2026-11-13T08:18:18",
+    "problemes_initiaux": 20,
+    "bloc5": [
+      "affaire_en_cours_presentee_comme_fait"
+    ],
+    "article_type": "actu",
+    "titre": "L'AFD reçoit son contrat d'objectifs 2026-2030, l'APD à 0,37 % du RNB",
+    "n_sources": 4,
+    "n_mots": 620,
+    "titre_rss": "Enfin ! Le COM 2027-2029 de l'AFD - Rapport d'information n° 119",
+    "matiere_faits_distincts": 432,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "senat-resolution-bei-financement-armes-munitions-defense-europeenne",
+    "statut": "rejete_qualite",
+    "date": "2026-11-13T08:25:58",
+    "problemes_initiaux": 5,
+    "tentatives": 3,
+    "problemes_restants": 6,
+    "bloquants_restants": 2,
+    "bloquants_types": [
+      "source_inventee",
+      "source_inventee"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "La source [5] (OECD, The Footprint of Defence Production, 2024) ne figure pas dans les extraits fournis ; le fait attribué à cette source n'est pas vérifiable à partir des sources autorisées.",
+        "phrase": "L'OCDE souligne par ailleurs dans son rapport 2024 que l'empreinte de la production de défense reste concentrée géographiquement et que les chaînes d'approvisionnement présentent des vulnérabilités structurelles, ce qui "
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "La source [3] (Le Monde, 3 mai 2023) ne figure pas dans les extraits fournis ; le fait attribué à cette source n'est pas vérifiable à partir des sources autorisées.",
+        "phrase": "La Commission européenne a de son côté mobilisé 500 millions d'euros en mai 2023 pour accélérer la production de munitions via l'acte ASAP (Act in Support of Ammunition Production), ciblant une quinzaine d'usines europée"
+      }
+    ],
+    "types_restants": [
+      "source_inventee",
+      "source_inventee",
+      "contexte_hors_sujet",
+      "contexte_hors_sujet",
+      "compteur_incoherent",
+      "faux_debat"
+    ],
+    "article_type": "actu",
+    "titre": "Le Sénat adopte une résolution pour autoriser la BEI à financer armes et munitions",
+    "n_sources": 5,
+    "n_mots": 539,
+    "titre_rss": "Armes et munitions produites par les industries européennes de la défense - Rapport n° 879",
+    "matiere_faits_distincts": 939,
+    "matiere_redondance": 0.01,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "veille_heures_visible": 517.7,
+    "veille_passages": 326,
+    "veille_age_h": 2238.1,
+    "veille_n_flux_grappe": 4,
+    "nature_contenu": "decision_officielle"
+  },
+  {
+    "slug": "cop31-nepal-fonds-pertes-dommages-catastrophes-climatiques",
+    "statut": "corrige_automatiquement",
+    "date": "2026-11-13T08:41:36",
+    "problemes_initiaux": 15,
+    "tentatives": 3,
+    "problemes_residuels_style": 4,
+    "rapport_initial": {
+      "conforme": false,
+      "sujet_sensible": false,
+      "sujet_sensible_raison": "",
+      "angle_insuffisant": false,
+      "angle_insuffisant_raison": "",
+      "nature_contenu": "actualite_factuelle",
+      "problemes": [
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "chiffre_errone",
+          "phrase_exacte": "dont l'effondrement meurtrier d'un pan de montagne qui a fait des milliers de morts et de disparus [2]",
+          "explication": "La source [2] (WMO) ne mentionne aucun bilan de \"des milliers de morts et de disparus\" pour un effondrement de montagne au Népal ; elle évoque seulement des \"ice and rock collapses observed in China and Nepal\" sans chiffrer les victimes."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "Le Népal a subi deux catastrophes climatiques majeures dans les mois précédant la COP31, dont l'effondrement meurtrier d'un pan de montagne qui a fait des milliers de morts et de disparus [2]",
+          "explication": "Le fait d'un effondrement meurtrier faisant des milliers de morts est attribué à la source [2] (WMO) qui ne le confirme pas ; cette information n'apparaît dans aucune des quatre sources autorisées."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "chiffre_errone",
+          "phrase_exacte": "Le Népal n'est responsable que de 0,1 % des émissions mondiales de gaz à effet de serre [5]",
+          "explication": "La source [5] (France 24) n'est pas fournie en extrait ; le chiffre 0,1 % n'est pas vérifiable dans les sources listées et contredit les données usuelles (le Népal émet ~0,02 % des émissions mondiales)."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "Pour la première fois depuis sa création à la COP28, le fonds pertes et dommages a promis une aide d'urgence au Népal [5]",
+          "explication": "Aucune des quatre sources autorisées ne mentionne une promesse d'aide d'urgence du fonds pertes et dommages au Népal ; la source [5] (France 24) n'est pas fournie en extrait pour confirmer ce fait."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "Les versements tardent toutefois à être effectués et ne représenteraient qu'une infime part des besoins de reconstruction, évalués à plusieurs milliards de dollars par les autorités népalaises [6]",
+          "explication": "La source [6] (RFI) n'est pas fournie en extrait ; l'article attribue à cette source des détails (montant, calendrier, évaluation à plusieurs milliards) qui ne sont pas vérifiables avec les sources fournies."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "chiffre_errone",
+          "phrase_exacte": "La température moyenne mondiale de janvier à septembre 2026 s'établit à 1,47 °C au-dessus des niveaux préindustriels [2]",
+          "explication": "La source [2] (WMO) n'est pas fournie en extrait ; ce chiffre précis (1,47 °C pour jan-sept 2026) ne peut être vérifié et n'apparaît dans aucun extrait des sources autorisées."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "chiffre_errone",
+          "phrase_exacte": "L'année 2025 a été l'une des plus sèches pour les fleuves mondiaux depuis 35 ans [2]",
+          "explication": "La source [2] (WMO) n'est pas fournie en extrait ; cette affirmation chiffrée n'est pas vérifiable avec les sources fournies."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "Un épisode El Niño exceptionnel, le plus fort depuis au moins 1950, est en cours [2]",
+          "explication": "La source [2] (WMO) n'est pas fournie en extrait ; cette caractérisation d'El Niño (\"plus fort depuis au moins 1950\") n'est pas confirmée par les extraits des sources autorisées."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "Son effet sur la température globale culminant généralement l'année suivante, 2027 devrait établir un nouveau record planétaire [2]",
+          "explication": "La source [2] (WMO) n'est pas fournie en extrait ; cette prévision pour 2027 n'est pas vérifiable avec les sources fournies."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "The Guardian rapporte que les scientifiques annoncent une trajectoire vers 2,7 °C de réchauffement d'ici la fin du siècle, qualifiant le dépassement de 1,5 °C d'« irrecoverable overshoot » [4]",
+          "explication": "La source [4] (The Guardian) n'est pas fournie en extrait ; cette citation précise (\"irrecoverable overshoot\", trajectoire 2,7 °C) n'est pas vérifiable avec les sources autorisées."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "Le Premier ministre britannique Andy Burnham a affirmé que le Royaume-Uni était « de retour » sur la scène climatique, mais son discours a été critiqué pour son manque d'actions concrètes [4]",
+          "explication": "La source [4] (The Guardian) n'est pas fournie en extrait ; Andy Burnham n'est pas Premier ministre britannique (c'est le maire de Manchester) et cette déclaration n'est pas confirmée par les sources fournies."
+        },
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "compteur_incoherent",
+          "phrase_exacte": "nb_sources: 4",
+          "explication": "L'article cite des faits précis attribués aux sources [2], [4], [5], [6] mais aucune de ces sources n'est fournie en extrait pour vérification ; le compteur de 4 sources est incohérent avec l'absence de contenu exploitable des sources listées."
+        },
+        {
+          "bloc": 1,
+          "section": "resume",
+          "type": "chiffre_errone",
+          "phrase_exacte": "dont deux effondrements de montagne meurtriers juste avant la COP31 à Antalya",
+          "explication": "Le résumé mentionne \"deux effondrements de montagne meurtriers\" alors que les faits ne décrivent qu'un seul effondrement (\"l'effondrement meurtrier d'un pan de montagne\") et aucune source ne confirme deux effondrements distincts."
+        },
+        {
+          "bloc": 1,
+          "section": "resume",
+          "type": "source_inventee",
+          "phrase_exacte": "Pour la première fois, le fonds pertes et dommages créé à la COP28 a promis une aide d'urgence, mais les versements tardent et ne couvriraient qu'une fraction des besoins de reconstruction estimés à plusieurs milliards de dollars.",
+          "explication": "Aucune source fournie ne confirme cette promesse d'aide d'urgence du fonds pertes et dommages au Népal, ni les montants, ni les retards de versement."
+        },
+        {
+          "bloc": 1,
+          "section": "resume",
+          "type": "chiffre_errone",
+          "phrase_exacte": "l'OMM alerte sur une accélération du réchauffement en montagne et une probable année 2027 record sous l'effet d'un El Niño exceptionnel.",
+          "explication": "La source [2] (WMO) n'est pas fournie en extrait ; l'alerte sur 2027 record et l'El Niño \"exceptionnel\" ne sont pas vérifiables avec les sources autorisées."
+        }
+      ]
+    },
+    "article_type": "actu",
+    "titre": "COP31 : le Népal attend les versements du fonds pertes et dommages",
+    "n_sources": 4,
+    "n_mots": 578,
+    "titre_rss": "COP31: Le Népal, martyr du climat, en quête de réparations",
+    "matiere_faits_distincts": 1066,
+    "matiere_redondance": 0.01,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "tribune-le-monde-financement-innovations-rupture-climatique",
+    "statut": "conforme_du_premier_coup",
+    "date": "2026-11-13T08:56:32",
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "titre_de_mauvaise_qualite"
+    ],
+    "titre": "Tribune dans Le Monde : trois experts appellent à créer une entité pour financer les innovations de rupture",
+    "n_sources": 4,
+    "n_mots": 660,
+    "titre_rss": "Urgence climatique : « La France doit créer une entité dévolue au financement des innovations de rupture »",
+    "matiere_faits_distincts": 522,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "tribune"
+  },
+  {
+    "slug": "zimbabwe-mine-chinoise-pollution-populations-locales",
+    "statut": "rejete_qualite",
+    "date": "2026-11-13T09:12:06",
+    "angle_insuffisant": true,
+    "raison": "Aucune phrase dans 'faits' ne combine un événement précis daté (annonce, décision, publication récente) et une donnée chiffrée ou nommée qui lui est propre. L'article décrit une situation continue depuis 2021 sans fait déclencheur récent identifiable ; il répond à 'qu'est-ce que cette mine ?' plutôt qu'à 'pourquoi en parle-t-on maintenant ?'.",
+    "article_type": "actu",
+    "titre": "Au Zimbabwe, une mine chinoise pollue l'air et l'environnement des riverains",
+    "n_sources": 5,
+    "n_mots": 588,
+    "titre_rss": "Au Zimbabwe, promesses de réformes minières face aux ravages dénoncés par les populations locales",
+    "matiere_faits_distincts": 708,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "sujet_pedagogique"
+  },
+  {
+    "slug": "inserm-sept-fausses-idees-vaccins-campagne-2026-2027",
+    "statut": "rejete_sensible",
+    "date": "2026-11-13T09:43:33",
+    "problemes_initiaux": 12,
+    "tentative": 1,
+    "bloc5": true,
+    "article_type": "actu",
+    "titre": "L'Inserm déconstruit sept fausses idées sur les vaccins avant la campagne grippe-Covid",
+    "n_sources": 7,
+    "n_mots": 655,
+    "titre_rss": "Sept fausses idées sur les vaccins",
+    "matiere_faits_distincts": 883,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "cop31-onu-appel-elimination-energies-fossiles-guterres",
+    "statut": "rejete_qualite",
+    "date": "2026-11-13T10:06:56",
+    "problemes_initiaux": 1,
+    "tentatives": 3,
+    "problemes_restants": 10,
+    "bloquants_restants": 5,
+    "bloquants_types": [
+      "annonce_perimee",
+      "annonce_perimee",
+      "chiffre_errone",
+      "source_inventee",
+      "incoherence_inter_sections"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "annonce_perimee",
+        "description": "Le titre présente l'appel de l'ONU comme un événement passé ou actuel, mais la COP31 (novembre 2026) est postérieure à la date de publication des sources les plus récentes (novembre 2026 pour France Info et Le Monde, mai",
+        "phrase": "COP31 : l'ONU a appelé à éliminer les énergies fossiles"
+      },
+      {
+        "bloc": 1,
+        "type": "annonce_perimee",
+        "description": "Le résumé décrit l'ouverture de la COP31 comme un fait accompli daté du 10 novembre 2026, mais les sources [3] et [4] (France Info et Le Monde) sont datées des 10 et 11 novembre 2026 et rapportent l'événement comme venan",
+        "phrase": "Le secrétaire général de l'ONU Antonio Guterres a ouvert la COP31 à Antalya le 10 novembre 2026 en exhortant les dirigeants à éliminer les énergies fossiles, jugeant la crise climatique hors de contrôle [3][4]."
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "Aucune des sources fournies ne mentionne explicitement les dates exactes de la COP31 (10 au 21 novembre 2026). Les sources [3] et [4] mentionnent l'ouverture le 10 novembre 2026, mais pas la date de clôture. Cette inform",
+        "phrase": "La conférence, qui se déroule du 10 au 21 novembre 2026"
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "La source [5] est Le Monde, 'COP31 : pourquoi l'électrification est au cœur des discussions'. Le titre de l'article du Monde suggère que c'est le journal qui analyse pourquoi l'électrification est centrale, pas nécessair",
+        "phrase": "L'électrification est placée au centre des discussions par la présidence turque [5]."
+      },
+      {
+        "bloc": 1,
+        "type": "incoherence_inter_sections",
+        "description": "Dans le résumé, la source [2] est citée pour l'approche 'climate-smart development' de la Banque mondiale à la COP31. Dans les faits, la même chose est dite avec la source [2]. Mais dans les sources, [2] est 'The World B",
+        "phrase": "La Banque mondiale y présente son approche de développement climato-intelligent dans l'énergie, les transports, l'agriculture, les villes et la résilience [2]"
+      }
+    ],
+    "types_restants": [
+      "annonce_perimee",
+      "annonce_perimee",
+      "chiffre_errone",
+      "source_inventee",
+      "source_inventee",
+      "chronologie_confuse",
+      "redondance",
+      "compteur_incoherent",
+      "incoherence_inter_sections",
+      "paraphrase_structurelle"
+    ],
+    "article_type": "actu",
+    "titre": "COP31 : l'ONU appelle à éliminer les énergies fossiles",
+    "n_sources": 8,
+    "n_mots": 488,
+    "titre_rss": "A la COP31, l’ONU presse les dirigeants d’agir contre les énergies fossiles : « La vérité, brutale, est que la crise du climat nous dépasse », déclare Antonio Guterres",
+    "matiere_faits_distincts": 667,
+    "matiere_redondance": 0.11,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "label-bas-carbone-tourbieres-consultation-publique-methode-restauration",
+    "statut": "rejete_qualite",
+    "date": "2026-11-13T10:15:34",
+    "problemes_initiaux": 8,
+    "tentatives": 3,
+    "problemes_restants": 9,
+    "bloquants_restants": 7,
+    "bloquants_types": [
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "incoherence_inter_sections",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [5] (Citepa, 22 septembre 2025) indique « plus de 1 000 projets » et « plus de 3,5 millions de tonnes équivalent CO₂ », pas « près de 2 000 projets » ni « plus de 7 millions de tonnes ». Les chiffres du texte s",
+        "phrase": "Le décret n° 2025-917 du 5 septembre 2025, publié au Journal officiel le 6 septembre, autorise désormais la transférabilité et l'échangeabilité des crédits carbone du label bas carbone [5]. Depuis sa création en 2018, le"
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [5] (Citepa) ne mentionne pas la date de création du label (novembre 2018), ni l'extension à « une dizaine de secteurs dont le bâtiment, les transports et les déchets ». Ces informations ne figurent pas dans l'",
+        "phrase": "Le label bas carbone, créé par décret en novembre 2018, couvrait initialement la forêt et l'agriculture avant de s'étendre à une dizaine de secteurs dont le bâtiment, les transports et les déchets [5]."
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [4] (Novethic, 9 novembre 2026) est datée postérieurement à l'événement principal (consultation du 4 septembre au 3 octobre 2025). L'article présente cette source comme un éclairage contextuel, mais elle décrit",
+        "phrase": "Novethic rapporte dans son article du 9 novembre 2026 que les tourbières stockent plus de 3 milliards de tonnes de CO₂ dans le monde et souligne qu'au-delà de la stratégie climat, \"il y a un intérêt business\" pour les ac"
+      },
+      {
+        "bloc": 1,
+        "type": "incoherence_inter_sections",
+        "description": "La source [7] (Vie Publique, 16 octobre 2026) indique une consultation du 16 septembre au 7 octobre 2026. Or l'article principal porte sur une consultation de septembre-octobre 2025. La mention d'une consultation 2026 da",
+        "phrase": "Une consultation du groupe scientifique et technique du label bas carbone, ouverte du 16 septembre au 7 octobre 2026 sur la méthode d'enrichissement de régénérations naturelles vulnérables, est programmée selon le calend"
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "La source [5] (Citepa, 22 septembre 2025) mentionne bien la révision du label et la transférabilité des crédits, mais ne cite pas le numéro de décret « n° 2025-917 » ni la date exacte du 5 septembre 2025 ni la publicatio",
+        "phrase": "Le décret n° 2025-917 du 5 septembre 2025, publié au Journal officiel le 6 septembre, autorise désormais la transférabilité et l'échangeabilité des crédits carbone du label bas carbone [5]."
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "La source [5] ne contient aucune information sur la date de création (novembre 2018), ni sur l'extension sectorielle précise (bâtiment, transports, déchets). L'attribution [5] est fausse pour ces faits.",
+        "phrase": "Le label bas carbone, créé par décret en novembre 2018, couvrait initialement la forêt et l'agriculture avant de s'étendre à une dizaine de secteurs dont le bâtiment, les transports et les déchets [5]."
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "La source [2] (Le Monde, 4 septembre 2025) a pour titre « Forêts : le gouvernement cède à la pression d'acteurs économiques et crée des crédits carbone fictifs ». L'article attribue à cette source une révélation sur l'as",
+        "phrase": "Le Monde a révélé le 4 septembre 2025, jour même de l'ouverture de la consultation, que le ministère de la Transition écologique a assoupli l'encadrement du label bas carbone à la demande d'acteurs économiques, créant se"
+      }
+    ],
+    "types_restants": [
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "incoherence_inter_sections",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "redondance",
+      "contexte_hors_sujet"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "resume_repete_corps",
+      "faits_repetitifs",
+      "titre_de_mauvaise_qualite"
+    ],
+    "titre": "Label bas carbone tourbières : consultation publique ouverte sur la méthode de restauration hydraulique",
+    "n_sources": 7,
+    "n_mots": 566,
+    "titre_rss": "Nouveau label bas carbone tourbières : \"Il y a un intérêt business, au-delà de la stratégie climat\"",
+    "matiere_faits_distincts": 881,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "mobilisation-lyceenne-canicule-juin-adaptation-lycees-octobre-2026",
+    "statut": "rejete_qualite",
+    "date": "2026-11-13T10:21:41",
+    "angle_insuffisant": true,
+    "raison": "L'article ne démontre pas le lien de causalité annoncé dans l'angle ('Comment la canicule de juin a-t-elle catalysé la mobilisation d'octobre'). Les faits décrivent une mobilisation d'octobre 2026 et un contexte climatique de 2025, mais aucune source ne relie explicitement la canicule de juin 2026 (non documentée) au déclenchement du mouvement. Le lecteur ne sait pas ce qui s'est passé en juin 2026 ni pourquoi c'est publié maintenant.",
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "titre_de_mauvaise_qualite"
+    ],
+    "titre": "Mobilisation lycéenne : 30 % des lycées bloqués en octobre 2026 après l'été le plus chaud",
+    "n_sources": 4,
+    "n_mots": 607,
+    "titre_rss": "Les mobilisations lycéennes naissent aussi d’une prise de conscience de la crise climatique",
+    "matiere_faits_distincts": 889,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "jensen-huang-demission-nvidia-affaires-extraconjugales-espionnage",
+    "statut": "rejete_sensible",
+    "date": "2026-11-13T10:28:06",
+    "sujet_sensible": true,
+    "raison": "L'article met en cause nommément une personne physique (Jensen Huang) pour des allégations d'espionnage industriel et de relations extraconjugales non confirmées par la justice, ce qui constitue une mise en cause personnelle dans une affaire non définitivement jugée.",
+    "article_type": "actu",
+    "titre": "Jensen Huang démissionne de Nvidia après des révélations sur ses affaires extraconjugales",
+    "n_sources": 5,
+    "n_mots": 623,
+    "titre_rss": "Démission de Jensen Huang : derrière le scandale, une forte implication géopolitique",
+    "matiere_faits_distincts": 631,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "moisissures-asthme-adulte-etude-moldasth-risque-petites-surfaces",
+    "statut": "rejete_qualite",
+    "date": "2026-11-13T10:36:53",
+    "tentative": 1,
+    "angle_insuffisant": true,
+    "raison": "L'article ne répond pas à la question de l'angle ('Qu'apporte l'étude MOLDASTH ?') : aucune source ne mentionne l'étude MOLDASTH, aucun fait daté récent n'est exposé, le texte se contente de reprendre des rapports anciens (2005, 2009, 2016) sans actualité identifiable.",
+    "article_type": "actu",
+    "titre": "Moisissures et asthme : l'étude MOLDASTH confirme un risque même pour de petites surfaces",
+    "n_sources": 5,
+    "n_mots": 832,
+    "titre_rss": "Les moisissures dans l’air intérieur des logements favorisent l’asthme. Pourtant, ce risque est évitable",
+    "matiere_faits_distincts": 819,
+    "matiere_redondance": 0.04,
+    "matiere_donnees_chiffrees": 2,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "etude_scientifique"
+  },
+  {
+    "slug": "enquete-le-figaro-candidats-intransigeants-tests-delais-chomage-7-4",
+    "statut": "rejete_qualite",
+    "date": "2026-11-13T11:24:13",
+    "etape": "correction",
+    "tentative": 3,
+    "erreur": "HTTPSConnectionPool(host='integrate.api.nvidia.com', port=443): Read timed out. (read timeout=180)",
+    "bloquants_connus": 1,
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "resume_repete_corps"
+    ],
+    "titre": "Enquête Le Figaro : candidats intransigeants sur tests et délais malgré chômage à 7,4 %",
+    "n_sources": 6,
+    "n_mots": 697,
+    "titre_rss": "«Pendant 30 minutes, j’ai dû justifier mon choix à un recalé» : malgré un marché de l’emploi difficile, les candidats restent intransigeants",
+    "matiere_faits_distincts": 1215,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 3,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "trump-retour-pouvoir-bilan-climat-recherche-accord-paris",
+    "statut": "rejete_qualite",
+    "date": "2026-11-13T11:33:25",
+    "problemes_initiaux": 11,
+    "tentatives": 3,
+    "problemes_restants": 15,
+    "bloquants_restants": 1,
+    "bloquants_types": [
+      "chiffre_errone"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [3] (rapport du Sénat 2025) ne contient pas le chiffre de 11 milliards de dollars pour 2024 ; elle mentionne un engagement de 3 milliards pour le Fonds vert pour le climat (sur 2014-2018) et 11,4 milliards annu",
+        "phrase": "Le montant total fourni par les États-Unis en 2024 s'élevait à 11 milliards de dollars, désormais gelés [3]."
+      }
+    ],
+    "types_restants": [
+      "chiffre_errone",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "compteur_incoherent"
+    ],
+    "article_type": "actu",
+    "titre": "Retour de Trump : retrait de l'accord de Paris et coupes dans la recherche climatique",
+    "n_sources": 6,
+    "n_mots": 686,
+    "titre_rss": "Deux ans après le retour de Donald Trump au pouvoir, le bilan alarmant des climatologues américains",
+    "matiere_faits_distincts": 751,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 2,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
   }
 ]
