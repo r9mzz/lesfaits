@@ -71736,5 +71736,835 @@
     "n_sources_injectees": 10,
     "n_sources_trouvees": 10,
     "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "ecoles-ingenieurs-baisse-niveau-mathematiques-pisa-2025",
+    "statut": "rejete_qualite",
+    "date": "2026-11-14T17:08:43",
+    "angle_insuffisant": true,
+    "raison": "L'article ne répond pas à l'angle annoncé ('Comment les écoles d'ingénieurs font-elles face à la baisse du niveau en mathématiques des étudiants entrants ?') : aucune phrase des faits ne mentionne d'action, de mesure, d'adaptation ou de réaction concrète d'une école d'ingénieurs face à cette baisse. Le titre et le chapeau promettent un traitement centré sur les écoles d'ingénieurs, mais le corps ne cite que des résultats PISA et des questions parlementaires.",
+    "article_type": "actu",
+    "titre": "Baisse du niveau en maths : les écoles d'ingénieurs alertent sur les résultats PISA 2025",
+    "n_sources": 7,
+    "n_mots": 657,
+    "titre_rss": "Pour les écoles d’ingénieurs, la difficile équation de la baisse du niveau en maths",
+    "matiere_faits_distincts": 1333,
+    "matiere_redondance": 0.08,
+    "matiere_donnees_chiffrees": 2,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "senat-adopte-taxe-produits-sucre-ultratransformes-budget-securite-sociale-2027",
+    "statut": "rejete_sensible",
+    "date": "2026-11-14T17:17:34",
+    "problemes_initiaux": 9,
+    "tentative": 3,
+    "bloc5": true,
+    "article_type": "actu",
+    "titre": "Le Sénat adopte une taxe sur les produits sucrés et ultratransformés dans le budget 2027",
+    "n_sources": 4,
+    "n_mots": 509,
+    "titre_rss": "Pour lutter contre la malbouffe, le Sénat veut taxer les produits sucrés",
+    "matiere_faits_distincts": 524,
+    "matiere_redondance": 0.03,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "marche-blanche-change-six-ans-mort-lilou-parents-attendent-reponses",
+    "statut": "rejete_sensible",
+    "date": "2026-11-14T17:24:29",
+    "sujet_sensible": true,
+    "raison": "L'article porte sur une affaire judiciaire en cours (information judiciaire pour homicide involontaire non close, aucune mise en examen à ce stade) impliquant la mort d'une mineure de 9 ans, avec des parents qui dénoncent l'absence de réponse judiciaire et administrative. Une personne mineure est impliquée en tant que victime.",
+    "article_type": "actu",
+    "titre": "Marche blanche à Changé : 130 personnes pour Lilou, six ans après",
+    "n_sources": 4,
+    "n_mots": 502,
+    "titre_rss": "REPORTAGE. « Décédée sans secours » : ils commémorent la mémoire de Lilou, morte après une chute dans une cour d’école",
+    "matiere_faits_distincts": 1137,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "incendies-indonesie-el-nino-climat-deforestation-2026",
+    "statut": "rejete_sensible",
+    "date": "2026-11-14T17:36:16",
+    "problemes_initiaux": 12,
+    "tentative": 3,
+    "bloc5": true,
+    "article_type": "actu",
+    "titre": "Incendies en Indonésie : El Niño, climat et déforestation ont brûlé 2,88 millions d'hectares",
+    "n_sources": 6,
+    "n_mots": 539,
+    "titre_rss": "El Niño est le principal responsable des incendies en Indonésie, conclut un rapport",
+    "matiere_faits_distincts": 803,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "etude_scientifique"
+  },
+  {
+    "slug": "senat-resolution-bei-financement-armes-munitions-europeennes",
+    "statut": "rejete_qualite",
+    "date": "2026-11-14T17:50:33",
+    "problemes_initiaux": 10,
+    "tentatives": 3,
+    "problemes_restants": 10,
+    "bloquants_restants": 2,
+    "bloquants_types": [
+      "chiffre_errone",
+      "chiffre_errone"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [2] est datée du 23 octobre 2026, date future par rapport à la date de publication des sources autorisées (juillet 2026 maximum) ; l'adoption de cette résolution n'est pas confirmée par les extraits fournis.",
+        "phrase": "Le Sénat a adopté le 23 octobre 2026 la résolution n° 17 (2026-2027) visant à inclure les armes et munitions produites par les industries européennes de défense dans le champ de financement de la Banque européenne d'inve"
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "Même erreur de date : le vote du 23 octobre 2026 n'est attesté par aucune source fournie (la source [1] ne décrit que l'examen en commission du 8 juillet 2026).",
+        "phrase": "Le 23 octobre 2026, le Sénat a voté une résolution européenne réclamant que la Banque européenne d'investissement élargisse son périmètre aux armes et munitions issues de l'industrie de défense de l'Union."
+      }
+    ],
+    "types_restants": [
+      "chiffre_errone",
+      "chiffre_errone",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_derivee_comptee_comme_primaire",
+      "compteur_incoherent",
+      "contexte_hors_sujet"
+    ],
+    "article_type": "actu",
+    "titre": "Le Sénat adopte une résolution pour ouvrir le financement de la BEI aux armes européennes",
+    "n_sources": 4,
+    "n_mots": 549,
+    "titre_rss": "Armes et munitions produites par les industries européennes de la défense - Rapport n° 879",
+    "matiere_faits_distincts": 602,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "veille_heures_visible": 517.7,
+    "veille_passages": 326,
+    "veille_age_h": 2271.5,
+    "veille_n_flux_grappe": 4,
+    "nature_contenu": "decision_officielle"
+  },
+  {
+    "slug": "ebola-bundibugyo-vaccins-zaire-anticorps-croises-etude-inserm",
+    "statut": "rejete_qualite",
+    "date": "2026-11-14T18:06:18",
+    "problemes_initiaux": 11,
+    "tentatives": 3,
+    "problemes_restants": 6,
+    "bloquants_restants": 3,
+    "bloquants_types": [
+      "chiffre_errone",
+      "chiffre_errone",
+      "incoherence_inter_sections"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [2] (UN News, 5 novembre 2026) indique « more than 1,000 confirmed and probable cases » (plus de 1 000 cas confirmés et probables), et non « plus de 5 000 ». Le chiffre de l'article est erroné par rapport à la ",
+        "phrase": "L'épidémie actuelle de maladie à virus Ebola Bundibugyo en République démocratique du Congo totalisait plus de 5 000 cas confirmés et probables au 5 novembre 2026, selon l'ONU [2]."
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [2] (UN News, 5 novembre 2026) indique que l'essai Tumaini a été lancé le 23 octobre 2024, mais ne précise pas qu'il teste Ervebo pour déterminer son efficacité contre Bundibugyo ; elle mentionne l'ajout de ChA",
+        "phrase": "L'essai, lancé le 23 octobre 2024 à Bunia (Ituri), utilise une approche de vaccination en anneau et teste déjà Ervebo pour déterminer son efficacité contre la souche Bundibugyo [2]."
+      },
+      {
+        "bloc": 1,
+        "type": "incoherence_inter_sections",
+        "description": "Le résumé (chapeau) reprend le même chiffre erroné (« plus de 5 000 cas confirmés et probables au 5 novembre 2026 selon l'ONU »), créant une incohérence entre le résumé et la source [2] qui indique « more than 1,000 ». L",
+        "phrase": "L'épidémie actuelle de maladie à virus Ebola Bundibugyo en République démocratique du Congo totalisait plus de 5 000 cas confirmés et probables au 5 novembre 2026, selon l'ONU [2]."
+      }
+    ],
+    "types_restants": [
+      "chiffre_errone",
+      "chiffre_errone",
+      "source_inventee",
+      "incoherence_inter_sections",
+      "redondance",
+      "compteur_incoherent"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "resume_repete_corps"
+    ],
+    "titre": "Ebola Bundibugyo : les vaccins anti-Zaïre induisent des anticorps croisés sans preuve clinique",
+    "n_sources": 4,
+    "n_mots": 629,
+    "titre_rss": "Épidémie d’Ebola Bundibugyo : des premiers résultats pour guider la recherche d’un vaccin efficace",
+    "matiere_faits_distincts": 733,
+    "matiere_redondance": 0.01,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "veille_heures_visible": 517.7,
+    "veille_passages": 311,
+    "veille_age_h": 2271.5,
+    "veille_n_flux_grappe": 9,
+    "nature_contenu": "etude_scientifique"
+  },
+  {
+    "slug": "canicules-marines-2026-records-temperature-impacts-ecosystemes-cotiers",
+    "statut": "rejete_qualite",
+    "date": "2026-11-14T18:20:04",
+    "problemes_initiaux": 11,
+    "tentatives": 3,
+    "problemes_restants": 10,
+    "bloquants_restants": 3,
+    "bloquants_types": [
+      "chiffre_errone",
+      "chiffre_errone",
+      "source_inventee"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [2] indique que les huîtres creuses ont pondu 'entre deux et trois semaines plus tôt qu'il y a 10 ans' (et non 20 ans), ce qui modifie la référence temporelle de la comparaison.",
+        "phrase": "En 2025, les huîtres creuses ont pondu entre deux et trois semaines plus tôt qu'il y a 20 ans [2]."
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [2] précise que les huîtres creuses peuvent pondre 'jusqu'à 5 fois par an contre 3 fois il y a 10 ans' (et non 15 ans), ce qui change l'intervalle de comparaison.",
+        "phrase": "À Thau, elles peuvent pondre jusqu'à cinq fois par an, contre trois fois il y a 15 ans [2]."
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "Cette affirmation factuelle n'est attribuée à aucune source via un renvoi [n] et ne figure dans aucun des extraits des six sources autorisées.",
+        "phrase": "Les aires marines protégées, si elles sont correctement mises en œuvre, peuvent devenir des refuges cruciaux pour la biodiversité face aux canicules marines."
+      }
+    ],
+    "types_restants": [
+      "chiffre_errone",
+      "chiffre_errone",
+      "contexte_hors_sujet",
+      "contexte_hors_sujet",
+      "contexte_hors_sujet",
+      "contexte_hors_sujet",
+      "redondance",
+      "source_inventee",
+      "compteur_incoherent",
+      "section_gonflee"
+    ],
+    "article_type": "actu",
+    "titre": "Canicules marines 2026 : records de température et impacts mesurés sur les écosystèmes côtiers",
+    "n_sources": 6,
+    "n_mots": 692,
+    "titre_rss": "La biodiversité face aux canicules marines",
+    "matiere_faits_distincts": 890,
+    "matiere_redondance": 0.01,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "inserm-sept-fausses-idees-vaccins-campagne-grippe-covid-2026",
+    "statut": "rejete_sensible",
+    "date": "2026-11-14T18:34:59",
+    "problemes_initiaux": 13,
+    "tentative": 2,
+    "bloc5": true,
+    "article_type": "actu",
+    "titre": "L'Inserm liste sept fausses idées sur les vaccins avant la campagne du 13 octobre",
+    "n_sources": 5,
+    "n_mots": 786,
+    "titre_rss": "Sept fausses idées sur les vaccins",
+    "matiere_faits_distincts": 706,
+    "matiere_redondance": 0.15,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "maria-melchior-epidemiologiste-sante-mentale-inegalites-sociales",
+    "statut": "rejete_qualite",
+    "date": "2026-11-14T18:42:15",
+    "angle_insuffisant": true,
+    "raison": "Aucune phrase des faits ne contient à la fois un événement précis daté (annonce, publication, décision, résultat récent) et une donnée chiffrée ou nommée qui lui est propre. L'article répond à « qui est Maria Melchior ? » (profil biographique) plutôt qu'à « pourquoi en parle-t-on maintenant ? » ; la tribune de décembre 2025 est citée mais non datée dans les faits, et le projet de loi de finances 2027 (octobre 2026) n'est mentionné que dans le contexte sans lien direct avec son travail.",
+    "article_type": "actu",
+    "titre": "Maria Melchior, l'épidémiologiste qui replace la santé mentale dans son contexte social",
+    "n_sources": 4,
+    "n_mots": 456,
+    "titre_rss": "Maria Melchior, l’épidémiologiste pour laquelle « la santé mentale n’est pas qu’une affaire de cerveau »",
+    "matiere_faits_distincts": 650,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "sujet_pedagogique"
+  },
+  {
+    "slug": "cyberattaque-iran-frigos-supermarches-700-sites-visés",
+    "statut": "rejete_sensible",
+    "date": "2026-11-14T18:55:08",
+    "problemes_initiaux": 18,
+    "bloc5": [
+      "affaire_en_cours_presentee_comme_fait"
+    ],
+    "article_type": "actu",
+    "titre": "Cyberattaque iranienne : 700 sites de grande distribution visés, des départs de feu signalés",
+    "n_sources": 5,
+    "n_mots": 766,
+    "titre_rss": "Ce que l’on sait de la cyberattaque contre des frigos de supermarchés en France",
+    "matiere_faits_distincts": 901,
+    "matiere_redondance": 0.01,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "imc-limites-etude-nature-tour-taille-obesite",
+    "statut": "rejete_sensible",
+    "date": "2026-11-14T19:03:58",
+    "problemes_initiaux": 18,
+    "tentative": 2,
+    "bloc5": true,
+    "article_type": "actu",
+    "titre": "Une étude Nature sur 844 000 adultes confirme les limites de l'IMC",
+    "n_sources": 4,
+    "n_mots": 558,
+    "titre_rss": "Surpoids et obésité : l’IMC montre ses limites, une étude le confirme",
+    "matiere_faits_distincts": 1016,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 9,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "etude_scientifique"
+  },
+  {
+    "slug": "inondations-gaza-ue-acces-humanitaire-immediat-deces-deplaces",
+    "statut": "rejete_qualite",
+    "date": "2026-11-14T19:21:28",
+    "problemes_initiaux": 14,
+    "tentatives": 3,
+    "problemes_restants": 8,
+    "bloquants_restants": 4,
+    "bloquants_types": [
+      "chiffre_errone",
+      "chiffre_errone",
+      "incoherence_inter_sections",
+      "source_inventee"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [1] (Le Monde, 14/11/2026) indique « 1,9 million de personnes, soit 80 % de la population » déplacées, dont la majorité vit sous tente, et non 65 % ni 1,4 million.",
+        "phrase": "Environ 65 % de la population gazaouie, soit 1,4 million de personnes, vit désormais dans des tentes ou des abris de fortune, d'après les Nations unies [1]."
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [1] mentionne « plus de 100 000 tentes » bloquées à la frontière, et non « plus de 150 000 ».",
+        "phrase": "Plus de 150 000 tentes se trouvent à l'extérieur de l'enclave, prêtes à entrer, mais leur acheminement est entravé par les restrictions israéliennes et des manques de financement, selon OCHA [1]."
+      },
+      {
+        "bloc": 1,
+        "type": "incoherence_inter_sections",
+        "description": "La source [3] (RDNA avril 2026) évalue les besoins à 53,6 milliards $ pour la période jusqu'à janvier 2026 ; la source [6] (FIF, nov. 2025) ne mentionne pas un addendum à 67 milliards $. Les deux chiffres (53,6 vs 67) so",
+        "phrase": "La Banque mondiale, avec l'ONU et l'UE, a publié en avril 2026 une évaluation rapide des dommages et besoins (RDNA) couvrant la période d'octobre 2023 à octobre 2025 [3]. Les besoins totaux de reconstruction et de relève"
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "La source [5] (BBC, 14/11/2026) cite le « Gaza Humanitarian Mechanism » (GHM) et non un « Board of Peace » ; cette dénomination n'apparaît pas dans la source autorisée.",
+        "phrase": "Le Board of Peace, organe soutenu par les États-Unis chargé de superviser le plan de paix pour Gaza, a qualifié la réponse israélienne d'« insuffisante » [5]."
+      }
+    ],
+    "types_restants": [
+      "chiffre_errone",
+      "chiffre_errone",
+      "chronologie_confuse",
+      "incoherence_inter_sections",
+      "source_inventee",
+      "acteur_mis_en_cause_sans_reponse",
+      "contexte_hors_sujet",
+      "redondance"
+    ],
+    "article_type": "actu",
+    "titre": "Inondations à Gaza : l'UE exige un accès humanitaire immédiat",
+    "n_sources": 6,
+    "n_mots": 700,
+    "titre_rss": "Inondations à Gaza : l’UE exhorte Israël à garantir un accès humanitaire « immédiat » et « sans entrave »",
+    "matiere_faits_distincts": 844,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "france-moratoire-peche-loisir-anguille-jaune-14-novembre-2026",
+    "statut": "corrige_automatiquement",
+    "date": "2026-11-14T19:28:23",
+    "problemes_initiaux": 10,
+    "tentatives": 2,
+    "problemes_residuels_style": 11,
+    "rapport_initial": {
+      "conforme": false,
+      "sujet_sensible": false,
+      "sujet_sensible_raison": "",
+      "angle_insuffisant": false,
+      "angle_insuffisant_raison": "",
+      "nature_contenu": "decision_officielle",
+      "problemes": [
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "chiffre_errone",
+          "phrase_exacte": "Un décret paru au Journal officiel le samedi 14 novembre 2026 instaure un moratoire sur la pêche de loisir en eau douce de l'anguille d'Europe sur l'ensemble du territoire français [3].",
+          "explication": "La source [3] (Le Monde, 14/11/2026) indique que le décret a été publié le 13 novembre 2026 (vendredi), pas le 14 novembre (samedi)."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "chiffre_errone",
+          "phrase_exacte": "En Europe, les effectifs ont diminué de quelque 90 % depuis les années 1980 et de plus de 99 % par rapport aux années 1960 [1][3].",
+          "explication": "La source [1] (Conseil d'État, 05/12/2025) ne contient pas ces chiffres d'effondrement démographique (90% depuis les années 1980, 99% depuis les années 1960). La source [3] (Le Monde) les mentionne, mais l'attribution double [1][3] est erronée pour la source [1]."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "chiffre_errone",
+          "phrase_exacte": "Le Conseil d'État a été saisi fin 2025 par l'Association française d'étude et de protection des poissons (AFEPP) contre l'arrêté du 28 octobre 2025 fixant le quota de civelles pour les campagnes 2025-2026 et 2026-2027, l'association contestant notamment le niveau du quota (55 tonnes) au regard de l'avis du CIEM préconisant zéro capture en 2026 [2].",
+          "explication": "La source [2] (Conseil d'État, décision n° 509604 du 05/12/2025) concerne un référé-suspension contre l'arrêté du 28 octobre 2025 fixant le quota pour la campagne 2025-2026 à 56,7 tonnes (pas 55 tonnes, pas deux campagnes 2025-2026 et 2026-2027). L'article mélange deux arrêtés différents."
+        },
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "Un décret paru au Journal officiel le samedi 14 novembre 2026 instaure un moratoire sur la pêche de loisir en eau douce de l'anguille d'Europe sur l'ensemble du territoire français [3].",
+          "explication": "Le renvoi [3] attribue à la source Le Monde la date du 14 novembre 2026 et le contenu précis du décret, mais la source [3] indique une publication le 13 novembre 2026. Le fait attribué ne correspond pas à la source citée."
+        },
+        {
+          "bloc": 2,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "En Europe, les effectifs ont diminué de quelque 90 % depuis les années 1980 et de plus de 99 % par rapport aux années 1960 [1][3].",
+          "explication": "Le renvoi [1] attribue ces chiffres à la décision du Conseil d'État, qui ne les contient pas. Seule la source [3] (Le Monde) les mentionne."
+        },
+        {
+          "bloc": 2,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "Le Conseil d'État a été saisi fin 2025 par l'Association française d'étude et de protection des poissons (AFEPP) contre l'arrêté du 28 octobre 2025 fixant le quota de civelles pour les campagnes 2025-2026 et 2026-2027, l'association contestant notamment le niveau du quota (55 tonnes) au regard de l'avis du CIEM préconisant zéro capture en 2026 [2].",
+          "explication": "Le renvoi [2] attribue à la décision du Conseil d'État des détails (deux campagnes, quota de 55 tonnes) que cette source ne confirme pas. La décision du 05/12/2025 ne porte que sur l'arrêté 2025-2026 à 56,7 tonnes."
+        },
+        {
+          "bloc": 2,
+          "section": "sources",
+          "type": "compteur_incoherent",
+          "phrase_exacte": "\"nb_sources\": 4",
+          "explication": "Le tableau sources ne liste que 3 entrées (Le Monde, Conseil d'État, AAAS/Science), mais le champ nb_sources indique 4."
+        },
+        {
+          "bloc": 2,
+          "section": "sources",
+          "type": "source_inventee",
+          "phrase_exacte": "\"institution\": \"AAAS\", \"titre\": \"Science | AAAS\"",
+          "explication": "La source AAAS/Science (doi 10.1126/science.168.3931.568, 1970) n'est pas utilisée dans le corps de l'article (aucun renvoi [n] ne pointe vers elle). Elle figure dans la bibliographie sans être citée, ce qui n'est pas une source_inventee au sens strict, mais l'entrée est anachronique et non pertinente pour l'article de 2026."
+        },
+        {
+          "bloc": 3,
+          "section": "contexte",
+          "type": "paraphrase_structurelle",
+          "phrase_exacte": "L'effondrement des populations d'anguilles européennes motive cette décision. En Europe, les effectifs ont diminué de quelque 90 % depuis les années 1980 et de plus de 99 % par rapport aux années 1960 [1][3]. Les causes principales identifiées sont la surpêche, la disparition des zones humides, l'aménagement des rivières avec les barrages et la pollution de l'eau [3]. L'espèce figure depuis 2009 à l'annexe II de la CITES, qui recense les espèces non menacées d'extinction mais risquant de le devenir [3].",
+          "explication": "Ce paragraphe reprend la structure et le vocabulaire de l'article Le Monde [3] sans reformulation suffisante (énumération identique des causes, même chiffre CITES 2009, même formulation 'effondrement des populations')."
+        },
+        {
+          "bloc": 4,
+          "section": "contexte",
+          "type": "contexte_hors_sujet",
+          "phrase_exacte": "Le Conseil d'État a été saisi fin 2025 par l'Association française d'étude et de protection des poissons (AFEPP) contre l'arrêté du 28 octobre 2025 fixant le quota de civelles pour les campagnes 2025-2026 et 2026-2027, l'association contestant notamment le niveau du quota (55 tonnes) au regard de l'avis du CIEM préconisant zéro capture en 2026 [2].",
+          "explication": "Ce développement sur les quotas de civelles (stade juvénile, mer) n'éclaire pas directement le sujet principal qui est le moratoire sur la pêche de loisir de l'anguille jaune (stade adulte, eau douce). C'est un contentieux distinct, tangentiel, qui sert à remplir la section contexte."
+        }
+      ]
+    },
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "titre_de_mauvaise_qualite"
+    ],
+    "titre": "France : moratoire national sur la pêche de loisir de l'anguille jaune",
+    "n_sources": 3,
+    "n_mots": 521,
+    "titre_rss": "La France interdit la pêche de loisir de l’anguille jaune, pour contrer l’effondrement de cette espèce",
+    "matiere_faits_distincts": 644,
+    "matiere_redondance": 0.04,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "decision_officielle"
+  },
+  {
+    "slug": "hantavirus-andes-genome-sequencage-epidemie-mv-hondius",
+    "statut": "rejete_sensible",
+    "date": "2026-11-14T19:46:52",
+    "problemes_initiaux": 19,
+    "bloc5": [
+      "affaire_en_cours_presentee_comme_fait"
+    ],
+    "article_type": "actu",
+    "titre": "Le génome du hantavirus Andes séquencé pour retracer l'épidémie du MV Hondius",
+    "n_sources": 4,
+    "n_mots": 641,
+    "titre_rss": "Hantavirus : décrypter la souche Andes, une étape essentielle pour retracer le parcours de l’épidémie",
+    "matiere_faits_distincts": 438,
+    "matiere_redondance": 0.04,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "etude_scientifique"
+  },
+  {
+    "slug": "chantiers-centres-donnees-enquete-europeenne-travailleurs-exploites",
+    "statut": "rejete_qualite",
+    "date": "2026-11-14T19:56:04",
+    "problemes_initiaux": 15,
+    "tentatives": 3,
+    "problemes_restants": 9,
+    "bloquants_restants": 2,
+    "bloquants_types": [
+      "chiffre_errone",
+      "source_inventee"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [1] indique 11 000 volts (11 kV), pas 11 000 volts comme écrit ; l'article ajoute un zéro superflu (110 000 volts serait 110 kV).",
+        "phrase": "Le 9 septembre 2024, un chantier Google à Farciennes en Belgique a été temporairement fermé après l'hospitalisation d'un agent de sécurité, une grue ayant heurté des lignes électriques de 11 000 volts [1]."
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "Le renvoi [1] pointe vers l'article du Monde en français, mais le texte attribue l'enquête à \"Investigate Europe\" (consortium) alors que la source [1] est un article du Monde relayant cette enquête ; le consortium n'est ",
+        "phrase": "Une enquête de cinq mois menée par le consortium journalistique Investigate Europe avec des partenaires dans huit pays, dont Le Monde, révèle la multiplication de pratiques dangereuses sur les chantiers de construction d"
+      }
+    ],
+    "types_restants": [
+      "chiffre_errone",
+      "chronologie_confuse",
+      "acteur_mis_en_cause_sans_reponse",
+      "source_inventee",
+      "source_derivee_comptee_comme_primaire",
+      "compteur_incoherent",
+      "cadrage_emprunte",
+      "redondance",
+      "contexte_hors_sujet"
+    ],
+    "article_type": "actu",
+    "titre": "Enquête Investigate Europe : accidents graves sur chantiers Google, Microsoft, Equinix en Europe",
+    "n_sources": 6,
+    "n_mots": 672,
+    "titre_rss": "Data centers : sur les chantiers de construction européens, des travailleurs exploités dans un climat de « terreur »",
+    "matiere_faits_distincts": 963,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "poireaux-laitues-55-pour-cent-plus-chers-chaos-climatique-prix-alimentaires",
+    "statut": "rejete_qualite",
+    "date": "2026-11-14T20:18:00",
+    "problemes_initiaux": 21,
+    "tentatives": 3,
+    "problemes_restants": 8,
+    "bloquants_restants": 6,
+    "bloquants_types": [
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [5] est datée du 14 septembre 2026, soit une date future par rapport à la publication de l'article (qui cite des sources de 2025 et 2022) ; l'article présente cette source comme un fait passé (« rapporte ») alo",
+        "phrase": "L'article du Monde du 14 septembre 2026 rapporte que la sécheresse fait craindre une hausse des prix des fruits et légumes et des produits alimentaires dans les grandes surfaces, les professionnels du secteur anticipant "
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [4] est datée du 21 juillet 2025, soit une date future par rapport aux autres sources (2022, 2026 pour l'ONU) et probablement future par rapport à la rédaction ; l'article la cite comme un fait acquis (« détail",
+        "phrase": "L'article du Monde du 21 juillet 2025 détaille comment le réchauffement climatique fait grimper les prix de l'alimentation en France, en soulignant la vulnérabilité des filières fruits et légumes aux aléas météorologique"
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "Même problème : la source [4] est datée de juillet 2025, présentée comme un article déjà paru (« explique ») alors qu'il s'agit d'une date future.",
+        "phrase": "L'article du Monde du 21 juillet 2025 explique que les épisodes de canicule et de sécheresse se multiplient en France, réduisant les rendements du blé, du maïs et des prairies, ce qui renchérit l'alimentation animale et,"
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "La source [5] est datée du 14 septembre 2026 ; à la date de rédaction de l'article (qui ne peut être antérieure aux sources de 2022 et 2025 citées), cette source n'existe pas encore — elle est inventée ou sa date est err",
+        "phrase": "L'article du Monde du 14 septembre 2026 rapporte que la sécheresse fait craindre une hausse des prix des fruits et légumes et des produits alimentaires dans les grandes surfaces, les professionnels du secteur anticipant "
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "La source [4] est datée du 21 juillet 2025 ; si l'article est rédigé avant cette date, la source n'existe pas encore et ne peut être citée comme déjà parue.",
+        "phrase": "L'article du Monde du 21 juillet 2025 détaille comment le réchauffement climatique fait grimper les prix de l'alimentation en France, en soulignant la vulnérabilité des filières fruits et légumes aux aléas météorologique"
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "Même source [4] datée de juillet 2025, citée comme déjà publiée dans la section contexte.",
+        "phrase": "L'article du Monde du 21 juillet 2025 explique que les épisodes de canicule et de sécheresse se multiplient en France, réduisant les rendements du blé, du maïs et des prairies, ce qui renchérit l'alimentation animale et,"
+      }
+    ],
+    "types_restants": [
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "fait_tranche_arbitrairement",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "compteur_incoherent"
+    ],
+    "article_type": "actu",
+    "titre": "Poireaux et laitues 55 % plus chers : le climat fait grimper les prix",
+    "n_sources": 6,
+    "n_mots": 592,
+    "titre_rss": "Des poireaux 55 % plus cher : le chaos climatique fait grimper le prix des aliments",
+    "matiere_faits_distincts": 780,
+    "matiere_redondance": 0.02,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "rapport"
+  },
+  {
+    "slug": "vacataires-universitaires-mobilisation-precariete-matignon",
+    "statut": "corrige_automatiquement",
+    "date": "2026-11-14T20:24:35",
+    "problemes_initiaux": 7,
+    "tentatives": 1,
+    "problemes_residuels_style": 10,
+    "rapport_initial": {
+      "conforme": false,
+      "sujet_sensible": false,
+      "sujet_sensible_raison": "",
+      "angle_insuffisant": false,
+      "angle_insuffisant_raison": "",
+      "nature_contenu": "actualite_factuelle",
+      "problemes": [
+        {
+          "bloc": 1,
+          "section": "titre",
+          "type": "fait_tranche_arbitrairement",
+          "phrase_exacte": "Vacataires #JesuisLéa reçus à Matignon le 14 novembre 2026",
+          "explication": "Le titre affirme que les vacataires ont été reçus à Matignon le 14 novembre 2026, mais la source [1] (Libération du 14/11/2026) ne mentionne pas de réception à Matignon ce jour-là ; elle rapporte une manifestation et des témoignages de précaires. La réception à Matignon n'est pas confirmée par les extraits fournis."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "fait_tranche_arbitrairement",
+          "phrase_exacte": "Des vacataires de l'université, organisés au sein du collectif #JesuisLéa, se sont rendus jusqu'à Matignon pour demander des conditions de travail dignes, portés par la dynamique du mouvement lycéen, étudiant et contre la vie chère [1].",
+          "explication": "La phrase affirme qu'ils se sont rendus jusqu'à Matignon, mais la source [1] ne précise pas qu'ils ont été reçus ou qu'ils se sont rendus physiquement à Matignon ; elle décrit une mobilisation et des témoignages. L'article généralise un déplacement non attesté."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "Ils dénoncent des revenus très bas, une navigation entre chômage et dettes, des retards de paiement récurrents et l'absence fréquente de contrat formalisé [1][4].",
+          "explication": "La source [4] (Libération, même date, titre sur l'agression du vice-président de l'université de Versailles) ne traite pas des conditions des vacataires ; elle ne confirme pas les retards de paiement ni l'absence de contrat. Le renvoi [4] est donc une attribution inventée pour ces faits."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "contexte_hors_sujet",
+          "phrase_exacte": "Le Conseil d'État a également publié en 2024 une étude sur l'encadrement de l'enseignement supérieur privé, qui a inspiré un projet de loi déposé à l'Assemblée nationale en juillet 2025 [5].",
+          "explication": "Ce fait porte sur l'encadrement du privé et un projet de loi, sans lien direct avec la mobilisation des vacataires #JesuisLéa ni leur précarité ; il ne sert qu'à remplir la section contexte."
+        },
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "source_derivee_comptee_comme_primaire",
+          "phrase_exacte": "Des vacataires de l'université, organisés au sein du collectif #JesuisLéa, se sont rendus jusqu'à Matignon pour demander des conditions de travail dignes, portés par la dynamique du mouvement lycéen, étudiant et contre la vie chère [1].",
+          "explication": "Les sources [1] et [4] sont deux articles de Libération publiés le même jour (14/11/2026) qui reprennent le même sujet (précaires de l'enseignement supérieur) ; ils ne constituent pas deux sources indépendantes. Le champ nb_sources=5 compte ces deux articles séparément, gonflant artificiellement le nombre de sources primaires."
+        },
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "compteur_incoherent",
+          "phrase_exacte": "Des vacataires de l'université, organisés au sein du collectif #JesuisLéa, se sont rendus jusqu'à Matignon pour demander des conditions de travail dignes, portés par la dynamique du mouvement lycéen, étudiant et contre la vie chère [1].",
+          "explication": "Le champ nb_sources indique 5, mais les sources [1] et [4] sont deux URL de Libération du même jour sur le même thème, et [2] et [3] émanent toutes deux de Vie Publique ; le nombre de sources distinctes et indépendantes est inférieur à 5, ce qui fausse l'indicateur d'intégrité du sourcing."
+        },
+        {
+          "bloc": 4,
+          "section": "nuances",
+          "type": "redondance",
+          "phrase_exacte": "L'analyse du Monde souligne que le boom démographique actuel pousse plus de candidats vers les universités, cristallisant les angoisses des lycéens et révélant des tensions structurelles sur l'offre de formation [6].",
+          "explication": "Cette phrase répète l'idée déjà présente dans les faits (source [6]) selon laquelle le mouvement lycéen met en lumière la crise de la démocratisation et l'écart vœux/places ; elle n'apporte aucune nuance nouvelle."
+        }
+      ]
+    },
+    "article_type": "actu",
+    "titre": "Vacataires #JesuisLéa reçus à Matignon le 14 novembre 2026",
+    "n_sources": 5,
+    "n_mots": 492,
+    "titre_rss": "Précaires de l’enseignement supérieur : «On navigue entre le chômage, les dettes et des revenus très bas»",
+    "matiere_faits_distincts": 626,
+    "matiere_redondance": 0.02,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "benin-reprise-exportations-petrole-apres-30-ans",
+    "statut": "rejete_qualite",
+    "date": "2026-11-14T20:32:04",
+    "problemes_initiaux": 7,
+    "tentatives": 3,
+    "problemes_restants": 8,
+    "bloquants_restants": 5,
+    "bloquants_types": [
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "incoherence_inter_sections",
+      "source_inventee"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "Le titre indique 28 ans d'interruption alors que la source [1] (RFI, 2026) mentionne explicitement 'après 30 ans d'interruption' dans son titre, et le corps de l'article parle d'environ 28 ans (1998-2026) — le chiffre du",
+        "phrase": "Le Bénin exporte à nouveau du pétrole après 28 ans d'interruption"
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "Le résumé reprend l'erreur du titre : 28 ans au lieu de 30 ans selon la source [1].",
+        "phrase": "Une première cargaison de 350 000 barils issue du gisement offshore de Sèmè a quitté le Bénin à destination des Pays-Bas, marquant la reprise des exportations pétrolières du pays après vingt-huit ans d'arrêt."
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "Le corps de l'article utilise 'environ vingt-huit ans' (1998-2026 = 28 ans) alors que la source [1] titre sur '30 ans d'interruption' — incohérence avec la source principale qui donne 30 ans.",
+        "phrase": "Le Bénin a repris ses exportations de pétrole après une interruption d'environ vingt-huit ans."
+      },
+      {
+        "bloc": 1,
+        "type": "incoherence_inter_sections",
+        "description": "Incohérence entre le titre (28 ans), le résumé (28 ans), le corps (environ 28 ans) et la source [1] qui annonce 30 ans d'interruption — trois valeurs différentes (28, ~28, 30) pour la même durée sans réconciliation ni si",
+        "phrase": "Le Bénin a repris ses exportations de pétrole après une interruption d'environ vingt-huit ans. / Une première cargaison de 350 000 barils issue du gisement offshore de Sèmè a quitté le Bénin à destination des Pays-Bas, m"
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "La source [2] est l'article du Monde du 22 août 2024 intitulé 'Crise du pétrole entre le Niger et le Bénin : l'amorce d'un dégel' — cet article traite d'un début de dégel, pas nécessairement de pertes financières 'signif",
+        "phrase": "Selon Le Monde, la situation a engendré des pertes financières significatives pour les deux pays [2]."
+      }
+    ],
+    "types_restants": [
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "incoherence_inter_sections",
+      "chronologie_confuse",
+      "source_inventee",
+      "redondance",
+      "extrapolation"
+    ],
+    "article_type": "actu",
+    "titre": "Le Bénin exporte à nouveau du pétrole après 30 ans d'interruption",
+    "n_sources": 3,
+    "n_mots": 457,
+    "titre_rss": "Bénin: les exportations de pétrole reprennent après 30 ans d’interruption",
+    "matiere_faits_distincts": 694,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "starship-quinzieme-vol-essai-partiellement-reussi-spacex",
+    "statut": "rejete_qualite",
+    "date": "2026-11-14T20:39:29",
+    "problemes_initiaux": 5,
+    "tentatives": 3,
+    "problemes_restants": 6,
+    "bloquants_restants": 3,
+    "bloquants_types": [
+      "chiffre_errone",
+      "incoherence_inter_sections",
+      "chiffre_errone"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "L'article affirme que le vol d'août 2025 est le 10e essai (source RTS [2]) puis que le vol de novembre 2026 est le 15e essai (titre, résumé, faits). Cela implique 4 vols entre août 2025 et novembre 2026, mais les sources",
+        "phrase": "Le vol d'août 2025, réalisé fin août 2025, avait marqué une rupture en réussissant pour la première fois le déploiement de simulateurs de satellites et l'amerrissage contrôlé du second étage dans l'océan Indien, après tr"
+      },
+      {
+        "bloc": 1,
+        "type": "incoherence_inter_sections",
+        "description": "Le titre et le résumé parlent du 'quinzième vol', le corps des faits confirme 'quinzième vol d'essai', mais la source [1] (France 24) dans son URL mentionne 'quinzi%C3%A8me-vol' (15e) alors que son titre affiché dans les",
+        "phrase": "SpaceX a lancé le quinzième vol d'essai de sa mégafusée Starship depuis sa base de Boca Chica au Texas."
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "Les sources [2], [3], [4] datent d'août 2025 et concernent le 10e vol d'essai. Elles ne peuvent pas contenir une information officielle de report à 2027 qui serait postérieure à leur publication. La source [1] (novembre ",
+        "phrase": "avec un premier alunissage habité officiellement reporté à 2027 [2][3][4]"
+      }
+    ],
+    "types_restants": [
+      "chiffre_errone",
+      "incoherence_inter_sections",
+      "compteur_incoherent",
+      "chiffre_errone",
+      "extrapolation",
+      "fait_tranche_arbitrairement"
+    ],
+    "article_type": "actu",
+    "titre": "Starship : quinzième vol d'essai partiellement réussi pour SpaceX",
+    "n_sources": 4,
+    "n_mots": 462,
+    "titre_rss": "La mégafusée Starship réussit partiellement son quinzième vol d'essai",
+    "matiere_faits_distincts": 467,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
   }
 ]
