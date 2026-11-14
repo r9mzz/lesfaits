@@ -71003,5 +71003,738 @@
     "n_sources_injectees": 10,
     "n_sources_trouvees": 10,
     "nature_contenu": "etude_scientifique"
+  },
+  {
+    "slug": "senat-adopte-taxe-produits-sucres-ultratransformes-budget-2027",
+    "statut": "rejete_sensible",
+    "date": "2026-11-14T07:24:35",
+    "problemes_initiaux": 10,
+    "tentative": 2,
+    "bloc5": true,
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "faits_repetitifs"
+    ],
+    "titre": "Le Sénat adopte une taxe sur les produits sucrés et ultratransformés pour le budget 2027",
+    "n_sources": 6,
+    "n_mots": 521,
+    "titre_rss": "Pour lutter contre la malbouffe, le Sénat veut taxer les produits sucrés",
+    "matiere_faits_distincts": 869,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "incendies-indonesie-trois-millions-hectares-el-nino-rapport-2026",
+    "statut": "rejete_sensible",
+    "date": "2026-11-14T07:29:20",
+    "problemes_initiaux": 12,
+    "tentative": 2,
+    "bloc5": true,
+    "article_type": "actu",
+    "titre": "Incendies en Indonésie : près de trois millions d'hectares brûlés, El Niño cause principale",
+    "n_sources": 6,
+    "n_mots": 578,
+    "titre_rss": "El Niño est le principal responsable des incendies en Indonésie, conclut un rapport",
+    "matiere_faits_distincts": 683,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "canicules-marines-biodiversite-records-ete-2026-cnrs",
+    "statut": "rejete_qualite",
+    "date": "2026-11-14T07:34:28",
+    "tentative": 3,
+    "perte_substance": true,
+    "section": "contexte",
+    "mots_avant": 155,
+    "mots_apres": 66,
+    "article_type": "actu",
+    "titre": "Canicules marines : la biodiversité face aux records de température de l'été 2026",
+    "n_sources": 6,
+    "n_mots": 581,
+    "titre_rss": "La biodiversité face aux canicules marines",
+    "matiere_faits_distincts": 928,
+    "matiere_redondance": 0.01,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "norvege-cour-supreme-invalide-trois-licences-petrolieres-mer-du-nord",
+    "statut": "rejete_qualite",
+    "date": "2026-11-14T07:39:08",
+    "tentative": 3,
+    "perte_substance": true,
+    "section": "contexte",
+    "mots_avant": 173,
+    "mots_apres": 83,
+    "article_type": "actu",
+    "titre": "La Cour suprême norvégienne invalide trois licences pétrolières en mer du Nord",
+    "n_sources": 3,
+    "n_mots": 541,
+    "titre_rss": "En Norvège, victoire \"historique\" après l'invalidation de licences pétrolières en mer du Nord",
+    "matiere_faits_distincts": 230,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "decision_officielle"
+  },
+  {
+    "slug": "etude-nature-limites-imc-evaluation-graisse",
+    "statut": "rejete_sensible",
+    "date": "2026-11-14T07:51:45",
+    "problemes_initiaux": 10,
+    "tentative": 1,
+    "bloc5": true,
+    "article_type": "actu",
+    "titre": "Une étude de Nature confirme les limites de l'IMC pour évaluer l'excès de graisse",
+    "n_sources": 5,
+    "n_mots": 561,
+    "titre_rss": "Surpoids et obésité : l’IMC montre ses limites, une étude le confirme",
+    "matiere_faits_distincts": 757,
+    "matiere_redondance": 0.04,
+    "matiere_donnees_chiffrees": 6,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "etude_scientifique"
+  },
+  {
+    "slug": "secheresse-exceptionnelle-reunion-riviere-langevin-biodiversite-menacee",
+    "statut": "corrige_automatiquement",
+    "date": "2026-11-14T08:04:53",
+    "problemes_initiaux": 6,
+    "tentatives": 1,
+    "problemes_residuels_style": 7,
+    "rapport_initial": {
+      "conforme": false,
+      "sujet_sensible": false,
+      "sujet_sensible_raison": "",
+      "angle_insuffisant": false,
+      "angle_insuffisant_raison": "",
+      "nature_contenu": "actualite_factuelle",
+      "problemes": [
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "annonce_perimee",
+          "phrase_exacte": "Le mois de mai 2026 a débuté par une semaine particulièrement sèche, confirmant la persistance de l'épisode sur le début de la saison des pluies australes [2].",
+          "explication": "La source [2] est datée du 1er mai 2026 et décrit le début de mai 2026 comme une semaine sèche ; la source [1] du Monde est datée du 14 novembre 2026 et décrit rétrospectivement une sécheresse exceptionnelle sur deux ans. Présenter le début de mai 2026 au présent comme une confirmation actuelle de la persistance contredit l'état le plus récent établi par la source [1] (novembre 2026), qui replace cet épisode dans une séquence déjà bien avancée, voire achevée à cette date."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "contexte_hors_sujet",
+          "phrase_exacte": "Au niveau national, l'été 2026 a été marqué par des feux de forêt d'une ampleur exceptionnelle dans plusieurs départements du Sud et du Sud-Ouest de la France, dans un contexte de fortes chaleurs et de sécheresses record [3]. Le ministère de l'Intérieur a annoncé l'interpellation de quelques centaines de personnes en lien avec ces incendies [3]. Le gouvernement a mis à disposition des données sur la sécheresse via l'outil VigiEau, qui a remplacé l'ancien système Propluvia décommissionné [4].",
+          "explication": "Ces développements portent sur la France métropolitaine (feux de forêt, VigiEau, Propluvia) et n'éclairent pas directement le sujet principal qui est la sécheresse de la rivière Langevin à La Réunion. La source [3] (AFP) et la source [4] (data.gouv.fr) ne concernent pas le territoire réunionnais ni le bassin de la Langevin."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "chiffre_errone",
+          "phrase_exacte": "la fréquence et l'intensité des épisodes secs ont augmenté de 30 % sur les trois dernières décennies d'après les données météorologiques régionales.",
+          "explication": "Aucune des cinq sources autorisées ne contient ce chiffre de +30 % sur trois décennies pour le sud-ouest de l'océan Indien. La source [1] (Le Monde) ne le mentionne pas dans l'extrait fourni ; les sources [2] à [5] ne portent pas sur cette statistique régionale. Le chiffre est donc non sourcé par rapport à la liste autorisée."
+        },
+        {
+          "bloc": 1,
+          "section": "nuances",
+          "type": "redondance",
+          "phrase_exacte": "La question parlementaire de mai 2023 au Sénat soulignait déjà les conséquences désastreuses de la sécheresse sur la biodiversité, s'appuyant sur une note de la Ligue pour la protection des oiseaux (LPO) d'avril 2023 [5]. Cette alerte précoce suggère que la situation actuelle s'inscrit dans une dégradation continue plutôt que dans un événement isolé.",
+          "explication": "Cette même information (question parlementaire de mai 2023, note LPO d'avril 2023, source [5]) est déjà citée intégralement dans la section « contexte » ; la répéter dans « nuances » viole la règle « une idée = une seule apparition »."
+        },
+        {
+          "bloc": 2,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "d'après les données météorologiques régionales.",
+          "explication": "L'attribution « données météorologiques régionales » ne correspond à aucune des cinq sources listées (Le Monde, France Info, AFP, data.gouv.fr, Sénat). Le chiffre de +30 % est présenté comme issu de ces données, mais aucune source autorisée ne le contient ni ne le valide."
+        },
+        {
+          "bloc": 2,
+          "section": "contexte",
+          "type": "compteur_incoherent",
+          "phrase_exacte": "nb_sources: 5",
+          "explication": "Le champ nb_sources indique 5, mais les sources [3] (AFP feux France métropolitaine), [4] (data.gouv.fr Propluvia/VigiEau) et [5] (Sénat question 2023) sont utilisées uniquement dans le « contexte » pour des faits hors sujet (France métropolitaine, outil national, alerte ancienne) et ne servent pas le sujet principal (rivière Langevin à La Réunion). Seules les sources [1] et [2] documentent réellement le sujet ; le compteur de 5 sources distinctes utilisées pour l'article est donc trompeur."
+        }
+      ]
+    },
+    "article_type": "actu",
+    "titre": "Sécheresse exceptionnelle à La Réunion : la rivière Langevin menacée",
+    "n_sources": 5,
+    "n_mots": 535,
+    "titre_rss": "A La Réunion, une sécheresse exceptionnelle menace la biodiversité d’une rivière du Sud sauvage",
+    "matiere_faits_distincts": 968,
+    "matiere_redondance": 0.02,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "cyberattaques-refrigerateurs-supermarches-iran-responsable-europe",
+    "statut": "rejete_sensible",
+    "date": "2026-11-14T08:11:14",
+    "problemes_initiaux": 11,
+    "tentative": 3,
+    "bloc5": true,
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "resume_repete_corps",
+      "titre_de_mauvaise_qualite"
+    ],
+    "titre": "Cyberattaques sur les frigos de supermarchés : l'Iran désigné responsable, l'Europe touchée",
+    "n_sources": 5,
+    "n_mots": 520,
+    "titre_rss": "Ce que l’on sait des cyberattaques contre des réfrigérateurs de supermarchés",
+    "matiere_faits_distincts": 745,
+    "matiere_redondance": 0.09,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "arrestations-immigres-etats-unis-emploi-salaires-natifs",
+    "statut": "rejete_qualite",
+    "date": "2026-11-14T08:16:44",
+    "tentative": 1,
+    "angle_insuffisant": true,
+    "raison": "Aucune phrase des faits ne contient un événement précis daté (publication d'étude, décision, résultat récent) assorti d'une donnée chiffrée propre à cet événement. L'article ne répond pas à la question posée dans angle_reponse car les sources fournies ne couvrent pas la période octobre 2023-novembre 2025 ni les arrestations ICE sous un second mandat Trump.",
+    "article_type": "actu",
+    "titre": "Arrestations d'immigrés aux États-Unis : ni gain d'emploi ni hausse des salaires pour les natifs",
+    "n_sources": 4,
+    "n_mots": 742,
+    "titre_rss": "Aux États-Unis, les arrestations d’immigrés n’ont profité ni à l’emploi ni aux salaires des travailleurs nés dans le pays",
+    "matiere_faits_distincts": 672,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "etude_scientifique"
+  },
+  {
+    "slug": "panne-mondiale-microsoft-outlook-excuses-pas-cyberattaque",
+    "statut": "rejete_qualite",
+    "date": "2026-11-14T08:27:12",
+    "problemes_initiaux": 8,
+    "tentatives": 3,
+    "problemes_restants": 7,
+    "bloquants_restants": 1,
+    "bloquants_types": [
+      "incoherence_inter_sections"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "incoherence_inter_sections",
+        "description": "La source [1] (RFI) est datée du 13 novembre 2026 et ne peut pas confirmer des faits \"dès le 12 novembre\" au moment de sa publication ; elle rapporte l'événement rétrospectivement. L'article présente cette information co",
+        "phrase": "L'incident a perturbé de nombreux services publics et entreprises à travers le monde dès le 12 novembre, jour de l'incident [1]."
+      }
+    ],
+    "types_restants": [
+      "incoherence_inter_sections",
+      "redondance",
+      "contexte_hors_sujet",
+      "compteur_incoherent",
+      "source_derivee_comptee_comme_primaire",
+      "redondance",
+      "extrapolation"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "resume_repete_corps"
+    ],
+    "titre": "Panne mondiale Microsoft : Outlook inaccessible, la firme s'excuse et exclut une cyberattaque",
+    "n_sources": 5,
+    "n_mots": 465,
+    "titre_rss": "Panne mondiale Microsoft: la firme présente ses excuses et écarte la piste d'une cyberattaque",
+    "matiere_faits_distincts": 696,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "climat-recherche-americaine-demantelement-agences-federales-trump",
+    "statut": "rejete_qualite",
+    "date": "2026-11-14T08:35:07",
+    "angle_insuffisant": true,
+    "raison": "Aucune phrase des faits ne contient à la fois un événement précis daté (annonce, publication, décision, résultat rendu public récemment) et une donnée chiffrée ou nommée qui lui est propre. L'article décrit une situation générale sur deux ans sans fait déclencheur daté récent ; il répond à « qu'est-ce que la politique climatique de Trump ? » plutôt qu'à « pourquoi en parle-t-on maintenant ? ».",
+    "article_type": "actu",
+    "titre": "Climat : les chercheurs américains dénoncent un démantèlement des agences fédérales sous Trump",
+    "n_sources": 6,
+    "n_mots": 559,
+    "titre_rss": "Deux ans après le retour de Donald Trump au pouvoir, le bilan alarmant des climatologues américains",
+    "matiere_faits_distincts": 693,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 2,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "chantiers-data-centers-europe-exploitation-travailleurs-cadre-legislatif",
+    "statut": "rejete_sensible",
+    "date": "2026-11-14T08:39:32",
+    "problemes_initiaux": 18,
+    "bloc5": [
+      "affaire_en_cours_presentee_comme_fait"
+    ],
+    "article_type": "actu",
+    "titre": "Chantiers de data centers en Europe : exploitation des travailleurs et cadre législatif en construction",
+    "n_sources": 6,
+    "n_mots": 694,
+    "titre_rss": "Data centers : sur les chantiers de construction européens, des travailleurs exploités dans un climat de « terreur »",
+    "matiere_faits_distincts": 929,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "mars-orbiteur-tgo-chlorure-hydrogene-fissures-volcaniques",
+    "statut": "rejete_qualite",
+    "date": "2026-11-14T08:45:24",
+    "tentative": 3,
+    "perte_substance": true,
+    "section": "contexte",
+    "mots_avant": 162,
+    "mots_apres": 46,
+    "article_type": "actu",
+    "titre": "Mars : l'orbiteur européen TGO détecte du chlorure d'hydrogène lié à des fissures volcaniques",
+    "n_sources": 5,
+    "n_mots": 600,
+    "titre_rss": "Mars : du magma coulerait toujours dans les entrailles de la planète Rouge",
+    "matiere_faits_distincts": 714,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "etude_scientifique"
+  },
+  {
+    "slug": "evenement-tectonique-japon-formation-grand-canyon-etude",
+    "statut": "rejete_qualite",
+    "date": "2026-11-14T08:51:04",
+    "problemes_initiaux": 5,
+    "tentatives": 3,
+    "problemes_restants": 7,
+    "bloquants_restants": 1,
+    "bloquants_types": [
+      "chiffre_errone"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [1] (Science, 16 avril 2026) ne mentionne pas l'intervalle 11-6 Ma dans son extrait fourni ; ce chiffre n'est pas vérifiable par la source citée.",
+        "phrase": "L'intervalle 11-6 Ma correspond à la période d'étude du bassin supérieur du Colorado, une période où l'histoire du fleuve reste controversée parmi les géologues [1]."
+      }
+    ],
+    "types_restants": [
+      "chiffre_errone",
+      "source_inventee",
+      "source_inventee",
+      "compteur_incoherent",
+      "source_non_editoriale",
+      "contexte_hors_sujet",
+      "redondance"
+    ],
+    "article_type": "actu",
+    "titre": "Un événement tectonique au Japon lié à la formation du Grand Canyon",
+    "n_sources": 4,
+    "n_mots": 586,
+    "titre_rss": "Un événement géologique survenu au Japon aurait contribué à façonner le Grand Canyon, à 9 000 kilomètres de là !",
+    "matiere_faits_distincts": 721,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 3,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "etude_scientifique"
+  },
+  {
+    "slug": "poireaux-laitues-hausse-prix-chaos-climatique-oxfam",
+    "statut": "rejete_qualite",
+    "date": "2026-11-14T09:05:23",
+    "problemes_initiaux": 12,
+    "tentatives": 3,
+    "problemes_restants": 11,
+    "bloquants_restants": 2,
+    "bloquants_types": [
+      "chiffre_errone",
+      "incoherence_inter_sections"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [1] (Reporterre, 1er octobre 2026) ne peut pas contenir des données de prix pour septembre 2026 au moment de sa publication ; le chiffre est donc invérifiable à cette date et probablement extrapolé ou antérieur",
+        "phrase": "En septembre 2026, les poireaux s'affichaient 55 % plus chers et les laitues 54 % plus chères que la moyenne des cinq années précédentes [1]."
+      },
+      {
+        "bloc": 1,
+        "type": "incoherence_inter_sections",
+        "description": "Le chapeau (resume) et les faits donnent les mêmes pourcentages (55 % et 54 %) mais le chapeau précise 'par rapport à la moyenne des cinq dernières années' tandis que les faits disent 'moyenne des cinq années précédentes",
+        "phrase": "En septembre 2026, les poireaux s'affichaient 55 % plus chers et les laitues 54 % plus chères que la moyenne des cinq années précédentes [1]."
+      }
+    ],
+    "types_restants": [
+      "source_inventee",
+      "chiffre_errone",
+      "incoherence_inter_sections",
+      "source_non_editoriale",
+      "compteur_incoherent",
+      "cadrage_emprunte",
+      "redondance",
+      "redondance",
+      "contexte_hors_sujet",
+      "redondance",
+      "extrapolation"
+    ],
+    "article_type": "actu",
+    "titre": "Poireaux et laitues en hausse de plus de 50 % selon Oxfam",
+    "n_sources": 7,
+    "n_mots": 471,
+    "titre_rss": "Des poireaux 55 % plus cher : le chaos climatique fait grimper le prix des aliments",
+    "matiere_faits_distincts": 520,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "rapport"
+  },
+  {
+    "slug": "cop31-antalya-pastoralisme-financement-climatique-fossiles",
+    "statut": "corrige_automatiquement",
+    "date": "2026-11-14T09:14:14",
+    "problemes_initiaux": 14,
+    "tentatives": 1,
+    "problemes_residuels_style": 6,
+    "rapport_initial": {
+      "conforme": false,
+      "sujet_sensible": false,
+      "sujet_sensible_raison": "",
+      "angle_insuffisant": false,
+      "angle_insuffisant_raison": "",
+      "nature_contenu": "actualite_factuelle",
+      "problemes": [
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "incoherence_inter_sections",
+          "phrase_exacte": "La COP31 s'est ouverte lundi 9 novembre 2026 à Antalya, en Turquie, pour se tenir jusqu'au 20 novembre, réunissant les représentants de plus de 190 pays parties à la Convention-cadre des Nations unies sur les changements climatiques [2].",
+          "explication": "La source [2] (Vie Publique) ne mentionne pas la date de fin (20 novembre) ni le nombre de pays (190) ; ces détails sont ajoutés sans source correspondante, créant une incohérence entre le fait énoncé et la source citée."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "Ce sommet intervient dans une année 2026 où les scientifiques ont confirmé que le monde est en trajectoire pour dépasser le seuil de 1,5 °C de l'Accord de Paris, avec des inondations catastrophiques, canicules mortelles et sécheresses prolongées qui ont jalonné l'année [6].",
+          "explication": "La source [6] (Le Monde podcast) n'est pas fournie en extrait ; l'article lui attribue une confirmation scientifique précise (trajectoire >1,5 °C, événements climatiques listés) que la source ne peut pas vérifier ici — attribution non fondée sur les extraits fournis."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "Le pastoralisme, qui fait vivre des centaines de millions de personnes à travers le monde, est présenté par des scientifiques comme un allié oublié du climat dont les bénéfices environnementaux — séquestration du carbone dans les sols, préservation de la biodiversité, gestion durable des terres arides — méritent une meilleure intégration dans les négociations [1][4].",
+          "explication": "Les sources [1] et [4] (Sciences et Avenir) ne sont pas fournies en extraits ; l'article leur attribue des chiffres (\"centaines de millions\") et une liste de bénéfices précis sans que les extraits ne les confirment — attribution inventée."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "L'Union européenne et les États membres de l'Organisation des États d'Afrique, des Caraïbes et du Pacifique (OEACP) ont publié une déclaration commune réaffirmant leur engagement pour la mise en œuvre complète de l'Accord de Paris et le renforcement de la coopération sur l'action climatique [7].",
+          "explication": "La source [7] n'existe pas dans la liste des sources autorisées (seulement 6 sources, indices 1 à 6) ; le renvoi [7] est une invention de référence."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "Le secrétaire général de l'ONU Antonio Guterres a exhorté les dirigeants présents à éliminer les énergies fossiles, qualifiant la situation de \"vérité brutale : la crise du climat nous dépasse\", et appelant à mettre de côté les différends géopolitiques pour coopérer [5].",
+          "explication": "La source [5] (Le Monde article du 11 nov.) n'est pas fournie en extrait ; la citation exacte de Guterres et le contenu de son exhortation sont attribués sans confirmation par les extraits — attribution non vérifiée."
+        },
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "compteur_incoherent",
+          "phrase_exacte": "nb_sources: 6",
+          "explication": "Le champ nb_sources indique 6, mais le texte utilise des renvois jusqu'à [7] (source inexistante), et plusieurs faits portent des renvois vers des sources non confirmées par les extraits fournis ; le compteur ne reflète pas le sourcing réel exploité."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "La COP28 à Dubaï (2023) a acté pour la première fois une \"transition hors des énergies fossiles\" sans calendrier contraignant. La COP29 à Bakou (2024) s'est concentrée sur le financement, fixant un objectif de 300 milliards $ par an d'ici 2035 pour les pays en développement, loin des 1 300 milliards réclamés.",
+          "explication": "Aucune source dans la liste autorisée ne documente ces chiffres (300 Md$, 1 300 Md$) ni ces caractérisations des COP28/29 ; le contexte emprunte des données non sourcées dans les extraits fournis."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "La COP31 d'Antalya est décrite comme une \"COP de transition\" technique, sans grand accord attendu, préparant la COP32 au Brésil en 2025 où les pays doivent déposer leurs nouvelles contributions nationales (NDC) révisées [6].",
+          "explication": "La source [6] (podcast Le Monde) n'est pas fournie en extrait ; la qualification de \"COP de transition\", la date de la COP32 (2025, or on est en 2026) et l'échéance des NDC sont attribuées sans base dans les extraits."
+        },
+        {
+          "bloc": 1,
+          "section": "nuances",
+          "type": "source_inventee",
+          "phrase_exacte": "Le pastoralisme ne bénéficie pas d'un cadre formel dans l'Accord de Paris ni dans les décisions récentes des COP ; son intégration dépend de négociations sectorielles (agriculture, utilisation des terres) où les intérêts divergent entre pays exportateurs de viande et pays du Sahel.",
+          "explication": "Aucune source fournie ne confirme cette analyse détaillée (absence de cadre formel, divergence d'intérêts précise) ; l'article présente une interprétation comme un fait établi sans attribution sourcée."
+        },
+        {
+          "bloc": 1,
+          "section": "nuances",
+          "type": "source_inventee",
+          "phrase_exacte": "Les ONG pastorales dénoncent l'absence de représentation directe des éleveurs nomades dans les délégations officielles.",
+          "explication": "Aucune source dans les extraits ne mentionne des ONG pastorales ni cette dénonciation ; affirmation non sourcée."
+        },
+        {
+          "bloc": 1,
+          "section": "nuances",
+          "type": "source_inventee",
+          "phrase_exacte": "Sur les fossiles, aucun mécanisme de sortie n'est à l'ordre du jour à Antalya : le texte de la COP28 reste la référence, sans calendrier ni définition de \"transition\".",
+          "explication": "Aucune source fournie ne confirme l'ordre du jour d'Antalya ni le statut du texte de la COP28 ; affirmation présentée comme fait sans source."
+        },
+        {
+          "bloc": 1,
+          "section": "nuances",
+          "type": "source_inventee",
+          "phrase_exacte": "Le financement climat reste bloqué sur la définition du \"nouvel objectif quantifié collectif\" post-2025, les pays développés refusant d'inclure les pertes et préjudices dans l'assiette.",
+          "explication": "Aucune source fournie ne documente ce blocage précis ni le refus des pays développés sur pertes et préjudices ; affirmation non sourcée."
+        },
+        {
+          "bloc": 1,
+          "section": "nuances",
+          "type": "source_inventee",
+          "phrase_exacte": "L'ONU reconnaît que les COP ne produiront pas de \"grand accord\" résolvant la crise [6].",
+          "explication": "La source [6] n'est pas fournie en extrait ; cette reconnaissance de l'ONU est attribuée sans confirmation."
+        },
+        {
+          "bloc": 4,
+          "section": "positions",
+          "type": "fait_tranche_arbitrairement",
+          "phrase_exacte": "acteurs: [{\"nom\": \"Pays en développement\", \"detail\": \"Réclament 1300 Md$ financement climat\", \"position\": 80}, {\"nom\": \"Pays développés\", \"detail\": \"Refusent d'inclure pertes/préjudices\", \"position\": 75}]",
+          "explication": "Les positions attribuées aux \"Pays en développement\" et \"Pays développés\" (chiffres précis, refus catégorique) ne sont soutenues par aucune source dans les extraits ; l'article tranche arbitrairement des positions négociatrices complexes."
+        }
+      ]
+    },
+    "article_type": "actu",
+    "titre": "COP31 à Antalya : le pastoralisme revendiqué comme levier climatique, l'ONU presse sur les fossiles",
+    "n_sources": 6,
+    "n_mots": 603,
+    "titre_rss": "COP31 : le pastoralisme, un allié oublié du climat",
+    "matiere_faits_distincts": 695,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "bruit-routier-sante-mentale-enfants-etude-inserm",
+    "statut": "corrige_automatiquement",
+    "date": "2026-11-14T09:18:42",
+    "problemes_initiaux": 3,
+    "tentatives": 1,
+    "problemes_residuels_style": 0,
+    "rapport_initial": {
+      "conforme": false,
+      "sujet_sensible": false,
+      "sujet_sensible_raison": "",
+      "angle_insuffisant": false,
+      "angle_insuffisant_raison": "",
+      "nature_contenu": "etude_scientifique",
+      "problemes": [
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "chiffre_errone",
+          "phrase_exacte": "L'OMS classe la pollution sonore comme le deuxième facteur environnemental impactant la santé des Européens après la pollution de l'air, avec 48 000 nouveaux cas de maladies cardiaques et 12 000 décès prématurés annuels attribués au bruit en Europe [3].",
+          "explication": "La source [3] (OMS, Q&A sur la surdité et l'écoute sans risque) ne contient pas ces chiffres (48 000 cas, 12 000 décès) ni ce classement ; ils proviennent probablement d'un autre rapport OMS/EEA (Environmental Noise Guidelines 2018) non listé dans les sources autorisées."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "L'OMS classe la pollution sonore comme le deuxième facteur environnemental impactant la santé des Européens après la pollution de l'air, avec 48 000 nouveaux cas de maladies cardiaques et 12 000 décès prématurés annuels attribués au bruit en Europe [3].",
+          "explication": "Le fait est attribué à la source [3] qui ne le confirme pas ; l'information est donc sourcée à une référence qui ne la contient pas."
+        },
+        {
+          "bloc": 4,
+          "section": "contexte",
+          "type": "contexte_hors_sujet",
+          "phrase_exacte": "Une étude de la BBC publiée en juillet 2025 rappelle que la période du milieu de l'enfance (6-12 ans) est moins étudiée que la petite enfance ou l'adolescence, alors qu'elle est cruciale pour la construction de l'identité et des compétences sociales [4].",
+          "explication": "La source [4] traite du développement cérébral général chez l'enfant (6-12 ans) et ne porte pas sur le bruit routier ni sur la santé mentale liée au bruit ; elle n'éclaire pas directement le sujet de l'article."
+        }
+      ]
+    },
+    "article_type": "actu",
+    "titre": "Bruit routier : exposition précoce liée à des difficultés à 10 ans",
+    "n_sources": 4,
+    "n_mots": 665,
+    "titre_rss": "Une exposition élevée et persistante au bruit routier au début de l’enfance est associée à un risque accru de difficultés émotionnelles et relationnelles à 10 ans",
+    "matiere_faits_distincts": 1146,
+    "matiere_redondance": 0.01,
+    "matiere_donnees_chiffrees": 3,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "veille_heures_visible": 198.4,
+    "veille_passages": 55,
+    "veille_age_h": 1942.4,
+    "veille_n_flux_grappe": 2,
+    "nature_contenu": "etude_scientifique"
+  },
+  {
+    "slug": "panne-controle-aerien-etats-unis-trump-50-milliards-congres",
+    "statut": "rejete_qualite",
+    "date": "2026-11-14T09:23:14",
+    "problemes_initiaux": 6,
+    "tentatives": 3,
+    "problemes_restants": 9,
+    "bloquants_restants": 2,
+    "bloquants_types": [
+      "incoherence_inter_sections",
+      "incoherence_inter_sections"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "incoherence_inter_sections",
+        "description": "Deux sources donnent des explications techniques différentes (\"vieux matériel\" vs \"problème de communication\") pour le même événement sans que l'article ne les réconcilie ni ne signale explicitement l'écart comme une div",
+        "phrase": "Le secrétaire aux Transports, Sean Duffy, a attribué l'incident à du « vieux matériel » vétuste, pointant la responsabilité des infrastructures vieillissantes [1]. La source RFI indique de son côté que la FAA a ordonné l"
+      },
+      {
+        "bloc": 1,
+        "type": "incoherence_inter_sections",
+        "description": "L'article présente deux demandes budgétaires successives (30,1 puis 50 milliards) toutes deux attribuées à la source [1] sans préciser si le second montant inclut le premier ou s'y ajoute, créant une ambiguïté factuelle ",
+        "phrase": "Le jour même de cette paralysie sans précédent, la Maison Blanche a adressé au Congrès une demande de financement supplémentaire de 30,1 milliards de dollars pour moderniser le système de contrôle aérien américain [1]. D"
+      }
+    ],
+    "types_restants": [
+      "incoherence_inter_sections",
+      "incoherence_inter_sections",
+      "redondance",
+      "redondance",
+      "redondance",
+      "compteur_incoherent",
+      "source_derivee_comptee_comme_primaire",
+      "redondance",
+      "redondance"
+    ],
+    "article_type": "actu",
+    "titre": "Panne géante du contrôle aérien aux États-Unis : l'administration Trump réclame 50 milliards au Congrès",
+    "n_sources": 3,
+    "n_mots": 442,
+    "titre_rss": "Aux Etats-Unis, après la suspension des vols, l’administration Trump politise cette panne géante et réclame 50 milliards de dollars au Congrès",
+    "matiere_faits_distincts": 785,
+    "matiere_redondance": 0.03,
+    "matiere_donnees_chiffrees": 4,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "chine-premier-astronaute-etranger-tiangong-pakistan",
+    "statut": "rejete_qualite",
+    "date": "2026-11-14T09:33:25",
+    "problemes_initiaux": 8,
+    "tentatives": 3,
+    "problemes_restants": 8,
+    "bloquants_restants": 1,
+    "bloquants_types": [
+      "chiffre_errone"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "De Shenzhou-12 à Shenzhou-19 inclus, il y a 8 numéros de mission, mais l'extrait de la source [1] ne confirme pas le nombre exact de missions ni la liste Shenzhou-12 à Shenzhou-19 ; le chiffre « huit » n'est pas vérifié ",
+        "phrase": "Tiangong, assemblée entre 2021 et 2022, a accueilli huit missions habitées successives (Shenzhou-12 à Shenzhou-19) avec des équipages exclusivement chinois [1]."
+      }
+    ],
+    "types_restants": [
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "chiffre_errone",
+      "compteur_incoherent",
+      "cadrage_emprunte",
+      "redondance",
+      "extrapolation"
+    ],
+    "article_type": "actu",
+    "titre": "La Chine accueillera son premier astronaute étranger à bord de Tiangong",
+    "n_sources": 3,
+    "n_mots": 497,
+    "titre_rss": "Un astronaute pakistanais bientôt à bord de la station spatiale chinoise",
+    "matiere_faits_distincts": 1019,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "nasa-recrutement-astronautes-colonie-lunaire-2036-mars",
+    "statut": "rejete_qualite",
+    "date": "2026-11-14T09:56:20",
+    "problemes_initiaux": 14,
+    "tentatives": 3,
+    "problemes_restants": 7,
+    "bloquants_restants": 3,
+    "bloquants_types": [
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "Le titre affirme un objectif d'installation durable vers 2036, mais la source [1] (France Info) ne mentionne pas cette échéance précise ; elle rapporte seulement un recrutement pour aller \"travailler\" sur la Lune dans le",
+        "phrase": "La NASA ouvre un recrutement d'astronautes pour un objectif d'installation durable sur la Lune vers 2036"
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [1] ne contient pas l'échéance 2036 pour une installation durable ; cette date n'apparaît pas dans l'extrait fourni, qui se limite au recrutement et à l'objectif général de travailler sur la Lune.",
+        "phrase": "La NASA a publié un appel à candidatures pour recruter de nouveaux astronautes, présenté comme une étape vers une installation durable d'astronautes sur la Lune vers 2036 [1]."
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [1] ne mentionne pas l'échéance 2036 ni ne la qualifie d'objectif de programme ; l'attribution [1] est donc fausse pour ce chiffre.",
+        "phrase": "L'échéance 2036 pour une installation durable sur la Lune n'est pas un engagement contractuel mais un objectif de programme, conditionné à la réussite des vols Artemis II et III ainsi qu'au financement soutenu du Congrès"
+      }
+    ],
+    "types_restants": [
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "source_inventee",
+      "source_derivee_comptee_comme_primaire",
+      "compteur_incoherent",
+      "section_gonflee"
+    ],
+    "article_type": "actu",
+    "titre": "La NASA ouvre un recrutement d'astronautes pour une colonie lunaire d'ici 2036",
+    "n_sources": 4,
+    "n_mots": 400,
+    "titre_rss": "\"Vivre la plus grande aventure de l'humanité\" : la Nasa recrute des astronautes pour aller \"travailler\" sur la Lune",
+    "matiere_faits_distincts": 504,
+    "matiere_redondance": 0.03,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
   }
 ]
