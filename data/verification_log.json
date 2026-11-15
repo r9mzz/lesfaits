@@ -73476,5 +73476,433 @@
     "n_sources_injectees": 10,
     "n_sources_trouvees": 10,
     "nature_contenu": "rapport"
+  },
+  {
+    "slug": "norvege-justice-invalide-trois-licences-petrolieres-mer-du-nord",
+    "statut": "rejete_qualite",
+    "date": "2026-11-15T18:24:44",
+    "problemes_initiaux": 12,
+    "tentatives": 3,
+    "problemes_restants": 7,
+    "bloquants_restants": 2,
+    "bloquants_types": [
+      "chiffre_errone",
+      "incoherence_inter_sections"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "Le résumé présente la production de 1,9 million de barils/jour comme une donnée actuelle (\"par jour\" au présent) alors que la source [1] et les faits la situent en 2023, sans confirmation qu'elle soit inchangée à la date",
+        "phrase": "qui extrait encore 1,9 million de barils équivalent pétrole par jour"
+      },
+      {
+        "bloc": 1,
+        "type": "incoherence_inter_sections",
+        "description": "Le chapeau (résumé) affirme une production actuelle de 1,9 million barils/jour sans mentionner l'année 2023, alors que les faits précisent qu'il s'agit du chiffre 2023 — incohérence temporelle sur un même chiffre clé ent",
+        "phrase": "La Norvège demeure le premier producteur d'hydrocarbures d'Europe de l'Ouest avec une extraction quotidienne d'environ 1,9 million de barils d'équivalent pétrole en 2023, selon les données de référence du secteur [1]."
+      }
+    ],
+    "types_restants": [
+      "acteur_mis_en_cause_sans_reponse",
+      "chiffre_errone",
+      "incoherence_inter_sections",
+      "contexte_hors_sujet",
+      "redondance",
+      "compteur_incoherent",
+      "section_gonflee"
+    ],
+    "article_type": "actu",
+    "titre": "La justice norvégienne invalide trois licences pétrolières en mer du Nord",
+    "n_sources": 4,
+    "n_mots": 501,
+    "titre_rss": "En Norvège, victoire \"historique\" après l'invalidation de licences pétrolières en mer du Nord",
+    "matiere_faits_distincts": 718,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "portugal-manifestations-crise-logement-reforme-expulsions-novembre-2026",
+    "statut": "corrige_automatiquement",
+    "date": "2026-11-15T18:33:07",
+    "problemes_initiaux": 5,
+    "tentatives": 3,
+    "problemes_residuels_style": 4,
+    "rapport_initial": {
+      "conforme": false,
+      "sujet_sensible": false,
+      "sujet_sensible_raison": "",
+      "angle_insuffisant": false,
+      "angle_insuffisant_raison": "",
+      "nature_contenu": "actualite_factuelle",
+      "problemes": [
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "compteur_incoherent",
+          "phrase_exacte": "nb_sources: 6",
+          "explication": "Le champ nb_sources indique 6 mais seules 5 sources distinctes sont listées dans le tableau sources (deux entrées RFI sont identiques)."
+        },
+        {
+          "bloc": 2,
+          "section": "contexte",
+          "type": "source_derivee_comptee_comme_primaire",
+          "phrase_exacte": "Le Portugal enregistre la plus forte hausse des prix du logement par rapport aux revenus des ménages parmi les pays de l'Union européenne sur la période 2015-2025 [5].",
+          "explication": "La source [5] (Le Monde) rapporte des données compilées, elle ne les produit pas ; la source primaire (Eurostat ou étude originale) n'est pas citée, le compte de sources primaires (1) est donc surestimé."
+        },
+        {
+          "bloc": 2,
+          "section": "contexte",
+          "type": "source_derivee_comptee_comme_primaire",
+          "phrase_exacte": "Au niveau européen, le Conseil de l'UE a souligné en juin 2026 la dimension démographique de la crise du logement [2].",
+          "explication": "La source [2] (communiqué du Conseil) est l'institution elle-même, mais la source [3] (page politique du Consilium) ne fait que reprendre la même information sans apport distinct ; les deux sont comptées comme secondaires indépendantes alors qu'elles émanent du même organe."
+        },
+        {
+          "bloc": 4,
+          "section": "resume",
+          "type": "redondance",
+          "phrase_exacte": "Le Portugal est le pays de l'Union européenne où les prix du logement ont le plus augmenté par rapport aux revenus des ménages entre 2015 et 2025, selon les données compilées par Le Monde.",
+          "explication": "Cette phrase du résumé répète mot pour mot l'information déjà présente dans la section contexte (même source, même chiffre, même période)."
+        },
+        {
+          "bloc": 4,
+          "section": "nuances",
+          "type": "redondance",
+          "phrase_exacte": "Les chiffres de participation aux manifestations du 14 novembre varient selon les sources — « des milliers » selon RFI et Le Parisien, sans décompte officiel communiqué par la police ou les organisateurs au moment des dépêches [1][4][5].",
+          "explication": "La nuance sur l'absence de décompte officiel et la variation des estimations est déjà implicite dans les faits qui écrivent « des milliers » sans chiffre précis ; la répéter en nuances crée une redondance."
+        }
+      ]
+    },
+    "article_type": "actu",
+    "titre": "Portugal : des milliers de manifestants contre la réforme des expulsions le 14 novembre",
+    "n_sources": 5,
+    "n_mots": 377,
+    "titre_rss": "Des milliers de Portugais manifestent contre la crise du logement et la vie chère",
+    "matiere_faits_distincts": 600,
+    "matiere_redondance": 0.01,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "mortalite-hausse-29-pour-cent-fin-juin-2026-donnees-partielles",
+    "statut": "corrige_automatiquement",
+    "date": "2026-11-15T18:41:28",
+    "problemes_initiaux": 8,
+    "tentatives": 3,
+    "problemes_residuels_style": 0,
+    "rapport_initial": {
+      "conforme": false,
+      "sujet_sensible": false,
+      "sujet_sensible_raison": "",
+      "angle_insuffisant": false,
+      "angle_insuffisant_raison": "",
+      "nature_contenu": "actualite_factuelle",
+      "problemes": [
+        {
+          "bloc": 1,
+          "section": "resume",
+          "type": "chiffre_errone",
+          "phrase_exacte": "Santé publique France a enregistré 8 973 décès toutes causes pour la semaine du 22 au 28 juin 2026, soit 2 025 de plus que la semaine précédente, une hausse de 29,1 % qui touche surtout les 45 ans et plus.",
+          "explication": "Le résumé attribue à Santé publique France l'enregistrement de 8 973 décès pour la semaine du 22 au 28 juin 2026, mais la source [1] indique que les données publiées le 3 juillet intègrent des données publiées dès le 28 juin ne couvrant que les 24-26 juin, donc la semaine n'est pas complète."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "chiffre_errone",
+          "phrase_exacte": "Santé publique France a publié le 3 juillet 2026 son bulletin hebdomadaire de surveillance de la mortalité toutes causes confondues pour la semaine du 22 au 28 juin [1]. Sur la base des certificats électroniques de décès, 8 973 décès tous âges ont été enregistrés, contre 6 948 la semaine du 15 au 21 juin, soit une hausse de 29,1 % correspondant à 2 025 décès supplémentaires [1].",
+          "explication": "L'article présente les 8 973 décès comme couvrant la semaine complète du 22 au 28 juin, alors que la source [1] précise que les données intègrent des publications dès le 28 juin ne couvrant que les 24-26 juin, rendant le chiffre partiel et non représentatif de la semaine entière."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "Pour l'été 2022, trois vagues de canicule avaient entraîné 2 816 morts en excès directement liées à la chaleur, pour un total de 6 969 décès en excès toutes causes du 1er juin au 15 septembre [2].",
+          "explication": "La source [2] est un article du Monde daté du 16 septembre 2026 sur les canicules de l'été 2026, elle ne contient aucune donnée sur l'été 2022 ; le chiffre de 2 816 morts en excès pour 2022 n'est pas dans les extraits fournis."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "La France figure parmi les rares pays où le décompte officiel des morts du Covid a été supérieur à l'excès de mortalité toutes causes confondues, selon une analyse de Libération [3].",
+          "explication": "La source [3] est un article de Libération du 18 août 2020 intitulé « La France a-t-elle mieux compté les morts du Covid-19 que les autres pays ? » ; l'extrait fourni ne confirme pas l'affirmation selon laquelle la France figure parmi les rares pays où le décompte officiel dépasse l'excès de mortalité."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "L'AFP a par ailleurs rappelé que comparer la mortalité toutes causes des premiers mois de 2020 aux années précédentes n'avait pas de sens pour analyser les effets de l'épidémie [4].",
+          "explication": "La source [4] est un fact-check de l'AFP sur un visuel erroné montrant le nombre de décès en France de janvier à avril ; l'extrait ne contient pas l'affirmation selon laquelle comparer la mortalité des premiers mois 2020 aux années précédentes n'a pas de sens pour analyser les effets de l'épidémie."
+        },
+        {
+          "bloc": 2,
+          "section": "contexte",
+          "type": "contexte_hors_sujet",
+          "phrase_exacte": "Pour l'été 2022, trois vagues de canicule avaient entraîné 2 816 morts en excès directement liées à la chaleur, pour un total de 6 969 décès en excès toutes causes du 1er juin au 15 septembre [2]. La France figure parmi les rares pays où le décompte officiel des morts du Covid a été supérieur à l'excès de mortalité toutes causes confondues, selon une analyse de Libération [3]. L'AFP a par ailleurs rappelé que comparer la mortalité toutes causes des premiers mois de 2020 aux années précédentes n'avait pas de sens pour analyser les effets de l'épidémie [4].",
+          "explication": "Ces trois paragraphes du contexte portent sur l'été 2022, le comptage des morts du Covid et une comparaison méthodologique sur les premiers mois 2020, aucun ne concerne directement la hausse de mortalité fin juin 2026 ni sa fiabilité, qui est le sujet de l'article."
+        },
+        {
+          "bloc": 4,
+          "section": "nuances",
+          "type": "redondance",
+          "phrase_exacte": "Les chiffres du 3 juillet sont explicitement présentés comme non consolidés et partiels, intégrant des données publiées dès le 28 juin ne couvrant que les 24-26 juin [1]. La hausse de 91 % à domicile doit être lue avec la réserve méthodologique majeure : seulement 25 % des décès à domicile sont capturés par le système électronique, ce qui amplifie mécaniquement les variations relatives sur de petits effectifs [1].",
+          "explication": "Ces deux phrases répètent des informations déjà présentes dans la section faits (données non consolidées, couverture partielle) et dans le contexte (taux de capture de 25 % à domicile), violant la règle d'une idée = une seule apparition."
+        },
+        {
+          "bloc": 4,
+          "section": "nuances",
+          "type": "acteur_mis_en_cause_sans_reponse",
+          "phrase_exacte": "La réaction des autorités sanitaires ou des professionnels de santé n'était pas disponible dans les sources consultées à la date de publication.",
+          "explication": "L'article mentionne l'absence de réaction des autorités sanitaires et professionnels de santé sans que ces acteurs ne soient mis en cause dans les faits ; cette mention simule un équilibre inexistant et n'a pas sa place dans les nuances."
+        }
+      ]
+    },
+    "article_type": "actu",
+    "titre": "Mortalité en hausse de 29 % fin juin 2026, données partielles et sous-estimées",
+    "n_sources": 4,
+    "n_mots": 660,
+    "titre_rss": "Point de situation sur la mortalité toutes causes confondues  sur la période du 22 au 28 juin 2026",
+    "matiere_faits_distincts": 510,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "chimpanzes-apprentissage-vocalisations-etude-nature",
+    "statut": "rejete_qualite",
+    "date": "2026-11-15T19:07:28",
+    "tentative": 3,
+    "perte_substance": true,
+    "section": "nuances",
+    "mots_avant": 100,
+    "mots_apres": 40,
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "article_sans_date"
+    ],
+    "titre": "Une étude dans Nature montre que les chimpanzés apprennent des vocalisations par imitation",
+    "n_sources": 3,
+    "n_mots": 486,
+    "titre_rss": "Les chimpanzés aussi apprennent de leurs aînés pour produire des signaux sonores",
+    "matiere_faits_distincts": 968,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "etude_scientifique"
+  },
+  {
+    "slug": "etude-nature-limites-imc-diagnostic-obesite-tour-taille",
+    "statut": "rejete_qualite",
+    "date": "2026-11-15T19:30:27",
+    "problemes_initiaux": 9,
+    "tentatives": 3,
+    "problemes_restants": 7,
+    "bloquants_restants": 5,
+    "bloquants_types": [
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "niveau_preuve_insuffisant",
+      "source_inventee"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source WHO [4] indique 2,5 milliards d'adultes en surpoids (dont 890 millions obèses) en 2022, pas 940 millions en 2024 ; le chiffre 940 millions ne correspond à aucune donnée de la source citée.",
+        "phrase": "En 2024, 45 % des adultes âgés de 18 ans et plus étaient en surpoids, dont 16 % en situation d'obésité, soit 940 millions de personnes [4]."
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source WHO [4] définit le surpoids à IMC ≥ 25 et l'obésité à IMC ≥ 30, mais l'article attribue cette définition à la source [4] alors que le texte de la source ne contient pas explicitement cette phrase de rappel ; le",
+        "phrase": "L'Organisation mondiale de la santé rappelle que le diagnostic de surpoids et d'obésité repose aujourd'hui sur l'IMC : surpoids pour un IMC ≥ 25, obésité pour un IMC ≥ 30 [4]."
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source Vie Publique [2] (2017) porte sur l'évolution en France depuis 2006 ; les extraits fournis ne contiennent pas ce chiffre précis de maigrise 8 % → 13 %, l'information n'est pas vérifiable dans la source citée.",
+        "phrase": "la maigrise augmente chez les 6-17 ans, passant de 8 % en 2006 à 13 % en 2015 [2]."
+      },
+      {
+        "bloc": 1,
+        "type": "niveau_preuve_insuffisant",
+        "description": "L'article présente les résultats comme confirmant les limites de l'IMC sans préciser explicitement le niveau de preuve (analyse transversale, absence de randomisation et de suivi longitudinal) à côté du résultat principa",
+        "phrase": "Une analyse transversale publiée dans la revue Nature a examiné les données de plus de 684 000 adultes pour évaluer la capacité de l'indice de masse corporelle (IMC) à détecter l'excès de masse grasse [1]."
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "La source WHO [4] (fact sheet obésité) ne traite pas spécifiquement du tour de taille ni de sa corrélation avec l'adiposité centrale et les maladies citées ; l'attribution [4] est inventée pour ce fait précis.",
+        "phrase": "Le tour de taille reflète davantage l'adiposité centrale, corrélée aux maladies cardiovasculaires, au diabète de type 2 et aux maladies hépatiques [1][4]."
+      }
+    ],
+    "types_restants": [
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "niveau_preuve_insuffisant",
+      "source_inventee",
+      "redondance",
+      "contexte_hors_sujet"
+    ],
+    "article_type": "actu",
+    "titre": "Une étude sur 844 000 adultes confirme les limites de l'IMC pour diagnostiquer l'obésité",
+    "n_sources": 4,
+    "n_mots": 507,
+    "titre_rss": "Surpoids et obésité : l’IMC montre ses limites, une étude le confirme",
+    "matiere_faits_distincts": 866,
+    "matiere_redondance": 0.02,
+    "matiere_donnees_chiffrees": 11,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "etude_scientifique"
+  },
+  {
+    "slug": "hantavirus-sequencage-genome-andes-contamination-unique-epidemie-hondius",
+    "statut": "rejete_qualite",
+    "date": "2026-11-15T19:50:21",
+    "tentative": 3,
+    "perte_substance": true,
+    "section": "nuances",
+    "mots_avant": 125,
+    "mots_apres": 58,
+    "article_type": "actu",
+    "titre": "Hantavirus : le séquençage du génome Andes confirme une contamination unique rongeur-humain",
+    "n_sources": 4,
+    "n_mots": 705,
+    "titre_rss": "Hantavirus : décrypter la souche Andes, une étape essentielle pour retracer le parcours de l’épidémie",
+    "matiere_faits_distincts": 742,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "etude_scientifique"
+  },
+  {
+    "slug": "maladie-charcot-exosquelette-atalante-x-essai-clinique-france",
+    "statut": "rejete_qualite",
+    "date": "2026-11-15T20:00:50",
+    "tentative": 3,
+    "perte_substance": true,
+    "section": "contexte",
+    "mots_avant": 204,
+    "mots_apres": 90,
+    "article_type": "actu",
+    "titre": "Maladie de Charcot : un exosquelette français testé sur une dizaine de patients",
+    "n_sources": 4,
+    "n_mots": 685,
+    "titre_rss": "Remarcher grâce à un exosquelette",
+    "matiere_faits_distincts": 745,
+    "matiere_redondance": 0.14,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "etude_scientifique"
+  },
+  {
+    "slug": "vih-france-5100-nouvelles-seropositivites-2024-depistage-tardif",
+    "statut": "rejete_sensible",
+    "date": "2026-11-15T20:28:26",
+    "problemes_initiaux": 16,
+    "bloc5": [
+      "affaire_en_cours_presentee_comme_fait"
+    ],
+    "article_type": "actu",
+    "titre": "VIH en France : 5 100 nouvelles séropositivités en 2024, 43 % découvertes tardivement",
+    "n_sources": 4,
+    "n_mots": 1200,
+    "titre_rss": "Journée mondiale de lutte contre le sida 2025 : promouvoir la prévention pour lutter contre la transmission du VIH et des IST",
+    "matiere_faits_distincts": 980,
+    "matiere_redondance": 0.01,
+    "matiere_donnees_chiffrees": 5,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "secheresse-exceptionnelle-reunion-riviere-langevin-biodiversite-menacee",
+    "statut": "corrige_automatiquement",
+    "date": "2026-11-15T21:13:35",
+    "problemes_initiaux": 7,
+    "tentatives": 3,
+    "problemes_residuels_style": 7,
+    "rapport_initial": {
+      "conforme": false,
+      "sujet_sensible": false,
+      "sujet_sensible_raison": "",
+      "angle_insuffisant": false,
+      "angle_insuffisant_raison": "",
+      "nature_contenu": "actualite_factuelle",
+      "problemes": [
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "chiffre_errone",
+          "phrase_exacte": "Une mission d'information flash de l'Assemblée nationale a estimé en septembre 2026 que les aléas climatiques estivaux (canicules, sécheresses, incendies) pesaient à hauteur d'environ 3 milliards d'euros sur la croissance française, dont une part significative pour l'agriculture et les écosystèmes [5].",
+          "explication": "La source [5] (Assemblée nationale, communication de septembre 2026) ne figure pas dans les extraits fournis ; le chiffre de 3 milliards d'euros n'est pas vérifiable par rapport aux sources autorisées. De plus, la source [7] citée dans les nuances (France Info, octobre 2024) porte sur une météo locale, pas sur un coût national."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "Le rapport de la Cour des comptes cité par France Info alerte sur l'envolée de la facture du régime Cat-Nat sans quantifier la part imputable spécifiquement à la sécheresse réunionnaise [7].",
+          "explication": "La source [7] (France Info, \"La Réunion : une matinée ensoleillée...\") est un bulletin météo local d'octobre 2024 ; elle ne cite aucun rapport de la Cour des comptes ni le régime Cat-Nat. L'attribution est inventée."
+        },
+        {
+          "bloc": 1,
+          "section": "nuances",
+          "type": "source_inventee",
+          "phrase_exacte": "L'article du Monde ne précise pas quelles espèces sont concrètement menacées ni à quel stade de dégradation se trouve l'écosystème de la rivière Langevin. Aucune mesure quantitative du débit actuel ni de comparaison avec les normales historiques n'est fournie dans les sources disponibles [1][2].",
+          "explication": "Les sources [1] et [2] sont deux articles du Monde (même date, même sujet) ; l'article ne peut pas se fonder sur eux pour dire ce qu'ils ne précisent pas sans avoir lu leur contenu intégral, qui n'est pas fourni dans les extraits. La critique porte sur une absence non vérifiée."
+        },
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "source_derivee_comptee_comme_primaire",
+          "phrase_exacte": "La rivière Langevin, située dans le sud sauvage de l'île de La Réunion, traverse une période de sécheresse exceptionnelle. Le manque de précipitations depuis deux ans dans le massif du volcan, région traditionnellement parmi les plus arrosées de l'île, n'a pas permis la recharge en eau du cours d'eau [1][2].",
+          "explication": "Les sources [1] et [2] sont deux URL du Monde pour le même article (l'une est l'article, l'autre la rubrique « Sécheresse ») : ce ne sont pas deux sources indépendantes. Le champ nb_sources = 7 les compte comme distinctes, ce qui gonfle artificiellement le nombre de sources primaires."
+        },
+        {
+          "bloc": 4,
+          "section": "contexte",
+          "type": "contexte_hors_sujet",
+          "phrase_exacte": "Dès mai 2023, le Sénat était saisi des conséquences désastreuses de la sécheresse sur la biodiversité, la Ligue pour la protection des oiseaux (LPO) ayant recensé dans une note d'avril 2023 les impacts sur l'avifaune et les milieux humides [6].",
+          "explication": "La source [6] est une question écrite au Sénat sur la sécheresse et la biodiversité en France métropolitaine ; elle ne porte pas sur La Réunion ni sur la rivière Langevin. Ce fait vrai mais tangentiel ne sert qu'à remplir la section contexte."
+        },
+        {
+          "bloc": 4,
+          "section": "contexte",
+          "type": "redondance",
+          "phrase_exacte": "Le bulletin climatologique 2024 de Météo-France montre une augmentation continue des températures moyennes sur la période 1968-2024, avec une accélération notable depuis le début des années 2000 [3].",
+          "explication": "Cette information (températures records 2024, tendance depuis 1968) est déjà énoncée dans les faits (« L'année 2024 a été marquée par des températures records, l'indicateur thermique annuel atteignant son plus haut niveau depuis 1968 [3] »). La répétition dans le contexte viole la règle « une idée = une seule apparition »."
+        },
+        {
+          "bloc": 4,
+          "section": "nuances",
+          "type": "section_gonflee",
+          "phrase_exacte": "L'absence de données chiffrées sur l'état des populations d'espèces endémiques empêche d'évaluer l'urgence réelle de la situation. Par ailleurs, les réponses institutionnelles (arrêtés de restriction d'eau, plans de sauvetage) ne sont pas mentionnées dans les extraits consultés [1][2].",
+          "explication": "La section nuances liste seulement ce que les extraits ne contiennent pas, sans apporter aucun fait distinct sourcé. Elle ne fait que constater des manques déjà implicites, ce qui la rend vide de contenu informatif nouveau."
+        }
+      ]
+    },
+    "article_type": "actu",
+    "titre": "Sécheresse exceptionnelle à La Réunion : la rivière Langevin menacée",
+    "n_sources": 7,
+    "n_mots": 618,
+    "titre_rss": "A La Réunion, une sécheresse exceptionnelle menace la biodiversité d’une rivière du Sud sauvage",
+    "matiere_faits_distincts": 1060,
+    "matiere_redondance": 0.02,
+    "matiere_donnees_chiffrees": 2,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
   }
 ]
