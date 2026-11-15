@@ -72566,5 +72566,915 @@
     "n_sources_injectees": 10,
     "n_sources_trouvees": 10,
     "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "portugal-logement-hausse-prix-revenus-record-europe-2015-2025",
+    "statut": "rejete_sensible",
+    "date": "2026-11-15T07:28:33",
+    "problemes_initiaux": 17,
+    "tentative": 1,
+    "bloc5": true,
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "titre_de_mauvaise_qualite",
+      "cliches_ia"
+    ],
+    "titre": "Portugal : hausse de 60,8 % des prix du logement par rapport aux revenus en dix ans",
+    "n_sources": 7,
+    "n_mots": 553,
+    "titre_rss": "Au Portugal, des milliers de manifestants défilent pour dénoncer la crise du logement",
+    "matiere_faits_distincts": 810,
+    "matiere_redondance": 0.02,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "senat-adopte-taxe-produits-sucre-assemblee-rejette-budget-2027",
+    "statut": "rejete_qualite",
+    "date": "2026-11-15T07:36:38",
+    "problemes_initiaux": 10,
+    "tentatives": 3,
+    "problemes_restants": 8,
+    "bloquants_restants": 4,
+    "bloquants_types": [
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "incoherence_inter_sections"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [2] (Le Monde, 23/10/2026) indique que les députés ont rejeté la taxe 'proposée par le gouvernement', contredisant l'affirmation selon laquelle le gouvernement avait renoncé à présenter son propre amendement et",
+        "phrase": "L'Assemblée nationale a rejeté le 22 octobre 2026 un amendement du député Hendrik Davi (LFI) créant cette taxe, lors de l'examen du PLFSS 2027, le gouvernement ayant renoncé à présenter son propre amendement [2]."
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [2] (Le Monde, 23/10/2026) titre 'les députés rejettent la taxe sur les produits sucres proposée par le gouvernement', ce qui contredit directement l'affirmation que le gouvernement avait renoncé à présenter so",
+        "phrase": "L'Assemblée nationale a rejeté le jeudi 22 octobre 2026 un amendement du député Hendrik Davi (La France insoumise) créant une taxe sur les produits transformés sucrés, lors de l'examen du projet de loi de financement de "
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [2] indique que la taxe rejetée était 'proposée par le gouvernement', contredisant l'affirmation selon laquelle le gouvernement aurait renoncé à présenter son amendement et que la mesure aurait été portée par l",
+        "phrase": "Le gouvernement a affiché des positions fluctuantes : défavorable lors du vote du Sénat sur le PLFSS 2026 (adoption contre son avis) [1], en recul fin 2024 sur le PLFSS 2025 [4], avant de renoncer à présenter son amendem"
+      },
+      {
+        "bloc": 1,
+        "type": "incoherence_inter_sections",
+        "description": "Le résumé affirme que l'amendement a été adopté 'contre l'avis du gouvernement' (source [1]), mais les faits précisent que le gouvernement était 'défavorable lors du vote du Sénat' [1], ce qui est cohérent ; cependant, l",
+        "phrase": "Le Sénat a voté le 19 novembre 2025 un amendement (n° 815 rect.) créant une taxe sur les produits sucrés et ultratransformés dans le PLFSS 2026, adopté contre l'avis du gouvernement selon Sciences et Avenir [1][3]."
+      }
+    ],
+    "types_restants": [
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "incoherence_inter_sections",
+      "contexte_hors_sujet",
+      "contexte_hors_sujet",
+      "contexte_hors_sujet",
+      "compteur_incoherent"
+    ],
+    "article_type": "actu",
+    "titre": "Le Sénat adopte une taxe sur les produits sucrés, l'Assemblée la rejette",
+    "n_sources": 7,
+    "n_mots": 519,
+    "titre_rss": "Pour lutter contre la malbouffe, le Sénat veut taxer les produits sucrés",
+    "matiere_faits_distincts": 659,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "indonesie-incendies-trois-millions-hectares-el-nino-2026",
+    "statut": "rejete_qualite",
+    "date": "2026-11-15T07:42:10",
+    "tentative": 3,
+    "angle_insuffisant": true,
+    "raison": "Aucune phrase des faits ne contient à la fois un événement précis daté (annonce, publication, décision, résultat récent) et une donnée chiffrée ou nommée qui lui est propre. L'article explique un phénomène général (lien El Niño / incendies) sans dire ce qui vient de se passer concrètement (ex: publication d'un rapport daté, chiffre d'hectares brûlés 2026, alerte officielle récente).",
+    "article_type": "actu",
+    "titre": "Incendies en Indonésie : près de trois millions d'hectares brûlés, El Niño pointé du doigt",
+    "n_sources": 7,
+    "n_mots": 494,
+    "titre_rss": "El Niño est le principal responsable des incendies en Indonésie, conclut un rapport",
+    "matiere_faits_distincts": 818,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "afd-contrat-objectifs-moyens-2027-2029-transmis-parlement",
+    "statut": "rejete_sensible",
+    "date": "2026-11-15T07:46:45",
+    "problemes_initiaux": 14,
+    "tentative": 1,
+    "bloc5": true,
+    "article_type": "actu",
+    "titre": "L'AFD reçoit son contrat 2027-2029 le 13 juillet 2026 après cinq ans sans cadre",
+    "n_sources": 5,
+    "n_mots": 556,
+    "titre_rss": "Enfin ! Le COM 2027-2029 de l'AFD - Rapport d'information n° 119",
+    "matiere_faits_distincts": 506,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "ebola-rdc-six-mois-11197-cas-5471-deces-bundibugyo",
+    "statut": "rejete_sensible",
+    "date": "2026-11-15T07:53:53",
+    "problemes_initiaux": 14,
+    "tentative": 1,
+    "bloc5": true,
+    "article_type": "actu",
+    "titre": "Ebola en RDC : 11 197 cas et 5 471 décès en six mois",
+    "n_sources": 6,
+    "n_mots": 879,
+    "titre_rss": "Ebola en RDC: six mois après son apparition, l'épidémie poursuit sa progression",
+    "matiere_faits_distincts": 691,
+    "matiere_redondance": 0.11,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "surmortalite-juin-2026-canicule-sante-publique-france",
+    "statut": "corrige_automatiquement",
+    "date": "2026-11-15T07:59:10",
+    "problemes_initiaux": 4,
+    "tentatives": 1,
+    "problemes_residuels_style": 0,
+    "rapport_initial": {
+      "conforme": false,
+      "sujet_sensible": false,
+      "sujet_sensible_raison": "",
+      "angle_insuffisant": false,
+      "angle_insuffisant_raison": "",
+      "nature_contenu": "actualite_factuelle",
+      "problemes": [
+        {
+          "bloc": 1,
+          "section": "resume",
+          "type": "chiffre_errone",
+          "phrase_exacte": "Santé publique France signale une hausse de 29,1 % des décès toutes causes pour la semaine du 22 au 28 juin 2026, soit 2 025 morts supplémentaires par rapport à la semaine précédente, portant le total à 8 973 décès enregistrés.",
+          "explication": "Le résumé indique que les 2 025 décès supplémentaires sont 'par rapport à la semaine précédente', alors que la source [1] et le corps de l'article précisent qu'il s'agit d'un excès par rapport à la moyenne de référence 2019-2023 (hors 2020), et non d'une variation semaine sur semaine."
+        },
+        {
+          "bloc": 1,
+          "section": "resume",
+          "type": "chiffre_errone",
+          "phrase_exacte": "Cette surmortalité touche surtout les 45 ans et plus (+29,7 %) et s'observe dans tous les lieux de décès, avec un pic à domicile (+91 %) alors que la couverture du système n'y est que de 25 %.",
+          "explication": "Le résumé affirme que la couverture du système électronique est de 25 % à domicile, mais la source [1] et le corps de l'article indiquent que cette couverture de 25 % concerne les décès à domicile en général, et non spécifiquement pendant la canicule ; la formulation du résumé laisse entendre que ce taux de couverture s'applique à l'épisode actuel, ce qui n'est pas établi par la source."
+        },
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "compteur_incoherent",
+          "phrase_exacte": "nb_sources: 4",
+          "explication": "Le champ 'nb_sources' indique 4, mais seules 2 sources distinctes sont listées dans le tableau 'sources' (Santé publique France et Le Monde) ; le compteur est donc incohérent avec le nombre réel de sources fournies."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "incoherence_inter_sections",
+          "phrase_exacte": "Toutes les régions métropolitaines sont concernées sauf l'Occitanie et l'Auvergne-Rhône-Alpes [1].",
+          "explication": "Cette phrase affirme que 'toutes les régions métropolitaines sont concernées' puis en exclut deux, ce qui est contradictoire ; la source [1] ne permet pas de confirmer que les 11 autres régions métropolitaines présentent toutes une hausse statistiquement significative, l'article généralise au-delà de ce que la source établit."
+        }
+      ]
+    },
+    "article_type": "actu",
+    "titre": "Surmortalité de 29 % fin juin 2026 : 2 025 décès supplémentaires en une semaine",
+    "n_sources": 2,
+    "n_mots": 646,
+    "titre_rss": "Point de situation sur la mortalité toutes causes confondues  sur la période du 22 au 28 juin 2026",
+    "matiere_faits_distincts": 742,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "canicules-marines-2026-records-temperature-biodiversite-peche",
+    "statut": "rejete_sensible",
+    "date": "2026-11-15T08:09:14",
+    "problemes_initiaux": 11,
+    "tentative": 2,
+    "bloc5": true,
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "titre_de_mauvaise_qualite"
+    ],
+    "titre": "Canicules marines 2026 : records de température, mortalité des gorgones et baisse des captures de bulots",
+    "n_sources": 5,
+    "n_mots": 558,
+    "titre_rss": "La biodiversité face aux canicules marines",
+    "matiere_faits_distincts": 641,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "imc-limites-etude-nature-surpoids-obesite",
+    "statut": "rejete_sensible",
+    "date": "2026-11-15T08:15:18",
+    "problemes_initiaux": 12,
+    "bloc5": [
+      "chiffre_errone"
+    ],
+    "article_type": "actu",
+    "titre": "Une étude Nature sur 844 000 adultes confirme les limites de l'IMC",
+    "n_sources": 5,
+    "n_mots": 557,
+    "titre_rss": "Surpoids et obésité : l’IMC montre ses limites, une étude le confirme",
+    "matiere_faits_distincts": 998,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 11,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "etude_scientifique"
+  },
+  {
+    "slug": "arrestations-ice-aucun-benefice-emploi-salaires-americains",
+    "statut": "rejete_qualite",
+    "date": "2026-11-15T08:19:30",
+    "tentative": 1,
+    "angle_insuffisant": true,
+    "raison": "Aucune phrase des faits ne contient à la fois un événement précis daté (arrestations ICE massives sous le second mandat Trump) et une donnée chiffrée ou nommée propre à cet événement (évolution de l'emploi/salaires des natifs). Les sources [1][2][4] sont des synthèses générales sur l'immigration et le marché du travail ; la source [3] décrit la campagne d'expulsions mais ne lie pas cet événement à des résultats sur l'emploi/salaires. L'article répond à 'quels sont les effets généraux de l'immigration ?' et non à la question d'angle 'les arrestations ICE ont-elles amélioré l'emploi/salaires ?'.",
+    "article_type": "actu",
+    "titre": "Arrestations ICE : ni gain d'emploi ni hausse des salaires pour les Américains",
+    "n_sources": 4,
+    "n_mots": 779,
+    "titre_rss": "Aux États-Unis, les arrestations d’immigrés n’ont profité ni à l’emploi ni aux salaires des travailleurs nés dans le pays",
+    "matiere_faits_distincts": 669,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "etude_scientifique"
+  },
+  {
+    "slug": "cyberattaque-maileva-filiale-la-poste-22-millions-donnees-volees",
+    "statut": "rejete_sensible",
+    "date": "2026-11-15T08:24:04",
+    "problemes_initiaux": 13,
+    "bloc5": [
+      "compteur_incoherent"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "resume_repete_corps"
+    ],
+    "titre": "Cyberattaque chez Maileva : 22 millions de coordonnées volées",
+    "n_sources": 6,
+    "n_mots": 471,
+    "titre_rss": "La cyberattaque d'une filiale de La Poste entraîne un vol de données touchant 22 millions de personnes",
+    "matiere_faits_distincts": 832,
+    "matiere_redondance": 0.01,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "chantiers-data-centers-europe-exploitation-travailleurs-mobilisations",
+    "statut": "rejete_qualite",
+    "date": "2026-11-15T08:34:30",
+    "problemes_initiaux": 9,
+    "tentatives": 3,
+    "problemes_restants": 11,
+    "bloquants_restants": 6,
+    "bloquants_types": [
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "source_inventee",
+      "source_inventee"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source BBC [5] indique une capacité de 12 MW pour le site d'Airdrie, mais ne mentionne pas le projet Chapelcross ni sa capacité de 1 GW ; ce chiffre n'est pas sourcé.",
+        "phrase": "Le projet de Chapelcross dans le Dumfries and Galloway, d'une capacité prévue de 1 GW, ferait figure de l'un des plus grands d'Europe, contre 12 MW pour le plus grand site actuel écossais à Airdrie [5]."
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source ADLC [7] cite un rapport de la Commission (2020) donnant 2,7 % pour 2018 et une projection à 3,2 % pour 2030, mais l'article attribue cette estimation à la Commission européenne via l'ADLC sans distinguer le ra",
+        "phrase": "L'Autorité de la concurrence rapporte que la Commission européenne estime la part des centres de données dans la consommation d'électricité de l'Union européenne à 2,7 % en 2018 et la projette à 3,2 % d'ici 2030 sans mes"
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source ADLC [7] indique une fourchette de 100 à 150 TWh pour 2030 dans le scénario de forte croissance, pas une valeur unique de 150 TWh ; l'article présente le maximum de la fourchette comme une projection unique.",
+        "phrase": "Selon l'étude de l'Autorité de la concurrence, la consommation d'électricité des centres de données pourrait doubler entre 2023 et 2030 dans un scénario de forte croissance de l'IA, passant de 76 TWh en 2023 à 150 TWh en"
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source Vie Publique [2] n'est pas fournie en extrait ; impossible de vérifier les chiffres 40 % et le caractère majoritaire de l'eau potable. En l'absence d'extrait confirmant ces données, le fait n'est pas sourcé.",
+        "phrase": "Vie Publique précise que les systèmes de refroidissement représentent jusqu'à 40 % de la consommation énergétique d'un centre de données et que le recours à l'eau potable reste majoritaire malgré l'existence d'alternativ"
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "Le renvoi [5] (BBC) ne contient pas l'information sur le projet Chapelcross ni sa capacité de 1 GW ; cette donnée est inventée par rapport à la source citée.",
+        "phrase": "Le projet de Chapelcross dans le Dumfries and Galloway, d'une capacité prévue de 1 GW, ferait figure de l'un des plus grands d'Europe, contre 12 MW pour le plus grand site actuel écossais à Airdrie [5]."
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "L'extrait de la source Vie Publique [2] n'est pas fourni ; les chiffres avancés ne peuvent être vérifiés et constituent une attribution non confirmée par la source listée.",
+        "phrase": "Vie Publique précise que les systèmes de refroidissement représentent jusqu'à 40 % de la consommation énergétique d'un centre de données et que le recours à l'eau potable reste majoritaire malgré l'existence d'alternativ"
+      }
+    ],
+    "types_restants": [
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "source_inventee",
+      "source_inventee",
+      "redondance",
+      "redondance",
+      "redondance",
+      "section_gonflee",
+      "extrapolation"
+    ],
+    "article_type": "actu",
+    "titre": "Chantiers de data centers en Europe : exploitation des travailleurs et mobilisations citoyennes",
+    "n_sources": 7,
+    "n_mots": 552,
+    "titre_rss": "Data centers : sur les chantiers de construction européens, des travailleurs exploités dans un climat de « terreur »",
+    "matiere_faits_distincts": 1171,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "maladie-charcot-exosquelette-atalante-x-test-dix-patients",
+    "statut": "rejete_qualite",
+    "date": "2026-11-15T08:40:27",
+    "problemes_initiaux": 20,
+    "tentatives": 3,
+    "problemes_restants": 14,
+    "bloquants_restants": 10,
+    "bloquants_types": [
+      "chiffre_errone",
+      "chiffre_errone",
+      "niveau_preuve_insuffisant",
+      "niveau_preuve_insuffisant",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [1] indique un protocole de 30 semaines (6 semaines d'observation + 12 semaines d'entraînement + 12 semaines de suivi), l'article annonce 18 semaines (6+6+6) et 18 séances sur 6 semaines au lieu de 36 séances s",
+        "phrase": "Le protocole s'est étalé sur 18 semaines : 6 semaines d'observation de l'évolution naturelle, 18 séances d'entraînement sur 6 semaines (30 minutes de marche et 10 minutes d'activités pour les membres supérieurs), puis 6 "
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [1] précise des évaluations toutes les 3 semaines pendant 30 semaines (environ 7 mois), l'article réduit la période à 6 mois.",
+        "phrase": "Les capacités — force musculaire, marche, équilibre, contrôle postural, capacité pulmonaire, spasticité, douleur, fatigue, anxiété, dépression et qualité de vie — étaient évaluées toutes les trois semaines pendant 6 mois"
+      },
+      {
+        "bloc": 1,
+        "type": "niveau_preuve_insuffisant",
+        "description": "Le résumé présente comme un fait établi ('montre que... freine') un résultat d'étude pilote à effectif réduit (n≈10) sans significativité statistique, que la source qualifie elle-même de 'premiers résultats encourageants",
+        "phrase": "Une étude pilote menée à Paris sur une dizaine de patients atteints de sclérose latérale amyotrophique montre que l'entraînement avec l'exosquelette Atalante X freine la progression des symptômes pendant la phase d'exerc"
+      },
+      {
+        "bloc": 1,
+        "type": "niveau_preuve_insuffisant",
+        "description": "L'article affirme un freinage de la progression des symptômes sans préciser qu'il s'agit d'une tendance observée sur un petit effectif sans significativité statistique, ni que la source parle de 'premiers résultats encou",
+        "phrase": "Les premiers bénéfices cliniques observés sont encourageants : la progression des symptômes semble freinée pendant la phase d'entraînement, et ces effets persisteraient en partie après l'arrêt [1]."
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "La source [1] (Inserm) ne contient pas le chiffre '8 000 personnes' dans les extraits fournis ; ce fait est attribué à une source qui ne le confirme pas.",
+        "phrase": "En France, 8 000 personnes vivent avec la sclérose latérale amyotrophique (SLA), ou maladie de Charcot, une affection neurodégénérative incurable qui paralyse progressivement les muscles [1]."
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "Les extraits de la source [1] ne mentionnent ni le nom 'Pierre-François Pradat', ni le 'Laboratoire d'imagerie biomédicale', ni 'Wandercraft', ni 'Atalante X' ; l'article attribue à la source des informations qu'elle ne ",
+        "phrase": "L'équipe du neurologue Pierre-François Pradat, au Laboratoire d'imagerie biomédicale (Inserm/CNRS/Sorbonne Université) à Paris, a testé l'exosquelette Atalante X développé par l'entreprise française Wandercraft sur une d"
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "Aucun de ces détails techniques (stabilisation autonome, mensurations fémorales/tibiales/bassin/tronc, modes 'petits pas' et 'marche physiologique') ne figure dans les extraits de la source [1].",
+        "phrase": "L'exosquelette se stabilise de manière autonome et permet une marche sans utilisation des mains [1]. Ses algorithmes sont personnalisés via des mensurations fémorales, tibiales, du bassin et du tronc de chaque patient [1"
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "La source [1] ne cite pas 'Ghida Trad' ni ces propos dans les extraits fournis ; attribution inventée.",
+        "phrase": "Les patients gagnent en confiance, se sentent moins raides et font davantage de pas au fil des séances, selon la kinésithérapeute et doctorante Ghida Trad [1]."
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "Les extraits de la source [1] ne contiennent pas les termes 'neuroplastique', 'cervelet', 'circuits de compensation cérébraux', 'exercice répété en charge' ; tout le paragraphe de contexte est attribué à une source qui n",
+        "phrase": "L'originalité de l'étude Pradat réside dans le ciblage spécifique de la SLA et la recherche d'un effet neuroplastique — la réactivation de circuits de compensation cérébraux, notamment au cervelet — plutôt que dans la se"
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "La source [1] ne mentionne pas 'Pierre-François Pradat', ni 'marqueurs cliniques quantitatifs', ni 'première dans la littérature' dans les extraits fournis.",
+        "phrase": "Pierre-François Pradat précise que les patients conservant encore des capacités motrices ont le plus à gagner du programme [1]. L'identification de marqueurs cliniques quantitatifs fiables d'évolution de la maladie const"
+      }
+    ],
+    "types_restants": [
+      "chiffre_errone",
+      "chiffre_errone",
+      "niveau_preuve_insuffisant",
+      "niveau_preuve_insuffisant",
+      "redondance",
+      "redondance",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "compteur_incoherent",
+      "source_derivee_comptee_comme_primaire"
+    ],
+    "article_type": "actu",
+    "titre": "Maladie de Charcot : l'exosquelette Atalante X testé sur dix patients à Paris",
+    "n_sources": 3,
+    "n_mots": 600,
+    "titre_rss": "Remarcher grâce à un exosquelette",
+    "matiere_faits_distincts": 1043,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "etude_scientifique"
+  },
+  {
+    "slug": "poireaux-laitues-hausse-prix-55-54-oxfam-rapport-climatique",
+    "statut": "rejete_sensible",
+    "date": "2026-11-15T08:44:31",
+    "problemes_initiaux": 6,
+    "tentative": 2,
+    "bloc5": true,
+    "article_type": "actu",
+    "titre": "Poireaux et laitues : hausse de 55 % et 54 % en septembre selon Oxfam",
+    "n_sources": 4,
+    "n_mots": 477,
+    "titre_rss": "Des poireaux 55 % plus cher : le chaos climatique fait grimper le prix des aliments",
+    "matiere_faits_distincts": 681,
+    "matiere_redondance": 0.02,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "rapport"
+  },
+  {
+    "slug": "cyberattaques-agents-ia-autonomes-frigos-connectes-plateformes",
+    "statut": "corrige_automatiquement",
+    "date": "2026-11-15T08:56:05",
+    "problemes_initiaux": 15,
+    "tentatives": 2,
+    "problemes_residuels_style": 15,
+    "rapport_initial": {
+      "conforme": false,
+      "sujet_sensible": false,
+      "sujet_sensible_raison": "",
+      "angle_insuffisant": false,
+      "angle_insuffisant_raison": "",
+      "nature_contenu": "actualite_factuelle",
+      "problemes": [
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "chiffre_errone",
+          "phrase_exacte": "Le 30 octobre, la plateforme d'échange de cryptomonnaies Binance subit un vol record de 6,3 milliards de dollars (5,6 milliards d'euros) [1].",
+          "explication": "La source [1] (Courrier international) ne mentionne aucun vol de 6,3 milliards de dollars chez Binance le 30 octobre ; elle traite des cyberattaques liées à l'IA de manière générale sans chiffrer un tel incident."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "chiffre_errone",
+          "phrase_exacte": "Le lendemain, l'application d'alerte ukrainienne diffuse une fausse alerte de frappe nucléaire aux habitants de Kiev, attribuée à une intrusion malveillante [1].",
+          "explication": "La source [1] ne mentionne pas de fausse alerte nucléaire à Kiev le 1er novembre ni d'intrusion malveillante associée."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "chiffre_errone",
+          "phrase_exacte": "OpenAI, Google et Anthropic en concentrent plus de 84 % du marché mondial à mai 2026 [6].",
+          "explication": "La source [6] (Avis 26-A-05 de l'Autorité de la concurrence) ne contient pas ce chiffre de 84 % de parts de marché pour ces trois acteurs à mai 2026."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "Un rapport d'enquêteurs indépendants publié le 26 août 2026 confirme que des agents d'OpenAI ont conduit une intrusion coordonnée contre Hugging Face, masquant leur identité et stockant des données via quatre comptes d'entreprises de services numériques [3][4].",
+          "explication": "Les sources [3] et [4] (Le Monde) décrivent un « test de cybersécurité » ou une « intrusion » menée par des agents d'OpenAI, mais ne mentionnent pas un « rapport d'enquêteurs indépendants publié le 26 août 2026 » ni le stockage de données via quatre comptes d'entreprises de services numériques."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "fait_tranche_arbitrairement",
+          "phrase_exacte": "Ces trois épisodes — frigos industriels, plateforme financière, système d'alerte civil — surviennent en l'espace de quelques jours et partagent une caractéristique : l'utilisation d'agents d'IA capables de raisonner, planifier et orchestrer des actions en autonomie relative [6].",
+          "explication": "La source [6] définit les agents d'IA mais n'établit pas le lien causal entre ces trois incidents et l'utilisation d'agents d'IA autonomes ; l'article présente cette attribution comme un fait établi alors qu'elle n'est pas sourcée."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "chiffre_errone",
+          "phrase_exacte": "l'ANSSI a traité ou signalé 1 366 incidents de sécurité en 2025, touchant prioritairement administrations d'État, collectivités, santé et enseignement [8].",
+          "explication": "La source [8] (Question écrite au Sénat) ne contient pas ce chiffre précis de 1 366 incidents traités ou signalés par l'ANSSI en 2025."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "chiffre_errone",
+          "phrase_exacte": "les cyberattaques touchent une entreprise sur trois chaque année en France, avec des pertes pouvant atteindre plusieurs centaines de milliers d'euros pour les incidents graves [5].",
+          "explication": "La source [5] (data.gouv.fr) n'est pas consultable dans les extraits fournis ; le chiffre « une entreprise sur trois » n'est pas vérifié par les sources listées."
+        },
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "Début novembre, Alex Pearce, grossiste en fruits et légumes à Londres, découvre que deux de ses unités de réfrigération connectées affichent une température de 150 °C, signalant une prise de contrôle à distance [1].",
+          "explication": "La source [1] (Courrier international) ne mentionne pas Alex Pearce, ni un grossiste londonien, ni des unités de réfrigération affichant 150 °C début novembre."
+        },
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "Le même jour, des commerces en Belgique, Estonie, Irlande, Finlande, Luxembourg, Pays-Bas et Suède rapportent des anomalies identiques sur leurs équipements frigorifiques [1].",
+          "explication": "La source [1] ne mentionne pas d'incidents similaires dans ces sept pays européens."
+        },
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "Pearce débranche les câbles Internet des appareils, évitant un risque d'incendie qu'il juge réel si l'incident s'était produit en son absence [1].",
+          "explication": "La source [1] ne contient pas ce récit détaillé des actions d'Alex Pearce ni son appréciation du risque d'incendie."
+        },
+        {
+          "bloc": 2,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "Parallèlement, le règlement (UE) 2026/1744 du 8 juillet 2026 simplifie la mise en œuvre des règles harmonisées sur l'IA [2].",
+          "explication": "La source [2] (EUR-Lex, Règlement (UE) 2026/1744) est le texte officiel du règlement ; l'article lui prête un contenu (« simplifie la mise en œuvre des règles harmonisées sur l'IA ») que les extraits fournis ne confirment pas."
+        },
+        {
+          "bloc": 2,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "En France, la transposition de la directive NIS2 (UE) 2022/2555 n'est pas achevée, et le projet de loi sur la résilience des infrastructures critiques reste en cours parlementaire [8].",
+          "explication": "La source [8] (Question écrite au Sénat) ne mentionne pas l'état de la transposition de NIS2 ni un projet de loi sur la résilience des infrastructures critiques."
+        },
+        {
+          "bloc": 1,
+          "section": "resume",
+          "type": "chiffre_errone",
+          "phrase_exacte": "Début novembre, des unités de réfrigération connectées ont affiché 150 °C chez un grossiste londonien et dans sept pays européens, révélant une intrusion pilotée par des agents d'IA.",
+          "explication": "Le résumé reprend les faits non sourcés (grossiste londonien, sept pays, 150 °C, intrusion pilotée par IA) déjà signalés dans « faits »."
+        },
+        {
+          "bloc": 1,
+          "section": "resume",
+          "type": "chiffre_errone",
+          "phrase_exacte": "Parallèlement, Binance a perdu 6,3 milliards de dollars le 30 octobre et une fausse alerte nucléaire a visé Kiev le 1er novembre, deux événements attribués à des acteurs utilisant l'IA offensive.",
+          "explication": "Le résumé reprend les deux événements (vol Binance, alerte Kiev) non confirmés par la source [1]."
+        },
+        {
+          "bloc": 1,
+          "section": "titre",
+          "type": "chiffre_errone",
+          "phrase_exacte": "Frigo londonien à 150 °C, vol de 6,3 milliards chez Binance : une vague d'intrusions en novembre",
+          "explication": "Le titre affiche deux chiffres (150 °C, 6,3 milliards) et deux événements (frigo londonien, vol Binance) qui ne sont pas établis par les sources autorisées."
+        }
+      ]
+    },
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "titre_de_mauvaise_qualite"
+    ],
+    "titre": "Frigo londonien à 150 °C, vol de 6,3 milliards chez Binance : une vague d'intrusions en novembre",
+    "n_sources": 8,
+    "n_mots": 686,
+    "titre_rss": "Cyberattaques et IA : vous n’avez encore rien vu !",
+    "matiere_faits_distincts": 747,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "france-interdit-peche-loisir-anguille-jaune-quotas-professionnels",
+    "statut": "rejete_qualite",
+    "date": "2026-11-15T09:07:45",
+    "tentative": 3,
+    "perte_substance": true,
+    "section": "nuances",
+    "mots_avant": 116,
+    "mots_apres": 31,
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "faits_repetitifs"
+    ],
+    "titre": "La France interdit la pêche de loisir de l'anguille jaune et encadre les quotas professionnels",
+    "n_sources": 4,
+    "n_mots": 592,
+    "titre_rss": "La France interdit la pêche de loisir de l’anguille jaune, pour contrer l’effondrement de cette espèce",
+    "matiere_faits_distincts": 833,
+    "matiere_redondance": 0.04,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "secheresse-exceptionnelle-reunion-riviere-langevin-biodiversite-menacee",
+    "statut": "corrige_automatiquement",
+    "date": "2026-11-15T09:16:21",
+    "problemes_initiaux": 5,
+    "tentatives": 1,
+    "problemes_residuels_style": 12,
+    "rapport_initial": {
+      "conforme": false,
+      "sujet_sensible": false,
+      "sujet_sensible_raison": "",
+      "angle_insuffisant": false,
+      "angle_insuffisant_raison": "",
+      "nature_contenu": "actualite_factuelle",
+      "problemes": [
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "fait_tranche_arbitrairement",
+          "phrase_exacte": "L'Association française d'étude et de protection des poissons (AFEPP) a saisi le juge des référés du Conseil d'État le 10 novembre 2025 pour demander des mesures d'urgence face à l'assèchement de la rivière, soulignant l'urgence écologique de la situation [5].",
+          "explication": "La source [5] est une décision du Conseil d'État datée du 5 décembre 2025, ce qui prouve que la juridiction a déjà statué ; l'article présente la procédure comme en cours (« n'avait pas encore statué » dans les nuances) alors que l'issue judiciaire est connue dans les sources fournies."
+        },
+        {
+          "bloc": 1,
+          "section": "nuances",
+          "type": "fait_tranche_arbitrairement",
+          "phrase_exacte": "Le Conseil d'État n'avait pas encore statué sur la requête de l'AFEPP au moment de la publication des sources, laissant l'issue judiciaire en suspens [5].",
+          "explication": "La source [5] est la décision elle-même, publiée le 5 décembre 2025 ; affirmer que le Conseil d'État n'avait pas encore statué contredit l'existence même de cette source."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "incoherence_inter_sections",
+          "phrase_exacte": "L'Association française d'étude et de protection des poissons (AFEPP) a saisi le juge des référés du Conseil d'État le 10 novembre 2025 pour demander des mesures d'urgence face à l'assèchement de la rivière, soulignant l'urgence écologique de la situation [5].",
+          "explication": "Les faits présentent la saisine comme une action récente (novembre 2025) alors que les nuances affirment que le Conseil d'État n'avait pas encore statué au moment des sources, créant une contradiction interne sur l'état de la procédure judiciaire."
+        },
+        {
+          "bloc": 2,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "À l'échelle régionale, le sixième rapport du GIEC souligne que les îles de l'océan Indien sont particulièrement vulnérables aux épisodes de sécheresse intensifiés par le changement climatique, avec des impacts directs sur la biodiversité d'eau douce et les services écosystémiques [6].",
+          "explication": "La source [6] est le rapport complet du GIEC (AR6 WGII) ; l'article lui attribue une affirmation précise sur les îles de l'océan Indien sans que les extraits fournis ne confirment que ce passage figure dans ce document."
+        },
+        {
+          "bloc": 4,
+          "section": "contexte",
+          "type": "contexte_hors_sujet",
+          "phrase_exacte": "À l'échelle régionale, le sixième rapport du GIEC souligne que les îles de l'océan Indien sont particulièrement vulnérables aux épisodes de sécheresse intensifiés par le changement climatique, avec des impacts directs sur la biodiversité d'eau douce et les services écosystémiques [6].",
+          "explication": "Le rapport du GIEC porte à l'échelle mondiale/régionale large et ne documente pas spécifiquement la rivière Langevin ni le massif du volcan ; son invocation sert de remplissage générique sans éclairer le sujet précis de l'article."
+        }
+      ]
+    },
+    "article_type": "actu",
+    "titre": "Sécheresse exceptionnelle à La Réunion : la rivière Langevin menacée",
+    "n_sources": 6,
+    "n_mots": 520,
+    "titre_rss": "A La Réunion, une sécheresse exceptionnelle menace la biodiversité d’une rivière du Sud sauvage",
+    "matiere_faits_distincts": 878,
+    "matiere_redondance": 0.05,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "cyberattaque-iran-frigos-supermarche-france-octobre-2026",
+    "statut": "rejete_qualite",
+    "date": "2026-11-15T09:25:38",
+    "problemes_initiaux": 7,
+    "tentatives": 3,
+    "problemes_restants": 12,
+    "bloquants_restants": 4,
+    "bloquants_types": [
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "incoherence_inter_sections"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [1] (Vie Publique) indique \"plusieurs dizaines de points de vente\" et non \"plusieurs centaines\" ; le chiffre est gonflé d'un facteur dix.",
+        "phrase": "Plusieurs centaines de points de vente ont été affectés simultanément, suggérant une action coordonnée plutôt qu'une intrusion opportuniste [1]."
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "Le titre reprend \"plusieurs centaines\" alors que la source [1] ne mentionne que \"plusieurs dizaines de points de vente\" ; incohérence entre titre et corps d'une part, et source d'autre part.",
+        "phrase": "Cyberattaque iranienne : plusieurs centaines de supermarchés français touchés par un piratage de leurs systèmes de réfrigération"
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "Le résumé ne chiffre pas explicitement mais le titre et les faits le font ; l'ampleur \"plusieurs centaines\" contredit la source [1] qui parle de \"plusieurs dizaines\".",
+        "phrase": "Une opération de sabotage informatique a visé les systèmes de réfrigération de supermarchés français dans la nuit du samedi 10 au dimanche 11 octobre 2026, forçant la destruction de denrées alimentaires."
+      },
+      {
+        "bloc": 1,
+        "type": "incoherence_inter_sections",
+        "description": "Le corps (faits) affirme \"plusieurs centaines\" alors que la source [1] citée au même endroit donne \"plusieurs dizaines\" ; contradiction interne entre le fait énoncé et la source qui le supporte.",
+        "phrase": "Plusieurs centaines de points de vente ont été affectés simultanément, suggérant une action coordonnée plutôt qu'une intrusion opportuniste [1]."
+      }
+    ],
+    "types_restants": [
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "incoherence_inter_sections",
+      "source_derivee_comptee_comme_primaire",
+      "source_derivee_comptee_comme_primaire",
+      "contexte_hors_sujet",
+      "contexte_hors_sujet",
+      "section_gonflee",
+      "redondance",
+      "redondance",
+      "acteur_mis_en_cause_sans_reponse"
+    ],
+    "article_type": "actu",
+    "titre": "Cyberattaque iranienne : des centaines de frigos de supermarchés piratés en France",
+    "n_sources": 3,
+    "n_mots": 533,
+    "titre_rss": "Ce que l’on sait de la cyberattaque contre des frigos de supermarchés en France",
+    "matiere_faits_distincts": 610,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "bepicolombo-mission-mercure-mysteres-formation-planete",
+    "statut": "rejete_qualite",
+    "date": "2026-11-15T09:30:06",
+    "tentative": 1,
+    "angle_insuffisant": true,
+    "raison": "Aucune phrase des faits ne contient à la fois un événement précis daté (annonce, publication, décision, résultat récent) et une donnée chiffrée ou nommée qui lui est propre. L'article explique le contexte scientifique de la mission BepiColombo et ses objectifs, mais ne rapporte aucun fait nouveau récent (ex. publication d'étude, résultat de survol, décision d'agence) qui justifierait une publication maintenant. Il répond à \"qu'est-ce que BepiColombo ?\" plutôt qu'à \"pourquoi en parle-t-on aujourd'hui ?\".",
+    "article_type": "actu",
+    "titre": "BepiColombo s'apprête à percer les mystères de Mercure",
+    "n_sources": 2,
+    "n_mots": 688,
+    "titre_rss": "Mercure, la planète qui ne devrait pas exister",
+    "matiere_faits_distincts": 955,
+    "matiere_redondance": 0.01,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "france-bloque-vente-aux-encheres-dinosaure-dubreuillosaurus-museum-histoire-naturelle",
+    "statut": "rejete_qualite",
+    "date": "2026-11-15T09:53:45",
+    "tentative": 3,
+    "perte_substance": true,
+    "section": "contexte",
+    "mots_avant": 228,
+    "mots_apres": 84,
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "resume_repete_corps"
+    ],
+    "titre": "La France bloque la vente d'un dinosaure unique pour le Muséum national",
+    "n_sources": 3,
+    "n_mots": 589,
+    "titre_rss": "\"Sa place est dans un musée\" : la France stoppe la vente aux enchères d'un spécimen de dinosaure unique au monde",
+    "matiere_faits_distincts": 1054,
+    "matiere_redondance": 0.14,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "guadeloupe-cour-comptes-securite-sociale-1-2-milliard-perdus",
+    "statut": "corrige_automatiquement",
+    "date": "2026-11-15T09:57:35",
+    "problemes_initiaux": 8,
+    "tentatives": 1,
+    "problemes_residuels_style": 6,
+    "rapport_initial": {
+      "conforme": false,
+      "sujet_sensible": false,
+      "sujet_sensible_raison": "",
+      "angle_insuffisant": false,
+      "angle_insuffisant_raison": "",
+      "nature_contenu": "rapport",
+      "problemes": [
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "fait_tranche_arbitrairement",
+          "phrase_exacte": "Les magistrats financiers y chiffrent à 1,2 milliard d'euros le montant des pertes constatées sur la période examinée [1].",
+          "explication": "La source [1] précise que ce montant correspond à des « pertes de recettes » (manque à gagner sur les cotisations) et non à des pertes de gestion ou détournements ; l'article généralise en « pertes » sans cette qualification, ce qui change la nature du fait."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "fait_tranche_arbitrairement",
+          "phrase_exacte": "Le document décrit une désorganisation interne majeure au sein des services locaux, se traduisant par des délais de traitement des dossiers qui s'allongent pour les assurés [1].",
+          "explication": "La source [1] parle de « dysfonctionnements » et de « délais de traitement qui s'allongent » sans qualifier la désorganisation de « majeure » ; l'article ajoute un adjectif d'intensité absent de la source."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "contexte_hors_sujet",
+          "phrase_exacte": "La Cour des comptes dispose d'une mission constitutionnelle d'assistance du Parlement dans le contrôle de l'action du Gouvernement, codifiée notamment par l'article 58 de la loi organique du 1er août 2001 relative aux lois de finances [3]. Cette disposition permet à la commission des finances de l'Assemblée nationale et du Sénat de demander à la Cour la réalisation d'enquêtes sur la gestion des services ou organismes qu'elle contrôle [3]. Les conclusions de ces enquêtes doivent être communiquées dans un délai de huit mois à la commission requérante, qui statue sur leur publication [3].",
+          "explication": "Ce développement décrit le cadre général des enquêtes de la Cour des comptes (source [3]) sans lien direct avec l'enquête spécifique sur la Sécurité sociale en Guadeloupe ; il ne sert qu'à remplir la section contexte."
+        },
+        {
+          "bloc": 1,
+          "section": "nuances",
+          "type": "redondance",
+          "phrase_exacte": "Le rapport de la Cour des comptes dresse un constat financier et organisationnel sans identifier de responsables nominatifs ni qualifier d'éventuelles infractions pénales [1].",
+          "explication": "Cette phrase répète l'information déjà présente dans le résumé (3e phrase) : « Le rapport met en lumière des dysfonctionnements structurels sans préciser les responsabilités individuelles ni les suites judiciaires éventuelles. »"
+        },
+        {
+          "bloc": 1,
+          "section": "nuances",
+          "type": "redondance",
+          "phrase_exacte": "La réaction des caisses locales de Sécurité sociale et du ministère des Outre-mer n'était pas disponible dans les sources consultées à la date de publication [1].",
+          "explication": "Cette phrase répète l'information déjà présente dans le résumé (3e phrase) qui indique implicitement l'absence de suites connues ; de plus, la mention « dans les sources consultées » est redondante avec le format de sourcing [1]."
+        },
+        {
+          "bloc": 1,
+          "section": "nuances",
+          "type": "redondance",
+          "phrase_exacte": "Le document ne précise pas la période exacte couverte par l'enquête ni la méthodologie de calcul du montant de 1,2 milliard d'euros, ce qui limite la portée comparative de ce chiffre [1].",
+          "explication": "Cette limite est déjà signalée implicitement par l'absence de ces détails dans les faits ; la répéter en nuances crée une redondance."
+        },
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "compteur_incoherent",
+          "phrase_exacte": "La Cour des comptes a rendu public mardi un rapport d'enquête sur la gestion de la Sécurité sociale en Guadeloupe [1]. Les magistrats financiers y chiffrent à 1,2 milliard d'euros le montant des pertes constatées sur la période examinée [1]. Le document décrit une désorganisation interne majeure au sein des services locaux, se traduisant par des délais de traitement des dossiers qui s'allongent pour les assurés [1]. Les auteurs du rapport estiment que les résultats obtenus ne sont pas à la hauteur des besoins de la population guadeloupéenne, un territoire ultramarin marqué par un niveau de précarité élevé [1]. L'enquête a été menée dans le cadre des missions de contrôle que la Cour des comptes exerce sur les organismes de Sécurité sociale, conformément à ses attributions constitutionnelles et légales [2].",
+          "explication": "Le champ nb_sources indique 3, mais le corps de l'article n'utilise que les sources [1] et [2] ; la source [3] (Assemblée nationale) n'est citée nulle part dans le texte (ni faits, ni contexte, ni nuances), ce qui rend le compteur incohérent."
+        },
+        {
+          "bloc": 3,
+          "section": "contexte",
+          "type": "paraphrase_structurelle",
+          "phrase_exacte": "La Cour des comptes dispose d'une mission constitutionnelle d'assistance du Parlement dans le contrôle de l'action du Gouvernement, codifiée notamment par l'article 58 de la loi organique du 1er août 2001 relative aux lois de finances [3]. Cette disposition permet à la commission des finances de l'Assemblée nationale et du Sénat de demander à la Cour la réalisation d'enquêtes sur la gestion des services ou organismes qu'elle contrôle [3]. Les conclusions de ces enquêtes doivent être communiquées dans un délai de huit mois à la commission requérante, qui statue sur leur publication [3].",
+          "explication": "Ces trois phrases reprennent la structure et le vocabulaire de la source [3] (page institutionnelle de l'Assemblée nationale) sans reformulation propre, constituant une paraphrase structurelle."
+        }
+      ]
+    },
+    "article_type": "actu",
+    "titre": "Guadeloupe : la Cour des comptes épingle 1,2 milliard d'euros perdus par la Sécurité sociale",
+    "n_sources": 3,
+    "n_mots": 457,
+    "titre_rss": "A la Guadeloupe, les dérives de la « Sécu » examinées par la Cour des comptes : 1,2 milliard d’euros perdus, une désorganisation interne et des délais qui s’allongent",
+    "matiere_faits_distincts": 811,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "rapport"
   }
 ]
