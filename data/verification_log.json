@@ -74656,5 +74656,458 @@
     "n_sources_injectees": 10,
     "n_sources_trouvees": 10,
     "nature_contenu": "rapport"
+  },
+  {
+    "slug": "senat-retablit-taxe-lapin-rendez-vous-medicaux-non-honores",
+    "statut": "rejete_qualite",
+    "date": "2026-11-16T17:14:51",
+    "problemes_initiaux": 6,
+    "tentatives": 3,
+    "problemes_restants": 7,
+    "bloquants_restants": 1,
+    "bloquants_types": [
+      "chiffre_errone"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [1] (Libération) indique « 27 millions de rendez-vous médicaux non honorés chaque année » mais ne mentionne pas l'équivalent en temps de travail de 2 000 médecins ; ce chiffre n'est pas dans l'extrait fourni.",
+        "phrase": "27 millions de consultations ne sont pas honorées chaque année, ce qui correspond à l'équivalent du temps de travail de 2 000 médecins [1]."
+      }
+    ],
+    "types_restants": [
+      "chiffre_errone",
+      "source_inventee",
+      "contexte_hors_sujet",
+      "contexte_hors_sujet",
+      "contexte_hors_sujet",
+      "compteur_incoherent",
+      "section_gonflee"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "resume_repete_corps"
+    ],
+    "titre": "Le Sénat rétablit une taxe lapin pour les rendez-vous médicaux non honorés",
+    "n_sources": 4,
+    "n_mots": 530,
+    "titre_rss": "27 millions de rendez-vous médicaux non honorés chaque année : le Sénat rétablit une «taxe lapin»",
+    "matiere_faits_distincts": 953,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 3,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "revue-798-etudes-trois-approches-refuges-climatiques-marins",
+    "statut": "corrige_automatiquement",
+    "date": "2026-11-16T17:26:25",
+    "problemes_initiaux": 13,
+    "tentatives": 1,
+    "problemes_residuels_style": 14,
+    "rapport_initial": {
+      "conforme": false,
+      "sujet_sensible": false,
+      "sujet_sensible_raison": "",
+      "angle_insuffisant": false,
+      "angle_insuffisant_raison": "",
+      "nature_contenu": "etude_scientifique",
+      "problemes": [
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "Une équipe internationale a passé en revue 798 études scientifiques publiées entre 2021 et 2026, en retenant 82 travaux qui identifient ou cartographient explicitement des refuges climatiques marins [1].",
+          "explication": "La source [1] (Official Journal of the European Union) ne contient aucune information sur une revue de 798 études, 82 travaux retenus, ou trois approches pour cartographier les refuges climatiques marins ; elle ne traite que de textes législatifs européens."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "La première repose sur la faible exposition climatique : elle repère les zones où le réchauffement de l'océan est plus lent, depuis les eaux de surface jusqu'à plus de 1 000 mètres de profondeur et les fonds marins [1].",
+          "explication": "La source [1] ne mentionne pas l'approche par faible exposition climatique, les profondeurs jusqu'à 1 000 mètres, ni les fonds marins en lien avec des refuges climatiques."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "La seconde s'appuie sur la résilience écologique observée, c'est-à-dire la capacité avérée d'écosystèmes à résister ou à se rétablir, comme les forêts de kelp persistantes du Pacifique Nord-Est [1].",
+          "explication": "La source [1] ne cite pas la résilience écologique observée, ni les forêts de kelp du Pacifique Nord-Est."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "La troisième utilise la modélisation prédictive pour identifier les secteurs qui devraient maintenir des conditions propices à l'avenir, par exemple pour le corail bambou en Méditerranée [1].",
+          "explication": "La source [1] ne mentionne pas la modélisation prédictive, ni le corail bambou en Méditerranée."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "Les auteurs soulignent que l'intégration de ces refuges dans la planification spatiale et la gestion des ressources marines améliorerait l'efficacité des mesures de conservation face à l'incertitude climatique croissante [1].",
+          "explication": "La source [1] ne contient aucune recommandation des auteurs sur l'intégration des refuges dans la planification spatiale marine."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "Ils insistent sur la nécessité de combiner observations, modèles avancés et gestion adaptative pour comprendre dans quelle mesure ces refuges peuvent soutenir des écosystèmes fonctionnels sur le long terme [1].",
+          "explication": "La source [1] ne rapporte pas cette insistance des auteurs sur la combinaison observations-modèles-gestion."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "Le concept de refuge climatique provient de l'écologie terrestre, où il désignait les zones ayant permis aux espèces de survivre aux variations climatiques du Quaternaire [1].",
+          "explication": "La source [1] ne définit pas le concept de refuge climatique ni son origine en écologie terrestre."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "Son adaptation au milieu marin est plus récente et n'est pas encore pleinement ajustée aux spécificités océaniques, notamment la circulation des eaux, les remontées d'eaux profondes et la structure tridimensionnelle des habitats [1].",
+          "explication": "La source [1] n'aborde pas l'adaptation du concept au milieu marin ni les spécificités océaniques."
+        },
+        {
+          "bloc": 1,
+          "section": "nuances",
+          "type": "source_inventee",
+          "phrase_exacte": "La revue révèle de fortes inégalités géographiques : les études se concentrent dans l'Atlantique Nord et le Pacifique Nord, tandis que la haute mer et les grands fonds, qui constituent l'essentiel de l'habitat océanique, restent largement inexplorés [1].",
+          "explication": "La source [1] ne signale aucun biais géographique ni aucune concentration d'études dans l'Atlantique Nord et le Pacifique Nord."
+        },
+        {
+          "bloc": 1,
+          "section": "nuances",
+          "type": "source_inventee",
+          "phrase_exacte": "Un biais taxonomique marqué apparaît aussi : les coraux monopolisent 33 % des études, suivis par les poissons (18 %) et les macroalgues (14 %), alors que les herbiers, mangroves et marais salés sont sous-représentés, et seulement 12 % des travaux analysent plusieurs espèces conjointement [1].",
+          "explication": "La source [1] ne fournit aucune statistique sur la répartition taxonomique des études (33 % coraux, 18 % poissons, 14 % macroalgues, 12 % multi-espèces)."
+        },
+        {
+          "bloc": 1,
+          "section": "nuances",
+          "type": "source_inventee",
+          "phrase_exacte": "Les auteurs préviennent que localiser ces refuges ne suffit pas : il faut encore évaluer leur capacité à maintenir des écosystèmes fonctionnels durablement, ce qui exige des approches couplées observation-modélisation-gestion encore peu déployées [1].",
+          "explication": "La source [1] ne contient pas cet avertissement des auteurs sur la nécessité d'évaluer la capacité des refuges à maintenir des écosystèmes fonctionnels."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "contexte_hors_sujet",
+          "phrase_exacte": "Le Journal officiel de l'Union européenne publie régulièrement les textes législatifs encadrant la protection du milieu marin, notamment la directive-cadre stratégie pour le milieu marin et les règlements sur les aires marines protégées [5].",
+          "explication": "Cette phrase ne porte pas sur le sujet de l'article (la revue de 798 études sur les refuges climatiques marins) mais sur la publication de textes législatifs européens ; la source [5] ne documente pas la revue scientifique."
+        },
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "compteur_incoherent",
+          "phrase_exacte": "nb_sources: 3",
+          "explication": "Le champ nb_sources indique 3, mais une seule source ([1]) est réellement citée dans le corps de l'article (les renvois [2], [3], [4] n'apparaissent nulle part dans le texte) ; le compteur ne reflète pas le nombre de sources distinctes effectivement utilisées."
+        }
+      ]
+    },
+    "article_type": "actu",
+    "titre": "Une revue de 798 études distingue trois approches pour identifier les refuges climatiques marins",
+    "n_sources": 3,
+    "n_mots": 587,
+    "titre_rss": "Why marine climate refugia matters for safeguarding the world’s oceans",
+    "matiere_faits_distincts": 1072,
+    "matiere_redondance": 0.01,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "etude_scientifique"
+  },
+  {
+    "slug": "loi-relance-logement-maires-anru-3-quartiers-populaires",
+    "statut": "rejete_qualite",
+    "date": "2026-11-16T17:40:50",
+    "problemes_initiaux": 5,
+    "tentatives": 3,
+    "problemes_restants": 10,
+    "bloquants_restants": 5,
+    "bloquants_types": [
+      "chiffre_errone",
+      "chiffre_errone",
+      "incoherence_inter_sections",
+      "annonce_perimee",
+      "source_inventee"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "Le titre mentionne un \"PNRU 3\" alors que la source [1] (Le Monde) parle explicitement d'un \"ANRU 3\" (Agence nationale pour la rénovation urbaine), terme technique exact pour le troisième programme de renouvellement urbai",
+        "phrase": "Loi relance du logement : les maires ont pressé pour un PNRU 3"
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "Le résumé utilise \"PNRU 3\" alors que la source [1] cite \"ANRU 3\". De plus, la source [1] est datée du 16 novembre 2026 (veille de l'examen) et rapporte que les maires \"rappellent l'urgence\" d'un ANRU 3, pas que le lancem",
+        "phrase": "Le projet de loi relance du logement a été examiné en séance à l'Assemblée nationale le 17 novembre 2026, avec le lancement d'un PNRU 3 comme mesure centrale pour les quartiers prioritaires."
+      },
+      {
+        "bloc": 1,
+        "type": "incoherence_inter_sections",
+        "description": "La source [2] (Vie Publique \"Relance logement : projet de loi Jeanbrun\") ne mentionne pas explicitement un \"PNRU 3\" ni une enveloppe de 5 milliards d'euros pour ce programme spécifique. L'article attribue à la source [2]",
+        "phrase": "La mesure centrale pour les territoires populaires est le lancement d'un troisième Programme national de renouvellement urbain (PNRU 3), doté d'une enveloppe globale de 5 milliards d'euros [2]."
+      },
+      {
+        "bloc": 1,
+        "type": "annonce_perimee",
+        "description": "L'article présente le \"lancement\" du PNRU 3 comme un fait accompli (indicatif présent \"est le lancement\") alors que le projet de loi est en cours d'examen parlementaire (source [1] : examen en séance le 17 novembre 2026)",
+        "phrase": "La mesure centrale pour les territoires populaires est le lancement d'un troisième Programme national de renouvellement urbain (PNRU 3), doté d'une enveloppe globale de 5 milliards d'euros [2]."
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "La source [3] (Vie Publique \"Relance et décentralisation du logement : conseil des ministres 24 juin 2026\") est un discours/présentation du conseil des ministres. L'article lui attribue les objectifs du texte (\"vise à ac",
+        "phrase": "Le texte, présenté en conseil des ministres le 24 juin 2026, vise à accélérer la production de logements, accélérer la rénovation, décentraliser et simplifier [3]."
+      }
+    ],
+    "types_restants": [
+      "chiffre_errone",
+      "chiffre_errone",
+      "incoherence_inter_sections",
+      "annonce_perimee",
+      "source_inventee",
+      "chiffre_errone",
+      "source_inventee",
+      "source_inventee",
+      "redondance",
+      "chiffre_errone"
+    ],
+    "article_type": "actu",
+    "titre": "Loi relance du logement : les maires pressent pour un ANRU 3",
+    "n_sources": 4,
+    "n_mots": 574,
+    "titre_rss": "Loi « relance du logement » : des maires rappellent l’urgence d’un ANRU 3 pour résorber les « trappes à pauvreté » dans les quartiers populaires",
+    "matiere_faits_distincts": 517,
+    "matiere_redondance": 0.05,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "senat-adopte-taxe-produits-sucres-ultratransformes-2027",
+    "statut": "rejete_qualite",
+    "date": "2026-11-16T17:50:14",
+    "problemes_initiaux": 13,
+    "tentatives": 3,
+    "problemes_restants": 14,
+    "bloquants_restants": 10,
+    "bloquants_types": [
+      "incoherence_inter_sections",
+      "chiffre_errone",
+      "annonce_perimee",
+      "annonce_perimee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "incoherence_inter_sections",
+        "description": "Chronologie impossible : le vote du Sénat (19 nov 2025) ne peut pas 'suivre de près d'un an' un rejet des députés daté du 22 octobre 2026 (futur par rapport au vote sénatorial). La source [4] est datée du 23 octobre 2026",
+        "phrase": "Le vote des sénateurs, intervenu le 19 novembre 2025 sur le PLFSS 2026, suit de près d'un an le rejet d'une taxe analogue par les députés le 22 octobre 2026, lors de l'examen du projet de loi de financement de la Sécurit"
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "L'écart entre le 19 novembre 2025 et le 22 octobre 2026 est d'environ 11 mois, pas 'd'un an', et surtout le rejet des députés est postérieur au vote du Sénat, contredisant le sens de 'suit' qui implique une antériorité.",
+        "phrase": "Le vote des sénateurs, intervenu le 19 novembre 2025 sur le PLFSS 2026, suit de près d'un an le rejet d'une taxe analogue par les députés le 22 octobre 2026"
+      },
+      {
+        "bloc": 1,
+        "type": "annonce_perimee",
+        "description": "Le résumé présente le rejet des députés (22 oct 2026) comme un fait déjà survenu ('avaient déjà repoussé') au moment du vote du Sénat (19 nov 2025), or ce rejet est postérieur d'environ 11 mois. C'est une anachronie : au",
+        "phrase": "Les députés avaient déjà repoussé une mesure analogue le 22 octobre 2026 lors de l'examen du PLFSS 2027, la procédure parlementaire donnant le dernier mot à l'Assemblée nationale."
+      },
+      {
+        "bloc": 1,
+        "type": "annonce_perimee",
+        "description": "Le titre affirme que les députés 'l'ont déjà rejetée' (passé composé = fait accompli antérieur), alors que le rejet des députés (oct 2026) est postérieur au vote du Sénat (nov 2025). Au moment de l'adoption sénatoriale, ",
+        "phrase": "Le Sénat adopte une taxe sur les produits sucrés et ultratransformés, les députés l'ont déjà rejetée"
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "La source [1] (Sciences et Avenir, 19 nov 2025) n'est pas fournie en extrait ; il est impossible de vérifier si elle confirme le soutien du gouvernement et l'objectif d'incitation à la reformulation. Le renvoi [1] attrib",
+        "phrase": "Cette mesure, soutenue par le gouvernement, vise à inciter les industriels à réduire la teneur en sucre de leurs recettes [1]."
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "La source [2] (Sénat, amendement du 19 nov 2025) n'est pas fournie en extrait ; le contenu de l'amendement (demande de rapport d'évaluation) ne peut être vérifié. Le renvoi [2] attribue un fait non confirmé par les extra",
+        "phrase": "Un amendement sénatorial adopté en parallèle demande au gouvernement de remettre au Parlement un rapport d'évaluation sur la taxe existante sur les boissons sucrées et sur l'ensemble de la fiscalité comportementale appli"
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "La source [5] (Le Monde, 5 nov 2024) n'est pas fournie en extrait ; le recul du gouvernement en novembre 2024 ne peut être vérifié. Le renvoi [5] attribue un fait non confirmé par les extraits fournis.",
+        "phrase": "Le gouvernement avait déjà reculé sur l'idée d'une nouvelle taxe sur les produits sucrés en novembre 2024, lors de l'examen du budget de la Sécurité sociale pour 2025, face aux oppositions parlementaires et sectorielles "
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "La source [6] (AFP, 5 nov 2026) n'est pas fournie en extrait ; le contenu de l'analyse (distinction achats/santé) ne peut être vérifié. Le renvoi [6] attribue un fait non confirmé par les extraits fournis.",
+        "phrase": "Une analyse relayée par l'AFP examine les taxes sur le sucre, les étiquettes d'avertissement et la reformulation, en distinguant les changements de comportement d'achat des améliorations de santé démontrées [6]."
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "La source [6] (AFP, 5 nov 2026) n'est pas fournie en extrait ; les conclusions précises sur la baisse des achats et l'absence d'effet démontré sur la santé ne peuvent être vérifiées. Le renvoi [6] attribue des faits non ",
+        "phrase": "Selon une analyse relayée par l'AFP, les taxes sur le sucre entraînent une baisse des achats de produits sucrés, mais leur effet sur les indicateurs de santé — obésité, diabète, caries — n'est pas démontré de façon robus"
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "La source [2] (Sénat, amendement du 19 nov 2025) n'est pas fournie en extrait ; le lien entre la demande de rapport et l'indication que l'efficacité 'reste à prouver' est une interprétation non sourcée. Le renvoi [2] ne ",
+        "phrase": "Le Sénat a prévu un mécanisme d'évaluation a posteriori, demandant au gouvernement un rapport sur l'ensemble de la fiscalité comportementale applicable aux produits sucrés, ce qui indique que l'efficacité de l'outil rest"
+      }
+    ],
+    "types_restants": [
+      "incoherence_inter_sections",
+      "chiffre_errone",
+      "chronologie_confuse",
+      "annonce_perimee",
+      "annonce_perimee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "compteur_incoherent",
+      "section_gonflee",
+      "redondance"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "faits_repetitifs"
+    ],
+    "titre": "Le Sénat adopte une taxe sur les produits sucrés et ultratransformés pour 2027",
+    "n_sources": 6,
+    "n_mots": 497,
+    "titre_rss": "Pour lutter contre la malbouffe, le Sénat veut taxer les produits sucrés",
+    "matiere_faits_distincts": 537,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "optimisation-ia-performances-emissions-co2-etude-francaise",
+    "statut": "rejete_sensible",
+    "date": "2026-11-16T17:56:49",
+    "problemes_initiaux": 11,
+    "bloc5": [
+      "fait_tranche_arbitrairement"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "faits_repetitifs"
+    ],
+    "titre": "L'optimisation des IA améliore les performances sans réduire les émissions de CO2",
+    "n_sources": 7,
+    "n_mots": 538,
+    "titre_rss": "L’entraînement des IA s’avère toujours plus consommateur d’énergie",
+    "matiere_faits_distincts": 734,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "etude_scientifique"
+  },
+  {
+    "slug": "pauvrete-france-taux-record-15-4-masque-realites-multiples",
+    "statut": "rejete_sensible",
+    "date": "2026-11-16T18:08:16",
+    "problemes_initiaux": 14,
+    "tentative": 3,
+    "bloc5": true,
+    "article_type": "actu",
+    "titre": "Pauvreté en France : le taux record de 15,4 % masque des réalités multiples",
+    "n_sources": 4,
+    "n_mots": 604,
+    "titre_rss": "Pauvreté, budgets contraints : mesurer la réalité économique derrière la crise du \"pouvoir d'achat\"",
+    "matiere_faits_distincts": 759,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 2,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "ebola-bundibugyo-vaccins-zaire-anticorps-croises-inserm",
+    "statut": "rejete_sensible",
+    "date": "2026-11-16T18:15:38",
+    "problemes_initiaux": 15,
+    "bloc5": [
+      "affaire_en_cours_presentee_comme_fait"
+    ],
+    "article_type": "actu",
+    "titre": "Ebola Bundibugyo : les vaccins anti-Zaïre induisent des anticorps croisés, selon l'Inserm",
+    "n_sources": 5,
+    "n_mots": 660,
+    "titre_rss": "Épidémie d’Ebola Bundibugyo : des premiers résultats pour guider la recherche d’un vaccin efficace",
+    "matiere_faits_distincts": 935,
+    "matiere_redondance": 0.03,
+    "matiere_donnees_chiffrees": 5,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "veille_heures_visible": 517.7,
+    "veille_passages": 311,
+    "veille_age_h": 2319.5,
+    "veille_n_flux_grappe": 9,
+    "nature_contenu": "etude_scientifique"
+  },
+  {
+    "slug": "mortalite-hausse-29-pour-cent-juin-2026-france",
+    "statut": "rejete_qualite",
+    "date": "2026-11-16T18:36:02",
+    "tentative": 3,
+    "perte_substance": true,
+    "section": "nuances",
+    "mots_avant": 151,
+    "mots_apres": 60,
+    "article_type": "actu",
+    "titre": "Hausse de 29 % de la mortalité fin juin 2026 : 2 025 décès supplémentaires",
+    "n_sources": 3,
+    "n_mots": 676,
+    "titre_rss": "Point de situation sur la mortalité toutes causes confondues  sur la période du 22 au 28 juin 2026",
+    "matiere_faits_distincts": 858,
+    "matiere_redondance": 0.01,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "inserm-sept-fausses-idees-vaccins-campagne-grippe-covid-2026",
+    "statut": "conforme_du_premier_coup",
+    "date": "2026-11-16T18:49:13",
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "faits_repetitifs"
+    ],
+    "titre": "L'Inserm liste sept idées reçues sur les vaccins avant la campagne grippe-Covid du 13 octobre",
+    "n_sources": 8,
+    "n_mots": 988,
+    "titre_rss": "Sept fausses idées sur les vaccins",
+    "matiere_faits_distincts": 808,
+    "matiere_redondance": 0.01,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
   }
 ]
