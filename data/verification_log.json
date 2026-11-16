@@ -73904,5 +73904,757 @@
     "n_sources_injectees": 10,
     "n_sources_trouvees": 10,
     "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "pisa-2025-niveau-moyen-mathematiques-ecoles-ingenieurs-alerte",
+    "statut": "rejete_qualite",
+    "date": "2026-11-16T07:40:03",
+    "angle_insuffisant": true,
+    "raison": "Aucune phrase de la section 'faits' ne contient à la fois un événement précis daté (publication PISA 2025 le 8 septembre 2026) et une donnée chiffrée propre à cet événement (score moyen, rang, évolution en points). Les sources fournies ne contiennent pas les résultats chiffrés de PISA 2025 ; l'article ne fait qu'affirmer un 'niveau moyen' sans le quantifier, et recycle des sources de 2006, 2022, 2023 pour décrire une tendance ancienne. L'angle annoncé ('Que révèle l'enquête PISA 2025...') n'est pas traité par manque de données réelles sur cette édition.",
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "resume_repete_corps",
+      "faits_repetitifs"
+    ],
+    "titre": "PISA 2025 : niveau moyen en maths, écoles d'ingénieurs en alerte",
+    "n_sources": 6,
+    "n_mots": 556,
+    "titre_rss": "Pour les écoles d’ingénieurs, la difficile équation de la baisse du niveau en maths",
+    "matiere_faits_distincts": 422,
+    "matiere_redondance": 0.01,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "etude_scientifique"
+  },
+  {
+    "slug": "ebola-bundibugyo-vaccins-zaire-reponse-immunitaire-croisee",
+    "statut": "corrige_automatiquement",
+    "date": "2026-11-16T07:47:52",
+    "problemes_initiaux": 7,
+    "tentatives": 1,
+    "problemes_residuels_style": 0,
+    "rapport_initial": {
+      "conforme": false,
+      "sujet_sensible": false,
+      "sujet_sensible_raison": "",
+      "angle_insuffisant": false,
+      "angle_insuffisant_raison": "",
+      "nature_contenu": "etude_scientifique",
+      "problemes": [
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "chiffre_errone",
+          "phrase_exacte": "L'épidémie actuelle de Bundibugyo en République démocratique du Congo et en Ouganda a causé plus de 1 000 décès déclarés au 22 juillet 2026, sans vaccin ni traitement spécifique homologué pour cette souche [1].",
+          "explication": "La source [1] (Inserm, 23 juillet 2026) indique « plus de 1 000 cas confirmés » et non « plus de 1 000 décès » ; le chiffre des décès n'est pas donné dans cet extrait."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "chiffre_errone",
+          "phrase_exacte": "L'épidémie en cours en RDC, déclarée en mai 2026, a atteint 10 532 cas confirmés et 5 126 décès au 1er novembre, touchant huit provinces dont l'Ituri comme épicentre [3].",
+          "explication": "La source [3] (RFI, 15 novembre 2026) ne mentionne aucun chiffre de cas ni de décès pour une épidémie de Bundibugyo ; elle traite de l'épidémie d'Ebola Zaïre en cours en RDC."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "chronologie_confuse",
+          "phrase_exacte": "L'épidémie en cours en RDC, déclarée en mai 2026, a atteint 10 532 cas confirmés et 5 126 décès au 1er novembre, touchant huit provinces dont l'Ituri comme épicentre [3].",
+          "explication": "La source [3] est datée du 15 novembre 2026 et décrit l'épidémie d'Ebola Zaïre, pas Bundibugyo ; l'article mélange deux épidémies distinctes (Zaïre et Bundibugyo) sans distinguer leurs dates ni leurs bilans."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "incoherence_inter_sections",
+          "phrase_exacte": "L'épidémie actuelle de Bundibugyo en République démocratique du Congo et en Ouganda a causé plus de 1 000 décès déclarés au 22 juillet 2026 [1].",
+          "explication": "Le chapeau (résumé) et les faits citent « plus de 1 000 décès » au 22 juillet 2026, tandis que le contexte donne 5 126 décès au 1er novembre 2026 pour une épidémie déclarée en mai 2026 ; les deux bilans sont incompatibles pour une même épidémie et l'article ne réconcilie pas les chiffres."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "L'OMS a annoncé l'intégration prochaine de deux candidats vaccins spécifiquement conçus contre Bundibugyo — ChAdOx1 (Oxford/Serum Institute of India) et mRNA-1469 (Moderna) — dans l'essai clinique Tumaini à Bunia, selon une stratégie de vaccination en anneau [4]. Ervebo y est évalué en premier, mais son efficacité contre Bundibugyo reste inconnue [4].",
+          "explication": "La source [4] (Le Monde, 27 août 2026) ne mentionne ni l'essai Tumaini, ni les candidats ChAdOx1 et mRNA-1469, ni une vaccination en anneau à Bunia ; ces informations ne figurent pas dans l'extrait fourni."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "La présidence de la République a appelé le 16 juin 2026 à une réponse coordonnée face à cette épidémie [2].",
+          "explication": "La source [2] (Vie Publique, 16 juin 2026) est un appel des chefs d'État et de gouvernement, pas spécifiquement de la présidence de la République française ; l'attribution est imprécise par rapport au contenu de la source."
+        },
+        {
+          "bloc": 2,
+          "section": "contexte",
+          "type": "compteur_incoherent",
+          "phrase_exacte": "\"nb_sources\": 5",
+          "explication": "Le tableau sources ne contient que 4 entrées distinctes (Inserm, Vie Publique, RFI, Le Monde) alors que le champ nb_sources indique 5."
+        }
+      ]
+    },
+    "article_type": "actu",
+    "titre": "Ebola Bundibugyo : les vaccins anti-Zaïre induisent une réponse immunitaire croisée chez l'homme",
+    "n_sources": 4,
+    "n_mots": 601,
+    "titre_rss": "Épidémie d’Ebola Bundibugyo : des premiers résultats pour guider la recherche d’un vaccin efficace",
+    "matiere_faits_distincts": 796,
+    "matiere_redondance": 0.01,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "veille_heures_visible": 517.7,
+    "veille_passages": 311,
+    "veille_age_h": 2309.8,
+    "veille_n_flux_grappe": 9,
+    "nature_contenu": "etude_scientifique"
+  },
+  {
+    "slug": "norvege-cour-supreme-invalide-trois-licences-petrolieres-mer-du-nord",
+    "statut": "rejete_qualite",
+    "date": "2026-11-16T07:54:17",
+    "problemes_initiaux": 8,
+    "tentatives": 3,
+    "problemes_restants": 8,
+    "bloquants_restants": 6,
+    "bloquants_types": [
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "incoherence_inter_sections",
+      "chiffre_errone",
+      "source_inventee"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "Le titre indique 'deux licences' alors que la source [3] (Le Monde, 13/11/2024) précise explicitement dans son titre que la Cour suprême a invalidé 'trois licences pétrolières'. Le slug de l'article mentionne également '",
+        "phrase": "La Cour suprême norvégienne invalide deux licences pétrolières en mer du Nord"
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "Le résumé répète l'erreur du titre en mentionnant 'deux permis' au lieu de trois, contrairement à ce qu'indique la source [3].",
+        "phrase": "La Cour suprême norvégienne a annulé deux permis d'exploration pétrolière en mer du Nord"
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "Le corps de l'article (section faits) affirme que deux licences ont été invalidées en citant la source [3], mais cette source (Le Monde, 13/11/2024) titre sur l'invalidation de 'trois licences'. Le chiffre est donc erron",
+        "phrase": "La Cour suprême norvégienne a rendu un jugement déclarant invalides deux licences d'exploration pétrolière attribuées en mer du Nord [3]."
+      },
+      {
+        "bloc": 1,
+        "type": "incoherence_inter_sections",
+        "description": "Incohérence majeure entre le slug ('trois-licences'), le titre de la source [3] ('invalide trois licences') et le texte de l'article qui mentionne systématiquement 'deux licences' (titre, résumé, faits). Les trois élémen",
+        "phrase": "La Cour suprême norvégienne a rendu un jugement déclarant invalides deux licences d'exploration pétrolière attribuées en mer du Nord [3]."
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "L'article cite la source [3] pour affirmer que Le Monde parle d'un 'jugement historique', mais omet que le titre complet de cette source est 'La Cour suprême norvégienne invalide trois licences pétrolières en mer du Nord",
+        "phrase": "Le Monde titre quant à lui sur un « jugement historique » [3]."
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "La source [1] (Sciences et Avenir) est citée pour attribuer la qualification de 'victoire historique pour le climat' à Greenpeace, mais l'extrait fourni ne contient pas cette citation de Greenpeace. L'attribution à Green",
+        "phrase": "Selon Sciences et Avenir, Greenpeace a qualifié cette décision de \"victoire historique pour le climat\" [1]."
+      }
+    ],
+    "types_restants": [
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "incoherence_inter_sections",
+      "chiffre_errone",
+      "source_inventee",
+      "section_gonflee",
+      "acteur_mis_en_cause_sans_reponse"
+    ],
+    "article_type": "actu",
+    "titre": "La Cour suprême norvégienne invalide trois licences pétrolières en mer du Nord",
+    "n_sources": 4,
+    "n_mots": 456,
+    "titre_rss": "En Norvège, victoire \"historique\" après l'invalidation de licences pétrolières en mer du Nord",
+    "matiere_faits_distincts": 271,
+    "matiere_redondance": 0.01,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "decision_officielle"
+  },
+  {
+    "slug": "inserm-sept-fausses-idees-vaccins-campagne-2026-2027",
+    "statut": "rejete_qualite",
+    "date": "2026-11-16T08:06:17",
+    "problemes_initiaux": 9,
+    "tentatives": 3,
+    "problemes_restants": 14,
+    "bloquants_restants": 12,
+    "bloquants_types": [
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source Inserm [1] indique une réduction de 87 % (et non 79 %) pour les femmes vaccinées avant 17 ans dans l'étude suédoise (BMJ 2026).",
+        "phrase": "Deux études publiées en 2026 apportent de nouvelles données : une étude suédoise parue dans le BMJ, portant sur plus de 300 000 filles et femmes sur la période 2006-2023, observe une réduction de 79 % du risque de cancer"
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source Inserm [1] indique une réduction de 62 % (et non 65 %) pour les femmes complètement vaccinées dans l'étude allemande (The Lancet Regional Health – Europe 2026).",
+        "phrase": "Une étude allemande publiée dans The Lancet Regional Health – Europe, sur la période 2008-2024 avec plus de 300 000 participantes, montre une réduction de 65 % pour les femmes complètement vaccinées [1]."
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source Inserm [1] indique une chute de 90 % (et non \"90 à 95 %\") pour les diagnostics de condylomes génitaux en Australie.",
+        "phrase": "En Australie, où la vaccination systématique a débuté en 2007, les diagnostics de condylomes génitaux ont chuté de 90 à 95 % [1]."
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "Ce chiffre est attribué à la source [1] (Inserm), mais l'extrait fourni de la source Inserm ne contient pas cette estimation de l'OMS ; la source [1] ne confirme pas ce fait.",
+        "phrase": "L'Organisation mondiale de la santé estime qu'entre 290 000 et 650 000 personnes décèdent chaque année dans le monde de complications respiratoires liées à la grippe saisonnière [1]."
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "Ces chiffres précis (80 % et 36,7 %) sont attribués à la source [1] (Inserm), mais l'extrait fourni de la source Inserm ne contient pas ces données du Baromètre 2024 ; la source [1] ne les confirme pas.",
+        "phrase": "Le Baromètre de Santé publique France 2024, cité par l'Inserm, montre que si 80 % des adultes de 18 à 79 ans se déclarent favorables à la vaccination en général, 36,7 % expriment des défiances à l'égard de certaines vacc"
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "La date précise du 10 octobre 2026 et le lien avec la campagne du 13 octobre sont attribués à la source [1], mais l'extrait fourni de la source Inserm ne mentionne ni la date de mise en ligne, ni la date de la campagne v",
+        "phrase": "L'Inserm a mis en ligne le 10 octobre 2026 une version révisée de son article \"Sept fausses idées sur les vaccins\" dans sa rubrique Canal Détox, à l'approche du démarrage de la campagne de vaccination contre la grippe et"
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "Les noms et titres de ces deux expertes sont attribués à la source [1], mais l'extrait fourni de la source Inserm ne les mentionne pas ; la source [1] ne confirme pas cette information.",
+        "phrase": "Cette actualisation a été réalisée avec l'appui de Marie-Ghislaine de Goër de Herve, ingénieure de recherche en immunologie à l'unité U1186, et de Sandrine Sarrazin, directrice de recherche au Centre d'immunologie de Mar"
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "La liste exhaustive des sept idées reçues est attribuée à la source [1], mais l'extrait fourni de la source Inserm ne les énumère pas ; la source [1] ne confirme pas cette liste détaillée.",
+        "phrase": "L'article passe en revue sept idées reçues : l'inutilité des vaccins non obligatoires, la supériorité de l'immunité naturelle, le lien supposé entre vaccin ROR et autisme, le lien supposé entre vaccin hépatite B et sclér"
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "Le chiffre de 6 400 cas annuels et la répartition sont attribués à la source [1], mais l'extrait fourni de la source Inserm ne contient pas ce chiffre ; la source [1] ne le confirme pas.",
+        "phrase": "Sur le vaccin contre les papillomavirus (HPV), non obligatoire mais fortement recommandé, l'Inserm rappelle qu'environ 6 400 nouveaux cas de cancers liés aux HPV sont diagnostiqués chaque année en France, dont près de la"
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "Ces précisions techniques (doses, apport alimentaire, myofasciite à macrophages) sont attribuées à la source [1], mais l'extrait fourni de la source Inserm ne les contient pas ; la source [1] ne les confirme pas.",
+        "phrase": "L'Inserm précise que les sels d'aluminium, utilisés comme adjuvants depuis les années 1930, sont injectés à des doses de 0,2 à 0,85 mg par dose, tandis que l'apport alimentaire quotidien est de 1 à 10 mg, majoritairement"
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "Cette information sur le thiomersal (date 2002, absence de toxicité) est attribuée à la source [1], mais l'extrait fourni de la source Inserm ne la mentionne pas ; la source [1] ne la confirme pas.",
+        "phrase": "Concernant le mercure (thiomersal), l'Inserm indique qu'il n'est plus utilisé comme conservateur dans les vaccins du calendrier vaccinal français depuis 2002, et que les études n'ont pas mis en évidence de toxicité aux d"
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "Cette explication mécanique sur l'ARN messager est attribuée à la source [1], mais l'extrait fourni de la source Inserm ne la contient pas ; la source [1] ne la confirme pas.",
+        "phrase": "Sur les vaccins à ARN messager, l'Inserm rappelle qu'ils ne pénètrent pas dans le noyau de la cellule et ne modifient pas l'ADN ; l'ARN messager reste dans le cytoplasme où il est dégradé après avoir servi à la productio"
+      }
+    ],
+    "types_restants": [
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "contexte_hors_sujet",
+      "section_gonflee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee"
+    ],
+    "article_type": "actu",
+    "titre": "L'Inserm met à jour ses sept fausses idées sur les vaccins pour la campagne 2026-2027",
+    "n_sources": 4,
+    "n_mots": 837,
+    "titre_rss": "Sept fausses idées sur les vaccins",
+    "matiere_faits_distincts": 852,
+    "matiere_redondance": 0.13,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "canicules-marines-2026-records-temperature-impacts-biodiversite",
+    "statut": "rejete_qualite",
+    "date": "2026-11-16T08:11:50",
+    "tentative": 2,
+    "angle_insuffisant": true,
+    "raison": "Aucune phrase des faits ne combine un événement précis daté de l'été 2026 (canicules marines) avec une donnée chiffrée ou nommée propre à cet événement (ex. température mesurée, espèce touchée, zone géographique, date de pic). Les faits citent des sources postérieures (novembre 2026, septembre 2026) qui commentent l'été mais ne livrent aucune observation datée de l'été 2026 elle-même ; l'article répond à « qu'est-ce qu'une canicule marine ? » plutôt qu'à « quelles conséquences concrètes cet été 2026 ? ».",
+    "article_type": "actu",
+    "titre": "Canicules marines 2026 : records de température et impacts sur la biodiversité",
+    "n_sources": 8,
+    "n_mots": 457,
+    "titre_rss": "La biodiversité face aux canicules marines",
+    "matiere_faits_distincts": 887,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "revalorisation-smic-bas-salaires-fonction-publique-cout-milliard-euros",
+    "statut": "rejete_sensible",
+    "date": "2026-11-16T08:18:51",
+    "problemes_initiaux": 6,
+    "tentative": 1,
+    "bloc5": true,
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "titre_de_mauvaise_qualite"
+    ],
+    "titre": "Revalorisation du smic de 1,6 % et des bas salaires : coût de 1 milliard d'euros",
+    "n_sources": 5,
+    "n_mots": 439,
+    "titre_rss": "La hausse de 1,6 % du smic et des « bas salaires » des fonctionnaires coûtera « un peu plus de 1 milliard d’euros », selon le gouvernement",
+    "matiere_faits_distincts": 689,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "imc-limites-obesite-etude-nature-tour-de-taille",
+    "statut": "rejete_sensible",
+    "date": "2026-11-16T08:26:06",
+    "problemes_initiaux": 8,
+    "tentative": 2,
+    "bloc5": true,
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "resume_repete_corps"
+    ],
+    "titre": "Une étude Nature sur 844 000 adultes confirme les limites de l'IMC pour l'obésité",
+    "n_sources": 5,
+    "n_mots": 466,
+    "titre_rss": "Surpoids et obésité : l’IMC montre ses limites, une étude le confirme",
+    "matiere_faits_distincts": 768,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 8,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "etude_scientifique"
+  },
+  {
+    "slug": "ebola-rdc-11197-cas-5471-morts-11-novembre",
+    "statut": "rejete_sensible",
+    "date": "2026-11-16T08:50:46",
+    "problemes_initiaux": 16,
+    "tentative": 1,
+    "bloc5": true,
+    "article_type": "actu",
+    "titre": "Ebola en RDC : 11 197 cas et 5 471 morts recensés au 11 novembre",
+    "n_sources": 5,
+    "n_mots": 741,
+    "titre_rss": "Ebola en RDC : 55 471 décès pour 11 197 cas cumulés ont été recensés en six mois",
+    "matiere_faits_distincts": 722,
+    "matiere_redondance": 0.04,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "poireaux-laitues-hausse-prix-climat-ete-2026",
+    "statut": "rejete_sensible",
+    "date": "2026-11-16T08:57:02",
+    "problemes_initiaux": 10,
+    "tentative": 3,
+    "bloc5": true,
+    "article_type": "actu",
+    "titre": "Poireaux +55 %, laitues +54 % en septembre : Oxfam lie la hausse au climat",
+    "n_sources": 4,
+    "n_mots": 686,
+    "titre_rss": "Des poireaux 55 % plus cher : le chaos climatique fait grimper le prix des aliments",
+    "matiere_faits_distincts": 1247,
+    "matiere_redondance": 0.01,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "rapport"
+  },
+  {
+    "slug": "cop31-antalya-ouverture-financements-climatiques",
+    "statut": "corrige_automatiquement",
+    "date": "2026-11-16T09:02:09",
+    "problemes_initiaux": 7,
+    "tentatives": 1,
+    "problemes_residuels_style": 0,
+    "rapport_initial": {
+      "conforme": false,
+      "sujet_sensible": false,
+      "sujet_sensible_raison": "",
+      "angle_insuffisant": false,
+      "angle_insuffisant_raison": "",
+      "nature_contenu": "actualite_factuelle",
+      "problemes": [
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "fait_tranche_arbitrairement",
+          "phrase_exacte": "le seuil symbolique de 1,5 °C d'augmentation de la température moyenne par rapport à l'ère préindustrielle ayant été dépassé",
+          "explication": "La source [3] (AP News) indique que le seuil de 1,5 °C a été dépassé sur une période de 12 mois (février 2024-janvier 2025) selon Copernicus, ce qui ne constitue pas un dépassement définitif de l'objectif à long terme de l'accord de Paris (moyenne sur 20-30 ans). L'article présente ce dépassement temporaire comme un fait établi sans la nuance temporelle cruciale."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "fait_tranche_arbitrairement",
+          "phrase_exacte": "Le dépassement récent de ce dernier seuil, confirmé par les données scientifiques les plus récentes, pourrait marquer un tournant",
+          "explication": "Même problème que dans les faits : le contexte reprend l'affirmation du dépassement du seuil de 1,5 °C sans préciser qu'il s'agit d'un dépassement temporaire sur 12 mois, pas de l'objectif de long terme de l'accord de Paris."
+        },
+        {
+          "bloc": 1,
+          "section": "nuances",
+          "type": "source_inventee",
+          "phrase_exacte": "la participation de l'Arabie saoudite et d'autres grands producteurs d'hydrocarbures, dont les pavillons sont visibles à Antalya",
+          "explication": "Aucune des cinq sources autorisées ne mentionne la présence de pavillons saoudiens ou de l'OPEP à Antalya. Cette affirmation factuelle précise (visibilité de pavillons) n'est sourcée par aucune référence [n] et n'apparaît dans aucun extrait fourni."
+        },
+        {
+          "bloc": 1,
+          "section": "nuances",
+          "type": "formule_vague",
+          "phrase_exacte": "[source principale]",
+          "explication": "La mention '[source principale]' n'est pas un renvoi valide au format [n] vers le tableau des sources autorisées. Elle ne permet pas de vérifier l'affirmation sur les pavillons saoudiens et constitue une attribution fantôme."
+        },
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "qualifiée de \"COP de mise en œuvre\" par l'OCDE [2]",
+          "explication": "La source [2] (OCDE) ne contient pas l'expression \"COP de mise en œuvre\" dans les extraits fournis. L'article attribue cette qualification à l'OCDE sans que la source ne la confirme."
+        },
+        {
+          "bloc": 4,
+          "section": "nuances",
+          "type": "section_gonflee",
+          "phrase_exacte": "La mobilisation du secteur privé, présentée comme indispensable pour combler le fossé financier, dépend de cadres réglementaires stables et de garanties de risque que tous les pays ne sont pas en mesure d'offrir.",
+          "explication": "Cette phrase énonce une généralité économique non sourcée (aucun [n]) qui ne figure dans aucune des sources fournies. Elle remplit la section 'nuances' avec du vague générique au lieu d'un fait distinct sourcé."
+        },
+        {
+          "bloc": 4,
+          "section": "nuances",
+          "type": "jugement_de_valeur",
+          "phrase_exacte": "rappelle que les intérêts économiques liés aux énergies fossiles restent un facteur de blocage ou de ralentissement dans les discussions sur l'atténuation",
+          "explication": "La formulation 'facteur de blocage ou de ralentissement' constitue un jugement de valeur non attribué. Aucune source ne qualifie ainsi la participation saoudienne ; l'article présente cette interprétation comme un fait neutre."
+        }
+      ]
+    },
+    "article_type": "actu",
+    "titre": "La COP31 s'ouvre à Antalya avec l'objectif de mobiliser les financements climatiques",
+    "n_sources": 5,
+    "n_mots": 524,
+    "titre_rss": "COP31 : à Antalya, le climat cristallise les rapports de force mondiaux",
+    "matiere_faits_distincts": 520,
+    "matiere_redondance": 0.07,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "airpods-max-remise-100-euros-amazon-16-novembre",
+    "statut": "rejete_qualite",
+    "date": "2026-11-16T09:07:07",
+    "angle_insuffisant": true,
+    "raison": "Aucune phrase dans 'faits' ne combine un événement précis daté (la promotion du 16 novembre 2026) avec une donnée chiffrée ou nommée qui lui est propre (prix exact après remise, prix de référence Amazon, pourcentage exact). L'article répond à 'qu'est-ce que l'AirPods Max ?' plutôt qu'à 'pourquoi parle-t-on de cette promotion maintenant ?'.",
+    "article_type": "actu",
+    "titre": "AirPods Max : plus de 100 € de remise chez Amazon ce 16 novembre",
+    "n_sources": 2,
+    "n_mots": 409,
+    "titre_rss": "AirPods Max : plus de 100 € de remise sur le fameux casque Apple au son haute-fidélité ce lundi 16 novembre",
+    "matiere_faits_distincts": 610,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "thomas-couvreur-erc-global-forets-tropicales-humides",
+    "statut": "rejete_qualite",
+    "date": "2026-11-16T09:17:11",
+    "tentative": 2,
+    "angle_insuffisant": true,
+    "raison": "Aucune phrase des faits ne combine un événement précis daté (annonce, publication, décision récente) et une donnée chiffrée ou nommée qui lui est propre. L'article rapporte une bourse obtenue en décembre 2019 et un financement jusqu'en mai 2025, sans fait déclencheur récent (publication de résultats, nouvelle étape, communiqué récent) qui justifierait une publication maintenant. Le contexte cite une étude de septembre 2022 mais elle ne porte pas sur le projet GLOBAL. L'article répond à \"qu'est-ce que le projet GLOBAL ?\" plutôt qu'à \"pourquoi en parle-t-on aujourd'hui ?\".",
+    "article_type": "actu",
+    "titre": "Thomas Couvreur obtient un ERC Consolidator Grant pour le projet GLOBAL",
+    "n_sources": 3,
+    "n_mots": 592,
+    "titre_rss": "Forêts tropicales humides : un financement ERC pour le chercheur IRD Thomas Couvreur",
+    "matiere_faits_distincts": 596,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "veille_heures_visible": 517.7,
+    "veille_passages": 326,
+    "veille_age_h": 2309.8,
+    "veille_n_flux_grappe": 2,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "secheresse-exceptionnelle-reunion-riviere-langevin-biodiversite-menacee",
+    "statut": "rejete_qualite",
+    "date": "2026-11-16T09:22:04",
+    "angle_insuffisant": true,
+    "raison": "Aucune phrase dans 'faits' ne combine un événement précis daté (publication, décision, mesure) et une donnée chiffrée ou nommée propre à cet événement. L'article décrit une situation hydrologique chronique sans fait déclencheur récent identifié (le rapport de la Cour des comptes n'est pas daté ni cité précisément, l'article du Monde sert de source générale sans extrait exploitable). Le lecteur ne sait pas ce qui vient de se passer pour justifier la publication maintenant.",
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "article_sans_date"
+    ],
+    "titre": "Sécheresse exceptionnelle à La Réunion : la rivière Langevin menacée",
+    "n_sources": 4,
+    "n_mots": 550,
+    "titre_rss": "A La Réunion, une sécheresse exceptionnelle menace la biodiversité d’une rivière du Sud sauvage",
+    "matiere_faits_distincts": 919,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "bepicolombo-mission-europeenne-arrivee-mercure-novembre-2026",
+    "statut": "rejete_qualite",
+    "date": "2026-11-16T09:26:45",
+    "angle_insuffisant": true,
+    "raison": "Aucune phrase de la section 'faits' ne contient à la fois un événement précis daté ou datable (annonce, publication, décision, résultat rendu public récemment) et une donnée chiffrée ou nommée qui lui est propre. L'article décrit uniquement le profil général de la mission BepiColombo (lancement 2018, arrivée prévue 2026, composition, objectifs) sans faire état d'une actualité déclenchante récente (nouvelle manœuvre, publication de résultats de survol, communiqué récent de l'ESA/JAXA). Il répond à 'qu'est-ce que BepiColombo ?' plutôt qu'à 'pourquoi en parle-t-on maintenant ?'.",
+    "article_type": "actu",
+    "titre": "BepiColombo : la mission européenne arrive à Mercure en novembre 2026",
+    "n_sources": 2,
+    "n_mots": 541,
+    "titre_rss": "Mercure, la planète qui ne devrait pas exister",
+    "matiere_faits_distincts": 535,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "sujet_pedagogique"
+  },
+  {
+    "slug": "chine-premier-astronaute-etranger-tiangong-pakistan-2026",
+    "statut": "rejete_sensible",
+    "date": "2026-11-16T09:34:28",
+    "problemes_initiaux": 8,
+    "tentative": 3,
+    "bloc5": true,
+    "article_type": "actu",
+    "titre": "La Chine accueillera son premier astronaute étranger à bord de Tiangong en 2026",
+    "n_sources": 3,
+    "n_mots": 467,
+    "titre_rss": "Un astronaute pakistanais bientôt à bord de la station spatiale chinoise",
+    "matiere_faits_distincts": 680,
+    "matiere_redondance": 0.03,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "quercy-fossiles-grande-coupure-climatique-34-millions-annees",
+    "statut": "rejete_qualite",
+    "date": "2026-11-16T09:40:18",
+    "angle_insuffisant": true,
+    "raison": "Aucune phrase des faits ne contient à la fois un événement précis daté (publication, décision, résultat récent) et une donnée chiffrée ou nommée qui lui est propre. L'article décrit un phénomène général (la Grande Coupure il y a 34 millions d'années) et mentionne la publication d'un film le 30 octobre 2026, mais ne lie pas cet événement récent à une découverte scientifique nouvelle, un résultat inédit ou une donnée propre à cette publication. Le texte répond à \"qu'est-ce que la Grande Coupure ?\" plutôt qu'à \"pourquoi en parle-t-on maintenant ?\".",
+    "article_type": "actu",
+    "titre": "Quercy : des fossiles racontent la Grande Coupure climatique",
+    "n_sources": 2,
+    "n_mots": 465,
+    "titre_rss": "Quercy : des fossiles témoins d’un bouleversement climatique",
+    "matiere_faits_distincts": 986,
+    "matiere_redondance": 0.02,
+    "matiere_donnees_chiffrees": 2,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "sujet_pedagogique"
+  },
+  {
+    "slug": "robotique-chirurgicale-35-ans-innovation-francaise-cnrs",
+    "statut": "rejete_qualite",
+    "date": "2026-11-16T09:50:02",
+    "angle_insuffisant": true,
+    "raison": "Aucune phrase dans la section 'faits' ne combine un événement précis daté (publication de l'interview le 26 octobre 2026) avec une donnée chiffrée ou nommée qui lui est propre ; l'article retrace une histoire de 35 ans sans fait déclencheur récent distinct de la publication elle-même, répondant à 'qu'est-ce que la robotique chirurgicale française ?' plutôt qu'à 'pourquoi en parle-t-on maintenant ?'.",
+    "article_type": "actu",
+    "titre": "Robotique chirurgicale : 35 ans d'innovation française au service du geste médical",
+    "n_sources": 1,
+    "n_mots": 638,
+    "titre_rss": "L’avènement de la robotique chirurgicale",
+    "matiere_faits_distincts": 726,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "interview"
+  },
+  {
+    "slug": "nasa-recrute-astronautes-programme-artemis-lune-2026",
+    "statut": "corrige_automatiquement",
+    "date": "2026-11-16T10:02:30",
+    "problemes_initiaux": 8,
+    "tentatives": 1,
+    "problemes_residuels_style": 16,
+    "rapport_initial": {
+      "conforme": false,
+      "sujet_sensible": false,
+      "sujet_sensible_raison": "",
+      "angle_insuffisant": false,
+      "angle_insuffisant_raison": "",
+      "nature_contenu": "actualite_factuelle",
+      "problemes": [
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "Parallèlement, l'administrateur de la NASA a indiqué que l'agence compte accélérer le programme Commercial Lunar Payload Services (CLPS) pour multiplier les envois d'expériences scientifiques et de démonstrateurs technologiques vers la surface lunaire, en appui à la construction de la base [1].",
+          "explication": "La source [1] (Science, 9 mars 2026) ne mentionne pas le programme CLPS ni une accélération de celui-ci ; elle traite des priorités scientifiques de l'administrateur pour la Lune, Mars et la Terre. Le fait attribué à cette source n'y figure pas."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "fait_tranche_arbitrairement",
+          "phrase_exacte": "La mission Artemis II, premier vol habité autour de la Lune depuis 1972, a récemment achevé son survol historique et ses astronautes se sont rendus au siège des Nations Unies à New York début mai 2026 [5].",
+          "explication": "La source [5] (UN News, 1er mai 2026) indique que les astronautes d'Artemis II ont visité l'ONU « un mois après avoir achevé leur survol historique », ce qui place le survol vers début avril 2026. L'article, dont l'appel à candidatures est daté du 7 novembre 2026, présente ce survol comme « récemment achevé » alors qu'il remonterait à plus de sept mois ; le terme « récemment » tranche arbitrairement la chronologie."
+        },
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "Parallèlement, l'administrateur de la NASA a indiqué que l'agence compte accélérer le programme Commercial Lunar Payload Services (CLPS) pour multiplier les envois d'expériences scientifiques et de démonstrateurs technologiques vers la surface lunaire, en appui à la construction de la base [1].",
+          "explication": "Même fait que ci-dessus : la source [1] ne contient pas cette information sur le programme CLPS, donc l'attribution [1] est inventée."
+        },
+        {
+          "bloc": 2,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "Le module de service européen (ESM), fourni par l'ESA, assure la propulsion, l'énergie et le soutien vital du vaisseau Orion pour ces missions [3].",
+          "explication": "La source [3] (Le Monde, 1er avril 2026) porte sur la mission Artemis II et son équipage ; les extraits fournis ne mentionnent pas le module de service européen (ESM) ni son rôle. L'attribution [3] est donc inventée."
+        },
+        {
+          "bloc": 2,
+          "section": "contexte",
+          "type": "source_derivee_comptee_comme_primaire",
+          "phrase_exacte": "Le programme Artemis structure le retour humain sur la Lune en plusieurs étapes. La mission Artemis I, vol d'essai sans équipage du lanceur SLS et du vaisseau Orion, a été réalisée fin 2022 [3]. La mission Artemis II doit emmener un équipage en orbite lunaire, marquant le premier vol habité au-delà de l'orbite basse depuis Apollo 17 en 1972 [3]. La mission Artemis III est prévue pour réaliser le premier alunissage habité depuis 1972, ciblant la région du pôle Sud lunaire [3]. L'objectif à plus long terme, réaffirmé par la NASA, est d'établir une base de surface durable — le « Artemis Base Camp » — permettant des séjours de longue durée et servant de tremplin pour l'exploration de Mars, avec un horizon souvent cité autour de 2035-2040 pour les premiers vols habités vers la planète rouge [3].",
+          "explication": "L'ensemble du paragraphe « Contexte » est attribué à la seule source [3] (Le Monde, article sur Artemis II). Or cet article de presse ne fait que reprendre des informations officielles de la NASA ; ce ne sont pas des confirmations indépendantes. Le champ « qualite_sources » compte 2 primaires et 3 secondaires, mais plusieurs sources listées (Le Monde, UN News, France Info) sont des reprises médiatiques dérivées de communications officielles, pas des sources primaires distinctes."
+        },
+        {
+          "bloc": 2,
+          "section": "contexte",
+          "type": "compteur_incoherent",
+          "phrase_exacte": "\"nb_sources\": 5",
+          "explication": "Le champ nb_sources indique 5, mais la source [2] (France Info sur l'Iran) n'est citée nulle part dans le corps de l'article (aucun renvoi [2]). Une source listée mais inutilisée ne doit pas être comptée comme source effective ; le compteur est donc incohérent."
+        },
+        {
+          "bloc": 4,
+          "section": "resume",
+          "type": "extrapolation",
+          "phrase_exacte": "Le calendrier officiel prévoit un vol habité autour de la Lune avec Artemis II, suivi d'un alunissage avec Artemis III, avant la construction d'une base permanente visée pour 2036.",
+          "explication": "La date de 2036 pour une « base permanente » n'est pas confirmée par les sources : la source [3] cite un horizon « souvent cité autour de 2035-2040 » pour les premiers vols vers Mars, et les nuances précisent que « la date de 2036 pour une « première colonie » mentionnée dans certains relais médiatiques ne figure pas comme un jalon officiel validé ». Le résumé présente cette date comme un calendrier officiel, ce qui est une extrapolation non sourcée."
+        },
+        {
+          "bloc": 4,
+          "section": "contexte",
+          "type": "redondance",
+          "phrase_exacte": "La mission Artemis I, vol d'essai sans équipage du lanceur SLS et du vaisseau Orion, a été réalisée fin 2022 [3]. La mission Artemis II doit emmener un équipage en orbite lunaire, marquant le premier vol habité au-delà de l'orbite basse depuis Apollo 17 en 1972 [3]. La mission Artemis III est prévue pour réaliser le premier alunissage habité depuis 1972, ciblant la région du pôle Sud lunaire [3].",
+          "explication": "Ces éléments de calendrier (Artemis I, II, III) sont déjà résumés dans le résumé (chapeau) et rappelés dans les faits ; les répéter dans le Contexte sans apporter de fait nouveau constitue une redondance interdite par la charte (règle 1 : une idée = une seule apparition)."
+        }
+      ]
+    },
+    "article_type": "actu",
+    "titre": "La NASA ouvre les candidatures pour ses futurs astronautes lunaires",
+    "n_sources": 5,
+    "n_mots": 505,
+    "titre_rss": "\"Vivre la plus grande aventure de l'humanité\" : la Nasa recrute des astronautes pour aller \"travailler\" sur la Lune",
+    "matiere_faits_distincts": 914,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "453-tonnes-or-africain-exportation-illegale-emirats-2024-swissaid",
+    "statut": "rejete_qualite",
+    "date": "2026-11-16T10:29:16",
+    "problemes_initiaux": 6,
+    "tentatives": 3,
+    "problemes_restants": 9,
+    "bloquants_restants": 2,
+    "bloquants_types": [
+      "chiffre_errone",
+      "chiffre_errone"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [1] (RFI) indique une valeur de 35 milliards de dollars, pas 36 milliards ; l'article arrondit différemment sans le signaler.",
+        "phrase": "Ce volume équivaut à 36 milliards de dollars au cours actuel, une manne financière captée par des intermédiaires et des acteurs de conflits au détriment des pays producteurs [1]."
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [1] (RFI) mentionne une fourchette de 430-450 tonnes par an, pas 430-470 tonnes ; la borne supérieure est erronée.",
+        "phrase": "Le rapport de Swissaid montre pourtant que les flux frauduleux sont restés stables autour de 430-470 tonnes par an depuis 2012, signe que cette réglementation n'est manifestement pas appliquée [1]."
+      }
+    ],
+    "types_restants": [
+      "chiffre_errone",
+      "chiffre_errone",
+      "source_inventee",
+      "source_inventee",
+      "contexte_hors_sujet",
+      "contexte_hors_sujet",
+      "redondance",
+      "source_derivee_comptee_comme_primaire",
+      "source_derivee_comptee_comme_primaire"
+    ],
+    "article_type": "actu",
+    "titre": "453 tonnes d'or africain exportées illégalement via les Émirats en 2024 selon Swissaid",
+    "n_sources": 3,
+    "n_mots": 714,
+    "titre_rss": "Les Émirats arabes unis, plaque tournante de l'or exporté illégalement d'Afrique",
+    "matiere_faits_distincts": 586,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "rapport"
   }
 ]
