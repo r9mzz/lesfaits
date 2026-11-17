@@ -5,13 +5,22 @@
   <link>https://lesfaits.info/</link>
   <description>Journal numérique français rédigé par IA. Juste les faits. Aucun parti pris.</description>
   <language>fr</language>
-  <lastBuildDate>Mon, 16 Nov 2026 17:49:20 GMT</lastBuildDate>
+  <lastBuildDate>Tue, 17 Nov 2026 17:19:34 GMT</lastBuildDate>
   <atom:link href="https://lesfaits.info/feed.xml" rel="self" type="application/rss+xml"/>
   <image>
     <url>https://lesfaits.info/assets/images/og-default.jpg</url>
     <title>Les Faits</title>
     <link>https://lesfaits.info/</link>
   </image>
+  <item>
+    <title>Apple jugé en France pour obsolescence programmée en juin 2027</title>
+    <link>https://lesfaits.info/articles/apple-proces-obsolescence-programmee-juin-2027-france.html</link>
+    <guid isPermaLink="true">https://lesfaits.info/articles/apple-proces-obsolescence-programmee-juin-2027-france.html</guid>
+    <description>Le tribunal judiciaire de Paris examinera à partir de juin 2027 les pratiques d'Apple soupçonnées d'avoir verrouillé logiciellement les pièces détachées d'iPhone, limitant les réparations hors circuit officiel. Cette procédure, une première en France sur ce fondement pénal, porte sur l'augmentation des coûts de réparation et le raccourcissement de la durée de vie des appareils. L'enquête judiciaire s'inscrit dans un cadre européen renforcé par la directive 2024/2853 sur la responsabilité du fait des produits défectueux, qui intègre désormais les logiciels et services numériques.</description>
+    <category>tech</category>
+    <enclosure url="https://lesfaits.info/assets/images/apple-proces-obsolescence-programmee-juin-2027-france.jpg" type="image/jpeg" length="0"/>
+    <pubDate>Tue, 17 Nov 2026 17:19:32 GMT</pubDate>
+  </item>
   <item>
     <title>L’Inserm liste sept idées reçues sur les vaccins avant la campagne grippe-Covid du 13 octobre</title>
     <link>https://lesfaits.info/articles/inserm-sept-fausses-idees-vaccins-campagne-grippe-covid-2026.html</link>
@@ -182,15 +191,6 @@
     <category>sante</category>
     <enclosure url="https://lesfaits.info/assets/images/cancer-pancreas-essai-clinique-anticorps.jpg" type="image/jpeg" length="0"/>
     <pubDate>Fri, 31 Jul 2026 03:56:11 GMT</pubDate>
-  </item>
-  <item>
-    <title>Mort inexpliquée de 15 éléphants au Kenya</title>
-    <link>https://lesfaits.info/articles/morts-elephants-kenya.html</link>
-    <guid isPermaLink="true">https://lesfaits.info/articles/morts-elephants-kenya.html</guid>
-    <description>Une enquête a été ouverte après la mort inexpliquée de 15 éléphants dans le parc national d'Amboseli au Kenya, entre le 24 juin et le 24 juillet 2026, comme rapporté par Le Figaro. Les autorités kényanes sont préoccupées par la santé de la population d'éléphants dans le parc et cherchent à déterminer les causes de ces décès, selon Ouest-France. La mort de ces éléphants soulève des questions sur la sécurité de l'écosystème et les mesures à prendre pour prévenir de telles tragédies à l'avenir, souligne Sciences et Avenir.</description>
-    <category>sante</category>
-    <enclosure url="https://lesfaits.info/assets/images/morts-elephants-kenya.jpg" type="image/jpeg" length="0"/>
-    <pubDate>Thu, 30 Jul 2026 12:54:21 GMT</pubDate>
   </item>
 </channel>
 </rss>
