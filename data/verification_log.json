@@ -75109,5 +75109,886 @@
     "n_sources_injectees": 10,
     "n_sources_trouvees": 10,
     "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "senat-adopte-taxe-produits-sucres-ultratransformes-budget-2027",
+    "statut": "rejete_qualite",
+    "date": "2026-11-16T23:06:35",
+    "problemes_initiaux": 10,
+    "tentatives": 3,
+    "problemes_restants": 11,
+    "bloquants_restants": 8,
+    "bloquants_types": [
+      "incoherence_inter_sections",
+      "incoherence_inter_sections",
+      "incoherence_inter_sections",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "incoherence_inter_sections",
+        "description": "Le titre et le résumé affirment que le Sénat a voté une taxe pour le budget 2027 (PLFSS 2027), mais la source [1] (Sciences et Avenir, 19/11/2026) traite de l'examen du PLFSS 2026 (année 2025-2026), comme le confirme la ",
+        "phrase": "Le Sénat a donné son feu vert à la création d'une taxe sur les produits sucrés et ultratransformés dans le cadre de l'examen du projet de loi de financement de la Sécurité sociale pour 2027 [1]."
+      },
+      {
+        "bloc": 1,
+        "type": "incoherence_inter_sections",
+        "description": "Le titre présente le vote du Sénat comme portant sur le budget 2027, alors que la source [1] concerne le PLFSS 2026. Les députés ont rejeté une taxe pour le budget 2027 (source [4]), mais le Sénat a voté une taxe pour le",
+        "phrase": "Le Sénat vote une taxe sur les produits sucrés ultratransformés, mais les députés l'ont rejetée pour le budget 2027"
+      },
+      {
+        "bloc": 1,
+        "type": "incoherence_inter_sections",
+        "description": "Le résumé attribue à la source [1] un vote sur le PLFSS 2027, mais la source [1] (Sciences et Avenir, 19/11/2026) rapporte l'adoption d'un amendement lors de l'examen du PLFSS 2026. La source [2] confirme qu'il s'agit de",
+        "phrase": "Le Sénat a voté une taxe sur les produits sucrés et ultratransformés lors de l'examen du projet de loi de financement de la Sécurité sociale pour 2027 [1]."
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "La source [1] (Sciences et Avenir) n'est pas fournie en extrait, mais la source [2] (amendement sénatorial) émane du Sénat, pas du gouvernement. La source [6] (Le Monde, 2024) indique que le gouvernement avait reculé sur",
+        "phrase": "Soutenue par le gouvernement, cette mesure vise à inciter les industriels à réduire le sucre dans leurs recettes [1]."
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "La source [2] (amendement n°815 rect.) n'est pas fournie en extrait. La liste détaillée des objets du rapport (reformulation, fraude, effets redistributifs, équité entre secteurs) n'est pas vérifiable avec les seules sou",
+        "phrase": "Ce rapport devra évaluer les liens entre la taxe et les efforts de reformulation des industriels, l'impact de la hausse des prix sur les habitudes de consommation, l'impact économique et financier sur les consommateurs e"
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "La source [2] (amendement n°815 rect.) n'est pas fournie en extrait. L'affirmation selon laquelle la taxe soda n'a « jamais été dotée d'une véritable évaluation » est une appréciation qui n'est pas sourcée de manière vér",
+        "phrase": "Depuis son instauration, cette taxe n'a jamais été dotée d'une véritable évaluation permettant d'en mesurer l'efficacité réelle ni d'en apprécier pleinement les conséquences économiques, sociales ou sanitaires [2]."
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "La source [6] (Le Monde, 05/11/2024) n'est pas fournie en extrait. L'article lui attribue l'information du recul du gouvernement, mais sans extrait, cette attribution ne peut être vérifiée.",
+        "phrase": "Le gouvernement avait déjà reculé sur l'idée d'une nouvelle taxe sur les produits sucrés lors de l'examen du PLFSS pour 2025, en novembre 2024 [6]."
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "La source [5] (AFP, 05/11/2026) n'est pas fournie en extrait. Le contenu précis de l'étude Competere (distinction comportement d'achat / améliorations de santé) n'est pas vérifiable avec les seules sources autorisées fou",
+        "phrase": "Une étude du think tank Competere, relayée par l'AFP, distingue les changements de comportement d'achat des améliorations de santé démontrées, suggérant que l'impact sanitaire direct de ces taxes reste à établir [5]."
+      }
+    ],
+    "types_restants": [
+      "incoherence_inter_sections",
+      "incoherence_inter_sections",
+      "incoherence_inter_sections",
+      "source_inventee",
+      "chronologie_confuse",
+      "redondance",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "compteur_incoherent"
+    ],
+    "article_type": "actu",
+    "titre": "Le Sénat adopte une taxe sur les produits sucrés ultratransformés dans le budget 2027",
+    "n_sources": 8,
+    "n_mots": 599,
+    "titre_rss": "Pour lutter contre la malbouffe, le Sénat veut taxer les produits sucrés",
+    "matiere_faits_distincts": 661,
+    "matiere_redondance": 0.01,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "cyberattaque-maileva-22-millions-francais-donnees-volees",
+    "statut": "rejete_qualite",
+    "date": "2026-11-16T23:15:50",
+    "tentative": 3,
+    "perte_substance": true,
+    "section": "contexte",
+    "mots_avant": 124,
+    "mots_apres": 46,
+    "article_type": "actu",
+    "titre": "Cyberattaque Maileva : 22 millions de Français concernés par un vol de données postales",
+    "n_sources": 5,
+    "n_mots": 521,
+    "titre_rss": "Maileva : nouvelle cyberattaque contre une société française",
+    "matiere_faits_distincts": 1071,
+    "matiere_redondance": 0.01,
+    "matiere_donnees_chiffrees": 2,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "taux-pauvrete-france-15-4-indicateur-limites-ressenti",
+    "statut": "rejete_sensible",
+    "date": "2026-11-16T23:25:27",
+    "problemes_initiaux": 19,
+    "tentative": 2,
+    "bloc5": true,
+    "article_type": "actu",
+    "titre": "Pauvreté à 15,4 % : un indicateur record qui masque des réalités multiples",
+    "n_sources": 5,
+    "n_mots": 570,
+    "titre_rss": "Pauvreté, budgets contraints : mesurer la réalité économique derrière la crise du \"pouvoir d'achat\"",
+    "matiere_faits_distincts": 391,
+    "matiere_redondance": 0.04,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "puffins-anglais-jet-lag-navigation-etude-oxford",
+    "statut": "rejete_qualite",
+    "date": "2026-11-16T23:37:50",
+    "problemes_initiaux": 11,
+    "tentatives": 3,
+    "problemes_restants": 8,
+    "bloquants_restants": 3,
+    "bloquants_types": [
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [1] (Sciences et Avenir) indique un décalage de 30 minutes, mais la source [2] (The Guardian) précise que le décalage est de 20 minutes (\"internal clock was about 20 minutes behind local solar time\"). Les deux ",
+        "phrase": "L'étude, parue dans la revue Nature, montre que lorsque ces oiseaux rentrent au nid après avoir chassé en mer, leur vol rapide vers le nord-est à travers les fuseaux horaires décale leur horloge interne d'environ une dem"
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [3] (Le Monde) indique une période de suivi de 2004 à 2012 (\"entre 2004 et 2012\"), et non 2004-2023. La date de publication de l'étude dans Nature est aussi le 29 octobre 2026 selon [2], et non le 1er novembre ",
+        "phrase": "Le Monde rapporte que cette étude, publiée le 1er novembre 2026, s'appuie sur le suivi de 180 individus équipés de balises GPS sur l'île de Copeland, en Irlande du Nord, sur la période 2004-2023 [3]."
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [2] (The Guardian) indique que l'étude a été publiée en ligne dans Nature le 29 octobre 2026, mais la source [1] (Sciences et Avenir) date l'article du 29 octobre 2026 également. La source [3] (Le Monde) date l",
+        "phrase": "The Guardian précise que l'étude a été menée par le département de biologie de l'université d'Oxford et publiée dans Nature le 29 octobre 2026 [2]."
+      }
+    ],
+    "types_restants": [
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "compteur_incoherent",
+      "source_derivee_comptee_comme_primaire",
+      "cadrage_emprunte",
+      "redondance",
+      "redondance"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "faits_repetitifs",
+      "article_sans_date"
+    ],
+    "titre": "Les puffins des Anglais désorientés par un jet-lag naturel en rentrant de chasse",
+    "n_sources": 4,
+    "n_mots": 696,
+    "titre_rss": "Des oiseaux marins, victimes du \"jet-lag\" après une longue chasse",
+    "matiere_faits_distincts": 948,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "etude_scientifique"
+  },
+  {
+    "slug": "canicule-juin-2026-surmortalite-2025-deces-exces",
+    "statut": "conforme_du_premier_coup",
+    "date": "2026-11-16T23:55:41",
+    "article_type": "actu",
+    "titre": "Canicule juin 2026 : 2 025 décès en excès, hausse de 29 %",
+    "n_sources": 3,
+    "n_mots": 588,
+    "titre_rss": "Point de situation sur la mortalité toutes causes confondues  sur la période du 22 au 28 juin 2026",
+    "matiere_faits_distincts": 952,
+    "matiere_redondance": 0.01,
+    "matiere_donnees_chiffrees": 2,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "veille_heures_visible": 221.3,
+    "veille_passages": 74,
+    "veille_age_h": 2029.0,
+    "veille_n_flux_grappe": 1,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "canicules-marines-2026-records-temperature-restauration-nature-europe",
+    "statut": "rejete_qualite",
+    "date": "2026-11-17T00:03:19",
+    "tentative": 3,
+    "perte_substance": true,
+    "section": "contexte",
+    "mots_avant": 210,
+    "mots_apres": 89,
+    "article_type": "actu",
+    "titre": "Canicules marines 2026 : records de température et réponse européenne par la restauration",
+    "n_sources": 8,
+    "n_mots": 552,
+    "titre_rss": "La biodiversité face aux canicules marines",
+    "matiere_faits_distincts": 965,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "etude-nature-limites-imc-obesite-masse-grasse",
+    "statut": "rejete_sensible",
+    "date": "2026-11-17T00:15:06",
+    "problemes_initiaux": 12,
+    "tentative": 2,
+    "bloc5": true,
+    "article_type": "actu",
+    "titre": "Une étude dans Nature confirme les limites de l'IMC",
+    "n_sources": 4,
+    "n_mots": 548,
+    "titre_rss": "Surpoids et obésité : l’IMC montre ses limites, une étude le confirme",
+    "matiere_faits_distincts": 659,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 2,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "etude_scientifique"
+  },
+  {
+    "slug": "cop31-antalya-ministres-financement-combustibles-fossiles-negociations",
+    "statut": "rejete_qualite",
+    "date": "2026-11-17T00:23:32",
+    "problemes_initiaux": 13,
+    "tentatives": 3,
+    "problemes_restants": 25,
+    "bloquants_restants": 18,
+    "bloquants_types": [
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [5] (Le Monde, 8 novembre) indique « plus de 40 000 participants sont attendus », pas 50 000. Le chiffre est erroné par rapport à la source citée.",
+        "phrase": "Près de 200 pays participent à ce sommet qui a rassemblé plus de 50 000 participants attendus [5]."
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [6] (Mediapart, 16 novembre) ne mentionne pas les dates du 10 au 21 novembre 2026 ni la coprésidence avec Chris Bowen. Ces informations ne figurent pas dans l'extrait fourni.",
+        "phrase": "La 31e Conférence des parties à la Convention-cadre des Nations unies sur les changements climatiques (COP31) se tient du 10 au 21 novembre 2026 à Antalya, en Turquie, sous une coprésidence inédite : le ministre turc de "
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [3] (Le Monde, 9 novembre) ne mentionne ni la COP30 de Belém, ni la Chine, ni l'Inde, ni le MACF, ni la date du 1er janvier 2026. Ces faits ne sont pas dans l'extrait fourni.",
+        "phrase": "La COP31 fait suite à la COP30 de Belém (2025) où le commerce était apparu comme sujet clé sous la pression de la Chine et de l'Inde, ciblant implicitement le mécanisme d'ajustement carbone aux frontières (MACF) de l'UE,"
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [3] ne mentionne pas les sessions SB-64, ni un dialogue sur trois ans, ni la participation de l'OMC, la CNUCED et le Centre du commerce international.",
+        "phrase": "Un dialogue sur trois ans sur le commerce et le climat a été lancé lors des sessions SB-64 en juin 2026, avec participation de l'OMC, la CNUCED et le Centre du commerce international [3]."
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [1] (Europa, 9 novembre) ne mentionne pas l'OCDE, ni un partenariat stratégique annoncé en septembre 2026. Elle porte sur l'UE et l'OEACP.",
+        "phrase": "L'OCDE et la présidence turque ont annoncé en septembre 2026 un partenariat stratégique pour aider les pays à transformer leurs engagements climatiques en politiques concrètes [1]."
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [1] ne mentionne pas l'OCDE ni ces cinq enjeux. L'extrait ne contient pas cette information.",
+        "phrase": "L'OCDE a identifié cinq enjeux majeurs pour Antalya : l'atténuation, l'adaptation, le financement, les pertes et préjudices, et la transparence [1]."
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [1] confirme cet engagement (titre et date), mais l'article attribue cette information à la source [1] alors qu'elle est correcte. Cependant, le chiffre « 79 pays » n'est pas vérifié dans l'extrait fourni (le t",
+        "phrase": "L'Union européenne et les 79 pays de l'Organisation des États d'Afrique, des Caraïbes et du Pacifique (OEACP) ont réaffirmé le 9 novembre leur engagement pour la mise en œuvre complète de l'Accord de Paris et le renforce"
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [4] (Le Monde, 11 novembre) ne mentionne pas de dialogue ministériel co-présidé par l'AIE et le ministère turc de l'Énergie. L'extrait ne contient pas cette information.",
+        "phrase": "Un dialogue ministériel sur l'énergie, co-présidé par l'AIE et le ministère turc de l'Énergie, s'est tenu en marge de la COP31 pour identifier les priorités en matière de politique et d'investissement énergétiques [4]."
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [3] (Le Monde, 9 novembre) confirme cet appel de Guterres à l'ouverture. Cette phrase est correctement sourcée.",
+        "phrase": "Le secrétaire général de l'ONU António Guterres a appelé les États à se montrer à la hauteur lors de l'ouverture de la COP31, soulignant que la crise climatique les dépasse [3]."
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [4] (Le Monde, 11 novembre) confirme cette déclaration de Guterres. Cette phrase est correctement sourcée.",
+        "phrase": "L'ONU presse les dirigeants d'agir contre les énergies fossiles, Guterres déclarant que « la vérité brutale est que la crise du climat nous dépasse » [4]."
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [5] (Le Monde, 8 novembre) confirme cet objectif de la Turquie. Cette phrase est correctement sourcée.",
+        "phrase": "La Turquie, pays hôte, vise à remettre le climat en haut de l'agenda dans un monde percuté par les crises [5]."
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "Le renvoi [6] attribue des faits (dates, coprésidence, noms des ministres) que la source Mediapart [6] ne contient pas dans son extrait. C'est une source inventée pour ces faits.",
+        "phrase": "La 31e Conférence des parties à la Convention-cadre des Nations unies sur les changements climatiques (COP31) se tient du 10 au 21 novembre 2026 à Antalya, en Turquie, sous une coprésidence inédite : le ministre turc de "
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "Le renvoi [5] attribue « plus de 50 000 participants » alors que la source Le Monde [5] dit « plus de 40 000 ». Le chiffre est faux et la source ne le confirme pas.",
+        "phrase": "Près de 200 pays participent à ce sommet qui a rassemblé plus de 50 000 participants attendus [5]."
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "Le renvoi [3] n'appuie aucun de ces faits (COP30 Belém, Chine/Inde, MACF, date 1er janvier 2026). La source Le Monde [3] ne les mentionne pas.",
+        "phrase": "La COP31 fait suite à la COP30 de Belém (2025) où le commerce était apparu comme sujet clé sous la pression de la Chine et de l'Inde, ciblant implicitement le mécanisme d'ajustement carbone aux frontières (MACF) de l'UE,"
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "Le renvoi [3] ne mentionne pas SB-64, ni dialogue triennal, ni OMC/CNUCED/Centre du commerce international. Source inventée pour ces faits.",
+        "phrase": "Un dialogue sur trois ans sur le commerce et le climat a été lancé lors des sessions SB-64 en juin 2026, avec participation de l'OMC, la CNUCED et le Centre du commerce international [3]."
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "Le renvoi [1] (Europa, UE-OEACP) ne mentionne pas l'OCDE, ni un partenariat avec la Turquie en septembre 2026. Source inventée pour ces faits.",
+        "phrase": "L'OCDE et la présidence turque ont annoncé en septembre 2026 un partenariat stratégique pour aider les pays à transformer leurs engagements climatiques en politiques concrètes [1]."
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "Le renvoi [1] ne mentionne pas l'OCDE ni ces cinq enjeux. Source inventée pour ces faits.",
+        "phrase": "L'OCDE a identifié cinq enjeux majeurs pour Antalya : l'atténuation, l'adaptation, le financement, les pertes et préjudices, et la transparence [1]."
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "Le renvoi [4] (Le Monde, 11 novembre, Guterres/fossiles) ne mentionne pas de dialogue ministériel co-présidé par l'AIE. Source inventée pour ce fait.",
+        "phrase": "Un dialogue ministériel sur l'énergie, co-présidé par l'AIE et le ministère turc de l'Énergie, s'est tenu en marge de la COP31 pour identifier les priorités en matière de politique et d'investissement énergétiques [4]."
+      }
+    ],
+    "types_restants": [
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "compteur_incoherent",
+      "paraphrase_structurelle",
+      "contexte_hors_sujet",
+      "contexte_hors_sujet",
+      "contexte_hors_sujet",
+      "contexte_hors_sujet",
+      "contexte_hors_sujet"
+    ],
+    "article_type": "actu",
+    "titre": "COP31 à Antalya : ministres et négociations au point mort",
+    "n_sources": 6,
+    "n_mots": 693,
+    "titre_rss": "À la COP31, des négociations climatiques à la peine",
+    "matiere_faits_distincts": 572,
+    "matiere_redondance": 0.07,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "mortalite-france-2024-641046-deces-taux-standardise-baisse",
+    "statut": "rejete_qualite",
+    "date": "2026-11-17T00:31:27",
+    "tentative": 3,
+    "perte_substance": true,
+    "section": "nuances",
+    "mots_avant": 154,
+    "mots_apres": 70,
+    "article_type": "actu",
+    "titre": "Mortalité 2024 : 641 046 décès en France, taux standardisé en baisse",
+    "n_sources": 5,
+    "n_mots": 786,
+    "titre_rss": "Grandes causes de décès en France : tendances et causes associées en 2024",
+    "matiere_faits_distincts": 1037,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 2,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "veille_heures_visible": 517.7,
+    "veille_passages": 311,
+    "veille_age_h": 2325.4,
+    "veille_n_flux_grappe": 1,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "maladie-charcot-exosquelette-atalante-x-etude-preliminaire",
+    "statut": "rejete_qualite",
+    "date": "2026-11-17T00:48:29",
+    "problemes_initiaux": 10,
+    "tentatives": 3,
+    "problemes_restants": 6,
+    "bloquants_restants": 2,
+    "bloquants_types": [
+      "niveau_preuve_insuffisant",
+      "niveau_preuve_insuffisant"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "niveau_preuve_insuffisant",
+        "description": "Le résumé présente le résultat comme établi ('montre que... ralentit') alors que la source [1] indique explicitement l'absence de signification statistique et l'impossibilité d'isoler l'effet de l'exosquelette ; le condi",
+        "phrase": "Une étude pilote menée par l'Inserm et Wandercraft montre que l'exosquelette Atalante X ralentit la progression des symptômes de la sclérose latérale amyotrophique pendant la phase d'entraînement, avec des effets qui per"
+      },
+      {
+        "bloc": 1,
+        "type": "niveau_preuve_insuffisant",
+        "description": "La phrase attribue aux chercheurs l'observation d'un freinage de la progression ('semble freinée', 'persisteraient') sans préciser que cette observation ne repose sur aucune comparaison statistique valide (pas de groupe ",
+        "phrase": "Selon les chercheurs, les premiers résultats cliniques observés sont encourageants : la progression des symptômes semble freinée pendant la phase d'entraînement, et ces effets persisteraient en partie après l'arrêt de l'"
+      }
+    ],
+    "types_restants": [
+      "niveau_preuve_insuffisant",
+      "niveau_preuve_insuffisant",
+      "fait_tranche_arbitrairement",
+      "contexte_hors_sujet",
+      "source_derivee_comptee_comme_primaire",
+      "section_gonflee"
+    ],
+    "article_type": "actu",
+    "titre": "Maladie de Charcot : l'exosquelette Atalante X testé sur une dizaine de patients",
+    "n_sources": 4,
+    "n_mots": 637,
+    "titre_rss": "Remarcher grâce à un exosquelette",
+    "matiere_faits_distincts": 818,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "etude_scientifique"
+  },
+  {
+    "slug": "poireaux-laitues-55-pour-cent-plus-chers-chaos-climatique-oxfam",
+    "statut": "corrige_automatiquement",
+    "date": "2026-11-17T00:56:01",
+    "problemes_initiaux": 7,
+    "tentatives": 3,
+    "problemes_residuels_style": 3,
+    "rapport_initial": {
+      "conforme": false,
+      "sujet_sensible": false,
+      "sujet_sensible_raison": "",
+      "angle_insuffisant": false,
+      "angle_insuffisant_raison": "",
+      "nature_contenu": "rapport",
+      "problemes": [
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "chronologie_confuse",
+          "phrase_exacte": "Les prix mondiaux des denrées alimentaires ont progressé en juillet 2026 pour atteindre leur niveau le plus élevé depuis trois ans, sous l'effet combiné des tensions géopolitiques, de la chaleur extrême et de la hausse de l'énergie [4].",
+          "explication": "La source [4] est datée d'août 2026, soit une date future par rapport à l'événement principal du rapport Oxfam (septembre 2024) ; cet élément de contexte mélange deux époques sans expliciter le lien ni la pertinence pour le sujet de l'article."
+        },
+        {
+          "bloc": 1,
+          "section": "nuances",
+          "type": "incoherence_inter_sections",
+          "phrase_exacte": "La FAO a noté en juillet 2024 que les prix mondiaux des céréales, huiles végétales et sucre avaient atteint leur plus haut niveau depuis trois ans sous l'effet combiné des tensions géopolitiques, de la chaleur extrême et de la hausse de l'énergie [4], ce qui rend difficile l'attribution exclusive de la hausse des légumes frais au seul climat.",
+          "explication": "La source [4] est datée d'août 2026 et porte sur juillet 2026 selon son titre ; l'article lui attribue une observation de juillet 2024, ce qui contredit la source citée et crée une incohérence avec les faits (septembre 2024)."
+        },
+        {
+          "bloc": 2,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "Le Conseil général de l'alimentation, de l'agriculture et des espaces ruraux (CGAAER) avait déjà évalué en avril 2022 les surcoûts liés au changement climatique pour les filières agricoles françaises, estimant qu'une adaptation des politiques publiques était nécessaire [2].",
+          "explication": "La source [2] (Vie Publique, 2022) ne mentionne pas le CGAAER ni une évaluation d'avril 2022 dans les extraits fournis ; l'article attribue à cette source un contenu qu'elle ne confirme pas."
+        },
+        {
+          "bloc": 2,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "L'OCDE souligne que les systèmes agricoles sont particulièrement vulnérables à l'évolution des températures et des précipitations, tout en étant une source majeure d'émissions de gaz à effet de serre [3].",
+          "explication": "La source [3] (OECD-FAO Agricultural Outlook 2025-2034) n'est pas citée avec des extraits confirmant cette affirmation précise ; l'article lui prête un contenu non vérifié dans les sources autorisées."
+        },
+        {
+          "bloc": 2,
+          "section": "nuances",
+          "type": "source_inventee",
+          "phrase_exacte": "La FAO a noté en juillet 2024 que les prix mondiaux des céréales, huiles végétales et sucre avaient atteint leur plus haut niveau depuis trois ans sous l'effet combiné des tensions géopolitiques, de la chaleur extrême et de la hausse de l'énergie [4]",
+          "explication": "La source [4] (ONU Info, août 2026) porte sur juillet 2026 selon son titre ; l'article lui attribue une déclaration de la FAO datée de juillet 2024, qui ne figure pas dans la source fournie."
+        },
+        {
+          "bloc": 4,
+          "section": "contexte",
+          "type": "contexte_hors_sujet",
+          "phrase_exacte": "Les prix mondiaux des denrées alimentaires ont progressé en juillet 2026 pour atteindre leur niveau le plus élevé depuis trois ans, sous l'effet combiné des tensions géopolitiques, de la chaleur extrême et de la hausse de l'énergie [4].",
+          "explication": "Cet élément de contexte porte sur juillet 2026, soit près de deux ans après le sujet de l'article (septembre 2024), et ne sert qu'à remplir la section sans éclairer le rapport Oxfam."
+        },
+        {
+          "bloc": 4,
+          "section": "contexte",
+          "type": "section_gonflee",
+          "phrase_exacte": "Le Conseil général de l'alimentation, de l'agriculture et des espaces ruraux (CGAAER) avait déjà évalué en avril 2022 les surcoûts liés au changement climatique pour les filières agricoles françaises, estimant qu'une adaptation des politiques publiques était nécessaire [2].\n\nL'OCDE souligne que les systèmes agricoles sont particulièrement vulnérables à l'évolution des températures et des précipitations, tout en étant une source majeure d'émissions de gaz à effet de serre [3].\n\nLes prix mondiaux des denrées alimentaires ont progressé en juillet 2026 pour atteindre leur niveau le plus élevé depuis trois ans, sous l'effet combiné des tensions géopolitiques, de la chaleur extrême et de la hausse de l'énergie [4].",
+          "explication": "La section « Contexte » aligne trois faits dont deux sont mal sourcés (CGAAER, OCDE) et un hors sujet (juillet 2026) ; elle n'apporte aucun fait distinct, vérifié et directement utile à la compréhension du rapport Oxfam de septembre 2024."
+        }
+      ]
+    },
+    "article_type": "actu",
+    "titre": "Poireaux et laitues 55 % plus chers : le chaos climatique pèse sur les prix",
+    "n_sources": 4,
+    "n_mots": 517,
+    "titre_rss": "Des poireaux 55 % plus cher : le chaos climatique fait grimper le prix des aliments",
+    "matiere_faits_distincts": 626,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "rapport"
+  },
+  {
+    "slug": "recifs-coralliens-francais-recul-algues-2020-2025-ifrecor",
+    "statut": "rejete_sensible",
+    "date": "2026-11-17T01:04:11",
+    "problemes_initiaux": 18,
+    "tentative": 2,
+    "bloc5": true,
+    "article_type": "actu",
+    "titre": "Les récifs coralliens français reculent au profit des algues entre 2020 et 2025",
+    "n_sources": 4,
+    "n_mots": 472,
+    "titre_rss": "\"On passe de récifs couverts de coraux vers des récifs couverts d'algues\" : une étude alerte sur la perte de coraux entre 2020 et 2025 dans les territoires français",
+    "matiere_faits_distincts": 1016,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 3,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "rapport"
+  },
+  {
+    "slug": "fossiles-quercy-climat-cause-extinction-grande-coupure-34-millions-annees",
+    "statut": "corrige_automatiquement",
+    "date": "2026-11-17T01:37:21",
+    "problemes_initiaux": 10,
+    "tentatives": 3,
+    "problemes_residuels_style": 10,
+    "rapport_initial": {
+      "conforme": false,
+      "sujet_sensible": false,
+      "sujet_sensible_raison": "",
+      "angle_insuffisant": false,
+      "angle_insuffisant_raison": "",
+      "nature_contenu": "etude_scientifique",
+      "problemes": [
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "chiffre_errone",
+          "phrase_exacte": "Un reportage vidéo, coproduit par Ex Nihilo, France Télévisions et CNRS Images, accompagne la publication sous le titre « Dans les gouffres à fossiles du Quercy » [1]. Le film de 52 minutes, réalisé par Guillaume Dreyfus, est une coproduction Ex Nihilo, France Télévisions et CNRS – 2025 [1].",
+          "explication": "La source [1] (CNRS, 30.10.2026) ne mentionne ni le titre exact du film, ni sa durée (52 minutes), ni le réalisateur (Guillaume Dreyfus), ni l'année de production (2025) ; ces détails sont absents de l'extrait fourni."
+        },
+        {
+          "bloc": 1,
+          "section": "nuances",
+          "type": "chiffre_errone",
+          "phrase_exacte": "Le reportage vidéo CNRS, diffusé le 30 octobre 2026, accompagne la publication scientifique sans en constituer une validation indépendante [1].",
+          "explication": "La source [1] est datée du 30.10.2026 mais l'extrait ne précise pas la date de diffusion du reportage ; l'article affirme une date exacte non confirmée par la source."
+        },
+        {
+          "bloc": 1,
+          "section": "nuances",
+          "type": "chiffre_errone",
+          "phrase_exacte": "Les phosphatières du Quercy couvrent un intervalle de 52 à 20 millions d'années, mais l'étude ne précise pas quelles couches précises ont livré les artiodactyles analysés [2].",
+          "explication": "La source [2] (Le Monde, podcast politique du 30.09.2026) ne traite pas des phosphatières du Quercy ni de leur intervalle géologique ; l'attribution [2] est fausse pour ce fait."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "chiffre_errone",
+          "phrase_exacte": "Les phosphatières du Lot renferment des fossiles d'animaux très bien conservés, datant de 52 millions à 20 millions d'années [2].",
+          "explication": "La source [2] ne contient aucune information sur les phosphatières du Quercy/Lot ni sur la datation des fossiles ; l'attribution [2] est inventée."
+        },
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "Un reportage vidéo, coproduit par Ex Nihilo, France Télévisions et CNRS Images, accompagne la publication sous le titre « Dans les gouffres à fossiles du Quercy » [1]. Le film de 52 minutes, réalisé par Guillaume Dreyfus, est une coproduction Ex Nihilo, France Télévisions et CNRS – 2025 [1].",
+          "explication": "Les noms Ex Nihilo, France Télévisions, CNRS Images, Guillaume Dreyfus, le titre exact et l'année 2025 n'apparaissent pas dans la source [1] (CNRS) ; ils constituent des attributions inventées."
+        },
+        {
+          "bloc": 2,
+          "section": "nuances",
+          "type": "source_inventee",
+          "phrase_exacte": "Le reportage vidéo CNRS, diffusé le 30 octobre 2026, accompagne la publication scientifique sans en constituer une validation indépendante [1].",
+          "explication": "La date de diffusion « 30 octobre 2026 » n'est pas dans la source [1] ; l'article invente une précision temporelle non sourcée."
+        },
+        {
+          "bloc": 2,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "Les phosphatières du Lot renferment des fossiles d'animaux très bien conservés, datant de 52 millions à 20 millions d'années [2].",
+          "explication": "La source [2] (Le Monde, podcast politique) ne documente pas les phosphatières du Quercy ; l'attribution [2] est fausse."
+        },
+        {
+          "bloc": 2,
+          "section": "nuances",
+          "type": "source_inventee",
+          "phrase_exacte": "Les phosphatières du Quercy couvrent un intervalle de 52 à 20 millions d'années, mais l'étude ne précise pas quelles couches précises ont livré les artiodactyles analysés [2].",
+          "explication": "La source [2] ne contient aucune information géologique sur le Quercy ; l'attribution [2] est inventée."
+        },
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "compteur_incoherent",
+          "phrase_exacte": "\"nb_sources\": 4",
+          "explication": "Le champ nb_sources indique 4, mais seules 2 sources distinctes sont listées dans le tableau sources (CNRS et Le Monde) ; le compteur est incohérent."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "contexte_hors_sujet",
+          "phrase_exacte": "La transition Éocène-Oligocène coïncide avec l'un des principaux événements d'extinction des 66 derniers millions d'années [1]. Elle correspond à un refroidissement global majeur, à l'origine de la glaciation antarctique et d'une baisse importante du niveau des mers [1]. En Europe occidentale, cet événement, historiquement nommé « Grande Coupure », s'associe à l'extinction d'environ 50 % de la faune des mammifères endémiques et à l'arrivée massive de mammifères modernes d'Asie [1]. L'Europe, jusqu'alors insulaire, a été reliée à l'Asie grâce à la forte baisse du niveau marin et aux mouvements tectoniques initiés par la remontée de l'Afrique, créant des ponts continentaux empruntés par la faune asiatique [1]. Le registre fossile du Quercy, par sa richesse et sa conservation exceptionnelle, fournit un aperçu unique sur l'histoire évolutive des espèces face aux changements environnementaux [1]. Les phosphatières du Lot renferment des fossiles d'animaux très bien conservés, datant de 52 millions à 20 millions d'années [2].",
+          "explication": "La quasi-totalité du contexte est attribuée aux sources [1] et [2] qui ne contiennent pas ces informations (source [1] : vidéo CNRS sur le Quercy ; source [2] : podcast politique Le Monde) ; le contexte repose sur des attributions inventées."
+        }
+      ]
+    },
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "article_sans_date"
+    ],
+    "titre": "Fossiles du Quercy : le climat cause principale de l'extinction massive",
+    "n_sources": 2,
+    "n_mots": 528,
+    "titre_rss": "Quercy : des fossiles témoins d’un bouleversement climatique",
+    "matiere_faits_distincts": 886,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 3,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "etude_scientifique"
+  },
+  {
+    "slug": "robotique-chirurgicale-35-ans-recherche-timc-cnrs-2026",
+    "statut": "rejete_qualite",
+    "date": "2026-11-17T01:43:19",
+    "angle_insuffisant": true,
+    "raison": "L'article ne répond pas à la question posée dans angle_reponse (« Que révèle l'entretien… ? ») : il se contente de résumer l'entretien sans identifier de révélation, de fait nouveau ou d'angle précis justifiant une publication maintenant. Aucune phrase des faits ne combine un événement daté récent et une donnée propre à cet événement — l'entretien du 26/10/2026 est un résumé rétrospectif sans annonce, résultat inédit ou décision.",
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "resume_repete_corps"
+    ],
+    "titre": "Robotique chirurgicale : 35 ans de recherche française, du TIMC au bloc opératoire",
+    "n_sources": 6,
+    "n_mots": 714,
+    "titre_rss": "L’avènement de la robotique chirurgicale",
+    "matiere_faits_distincts": 780,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "interview"
+  },
+  {
+    "slug": "mit-robot-muscles-artificiels-pilotes-lumiere",
+    "statut": "rejete_qualite",
+    "date": "2026-11-17T01:53:29",
+    "angle_insuffisant": true,
+    "raison": "Aucune phrase dans 'faits' ne contient à la fois un événement précis daté (publication, annonce, décision récente) et une donnée chiffrée ou nommée propre à cet événement. L'article décrit un prototype sans date de publication, sans revue, sans métriques de performance (vitesse, autonomie, longueur d'onde), se bornant à expliquer le concept général — il répond à 'qu'est-ce que c'est ?' et non à 'pourquoi en parle-t-on maintenant ?'.",
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "titre_de_mauvaise_qualite"
+    ],
+    "titre": "MIT : un robot mobile actionné par des muscles artificiels pilotés à la lumière",
+    "n_sources": 4,
+    "n_mots": 458,
+    "titre_rss": "Le robot qui se déplace grâce à la lumière",
+    "matiere_faits_distincts": 1011,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "etude_scientifique"
+  },
+  {
+    "slug": "nasa-recrutement-astronautes-lune-2036-programme-artemis",
+    "statut": "rejete_qualite",
+    "date": "2026-11-17T02:00:55",
+    "problemes_initiaux": 10,
+    "tentatives": 3,
+    "problemes_restants": 6,
+    "bloquants_restants": 2,
+    "bloquants_types": [
+      "chiffre_errone",
+      "chiffre_errone"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [2] (Le Monde) indique que l'équipage d'Artemis II est composé de trois Américains (Reid Wiseman, Victor Glover, Christina Koch) et d'un Canadien (Jeremy Hansen), soit quatre astronautes au total dont trois Amé",
+        "phrase": "La mission Artemis II doit emmener quatre astronautes — trois Américains et une Américaine (Christina Koch) — en survol de la Lune pour la première fois depuis cinquante-trois ans, validant ainsi les systèmes de transpor"
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [2] présente Jeremy Hansen comme membre à part entière de l'équipage de quatre astronautes, et non comme un cinquième astronaute venant « compléter » un équipage déjà constitué de quatre Américains. La formulat",
+        "phrase": "L'astronaute canadien Jeremy Hansen complète cet équipage [2]."
+      }
+    ],
+    "types_restants": [
+      "chiffre_errone",
+      "chiffre_errone",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "compteur_incoherent"
+    ],
+    "article_type": "actu",
+    "titre": "La NASA ouvre un recrutement d'astronautes pour établir une présence lunaire d'ici 2036",
+    "n_sources": 3,
+    "n_mots": 525,
+    "titre_rss": "\"Vivre la plus grande aventure de l'humanité\" : la Nasa recrute des astronautes pour aller \"travailler\" sur la Lune",
+    "matiere_faits_distincts": 852,
+    "matiere_redondance": 0.02,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "france-bloque-vente-encheres-dinosaure-dubreuillosaurus-museum",
+    "statut": "rejete_qualite",
+    "date": "2026-11-17T02:07:25",
+    "problemes_initiaux": 8,
+    "tentatives": 3,
+    "problemes_restants": 8,
+    "bloquants_restants": 2,
+    "bloquants_types": [
+      "chiffre_errone",
+      "chiffre_errone"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [3] (Radiofrance, 28 juillet 2022) ne mentionne pas la vente de Big John ni le chiffre de 6,6 millions de dollars ; elle ne traite que de la vente du Gorgosaurus en juillet 2022 pour 6,1 millions de dollars.",
+        "phrase": "En octobre 2021, le squelette de Big John, un tricératops, a été adjugé 6,6 millions de dollars [3]."
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "Même phrase reprise dans la section contexte ; la source [3] ne confirme ni la vente de Big John, ni la date d'octobre 2021, ni le montant de 6,6 millions de dollars.",
+        "phrase": "En octobre 2021, le squelette de Big John, un tricératops, a été adjugé 6,6 millions de dollars [3]."
+      }
+    ],
+    "types_restants": [
+      "chiffre_errone",
+      "source_inventee",
+      "chiffre_errone",
+      "source_inventee",
+      "redondance",
+      "redondance",
+      "redondance",
+      "compteur_incoherent"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "resume_repete_corps",
+      "faits_repetitifs"
+    ],
+    "titre": "La France bloque la vente d'un dinosaure unique pour le Muséum",
+    "n_sources": 3,
+    "n_mots": 541,
+    "titre_rss": "\"Sa place est dans un musée\" : la France stoppe la vente aux enchères d'un spécimen de dinosaure unique au monde",
+    "matiere_faits_distincts": 900,
+    "matiere_redondance": 0.03,
+    "matiere_donnees_chiffrees": 2,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "inde-startup-sarvam-modele-ia-souverain",
+    "statut": "rejete_qualite",
+    "date": "2026-11-17T02:18:18",
+    "angle_insuffisant": true,
+    "raison": "Aucune phrase des faits ne combine un événement précis daté (annonce, décision, publication récente) et une donnée chiffrée ou nommée qui lui est propre. L'article explique la stratégie indienne et cite des sommets passés (janvier/février 2026) sans indiquer ce qui vient de se passer pour justifier une publication en novembre 2026. Il répond à 'qu'est-ce que la stratégie de l'Inde ?' plutôt qu'à 'pourquoi en parle-t-on maintenant ?'.",
+    "article_type": "actu",
+    "titre": "L'Inde mise sur la start-up Sarvam pour bâtir son modèle d'IA souverain",
+    "n_sources": 4,
+    "n_mots": 406,
+    "titre_rss": "Sarvam, symbole des ambitions indiennes dans la course mondiale à l’IA",
+    "matiere_faits_distincts": 693,
+    "matiere_redondance": 0.02,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "securite-sociale-mode-production-hors-capitalisme-analyse-historique",
+    "statut": "erreur_verification",
+    "date": "2026-11-17T02:25:05",
+    "etape": "detection",
+    "erreur": "JSON tronqué ou incomplet dans la réponse (max_tokens atteint ?)",
+    "article_type": "actu",
+    "titre": "La Sécurité sociale : un mode de production hors capitalisme selon une analyse historique",
+    "n_sources": 5,
+    "n_mots": 738,
+    "titre_rss": "La Sécurité sociale n’est pas qu’un système de redistribution. Elle montre qu’on peut produire de la valeur hors du capitalisme",
+    "matiere_faits_distincts": 945,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 2,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10
+  },
+  {
+    "slug": "securite-sociale-mode-production-hors-capitalisme-analyse-historique",
+    "statut": "rejete_qualite",
+    "date": "2026-11-17T02:25:06",
+    "raison": "verification_indisponible",
+    "statut_verification_initial": "erreur_verification"
   }
 ]
