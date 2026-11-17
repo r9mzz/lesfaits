@@ -75990,5 +75990,611 @@
     "date": "2026-11-17T02:25:06",
     "raison": "verification_indisponible",
     "statut_verification_initial": "erreur_verification"
+  },
+  {
+    "slug": "senat-rejette-desindexation-retraites-inflation-budget-securite-sociale",
+    "statut": "rejete_sensible",
+    "date": "2026-11-17T08:55:08",
+    "problemes_initiaux": 8,
+    "bloc5": [
+      "affaire_en_cours_presentee_comme_fait"
+    ],
+    "article_type": "actu",
+    "titre": "Le Sénat rejette à l'unanimité la désindexation partielle des retraites sur l'inflation",
+    "n_sources": 4,
+    "n_mots": 638,
+    "titre_rss": "Le Sénat rejette la désindexation des retraites sur l'inflation prévue dans le budget de la Sécurité sociale",
+    "matiere_faits_distincts": 587,
+    "matiere_redondance": 0.01,
+    "matiere_donnees_chiffrees": 3,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "refuges-climatiques-marins-trois-approches-lacunes-majeures",
+    "statut": "rejete_qualite",
+    "date": "2026-11-17T09:02:49",
+    "tentative": 2,
+    "angle_insuffisant": true,
+    "raison": "L'article ne répond pas à la question posée dans angle_reponse (\"Quelles sont les trois approches scientifiques pour identifier les refuges climatiques marins et quelles lacunes persistent ?\"). La section nuances admet explicitement que les sources disponibles ne documentent pas ces trois approches ni ne quantifient les lacunes. Aucun fait déclencheur daté ni donnée propre aux refuges climatiques marins n'apparaît dans la section faits, qui ne traite que des pressions climatiques globales.",
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "titre_de_mauvaise_qualite"
+    ],
+    "titre": "Refuges climatiques marins : trois approches d'identification et des lacunes majeures",
+    "n_sources": 4,
+    "n_mots": 577,
+    "titre_rss": "Why marine climate refugia matters for safeguarding the world’s oceans",
+    "matiere_faits_distincts": 837,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "etude_scientifique"
+  },
+  {
+    "slug": "inside-deutsche-bank-15-millions-fichiers-plus-grande-enquete-bancaire",
+    "statut": "rejete_qualite",
+    "date": "2026-11-17T09:23:19",
+    "tentative": 3,
+    "perte_substance": true,
+    "section": "nuances",
+    "mots_avant": 117,
+    "mots_apres": 52,
+    "article_type": "actu",
+    "titre": "Inside Deutsche Bank : 15 millions de fichiers, plus grande enquête bancaire",
+    "n_sources": 5,
+    "n_mots": 516,
+    "titre_rss": "« Inside Deutsche Bank » : notre journaliste raconte cette enquête titanesque sur ce que la banque voulait garder secret",
+    "matiere_faits_distincts": 778,
+    "matiere_redondance": 0.06,
+    "matiere_donnees_chiffrees": 2,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "norvege-cour-supreme-invalide-licences-petrolieres-mer-du-nord",
+    "statut": "corrige_automatiquement",
+    "date": "2026-11-17T09:34:11",
+    "problemes_initiaux": 3,
+    "tentatives": 1,
+    "problemes_residuels_style": 3,
+    "rapport_initial": {
+      "conforme": false,
+      "sujet_sensible": false,
+      "sujet_sensible_raison": "",
+      "angle_insuffisant": false,
+      "angle_insuffisant_raison": "",
+      "nature_contenu": "decision_officielle",
+      "problemes": [
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "compteur_incoherent",
+          "phrase_exacte": "nb_sources: 4",
+          "explication": "Le champ nb_sources indique 4 mais les sources listées ne contiennent que 3 sources distinctes (Sciences et Avenir apparaît deux fois avec la même URL de base, 20 Minutes et AFP)."
+        },
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "source_derivee_comptee_comme_primaire",
+          "phrase_exacte": "qualite_sources: {\"primaire\": 0, \"secondaire\": 3, \"tertiaire\": 0}",
+          "explication": "Les 3 sources secondaires (Sciences et Avenir, 20 Minutes, AFP) reprennent toutes la même dépêche AFP sans apporter d'information indépendante, ce qui fausse le compte de sources indépendantes."
+        },
+        {
+          "bloc": 4,
+          "section": "positions",
+          "type": "faux_debat",
+          "phrase_exacte: ": "positions: {\"verifie\": true, \"label_gauche\": \"Favorable à l'arrêt\", \"label_droite\": \"Critique / Attentiste\", \"acteurs\": [{\"nom\": \"Greenpeace Nordic / Nature et Jeunesse\", \"detail\": \"Qualifient la décision de victoire historique pour le climat\", \"position\": 10}, {\"nom\": \"Gouvernement norvégien / Industrie pétrolière\", \"detail\": \"Réponse formelle non communiquée, suites incertaines\", \"position\": 70}]}",
+          "explication": "La section positions présente un faux débat : le gouvernement et l'industrie n'ont pas exprimé de position critique, leur réaction est simplement inconnue (non communiquée), ce qui ne constitue pas un désaccord réel ni symétrique."
+        }
+      ]
+    },
+    "article_type": "actu",
+    "titre": "La Cour suprême norvégienne invalide trois licences pétrolières en mer du Nord",
+    "n_sources": 4,
+    "n_mots": 523,
+    "titre_rss": "En Norvège, victoire \"historique\" après l'invalidation de licences pétrolières en mer du Nord",
+    "matiere_faits_distincts": 565,
+    "matiere_redondance": 0.02,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "decision_officielle"
+  },
+  {
+    "slug": "pirate-gta-6-plaide-coupable-peine-23-novembre",
+    "statut": "rejete_sensible",
+    "date": "2026-11-17T09:37:49",
+    "sujet_sensible": true,
+    "raison": "L'article porte sur une affaire judiciaire en cours visant une personne nommée (Arion Kurtaj), avec un plaidoyer de culpabilité récent et une peine à prononcer le 23 novembre, non définitivement jugée.",
+    "article_type": "actu",
+    "titre": "Le pirate de GTA 6 plaide coupable, sa peine fixée au 23 novembre",
+    "n_sources": 3,
+    "n_mots": 607,
+    "titre_rss": "Le responsable du piratage massif de GTA 6 plaide coupable",
+    "matiere_faits_distincts": 1049,
+    "matiere_redondance": 0.03,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "greve-fonction-publique-17-novembre-2026-transports-manifestations",
+    "statut": "rejete_qualite",
+    "date": "2026-11-17T09:54:13",
+    "tentative": 3,
+    "perte_substance": true,
+    "section": "nuances",
+    "mots_avant": 156,
+    "mots_apres": 77,
+    "article_type": "actu",
+    "titre": "Grève fonction publique : transports perturbés, 179 manifestations prévues",
+    "n_sources": 6,
+    "n_mots": 591,
+    "titre_rss": "DIRECT. Grève du mardi 17 novembre 2026 : SNCF, école… Suivez la mobilisation",
+    "matiere_faits_distincts": 827,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "cyberattaque-maileva-22-millions-coordonnees-postales-derobees",
+    "statut": "rejete_qualite",
+    "date": "2026-11-17T09:59:41",
+    "problemes_initiaux": 15,
+    "tentatives": 3,
+    "problemes_restants": 3,
+    "bloquants_restants": 1,
+    "bloquants_types": [
+      "source_inventee"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "La source [1] (France 24) ne mentionne pas d'autres cibles précises ni une multiplication d'incidents cyber contre des organisations françaises ; elle traite uniquement de l'attaque Maileva. La source [3] (BBC) concerne ",
+        "phrase": "France 24 souligne que cette attaque survient alors que les incidents cyber se multiplient contre des organisations françaises, sans toutefois lister d'autres cibles précises dans son reportage du 16 novembre 2026 [1]."
+      }
+    ],
+    "types_restants": [
+      "source_inventee",
+      "contexte_hors_sujet",
+      "section_gonflee"
+    ],
+    "article_type": "actu",
+    "titre": "Cyberattaque Maileva : 22 millions de coordonnées postales dérobées chez la filiale de La Poste",
+    "n_sources": 4,
+    "n_mots": 568,
+    "titre_rss": "Maileva : nouvelle cyberattaque contre une société française",
+    "matiere_faits_distincts": 895,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 2,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "apple-proces-obsolescence-programmee-juin-2027-nanterre",
+    "statut": "rejete_sensible",
+    "date": "2026-11-17T10:08:14",
+    "problemes_initiaux": 8,
+    "tentative": 2,
+    "bloc5": true,
+    "article_type": "actu",
+    "titre": "Apple jugé en juin 2027 à Nanterre pour obsolescence programmée des iPhone",
+    "n_sources": 5,
+    "n_mots": 605,
+    "titre_rss": "Le procès d’Apple pour obsolescence programmée s’ouvrira en juin 2027 en France",
+    "matiere_faits_distincts": 1013,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "canicules-marines-2026-biodiversite-pression-record",
+    "statut": "rejete_qualite",
+    "date": "2026-11-17T10:17:20",
+    "tentative": 1,
+    "angle_insuffisant": true,
+    "raison": "Aucune phrase des faits ne combine un événement précis daté de l'été 2026 (canicules marines record) avec une donnée chiffrée ou nommée propre à cet événement (températures maximales, anomalies, étendue géographique, nombre d'espèces touchées, mortalité quantifiée). Les sources [1] et [2] sont citées sans extraits exploitables confirmant des conséquences concrètes mesurées pour 2026 ; le texte reste une explication générale du phénomène.",
+    "article_type": "actu",
+    "titre": "Canicules marines record en 2026 : la biodiversité sous pression",
+    "n_sources": 4,
+    "n_mots": 503,
+    "titre_rss": "La biodiversité face aux canicules marines",
+    "matiere_faits_distincts": 805,
+    "matiere_redondance": 0.02,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "etude-nature-limites-imc-evaluation-surpoids-obesite",
+    "statut": "rejete_qualite",
+    "date": "2026-11-17T10:28:26",
+    "problemes_initiaux": 12,
+    "tentatives": 3,
+    "problemes_restants": 8,
+    "bloquants_restants": 1,
+    "bloquants_types": [
+      "chiffre_errone"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [1] (Sciences et Avenir) ne mentionne pas l'effectif de 680 000 personnes ; ce chiffre n'est pas vérifiable dans les extraits fournis.",
+        "phrase": "Une étude publiée dans la revue Nature, analysant les données de plus de 680 000 personnes, met en évidence les limites de l'indice de masse corporelle (IMC) comme unique outil de définition du surpoids et de l'obésité ["
+      }
+    ],
+    "types_restants": [
+      "chiffre_errone",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "compteur_incoherent"
+    ],
+    "article_type": "actu",
+    "titre": "Une étude sur 844 000 adultes confirme les limites de l'IMC",
+    "n_sources": 4,
+    "n_mots": 528,
+    "titre_rss": "Surpoids et obésité : l’IMC montre ses limites, une étude le confirme",
+    "matiere_faits_distincts": 1028,
+    "matiere_redondance": 0.02,
+    "matiere_donnees_chiffrees": 3,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "etude_scientifique"
+  },
+  {
+    "slug": "cop31-antalya-financement-adaptation-tensions",
+    "statut": "rejete_qualite",
+    "date": "2026-11-17T10:49:54",
+    "problemes_initiaux": 13,
+    "tentatives": 3,
+    "problemes_restants": 6,
+    "bloquants_restants": 4,
+    "bloquants_types": [
+      "chiffre_errone",
+      "incoherence_inter_sections",
+      "source_inventee",
+      "source_inventee"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [3] (Le Monde, 4 novembre 2026) indique que le rapport de l'ONU a été publié le 7 novembre 2024, et non le 7 novembre 2026. L'article attribue une date de publication future par rapport à la source.",
+        "phrase": "L'Organisation des Nations unies a publié le 7 novembre 2026 son « Rapport sur l'écart d'adaptation » qui documente un gouffre entre les besoins des pays en développement et les financements réels qui leur parviennent [3"
+      },
+      {
+        "bloc": 1,
+        "type": "incoherence_inter_sections",
+        "description": "Le dernier paragraphe des faits répète mot pour mot l'information sur l'ébauche de déclaration politique turque déjà donnée dans le paragraphe précédent, toutes deux attribuées à la source [4]. Cela constitue une redonda",
+        "phrase": "La France a fait de l'élargissement du cercle des États tenus de contribuer financièrement « une priorité » de cette COP31 [4]. Le président français Emmanuel Macron avait déjà porté cette demande lors des COP précédente"
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "La source [5] est un document du Parlement européen (Europa) intitulé 'KEY FINDINGS COP30...'. Elle ne mentionne pas le Citepa. L'attribution au Citepa est une invention de source.",
+        "phrase": "Le Citepa retrace l'historique des négociations sur l'adaptation depuis la COP21 (2015), notant que l'article 7.1 de l'Accord de Paris a placé l'adaptation au même rang d'importance que l'atténuation [5]."
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "La source [5] (document Europa sur la COP30) ne contient pas d'information sur les sessions de Bonn SB-64. Cette affirmation est attribuée à une source qui ne la confirme pas.",
+        "phrase": "Les sessions de Bonn (SB-64) ont permis des avancées techniques sur l'objectif mondial d'adaptation et le financement post-2025, sans toutefois lever les blocages politiques [5]."
+      }
+    ],
+    "types_restants": [
+      "chiffre_errone",
+      "incoherence_inter_sections",
+      "source_inventee",
+      "source_inventee",
+      "redondance",
+      "redondance"
+    ],
+    "article_type": "actu",
+    "titre": "COP31 à Antalya : le financement de l'adaptation au cœur des tensions",
+    "n_sources": 5,
+    "n_mots": 673,
+    "titre_rss": "COP31 : une catastrophe climatique par jour et toujours pas d’argent pour l’adaptation",
+    "matiere_faits_distincts": 707,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "hantavirus-andes-sequencage-genome-epidemie-mv-hondius",
+    "statut": "rejete_sensible",
+    "date": "2026-11-17T11:01:25",
+    "problemes_initiaux": 14,
+    "tentative": 1,
+    "bloc5": true,
+    "article_type": "actu",
+    "titre": "Séquençage du hantavirus Andes : une seule contamination initiale mais des zones d'ombre persistantes",
+    "n_sources": 6,
+    "n_mots": 553,
+    "titre_rss": "Hantavirus : décrypter la souche Andes, une étape essentielle pour retracer le parcours de l’épidémie",
+    "matiere_faits_distincts": 777,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "etude_scientifique"
+  },
+  {
+    "slug": "poireaux-laitues-hausse-prix-chaos-climatique-oxfam",
+    "statut": "corrige_automatiquement",
+    "date": "2026-11-17T11:09:51",
+    "problemes_initiaux": 12,
+    "tentatives": 2,
+    "problemes_residuels_style": 5,
+    "rapport_initial": {
+      "conforme": false,
+      "sujet_sensible": false,
+      "sujet_sensible_raison": "",
+      "angle_insuffisant": false,
+      "angle_insuffisant_raison": "",
+      "nature_contenu": "rapport",
+      "problemes": [
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "chiffre_errone",
+          "phrase_exacte": "En septembre, le prix des poireaux était supérieur de 55 % à la moyenne des cinq dernières années, celui des laitues de 54 % [1].",
+          "explication": "La source [1] (Reporterre, datée 2024) documente des hausses observées en septembre 2024 ; l'article omet l'année et laisse croire qu'il s'agit de septembre 2026 (contexte FAO juillet 2026), ce qui fausse la chronologie et la valeur de référence."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "chiffre_errone",
+          "phrase_exacte": "L'indice des prix alimentaires de la FAO a atteint 131,1 points en juillet 2026, son plus haut niveau depuis trois ans, en hausse de 0,6 % sur un mois et de 1 % sur un an [5].",
+          "explication": "La source [5] (ONU Info, 7 août 2026) indique un indice à 120,8 points en juillet 2026, pas 131,1 ; les variations mensuelles et annuelles diffèrent également."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "chiffre_errone",
+          "phrase_exacte": "Les céréales tirent cette hausse avec +3,4 % en un mois, le blé bondissant de 5,8 % sous l'effet des inquiétudes sur les exportations de la mer Noire et des épisodes de chaleur dans les grandes régions agricoles [5].",
+          "explication": "La source [5] donne +3,8 % pour les céréales et +8,2 % pour le blé en juillet 2026, pas +3,4 % et +5,8 %."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "chiffre_errone",
+          "phrase_exacte": "Le sucre a progressé de 5,6 % et les huiles végétales de 2 %, atteignant leur plus haut depuis juin 2022 [5].",
+          "explication": "La source [5] indique une baisse de 1,7 % pour le sucre et une hausse de 2,4 % pour les huiles végétales en juillet 2026, avec des références temporelles différentes."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "incoherence_inter_sections",
+          "phrase_exacte": "L'indice des prix alimentaires de la FAO a atteint 131,1 points en juillet 2026, son plus haut niveau depuis trois ans, en hausse de 0,6 % sur un mois et de 1 % sur un an [5].",
+          "explication": "Le chapeau (résumé) affirme que les hausses de poireaux et laitues s'inscrivent dans une tendance documentée par la source [3] (Le Monde, juillet 2025), alors que le contexte cite des chiffres FAO de juillet 2026 [5] qui ne correspondent pas aux extraits fournis ; deux périodes et deux jeux de données distincts sont mélangés sans distinction."
+        },
+        {
+          "bloc": 1,
+          "section": "nuances",
+          "type": "niveau_preuve_insuffisant",
+          "phrase_exacte": "Cette analyse repose sur une méthodologie d'association de plaidoyer, non sur une étude économique contradictoire [1].",
+          "explication": "La source [1] (Reporterre) ne contient pas cette qualification méthodologique ; l'article attribue à la source un jugement sur sa propre nature qui n'y figure pas."
+        },
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "D'autres produits sont concernés : l'huile d'olive, le cacao, les fruits et légumes connaissent des pics d'inflation récents documentés par une quinzaine d'exemples dans une étude publiée en juillet [3].",
+          "explication": "La source [3] (Le Monde, 21 juillet 2025) n'est pas une étude publiée en juillet documentant une quinzaine d'exemples ; c'est un article de presse qui ne correspond pas à cette description."
+        },
+        {
+          "bloc": 2,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "Le GIEC note depuis son cinquième rapport que les incidences négatives du changement climatique sur les rendements des cultures sont observées plus fréquemment que les positives, avec un degré de confiance élevé [6].",
+          "explication": "Aucune source [6] n'existe dans la liste autorisée (seules 5 sources sont listées) ; le renvoi [6] est inventé."
+        },
+        {
+          "bloc": 2,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "En France, un rapport de la CGAAER d'avril 2022 évaluait déjà le coût du changement climatique pour les filières agricoles et alimentaires, soulignant des surcoûts inévitables liés à la gestion des risques et aux investissements en eau [7].",
+          "explication": "Aucune source [7] n'existe dans la liste autorisée ; le renvoi [7] est inventé."
+        },
+        {
+          "bloc": 2,
+          "section": "nuances",
+          "type": "source_inventee",
+          "phrase_exacte": "Les hausses de prix observées en septembre 2024 (référence du rapport Oxfam) intègrent aussi des facteurs non climatiques : coûts de l'énergie, des engrais, de la main-d'œuvre, et tensions géopolitiques sur les marchés mondiaux [5].",
+          "explication": "La source [5] (ONU Info, août 2026) porte sur l'indice FAO mondial de juillet 2026 et ne documente pas la décomposition des hausses de septembre 2024 en France."
+        },
+        {
+          "bloc": 2,
+          "section": "nuances",
+          "type": "source_inventee",
+          "phrase_exacte": "Enfin, la réaction des industriels et de la grande distribution aux demandes de hausse de prix des agriculteurs n'est pas documentée dans les extraits fournis [4].",
+          "explication": "La source [4] (Le Monde, 14 septembre 2026) évoque des craintes de hausse futures, pas des demandes de hausse déjà formulées ni l'absence de réaction documentée ; le renvoi [4] ne confirme pas l'affirmation."
+        },
+        {
+          "bloc": 2,
+          "section": "contexte",
+          "type": "compteur_incoherent",
+          "phrase_exacte": "\"nb_sources\": 5",
+          "explication": "L'article utilise des renvois [1] à [7] soit 7 sources distinctes citées, mais le champ nb_sources indique 5 ; le compteur est faux."
+        }
+      ]
+    },
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "titre_de_mauvaise_qualite"
+    ],
+    "titre": "Poireaux et laitues en hausse de 55 % et 54 % : le climat pèse sur les prix",
+    "n_sources": 5,
+    "n_mots": 577,
+    "titre_rss": "Des poireaux 55 % plus cher : le chaos climatique fait grimper le prix des aliments",
+    "matiere_faits_distincts": 860,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "rapport"
+  },
+  {
+    "slug": "intentions-recrutement-cadres-plus-bas-2020-apec",
+    "statut": "rejete_qualite",
+    "date": "2026-11-17T11:47:09",
+    "problemes_initiaux": 8,
+    "tentatives": 3,
+    "problemes_restants": 12,
+    "bloquants_restants": 3,
+    "bloquants_types": [
+      "incoherence_inter_sections",
+      "chiffre_errone",
+      "chiffre_errone"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "incoherence_inter_sections",
+        "description": "La source [2] (Le Monde, 25 août 2026) indique que le niveau de 6 % est celui d'août 2026, soit le trimestre actuel, et non le trimestre précédent (mai 2026). L'article confond le niveau du trimestre en cours avec celui ",
+        "phrase": "Au trimestre précédent, la part des entreprises en projet de recrutement cadre s'établissait encore à 6 % [2]."
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [2] ne donne pas le chiffre du trimestre précédent (mai 2026) ; elle rapporte le chiffre d'août 2026 (6 %). L'article attribue donc à tort ce chiffre au trimestre précédent, ce qui constitue une erreur factuell",
+        "phrase": "Au trimestre précédent, la part des entreprises en projet de recrutement cadre s'établissait encore à 6 % [2]."
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [2] (Le Monde, 25 août 2026) titre et indique explicitement « au plus bas depuis 2020 », et non depuis 2021. L'article rapporte une borne temporelle erronée par rapport à la source citée.",
+        "phrase": "En août 2026, la part des entreprises prévoyant de recruter au moins un cadre était également décrite comme au plus bas depuis 2021 [2]."
+      }
+    ],
+    "types_restants": [
+      "incoherence_inter_sections",
+      "chiffre_errone",
+      "chiffre_errone",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_derivee_comptee_comme_primaire",
+      "compteur_incoherent",
+      "contexte_hors_sujet"
+    ],
+    "article_type": "actu",
+    "titre": "Intentions de recrutement de cadres au plus bas depuis 2020 selon l'APEC",
+    "n_sources": 4,
+    "n_mots": 537,
+    "titre_rss": "Dans les entreprises, les intentions de recrutement des cadres au plus bas",
+    "matiere_faits_distincts": 645,
+    "matiere_redondance": 0.02,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "commission-verse-1-71-milliard-ukraine-drones-defense-aerienne",
+    "statut": "rejete_qualite",
+    "date": "2026-11-17T12:36:44",
+    "problemes_initiaux": 6,
+    "tentatives": 3,
+    "problemes_restants": 10,
+    "bloquants_restants": 4,
+    "bloquants_types": [
+      "chiffre_errone",
+      "chiffre_errone",
+      "source_inventee",
+      "source_inventee"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [1] (Règlement UE 2025/2600) ne mentionne pas de \"volet défense\" ni de destination spécifique des fonds (drones, munitions, systèmes antiaériens, radars, missiles) ; elle établit des mesures d'urgence macro-fin",
+        "phrase": "Ce huitième versement du volet défense financera l'acquisition de drones, de munitions et de systèmes de défense aérienne, notamment des radars d'alerte précoce et des missiles, pour répondre aux besoins militaires urgen"
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [5] (EPRS Briefing 2026) porte sur le soutien total UE depuis février 2022, mais l'article l'utilise pour valider un chiffre global sans vérifier que ce briefing confirme spécifiquement le montant de 193 millia",
+        "phrase": "Selon le briefing du Service de recherche du Parlement européen (EPRS) daté de 2026, l'UE et ses États membres ont mobilisé environ 193 milliards d'euros de soutien à l'Ukraine depuis le début de la guerre [5]."
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "La source [1] (Règlement UE 2025/2600 du 12 décembre 2025) ne contient pas l'information d'un versement de 1,71 milliard le 16 novembre 2026 ; ce fait n'est pas vérifiable via cette source, qui cadre le prêt mais ne docu",
+        "phrase": "La Commission européenne a versé 1,71 milliard d'euros à l'Ukraine le 16 novembre 2026 au titre du prêt de soutien à l'Ukraine d'un montant total de 90 milliards d'euros [1]."
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "Bien que le règlement [1] soit bien une mesure d'urgence de décembre 2025, l'article l'utilise comme source unique pour le prêt de 90 milliards, or ce règlement ne mentionne pas explicitement un montant de 90 milliards d",
+        "phrase": "Le prêt de soutien à l'Ukraine de 90 milliards d'euros s'inscrit dans le cadre de mesures d'urgence adoptées par le Conseil en décembre 2025 pour faire face aux difficultés économiques causées par la guerre [1]."
+      }
+    ],
+    "types_restants": [
+      "chiffre_errone",
+      "chiffre_errone",
+      "fait_tranche_arbitrairement",
+      "fait_tranche_arbitrairement",
+      "acteur_mis_en_cause_sans_reponse",
+      "source_inventee",
+      "source_inventee",
+      "redondance",
+      "redondance",
+      "contexte_hors_sujet"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "faits_repetitifs"
+    ],
+    "titre": "La Commission verse 1,71 milliard d'euros à l'Ukraine pour drones et défense aérienne",
+    "n_sources": 6,
+    "n_mots": 514,
+    "titre_rss": "La Commission verse 1,71 milliard d'euros supplémentaires à l'Ukraine pour les drones, les munitions et les systèmes de défense aérienne",
+    "matiere_faits_distincts": 634,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 9,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "ferrandi-paris-intelligence-artificielle-pedagogie-gastronomie",
+    "statut": "rejete_qualite",
+    "date": "2026-11-17T12:40:53",
+    "angle_insuffisant": true,
+    "raison": "Aucune phrase des faits ne combine un événement précis daté (annonce, publication, décision, résultat récent) et une donnée chiffrée ou nommée propre à cet événement. L'article répond à « qu'est-ce que l'IA à Ferrandi ? » plutôt qu'à « pourquoi en parle-t-on maintenant ? » ; la source principale (Libération, 2026-11-16) n'est pas exploitée pour en extraire un fait déclencheur daté et chiffré.",
+    "article_type": "actu",
+    "titre": "Ferrandi Paris intègre l'IA à sa pédagogie culinaire sans remplacer le geste artisanal",
+    "n_sources": 3,
+    "n_mots": 455,
+    "titre_rss": "IA et haute gastronomie : à l’école Ferrandi, une révolution sans trahison",
+    "matiere_faits_distincts": 351,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "sujet_pedagogique"
   }
 ]
