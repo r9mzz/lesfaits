@@ -76936,5 +76936,170 @@
     "n_sources_injectees": 10,
     "n_sources_trouvees": 10,
     "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "refuges-climatiques-marins-etude-82-travaux-protection-oceans-2030",
+    "statut": "rejete_qualite",
+    "date": "2026-11-17T21:59:33",
+    "etape": "correction",
+    "tentative": 1,
+    "erreur": "Groq 503: {\"message\":\"Service temporarily overloaded\",\"type\":\"Overloaded\",\"code\":503}",
+    "bloquants_connus": 3,
+    "article_type": "actu",
+    "titre": "Refuges climatiques marins : une étude recense 82 travaux pour guider la protection des océans",
+    "n_sources": 5,
+    "n_mots": 829,
+    "titre_rss": "Why marine climate refugia matters for safeguarding the world’s oceans",
+    "matiere_faits_distincts": 863,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "etude_scientifique"
+  },
+  {
+    "slug": "proces-a10-inass-touloub-vie-inconnue-onze-jours-audience",
+    "statut": "rejete_sensible",
+    "date": "2026-11-17T22:56:16",
+    "sujet_sensible": true,
+    "raison": "L'article porte sur un procès criminel en cours (assises du Loir-et-Cher, ouvert le 2 novembre 2026) visant deux personnes physiques (Halima El Bakhti et Ahmed Touloub) pour torture et barbarie sur mineur. L'affaire n'est pas définitivement jugée.",
+    "article_type": "actu",
+    "titre": "Procès de l'A10 : la vie d'Inass Touloub reste méconnue après onze jours d'audience",
+    "n_sources": 4,
+    "n_mots": 491,
+    "titre_rss": "\"Cette enfant aura été plus aimée morte que vivante\" : après onze jours de procès, la courte vie de la petite martyre de l'A10 se dessine en pointillés",
+    "matiere_faits_distincts": 595,
+    "matiere_redondance": 0.04,
+    "matiere_donnees_chiffrees": 2,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "cop31-antalya-turquie-mesure-empreinte-carbone-centres-donnees-ia",
+    "statut": "corrige_automatiquement",
+    "date": "2026-11-17T23:08:21",
+    "problemes_initiaux": 14,
+    "tentatives": 1,
+    "problemes_residuels_style": 18,
+    "rapport_initial": {
+      "conforme": false,
+      "sujet_sensible": false,
+      "sujet_sensible_raison": "",
+      "angle_insuffisant": false,
+      "angle_insuffisant_raison": "",
+      "nature_contenu": "actualite_factuelle",
+      "problemes": [
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "La 31e Conférence des parties (COP31) s'est ouverte le 9 novembre 2026 à Antalya, en Turquie, pour deux semaines de négociations réunissant près de 200 pays [2].",
+          "explication": "La source [2] (Vie Publique) ne mentionne pas le chiffre 'près de 200 pays' dans les extraits fournis ; ce chiffre est absent de la source citée."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "La présidence turque, assurée par le ministre de l'Environnement Murat Kurum, a placé l'empreinte environnementale croissante de l'intelligence artificielle à l'ordre du jour, proposant spécifiquement de mesurer l'empreinte carbone des centres de données et de lancer une initiative internationale pour en limiter l'impact [1].",
+          "explication": "La source [1] (Le Figaro) ne mentionne ni le ministre Murat Kurum, ni une proposition turque spécifique de mesure obligatoire des émissions des centres de données dans les extraits fournis."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "Le sommet se tient sous une coprésidence inédite : la Turquie assure la présidence formelle tandis que l'Australie, représentée par son ministre du Changement climatique Chris Bowen, supervise les négociations, un dispositif convenu à l'issue de la COP30 [3].",
+          "explication": "La source [3] (Sénat) ne mentionne pas Chris Bowen ni le détail d'une coprésidence formelle Turquie/Australie dans les extraits fournis."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "Le secrétaire exécutif de l'ONU Climat, Simon Stiell, a exhorté les pays à « donner un coup d'accélérateur aux solutions » lors de la plénière d'ouverture, constatant que « les progrès sont loin d'être suffisants ou équitables » [4].",
+          "explication": "La source [4] (Le Monde, podcast) ne contient pas ces citations de Simon Stiell dans les extraits fournis."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "L'Australie a proposé que les pays élaborent une décision politique dès les premiers jours de la conférence, plutôt que d'attendre la dernière ligne droite [5].",
+          "explication": "La source [5] (Le Monde, article du 17 novembre) ne mentionne pas cette proposition australienne dans les extraits fournis."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "La COP30 à Belém en 2025 avait acté la création de cette coprésidence tournante entre pays développés et en développement pour fluidifier les négociations [3].",
+          "explication": "La source [3] (Sénat) ne mentionne pas la COP30 à Belém ni l'acte de création d'une coprésidence tournante dans les extraits fournis."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "Le GIEC, qui tient sa 65e session en marge de la COP31, a présenté l'avancement de son septième cycle d'évaluation : les trois rapports des groupes de travail sont en cours de révision par les experts, avec une publication prévue à partir de 2027 [4].",
+          "explication": "La source [4] (Le Monde, podcast) ne mentionne pas la 65e session du GIEC, ni le septième cycle d'évaluation, ni une publication prévue à partir de 2027 dans les extraits fournis."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "Le Secrétariat du GIEC alerte toutefois sur un déficit de financement : les contributions volontaires ne couvrent qu'un tiers du budget 2026 approuvé, menaçant le calendrier des rapports [4].",
+          "explication": "La source [4] (Le Monde, podcast) ne mentionne pas ce déficit de financement du GIEC ni le budget 2026 dans les extraits fournis."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "L'OCDE qualifie la COP31 de « COP de mise en œuvre » et identifie cinq enjeux majeurs à suivre à Antalya : l'atténuation, l'adaptation, les pertes et préjudices, le financement et la transparence [7].",
+          "explication": "La source [6] (OCDE, index 6 dans le tableau) ne mentionne pas la qualification 'COP de mise en œuvre' ni la liste de cinq enjeux dans les extraits fournis ; de plus la référence [7] n'existe pas (seules 6 sources)."
+        },
+        {
+          "bloc": 1,
+          "section": "nuances",
+          "type": "source_inventee",
+          "phrase_exacte": "Par ailleurs, l'OCDE qualifie la COP31 de « COP de mise en œuvre », soulignant que ses résultats les plus conséquents dépendront encore des négociations en cours sur l'atténuation, l'adaptation et les pertes et préjudices [7].",
+          "explication": "Même problème : la source [6] (OCDE) ne contient pas cette qualification dans les extraits, et la référence [7] est inexistante."
+        },
+        {
+          "bloc": 1,
+          "section": "nuances",
+          "type": "source_inventee",
+          "phrase_exacte": "Le financement du GIEC constitue une incertitude opérationnelle pour la disponibilité des données scientifiques futures [4].",
+          "explication": "La source [4] (Le Monde, podcast) ne mentionne pas le financement du GIEC ni son impact sur les données scientifiques futures dans les extraits fournis."
+        },
+        {
+          "bloc": 1,
+          "section": "nuances",
+          "type": "source_inventee",
+          "phrase_exacte": "Un premier projet de décision finale témoigne de l'ampleur des désaccords persistants entre les pays sur les engagements financiers et la mise en œuvre des objectifs de l'accord de Paris [5].",
+          "explication": "La source [5] (Le Monde, article du 17 novembre) ne mentionne pas de 'premier projet de décision finale' ni le contenu des désaccords dans les extraits fournis."
+        },
+        {
+          "bloc": 1,
+          "section": "nuances",
+          "type": "source_inventee",
+          "phrase_exacte": "Les ministres de nombreux États, arrivés en Turquie pour la deuxième semaine, doivent permettre de faire avancer les négociations bloquées [5].",
+          "explication": "La source [5] (Le Monde, article du 17 novembre) ne mentionne pas l'arrivée des ministres pour la deuxième semaine dans les extraits fournis."
+        },
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "compteur_incoherent",
+          "phrase_exacte": "nb_sources: 6",
+          "explication": "L'article utilise des références [7] inexistantes (seules 6 sources listées) et attribue à plusieurs sources des informations absentes des extraits fournis, ce qui fausse le comptage des sources effectivement utilisées et vérifiées."
+        }
+      ]
+    },
+    "article_type": "actu",
+    "titre": "COP31 : la Turquie propose de mesurer l'empreinte carbone des centres de données",
+    "n_sources": 6,
+    "n_mots": 618,
+    "titre_rss": "Émissions de CO₂, consommation d’eau… La COP31 se penche sur l’empreinte environnementale croissante de l’IA sur le climat",
+    "matiere_faits_distincts": 570,
+    "matiere_redondance": 0.01,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
   }
 ]

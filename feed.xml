@@ -5,13 +5,22 @@
   <link>https://lesfaits.info/</link>
   <description>Journal numérique français rédigé par IA. Juste les faits. Aucun parti pris.</description>
   <language>fr</language>
-  <lastBuildDate>Tue, 17 Nov 2026 17:19:34 GMT</lastBuildDate>
+  <lastBuildDate>Tue, 17 Nov 2026 22:08:28 GMT</lastBuildDate>
   <atom:link href="https://lesfaits.info/feed.xml" rel="self" type="application/rss+xml"/>
   <image>
     <url>https://lesfaits.info/assets/images/og-default.jpg</url>
     <title>Les Faits</title>
     <link>https://lesfaits.info/</link>
   </image>
+  <item>
+    <title>COP31 : la Turquie propose de mesurer l’empreinte carbone des centres de données</title>
+    <link>https://lesfaits.info/articles/cop31-antalya-turquie-mesure-empreinte-carbone-centres-donnees-ia.html</link>
+    <guid isPermaLink="true">https://lesfaits.info/articles/cop31-antalya-turquie-mesure-empreinte-carbone-centres-donnees-ia.html</guid>
+    <description>La COP31 ouverte à Antalya place pour la première fois l'empreinte environnementale de l'intelligence artificielle au cœur des négociations climatiques, avec une proposition turque de mesure obligatoire des émissions des centres de données. Près de 200 pays négocient jusqu'au 20 novembre sur le financement climatique et la transition énergétique, sous la coprésidence inédite de la Turquie et de l'Australie. Les désaccords persistent sur l'ampleur des engagements financiers des pays développés, tandis que le GIEC alerte sur le financement de ses prochains rapports.</description>
+    <category>environnement</category>
+    <enclosure url="https://lesfaits.info/assets/images/cop31-antalya-turquie-mesure-empreinte-carbone-centres-donnees-ia.jpg" type="image/jpeg" length="0"/>
+    <pubDate>Tue, 17 Nov 2026 22:08:24 GMT</pubDate>
+  </item>
   <item>
     <title>Apple jugé en France pour obsolescence programmée en juin 2027</title>
     <link>https://lesfaits.info/articles/apple-proces-obsolescence-programmee-juin-2027-france.html</link>
@@ -182,15 +191,6 @@
     <category>societe</category>
     <enclosure url="https://lesfaits.info/assets/images/ile-oleron-remporte-bras-de-fer-avec-airbnb.jpg" type="image/jpeg" length="0"/>
     <pubDate>Fri, 31 Jul 2026 13:04:26 GMT</pubDate>
-  </item>
-  <item>
-    <title>Cancer du pancréas : essai clinique prometteur avec un anticorps en 2026</title>
-    <link>https://lesfaits.info/articles/cancer-pancreas-essai-clinique-anticorps.html</link>
-    <guid isPermaLink="true">https://lesfaits.info/articles/cancer-pancreas-essai-clinique-anticorps.html</guid>
-    <description>Le cancer du pancréas, l'un des cancers les plus agressifs, fait l'objet d'une recherche intensive pour améliorer les traitements et les taux de survie. Les progrès récents dans la compréhension des mécanismes de résistance des cellules cancéreuses ouvrent de nouvelles pistes thérapeutiques, notamment avec des anticorps ciblés. L'évaluation de ces approches innovantes dans des essais cliniques constitue une étape cruciale pour valider leur efficacité et leur sécurité.</description>
-    <category>sante</category>
-    <enclosure url="https://lesfaits.info/assets/images/cancer-pancreas-essai-clinique-anticorps.jpg" type="image/jpeg" length="0"/>
-    <pubDate>Fri, 31 Jul 2026 03:56:11 GMT</pubDate>
   </item>
 </channel>
 </rss>
