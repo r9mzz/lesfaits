@@ -77101,5 +77101,623 @@
     "n_sources_injectees": 10,
     "n_sources_trouvees": 10,
     "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "refuges-climatiques-marins-zones-tampons-rechauffement-oceans",
+    "statut": "rejete_qualite",
+    "date": "2026-11-18T08:31:35",
+    "tentative": 1,
+    "angle_insuffisant": true,
+    "raison": "Aucune phrase des faits ne contient à la fois un événement précis daté (publication, décision, résultat récent) et une donnée chiffrée ou nommée qui lui est propre. L'article décrit un concept (refuges climatiques marins) et une revue de littérature sans identifier de fait déclencheur daté (ex: publication de l'étude NIH le 28/11/2025). Il répond à 'qu'est-ce que c'est ?' plutôt qu'à 'pourquoi maintenant ?'.",
+    "article_type": "actu",
+    "titre": "798 études recensent les refuges climatiques marins pour protéger 30 % des océans d'ici 2030",
+    "n_sources": 3,
+    "n_mots": 552,
+    "titre_rss": "Why marine climate refugia matters for safeguarding the world’s oceans",
+    "matiere_faits_distincts": 847,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "etude_scientifique"
+  },
+  {
+    "slug": "afd-contrat-objectifs-moyens-2027-2029-aide-developpement-recule",
+    "statut": "rejete_sensible",
+    "date": "2026-11-18T08:51:46",
+    "problemes_initiaux": 9,
+    "tentative": 2,
+    "bloc5": true,
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "resume_repete_corps",
+      "titre_de_mauvaise_qualite"
+    ],
+    "titre": "L'AFD retrouve un contrat d'objectifs après cinq ans, l'aide au développement à 0,37 % du RNB",
+    "n_sources": 4,
+    "n_mots": 599,
+    "titre_rss": "Enfin ! Le COM 2027-2029 de l'AFD - Rapport d'information n° 119",
+    "matiere_faits_distincts": 940,
+    "matiere_redondance": 0.05,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "plans-epargne-retraite-trois-ajustements-fiscaux-2026-portee-modeste",
+    "statut": "rejete_qualite",
+    "date": "2026-11-18T09:09:07",
+    "angle_insuffisant": true,
+    "raison": "Aucune phrase dans la section 'faits' ne combine un événement précis daté (publication, décision, résultat récent) avec une donnée chiffrée ou nommée qui lui est propre. L'article explique le PER et mentionne trois ajustements fiscaux 2026 sans jamais en détailler la nature (plafonds, taux, seuils), leur contenu exact, ni leur impact chiffré — les sources [3] et [4] sont citées pour dire qu'elles ne le précisent pas. Le lecteur ne sait pas ce qui s'est passé concrètement en 2026 sur le PER.",
+    "article_type": "actu",
+    "titre": "Plans d'épargne-retraite : trois ajustements fiscaux en 2026 à portée modeste",
+    "n_sources": 4,
+    "n_mots": 602,
+    "titre_rss": "Plans d’épargne-retraite : ce qui a changé en 2026",
+    "matiere_faits_distincts": 534,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "ecarts-salariaux-femmes-hommes-1000-milliards-euros-dix-ans",
+    "statut": "rejete_sensible",
+    "date": "2026-11-18T09:17:59",
+    "problemes_initiaux": 22,
+    "tentative": 3,
+    "bloc5": true,
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "resume_repete_corps"
+    ],
+    "titre": "Écarts salariaux : 1 000 milliards d'euros perdus en dix ans pour la France",
+    "n_sources": 5,
+    "n_mots": 701,
+    "titre_rss": "« Pour les femmes, les écarts de salaire ne sont pas seulement une perte d’argent, ils se traduisent aussi par une moindre liberté »",
+    "matiere_faits_distincts": 1031,
+    "matiere_redondance": 0.03,
+    "matiere_donnees_chiffrees": 4,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "retraites-trio-retailleau-philippe-attal-contre-offensive-rn-le-pen",
+    "statut": "rejete_sensible",
+    "date": "2026-11-18T09:24:09",
+    "problemes_initiaux": 11,
+    "bloc5": [
+      "affaire_en_cours_presentee_comme_fait"
+    ],
+    "article_type": "actu",
+    "titre": "Retraites : Retailleau, Philippe et Attal critiquent le projet de Marine Le Pen",
+    "n_sources": 6,
+    "n_mots": 625,
+    "titre_rss": "Réforme des retraites du RN : le trio Retailleau-Philippe-Attal tente la parade contre Le Pen",
+    "matiere_faits_distincts": 760,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 6,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "optimisation-ia-performances-emissions-co2-etude-francaise",
+    "statut": "rejete_qualite",
+    "date": "2026-11-18T09:33:26",
+    "problemes_initiaux": 16,
+    "tentatives": 3,
+    "problemes_restants": 6,
+    "bloquants_restants": 1,
+    "bloquants_types": [
+      "niveau_preuve_insuffisant"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "niveau_preuve_insuffisant",
+        "description": "L'article signale lui-même l'absence d'informations critiques sur la nature, l'effectif, la période et la méthodologie de l'étude citée, ce qui empêche d'évaluer le niveau de preuve ; or la charte exige que ces limites s",
+        "phrase": "L'article ne précise pas la nature de cette étude (publication peer-reviewed, prépublication, rapport, communication), son effectif, la période couverte ni sa méthodologie ; les résultats sont donc présentés comme les co"
+      }
+    ],
+    "types_restants": [
+      "niveau_preuve_insuffisant",
+      "fait_tranche_arbitrairement",
+      "contexte_hors_sujet",
+      "redondance",
+      "redondance",
+      "redondance"
+    ],
+    "article_type": "actu",
+    "titre": "L'optimisation des IA améliore les performances sans réduire les émissions de CO2",
+    "n_sources": 4,
+    "n_mots": 536,
+    "titre_rss": "L’entraînement des IA s’avère toujours plus consommateur d’énergie",
+    "matiere_faits_distincts": 867,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "etude_scientifique"
+  },
+  {
+    "slug": "mortalite-france-2024-taux-standardise-baisse-tendances-pre-covid",
+    "statut": "conforme_du_premier_coup",
+    "date": "2026-11-18T09:41:24",
+    "article_type": "actu",
+    "titre": "Mortalité 2024 en France : 641 046 décès, taux standardisé en baisse",
+    "n_sources": 4,
+    "n_mots": 848,
+    "titre_rss": "Grandes causes de décès en France : tendances et causes associées en 2024",
+    "matiere_faits_distincts": 1145,
+    "matiere_redondance": 0.01,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "veille_heures_visible": 517.7,
+    "veille_passages": 311,
+    "veille_age_h": 2358.9,
+    "veille_n_flux_grappe": 1,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "inside-deutsche-bank-15-millions-fichiers-confidentiels-enquete",
+    "statut": "rejete_sensible",
+    "date": "2026-11-18T09:49:07",
+    "sujet_sensible": true,
+    "raison": "L'article met en cause nommément Donald Trump (personne physique identifiée) dans une affaire de flux d'argent azerbaïdjanais via la Deutsche Bank, sans qu'une autorité judiciaire n'ait tranché la portée juridique de ce lien (source [3] et nuances). Cela constitue une critique/affirmation négative visant une personne identifiée.",
+    "article_type": "actu",
+    "titre": "Plus de 15 millions de fichiers confidentiels dévoilent les opérations secrètes de la Deutsche Bank",
+    "n_sources": 5,
+    "n_mots": 487,
+    "titre_rss": "« Inside Deutsche Bank » : notre journaliste raconte cette enquête titanesque sur ce que la banque voulait garder secret",
+    "matiere_faits_distincts": 727,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "ird-projets-appel-flash-anr-covid-19",
+    "statut": "corrige_automatiquement",
+    "date": "2026-11-18T10:02:34",
+    "problemes_initiaux": 10,
+    "tentatives": 3,
+    "problemes_residuels_style": 7,
+    "rapport_initial": {
+      "conforme": false,
+      "sujet_sensible": false,
+      "sujet_sensible_raison": "",
+      "angle_insuffisant": false,
+      "angle_insuffisant_raison": "",
+      "nature_contenu": "actualite_factuelle",
+      "problemes": [
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "contexte_hors_sujet",
+          "phrase_exacte": "L'Inserm, autre grand organisme de recherche, coordonne dès août 2020 le consortium européen CARE (Corona Accelerated R&D in Europe), doté de 77,7 millions d'euros sur 5 ans via l'Initiative pour les médicaments innovants (IMI), rassemblant 37 acteurs publics et privés pour accélérer le développement de traitements [4]. L'Inserm est alors impliqué dans 10 projets européens Covid-19 financés par H2020, dont 4 en coordination [4]. Parallèlement, le programme européen « UE pour la santé » (EU4Health), adopté en 2021 suite à la pandémie avec un budget de 5,3 milliards d'euros pour 2021-2027, finance des actions conjointes (joint actions) entre agences sanitaires des États membres pour renforcer les systèmes de santé [3].",
+          "explication": "Le contexte cite des sources [3] et [4] (articles Le Monde de 2026) qui portent sur l'Inserm, le consortium CARE et le programme EU4Health, sans lien direct avec les projets IRD sélectionnés par l'ANR Flash en avril 2020. Ces développements n'éclairent pas le sujet principal de l'article."
+        },
+        {
+          "bloc": 2,
+          "section": "contexte",
+          "type": "source_derivee_comptee_comme_primaire",
+          "phrase_exacte": "L'Inserm, autre grand organisme de recherche, coordonne dès août 2020 le consortium européen CARE (Corona Accelerated R&D in Europe), doté de 77,7 millions d'euros sur 5 ans via l'Initiative pour les médicaments innovants (IMI), rassemblant 37 acteurs publics et privés pour accélérer le développement de traitements [4]. L'Inserm est alors impliqué dans 10 projets européens Covid-19 financés par H2020, dont 4 en coordination [4]. Parallèlement, le programme européen « UE pour la santé » (EU4Health), adopté en 2021 suite à la pandémie avec un budget de 5,3 milliards d'euros pour 2021-2027, finance des actions conjointes (joint actions) entre agences sanitaires des États membres pour renforcer les systèmes de santé [3].",
+          "explication": "Les sources [3] et [4] sont des articles de presse (Le Monde) qui reprennent des informations issues de communiqués institutionnels ou de rapports officiels (Inserm, Commission européenne). Elles sont comptées comme sources secondaires indépendantes dans le champ 'qualite_sources' (secondaire: 1) alors qu'elles ne font que relayer des sources primaires non citées, gonflant artificiellement le compte de sources distinctes."
+        },
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "compteur_incoherent",
+          "phrase_exacte": "L'Institut de recherche pour le développement (IRD) annonce que plusieurs projets portés par ses équipes ont été sélectionnés dans le cadre de l'appel Flash de l'Agence nationale de la recherche (ANR) consacré au Covid-19 [1][7].",
+          "explication": "Le renvoi [7] pointe vers la 7e source du tableau 'sources', mais celui-ci ne contient que 4 entrées. La source [7] n'existe pas, ce qui rend le sourcing invalide pour cette affirmation centrale et fausse le champ 'nb_sources' (4 déclaré, mais renvoi vers une source inexistante)."
+        },
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "Six projets sont retenus comme porteurs principaux : COCONEL, enquête longitudinale sur le coronavirus et le confinement pilotée par Patrick Peretti-Watel (UMR VITROME) ; COMESCOV, sur le confinement et les mesures sanitaires en France, Italie et États-Unis, dirigé par Marc Egrot (UMR LPED) ; DigEpi, épidémiologie digitale par analyse des réseaux sociaux pour anticiper la transmission locale, sous la responsabilité de Benjamin Roche (UMR MIVEGEC) ; HospICOVID, sur la résilience des hôpitaux et du personnel, conduit par Valery Ridde (UMR CEPED) ; TRACTRUST, surveillance de la confiance et de la méfiance via les médias sociaux pour appuyer la réponse de santé publique, porté par Laetitia Atlani-Duault (UMR CEPED) ; et un projet associé, COVEHPAD, plateforme de simulation pour l'évaluation des mesures de lutte contre la diffusion du SARS-CoV-2 en EHPAD et unités de soins de longue durée, porté par Philippe Vanhems (Université de Lyon) avec Jean-François Etard (TransVIHMI) comme associé [7].",
+          "explication": "L'ensemble de la liste détaillée des six projets porteurs principaux et du projet associé COVEHPAD est attribué à la source [7], qui n'existe pas dans le tableau des sources autorisées (seulement 4 sources). Cette information ne peut être vérifiée auprès d'aucune source listée."
+        },
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "Des chercheurs de l'IRD contribuent également à deux projets portés par d'autres établissements : Eric Deharo (Pharmadev), Sabrina Locatelli (TransVIHMI) et Eric Leroy (MIVEGEC) participent au projet DisCoVer sur l'étude des réservoirs au Nord Laos, piloté par Meriadeg Le Gouil (Université de Normandie) ; Martine Peeters (TransVIHMI) contribue au projet ZooCov sur les réservoirs animaux au Cambodge, porté par Véronique Chevalier (Institut Pasteur) [7].",
+          "explication": "Les participations des chercheurs IRD aux projets DisCoVer et ZooCov sont attribuées à la source [7] inexistante, sans aucune source autorisée pour vérifier ces informations."
+        },
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "Deux projets supplémentaires de chercheurs de l'IRD figurent en liste complémentaire : ceux de Patrick Mavingui (UMR PIMIT) et de Samuel Alizon (UMR MIVEGEC, CNRS) [7].",
+          "explication": "L'existence d'une liste complémentaire avec ces deux noms est attribuée à la source [7] inexistante."
+        },
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "L'ANR lance par ailleurs un nouvel appel à projets, RA-Covid-19, qui s'ouvre le 15 avril et restera ouvert en continu jusqu'au 28 octobre, dédié à des travaux de recherche à court terme de 3 à 12 mois [7].",
+          "explication": "Les détails de l'appel RA-Covid-19 (date d'ouverture 15 avril, clôture 28 octobre, durée 3-12 mois) sont attribués à la source [7] inexistante. La source [1] (page IRD) pourrait mentionner cet appel, mais le renvoi explicite vers [7] est invalide."
+        },
+        {
+          "bloc": 2,
+          "section": "nuances",
+          "type": "source_inventee",
+          "phrase_exacte": "La sélection des projets IRD dans l'appel Flash reflète une orientation vers les sciences humaines, sociales et l'épidémiologie numérique, plutôt que vers la recherche biomédicale fondamentale ou le développement de traitements, qui relèvent davantage de l'Inserm et des consortiums européens comme CARE [4]. Les projets retenus portent sur l'observation, la modélisation et l'analyse des dynamiques sociales de la pandémie, avec un ancrage fort dans les pays du Sud (Laos, Cambodge) pour l'étude des réservoirs animaux [7].",
+          "explication": "L'analyse comparative avec l'Inserm et le consortium CARE est attribuée à la source [4] (article Le Monde 2026 sur la disparition de l'IRD) qui ne porte pas sur le contenu des appels ANR Flash. L'ancrage dans les pays du Sud (Laos, Cambodge) est attribué à la source [7] inexistante."
+        },
+        {
+          "bloc": 2,
+          "section": "nuances",
+          "type": "source_inventee",
+          "phrase_exacte": "L'appel RA-Covid-19 annoncé pour le 15 avril vise des travaux à très court terme (3-12 mois), ce qui suggère une attente de résultats rapides pour éclairer la gestion de la crise, mais ne préjuge pas de la capacité à produire des connaissances consolidées dans de tels délais [7].",
+          "explication": "L'interprétation sur les délais de l'appel RA-Covid-19 est attribuée à la source [7] inexistante."
+        },
+        {
+          "bloc": 4,
+          "section": "contexte",
+          "type": "section_gonflee",
+          "phrase_exacte": "L'appel Flash de l'ANR s'inscrit dans la mobilisation exceptionnelle de la recherche française face à la pandémie de Covid-19 dès mars 2020. L'ANR, opérateur principal du financement de la recherche sur projets, a déployé plusieurs vagues d'appels spécifiques : l'appel Flash initial, puis l'appel RA-Covid-19 pour des projets plus courts, et des appels européens via Horizon 2020.\nL'Inserm, autre grand organisme de recherche, coordonne dès août 2020 le consortium européen CARE (Corona Accelerated R&D in Europe), doté de 77,7 millions d'euros sur 5 ans via l'Initiative pour les médicaments innovants (IMI), rassemblant 37 acteurs publics et privés pour accélérer le développement de traitements [4]. L'Inserm est alors impliqué dans 10 projets européens Covid-19 financés par H2020, dont 4 en coordination [4]. Parallèlement, le programme européen « UE pour la santé » (EU4Health), adopté en 2021 suite à la pandémie avec un budget de 5,3 milliards d'euros pour 2021-2027, finance des actions conjointes (joint actions) entre agences sanitaires des États membres pour renforcer les systèmes de santé [3].",
+          "explication": "La section contexte est gonflée avec des informations sur l'Inserm, le consortium CARE et le programme EU4Health (sources [3] et [4] de 2026) qui n'apportent aucun éclairage direct sur les projets IRD de l'appel ANR Flash d'avril 2020. Elle sert à remplir faute de matière pertinente sur le sujet principal."
+        }
+      ]
+    },
+    "article_type": "actu",
+    "titre": "L'IRD obtient plusieurs projets dans l'appel Flash ANR Covid-19",
+    "n_sources": 4,
+    "n_mots": 675,
+    "titre_rss": "Covid-19 – les projets IRD de l’appel ANR-Flash",
+    "matiere_faits_distincts": 919,
+    "matiere_redondance": 0.02,
+    "matiere_donnees_chiffrees": 2,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "veille_heures_visible": 517.7,
+    "veille_passages": 326,
+    "veille_age_h": 2358.9,
+    "veille_n_flux_grappe": 1,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "leonides-pluie-etoiles-filantes-comete-tempel-tuttle-novembre",
+    "statut": "rejete_qualite",
+    "date": "2026-11-18T10:41:54",
+    "angle_insuffisant": true,
+    "raison": "Aucune phrase des faits ne contient un événement précis daté ou datable (annonce, publication, décision, résultat récent) accompagné d'une donnée chiffrée ou nommée qui lui est propre. L'article répond à 'qu'est-ce que les Léonides ?' (sujet pédagogique) et non à 'pourquoi en parle-t-on maintenant ?' — aucune actualité identifiable ne justifie la publication à ce moment.",
+    "article_type": "actu",
+    "titre": "Léonides : une pluie d'étoiles filantes rapides issues de la comète Tempel-Tuttle",
+    "n_sources": 4,
+    "n_mots": 434,
+    "titre_rss": "Léonides : une pluie d'étoiles filantes brillantes et colorées à observer cette nuit",
+    "matiere_faits_distincts": 977,
+    "matiere_redondance": 0.04,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "sujet_pedagogique"
+  },
+  {
+    "slug": "cop31-pastoralisme-allie-climatique-sous-estime-menace",
+    "statut": "rejete_qualite",
+    "date": "2026-11-18T10:49:30",
+    "tentative": 1,
+    "angle_insuffisant": true,
+    "raison": "Aucune phrase dans 'faits' ne combine un événement précis daté (annonce, publication, décision, résultat rendu public récemment) et une donnée chiffrée ou nommée qui lui est propre. Le texte explique le pastoralisme et cite des rapports sans dire ce qui vient de se passer à la COP31 (pas de déclaration, vote, engagement nouveau, chiffre inédit dévoilé sur place). L'article répond à 'qu'est-ce que le pastoralisme ?' plutôt qu'à 'pourquoi en parle-t-on à la COP31 maintenant ?'.",
+    "article_type": "actu",
+    "titre": "COP31 : le pastoralisme, allié climatique sous-estimé et menacé",
+    "n_sources": 6,
+    "n_mots": 731,
+    "titre_rss": "COP31 : le pastoralisme, un allié oublié du climat",
+    "matiere_faits_distincts": 707,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 2,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "cop31-projet-accord-accelerer-sortie-energies-fossiles",
+    "statut": "conforme_du_premier_coup",
+    "date": "2026-11-18T10:54:10",
+    "article_type": "actu",
+    "titre": "COP31 : un projet d'accord appelle à accélérer la sortie des énergies fossiles",
+    "n_sources": 4,
+    "n_mots": 585,
+    "titre_rss": "COP31 : le défi de l’overshoot",
+    "matiere_faits_distincts": 917,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "chine-premier-astronaute-etranger-tiangong-pakistan",
+    "statut": "rejete_sensible",
+    "date": "2026-11-18T11:00:32",
+    "problemes_initiaux": 10,
+    "tentative": 2,
+    "bloc5": true,
+    "article_type": "actu",
+    "titre": "La Chine accueillera son premier astronaute étranger à bord de Tiangong",
+    "n_sources": 4,
+    "n_mots": 492,
+    "titre_rss": "Un astronaute pakistanais bientôt à bord de la station spatiale chinoise",
+    "matiere_faits_distincts": 853,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "concours-meteo-2026-images-primées-royal-meteorological-society",
+    "statut": "corrige_automatiquement",
+    "date": "2026-11-18T11:06:31",
+    "problemes_initiaux": 8,
+    "tentatives": 2,
+    "problemes_residuels_style": 14,
+    "rapport_initial": {
+      "conforme": false,
+      "sujet_sensible": false,
+      "sujet_sensible_raison": "",
+      "angle_insuffisant": false,
+      "angle_insuffisant_raison": "",
+      "nature_contenu": "actualite_factuelle",
+      "problemes": [
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "incoherence_inter_sections",
+          "phrase_exacte": "Le bulletin météo de France 2 du 27 octobre 2026 a relayé ces résultats en mentionnant les vigilances et alertes particulières émises par Météo-France pour plusieurs départements [4].",
+          "explication": "La source [4] est datée du 7 octobre 2026, elle ne peut pas relayer un bulletin du 27 octobre 2026 (date future par rapport à la source)."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "contexte_hors_sujet",
+          "phrase_exacte": "Le règlement d'exécution (UE) 2026/2281 du Conseil du 12 octobre 2026, bien que sans lien direct avec la météorologie, illustre le cadre réglementaire européen actif cette année-là [2].",
+          "explication": "Ce règlement européen concerne des mesures restrictives vis-à-vis de la Russie/Ukraine et n'a aucun lien avec le concours météo, les tornades ou le climat ; il ne sert qu'à remplir la section."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "redondance",
+          "phrase_exacte": "Une tornade a traversé le village de Pomas dans le sud-ouest de la France le 25 août 2026, blessant 39 personnes et endommageant des centaines de maisons, avec 15 hospitalisations dont 2 en état critique [5].",
+          "explication": "Ce fait est déjà intégralement rapporté dans la section 'faits' (même phrase, même source [5]) ; la charte interdit de répéter une idée d'une section à l'autre."
+        },
+        {
+          "bloc": 1,
+          "section": "nuances",
+          "type": "redondance",
+          "phrase_exacte": "La réaction des autorités locales face à la tornade de Pomas a mobilisé plus de 120 secouristes, soulignant les défis opérationnels posés par ces phénomènes soudains [5].",
+          "explication": "L'information sur les 120 secouristes figure déjà dans 'faits' (source [5]) ; la répéter dans 'nuances' viole la règle 'une idée = une seule apparition'."
+        },
+        {
+          "bloc": 1,
+          "section": "nuances",
+          "type": "extrapolation",
+          "phrase_exacte": "La fréquence apparente de tornades en 2026 en France et aux États-Unis pourrait refléter une meilleure détection et une couverture médiatique accrue, autant qu'une évolution climatique [2][3].",
+          "explication": "Les sources [2] (Futura Sciences) et [3] (BBC) ne contiennent pas d'analyse comparative sur la détection médiatique vs évolution climatique ; cette interprétation n'est pas sourcée."
+        },
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "Le bulletin météo de France 2 du 27 octobre 2026 a relayé ces résultats en mentionnant les vigilances et alertes particulières émises par Météo-France pour plusieurs départements [4].",
+          "explication": "La source [4] est un bulletin du 7 octobre 2026 ; elle ne peut pas confirmer le contenu d'un bulletin du 27 octobre 2026 (date ultérieure à la publication de la source)."
+        },
+        {
+          "bloc": 2,
+          "section": "contexte",
+          "type": "source_non_editoriale",
+          "phrase_exacte": "Le règlement d'exécution (UE) 2026/2281 du Conseil du 12 octobre 2026, bien que sans lien direct avec la météorologie, illustre le cadre réglementaire européen actif cette année-là [2].",
+          "explication": "La source [2] (EUR-Lex) est un texte juridique officiel utilisé ici comme caution contextuelle hors sujet ; ce n'est pas une source éditoriale sur la météorologie ni le climat."
+        },
+        {
+          "bloc": 4,
+          "section": "nuances",
+          "type": "section_gonflee",
+          "phrase_exacte": "Le règlement d'exécution (UE) 2026/2281 du Conseil du 12 octobre 2026, bien que sans lien direct avec la météorologie, illustre le cadre réglementaire européen actif cette année-là [2].",
+          "explication": "Cette phrase n'apporte aucun fait distinct sourcé sur le sujet (concours météo, tornades, climat) et ne fait que remplir la section avec du hors-sujet."
+        }
+      ]
+    },
+    "article_type": "actu",
+    "titre": "Concours météo 2026 : tornade géante, triple éclair et cascade de brouillard primés",
+    "n_sources": 5,
+    "n_mots": 546,
+    "titre_rss": "Météo : tornade géante, triple éclair, cascade de brouillard… les images les plus folles de 2026",
+    "matiere_faits_distincts": 650,
+    "matiere_redondance": 0.01,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "quercy-fossiles-grande-coupure-eocene-oligocene-34-millions-annees",
+    "statut": "rejete_sensible",
+    "date": "2026-11-18T11:10:46",
+    "problemes_initiaux": 8,
+    "bloc5": [
+      "annonce_perimee"
+    ],
+    "article_type": "actu",
+    "titre": "Quercy : des fossiles racontent la Grande Coupure climatique de l'Éocène-Oligocène",
+    "n_sources": 4,
+    "n_mots": 510,
+    "titre_rss": "Quercy : des fossiles témoins d’un bouleversement climatique",
+    "matiere_faits_distincts": 858,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 2,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "etude_scientifique"
+  },
+  {
+    "slug": "nasa-recrute-astronautes-installation-lunaire-2036-artemis",
+    "statut": "rejete_qualite",
+    "date": "2026-11-18T11:19:49",
+    "problemes_initiaux": 9,
+    "tentatives": 3,
+    "problemes_restants": 18,
+    "bloquants_restants": 11,
+    "bloquants_types": [
+      "chiffre_errone",
+      "annonce_perimee",
+      "incoherence_inter_sections",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "Les sources [2] (datée avril 2026) et [3] (datée 2026) présentent Artemis II comme une mission à venir (« will send », « envoie »), non comme un vol déjà réalisé en 2026 ; l'article la décrit rétrospectivement comme acco",
+        "phrase": "La mission Artemis II a démontré la capacité de vol habité en orbite lunaire en 2026 [2][3]."
+      },
+      {
+        "bloc": 1,
+        "type": "annonce_perimee",
+        "description": "Cette phrase décrit le report d'Artemis III à 2027 comme un fait déjà acté (« reporté depuis »), alors que les sources [2] et [3] datées de 2026 présentent encore la mission comme future et son calendrier comme indicatif",
+        "phrase": "Le calendrier initial prévoyait un alunissage Artemis III dès 2025, reporté depuis à 2027 au plus tôt, illustrant les défis techniques persistants."
+      },
+      {
+        "bloc": 1,
+        "type": "incoherence_inter_sections",
+        "description": "Les faits présentent Artemis II au futur (« doit être réalisée », « survoleront ») comme une mission à venir, alors que le contexte l'affirme réalisée en 2026 (« a démontré ») ; les deux sections contredisent le statut t",
+        "phrase": "La mission Artemis II, premier vol habité autour de la Lune depuis 1972, doit être réalisée avec un équipage de quatre astronautes — trois Américains et un Canadien — qui survoleront la Lune avant de regagner la Terre ap"
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "Le renvoi [1] pointe vers la source France Info dont le titre mentionne un recrutement pour « aller travailler sur la Lune », mais l'extrait fourni ne confirme pas l'exclusivité aux citoyens américains ni l'ouverture off",
+        "phrase": "L'agence spatiale américaine a officiellement ouvert un processus de recrutement d'astronautes exclusivement réservé aux citoyens des États-Unis [1]."
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "La source [1] (France Info) ne contient pas, dans l'extrait fourni, la mention d'une « première installation permanente » ni d'une « échéance cible fixée à 2036 » ; ces précisions sont inventées par rapport à la source c",
+        "phrase": "L'objectif affiché est de constituer les équipages qui vivront et travailleront sur la Lune dans le cadre d'une première installation permanente, avec une échéance cible fixée à 2036 [1]."
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "L'extrait de la source [1] ne mentionne ni « colonie lunaire », ni « plateforme pour valider les systèmes de survie, d'exploitation des ressources locales et d'opérations de longue durée » ; le contenu attribué à [1] n'y",
+        "phrase": "Cette colonie lunaire doit servir de plateforme pour valider les systèmes de survie, d'exploitation des ressources locales et d'opérations de longue durée, en préparation directe des vols habités vers Mars [1]."
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "La source [2] (Le Monde) est citée pour cet énoncé de contexte général, mais l'extrait fourni ne contient pas cette formulation précise sur les « cinquante-trois ans » ni sur le « retour des États-Unis sur la Lune » ; l'",
+        "phrase": "Le programme Artemis marque le retour des États-Unis sur la Lune cinquante-trois ans après la dernière mission Apollo, Apollo 17, en décembre 1972 [2]."
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "L'extrait de la source [2] ne mentionne pas explicitement le lanceur SLS ni le vaisseau Orion comme architecture du programme ; l'attribution [2] pour ce fait technique n'est pas soutenue par l'extrait fourni.",
+        "phrase": "L'architecture du programme repose sur le lanceur SLS et le vaisseau Orion [2]."
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "Les sources [2] et [3] présentent Artemis II comme une mission future (« will send », « envoie »), non comme un vol accompli en 2026 ; le renvoi [2][3] ne confirme pas le fait énoncé (vol réalisé en 2026).",
+        "phrase": "La mission Artemis II a démontré la capacité de vol habité en orbite lunaire en 2026 [2][3]."
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "L'extrait de la source [1] ne contient pas cette formulation sur la « perspective de long terme » ni sur la participation des astronautes « sélectionnés aujourd'hui » aux missions de surface et séjours longs ; le contenu",
+        "phrase": "Selon la source [1], cet appel à candidatures s'inscrit dans une perspective de long terme où les astronautes sélectionnés aujourd'hui pourront participer aux missions de surface lunaire et aux séjours de plus en plus lo"
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "L'extrait de la source [2] ne mentionne pas un « report d'Artemis III à 2027 au plus tôt » ni cette analyse sur la validation technique des vols précédents ; l'attribution [2] est inventée par rapport au contenu fourni.",
+        "phrase": "La source [2] rappelle que le report d'Artemis III à 2027 au plus tôt montre que chaque étape du calendrier reste soumise à la validation technique des vols précédents."
+      }
+    ],
+    "types_restants": [
+      "fait_tranche_arbitrairement",
+      "fait_tranche_arbitrairement",
+      "fait_tranche_arbitrairement",
+      "chiffre_errone",
+      "annonce_perimee",
+      "incoherence_inter_sections",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "redondance",
+      "redondance",
+      "section_gonflee",
+      "jugement_de_valeur"
+    ],
+    "article_type": "actu",
+    "titre": "La NASA ouvre le recrutement d'astronautes pour une installation lunaire d'ici 2036",
+    "n_sources": 3,
+    "n_mots": 484,
+    "titre_rss": "\"Vivre la plus grande aventure de l'humanité\" : la Nasa recrute des astronautes pour aller \"travailler\" sur la Lune",
+    "matiere_faits_distincts": 719,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "france-preempte-squelette-dubreuillosaurus-museum-histoire-naturelle",
+    "statut": "rejete_sensible",
+    "date": "2026-11-18T11:25:51",
+    "problemes_initiaux": 6,
+    "tentative": 1,
+    "bloc5": true,
+    "article_type": "actu",
+    "titre": "La France préempte un squelette de Dubreuillosaurus unique pour le Muséum national d'histoire naturelle",
+    "n_sources": 4,
+    "n_mots": 609,
+    "titre_rss": "\"Sa place est dans un musée\" : la France stoppe la vente aux enchères d'un spécimen de dinosaure unique au monde",
+    "matiere_faits_distincts": 1078,
+    "matiere_redondance": 0.02,
+    "matiere_donnees_chiffrees": 4,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "nathalie-sonnac-pluralisme-medias-visibilite-algorithmique-plateformes",
+    "statut": "rejete_sensible",
+    "date": "2026-11-18T11:33:56",
+    "problemes_initiaux": 7,
+    "tentative": 2,
+    "bloc5": true,
+    "article_type": "actu",
+    "titre": "Nathalie Sonnac : le pluralisme médiatique doit intégrer la visibilité algorithmique",
+    "n_sources": 7,
+    "n_mots": 560,
+    "titre_rss": "Médias : « A l’ère des plateformes numériques, penser le pluralisme, c’est penser aussi sa visibilité »",
+    "matiere_faits_distincts": 1038,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "tribune"
   }
 ]
