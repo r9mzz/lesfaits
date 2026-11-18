@@ -77719,5 +77719,207 @@
     "n_sources_injectees": 10,
     "n_sources_trouvees": 10,
     "nature_contenu": "tribune"
+  },
+  {
+    "slug": "finances-publiques-enduit-fiscal-insuffisant-reforme-etat-providence",
+    "statut": "rejete_qualite",
+    "date": "2026-11-18T17:21:49",
+    "angle_insuffisant": true,
+    "raison": "Aucune phrase des faits ne contient à la fois un événement précis daté (publication, décision, résultat récent) et une donnée chiffrée ou nommée qui lui est propre. L'article se contente de reprendre une tribune d'opinion (Nicolas Bouzou dans L'Express) et des données structurelles (dette, salaires) sans fait déclencheur d'actualité identifié. Il répond à 'qu'est-ce que l'analyse de Bouzou ?' plutôt qu'à 'pourquoi en parle-t-on maintenant ?'.",
+    "article_type": "actu",
+    "titre": "Finances publiques : l'enduit fiscal ne suffit plus, alerte Nicolas Bouzou",
+    "n_sources": 4,
+    "n_mots": 492,
+    "titre_rss": "L'enduit fiscal ne suffit pas : il faut reconstruire les murs porteurs de l'Etat-providence, par Nicolas Bouzou",
+    "matiere_faits_distincts": 547,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "tribune"
+  },
+  {
+    "slug": "macif-cnil-amende-5-millions-euros-securite-donnees",
+    "statut": "corrige_automatiquement",
+    "date": "2026-11-18T17:26:56",
+    "problemes_initiaux": 4,
+    "tentatives": 2,
+    "problemes_residuels_style": 0,
+    "rapport_initial": {
+      "conforme": false,
+      "sujet_sensible": false,
+      "sujet_sensible_raison": "",
+      "angle_insuffisant": false,
+      "angle_insuffisant_raison": "",
+      "nature_contenu": "decision_officielle",
+      "problemes": [
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "chiffre_errone",
+          "phrase_exacte": "mutuelle d'assurance comptant plus de 5 millions de sociétaires [1]",
+          "explication": "La source [1] (Le Monde) indique « plus de 5,8 millions de sociétaires » ; l'article arrondit à « plus de 5 millions » ce qui sous-estime le chiffre exact fourni par la source."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "chiffre_errone",
+          "phrase_exacte": "390 décisions publiques pour un montant cumulé dépassant 1,1 milliard d'euros au 7 novembre 2026 [2]",
+          "explication": "La source [2] (Observatoire SansTrace) indique « plus de 1,2 milliard d'euros » au 7 novembre 2026 ; l'article écrit 1,1 milliard, ce qui ne correspond pas au chiffre de la source."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "chiffre_errone",
+          "phrase_exacte": "reference 467 fuites de données et 390 sanctions [2]",
+          "explication": "La source [2] indique 470 fuites de données (et non 467) et 390 sanctions au 7 novembre 2026 ; le chiffre des fuites est erroné."
+        },
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "compteur_incoherent",
+          "phrase_exacte": "\"nb_sources\": 4",
+          "explication": "Le champ nb_sources vaut 4 alors que le tableau sources ne contient que 3 entrées distinctes (Le Monde, Gouv, France 24)."
+        }
+      ]
+    },
+    "article_type": "actu",
+    "titre": "La Macif sanctionnée de 5 millions d'euros par la CNIL pour failles de sécurité",
+    "n_sources": 3,
+    "n_mots": 561,
+    "titre_rss": "Données personnelles : la Macif condamnée par la CNIL à une amende de 5 millions d’euros pour des manquements à la sécurité",
+    "matiere_faits_distincts": 1047,
+    "matiere_redondance": 0.01,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "decision_officielle"
+  },
+  {
+    "slug": "changement-climatique-tourisme-etude-2600-regions-vulnerables",
+    "statut": "corrige_automatiquement",
+    "date": "2026-11-18T17:39:04",
+    "problemes_initiaux": 14,
+    "tentatives": 2,
+    "problemes_residuels_style": 17,
+    "rapport_initial": {
+      "conforme": false,
+      "sujet_sensible": false,
+      "sujet_sensible_raison": "",
+      "angle_insuffisant": false,
+      "angle_insuffisant_raison": "",
+      "nature_contenu": "etude_scientifique",
+      "problemes": [
+        {
+          "bloc": 1,
+          "section": "resume",
+          "type": "source_inventee",
+          "phrase_exacte": "Des destinations emblématiques comme les Maldives, Venise ou les glaciers du Kilimandjaro risquent de disparaître ou de subir des dommages irréversibles d'ici 2050 selon l'UNESCO.",
+          "explication": "La source [3] (BBC 2024) cite l'UICN pour les glaciers UNESCO à l'horizon 2050, mais ne mentionne ni les Maldives, ni Venise, ni le Kilimandjaro, ni l'UNESCO comme source pour ces sites ; l'affirmation n'est pas soutenue par les extraits fournis."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "L'étude Destination Climate RiskScan, publiée en novembre 2026, analyse la vulnérabilité climatique de 2 600 régions réparties dans 263 pays [1].",
+          "explication": "La source [1] (Le Monde, 18 nov. 2026) ne mentionne pas l'étude \"Destination Climate RiskScan\" dans les extraits fournis ; l'attribution [1] ne confirme pas l'existence ni le contenu de cette étude."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "Elle établit que les régions les plus visitées au monde sont insuffisamment préparées face à l'augmentation des températures et aux événements extrêmes qui vont s'accentuer [1].",
+          "explication": "La source [1] ne contient pas cette conclusion dans les extraits fournis ; le fait est attribué à une source qui ne le corrobore pas."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "Le rapport souligne que le secteur touristique doit engager deux transformations simultanées : s'adapter aux nouveaux risques physiques et réduire ses émissions de gaz à effet de serre, qui sont en hausse [1].",
+          "explication": "La source [1] ne contient pas cette recommandation dans les extraits fournis ; le fait est attribué à une source qui ne le corrobore pas."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "En France, la loi \"Montagne III\" a été publiée au Journal officiel le 19 août 2026 pour répondre à l'accélération du réchauffement dans ce milieu fragile [2].",
+          "explication": "La source [2] (Vie Publique, 11 sept. 2026) ne mentionne pas la loi \"Montagne III\" ni sa publication au JO du 19 août 2026 dans les extraits fournis."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "Elle traite de la gestion de l'eau, de l'agriculture, de la forêt, du tourisme, de l'accès aux soins et de l'urbanisme.",
+          "explication": "Ce détail sur le contenu de la loi \"Montagne III\" n'est pas présent dans la source [2] (extraits fournis)."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "Un rapport de Vie Publique de 2022 soulignait déjà que l'augmentation de la fréquentation touristique et le changement climatique tendent à accroître les conflits d'usage en montagne, notamment autour de la ressource en eau et de la conciliation entre tourisme et agriculture [6].",
+          "explication": "La source [6] (Vie Publique, 24 fév. 2022) n'est pas fournie dans les extraits ; l'attribution [6] ne peut être vérifiée."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "Au niveau européen, le Sénat français note dans un rapport de 2025 que la France hexagonale comme ultramarine présente une vulnérabilité particulière aux effets du dérèglement climatique, les territoires ultramarins étant en première ligne [7].",
+          "explication": "La source [7] (Sénat, 2025) n'est pas fournie dans les extraits ; l'attribution [7] ne peut être vérifiée."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "L'adaptation européenne est décrite comme un champ encore en structuration, avec la Banque européenne d'investissement comme bras financier de l'ambition climatique [7].",
+          "explication": "La source [7] n'est pas fournie dans les extraits ; l'attribution [7] ne peut être vérifiée."
+        },
+        {
+          "bloc": 1,
+          "section": "nuances",
+          "type": "source_inventee",
+          "phrase_exacte": "Concernant les destinations menacées de disparition (Maldives, Kilimandjaro, glaciers UNESCO), l'horizon 2050 cité par l'UNESCO/UICN concerne spécifiquement certains glaciers classés au patrimoine mondial, sans que l'extrait ne précise quelles autres catégories de sites sont concernées ni selon quels critères [3].",
+          "explication": "La source [3] (BBC 2024) ne mentionne ni les Maldives, ni le Kilimandjaro, ni l'UNESCO/UICN pour ces sites ; la nuance invente un contenu absent de la source."
+        },
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "compteur_incoherent",
+          "phrase_exacte": "nb_sources: 7",
+          "explication": "Seules les sources [4] (BBC 2026) et [5] (GIEC) sont réellement utilisées et vérifiables dans les extraits fournis ; les sources [1], [2], [3], [6], [7] sont citées mais ne confirment pas les faits qui leur sont attribués, ce qui fausse le compteur de sources effectives."
+        },
+        {
+          "bloc": 3,
+          "section": "resume",
+          "type": "cadrage_emprunte",
+          "phrase_exacte": "Le secteur touristique doit simultanément s'adapter aux températures extrêmes et réduire ses émissions de gaz à effet de serre, qui continuent d'augmenter selon le rapport.",
+          "explication": "Cette formulation reprend un cadrage prescriptif (\"doit\") présenté comme un fait neutre, sans attribution claire à l'étude \"Destination Climate RiskScan\" dont l'existence même n'est pas confirmée par la source [1]."
+        },
+        {
+          "bloc": 4,
+          "section": "contexte",
+          "type": "contexte_hors_sujet",
+          "phrase_exacte": "En France, la loi \"Montagne III\" a été publiée au Journal officiel le 19 août 2026 pour répondre à l'accélération du réchauffement dans ce milieu fragile [2]. Elle traite de la gestion de l'eau, de l'agriculture, de la forêt, du tourisme, de l'accès aux soins et de l'urbanisme.",
+          "explication": "Ce développement sur une loi française spécifique ne porte pas sur l'étude mondiale \"Destination Climate RiskScan\" ni sur la vulnérabilité des 2 600 régions touristiques ; il constitue un remplissage sans lien direct avec le sujet principal."
+        },
+        {
+          "bloc": 4,
+          "section": "contexte",
+          "type": "contexte_hors_sujet",
+          "phrase_exacte": "Au niveau européen, le Sénat français note dans un rapport de 2025 que la France hexagonale comme ultramarine présente une vulnérabilité particulière aux effets du dérèglement climatique, les territoires ultramarins étant en première ligne [7]. L'adaptation européenne est décrite comme un champ encore en structuration, avec la Banque européenne d'investissement comme bras financier de l'ambition climatique [7].",
+          "explication": "Ce passage sur la vulnérabilité de la France et l'adaptation européenne ne concerne pas l'analyse de 2 600 régions touristiques mondiales ; il est hors sujet par rapport à l'angle annoncé."
+        }
+      ]
+    },
+    "article_type": "actu",
+    "titre": "Le changement climatique redessine la carte du tourisme selon une étude sur 2 600 régions",
+    "n_sources": 7,
+    "n_mots": 622,
+    "titre_rss": "La crise climatique redessine déjà la carte du tourisme, les régions les plus visitées sont insuffisamment préparées, selon une étude",
+    "matiere_faits_distincts": 752,
+    "matiere_redondance": 0.06,
+    "matiere_donnees_chiffrees": 4,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "etude_scientifique"
   }
 ]

@@ -5,13 +5,22 @@
   <link>https://lesfaits.info/</link>
   <description>Journal numérique français rédigé par IA. Juste les faits. Aucun parti pris.</description>
   <language>fr</language>
-  <lastBuildDate>Tue, 17 Nov 2026 22:08:28 GMT</lastBuildDate>
+  <lastBuildDate>Wed, 18 Nov 2026 16:39:10 GMT</lastBuildDate>
   <atom:link href="https://lesfaits.info/feed.xml" rel="self" type="application/rss+xml"/>
   <image>
     <url>https://lesfaits.info/assets/images/og-default.jpg</url>
     <title>Les Faits</title>
     <link>https://lesfaits.info/</link>
   </image>
+  <item>
+    <title>Le changement climatique redessine la carte du tourisme selon une étude sur 2 600 régions</title>
+    <link>https://lesfaits.info/articles/changement-climatique-tourisme-etude-2600-regions-vulnerables.html</link>
+    <guid isPermaLink="true">https://lesfaits.info/articles/changement-climatique-tourisme-etude-2600-regions-vulnerables.html</guid>
+    <description>L'étude Destination Climate RiskScan analyse 2 600 régions dans 263 pays et conclut que les zones les plus visitées sont insuffisamment préparées face aux risques climatiques croissants. Le secteur touristique doit simultanément s'adapter aux températures extrêmes et réduire ses émissions de gaz à effet de serre, qui continuent d'augmenter selon le rapport. Des destinations emblématiques comme les Maldives, Venise ou les glaciers du Kilimandjaro risquent de disparaître ou de subir des dommages irréversibles d'ici 2050 selon l'UNESCO.</description>
+    <category>environnement</category>
+    <enclosure url="https://lesfaits.info/assets/images/changement-climatique-tourisme-etude-2600-regions-vulnerables.jpg" type="image/jpeg" length="0"/>
+    <pubDate>Wed, 18 Nov 2026 16:39:07 GMT</pubDate>
+  </item>
   <item>
     <title>COP31 : la Turquie propose de mesurer l’empreinte carbone des centres de données</title>
     <link>https://lesfaits.info/articles/cop31-antalya-turquie-mesure-empreinte-carbone-centres-donnees-ia.html</link>
@@ -182,15 +191,6 @@
     <category>environnement</category>
     <enclosure url="https://lesfaits.info/assets/images/eclipse-solaire-12-aout-2026.jpg" type="image/jpeg" length="0"/>
     <pubDate>Sat, 01 Aug 2026 12:14:23 GMT</pubDate>
-  </item>
-  <item>
-    <title>L’île d’Oléron remporte son bras de fer avec Airbnb</title>
-    <link>https://lesfaits.info/articles/ile-oleron-remporte-bras-de-fer-avec-airbnb.html</link>
-    <guid isPermaLink="true">https://lesfaits.info/articles/ile-oleron-remporte-bras-de-fer-avec-airbnb.html</guid>
-    <description>Selon Libération, la décision du Conseil constitutionnel a des implications pour les communes touristiques et les plateformes de location entre particuliers. L'enjeu essentiel de cette affaire réside dans la capacité des communes à percevoir la taxe de séjour et à utiliser ces ressources pour développer leur offre touristique, comme indiqué par Gouv. La position d'Airbnb sur cette question soulève des interrogations quant à la proportionnalité des amendes infligées pour non-paiement de la taxe de séjour, rapporte Le Figaro.</description>
-    <category>societe</category>
-    <enclosure url="https://lesfaits.info/assets/images/ile-oleron-remporte-bras-de-fer-avec-airbnb.jpg" type="image/jpeg" length="0"/>
-    <pubDate>Fri, 31 Jul 2026 13:04:26 GMT</pubDate>
   </item>
 </channel>
 </rss>
