@@ -78480,5 +78480,509 @@
     "n_sources_injectees": 10,
     "n_sources_trouvees": 10,
     "nature_contenu": "etude_scientifique"
+  },
+  {
+    "slug": "voyager-1-jour-lumiere-distance-record-nasa-2026",
+    "statut": "conforme_du_premier_coup",
+    "date": "2026-11-19T08:35:47",
+    "article_type": "actu",
+    "titre": "Voyager 1 franchit le cap symbolique d'un jour-lumière de la Terre",
+    "n_sources": 5,
+    "n_mots": 767,
+    "titre_rss": "La sonde Voyager 1 dépasse la distance d'un jour-lumière de la Terre, soit 25,9 milliards de kilomètres",
+    "matiere_faits_distincts": 1297,
+    "matiere_redondance": 0.02,
+    "matiere_donnees_chiffrees": 5,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "gta-vi-precommandes-budget-record-ventes-attendues-45-millions-exemplaires",
+    "statut": "rejete_qualite",
+    "date": "2026-11-19T08:43:08",
+    "problemes_initiaux": 15,
+    "tentatives": 3,
+    "problemes_restants": 10,
+    "bloquants_restants": 8,
+    "bloquants_types": [
+      "chiffre_errone",
+      "annonce_perimee",
+      "annonce_perimee",
+      "chiffre_errone",
+      "incoherence_inter_sections",
+      "chiffre_errone",
+      "source_inventee",
+      "source_inventee"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "Le titre affirme que GTA VI est sorti le 27 août 2026, mais la source [1] (France Info, 27 août 2026) indique que le jeu \"sort à minuit\" (futur), confirmant que la sortie n'a pas encore eu lieu au moment de la publicatio",
+        "phrase": "GTA VI : sorti le 27 août 2026, budget record estimé et ventes attendues à 45 millions d'exemplaires"
+      },
+      {
+        "bloc": 1,
+        "type": "annonce_perimee",
+        "description": "Le résumé utilise le passé composé \"a sorti\" pour décrire la sortie du jeu, alors que la source [1] la plus récente (27 août 2026) utilise le futur \"sort à minuit\", indiquant que l'événement n'est pas encore survenu au m",
+        "phrase": "Treize ans après GTA V, Rockstar Games a sorti Grand Theft Auto VI le 27 août 2026 à minuit, après des précommandes ouvertes en juin 2026 [1][3]."
+      },
+      {
+        "bloc": 1,
+        "type": "annonce_perimee",
+        "description": "La phrase affirme au passé composé que le jeu a été sorti, contredisant la source [1] citée qui indique \"qui est sorti à minuit\" dans le titre mais précise dans le corps que le jeu \"sort à minuit\" (futur), la source étan",
+        "phrase": "Rockstar Games a sorti Grand Theft Auto VI le 27 août 2026 à minuit, treize ans après la sortie de GTA V en 2013 [1]."
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [1] (France Info) ne contient pas l'expression \"plus de huit ans\" ni de chiffre précis sur la durée de développement dans les extraits fournis ; l'article attribue à cette source une citation qui n'y figure pas",
+        "phrase": "D'après France Info, le développement proprement dit a pris \"plus de huit ans\" [1], une durée plus longue qui pourrait inclure les phases de pré-production et de conception."
+      },
+      {
+        "bloc": 1,
+        "type": "incoherence_inter_sections",
+        "description": "L'article cite deux durées de développement différentes (\"plus de six années\" selon [3] et \"plus de huit ans\" selon [1]) sans les réconcilier ni expliquer l'écart, présentant deux valeurs pour une même réalité.",
+        "phrase": "Le développement a nécessité plus de six années de travail selon les estimations rapportées [3]. D'après France Info, le développement proprement dit a pris \"plus de huit ans\" [1]"
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [2] (Ouest-France, juillet 2025) ne mentionne pas le chiffre de 185 millions d'exemplaires pour GTA V dans son titre ni dans l'URL fournie ; l'article attribue à cette source un chiffre qu'elle ne contient pas ",
+        "phrase": "GTA V s'est écoulé à plus de 210 millions d'exemplaires selon Le Nouvel Obs [5], tandis qu'Ouest-France avance plus de 185 millions en juillet 2025 [2] ; cet écart de 25 millions s'explique probablement par des dates de "
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "L'article met entre guillemets \"plus de huit ans\" et l'attribue à France Info [1], mais cet extrait ne figure pas dans le contenu de la source fournie (seul le titre et l'URL sont donnés).",
+        "phrase": "D'après France Info, le développement proprement dit a pris \"plus de huit ans\" [1]"
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "Le chiffre de 185 millions est attribué à Ouest-France [2], mais la source fournie (titre et URL) ne contient pas cette information ; l'article invente une donnée absente de la source citée.",
+        "phrase": "GTA V s'est écoulé à plus de 210 millions d'exemplaires selon Le Nouvel Obs [5], tandis qu'Ouest-France avance plus de 185 millions en juillet 2025 [2]"
+      }
+    ],
+    "types_restants": [
+      "chiffre_errone",
+      "annonce_perimee",
+      "annonce_perimee",
+      "chiffre_errone",
+      "incoherence_inter_sections",
+      "chiffre_errone",
+      "source_inventee",
+      "source_inventee",
+      "redondance",
+      "redondance"
+    ],
+    "article_type": "actu",
+    "titre": "GTA VI : précommandes ouvertes, budget record et ventes attendues à 45 millions d'exemplaires",
+    "n_sources": 5,
+    "n_mots": 654,
+    "titre_rss": "Budget, préventes, musique… Cinq chiffres vertigineux autour de \"GTA VI\", qui est sorti à minuit après treize ans d'attente",
+    "matiere_faits_distincts": 1011,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 5,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "macif-amende-cnil-5-millions-euros-securite-donnees",
+    "statut": "rejete_sensible",
+    "date": "2026-11-19T08:49:45",
+    "problemes_initiaux": 8,
+    "tentative": 1,
+    "bloc5": true,
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "faits_repetitifs"
+    ],
+    "titre": "La Macif condamnée à 5 millions d'euros par la CNIL pour des failles de sécurité",
+    "n_sources": 4,
+    "n_mots": 543,
+    "titre_rss": "Données personnelles : la Macif condamnée par la CNIL à une amende de 5 millions d’euros pour des manquements à la sécurité",
+    "matiere_faits_distincts": 915,
+    "matiere_redondance": 0.02,
+    "matiere_donnees_chiffrees": 3,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "decision_officielle"
+  },
+  {
+    "slug": "anthropic-valorisee-1500-milliards-dollars-avant-introduction-bourse",
+    "statut": "corrige_automatiquement",
+    "date": "2026-11-19T09:07:35",
+    "problemes_initiaux": 9,
+    "tentatives": 3,
+    "problemes_residuels_style": 9,
+    "rapport_initial": {
+      "conforme": false,
+      "sujet_sensible": false,
+      "sujet_sensible_raison": "",
+      "angle_insuffisant": false,
+      "angle_insuffisant_raison": "",
+      "nature_contenu": "actualite_factuelle",
+      "problemes": [
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "contexte_hors_sujet",
+          "phrase_exacte": "La définition même de l'intelligence fait l'objet de débats scientifiques depuis des décennies. Robert J. Sternberg, professeur de psychologie à Oklahoma State University, propose une théorie triarchique distinguant intelligence analytique, créative et pratique [2]. Cette multiplicité des approches rappelle que les systèmes d'IA actuels, centrés sur le traitement statistique massif, ne couvrent qu'une partie des facultés cognitives humaines.",
+          "explication": "Ce développement sur les théories psychologiques de l'intelligence humaine (Sternberg, 2012) n'éclaire pas l'introduction en Bourse d'Anthropic, sa valorisation ou le marché de l'IA ; il s'agit d'un remplissage hors sujet."
+        },
+        {
+          "bloc": 1,
+          "section": "nuances",
+          "type": "contexte_hors_sujet",
+          "phrase_exacte": "Par ailleurs, la notion d'intelligence mesurée par les systèmes d'IA reste contestée. Neel Burton, psychiatre et auteur, souligne que l'obsession occidentale pour l'intelligence analytique a des racines dans la Grèce antique et des conséquences politiques et morales [3]. Les tests de QI, standard les plus utilisés pour évaluer l'intelligence générale, mesurent la résolution de problèmes, la manipulation spatiale et l'acquisition du langage [4], des dimensions que les modèles actuels reproduisent partiellement sans en posséder la compréhension.",
+          "explication": "Ces paragraphes sur la philosophie de l'intelligence, les racines grecques et les tests de QI (sources [3] et [4]) n'apportent aucune nuance pertinente sur l'IPO d'Anthropic, sa valorisation ou ses perspectives boursières."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "section_gonflee",
+          "phrase_exacte": "La définition même de l'intelligence fait l'objet de débats scientifiques depuis des décennies. Robert J. Sternberg, professeur de psychologie à Oklahoma State University, propose une théorie triarchique distinguant intelligence analytique, créative et pratique [2]. Cette multiplicité des approches rappelle que les systèmes d'IA actuels, centrés sur le traitement statistique massif, ne couvrent qu'une partie des facultés cognitives humaines.",
+          "explication": "La section « Contexte » est gonflée avec un développement théorique hors sujet (psychologie de l'intelligence) au lieu de faits distincts et sourcés sur l'historique de financement d'Anthropic, ses investisseurs ou le marché de l'IA générative."
+        },
+        {
+          "bloc": 1,
+          "section": "nuances",
+          "type": "section_gonflee",
+          "phrase_exacte": "Par ailleurs, la notion d'intelligence mesurée par les systèmes d'IA reste contestée. Neel Burton, psychiatre et auteur, souligne que l'obsession occidentale pour l'intelligence analytique a des racines dans la Grèce antique et des conséquences politiques et morales [3]. Les tests de QI, standard les plus utilisés pour évaluer l'intelligence générale, mesurent la résolution de problèmes, la manipulation spatiale et l'acquisition du langage [4], des dimensions que les modèles actuels reproduisent partiellement sans en posséder la compréhension.",
+          "explication": "La section « Nuances » est remplie de considérations philosophiques et psychologiques génériques qui ne nuancent pas le sujet de l'article (valorisation, IPO, infrastructure) et servent de remplissage."
+        },
+        {
+          "bloc": 2,
+          "section": "contexte",
+          "type": "source_non_editoriale",
+          "phrase_exacte": "Robert J. Sternberg, professeur de psychologie à Oklahoma State University, propose une théorie triarchique distinguant intelligence analytique, créative et pratique [2].",
+          "explication": "La source [2] (article scientifique PMC 2012 sur la théorie triarchique) est utilisée comme autorité factuelle pour un développement hors sujet ; ce n'est pas une source journalistique ou institutionnelle sur l'actualité économique/technologique traitée."
+        },
+        {
+          "bloc": 2,
+          "section": "nuances",
+          "type": "source_non_editoriale",
+          "phrase_exacte": "Neel Burton, psychiatre et auteur, souligne que l'obsession occidentale pour l'intelligence analytique a des racines dans la Grèce antique et des conséquences politiques et morales [3]. Les tests de QI, standard les plus utilisés pour évaluer l'intelligence générale, mesurent la résolution de problèmes, la manipulation spatiale et l'acquisition du langage [4]",
+          "explication": "Les sources [3] et [4] (Psychology Today, blog et fiche générale) sont des contenus grand public non journalistiques, cités comme autorités sur la définition de l'intelligence dans une section qui n'a pas sa place dans l'article."
+        },
+        {
+          "bloc": 4,
+          "section": "contexte",
+          "type": "redondance",
+          "phrase_exacte": "Le secteur de l'intelligence artificielle générative a connu une explosion des valorisations depuis 2022, portée par le lancement de ChatGPT par OpenAI. Les levées de fonds successives d'Anthropic, soutenue notamment par Amazon et Google, ont fait passer sa valorisation de quelques milliards à plusieurs centaines de milliards en moins de trois ans.",
+          "explication": "Ces phrases répètent l'information déjà contenue dans le résumé et les faits (valorisation passée, rôle d'Amazon/Google, explosion depuis 2022) sans apporter de fait nouveau distinct."
+        },
+        {
+          "bloc": 4,
+          "section": "nuances",
+          "type": "extrapolation",
+          "phrase_exacte": "des dimensions que les modèles actuels reproduisent partiellement sans en posséder la compréhension.",
+          "explication": "L'affirmation selon laquelle les modèles d'IA « reproduisent partiellement sans en posséder la compréhension » est une anticipation/extrapolation non sourcée sur la nature de l'IA, absente des sources [3] et [4] qui portent sur l'intelligence humaine et les tests de QI."
+        },
+        {
+          "bloc": 4,
+          "section": "nuances",
+          "type": "jugement_de_valeur",
+          "phrase_exacte": "l'obsession occidentale pour l'intelligence analytique a des racines dans la Grèce antique et des conséquences politiques et morales",
+          "explication": "Le terme « obsession » et l'attribution de « conséquences politiques et morales » constituent un cadrage subjectif emprunté à la source [3] (Psychology Today) et présenté comme un fait neutre dans les nuances."
+        }
+      ]
+    },
+    "article_type": "actu",
+    "titre": "Anthropic valorisée 1 500 milliards de dollars avant son introduction en Bourse",
+    "n_sources": 4,
+    "n_mots": 493,
+    "titre_rss": "Intelligence artificielle : avec une action mise en vente à 83 dollars, Anthropic valorisée 1 500 milliards de dollars à la veille de son entrée en Bourse",
+    "matiere_faits_distincts": 909,
+    "matiere_redondance": 0.02,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "thomas-couvreur-erc-consolidator-grant-projet-global-forets-tropicales",
+    "statut": "rejete_qualite",
+    "date": "2026-11-19T09:11:44",
+    "angle_insuffisant": true,
+    "raison": "Aucune phrase dans 'faits' ne contient à la fois un événement précis daté ou datable (annonce, publication, décision, résultat rendu public récemment) et une donnée chiffrée ou nommée qui lui est propre. L'article décrit un financement obtenu en décembre 2019 pour un projet s'étendant de juin 2020 à mai 2025, sans actualité identifiable justifiant une publication maintenant (la source IRD date de décembre 2019, la source CNRS de septembre 2022, la source RFI de juin 2024). Le texte répond à 'qu'est-ce que le projet GLOBAL ?' plutôt qu'à 'pourquoi parle-t-on de ce projet maintenant ?'.",
+    "article_type": "actu",
+    "titre": "Thomas Couvreur obtient un ERC Consolidator Grant pour le projet GLOBAL sur les forêts tropicales",
+    "n_sources": 4,
+    "n_mots": 677,
+    "titre_rss": "Forêts tropicales humides : un financement ERC pour le chercheur IRD Thomas Couvreur",
+    "matiere_faits_distincts": 1303,
+    "matiere_redondance": 0.02,
+    "matiere_donnees_chiffrees": 2,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "veille_heures_visible": 517.7,
+    "veille_passages": 326,
+    "veille_age_h": 2382.8,
+    "veille_n_flux_grappe": 2,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "oms-alerte-39-millions-morts-resistance-antimicrobiens-2050",
+    "statut": "rejete_qualite",
+    "date": "2026-11-19T09:16:42",
+    "tentative": 1,
+    "angle_insuffisant": true,
+    "raison": "Aucune phrase dans 'faits' ne combine un événement précis daté (publication d'un rapport, décision, annonce officielle) et une donnée chiffrée ou nommée qui lui est propre. L'article se contente de reprendre des constats généraux de l'OMS et une projection 2050 déjà connue (source de 2025) sans identifier de fait déclencheur récent justifiant la publication maintenant.",
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "resume_repete_corps"
+    ],
+    "titre": "L'OMS alerte sur 39 millions de morts d'ici 2050 liés à la résistance aux antimicrobiens",
+    "n_sources": 4,
+    "n_mots": 492,
+    "titre_rss": "Résistance des bactéries aux médicaments : l’OMS note des progrès, mais appelle à redoubler d’efforts",
+    "matiere_faits_distincts": 866,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "cop31-antalya-finance-adaptation-levées-fonds-negociations",
+    "statut": "rejete_sensible",
+    "date": "2026-11-19T09:21:58",
+    "problemes_initiaux": 11,
+    "tentative": 2,
+    "bloc5": true,
+    "article_type": "actu",
+    "titre": "COP31 à Antalya : finance, adaptation et levées de fonds au cœur des négociations",
+    "n_sources": 6,
+    "n_mots": 799,
+    "titre_rss": "COP31 : le pastoralisme, un allié oublié du climat",
+    "matiere_faits_distincts": 1095,
+    "matiere_redondance": 0.01,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "batteries-futur-cnrs-chimies-stockage-energie",
+    "statut": "rejete_qualite",
+    "date": "2026-11-19T09:24:10",
+    "angle_insuffisant": true,
+    "raison": "Aucune phrase des faits ne combine un événement précis daté (la mise en ligne de la vidéo CNRS le 10/11/2026) avec une donnée chiffrée ou nommée propre à cet événement (avancée concrète, résultat nouveau, mesure inédite). L'article se contente de résumer le contenu général d'une vidéo de vulgarisation qui fait le point sur des pistes de recherche connues depuis des années, sans révéler d'actualité scientifique déclenchante.",
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "resume_repete_corps"
+    ],
+    "titre": "Batteries du futur : le CNRS explore de nouvelles chimies pour le stockage d'énergie",
+    "n_sources": 2,
+    "n_mots": 537,
+    "titre_rss": "Les batteries du futur",
+    "matiere_faits_distincts": 997,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "sujet_pedagogique"
+  },
+  {
+    "slug": "microbiote-4-aliments-boisson-habitude-privilegier-etude",
+    "statut": "rejete_sensible",
+    "date": "2026-11-19T09:34:47",
+    "problemes_initiaux": 14,
+    "tentative": 2,
+    "bloc5": true,
+    "article_type": "actu",
+    "titre": "Microbiote : 4 aliments, une boisson et une habitude à privilégier selon une vaste étude",
+    "n_sources": 3,
+    "n_mots": 600,
+    "titre_rss": "Pour optimiser les effets protecteurs du microbiote, voici les 4 aliments, la boisson et l’habitude à privilégier, selon une vaste étude",
+    "matiere_faits_distincts": 1332,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "etude_scientifique"
+  },
+  {
+    "slug": "icrar-systeme-binaire-naine-blanche-signal-radio-8-minutes",
+    "statut": "corrige_automatiquement",
+    "date": "2026-11-19T09:38:11",
+    "problemes_initiaux": 21,
+    "tentatives": 1,
+    "problemes_residuels_style": 15,
+    "rapport_initial": {
+      "conforme": false,
+      "sujet_sensible": false,
+      "sujet_sensible_raison": "",
+      "angle_insuffisant": false,
+      "angle_insuffisant_raison": "",
+      "nature_contenu": "etude_scientifique",
+      "problemes": [
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "Une équipe du Centre international de recherche en radioastronomie (ICRAR) a découvert un système binaire baptisé GPM J071507−114153, situé à environ 5 000 années-lumière de la Terre [1].",
+          "explication": "La source [1] (Slate) ne mentionne pas l'ICRAR, l'université Curtin, Sam McSweeney, Natasha Hurley-Walker, le radiotélescope MeerKAT, l'observatoire W. M. Keck, ni la distance de 5 000 années-lumière ; elle ne décrit que GLEAM-X J162759.5-523504.3 (période 18 min, 2018)."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "Il est composé d'une naine blanche, résidu dense d'une étoile effondrée, et d'une étoile de type G comparable au Soleil [1].",
+          "explication": "La source [1] ne décrit pas ce système binaire ni sa composition."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "Ce système émet des signaux radio répétés toutes les 8,1 minutes, le classant parmi la douzaine de \"transitoires radio à longue période\" connus, dont les pulsations durent de quelques minutes à plusieurs heures [1].",
+          "explication": "La source [1] mentionne une période de 18 minutes pour GLEAM-X, pas 8,1 minutes pour GPM J071507−114153."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "Pour caractériser cet objet, les chercheurs ont analysé plus de 100 heures de données radio à l'aide d'un supercalculateur en Australie-Occidentale [1].",
+          "explication": "La source [1] ne contient pas cette information."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "Sam McSweeney, auteur principal de l'étude publiée dans Nature Astronomy et astronome à l'université Curtin, précise que c'est la première fois que les impulsions sont assez nettes pour observer la naine blanche se déplacer sur son orbite autour de sa compagne [1].",
+          "explication": "La source [1] ne cite ni Sam McSweeney, ni Nature Astronomy, ni l'université Curtin."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "Les pulsations proviennent donc d'une région proche de la naine blanche, voire de l'astre lui-même [1].",
+          "explication": "La source [1] ne contient pas cette conclusion."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "L'équipe a également détecté des éruptions stellaires à la surface de l'étoile de type G, un phénomène analogue à celui qui génère les aurores sur Terre [1].",
+          "explication": "La source [1] ne mentionne pas d'éruptions stellaires ni d'étoile de type G."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "Natasha Hurley-Walker, coauteure de l'étude, rapporte avoir observé la naine blanche passer derrière une région à champ magnétique intense, très probablement une protubérance stellaire — une grande boucle de plasma jaillissant de l'étoile compagne [1].",
+          "explication": "La source [1] ne cite pas Natasha Hurley-Walker ni cette observation."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "Les observations ont mobilisé le radiotélescope MeerKAT en Afrique du Sud pour la localisation, puis l'observatoire W. M. Keck pour l'étude optique [1].",
+          "explication": "La source [1] ne mentionne ni MeerKAT ni Keck."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "Le premier LPT identifié, GLEAM-X J162759.5-523504.3, a été repéré en 2018 par le Murchison Widefield Array en Australie : il pulsait toutes les 18 minutes pendant 30 à 60 secondes, puis a disparu après trois mois [2].",
+          "explication": "La source [2] (Courrierinternational) n'est pas fournie en extrait ; on ne peut vérifier qu'elle contienne ces détails précis (période exacte, durée d'émission, disparition après trois mois)."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "Un autre système, ASKAP J1745-5051, associe aussi une naine blanche à une compagne, avec une période de 1,4 heure [3].",
+          "explication": "La source [3] (RTBF) n'est pas fournie en extrait ; on ne peut vérifier qu'elle décrive ASKAP J1745-5051 avec une période de 1,4 h."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "Un objet émettant en radio et en rayons X toutes les 44 minutes a aussi été signalé à 16 000 années-lumière [4].",
+          "explication": "La source [4] (Pour la Science) traite du \"firewall\" des trous noirs, sans lien avec un transitoire radio à 44 minutes."
+        },
+        {
+          "bloc": 1,
+          "section": "nuances",
+          "type": "source_inventee",
+          "phrase_exacte": "L'étude ne tranche pas entre deux scénarios : les pulsations émanent-elles de la naine blanche elle-même (magnétosphère, surface) ou de l'interaction avec le vent stellaire et le champ magnétique de l'étoile de type G [1] ?",
+          "explication": "La source [1] ne présente pas ces deux scénarios pour GPM J071507−114153."
+        },
+        {
+          "bloc": 1,
+          "section": "nuances",
+          "type": "source_inventee",
+          "phrase_exacte": "Le radiotélescope géant Square Kilometer Array (SKA), en construction en Afrique du Sud et en Australie pour une mise en service vers 2028, devrait permettre de lever cette ambiguïté [1].",
+          "explication": "La source [1] ne mentionne pas le SKA ni une mise en service vers 2028."
+        },
+        {
+          "bloc": 1,
+          "section": "nuances",
+          "type": "source_inventee",
+          "phrase_exacte": "Aucune détection en rayons X ou en infrarouge n'est rapportée pour ce système dans les sources consultées.",
+          "explication": "Aucune source fournie ne permet d'affirmer l'absence de détection en rayons X ou infrarouge pour GPM J071507−114153."
+        },
+        {
+          "bloc": 1,
+          "section": "nuances",
+          "type": "source_inventee",
+          "phrase_exacte": "La période de 8,1 minutes place GPM J071507−114153 en dessous de la limite théorique de 10 minutes souvent citée pour les pulsars classiques, ce qui renforce l'hypothèse d'un mécanisme d'émission distinct, mais les données actuelles ne permettent pas de confirmer ce point [1].",
+          "explication": "La source [1] ne mentionne pas de limite théorique de 10 minutes pour les pulsars classiques."
+        },
+        {
+          "bloc": 1,
+          "section": "nuances",
+          "type": "source_inventee",
+          "phrase_exacte": "L'absence de contrepartie optique ou infrarouge détectée pour la naine blanche elle-même laisse aussi ouverte la question de sa température et de son âge de refroidissement.",
+          "explication": "Aucune source fournie ne mentionne l'absence de contrepartie optique/infrarouge pour la naine blanche de ce système."
+        },
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "compteur_incoherent",
+          "phrase_exacte": "\"nb_sources\": 4",
+          "explication": "Seule la source [1] est réellement utilisée dans les renvois [n] du texte ; les sources [2], [3], [4] sont citées en bibliographie mais ne sont pas exploitées dans le corps de l'article, ce qui rend le compteur de 4 sources incohérent avec l'usage effectif."
+        },
+        {
+          "bloc": 2,
+          "section": "contexte",
+          "type": "source_derivee_comptee_comme_primaire",
+          "phrase_exacte": "Le premier LPT identifié, GLEAM-X J162759.5-523504.3, a été repéré en 2018 par le Murchison Widefield Array en Australie : il pulsait toutes les 18 minutes pendant 30 à 60 secondes, puis a disparu après trois mois [2].",
+          "explication": "La source [2] (Courrierinternational) est un média reprenant une dépêche/étude originale ; elle ne constitue pas une source primaire indépendante et ne doit pas être comptée comme telle pour valider le nombre de sources."
+        },
+        {
+          "bloc": 2,
+          "section": "contexte",
+          "type": "source_derivee_comptee_comme_primaire",
+          "phrase_exacte": "Un autre système, ASKAP J1745-5051, associe aussi une naine blanche à une compagne, avec une période de 1,4 heure [3].",
+          "explication": "La source [3] (RTBF) est un média secondaire reprenant une information primaire ; elle ne compte pas comme source indépendante distincte."
+        },
+        {
+          "bloc": 2,
+          "section": "contexte",
+          "type": "source_non_editoriale",
+          "phrase_exacte": "Un objet émettant en radio et en rayons X toutes les 44 minutes a aussi été signalé à 16 000 années-lumière [4].",
+          "explication": "La source [4] (Pour la Science) porte sur le \"firewall\" des trous noirs, un sujet sans rapport avec les transitoires radio ; elle est utilisée hors sujet comme caution factuelle."
+        }
+      ]
+    },
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "titre_de_mauvaise_qualite"
+    ],
+    "titre": "ICRAR : un système binaire à naine blanche pulse toutes les 8,1 minutes à 5 000 années-lumière",
+    "n_sources": 4,
+    "n_mots": 616,
+    "titre_rss": "Une étoile morte émet un mystérieux signal toutes les huit minutes",
+    "matiere_faits_distincts": 969,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "etude_scientifique"
   }
 ]
