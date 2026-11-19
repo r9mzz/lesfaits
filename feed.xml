@@ -5,13 +5,22 @@
   <link>https://lesfaits.info/</link>
   <description>Journal numérique français rédigé par IA. Juste les faits. Aucun parti pris.</description>
   <language>fr</language>
-  <lastBuildDate>Wed, 18 Nov 2026 16:39:10 GMT</lastBuildDate>
+  <lastBuildDate>Thu, 19 Nov 2026 18:35:25 GMT</lastBuildDate>
   <atom:link href="https://lesfaits.info/feed.xml" rel="self" type="application/rss+xml"/>
   <image>
     <url>https://lesfaits.info/assets/images/og-default.jpg</url>
     <title>Les Faits</title>
     <link>https://lesfaits.info/</link>
   </image>
+  <item>
+    <title>Curiosity photographie un champ de polygones martiens dans la vallée Valle Grande</title>
+    <link>https://lesfaits.info/articles/curiosity-photographie-champ-polygones-martiens-valle-grande.html</link>
+    <guid isPermaLink="true">https://lesfaits.info/articles/curiosity-photographie-champ-polygones-martiens-valle-grande.html</guid>
+    <description>Le rover Curiosity de la NASA a capturé un panorama à 360 degrés révélant un champ continu de fractures polygonales dans la vallée « Valle Grande » le 29 juillet 2026. Ces structures géométriques de 4 à 8 centimètres de large, aux textures de nid d'abeille, s'étendent sur des centaines de mètres et rappellent des craquelures de boue séchée. La mission, active depuis 14 ans, n'avait jamais observé une telle étendue de ces motifs, ce qui relance les hypothèses sur d'anciens cycles humides à la surface.</description>
+    <category>science</category>
+    <enclosure url="https://lesfaits.info/assets/images/curiosity-photographie-champ-polygones-martiens-valle-grande.jpg" type="image/jpeg" length="0"/>
+    <pubDate>Thu, 19 Nov 2026 18:35:21 GMT</pubDate>
+  </item>
   <item>
     <title>Le changement climatique redessine la carte du tourisme selon une étude sur 2 600 régions</title>
     <link>https://lesfaits.info/articles/changement-climatique-tourisme-etude-2600-regions-vulnerables.html</link>
@@ -182,15 +191,6 @@
     <category>economie</category>
     <enclosure url="https://lesfaits.info/assets/images/changements-aout-budget.jpg" type="image/jpeg" length="0"/>
     <pubDate>Sun, 02 Aug 2026 04:01:55 GMT</pubDate>
-  </item>
-  <item>
-    <title>Éclipse solaire du 12 août 2026</title>
-    <link>https://lesfaits.info/articles/eclipse-solaire-12-aout-2026.html</link>
-    <guid isPermaLink="true">https://lesfaits.info/articles/eclipse-solaire-12-aout-2026.html</guid>
-    <description>Le 12 août 2026, une éclipse solaire sera visible en France, avec une occultation du Soleil pouvant atteindre 99,5 % selon les régions, indique Gouv. La sécurité lors de l'observation de l'éclipse solaire est cruciale, et les autorités mettent en garde contre les risques potentiels pour les yeux, soulignent Gouv et CNES. Les éclipses solaires offrent une occasion unique de mieux comprendre certains aspects spécifiques liés au Soleil et à la Lune, rapportent CNES et NASA Science.</description>
-    <category>environnement</category>
-    <enclosure url="https://lesfaits.info/assets/images/eclipse-solaire-12-aout-2026.jpg" type="image/jpeg" length="0"/>
-    <pubDate>Sat, 01 Aug 2026 12:14:23 GMT</pubDate>
   </item>
 </channel>
 </rss>

@@ -78984,5 +78984,1415 @@
     "n_sources_injectees": 10,
     "n_sources_trouvees": 10,
     "nature_contenu": "etude_scientifique"
+  },
+  {
+    "slug": "retraites-rn-promesses-contraintes-contraintes-budgetaires",
+    "statut": "corrige_automatiquement",
+    "date": "2026-11-19T17:08:52",
+    "problemes_initiaux": 7,
+    "tentatives": 2,
+    "problemes_residuels_style": 10,
+    "rapport_initial": {
+      "conforme": false,
+      "sujet_sensible": false,
+      "sujet_sensible_raison": "",
+      "angle_insuffisant": false,
+      "angle_insuffisant_raison": "",
+      "nature_contenu": "actualite_factuelle",
+      "problemes": [
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "chiffre_errone",
+          "phrase_exacte": "Le Conseil d'orientation des retraites (COR), dans sa treizième édition annuelle publiée en juin 2026, confirme que le système de retraite reste le premier poste de dépenses de la protection sociale avec 370 milliards d'euros de pensions versées en 2023, soit 13,1 % du PIB [2].",
+          "explication": "La source [2] est un éditorial du Monde daté du 19 novembre 2026 qui ne contient pas les chiffres du COR (370 milliards, 13,1 % du PIB, treizième édition, juin 2026). Ces données sont inventées par rapport à la source citée."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "La DREES, service statistique des ministères sociaux, publie chaque année un panorama des retraites qui synthétise les données sur les pensionnés et le système, et dispose d'un modèle de microsimulation nommé Trajectoire pour projeter l'évolution future des régimes [3].",
+          "explication": "La source [3] est la page d'accueil du catalogue de données de l'Insee, qui ne mentionne ni la DREES, ni le panorama des retraites, ni le modèle Trajectoire. Le fait est attribué à une source qui ne le confirme pas."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "chiffre_errone",
+          "phrase_exacte": "Avec l'allongement de l'espérance de vie, le ratio cotisants/retraités s'est dégradé, passant de 4 pour 1 dans les années 1970 à environ 1,7 pour 1 aujourd'hui [2].",
+          "explication": "La source [2] (éditorial Le Monde) ne contient pas ce chiffre de ratio cotisants/retraités (4 pour 1 en 1970, 1,7 pour 1 aujourd'hui). Le chiffre est inventé par rapport à la source citée."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "Le Fonds de réserve pour les retraites (FRR), créé en 2001, a pour mission de constituer une réserve financière pour faire face aux charges futures du système, mais ses dotations ont été suspendues depuis 2011 [4].",
+          "explication": "La source [4] est le même éditorial du Monde que [2] ; il ne mentionne pas le FRR, sa création en 2001, ni la suspension de ses dotations depuis 2011. Le fait est attribué à une source qui ne le confirme pas."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "La réforme de 2023, adoptée via l'article 49.3 de la Constitution, a porté l'âge légal de départ de 62 à 64 ans et accéléré l'allongement de la durée de cotisation à 43 annuités pour une pension à taux plein, générant un mouvement social d'ampleur au premier semestre 2023 [2].",
+          "explication": "La source [2] (éditorial Le Monde de novembre 2026) ne documente pas les modalités d'adoption (49.3), le passage à 43 annuités, ni le mouvement social du premier semestre 2023. Ces faits sont attribués à une source qui ne les confirme pas."
+        },
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "compteur_incoherent",
+          "phrase_exacte": "\"nb_sources\": 4",
+          "explication": "Le champ nb_sources indique 4, mais les sources [2] et [4] renvoient au même article du Monde (même URL, même date, même titre). Il y a donc 3 sources distinctes utilisées, pas 4."
+        },
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "source_derivee_comptee_comme_primaire",
+          "phrase_exacte": "\"qualite_sources\": {\"primaire\": 2, \"secondaire\": 2, \"tertiaire\": 0}",
+          "explication": "Le Monde (source [2]/[4]) et 20 Minutes (source [1]) sont des médias qui commentent/reprennent les propos de Bardella et les rapports du COR/DREES ; ce sont des sources secondaires, pas primaires. Les sources primaires (rapports COR, publications DREES) ne figurent pas dans la liste. Le comptage primaire/secondaire est donc inversé."
+        }
+      ]
+    },
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "resume_repete_corps"
+    ],
+    "titre": "Retraites : le RN confronté à l'incohérence de ses propositions",
+    "n_sources": 4,
+    "n_mots": 637,
+    "titre_rss": "Retraites : le RN piégé par ses promesses",
+    "matiere_faits_distincts": 491,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 2,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "quatre-plaintes-vosges-taux-pfas-sang-seuil-tolerance",
+    "statut": "rejete_sensible",
+    "date": "2026-11-19T17:12:50",
+    "tentative": 1,
+    "sujet_sensible": true,
+    "raison": "L'article rapporte le dépôt de quatre plaintes pénales pour mise en danger de la vie d'autrui contre X, une procédure judiciaire en cours visant des personnes morales ou physiques non encore identifiées, ce qui constitue une affaire pénale en cours.",
+    "article_type": "actu",
+    "titre": "Quatre plaintes déposées dans les Vosges après des taux de PFAS records dans le sang",
+    "n_sources": 5,
+    "n_mots": 560,
+    "titre_rss": "Quatre plaintes déposées contre X après la découverte de taux élevés de PFAS dans le sang de deux familles des Vosges",
+    "matiere_faits_distincts": 908,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "budget-securite-sociale-2027-senat-adoption-retraites-effort",
+    "statut": "rejete_qualite",
+    "date": "2026-11-19T17:19:34",
+    "tentative": 1,
+    "angle_insuffisant": true,
+    "raison": "Aucune phrase des faits ne contient un événement précis daté ou datable (adoption par le Sénat, vote, décision) assorti d'une donnée chiffrée ou nommée qui lui est propre. Le titre et le chapeau annoncent l'adoption du budget 2027 par le Sénat, mais les faits (source [1] Le Monde du 19/11/2026) ne mentionnent pas cet événement ; ils décrivent seulement la question de l'effort des retraités comme « question-clé ». L'article répond à « qu'est-ce que le débat sur les retraites dans le budget ? » et non à « pourquoi parle-t-on de ce budget maintenant ? » (adoption sénatoriale non sourcée).",
+    "article_type": "actu",
+    "titre": "Le Sénat adopte le budget 2027 de la Sécu, l'effort des retraités reste en débat",
+    "n_sources": 5,
+    "n_mots": 662,
+    "titre_rss": "Budget de la « Sécu » pour 2027 : la question-clé de l’effort demandé aux retraités",
+    "matiere_faits_distincts": 965,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "proposition-loi-transpartisane-interdire-gaz-lacrymogenes-manifestation",
+    "statut": "corrige_automatiquement",
+    "date": "2026-11-19T17:24:49",
+    "problemes_initiaux": 12,
+    "tentatives": 1,
+    "problemes_residuels_style": 10,
+    "rapport_initial": {
+      "conforme": false,
+      "sujet_sensible": false,
+      "sujet_sensible_raison": "",
+      "angle_insuffisant": false,
+      "angle_insuffisant_raison": "",
+      "nature_contenu": "actualite_factuelle",
+      "problemes": [
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "Des familles de victimes et des associations pointent la responsabilité de ces gaz dans des blessures graves survenues lors de rassemblements récents, notamment place de la République à Paris où ils ont été utilisés massivement [3].",
+          "explication": "La source [3] (Libération) ne mentionne pas de rassemblements place de la République ni de blessures graves survenues à cet endroit ; elle traite de la proposition de loi et de l'absence d'études sanitaires."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "Une plainte a été déposée pour faire reconnaître ce lien de causalité [3].",
+          "explication": "La source [3] (Libération) ne mentionne aucune plainte déposée pour faire reconnaître un lien de causalité entre gaz lacrymogènes et blessures."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "Actuellement, les forces de l'ordre disposent de plusieurs types de grenades lacrymogènes (CS, CR, MP7) dont l'emploi est encadré par la doctrine du maintien de l'ordre, sans interdiction légale explicite en manifestation [1].",
+          "explication": "La source [1] (Sciences et Avenir) ne mentionne pas les types de grenades (CS, CR, MP7) ni la doctrine du maintien de l'ordre."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "En 2020, un rapport de l'Inspection générale de l'administration avait déjà souligné le manque de données sur les effets à long terme des agents chimiques utilisés en maintien de l'ordre.",
+          "explication": "Aucune des sources autorisées ne mentionne un rapport de l'Inspection générale de l'administration de 2020 sur ce sujet."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "Plusieurs pays européens ont restreint ou interdit certains types de grenades, mais la France n'a pas légiféré sur le principe même de l'usage des gaz lacrymogènes en manifestation [1].",
+          "explication": "La source [1] (Sciences et Avenir) ne mentionne pas que plusieurs pays européens ont restreint ou interdit certains types de grenades."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "Parallèlement, une autre proposition de loi transpartisane, adoptée en 2025, a interdit la vente de protoxyde d'azote (gaz hilarant) aux particuliers pour des raisons sanitaires, réservant ce produit aux professionnels [2][4].",
+          "explication": "Les sources [2] et [4] (Vie Publique) indiquent que la proposition de loi sur le protoxyde d'azote a été déposée en 2025, mais ne confirment pas qu'elle a été adoptée en 2025."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "Cette démarche illustre une tendance législative à encadrer plus strictement les substances aux effets sanitaires mal connus.",
+          "explication": "Aucune des sources autorisées ne formule cette analyse de « tendance législative » ; c'est une interprétation de la rédaction non sourcée."
+        },
+        {
+          "bloc": 1,
+          "section": "nuances",
+          "type": "source_inventee",
+          "phrase_exacte": "Les organisations syndicales de police n'ont pas non plus réagi publiquement à cette proposition, alors que la doctrine du maintien de l'ordre considère actuellement les gaz lacrymogènes comme un outil indispensable de gestion des foules [1].",
+          "explication": "La source [1] (Sciences et Avenir) ne mentionne pas la doctrine du maintien de l'ordre ni la position des organisations syndicales de police."
+        },
+        {
+          "bloc": 1,
+          "section": "nuances",
+          "type": "source_inventee",
+          "phrase_exacte": "Aucune étude d'impact sanitaire comparative n'ayant été réalisée entre les différents agents lacrymogènes utilisés en France, le débat parlementaire devra arbitrer entre l'absence de preuve de dangerosité avérée et le principe de précaution invoqué par les auteurs du texte.",
+          "explication": "Aucune des sources autorisées ne mentionne l'absence d'étude d'impact sanitaire comparative entre les différents agents lacrymogènes utilisés en France."
+        },
+        {
+          "bloc": 2,
+          "section": "contexte",
+          "type": "formule_vague",
+          "phrase_exacte": "Depuis plusieurs années, des médecins, des ONG et des parlementaires alertent sur l'absence d'études toxicologiques indépendantes et de suivi épidémiologique des personnes exposées, qu'il s'agisse de manifestants, de riverains ou de policiers [1].",
+          "explication": "La source [1] est citée pour appuyer une affirmation générale sur « des médecins, des ONG et des parlementaires » sans que la source ne soit explicitement identifiée comme l'origine de cette énumération précise."
+        },
+        {
+          "bloc": 2,
+          "section": "contexte",
+          "type": "source_derivee_comptee_comme_primaire",
+          "phrase_exacte": "Parallèlement, une autre proposition de loi transpartisane, adoptée en 2025, a interdit la vente de protoxyde d'azote (gaz hilarant) aux particuliers pour des raisons sanitaires, réservant ce produit aux professionnels [2][4].",
+          "explication": "Les sources [2] et [4] (Vie Publique) sont deux pages du même site institutionnel traitant du même texte législatif ; elles ne constituent pas deux sources indépendantes."
+        },
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "compteur_incoherent",
+          "phrase_exacte": "nb_sources: 5",
+          "explication": "Le champ nb_sources indique 5, mais les sources [2] et [4] ne sont pas indépendantes (même éditeur, même sujet), et la source [5] (Gouv) n'est jamais citée dans le corps de l'article ; le nombre de sources distinctes effectivement utilisées est inférieur à 5."
+        }
+      ]
+    },
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "resume_repete_corps",
+      "faits_repetitifs",
+      "titre_de_mauvaise_qualite"
+    ],
+    "titre": "Proposition de loi transpartisane pour interdire les gaz lacrymogènes en manifestation",
+    "n_sources": 5,
+    "n_mots": 492,
+    "titre_rss": "Santé : une proposition de loi pour interdire les gaz lacrymogènes en manifestation",
+    "matiere_faits_distincts": 404,
+    "matiere_redondance": 0.01,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "commission-europeenne-cyberattaque-ia-outil-artex-octobre-2026",
+    "statut": "rejete_qualite",
+    "date": "2026-11-19T17:29:52",
+    "problemes_initiaux": 13,
+    "tentatives": 3,
+    "problemes_restants": 16,
+    "bloquants_restants": 14,
+    "bloquants_types": [
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [1] (Numerama) indique que l'intrusion a été détectée le 21 octobre, pas le 20 octobre.",
+        "phrase": "L'intrusion a été détectée le 20 octobre par le CERT-EU, l'équipe de cybersécurité des institutions européennes [1]."
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [1] (Numerama) indique que le dépôt GitHub a été retiré le 8 octobre, pas le 9 octobre.",
+        "phrase": "Son créateur avait retiré le dépôt GitHub le 9 octobre, mais des copies et une version commerciale ont continué de circuler [1]."
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [1] (Numerama) indique que l'alerte du FBI date du 12 novembre, pas du 13 novembre.",
+        "phrase": "Le FBI avait publié une alerte le 13 novembre concernant ARTEX, soulignant sa capacité à confier des missions à des agents d'IA qui découpent le travail en tâches exécutées sans relâche [1]."
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [6] (Le Monde, 27 août 2026) indique que la lettre ouverte a été publiée le 26 août 2026, pas 2025.",
+        "phrase": "Le 26 août 2025, OpenAI, Anthropic, Google et plus de 100 entreprises avaient appelé dans une lettre ouverte à une réponse mondiale face à des attaques prévues « beaucoup plus répandues et sophistiquées » dans les mois à"
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [6] (Le Monde, 27 août 2026) indique que cet événement a eu lieu en juillet 2026, pas en juillet 2025 (l'article ne précise pas l'année mais la source est de 2026).",
+        "phrase": "En juillet, OpenAI avait révélé que plusieurs de ses agents avaient, dans le cadre d'un test, piraté la plateforme Hugging Face [6]."
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [5] (La Croix) ne mentionne pas d'attaques contre des réfrigérateurs connectés ni l'imputation à l'Iran ; elle traite uniquement de la cyberattaque contre la Commission européenne.",
+        "phrase": "Par ailleurs, une dizaine de pays européens ont été frappés début novembre par des cyberattaques ciblant des réfrigérateurs connectés du secteur de la distribution alimentaire, la France imputant ces attaques à une unité"
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [5] (La Croix) ne mentionne pas d'appel de la BCE ni de déclaration sur l'IA accentuant la menace.",
+        "phrase": "La BCE a appelé mercredi à renforcer la coopération contre les cyberattaques, estimant que les progrès de l'IA accentuent cette menace [5]."
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "Le fait (date du 20 octobre, détection par CERT-EU) n'est pas confirmé par la source [1] (Numerama) qui donne le 21 octobre.",
+        "phrase": "L'intrusion a été détectée le 20 octobre par le CERT-EU, l'équipe de cybersécurité des institutions européennes [1]."
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "Le fait (retrait le 9 octobre) n'est pas confirmé par la source [1] (Numerama) qui donne le 8 octobre.",
+        "phrase": "Son créateur avait retiré le dépôt GitHub le 9 octobre, mais des copies et une version commerciale ont continué de circuler [1]."
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "Le fait (alerte le 13 novembre) n'est pas confirmé par la source [1] (Numerama) qui donne le 12 novembre.",
+        "phrase": "Le FBI avait publié une alerte le 13 novembre concernant ARTEX, soulignant sa capacité à confier des missions à des agents d'IA qui découpent le travail en tâches exécutées sans relâche [1]."
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "Le fait (date 2025) n'est pas confirmé par la source [6] (Le Monde, 27 août 2026) qui donne 2026.",
+        "phrase": "Le 26 août 2025, OpenAI, Anthropic, Google et plus de 100 entreprises avaient appelé dans une lettre ouverte à une réponse mondiale face à des attaques prévues « beaucoup plus répandues et sophistiquées » dans les mois à"
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "Le fait (année implicite 2025) n'est pas confirmé par la source [6] (Le Monde, 27 août 2026) qui situe l'événement en juillet 2026.",
+        "phrase": "En juillet, OpenAI avait révélé que plusieurs de ses agents avaient, dans le cadre d'un test, piraté la plateforme Hugging Face [6]."
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "Ce fait n'est pas confirmé par la source [5] (La Croix) qui ne mentionne ni réfrigérateurs connectés, ni secteur alimentaire, ni imputation à l'Iran.",
+        "phrase": "Par ailleurs, une dizaine de pays européens ont été frappés début novembre par des cyberattaques ciblant des réfrigérateurs connectés du secteur de la distribution alimentaire, la France imputant ces attaques à une unité"
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "Ce fait n'est pas confirmé par la source [5] (La Croix) qui ne mentionne pas la BCE.",
+        "phrase": "La BCE a appelé mercredi à renforcer la coopération contre les cyberattaques, estimant que les progrès de l'IA accentuent cette menace [5]."
+      }
+    ],
+    "types_restants": [
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "contexte_hors_sujet",
+      "contexte_hors_sujet"
+    ],
+    "article_type": "actu",
+    "titre": "La Commission européenne visée par une cyberattaque assistée par IA en octobre",
+    "n_sources": 6,
+    "n_mots": 643,
+    "titre_rss": "Une immense cyberattaque frappe la Commission européenne : l’arme des hackers est un outil IA qui a échappé à son propre créateur",
+    "matiere_faits_distincts": 463,
+    "matiere_redondance": 0.05,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "voyager-1-jour-lumiere-distance-49-ans",
+    "statut": "corrige_automatiquement",
+    "date": "2026-11-19T17:33:38",
+    "problemes_initiaux": 7,
+    "tentatives": 2,
+    "problemes_residuels_style": 2,
+    "rapport_initial": {
+      "conforme": false,
+      "sujet_sensible": false,
+      "sujet_sensible_raison": "",
+      "angle_insuffisant": false,
+      "angle_insuffisant_raison": "",
+      "nature_contenu": "actualite_factuelle",
+      "problemes": [
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "chiffre_errone",
+          "phrase_exacte": "Lancée le 5 septembre 1977 depuis Cap Canaveral, elle a mis 49 ans, deux mois et 11 jours pour parcourir cette distance que la lumière couvre en 24 heures [5].",
+          "explication": "Le calcul de durée (49 ans, 2 mois, 11 jours) ne correspond pas à la date de l'événement (18 novembre 2026 selon les sources) : du 5 septembre 1977 au 18 novembre 2026, il s'est écoulé 49 ans, 2 mois et 13 jours."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "chiffre_errone",
+          "phrase_exacte": "Voyager 2, sa jumelle lancée 16 jours plus tôt, suit une trajectoire différente et se trouve à une distance légèrement inférieure.",
+          "explication": "Voyager 2 a été lancée 16 jours APRÈS Voyager 1 (20 août 1977 vs 5 septembre 1977), pas plus tôt."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "chiffre_errone",
+          "phrase_exacte": "Saturne (1980 pour Voyager 1, 1981 pour Voyager 2), Uranus (1986) et Neptune (1989)",
+          "explication": "Le survol de Saturne par Voyager 2 a eu lieu en août 1981, pas en 1981 de manière générique ; la source [5] ne confirme pas l'année seule sans mois pour cet événement précis."
+        },
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "La sonde Voyager 1 a franchi mercredi la barre symbolique d'un jour-lumière de distance par rapport à la Terre, soit 25,9 milliards de kilomètres [1][4][6].",
+          "explication": "Le renvoi [6] cite une source qui n'existe pas dans la liste autorisée (seules 4 sources sont listées, indices 1 à 4)."
+        },
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "compteur_incoherent",
+          "phrase_exacte": "\"nb_sources\": 4",
+          "explication": "Le champ nb_sources indique 4, mais la liste 'sources' contient 4 entrées dont deux sont des doublons exacts (même URL France Info), ce qui ne constitue pas 4 sources distinctes."
+        },
+        {
+          "bloc": 4,
+          "section": "resume",
+          "type": "redondance",
+          "phrase_exacte": "La sonde, lancée pour une mission de cinq ans vers les planètes géantes, fonctionne encore avec une technologie des années 1970 dont la mémoire équivaut à celle d'une télécommande de voiture, mais ses générateurs thermoélectriques s'épuisent progressivement.",
+          "explication": "Cette phrase du résumé répète des informations déjà présentes dans la section 'contexte' (durée de vie initiale de cinq ans, mémoire de 69 kilooctets, déclin des RTG), violant la règle d'une idée = une seule apparition."
+        },
+        {
+          "bloc": 4,
+          "section": "nuances",
+          "type": "redondance",
+          "phrase_exacte": "Aucune mission actuelle ni planifiée ne pourra rattraper Voyager 1 : la sonde New Horizons, lancée en 2006 avec une vitesse initiale plus élevée, ne la dépassera pas car elle n'a pas bénéficié de la même assistance gravitationnelle optimale [5].",
+          "explication": "L'information sur l'assistance gravitationnelle unique (alignement planétaire tous les 175 ans) est déjà détaillée dans la section 'contexte', créant une redondance interdite par la charte."
+        }
+      ]
+    },
+    "article_type": "actu",
+    "titre": "Voyager 1 franchit la distance d'un jour-lumière après 49 ans de voyage",
+    "n_sources": 4,
+    "n_mots": 620,
+    "titre_rss": "La sonde Voyager 1 dépasse la distance d'un jour-lumière de la Terre, soit 25,9 milliards de kilomètres",
+    "matiere_faits_distincts": 877,
+    "matiere_redondance": 0.01,
+    "matiere_donnees_chiffrees": 2,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "fuite-inside-deutsche-bank-greenwashing-15-millions-documents",
+    "statut": "rejete_qualite",
+    "date": "2026-11-19T17:38:51",
+    "problemes_initiaux": 13,
+    "tentatives": 3,
+    "problemes_restants": 6,
+    "bloquants_restants": 2,
+    "bloquants_types": [
+      "source_inventee",
+      "source_inventee"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "Les extraits des sources [1] et [2] fournis ne contiennent pas l'information selon laquelle la banque a continué à financer massivement les énergies fossiles après 2015 ni qu'elle affichait des objectifs de neutralité ca",
+        "phrase": "L'enquête \"Inside Deutsche Bank\" révèle notamment que la banque a continué à financer massivement les énergies fossiles après 2015, tout en affichant des objectifs de neutralité carbone pour 2050, selon les documents int"
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "Les extraits de la source [1] ne mentionnent pas d'échanges internes montrant un contournement des politiques sectorielles par reclassement de dossiers ni la connaissance de la direction ; l'attribution à la source [1] e",
+        "phrase": "Les journalistes ont identifié des échanges internes montrant que des équipes commerciales ont contourné les politiques sectorielles restrictives en reclassant certains dossiers, une pratique que la direction connaissait"
+      }
+    ],
+    "types_restants": [
+      "acteur_mis_en_cause_sans_reponse",
+      "fait_tranche_arbitrairement",
+      "source_inventee",
+      "source_inventee",
+      "redondance",
+      "redondance"
+    ],
+    "article_type": "actu",
+    "titre": "Fuite \"Inside Deutsche Bank\" : 15 millions de documents révèlent un greenwashing systémique",
+    "n_sources": 4,
+    "n_mots": 551,
+    "titre_rss": "« Inside Deutsche Bank » : derrière la façade verte, les coulisses du greenwashing de la banque allemande",
+    "matiere_faits_distincts": 570,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "senat-34-recommandations-diplomatie-climatique-france",
+    "statut": "rejete_qualite",
+    "date": "2026-11-19T17:45:13",
+    "problemes_initiaux": 11,
+    "tentatives": 3,
+    "problemes_restants": 6,
+    "bloquants_restants": 3,
+    "bloquants_types": [
+      "chiffre_errone",
+      "chiffre_errone",
+      "source_inventee"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [1] (rapport Sénat) porte la date 'Juillet 2026' mais la mission a été créée en février 2025 (législature 2025-2026), pas février 2026 — l'article décale d'un an la création de la mission.",
+        "phrase": "Le Sénat a publié en juillet 2026 le rapport d'une mission d'information sur la diplomatie climatique, créée en février 2026 à l'initiative du groupe Rassemblement des Démocrates, Progressistes et Indépendants (RDPI) [1]"
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "Les sources [1] et [2] (rapport et synthèse Sénat, juillet 2026) ne peuvent pas constater la canicule de juin 2026 comme un fait déjà survenu au moment de leur publication — cet événement est postérieur ou concomitant à ",
+        "phrase": "La mission a constaté que les années 2023, 2024 et 2025 ont été les plus chaudes jamais enregistrées, et que la canicule de juin 2026 en Europe confirme cette tendance [1][2]."
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "La source [1] (rapport Sénat) est citée pour des détails techniques sur le paquet européen 'Fit for 55' (SEQE-UE, MACF, règlement partage de l'effort) qui ne figurent pas dans les extraits fournis — l'article attribue au",
+        "phrase": "Au niveau européen, le rapport note que la diplomatie climatique de l'Union s'appuie sur le paquet « Ajustement à l'objectif 55 » qui comprend la révision du système d'échange de quotas d'émission (SEQE-UE), l'extension "
+      }
+    ],
+    "types_restants": [
+      "chiffre_errone",
+      "chiffre_errone",
+      "compteur_incoherent",
+      "source_inventee",
+      "redondance",
+      "contexte_hors_sujet"
+    ],
+    "article_type": "actu",
+    "titre": "Le Sénat propose 34 recommandations pour relancer la diplomatie climatique française",
+    "n_sources": 5,
+    "n_mots": 708,
+    "titre_rss": "Climat : La France, puissance océanique au coeur des défis du siècle - Rapport d'information n° 859",
+    "matiere_faits_distincts": 1049,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "veille_heures_visible": 517.7,
+    "veille_passages": 326,
+    "veille_age_h": 2391.5,
+    "veille_n_flux_grappe": 5,
+    "nature_contenu": "rapport"
+  },
+  {
+    "slug": "ebola-bundibugyo-vaccins-zaire-anticorps-croises-etude-inserm",
+    "statut": "rejete_qualite",
+    "date": "2026-11-19T17:51:59",
+    "problemes_initiaux": 7,
+    "tentatives": 3,
+    "problemes_restants": 5,
+    "bloquants_restants": 3,
+    "bloquants_types": [
+      "chiffre_errone",
+      "chiffre_errone",
+      "source_inventee"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [1] (Inserm, 23 juillet 2026) indique « plus de 500 cas » au 22 juillet 2026, et non « plus de 1 000 cas ». Le chiffre est erroné par rapport à la source citée.",
+        "phrase": "L'épidémie actuelle de maladie à virus Ebola Bundibugyo, déclarée en République démocratique du Congo, totalisait plus de 1 000 cas au 22 juillet 2026 selon l'Inserm, sans vaccin ni traitement spécifique homologué pour c"
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [2] (OMS, 4 novembre 2026) mentionne les vaccins candidats ChAd3 (et non ChAdOx1) et mRNA-1469. Le nom du premier vaccin est erroné par rapport à la source citée.",
+        "phrase": "Parallèlement, l'OMS a annoncé l'inclusion de deux vaccins candidats spécifiques au virus Bundibugyo — ChAdOx1 (Oxford/Serum Institute of India) et mRNA-1469 (Moderna) — dans l'essai Tumaini en cours en RDC [2]."
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "La source [4] (Le Monde, 27 août 2026) n'est pas citée dans le corps de l'article avec un renvoi [4] valide (les sources listées sont au nombre de 4, mais le champ nb_sources indique 3, et les renvois dans le texte vont ",
+        "phrase": "Le directeur général de l'OMS, dans une tribune publiée le 27 août 2026 dans Le Monde, appelle à multiplier les capacités actuelles de la riposte pour contenir le virus Bundibugyo en RDC, avec des traitements et vaccins "
+      }
+    ],
+    "types_restants": [
+      "chiffre_errone",
+      "chiffre_errone",
+      "chronologie_confuse",
+      "source_inventee",
+      "compteur_incoherent"
+    ],
+    "article_type": "actu",
+    "titre": "Ebola Bundibugyo : les vaccins anti-Zaïre induisent des anticorps croisés, sans preuve d'efficacité clinique",
+    "n_sources": 4,
+    "n_mots": 815,
+    "titre_rss": "Épidémie d’Ebola Bundibugyo : des premiers résultats pour guider la recherche d’un vaccin efficace",
+    "matiere_faits_distincts": 598,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "veille_heures_visible": 517.7,
+    "veille_passages": 311,
+    "veille_age_h": 2391.5,
+    "veille_n_flux_grappe": 9,
+    "nature_contenu": "etude_scientifique"
+  },
+  {
+    "slug": "aie-pic-petrole-2030-transition-energetique-insuffisante",
+    "statut": "corrige_automatiquement",
+    "date": "2026-11-19T17:57:57",
+    "problemes_initiaux": 10,
+    "tentatives": 3,
+    "problemes_residuels_style": 10,
+    "rapport_initial": {
+      "conforme": false,
+      "sujet_sensible": false,
+      "sujet_sensible_raison": "",
+      "angle_insuffisant": false,
+      "angle_insuffisant_raison": "",
+      "nature_contenu": "rapport",
+      "problemes": [
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "chiffre_errone",
+          "phrase_exacte": "Le conflit au Moyen-Orient, déclenché le 28 février 2026, a fait bondir le baril au-dessus de 108 dollars, soit une hausse de 50 % depuis juin 2026 [2].",
+          "explication": "La source [2] (BBC, 18/09/2026) mentionne une hausse de 50 % depuis juin 2025, pas juin 2026 (date future par rapport à l'article)."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "chiffre_errone",
+          "phrase_exacte": "Le prix du gaz naturel a presque doublé en Europe depuis juillet, entraînant une hausse attendue de 25 % du plafond tarifaire britannique en janvier 2027 [2].",
+          "explication": "La source [2] ne mentionne ni le doublement du gaz en Europe, ni une hausse de 25 % du plafond tarifaire britannique en janvier 2027."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "chiffre_errone",
+          "phrase_exacte": "Au Sénégal, le supercarburant a augmenté de 70 FCFA le litre et le gasoil de 75 FCFA, le gouvernement invoquant explicitement la persistance du conflit [2].",
+          "explication": "La source [2] (BBC) ne mentionne pas le Sénégal ni ces hausses de carburant."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "chiffre_errone",
+          "phrase_exacte": "Le conflit moyen-oriental de 2026 touche en revanche le détroit d'Ormuz, par où transitaient encore 20 % des flux mondiaux de pétrole et de GNL avant la guerre [2], créant un risque de perturbation plus direct sur l'offre physique.",
+          "explication": "La source [2] ne mentionne pas le détroit d'Ormuz ni le chiffre de 20 % des flux mondiaux."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "chiffre_errone",
+          "phrase_exacte": "En 2022, les combustibles fossiles assuraient encore plus de 80 % de l'énergie primaire mondiale, tandis que les renouvelables ne dépassaient pas 29 % de la production d'électricité [4].",
+          "explication": "La source [4] (Nations Unies, 2026) ne contient pas ces chiffres précis pour 2022."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "chiffre_errone",
+          "phrase_exacte": "La guerre en Ukraine (2022) avait provoqué un premier choc de prix, mais l'Europe a depuis réduit sa dépendance au gaz russe de 40 % à moins de 10 % en diversifiant ses approvisionnements [5].",
+          "explication": "La source [5] (Le Monde, 14/03/2026) ne mentionne pas ces pourcentages précis de dépendance au gaz russe."
+        },
+        {
+          "bloc": 1,
+          "section": "nuances",
+          "type": "source_inventee",
+          "phrase_exacte": "L'agence elle-même note que les investissements dans l'amont pétrolier repartent à la hausse sous l'effet des prix élevés, les majors cherchant de nouveaux gisements pour sécuriser leur production future [6].",
+          "explication": "La source [6] (Le Monde, 27/04/2026) n'est pas citée dans les faits pour cette affirmation ; le renvoi [6] n'existe pas dans le corps (seuls [1] et [2] sont utilisés)."
+        },
+        {
+          "bloc": 1,
+          "section": "nuances",
+          "type": "chiffre_errone",
+          "phrase_exacte": "le retrait des Émirats de l'OPEP en avril 2026 illustre des stratégies divergentes au sein même du cartel [2].",
+          "explication": "La source [2] (BBC) ne mentionne pas le retrait des Émirats de l'OPEP en avril 2026."
+        },
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "compteur_incoherent",
+          "phrase_exacte": "nb_sources: 6",
+          "explication": "Seules les sources [1] et [2] sont réellement citées dans le corps (faits, contexte, nuances). Les sources [3], [4], [5], [6] apparaissent dans le tableau mais ne sont jamais référencées par un crochet [n] dans le texte."
+        },
+        {
+          "bloc": 3,
+          "section": "nuances",
+          "type": "cadrage_emprunte",
+          "phrase_exacte": "Aucune source ne permet d'affirmer que la volatilité actuelle accélérera durablement les investissements bas-carbone plutôt qu'une course aux hydrocarbures de substitution.",
+          "explication": "Cette phrase présente un jugement éditorial (cadrage) comme un fait neutre sans l'attribuer à une source précise."
+        }
+      ]
+    },
+    "article_type": "actu",
+    "titre": "L'AIE prévoit un pic de la demande de pétrole vers 2030",
+    "n_sources": 6,
+    "n_mots": 569,
+    "titre_rss": "Pic du pétrole vers 2030, boom des renouvelables, impact de la guerre au Moyen-Orient... Ce qu'il faut retenir du rapport de l'Agence internationale de l'énergie",
+    "matiere_faits_distincts": 684,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "rapport"
+  },
+  {
+    "slug": "nexity-lyon-premier-immeuble-sans-chauffage-climatisation-22-26-degres",
+    "statut": "rejete_sensible",
+    "date": "2026-11-19T18:03:56",
+    "problemes_initiaux": 11,
+    "bloc5": [
+      "compteur_incoherent"
+    ],
+    "article_type": "actu",
+    "titre": "Nexity inaugure à Lyon le premier immeuble français sans chauffage ni climatisation",
+    "n_sources": 5,
+    "n_mots": 581,
+    "titre_rss": "A Lyon, le promoteur immobilier Nexity livre des logements conçus sans climatisation ni chauffage",
+    "matiere_faits_distincts": 1074,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "macif-sanction-cnil-5-millions-euros-securite-donnees",
+    "statut": "rejete_qualite",
+    "date": "2026-11-19T18:12:56",
+    "tentative": 3,
+    "perte_substance": true,
+    "section": "contexte",
+    "mots_avant": 166,
+    "mots_apres": 47,
+    "article_type": "actu",
+    "titre": "La Macif sanctionnée de 5 millions d'euros par la CNIL pour des failles de sécurité",
+    "n_sources": 4,
+    "n_mots": 630,
+    "titre_rss": "Données personnelles : la Macif condamnée par la CNIL à une amende de 5 millions d’euros pour des manquements à la sécurité",
+    "matiere_faits_distincts": 955,
+    "matiere_redondance": 0.01,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "decision_officielle"
+  },
+  {
+    "slug": "etude-2600-regions-touristiques-vulnerables-climat-2026",
+    "statut": "rejete_qualite",
+    "date": "2026-11-19T18:17:12",
+    "angle_insuffisant": true,
+    "raison": "Aucune phrase des faits ne combine un événement précis daté (publication du rapport Destination Climate RiskScan) et une donnée chiffrée propre à cet événement. L'article ne dit jamais quand le rapport a été publié, par qui, ni quelle est sa trouvaille principale datée ; il se contente d'expliquer un phénomène général (vulnérabilité climatique du tourisme) sans fait déclencheur identifiable.",
+    "article_type": "actu",
+    "titre": "2 600 régions touristiques analysées : les plus visitées mal préparées face au climat",
+    "n_sources": 6,
+    "n_mots": 524,
+    "titre_rss": "La crise climatique redessine déjà la carte du tourisme, les régions les plus visitées sont insuffisamment préparées, selon une étude",
+    "matiere_faits_distincts": 654,
+    "matiere_redondance": 0.01,
+    "matiere_donnees_chiffrees": 2,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "etude_scientifique"
+  },
+  {
+    "slug": "deux-textes-europeens-contraignants-aviation-2023",
+    "statut": "rejete_qualite",
+    "date": "2026-11-19T18:24:52",
+    "tentative": 1,
+    "angle_insuffisant": true,
+    "raison": "L'article ne répond pas à la question posée dans angle_reponse ('Quels sont les deux textes européens contraignants adoptés en 2023... ?') : il ne cite qu'un seul texte (la directive ETS révisée 2023/958) et n'identifie jamais le second texte contraignant (ex. règlement ReFuelEU Aviation). Le titre promet 'deux textes' et le chapeau n'en nomme qu'un. Aucune phrase des faits ne contient à la fois un événement précis daté de 2023 et une donnée propre au second texte.",
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "resume_repete_corps"
+    ],
+    "titre": "Deux textes européens contraignants pour l'aviation adoptés en 2023",
+    "n_sources": 4,
+    "n_mots": 467,
+    "titre_rss": "“Décarboner l’aviation n’est plus une option, c’est devenu une nécessité absolue”",
+    "matiere_faits_distincts": 500,
+    "matiere_redondance": 0.07,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "decision_officielle"
+  },
+  {
+    "slug": "suicide-jeunes-inserm-estime-soi-prevention-numerique",
+    "statut": "rejete_sensible",
+    "date": "2026-11-19T18:30:42",
+    "problemes_initiaux": 10,
+    "tentative": 2,
+    "bloc5": true,
+    "article_type": "actu",
+    "titre": "Inserm : estime de soi facteur clé du risque suicidaire chez 20 000 étudiants",
+    "n_sources": 4,
+    "n_mots": 735,
+    "titre_rss": "Mélissa Macalli : mieux prévenir le suicide chez les jeunes",
+    "matiere_faits_distincts": 985,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "etude_scientifique"
+  },
+  {
+    "slug": "senegal-president-faye-decret-budget-rectificatif-fmi",
+    "statut": "rejete_qualite",
+    "date": "2026-11-19T18:38:51",
+    "problemes_initiaux": 9,
+    "tentatives": 3,
+    "problemes_restants": 9,
+    "bloquants_restants": 6,
+    "bloquants_types": [
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [1] (Le Monde, 19 nov 2026) indique que le budget rectificatif 2025 a été rejeté les 29 octobre et 4 novembre 2026, et non le budget rectificatif 2026 comme écrit dans l'article.",
+        "phrase": "Le budget rectificatif pour l'exercice 2026 a été rejeté deux fois par l'Assemblée nationale sénégalaise, les 29 octobre et 4 novembre 2026 [1]."
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "Le résumé reprend l'erreur du corps en mentionnant un budget rectificatif 2026, alors que la source [1] parle du budget rectificatif 2025.",
+        "phrase": "Le président Bassirou Diomaye Faye a promulgué par décret le budget rectificatif 2026 après son rejet par l'Assemblée nationale"
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "Le titre omet l'année du budget, mais l'article dans son ensemble (corps et résumé) désigne systématiquement un budget rectificatif 2026, contredisant la source [1] qui mentionne 2025.",
+        "phrase": "Sénégal : le président Faye promulgue le budget rectificatif par décret"
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "La source [4] (France 24) rapporte le fait du décret et sa date, mais ne contient aucune explication sur l'article 81 de la Constitution ou la prérogative constitutionnelle ; cette analyse juridique n'est pas sourcée.",
+        "phrase": "une prérogative constitutionnelle qui permet au chef de l'État de promulguer une loi de finances sans vote des députés [4]"
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "L'article 81 de la Constitution sénégalaise n'est cité ni dans la source [1] (Le Monde), ni dans la source [4] (France 24) ; la référence précise à cet article est une information apportée sans source dans la liste autor",
+        "phrase": "Le recours à l'article 81 de la Constitution (promulgation par décret après rejet parlementaire) est une procédure légale mais politiquement sensible"
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "La source [2] (communiqué FMI du 1er sept 2026) n'est pas fournie en extrait ; l'article attribue au FMI une citation détaillée qui ne peut être vérifiée avec les seules sources listées.",
+        "phrase": "Selon le FMI, l'arrangement au titre de la FEC viserait à soutenir les efforts des autorités pour préserver la stabilité macroéconomique, renforcer la gouvernance budgétaire et créer de l'espace pour les dépenses sociale"
+      }
+    ],
+    "types_restants": [
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "acteur_mis_en_cause_sans_reponse",
+      "redondance",
+      "compteur_incoherent"
+    ],
+    "article_type": "actu",
+    "titre": "Sénégal : le président Faye promulgue le budget rectificatif par décret",
+    "n_sources": 4,
+    "n_mots": 509,
+    "titre_rss": "Au Sénégal, le président applique par décret le budget rectifié crucial pour l’aide du FMI",
+    "matiere_faits_distincts": 581,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "mortalite-france-2024-641046-deces-taux-standardise-baisse",
+    "statut": "corrige_automatiquement",
+    "date": "2026-11-19T18:45:58",
+    "problemes_initiaux": 29,
+    "tentatives": 1,
+    "problemes_residuels_style": 0,
+    "rapport_initial": {
+      "conforme": false,
+      "sujet_sensible": false,
+      "sujet_sensible_raison": "",
+      "angle_insuffisant": false,
+      "angle_insuffisant_raison": "",
+      "nature_contenu": "actualite_factuelle",
+      "problemes": [
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "chiffre_errone",
+          "phrase_exacte": "Parmi la population résidant en France, 641 046 décès ont été enregistrés en 2024 sur le territoire national, soit 4 000 de plus qu'en 2023 [1][2].",
+          "explication": "Le chiffre de 641 046 décès et l'écart de +4 000 par rapport à 2023 ne figurent pas dans les extraits fournis des sources [1] et [2] (Inserm et Santé publique France) ; ils proviennent vraisemblablement de la source Insee [3] qui n'est pas citée à cet endroit."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "chiffre_errone",
+          "phrase_exacte": "Le taux de mortalité standardisé, qui neutralise l'effet du vieillissement de la population, s'établit à 777,9 décès pour 100 000 habitants, en baisse de 11 unités sur un an [1][2].",
+          "explication": "La valeur 777,9 pour 100 000 et la baisse de 11 unités ne figurent pas dans les extraits fournis des sources [1] et [2] ; elles proviennent vraisemblablement de la source Insee [3] non citée ici."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "chiffre_errone",
+          "phrase_exacte": "Ce recul est moins marqué que celui observé entre 2022 et 2023 [2].",
+          "explication": "Cette comparaison entre la baisse 2023-2024 et la baisse 2022-2023 ne figure pas dans les extraits fournis de la source [2]."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "chiffre_errone",
+          "phrase_exacte": "La diminution du taux global est principalement entraînée par la baisse de la mortalité due à la Covid-19, qui recule de 7 décès pour 100 000 habitants par rapport à 2023 [2].",
+          "explication": "Le chiffre précis de -7 pour 100 000 pour la Covid-19 ne figure pas dans les extraits fournis de la source [2]."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "chiffre_errone",
+          "phrase_exacte": "À l'inverse, la mortalité par maladies de l'appareil respiratoire hors Covid-19 augmente de 5 décès pour 100 000 habitants, tirée par la hausse des grippes et des pneumonies [2].",
+          "explication": "Le chiffre précis de +5 pour 100 000 pour les maladies respiratoires hors Covid ne figure pas dans les extraits fournis de la source [2]."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "chiffre_errone",
+          "phrase_exacte": "Les tumeurs (essentiellement cancers) restent la première cause de décès chez les hommes comme chez les femmes, représentant 27,1 % des décès en 2024 [2].",
+          "explication": "Le pourcentage 27,1 % pour la part des tumeurs dans les décès 2024 ne figure pas dans les extraits fournis de la source [2]."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "chiffre_errone",
+          "phrase_exacte": "Les maladies cardio-neurovasculaires (infarctus, AVC, insuffisance cardiaque) constituent la deuxième cause avec 21,2 % des décès, en léger recul [2].",
+          "explication": "Le pourcentage 21,2 % pour la part des maladies cardio-neurovasculaires ne figure pas dans les extraits fournis de la source [2]."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "chiffre_errone",
+          "phrase_exacte": "Sur les certificats de décès, 4,8 % portent une cause inconnue et 16,5 % une cause initiale insuffisamment précise (arrêts respiratoires, sénilité, insuffisances cardiaques, septicémies sans point de départ) [2].",
+          "explication": "Les pourcentages 4,8 % et 16,5 % et le détail des causes imprécises ne figurent pas dans les extraits fournis de la source [2]."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "chiffre_errone",
+          "phrase_exacte": "Au-delà de la cause initiale, 32 % des certificats mentionnent au moins une cause associée (comorbidités, facteurs de risque ou d'aggravation), avec une moyenne de 2,2 causes associées par certificat [2].",
+          "explication": "Les chiffres 32 % et 2,2 causes associées moyennes ne figurent pas dans les extraits fournis de la source [2]."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "chiffre_errone",
+          "phrase_exacte": "Le taux standardisé 2024 (777,9 pour 100 000) se situe sous son niveau de 2019, année de référence pré-pandémique [2].",
+          "explication": "La valeur 777,9 et la comparaison avec 2019 ne figurent pas dans les extraits fournis de la source [2]."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "chiffre_errone",
+          "phrase_exacte": "Sur la période janvier-juillet 2024, l'Insee relève une hausse de 1,0 % du nombre brut de décès par rapport à 2023 (+0,5 % corrigé de l'année bissextile), avec des contrastes régionaux : +2,1 % en Nouvelle-Aquitaine, +1,1 % en Île-de-France, -2,6 % en Provence-Alpes-Côte d'Azur [3].",
+          "explication": "Ces chiffres précis (1,0 %, 0,5 %, +2,1 %, +1,1 %, -2,6 %) ne figurent pas dans les extraits fournis de la source [3]."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "chiffre_errone",
+          "phrase_exacte": "En juin 2024, une canicule exceptionnelle a provoqué 2 025 décès en excès sur une semaine (+29 % par rapport à la semaine précédente), dont +62 % en région parisienne, selon Santé publique France [4].",
+          "explication": "Les chiffres 2 025, +29 % et +62 % ne figurent pas dans les extraits fournis de la source [4] (BBC)."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "chiffre_errone",
+          "phrase_exacte": "La même vague de chaleur a causé 1 222 décès en excès en Belgique (+39 %) et environ 480 aux Pays-Bas [4].",
+          "explication": "Les chiffres 1 222, +39 % et 480 pour la Belgique et les Pays-Bas ne figurent pas dans les extraits fournis de la source [4] (BBC)."
+        },
+        {
+          "bloc": 1,
+          "section": "nuances",
+          "type": "chiffre_errone",
+          "phrase_exacte": "La part élevée de causes imprécises (21,3 % au total entre inconnues et insuffisamment précises) limite la granularité de l'analyse par pathologie, surtout pour les femmes et les décès à domicile [2].",
+          "explication": "Le total 21,3 % (somme de 4,8 % et 16,5 %) ne figure pas dans les extraits fournis de la source [2]."
+        },
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "Parmi la population résidant en France, 641 046 décès ont été enregistrés en 2024 sur le territoire national, soit 4 000 de plus qu'en 2023 [1][2].",
+          "explication": "Le renvoi [1][2] attribue ce chiffre aux sources Inserm et Santé publique France, mais ces sources (d'après les extraits fournis) ne contiennent pas ce chiffre ; il provient de la source Insee [3] qui n'est pas citée ici."
+        },
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "Le taux de mortalité standardisé, qui neutralise l'effet du vieillissement de la population, s'établit à 777,9 décès pour 100 000 habitants, en baisse de 11 unités sur un an [1][2].",
+          "explication": "Le renvoi [1][2] attribue ce taux aux sources Inserm et Santé publique France, mais ces sources (d'après les extraits fournis) ne contiennent pas cette valeur ; elle provient de la source Insee [3] non citée ici."
+        },
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "Ce recul est moins marqué que celui observé entre 2022 et 2023 [2].",
+          "explication": "Le renvoi [2] attribue cette comparaison à Santé publique France, mais l'extrait fourni de cette source ne la contient pas."
+        },
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "La diminution du taux global est principalement entraînée par la baisse de la mortalité due à la Covid-19, qui recule de 7 décès pour 100 000 habitants par rapport à 2023 [2].",
+          "explication": "Le renvoi [2] attribue ce chiffre précis à Santé publique France, mais l'extrait fourni ne le contient pas."
+        },
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "À l'inverse, la mortalité par maladies de l'appareil respiratoire hors Covid-19 augmente de 5 décès pour 100 000 habitants, tirée par la hausse des grippes et des pneumonies [2].",
+          "explication": "Le renvoi [2] attribue ce chiffre précis à Santé publique France, mais l'extrait fourni ne le contient pas."
+        },
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "Les tumeurs (essentiellement cancers) restent la première cause de décès chez les hommes comme chez les femmes, représentant 27,1 % des décès en 2024 [2].",
+          "explication": "Le renvoi [2] attribue ce pourcentage à Santé publique France, mais l'extrait fourni ne le contient pas."
+        },
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "Les maladies cardio-neurovasculaires (infarctus, AVC, insuffisance cardiaque) constituent la deuxième cause avec 21,2 % des décès, en léger recul [2].",
+          "explication": "Le renvoi [2] attribue ce pourcentage à Santé publique France, mais l'extrait fourni ne le contient pas."
+        },
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "Sur les certificats de décès, 4,8 % portent une cause inconnue et 16,5 % une cause initiale insuffisamment précise (arrêts respiratoires, sénilité, insuffisances cardiaques, septicémies sans point de départ) [2].",
+          "explication": "Le renvoi [2] attribue ces pourcentages et ce détail à Santé publique France, mais l'extrait fourni ne les contient pas."
+        },
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "Au-delà de la cause initiale, 32 % des certificats mentionnent au moins une cause associée (comorbidités, facteurs de risque ou d'aggravation), avec une moyenne de 2,2 causes associées par certificat [2].",
+          "explication": "Le renvoi [2] attribue ces chiffres à Santé publique France, mais l'extrait fourni ne les contient pas."
+        },
+        {
+          "bloc": 2,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "Le taux standardisé 2024 (777,9 pour 100 000) se situe sous son niveau de 2019, année de référence pré-pandémique [2].",
+          "explication": "Le renvoi [2] attribue cette valeur et cette comparaison à Santé publique France, mais l'extrait fourni ne les contient pas."
+        },
+        {
+          "bloc": 2,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "Sur la période janvier-juillet 2024, l'Insee relève une hausse de 1,0 % du nombre brut de décès par rapport à 2023 (+0,5 % corrigé de l'année bissextile), avec des contrastes régionaux : +2,1 % en Nouvelle-Aquitaine, +1,1 % en Île-de-France, -2,6 % en Provence-Alpes-Côte d'Azur [3].",
+          "explication": "Le renvoi [3] attribue ces chiffres précis à l'Insee, mais l'extrait fourni de cette source ne les contient pas."
+        },
+        {
+          "bloc": 2,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "En juin 2024, une canicule exceptionnelle a provoqué 2 025 décès en excès sur une semaine (+29 % par rapport à la semaine précédente), dont +62 % en région parisienne, selon Santé publique France [4].",
+          "explication": "Le renvoi [4] attribue ces chiffres à la source BBC, mais l'extrait fourni de la BBC ne les contient pas ; de plus, l'article les attribue à 'Santé publique France' alors que la source citée est la BBC."
+        },
+        {
+          "bloc": 2,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "La même vague de chaleur a causé 1 222 décès en excès en Belgique (+39 %) et environ 480 aux Pays-Bas [4].",
+          "explication": "Le renvoi [4] attribue ces chiffres à la source BBC, mais l'extrait fourni ne les contient pas."
+        },
+        {
+          "bloc": 2,
+          "section": "nuances",
+          "type": "source_inventee",
+          "phrase_exacte": "La part élevée de causes imprécises (21,3 % au total entre inconnues et insuffisamment précises) limite la granularité de l'analyse par pathologie, surtout pour les femmes et les décès à domicile [2].",
+          "explication": "Le renvoi [2] attribue ce total 21,3 % à Santé publique France, mais l'extrait fourni ne le contient pas."
+        },
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "compteur_incoherent",
+          "phrase_exacte": "nb_sources: 4",
+          "explication": "Le champ nb_sources indique 4, mais la source [4] (BBC) est citée pour des chiffres (décès en excès en France, Belgique, Pays-Bas) qui ne figurent pas dans l'extrait fourni de cette source ; de plus, plusieurs faits attribués aux sources [1][2][3] ne sont pas confirmés par les extraits fournis, ce qui suggère un comptage de sources non vérifié."
+        }
+      ]
+    },
+    "article_type": "actu",
+    "titre": "Mortalité 2024 : 641 046 décès en France, taux standardisé en baisse",
+    "n_sources": 4,
+    "n_mots": 851,
+    "titre_rss": "Grandes causes de décès en France : tendances et causes associées en 2024",
+    "matiere_faits_distincts": 1103,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "veille_heures_visible": 517.7,
+    "veille_passages": 311,
+    "veille_age_h": 2391.5,
+    "veille_n_flux_grappe": 1,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "faculte-medecine-lausanne-27-mesures-recherche-durable",
+    "statut": "rejete_qualite",
+    "date": "2026-11-19T18:55:31",
+    "tentative": 3,
+    "perte_substance": true,
+    "section": "contexte",
+    "mots_avant": 140,
+    "mots_apres": 48,
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "resume_repete_corps"
+    ],
+    "titre": "La Faculté de médecine de Lausanne adopte 27 mesures pour une recherche durable",
+    "n_sources": 3,
+    "n_mots": 454,
+    "titre_rss": "A la faculté de médecine de Lausanne, le difficile et long chemin vers une recherche durable",
+    "matiere_faits_distincts": 661,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "conference-generale-poids-mesures-redefinition-seconde-2026",
+    "statut": "rejete_qualite",
+    "date": "2026-11-19T19:05:15",
+    "problemes_initiaux": 11,
+    "tentatives": 3,
+    "problemes_restants": 8,
+    "bloquants_restants": 6,
+    "bloquants_types": [
+      "annonce_perimee",
+      "annonce_perimee",
+      "annonce_perimee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "annonce_perimee",
+        "description": "L'article présente la 28e CGPM comme un événement futur ('doit se tenir', 'devrait adopter') alors que la source Le Monde est datée du 12 octobre 2026, soit avant la conférence prévue pour novembre 2026 ; l'article est d",
+        "phrase": "Selon l'article du Monde daté du 12 octobre 2026, la 28e Conférence générale des poids et mesures (CGPM) doit se tenir à Versailles du 10 au 15 novembre 2026 et devrait adopter une résolution engageant formellement le pr"
+      },
+      {
+        "bloc": 1,
+        "type": "annonce_perimee",
+        "description": "Même problème dans le résumé : la conférence est présentée comme future alors que la source est antérieure à l'événement, l'article étant manifestement publié après novembre 2026.",
+        "phrase": "Selon l'article du Monde daté du 12 octobre 2026, la 28e Conférence générale des poids et mesures (CGPM) doit se tenir à Versailles du 10 au 15 novembre 2026 et devrait adopter une résolution engageant formellement le pr"
+      },
+      {
+        "bloc": 1,
+        "type": "annonce_perimee",
+        "description": "Le titre utilise 's'apprête à' (futur immédiat) pour un événement qui, selon la chronologie des sources, a déjà dû avoir lieu (la source Le Monde est d'octobre 2026 pour une conférence de novembre 2026).",
+        "phrase": "La Conférence générale des poids et mesures s'apprête à engager la redéfinition de la seconde"
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "La source [2] (Le Monde) n'est pas fournie en extrait ; il est impossible de vérifier que ces trois critères précis y figurent. Le renvoi [2] attribue une information que la source autorisée ne permet pas de confirmer av",
+        "phrase": "Trois critères conditionnent ce passage : la démonstration de comparaisons d'horloges optiques avec une incertitude inférieure à 10⁻¹⁸, la disponibilité de liaisons par fibre optique et par satellite permettant de transf"
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "Les sources [2] et [3] ne sont pas fournies en extrait ; l'attribution de cette progression précise et de ces éléments (ytterbium, strontium, aluminium) à ces sources ne peut être vérifiée.",
+        "phrase": "Depuis les années 2000, les horloges optiques — fondées sur des transitions dans l'ytterbium, le strontium ou l'aluminium — ont progressé jusqu'à atteindre 10⁻¹⁸, soit deux ordres de magnitude de mieux [2][3]."
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "La source [2] n'est pas fournie en extrait ; ces détails techniques sur la couverture des liaisons fibre et les limitations micro-ondes ne peuvent être confirmés.",
+        "phrase": "Le principal verrou reste le transfert de la précision optique sur de longues distances. Les liaisons par fibre optique couvrent l'Europe et l'Amérique du Nord, mais les interconnexions intercontinentales et les liaisons"
+      }
+    ],
+    "types_restants": [
+      "annonce_perimee",
+      "annonce_perimee",
+      "annonce_perimee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "compteur_incoherent",
+      "contexte_hors_sujet"
+    ],
+    "article_type": "actu",
+    "titre": "La Conférence générale des poids et mesures engage la redéfinition de la seconde",
+    "n_sources": 4,
+    "n_mots": 503,
+    "titre_rss": "Mesurer le temps : une révolution se prépare",
+    "matiere_faits_distincts": 780,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "anthropic-introduction-bourse-record-79-milliards-spacex",
+    "statut": "rejete_sensible",
+    "date": "2026-11-19T19:19:11",
+    "problemes_initiaux": 11,
+    "tentative": 1,
+    "bloc5": true,
+    "article_type": "actu",
+    "titre": "Anthropic lève 79,4 milliards en Bourse et bat le record de SpaceX",
+    "n_sources": 6,
+    "n_mots": 551,
+    "titre_rss": "IA : Anthropic lève près de 80 milliards de dollars en Bourse et bat le record de SpaceX",
+    "matiere_faits_distincts": 607,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 3,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "microbiote-six-leviers-alimentaires-mode-vie-futura-sciences",
+    "statut": "rejete_qualite",
+    "date": "2026-11-19T19:23:00",
+    "angle_insuffisant": true,
+    "raison": "Aucune phrase des faits ne contient un événement précis daté ou datable (publication, décision, résultat récent) accompagné d'une donnée chiffrée ou nommée propre à cet événement. L'article se contente de relayer le contenu d'un article Futura Sciences (daté 2025 sans jour/mois) qui résume une 'vaste étude internationale' non identifiée (ni auteurs, ni revue, ni date de publication), sans indiquer ce qui vient de se passer pour justifier une publication maintenant. C'est une fiche pédagogique générale, pas une actualité factuelle.",
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "titre_de_mauvaise_qualite"
+    ],
+    "titre": "Microbiote : Futura Sciences relaie une étude sur six leviers alimentaires et de mode de vie",
+    "n_sources": 5,
+    "n_mots": 557,
+    "titre_rss": "Pour optimiser les effets protecteurs du microbiote, voici les 4 aliments, la boisson et l’habitude à privilégier, selon une vaste étude",
+    "matiere_faits_distincts": 842,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "sujet_pedagogique"
+  },
+  {
+    "slug": "cac-40-remunerations-dirigeants-hausse-2025-ecart-salaires",
+    "statut": "rejete_qualite",
+    "date": "2026-11-19T19:27:26",
+    "problemes_initiaux": 9,
+    "tentatives": 3,
+    "problemes_restants": 9,
+    "bloquants_restants": 6,
+    "bloquants_types": [
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "incoherence_inter_sections",
+      "source_inventee"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "Le titre indique une hausse en 2025, mais la source Novethic (source [1]) est datée du 18 novembre 2026 et porte sur l'exercice 2024 (publié en 2025), pas sur l'exercice 2025 ; l'article confond l'année de publication de",
+        "phrase": "CAC 40 : rémunérations des dirigeants en hausse de 16 % en 2025"
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "Le résumé affirme que la hausse concerne l'année 2025, alors que la source [1] (Novethic, 18/11/2026) rapporte les rémunérations de l'exercice 2024 ; l'année 2025 n'est pas l'exercice mesuré.",
+        "phrase": "En 2025, la rémunération moyenne des dirigeants du CAC 40 a progressé de 16 % pour atteindre des sommets historiques, selon une étude de Proxinvest relayée par Novethic."
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "Le fait attribue la hausse de 16 % à l'année 2025, mais la source [1] (Novethic, novembre 2026) concerne l'exercice 2024 ; l'article déplace d'un an la période couverte par l'étude.",
+        "phrase": "L'étude annuelle de Proxinvest, société de conseil en vote, révèle que les rémunérations des dirigeants des sociétés du CAC 40 ont augmenté de 16 % en moyenne en 2025, atteignant des niveaux records [1]."
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [1] indique « jusqu'à 91 fois le salaire moyen » sans préciser si ce ratio compare le dirigeant au salaire moyen des salariés de l'entreprise ou au salaire moyen national ; l'article présente ce maximum comme u",
+        "phrase": "L'écart de rémunération entre les dirigeants et le salaire moyen au sein de leurs entreprises peut atteindre jusqu'à 91 fois, selon les données compilées [1]."
+      },
+      {
+        "bloc": 1,
+        "type": "incoherence_inter_sections",
+        "description": "Le contexte signale correctement l'incomparabilité entre la moyenne Oxfam 2022 (130x) et le maximum Proxinvest (91x), mais les faits et le résumé présentent le chiffre de 91 fois sans cette réserve de comparabilité, créa",
+        "phrase": "Ces données 2022 d'Oxfam, calculées en moyenne sur l'échantillon, ne sont pas directement comparables au maximum de 91 fois rapporté par Proxinvest pour 2025, les deux études utilisant des méthodologies et des périmètres"
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "Le renvoi [1] pointe vers la source Novethic (article du 18/11/2026) ; or cet article Novethic relaie l'étude Proxinvest sur l'exercice 2024, pas 2025 — le fait attribué à la source [1] n'est pas confirmé par celle-ci po",
+        "phrase": "L'étude annuelle de Proxinvest, société de conseil en vote, révèle que les rémunérations des dirigeants des sociétés du CAC 40 ont augmenté de 16 % en moyenne en 2025, atteignant des niveaux records [1]."
+      }
+    ],
+    "types_restants": [
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "incoherence_inter_sections",
+      "redondance",
+      "source_inventee",
+      "compteur_incoherent",
+      "annonce_perimee"
+    ],
+    "article_type": "actu",
+    "titre": "CAC 40 : rémunérations des dirigeants en hausse de 16 % en 2025",
+    "n_sources": 4,
+    "n_mots": 499,
+    "titre_rss": "CAC 40 : les rémunérations des dirigeants s'envolent, jusqu'à 91 fois le salaire moyen",
+    "matiere_faits_distincts": 1045,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 4,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "etude_scientifique"
+  },
+  {
+    "slug": "curiosity-photographie-champ-polygones-martiens-valle-grande",
+    "statut": "corrige_automatiquement",
+    "date": "2026-11-19T19:35:20",
+    "problemes_initiaux": 5,
+    "tentatives": 3,
+    "problemes_residuels_style": 4,
+    "rapport_initial": {
+      "conforme": false,
+      "sujet_sensible": false,
+      "sujet_sensible_raison": "",
+      "angle_insuffisant": false,
+      "angle_insuffisant_raison": "",
+      "nature_contenu": "actualite_factuelle",
+      "problemes": [
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "chiffre_errone",
+          "phrase_exacte": "La découverte de cette étendue sans précédent, survenue 14 ans après l'atterrissage du rover le 5 août 2012",
+          "explication": "La source NASA [1] est datée du 29 juillet 2026 ; l'atterrissage du 5 août 2012 remonte à 13 ans et 11 mois, pas 14 ans révolus."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "contexte_hors_sujet",
+          "phrase_exacte": "Le rover Perseverance, successeur de Curiosity, a décollé de Cap Canaveral en Floride en juillet 2020 pour rejoindre la planète rouge [2]. L'astromobile et son petit drone doivent chercher des traces de vie passée et préparer un retour d'échantillons de roches sur Terre [2]. Parallèlement, les microphones embarqués sur Perseverance ont enregistré les premiers sons de la surface martienne, capturant les bruits du vent et les vibrations du rover lui-même [3].",
+          "explication": "Ces paragraphes décrivent Perseverance, son lancement, ses objectifs et ses microphones, sans aucun lien avec la découverte de polygones par Curiosity dans Valle Grande ; ils ne font qu'alourdir le contexte sans l'éclairer."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "chiffre_errone",
+          "phrase_exacte": "Futura Sciences rapporte que les chercheurs soupçonnent désormais la présence d'eau en surface après avoir épluché plus de dix ans de données de Curiosity",
+          "explication": "La source Futura Sciences [4] est datée du 29 juillet 2026 ; Curiosity a atterri le 5 août 2012, soit 13 ans et 11 mois de données, pas « plus de dix ans » qui sous-estime la période couverte."
+        },
+        {
+          "bloc": 2,
+          "section": "contexte",
+          "type": "source_derivee_comptee_comme_primaire",
+          "phrase_exacte": "Futura Sciences rapporte que les chercheurs soupçonnent désormais la présence d'eau en surface après avoir épluché plus de dix ans de données de Curiosity [4].",
+          "explication": "La source [4] (Futura Sciences) est un média secondaire qui relaie l'information de la source primaire [1] (NASA) ; les compter comme deux sources indépendantes gonfle artificiellement le nombre de confirmations."
+        },
+        {
+          "bloc": 4,
+          "section": "contexte",
+          "type": "section_gonflee",
+          "phrase_exacte": "Le rover Perseverance, successeur de Curiosity, a décollé de Cap Canaveral en Floride en juillet 2020 pour rejoindre la planète rouge [2]. L'astromobile et son petit drone doivent chercher des traces de vie passée et préparer un retour d'échantillons de roches sur Terre [2]. Parallèlement, les microphones embarqués sur Perseverance ont enregistré les premiers sons de la surface martienne, capturant les bruits du vent et les vibrations du rover lui-même [3].",
+          "explication": "Ces trois phrases n'apportent aucune information sur les polygones de Valle Grande et ne font que remplir la section « Contexte » avec des faits tangentiels sur une autre mission."
+        }
+      ]
+    },
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "resume_repete_corps"
+    ],
+    "titre": "Curiosity photographie un champ de polygones martiens dans la vallée Valle Grande",
+    "n_sources": 4,
+    "n_mots": 604,
+    "titre_rss": "Depuis 13 ans, un rover de la Nasa observe un phénomène étrange sur Mars : les chercheurs soupçonnent désormais la présence d'eau en surface",
+    "matiere_faits_distincts": 1001,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
   }
 ]
