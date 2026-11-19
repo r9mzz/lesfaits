@@ -80394,5 +80394,1115 @@
     "n_sources_injectees": 10,
     "n_sources_trouvees": 10,
     "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "giec-crise-blocage-etats-calendrier-rapports-evaluation",
+    "statut": "corrige_automatiquement",
+    "date": "2026-11-19T21:35:07",
+    "problemes_initiaux": 12,
+    "tentatives": 3,
+    "problemes_residuels_style": 4,
+    "rapport_initial": {
+      "conforme": false,
+      "sujet_sensible": false,
+      "sujet_sensible_raison": "",
+      "angle_insuffisant": false,
+      "angle_insuffisant_raison": "",
+      "nature_contenu": "actualite_factuelle",
+      "problemes": [
+        {
+          "bloc": 1,
+          "section": "titre",
+          "type": "chiffre_errone",
+          "phrase_exacte": "Le GIEC paralysé par le blocage d'États sur le calendrier de ses prochains rapports",
+          "explication": "Le titre mentionne la COP33 alors que la source [2] parle explicitement de la COP31 (titre de l'article : \"COP31 : l'avenir du GIEC...\"). La COP31 est prévue en 2026, la COP33 aurait lieu vers 2028. C'est une erreur factuelle sur l'échéance diplomatique majeure."
+        },
+        {
+          "bloc": 1,
+          "section": "resume",
+          "type": "chiffre_errone",
+          "phrase_exacte": "La sociologue Béatrice Cointe alerte dans une tribune au Monde sur la crise inédite que traverse le GIEC, paralysé par l'opposition de certains États à la publication des prochains rapports d'évaluation avant la COP33.",
+          "explication": "Le résumé répète l'erreur du titre : la source [2] indique COP31, pas COP33. Le deuxième bilan mondial (Global Stocktake) est prévu à la COP31 selon l'accord de Paris (premier à la COP28 en 2023, second à la COP31 en 2026, tous les 5 ans)."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "chiffre_errone",
+          "phrase_exacte": "Selon un article du Monde paru le même jour, quelques pays s'opposent à la publication des prochains rapports d'évaluation du GIEC avant la COP33, où doit se tenir le deuxième « bilan mondial » des efforts climatiques [2].",
+          "explication": "La source [2] est titrée \"COP31 : l'avenir du GIEC...\" et traite de la COP31. Le deuxième bilan mondial a lieu à la COP31 (2026), pas à la COP33. Erreur de 2 cycles (10 ans) sur l'échéance diplomatique centrale de l'article."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "chiffre_errone",
+          "phrase_exacte": "Le septième cycle devait suivre un calendrier précis pour alimenter le deuxième « bilan mondial » (Global Stocktake) prévu à la COP33, conformément à l'accord de Paris qui impose une révision collective tous les cinq ans.",
+          "explication": "Même erreur dans le contexte : le deuxième Global Stocktake est à la COP31 (2026), le troisième serait à la COP36 (2031). La COP33 correspondrait au 4e cycle de révision. Incohérence avec l'accord de Paris (tous les 5 ans, COP28=2023, COP31=2026, COP36=2031)."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "incoherence_inter_sections",
+          "phrase_exacte": "La sociologue Béatrice Cointe, professeure à l'École des mines de Paris, décrit dans une tribune publiée le 19 novembre 2026 le GIEC comme traversant « l'une des plus graves crises de son histoire » [1].",
+          "explication": "La source [1] est une tribune d'opinion (rubrique Idées) de Béatrice Cointe elle-même, pas un article la décrivant. Le texte présente sa tribune comme si un tiers la citait (\"décrit dans une tribune\"), alors qu'elle en est l'auteure. Confusion entre source primaire (la tribune) et reprise journalistique."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "L'Igas souligne par ailleurs que le monde de la recherche réclame des politiques climatiques intégrant les enjeux sociaux, dites « social-écologiques », et une analyse plus fine des risques sociaux liés au changement climatique et des profils exposés [4].",
+          "explication": "La source [4] est une page de présentation du rapport Igas (\"éclairage international pour une feuille de route nationale\"), pas le rapport lui-même. L'extrait fourni ne contient pas cette citation ni ce constat sur les revendications du \"monde de la recherche\". La source [5] est le PDF du rapport mais n'est pas citée ici. Attribution à une source qui ne contient pas l'information."
+        },
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "source_derivee_comptee_comme_primaire",
+          "phrase_exacte": "L'Igas souligne par ailleurs que le monde de la recherche réclame des politiques climatiques intégrant les enjeux sociaux, dites « social-écologiques », et une analyse plus fine des risques sociaux liés au changement climatique et des profils exposés [4].",
+          "explication": "Les sources [4] et [5] sont le même document (page web et PDF du rapport Igas de décembre 2024). Elles sont comptées comme deux sources distinctes dans nb_sources=5 et qualite_sources (primaire=2), alors qu'il s'agit d'une seule source primaire déclinée en deux formats. Le compte de sources indépendantes est faussé."
+        },
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "compteur_incoherent",
+          "phrase_exacte": "L'Igas souligne par ailleurs que le monde de la recherche réclame des politiques climatiques intégrant les enjeux sociaux, dites « social-écologiques », et une analyse plus fine des risques sociaux liés au changement climatique et des profils exposés [4].",
+          "explication": "Le champ nb_sources indique 5, mais les sources [4] et [5] sont le même rapport Igas (même titre, même date, même institution). Il y a 4 sources distinctes réelles (2 articles Le Monde, 1 rapport Sénat, 1 rapport Igas). Le compteur est incohérent avec la réalité du sourcing."
+        },
+        {
+          "bloc": 3,
+          "section": "resume",
+          "type": "cadrage_emprunte",
+          "phrase_exacte": "La sociologue Béatrice Cointe alerte dans une tribune au Monde sur la crise inédite que traverse le GIEC, paralysé par l'opposition de certains États à la publication des prochains rapports d'évaluation avant la COP33.",
+          "explication": "Le résumé reprend le cadrage alarmiste de la tribune (\"crise inédite\", \"paralysé\") comme un fait établi par Les Faits, sans attribution explicite à Cointe/Le Monde dans la phrase elle-même. La formulation \"alerte sur\" attribue l'alerte, mais le contenu de l'alerte (\"crise inédite\", \"paralysé\") est présenté comme description factuelle neutre."
+        },
+        {
+          "bloc": 4,
+          "section": "contexte",
+          "type": "contexte_hors_sujet",
+          "phrase_exacte": "L'Igas a mené une comparaison internationale sur la manière dont les enjeux sociaux, relatifs aux populations vulnérables et aux travailleurs, sont intégrés par les pays dans leurs politiques climatiques d'adaptation et d'atténuation [5].",
+          "explication": "Ce paragraphe sur le rapport Igas (enjeux sociaux, populations vulnérables, travailleurs) n'éclaire pas le sujet principal : la crise du GIEC et le blocage du calendrier des rapports. C'est un développement tangentiel sur un autre rapport, sans lien avec la gouvernance du GIEC ni la COP31/33. Remplissage hors sujet."
+        },
+        {
+          "bloc": 4,
+          "section": "nuances",
+          "type": "redondance",
+          "phrase_exacte": "La tribune de Béatrice Cointe pose la question fondamentale de l'indépendance scientifique face aux injonctions politiques, sans que les sources ne précisent quels États bloquent exactement le processus ni leurs motivations officielles.",
+          "explication": "Cette phrase répète l'idée déjà présente dans les faits (blocage par \"quelques pays\", tensions géopolitiques) sans apporter de nuance nouvelle. Les faits mentionnent déjà l'opposition d'États et le contexte diplomatique fragilisé. La nuance ne fait que reformuler l'incertitude sur l'identité des États bloquants."
+        },
+        {
+          "bloc": 4,
+          "section": "nuances",
+          "type": "section_gonflee",
+          "phrase_exacte": "L'impact concret de ce retard sur le deuxième bilan mondial et sur la crédibilité future de l'institution reste à ce stade une incertitude majeure.",
+          "explication": "Cette phrase est une tautologie vague (\"incertitude majeure\" sur l'impact futur) qui ne s'appuie sur aucune source et n'apporte aucune information factuelle distincte. Elle gonfle artificiellement la section nuances sans contenu sourcé nouveau."
+        }
+      ]
+    },
+    "article_type": "actu",
+    "titre": "Le GIEC paralysé par le blocage d'États sur le calendrier de ses prochains rapports",
+    "n_sources": 5,
+    "n_mots": 582,
+    "titre_rss": "Béatrice Cointe, sociologue : « Il est devenu impossible d’ignorer que les sciences du climat sont politiques de bout en bout »",
+    "matiere_faits_distincts": 1044,
+    "matiere_redondance": 0.01,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "retraites-rn-promesses-electeurs-menaces-systeme-fragilise",
+    "statut": "rejete_sensible",
+    "date": "2026-11-19T21:42:13",
+    "problemes_initiaux": 11,
+    "tentative": 1,
+    "bloc5": true,
+    "article_type": "actu",
+    "titre": "Retraites : le RN piégé par ses promesses, des électeurs menacés",
+    "n_sources": 5,
+    "n_mots": 631,
+    "titre_rss": "Retraites : le RN piégé par ses promesses",
+    "matiere_faits_distincts": 527,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "gaz-lacrymogenes-proposition-loi-interdiction-manifestation-precaution",
+    "statut": "rejete_qualite",
+    "date": "2026-11-19T21:52:06",
+    "problemes_initiaux": 10,
+    "tentatives": 3,
+    "problemes_restants": 10,
+    "bloquants_restants": 7,
+    "bloquants_types": [
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "incoherence_inter_sections",
+      "source_inventee",
+      "source_inventee"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "Le titre indique la date du 27 octobre 2026, mais les sources [1] et [2] (questions écrites n° 19345 et 19346) sont datées du 27 octobre 2025 selon les métadonnées de l'Assemblée nationale. La date dans le titre ne corre",
+        "phrase": "Deux députées LFI ont déposé des questions écrites pour interdire les gaz lacrymogènes le 27 octobre 2026"
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "Le résumé répète la date erronée du 27 octobre 2026 pour le dépôt des questions écrites, alors que les sources [1] et [2] indiquent le 27 octobre 2025.",
+        "phrase": "Les députées Mathilde Hignet et Marie Mesmeur (LFI-NFP) ont déposé deux questions écrites au Journal officiel le 27 octobre 2026 pour demander l'interdiction des gaz lacrymogènes en manifestation, invoquant le principe d"
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "Le corps de l'article indique la date du 27 octobre 2026 pour l'adresse des questions écrites, contredite par les sources [1] et [2] qui portent la date du 27 octobre 2025.",
+        "phrase": "Les députées Mathilde Hignet (Ille-et-Vilaine, 4e circonscription) et Marie Mesmeur (Ille-et-Vilaine, 1re circonscription), toutes deux du groupe La France insoumise - Nouveau Front Populaire, ont adressé le 27 octobre 2"
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "Le contexte répète la date erronée du 27 octobre 2026 pour la publication des questions écrites, et lie cet événement à des mobilisations de l'automne 2026, alors que les sources [1][2] datent les questions du 27 octobre",
+        "phrase": "Les questions écrites n° 19345 de Mme Hignet et n° 19346 de Mme Mesmeur, publiées simultanément au Journal officiel le 27 octobre 2026, s'inscrivent dans une séquence de mobilisations lycéennes et sociales à l'automne 20"
+      },
+      {
+        "bloc": 1,
+        "type": "incoherence_inter_sections",
+        "description": "Les faits citent deux chiffres différents pour les témoignages (8 000 selon l'AFP source [3] datée du 28 octobre 2026, et près de 10 000 selon Le Monde source [4] datée du 17 novembre 2026) sans réconcilier ces valeurs n",
+        "phrase": "L'AFP rapporte qu'un collectif a recensé plus de 8 000 témoignages de femmes ayant signalé des troubles de leur cycle menstruel (crampes, saignements anormaux ou abondants) et pointe le rôle du gaz lacrymogène dans ces s"
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "L'article attribue les chiffres précis de l'étude américaine (83 %, 69 %, 55 %, 19 %) aux questions écrites [1][2], mais les extraits fournis pour ces sources ne contiennent pas ces données chiffrées détaillées. L'articl",
+        "phrase": "Les questions font référence à une étude menée en 2023 auprès de plus de 1 300 personnes aux États-Unis, selon laquelle 83 % des personnes exposées aux gaz lacrymogènes ont rapporté au moins un symptôme de dérèglement du"
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "L'article attribue au Monde (source [4]) des affirmations précises sur les effets endocriniens perturbateurs du CS et l'afflux de patientes, mais l'extrait fourni pour la source [4] ne contient pas ces informations médic",
+        "phrase": "Le Monde rapporte dans son article du 17 novembre 2026 que des médecins alertent sur des effets endocriniens perturbateurs du CS, agent actif principal, et relaient l'inquiétude de professionnels de santé face à l'afflux"
+      }
+    ],
+    "types_restants": [
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "chronologie_confuse",
+      "incoherence_inter_sections",
+      "source_inventee",
+      "source_inventee",
+      "redondance",
+      "redondance"
+    ],
+    "article_type": "actu",
+    "titre": "Deux députées LFI demandent l'interdiction des gaz lacrymogènes le 27 octobre 2026",
+    "n_sources": 4,
+    "n_mots": 617,
+    "titre_rss": "Santé : une proposition de loi pour interdire les gaz lacrymogènes en manifestation",
+    "matiere_faits_distincts": 686,
+    "matiere_redondance": 0.12,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "declaration"
+  },
+  {
+    "slug": "cybersecurite-200-millions-euros-intelligence-artificielle-france-2030",
+    "statut": "rejete_qualite",
+    "date": "2026-11-19T21:59:49",
+    "problemes_initiaux": 7,
+    "tentatives": 3,
+    "problemes_restants": 8,
+    "bloquants_restants": 2,
+    "bloquants_types": [
+      "chiffre_errone",
+      "chiffre_errone"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "Sébastien Lecornu est ministre des Armées, pas Premier ministre (qui est François Bayrou selon le contexte politique de 2026). La source [1] France Info le désigne comme ministre, pas Premier ministre.",
+        "phrase": "Le Premier ministre Sébastien Lecornu a présidé une réunion interministérielle et annoncé l'engagement de 200 millions d'euros dans le cadre de France 2030 pour généraliser la recherche et le développement d'outils d'int"
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [5] BBC ne mentionne que 100 millions de livres pour un laboratoire de biosécurité par l'IA ; les 60 millions pour un \"Bouclier cyber national\" et 70 millions pour un centre de détection n'y figurent pas dans l",
+        "phrase": "Le Royaume-Uni a annoncé le 24 octobre 2026 un investissement de 100 millions de livres pour créer un laboratoire national de biosécurité par l'IA, accompagné de 60 millions de livres pour un \"Bouclier cyber national\" ut"
+      }
+    ],
+    "types_restants": [
+      "chiffre_errone",
+      "source_inventee",
+      "chiffre_errone",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "chronologie_confuse",
+      "compteur_incoherent"
+    ],
+    "article_type": "actu",
+    "titre": "Cybersécurité : 200 millions d'euros pour l'IA face aux attaques",
+    "n_sources": 6,
+    "n_mots": 484,
+    "titre_rss": "Cybersécurité : le gouvernement va consacrer 200 millions d'euros pour mieux utiliser l'intelligence artificielle dans la lutte contre les cyberattaques",
+    "matiere_faits_distincts": 618,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "voyager-1-franchit-cap-jour-lumiere-25-9-milliards-kilometres",
+    "statut": "conforme_du_premier_coup",
+    "date": "2026-11-19T22:03:30",
+    "article_type": "actu",
+    "titre": "Voyager 1 franchit le cap d'un jour-lumière, à 25,9 milliards de kilomètres",
+    "n_sources": 4,
+    "n_mots": 551,
+    "titre_rss": "La sonde Voyager 1 dépasse la distance d'un jour-lumière de la Terre, soit 25,9 milliards de kilomètres",
+    "matiere_faits_distincts": 654,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "aie-pic-petrole-2030-transition-insuffisante-rapport-2026",
+    "statut": "rejete_qualite",
+    "date": "2026-11-19T22:12:40",
+    "problemes_initiaux": 16,
+    "tentatives": 3,
+    "problemes_restants": 12,
+    "bloquants_restants": 2,
+    "bloquants_types": [
+      "chiffre_errone",
+      "chiffre_errone"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source Vie Publique [2] indique que les combustibles fossiles représentaient 81,3 % de la consommation d'énergie primaire mondiale en 2019, et non 'plus de 80 %' de manière approximative ; l'article doit citer le chif",
+        "phrase": "Les combustibles fossiles assuraient encore plus de 80 % de la consommation d'énergie primaire mondiale en 2019, selon Vie Publique [2]"
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "L'extrait de la source [2] fourni ne mentionne pas ces durées de réserves (40, 60, 230 ans) ni une mission parlementaire de 2006 ; le chiffre n'est pas confirmé par la source.",
+        "phrase": "Une mission parlementaire française de 2006 estimait qu'au rythme de consommation d'alors, les réserves de pétrole correspondaient à une quarantaine d'années, le gaz à une soixantaine et le charbon à environ 230 ans [2]"
+      }
+    ],
+    "types_restants": [
+      "chiffre_errone",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "chiffre_errone",
+      "compteur_incoherent",
+      "paraphrase_structurelle",
+      "acteur_mis_en_cause_sans_reponse",
+      "faux_debat"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "resume_repete_corps"
+    ],
+    "titre": "L'AIE prévoit un pic de la demande de pétrole vers 2030",
+    "n_sources": 5,
+    "n_mots": 564,
+    "titre_rss": "Pic du pétrole vers 2030, boom des renouvelables, impact de la guerre au Moyen-Orient... Ce qu'il faut retenir du rapport de l'Agence internationale de l'énergie",
+    "matiere_faits_distincts": 883,
+    "matiere_redondance": 0.01,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "rapport"
+  },
+  {
+    "slug": "optimisation-ia-performances-emissions-co2-etude-francaise",
+    "statut": "rejete_sensible",
+    "date": "2026-11-19T22:16:36",
+    "problemes_initiaux": 20,
+    "tentative": 2,
+    "bloc5": true,
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "faits_repetitifs"
+    ],
+    "titre": "L'optimisation des IA améliore les performances sans réduire les émissions de CO2",
+    "n_sources": 6,
+    "n_mots": 520,
+    "titre_rss": "L’entraînement des IA s’avère toujours plus consommateur d’énergie",
+    "matiere_faits_distincts": 743,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "etude_scientifique"
+  },
+  {
+    "slug": "jean-philippe-andre-haribo-copresident-comite-suivi-strategie-alimentation",
+    "statut": "corrige_automatiquement",
+    "date": "2026-11-19T22:21:04",
+    "problemes_initiaux": 5,
+    "tentatives": 2,
+    "problemes_residuels_style": 4,
+    "rapport_initial": {
+      "conforme": false,
+      "sujet_sensible": false,
+      "sujet_sensible_raison": "",
+      "angle_insuffisant": false,
+      "angle_insuffisant_raison": "",
+      "nature_contenu": "actualite_factuelle",
+      "problemes": [
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "chiffre_errone",
+          "phrase_exacte": "La SNANC, lancée en 2023, fixe des objectifs pour 2030 : réduction de 20 % de la consommation de sucre, de 15 % pour le sel, développement du bio à 18 % des surfaces agricoles, et généralisation de l'étiquetage Nutri-Score [1].",
+          "explication": "La source [1] (Le Monde) indique des objectifs de réduction de 20 % pour les sucres ajoutés et de 30 % pour le sel d'ici 2030, et non 15 % pour le sel comme écrit dans l'article."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "Le lobby du sucre a tenté d'influencer pendant des années le débat sur la santé publique, selon une enquête de la RTBF qui retrace les stratégies de l'industrie pour minimiser les risques liés à la surconsommation [3].",
+          "explication": "La source [3] (RTBF) porte sur le lobby du sucre en Belgique et en Europe, sans lien établi avec la stratégie nationale française (SNANC) ni avec Jean-Philippe André ; l'article l'utilise pour étayer un contexte français qu'elle ne documente pas."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "contexte_hors_sujet",
+          "phrase_exacte": "Le lobby du sucre a tenté d'influencer pendant des années le débat sur la santé publique, selon une enquête de la RTBF qui retrace les stratégies de l'industrie pour minimiser les risques liés à la surconsommation [3].",
+          "explication": "Cette source belge sur le lobby européen du sucre n'éclaire pas directement la nomination de J.-P. André à la tête du comité de suivi français ; elle sert de remplissage générique sans lien avec le sujet précis de l'article."
+        },
+        {
+          "bloc": 1,
+          "section": "nuances",
+          "type": "acteur_mis_en_cause_sans_reponse",
+          "phrase_exacte": "La réaction d'associations de consommateurs ou d'organisations environnementales sur cette nomination n'était pas disponible dans les sources consultées à la date de publication.",
+          "explication": "L'article met en cause l'indépendance du comité au vu du passé industriel du nommé, mais n'indique pas avoir sollicité la ministre de l'Agriculture, le cabinet de J.-P. André ou l'ANIA pour leur réponse, se contentant de noter l'absence de réaction associative dans les sources."
+        },
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "compteur_incoherent",
+          "phrase_exacte": "nb_sources: 4",
+          "explication": "Le tableau sources ne liste que 3 entrées distinctes (Le Monde, Vie Publique, RTBF) alors que le champ nb_sources indique 4."
+        }
+      ]
+    },
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "resume_repete_corps",
+      "prise_de_position"
+    ],
+    "titre": "Jean-Philippe André, ex-patron de Haribo, nommé coprésident du comité de suivi de la stratégie alimentaire",
+    "n_sources": 3,
+    "n_mots": 654,
+    "titre_rss": "L’ancien patron de Haribo et du lobby de l’industrie agroalimentaire a été nommé pour copiloter l’action de l’Etat sur l’alimentation",
+    "matiere_faits_distincts": 942,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "nexity-lyon-immeuble-sans-chauffage-climatisation",
+    "statut": "rejete_qualite",
+    "date": "2026-11-19T22:26:30",
+    "problemes_initiaux": 8,
+    "tentatives": 3,
+    "problemes_restants": 10,
+    "bloquants_restants": 5,
+    "bloquants_types": [
+      "annonce_perimee",
+      "annonce_perimee",
+      "chiffre_errone",
+      "source_inventee",
+      "source_inventee"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "annonce_perimee",
+        "description": "Le résumé présente la livraison comme un événement à venir ('a inauguré mardi 17 novembre') alors que la source [1] datée du 19 novembre 2026 décrit cet événement comme déjà survenu ('livre'), rendant le terme 'inauguré'",
+        "phrase": "Le promoteur Nexity a inauguré mardi 17 novembre à Lyon le premier immeuble français conçu pour maintenir 20 à 22 °C en hiver et 26 °C maximum en été sans aucun système de chauffage ni de climatisation active."
+      },
+      {
+        "bloc": 1,
+        "type": "annonce_perimee",
+        "description": "L'article date la livraison du 'mardi 17 novembre' sans année ; la source [1] est datée du 19 novembre 2026, ce qui place le 17 novembre 2026 comme un événement passé récent, mais l'absence d'année dans le texte crée une",
+        "phrase": "Nexity a livré mardi 17 novembre à Lyon un immeuble résidentiel présenté comme le premier en France conçu sans chauffage ni climatisation [1]."
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [1] indique '20 à 22 °C en hiver' et '26 °C maximum en été', l'article remplace 'en hiver' par 'en période de chauffe' et 'maximum' par 'ne dépassant pas', modifiant la formulation exacte de la source sans guil",
+        "phrase": "Le promoteur annonce une température intérieure stabilisée entre 20 °C et 22 °C en période de chauffe et ne dépassant pas 26 °C en été, sans appoint actif."
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "La source [2] est le jeu de données brut 'Données nationales sur la commercialisation des logements neufs' sur data.gouv.fr ; l'article lui attribue des chiffres agrégés précis (60 %, 4 500 €/m², année 2023) que le jeu d",
+        "phrase": "Les données nationales de commercialisation des logements neufs (ECLN) montrent que la part des programmes collectifs neufs dépasse 60 % des mises en vente depuis 2020, avec un prix moyen de réservation autour de 4 500 €"
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "Cette description méthodologique de l'enquête ECLN n'est pas présente dans la source [2] (jeu de données brut) et constitue une information inventée attribuée faussement à la source.",
+        "phrase": "L'enquête interroge chaque trimestre les promoteurs sur les caractéristiques techniques, mais ne distingue pas encore les programmes « sans chauffage » comme catégorie à part entière."
+      }
+    ],
+    "types_restants": [
+      "annonce_perimee",
+      "annonce_perimee",
+      "chiffre_errone",
+      "source_inventee",
+      "source_inventee",
+      "chronologie_confuse",
+      "compteur_incoherent",
+      "contexte_hors_sujet",
+      "extrapolation",
+      "extrapolation"
+    ],
+    "article_type": "actu",
+    "titre": "Nexity livre à Lyon un immeuble sans chauffage ni climatisation",
+    "n_sources": 3,
+    "n_mots": 655,
+    "titre_rss": "A Lyon, le promoteur immobilier Nexity livre des logements innovants conçus sans climatisation ni chauffage",
+    "matiere_faits_distincts": 510,
+    "matiere_redondance": 0.14,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "cumul-emploi-retraite-nouvelles-regles-2027",
+    "statut": "rejete_qualite",
+    "date": "2026-11-19T22:36:34",
+    "problemes_initiaux": 12,
+    "tentatives": 3,
+    "problemes_restants": 12,
+    "bloquants_restants": 3,
+    "bloquants_types": [
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [2] (Le Monde, 19/06/2026) indique des seuils de 7 500 euros pour les non-salariés et 15 000 euros pour les salariés, et non 7 000 euros comme écrit dans l'article.",
+        "phrase": "Entre 62 et 67 ans, la distinction est faite selon la nature de l'activité : un seuil annuel de 7 000 euros est instauré pour les revenus d'activité non salariés, et de 15 000 euros pour les revenus d'activité salariés ;"
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "Le résumé reprend le chiffre erroné de 7 000 euros pour les non-salariés au lieu de 7 500 euros indiqué par la source [2].",
+        "phrase": "Entre 62 et 67 ans, un seuil annuel de 7 000 euros s'applique aux revenus non salariés et de 15 000 euros aux revenus salariés, au-delà duquel la pension est réduite."
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [5] est datée du 19 novembre 2025 selon le tableau des sources, mais l'article indique une tribune datée du 19 novembre 2025 alors que le titre de la source mentionne Philippe Aghion (et non Askenazy) et une da",
+        "phrase": "L'économiste Philippe Askenazy estime dans une tribune datée du 19 novembre 2025 que la réforme du cumul emploi-retraite repose \"sur du sable\" [5]."
+      }
+    ],
+    "types_restants": [
+      "chiffre_errone",
+      "chiffre_errone",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "redondance",
+      "chiffre_errone",
+      "source_inventee",
+      "compteur_incoherent",
+      "cadrage_emprunte"
+    ],
+    "article_type": "actu",
+    "titre": "Cumul emploi-retraite : les nouvelles règles durcies au 1er janvier 2027",
+    "n_sources": 5,
+    "n_mots": 552,
+    "titre_rss": "Réforme du cumul emploi-retraite : pourquoi certains cadres décident d’anticiper leur départ",
+    "matiere_faits_distincts": 826,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 2,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "cop31-academie-jeunes-negociateurs-climat-representation-sud",
+    "statut": "rejete_qualite",
+    "date": "2026-11-19T22:41:18",
+    "problemes_initiaux": 11,
+    "tentatives": 3,
+    "problemes_restants": 8,
+    "bloquants_restants": 2,
+    "bloquants_types": [
+      "chiffre_errone",
+      "chiffre_errone"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [2] (Vie Publique) indique que la COP31 se tient du 10 au 21 novembre 2026, pas du 9 au 21 novembre. Le chiffre de la date de début est erroné par rapport à la source citée.",
+        "phrase": "La COP31 se tient à Antalya, en Turquie, du 9 au 21 novembre 2026, réunissant près de 200 pays pour transformer les engagements climatiques en résultats concrets [2][5]."
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [2] (Vie Publique) indique que la COP31 réunit 197 parties (196 États + UE), pas 'près de 200 pays'. La source [5] (AP News) mentionne 'delegates from nearly 200 countries', mais la source [2] citée en premier ",
+        "phrase": "La COP31 se tient à Antalya, en Turquie, du 9 au 21 novembre 2026, réunissant près de 200 pays pour transformer les engagements climatiques en résultats concrets [2][5]."
+      }
+    ],
+    "types_restants": [
+      "chiffre_errone",
+      "chiffre_errone",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "compteur_incoherent"
+    ],
+    "article_type": "actu",
+    "titre": "À la COP31, l'Académie des jeunes négociateurs forme 150 diplomates du Sud",
+    "n_sources": 6,
+    "n_mots": 623,
+    "titre_rss": "À la COP31, quelle est cette Académie des jeunes négociateurs du climat?",
+    "matiere_faits_distincts": 357,
+    "matiere_redondance": 0.11,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "deutsche-bank-greenwashing-fuite-documents-engagements-climatiques",
+    "statut": "corrige_automatiquement",
+    "date": "2026-11-19T22:46:25",
+    "problemes_initiaux": 20,
+    "tentatives": 2,
+    "problemes_residuels_style": 10,
+    "rapport_initial": {
+      "conforme": false,
+      "sujet_sensible": false,
+      "sujet_sensible_raison": "",
+      "angle_insuffisant": false,
+      "angle_insuffisant_raison": "",
+      "nature_contenu": "actualite_factuelle",
+      "problemes": [
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "accusation_presentee_comme_fait",
+          "phrase_exacte": "L'enquête démontre qu'après l'accord de Paris de 2015, Deutsche Bank a multiplié les annonces publiques pour réduire son empreinte climatique tout en contournant ou ignorant ces engagements dans ses opérations réelles [1].",
+          "explication": "L'article présente comme un fait établi ('L'enquête démontre') ce qui constitue des allégations issues d'une enquête journalistique ; la formulation devrait attribuer ces conclusions à l'enquête (ex: 'Selon l'enquête...') plutôt que de les énoncer comme des faits prouvés par la rédaction."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "accusation_presentee_comme_fait",
+          "phrase_exacte": "Les documents internes analysés révèlent un décalage systématique entre la façade verte présentée aux investisseurs et au régulateur, et les décisions de financement maintenues en coulisses.",
+          "explication": "Le terme 'révèlent' présente les conclusions de l'enquête journalistique comme des faits objectifs établis, sans attribution au consortium 'Inside Deutsche Bank' ; il s'agit d'allégations basées sur des documents fuis, non de faits incontestés."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "fait_tranche_arbitrairement",
+          "phrase_exacte": "L'enquête \"Inside Deutsche Bank\" en fournit une illustration à l'échelle d'un établissement systémique européen, dont les promesses climatiques successives n'ont pas été suivies d'effets contraignants dans la gestion de ses portefeuilles d'actifs et de ses activités de conseil.",
+          "explication": "L'article généralise les conclusions de l'enquête en affirmant catégoriquement que les promesses 'n'ont pas été suivies d'effets contraignants', alors que la source [1] dans les nuances indique que 'le périmètre exact des engagements contournés — promesses volontaires, objectifs de l'alliance Net-Zero, ou exigences réglementaires — n'est pas encore détaillé dans les premiers volets publiés' ; cette simplification excessive tranche arbitrairement une qualification qui reste à préciser."
+        },
+        {
+          "bloc": 1,
+          "section": "resume",
+          "type": "accusation_presentee_comme_fait",
+          "phrase_exacte": "Une enquête internationale baptisée \"Inside Deutsche Bank\" révèle que le premier établissement bancaire allemand a contourné ses propres engagements climatiques annoncés après l'accord de Paris de 2015, selon l'analyse de plus de 15 millions de fichiers confidentiels.",
+          "explication": "Le résumé présente l'accusation de contournement d'engagements comme un fait révélé ('révèle que... a contourné'), sans attribution claire au consortium journalistique ; la formulation 'selon l'analyse' ne suffit pas à distinguer les allégations de l'enquête des faits établis."
+        },
+        {
+          "bloc": 1,
+          "section": "resume",
+          "type": "fait_tranche_arbitrairement",
+          "phrase_exacte": "La définition même du greenwashing — usage disproportionné de l'argument écologique pour améliorer l'image d'un placement — encadrée par l'AMF, trouve ici une illustration concrète à l'échelle d'un géant bancaire européen.",
+          "explication": "Le résumé qualifie directement la situation d'illustration concrète de greenwashing au sens de l'AMF, alors que la section nuances précise que 'la qualification juridique de \"greenwashing\" au sens de la directive européenne... dépendra de l'appréciation des autorités de supervision... qui n'ont pas encore communiqué sur ce dossier spécifique [5]' ; l'article tranche une qualification juridique en cours."
+        },
+        {
+          "bloc": 1,
+          "section": "nuances",
+          "type": "acteur_mis_en_cause_sans_reponse",
+          "phrase_exacte": "L'enquête repose sur des documents internes dont l'authenticité n'a pas été contestée publiquement par Deutsche Bank à la date de publication, mais la banque n'a pas encore réagi formellement sur le fond des allégations [1].",
+          "explication": "Deutsche Bank est mise en cause par l'enquête sans que sa réponse ne soit rapportée ; l'article se borne à noter l'absence de réaction formelle à ce stade, ce qui ne constitue pas une réponse sur le fond."
+        },
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "Le consortium journalistique international \"Inside Deutsche Bank\" a publié mardi 17 novembre les premiers résultats d'une enquête fondée sur une fuite de plus de 15 millions de documents confidentiels, dont neuf millions d'emails, couvrant les activités du groupe sur plusieurs années [2][3].",
+          "explication": "Le chiffre 'neuf millions d'emails' n'apparaît dans aucun des extraits des sources [2] et [3] fournis (titres uniquement) ; il est introduit sans source vérifiable dans la liste autorisée."
+        },
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "L'enquête démontre qu'après l'accord de Paris de 2015, Deutsche Bank a multiplié les annonces publiques pour réduire son empreinte climatique tout en contournant ou ignorant ces engagements dans ses opérations réelles [1].",
+          "explication": "La source [1] est un article du Monde daté du 19 novembre 2026 (postérieur à la publication de l'enquête du 17 novembre) ; l'article l'utilise pour étayer des faits sur le contenu de l'enquête alors que cette source ne figure pas parmi les extraits fournis et sa pertinence pour confirmer ces allégations spécifiques n'est pas établie."
+        },
+        {
+          "bloc": 2,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "L'accord de Paris de 2015 a constitué un tournant pour le secteur financier, incitant les grandes banques internationales à publier des trajectoires de décarbonation alignées sur l'objectif de 1,5 °C. Deutsche Bank a rejoint dès 2019 la Net-Zero Banking Alliance, s'engageant à aligner son portefeuille de prêts et d'investissements sur la neutralité carbone d'ici 2050, avec des objectifs intermédiaires à 2030 [1].",
+          "explication": "L'ensemble des affirmations factuelles de ce paragraphe (année d'adhésion à la Net-Zero Banking Alliance, objectifs 2030/2050, rôle de l'accord de Paris) est attribué à la source [1] qui ne contient pas ces informations dans les extraits fournis (seul le titre est visible)."
+        },
+        {
+          "bloc": 2,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "Plusieurs ONG et think tanks financiers — dont Reclaim Finance et ShareAction — ont régulièrement pointé, dans des rapports annuels, la persistance de financements massifs aux énergies fossiles par les grands établissements européens malgré ces engagements [1].",
+          "explication": "Les noms 'Reclaim Finance' et 'ShareAction' ainsi que le contenu de leurs rapports ne figurent pas dans les extraits de la source [1] fournis ; ils sont introduits sans source vérifiable."
+        },
+        {
+          "bloc": 2,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "La Banque centrale européenne a intégré le risque climatique dans son cadre de supervision prudentielle depuis 2020, exigeant des banques qu'elles publient des plans de transition crédibles [1].",
+          "explication": "Cette affirmation sur l'action de la BCE (date 2020, exigence de plans de transition) est attribuée à la source [1] qui ne la contient pas dans les extraits fournis."
+        },
+        {
+          "bloc": 2,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "L'enquête \"Inside Deutsche Bank\" s'inscrit dans une série de révélations — Panama Papers (2016), Paradise Papers (2017), FinCEN Files (2020) — qui ont mis au jour l'opacité des circuits financiers mondiaux [1].",
+          "explication": "La référence aux Panama Papers, Paradise Papers et FinCEN Files avec leurs dates n'est pas présente dans les extraits de la source [1] ; elle est ajoutée sans source correspondante dans la liste autorisée."
+        },
+        {
+          "bloc": 2,
+          "section": "nuances",
+          "type": "source_inventee",
+          "phrase_exacte": "La qualification juridique de \"greenwashing\" au sens de la directive européenne sur les allégations environnementales (dite \"Green Claims Directive\") ou du règlement SFDR (Sustainable Finance Disclosure Regulation) dépendra de l'appréciation des autorités de supervision, notamment de la BCE et de l'AMF, qui n'ont pas encore communiqué sur ce dossier spécifique [5].",
+          "explication": "Les références à la 'Green Claims Directive', au règlement SFDR, et au fait que la BCE et l'AMF n'ont pas communiqué sur ce dossier sont attribuées à la source [5] (page AMF sur le greenwashing) qui ne contient pas ces informations dans son extrait (seul le titre et l'URL sont fournis)."
+        },
+        {
+          "bloc": 4,
+          "section": "resume",
+          "type": "redondance",
+          "phrase_exacte": "Une enquête internationale baptisée \"Inside Deutsche Bank\" révèle que le premier établissement bancaire allemand a contourné ses propres engagements climatiques annoncés après l'accord de Paris de 2015, selon l'analyse de plus de 15 millions de fichiers confidentiels.",
+          "explication": "Cette phrase du résumé répète substantiellement l'information du titre ('Deutsche Bank accusée de greenwashing après une fuite massive de documents internes') et sera reprise dans les faits, créant une redondance entre les trois niveaux de lecture."
+        },
+        {
+          "bloc": 4,
+          "section": "resume",
+          "type": "redondance",
+          "phrase_exacte": "L'enquête mobilise 230 journalistes de 50 rédactions à travers le monde et constitue la plus grande investigation jamais menée sur une seule banque, exposant l'écart entre la communication verte de l'institution et ses pratiques réelles de financement.",
+          "explication": "Ces informations (230 journalistes, 50 rédactions, plus grande investigation) sont répétées presque identiquement dans le premier paragraphe de la section faits, violant le principe d'une idée = une seule apparition."
+        },
+        {
+          "bloc": 4,
+          "section": "faits",
+          "type": "redondance",
+          "phrase_exacte": "Le consortium journalistique international \"Inside Deutsche Bank\" a publié mardi 17 novembre les premiers résultats d'une enquête fondée sur une fuite de plus de 15 millions de documents confidentiels, dont neuf millions d'emails, couvrant les activités du groupe sur plusieurs années [2][3].",
+          "explication": "Répète l'information du résumé (15 millions de documents, enquête internationale) et du titre (fuite massive) sans apporter de fait nouveau distinct."
+        },
+        {
+          "bloc": 4,
+          "section": "faits",
+          "type": "redondance",
+          "phrase_exacte": "Cette investigation, qualifiée de plus grande jamais menée sur une seule banque, mobilise 230 journalistes répartis dans 50 rédactions à travers le monde [3][4].",
+          "explication": "Répète mot pour mot l'information déjà donnée dans le résumé (2e phrase) sur le nombre de journalistes, de rédactions et la qualification de 'plus grande investigation'."
+        },
+        {
+          "bloc": 4,
+          "section": "faits",
+          "type": "redondance",
+          "phrase_exacte": "L'enquête \"Inside Deutsche Bank\" en fournit une illustration à l'échelle d'un établissement systémique européen, dont les promesses climatiques successives n'ont pas été suivies d'effets contraignants dans la gestion de ses portefeuilles d'actifs et de ses activités de conseil.",
+          "explication": "Reprend l'idée du 3e point du résumé ('illustration concrète à l'échelle d'un géant bancaire européen') en la reformulant légèrement, sans ajouter d'information nouvelle sourcée."
+        },
+        {
+          "bloc": 4,
+          "section": "contexte",
+          "type": "contexte_hors_sujet",
+          "phrase_exacte": "L'enquête \"Inside Deutsche Bank\" s'inscrit dans une série de révélations — Panama Papers (2016), Paradise Papers (2017), FinCEN Files (2020) — qui ont mis au jour l'opacité des circuits financiers mondiaux [1].",
+          "explication": "La référence à trois affaires distinctes (Panama Papers, Paradise Papers, FinCEN Files) n'éclaire pas directement le sujet principal (la fuite spécifique sur Deutsche Bank et ses engagements climatiques) ; elle sert de remplissage générique sur l'opacité financière sans lien direct avec les révélations actuelles."
+        },
+        {
+          "bloc": 4,
+          "section": "nuances",
+          "type": "extrapolation",
+          "phrase_exacte": "La qualification juridique de \"greenwashing\" au sens de la directive européenne sur les allégations environnementales (dite \"Green Claims Directive\") ou du règlement SFDR (Sustainable Finance Disclosure Regulation) dépendra de l'appréciation des autorités de supervision, notamment de la BCE et de l'AMF, qui n'ont pas encore communiqué sur ce dossier spécifique [5].",
+          "explication": "L'article anticipe une future qualification juridique par des autorités qui ne se sont pas encore prononcées, présentant cette procédure à venir comme une étape prévisible alors qu'aucune source ne confirme qu'une telle procédure sera engagée."
+        }
+      ]
+    },
+    "article_type": "actu",
+    "titre": "Deutsche Bank accusée de greenwashing après une fuite massive de documents internes",
+    "n_sources": 5,
+    "n_mots": 571,
+    "titre_rss": "« Inside Deutsche Bank » : derrière la façade verte, les coulisses du greenwashing de la banque allemande",
+    "matiere_faits_distincts": 693,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 2,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "mbappe-chine-censure-mao-sanctions-sponsors",
+    "statut": "corrige_automatiquement",
+    "date": "2026-11-19T22:58:10",
+    "problemes_initiaux": 12,
+    "tentatives": 3,
+    "problemes_residuels_style": 16,
+    "rapport_initial": {
+      "conforme": false,
+      "sujet_sensible": false,
+      "sujet_sensible_raison": "",
+      "angle_insuffisant": false,
+      "angle_insuffisant_raison": "",
+      "nature_contenu": "actualite_factuelle",
+      "problemes": [
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "chiffre_errone",
+          "phrase_exacte": "trois marques chinoises — le géant laitier Mengniu, le fabricant de boissons Dongpeng et une troisième non identifiée dans les extraits — rompent leur contrat",
+          "explication": "La source BBC [3] ne cite que deux marques (Mengniu et Dongpeng) ; l'article en ajoute une troisième sans source."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "chiffre_errone",
+          "phrase_exacte": "deux réseaux sociaux chinois",
+          "explication": "Le résumé mentionne la perte d'accès à deux réseaux sociaux chinois, mais aucune source ne confirme ce fait précis (les sources parlent de censure sur Weibo et par les IA, pas de suspension de comptes)."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "chiffre_errone",
+          "phrase_exacte": "sa présence dans le jeu vidéo FC Online",
+          "explication": "Aucune des trois sources ne mentionne le jeu vidéo FC Online ni une suppression du joueur dans ce jeu."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "incoherence_inter_sections",
+          "phrase_exacte": "Mbappé présente ses excuses en trois langues, suivies de celles de la Liga puis du Real Madrid [5][6]. Aucune ne suffit : CCTV récuse la ligne de défense du club, un organe de propagande provincial déplore l'absence de sanctions internes, et deux semaines plus tard la chaîne n'a toujours pas rétabli la diffusion de la Liga",
+          "explication": "La source BBC [3] du 27 octobre indique que CCTV a repris la diffusion après les excuses ; l'article affirme le contraire deux semaines plus tard sans source plus récente pour le confirmer."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte: ": "Ni le communiqué du ministère des Affaires étrangères, ni les excuses de Mbappé, du Real Madrid ou de la Liga ne citent Mao directement [5].",
+          "explication": "La référence [5] renvoie à la source France 24 (index 1) qui ne contient pas d'information sur un communiqué du ministère des Affaires étrangères chinois."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "En 2018, au plus fort de l'affaire Dolce & Gabbana (publicité jugée offensante), le ministère des Affaires étrangères n'en avait pas fait une affaire diplomatique [5].",
+          "explication": "La source France 24 [1] ne mentionne pas l'affaire Dolce & Gabbana ni la réaction du ministère des Affaires étrangères en 2018."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "En 2019, face à la polémique Zara (mannequin aux taches de rousseur), le China Youth Daily avait mis en garde contre l'abus de l'accusation d'offense nationale [5].",
+          "explication": "Aucune des trois sources ne mentionne une polémique Zara en 2019 ni le China Youth Daily."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "L'affaire Mbappé se distingue par la référence directe à Mao, clé de voûte de la légitimité du PCC, d'autant que 2026 marque le cinquantenaire de sa mort [5].",
+          "explication": "La source France 24 [1] ne mentionne pas le cinquantenaire de la mort de Mao en 2026."
+        },
+        {
+          "bloc": 1,
+          "section": "nuances",
+          "type": "source_inventee",
+          "phrase_exacte": "Des journalistes sportifs chinois rapportent cette seconde hypothèse [5].",
+          "explication": "La source France 24 [1] ne cite pas de journalistes sportifs chinois évoquant l'hypothèse d'un emballement parti de Dongqiudi."
+        },
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "compteur_incoherent",
+          "phrase_exacte": "\"nb_sources\": 3",
+          "explication": "Le champ nb_sources indique 3 mais la liste 'sources' contient 4 entrées (deux BBC distinctes + France 24), créant une incohérence dans le comptage."
+        },
+        {
+          "bloc": 3,
+          "section": "resume",
+          "type": "cadrage_emprunte",
+          "phrase_exacte": "Cet épisode illustre le mécanisme des « sanctions économiques informelles » : des représailles tangibles orchestrées par l'État mais sans texte officiel ni responsable assumé, étendant la censure chinoise hors des frontières par le déni plausible.",
+          "explication": "Cette analyse en « sanctions économiques informelles » et « déni plausible » est un cadrage éditorial non attribué, présenté comme fait établi alors que les sources décrivent des faits sans cette qualification théorique."
+        },
+        {
+          "bloc": 4,
+          "section": "resume",
+          "type": "jugement_de_valeur",
+          "phrase_exacte": "sans jamais citer explicitement les propos incriminés ni le nom de Mao, laissant la majorité des internautes chinois ignorer la teneur exacte de l'offense",
+          "explication": "L'expression « laissant la majorité des internautes chinois ignorer » constitue une appréciation non sourcée sur l'état de connaissance de la population."
+        }
+      ]
+    },
+    "article_type": "actu",
+    "titre": "Mbappé sanctionné par la Chine après une blague sur Mao",
+    "n_sources": 3,
+    "n_mots": 731,
+    "titre_rss": "Mbappé, Mao et l’anaconda : comment Pékin exporte sa censure",
+    "matiere_faits_distincts": 1056,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "projet-helix-1000-enfants-210-expositions-fonction-respiratoire",
+    "statut": "rejete_sensible",
+    "date": "2026-11-19T23:17:47",
+    "problemes_initiaux": 32,
+    "tentative": 2,
+    "bloc5": true,
+    "article_type": "actu",
+    "titre": "Projet HELIX : 1 000 enfants, 210 expositions mesurées, liens avec la fonction respiratoire",
+    "n_sources": 4,
+    "n_mots": 608,
+    "titre_rss": "Les multiples impacts de l'exposome sur notre santé",
+    "matiere_faits_distincts": 724,
+    "matiere_redondance": 0.05,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "etude_scientifique"
+  },
+  {
+    "slug": "decarbonation-aviation-conseil-etat-decret-application-l229-61",
+    "statut": "rejete_sensible",
+    "date": "2026-11-19T23:21:51",
+    "problemes_initiaux": 10,
+    "tentative": 2,
+    "bloc5": true,
+    "article_type": "actu",
+    "titre": "Décarbonation de l'aviation : le Conseil d'État saisi de l'absence de décret d'application",
+    "n_sources": 5,
+    "n_mots": 552,
+    "titre_rss": "“Décarboner l’aviation n’est plus une option, c’est devenu une nécessité absolue”",
+    "matiere_faits_distincts": 514,
+    "matiere_redondance": 0.07,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "suicide-jeunes-inserm-outil-numerique-detection-bordeaux",
+    "statut": "rejete_sensible",
+    "date": "2026-11-19T23:27:00",
+    "problemes_initiaux": 10,
+    "tentative": 3,
+    "bloc5": true,
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "nuances_vagues"
+    ],
+    "titre": "Suicide des jeunes : l'Inserm teste un outil numérique de détection précoce à Bordeaux",
+    "n_sources": 4,
+    "n_mots": 742,
+    "titre_rss": "Mélissa Macalli : mieux prévenir le suicide chez les jeunes",
+    "matiere_faits_distincts": 773,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "etude_scientifique"
+  },
+  {
+    "slug": "allemagne-eolienne-record-365-metres-brandebourg-mise-en-service",
+    "statut": "rejete_qualite",
+    "date": "2026-11-19T23:32:08",
+    "tentative": 3,
+    "perte_substance": true,
+    "section": "contexte",
+    "mots_avant": 138,
+    "mots_apres": 57,
+    "article_type": "actu",
+    "titre": "Allemagne : une éolienne de 365 mètres reliée au réseau dans le Brandebourg",
+    "n_sources": 5,
+    "n_mots": 480,
+    "titre_rss": "Énergies renouvelables : l’Allemagne inaugure l’éolienne la plus haute au monde",
+    "matiere_faits_distincts": 454,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "traces-globules-rouges-fossile-dinosaure-115-millions-annees",
+    "statut": "rejete_qualite",
+    "date": "2026-11-19T23:37:03",
+    "tentative": 2,
+    "angle_insuffisant": true,
+    "raison": "Aucune phrase dans 'faits' ne combine un événement précis daté (publication, annonce, décision récente) et une donnée chiffrée ou nommée qui lui est propre. L'article décrit une découverte annoncée sans dater l'annonce, sans nommer l'équipe, le journal, le spécimen, le site ou l'âge exact du fossile. Il répond à 'qu'est-ce que c'est ?' plutôt qu'à 'pourquoi en parle-t-on maintenant ?'.",
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "cliches_ia"
+    ],
+    "titre": "Des traces de globules rouges identifiées dans un fossile de dinosaure de 115 millions d'années",
+    "n_sources": 3,
+    "n_mots": 490,
+    "titre_rss": "Dinosaures : des traces de sang fossilisées agitent la communauté paléontologique",
+    "matiere_faits_distincts": 711,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "etude_scientifique"
+  },
+  {
+    "slug": "anthropic-introduction-bourse-valorisation-2000-milliards-dollars",
+    "statut": "erreur_verification",
+    "date": "2026-11-19T23:41:44",
+    "etape": "detection",
+    "erreur": "JSON tronqué ou incomplet dans la réponse (max_tokens atteint ?)",
+    "article_type": "actu",
+    "titre": "Anthropic s'envole à Wall Street et atteint 2 000 milliards de valorisation",
+    "n_sources": 4,
+    "n_mots": 885,
+    "titre_rss": "IA : Anthropic s’envole en Bourse et atteint une valorisation de 2 000 milliards de dollars",
+    "matiere_faits_distincts": 896,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10
+  },
+  {
+    "slug": "anthropic-introduction-bourse-valorisation-2000-milliards-dollars",
+    "statut": "rejete_qualite",
+    "date": "2026-11-19T23:41:44",
+    "raison": "verification_indisponible",
+    "statut_verification_initial": "erreur_verification"
+  },
+  {
+    "slug": "mbda-atmos-space-cargo-projet-frappe-orbitale-pods",
+    "statut": "corrige_automatiquement",
+    "date": "2026-11-19T23:45:18",
+    "problemes_initiaux": 7,
+    "tentatives": 1,
+    "problemes_residuels_style": 7,
+    "rapport_initial": {
+      "conforme": false,
+      "sujet_sensible": false,
+      "sujet_sensible_raison": "",
+      "angle_insuffisant": false,
+      "angle_insuffisant_raison": "",
+      "nature_contenu": "actualite_factuelle",
+      "problemes": [
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "chiffre_errone",
+          "phrase_exacte": "la capsule est tombée dans l'Atlantique Sud, à environ 2 000 km des côtes du Brésil",
+          "explication": "La source [1] indique que la capsule a atterri dans l'océan Pacifique, pas dans l'Atlantique Sud."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "chronologie_confuse",
+          "phrase_exacte": "En septembre 2026, les États-Unis ont officiellement affirmé disposer d'« armes » en orbite [3].",
+          "explication": "La source [3] est datée du 17 septembre 2026, soit une date future par rapport à la signature de l'accord (18 novembre 2026 mentionnée dans les faits) ; l'article mélange deux époques sans expliciter le rapport chronologique."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "incoherence_inter_sections",
+          "phrase_exacte": "La France, de son côté, a présenté en novembre 2025 sa stratégie spatiale 2025-2040 lors de l'inauguration du Commandement de l'espace à Toulouse [2].",
+          "explication": "La source [2] est datée du 18 novembre 2025, ce qui est cohérent, mais la phrase suivante cite une source [3] de septembre 2026 comme contexte antérieur, créant une inversion chronologique confuse dans la même section."
+        },
+        {
+          "bloc": 2,
+          "section": "contexte",
+          "type": "source_derivee_comptee_comme_primaire",
+          "phrase_exacte": "En septembre 2026, les États-Unis ont officiellement affirmé disposer d'« armes » en orbite [3].",
+          "explication": "La source [3] (Le Monde) relaie une annonce officielle américaine ; elle ne constitue pas une source primaire indépendante mais une reprise médiatique, comptée comme primaire dans le champ qualite_sources."
+        },
+        {
+          "bloc": 4,
+          "section": "contexte",
+          "type": "contexte_hors_sujet",
+          "phrase_exacte": "Au niveau européen, le Parlement travaille sur l'élargissement de la dimension européenne de la dissuasion française, avec l'initiative de « dissuasion avancée » d'Emmanuel Macron prévoyant des consultations stratégiques approfondies et une participation alliée aux exercices nucléaires français [4].",
+          "explication": "La source [4] porte sur la dissuasion nucléaire européenne, un sujet distinct du projet d'arme orbitale conventionnelle PODS ; ce développement n'éclaire pas directement le sujet principal."
+        },
+        {
+          "bloc": 4,
+          "section": "contexte",
+          "type": "contexte_hors_sujet",
+          "phrase_exacte": "Le Sénat français a publié en 2026 un rapport intitulé « La dissuasion avancée : renforcer la défense de l'Europe dans le respect de l'indépendance nationale », qui examine les modalités d'une coopération nucléaire élargie au niveau européen [4].",
+          "explication": "Même source [4] utilisée pour un second fait sur la dissuasion nucléaire, sans lien direct avec la frappe orbitale conventionnelle étudiée par MBDA et Atmos."
+        },
+        {
+          "bloc": 4,
+          "section": "nuances",
+          "type": "redondance",
+          "phrase_exacte": "Sur le plan juridique, le Traité de l'espace de 1967 interdit le placement d'armes de destruction massive en orbite, mais ne mentionne pas les armes conventionnelles, créant une « zone grise » exploitée par le projet [1].",
+          "explication": "Cette information juridique est déjà présente dans le résumé (troisième point) ; la charte interdit de répéter une même idée d'une section à l'autre."
+        }
+      ]
+    },
+    "article_type": "actu",
+    "titre": "MBDA et Atmos Space Cargo lancent un projet de frappe orbitale de précision",
+    "n_sources": 4,
+    "n_mots": 654,
+    "titre_rss": "Frapper n’importe quelle cible depuis l’espace : l’Europe a désormais son projet d’arme orbitale",
+    "matiere_faits_distincts": 680,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 3,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "james-webb-confirme-engouffrement-etoile-andromede",
+    "statut": "rejete_sensible",
+    "date": "2026-11-19T23:50:20",
+    "problemes_initiaux": 12,
+    "tentative": 1,
+    "bloc5": true,
+    "article_type": "actu",
+    "titre": "James-Webb confirme l'engloutissement d'une étoile par une autre dans Andromède",
+    "n_sources": 4,
+    "n_mots": 597,
+    "titre_rss": "Le James-Webb confirme qu'on a vu une étoile en avaler une autre dans Andromède !",
+    "matiere_faits_distincts": 955,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "etude_scientifique"
   }
 ]
