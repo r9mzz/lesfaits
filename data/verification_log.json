@@ -83317,5 +83317,676 @@
     "n_sources_injectees": 10,
     "n_sources_trouvees": 10,
     "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "onu-adopte-projection-equal-earth-corriger-taille-afrique-cartes",
+    "statut": "corrige_automatiquement",
+    "date": "2026-11-20T21:03:41",
+    "problemes_initiaux": 7,
+    "tentatives": 2,
+    "problemes_residuels_style": 9,
+    "rapport_initial": {
+      "conforme": false,
+      "sujet_sensible": false,
+      "sujet_sensible_raison": "",
+      "angle_insuffisant": false,
+      "angle_insuffisant_raison": "",
+      "nature_contenu": "actualite_factuelle",
+      "problemes": [
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "chiffre_errone",
+          "phrase_exacte": "Sur la carte de Mercator, élaborée en 1569 pour les besoins de la navigation maritime, l'Afrique qui s'étend sur 30,37 millions de km² paraît à peu près aussi grande que le Groenland, qui n'en fait que 2,16 millions — soit un rapport de 1 à 14 [3].",
+          "explication": "Le rapport entre 30,37 millions km² (Afrique) et 2,16 millions km² (Groenland) est d'environ 14,06, soit un rapport de 14:1, pas 1:14 ; la phrase inverse le sens de la comparaison."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "Le 4 septembre 2026, l'Assemblée générale des Nations unies a voté une résolution déposée par le Togo et soutenue par plusieurs pays africains afin d'approuver et d'adopter la projection Equal Earth comme nouvelle carte du monde de référence [4].",
+          "explication": "La source [4] correspond à l'URL UN (3e source), mais le tableau sources n'en contient que 3 entrées (indices 1 à 3) ; le renvoi [4] pointe vers une source inexistante."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "La projection Equal Earth corrige la distorsion en représentant fidèlement la superficie relative des continents, ce que les militants togolais estiment nécessaire pour que l'Afrique ne paraisse plus occuper une place périphérique sur le plan politique comme sur le plan culturel [1].",
+          "explication": "Le renvoi [1] renvoie à la source Le Monde (1re source) qui, selon son titre, traite d'une pétition et de la distorsion Mercator, mais ne mentionne pas la projection Equal Earth ni l'estimation de militants togolais sur la place périphérique de l'Afrique."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "Au Ve siècle avant notre ère, Hérodote raillait déjà les cartes artificiellement symétriques qui donnaient à l'Asie la même taille qu'à l'Europe, et affirmait que l'Europe \"écrase par sa taille\" la Libye (l'Afrique) et l'Asie [1]. Au Ier siècle avant notre ère, Strabon jugeait la Libye peut-être plus petite que l'Europe et \"en puissance, très inférieure\", liant explicitement superficie et puissance politique [1]. Pline l'Ancien allait plus loin en accordant près de la moitié de la Terre à l'Europe, \"nourrice du peuple qui a vaincu toutes les nations\", contre un cinquième environ à l'Afrique [1].",
+          "explication": "Les trois citations antiques (Hérodote, Strabon, Pline) sont attribuées à la source [1] (Le Monde), or cet article de 2025 sur une pétition contemporaine ne contient pas ces références historiques."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "La projection de Mercator, créée en 1569 par le géographe flamand Gerardus Mercator, s'est imposée comme référence mondiale pendant plus de deux cents ans malgré sa distorsion connue des régions polaires [1].",
+          "explication": "L'origine et l'histoire de la projection de Mercator sont attribuées à la source [1] (Le Monde), qui ne traite pas de l'histoire de la cartographie du XVIe siècle."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "chiffre_errone",
+          "phrase_exacte": "L'Union africaine a apporté son soutien à la campagne \"Correct the Map\" le 14 août 2025 selon Le Monde [2], avant d'adopter formellement sa résolution en avril 2026 [3].",
+          "explication": "Le renvoi [2] pointe vers la source BBC (2e source) dont le titre est daté du 20 avril 2026, alors que le texte cite Le Monde et la date du 14 août 2025 ; le renvoi [3] pointe vers la source UN (3e source) datée du 4 septembre 2026, qui ne documente pas une résolution de l'UA d'avril 2026."
+        },
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "compteur_incoherent",
+          "phrase_exacte": "Le 4 septembre 2026, l'Assemblée générale des Nations unies a voté une résolution déposée par le Togo et soutenue par plusieurs pays africains afin d'approuver et d'adopter la projection Equal Earth comme nouvelle carte du monde de référence [4].",
+          "explication": "L'article utilise des renvois [1] à [4] (4 sources citées) alors que le champ nb_sources indique 3 et que le tableau sources ne contient que 3 entrées."
+        }
+      ]
+    },
+    "article_type": "actu",
+    "titre": "L'ONU adopte la projection Equal Earth pour corriger la taille de l'Afrique sur les cartes",
+    "n_sources": 3,
+    "n_mots": 634,
+    "titre_rss": "Il y a 2 000 ans, la taille de l’Afrique sur la carte était déjà une affaire de pouvoir",
+    "matiere_faits_distincts": 634,
+    "matiere_redondance": 0.05,
+    "matiere_donnees_chiffrees": 3,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "cop31-antalya-negociations-prolongation-energies-fossiles-financements",
+    "statut": "rejete_sensible",
+    "date": "2026-11-20T21:06:52",
+    "problemes_initiaux": 16,
+    "bloc5": [
+      "compteur_incoherent"
+    ],
+    "article_type": "actu",
+    "titre": "COP31 à Antalya : les négociations en prolongation sur les énergies fossiles et les financements",
+    "n_sources": 7,
+    "n_mots": 571,
+    "titre_rss": "COP31 : dans la dernière ligne droite des négociations, les énergies fossiles et les financements au centre du jeu",
+    "matiere_faits_distincts": 497,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "cop31-antalya-electrification-35-pour-cent-energies-fossiles",
+    "statut": "rejete_qualite",
+    "date": "2026-11-20T21:14:33",
+    "problemes_initiaux": 18,
+    "tentatives": 3,
+    "problemes_restants": 9,
+    "bloquants_restants": 1,
+    "bloquants_types": [
+      "chiffre_errone"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source IEA [5] indique que la demande d'électricité a augmenté 'twice as fast as overall energy demand since 2010' (depuis 2010), pas sur la période 2013-2023 citée dans l'article.",
+        "phrase": "L'Agence internationale de l'énergie (IEA) confirme que la demande mondiale d'électricité a augmenté deux fois plus vite que la demande énergétique totale sur la dernière décennie (2013-2023) [5]."
+      }
+    ],
+    "types_restants": [
+      "chiffre_errone",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "compteur_incoherent",
+      "extrapolation"
+    ],
+    "article_type": "actu",
+    "titre": "COP31 Antalya : l'objectif d'électrification à 35 % menacé par le sort des énergies fossiles",
+    "n_sources": 5,
+    "n_mots": 568,
+    "titre_rss": "COP31 : l’objectif d’électrification risque de déplacer les émissions plutôt que de les réduire",
+    "matiere_faits_distincts": 821,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "norvege-cour-supreme-invalide-licences-petrolieres-mer-du-nord",
+    "statut": "rejete_sensible",
+    "date": "2026-11-20T21:30:16",
+    "problemes_initiaux": 5,
+    "tentative": 1,
+    "bloc5": true,
+    "article_type": "actu",
+    "titre": "La Cour suprême norvégienne invalide trois licences pétrolières en mer du Nord",
+    "n_sources": 4,
+    "n_mots": 561,
+    "titre_rss": "En Norvège, victoire \"historique\" après l'invalidation de licences pétrolières en mer du Nord",
+    "matiere_faits_distincts": 816,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "decision_officielle"
+  },
+  {
+    "slug": "tableau-rembrandt-retrouve-authentifie-65-ans",
+    "statut": "rejete_sensible",
+    "date": "2026-11-20T21:42:48",
+    "problemes_initiaux": 7,
+    "tentative": 2,
+    "bloc5": true,
+    "article_type": "actu",
+    "titre": "Un tableau de Rembrandt retrouvé et authentifié après 65 ans d'absence",
+    "n_sources": 4,
+    "n_mots": 579,
+    "titre_rss": "Rembrandt : le trésor oublié d'un grenier",
+    "matiere_faits_distincts": 698,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "proces-michel-zecler-recit-policiers-contredit-qualification-raciste-ecarte",
+    "statut": "rejete_sensible",
+    "date": "2026-11-20T21:51:28",
+    "sujet_sensible": true,
+    "raison": "L'article porte sur une affaire judiciaire pénale en cours (procès correctionnel de quatre policiers pour violences volontaires et non-assistance à personne en danger) visant des personnes physiques nommées, non définitivement jugée.",
+    "article_type": "actu",
+    "titre": "Procès Zecler : le récit des policiers contredit par les débats, la qualification raciste écartée",
+    "n_sources": 4,
+    "n_mots": 625,
+    "titre_rss": "Affaire Michel Zecler : le récit mensonger des policiers mis à nu au procès",
+    "matiere_faits_distincts": 942,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "mobilisations-europe-vie-chere-rearmement-novembre-2026",
+    "statut": "rejete_qualite",
+    "date": "2026-11-20T21:57:00",
+    "tentative": 3,
+    "perte_substance": true,
+    "section": "contexte",
+    "mots_avant": 106,
+    "mots_apres": 35,
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "resume_repete_corps"
+    ],
+    "titre": "Mobilisations européennes contre la vie chère et le réarmement fin novembre 2026",
+    "n_sources": 3,
+    "n_mots": 423,
+    "titre_rss": "Contre la guerre et la vie chère, pour la jeunesse : les images des manifestations en Italie",
+    "matiere_faits_distincts": 725,
+    "matiere_redondance": 0.03,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "cop31-calendrier-giec-bilan-mondial-2028",
+    "statut": "corrige_automatiquement",
+    "date": "2026-11-20T22:04:20",
+    "problemes_initiaux": 14,
+    "tentatives": 2,
+    "problemes_residuels_style": 13,
+    "rapport_initial": {
+      "conforme": false,
+      "sujet_sensible": false,
+      "sujet_sensible_raison": "",
+      "angle_insuffisant": false,
+      "angle_insuffisant_raison": "",
+      "nature_contenu": "actualite_factuelle",
+      "problemes": [
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "La COP31 se tient du 9 au 20 novembre 2026 à Antalya, en Turquie, réunissant responsables politiques, scientifiques, diplomates, associations, entreprises et représentants des peuples autochtones [1].",
+          "explication": "La source [1] (data.gouv.fr) ne mentionne pas les dates du 9 au 20 novembre 2026 ni la liste des participants (responsables politiques, scientifiques, diplomates, associations, entreprises, représentants des peuples autochtones)."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "Mercredi 18 novembre, les pays ont lancé le deuxième examen quinquennal des progrès collectifs au titre de l'Accord de Paris, dit « bilan mondial » (Global Stocktake), qui doit s'achever en 2028 [2].",
+          "explication": "La source [2] (UN, 18 novembre 2026) ne mentionne pas le lancement du deuxième bilan mondial ni son échéance 2028 ; elle traite des négociations qui patinent sur financement et transition énergétique."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "Vingt et un points restent en suspens dans les négociations, notamment sur le financement, la sortie des combustibles fossiles et l'équité de la transition écologique [2].",
+          "explication": "La source [2] ne mentionne pas le chiffre « vingt et un points » ni la liste précise des sujets en suspens (financement, sortie des combustibles fossiles, équité de la transition écologique)."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "De nouveaux projets de textes sont attendus pour la dernière journée de négociations, jeudi 20 novembre, alors que les ministres tentent de rapprocher leurs positions [3][2].",
+          "explication": "La source [3] (UN, mars 2026) porte sur les records de chaleur et ne concerne pas la COP31 ; la source [2] ne mentionne pas de nouveaux projets de textes attendus pour le 20 novembre."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "Le calendrier des travaux du Groupe d'experts intergouvernemental sur l'évolution du climat (GIEC) fait l'objet de divergences majeures. Plusieurs pays vulnérables souhaitent que les prochains rapports majeurs soient publiés à temps pour éclairer les négociations du bilan mondial [2]. En revanche, la Russie, l'Arabie saoudite et la Chine estiment que ce calendrier est trop serré et risque de limiter la participation des scientifiques des pays en développement [2]. Le président du GIEC, Jim Skea, a souligné l'importance de ces évaluations pour les discussions en cours, notamment le rapport du Groupe de travail II sur les progrès vers l'objectif mondial d'adaptation [2].",
+          "explication": "La source [2] ne mentionne ni le calendrier du GIEC, ni les positions des pays vulnérables, de la Russie, de l'Arabie saoudite, de la Chine, ni Jim Skea, ni le rapport du Groupe de travail II."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "La Banque mondiale présente à Antalya son programme de financement climat, de garanties et de mobilisation de capitaux privés pour transformer les ambitions en résultats concrets [4].",
+          "explication": "La source [4] (World Bank, 9 novembre 2026) n'est pas fournie en extrait ; le fait n'est pas vérifiable à partir des sources autorisées."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "Le premier bilan mondial, conclu à la COP28 de Dubaï en 2023, avait contribué à ouvrir la voie à des engagements visant à tripler les capacités en énergies renouvelables, à doubler les gains d'efficacité énergétique et à accélérer la transition hors des combustibles fossiles [2].",
+          "explication": "La source [2] ne mentionne pas la COP28, ni les engagements de tripler les renouvelables, doubler l'efficacité énergétique, accélérer la sortie des fossiles."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "Ce nouveau cycle doit s'achever en 2028, à deux ans seulement de l'échéance de 2030 fixée par l'Accord de Paris pour les objectifs de réduction d'émissions [2].",
+          "explication": "La source [2] ne mentionne pas l'échéance 2028 du deuxième bilan mondial ni le lien avec l'échéance 2030 de l'Accord de Paris."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "L'Organisation météorologique mondiale a averti en mars 2026 que la quantité de chaleur accumulée sur la planète a atteint un niveau record en 2025, avec des températures océaniques au plus haut et des calottes glaciaires au plus bas [5].",
+          "explication": "La source [5] (UN, 23 mars 2026) n'est pas fournie en extrait ; le fait n'est pas vérifiable à partir des sources autorisées."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "L'année 2026 est marquée par la multiplication des événements climatiques extrêmes et la hausse des températures à l'échelle mondiale [1].",
+          "explication": "La source [1] (data.gouv.fr) ne mentionne pas la multiplication des événements climatiques extrêmes ni la hausse des températures en 2026."
+        },
+        {
+          "bloc": 1,
+          "section": "nuances",
+          "type": "source_inventee",
+          "phrase_exacte": "Le rapport de l'UNESCO sur la fiabilité des intelligences artificielles génératives pour l'information climatique, présenté lundi à la COP31, souligne un risque de désinformation supplémentaire dans un contexte déjà tendu [1].",
+          "explication": "La source [1] ne mentionne pas de rapport UNESCO sur l'IA générative et l'information climatique présenté à la COP31."
+        },
+        {
+          "bloc": 1,
+          "section": "nuances",
+          "type": "source_inventee",
+          "phrase_exacte": "Selon Le Soir, le GIEC fait l'objet d'attaques inédites, son calendrier des travaux et son budget étant contestés par plusieurs pays [6].",
+          "explication": "La source [6] (Le Soir, 19 novembre 2026) n'est pas fournie en extrait ; le fait n'est pas vérifiable à partir des sources autorisées."
+        },
+        {
+          "bloc": 1,
+          "section": "nuances",
+          "type": "source_inventee",
+          "phrase_exacte": "D'après RFI, les négociations patinent et aucun texte d'accord n'est en vue à la veille de la clôture officielle, les pays peinant à s'entendre sur le financement et la transition énergétique [7].",
+          "explication": "La source [7] (RFI, 20 novembre 2026) n'est pas fournie en extrait ; le fait n'est pas vérifiable à partir des sources autorisées."
+        },
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "compteur_incoherent",
+          "phrase_exacte": "nb_sources: 7",
+          "explication": "Seule la source [2] (UN, 18 novembre 2026) est fournie en extrait ; les six autres sources listées ne sont pas documentées, rendant impossible la vérification de la majorité des faits attribués."
+        }
+      ]
+    },
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "resume_repete_corps"
+    ],
+    "titre": "COP31 : le calendrier du GIEC divise les pays avant le bilan mondial 2028",
+    "n_sources": 7,
+    "n_mots": 578,
+    "titre_rss": "\"Une action climatique fondée sur la science est plus cruciale que jamais\" : à la COP31, les experts du Giec au centre d'un bras de fer",
+    "matiere_faits_distincts": 722,
+    "matiere_redondance": 0.03,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "stockage-electricite-step-batteries-iea-2024",
+    "statut": "rejete_sensible",
+    "date": "2026-11-20T22:12:09",
+    "problemes_initiaux": 7,
+    "tentative": 1,
+    "bloc5": true,
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "resume_repete_corps"
+    ],
+    "titre": "Stockage d'électricité : les STEP dominent encore, les batteries croissent vite selon l'IEA",
+    "n_sources": 5,
+    "n_mots": 597,
+    "titre_rss": "Les STEP, les batteries géantes pour réussir la transition énergétique",
+    "matiere_faits_distincts": 731,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "rapport"
+  },
+  {
+    "slug": "cop31-antalya-prolongations-accord-climat-fossiles-finance",
+    "statut": "rejete_sensible",
+    "date": "2026-11-20T22:21:43",
+    "problemes_initiaux": 16,
+    "tentative": 2,
+    "bloc5": true,
+    "article_type": "actu",
+    "titre": "COP31 à Antalya : négociations en prolongations faute d'accord",
+    "n_sources": 7,
+    "n_mots": 679,
+    "titre_rss": "La COP31 entre en prolongations pour tenter d'arracher un accord sur le climat",
+    "matiere_faits_distincts": 761,
+    "matiere_redondance": 0.06,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "30-ans-cooperation-scientifique-pretoria-ird-cnrs-cirad",
+    "statut": "rejete_qualite",
+    "date": "2026-11-20T22:29:47",
+    "tentative": 3,
+    "perte_substance": true,
+    "section": "contexte",
+    "mots_avant": 183,
+    "mots_apres": 91,
+    "article_type": "actu",
+    "titre": "30 ans de coopération scientifique entre l'Université de Pretoria, l'IRD, le CNRS et le CIRAD",
+    "n_sources": 4,
+    "n_mots": 635,
+    "titre_rss": "Trente ans de diplomatie scientifique : l’Université de Pretoria, l’IRD, le CNRS et le CIRAD célèbrent trois décennies de collaboration",
+    "matiere_faits_distincts": 1062,
+    "matiere_redondance": 0.06,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "cyberattaque-ia-commission-europeenne-octobre-aucune-violation-donnees",
+    "statut": "corrige_automatiquement",
+    "date": "2026-11-20T22:43:23",
+    "problemes_initiaux": 6,
+    "tentatives": 3,
+    "problemes_residuels_style": 6,
+    "rapport_initial": {
+      "conforme": false,
+      "sujet_sensible": false,
+      "sujet_sensible_raison": "",
+      "angle_insuffisant": false,
+      "angle_insuffisant_raison": "",
+      "nature_contenu": "actualite_factuelle",
+      "problemes": [
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "incoherence_inter_sections",
+          "phrase_exacte": "L'Arcom a salué l'ouverture par la Commission européenne d'une enquête sur les risques posés par Grok, l'outil d'IA intégré à la plateforme X, dans un communiqué publié le 26 janvier 2026 [4].",
+          "explication": "Ce paragraphe dans 'faits' traite d'une enquête DSA sur Grok/X (source [4] datée janvier 2026), sans lien avec la cyberattaque d'octobre 2025 annoncée dans le titre et le résumé ; il introduit un second sujet distinct, créant une incohérence interne entre l'angle annoncé et le contenu factuel."
+        },
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "L'Arcom a salué l'ouverture par la Commission européenne d'une enquête sur les risques posés par Grok, l'outil d'IA intégré à la plateforme X, dans un communiqué publié le 26 janvier 2026 [4].",
+          "explication": "La source [4] (communiqué Arcom du 26 janvier 2026) ne mentionne pas l'ouverture d'une enquête par la Commission européenne sur Grok ; elle indique seulement que l'Arcom se félicite de l'ouverture d'une enquête par la Commission. L'article attribue à la source un fait (l'ouverture d'enquête par la Commission) que le communiqué ne fait que relayer comme une décision déjà prise, sans la confirmer comme un acte de la Commission elle-même."
+        },
+        {
+          "bloc": 4,
+          "section": "contexte",
+          "type": "contexte_hors_sujet",
+          "phrase_exacte": "Par ailleurs, une cyberattaque massive a perturbé l'interview d'Elon Musk avec Donald Trump sur la plateforme X dans la nuit du lundi au mardi, le patron de X affirmant être victime d'une attaque destinée à saturer les serveurs [3].",
+          "explication": "Cet épisode (août 2024, source [3]) n'a aucun lien direct avec la cyberattaque contre la Commission européenne d'octobre 2025 ; il sert uniquement de remplissage générique sur la vulnérabilité des infrastructures, sans éclairer le sujet principal."
+        },
+        {
+          "bloc": 4,
+          "section": "contexte",
+          "type": "redondance",
+          "phrase_exacte": "Cet épisode illustre la vulnérabilité des infrastructures numériques face aux actions coordonnées, y compris lorsque celles-ci ciblent des événements à forte visibilité médiatique [3].",
+          "explication": "Cette phrase ne fait que reformuler l'idée déjà contenue dans la phrase précédente (cyberattaque massive perturbant l'interview) sans apporter de fait nouveau sourcé."
+        },
+        {
+          "bloc": 4,
+          "section": "nuances",
+          "type": "redondance",
+          "phrase_exacte": "Le délai d'un mois entre la détection (22 octobre) et la communication publique (19 novembre) n'a pas été justifié dans les déclarations officielles [1].",
+          "explication": "Cette information (dates de détection et de communication) est déjà présente implicitement dans les faits (détection le 22 octobre, source Le Monde du 19 novembre) ; la répéter explicitement dans 'nuances' duplique l'information sans ajouter de nuance analytique."
+        },
+        {
+          "bloc": 4,
+          "section": "nuances",
+          "type": "extrapolation",
+          "phrase_exacte": "L'absence de violation de données prouvée à ce stade ne préjuge pas de l'issue finale de l'enquête, les investigations pouvant révéler ultérieurement une compromission non détectée initialement [1].",
+          "explication": "Cette phrase spéculative sur ce que l'enquête 'pourrait' révéler ultérieurement n'est pas un fait établi par la source [1] ; elle constitue une extrapolation non sourcée sur l'avenir de l'enquête."
+        }
+      ]
+    },
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "resume_repete_corps"
+    ],
+    "titre": "Cyberattaque assistée par l'IA contre la Commission européenne : aucune violation de données prouvée",
+    "n_sources": 4,
+    "n_mots": 501,
+    "titre_rss": "Une cyberattaque assistée par l’IA a ciblé la Commission européenne en octobre",
+    "matiere_faits_distincts": 949,
+    "matiere_redondance": 0.09,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "binge-drinking-rare-multiplie-risque-alcoolisme-etudiants-inserm",
+    "statut": "corrige_automatiquement",
+    "date": "2026-11-20T22:47:56",
+    "problemes_initiaux": 8,
+    "tentatives": 1,
+    "problemes_residuels_style": 0,
+    "rapport_initial": {
+      "conforme": false,
+      "sujet_sensible": false,
+      "sujet_sensible_raison": "",
+      "angle_insuffisant": false,
+      "angle_insuffisant_raison": "",
+      "nature_contenu": "etude_scientifique",
+      "problemes": [
+        {
+          "bloc": 1,
+          "section": "titre",
+          "type": "fait_tranche_arbitrairement",
+          "phrase_exacte": "Binge drinking : même rare, il multiplie par huit le risque d'alcoolisme chez 3 308 étudiants franciliens",
+          "explication": "Le titre utilise le terme 'alcoolisme' alors que l'étude mesure une 'consommation dangereuse pour la santé' via l'outil AUDIT-C, qui ne pose pas de diagnostic clinique d'alcoolisme ; les nuances le précisent mais le titre généralise abusivement."
+        },
+        {
+          "bloc": 1,
+          "section": "resume",
+          "type": "fait_tranche_arbitrairement",
+          "phrase_exacte": "Les buveurs occasionnels de ce type présentent un risque de trouble de l'usage d'alcool huit fois supérieur aux non-binge drinkers (36,5 % contre 4,8 %)",
+          "explication": "Le résumé parle de 'trouble de l'usage d'alcool' (diagnostic clinique) alors que la source ne décrit qu'une consommation 'dangereuse pour la santé' dépistée par AUDIT-C, sans diagnostic ; confusion entre dépistage et pathologie confirmée."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "fait_tranche_arbitrairement",
+          "phrase_exacte": "Parmi les binge drinkers à faible fréquence, 36,5 % présentent une consommation d'alcool classée « dangereuse pour la santé » selon les critères de l'outil de dépistage utilisé, contre 4,8 % chez les non-binge drinkers — un ratio de près de huit pour un [1].",
+          "explication": "La phrase présente le ratio 36,5 % / 4,8 % comme un 'risque' multiplié par huit, or l'étude transversale ne mesure qu'une association à un instant T, pas un risque relatif ou une causalité ; le terme 'risque' implique une relation longitudinale non établie."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "Aux États-Unis, la prévalence du binge drinking intense (10 verres et plus) a diminué chez les adolescents ces dernières années, mais reste élevée [4].",
+          "explication": "La source [4] (Le Monde, article sur l'alcool sur les campus français) ne contient aucune donnée sur la prévalence du binge drinking aux États-Unis ni sur les adolescents américains ; l'information est inventée par rapport à cette source."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "contexte_hors_sujet",
+          "phrase_exacte": "Aux États-Unis, la prévalence du binge drinking intense (10 verres et plus) a diminué chez les adolescents ces dernières années, mais reste élevée [4].",
+          "explication": "Ce fait sur les adolescents américains ne porte pas sur le sujet de l'article (étudiants franciliens, étude Inserm 2026) et la source citée [4] ne le documente pas ; développement tangentiel sans lien direct avec le sujet principal."
+        },
+        {
+          "bloc": 2,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "Aux États-Unis, la prévalence du binge drinking intense (10 verres et plus) a diminué chez les adolescents ces dernières années, mais reste élevée [4].",
+          "explication": "Le renvoi [4] attribue cette affirmation à la source Le Monde, mais l'extrait fourni de cette source ne mentionne pas les États-Unis, les adolescents américains, ni une évolution de la prévalence du binge drinking intense ; attribution fausse."
+        },
+        {
+          "bloc": 2,
+          "section": "contexte",
+          "type": "compteur_incoherent",
+          "phrase_exacte": "\"nb_sources\": 5",
+          "explication": "Le champ nb_sources indique 5 mais le tableau sources ne contient que 4 entrées distinctes (Inserm, UN, Nejm, Le Monde) ; le compteur est erroné."
+        },
+        {
+          "bloc": 4,
+          "section": "titre",
+          "type": "jugement_de_valeur",
+          "phrase_exacte": "Binge drinking : même rare, il multiplie par huit le risque d'alcoolisme chez 3 308 étudiants franciliens",
+          "explication": "L'expression 'multiplie par huit le risque' dans le titre présente une association transversale comme une relation de risque causal, ce qui constitue une formulation orientée au-delà de ce que l'étude permet d'affirmer."
+        }
+      ]
+    },
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "titre_de_mauvaise_qualite"
+    ],
+    "titre": "Binge drinking : même rare, il multiplie par huit le risque d'alcoolisme chez 3 308 étudiants franciliens",
+    "n_sources": 4,
+    "n_mots": 584,
+    "titre_rss": "Les risques potentiels du binge drinking sur la santé des jeunes étudiants",
+    "matiere_faits_distincts": 649,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "veille_heures_visible": 517.7,
+    "veille_passages": 311,
+    "veille_age_h": 2419.4,
+    "veille_n_flux_grappe": 7,
+    "nature_contenu": "etude_scientifique"
+  },
+  {
+    "slug": "trump-taxe-data-centers-ia-ukraine-sommet-shenzhen",
+    "statut": "rejete_sensible",
+    "date": "2026-11-20T22:58:17",
+    "problemes_initiaux": 10,
+    "tentative": 3,
+    "bloc5": true,
+    "article_type": "actu",
+    "titre": "Trump menace d'une taxe les data centers IA à l'étranger après Shenzhen",
+    "n_sources": 6,
+    "n_mots": 533,
+    "titre_rss": "Shenzhen, guerre en Ukraine, data centers : ce qu'il faut retenir de la prise de parole de Trump",
+    "matiere_faits_distincts": 667,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "perseverance-panne-radio-suspension-science-odyssey-menace",
+    "statut": "rejete_qualite",
+    "date": "2026-11-20T23:22:18",
+    "problemes_initiaux": 5,
+    "tentatives": 3,
+    "problemes_restants": 6,
+    "bloquants_restants": 3,
+    "bloquants_types": [
+      "incoherence_inter_sections",
+      "source_inventee",
+      "source_inventee"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "incoherence_inter_sections",
+        "description": "Le résumé affirme que Perseverance a parcouru 30,48 km (source [1]), mais les faits citent ce même chiffre en l'attribuant à la source [1] (Numerama du 19/11/2026) alors que le contexte l'attribue aux 'mises à jour de la",
+        "phrase": "Le rover, qui a parcouru 30,48 kilomètres sur Mars selon cette même source, ne prend plus aucune photo ni mesure depuis cette date [1]."
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "Le fait cite la source [2] (Science@NASA) pour des mises à jour régulières, mais cet extrait n'est pas fourni dans les sources autorisées ; seul le titre et l'URL le sont, sans contenu vérifiable confirmant cette affirma",
+        "phrase": "La source Science@NASA du 12 octobre 2026 fournit des mises à jour régulières sur l'état de la mission et les activités scientifiques du rover avant la panne actuelle [2]."
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "Même problème que ci-dessus : la source [2] est invoquée pour un contenu (mises à jour régulières) que les extraits fournis ne permettent pas de confirmer.",
+        "phrase": "La source Science@NASA du 12 octobre 2026 fournit des mises à jour régulières sur l'état de la mission et les activités scientifiques du rover avant la panne actuelle [2]."
+      }
+    ],
+    "types_restants": [
+      "incoherence_inter_sections",
+      "source_inventee",
+      "source_inventee",
+      "compteur_incoherent",
+      "redondance",
+      "extrapolation"
+    ],
+    "article_type": "actu",
+    "titre": "NASA suspend la science de Perseverance, radios UHF en panne",
+    "n_sources": 3,
+    "n_mots": 684,
+    "titre_rss": "Alerte sur Mars : Perseverance est en panne et son principal relais n’a plus que 2 mois de vie",
+    "matiere_faits_distincts": 941,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "dominique-david-ifri-puissance-interieure-exterieure-france",
+    "statut": "rejete_qualite",
+    "date": "2026-11-20T23:33:45",
+    "angle_insuffisant": true,
+    "raison": "Aucune phrase des faits ne combine un événement précis daté (l'entretien du 20 novembre 2026) avec une donnée chiffrée ou nommée qui lui est propre ; l'article se contente de résumer les arguments de l'entretien sans révéler de fait nouveau, de chiffre inédit ou de décision annoncée ce jour-là, répondant à « qu'est-ce que pense Dominique David ? » plutôt qu'à « pourquoi en parle-t-on maintenant ? ».",
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "prise_de_position"
+    ],
+    "titre": "Dominique David : la puissance française se construit d'abord à l'intérieur",
+    "n_sources": 4,
+    "n_mots": 481,
+    "titre_rss": "Dominique David (IFRI) :« La puissance d’un Etat se prouve d’abord à l’intérieur, avant de s’exporter »",
+    "matiere_faits_distincts": 513,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "interview"
   }
 ]
