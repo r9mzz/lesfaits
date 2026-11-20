@@ -81504,5 +81504,925 @@
     "n_sources_injectees": 10,
     "n_sources_trouvees": 10,
     "nature_contenu": "etude_scientifique"
+  },
+  {
+    "slug": "effondrement-lille-2022-enquete-classee-sans-suite",
+    "statut": "conforme_du_premier_coup",
+    "date": "2026-11-20T08:16:52",
+    "article_type": "actu",
+    "titre": "Effondrement mortel à Lille : l'enquête classée sans suite faute de faute identifiée",
+    "n_sources": 3,
+    "n_mots": 403,
+    "titre_rss": "Effondrement mortel de deux immeubles à Lille en 2022 : l’enquête classée sans suite",
+    "matiere_faits_distincts": 750,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "budget-2027-senateurs-durcissent-texte-apres-rejet-assemblee",
+    "statut": "rejete_sensible",
+    "date": "2026-11-20T08:22:44",
+    "problemes_initiaux": 8,
+    "tentative": 3,
+    "bloc5": true,
+    "article_type": "actu",
+    "titre": "Budget 2027 : les sénateurs durcissent le texte après le rejet à l'Assemblée",
+    "n_sources": 6,
+    "n_mots": 602,
+    "titre_rss": "Budget 2027 : à rebours des députés, les sénateurs se préparent à durcir la copie",
+    "matiere_faits_distincts": 565,
+    "matiere_redondance": 0.01,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "beatrice-cointe-sciences-climat-politiques-giec-blocage-etats",
+    "statut": "rejete_qualite",
+    "date": "2026-11-20T08:27:32",
+    "tentative": 3,
+    "perte_substance": true,
+    "section": "contexte",
+    "mots_avant": 224,
+    "mots_apres": 90,
+    "article_type": "actu",
+    "titre": "Béatrice Cointe alerte sur la politisation des sciences du climat",
+    "n_sources": 5,
+    "n_mots": 620,
+    "titre_rss": "Béatrice Cointe, sociologue : « Il est devenu impossible d’ignorer que les sciences du climat sont politiques de bout en bout »",
+    "matiere_faits_distincts": 721,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "tribune"
+  },
+  {
+    "slug": "proposition-loi-interdire-gaz-lacrymogenes-manifestation",
+    "statut": "rejete_qualite",
+    "date": "2026-11-20T08:33:10",
+    "problemes_initiaux": 9,
+    "tentatives": 3,
+    "problemes_restants": 16,
+    "bloquants_restants": 11,
+    "bloquants_types": [
+      "chiffre_errone",
+      "chiffre_errone",
+      "incoherence_inter_sections",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [5] (AFP, 28/10/2026) indique « plus de 8 000 femmes ont témoigné » (témoignages de femmes), l'article transforme ce chiffre en « signalements » (terme plus large) et ajoute « auprès d'un collectif » qui n'est ",
+        "phrase": "Plus de 8 000 signalements de troubles du cycle menstruel — crampes, saignements anormaux ou abondants — ont été recueillis auprès d'un collectif par des personnes exposées aux gaz lacrymogènes [5]."
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [4] (Le Monde, 17/11/2026) indique « près de 10 000 signalements doivent être remis mardi aux élus » sans mentionner « mouvement lycéen » ni « mobilisation sociale » comme période de collecte — ces précisions n",
+        "phrase": "Près de 10 000 signalements, collectés depuis le début du mouvement lycéen et de la mobilisation sociale, doivent être présentés mardi aux élus [4]."
+      },
+      {
+        "bloc": 1,
+        "type": "incoherence_inter_sections",
+        "description": "L'article affirme que les 8 000+ (source [5], AFP 28/10) et les près de 10 000 (source [4], Le Monde 17/11) concernent le même corpus, mais les sources sont à 20 jours d'intervalle et l'extrait [4] ne confirme pas l'iden",
+        "phrase": "Les deux chiffres concernent le même corpus de signalements transmis par le collectif aux parlementaires signataires."
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "Le renvoi [6] pointe vers la 6e source du tableau (Europa, révision DCMR, 01/07/2026) qui ne traite pas d'une proposition de loi française sur les gaz lacrymogènes — attribution factice.",
+        "phrase": "Une proposition de loi transpartisane a été déposée pour interdire l'utilisation des gaz lacrymogènes par les forces de l'ordre lors des manifestations sur le territoire français [6]."
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "Même renvoi [6] vers la source Europa sans rapport avec le contenu de la proposition de loi française.",
+        "phrase": "Le texte motive cette interdiction par des \"effets potentiels sur la santé, encore largement méconnus faute de données scientifiques suffisantes\" [6]."
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "Renvoi [6] vers source Europa qui ne documente pas le contenu de la proposition de loi française.",
+        "phrase": "La proposition de loi ne précise pas les alternatives techniques pour le maintien de l'ordre en cas d'interdiction (canons à eau, dispersion manuelle, nouvelles substances) [6]."
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "Renvoi [6] vers source Europa qui ne liste pas les signataires de la proposition de loi française.",
+        "phrase": "Les parlementaires signataires proviennent de plusieurs groupes politiques, dont La France insoumise, le Parti socialiste et Les Écologistes [6]."
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "La source [4] (Le Monde) ne contient pas cette information sur le calendrier parlementaire dans l'extrait fourni.",
+        "phrase": "L'examen en commission des lois n'est pas encore calendarisé [4]."
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "L'extrait de la source [4] (Le Monde) fourni ne mentionne pas le code de la sécurité intérieure ni la qualification d'« armes intermédiaires » — information non confirmée par la source citée.",
+        "phrase": "L'usage des gaz lacrymogènes pour le maintien de l'ordre est encadré en France par le code de la sécurité intérieure, qui autorise les forces de l'ordre à employer des \"armes intermédiaires\" dont les grenades lacrymogène"
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "L'extrait de la source [5] (AFP) fourni ne contient pas cette affirmation sur l'absence d'étude de cohorte en France.",
+        "phrase": "Aucune étude épidémiologique de cohorte n'a été menée en France sur les populations exposées de façon répétée lors de manifestations [5]."
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "L'extrait de la source [5] (AFP) fourni ne mentionne pas l'Anses ni l'absence d'avis sur les effets reproductifs.",
+        "phrase": "L'Agence nationale de sécurité sanitaire (Anses) n'a pas rendu d'avis spécifique sur les effets reproductifs de ces gaz [5]."
+      }
+    ],
+    "types_restants": [
+      "chiffre_errone",
+      "chiffre_errone",
+      "incoherence_inter_sections",
+      "redondance",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "compteur_incoherent",
+      "cadrage_emprunte",
+      "chiffre_errone",
+      "source_inventee"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "resume_repete_corps",
+      "titre_de_mauvaise_qualite"
+    ],
+    "titre": "Gaz lacrymogènes : une proposition de loi transpartisane demande leur interdiction en manifestation",
+    "n_sources": 5,
+    "n_mots": 475,
+    "titre_rss": "Santé : une proposition de loi pour interdire les gaz lacrymogènes en manifestation",
+    "matiere_faits_distincts": 477,
+    "matiere_redondance": 0.01,
+    "matiere_donnees_chiffrees": 2,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "retraites-rn-promesses-contradictions-systeme-actuel",
+    "statut": "rejete_qualite",
+    "date": "2026-11-20T08:42:52",
+    "tentative": 2,
+    "angle_insuffisant": true,
+    "raison": "Aucune phrase dans 'faits' ne combine un événement précis daté (annonce, publication, décision récente) et une donnée chiffrée ou nommée qui lui est propre. L'article expose des positions et une analyse sans fait déclencheur daté justifiant la publication maintenant.",
+    "article_type": "actu",
+    "titre": "Retraites : le RN confronté aux contradictions de ses promesses",
+    "n_sources": 5,
+    "n_mots": 512,
+    "titre_rss": "Retraites : le RN piégé par ses promesses",
+    "matiere_faits_distincts": 498,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "cop31-antalya-ouverture-tensions-financement-urgence-climatique",
+    "statut": "rejete_qualite",
+    "date": "2026-11-20T08:49:25",
+    "problemes_initiaux": 11,
+    "tentatives": 3,
+    "problemes_restants": 10,
+    "bloquants_restants": 6,
+    "bloquants_types": [
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "incoherence_inter_sections",
+      "source_inventee",
+      "source_inventee"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [2] (Vie Publique) indique que la COP31 se tient du 9 au 21 novembre 2026, et non du 10 au 21 novembre.",
+        "phrase": "La COP31 s'ouvre le 10 novembre 2026 à Antalya, en Turquie, pour une session de deux semaines jusqu'au 21 novembre [2]."
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [6] (BBC) indique que la probabilité de 99 % concerne le fait qu'au moins une des cinq prochaines années (2025-2029) batte le record de 2024, et non spécifiquement l'année 2026.",
+        "phrase": "Des scientifiques prévoient avec 99 % de confiance que 2026 sera l'année la plus chaude jamais enregistrée, dépassant le record de 2024 [6]."
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "Le résumé reprend l'erreur du corps : la BBC attribue la probabilité de 99 % à la période 2025-2029, pas à la seule année 2026.",
+        "phrase": "À Antalya, la COP31 s'ouvre sous le signe de l'urgence : 2026 s'annonce comme l'année la plus chaude jamais mesurée, avec 99 % de probabilité d'un record absolu selon des scientifiques cités par la BBC."
+      },
+      {
+        "bloc": 1,
+        "type": "incoherence_inter_sections",
+        "description": "La source [4] (AP News) est datée du 9 novembre 2026 et traite de la 'final day of UN climate talks' (dernier jour des pourparlers), ce qui contredit l'affirmation de l'article selon laquelle la COP31 s'ouvre le 10 novem",
+        "phrase": "Selon l'agence AP, les négociateurs cherchent encore des engagements concrets pour mettre en œuvre la sortie des combustibles fossiles actée à Dubaï."
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "Ces faits historiques précis (dates, lieux, décisions) ne figurent dans aucune des six sources autorisées. Ils constituent des informations apportées sans source.",
+        "phrase": "La COP28 à Dubaï (2023) a acté pour la première fois un appel à « transitionner » hors des combustibles fossiles, sans calendrier contraignant. La COP29 à Bakou (2024) s'est concentrée sur le nouveau objectif collectif q"
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "Les instituts Berkeley Earth et NOAA ne sont cités dans aucune des sources autorisées. Leur mention comme sources de prévisions divergentes est une invention de sourcing.",
+        "phrase": "d'autres modèles comme ceux de Berkeley Earth ou de la NOAA publient des fourchettes légèrement différentes, sans remettre en cause la tendance de fond."
+      }
+    ],
+    "types_restants": [
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "incoherence_inter_sections",
+      "fait_tranche_arbitrairement",
+      "fait_tranche_arbitrairement",
+      "source_inventee",
+      "source_inventee",
+      "compteur_incoherent",
+      "redondance"
+    ],
+    "article_type": "actu",
+    "titre": "Ouverture de la COP31 à Antalya : tensions sur le financement et urgence climatique record",
+    "n_sources": 6,
+    "n_mots": 576,
+    "titre_rss": "\"Une action climatique fondée sur la science est plus cruciale que jamais\" : à la COP31, les experts du Giec au centre d'un bras de fer",
+    "matiere_faits_distincts": 586,
+    "matiere_redondance": 0.07,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "ebola-bundibugyo-vaccins-zaire-anticorps-croises-inserm",
+    "statut": "rejete_qualite",
+    "date": "2026-11-20T08:54:29",
+    "problemes_initiaux": 10,
+    "tentatives": 3,
+    "problemes_restants": 7,
+    "bloquants_restants": 6,
+    "bloquants_types": [
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [2] (UN News, 5 novembre 2026) indique « plus de 300 cas confirmés et plus de 100 décès » au 2 novembre 2026, et non « plus de 1 000 cas confirmés et plus de 400 décès ».",
+        "phrase": "Au 2 novembre 2026, l'ONU rapporte plus de 1 000 cas confirmés et plus de 400 décès en RDC, selon les données de l'OMS [2]."
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [2] ne mentionne aucun district de santé du Sud-Kivu ; elle cite les zones de santé de Kambala, Kabare, Katana, Miti-Murhesa et Nyantende dans la province du Nord-Kivu.",
+        "phrase": "L'ONU cite les districts de santé de Kambala, Kabare, Katana, Miti-Murhesa et Nyantende dans la province du Sud-Kivu comme zones touchées [2]."
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [5] (Vie Publique, 16 juin 2026) est un discours du Président de la République française, pas une déclaration conjointe de chefs d'État et de gouvernement.",
+        "phrase": "Le 16 juin 2026, les chefs d'État et de gouvernement ont lancé un appel à une réponse coordonnée face à cette épidémie [5]."
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "Le chiffre « plus de 1 000 cas confirmés et plus de 400 décès » n'apparaît pas dans la source [2] (UN News) ; il est inventé par rapport à cette source.",
+        "phrase": "Au 2 novembre 2026, l'ONU rapporte plus de 1 000 cas confirmés et plus de 400 décès en RDC, selon les données de l'OMS [2]."
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "La localisation « province du Sud-Kivu » pour ces districts n'est pas dans la source [2] ; elle y est indiquée comme Nord-Kivu.",
+        "phrase": "L'ONU cite les districts de santé de Kambala, Kabare, Katana, Miti-Murhesa et Nyantende dans la province du Sud-Kivu comme zones touchées [2]."
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "La source [5] (Vie Publique) ne contient pas d'appel lancé par des chefs d'État et de gouvernement ; c'est un discours du Président français seul.",
+        "phrase": "Le 16 juin 2026, les chefs d'État et de gouvernement ont lancé un appel à une réponse coordonnée face à cette épidémie [5]."
+      }
+    ],
+    "types_restants": [
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "compteur_incoherent",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee"
+    ],
+    "article_type": "actu",
+    "titre": "Ebola Bundibugyo : les vaccins anti-Zaïre induisent des anticorps croisés, selon l'Inserm",
+    "n_sources": 6,
+    "n_mots": 780,
+    "titre_rss": "Épidémie d’Ebola Bundibugyo : des premiers résultats pour guider la recherche d’un vaccin efficace",
+    "matiere_faits_distincts": 726,
+    "matiere_redondance": 0.01,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "veille_heures_visible": 517.7,
+    "veille_passages": 311,
+    "veille_age_h": 2406.6,
+    "veille_n_flux_grappe": 9,
+    "nature_contenu": "etude_scientifique"
+  },
+  {
+    "slug": "plfss-2027-senat-adoption-cmp-retraites",
+    "statut": "rejete_sensible",
+    "date": "2026-11-20T08:57:51",
+    "problemes_initiaux": 13,
+    "bloc5": [
+      "compteur_incoherent"
+    ],
+    "article_type": "actu",
+    "titre": "PLFSS 2027 : le Sénat adopte le texte, la CMP tranchera sur les retraités",
+    "n_sources": 7,
+    "n_mots": 457,
+    "titre_rss": "Budget de la « Sécu » pour 2027 : la question-clé de l’effort demandé aux retraités",
+    "matiere_faits_distincts": 637,
+    "matiere_redondance": 0.02,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "cop31-projet-accord-accelerer-sortie-energies-fossiles",
+    "statut": "rejete_sensible",
+    "date": "2026-11-20T09:04:04",
+    "problemes_initiaux": 19,
+    "bloc5": [
+      "diffamation_potentielle"
+    ],
+    "article_type": "actu",
+    "titre": "COP31 : un projet d'accord propose d'accélérer la sortie des énergies fossiles",
+    "n_sources": 6,
+    "n_mots": 569,
+    "titre_rss": "Climat : à la COP31, un projet d'accord pour accélérer la sortie des énergies fossiles",
+    "matiere_faits_distincts": 660,
+    "matiere_redondance": 0.07,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "guadeloupe-alerte-secheresse-trimestre-juillet-septembre-tres-sec",
+    "statut": "rejete_sensible",
+    "date": "2026-11-20T09:08:14",
+    "problemes_initiaux": 10,
+    "bloc5": [
+      "affaire_en_cours_presentee_comme_fait"
+    ],
+    "article_type": "actu",
+    "titre": "Guadeloupe en alerte sécheresse : un trimestre juillet-septembre parmi les plus secs depuis 1991",
+    "n_sources": 5,
+    "n_mots": 544,
+    "titre_rss": "La Guadeloupe placée en « état d’alerte sécheresse » en fin de saison des pluies",
+    "matiere_faits_distincts": 429,
+    "matiere_redondance": 0.1,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "presidentielle-2027-tondelier-melenchon-jadot-depart-ecologistes",
+    "statut": "rejete_qualite",
+    "date": "2026-11-20T09:16:32",
+    "problemes_initiaux": 7,
+    "tentatives": 3,
+    "problemes_restants": 8,
+    "bloquants_restants": 2,
+    "bloquants_types": [
+      "chiffre_errone",
+      "chiffre_errone"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [5] (AP News) ne mentionne pas le score de 21,95 % de Jean-Luc Mélenchon en 2022 ; ce chiffre est absent de l'extrait fourni.",
+        "phrase": "Jean-Luc Mélenchon, qui a rassemblé 21,95 % des voix au premier tour en 2022, tente de capitaliser sur sa dynamique pour imposer sa candidature comme pivot de la gauche [5]."
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "Aucune des sources autorisées ne mentionne le score de 4,63 % de Yannick Jadot en 2022 ; ce chiffre est absent des extraits fournis.",
+        "phrase": "Les Écologistes n'ont pas présenté de candidat distinct en 2017 (soutien à Benoît Hamon) ni en 2022 (Yannick Jadot, 4,63 %)."
+      }
+    ],
+    "types_restants": [
+      "chiffre_errone",
+      "chiffre_errone",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "compteur_incoherent"
+    ],
+    "article_type": "actu",
+    "titre": "Présidentielle 2027 : Tondelier ouvre la porte à Mélenchon, Jadot quitte les Écologistes",
+    "n_sources": 5,
+    "n_mots": 553,
+    "titre_rss": "Présidentielle 2027: Tondelier fait un pas vers Mélenchon, Jadot claque la porte des Écologistes",
+    "matiere_faits_distincts": 647,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "mortalite-france-2024-641046-deces-taux-standardise-baisse",
+    "statut": "rejete_qualite",
+    "date": "2026-11-20T09:23:15",
+    "tentative": 3,
+    "perte_substance": true,
+    "section": "nuances",
+    "mots_avant": 129,
+    "mots_apres": 53,
+    "article_type": "actu",
+    "titre": "Mortalité 2024 : 641 046 décès en France, taux standardisé en baisse",
+    "n_sources": 5,
+    "n_mots": 822,
+    "titre_rss": "Grandes causes de décès en France : tendances et causes associées en 2024",
+    "matiere_faits_distincts": 1194,
+    "matiere_redondance": 0.06,
+    "matiere_donnees_chiffrees": 4,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "veille_heures_visible": 517.7,
+    "veille_passages": 311,
+    "veille_age_h": 2406.6,
+    "veille_n_flux_grappe": 1,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "ancien-patron-haribo-nomme-copresident-comite-suivi-strategie-nationale-alimentation",
+    "statut": "corrige_automatiquement",
+    "date": "2026-11-20T09:35:32",
+    "problemes_initiaux": 8,
+    "tentatives": 1,
+    "problemes_residuels_style": 8,
+    "rapport_initial": {
+      "conforme": false,
+      "sujet_sensible": false,
+      "sujet_sensible_raison": "",
+      "angle_insuffisant": false,
+      "angle_insuffisant_raison": "",
+      "nature_contenu": "actualite_factuelle",
+      "problemes": [
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "chiffre_errone",
+          "phrase_exacte": "La loi Sapin 2 de 2017, qui a instauré un répertoire national des représentants d'intérêts géré par la Haute Autorité pour la transparence de la vie publique (HATVP) [2].\n\nCette loi impose aux anciens dirigeants publics et aux lobbyistes des délais de carence — généralement trois ans — avant de pouvoir intervenir sur des dossiers qu'ils ont traités, ainsi qu'une obligation de déclaration d'intérêts [2].",
+          "explication": "La source [2] (Vie Publique) ne mentionne pas de délai de carence de \"généralement trois ans\" pour les lobbyistes ; elle précise que la loi Sapin 2 impose un délai de 3 ans aux anciens dirigeants PUBLICS (ex-membres du gouvernement, parlementaires, hauts fonctionnaires) mais pas aux lobbyistes en tant que tels. L'article généralise à tort cette règle aux lobbyistes."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "chiffre_errone",
+          "phrase_exacte": "Cette loi impose aux anciens dirigeants publics et aux lobbyistes des délais de carence — généralement trois ans — avant de pouvoir intervenir sur des dossiers qu'ils ont traités, ainsi qu'une obligation de déclaration d'intérêts [2].",
+          "explication": "Même phrase que ci-dessus : la source [2] ne prévoit pas de délai de carence pour les lobbyistes, seulement pour les anciens dirigeants publics. L'article attribue à la source une règle qu'elle ne contient pas."
+        },
+        {
+          "bloc": 1,
+          "section": "nuances",
+          "type": "fait_tranche_arbitrairement",
+          "phrase_exacte": "Aucun élément dans les sources disponibles ne permet d'établir si la procédure de nomination a inclus une vérification formelle de compatibilité avec les règles de la HATVP, ni si des mesures de prévention des conflits d'intérêts ont été mises en place pour ce mandat spécifique.",
+          "explication": "L'article présente comme un fait établi l'absence de vérification HATVP, alors que la source [1] (Le Monde) ne traite pas de cette procédure. L'absence d'information dans les sources ne permet pas d'affirmer que la vérification n'a pas eu lieu ; c'est une extrapolation présentée comme un constat."
+        },
+        {
+          "bloc": 2,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "Historiquement, les industries du sucre et de l'agroalimentaire ont développé des stratégies d'influence pour orienter le débat scientifique et les politiques nutritionnelles, comme le documentent les travaux sur le \"Sugar Gate\" aux États-Unis dans les années 1960 [3].",
+          "explication": "La source [3] (RTBF) traite du lobby du sucre et de son influence sur le débat sanitaire, mais l'extrait fourni ne mentionne pas le terme \"Sugar Gate\" ni les années 1960. L'article attribue à cette source des éléments historiques précis qu'elle ne contient pas dans les extraits fournis."
+        },
+        {
+          "bloc": 3,
+          "section": "contexte",
+          "type": "cadrage_emprunte",
+          "phrase_exacte": "L'ANIA est identifiée comme l'un des groupes d'influence les plus actifs sur les dossiers alimentaires, notamment sur la réglementation Nutri-Score, la publicité pour les produits gras, sucrés et salés, et la loi EGalim [4].",
+          "explication": "La source [4] (Vie Publique \"Groupe de pression\") est une fiche générique de définition ; elle ne cite pas l'ANIA ni ses dossiers spécifiques. L'article présente comme un fait documenté par cette source une caractérisation de l'ANIA qui n'y figure pas."
+        },
+        {
+          "bloc": 4,
+          "section": "contexte",
+          "type": "contexte_hors_sujet",
+          "phrase_exacte": "Historiquement, les industries du sucre et de l'agroalimentaire ont développé des stratégies d'influence pour orienter le débat scientifique et les politiques nutritionnelles, comme le documentent les travaux sur le \"Sugar Gate\" aux États-Unis dans les années 1960 [3].",
+          "explication": "Ce développement historique sur le \"Sugar Gate\" américain des années 1960 n'éclaire pas directement la nomination actuelle de Jean-Philippe André en France. Il sert de remplissage générique sans lien direct avec le sujet de l'article."
+        },
+        {
+          "bloc": 4,
+          "section": "nuances",
+          "type": "redondance",
+          "phrase_exacte": "La nomination d'un ancien président de l'ANIA à une fonction de pilotage de la stratégie alimentaire nationale interroge sur l'effectivité des garde-fous déontologiques, notamment le respect des délais de carence et la portée des déclarations d'intérêts [2].",
+          "explication": "Cette idée (risque de conflit d'intérêts, délais de carence, déclarations d'intérêts) est déjà développée dans le résumé (point 2) et le contexte. La charte interdit de répéter une même idée d'une section à l'autre."
+        },
+        {
+          "bloc": 4,
+          "section": "nuances",
+          "type": "extrapolation",
+          "phrase_exacte": "Si l'expertise technique du secteur privé est souvent jugée indispensable à l'élaboration des normes, la frontière entre concertation et capture réglementaire reste difficile à tracer dans la pratique [4].",
+          "explication": "L'article anticipe une conséquence (difficulté à tracer la frontière) non explicitement sourcée. La source [4] ne traite pas de cette tension conceptuelle ; c'est une interprétation éditoriale présentée comme un fait."
+        }
+      ]
+    },
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "resume_repete_corps"
+    ],
+    "titre": "L'ancien patron de Haribo nommé coprésident du comité de suivi de la stratégie alimentaire",
+    "n_sources": 4,
+    "n_mots": 483,
+    "titre_rss": "L’ancien patron de Haribo et du lobby de l’industrie agroalimentaire a été nommé pour copiloter l’action de l’Etat sur l’alimentation",
+    "matiere_faits_distincts": 754,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "meta-renonce-objectif-zero-emission-nette-2030-intelligence-artificielle",
+    "statut": "rejete_qualite",
+    "date": "2026-11-20T09:45:35",
+    "problemes_initiaux": 13,
+    "tentatives": 3,
+    "problemes_restants": 7,
+    "bloquants_restants": 5,
+    "bloquants_types": [
+      "chiffre_errone",
+      "chiffre_errone",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [3] (Le Monde, 16/09/2026) indique que Mark Zuckerberg a rejeté les appels à un moratoire sur l'IA, mais ne mentionne pas qu'il a affirmé que \"la technologie apporte plus de bénéfices que de risques\" — cette ci",
+        "phrase": "Mark Zuckerberg a rejeté, mercredi 16 septembre 2026, les appels grandissants à suspendre le développement de l'IA, affirmant que la technologie apporte plus de bénéfices que de risques [3]."
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [4] (OCDE, Perspectives de l'économie numérique 2024) n'est pas citée avec un extrait confirmant cette affirmation précise sur le décalage entre consommation électrique des data centers et déploiement des renou",
+        "phrase": "L'expansion rapide des centres de données, nécessaires à l'entraînement et au déploiement des modèles d'IA générative, fait grimper la consommation d'électricité bien plus vite que le déploiement d'énergies renouvelables"
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "Le renvoi [4] pointe vers le rapport OCDE 2024, mais l'extrait fourni de cette source ne contient pas l'affirmation attribuée — le fait est inventé par rapport à la source citée.",
+        "phrase": "L'expansion rapide des centres de données, nécessaires à l'entraînement et au déploiement des modèles d'IA générative, fait grimper la consommation d'électricité bien plus vite que le déploiement d'énergies renouvelables"
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "Même source [4], même problème : l'extrait du rapport OCDE fourni ne contient pas cette formulation sur \"décalage structurel\" et \"énergies bas carbone\" — l'article prête au rapport des propos non présents dans l'extrait ",
+        "phrase": "L'annonce de Meta s'inscrit dans une tendance plus large du secteur technologique : l'OCDE souligne dans ses Perspectives de l'économie numérique 2024 que la croissance exponentielle de la demande de calcul pour l'IA gén"
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "La source [5] (UN News, 01/07/2026) n'est pas fournie avec un extrait confirmant cette citation sur \"gouvernance mondiale\", \"dimension environnementale\" et \"verrouillage carbone\" — l'attribution est non vérifiée.",
+        "phrase": "Les Nations unies rappellent par ailleurs que la gouvernance mondiale de l'IA doit intégrer dès maintenant sa dimension environnementale pour éviter un verrouillage carbone [5]."
+      }
+    ],
+    "types_restants": [
+      "chiffre_errone",
+      "chiffre_errone",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "extrapolation",
+      "chiffre_errone"
+    ],
+    "article_type": "actu",
+    "titre": "Meta renonce à son objectif zéro émission nette pour 2030 à cause de l'IA",
+    "n_sources": 5,
+    "n_mots": 445,
+    "titre_rss": "Face au développement de l'intelligence artificielle, Meta \"réévalue\" son objectif de zéro émission nette à l'horizon 2030",
+    "matiere_faits_distincts": 801,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "covid-19-circulation-hausse-impact-hospitalier-limite",
+    "statut": "corrige_automatiquement",
+    "date": "2026-11-20T10:12:53",
+    "problemes_initiaux": 8,
+    "tentatives": 2,
+    "problemes_residuels_style": 12,
+    "rapport_initial": {
+      "conforme": false,
+      "sujet_sensible": false,
+      "sujet_sensible_raison": "",
+      "angle_insuffisant": false,
+      "angle_insuffisant_raison": "",
+      "nature_contenu": "actualite_factuelle",
+      "problemes": [
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "chiffre_errone",
+          "phrase_exacte": "Le service d'enquête numérique de Radio France compile plusieurs indicateurs qui convergent vers une reprise de la circulation du SARS-CoV-2 sur le territoire métropolitain ces derniers jours [1].",
+          "explication": "La source [1] est un article de France Info, pas un service d'enquête numérique de Radio France ; l'attribution de la compilation à un service interne de Radio France est inexacte par rapport à la source citée."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "chiffre_errone",
+          "phrase_exacte": "Parallèlement, le système hospitalier français fait face à un déficit structurel d'exploitation de 2,3 milliards d'euros en 2025, en légère amélioration par rapport à 2024 (-2,9 milliards), selon la Drees [2].",
+          "explication": "La source [2] (Vie Publique, datée 31 juillet 2026) rapporte un chiffre pour l'année 2025 ; l'article le présente comme un fait actuel alors que la source est postérieure à l'année concernée et ne permet pas d'affirmer que le système \"fait face\" à ce déficit en 2025 au moment de l'écriture."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "chronologie_confuse",
+          "phrase_exacte": "Un rapport du Sénat de 2025 pointe par ailleurs une politique de prévention sous-investie et une gouvernance fragmentée qui limitent l'efficacité des actions face aux pathologies évitables [3].",
+          "explication": "La source [3] est datée 2025 sans précision de mois ; l'article l'intègre dans le contexte de l'actualité Covid sans expliciter son lien temporel ni thématique direct avec la reprise de circulation décrite dans les faits."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "contexte_hors_sujet",
+          "phrase_exacte": "Parallèlement, le système hospitalier français fait face à un déficit structurel d'exploitation de 2,3 milliards d'euros en 2025, en légère amélioration par rapport à 2024 (-2,9 milliards), selon la Drees [2]. Un rapport du Sénat de 2025 pointe par ailleurs une politique de prévention sous-investie et une gouvernance fragmentée qui limitent l'efficacité des actions face aux pathologies évitables [3].",
+          "explication": "Les sources [2] et [3] portent sur la situation financière et la politique de prévention du système hospitalier français, sans lien direct avec la reprise de circulation du Covid-19 ni avec l'impact hospitalier limité décrit dans les faits ; elles servent de remplissage générique."
+        },
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "Le service d'enquête numérique de Radio France compile plusieurs indicateurs qui convergent vers une reprise de la circulation du SARS-CoV-2 sur le territoire métropolitain ces derniers jours [1].",
+          "explication": "Le texte attribue la compilation à un \"service d'enquête numérique de Radio France\" qui n'apparaît pas dans la source [1] (article France Info) ; cette entité est inventée par rapport aux sources autorisées."
+        },
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "Cette hausse se manifeste par une augmentation des taux d'incidence et de positivité des tests virologiques, ainsi qu'une remontée du facteur de reproduction du virus (R0) au-dessus du seuil de 1 [7].",
+          "explication": "Le renvoi [7] n'existe pas dans le tableau des sources (qui ne contient que 5 entrées, indices 1 à 5) ; le fait est attribué à une source fantôme."
+        },
+        {
+          "bloc": 2,
+          "section": "contexte",
+          "type": "compteur_incoherent",
+          "phrase_exacte": "\"nb_sources\": 5",
+          "explication": "Le champ nb_sources indique 5, mais le corps du texte utilise un renvoi [7] inexistant, ce qui révèle un décalage entre les sources déclarées et les sources effectivement citées."
+        },
+        {
+          "bloc": 4,
+          "section": "contexte",
+          "type": "section_gonflee",
+          "phrase_exacte": "Parallèlement, le système hospitalier français fait face à un déficit structurel d'exploitation de 2,3 milliards d'euros en 2025, en légère amélioration par rapport à 2024 (-2,9 milliards), selon la Drees [2]. Un rapport du Sénat de 2025 pointe par ailleurs une politique de prévention sous-investie et une gouvernance fragmentée qui limitent l'efficacité des actions face aux pathologies évitables [3].",
+          "explication": "La section contexte est gonflée avec des faits financiers et institutionnels sans rapport direct avec le sujet (reprise Covid, impact hospitalier), utilisés pour remplir faute de matière pertinente sur la dissociation circulation/gravité."
+        }
+      ]
+    },
+    "article_type": "actu",
+    "titre": "Covid-19 : circulation en hausse, impact hospitalier limité",
+    "n_sources": 5,
+    "n_mots": 460,
+    "titre_rss": "La circulation du Covid-19 repart à la hausse, mais l'impact sur les hopitaux du virus reste faible",
+    "matiere_faits_distincts": 825,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 2,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "bruit-routier-precoce-difficultes-emotionnelles-enfants-10-ans",
+    "statut": "corrige_automatiquement",
+    "date": "2026-11-20T10:16:41",
+    "problemes_initiaux": 3,
+    "tentatives": 1,
+    "problemes_residuels_style": 0,
+    "rapport_initial": {
+      "conforme": false,
+      "sujet_sensible": false,
+      "sujet_sensible_raison": "",
+      "angle_insuffisant": false,
+      "angle_insuffisant_raison": "",
+      "nature_contenu": "etude_scientifique",
+      "problemes": [
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "chiffre_errone",
+          "phrase_exacte": "L'étude a bénéficié du soutien du projet Child E&D, de l'ERC RESEDA, et d'un appel à projets croisant données de santé et environnementales porté par Green Data for Health (Anses) et Health Data Hub [1].",
+          "explication": "La source [1] ne mentionne pas le projet Child E&D, l'ERC RESEDA, Green Data for Health (Anses) ni Health Data Hub comme financeurs de l'étude ; ces informations sont absentes de l'extrait fourni."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "chiffre_errone",
+          "phrase_exacte": "En France, la valeur limite réglementaire pour le bruit routier (indicateur Lden) est de 68 dB, seuil souvent dépassé aux abords du périphérique parisien [2].",
+          "explication": "La source [2] (jeu de données ouvertes sur le bruit environnemental) ne contient aucune mention d'une valeur limite réglementaire de 68 dB Lden pour le bruit routier en France, ni de dépassement au périphérique parisien."
+        },
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "compteur_incoherent",
+          "phrase_exacte": "\"nb_sources\": 4",
+          "explication": "Le champ nb_sources indique 4 alors que seules 3 sources distinctes sont listées dans le tableau sources."
+        }
+      ]
+    },
+    "article_type": "actu",
+    "titre": "Bruit routier précoce : un lien avec les difficultés émotionnelles à 10 ans",
+    "n_sources": 3,
+    "n_mots": 659,
+    "titre_rss": "Une exposition élevée et persistante au bruit routier au début de l’enfance est associée à un risque accru de difficultés émotionnelles et relationnelles à 10 ans",
+    "matiere_faits_distincts": 876,
+    "matiere_redondance": 0.04,
+    "matiere_donnees_chiffrees": 2,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "veille_heures_visible": 198.4,
+    "veille_passages": 55,
+    "veille_age_h": 2087.3,
+    "veille_n_flux_grappe": 2,
+    "nature_contenu": "etude_scientifique"
+  },
+  {
+    "slug": "decarbonation-aviation-leviers-techniques-carburants-durables-parlement",
+    "statut": "rejete_qualite",
+    "date": "2026-11-20T10:20:38",
+    "angle_insuffisant": true,
+    "raison": "Aucune phrase des faits ne combine un événement précis daté (publication, décision, résultat récent) et une donnée chiffrée ou nommée qui lui est propre. Le fait le plus récent cité est un avis du Sénat du 19 novembre 2025 (source [4]), mais l'article ne l'exploite pas comme déclencheur d'actualité ; il se contente de synthétiser des rapports de 2022, 2023 et une question/réponse de 2019-2021 sans fait déclencheur identifiable justifiant une publication maintenant.",
+    "article_type": "actu",
+    "titre": "Décarbonation de l'aviation : les leviers techniques et carburants durables identifiés par le Parlement",
+    "n_sources": 5,
+    "n_mots": 784,
+    "titre_rss": "“Décarboner l’aviation n’est plus une option, c’est devenu une nécessité absolue”",
+    "matiere_faits_distincts": 992,
+    "matiere_redondance": 0.02,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "rapport"
+  },
+  {
+    "slug": "bangladesh-ouvriers-textile-manifestations-salaires-inflation-2026",
+    "statut": "rejete_sensible",
+    "date": "2026-11-20T10:26:34",
+    "problemes_initiaux": 17,
+    "bloc5": [
+      "affaire_en_cours_presentee_comme_fait"
+    ],
+    "article_type": "actu",
+    "titre": "Bangladesh : 200 000 ouvriers du textile manifestent pour une hausse des salaires",
+    "n_sources": 6,
+    "n_mots": 580,
+    "titre_rss": "Au Bangladesh, les ouvriers du textile se révoltent contre des salaires de misère",
+    "matiere_faits_distincts": 929,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 2,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "guerre-iran-pentagone-cout-48-3-milliards-dollars",
+    "statut": "corrige_automatiquement",
+    "date": "2026-11-20T10:31:22",
+    "problemes_initiaux": 10,
+    "tentatives": 1,
+    "problemes_residuels_style": 9,
+    "rapport_initial": {
+      "conforme": false,
+      "sujet_sensible": false,
+      "sujet_sensible_raison": "",
+      "angle_insuffisant": false,
+      "angle_insuffisant_raison": "",
+      "nature_contenu": "actualite_factuelle",
+      "problemes": [
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "chiffre_errone",
+          "phrase_exacte": "La première estimation officielle, mi-mai, s'élevait à 29 milliards [2].",
+          "explication": "La source BBC [2] ne mentionne pas d'estimation de 29 milliards mi-mai ; elle cite 37,5 milliards fin juillet, 25 milliards en avril (via RTBF) et 11,3 milliards après la première semaine. Le chiffre de 29 milliards n'est pas dans les extraits fournis."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "Le FMI note dans ses perspectives d'avril 2026 que la guerre affecte la croissance, l'inflation et les conditions financières dans toute la région Moyen-Orient et Asie centrale [4].",
+          "explication": "L'extrait du FMI [4] ne mentionne pas la guerre en Iran, ni son impact sur la croissance, l'inflation ou les conditions financières. La source porte sur les perspectives économiques régionales générales, sans lien explicite avec ce conflit."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "La Banque mondiale, via son simulateur de politique commerciale, estime que la rupture des liens commerciaux par le détroit d'Ormuz propage le choc par les chaînes de valeur mondiales, touchant d'abord les secteurs intensifs en énergie comme la plasturgie, puis l'emploi et les revenus, avec des effets amplifiés dans les pays en développement où la mobilité professionnelle est faible [5].",
+          "explication": "La source [5] n'existe pas dans la liste autorisée (seules 4 sources sont listées, indices 1 à 4). Le renvoi [5] est inventé et la Banque mondiale n'est pas citée comme source."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "chiffre_errone",
+          "phrase_exacte": "Cette fermeture a fait chuter de 95,3 % les transits maritimes dans le détroit, entraînant une hausse de 53 % du prix du brut destiné à l'Europe et de 6 % des denrées alimentaires, selon l'ONU [3].",
+          "explication": "L'extrait RTBF [3] ne contient aucun de ces chiffres précis (95,3 %, 53 %, 6 %) ni d'attribution à l'ONU. La source est un liveblog RTBF du 29 avril 2026 qui ne fournit pas ces données dans l'extrait."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "chiffre_errone",
+          "phrase_exacte": "Le conflit oppose les États-Unis et Israël à l'Iran depuis fin février 2026, date à laquelle des frappes israélo-américaines ont visé le territoire iranien [3].",
+          "explication": "L'extrait RTBF [3] est daté du 29 avril 2026 et ne mentionne pas de frappes israélo-américaines fin février 2026 comme déclencheur du conflit. La date et la nature de l'événement initial ne sont pas confirmées par la source citée."
+        },
+        {
+          "bloc": 1,
+          "section": "nuances",
+          "type": "source_inventee",
+          "phrase_exacte": "Des sources parlementaires démocrates citées par la BBC estiment que le coût réel est « bien plus élevé » que les 37,5 milliards annoncés en juillet, notamment parce que l'estimation ne comprenait pas la reconstruction des bases endommagées [2].",
+          "explication": "L'extrait BBC [2] ne cite pas de sources parlementaires démocrates ni l'expression « bien plus élevé ». Le contenu attribué à la BBC n'est pas présent dans l'extrait fourni."
+        },
+        {
+          "bloc": 1,
+          "section": "nuances",
+          "type": "source_inventee",
+          "phrase_exacte": "La demande de 87 milliards supplémentaires intervient alors que la Maison Blanche a sollicité 1 500 milliards pour le Pentagone sur l'exercice budgétaire suivant, ce qui porterait les dépenses militaires américaines à un niveau record [2].",
+          "explication": "L'extrait BBC [2] ne mentionne pas de demande de 1 500 milliards de la Maison Blanche pour l'exercice budgétaire suivant. Ce chiffre n'est pas dans la source citée."
+        },
+        {
+          "bloc": 2,
+          "section": "contexte",
+          "type": "compteur_incoherent",
+          "phrase_exacte": "nb_sources: 4",
+          "explication": "L'article utilise des renvois [1] à [5] dans le texte (5 sources distinctes citées), mais le champ nb_sources indique 4. Le compteur ne correspond pas au nombre de sources effectivement référencées dans le corps de l'article."
+        },
+        {
+          "bloc": 4,
+          "section": "contexte",
+          "type": "contexte_hors_sujet",
+          "phrase_exacte": "Le FMI note dans ses perspectives d'avril 2026 que la guerre affecte la croissance, l'inflation et les conditions financières dans toute la région Moyen-Orient et Asie centrale [4].",
+          "explication": "La source FMI [4] est un rapport général sur les perspectives économiques régionales d'avril 2026, qui ne documente pas spécifiquement l'impact de la guerre en Iran. Elle est utilisée hors sujet pour légitimer des affirmations non contenues dans l'extrait."
+        },
+        {
+          "bloc": 4,
+          "section": "contexte",
+          "type": "contexte_hors_sujet",
+          "phrase_exacte": "La Banque mondiale, via son simulateur de politique commerciale, estime que la rupture des liens commerciaux par le détroit d'Ormuz propage le choc par les chaînes de valeur mondiales... [5].",
+          "explication": "La source [5] (Banque mondiale) n'existe pas dans les sources autorisées. Ce développement sur les chaînes de valeur mondiales n'est sourcé par aucune source listée et ne porte pas directement sur le coût de la guerre pour les États-Unis, sujet de l'article."
+        }
+      ]
+    },
+    "article_type": "actu",
+    "titre": "Guerre en Iran : le Pentagone chiffre le coût à 48,3 milliards",
+    "n_sources": 4,
+    "n_mots": 709,
+    "titre_rss": "Guerre en Iran : Le Pentagone évalue le coût pour les Etats-Unis à plus de 48 milliards de dollars",
+    "matiere_faits_distincts": 963,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
   }
 ]
