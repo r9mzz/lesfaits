@@ -83988,5 +83988,561 @@
     "n_sources_injectees": 10,
     "n_sources_trouvees": 10,
     "nature_contenu": "interview"
+  },
+  {
+    "slug": "onu-adopte-projection-equal-earth-carte-monde-afrique",
+    "statut": "rejete_qualite",
+    "date": "2026-11-21T08:06:36",
+    "tentative": 3,
+    "angle_insuffisant": true,
+    "raison": "Aucune phrase des faits ne contient un événement précis daté ou datable (adoption d'une résolution onusienne) avec une donnée chiffrée ou nommée propre. L'article explique un concept et une initiative sans jamais dire ce qui vient de se passer concrètement à l'ONU (date, numéro de résolution, vote, session).",
+    "article_type": "actu",
+    "titre": "L'ONU adopte la projection Equal Earth pour l'Afrique",
+    "n_sources": 2,
+    "n_mots": 726,
+    "titre_rss": "Il y a 2 000 ans, la taille de l’Afrique sur la carte était déjà une affaire de pouvoir",
+    "matiere_faits_distincts": 687,
+    "matiere_redondance": 0.03,
+    "matiere_donnees_chiffrees": 3,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "decision_officielle"
+  },
+  {
+    "slug": "parlement-adopte-presomption-usage-legitime-armes-forces-ordre",
+    "statut": "rejete_sensible",
+    "date": "2026-11-21T08:10:02",
+    "problemes_initiaux": 9,
+    "tentative": 1,
+    "bloc5": true,
+    "article_type": "actu",
+    "titre": "Le Parlement adopte définitivement la présomption d'usage légitime des armes pour les forces de l'ordre",
+    "n_sources": 5,
+    "n_mots": 642,
+    "titre_rss": "Loi sur la présomption de légitime défense pour les policiers : le Sénat, Chambre pas très sages",
+    "matiere_faits_distincts": 887,
+    "matiere_redondance": 0.02,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "decision_officielle"
+  },
+  {
+    "slug": "proces-zecler-peines-prison-ferme-circonstance-raciste",
+    "statut": "rejete_sensible",
+    "date": "2026-11-21T08:13:14",
+    "problemes_initiaux": 8,
+    "tentative": 1,
+    "bloc5": true,
+    "article_type": "actu",
+    "titre": "Procès Zecler : un à deux ans ferme pour trois policiers, racisme reconnu",
+    "n_sources": 3,
+    "n_mots": 634,
+    "titre_rss": "Procès Zecler : les trois policiers condamnés à des peines de un à deux ans de prison ferme",
+    "matiere_faits_distincts": 1024,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "voyager-1-jour-lumiere-premier-objet-humain-distance-record",
+    "statut": "rejete_qualite",
+    "date": "2026-11-21T08:19:39",
+    "problemes_initiaux": 8,
+    "tentatives": 3,
+    "problemes_restants": 13,
+    "bloquants_restants": 12,
+    "bloquants_types": [
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "incoherence_inter_sections",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source RTS [2] indique 25,9 milliards de km (\"25,9 milliards de kilomètres\") et la source Courrier international [3] indique 25,9 milliards de km (\"25,9 milliards de kilomètres\"), alors que l'article écrit 25,4 millia",
+        "phrase": "La sonde Voyager 1 de la NASA a franchi la barre symbolique d'un jour-lumière, soit 25,4 milliards de kilomètres de la Terre selon la RTS et Courrier international, devenant l'objet d'origine humaine le plus éloigné jama"
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "Le résumé reprend le chiffre erroné de 25,4 milliards de km attribué à la RTS et Courrier international, qui donnent toutes deux 25,9 milliards de km.",
+        "phrase": "La sonde Voyager 1 de la NASA a franchi la barre d'un jour-lumière, soit 25,4 milliards de kilomètres selon la RTS et Courrier international, devenant l'objet humain le plus lointain jamais atteint [1][2][3]."
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source France Info [1] indique explicitement \"26 milliards de km\" dans son titre et son contenu, pas \"plus de 25 milliards de kilomètres\".",
+        "phrase": "France Info évoque « plus de 25 milliards de kilomètres » [1]."
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source BBC [4] donne une vitesse de 61 000 km/h (\"61,000 km/h\") et une distance parcourue en 48 h d'environ 2,9 millions de km (\"2.9 million km\"), alors que l'article écrit 61 200 km/h et 2,94 millions de km.",
+        "phrase": "Au moment où le centre de contrôle reçoit une télémétrie en réponse à une commande, la sonde a déjà parcouru environ 2,94 millions de kilomètres supplémentaires, à sa vitesse d'environ 61 200 km/h pendant l'aller-retour "
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source Wikipédia [5] indique que le franchissement de l'héliopause a eu lieu le 25 août 2012, mais que l'annonce officielle de la NASA date de septembre 2013 ; l'article présente août 2012 comme date certaine du franc",
+        "phrase": "En août 2012, Voyager 1 a franchi l'héliopause, frontière où l'influence du vent solaire cède la place au milieu interstellaire [5]."
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source Wikipédia [5] indique que les instruments scientifiques pourraient fonctionner jusqu'en 2025-2030 et la sonde transmettre des données jusqu'en 2036, mais ne précise pas que ces projections sont \"antérieures à 2",
+        "phrase": "selon Wikipédia, les instruments scientifiques devraient fonctionner jusqu'en 2025-2030, mais la sonde pourrait transmettre des données d'ingénierie jusqu'en 2036, ces projections étant antérieures à 2026 [5]."
+      },
+      {
+        "bloc": 1,
+        "type": "incoherence_inter_sections",
+        "description": "Incohérence entre le chapeau (résumé) qui cite 25,4 milliards km selon RTS et Courrier international [1][2][3] et les faits qui citent 25,4 milliards km selon RTS et Courrier international [2][3] mais France Info [1] à 2",
+        "phrase": "La sonde Voyager 1 de la NASA a franchi la barre symbolique d'un jour-lumière, soit 25,4 milliards de kilomètres de la Terre selon la RTS et Courrier international, devenant l'objet d'origine humaine le plus éloigné jama"
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "Le renvoi [2][3] attribue le chiffre 25,4 milliards km à la RTS et Courrier international, mais ces deux sources donnent 25,9 milliards km ; le fait attribué n'est pas confirmé par les sources citées.",
+        "phrase": "La sonde Voyager 1 de la NASA a franchi la barre symbolique d'un jour-lumière, soit 25,4 milliards de kilomètres de la Terre selon la RTS et Courrier international, devenant l'objet d'origine humaine le plus éloigné jama"
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "Le renvoi [1] attribue à France Info la formulation \"plus de 25 milliards de kilomètres\", mais la source France Info indique \"26 milliards de km\" ; l'attribution ne correspond pas au contenu de la source.",
+        "phrase": "France Info évoque « plus de 25 milliards de kilomètres » [1]."
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "Le renvoi [4] attribue à la BBC les valeurs 61 200 km/h et 2,94 millions de km, mais la source BBC donne 61 000 km/h et ~2,9 millions de km ; le fait attribué n'est pas confirmé par la source citée.",
+        "phrase": "Au moment où le centre de contrôle reçoit une télémétrie en réponse à une commande, la sonde a déjà parcouru environ 2,94 millions de kilomètres supplémentaires, à sa vitesse d'environ 61 200 km/h pendant l'aller-retour "
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "Le renvoi [5] attribue à Wikipédia la date d'août 2012 comme date de franchissement de l'héliopause, mais la source Wikipédia précise que la date du franchissement est le 25 août 2012 alors que la confirmation officielle",
+        "phrase": "En août 2012, Voyager 1 a franchi l'héliopause, frontière où l'influence du vent solaire cède la place au milieu interstellaire [5]."
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "Le renvoi [5] attribue à Wikipédia la mention \"ces projections étant antérieures à 2026\", mais cette précision n'apparaît pas dans la source Wikipédia fournie.",
+        "phrase": "selon Wikipédia, les instruments scientifiques devraient fonctionner jusqu'en 2025-2030, mais la sonde pourrait transmettre des données d'ingénierie jusqu'en 2036, ces projections étant antérieures à 2026 [5]."
+      }
+    ],
+    "types_restants": [
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "incoherence_inter_sections",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "redondance"
+    ],
+    "article_type": "actu",
+    "titre": "Voyager 1 franchit le cap d'un jour-lumière, premier objet humain à cette distance",
+    "n_sources": 5,
+    "n_mots": 726,
+    "titre_rss": "La sonde Voyager 1 est à 26 milliards de km de la Terre et continue d'émettre",
+    "matiere_faits_distincts": 1334,
+    "matiere_redondance": 0.01,
+    "matiere_donnees_chiffrees": 10,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "bei-financement-armes-munitions-europeennes-senat-resolution",
+    "statut": "rejete_qualite",
+    "date": "2026-11-21T08:26:03",
+    "problemes_initiaux": 13,
+    "tentatives": 3,
+    "problemes_restants": 7,
+    "bloquants_restants": 2,
+    "bloquants_types": [
+      "incoherence_inter_sections",
+      "source_inventee"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "incoherence_inter_sections",
+        "description": "Le résumé et le chapeau parlent d'une 'résolution sénatoriale' adoptée par la commission, alors que la source [3] (texte de la commission n° 880) est une proposition de résolution, non un texte adopté. Le statut du texte",
+        "phrase": "Ce texte, porté sous la référence n° 880, fait suite à un rapport d'information n° 879 qui analyse l'évolution de la doctrine de la BEI depuis le déclenchement de la guerre en Ukraine [1][2]."
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "La source [3] est le texte de la commission n° 880 (proposition de résolution) ; les extraits fournis ne contiennent aucune mention d'amendements adoptés. L'affirmation n'est pas sourcée.",
+        "phrase": "Deux amendements ont été adoptés pour garantir que l'extension des financements bénéficie aux industries européennes et pour préciser le champ des armes couvertes, en excluant expressément le financement des armes interd"
+      }
+    ],
+    "types_restants": [
+      "source_inventee",
+      "incoherence_inter_sections",
+      "chronologie_confuse",
+      "source_inventee",
+      "contexte_hors_sujet",
+      "redondance",
+      "compteur_incoherent"
+    ],
+    "article_type": "actu",
+    "titre": "Le Sénat examine l'extension des financements de la BEI aux armes et munitions européennes",
+    "n_sources": 5,
+    "n_mots": 505,
+    "titre_rss": "Armes et munitions produites par les industries européennes de la défense - Rapport n° 879",
+    "matiere_faits_distincts": 479,
+    "matiere_redondance": 0.01,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "veille_heures_visible": 517.7,
+    "veille_passages": 326,
+    "veille_age_h": 2430.5,
+    "veille_n_flux_grappe": 4,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "norvege-justice-invalide-trois-licences-petrolieres-mer-du-nord",
+    "statut": "rejete_sensible",
+    "date": "2026-11-21T08:37:42",
+    "problemes_initiaux": 5,
+    "tentative": 2,
+    "bloc5": true,
+    "article_type": "actu",
+    "titre": "La justice norvégienne invalide trois licences pétrolières en mer du Nord",
+    "n_sources": 3,
+    "n_mots": 635,
+    "titre_rss": "En Norvège, victoire \"historique\" après l'invalidation de licences pétrolières en mer du Nord",
+    "matiere_faits_distincts": 902,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "cop31-objectif-35x35-electrification-mondiale-debat-efficacite",
+    "statut": "rejete_qualite",
+    "date": "2026-11-21T08:42:33",
+    "problemes_initiaux": 9,
+    "tentatives": 3,
+    "problemes_restants": 15,
+    "bloquants_restants": 1,
+    "bloquants_types": [
+      "incoherence_inter_sections"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "incoherence_inter_sections",
+        "description": "Le corps des faits contredit le titre et le résumé en précisant qu'aucun objectif chiffré \"35x35\" n'a été fixé publiquement, créant une incohérence interne entre les sections de l'article.",
+        "phrase": "La présidence a placé l'électrification des usages au centre de l'agenda comme levier majeur pour réduire les émissions, sans toutefois fixer publiquement d'objectif chiffré unique sous le nom de \"35x35\" selon les source"
+      }
+    ],
+    "types_restants": [
+      "fait_tranche_arbitrairement",
+      "fait_tranche_arbitrairement",
+      "source_inventee",
+      "incoherence_inter_sections",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "acteur_mis_en_cause_sans_reponse",
+      "compteur_incoherent",
+      "jugement_de_valeur",
+      "extrapolation"
+    ],
+    "article_type": "actu",
+    "titre": "COP31 : l'objectif 35x35 d'électrification mondiale divise sur son efficacité climatique",
+    "n_sources": 6,
+    "n_mots": 601,
+    "titre_rss": "COP31 : l’objectif d’électrification risque de déplacer les émissions plutôt que de les réduire",
+    "matiere_faits_distincts": 976,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "mortalite-hausse-29-pour-cent-juin-2026-canicule",
+    "statut": "corrige_automatiquement",
+    "date": "2026-11-21T08:46:40",
+    "problemes_initiaux": 11,
+    "tentatives": 3,
+    "problemes_residuels_style": 0,
+    "rapport_initial": {
+      "conforme": false,
+      "sujet_sensible": false,
+      "sujet_sensible_raison": "",
+      "angle_insuffisant": false,
+      "angle_insuffisant_raison": "",
+      "nature_contenu": "actualite_factuelle",
+      "problemes": [
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "incoherence_inter_sections",
+          "phrase_exacte": "Le bulletin hebdomadaire de Santé publique France publié le 3 juillet 2026 fait état de 8 973 décès toutes causes confondues enregistrés par certification électronique pour la semaine du 22 au 28 juin, contre 6 948 la semaine précédente, soit une augmentation de 29,1 % correspondant à 2 025 décès supplémentaires [1].",
+          "explication": "Le chiffre de 6 948 décès pour la semaine précédente n'est pas présent dans la source [1] (extrait fourni), qui ne donne que le total de 8 973 décès et la hausse de 2 025 ; le dénominateur utilisé pour calculer les 29,1 % n'est donc pas vérifié par la source citée."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "incoherence_inter_sections",
+          "phrase_exacte": "Cette hausse concerne principalement les personnes âgées de 45 ans ou plus, qui représentent 2 001 des décès supplémentaires, soit une progression de 29,7 % pour cette classe d'âge [1].",
+          "explication": "Le détail des 2 001 décès supplémentaires et du taux de 29,7 % pour les 45 ans et plus n'apparaît pas dans l'extrait de la source [1] fourni ; ces chiffres ne sont pas vérifiables à partir de la source autorisée."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "incoherence_inter_sections",
+          "phrase_exacte": "L'augmentation est observée dans tous les lieux de décès mais avec des amplitudes très différentes : les décès à domicile ont presque doublé (+91 %), tandis que les établissements d'hébergement pour personnes âgées dépendantes (EHPAD) enregistrent une hausse de 37 % et les établissements de santé de 19,7 % [1].",
+          "explication": "Les pourcentages détaillés par lieu de décès (+91 % à domicile, +37 % en EHPAD, +19,7 % en établissement de santé) ne figurent pas dans l'extrait de la source [1] fourni ; ils ne peuvent être confirmés par la source citée."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "incoherence_inter_sections",
+          "phrase_exacte": "Sur le plan géographique, toutes les régions métropolitaines sont concernées sauf l'Occitanie et l'Auvergne-Rhône-Alpes. Les hausses les plus marquées apparaissent en Île-de-France (+62,8 %, +619 décès), dans les Pays de la Loire (+62,0 %, +178 décès), en Normandie (+53,1 %, +216 décès) et en Centre-Val de Loire (+47,3 %, +121 décès) [1]. La Bretagne (+36,0 %, +129 décès), la Nouvelle-Aquitaine (+28,1 %, +264 décès) et les Hauts-de-France (+27,7 %, +155 décès) sont également touchées [1].",
+          "explication": "Le détail régional complet avec pourcentages et nombres de décès par région n'est pas présent dans l'extrait de la source [1] fourni ; ces données ne sont pas vérifiables via la source citée."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "incoherence_inter_sections",
+          "phrase_exacte": "Ces données intègrent les certificats électroniques disponibles jusqu'au 28 juin et sont explicitement qualifiées de non consolidées par Santé publique France [1]. Un bulletin spécifique sur l'excès de mortalité durant l'épisode de canicule sera publié trois semaines après la fin de l'épisode, délai nécessaire pour consolider environ 95 % des décès via les données des bureaux d'état civil [1].",
+          "explication": "La mention d'un délai de trois semaines pour consolider 95 % des décès via les bureaux d'état civil ne figure pas dans l'extrait de la source [1] fourni ; cette précision méthodologique n'est pas sourcée."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "incoherence_inter_sections",
+          "phrase_exacte": "La surveillance hebdomadaire de la mortalité toutes causes confondues repose sur deux sources complémentaires. La première, réactive, utilise les certificats électroniques de décès et couvre habituellement environ 60 % de la mortalité nationale, avec une couverture très inégale selon le lieu : 25 % pour les décès à domicile, 45 % en EHPAD et près de 80 % en établissement hospitalier [1]. La seconde, plus complète, s'appuie sur un échantillon d'environ 5 000 bureaux d'état civil transmettant leurs données à l'Insee et couvre 84 % de la mortalité nationale, mais nécessite un délai de consolidation plus long [1].",
+          "explication": "Les taux de couverture précis par lieu (25 % domicile, 45 % EHPAD, 80 % hôpital), le chiffre de 5 000 bureaux d'état civil et la couverture de 84 % ne sont pas dans l'extrait de la source [1] fourni ; ces détails méthodologiques ne sont pas vérifiables via la source citée."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "incoherence_inter_sections",
+          "phrase_exacte": "Cette double architecture explique pourquoi les premiers chiffres sont systématiquement sous-estimés, particulièrement pour les décès à domicile, et pourquoi le bilan définitif de l'épisode caniculaire de juin ne sera disponible que fin juillet. La méthode d'estimation de l'excès de mortalité compare la mortalité observée pendant la canicule à une mortalité de référence attendue en période normale [1].",
+          "explication": "L'explication de la sous-estimation systématique, la date de fin juillet pour le bilan définitif et la description de la méthode de comparaison à une mortalité de référence ne figurent pas dans l'extrait de la source [1] fourni."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "incoherence_inter_sections",
+          "phrase_exacte": "Santé publique France insiste sur la prudence d'interprétation : les données actuelles sont partielles, non consolidées et sous-estiment la mortalité réelle, surtout à domicile où la couverture électronique n'est que de 25 % [1]. Le lien direct avec la canicule n'est pas établi à ce stade ; l'organisme précise qu'une première estimation de l'impact sanitaire de l'épisode sera publiée dans un bulletin dédié trois semaines après la fin de la vague de chaleur [1]. Par ailleurs, une méthode distincte d'estimation des décès attribuables à la chaleur à l'échelle départementale est en développement pour compléter le bilan estival [1].",
+          "explication": "La mention d'une méthode départementale en développement pour estimer les décès attribuables à la chaleur n'apparaît pas dans l'extrait de la source [1] fourni ; cette information n'est pas vérifiable via la source citée."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "incoherence_inter_sections",
+          "phrase_exacte": "Le bulletin « Mortalité toutes causes confondues » vient d'être publié pour la semaine du 22 au 28 juin 2026, marquée par un épisode de canicule [2]. Les données préliminaires révèlent une hausse significative des décès en France à la fin du mois de juin 2026, cette augmentation survenue après un épisode de canicule soulève des questions sur l'impact des températures extrêmes sur la santé publique [3]. La vague de chaleur exceptionnelle qui a frappé la France entre le 22 et le 28 juin 2026 a laissé un lourd bilan humain, selon les premières estimations publiées par Santé publique France, 2 025 décès supplémentaires ont été enregistrés en seulement une semaine [4].",
+          "explication": "Les sources [2], [3] et [4] (Univadis, Doctissimo, Masantemavie) sont des reprises médiatiques de la source primaire [1] ; les citer comme sources distinctes pour les mêmes faits crée une redondance de sourcing et ne constitue pas une confirmation indépendante (source_derivee_comptee_comme_primaire)."
+        },
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "source_derivee_comptee_comme_primaire",
+          "phrase_exacte": "Le bulletin « Mortalité toutes causes confondues » vient d'être publié pour la semaine du 22 au 28 juin 2026, marquée par un épisode de canicule [2]. Les données préliminaires révèlent une hausse significative des décès en France à la fin du mois de juin 2026, cette augmentation survenue après un épisode de canicule soulève des questions sur l'impact des températures extrêmes sur la santé publique [3]. La vague de chaleur exceptionnelle qui a frappé la France entre le 22 et le 28 juin 2026 a laissé un lourd bilan humain, selon les premières estimations publiées par Santé publique France, 2 025 décès supplémentaires ont été enregistrés en seulement une semaine [4].",
+          "explication": "Les sources [2] Univadis, [3] Doctissimo et [4] Masantemavie ne font que relayer le communiqué de Santé publique France [1] sans apporter d'information originale ; elles sont comptées comme trois sources secondaires indépendantes alors qu'elles sont dérivées d'une seule source primaire."
+        },
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "compteur_incoherent",
+          "phrase_exacte": "nb_sources: 4",
+          "explication": "Le champ nb_sources indique 4, mais une seule source primaire (Santé publique France) apporte l'information ; les trois autres sont des reprises médiatiques sans valeur ajoutée, ce qui gonfle artificiellement le compteur de sources indépendantes."
+        }
+      ]
+    },
+    "article_type": "actu",
+    "titre": "Mortalité en hausse de 29 % fin juin 2026 après un épisode de canicule",
+    "n_sources": 4,
+    "n_mots": 724,
+    "titre_rss": "Point de situation sur la mortalité toutes causes confondues  sur la période du 22 au 28 juin 2026",
+    "matiere_faits_distincts": 1077,
+    "matiere_redondance": 0.02,
+    "matiere_donnees_chiffrees": 3,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "veille_heures_visible": 221.3,
+    "veille_passages": 74,
+    "veille_age_h": 2134.1,
+    "veille_n_flux_grappe": 1,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "incendies-los-angeles-suspect-coupable-deuxieme-proces",
+    "statut": "rejete_sensible",
+    "date": "2026-11-21T08:49:05",
+    "sujet_sensible": true,
+    "raison": "L'article porte sur une affaire judiciaire pénale en cours visant une personne nommée (Jonathan Rinderknecht), reconnu coupable après un deuxième procès, sans que la condamnation ne soit définitive (appel possible).",
+    "article_type": "actu",
+    "titre": "Incendies de Los Angeles : un suspect reconnu coupable après un deuxième procès",
+    "n_sources": 5,
+    "n_mots": 690,
+    "titre_rss": "Incendies de Los Angeles : un suspect reconnu coupable, après un deuxième procès",
+    "matiere_faits_distincts": 1023,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 4,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "rdc-essai-vaccin-ervebo-ituri-epidemie-bundibugyo",
+    "statut": "rejete_qualite",
+    "date": "2026-11-21T08:54:01",
+    "tentative": 3,
+    "perte_substance": true,
+    "section": "contexte",
+    "mots_avant": 196,
+    "mots_apres": 88,
+    "article_type": "actu",
+    "titre": "RDC : l'essai du vaccin Ervebo démarre en Ituri face à l'épidémie Bundibugyo",
+    "n_sources": 4,
+    "n_mots": 710,
+    "titre_rss": "Ebola en RDC: MSF appelle à élargir l’accès au vaccin Ervebo dans l’est du pays",
+    "matiere_faits_distincts": 860,
+    "matiere_redondance": 0.02,
+    "matiere_donnees_chiffrees": 2,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "mbappe-mao-zedong-censure-chine-sponsors-liga-suspendue",
+    "statut": "rejete_sensible",
+    "date": "2026-11-21T09:01:44",
+    "problemes_initiaux": 22,
+    "tentative": 1,
+    "bloc5": true,
+    "article_type": "actu",
+    "titre": "Mbappé qualifié de dictateur : la Chine sanctionne le footballeur et suspend la Liga",
+    "n_sources": 3,
+    "n_mots": 646,
+    "titre_rss": "Mbappé, Mao et l’anaconda : comment Pékin exporte sa censure",
+    "matiere_faits_distincts": 671,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "35-gravures-rembrandt-grenier-amsterdam-decouverte",
+    "statut": "rejete_qualite",
+    "date": "2026-11-21T09:10:12",
+    "angle_insuffisant": true,
+    "raison": "Aucune phrase des faits ne contient à la fois un événement précis daté ou datable (annonce, publication, décision, résultat rendu public récemment) et une donnée chiffrée ou nommée qui lui est propre. L'article raconte une découverte familiale survenue « pendant le confinement » (période vague, sans date précise) et une exposition à venir le 21 mars (année non indiquée), sans fait déclencheur daté justifiant la publication maintenant. Les sources fournies ne comportent pas de date de publication, empêchant de situer l'actualité. L'article répond à « qu'est-ce que cette découverte ? » plutôt qu'à « pourquoi en parle-t-on maintenant ? ».",
+    "article_type": "actu",
+    "titre": "35 gravures de Rembrandt retrouvées dans un grenier à Amsterdam",
+    "n_sources": 5,
+    "n_mots": 593,
+    "titre_rss": "Rembrandt : le trésor oublié d'un grenier",
+    "matiere_faits_distincts": 1052,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "binge-drinking-risque-alcoolisme-etudiants-etude-inserm",
+    "statut": "rejete_sensible",
+    "date": "2026-11-21T09:22:31",
+    "problemes_initiaux": 13,
+    "bloc5": [
+      "affaire_en_cours_presentee_comme_fait"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "titre_de_mauvaise_qualite"
+    ],
+    "titre": "Inserm : 3 308 étudiants interrogés, le binge drinking rare multiplie par huit le risque d'alcoolisme",
+    "n_sources": 3,
+    "n_mots": 712,
+    "titre_rss": "Les risques potentiels du binge drinking sur la santé des jeunes étudiants",
+    "matiere_faits_distincts": 996,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 2,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "veille_heures_visible": 517.7,
+    "veille_passages": 311,
+    "veille_age_h": 2430.5,
+    "veille_n_flux_grappe": 7,
+    "nature_contenu": "etude_scientifique"
+  },
+  {
+    "slug": "traces-globules-rouges-fossilisees-annonce-sans-publication",
+    "statut": "rejete_qualite",
+    "date": "2026-11-21T09:34:57",
+    "angle_insuffisant": true,
+    "raison": "Aucune phrase dans 'faits' ne contient à la fois un événement précis daté (publication, décision, résultat récent) et une donnée chiffrée ou nommée qui lui est propre. L'article ne rapporte qu'une annonce relayée par Sciences et Avenir sans référence à une publication validée, sans nom d'équipe, sans revue, sans méthode — il n'y a pas de fait déclencheur daté et documenté qui justifie une publication maintenant.",
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "resume_repete_corps",
+      "faits_repetitifs",
+      "titre_de_mauvaise_qualite"
+    ],
+    "titre": "Traces de globules rouges fossilisées : une annonce sans publication validée",
+    "n_sources": 5,
+    "n_mots": 458,
+    "titre_rss": "Dinosaures : des traces de sang fossilisées agitent la communauté paléontologique",
+    "matiere_faits_distincts": 713,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 2,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "declaration"
+  },
+  {
+    "slug": "start-up-texane-microbes-petrole-hydrogene-recyclage",
+    "statut": "rejete_qualite",
+    "date": "2026-11-21T09:43:26",
+    "angle_insuffisant": true,
+    "raison": "Aucune phrase dans 'faits' ne contient à la fois un événement précis daté ou datable (annonce, publication, décision, résultat rendu public récemment) et une donnée chiffrée ou nommée qui lui est propre. L'article ne dit pas ce qui vient de se passer : il se contente d'expliquer un concept général (microbes transformant le pétrole en hydrogène) sans fait déclencheur identifiable, ni date, ni volume, ni nom de la start-up, ni stade de développement.",
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "titre_de_mauvaise_qualite",
+      "article_sans_date"
+    ],
+    "titre": "Une start-up texane teste des microbes pour produire de l'hydrogène dans des puits de pétrole",
+    "n_sources": 4,
+    "n_mots": 470,
+    "titre_rss": "Microbes, pétrole et hydrogène : l'audacieux recyclage d'une start-up texane",
+    "matiere_faits_distincts": 661,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "sujet_pedagogique"
   }
 ]
