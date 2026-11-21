@@ -85320,5 +85320,504 @@
     "n_sources_injectees": 10,
     "n_sources_trouvees": 10,
     "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "cop31-antalya-negociations-prolongees-texte-epure-fossiles-blocage-financement",
+    "statut": "corrige_automatiquement",
+    "date": "2026-11-21T20:14:10",
+    "problemes_initiaux": 16,
+    "tentatives": 3,
+    "problemes_residuels_style": 11,
+    "rapport_initial": {
+      "conforme": false,
+      "sujet_sensible": false,
+      "sujet_sensible_raison": "",
+      "angle_insuffisant": false,
+      "angle_insuffisant_raison": "",
+      "nature_contenu": "actualite_factuelle",
+      "problemes": [
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "chiffre_errone",
+          "phrase_exacte": "Quelque 10 000 personnes ont manifesté samedi 14 novembre dans le centre d'Antalya pour les droits humains et la justice climatique, sous étroite surveillance [6].",
+          "explication": "La source [6] (RFI, 15 novembre 2026) indique « plusieurs milliers de personnes », pas « 10 000 » ; le chiffre est une extrapolation non sourcée."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "chiffre_errone",
+          "phrase_exacte": "Un nouveau dispositif onusien vise à débloquer plus de 3 milliards de dollars pour protéger 75 millions de personnes des chocs climatiques d'ici 2030 [6].",
+          "explication": "La source [6] ne mentionne aucun « nouveau dispositif onusien », ni 3 milliards de dollars, ni 75 millions de personnes, ni l'échéance 2030 ; ces chiffres sont inventés par rapport à la source citée."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "chiffre_errone",
+          "phrase_exacte": "Une analyse d'ONU-Habitat montre que 80 % des plans climat nationaux intègrent désormais des mesures urbaines développées, contre 50 % au cycle précédent [6].",
+          "explication": "La source [6] ne contient aucune référence à ONU-Habitat, ni à une telle analyse, ni aux pourcentages 80 % / 50 % ; l'information est attribuée à une source qui ne la confirme pas."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "chiffre_errone",
+          "phrase_exacte": "La directrice exécutive d'ONU-Habitat, Anacláudia Rossbach, a souligné que « le logement est une action climatique, l'urbanisme est une action climatique » [6].",
+          "explication": "La source [6] ne cite pas Anacláudia Rossbach ni ONU-Habitat ; la citation est attribuée à une source qui ne la contient pas."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "chiffre_errone",
+          "phrase_exacte": "La COP31 a consacré pour la première fois un dialogue de haut niveau à la résilience urbaine lors du Sommet des dirigeants, réunissant dirigeants nationaux et locaux, institutions financières et partenaires [6].",
+          "explication": "La source [6] ne mentionne pas de « dialogue de haut niveau à la résilience urbaine » ni de « Sommet des dirigeants » à la COP31 ; l'affirmation n'est pas soutenue par la source citée."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "chiffre_errone",
+          "phrase_exacte": "les villes seules nécessitent environ 4 500 milliards de dollars par an d'ici 2030, alors que les flux actuels ne couvrent qu'un cinquième de ce montant [6].",
+          "explication": "La source [6] ne fournit aucun chiffre de 4 500 milliards de dollars, ni de ratio « un cinquième » ; ces données sont inventées par rapport à la source citée."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "chiffre_errone",
+          "phrase_exacte": "Le mécanisme de financement des pertes et préjudices, créé à la COP27 et opérationnalisé à la COP28, peine à atteindre l'échelle promise de 100 milliards de dollars annuels.",
+          "explication": "Aucune source de la liste ne mentionne un objectif de 100 milliards de dollars annuels pour le mécanisme pertes et préjudices ; le chiffre n'est pas sourcé."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "chiffre_errone",
+          "phrase_exacte": "Les projections de réchauffement ont été ramenées de plus de 4 °C à 2,6 °C grâce aux accords successifs, mais l'ONU estime qu'une action plus rapide est indispensable [3].",
+          "explication": "La source [3] (UNFCCC « About COP31 ») ne contient pas ces projections chiffrées (4 °C → 2,6 °C) ; l'information est attribuée à une source qui ne la confirme pas."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "Le deuxième projet de texte de décision, publié jeudi après-midi, a supprimé toute mention d'une sortie progressive des énergies fossiles et affaibli les objectifs d'électrification, réduisant de moitié le premier projet de 18 pages diffusé lundi [4].",
+          "explication": "La source [4] (The Guardian, 19 nov. 2026) ne mentionne pas de « deuxième projet publié jeudi après-midi », ni de « premier projet de 18 pages diffusé lundi », ni de détails sur l'affaiblissement des objectifs d'électrification ; ces éléments sont attribués à une source qui ne les contient pas."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "Les textes parallèles n'ont pas précisé comment les pays en développement recevraient l'aide financière nécessaire pour faire face à la crise climatique [4].",
+          "explication": "La source [4] ne traite pas des « textes parallèles » ni de leur contenu sur l'aide financière ; l'affirmation est inventée par rapport à la source citée."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "Le Panama a adressé une lettre aux présidences turque et australienne annonçant qu'il bloquerait tout résultat si l'ensemble de ses demandes n'était pas satisfait, son ministre de l'Environnement Juan Carlos Navarro écrivant : « Pendant que nous écoutons une rhétorique sans fin, la planète est détruite » [4].",
+          "explication": "La source [4] ne mentionne pas de lettre du Panama aux présidences, ni la citation exacte de Juan Carlos Navarro ; ces éléments sont attribués à une source qui ne les contient pas."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "Des ministres africains ont déclaré ne pas être venus « pour mendier », tandis que des groupes de la société civile ont qualifié ce sommet de « pire COP jamais vue » [5].",
+          "explication": "La source [5] (The Guardian, 21 nov. 2026) ne contient pas la citation « pour mendier » attribuée à des ministres africains, ni l'expression « pire COP jamais vue » ; ces citations sont inventées par rapport à la source citée."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "Mohamed Adow, directeur de Power Shift Africa, a averti : « Si cette version du texte reste, ce sera une COP fantôme » [4].",
+          "explication": "La source [4] ne cite pas Mohamed Adow ni cette déclaration ; l'attribution est fausse."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "Rachitaa Gupta, coordinatrice de la Campagne mondiale pour la justice climatique, a pointé « la faillite morale du Nord global » sur la finance [4].",
+          "explication": "La source [4] ne mentionne pas Rachitaa Gupta ni la « Campagne mondiale pour la justice climatique », ni cette citation ; l'information est inventée."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "la Turquie est candidate à l'adhésion à l'UE et grand producteur d'énergie fossile, tandis que l'Australie, co-présidente des négociations, figure parmi les plus grands exportateurs mondiaux de charbon et de gaz [5].",
+          "explication": "La source [5] ne contient pas ces affirmations géopolitiques et économiques sur la Turquie et l'Australie ; elles sont attribuées à une source qui ne les confirme pas."
+        },
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "compteur_incoherent",
+          "phrase_exacte": "nb_sources: 7",
+          "explication": "Le tableau sources ne liste que 6 entrées distinctes (France 24, UNFCCC x2, The Guardian x2, RFI) ; le compteur nb_sources indique 7, ce qui est faux."
+        }
+      ]
+    },
+    "article_type": "actu",
+    "titre": "COP31 à Antalya : négociations prolongées, texte épuré des fossiles, blocage sur le financement",
+    "n_sources": 6,
+    "n_mots": 807,
+    "titre_rss": "COP31 à Antalya : bras de fer autour des énergies fossiles et des financements",
+    "matiere_faits_distincts": 1137,
+    "matiere_redondance": 0.01,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "bei-financement-armes-munitions-defense-europeenne-senat",
+    "statut": "rejete_sensible",
+    "date": "2026-11-21T20:20:56",
+    "problemes_initiaux": 5,
+    "tentative": 3,
+    "bloc5": true,
+    "article_type": "actu",
+    "titre": "Le Sénat examine l'élargissement des financements de la BEI aux armes et munitions",
+    "n_sources": 4,
+    "n_mots": 672,
+    "titre_rss": "Armes et munitions produites par les industries européennes de la défense - Rapport n° 879",
+    "matiere_faits_distincts": 678,
+    "matiere_redondance": 0.01,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "veille_heures_visible": 517.7,
+    "veille_passages": 326,
+    "veille_age_h": 2442.5,
+    "veille_n_flux_grappe": 4,
+    "nature_contenu": "decision_officielle"
+  },
+  {
+    "slug": "ebola-bundibugyo-vaccins-zaire-reponse-immunitaire-croisee",
+    "statut": "rejete_sensible",
+    "date": "2026-11-21T20:29:54",
+    "problemes_initiaux": 5,
+    "tentative": 3,
+    "bloc5": true,
+    "article_type": "actu",
+    "titre": "Ebola Bundibugyo : les vaccins anti-Zaïre induisent une réponse immunitaire croisée",
+    "n_sources": 4,
+    "n_mots": 752,
+    "titre_rss": "Épidémie d’Ebola Bundibugyo : des premiers résultats pour guider la recherche d’un vaccin efficace",
+    "matiere_faits_distincts": 788,
+    "matiere_redondance": 0.01,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "veille_heures_visible": 517.7,
+    "veille_passages": 311,
+    "veille_age_h": 2442.5,
+    "veille_n_flux_grappe": 9,
+    "nature_contenu": "etude_scientifique"
+  },
+  {
+    "slug": "ebola-rdc-nord-kivu-greve-soignants-attaques-armes",
+    "statut": "rejete_qualite",
+    "date": "2026-11-21T20:59:36",
+    "tentative": 3,
+    "perte_substance": true,
+    "section": "faits",
+    "mots_avant": 406,
+    "mots_apres": 198,
+    "article_type": "actu",
+    "titre": "Ebola en RDC : l'épidémie progresse au Nord-Kivu malgré la grève des soignants et l'insécurité",
+    "n_sources": 4,
+    "n_mots": 827,
+    "titre_rss": "Au Nord-Kivu, la lutte contre Ebola se heurte à la colère des soignants",
+    "matiere_faits_distincts": 1240,
+    "matiere_redondance": 0.01,
+    "matiere_donnees_chiffrees": 6,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "puffins-anglais-decalage-circadien-chasse-mer-etude-oxford",
+    "statut": "rejete_sensible",
+    "date": "2026-11-21T21:04:02",
+    "problemes_initiaux": 10,
+    "tentative": 2,
+    "bloc5": true,
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "article_sans_date"
+    ],
+    "titre": "Les puffins des Anglais souffrent d'un décalage circadien après leurs chasses en mer",
+    "n_sources": 3,
+    "n_mots": 469,
+    "titre_rss": "Des oiseaux marins, victimes du \"jet-lag\" après une longue chasse",
+    "matiere_faits_distincts": 1118,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "etude_scientifique"
+  },
+  {
+    "slug": "cop31-antalya-negociations-prolongees-sans-compromis-fossiles-financement",
+    "statut": "corrige_automatiquement",
+    "date": "2026-11-21T21:15:46",
+    "problemes_initiaux": 21,
+    "tentatives": 3,
+    "problemes_residuels_style": 6,
+    "rapport_initial": {
+      "conforme": false,
+      "sujet_sensible": false,
+      "sujet_sensible_raison": "",
+      "angle_insuffisant": false,
+      "angle_insuffisant_raison": "",
+      "nature_contenu": "actualite_factuelle",
+      "problemes": [
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "Le centre de conférence est en cours de démontage et plusieurs ministres, dont la Française Monique Barbut et la Néerlandaise Stientje van Veldhoven, ont déjà quitté les lieux, laissant leurs équipes poursuivre les tractations [2].",
+          "explication": "La source [2] (Radio Canada) ne mentionne ni le démontage du centre de conférence, ni les ministres Monique Barbut et Stientje van Veldhoven, ni leur départ."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "Vendredi, une douzaine de pays, dont la France, le Panama et la Côte d'Ivoire, ont exigé que le texte mentionne une transition claire hors des combustibles fossiles [2].",
+          "explication": "La source [2] ne cite pas la France, le Panama ni la Côte d'Ivoire parmi les pays exigeant une mention de sortie des fossiles."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "Le ministre de l'Environnement de Tuvalu, Maina Talia, a averti : \"S'il n'y a aucune mention des énergies fossiles dans le projet d'accord, nous perdons notre temps ici\" [2].",
+          "explication": "La source [2] ne contient pas cette citation ni le nom de Maina Talia."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "Le groupe des pays pétroliers de l'OPEP a indiqué que son secrétaire général, Haitham al-Ghais, avait rencontré l'émissaire russe pour le climat, Ruslan Edelgeriev, pour défendre des \"approches inclusives et équilibrées\" [2].",
+          "explication": "La source [2] ne mentionne ni Haitham al-Ghais, ni Ruslan Edelgeriev, ni une telle rencontre."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "La Turquie, qui copréside la COP avec l'Australie, a appelé les parties à \"agir de manière responsable\" pour trouver un compromis [2].",
+          "explication": "La source [2] ne contient pas cet appel de la Turquie ni l'information selon laquelle la Turquie coprésiderait la COP31 avec l'Australie."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "Un projet de texte provisoire appelait à porter la part de l'électricité dans la consommation finale mondiale à 35 % d'ici 2035, contre un peu plus de 20 % actuellement, sans préciser si cette électricité devait provenir de sources bas carbone ou du charbon [2].",
+          "explication": "La source [2] ne mentionne pas ce projet de texte ni ces chiffres (35 % d'ici 2035, 20 % actuellement)."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "Le conseiller national écologiste suisse Christophe Clivaz parle d'un \"phénomène d'usure\" face à des objectifs de Paris qui ne se réalisent pas [1].",
+          "explication": "La source [1] (RTS) ne cite pas Christophe Clivaz ni l'expression \"phénomène d'usure\"."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "Parallèlement, la présence massive des lobbies pétroliers, miniers et agro-industriels transforme les COP en \"foires commerciales\" où se signent des contrats gaziers, selon le journaliste Étienne Leblanc [1].",
+          "explication": "La source [1] ne mentionne pas Étienne Leblanc ni l'expression \"foires commerciales\"."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "À Antalya, certains lobbyistes militent pour retirer la notion de sortie accélérée des fossiles du texte final [1].",
+          "explication": "La source [1] ne rapporte pas cette action de lobbyistes à Antalya."
+        },
+        {
+          "bloc": 1,
+          "section": "nuances",
+          "type": "source_inventee",
+          "phrase_exacte": "L'Organisation internationale pour les migrations (OIM) alerte sur le décalage entre les besoins d'adaptation et les financements réels : environ 310 millions de dollars seraient nécessaires pour des mesures de prévention des déplacements climatiques, contre seulement 30 millions mobilisés [3].",
+          "explication": "La source [3] (Blick) ne contient pas les chiffres 310 millions et 30 millions de dollars ni cette comparaison."
+        },
+        {
+          "bloc": 1,
+          "section": "nuances",
+          "type": "source_inventee",
+          "phrase_exacte": "Amy Pope, directrice de l'OIM, déplore que des milliards soient dépensés pour le contrôle des frontières plutôt que pour stabiliser les communautés vulnérables [3].",
+          "explication": "La source [3] ne cite pas Amy Pope ni cette déclaration."
+        },
+        {
+          "bloc": 1,
+          "section": "nuances",
+          "type": "source_inventee",
+          "phrase_exacte": "Plus de 200 millions de personnes vivent dans des communautés extrêmement vulnérables au climat et risquent d'être déplacées si aucune action n'est entreprise [3].",
+          "explication": "La source [3] mentionne 200 millions de déplacés possibles, mais pas qu'ils \"vivent dans des communautés extrêmement vulnérables\" ni ce conditionnel."
+        },
+        {
+          "bloc": 1,
+          "section": "nuances",
+          "type": "source_inventee",
+          "phrase_exacte": "En 2025, près de 30 millions de personnes ont déjà été déplacées par des catastrophes climatiques selon l'OIM [3].",
+          "explication": "La source [3] ne donne pas ce chiffre pour 2025."
+        },
+        {
+          "bloc": 1,
+          "section": "nuances",
+          "type": "source_inventee",
+          "phrase_exacte": "La directrice regrette l'absence de plusieurs chefs d'État à la COP31, notant que les gouvernements absents sont souvent ceux qui peinent à gérer les migrations [3].",
+          "explication": "La source [3] ne rapporte pas ce regret d'Amy Pope ni ce lien entre absence de chefs d'État et gestion des migrations."
+        },
+        {
+          "bloc": 1,
+          "section": "nuances",
+          "type": "source_inventee",
+          "phrase_exacte": "Un observateur ayant assisté à 29 des 31 COP qualifie l'édition 2026 de \"plus désorganisée jamais vue\" [4].",
+          "explication": "La source [4] (France 24) ne contient pas ce témoignage ni cette citation."
+        },
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "compteur_incoherent",
+          "phrase_exacte": "nb_sources: 4",
+          "explication": "Le champ nb_sources indique 4, mais la section faits ne renvoie qu'à la source [2] (Radio Canada) ; les sources [1], [3] et [4] ne sont pas citées dans les faits, ce qui rend le compteur incohérent avec l'usage réel."
+        },
+        {
+          "bloc": 1,
+          "section": "resume",
+          "type": "source_inventee",
+          "phrase_exacte": "L'Union européenne affronte l'Arabie saoudite pour inscrire une référence à l'abandon des combustibles fossiles dans le texte final, tandis que des pays vulnérables comme Tuvalu menacent de quitter la table si cette mention est absente.",
+          "explication": "Ces affirmations (affrontement UE/Arabie saoudite, menace de Tuvalu de quitter la table) ne figurent dans aucune des quatre sources autorisées."
+        },
+        {
+          "bloc": 1,
+          "section": "resume",
+          "type": "source_inventee",
+          "phrase_exacte": "Plus de 100 000 participants sont accrédités, un record, mais l'intérêt du public régresse selon un sondage de la RTS où seul un répondant sur cinq déclare suivre l'actualité de la conférence.",
+          "explication": "Le chiffre \"plus de 100 000 participants\" et le record ne sont pas dans la source [1] (RTS) ; le sondage RTS \"un répondant sur cinq\" n'y figure pas non plus."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "La COP31 réunit plus de 100 000 personnes à Antalya, un record absolu pour une conférence climat de l'ONU, loin des 10 000 participants des premières éditions et des 30 000 de la COP21 de Paris [1].",
+          "explication": "La source [1] ne donne pas le chiffre de 100 000 participants ni les comparaisons avec 10 000 et 30 000."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "un sondage de la RTS auprès de plus de 500 personnes montre qu'un seul répondant sur cinq suit l'actualité de cette conférence [1].",
+          "explication": "La source [1] ne mentionne pas un sondage auprès de 500 personnes ni le ratio un sur cinq."
+        },
+        {
+          "bloc": 1,
+          "section": "titre",
+          "type": "source_inventee",
+          "phrase_exacte": "COP31 à Antalya : négociations prolongées sans compromis sur les fossiles ni le financement",
+          "explication": "Le titre résume des faits (prolongation, absence de compromis sur fossiles et financement) qui ne sont pas tous confirmés par les sources ; notamment la prolongation et le lieu Antalya ne sont pas dans la source [2]."
+        }
+      ]
+    },
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "resume_repete_corps"
+    ],
+    "titre": "COP31 à Antalya : négociations prolongées sans compromis sur les fossiles ni le financement",
+    "n_sources": 4,
+    "n_mots": 736,
+    "titre_rss": "Climat : les négociations s'enlisent à la COP31, sans compromis en vue",
+    "matiere_faits_distincts": 1158,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 4,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "poissons-intestins-carbonates-cycle-carbone-etude-miami",
+    "statut": "rejete_qualite",
+    "date": "2026-11-21T21:23:50",
+    "tentative": 1,
+    "angle_insuffisant": true,
+    "raison": "Aucune phrase des faits ne contient un événement précis daté ou datable (publication de l'étude, date de la découverte, conférence) accompagné d'une donnée chiffrée ou nommée qui lui est propre. L'article explique un mécanisme général sans indiquer ce qui vient de se passer pour justifier une publication maintenant.",
+    "article_type": "actu",
+    "titre": "Des chercheurs de Miami décryptent le rôle des intestins de poissons",
+    "n_sources": 2,
+    "n_mots": 499,
+    "titre_rss": "Les poissons luttent contre le CO2",
+    "matiere_faits_distincts": 1368,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 3,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "etude_scientifique"
+  },
+  {
+    "slug": "binge-drinking-occasionnel-risque-alcoolisme-etudiants-etude-inserm",
+    "statut": "rejete_qualite",
+    "date": "2026-11-21T21:45:26",
+    "tentative": 3,
+    "perte_substance": true,
+    "section": "contexte",
+    "mots_avant": 198,
+    "mots_apres": 60,
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "titre_de_mauvaise_qualite"
+    ],
+    "titre": "Inserm : binge drinking occasionnel associé à 36,5 % de troubles de l'usage d'alcool chez 3 308 étudiants",
+    "n_sources": 3,
+    "n_mots": 681,
+    "titre_rss": "Les risques potentiels du binge drinking sur la santé des jeunes étudiants",
+    "matiere_faits_distincts": 519,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "veille_heures_visible": 517.7,
+    "veille_passages": 311,
+    "veille_age_h": 2442.5,
+    "veille_n_flux_grappe": 7,
+    "nature_contenu": "etude_scientifique"
+  },
+  {
+    "slug": "mit-robot-muscles-pilotes-lumiere",
+    "statut": "rejete_qualite",
+    "date": "2026-11-21T21:54:53",
+    "angle_insuffisant": true,
+    "raison": "Aucune phrase des faits ne contient un événement précis daté ou datable (publication, annonce, décision récente) associé à une donnée chiffrée ou nommée propre. L'article décrit une invention sans indiquer quand elle a été rendue publique (date de prépublication, conférence, communiqué), se contentant d'un renvoi vers un billet radio France Info non daté. Le lecteur ne sait pas ce qui vient de se passer ni pourquoi l'article paraît maintenant.",
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "article_sans_date"
+    ],
+    "titre": "Des chercheurs du MIT créent un robot à muscles pilotés par la lumière",
+    "n_sources": 4,
+    "n_mots": 503,
+    "titre_rss": "Le robot qui se déplace grâce à la lumière",
+    "matiere_faits_distincts": 1047,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "etude_scientifique"
+  },
+  {
+    "slug": "conference-poids-mesures-redefinition-seconde-2026",
+    "statut": "rejete_sensible",
+    "date": "2026-11-21T22:07:24",
+    "problemes_initiaux": 16,
+    "tentative": 1,
+    "bloc5": true,
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "faits_repetitifs"
+    ],
+    "titre": "La Conférence des poids et mesures engage la redéfinition de la seconde",
+    "n_sources": 2,
+    "n_mots": 577,
+    "titre_rss": "Mesurer le temps : une révolution se prépare",
+    "matiere_faits_distincts": 1279,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "decision_officielle"
   }
 ]
