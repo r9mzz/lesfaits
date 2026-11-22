@@ -87611,5 +87611,656 @@
     "n_sources_injectees": 10,
     "n_sources_trouvees": 10,
     "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "odessa-ecoles-enseignement-distance-frappes-russes-reseau-electrique",
+    "statut": "rejete_sensible",
+    "date": "2026-11-22T20:37:31",
+    "problemes_initiaux": 10,
+    "tentative": 3,
+    "bloc5": true,
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "titre_de_mauvaise_qualite"
+    ],
+    "titre": "Odessa : écoles en distanciel après frappes russes sur le réseau électrique",
+    "n_sources": 4,
+    "n_mots": 590,
+    "titre_rss": "Guerre en Ukraine : les écoles d'Odessa passent à l'enseignement à distance après des frappes russes sur le réseau électrique",
+    "matiere_faits_distincts": 718,
+    "matiere_redondance": 0.01,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "cop31-echec-accord-final-energies-fossiles-turquie",
+    "statut": "rejete_qualite",
+    "date": "2026-11-22T20:47:41",
+    "problemes_initiaux": 12,
+    "tentatives": 3,
+    "problemes_restants": 9,
+    "bloquants_restants": 3,
+    "bloquants_types": [
+      "chiffre_errone",
+      "chiffre_errone",
+      "incoherence_inter_sections"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [4] (RFI, 22 novembre 2026) indique que la COP31 s'est achevée le samedi 21 novembre, pas le dimanche 22 novembre.",
+        "phrase": "La COP31 d'Antalya s'est achevée dimanche 22 novembre après 13 jours de négociations, sans adopter de décision finale [4]."
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [1] (Ouest-France, 22 novembre 2026) indique un objectif de 35 % d'ici 2035, pas 2030.",
+        "phrase": "Le projet de décision appelait les pays à porter la part de l'électricité dans la consommation finale d'énergie de 20 % aujourd'hui à 35 % à l'échelle mondiale d'ici 2030 [1]."
+      },
+      {
+        "bloc": 1,
+        "type": "incoherence_inter_sections",
+        "description": "Incohérence entre la source [1] qui indique 2035 et le texte de l'article qui indique 2030 pour le même objectif d'électrification à 35%.",
+        "phrase": "Le projet de décision appelait les pays à porter la part de l'électricité dans la consommation finale d'énergie de 20 % aujourd'hui à 35 % à l'échelle mondiale d'ici 2030 [1]."
+      }
+    ],
+    "types_restants": [
+      "chiffre_errone",
+      "chiffre_errone",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "compteur_incoherent",
+      "incoherence_inter_sections"
+    ],
+    "article_type": "actu",
+    "titre": "La COP31 s'achève sans accord, bloquée par le refus de nommer les énergies fossiles",
+    "n_sources": 5,
+    "n_mots": 761,
+    "titre_rss": "En Turquie, la Cop31 échoue sur la question de l’abandon des énergies fossiles",
+    "matiere_faits_distincts": 1014,
+    "matiere_redondance": 0.04,
+    "matiere_donnees_chiffrees": 2,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "substances-chimiques-cout-sanitaire-1000-milliards-euros-oms",
+    "statut": "rejete_sensible",
+    "date": "2026-11-22T20:52:10",
+    "problemes_initiaux": 8,
+    "tentative": 1,
+    "bloc5": true,
+    "article_type": "actu",
+    "titre": "Substances chimiques : 1 000 milliards d'euros de dégâts sanitaires annuels selon l'OMS",
+    "n_sources": 4,
+    "n_mots": 473,
+    "titre_rss": "« Alors que la science montre de mieux en mieux le rôle des substances chimiques dans l’épidémie de “maladies de civilisation”, l’Europe affaiblit sa réglementation »",
+    "matiere_faits_distincts": 367,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "israel-eisenkot-terrorisme-juif-attaques-colons-cisjordanie",
+    "statut": "rejete_sensible",
+    "date": "2026-11-22T21:05:06",
+    "problemes_initiaux": 9,
+    "bloc5": [
+      "affaire_en_cours_presentee_comme_fait"
+    ],
+    "article_type": "actu",
+    "titre": "Eisenkot qualifie de \"terrorisme juif\" des attaques de colons près de Ramallah",
+    "n_sources": 5,
+    "n_mots": 612,
+    "titre_rss": "Israël : Eisenkot condamne des attaques de colons juifs en Cisjordanie",
+    "matiere_faits_distincts": 1158,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 12,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "fouilles-epave-la-lune-toulon-juillet-2026-drassm-marine-nationale",
+    "statut": "rejete_sensible",
+    "date": "2026-11-22T21:18:49",
+    "problemes_initiaux": 18,
+    "tentative": 2,
+    "bloc5": true,
+    "article_type": "actu",
+    "titre": "Fouilles inédites sur l'épave de La Lune à 90 mètres de fond",
+    "n_sources": 4,
+    "n_mots": 707,
+    "titre_rss": "Les fouilles de l’épave de la « Lune », le grand vaisseau de Louis XVI qui gît à 90 mètres de fond au large de Toulon, racontent une archéologie de l’extrême",
+    "matiere_faits_distincts": 1325,
+    "matiere_redondance": 0.01,
+    "matiere_donnees_chiffrees": 4,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "supersolide-photons-premiere-observation-equipes-internationales",
+    "statut": "rejete_qualite",
+    "date": "2026-11-22T21:34:35",
+    "problemes_initiaux": 10,
+    "tentatives": 3,
+    "problemes_restants": 8,
+    "bloquants_restants": 7,
+    "bloquants_types": [
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [2] (Le Monde) indique que l'équipe est menée par l'Université de Varsovie et le CNRS, sans mentionner l'ETH Zurich comme collaborateur direct de cette expérience ; l'ETH Zurich est citée pour ses travaux antér",
+        "phrase": "Des physiciens de l'Université de Varsovie, en collaboration avec le CNRS et l'ETH Zurich, ont mis en évidence un état supersolide dans un gaz de polaritons, des quasi-particules issues du couplage fort entre photons et "
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [1] (Pour la Science) mentionne des groupes de l'ETH Zurich, d'Innsbruck et de Stuttgart pour les premières observations de 2019 ; l'article omet le groupe de Stuttgart.",
+        "phrase": "Les premières observations expérimentales incontestables datent de 2019, obtenues indépendamment par des groupes de l'ETH Zurich et d'Innsbruck dans des condensats de Bose-Einstein d'atomes ultrafroids à spin-orbit coupl"
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [1] indique que la condensation de Bose-Einstein de polaritons a été observée en 2006, pas « depuis les années 2000 » de manière générale.",
+        "phrase": "Les polaritons de microcavité, étudiés depuis les années 2000 pour leur condensation de Bose-Einstein, constituent une plateforme alternative prometteuse [1]."
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [1] ne contient pas cette affirmation sur les fluctuations quantiques et thermiques ; elle traite de l'historique et des plateformes, pas de cette limite spécifique du nouveau résultat.",
+        "phrase": "Par ailleurs, la revue Pour la Science souligne que le rôle des fluctuations quantiques et thermiques dans la stabilité du réseau cristallin à cette échelle n'est pas encore pleinement élucidé [1]."
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "Le renvoi [1] (Pour la Science) ne décrit pas cette expérience photonnique Varsovie-CNRS ; il traite de l'historique des supersolides et des plateformes atomiques. Le fait est sourcé uniquement par [2].",
+        "phrase": "Des physiciens de l'Université de Varsovie, en collaboration avec le CNRS et l'ETH Zurich, ont mis en évidence un état supersolide dans un gaz de polaritons, des quasi-particules issues du couplage fort entre photons et "
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "Les renvois [2] sont inappropriés : la source [2] (Le Monde) ne traite pas de l'historique théorique des années 1960, ni des expériences de 2019, ni des caractéristiques générales des polaritons ; elle rapporte spécifiqu",
+        "phrase": "La recherche des supersolides débute avec les prédictions théoriques des années 1960 sur l'hélium-4, où un ordre cristallin et une superfluidité pourraient coexister [1]. Les premières observations expérimentales inconte"
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "Les renvois [1] et [2] ne confirment pas ces nuances techniques précises (moment d'inertie, réponse à la rotation, fluctuations quantiques/thermiques, applications) ; la source [1] est un article d'historique général, la",
+        "phrase": "L'état observé reste transitoire : la durée de vie des polaritons, limitée par la fuite des photons hors de la cavité, impose un régime stationnaire maintenu par pompage externe, et non un équilibre thermodynamique vérit"
+      }
+    ],
+    "types_restants": [
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "compteur_incoherent"
+    ],
+    "article_type": "actu",
+    "titre": "Supersolide photonnique : première observation par une équipe Varsovie-Zurich-CNRS",
+    "n_sources": 4,
+    "n_mots": 472,
+    "titre_rss": "L'intérêt des supersolides",
+    "matiere_faits_distincts": 524,
+    "matiere_redondance": 0.07,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "etude_scientifique"
+  },
+  {
+    "slug": "cop31-calendrier-giec-divise-pays",
+    "statut": "rejete_sensible",
+    "date": "2026-11-22T21:38:58",
+    "problemes_initiaux": 11,
+    "tentative": 1,
+    "bloc5": true,
+    "article_type": "actu",
+    "titre": "COP31 : le calendrier du prochain rapport du GIEC divise les pays",
+    "n_sources": 6,
+    "n_mots": 556,
+    "titre_rss": "\"Une action climatique fondée sur la science est plus cruciale que jamais\" : à la COP31, les experts du Giec au centre d'un bras de fer",
+    "matiere_faits_distincts": 749,
+    "matiere_redondance": 0.08,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "mortalite-france-2024-641046-deces-taux-standardise-baisse",
+    "statut": "erreur_verification",
+    "date": "2026-11-22T21:44:02",
+    "etape": "detection",
+    "erreur": "JSON tronqué ou incomplet dans la réponse (max_tokens atteint ?)",
+    "article_type": "actu",
+    "titre": "Mortalité 2024 : 641 046 décès, taux standardisé en baisse mais supérieur aux tendances pré-Covid",
+    "n_sources": 4,
+    "n_mots": 788,
+    "titre_rss": "Grandes causes de décès en France : tendances et causes associées en 2024",
+    "matiere_faits_distincts": 967,
+    "matiere_redondance": 0.11,
+    "matiere_donnees_chiffrees": 3,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "veille_heures_visible": 517.7,
+    "veille_passages": 311,
+    "veille_age_h": 2466.9,
+    "veille_n_flux_grappe": 1
+  },
+  {
+    "slug": "mortalite-france-2024-641046-deces-taux-standardise-baisse",
+    "statut": "rejete_qualite",
+    "date": "2026-11-22T21:44:02",
+    "raison": "verification_indisponible",
+    "statut_verification_initial": "erreur_verification"
+  },
+  {
+    "slug": "trente-ans-cooperation-scientifique-pretoria-ird-cnrs-cirad",
+    "statut": "rejete_qualite",
+    "date": "2026-11-22T21:56:19",
+    "problemes_initiaux": 8,
+    "tentatives": 3,
+    "problemes_restants": 11,
+    "bloquants_restants": 3,
+    "bloquants_types": [
+      "chiffre_errone",
+      "chiffre_errone",
+      "source_inventee"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [1] indique « plus de 1 000 publications communes » et non « plus de 1 500 » ; le chiffre du corps contredit la source citée.",
+        "phrase": "plus de 1 500 articles associent aujourd'hui l'Université de Pretoria à au moins l'un des trois instituts français (IRD, CNRS, CIRAD), selon les données Web of Science [1]"
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "Le résumé reprend le chiffre erroné de 1 500 publications alors que la source [1] mentionne plus de 1 000.",
+        "phrase": "une croissance exponentielle des publications communes passées de quasi nulles en 1996 à plus de 1 500 aujourd'hui selon Web of Science."
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "L'extrait de la source [2] n'est pas fourni ; on ne peut vérifier que cette page mentionne des LRI, RRI et un IRC avec Witwatersrand. L'attribution [2] n'est pas confirmée par les extraits disponibles.",
+        "phrase": "Le bureau d'Afrique australe compte notamment des Laboratoires de recherche internationaux (LRI) et des Réseaux de recherche internationaux (RRI) impliquant le CNRS et l'IRD, ainsi qu'un Centre de recherche international"
+      }
+    ],
+    "types_restants": [
+      "chiffre_errone",
+      "chiffre_errone",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_non_editoriale",
+      "source_inventee",
+      "extrapolation",
+      "jugement_de_valeur",
+      "section_gonflee",
+      "compteur_incoherent"
+    ],
+    "article_type": "actu",
+    "titre": "Trente ans de coopération scientifique entre l'Université de Pretoria, l'IRD, le CNRS et le CIRAD",
+    "n_sources": 5,
+    "n_mots": 685,
+    "titre_rss": "Trente ans de diplomatie scientifique : l’Université de Pretoria, l’IRD, le CNRS et le CIRAD célèbrent trois décennies de collaboration",
+    "matiere_faits_distincts": 770,
+    "matiere_redondance": 0.06,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "abigail-disney-heritiere-plaide-taxation-ultrariches",
+    "statut": "rejete_qualite",
+    "date": "2026-11-22T22:07:02",
+    "angle_insuffisant": true,
+    "raison": "Aucune phrase des faits ne contient à la fois un événement précis daté (annonce, publication, décision, résultat récent) et une donnée chiffrée ou nommée qui lui est propre. L'article se contente d'exposer les arguments d'Abigail Disney sans faire état d'une actualité déclenchante récente (nouvelle déclaration, publication, vote, rapport) qui justifierait une publication maintenant.",
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "resume_repete_corps"
+    ],
+    "titre": "Abigail Disney, héritière de l'empire Disney, plaide pour taxer les ultrariches",
+    "n_sources": 4,
+    "n_mots": 349,
+    "titre_rss": "Abigail Disney, l’héritière qui veut taxer les grandes fortunes : «Les ultrariches sont convaincus que seuls les imbéciles paient des impôts»",
+    "matiere_faits_distincts": 894,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "declaration"
+  },
+  {
+    "slug": "cop31-antalya-echec-accord-final-sortie-energies-fossiles",
+    "statut": "rejete_qualite",
+    "date": "2026-11-22T22:14:14",
+    "problemes_initiaux": 12,
+    "tentatives": 3,
+    "problemes_restants": 27,
+    "bloquants_restants": 2,
+    "bloquants_types": [
+      "chiffre_errone",
+      "chiffre_errone"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "Le chiffre \"plus de 30 000 participants\" est attribué à la source [4] (Mediapart), mais l'extrait de cette source indique \"plus de 20 000 participants\".",
+        "phrase": "La COP31 d'Antalya, qui réunissait plus de 30 000 participants sous présidence turque, s'est achevée dimanche sans qu'un consensus ne soit atteint sur une décision finale [4]."
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "Le chiffre \"plus de 30 000 participants\" est attribué à la source [4] (Mediapart), mais l'extrait de cette source indique \"plus de 20 000 participants\".",
+        "phrase": "La COP31 d'Antalya a rassemblé plus de 30 000 participants, selon Mediapart [4]."
+      }
+    ],
+    "types_restants": [
+      "chiffre_errone",
+      "chiffre_errone",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "compteur_incoherent",
+      "compteur_incoherent",
+      "compteur_incoherent",
+      "compteur_incoherent",
+      "compteur_incoherent",
+      "compteur_incoherent",
+      "compteur_incoherent",
+      "redondance",
+      "contexte_hors_sujet",
+      "contexte_hors_sujet",
+      "section_gonflee",
+      "angle_annonce_non_tenu"
+    ],
+    "article_type": "actu",
+    "titre": "La COP31 s'achève sans accord final, l'Union européenne rejette un texte sans sortie des fossiles",
+    "n_sources": 5,
+    "n_mots": 676,
+    "titre_rss": "En Turquie, en pleine ébullition climatique, la COP31 prend l’eau",
+    "matiere_faits_distincts": 1163,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 2,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "mission-bepicolombo-orbite-mercure-huit-ans-voyage",
+    "statut": "rejete_sensible",
+    "date": "2026-11-22T22:19:52",
+    "problemes_initiaux": 8,
+    "bloc5": [
+      "diffamation_potentielle"
+    ],
+    "article_type": "actu",
+    "titre": "La mission BepiColombo entre en orbite autour de Mercure après huit ans de voyage",
+    "n_sources": 3,
+    "n_mots": 446,
+    "titre_rss": "Les mystères de Mercure, l’étrange planète du Système solaire, que la mission BepiColombo devrait lever",
+    "matiere_faits_distincts": 844,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "soudan-frappes-drones-khartoum-armee-interception-22-novembre-2026",
+    "statut": "corrige_automatiquement",
+    "date": "2026-11-22T22:24:02",
+    "problemes_initiaux": 13,
+    "tentatives": 1,
+    "problemes_residuels_style": 8,
+    "rapport_initial": {
+      "conforme": false,
+      "sujet_sensible": false,
+      "sujet_sensible_raison": "",
+      "angle_insuffisant": false,
+      "angle_insuffisant_raison": "",
+      "nature_contenu": "actualite_factuelle",
+      "problemes": [
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "chiffre_errone",
+          "phrase_exacte": "Selon Le Temps, environ 1,7 million de personnes sont revenues à Khartoum depuis la reprise de la ville [3].",
+          "explication": "La source [3] (Le Temps, 15 avril 2026) indique « 1,7 million de personnes ont regagné la capitale » sans préciser « depuis la reprise de la ville » (mai 2025) ; l'article ajoute une causalité temporelle non présente dans la source."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "chiffre_errone",
+          "phrase_exacte": "L'ONU indique que plus de 1 630 civils ont été tués dans des frappes de drones à travers le Soudan entre janvier et octobre 2026 [5].",
+          "explication": "La source [5] (Apanews, date non précisée) ne contient pas ce chiffre précis ni cette période ; l'article attribue à tort une statistique détaillée à une source qui ne la fournit pas dans les extraits."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "chiffre_errone",
+          "phrase_exacte": "En octobre, plus de 17 centrales électriques situées dans plusieurs villes ont été visées, provoquant de vastes coupures d'électricité [5].",
+          "explication": "La source [5] ne mentionne ni le chiffre « 17 », ni le mois d'octobre, ni des centrales électriques visées ; l'information est inventée par rapport à l'extrait fourni."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "Le ministère pro-armée des Affaires étrangères a accusé en mars 2026 l'Éthiopie d'être le point de départ de certaines attaques de drones [2].",
+          "explication": "La source [2] (RFI, 3 mars 2026) rapporte l'accusation du ministère soudanais des Affaires étrangères mais ne la qualifie pas de « pro-armée » ; l'article ajoute un qualificatif partisan absent de la source."
+        },
+        {
+          "bloc": 1,
+          "section": "nuances",
+          "type": "chiffre_errone",
+          "phrase_exacte": "des travailleurs humanitaires estiment à plus de 200 000 le nombre de personnes tuées [6].",
+          "explication": "La source [6] (Sahel Intelligence) ne contient pas cette estimation ; l'article attribue un chiffre à une source qui ne le fournit pas dans les extraits."
+        },
+        {
+          "bloc": 1,
+          "section": "nuances",
+          "type": "chiffre_errone",
+          "phrase_exacte": "TRT Afrika cite 20 000 morts selon l'ONU et des rapports locaux [7].",
+          "explication": "La source [7] (Sahel Intelligence) ne mentionne pas TRT Afrika ni le chiffre de 20 000 morts ; l'article invente une attribution et un chiffre absents de l'extrait."
+        },
+        {
+          "bloc": 1,
+          "section": "nuances",
+          "type": "source_inventee",
+          "phrase_exacte": "La coalition civile « Tasis », alliée aux FSR, a revendiqué d'autres frappes récentes sur Khartoum en parlant de « frappes aériennes précises » menées par sa « force aérienne » [7].",
+          "explication": "La source [7] (Sahel Intelligence) ne mentionne pas la coalition « Tasis » ni une telle revendication ; l'information est absente de l'extrait fourni."
+        },
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "compteur_incoherent",
+          "phrase_exacte": "\"nb_sources\": 6",
+          "explication": "Le champ nb_sources indique 6 mais l'article utilise des renvois jusqu'à [7] (sept sources distinctes citées dans le texte), ce qui rend le compteur incohérent avec l'usage réel."
+        },
+        {
+          "bloc": 2,
+          "section": "contexte",
+          "type": "source_derivee_comptee_comme_primaire",
+          "phrase_exacte": "\"primaire\": 0, \"secondaire\": 2, \"tertiaire\": 3",
+          "explication": "Plusieurs sources (RFI [1], aa.com.tr [4], Apanews [5], Sahel Intelligence [6,7]) reprennent la même dépêche du 22 novembre 2026 sans apport distinct ; elles sont comptées comme indépendantes alors qu'elles dérivent d'un même événement unique."
+        },
+        {
+          "bloc": 4,
+          "section": "titre",
+          "type": "jugement_de_valeur",
+          "phrase_exacte": "Soudan : frappes de drones sur Khartoum, l'armée intercepte plusieurs engins",
+          "explication": "Le titre présente l'interception comme un fait acquis (« l'armée intercepte ») alors que les sources [1] et [5] rapportent l'affirmation de l'armée sans confirmation indépendante ; formulation affirmative pour une allégation non vérifiée."
+        },
+        {
+          "bloc": 4,
+          "section": "faits",
+          "type": "jugement_de_valeur",
+          "phrase_exacte": "Khartoum a été visée par de violentes attaques de drones",
+          "explication": "L'adjectif « violentes » qualifie subjectivement l'intensité des attaques ; les sources [1] et [5] décrivent des frappes et des explosions sans cet adjectif évaluatif."
+        },
+        {
+          "bloc": 4,
+          "section": "contexte",
+          "type": "jugement_de_valeur",
+          "phrase_exacte": "Une guerre qui s'enlise depuis avril 2023",
+          "explication": "Le verbe « s'enlise » exprime une appréciation stratégique (impasse, enlisement) qui n'est pas un fait neutre ; aucune source ne caractérise ainsi le conflit dans les extraits."
+        },
+        {
+          "bloc": 4,
+          "section": "nuances",
+          "type": "redondance",
+          "phrase_exacte": "Le nombre de victimes totales du conflit varie selon les sources : l'ONU évoque des dizaines de milliers de morts [5], des travailleurs humanitaires estiment à plus de 200 000 le nombre de personnes tuées [6], et TRT Afrika cite 20 000 morts selon l'ONU et des rapports locaux [7].",
+          "explication": "Cette énumération de bilans divergents répète l'idée déjà présente dans le contexte (« des dizaines de milliers de morts selon les Nations unies [5] ») sans apporter de fait nouveau sourcé distinctement."
+        }
+      ]
+    },
+    "article_type": "actu",
+    "titre": "Soudan : frappes de drones sur Khartoum, l'armée intercepte plusieurs engins",
+    "n_sources": 6,
+    "n_mots": 560,
+    "titre_rss": "Soudan: frappes de drones à Khartoum sur des habitations et un bâtiment de l'ONU",
+    "matiere_faits_distincts": 1193,
+    "matiere_redondance": 0.01,
+    "matiere_donnees_chiffrees": 3,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "frappe-drone-russe-immeuble-kiev-deux-morts-22-novembre",
+    "statut": "corrige_automatiquement",
+    "date": "2026-11-22T22:28:36",
+    "problemes_initiaux": 10,
+    "tentatives": 1,
+    "problemes_residuels_style": 7,
+    "rapport_initial": {
+      "conforme": false,
+      "sujet_sensible": false,
+      "sujet_sensible_raison": "",
+      "angle_insuffisant": false,
+      "angle_insuffisant_raison": "",
+      "nature_contenu": "actualite_factuelle",
+      "problemes": [
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "chronologie_confuse",
+          "phrase_exacte": "Plus récemment, la BBC rapporte qu'un missile russe a touché la Pologne lors d'exercices militaires des alliés de l'Ukraine, Varsovie qualifiant l'incident de \"provocation\" de Moscou [2].",
+          "explication": "La source BBC [2] est datée du 22 novembre 2026 et traite de la frappe du jour même sur l'oblast de Kiev ; elle ne mentionne pas d'incident en Pologne. L'événement polonais (missile de novembre 2022) est antérieur de quatre ans et mélangé implicitement à l'actualité du 22 novembre 2026 sans que sa date ni son rapport avec l'événement du jour soient explicites."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "Plus récemment, la BBC rapporte qu'un missile russe a touché la Pologne lors d'exercices militaires des alliés de l'Ukraine, Varsovie qualifiant l'incident de \"provocation\" de Moscou [2].",
+          "explication": "Le fait attribué à la source [2] (BBC du 22 novembre 2026) n'est pas confirmé par cette source, qui ne traite pas d'un incident en Pologne. L'attribution [2] est donc fausse pour ce fait."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "contexte_hors_sujet",
+          "phrase_exacte": "Plus récemment, la BBC rapporte qu'un missile russe a touché la Pologne lors d'exercices militaires des alliés de l'Ukraine, Varsovie qualifiant l'incident de \"provocation\" de Moscou [2].",
+          "explication": "Cet incident polonais de 2022 n'éclaire pas directement la frappe de drone du 22 novembre 2026 dans l'oblast de Kiev ; il s'agit d'un fait divers sans rapport direct avec le sujet principal, utilisé pour remplir la section Contexte."
+        },
+        {
+          "bloc": 1,
+          "section": "nuances",
+          "type": "source_inventee",
+          "phrase_exacte": "Les incursions précédentes dans les pays de l'OTAN ont parfois impliqué des engins ukrainiens brouillés et déroutés par la Russie, selon des analyses citées par Radiofrance [5].",
+          "explication": "La source [5] (Radiofrance, 29 mai 2026) traite de l'incident de drone en Roumanie ; les extraits fournis ne contiennent aucune mention d'analyses sur des engins ukrainiens brouillés et déroutés par la Russie. L'attribution [5] est fausse pour ce fait."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "chiffre_errone",
+          "phrase_exacte": "En mai 2026, un drone russe s'était abattu sur un immeuble résidentiel à Galati en Roumanie, pays membre de l'OTAN, faisant deux blessés légers et deux victimes de crises de panique, avec 70 personnes évacuées [4][5].",
+          "explication": "La source [4] (Le Soir, 29 mai 2026) indique dans son extrait « deux blessés légers » seulement, sans mentionner « deux victimes de crises de panique » ni « 70 personnes évacuées ». Ces chiffres ne correspondent pas à la source citée."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "chiffre_errone",
+          "phrase_exacte": "En mai 2026, un drone russe s'était abattu sur un immeuble résidentiel à Galati en Roumanie, pays membre de l'OTAN, faisant deux blessés légers et deux victimes de crises de panique, avec 70 personnes évacuées [4][5].",
+          "explication": "La source [5] (Radiofrance, 29 mai 2026) indique dans son extrait « deux blessés légers » et « 70 personnes évacuées », sans mentionner « deux victimes de crises de panique ». Ce chiffre ne correspond pas à la source citée."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "fait_tranche_arbitrairement",
+          "phrase_exacte": "C'était la première fois qu'un drone russe touchait un bâtiment en Roumanie [4].",
+          "explication": "La source [4] (Le Soir) ne contient pas cette affirmation dans les extraits fournis ; l'article la présente comme un fait établi sans qu'elle soit sourcée."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "fait_tranche_arbitrairement",
+          "phrase_exacte": "La présidente de la Commission européenne Ursula von der Leyen avait alors qualifié cet événement de \"nouvelle limite\" franchie par Moscou [5].",
+          "explication": "La source [5] (Radiofrance) ne contient pas cette citation dans les extraits fournis ; l'article la présente comme un fait établi sans qu'elle soit sourcée."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "fait_tranche_arbitrairement",
+          "phrase_exacte": "D'autres incidents similaires ont été recensés dans les pays baltes membres de l'OTAN : en Lettonie le 6 mai avec des drones s'écrasant dont un sur un site de stockage pétrolier, en Estonie le 17 mai avec un drone abattu par un avion de l'OTAN, et en Lituanie le 20 mai avec une alerte aux drones à Vilnius [5].",
+          "explication": "La source [5] (Radiofrance) ne mentionne aucun de ces incidents en Lettonie, Estonie ou Lituanie dans les extraits fournis ; l'article les présente comme des faits établis sans qu'ils soient sourcés."
+        },
+        {
+          "bloc": 2,
+          "section": "contexte",
+          "type": "compteur_incoherent",
+          "phrase_exacte": "\"nb_sources\": 5",
+          "explication": "La section Contexte utilise des faits non confirmés par les sources [4] et [5] (incidents baltes, citation von der Leyen, première fois en Roumanie, détails sur crises de panique) et attribue à [2] un fait absent de cette source (missile en Pologne). Le champ nb_sources compte 5 sources autorisées, mais plusieurs renvois [n] dans le texte pointent vers des contenus que ces sources ne contiennent pas, faussant l'intégrité du sourcing."
+        }
+      ]
+    },
+    "article_type": "actu",
+    "titre": "Frappe de drone russe sur un immeuble à Kiev : au moins deux morts",
+    "n_sources": 5,
+    "n_mots": 522,
+    "titre_rss": "Ukraine : au moins deux morts après une frappe de drone russe contre un immeuble résidentiel",
+    "matiere_faits_distincts": 612,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
   }
 ]
