@@ -86667,5 +86667,949 @@
     "n_sources_injectees": 10,
     "n_sources_trouvees": 10,
     "nature_contenu": "decision_officielle"
+  },
+  {
+    "slug": "substances-chimiques-cout-sanitaire-1000-milliards-euros-oms-onu",
+    "statut": "rejete_qualite",
+    "date": "2026-11-22T17:06:35",
+    "angle_insuffisant": true,
+    "raison": "Aucune phrase des faits ne combine un événement précis daté (publication, décision, résultat récent) et une donnée chiffrée ou nommée qui lui est propre. L'article expose un sujet général (coût sanitaire des substances chimiques, limites planétaires) sans fait déclencheur daté justifiant une publication maintenant ; il répond à « qu'est-ce que X ? » plutôt qu'à « pourquoi parle-t-on de X maintenant ? ».",
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "resume_repete_corps",
+      "faits_repetitifs"
+    ],
+    "titre": "Substances chimiques : 1 000 milliards d'euros de dégâts sanitaires annuels selon l'OMS et l'ONU",
+    "n_sources": 4,
+    "n_mots": 655,
+    "titre_rss": "« Alors que la science montre de mieux en mieux le rôle des substances chimiques dans l’épidémie de “maladies de civilisation”, l’Europe affaiblit sa réglementation »",
+    "matiere_faits_distincts": 741,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "sujet_pedagogique"
+  },
+  {
+    "slug": "cop31-echec-accord-rejet-proposition-turque-ue",
+    "statut": "rejete_qualite",
+    "date": "2026-11-22T17:13:30",
+    "problemes_initiaux": 16,
+    "tentatives": 3,
+    "problemes_restants": 8,
+    "bloquants_restants": 7,
+    "bloquants_types": [
+      "incoherence_inter_sections",
+      "incoherence_inter_sections",
+      "incoherence_inter_sections",
+      "chiffre_errone",
+      "chiffre_errone",
+      "source_inventee",
+      "incoherence_inter_sections"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "incoherence_inter_sections",
+        "description": "La source [4] (RFI) indique que la présidence turque a annoncé le REJET de la proposition d'accord final, pas son retrait volontaire ; le titre RFI dit explicitement 'annonce le rejet de la proposition d'accord final', c",
+        "phrase": "La présidence turque de la 31e Conférence des parties (COP31) a annoncé dimanche 22 novembre le retrait de la proposition de compromis qu'elle avait présentée pour clore les négociations à Antalya [4]."
+      },
+      {
+        "bloc": 1,
+        "type": "incoherence_inter_sections",
+        "description": "Le titre reprend le verbe 'retrait' (action volontaire de la présidence turque) alors que la source [4] décrit un rejet (décision de la conférence/consensus), créant une incohérence entre le titre et la source factuelle.",
+        "phrase": "La COP31 s'achève sans accord après le retrait de la proposition turque face à l'opposition de l'UE"
+      },
+      {
+        "bloc": 1,
+        "type": "incoherence_inter_sections",
+        "description": "Le résumé utilise 'retiré' (action de la présidence) alors que la source [4] parle de 'rejet' (échec d'adoption par consensus), ce qui change la responsabilité de l'échec.",
+        "phrase": "La présidence turque a retiré dimanche 22 novembre sa proposition de décision finale à Antalya, laissant la 31e conférence climat sans texte adopté après deux semaines de négociations."
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "L'article mentionne 'la 31e Conférence des parties (COP31)' alors que les sources [2], [4], [5] datées du 22/11/2026 traitent de la COP29 (Bakou, novembre 2024) — la COP31 n'a pas encore eu lieu en 2026, ce qui est une e",
+        "phrase": "La présidence turque de la 31e Conférence des parties (COP31) a annoncé dimanche 22 novembre le retrait de la proposition de compromis qu'elle avait présentée pour clore les négociations à Antalya [4]."
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [3] (OCDE, 09/11/2026) s'intitule 'What to watch for at COP31' mais les autres sources [2,4,5] du 22/11/2026 couvrent l'échec de la COP29 à Bakou — l'article confond COP29 (réelle, novembre 2024) et COP31 (futu",
+        "phrase": "La COP31 était présentée par l'OCDE comme une \"COP de mise en œuvre\", censée traduire concrètement les engagements pris lors des conférences précédentes, notamment l'accord de Paris de 2015 [3]."
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "La citation porte la référence [6] mais le tableau 'sources' ne contient que 5 entrées (indices 1 à 5) — la source [6] n'existe pas dans les sources autorisées, c'est une source inventée.",
+        "phrase": "Le ministre irlandais du Climat, Darragh O'Brien, dont le pays assure la présidence tournante du Conseil de l'UE, a déclaré : \"Nous n'approuverons pas une décision ne mentionnant même pas les combustibles fossiles, qui s"
+      },
+      {
+        "bloc": 1,
+        "type": "incoherence_inter_sections",
+        "description": "Le sous-titre 'faits' reprend 'retiré' alors que la source [4] décrit un rejet par manque de consensus, pas un retrait volontaire — incohérence avec la source factuelle.",
+        "phrase": "Un texte final retiré faute de consensus sur la sortie des fossiles"
+      }
+    ],
+    "types_restants": [
+      "incoherence_inter_sections",
+      "incoherence_inter_sections",
+      "incoherence_inter_sections",
+      "chiffre_errone",
+      "chiffre_errone",
+      "source_inventee",
+      "compteur_incoherent",
+      "incoherence_inter_sections"
+    ],
+    "article_type": "actu",
+    "titre": "La COP31 s'achève sans accord après le rejet de la proposition turque par l'UE",
+    "n_sources": 5,
+    "n_mots": 450,
+    "titre_rss": "COP31 : la présidence turque ​annonce le rejet de sa proposition de décision finale, qui ne mentionnait pas la sortie des énergies fossiles",
+    "matiere_faits_distincts": 412,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "odessa-ecoles-distanciel-frappes-russes-reseau-electrique",
+    "statut": "rejete_sensible",
+    "date": "2026-11-22T17:19:40",
+    "problemes_initiaux": 8,
+    "tentative": 2,
+    "bloc5": true,
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "titre_de_mauvaise_qualite"
+    ],
+    "titre": "Odessa : écoles en distanciel du 23 au 27 novembre après frappes russes",
+    "n_sources": 6,
+    "n_mots": 550,
+    "titre_rss": "Guerre en Ukraine : les écoles d'Odessa passent à l'enseignement à distance après des frappes russes sur le réseau électrique",
+    "matiere_faits_distincts": 476,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 2,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "kenya-72-immeubles-effondres-trois-ans-enquete-nca",
+    "statut": "corrige_automatiquement",
+    "date": "2026-11-22T17:33:32",
+    "problemes_initiaux": 9,
+    "tentatives": 2,
+    "problemes_residuels_style": 4,
+    "rapport_initial": {
+      "conforme": false,
+      "sujet_sensible": false,
+      "sujet_sensible_raison": "",
+      "angle_insuffisant": false,
+      "angle_insuffisant_raison": "",
+      "nature_contenu": "actualite_factuelle",
+      "problemes": [
+        {
+          "bloc": 1,
+          "section": "titre",
+          "type": "chiffre_errone",
+          "phrase_exacte": "Kenya : 72 immeubles effondrés en trois ans, la NCA lance une enquête parlementaire",
+          "explication": "Le titre affirme que la NCA \"lance\" une enquête parlementaire, alors que les sources [1] indiquent que la NCA a communiqué un bilan devant une commission parlementaire existante sur le logement, et a annoncé l'ouverture d'une enquête officielle (NCA), pas le lancement d'une enquête parlementaire."
+        },
+        {
+          "bloc": 1,
+          "section": "resume",
+          "type": "chiffre_errone",
+          "phrase_exacte": "Le Kenya a enregistré 72 effondrements d'immeubles au cours des trois dernières années, un bilan révélé par l'Autorité nationale de construction (NCA) devant une commission parlementaire sur le logement.",
+          "explication": "Le résumé reprend l'erreur du titre en présentant la commission parlementaire comme le destinataire de la révélation du bilan, alors que la source [1] indique que la NCA a communiqué ce bilan à cette commission, ce qui est différent d'un lancement d'enquête parlementaire."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "incoherence_inter_sections",
+          "phrase_exacte": "L'Autorité nationale de construction (NCA) a communiqué à une commission parlementaire sur le logement que 72 bâtiments se sont effondrés au Kenya au cours des trois dernières années [1][6].",
+          "explication": "La source [6] n'existe pas dans la liste des sources autorisées (seulement 4 sources, indices 1 à 4). Le renvoi [6] est une source inventée."
+        },
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "L'Autorité nationale de construction (NCA) a communiqué à une commission parlementaire sur le logement que 72 bâtiments se sont effondrés au Kenya au cours des trois dernières années [1][6].",
+          "explication": "Le renvoi [6] cite une source qui n'apparaît pas dans la liste des sources autorisées (qui ne contient que 4 entrées)."
+        },
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "compteur_incoherent",
+          "phrase_exacte": "L'Autorité nationale de construction (NCA) a communiqué à une commission parlementaire sur le logement que 72 bâtiments se sont effondrés au Kenya au cours des trois dernières années [1][6].",
+          "explication": "Le champ nb_sources indique 4, mais le texte utilise un renvoi [6] qui suppose au moins 6 sources, créant une incohérence dans le comptage des sources."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "La commission parlementaire saisie cette semaine doit examiner les failles du cadre légal actuel et proposer des sanctions renforcées contre les contrevenants [1].",
+          "explication": "La source [1] (RFI du 22 novembre 2026) est utilisée pour affirmer que la commission a été \"saisie cette semaine\" et doit examiner des failles, mais l'extrait fourni ne confirme pas ces détails temporels ni ce mandat précis."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "fait_tranche_arbitrairement",
+          "phrase_exacte": "Les précédents effondrements majeurs, comme celui d'un immeuble résidentiel à Nairobi en 2015 qui avait fait plus de 50 morts, n'avaient pas entraîné de réforme structurelle durable.",
+          "explication": "Cette affirmation historique (2015, 50 morts, absence de réforme durable) n'est pas sourcée dans les extraits fournis [1][2][3][4] et présente comme un fait établi une analyse causale non vérifiée par les sources autorisées."
+        },
+        {
+          "bloc": 4,
+          "section": "nuances",
+          "type": "redondance",
+          "phrase_exacte": "Le chiffre de 72 effondrements sur trois ans, communiqué par la NCA, n'est pas ventilé par année, par type de bâtiment (résidentiel, commercial, en construction, achevé) ni par région, ce qui limite la portée de l'analyse [1].",
+          "explication": "Cette limitation est déjà implicite dans le fait que le chiffre global est donné sans détail dans la section faits ; la répéter dans nuances constitue une redondance interdite par la charte (une idée = une seule apparition)."
+        },
+        {
+          "bloc": 1,
+          "section": "nuances",
+          "type": "chiffre_errone",
+          "phrase_exacte": "Le décompte de la NCA porte sur trois années glissantes sans précision de la date d'arrêté des comptes, ce qui empêche de situer la tendance récente par rapport aux années antérieures [1].",
+          "explication": "La source [1] ne permet pas de confirmer que le décompte porte sur \"trois années glissantes\" ni l'absence de date d'arrêté des comptes ; cette précision méthodologique n'est pas dans les extraits fournis."
+        }
+      ]
+    },
+    "article_type": "actu",
+    "titre": "Kenya : 72 immeubles effondrés en trois ans, la NCA lance une enquête parlementaire",
+    "n_sources": 4,
+    "n_mots": 491,
+    "titre_rss": "Kenya: les effondrements d'immeubles rappellent l’urgence d’une réforme du secteur du bâtiment",
+    "matiere_faits_distincts": 845,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "canicule-juin-2026-surmortalite-35-pour-cent-donnees-consolidees",
+    "statut": "corrige_automatiquement",
+    "date": "2026-11-22T17:44:12",
+    "problemes_initiaux": 8,
+    "tentatives": 1,
+    "problemes_residuels_style": 0,
+    "rapport_initial": {
+      "conforme": false,
+      "sujet_sensible": false,
+      "sujet_sensible_raison": "",
+      "angle_insuffisant": false,
+      "angle_insuffisant_raison": "",
+      "nature_contenu": "actualite_factuelle",
+      "problemes": [
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "chiffre_errone",
+          "phrase_exacte": "Le bulletin national de Santé publique France daté du 7 juillet 2026 établit qu'en semaine 26 (du 22 au 28 juin), le nombre de décès toutes causes confondues transmis par les bureaux d'état civil était en excès d'au moins +35 % par rapport au nombre attendu, tous âges confondus et pour chaque classe d'âge au-delà de 15 ans (15-64 ans, 65-84 ans, 85 ans et plus) [2].",
+          "explication": "La source [2] (Le Monde, 16 septembre 2026) rapporte un bilan total de l'été 2026 (8 000 morts liées aux canicules), pas le chiffre précis de +35 % pour la semaine 26 émanant du bulletin SPF du 7 juillet. Ce chiffre ne figure pas dans les extraits fournis pour la source [2]."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "chiffre_errone",
+          "phrase_exacte": "Les premières données issues de la certification électronique, publiées le 3 juillet, n'avaient capté que 8 973 décès (hausse de +29,1 % par rapport à la semaine précédente), soit environ 60 % de la mortalité nationale, avec une couverture très inégale : 25 % des décès à domicile, 45 % en EHPAD, près de 80 % à l'hôpital [1].",
+          "explication": "La source [1] (Bulletin SPF semaine 26-2026, daté 7 juillet) ne peut pas contenir des données 'publiées le 3 juillet' antérieures à sa propre date de publication. Les extraits fournis pour [1] ne confirment pas ces chiffres précis (8 973 décès, +29,1 %, taux de couverture 25/45/80 %)."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "chiffre_errone",
+          "phrase_exacte": "Le réseau des bureaux d'état civil échantillonnés par l'Insee, qui couvre 84 % de la mortalité nationale, permet désormais une estimation plus complète, d'où le chiffre révisé de +35 % minimum [1][2].",
+          "explication": "Le taux de couverture de 84 % pour le réseau des bureaux d'état civil de l'Insee et son lien direct avec le chiffre de +35 % ne sont confirmés par aucun des extraits des sources [1] ou [2] fournis."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "chiffre_errone",
+          "phrase_exacte": "En semaine 27 (29 juin - 5 juillet), le nombre de décès certifiés par voie électronique diminue de 19 % (-1 683 décès) dans toutes les classes d'âge et la plupart des régions, bien que les effectifs en EHPAD et à domicile restent supérieurs aux niveaux d'avant canicule [1].",
+          "explication": "La source [1] est le bulletin de la semaine 26 ; elle ne peut pas contenir des données sur la semaine 27 (postérieure). Les extraits fournis pour [1] ne mentionnent pas ces chiffres (baisse de 19 %, -1 683 décès)."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "chiffre_errone",
+          "phrase_exacte": "En 2022, trois épisodes caniculaires avaient entraîné 2 816 morts en excès pendant les vagues elles-mêmes, pour un total de 6 969 morts en excès toutes causes du 1er juin au 15 septembre [3].",
+          "explication": "La source [3] (Le Monde, 3 juillet 2026) traite de la canicule de juin 2026 ('photographie des morts de la canicule de juin'), pas du bilan 2022. Ces chiffres 2022 ne figurent pas dans les extraits fournis pour [3]."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "Santé publique France a également développé une méthode complémentaire d'estimation départementale de la mortalité annuelle attribuable à l'exposition à la chaleur, pour tous les âges et les 75 ans et plus, qui pourrait permettre de capter des impacts indirects ou différés non saisis par l'excès de mortalité ponctuel [1].",
+          "explication": "Cette information méthodologique détaillée (estimation départementale, fraction attribuable, tous âges et 75 ans+) n'est pas présente dans les extraits fournis pour la source [1] (bulletin semaine 26)."
+        },
+        {
+          "bloc": 1,
+          "section": "nuances",
+          "type": "chiffre_errone",
+          "phrase_exacte": "La certification électronique sous-estime structurellement la mortalité, surtout à domicile (25 % de couverture) et en EHPAD (45 %) ; les premiers bulletins hebdomadaires donnent donc une image partielle qu'il ne faut pas confondre avec le bilan consolidé [1].",
+          "explication": "Les taux précis de couverture (25 % domicile, 45 % EHPAD) attribués à la source [1] ne figurent pas dans les extraits fournis pour ce bulletin de la semaine 26."
+        },
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "compteur_incoherent",
+          "phrase_exacte": "nb_sources: 4",
+          "explication": "Le tableau 'sources' ne contient que 3 entrées distinctes (1 bulletin SPF + 2 articles Le Monde), mais le champ 'nb_sources' indique 4. Le champ 'qualite_sources' indique 'primaire: 1, secondaire: 1' (total 2), ce qui contredit aussi le total de 3 sources listées."
+        }
+      ]
+    },
+    "article_type": "actu",
+    "titre": "Canicule de juin 2026 : surmortalité d'au moins 35 % selon les données consolidées",
+    "n_sources": 3,
+    "n_mots": 613,
+    "titre_rss": "Point de situation sur la mortalité toutes causes confondues  sur la période du 22 au 28 juin 2026",
+    "matiere_faits_distincts": 1028,
+    "matiere_redondance": 0.01,
+    "matiere_donnees_chiffrees": 7,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "veille_heures_visible": 221.3,
+    "veille_passages": 74,
+    "veille_age_h": 2167.1,
+    "veille_n_flux_grappe": 1,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "agriculture-ete-record-prix-volatils-pauvrete-detresse-exploitants-2026",
+    "statut": "rejete_qualite",
+    "date": "2026-11-22T17:48:01",
+    "angle_insuffisant": true,
+    "raison": "Aucune phrase des faits ne combine un événement précis daté de l'automne 2026 (annonce, décision, publication nouvelle) avec une donnée chiffrée ou nommée qui lui est propre. L'article explique un phénomène général (chaleur record, pauvreté 2020, mesures UE juillet, projections Banque mondiale) sans identifier le fait déclencheur de l'automne 2026 qui justifierait la publication maintenant.",
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "resume_repete_corps"
+    ],
+    "titre": "Été 2026 record, coûts en hausse : la détresse des agriculteurs français",
+    "n_sources": 5,
+    "n_mots": 515,
+    "titre_rss": "Solitude, hausse des prix, canicules… La grande détresse des agriculteurs",
+    "matiere_faits_distincts": 697,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "physiciens-varsovie-zurich-cnrs-realisent-supersolide-atomes-ultra-froids",
+    "statut": "rejete_qualite",
+    "date": "2026-11-22T18:02:53",
+    "angle_insuffisant": true,
+    "raison": "Aucune phrase dans 'faits' ne contient à la fois un événement précis daté (publication, décision, résultat rendu public récemment) et une donnée chiffrée ou nommée qui lui est propre. L'article décrit un résultat scientifique sans indiquer la date de l'expérience, la date de publication de l'article scientifique, ni le nom de la revue, ni l'équipe précise (article, auteurs). Il répond à 'qu'est-ce qu'un supersolide ?' plutôt qu'à 'pourquoi en parle-t-on maintenant ?'.",
+    "article_type": "actu",
+    "titre": "Des physiciens de Varsovie, Zurich et du CNRS réalisent un supersolide d'atomes ultra-froids",
+    "n_sources": 4,
+    "n_mots": 558,
+    "titre_rss": "L'intérêt des supersolides",
+    "matiere_faits_distincts": 709,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "etude_scientifique"
+  },
+  {
+    "slug": "trente-ans-cooperation-scientifique-universite-pretoria-ird-cnrs-cirad",
+    "statut": "rejete_qualite",
+    "date": "2026-11-22T18:29:24",
+    "problemes_initiaux": 8,
+    "tentatives": 3,
+    "problemes_restants": 18,
+    "bloquants_restants": 2,
+    "bloquants_types": [
+      "chiffre_errone",
+      "chiffre_errone"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [1] indique « plus de 1 500 publications communes » et non « plus de 1 600 » ; le chiffre du résumé et des faits est donc erroné par rapport à la source citée.",
+        "phrase": "Plus de 1 600 publications scientifiques communes associent aujourd'hui l'UP à l'IRD, au CNRS ou au CIRAD [1]."
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "Le résumé reprend le chiffre erroné de 1 600 publications alors que la source [1] mentionne « plus de 1 500 ».",
+        "phrase": "Plus de 1 600 publications communes associent aujourd'hui l'université sud-africaine à au moins l'un des trois instituts français, selon les données Web of Science citées par l'IRD, couvrant écologie, astronomie, science"
+      }
+    ],
+    "types_restants": [
+      "chiffre_errone",
+      "chiffre_errone",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "compteur_incoherent",
+      "section_gonflee",
+      "section_gonflee"
+    ],
+    "article_type": "actu",
+    "titre": "Trente ans de coopération scientifique entre l'Université de Pretoria, l'IRD, le CNRS et le CIRAD",
+    "n_sources": 5,
+    "n_mots": 691,
+    "titre_rss": "Trente ans de diplomatie scientifique : l’Université de Pretoria, l’IRD, le CNRS et le CIRAD célèbrent trois décennies de collaboration",
+    "matiere_faits_distincts": 942,
+    "matiere_redondance": 0.07,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "maladie-charcot-exosquelette-atalante-x-etude-preliminaire",
+    "statut": "rejete_qualite",
+    "date": "2026-11-22T18:41:53",
+    "etape": "correction",
+    "tentative": 1,
+    "erreur": "JSON tronqué ou incomplet dans la réponse (max_tokens atteint ?)",
+    "bloquants_connus": 3,
+    "article_type": "actu",
+    "titre": "Maladie de Charcot : l'exosquelette Atalante X freine les symptômes dans une étude pilote",
+    "n_sources": 3,
+    "n_mots": 630,
+    "titre_rss": "Remarcher grâce à un exosquelette",
+    "matiere_faits_distincts": 988,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "etude_scientifique"
+  },
+  {
+    "slug": "bepicolombo-orbite-mercure-huit-ans-voyage",
+    "statut": "rejete_qualite",
+    "date": "2026-11-22T18:49:25",
+    "problemes_initiaux": 4,
+    "tentatives": 3,
+    "problemes_restants": 10,
+    "bloquants_restants": 7,
+    "bloquants_types": [
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [2] (Le Monde, 3 septembre 2026) indique que la sonde a effectué « un survol de la Terre, deux de Vénus et six de Mercure » (soit 9 survols au total) mais précise qu'elle « en a encore deux de prévus » avant l'",
+        "phrase": "Lancée en octobre 2018, la sonde a parcouru plus de neuf milliards de kilomètres, utilisant neuf survols planétaires — une fois la Terre, deux fois Vénus et six fois Mercure lui-même — pour freiner suffisamment face à l'"
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [2] (Le Monde, 3 septembre 2026) décrit la séparation des deux orbiteurs comme un événement futur : « les deux orbiteurs […] doivent se séparer du module de transfert » et « la séparation […] est prévue pour le",
+        "phrase": "Le 3 septembre 2026, les deux orbiteurs scientifiques, le Mercury Planetary Orbiter (MPO) de l'ESA et le Mercury Magnetospheric Orbiter (Mio) de la JAXA, s'étaient séparés du module de transfert MTM qui les avait propuls"
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [2] (Le Monde) ne contient aucune mention de MESSENGER, de la densité de Mercure, de son noyau de fer, de son champ magnétique décentré, de dépôts de glace d'eau ni de la température de 430 °C. Ces chiffres et ",
+        "phrase": "MESSENGER a révélé une planète aux caractéristiques paradoxales : une densité exceptionnelle suggérant un noyau de fer occupant 85 % du rayon planétaire, un champ magnétique dipolaire mais décentré vers le nord, et des d"
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [2] (Le Monde, 3 septembre 2026) ne mentionne ni la durée de vie de la mission, ni les réserves de propergol, ni une limite de deux ans, ni l'absence de marge d'extension. L'information est attribuée à une sour",
+        "phrase": "Par ailleurs, la durée de vie de la mission reste limitée par les réserves de propergol nécessaires au maintien d'orbite et à la gestion thermique, sans marge pour une extension au-delà de deux ans [2]."
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [2] (Le Monde) ne décrit pas le système thermique du MPO (radiateur haute performance, orientation constante) et ne qualifie pas cette contrainte de « sans précédent pour une mission orbitale ». L'information e",
+        "phrase": "Le MPO doit maintenir ses équipements à température de fonctionnement grâce à un radiateur haute performance et une orientation constante, une contrainte opérationnelle sans précédent pour une mission orbitale [2]."
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [1] (France 24, 22 novembre 2026) ne mentionne pas les paramètres orbitaux précis (480 × 1 500 km pour le MPO, 590 × 11 640 km pour Mio). Ces chiffres sont attribués à une source qui ne les contient pas.",
+        "phrase": "chaque sonde devant rejoindre son orbite propre : une orbite polaire basse (480 × 1 500 km) pour le MPO, et une orbite plus elliptique (590 × 11 640 km) pour Mio [1]."
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "Aucune des deux sources ([1] France 24, [2] Le Monde) ne mentionne le nombre total d'instruments (seize) ni la liste détaillée de leurs objectifs (cartographie, minéralogie, champ magnétique, exosphère). L'information n'",
+        "phrase": "Les deux sondes embarquent seize instruments au total pour cartographier la surface, analyser la composition minéralogique, mesurer le champ magnétique et étudier l'exosphère ténue de la planète."
+      }
+    ],
+    "types_restants": [
+      "chiffre_errone",
+      "chiffre_errone",
+      "redondance",
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "source_inventee",
+      "source_inventee"
+    ],
+    "article_type": "actu",
+    "titre": "BepiColombo entre en orbite autour de Mercure après huit ans de voyage",
+    "n_sources": 2,
+    "n_mots": 579,
+    "titre_rss": "Les mystères de Mercure, l’étrange planète du Système solaire, que la mission BepiColombo devrait lever",
+    "matiere_faits_distincts": 802,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "abigail-disney-taxation-ultrariches-parlement-francais-enquete",
+    "statut": "rejete_qualite",
+    "date": "2026-11-22T18:59:43",
+    "problemes_initiaux": 9,
+    "tentatives": 3,
+    "problemes_restants": 11,
+    "bloquants_restants": 8,
+    "bloquants_types": [
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "annonce_perimee",
+      "annonce_perimee",
+      "annonce_perimee",
+      "incoherence_inter_sections",
+      "niveau_preuve_insuffisant"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [11] indique une date de dépôt du 20 octobre 2025, l'article écrit 2026.",
+        "phrase": "Une proposition de loi instaurant un impôt plancher de 2 % sur les patrimoines supérieurs à 100 millions d'euros a été déposée à l'Assemblée nationale le 20 février 2025, et une autre proposition vise à faire contribuer "
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [11] indique une date de dépôt du 20 octobre 2025, l'article écrit 2026.",
+        "phrase": "Une autre proposition de loi visant à faire contribuer davantage les héritiers les plus fortunés a été déposée le 20 octobre 2026 [11]."
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [11] indique une date de dépôt du 20 octobre 2025, l'article écrit 2026.",
+        "phrase": "La proposition de loi sur les héritiers les plus fortunés, déposée le 20 octobre 2026, suit la procédure législative ordinaire [11]."
+      },
+      {
+        "bloc": 1,
+        "type": "annonce_perimee",
+        "description": "La source [11] (datée 2026-10-20) décrit la proposition comme 'adoptée en première lecture' le 14 octobre 2026, l'article la présente encore comme un simple dépôt.",
+        "phrase": "Une proposition de loi instaurant un impôt plancher de 2 % sur les patrimoines supérieurs à 100 millions d'euros a été déposée à l'Assemblée nationale le 20 février 2025, et une autre proposition vise à faire contribuer "
+      },
+      {
+        "bloc": 1,
+        "type": "annonce_perimee",
+        "description": "La source [11] (datée 2026-10-20) décrit la proposition comme 'adoptée en première lecture' le 14 octobre 2026, l'article la présente encore comme un simple dépôt.",
+        "phrase": "Une autre proposition de loi visant à faire contribuer davantage les héritiers les plus fortunés a été déposée le 20 octobre 2026 [11]."
+      },
+      {
+        "bloc": 1,
+        "type": "annonce_perimee",
+        "description": "La source [11] (datée 2026-10-20) décrit la proposition comme 'adoptée en première lecture' le 14 octobre 2026, l'article la présente encore comme un simple dépôt.",
+        "phrase": "La proposition de loi sur les héritiers les plus fortunés, déposée le 20 octobre 2026, suit la procédure législative ordinaire [11]."
+      },
+      {
+        "bloc": 1,
+        "type": "incoherence_inter_sections",
+        "description": "La source [8] porte la date 2025-02-20 dans le tableau des sources, mais l'URL contient 'texte-adopte-provisoire.pdf', ce qui suggère un stade ultérieur au simple dépôt ; l'article ne mentionne pas ce stade alors que la ",
+        "phrase": "Une proposition de loi instaurant un impôt plancher de 2 % sur le patrimoine des ultrariches, applicable aux patrimoines supérieurs à 100 millions d'euros, a été déposée à l'Assemblée nationale le 20 février 2025 [8]."
+      },
+      {
+        "bloc": 1,
+        "type": "niveau_preuve_insuffisant",
+        "description": "L'article cite un chiffre précis ('onze propositions') sans que la source [2] ne soit citée pour le confirmer dans les extraits fournis ; le rédacteur ne peut pas inventer ce chiffre.",
+        "phrase": "La commission des finances du Sénat a formulé onze propositions pour renforcer durablement la connaissance de ces hauts patrimoines, condition de leur imposition effective [2]."
+      }
+    ],
+    "types_restants": [
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "annonce_perimee",
+      "annonce_perimee",
+      "annonce_perimee",
+      "incoherence_inter_sections",
+      "niveau_preuve_insuffisant",
+      "redondance",
+      "compteur_incoherent",
+      "cadrage_emprunte"
+    ],
+    "article_type": "actu",
+    "titre": "Abigail Disney plaide pour taxer les ultrariches pendant que le Parlement français enquête",
+    "n_sources": 9,
+    "n_mots": 643,
+    "titre_rss": "Abigail Disney, l’héritière qui veut taxer les grandes fortunes : «Les ultrariches sont convaincus que seuls les imbéciles paient des impôts»",
+    "matiere_faits_distincts": 746,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "data-centers-contestation-mondiale-inde-chili-irlande-japon",
+    "statut": "rejete_qualite",
+    "date": "2026-11-22T19:07:15",
+    "problemes_initiaux": 7,
+    "tentatives": 3,
+    "problemes_restants": 17,
+    "bloquants_restants": 4,
+    "bloquants_types": [
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [4] (UN, 8 septembre 2026) indique une consommation de 460 TWh en 2022 (et non 485 TWh en 2025) et une projection à plus de 1 000 TWh en 2026 (et non 950 TWh en 2030). Les chiffres 485/950/2025/2030/3% ne figur",
+        "phrase": "L'Agence internationale de l'énergie (IEA), citée par la commission économique de l'ONU pour l'Europe (UNECE), anticipe un quasi-doublement de la consommation électrique des data centers d'ici 2030 : de 485 térawattheure"
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [4] ne contient aucun chiffre d'investissement mondial (800 milliards, 1 800 milliards, 2026, 2050). L'extrait ne mentionne que la consommation électrique et les délais de construction/réseau.",
+        "phrase": "L'investissement mondial dans ces infrastructures devrait, lui, plus que doubler d'ici 2050, passant de 800 milliards de dollars par an en 2026 à 1 800 milliards en 2050 [4]."
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [4] indique '2-3 years' pour la construction d'un data center (et non '2 à 5 ans'). Le chiffre '5 ans' n'est pas dans l'extrait.",
+        "phrase": "L'UNECE souligne un décalage structurel : un grand data center peut être construit et raccordé en 2 à 5 ans, alors que l'extension des lignes de transport et des infrastructures de réseau prend plus de 10 ans en raison d"
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "Mêmes erreurs que dans les faits : la source [4] donne 460 TWh (2022) et >1000 TWh (2026), pas 485/950/2030/3%. Le résumé propage les chiffres erronés du corps.",
+        "phrase": "L'Agence internationale de l'énergie prévoit un quasi-doublement de la consommation électrique de ces infrastructures d'ici 2030, passant de 485 à 950 térawattheures, soit 3 % de la demande mondiale."
+      }
+    ],
+    "types_restants": [
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "compteur_incoherent",
+      "chiffre_errone"
+    ],
+    "article_type": "actu",
+    "titre": "Data centers : la contestation s'étend de l'Inde au Chili",
+    "n_sources": 4,
+    "n_mots": 755,
+    "titre_rss": "La défiance contre les data centers devient mondiale, de l’Inde au Chili en passant par l’Irlande ou le Japon",
+    "matiere_faits_distincts": 695,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "ia-generative-ralentit-embauches-cdi-jeunes-metiers-automatisables",
+    "statut": "rejete_qualite",
+    "date": "2026-11-22T19:13:24",
+    "problemes_initiaux": 9,
+    "tentatives": 3,
+    "problemes_restants": 10,
+    "bloquants_restants": 2,
+    "bloquants_types": [
+      "chiffre_errone",
+      "source_inventee"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [3] (Le Monde) ne contient pas le chiffre 10,2 % pour la Suède ; cet extrait ne mentionne que l'étude de la Banque de France sur la France.",
+        "phrase": "En Suède, où la relation négative entre exposition à l'IA et offres d'emploi est apparue plus tardivement, au début 2026, la détérioration atteint 10,2 % selon des données citées par Le Monde [3]."
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "Le renvoi [7] désigne une source absente du tableau \"sources\" (qui ne contient que 6 entrées, indices 1 à 6).",
+        "phrase": "En France, la mission d'information de l'Assemblée nationale sur les effets de l'IA sur l'activité économique a rendu son rapport en septembre 2025, soulignant une technologie aux prémices de sa diffusion [7]."
+      }
+    ],
+    "types_restants": [
+      "chiffre_errone",
+      "source_inventee",
+      "contexte_hors_sujet",
+      "contexte_hors_sujet",
+      "contexte_hors_sujet",
+      "contexte_hors_sujet",
+      "contexte_hors_sujet",
+      "source_inventee",
+      "compteur_incoherent",
+      "section_gonflee"
+    ],
+    "article_type": "actu",
+    "titre": "L'IA générative freine les embauches CDI des jeunes dans les métiers automatisables",
+    "n_sources": 6,
+    "n_mots": 519,
+    "titre_rss": "Les offres d'emploi décrochent dans les métiers les plus exposés à l'IA",
+    "matiere_faits_distincts": 888,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "etude_scientifique"
+  },
+  {
+    "slug": "onu-128-pays-accord-encadrement-robots-tueurs-sans-interdiction",
+    "statut": "rejete_qualite",
+    "date": "2026-11-22T19:25:45",
+    "problemes_initiaux": 12,
+    "tentatives": 3,
+    "problemes_restants": 16,
+    "bloquants_restants": 14,
+    "bloquants_types": [
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "annonce_perimee",
+      "annonce_perimee"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "Le titre indique 125 États parties alors que l'angle_reponse et le résumé mentionnent 128 pays, et les sources [2] et [3] font référence à 128 États parties à la CCAC.",
+        "phrase": "ONU : 125 États parties conviennent de poursuivre les négociations sur les armes autonomes létales sans les interdire"
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "Le résumé indique 125 États parties alors que l'angle_reponse mentionne 128 pays et les sources font référence à 128 États parties à la CCAC.",
+        "phrase": "125 États parties réunis à Genève sous l'égide de l'ONU ont conclu samedi un accord pour poursuivre les négociations sur l'encadrement des armes létales autonomes, sans parvenir à les interdire."
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "Le corps de l'article indique 125 États parties alors que les sources font référence à 128 États parties à la CCAC.",
+        "phrase": "La conférence de révision de la Convention sur certaines armes classiques (CCAC) s'est achevée samedi 21 novembre 2026 à Genève après deux semaines de négociations. Les 125 États parties ont adopté par consensus un rappo"
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [3] (Le Monde, 21 novembre 2026) ne peut pas mentionner une conférence de révision de 2026 comme événement passé si elle est publiée le jour même ou le lendemain de sa conclusion.",
+        "phrase": "Huit réunions d'experts et trois conférences de révision (2016, 2021, 2026) n'ont produit aucun instrument contraignant [3]."
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "La source [3] est l'article du Monde daté du 21 novembre 2026, qui ne peut pas contenir le rapport final d'une conférence qui s'achève le même jour.",
+        "phrase": "La conférence de révision de la Convention sur certaines armes classiques (CCAC) s'est achevée samedi 21 novembre 2026 à Genève après deux semaines de négociations. Les 125 États parties ont adopté par consensus un rappo"
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "La source [2] est l'article de France 24 daté du 20 novembre 2026, qui ne peut pas décrire le texte final d'une conférence qui se termine le 21 novembre.",
+        "phrase": "Le texte final ne contient aucune interdiction, ni moratoire, ni définition contraignante de l'autonomie critique. Il acte seulement l'engagement à « continuer d'examiner » les options réglementaires, y compris un futur "
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "La source [3] (Le Monde, 21 novembre) ne peut pas contenir ces détails précis sur les positions des pays lors d'une conférence qui se termine le jour même.",
+        "phrase": "La Russie, les États-Unis et Israël ont opposé leur veto à toute mention d'interdiction ou de négociation d'un traité d'interdiction, arguant que les technologies ne sont pas mûres pour une définition juridique précise e"
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "La source [3] ne peut pas contenir ces informations détaillées sur une conférence qui vient de se terminer.",
+        "phrase": "L'Autriche, le Costa Rica, le Mexique et une quarantaine d'États du « Groupe de Vienne » portaient depuis 2019 une proposition d'interdiction des systèmes qui sélectionnent et engagent des cibles sans contrôle humain sig"
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "La source [2] (France 24, 20 novembre) ne peut pas citer le rapport final d'une conférence qui n'est pas encore terminée.",
+        "phrase": "Le rapport final reconnaît « l'urgence humanitaire » posée par l'intégration de l'IA dans les systèmes d'armes, sans traduire cette urgence en mesure immédiate [2]."
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "La source [2] (France 24, 20 novembre) ne peut pas rapporter les déclarations faites lors d'une conférence qui se déroule jusqu'au 21 novembre.",
+        "phrase": "La France, qui participe aux négociations, a indiqué lors de la conférence de 2026 qu'elle privilégie une approche progressive fondée sur le droit international humanitaire existant plutôt qu'une interdiction préventive,"
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "La source [2] (France 24, 20 novembre) ne peut pas contenir des réactions à un mandat 2027 qui n'a été adopté que le 21 novembre.",
+        "phrase": "Selon France 24, plusieurs délégations ont exprimé leur frustration face à l'absence de calendrier contraignant pour l'adoption d'un protocole, le mandat 2027 ne prévoyant qu'une « poursuite de l'examen » des options san"
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "La source [3] (Le Monde, 21 novembre) ne peut pas citer le rapport final d'une conférence qui se termine le jour même.",
+        "phrase": "Le rapport final mentionne que des systèmes d'armes autonomes sont déjà testés ou déployés dans des conflits actuels, notamment en Ukraine et à Gaza, ce qui renforce selon les ONG l'urgence d'un cadre contraignant avant "
+      },
+      {
+        "bloc": 1,
+        "type": "annonce_perimee",
+        "description": "Le titre présente l'accord comme un événement actuel alors que les sources citées ([2] du 20/11, [3] du 21/11) sont antérieures ou contemporaines à la fin de la conférence et ne peuvent pas confirmer le résultat final.",
+        "phrase": "ONU : 125 États parties conviennent de poursuivre les négociations sur les armes autonomes létales sans les interdire"
+      },
+      {
+        "bloc": 1,
+        "type": "annonce_perimee",
+        "description": "Le résumé présente la conclusion de la conférence comme un fait accompli alors que les sources ne peuvent pas encore en rendre compte.",
+        "phrase": "125 États parties réunis à Genève sous l'égide de l'ONU ont conclu samedi un accord pour poursuivre les négociations sur l'encadrement des armes létales autonomes, sans parvenir à les interdire."
+      }
+    ],
+    "types_restants": [
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "annonce_perimee",
+      "annonce_perimee",
+      "compteur_incoherent",
+      "chronologie_confuse"
+    ],
+    "article_type": "actu",
+    "titre": "ONU : 128 pays s'accordent sur un encadrement des robots tueurs sans les interdire",
+    "n_sources": 5,
+    "n_mots": 529,
+    "titre_rss": "«Robots tueurs» : un accord trouvé à l’ONU, mais pas d’interdiction",
+    "matiere_faits_distincts": 783,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "chine-66-milliards-arbres-plantes-forets-vulnerables-carbone",
+    "statut": "rejete_sensible",
+    "date": "2026-11-22T19:32:35",
+    "problemes_initiaux": 9,
+    "tentative": 2,
+    "bloc5": true,
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "titre_de_mauvaise_qualite"
+    ],
+    "titre": "Chine : 66 milliards d'arbres plantés, des forêts qui poussent vite mais stockent mal le carbone",
+    "n_sources": 5,
+    "n_mots": 553,
+    "titre_rss": "En plantant 66 milliards d’arbres, la Chine a créé des forêts qui ne se comportent pas du tout comme les forêts naturelles",
+    "matiere_faits_distincts": 769,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "etude_scientifique"
+  },
+  {
+    "slug": "poissons-intestins-cycle-carbone-etude-miami",
+    "statut": "rejete_sensible",
+    "date": "2026-11-22T19:41:07",
+    "problemes_initiaux": 17,
+    "tentative": 1,
+    "bloc5": true,
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "titre_de_mauvaise_qualite",
+      "article_sans_date"
+    ],
+    "titre": "Des chercheurs de Miami révèlent le rôle des intestins de poissons dans le cycle du carbone",
+    "n_sources": 3,
+    "n_mots": 495,
+    "titre_rss": "Les poissons luttent contre le CO2",
+    "matiere_faits_distincts": 907,
+    "matiere_redondance": 0.05,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "etude_scientifique"
+  },
+  {
+    "slug": "cactus-menaces-disparition-habitat-2100-etude-nature",
+    "statut": "rejete_sensible",
+    "date": "2026-11-22T19:47:53",
+    "problemes_initiaux": 9,
+    "tentative": 2,
+    "bloc5": true,
+    "article_type": "actu",
+    "titre": "Les cactus menacés de perdre jusqu'à 80 % de leur habitat d'ici 2100",
+    "n_sources": 5,
+    "n_mots": 567,
+    "titre_rss": "Il fait tellement chaud et sec sur Terre que même les cactus commencent à disparaître : les prévisions des scientifiques pour 2100 sont alarmantes",
+    "matiere_faits_distincts": 792,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "etude_scientifique"
+  },
+  {
+    "slug": "conference-generale-poids-mesures-redefinition-seconde-2026",
+    "statut": "conforme_du_premier_coup",
+    "date": "2026-11-22T19:57:50",
+    "article_type": "actu",
+    "titre": "La Conférence générale des poids et mesures engage la redéfinition de la seconde",
+    "n_sources": 2,
+    "n_mots": 510,
+    "titre_rss": "Mesurer le temps : une révolution se prépare",
+    "matiere_faits_distincts": 547,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
   }
 ]
