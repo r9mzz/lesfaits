@@ -85819,5 +85819,853 @@
     "n_sources_injectees": 10,
     "n_sources_trouvees": 10,
     "nature_contenu": "decision_officielle"
+  },
+  {
+    "slug": "substances-chimiques-fardeau-sanitaire-1000-milliards-europe-reglementation",
+    "statut": "rejete_sensible",
+    "date": "2026-11-22T07:45:28",
+    "problemes_initiaux": 17,
+    "tentative": 1,
+    "bloc5": true,
+    "article_type": "actu",
+    "titre": "Substances chimiques : 1 000 milliards d'euros de coût sanitaire, réglementation européenne au ralenti",
+    "n_sources": 7,
+    "n_mots": 633,
+    "titre_rss": "« Alors que la science montre de mieux en mieux le rôle des substances chimiques dans l’épidémie de “maladies de civilisation”, l’Europe affaiblit sa réglementation »",
+    "matiere_faits_distincts": 1105,
+    "matiere_redondance": 0.03,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "senat-bei-financement-armes-munitions-defense-europeenne",
+    "statut": "rejete_qualite",
+    "date": "2026-11-22T07:48:48",
+    "problemes_initiaux": 5,
+    "tentatives": 3,
+    "problemes_restants": 7,
+    "bloquants_restants": 2,
+    "bloquants_types": [
+      "chiffre_errone",
+      "incoherence_inter_sections"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [1] est datée 2026, mais la résolution [2] est datée du 23 octobre 2026. Le rapport n° 879 précède logiquement la résolution qu'il sous-tend ; l'article l'indique comme « adopté en 2026 » sans précision, ce qui",
+        "phrase": "Le rapport sénatorial n° 879, adopté en 2026, conteste le maintien de l'exclusion des armes et munitions par la BEI en soulignant trois évolutions majeures : une clarification réglementaire européenne permettant de conci"
+      },
+      {
+        "bloc": 1,
+        "type": "incoherence_inter_sections",
+        "description": "Le résumé (chapeau) affirme que la commission « a adopté une proposition de résolution demandant l'inclusion des armes et munitions » sans mentionner ces deux amendements (préférence européenne, exclusion armes interdite",
+        "phrase": "Le texte adopté prévoit deux amendements : une clause de préférence européenne pour garantir que l'extension bénéficie aux industries de l'Union, et l'exclusion expresse du financement des armes interdites par le droit i"
+      }
+    ],
+    "types_restants": [
+      "chiffre_errone",
+      "chronologie_confuse",
+      "incoherence_inter_sections",
+      "source_derivee_comptee_comme_primaire",
+      "contexte_hors_sujet",
+      "redondance",
+      "extrapolation"
+    ],
+    "article_type": "actu",
+    "titre": "Le Sénat examine l'extension des financements de la BEI aux armes et munitions",
+    "n_sources": 4,
+    "n_mots": 565,
+    "titre_rss": "Armes et munitions produites par les industries européennes de la défense - Rapport n° 879",
+    "matiere_faits_distincts": 1120,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "veille_heures_visible": 517.7,
+    "veille_passages": 326,
+    "veille_age_h": 2454.2,
+    "veille_n_flux_grappe": 4,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "cop31-antalya-negociations-prolongees-energies-fossiles-financements",
+    "statut": "rejete_qualite",
+    "date": "2026-11-22T07:54:03",
+    "problemes_initiaux": 14,
+    "tentatives": 3,
+    "problemes_restants": 26,
+    "bloquants_restants": 5,
+    "bloquants_types": [
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "La source [2] (OCDE blog) ne contient pas cette qualification ni cette liste de cinq enjeux dans les extraits fournis.",
+        "phrase": "La COP31 est qualifiée de \"COP de mise en œuvre\" par l'OCDE, qui a réuni début novembre des experts pour identifier cinq enjeux clés : l'atténuation, l'adaptation, les pertes et dommages, les marchés du carbone (article "
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "La source [4] (Europa) ne mentionne pas cette résolution ni son contenu dans les extraits fournis.",
+        "phrase": "Le Parlement européen a adopté en septembre une résolution appelant à une sortie plus rapide des énergies fossiles, à davantage de financements climatiques et à un soutien renforcé aux pays vulnérables [4]."
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "Les sources [1] et [5] (Sénat) ne mentionnent pas Benoît Faraco ni les ambassadeurs d'Australie et de Turquie dans les extraits fournis.",
+        "phrase": "En France, le Sénat a auditionné fin octobre l'ambassadeur pour le climat Benoît Faraco ainsi que les ambassadeurs d'Australie et de Turquie, pays co-hôtes de la conférence, sur les priorités françaises [1][5]."
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "La source [6] (OCDE) ne mentionne pas la présidence turque de la COP31 dans les extraits fournis.",
+        "phrase": "L'OCDE a par ailleurs lancé en septembre un partenariat stratégique avec la présidence turque de la COP31 pour aider les pays à transformer leurs engagements climatiques en politiques concrètes [6]."
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "La source [7] (Part I: Issues at Stake) ne contient pas cette description dans les extraits fournis.",
+        "phrase": "Une étude du think tank du Parlement européen publiée mi-octobre analyse les enjeux substantiels de la conférence : finance climat, transition fossile, pertes et dommages, marchés du carbone et gouvernance [7]."
+      }
+    ],
+    "types_restants": [
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "contexte_hors_sujet",
+      "contexte_hors_sujet",
+      "compteur_incoherent",
+      "fait_tranche_arbitrairement",
+      "fait_tranche_arbitrairement",
+      "fait_tranche_arbitrairement"
+    ],
+    "article_type": "actu",
+    "titre": "COP31 à Antalya : négociations prolongées sur les énergies fossiles et les financements",
+    "n_sources": 8,
+    "n_mots": 822,
+    "titre_rss": "COP31 à Antalya : bras de fer autour des énergies fossiles et des financements",
+    "matiere_faits_distincts": 586,
+    "matiere_redondance": 0.02,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "canicule-juin-2026-mortalite-bondit-29-pour-cent",
+    "statut": "corrige_automatiquement",
+    "date": "2026-11-22T08:00:25",
+    "problemes_initiaux": 2,
+    "tentatives": 1,
+    "problemes_residuels_style": 0,
+    "rapport_initial": {
+      "conforme": false,
+      "sujet_sensible": false,
+      "sujet_sensible_raison": "",
+      "angle_insuffisant": false,
+      "angle_insuffisant_raison": "",
+      "nature_contenu": "actualite_factuelle",
+      "problemes": [
+        {
+          "bloc": 2,
+          "section": "corps",
+          "type": "compteur_incoherent",
+          "phrase_exacte": "\"nb_sources\": 4",
+          "explication": "Le champ nb_sources indique 4 alors que seules 2 sources distinctes sont listées dans le tableau sources (deux bulletins de Santé publique France)."
+        },
+        {
+          "bloc": 2,
+          "section": "corps",
+          "type": "compteur_incoherent",
+          "phrase_exacte": "\"qualite_sources\": {\"primaire\": 1, \"secondaire\": 0, \"tertiaire\": 0}",
+          "explication": "Le champ qualite_sources indique 1 source primaire alors que les deux sources listées (bulletins officiels de Santé publique France) sont des sources primaires, soit 2 primaires."
+        }
+      ]
+    },
+    "article_type": "actu",
+    "titre": "Canicule de juin 2026 : la mortalité a bondi de 29 % en une semaine",
+    "n_sources": 2,
+    "n_mots": 709,
+    "titre_rss": "Point de situation sur la mortalité toutes causes confondues  sur la période du 22 au 28 juin 2026",
+    "matiere_faits_distincts": 877,
+    "matiere_redondance": 0.01,
+    "matiere_donnees_chiffrees": 4,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "veille_heures_visible": 221.3,
+    "veille_passages": 74,
+    "veille_age_h": 2157.8,
+    "veille_n_flux_grappe": 1,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "voyager-1-franchit-distance-jour-lumiere-terre",
+    "statut": "rejete_qualite",
+    "date": "2026-11-22T08:06:53",
+    "problemes_initiaux": 9,
+    "tentatives": 3,
+    "problemes_restants": 9,
+    "bloquants_restants": 7,
+    "bloquants_types": [
+      "chiffre_errone",
+      "annonce_perimee",
+      "chiffre_errone",
+      "chiffre_errone",
+      "niveau_preuve_insuffisant",
+      "niveau_preuve_insuffisant",
+      "source_inventee"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "Le chiffre de 25,9 milliards de km ne correspond pas à un jour-lumière exact (25,902 milliards de km) et contredit la source [1] (France Info) qui indique explicitement '26 milliards de km' (arrondi). La source [2] (Le M",
+        "phrase": "La sonde Voyager 1 a franchi mercredi 18 novembre la barre d'un jour-lumière de distance par rapport à la Terre, soit plus de 25,9 milliards de kilomètres [1][2]."
+      },
+      {
+        "bloc": 1,
+        "type": "annonce_perimee",
+        "description": "La source [3] (AP News, 14 novembre) présente l'événement comme imminent ('está a punto de'), mais les sources [1] et [2] du 18 novembre confirment que le franchissement a eu lieu ce jour-là. L'article maintient la formu",
+        "phrase": "Selon l'agence AP News, en date du 14 novembre, la sonde était sur le point de devenir le premier objet humain à atteindre cette distance d'un jour-lumière alors qu'elle s'enfonce toujours plus dans l'espace interstellai"
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [4] (Le Monde, 27 mai 2025) indique que les propulseurs TCM n'avaient pas été utilisés 'depuis 1999', soit 26 ans avant 2025, et non '21 ans'. Le chiffre de 21 ans est factuellement incorrect par rapport à la s",
+        "phrase": "En mai 2025, la NASA a réactivé les propulseurs de correction de trajectoire (TCM), inutilisés depuis 21 ans, pour remplacer les propulseurs d'attitude obstrués par du dioxyde de silicium et maintenir l'orientation de l'"
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "Même erreur que dans le contexte : la source [4] indique une inactivité depuis 1999 (26 ans), pas 21 ans. La répétition de l'erreur dans deux sections aggrave le problème.",
+        "phrase": "En mai 2025, les équipes ont réussi à rallumer les propulseurs de correction de trajectoire (TCM), inutilisés depuis 21 ans, pour remplacer les propulseurs d'attitude obstrués par du dioxyde de silicium et maintenir l'or"
+      },
+      {
+        "bloc": 1,
+        "type": "niveau_preuve_insuffisant",
+        "description": "L'affirmation précise 'environ 4 watts par an' n'est sourcée par aucune référence [n] dans la phrase. Aucune des quatre sources autorisées ne contient ce chiffre dans les extraits fournis. C'est une donnée technique non ",
+        "phrase": "La sonde fonctionne avec une puissance électrique qui diminue d'environ 4 watts par an du fait de la décroissance radioactive de son générateur thermoélectrique à radioisotopes."
+      },
+      {
+        "bloc": 1,
+        "type": "niveau_preuve_insuffisant",
+        "description": "Le chiffre 'quatre opérationnels sur les dix d'origine' n'est attribué à aucune source [n]. Les sources fournies ne mentionnent pas le nombre d'instruments encore actifs. Information non vérifiée présentée comme un fait.",
+        "phrase": "La NASA a dû éteindre progressivement des instruments pour économiser l'énergie ; il en reste quatre opérationnels sur les dix d'origine."
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "Le renvoi [1] pointe vers France Info, mais la phrase attribue l'information à 'l'agence spatiale américaine' (NASA). France Info est un média qui relaie l'information, pas la NASA elle-même. L'attribution de la parole à",
+        "phrase": "L'agence spatiale américaine indique que la sonde continue d'émettre des données scientifiques malgré l'éloignement extrême [1]."
+      }
+    ],
+    "types_restants": [
+      "chiffre_errone",
+      "annonce_perimee",
+      "chiffre_errone",
+      "chiffre_errone",
+      "niveau_preuve_insuffisant",
+      "niveau_preuve_insuffisant",
+      "source_inventee",
+      "redondance",
+      "redondance"
+    ],
+    "article_type": "actu",
+    "titre": "Voyager 1 franchit la distance d'un jour-lumière de la Terre",
+    "n_sources": 4,
+    "n_mots": 459,
+    "titre_rss": "La sonde Voyager 1 est à 26 milliards de km de la Terre et continue d'émettre",
+    "matiere_faits_distincts": 725,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "cop31-objectif-electrification-35-pour-cent-2035-turquie",
+    "statut": "rejete_qualite",
+    "date": "2026-11-22T08:11:17",
+    "problemes_initiaux": 14,
+    "tentatives": 3,
+    "problemes_restants": 9,
+    "bloquants_restants": 6,
+    "bloquants_types": [
+      "annonce_perimee",
+      "incoherence_inter_sections",
+      "chiffre_errone",
+      "source_inventee",
+      "chiffre_errone",
+      "source_inventee"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "annonce_perimee",
+        "description": "La source [1] (UNFCCC, 9 juin 2026) indique que l'annonce a été faite lors de l'ouverture de la COP31 à Antalya les 9-10 novembre 2026, et non à Bonn en juin 2026. L'article présente comme futur (annonce à Bonn) un événe",
+        "phrase": "La présidence de la COP31, assurée par la Turquie, a annoncé le 9 juin 2026 à Bonn trois objectifs majeurs dans le cadre de son Programme mondial d'action pour le climat [1]."
+      },
+      {
+        "bloc": 1,
+        "type": "incoherence_inter_sections",
+        "description": "Le chapeau (résumé) et les faits donnent deux lieux et dates différents pour la même annonce : Bonn le 9 juin 2026 (faits, source [1]) vs Antalya les 9-10 novembre 2026 (faits, source [4]). La source [1] (UNFCCC) précise",
+        "phrase": "Ces annonces ont été confirmées lors de l'ouverture de la COP31 à Antalya les 9-10 novembre 2026 [4]."
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [6] (Consilium, 9 nov 2026) ne mentionne pas ce chiffre de 100 milliards d'euros ni une déclaration de Guterres sur ce sujet. Elle rapporte une déclaration conjointe UE-OACPS réaffirmant l'engagement pour l'Acc",
+        "phrase": "Le Secrétaire général de l'ONU António Guterres a appuyé l'initiative turque tout en soulignant que la dépendance aux combustibles fossiles coûte à l'Union européenne plus de 100 milliards d'euros supplémentaires en impo"
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "Le renvoi [6] pointe vers la source Europa/Consilium (déclaration UE-OACPS), qui ne contient ni citation de Guterres, ni chiffre de 100 milliards d'euros. L'attribution à la source [6] est fausse.",
+        "phrase": "Le Secrétaire général de l'ONU António Guterres a appuyé l'initiative turque tout en soulignant que la dépendance aux combustibles fossiles coûte à l'Union européenne plus de 100 milliards d'euros supplémentaires en impo"
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [5] (Europa, briefing COP30) ne mentionne pas le chiffre de 1 300 milliards de dollars ni une « feuille de route Bakou-Belém » finalisée. Elle indique que la COP30 a adopté les indicateurs d'adaptation de Belém",
+        "phrase": "La COP30 à Belém en novembre 2025 a adopté les indicateurs d'adaptation de Belém et finalisé la feuille de route Bakou-Belém vers 1 300 milliards de dollars de financement climatique, mais a reporté les dossiers les plus"
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "Le renvoi [5] (Europa, KEY FINDINGS COP30) ne confirme pas le chiffre de 1 300 milliards ni l'expression « feuille de route Bakou-Belém ». L'article attribue à cette source des éléments qu'elle ne contient pas.",
+        "phrase": "La COP30 à Belém en novembre 2025 a adopté les indicateurs d'adaptation de Belém et finalisé la feuille de route Bakou-Belém vers 1 300 milliards de dollars de financement climatique, mais a reporté les dossiers les plus"
+      }
+    ],
+    "types_restants": [
+      "annonce_perimee",
+      "incoherence_inter_sections",
+      "chiffre_errone",
+      "source_inventee",
+      "chiffre_errone",
+      "source_inventee",
+      "redondance",
+      "section_gonflee",
+      "compteur_incoherent"
+    ],
+    "article_type": "actu",
+    "titre": "COP31 : la Turquie vise 35 % d'électricité dans la consommation finale d'ici 2035",
+    "n_sources": 7,
+    "n_mots": 559,
+    "titre_rss": "COP31 : l’objectif d’électrification risque de déplacer les émissions plutôt que de les réduire",
+    "matiere_faits_distincts": 765,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "puffins-anglais-jet-lag-chasse-etude-oxford",
+    "statut": "rejete_qualite",
+    "date": "2026-11-22T08:22:13",
+    "tentative": 3,
+    "angle_insuffisant": true,
+    "raison": "Aucune phrase des faits ne contient un événement précis daté ou datable (publication de l'étude, conférence, mise en ligne) avec une donnée chiffrée ou nommée propre à cet événement. L'article se contente de résumer le contenu d'un article de Sciences et Avenir sans indiquer ce qui vient de se passer (date de l'étude, nom des auteurs, revue, DOI, communiqué), ce qui en fait une fiche pédagogique sans actualité identifiable.",
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "article_sans_date"
+    ],
+    "titre": "Les puffins des Anglais subissent un décalage horaire biologique après la chasse",
+    "n_sources": 4,
+    "n_mots": 642,
+    "titre_rss": "Des oiseaux marins, victimes du \"jet-lag\" après une longue chasse",
+    "matiere_faits_distincts": 891,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "etude_scientifique"
+  },
+  {
+    "slug": "mbappe-sanctionne-chine-blague-mao-zedong-censure",
+    "statut": "rejete_sensible",
+    "date": "2026-11-22T08:27:42",
+    "problemes_initiaux": 21,
+    "tentative": 2,
+    "bloc5": true,
+    "article_type": "actu",
+    "titre": "Mbappé sanctionné par la Chine après une blague sur Mao Zedong",
+    "n_sources": 3,
+    "n_mots": 651,
+    "titre_rss": "Mbappé, Mao et l’anaconda : comment Pékin exporte sa censure",
+    "matiere_faits_distincts": 409,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "sangliers-chasseurs-maine-et-loire-alerte-population-hors-controle",
+    "statut": "rejete_qualite",
+    "date": "2026-11-22T08:31:42",
+    "tentative": 2,
+    "angle_insuffisant": true,
+    "raison": "Aucune phrase des faits ne contient à la fois un événement précis daté ou datable (annonce, publication, décision, résultat rendu public récemment) et une donnée chiffrée ou nommée qui lui est propre. L'article se contente d'expliquer un phénomène général (hausse des populations de sangliers) en citant des sources anciennes (2003) et des reportages sans fait déclencheur daté récent. L'alerte des chasseurs du Maine-et-Loire (source [1] datée 2025) n'est pas datée précisément dans l'article (pas de jour/mois), et aucun chiffre nouveau n'y est associé. Le lecteur ne sait pas ce qui vient de se passer pour justifier une publication maintenant.",
+    "article_type": "actu",
+    "titre": "Sangliers : les chasseurs du Maine-et-Loire alertent sur une population hors de contrôle",
+    "n_sources": 6,
+    "n_mots": 608,
+    "titre_rss": "« Il faut faire diminuer la population de sangliers sinon on sera dépassé » : l’alerte des chasseurs du Maine-et-Loire",
+    "matiere_faits_distincts": 829,
+    "matiere_redondance": 0.12,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "portugal-manifestations-salaires-logement-budget-2027",
+    "statut": "rejete_sensible",
+    "date": "2026-11-22T08:36:43",
+    "problemes_initiaux": 9,
+    "tentative": 3,
+    "bloc5": true,
+    "article_type": "actu",
+    "titre": "Portugal : deux cortèges à Lisbonne contre bas salaires et crise du logement",
+    "n_sources": 5,
+    "n_mots": 459,
+    "titre_rss": "Au Portugal, des manifestations contre les faibles salaires et l’explosion du prix des logements",
+    "matiere_faits_distincts": 648,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "mortalite-france-2024-641046-deces-taux-standardise-baisse",
+    "statut": "corrige_automatiquement",
+    "date": "2026-11-22T08:48:56",
+    "problemes_initiaux": 2,
+    "tentatives": 3,
+    "problemes_residuels_style": 7,
+    "rapport_initial": {
+      "conforme": false,
+      "sujet_sensible": false,
+      "sujet_sensible_raison": "",
+      "angle_insuffisant": false,
+      "angle_insuffisant_raison": "",
+      "nature_contenu": "etude_scientifique",
+      "problemes": [
+        {
+          "bloc": 1,
+          "section": "nuances",
+          "type": "source_inventee",
+          "phrase_exacte": "Les décès liés au travail recensés par le régime général (1 331 en 2025, +35 %) excluent les travailleurs agricoles, fonctionnaires, indépendants et plateformes, et sous-estiment les maladies professionnelles non reconnues [7].",
+          "explication": "La source [7] (Senat, question du 19/11/2026) ne contient pas les chiffres 1 331 décès en 2025 ni +35 %, ni les exclusions listées ; le fait est inventé par rapport à cette source."
+        },
+        {
+          "bloc": 2,
+          "section": "nuances",
+          "type": "compteur_incoherent",
+          "phrase_exacte": "Les décès liés au travail recensés par le régime général (1 331 en 2025, +35 %) excluent les travailleurs agricoles, fonctionnaires, indépendants et plateformes, et sous-estiment les maladies professionnelles non reconnues [7].",
+          "explication": "Le renvoi [7] pointe vers une source qui ne confirme pas le fait ; le compteur nb_sources=6 compte cette source comme utilisée alors qu'elle ne valide pas l'information rattachée."
+        }
+      ]
+    },
+    "article_type": "actu",
+    "titre": "Mortalité 2024 : 641 046 décès en France, taux standardisé en baisse",
+    "n_sources": 6,
+    "n_mots": 669,
+    "titre_rss": "Grandes causes de décès en France : tendances et causes associées en 2024",
+    "matiere_faits_distincts": 1172,
+    "matiere_redondance": 0.03,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "veille_heures_visible": 517.7,
+    "veille_passages": 311,
+    "veille_age_h": 2454.2,
+    "veille_n_flux_grappe": 1,
+    "nature_contenu": "etude_scientifique"
+  },
+  {
+    "slug": "rougeole-etats-unis-perdent-statut-elimination-france-alerte",
+    "statut": "rejete_sensible",
+    "date": "2026-11-22T08:58:03",
+    "problemes_initiaux": 15,
+    "tentative": 3,
+    "bloc5": true,
+    "article_type": "actu",
+    "titre": "Rougeole : les États-Unis perdent leur statut d'élimination, la France en alerte",
+    "n_sources": 5,
+    "n_mots": 653,
+    "titre_rss": "\"Aucun pays ne doit se croire débarrassé de la rougeole\" : l'alerte de Tom Frieden, ex-directeur des CDC américains",
+    "matiere_faits_distincts": 733,
+    "matiere_redondance": 0.01,
+    "matiere_donnees_chiffrees": 3,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "trente-ans-cooperation-scientifique-pretoria-ird-cnrs-cirad",
+    "statut": "conforme_du_premier_coup",
+    "date": "2026-11-22T09:04:25",
+    "article_type": "actu",
+    "titre": "Trente ans de coopération scientifique entre l'Université de Pretoria, l'IRD, le CNRS et le CIRAD",
+    "n_sources": 3,
+    "n_mots": 713,
+    "titre_rss": "Trente ans de diplomatie scientifique : l’Université de Pretoria, l’IRD, le CNRS et le CIRAD célèbrent trois décennies de collaboration",
+    "matiere_faits_distincts": 744,
+    "matiere_redondance": 0.05,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "binge-drinking-rare-troubles-usage-alcool-etudiants-etude-inserm",
+    "statut": "rejete_sensible",
+    "date": "2026-11-22T09:08:50",
+    "problemes_initiaux": 9,
+    "bloc5": [
+      "affaire_en_cours_presentee_comme_fait"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "titre_de_mauvaise_qualite"
+    ],
+    "titre": "Binge drinking : même rare, il multiplie par huit le risque de trouble alcoolique chez 3 308 étudiants",
+    "n_sources": 4,
+    "n_mots": 637,
+    "titre_rss": "Les risques potentiels du binge drinking sur la santé des jeunes étudiants",
+    "matiere_faits_distincts": 794,
+    "matiere_redondance": 0.04,
+    "matiere_donnees_chiffrees": 3,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "veille_heures_visible": 517.7,
+    "veille_passages": 311,
+    "veille_age_h": 2454.2,
+    "veille_n_flux_grappe": 7,
+    "nature_contenu": "etude_scientifique"
+  },
+  {
+    "slug": "onu-accord-encadrement-robots-tueurs-sans-interdiction-20261121",
+    "statut": "rejete_qualite",
+    "date": "2026-11-22T09:17:31",
+    "problemes_initiaux": 6,
+    "tentatives": 3,
+    "problemes_restants": 11,
+    "bloquants_restants": 2,
+    "bloquants_types": [
+      "chiffre_errone",
+      "chiffre_errone"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La date du 14 novembre 2026 est un samedi, pas un vendredi ; la source [1] (Libération, 21 nov 2026) indique que la conférence s'est achevée le vendredi 13 novembre.",
+        "phrase": "La conférence de révision de la Convention sur certaines armes classiques (CCAC) s'est achevée vendredi 14 novembre à Genève après cinq jours de négociations, du 10 au 14 novembre 2026 [1][2][3]."
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La période « du 10 au 14 novembre » compte cinq jours ouvrés (lundi-vendredi) mais le 14 novembre 2026 est un samedi ; la source [1] précise que la conférence a duré cinq jours, du 10 au 13 novembre.",
+        "phrase": "La conférence de révision de la Convention sur certaines armes classiques (CCAC) s'est achevée vendredi 14 novembre à Genève après cinq jours de négociations, du 10 au 14 novembre 2026 [1][2][3]."
+      }
+    ],
+    "types_restants": [
+      "chiffre_errone",
+      "chiffre_errone",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "chiffre_errone",
+      "source_inventee"
+    ],
+    "article_type": "actu",
+    "titre": "ONU : 128 États s'accordent sur un encadrement des robots tueurs sans les interdire",
+    "n_sources": 5,
+    "n_mots": 534,
+    "titre_rss": "«Robots tueurs» : un accord trouvé à l’ONU, mais pas d’interdiction",
+    "matiere_faits_distincts": 937,
+    "matiere_redondance": 0.02,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "cop31-antalya-negociations-enlisent-energies-fossiles-financement",
+    "statut": "rejete_qualite",
+    "date": "2026-11-22T09:22:47",
+    "problemes_initiaux": 12,
+    "tentatives": 3,
+    "problemes_restants": 7,
+    "bloquants_restants": 6,
+    "bloquants_types": [
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "incoherence_inter_sections",
+      "source_inventee"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [5] (Le Monde, 19 novembre) indique que la COP31 se tient du 10 au 22 novembre 2026, et non du 11 au 22 novembre. La date d'ouverture est erronée.",
+        "phrase": "La COP31 se tient à Antalya, en Turquie, du 11 au 22 novembre 2026 sous présidence turque [5]."
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [1] (France 24, 21 novembre) indique que la clôture théorique est fixée au 21 novembre (\"date théorique de clôture, ce vendredi 21 novembre\"), et non au 22 novembre. L'article contredit sa propre source sur la ",
+        "phrase": "Samedi 21 novembre, soit à la date officielle de clôture théorique fixée au 22 novembre, aucun texte final n'a été adopté et les négociations se poursuivent dans la confusion [1]."
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [5] (Le Monde, 19 novembre) indique que l'accord sur l'ordre du jour a été obtenu le 11 novembre (\"l'accord sur l'ordre du jour, obtenu mardi 11 novembre\"), et non le 10 novembre. La date est erronée par rappor",
+        "phrase": "la présidence turque avait obtenu un accord préalable sur les ordres du jour dès l'ouverture le 10 novembre"
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [6] (Sénat) indique que l'audition a eu lieu le 21 octobre 2026 (\"mardi 21 octobre 2026\"), et non le 22 octobre. La date est erronée.",
+        "phrase": "Le Sénat a auditionné le 22 octobre les ambassadeurs d'Australie et de Turquie sur les enjeux de cette COP31 [6]."
+      },
+      {
+        "bloc": 1,
+        "type": "incoherence_inter_sections",
+        "description": "Incohérence interne : les faits indiquent que la clôture théorique est le 22 novembre, mais la source [1] citée pour ce fait dit qu'elle est le 21 novembre. Le résumé (chapeau) dit aussi \"clôture théorique était fixée au",
+        "phrase": "Samedi 21 novembre, soit à la date officielle de clôture théorique fixée au 22 novembre, aucun texte final n'a été adopté et les négociations se poursuivent dans la confusion [1]."
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "La source [5] ne mentionne pas la Russie dans le groupe contestant la légitimité du processus. L'attribution [5] pour cet élément (Russie) est inventée.",
+        "phrase": "l'opposition d'un groupe mené par la Chine, l'Inde (LMDC), la Russie et l'Arabie saoudite s'est manifestée dès la mi-novembre contre la légitimité même de ce processus [5]."
+      }
+    ],
+    "types_restants": [
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "source_inventee",
+      "incoherence_inter_sections",
+      "source_inventee"
+    ],
+    "article_type": "actu",
+    "titre": "COP31 à Antalya : les négociations s'enlisent sur les énergies fossiles et le financement",
+    "n_sources": 6,
+    "n_mots": 586,
+    "titre_rss": "Climat : les négociations s'enlisent à la COP31, sans compromis en vue",
+    "matiere_faits_distincts": 631,
+    "matiere_redondance": 0.12,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "pouvoir-climatique-crottes-poissons-carbonate-calcium",
+    "statut": "rejete_sensible",
+    "date": "2026-11-22T09:28:13",
+    "problemes_initiaux": 5,
+    "tentative": 2,
+    "bloc5": true,
+    "article_type": "actu",
+    "titre": "France Info : les poissons produisent du carbonate de calcium qui piège du carbone",
+    "n_sources": 4,
+    "n_mots": 516,
+    "titre_rss": "Le surprenant pouvoir climatique des crottes de poissons",
+    "matiere_faits_distincts": 866,
+    "matiere_redondance": 0.01,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "data-centers-contestation-citoyenne-mondiale-ressources-energie",
+    "statut": "rejete_qualite",
+    "date": "2026-11-22T09:36:25",
+    "problemes_initiaux": 20,
+    "tentatives": 3,
+    "problemes_restants": 8,
+    "bloquants_restants": 5,
+    "bloquants_types": [
+      "chiffre_errone",
+      "chiffre_errone",
+      "incoherence_inter_sections",
+      "source_inventee",
+      "source_inventee"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [5] (ONU, 2026-09-08) indique « plus de 5 000 » centres de données hyperscale prévus ou en construction, et non « plus de 500 » — le chiffre est sous-estimé d'un facteur 10.",
+        "phrase": "Selon l'ONU, plus de 500 centres de données hyperscale sont prévus ou en construction dans le monde, portés notamment par l'essor de l'IA générative [5]."
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [5] cite l'AIE avec une fourchette de 620 à 1 050 TWh pour 2026, mais l'article omet la précision « could double » (pourrait doubler) présente dans la source, ce qui change la portée de la projection.",
+        "phrase": "L'Agence internationale de l'énergie, citée par l'ONU, estime la consommation électrique à 460 TWh en 2022 et prévoit une fourchette de 620 à 1 050 TWh en 2026, soit une part croissante de la demande mondiale [5]."
+      },
+      {
+        "bloc": 1,
+        "type": "incoherence_inter_sections",
+        "description": "La source [5] indique que le projet Meta aux Pays-Bas a été « cancelled » (annulé) après suspension, mais le résumé (chapeau) dit « les Pays-Bas, tandis que le Chili a vu Google abandonner un projet face aux manifestatio",
+        "phrase": "Aux Pays-Bas, la mobilisation d'habitants et d'agriculteurs a conduit à suspendre le plus grand projet national ; Meta a finalement abandonné ce projet [5]."
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "La source [4] (Courrier international) est citée pour un fait précis (« accaparement de l'eau et de l'énergie »), mais l'extrait fourni ne contient pas cette formulation — l'attribution est inventée par rapport au conten",
+        "phrase": "Le Courrier international rapporte que la multiplication des data centers attise la colère des populations locales, confrontées à l'accaparement de l'eau et de l'énergie [4]."
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "La source [6] (RFI) est attribuée pour une confirmation générale, mais l'extrait fourni ne permet pas de vérifier que RFI « confirme » spécifiquement cette formulation — l'attribution dépasse le contenu vérifiable de la ",
+        "phrase": "RFI confirme que la gronde se répand à travers le monde, aux États-Unis et ailleurs, avec des mouvements de contestation qui s'organisent face à l'expansion rapide de l'infrastructure numérique [6]."
+      }
+    ],
+    "types_restants": [
+      "chiffre_errone",
+      "chiffre_errone",
+      "incoherence_inter_sections",
+      "source_inventee",
+      "source_inventee",
+      "contexte_hors_sujet",
+      "redondance",
+      "chiffre_errone"
+    ],
+    "article_type": "actu",
+    "titre": "Data centers : la contestation s'étend de l'Inde au Chili, de l'Irlande au Japon",
+    "n_sources": 6,
+    "n_mots": 710,
+    "titre_rss": "Data centers : la défiance monte partout dans le monde, de l’Inde au Chili en passant par l’Irlande ou le Japon",
+    "matiere_faits_distincts": 877,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "fabrice-sakoun-juge-nancy-escroquerie-cryptomonnaies-diamants",
+    "statut": "rejete_sensible",
+    "date": "2026-11-22T09:40:52",
+    "sujet_sensible": true,
+    "raison": "L'article porte sur une affaire judiciaire pénale en cours (procès correctionnel ouvert le 23 novembre 2025) visant des personnes nommément identifiées (Fabrice Sakoun et trois co-prévenus), non définitivement jugées pour les faits reprochés dans ce dossier.",
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "resume_repete_corps"
+    ],
+    "titre": "Fabrice Sakoun jugé à Nancy pour escroquerie aux cryptomonnaies et diamants",
+    "n_sources": 5,
+    "n_mots": 520,
+    "titre_rss": "Cryptomonnaies et diamants : Fabrice Sakoun, l’escroc de la taxe carbone, jugé à Nancy pour une nouvelle escroquerie",
+    "matiere_faits_distincts": 643,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "cactus-saguaro-declin-aire-repartition-2099",
+    "statut": "rejete_qualite",
+    "date": "2026-11-22T09:48:29",
+    "tentative": 1,
+    "angle_insuffisant": true,
+    "raison": "Aucune phrase dans 'faits' ne contient un événement précis daté ou datable (publication d'étude, décision, résultat récent) accompagné d'une donnée chiffrée ou nommée qui lui est propre. Le texte se contente de reprendre des projections générales à 2100 et des constats climatiques sans identifier ce qui vient de se passer pour justifier la publication maintenant.",
+    "article_type": "actu",
+    "titre": "Le cactus saguaro décline sur tout son aire de répartition d'ici 2099",
+    "n_sources": 6,
+    "n_mots": 510,
+    "titre_rss": "Il fait tellement chaud et sec sur Terre que même les cactus commencent à disparaître : les prévisions des scientifiques pour 2100 sont alarmantes",
+    "matiere_faits_distincts": 898,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "etude_scientifique"
+  },
+  {
+    "slug": "cyberattaque-frigos-supermarche-iran-700-sites-france",
+    "statut": "rejete_sensible",
+    "date": "2026-11-22T09:51:19",
+    "problemes_initiaux": 11,
+    "bloc5": [
+      "affaire_en_cours_presentee_comme_fait"
+    ],
+    "article_type": "actu",
+    "titre": "Cyberattaque sur les frigos de supermarchés : 700 sites touchés en France, l'Iran accusé",
+    "n_sources": 5,
+    "n_mots": 596,
+    "titre_rss": "Frigos piratés dans les supermarchés : qui doit sécuriser les objets connectés ?",
+    "matiere_faits_distincts": 782,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "conference-generale-poids-mesures-redefinition-seconde",
+    "statut": "rejete_qualite",
+    "date": "2026-11-22T09:55:55",
+    "tentative": 3,
+    "perte_substance": true,
+    "section": "nuances",
+    "mots_avant": 138,
+    "mots_apres": 48,
+    "article_type": "actu",
+    "titre": "La Conférence générale des poids et mesures engage la redéfinition de la seconde",
+    "n_sources": 3,
+    "n_mots": 514,
+    "titre_rss": "Mesurer le temps : une révolution se prépare",
+    "matiere_faits_distincts": 756,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "decision_officielle"
   }
 ]
