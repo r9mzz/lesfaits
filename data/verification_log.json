@@ -88262,5 +88262,954 @@
     "n_sources_injectees": 10,
     "n_sources_trouvees": 10,
     "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "cop31-antalya-echec-accord-energies-fossiles-prolongation-record",
+    "statut": "rejete_sensible",
+    "date": "2026-11-23T08:36:44",
+    "problemes_initiaux": 14,
+    "bloc5": [
+      "acteur_mis_en_cause_sans_reponse"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "resume_repete_corps"
+    ],
+    "titre": "La COP31 s'achève sans accord sur les énergies fossiles après une prolongation record",
+    "n_sources": 6,
+    "n_mots": 751,
+    "titre_rss": "COP31 à Antalya : la plus longue COP de l'histoire s'achève sur un échec",
+    "matiere_faits_distincts": 668,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "gaza-99-territoire-contamine-rapport-oxfam",
+    "statut": "rejete_sensible",
+    "date": "2026-11-23T08:40:39",
+    "sujet_sensible": true,
+    "raison": "L'article porte sur une affaire judiciaire en cours visant des personnes (accusations de torture de médecins par des forces israéliennes, commission d'enquête de l'ONU accusant Israël d'extermination), non définitivement jugée.",
+    "article_type": "actu",
+    "titre": "99 % du territoire de Gaza contaminé par la guerre selon Oxfam",
+    "n_sources": 6,
+    "n_mots": 534,
+    "titre_rss": "99% du territoire de Gaza contaminé par la guerre, selon un rapport d'Oxfam",
+    "matiere_faits_distincts": 996,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "rapport"
+  },
+  {
+    "slug": "substances-chimiques-cout-sanitaire-1000-milliards-euros-reglementation-europeenne-affaiblie",
+    "statut": "rejete_qualite",
+    "date": "2026-11-23T08:43:36",
+    "tentative": 1,
+    "angle_insuffisant": true,
+    "raison": "Aucune phrase des faits ne combine un événement précis daté (annonce, publication, décision récente) et une donnée chiffrée ou nommée qui lui est propre. L'article rapporte une chronique du Monde du 22/11/2026 citant un rapport OMS-PNUE sans date, et des données 2023-2025 sur les limites planétaires, sans fait déclencheur actualité justifiant la publication maintenant.",
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "faits_repetitifs"
+    ],
+    "titre": "Substances chimiques : 1 000 milliards d'euros de coût sanitaire et réglementation européenne affaiblie",
+    "n_sources": 3,
+    "n_mots": 622,
+    "titre_rss": "« Alors que la science montre de mieux en mieux le rôle des substances chimiques dans l’épidémie de “maladies de civilisation”, l’Europe affaiblit sa réglementation »",
+    "matiere_faits_distincts": 772,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "cour-comptes-epingle-gestion-securite-sociale-guadeloupe",
+    "statut": "rejete_qualite",
+    "date": "2026-11-23T08:48:00",
+    "problemes_initiaux": 10,
+    "tentatives": 3,
+    "problemes_restants": 7,
+    "bloquants_restants": 4,
+    "bloquants_types": [
+      "chiffre_errone",
+      "chiffre_errone",
+      "incoherence_inter_sections",
+      "source_inventee"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [1] (Le Monde, 23 novembre 2026) indique que le rapport a été publié le 10 novembre 2026, pas simplement 'en novembre 2026' de manière vague ; la source [2] (Le Monde, 10 novembre 2026) confirme cette date préc",
+        "phrase": "La Cour des comptes a rendu public, en novembre 2026, un rapport consacré à la Caisse générale de sécurité sociale (CGSS) de Guadeloupe et de Saint-Martin pour la période 2018-2023 [1][2]."
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [3] (France Info, 10 novembre 2026) mentionne '3,5 milliards d'euros de budget' mais ne donne pas le chiffre de population de 384 000 habitants ; ce chiffre provient de la source [4] (INSEE) qui indique une pop",
+        "phrase": "L'institution gère un budget annuel de 3,5 milliards d'euros au profit d'une population d'environ 384 000 habitants [3]."
+      },
+      {
+        "bloc": 1,
+        "type": "incoherence_inter_sections",
+        "description": "Le résumé (chapeau) affirme '1,2 milliard d'euros de cotisations impayées, soit 30 % des recettes attendues' sans préciser la date de clôture ; les faits précisent 'à la clôture de l'exercice' sans dire lequel (2023 ?). ",
+        "phrase": "Les magistrats financiers quantifient le manque à gagner : 1,2 milliard d'euros de cotisations restaient impayées à la clôture de l'exercice, soit 30 % des recettes attendues [2]."
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "La source [3] (France Info) est citée pour cette citation exacte, mais les extraits fournis ne contiennent pas la phrase 'particulièrement dégradée' ni l'énumération des quatre piliers ; l'attribution [3] ne correspond p",
+        "phrase": "France Info rapporte que les magistrats qualifient la situation de \"particulièrement dégradée\" sur les quatre piliers examinés : le recouvrement des cotisations, la gestion du personnel, la gouvernance et le service rend"
+      }
+    ],
+    "types_restants": [
+      "chiffre_errone",
+      "chiffre_errone",
+      "incoherence_inter_sections",
+      "source_inventee",
+      "acteur_mis_en_cause_sans_reponse",
+      "contexte_hors_sujet",
+      "redondance"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "resume_repete_corps"
+    ],
+    "titre": "La Cour des comptes épingle la gestion défaillante de la Sécurité sociale en Guadeloupe",
+    "n_sources": 4,
+    "n_mots": 513,
+    "titre_rss": "En Guadeloupe, la défaillance de la Sécurité sociale met en difficulté de nombreux bénéficiaires",
+    "matiere_faits_distincts": 848,
+    "matiere_redondance": 0.01,
+    "matiere_donnees_chiffrees": 2,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "rapport"
+  },
+  {
+    "slug": "ebola-bundibugyo-vaccins-zaire-anticorps-croises-etude-inserm",
+    "statut": "conforme_du_premier_coup",
+    "date": "2026-11-23T08:52:41",
+    "article_type": "actu",
+    "titre": "Ebola Bundibugyo : les vaccins anti-Zaïre induisent des anticorps croisés, sans preuve d'efficacité clinique",
+    "n_sources": 5,
+    "n_mots": 670,
+    "titre_rss": "Épidémie d’Ebola Bundibugyo : des premiers résultats pour guider la recherche d’un vaccin efficace",
+    "matiere_faits_distincts": 808,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "veille_heures_visible": 517.7,
+    "veille_passages": 311,
+    "veille_age_h": 2479.0,
+    "veille_n_flux_grappe": 9,
+    "nature_contenu": "etude_scientifique"
+  },
+  {
+    "slug": "captage-co2-technologie-couteuse-peine-deployer",
+    "statut": "rejete_sensible",
+    "date": "2026-11-23T08:59:02",
+    "problemes_initiaux": 10,
+    "tentative": 1,
+    "bloc5": true,
+    "article_type": "actu",
+    "titre": "Captage du CO2 : une technologie coûteuse qui peine à passer à l'échelle",
+    "n_sources": 6,
+    "n_mots": 561,
+    "titre_rss": "Climat: le captage du CO2, une technologie onéreuse qui peine à se déployer",
+    "matiere_faits_distincts": 582,
+    "matiere_redondance": 0.01,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "ethiopie-hopital-ayder-mekele-blesses-guerre-tigre",
+    "statut": "rejete_qualite",
+    "date": "2026-11-23T09:04:25",
+    "tentative": 3,
+    "perte_substance": true,
+    "section": "faits",
+    "mots_avant": 282,
+    "mots_apres": 122,
+    "article_type": "actu",
+    "titre": "À Mekele, l'hôpital Ayder soigne les civils blessés d'une guerre qui se poursuit au Tigré",
+    "n_sources": 4,
+    "n_mots": 747,
+    "titre_rss": "Éthiopie: l’hôpital de Mekele soigne les civils blessés d’une guerre qui se poursuit au Tigré",
+    "matiere_faits_distincts": 1049,
+    "matiere_redondance": 0.01,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "decouverts-bancaires-verification-solvabilite-obligatoire-20-novembre-2026",
+    "statut": "rejete_qualite",
+    "date": "2026-11-23T09:13:47",
+    "problemes_initiaux": 11,
+    "tentatives": 3,
+    "problemes_restants": 8,
+    "bloquants_restants": 6,
+    "bloquants_types": [
+      "chiffre_errone",
+      "incoherence_inter_sections",
+      "incoherence_inter_sections",
+      "incoherence_inter_sections",
+      "source_inventee",
+      "source_inventee"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [2] (Le Monde, 5 novembre 2025) indique que la pétition a recueilli « plus de 50 000 signatures », et non « plus de 54 000 signatures ». Le chiffre est inexact par rapport à la source citée.",
+        "phrase": "En réaction, une pétition lancée fin octobre 2025 par La France insoumise contre « l'interdiction » des découverts a recueilli plus de 54 000 signatures [2]."
+      },
+      {
+        "bloc": 1,
+        "type": "incoherence_inter_sections",
+        "description": "La source [5] (Vie Publique, 27 mai 2026) mentionne une ordonnance du 3 septembre 2025 et une autre du 10 décembre 2025 (et non du 2 décembre 2025). La date du 2 décembre 2025 figure aussi dans le contexte et le résumé, ",
+        "phrase": "Le dossier législatif de Vie Publique, daté du 27 mai 2026, retrace la transposition de la directive européenne sur les crédits à la consommation par ordonnances des 3 septembre et 2 décembre 2025 [5]."
+      },
+      {
+        "bloc": 1,
+        "type": "incoherence_inter_sections",
+        "description": "La source [1] (Sénat, 13 novembre 2025) ne confirme pas la date du 2 décembre 2025 pour la seconde ordonnance ; la source [5] indique le 10 décembre 2025. L'article donne deux dates différentes (2 et 10 décembre) pour le",
+        "phrase": "La France l'a transposée par ordonnances des 3 septembre et 2 décembre 2025 [1]."
+      },
+      {
+        "bloc": 1,
+        "type": "incoherence_inter_sections",
+        "description": "Le résumé affirme que la réforme « risque de compliquer l'accès au découvert », alors que les faits [3][4] et les nuances [4][7] décrivent cette complication comme effective dès le 20 novembre 2026 (vérification de solva",
+        "phrase": "Cette transposition d'une directive européenne de 2023 vise à protéger les ménages vulnérables du surendettement, mais risque de compliquer l'accès au découvert pour de nombreux Français qui y ont recours chaque année."
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "La source [1] est une question écrite du Sénat (M. Fabien Gay) adressée au ministère, et non une confirmation du ministère de l'Économie. Le ministère n'a pas encore répondu à cette date (13 novembre 2025). L'attribution",
+        "phrase": "Le ministère de l'Économie confirme une transposition fidèle de cette directive [1]."
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "La source [1] est datée du 13 novembre 2025 et ne contient aucune réponse du gouvernement datée du 30 avril 2026. Cette réponse n'apparaît pas dans les extraits fournis pour la source [1] ; l'information est attribuée à ",
+        "phrase": "Le gouvernement a répondu le 30 avril 2026 en défendant la protection des consommateurs [1]."
+      }
+    ],
+    "types_restants": [
+      "chiffre_errone",
+      "incoherence_inter_sections",
+      "incoherence_inter_sections",
+      "incoherence_inter_sections",
+      "source_inventee",
+      "source_inventee",
+      "redondance",
+      "extrapolation"
+    ],
+    "article_type": "actu",
+    "titre": "Découverts bancaires : vérification de solvabilité obligatoire depuis le 20 novembre 2026",
+    "n_sources": 7,
+    "n_mots": 704,
+    "titre_rss": "\"Ça devient une vraie alternative\" : avec la nouvelle loi sur le découvert bancaire, les demandes d'acomptes sur salaire risquent d'augmenter",
+    "matiere_faits_distincts": 556,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "cyberattaque-chu-guadeloupe-plan-blanc-perturbations-soins",
+    "statut": "corrige_automatiquement",
+    "date": "2026-11-23T09:19:02",
+    "problemes_initiaux": 10,
+    "tentatives": 3,
+    "problemes_residuels_style": 6,
+    "rapport_initial": {
+      "conforme": false,
+      "sujet_sensible": false,
+      "sujet_sensible_raison": "",
+      "angle_insuffisant": false,
+      "angle_insuffisant_raison": "",
+      "nature_contenu": "actualite_factuelle",
+      "problemes": [
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "chiffre_errone",
+          "phrase_exacte": "Une cyberattaque de grande ampleur touche le Centre hospitalier universitaire (CHU) de Guadeloupe depuis le 21 novembre 2026 [3][4][5].",
+          "explication": "La date 2026 est incohérente : les sources [3][4][5] sont datées du 23 novembre 2026 et décrivent une attaque survenue 'depuis le 21 novembre' (soit 2026), mais l'article a manifestement été rédigé en 2024 (date de ma connaissance) et les sources Senado/AN sont de 2026 — l'année 2026 dans le texte est une extrapolation future non sourcée, l'événement n'ayant pas encore eu lieu à la date de rédaction réelle."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "chiffre_errone",
+          "phrase_exacte": "Selon les données de l'Agence nationale de la sécurité des systèmes d'information (ANSSI), 1 366 incidents de sécurité ont été traités ou signalés en 2025, les établissements de santé figurant parmi les secteurs les plus touchés aux côtés des administrations de l'État et des collectivités territoriales [1].",
+          "explication": "La source [1] est une question sénatoriale du 25 juin 2026 qui ne peut pas contenir de données consolidées pour l'année 2025 complète (la question porte sur la 'recrudescence' récente, pas sur un bilan annuel officiel de l'ANSSI pour 2025). Le chiffre 1 366 et l'attribution à l'ANSSI pour 2025 ne sont pas vérifiables dans l'extrait fourni."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "chronologie_confuse",
+          "phrase_exacte": "L'été 2026 a été particulièrement éprouvant : une attaque massive a visé les systèmes d'information du ministère de l'Éducation nationale dans la nuit du 25 juillet, suivie d'un incident à l'académie de Nantes le 19 août, perturbant la rentrée scolaire dans plusieurs académies [2][6].",
+          "explication": "Les sources [2] (3 sept 2026) et [6] (1er sept 2026) sont des questions parlementaires posées APRÈS les événements décrits (juillet/août 2026) — elles ne peuvent pas être sources primaires de ces événements mais seulement des relais. L'article les cite comme sources des faits eux-mêmes, créant une confusion entre source de l'information et source de l'événement."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "chronologie_confuse",
+          "phrase_exacte": "Dans les Hauts-de-France, les lycées publics, la mairie de Lens et la communauté d'agglomération d'Hénin-Carvin ont subi des intrusions successives entre octobre 2025 et janvier 2026 [7].",
+          "explication": "La source [7] est une question sénatoriale du 22 janvier 2026 — elle ne peut pas documenter des événements s'étendant jusqu'en janvier 2026 (date de la question) de manière exhaustive. L'article présente ces faits comme établis sur toute la période alors que la source est contemporaine du début de la période."
+        },
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "Une cyberattaque de grande ampleur touche le Centre hospitalier universitaire (CHU) de Guadeloupe depuis le 21 novembre 2026 [3][4][5].",
+          "explication": "Les sources [3][4][5] sont datées du 23 novembre 2026 — elles n'existent pas à la date de rédaction de l'article (2024). L'article cite des sources futures comme si elles étaient actuelles, ce qui constitue une invention de sourcing."
+        },
+        {
+          "bloc": 2,
+          "section": "contexte",
+          "type": "source_derivee_comptee_comme_primaire",
+          "phrase_exacte": "Selon les données de l'Agence nationale de la sécurité des systèmes d'information (ANSSI), 1 366 incidents de sécurité ont été traités ou signalés en 2025, les établissements de santé figurant parmi les secteurs les plus touchés aux côtés des administrations de l'État et des collectivités territoriales [1].",
+          "explication": "La source [1] est une question parlementaire qui relaie probablement un communiqué ou chiffre de l'ANSSI — ce n'est pas la source primaire (l'ANSSI elle-même). Le compteur 'primaire: 3' dans qualite_sources compte probablement ces questions parlementaires comme primaires à tort."
+        },
+        {
+          "bloc": 2,
+          "section": "contexte",
+          "type": "compteur_incoherent",
+          "phrase_exacte": "\"qualite_sources\": {\"primaire\": 3, \"secondaire\": 3, \"tertiaire\": 0}",
+          "explication": "Sur 8 sources listées, 5 sont des questions parlementaires (secondaires/tertiaires), 3 sont des médias (secondaires). Aucune n'est une source primaire (communiqué officiel CHU, ANSSI, rapport direct). Le décompte 'primaire: 3' est faux."
+        },
+        {
+          "bloc": 4,
+          "section": "nuances",
+          "type": "extrapolation",
+          "phrase_exacte": "La restauration des systèmes pourrait prendre plus de temps que les « plusieurs jours » annoncés si des sauvegardes sont compromises ou si l'analyse forensic révèle une persistance de l'attaquant dans le réseau.",
+          "explication": "Cette spéculation technique (sauvegardes compromises, persistance de l'attaquant) n'est sourcée par aucun extrait fourni — c'est une extrapolation non fondée de la rédaction."
+        },
+        {
+          "bloc": 4,
+          "section": "nuances",
+          "type": "extrapolation",
+          "phrase_exacte": "Aucune communication n'a été faite sur l'activation de la cellule de crise cyber de l'ANSSI ni sur une éventuelle revendication.",
+          "explication": "L'absence de communication n'est pas un fait sourcé — c'est un argument d'ignorance présenté comme fait. Aucune source ne confirme que l'ANSSI n'a pas été activée ou qu'il n'y a pas eu de revendication."
+        },
+        {
+          "bloc": 4,
+          "section": "nuances",
+          "type": "extrapolation",
+          "phrase_exacte": "La réaction de l'établissement quant à d'éventuelles négociations avec les auteurs de l'attaque n'est pas connue.",
+          "explication": "Même problème : l'absence d'information présentée comme information, sans source confirmant qu'aucune négociation n'a eu lieu ou n'a été communiquée."
+        }
+      ]
+    },
+    "article_type": "actu",
+    "titre": "Cyberattaque au CHU de Guadeloupe : plan blanc déclenché, plusieurs jours de perturbations annoncés",
+    "n_sources": 8,
+    "n_mots": 510,
+    "titre_rss": "Cyberattaque au CHU de Guadeloupe : plusieurs jours de perturbations à prévoir, le plan blanc déclenché",
+    "matiere_faits_distincts": 1060,
+    "matiere_redondance": 0.05,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "canicules-marines-2026-biodiversite-menacee",
+    "statut": "rejete_sensible",
+    "date": "2026-11-23T09:23:36",
+    "problemes_initiaux": 8,
+    "tentative": 1,
+    "bloc5": true,
+    "article_type": "actu",
+    "titre": "Canicules marines record en 2026 : la biodiversité sous pression",
+    "n_sources": 6,
+    "n_mots": 725,
+    "titre_rss": "La biodiversité face aux canicules marines",
+    "matiere_faits_distincts": 800,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "vermorel-marques-proposition-loi-reciprocite-normes-agricoles-importation",
+    "statut": "rejete_sensible",
+    "date": "2026-11-23T09:27:16",
+    "problemes_initiaux": 8,
+    "bloc5": [
+      "affaire_en_cours_presentee_comme_fait"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "resume_repete_corps"
+    ],
+    "titre": "Antoine Vermorel-Marques propose d'interdire l'importation de produits agricoles non conformes aux normes françaises",
+    "n_sources": 4,
+    "n_mots": 614,
+    "titre_rss": "La droite et l'écologie : le cri d'alarme du député LR Antoine Vermorel",
+    "matiere_faits_distincts": 937,
+    "matiere_redondance": 0.01,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "johan-rockstrom-echec-cop31-signal-positif-climat",
+    "statut": "rejete_qualite",
+    "date": "2026-11-23T09:33:45",
+    "tentative": 3,
+    "perte_substance": true,
+    "section": "contexte",
+    "mots_avant": 227,
+    "mots_apres": 113,
+    "article_type": "actu",
+    "titre": "Johan Rockström : l'échec de la COP31 traduit une prise au sérieux des risques climatiques",
+    "n_sources": 5,
+    "n_mots": 594,
+    "titre_rss": "« L’échec de la COP31 envoie un signal positif : le monde prend les risques et la science au sérieux », estime le scientifique suédois Johan Rockström",
+    "matiere_faits_distincts": 776,
+    "matiere_redondance": 0.05,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "injection-unique-cholesterol-trois-ans-efficacite-souris",
+    "statut": "rejete_sensible",
+    "date": "2026-11-23T09:37:45",
+    "problemes_initiaux": 10,
+    "bloc5": [
+      "diffamation_potentielle"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "titre_de_mauvaise_qualite"
+    ],
+    "titre": "Une injection unique abaisse le cholestérol pendant trois ans chez la souris",
+    "n_sources": 4,
+    "n_mots": 531,
+    "titre_rss": "Une seule injection, trois ans d'efficacité : le traitement anti-cholestérol qui suscite l'espoir",
+    "matiere_faits_distincts": 665,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "etude_scientifique"
+  },
+  {
+    "slug": "cop31-antalya-calendrier-giec-divise-pays",
+    "statut": "rejete_qualite",
+    "date": "2026-11-23T09:49:45",
+    "problemes_initiaux": 17,
+    "tentatives": 3,
+    "problemes_restants": 18,
+    "bloquants_restants": 17,
+    "bloquants_types": [
+      "annonce_perimee",
+      "chiffre_errone",
+      "incoherence_inter_sections",
+      "chiffre_errone",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "annonce_perimee",
+        "description": "Le bilan mondial est un processus quinquennal : le premier s'est achevé à la COP28 (2023), le deuxième s'achèvera à la COP33 (2028). Il n'a pas été « lancé lors de cette COP31 » (novembre 2026) — la phase technique a déb",
+        "phrase": "le deuxième bilan mondial (Global Stocktake), lancé lors de cette COP31, doit s'achever en 2028"
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "L'échéance 2030 pour les objectifs de réduction (NDC) est à 4 ans de 2026 (date de la COP31), pas 2 ans. L'article confond l'échéance du bilan mondial (2028, soit 2 ans avant 2030) avec la date de la conférence elle-même",
+        "phrase": "soit deux ans avant l'échéance de 2030 pour les objectifs de réduction d'émissions"
+      },
+      {
+        "bloc": 1,
+        "type": "incoherence_inter_sections",
+        "description": "Le résumé (point 2) dit correctement que le bilan « doit s'achever en 2028 » sans dire qu'il a été lancé à la COP31. Les faits ajoutent l'erreur « lancé lors de cette COP31 » qui contredit la chronologie réelle (début à ",
+        "phrase": "le deuxième bilan mondial (Global Stocktake), lancé lors de cette COP31, doit s'achever en 2028"
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "Le contexte répète l'erreur de chronologie : à la date de l'article (novembre 2026), 2030 est dans 4 ans, pas « rapprochée » au sens de 2 ans. La confusion entre la date de la COP (2026) et la fin du bilan (2028) fausse ",
+        "phrase": "Cette échéance rapprochée de 2030, date butoir pour de nombreux objectifs climatiques, confère une urgence particulière"
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "La source [1] (France Info, 19 nov 2026) ne contient pas dans les extraits fournis l'affirmation que la Russie, l'Arabie saoudite et la Chine ont jugé le calendrier « trop serré » avec l'argument de la participation des ",
+        "phrase": "Selon France Info, le calendrier des travaux du Groupe d'experts intergouvernemental sur l'évolution du climat (GIEC) a fait l'objet d'un « bras de fer » entre pays : plusieurs pays vulnérables réclamaient que les procha"
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "La source [1] ne contient pas dans les extraits fournis cette citation précise de Jim Skea sur le Groupe de travail II et l'objectif mondial d'adaptation. L'attribution [1] est non fondée.",
+        "phrase": "Le président du GIEC, Jim Skea, a souligné l'importance de ces évaluations pour les discussions en cours, notant que le rapport du Groupe de travail II fera la lumière sur les progrès collectifs vers l'objectif mondial d"
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "La source [1] ne contient pas dans les extraits fournis cette citation de Simon Stiell datée du 19 novembre avec ces termes exacts. L'attribution [1] est non fondée.",
+        "phrase": "Le chef d'ONU Climat, Simon Stiell, a rappelé le 19 novembre que « nous avons deux ans » pour traduire les objectifs du premier bilan en progrès tangibles, malgré des « vents contraires géopolitiques violents » [1]."
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "La source [3] (Le Soir, 19 nov 2026) n'est pas citée dans les extraits fournis avec ce contenu précis (« sous le feu », calendrier au cœur des tensions). L'attribution [3] n'est pas vérifiable avec les extraits donnés.",
+        "phrase": ""
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "La source [1] (France Info, article du 19 nov 2026 sur la COP31) ne contient pas dans les extraits fournis ce résumé détaillé des conclusions de la COP28. L'attribution [1] est non fondée pour ce fait historique.",
+        "phrase": "Le premier bilan mondial, conclu à la COP28 de Dubaï en 2023, avait appelé à tripler les capacités en énergies renouvelables et à doubler le taux annuel d'amélioration de l'efficacité énergétique d'ici 2030, ainsi qu'à a"
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "La source [1] ne contient pas dans les extraits fournis cette information historique sur la CCNUCC de 1992. L'attribution [1] est non fondée.",
+        "phrase": "La notion de gouvernance climatique mondiale a été officiellement reconnue en 1992 dans la Convention-Cadre des Nations unies sur les changements climatiques (CCNUCC), cadre dans lequel s'inscrivent les COP successives e"
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "La source [1] ne contient pas dans les extraits fournis cette analyse liant la fin du deuxième bilan (2028), l'échéance 2030 et l'urgence pour les évaluations du GIEC. L'attribution [1] est non fondée.",
+        "phrase": "Le cycle actuel du bilan mondial, le deuxième depuis l'Accord de Paris de 2015, doit s'achever en 2028. Cette échéance rapprochée de 2030, date butoir pour de nombreux objectifs climatiques, confère une urgence particuli"
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "La source [5] (UN News, 18 nov 2026) n'est pas citée dans les extraits fournis avec ce contenu précis. L'attribution [5] n'est pas vérifiable avec les extraits donnés.",
+        "phrase": "Selon l'ONU, les pays peinent à s'entendre sur le financement et la transition énergétique, deux piliers du paquet de décisions attendu à Antalya [5]."
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "La source [1] ne permet pas de vérifier cette affirmation méta sur ce que les sources ne précisent pas. Les nuances attribuent à [1] une absence d'information que [1] ne peut pas confirmer elle-même.",
+        "phrase": "Le contenu des prochains rapports du GIEC et leur date exacte de publication ne sont pas précisés dans les sources disponibles [1]."
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "Même problème : la source [1] ne peut pas attester de ce qu'elle ne dit pas. L'attribution [1] pour une absence d'information est une invention de sourcing.",
+        "phrase": "L'ampleur exacte du désaccord entre pays sur le calendrier — nombre de pays concernés, positions formelles déposées — n'est pas détaillée [1]."
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "La source [1] ne contient pas l'information selon laquelle ces pays ont une « opposition au calendrier serré » (déjà non vérifiée plus haut), donc ne peut pas documenter l'absence de réaction « au-delà ». Double inventio",
+        "phrase": "La réaction formelle de la Russie, de l'Arabie saoudite et de la Chine au-delà de l'opposition au calendrier serré n'est pas documentée dans les extraits fournis [1]."
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "La source [4] (RFI, 20 nov 2026) n'est pas citée dans les extraits fournis avec le contenu de l'accord. L'attribution [4] pour une absence de détail n'est pas vérifiable.",
+        "phrase": "Les modalités précises de l'accord adopté dans la nuit du 20 au 21 novembre, notamment sur le financement et la transition énergétique, ne sont pas détaillées dans les sources [4]."
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "La source [3] ne contient pas dans les extraits fournis la mention d'un budget du GIEC comme sujet de tension. L'attribution [3] est non fondée.",
+        "phrase": "Le budget du GIEC est mentionné comme sujet de tension par Le Soir, sans que le montant ou les modalités de ce désaccord ne soient précisés [3]."
+      }
+    ],
+    "types_restants": [
+      "annonce_perimee",
+      "chiffre_errone",
+      "incoherence_inter_sections",
+      "chiffre_errone",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "compteur_incoherent"
+    ],
+    "article_type": "actu",
+    "titre": "COP31 à Antalya : le calendrier des rapports du GIEC divise les pays",
+    "n_sources": 5,
+    "n_mots": 659,
+    "titre_rss": "\"Une action climatique fondée sur la science est plus cruciale que jamais\" : à la COP31, les experts du Giec au centre d'un bras de fer",
+    "matiere_faits_distincts": 354,
+    "matiere_redondance": 0.3,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "presidentielle-2027-tensions-le-pen-lisnard-macron-centre",
+    "statut": "rejete_qualite",
+    "date": "2026-11-23T10:12:17",
+    "angle_insuffisant": true,
+    "raison": "Aucune phrase des faits ne combine un événement précis daté (annonce, publication, décision, résultat récent) et une donnée chiffrée ou nommée qui lui est propre. L'article explique le cadre général de la campagne 2027 sans faire état d'un fait déclencheur daté justifiant la publication maintenant.",
+    "article_type": "actu",
+    "titre": "Présidentielle 2027 : tensions entre Le Pen et Lisnard, Macron mise sur le centre",
+    "n_sources": 7,
+    "n_mots": 518,
+    "titre_rss": "Présidentielle 2027 : Guerre ouverte entre Lisnard et Le Pen, Macron culotté sur le déficit",
+    "matiere_faits_distincts": 656,
+    "matiere_redondance": 0.03,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "sujet_pedagogique"
+  },
+  {
+    "slug": "supersolide-photonique-equipe-varsovie-zurich-cnrs-cristallise-lumiere",
+    "statut": "rejete_qualite",
+    "date": "2026-11-23T10:18:38",
+    "problemes_initiaux": 14,
+    "tentatives": 3,
+    "problemes_restants": 15,
+    "bloquants_restants": 1,
+    "bloquants_types": [
+      "incoherence_inter_sections"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "incoherence_inter_sections",
+        "description": "Le chapeau (résumé) affirme que le supersolide est constitué de photons (« cristallise la lumière », « grains de lumière, les photons »), alors que le corps des faits précise qu'il s'agit de polaritons, quasi-particules ",
+        "phrase": "Des chercheurs ont mis en évidence un état supersolide constitué de polaritons — quasi-particules issues du couplage fort entre photons et excitons dans une microcavité semiconductrice [2]."
+      }
+    ],
+    "types_restants": [
+      "source_inventee",
+      "fait_tranche_arbitrairement",
+      "fait_tranche_arbitrairement",
+      "fait_tranche_arbitrairement",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "incoherence_inter_sections",
+      "compteur_incoherent"
+    ],
+    "article_type": "actu",
+    "titre": "Supersolide photonique : l'équipe Varsovie-Zurich-CNRS cristallise la lumière",
+    "n_sources": 3,
+    "n_mots": 515,
+    "titre_rss": "L'intérêt des supersolides",
+    "matiere_faits_distincts": 1083,
+    "matiere_redondance": 0.02,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "etude_scientifique"
+  },
+  {
+    "slug": "elise-huillery-universite-investissement-acces-restreint",
+    "statut": "corrige_automatiquement",
+    "date": "2026-11-23T10:25:02",
+    "problemes_initiaux": 17,
+    "tentatives": 1,
+    "problemes_residuels_style": 16,
+    "rapport_initial": {
+      "conforme": false,
+      "sujet_sensible": false,
+      "sujet_sensible_raison": "",
+      "angle_insuffisant": false,
+      "angle_insuffisant_raison": "",
+      "nature_contenu": "tribune",
+      "problemes": [
+        {
+          "bloc": 3,
+          "section": "resume",
+          "type": "cadrage_emprunte",
+          "phrase_exacte": "Dans une tribune au Monde datée du 22 novembre 2026, l'économiste Elise Huillery affirme qu'ouvrir davantage l'accès aux études supérieures n'est pas un coût mais un investissement rentable pour les individus et la société dans son ensemble.",
+          "explication": "Le résumé présente l'opinion d'Elise Huillery comme un fait établi ('affirme que... n'est pas un coût mais un investissement rentable') sans attribution explicite dans la phrase elle-même, alors qu'il s'agit d'une tribune (opinion). L'introduction de l'article ne signale pas explicitement qu'il s'agit d'une tribune dans le résumé."
+        },
+        {
+          "bloc": 3,
+          "section": "titre",
+          "type": "cadrage_emprunte",
+          "phrase_exacte": "Elise Huillery : restreindre l'accès à l'université est un investissement perdu",
+          "explication": "Le titre présente l'opinion de la tribune comme un fait établi sans attribution ('est un investissement perdu'), alors qu'il s'agit d'un jugement de valeur de l'auteure dans une tribune."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "chiffre_errone",
+          "phrase_exacte": "L'enseignement supérieur privé accueille désormais plus du quart des étudiants français, soit 790 000 sur 2,965 millions à la rentrée 2023, contre 490 000 en 2015, selon l'étude d'impact d'un projet de loi examiné à l'Assemblée nationale [4].",
+          "explication": "La source [4] dans le tableau des sources correspond à l'article du FMI (The Power of Education Policy), qui ne contient pas ces chiffres sur l'enseignement supérieur privé français. Le renvoi [4] attribue un fait que la source correspondante ne confirme pas."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "L'enseignement supérieur privé accueille désormais plus du quart des étudiants français, soit 790 000 sur 2,965 millions à la rentrée 2023, contre 490 000 en 2015, selon l'étude d'impact d'un projet de loi examiné à l'Assemblée nationale [4].",
+          "explication": "Le texte cite une 'étude d'impact d'un projet de loi examiné à l'Assemblée nationale' comme source de ce chiffre, mais cette source n'apparaît pas dans la liste des sources autorisées (qui ne contient que Le Monde, Sénat, Vie Publique, FMI)."
+        },
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "compteur_incoherent",
+          "phrase_exacte": "L'enseignement supérieur privé accueille désormais plus du quart des étudiants français, soit 790 000 sur 2,965 millions à la rentrée 2023, contre 490 000 en 2015, selon l'étude d'impact d'un projet de loi examiné à l'Assemblée nationale [4].",
+          "explication": "L'article utilise un renvoi [4] vers une source (FMI) qui ne contient pas l'information, et cite une source non listée (étude d'impact). Le champ nb_sources=4 compte 4 sources autorisées, mais l'article en utilise effectivement 3 (Le Monde, Sénat, FMI pour le contexte) plus une source fantôme, ce qui fausse le compteur."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "chiffre_errone",
+          "phrase_exacte": "Le nombre d'étudiants dans l'enseignement supérieur a doublé en vingt ans pour atteindre 269 millions dans le monde en 2024, selon l'UNESCO, dont 43 % des jeunes en âge d'y accéder [5].",
+          "explication": "Le renvoi [5] renvoie à la 5e source du tableau, mais le tableau ne contient que 4 sources. La source [5] n'existe pas dans les sources autorisées."
+        },
+        {
+          "bloc": 2,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "Le nombre d'étudiants dans l'enseignement supérieur a doublé en vingt ans pour atteindre 269 millions dans le monde en 2024, selon l'UNESCO, dont 43 % des jeunes en âge d'y accéder [5].",
+          "explication": "L'article cite l'UNESCO comme source via le renvoi [5], mais l'UNESCO n'apparaît pas dans la liste des sources autorisées (Le Monde, Sénat, Vie Publique, FMI)."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "chiffre_errone",
+          "phrase_exacte": "Le FMI note que l'élargissement de l'accès à l'enseignement supérieur permet à un groupe plus vaste de travailleurs d'occuper des emplois hautement qualifiés, tout en dégageant des possibilités d'emploi pour les moins qualifiés [6].",
+          "explication": "Le renvoi [6] renvoie à une 6e source qui n'existe pas dans le tableau des sources (qui n'en contient que 4)."
+        },
+        {
+          "bloc": 2,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "Le FMI note que l'élargissement de l'accès à l'enseignement supérieur permet à un groupe plus vaste de travailleurs d'occuper des emplois hautement qualifiés, tout en dégageant des possibilités d'emploi pour les moins qualifiés [6].",
+          "explication": "Le renvoi [6] est utilisé pour attribuer une information au FMI, mais le tableau des sources ne contient que 4 entrées, donc [6] est une source fantôme."
+        },
+        {
+          "bloc": 1,
+          "section": "nuances",
+          "type": "chiffre_errone",
+          "phrase_exacte": "Le FMI souligne que l'élargissement de l'accès à l'enseignement supérieur a joué un rôle majeur dans l'accès à des emplois hautement qualifiés, mais les modalités de ce lien restent à préciser selon les contextes nationaux [6].",
+          "explication": "Même problème : renvoi [6] vers une source inexistante dans le tableau (seulement 4 sources)."
+        },
+        {
+          "bloc": 2,
+          "section": "nuances",
+          "type": "source_inventee",
+          "phrase_exacte": "Le FMI souligne que l'élargissement de l'accès à l'enseignement supérieur a joué un rôle majeur dans l'accès à des emplois hautement qualifiés, mais les modalités de ce lien restent à préciser selon les contextes nationaux [6].",
+          "explication": "Renvoi [6] inexistant dans les sources autorisées."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "incoherence_inter_sections",
+          "phrase_exacte": "Un rapport du Sénat rendu public en juin 2026 dresse un constat sévère : les parcours universitaires sont marqués par un échec \"massif\", notamment en licence où seulement 40 % des étudiants obtiennent leur diplôme en trois ou quatre ans, et la position scientifique de la France recule dans la compétition internationale [2].",
+          "explication": "Le résumé (chapeau) mentionne 'seulement 40 % des inscrits obtiennent leur diplôme en trois ou quatre ans' (même chiffre), mais le titre du résumé parle d'un 'échec étudiant massif en licence' sans nuance, alors que le corps du texte (faits) rapporte ce chiffre comme venant du rapport du Sénat. Pas d'incohérence chiffrée directe, mais le résumé présente le diagnostic du Sénat comme un fait établi ('Le Sénat pointe un échec...') sans conditionnel ni attribution dans la phrase, alors que c'est l'interprétation du Sénat. Cependant, le résumé est censé résumer l'article qui rapporte le rapport, donc c'est limite. Le vrai problème d'incohérence est entre le titre 'Elise Huillery : restreindre l'accès à l'université est un investissement perdu' (opinion présentée comme fait) et le corps qui rapporte correctement 'soutient qu'élargir l'accès... doit être considéré comme un investissement' (attribué)."
+        },
+        {
+          "bloc": 4,
+          "section": "resume",
+          "type": "redondance",
+          "phrase_exacte": "Le Sénat pointe un échec étudiant massif en licence, où seulement 40 % des inscrits obtiennent leur diplôme en trois ou quatre ans, et un recul de l'excellence académique française dans les classements internationaux.",
+          "explication": "Cette phrase du résumé répète presque mot pour mot l'information déjà présente dans la première phrase du résumé (via la tribune de Huillery qui cite implicitement ce contexte) et surtout répète l'information détaillée dans 'faits' sans apporter de nouvel élément. Le résumé ne doit pas répéter le corps."
+        },
+        {
+          "bloc": 4,
+          "section": "nuances",
+          "type": "redondance",
+          "phrase_exacte": "Le rapport du Sénat identifie une insuffisante caractérisation de la réussite étudiante : les indicateurs actuels ne permettent pas de mesurer pleinement la qualité des formations ni la maîtrise des compétences fondamentales [2].",
+          "explication": "Cette nuance répète une information déjà présente dans 'faits' (le rapport du Sénat est cité pour le taux de 40% et le recul de l'excellence), sans apporter de distinction nouvelle. Les 'nuances' doivent apporter des éléments distincts, pas répéter le diagnostic."
+        },
+        {
+          "bloc": 4,
+          "section": "nuances",
+          "type": "section_gonflee",
+          "phrase_exacte": "La réaction du gouvernement aux constats du Sénat et aux propositions d'Elise Huillery n'était pas disponible dans les sources consultées à la date de publication.",
+          "explication": "Cette phrase remplit la section 'nuances' par une absence d'information (non-réponse du gouvernement) au lieu d'un fait sourcé distinct. C'est du remplissage générique."
+        },
+        {
+          "bloc": 4,
+          "section": "nuances",
+          "type": "extrapolation",
+          "phrase_exacte": "Le FMI souligne que l'élargissement de l'accès à l'enseignement supérieur a joué un rôle majeur dans l'accès à des emplois hautement qualifiés, mais les modalités de ce lien restent à préciser selon les contextes nationaux [6].",
+          "explication": "Outre le problème de source [6] inexistante, cette phrase présente une extrapolation sur les 'modalités à préciser selon les contextes nationaux' qui n'est pas explicitement sourcée (la source FMI citée dans le tableau est un article général 'The Power of Education Policy', pas une étude précise sur ce lien conditionnel)."
+        },
+        {
+          "bloc": 3,
+          "section": "titre_faits",
+          "type": "cadrage_emprunte",
+          "phrase_exacte": "La tribune d'Elise Huillery et le diagnostic du Sénat sur l'université",
+          "explication": "Le titre de la section 'faits' présente le 'diagnostic du Sénat' comme un fait établi neutre, alors que c'est l'interprétation d'une institution politique (le Sénat) dans un rapport, ce qui constitue un cadrage qu'il faudrait attribuer ('selon le Sénat')."
+        }
+      ]
+    },
+    "article_type": "actu",
+    "titre": "Elise Huillery : restreindre l'accès à l'université est un investissement perdu",
+    "n_sources": 4,
+    "n_mots": 529,
+    "titre_rss": "« Limiter l’accès à l’enseignement supérieur peut sembler une économie aujourd’hui, mais c’est un appauvrissement demain »",
+    "matiere_faits_distincts": 792,
+    "matiere_redondance": 0.01,
+    "matiere_donnees_chiffrees": 2,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "tribune"
+  },
+  {
+    "slug": "universite-miami-intestins-poissons-carbonate-cycle-carbone",
+    "statut": "corrige_automatiquement",
+    "date": "2026-11-23T10:31:51",
+    "problemes_initiaux": 7,
+    "tentatives": 1,
+    "problemes_residuels_style": 11,
+    "rapport_initial": {
+      "conforme": false,
+      "sujet_sensible": false,
+      "sujet_sensible_raison": "",
+      "angle_insuffisant": false,
+      "angle_insuffisant_raison": "",
+      "nature_contenu": "etude_scientifique",
+      "problemes": [
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "L'équipe de l'université de Miami a analysé le rôle des intestins des poissons marins dans la production de carbonate de calcium (CaCO3) sous forme de cristaux microscopiques excrétés dans l'eau [1].",
+          "explication": "La source [1] (France Info) ne mentionne pas l'université de Miami ni une équipe de cette université ; elle rapporte des travaux de l'université d'Exeter (Royaume-Uni) et de l'université de la Colombie-Britannique (Canada)."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "Les modèles classiques du cycle du carbone intégraient la production de carbonate par les planctons calcifiants (coccolithophoridés, foraminifères) et les récifs coralliens, mais négligeaient la contribution des poissons téléostéens [1]. Des travaux antérieurs avaient suggéré que les poissons pourraient produire 3 à 15 % du carbonate marin total, mais sans mesure directe du processus intestinal [1]. L'étude de Miami apporte la première caractérisation fine de la minéralogie, de la morphologie et du devenir de ces cristaux intestinaux [1].",
+          "explication": "La source [1] ne contient aucune de ces affirmations : pas de mention de modèles classiques, pas de fourchette 3-15 %, pas d'étude de Miami, pas de caractérisation fine de minéralogie/morphologie/devenir."
+        },
+        {
+          "bloc": 1,
+          "section": "nuances",
+          "type": "source_inventee",
+          "phrase_exacte": "L'ampleur exacte du flux de carbonate d'origine piscicole à l'échelle planétaire reste incertaine : elle dépend de la biomasse totale des poissons, de leurs taux d'excrétion variables selon les espèces, la température et l'alimentation, et de la profondeur de dissolution des cristaux [1]. Aucun chiffre consolidé n'est encore établi pour la fraction du CO2 anthropique ainsi tamponnée.",
+          "explication": "La source [1] ne fournit aucun de ces détails sur la biomasse, les taux d'excrétion, la température, l'alimentation, la profondeur de dissolution, ni sur l'absence de chiffre consolidé."
+        },
+        {
+          "bloc": 1,
+          "section": "nuances",
+          "type": "source_inventee",
+          "phrase_exacte": "Par ailleurs, la surpêche et le réchauffement climatique, qui modifient la répartition et l'abondance des stocks, pourraient altérer ce service écosystémique dans les décennies à venir [1].",
+          "explication": "La source [1] ne mentionne ni surpêche, ni réchauffement climatique, ni altération du service écosystémique."
+        },
+        {
+          "bloc": 1,
+          "section": "nuances",
+          "type": "source_inventee",
+          "phrase_exacte": "Le NOAA souligne que l'acidification affecte déjà la capacité des organismes calcifiants à construire leurs coquilles, ce qui pourrait modifier l'équilibre global de la production de carbonate marin indépendamment de la contribution des poissons [2].",
+          "explication": "La source [2] (NOAA) explique le mécanisme d'acidification et son effet sur la saturation en carbonate, mais ne contient pas cette phrase ni l'idée d'un équilibre global modifié indépendamment des poissons."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "chiffre_errone",
+          "phrase_exacte": "Sur 250 ans, le pH moyen des eaux de surface a baissé de 0,1 unité, soit une augmentation d'environ 30 % de l'acidité [2].",
+          "explication": "La source [2] indique une baisse de 0,1 unité de pH depuis le début de l'ère industrielle (environ 1750, soit ~270 ans) et une augmentation de 30 % de l'acidité ; l'article écrit « 250 ans », ce qui ne correspond pas à la période de référence de la source."
+        },
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "compteur_incoherent",
+          "phrase_exacte": "nb_sources: 4",
+          "explication": "Le tableau sources ne liste que 2 entrées (France Info et NOAA) ; le champ nb_sources indique 4, ce qui est incohérent."
+        }
+      ]
+    },
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "resume_repete_corps",
+      "titre_de_mauvaise_qualite",
+      "article_sans_date"
+    ],
+    "titre": "L'université de Miami révèle le rôle des intestins de poissons dans la production de carbonate marin",
+    "n_sources": 2,
+    "n_mots": 496,
+    "titre_rss": "Les poissons luttent contre le CO2",
+    "matiere_faits_distincts": 1072,
+    "matiere_redondance": 0.04,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "etude_scientifique"
+  },
+  {
+    "slug": "bouygues-telecom-rachete-sfr-entreprises-concurrence-orange",
+    "statut": "rejete_sensible",
+    "date": "2026-11-23T10:36:05",
+    "problemes_initiaux": 23,
+    "bloc5": [
+      "compteur_incoherent"
+    ],
+    "article_type": "actu",
+    "titre": "Bouygues Telecom rachète SFR Entreprises et vise la place de challenger d'Orange",
+    "n_sources": 5,
+    "n_mots": 552,
+    "titre_rss": "La recomposition du marché des télécoms pour les entreprises, l’autre enjeu du rachat de SFR",
+    "matiere_faits_distincts": 600,
+    "matiere_redondance": 0.01,
+    "matiere_donnees_chiffrees": 2,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "cop31-antalya-echec-accord-energies-fossiles",
+    "statut": "rejete_qualite",
+    "date": "2026-11-23T10:46:45",
+    "tentative": 3,
+    "perte_substance": true,
+    "section": "contexte",
+    "mots_avant": 164,
+    "mots_apres": 45,
+    "article_type": "actu",
+    "titre": "La COP31 s'achève sans accord après l'opposition des pays producteurs aux énergies fossiles",
+    "n_sources": 6,
+    "n_mots": 668,
+    "titre_rss": "Échec de la COP31 : les dinosaures font de la résistance",
+    "matiere_faits_distincts": 816,
+    "matiere_redondance": 0.02,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
   }
 ]
