@@ -89211,5 +89211,221 @@
     "n_sources_injectees": 10,
     "n_sources_trouvees": 10,
     "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "cop31-antalya-echec-negociations-accord-final",
+    "statut": "rejete_sensible",
+    "date": "2026-11-23T17:07:51",
+    "problemes_initiaux": 26,
+    "bloc5": [
+      "compteur_incoherent"
+    ],
+    "article_type": "actu",
+    "titre": "La COP31 d'Antalya s'achève sans accord après 49 heures de prolongation",
+    "n_sources": 5,
+    "n_mots": 707,
+    "titre_rss": "Echec des négociations, engagements sur l'électrification, financements… Ce qu'il faut retenir de la COP31 d'Antalya sur le climat",
+    "matiere_faits_distincts": 967,
+    "matiere_redondance": 0.11,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "ebola-bundibugyo-vaccins-zaire-anticorps-croises-inserm",
+    "statut": "rejete_qualite",
+    "date": "2026-11-23T17:30:49",
+    "problemes_initiaux": 10,
+    "tentatives": 3,
+    "problemes_restants": 7,
+    "bloquants_restants": 2,
+    "bloquants_types": [
+      "chiffre_errone",
+      "chiffre_errone"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [1] (communiqué Inserm du 23 juillet 2026) indique « plus de 200 cas confirmés » au 22 juillet 2026, et non « plus de 300 cas ». Le chiffre est erroné par rapport à la source citée.",
+        "phrase": "L'épidémie de Bundibugyo déclarée en mai 2026 en République démocratique du Congo et en Ouganda a causé plus de 300 cas au 22 juillet 2026, sans vaccin ni traitement spécifique homologué pour cette souche [1]."
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [3] (article Le Temps du 29 mai 2026) rapporte les propos du Dr Tedros tenus le 28 mai 2026, et non « fin mai 2026 » de manière vague ; la date précise figure dans la source et devrait être respectée.",
+        "phrase": "Le chef de l'OMS a assuré fin mai 2026, depuis Kinshasa, que l'épidémie pouvait être stoppée [3]."
+      }
+    ],
+    "types_restants": [
+      "chiffre_errone",
+      "chiffre_errone",
+      "source_inventee",
+      "compteur_incoherent",
+      "paraphrase_structurelle",
+      "redondance",
+      "contexte_hors_sujet"
+    ],
+    "article_type": "actu",
+    "titre": "Ebola Bundibugyo : les vaccins anti-Zaïre induisent des anticorps croisés, selon l'Inserm",
+    "n_sources": 4,
+    "n_mots": 603,
+    "titre_rss": "Épidémie d’Ebola Bundibugyo : des premiers résultats pour guider la recherche d’un vaccin efficace",
+    "matiere_faits_distincts": 976,
+    "matiere_redondance": 0.01,
+    "matiere_donnees_chiffrees": 2,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "veille_heures_visible": 517.7,
+    "veille_passages": 311,
+    "veille_age_h": 2487.5,
+    "veille_n_flux_grappe": 9,
+    "nature_contenu": "etude_scientifique"
+  },
+  {
+    "slug": "canicules-marines-2026-mediterranee-biodiversite-menacee",
+    "statut": "rejete_sensible",
+    "date": "2026-11-23T17:40:52",
+    "problemes_initiaux": 11,
+    "tentative": 2,
+    "bloc5": true,
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "resume_repete_corps"
+    ],
+    "titre": "Canicules marines 2026 : la Méditerranée en surchauffe menace la biodiversité",
+    "n_sources": 6,
+    "n_mots": 626,
+    "titre_rss": "La biodiversité face aux canicules marines",
+    "matiere_faits_distincts": 870,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "stanford-greffe-algues-coraux-blanchis-recuperation-sept-jours",
+    "statut": "rejete_sensible",
+    "date": "2026-11-23T17:55:09",
+    "problemes_initiaux": 12,
+    "tentative": 1,
+    "bloc5": true,
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "titre_de_mauvaise_qualite"
+    ],
+    "titre": "Stanford : un corail sain transmet ses algues à un corail blanchi, récupération en sept jours",
+    "n_sources": 3,
+    "n_mots": 444,
+    "titre_rss": "Une greffe pour sauver les coraux blanchis",
+    "matiere_faits_distincts": 918,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 2,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "etude_scientifique"
+  },
+  {
+    "slug": "inondations-terrain-sols-plus-determinants-pluie-futura-sciences",
+    "statut": "rejete_qualite",
+    "date": "2026-11-23T18:00:00",
+    "angle_insuffisant": true,
+    "raison": "Aucune phrase des faits ne contient un événement précis daté ou datable (annonce, publication, décision, résultat récent) accompagné d'une donnée chiffrée ou nommée qui lui est propre. L'article répond à 'qu'est-ce qu'une inondation ?' et non à 'pourquoi en parle-t-on maintenant ?'.",
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "resume_repete_corps",
+      "titre_de_mauvaise_qualite"
+    ],
+    "titre": "Inondations : le terrain et les sols plus déterminants que la pluie selon Futura Sciences",
+    "n_sources": 6,
+    "n_mots": 628,
+    "titre_rss": "La plupart des inondations sont déclenchées par quelque chose d'autre que la pluie",
+    "matiere_faits_distincts": 1161,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "sujet_pedagogique"
+  },
+  {
+    "slug": "bayer-accord-7-25-milliards-roundup-plaintes-valide-juge",
+    "statut": "rejete_sensible",
+    "date": "2026-11-23T18:25:05",
+    "problemes_initiaux": 20,
+    "tentative": 3,
+    "bloc5": true,
+    "article_type": "actu",
+    "titre": "Un juge valide l'accord Bayer de 7,25 milliards pour les plaintes Roundup",
+    "n_sources": 5,
+    "n_mots": 618,
+    "titre_rss": "Etats-Unis : un juge valide un accord d’indemnisation par Bayer de 7,25 milliards de dollars pour solder l’ensemble des plaintes liées au Roundup",
+    "matiere_faits_distincts": 1106,
+    "matiere_redondance": 0.01,
+    "matiere_donnees_chiffrees": 7,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "incendies-los-angeles-suspect-coupable-deuxieme-proces",
+    "statut": "rejete_sensible",
+    "date": "2026-11-23T18:34:31",
+    "sujet_sensible": true,
+    "raison": "L'article porte sur une affaire judiciaire pénale en cours visant une personne nommée (Jonathan Rinderknecht), jugé et reconnu coupable pour incendie criminel ayant causé des morts. Le procès n'est pas définitivement clos (appel possible) et une personne physique est mise en cause pénalement.",
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "resume_repete_corps"
+    ],
+    "titre": "Incendies de Los Angeles : un suspect reconnu coupable après un deuxième procès",
+    "n_sources": 6,
+    "n_mots": 570,
+    "titre_rss": "Incendies de Los Angeles : un suspect reconnu coupable, après un deuxième procès",
+    "matiere_faits_distincts": 924,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 3,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "cyberattaque-fermes-eoliennes-solaires-pologne-decembre-2025",
+    "statut": "rejete_sensible",
+    "date": "2026-11-23T18:58:53",
+    "problemes_initiaux": 16,
+    "bloc5": [
+      "diffamation_potentielle"
+    ],
+    "article_type": "actu",
+    "titre": "Cyberattaque coordonnée contre des fermes éoliennes et solaires en Pologne",
+    "n_sources": 4,
+    "n_mots": 452,
+    "titre_rss": "Logiciels dépassés, agents IA de plus en plus menaçants : l’énergie en première ligne face aux cyberattaques",
+    "matiere_faits_distincts": 994,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "macron-regle-or-budgetaire-constitution-janvier-congres",
+    "statut": "rejete_sensible",
+    "date": "2026-11-23T19:12:53",
+    "problemes_initiaux": 11,
+    "tentative": 1,
+    "bloc5": true,
+    "article_type": "actu",
+    "titre": "Macron songe à convoquer le Congrès en janvier pour une règle d'or budgétaire",
+    "n_sources": 6,
+    "n_mots": 628,
+    "titre_rss": "Emmanuel Macron réfléchit à instaurer une \"règle d'or\" budgétaire",
+    "matiere_faits_distincts": 802,
+    "matiere_redondance": 0.03,
+    "matiere_donnees_chiffrees": 2,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
   }
 ]
