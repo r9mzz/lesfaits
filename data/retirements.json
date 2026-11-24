@@ -22,5 +22,35 @@
     "type": "erreur",
     "date": "2026-11-10",
     "reason": "Plusieurs affirmations n’étaient pas étayées par les sources citées (exemples d’espèces disparues et durée de la Grande Coupure attribués à tort à une page du CNRS, sites de comparaison et « séquence continue » sans source) et une date était inexacte (la notion de Grande Coupure remonte au début du XXe siècle, pas au XIXe)."
+  },
+  {
+    "slug": "inserm-sept-fausses-idees-vaccins-campagne-grippe-covid-2026",
+    "type": "erreur",
+    "date": "2026-11-24",
+    "reason": "L’article attribuait à l’Inserm une septième idée reçue (« pas assez de recul sur les vaccins Covid ») et une réfutation qui ne figurent pas dans sa publication ; la septième idée réelle porte sur la commercialisation des vaccins avant essais chez l’humain. La date de publication et la liste des relecteurs étaient également inexactes."
+  },
+  {
+    "slug": "apple-proces-obsolescence-programmee-juin-2027-france",
+    "type": "erreur",
+    "date": "2026-11-24",
+    "reason": "La plainte de l’association HOP visant la sérialisation des pièces a été déposée en décembre 2022, et non en 2017 (la plainte de 2017 concernait une autre affaire, le ralentissement des iPhone)."
+  },
+  {
+    "slug": "cop31-antalya-turquie-mesure-empreinte-carbone-centres-donnees-ia",
+    "type": "erreur",
+    "date": "2026-11-24",
+    "reason": "Le partage des rôles entre la Turquie et l’Australie est un compromis ponctuel pour la COP31, et non une « coprésidence tournante » instituée à la COP30 ; d’autres affirmations (session du GIEC en marge de la COP) n’étaient pas étayées."
+  },
+  {
+    "slug": "changement-climatique-tourisme-etude-2600-regions-vulnerables",
+    "type": "erreur",
+    "date": "2026-11-24",
+    "reason": "Le chapeau attribuait à l’UNESCO un risque de disparition des Maldives et de Venise d’ici 2050, alors que l’UNESCO ne vise que certains glaciers ; l’étude porte sur 263 pays et territoires, et une partie du texte était sans rapport avec elle."
+  },
+  {
+    "slug": "curiosity-photographie-champ-polygones-martiens-valle-grande",
+    "type": "erreur",
+    "date": "2026-11-24",
+    "reason": "L’article présentait l’hélicoptère Ingenuity comme une mission en cours alors qu’il a cessé de voler en janvier 2024, et contenait des précisions absentes de la source de la NASA (étendue en centaines de mètres, transition argiles-sulfates)."
   }
 ]
