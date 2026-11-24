@@ -2,7 +2,7 @@
 <html lang="fr" data-theme="">
 <head>
   <meta charset="UTF-8"/>
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cloud.umami.is; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; connect-src 'self' https://cloud.umami.is https://api.web3forms.com https://e6ad0381.sibforms.com; base-uri 'self'; form-action 'self' https://e6ad0381.sibforms.com; frame-ancestors 'none'; frame-src 'self' https://e6ad0381.sibforms.com;"/>
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cloud.umami.is; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; connect-src 'self' https://cloud.umami.is https://api.web3forms.com https://e6ad0381.sibforms.com; base-uri 'self'; form-action 'self'; frame-ancestors 'none';"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <meta name="description" content="Les Faits — Journal numérique français rédigé par IA. Juste les faits. Aucun parti pris."/>
   <meta property="og:title" content="Les Faits — Juste les faits. Aucun parti pris."/>
@@ -30,7 +30,6 @@
   <script>
 (function(){var s=localStorage.getItem('theme'),d=s==='dark'||(s===null&&window.matchMedia('(prefers-color-scheme:dark)').matches);document.documentElement.setAttribute('data-theme',d?'dark':'light');})();
 </script>
-  <script src="/src/newsletter.js?v=6" defer></script>
 </head>
 <body>
 <div class="nav-overlay" id="nav-overlay" onclick="closeMenu()"></div>
@@ -97,34 +96,25 @@ document.addEventListener('DOMContentLoaded',function(){var btn=document.getElem
     <div class="une__label">À LA UNE</div>
     <div style="height:2px;background:var(--blue);margin-bottom:1px"></div>
     <div class="une__grid">
-      <a class="une__main" href="articles/fusions-trous-noirs-nouvelle-ere-astronomie.html">
-        <img src="assets/images/fusions-trous-noirs-nouvelle-ere-astronomie.webp" alt="Fusions de trous noirs : une nouvelle ère pour l’astronomie" loading="eager" style="width:calc(100% + 72px);margin:-32px -36px 20px;height:240px;object-fit:cover;display:block">
-        <span class="cat cat--science">SCIENCE</span>
-        <h2 class="title-xl">Fusions de trous noirs : une nouvelle ère pour l’astronomie</h2>
-        <p class="excerpt">Les fusions de trous noirs offrent de nouvelles perspectives pour comprendre l'univers, avec des ondes gravitationnelles en résonance qui pourraient éclairer la nature quantique de la gravitation.</p>
+      <a class="une__main" href="articles/perenco-accusee-de-pollution-en-rdc.html">
+        <img src="assets/images/perenco-accusee-de-pollution-en-rdc.webp" alt="Perenco accusée de pollution en RDC par Human Rights Watch" loading="eager" style="width:calc(100% + 72px);margin:-32px -36px 20px;height:240px;object-fit:cover;display:block">
+        <span class="cat cat--environnement">ENVIRONNEMENT</span>
+        <h2 class="title-xl">Perenco accusée de pollution en RDC par Human Rights Watch</h2>
+        <p class="excerpt">La situation dans la province du Kongo Central en République démocratique du Congo soulève des inquiétudes quant à l'impact environnemental et sanitaire des activités pétrolières de Perenco, selon un rapport de Human Rights Watch.</p>
         <div class="meta">
-          <span class="meta__src">8 sources</span>
-          <span class="meta__sep">·</span><span>29 juillet 2026, 05h39</span>
+          <span class="meta__src">9 sources</span>
+          <span class="meta__sep">·</span><span>28 juillet 2026, 14h59</span>
           <span class="meta__push"></span>
         </div>
         <p class="ai-badge">Rédigé par IA · Protocole Les Faits v1.1</p>
       </a>
-      <div class="une__side"><a class="une__side-item" href="articles/betelgeuse-etoile-geante-rouge-compagnon-stellaire.html" style="display:grid;grid-template-columns:64px 1fr;gap:14px;align-items:center">
-          <img src="assets/images/betelgeuse-etoile-geante-rouge-compagnon-stellaire-480.webp" alt="Bételgeuse : une équipe internationale découvre un compagnon stellaire proche" loading="lazy" style="width:64px;height:64px;object-fit:cover;border-radius:4px;display:block">
+      <div class="une__side"><a class="une__side-item" href="articles/fusions-trous-noirs-nouvelle-ere-astronomie.html" style="display:grid;grid-template-columns:64px 1fr;gap:14px;align-items:center">
+          <img src="assets/images/fusions-trous-noirs-nouvelle-ere-astronomie-480.webp" alt="Fusions de trous noirs : une nouvelle ère pour l’astronomie" loading="lazy" style="width:64px;height:64px;object-fit:cover;border-radius:4px;display:block">
           <div>
           <span class="cat cat--science">SCIENCE</span>
-          <h3 class="title-md">Bételgeuse : une équipe internationale découvre un compagnon stellaire proche</h3>
-          <div class="meta"><span class="meta__src">7 sources</span>
-          <span class="meta__sep">·</span><span>28 juillet 2026, 17h01</span></div>
-          </div>
-        </a>
-<a class="une__side-item" href="articles/cancer-pancreas-essai-clinique-anticorps.html" style="display:grid;grid-template-columns:64px 1fr;gap:14px;align-items:center">
-          <img src="assets/images/cancer-pancreas-essai-clinique-anticorps-480.webp" alt="Cancer du pancréas : essai clinique prometteur avec un anticorps en 2026" loading="lazy" style="width:64px;height:64px;object-fit:cover;border-radius:4px;display:block">
-          <div>
-          <span class="cat cat--sante">SANTÉ</span>
-          <h3 class="title-md">Cancer du pancréas : essai clinique prometteur avec un anticorps en 2026</h3>
-          <div class="meta"><span class="meta__src">7 sources</span>
-          <span class="meta__sep">·</span><span>31 juillet 2026, 05h54</span></div>
+          <h3 class="title-md">Fusions de trous noirs : une nouvelle ère pour l’astronomie</h3>
+          <div class="meta"><span class="meta__src">8 sources</span>
+          <span class="meta__sep">·</span><span>29 juillet 2026, 05h39</span></div>
           </div>
         </a>
 <a class="une__side-item" href="articles/changements-aout-budget.html" style="display:grid;grid-template-columns:64px 1fr;gap:14px;align-items:center">
@@ -135,6 +125,15 @@ document.addEventListener('DOMContentLoaded',function(){var btn=document.getElem
           <div class="meta"><span class="meta__src">5 sources</span>
           <span class="meta__sep">·</span><span>2 août 2026, 06h01</span></div>
           </div>
+        </a>
+<a class="une__side-item" href="articles/cancer-pancreas-essai-clinique-anticorps.html" style="display:grid;grid-template-columns:64px 1fr;gap:14px;align-items:center">
+          <img src="assets/images/cancer-pancreas-essai-clinique-anticorps-480.webp" alt="Cancer du pancréas : essai clinique prometteur avec un anticorps en 2026" loading="lazy" style="width:64px;height:64px;object-fit:cover;border-radius:4px;display:block">
+          <div>
+          <span class="cat cat--sante">SANTÉ</span>
+          <h3 class="title-md">Cancer du pancréas : essai clinique prometteur avec un anticorps en 2026</h3>
+          <div class="meta"><span class="meta__src">7 sources</span>
+          <span class="meta__sep">·</span><span>31 juillet 2026, 05h54</span></div>
+          </div>
         </a></div>
     </div>
   </div>
@@ -142,62 +141,7 @@ document.addEventListener('DOMContentLoaded',function(){var btn=document.getElem
   <div class="section">
     <div class="section__head"><span class="section__title">DERNIERS ARTICLES</span></div>
     <div class="section__rule"></div>
-    <div class="grid3"><a class="card3" href="articles/curiosity-photographie-champ-polygones-martiens-valle-grande.html">
-          <img class="card3__img" src="assets/images/curiosity-photographie-champ-polygones-martiens-valle-grande-480.webp" alt="Curiosity photographie un champ de polygones martiens dans la vallée Valle Grande" loading="lazy">
-          <div class="card3__body">
-            <span class="cat cat--science">SCIENCE</span>
-            <h3 class="title-sm">Curiosity photographie un champ de polygones martiens dans la vallée Valle Grande</h3>
-            <div class="meta" style="margin-top:10px">
-              <span class="meta__src">0 sources</span>
-              <span class="meta__sep">·</span><span>19 novembre 2026, 19h30</span>
-            </div>
-          </div>
-        </a>
-<a class="card3" href="articles/changement-climatique-tourisme-etude-2600-regions-vulnerables.html">
-          <img class="card3__img" src="assets/images/changement-climatique-tourisme-etude-2600-regions-vulnerables-480.webp" alt="Le changement climatique redessine la carte du tourisme selon une étude sur 2 600 régions" loading="lazy">
-          <div class="card3__body">
-            <span class="cat cat--environnement">ENVIRONNEMENT</span>
-            <h3 class="title-sm">Le changement climatique redessine la carte du tourisme selon une étude sur 2 600 régions</h3>
-            <div class="meta" style="margin-top:10px">
-              <span class="meta__src">0 sources</span>
-              <span class="meta__sep">·</span><span>18 novembre 2026, 17h32</span>
-            </div>
-          </div>
-        </a>
-<a class="card3" href="articles/cop31-antalya-turquie-mesure-empreinte-carbone-centres-donnees-ia.html">
-          <img class="card3__img" src="assets/images/cop31-antalya-turquie-mesure-empreinte-carbone-centres-donnees-ia-480.webp" alt="COP31 : la Turquie propose de mesurer l’empreinte carbone des centres de données" loading="lazy">
-          <div class="card3__body">
-            <span class="cat cat--environnement">ENVIRONNEMENT</span>
-            <h3 class="title-sm">COP31 : la Turquie propose de mesurer l’empreinte carbone des centres de données</h3>
-            <div class="meta" style="margin-top:10px">
-              <span class="meta__src">0 sources</span>
-              <span class="meta__sep">·</span><span>17 novembre 2026, 23h01</span>
-            </div>
-          </div>
-        </a>
-<a class="card3" href="articles/apple-proces-obsolescence-programmee-juin-2027-france.html">
-          <img class="card3__img" src="assets/images/apple-proces-obsolescence-programmee-juin-2027-france-480.webp" alt="Apple jugé en France pour obsolescence programmée en juin 2027" loading="lazy">
-          <div class="card3__body">
-            <span class="cat cat--tech">TECH</span>
-            <h3 class="title-sm">Apple jugé en France pour obsolescence programmée en juin 2027</h3>
-            <div class="meta" style="margin-top:10px">
-              <span class="meta__src">0 sources</span>
-              <span class="meta__sep">·</span><span>17 novembre 2026, 18h12</span>
-            </div>
-          </div>
-        </a>
-<a class="card3" href="articles/inserm-sept-fausses-idees-vaccins-campagne-grippe-covid-2026.html">
-          <img class="card3__img" src="assets/images/inserm-sept-fausses-idees-vaccins-campagne-grippe-covid-2026-480.webp" alt="L’Inserm liste sept idées reçues sur les vaccins avant la campagne grippe-Covid du 13 octobre" loading="lazy">
-          <div class="card3__body">
-            <span class="cat cat--sante">SANTÉ</span>
-            <h3 class="title-sm">L’Inserm liste sept idées reçues sur les vaccins avant la campagne grippe-Covid du 13 octobre</h3>
-            <div class="meta" style="margin-top:10px">
-              <span class="meta__src">0 sources</span>
-              <span class="meta__sep">·</span><span>16 novembre 2026, 18h42</span>
-            </div>
-          </div>
-        </a>
-<a class="card3" href="articles/rougeole-antiviral-etude.html">
+    <div class="grid3"><a class="card3" href="articles/rougeole-antiviral-etude.html">
           <img class="card3__img" src="assets/images/rougeole-antiviral-etude-480.webp" alt="Rougeole : un antiviral à l’étude pour lutter contre la recrudescence" loading="lazy">
           <div class="card3__body">
             <span class="cat cat--sante">SANTÉ</span>
@@ -205,6 +149,61 @@ document.addEventListener('DOMContentLoaded',function(){var btn=document.getElem
             <div class="meta" style="margin-top:10px">
               <span class="meta__src">6 sources</span>
               <span class="meta__sep">·</span><span>4 août 2026, 05h44</span>
+            </div>
+          </div>
+        </a>
+<a class="card3" href="articles/changements-aout-budget.html">
+          <img class="card3__img" src="assets/images/changements-aout-budget-480.webp" alt="Changements au 1er août pour votre budget" loading="lazy">
+          <div class="card3__body">
+            <span class="cat cat--economie">ÉCONOMIE</span>
+            <h3 class="title-sm">Changements au 1er août pour votre budget</h3>
+            <div class="meta" style="margin-top:10px">
+              <span class="meta__src">5 sources</span>
+              <span class="meta__sep">·</span><span>2 août 2026, 06h01</span>
+            </div>
+          </div>
+        </a>
+<a class="card3" href="articles/eclipse-solaire-12-aout-2026.html">
+          <img class="card3__img" src="assets/images/eclipse-solaire-12-aout-2026-480.webp" alt="Éclipse solaire du 12 août 2026" loading="lazy">
+          <div class="card3__body">
+            <span class="cat cat--environnement">ENVIRONNEMENT</span>
+            <h3 class="title-sm">Éclipse solaire du 12 août 2026</h3>
+            <div class="meta" style="margin-top:10px">
+              <span class="meta__src">7 sources</span>
+              <span class="meta__sep">·</span><span>1 août 2026, 14h13</span>
+            </div>
+          </div>
+        </a>
+<a class="card3" href="articles/ile-oleron-remporte-bras-de-fer-avec-airbnb.html">
+          <img class="card3__img" src="assets/images/ile-oleron-remporte-bras-de-fer-avec-airbnb-480.webp" alt="L’île d’Oléron remporte son bras de fer avec Airbnb" loading="lazy">
+          <div class="card3__body">
+            <span class="cat cat--societe">SOCIÉTÉ</span>
+            <h3 class="title-sm">L’île d’Oléron remporte son bras de fer avec Airbnb</h3>
+            <div class="meta" style="margin-top:10px">
+              <span class="meta__src">4 sources</span>
+              <span class="meta__sep">·</span><span>31 juillet 2026, 15h03</span>
+            </div>
+          </div>
+        </a>
+<a class="card3" href="articles/cancer-pancreas-essai-clinique-anticorps.html">
+          <img class="card3__img" src="assets/images/cancer-pancreas-essai-clinique-anticorps-480.webp" alt="Cancer du pancréas : essai clinique prometteur avec un anticorps en 2026" loading="lazy">
+          <div class="card3__body">
+            <span class="cat cat--sante">SANTÉ</span>
+            <h3 class="title-sm">Cancer du pancréas : essai clinique prometteur avec un anticorps en 2026</h3>
+            <div class="meta" style="margin-top:10px">
+              <span class="meta__src">7 sources</span>
+              <span class="meta__sep">·</span><span>31 juillet 2026, 05h54</span>
+            </div>
+          </div>
+        </a>
+<a class="card3" href="articles/morts-elephants-kenya.html">
+          <img class="card3__img" src="assets/images/morts-elephants-kenya-480.webp" alt="Mort inexpliquée de 15 éléphants au Kenya" loading="lazy">
+          <div class="card3__body">
+            <span class="cat cat--sante">SANTÉ</span>
+            <h3 class="title-sm">Mort inexpliquée de 15 éléphants au Kenya</h3>
+            <div class="meta" style="margin-top:10px">
+              <span class="meta__src">7 sources</span>
+              <span class="meta__sep">·</span><span>30 juillet 2026, 14h53</span>
             </div>
           </div>
         </a></div>
@@ -263,46 +262,67 @@ document.addEventListener('DOMContentLoaded',function(){var btn=document.getElem
       <span class="nl-compact__label">NEWSLETTER</span>
       <span class="nl-compact__title">Le résumé du jour dans votre boîte mail</span>
     </div>
-    <form id="nl-form" novalidate data-newsletter-version="6" aria-label="Inscription à la newsletter Les Faits" action="https://e6ad0381.sibforms.com/serve/MUIFAErfidn3h7DoaZcjIRh-48s1GoiE0vZOe_KG-skCwDznnQ2831i0IkHsSaXfUJ15hBl1CH3ElJVKdGDdXdxHpt6v7iX-hAlyWb0i0M7mtq6UhgJ9JJyCUhNwckwfxW8EUJkF_hkjb4qX8YSntlFraZFiCcgQhZ3PXsPvAcSa9oEyPOgeL1EtAB4akgMS-hz76NcGAUSqOt3L1w==" method="post" enctype="application/x-www-form-urlencoded" target="lf-newsletter-sink">
-      <input type="hidden" name="LESFAITS_VERIFICATION" value="1"/>
-      <input type="hidden" name="email_address_check" value=""/>
-      <input type="hidden" name="locale" value="fr"/>
-      <input type="hidden" name="FREQ" value="both"/>
-      <input type="hidden" name="CAT_SOCIETE" value="0"/>
-      <input type="hidden" name="CAT_SCIENCE" value="0"/>
-      <input type="hidden" name="CAT_ECONOMIE" value="0"/>
-      <input type="hidden" name="CAT_TECH" value="0"/>
-      <input type="hidden" name="CAT_SANTE" value="0"/>
-      <input type="hidden" name="CAT_ENVIRONNEMENT" value="0"/>
+    <form id="nl-form" novalidate>
       <div class="nl-compact__freq" role="group" aria-label="Fréquence de réception">
-        <label class="nl-compact__freq-opt"><input type="radio" name="LF_FREQ" value="morning"/> Matin (~7h)</label>
-        <label class="nl-compact__freq-opt"><input type="radio" name="LF_FREQ" value="evening"/> Soir (~18h)</label>
-        <label class="nl-compact__freq-opt"><input type="radio" name="LF_FREQ" value="both" checked/> Les deux</label>
+        <label class="nl-compact__freq-opt"><input type="radio" name="FREQ" value="morning"/> Matin (~7h)</label>
+        <label class="nl-compact__freq-opt"><input type="radio" name="FREQ" value="evening"/> Soir (~18h)</label>
+        <label class="nl-compact__freq-opt"><input type="radio" name="FREQ" value="both" checked/> Les deux</label>
       </div>
       <div class="nl-compact__row">
-        <input type="email" id="nl-email" name="EMAIL" class="nl-compact__input" placeholder="vous@exemple.fr" required autocomplete="email" aria-required="true" inputmode="email" autocapitalize="none" spellcheck="false" aria-label="Adresse email" aria-describedby="nl-msg nl-hint"/>
+        <input type="email" id="nl-email" name="EMAIL" class="nl-compact__input" placeholder="vous@exemple.fr" required autocomplete="email" aria-required="true"/>
         <button type="submit" class="nl-compact__btn" id="nl-btn">S'abonner →</button>
       </div>
-            <div class="nl-compact__cats" role="group" aria-label="Rubriques à recevoir">
-        <label class="nl-compact__cat nl-cat--societe"><input type="checkbox" data-brevo-name="CAT_SOCIETE" value="1"/><span class="nl-cat__dot" aria-hidden="true"></span>Société</label>
-        <label class="nl-compact__cat nl-cat--science"><input type="checkbox" data-brevo-name="CAT_SCIENCE" value="1"/><span class="nl-cat__dot" aria-hidden="true"></span>Science</label>
-        <label class="nl-compact__cat nl-cat--economie"><input type="checkbox" data-brevo-name="CAT_ECONOMIE" value="1"/><span class="nl-cat__dot" aria-hidden="true"></span>Économie</label>
-        <label class="nl-compact__cat nl-cat--tech"><input type="checkbox" data-brevo-name="CAT_TECH" value="1"/><span class="nl-cat__dot" aria-hidden="true"></span>Tech</label>
-        <label class="nl-compact__cat nl-cat--sante"><input type="checkbox" data-brevo-name="CAT_SANTE" value="1"/><span class="nl-cat__dot" aria-hidden="true"></span>Santé</label>
-        <label class="nl-compact__cat nl-cat--environnement"><input type="checkbox" data-brevo-name="CAT_ENVIRONNEMENT" value="1"/><span class="nl-cat__dot" aria-hidden="true"></span>Environnement</label>
+      <div class="nl-compact__cats" role="group" aria-label="Rubriques">
+        <label class="nl-compact__cat nl-cat--societe"><input type="checkbox" name="CAT_SOCIETE" value="1"/><span class="nl-cat__dot" aria-hidden="true"></span>Société</label>
+        <label class="nl-compact__cat nl-cat--science"><input type="checkbox" name="CAT_SCIENCE" value="1"/><span class="nl-cat__dot" aria-hidden="true"></span>Science</label>
+        <label class="nl-compact__cat nl-cat--economie"><input type="checkbox" name="CAT_ECONOMIE" value="1"/><span class="nl-cat__dot" aria-hidden="true"></span>Économie</label>
+        <label class="nl-compact__cat nl-cat--tech"><input type="checkbox" name="CAT_TECH" value="1"/><span class="nl-cat__dot" aria-hidden="true"></span>Tech</label>
+        <label class="nl-compact__cat nl-cat--sante"><input type="checkbox" name="CAT_SANTE" value="1"/><span class="nl-cat__dot" aria-hidden="true"></span>Santé</label>
+        <label class="nl-compact__cat nl-cat--environnement"><input type="checkbox" name="CAT_ENVIRONNEMENT" value="1"/><span class="nl-cat__dot" aria-hidden="true"></span>Environnement</label>
       </div>
-      <p class="nl-compact__hint" id="nl-hint">Choisissez vos rubriques. Aucune sélection = toutes les rubriques.</p>
+      <p class="nl-compact__hint">Aucune sélection = toutes les rubriques.</p>
       <label class="nl-compact__consent">
         <input type="checkbox" id="nl-consent" required aria-required="true"/>
-        <span>J’accepte de recevoir la newsletter Les Faits. <a href="/confidentialite.html">Politique de confidentialité</a>. Désabonnement possible à tout moment.</span>
+        <span>J'accepte de recevoir la newsletter et la <a href="confidentialite.html">politique de confidentialité</a>.</span>
       </label>
-      <p class="nl-compact__msg" id="nl-msg" role="status" aria-live="polite" aria-atomic="true"></p>
+      <p class="nl-compact__msg" id="nl-msg" role="alert" aria-live="polite"></p>
     </form>
-      <iframe name="lf-newsletter-sink" title="Réponse d'inscription newsletter" hidden aria-hidden="true"></iframe>
-      <noscript><p class="nl-compact__hint" data-newsletter-noscript="1">JavaScript est désactivé. <a href="https://e6ad0381.sibforms.com/serve/MUIFAErfidn3h7DoaZcjIRh-48s1GoiE0vZOe_KG-skCwDznnQ2831i0IkHsSaXfUJ15hBl1CH3ElJVKdGDdXdxHpt6v7iX-hAlyWb0i0M7mtq6UhgJ9JJyCUhNwckwfxW8EUJkF_hkjb4qX8YSntlFraZFiCcgQhZ3PXsPvAcSa9oEyPOgeL1EtAB4akgMS-hz76NcGAUSqOt3L1w==" rel="noopener noreferrer">Ouvrir le formulaire sécurisé Brevo</a>.</p></noscript>
   </div>
 </section>
-
+<script>
+(function(){
+  var SIB_URL="https://e6ad0381.sibforms.com/serve/MUIFAErfidn3h7DoaZcjIRh-48s1GoiE0vZOe_KG-skCwDznnQ2831i0IkHsSaXfUJ15hBl1CH3ElJVKdGDdXdxHpt6v7iX-hAlyWb0i0M7mtq6UhgJ9JJyCUhNwckwfxW8EUJkF_hkjb4qX8YSntlFraZFiCcgQhZ3PXsPvAcSa9oEyPOgeL1EtAB4akgMS-hz76NcGAUSqOt3L1w==";
+  var form=document.getElementById("nl-form"),msgEl=document.getElementById("nl-msg"),btn=document.getElementById("nl-btn");
+  if(!form)return;
+  form.addEventListener("submit",function(e){
+    e.preventDefault();
+    msgEl.className="nl-compact__msg";msgEl.textContent="";
+    var email=(document.getElementById("nl-email").value||"").trim();
+    var consent=document.getElementById("nl-consent").checked;
+    if(!email||!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){msgEl.textContent="Veuillez saisir une adresse email valide.";msgEl.className="nl-compact__msg nl-compact__msg--err";return;}
+    if(!consent){msgEl.textContent="Veuillez accepter les conditions.";msgEl.className="nl-compact__msg nl-compact__msg--err";return;}
+    var data=new FormData();
+    data.append("EMAIL",email);
+    data.append("LESFAITS_VERIFICATION","1");
+    ["CAT_SOCIETE","CAT_SCIENCE","CAT_ECONOMIE","CAT_TECH","CAT_SANTE","CAT_ENVIRONNEMENT"].forEach(function(k){
+      var cb=form.querySelector('input[name="'+k+'"]');
+      if(cb&&cb.checked)data.append(k,"1");
+    });
+    var freqEl=form.querySelector('input[name="FREQ"]:checked');
+    data.append("FREQ",freqEl?freqEl.value:"both");
+    data.append("email_address_check","");
+    data.append("locale","fr");
+    btn.disabled=true;btn.textContent="Envoi…";
+    fetch(SIB_URL,{method:"POST",mode:"no-cors",body:data})
+    .then(function(){
+      msgEl.textContent="Un email de confirmation vient de vous être envoyé — cliquez sur le lien pour valider votre inscription (vérifiez vos spams).";
+      msgEl.className="nl-compact__msg nl-compact__msg--ok";form.reset();
+    })
+    .catch(function(){msgEl.textContent="Erreur réseau. Réessayez dans un instant.";msgEl.className="nl-compact__msg nl-compact__msg--err";})
+    .finally(function(){btn.disabled=false;btn.textContent="S'abonner →";});
+  });
+})();
+</script>
 </main>
 
 <footer class="footer" role="contentinfo" aria-label="Pied de page">
