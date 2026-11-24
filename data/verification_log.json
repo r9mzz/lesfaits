@@ -90263,5 +90263,580 @@
     "n_sources_injectees": 10,
     "n_sources_trouvees": 10,
     "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "banque-delubac-cyberattaque-fuite-donnees-clients-apres-arkea",
+    "statut": "rejete_qualite",
+    "date": "2026-11-24T10:58:49",
+    "angle_insuffisant": true,
+    "raison": "Aucune phrase dans 'faits' ne combine un événement précis daté concernant Delubac (date de l'intrusion, date de la confirmation, date de la découverte) avec une donnée chiffrée ou nommée propre à cet événement. L'article répond à 'qu'est-ce qui s'est passé chez Delubac ?' par une confirmation générique sans date ni volume, et recentre l'essentiel du factuel sur l'attaque Arkéa (datée du 4 novembre) qui n'est pas le sujet principal annoncé par l'angle.",
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "resume_repete_corps"
+    ],
+    "titre": "La banque Delubac victime d'une cyberattaque avec fuite de données clients",
+    "n_sources": 5,
+    "n_mots": 479,
+    "titre_rss": "Après le Crédit Mutuel Arkéa, la banque Delubac victime d’une cyberattaque",
+    "matiere_faits_distincts": 858,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 7,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "canicule-juin-2026-mortalite-toutes-causes-hausse-29-pour-cent",
+    "statut": "rejete_qualite",
+    "date": "2026-11-24T11:10:38",
+    "problemes_initiaux": 2,
+    "tentatives": 3,
+    "problemes_restants": 3,
+    "bloquants_restants": 1,
+    "bloquants_types": [
+      "source_inventee"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "La source [2] est un bulletin de Santé publique France, mais la source [3] listée dans le tableau 'sources' est un article AP News sur la Serbie, sans lien avec la mortalité en France. Le renvoi [2] dans le texte ne corr",
+        "phrase": "Un second bulletin national daté du 7 juillet, intégrant les données des bureaux d'état civil (couverture 84 % de la mortalité), confirme un excès de mortalité d'au moins +35 % tous âges pour la semaine 26, sans qu'il so"
+      }
+    ],
+    "types_restants": [
+      "source_inventee",
+      "compteur_incoherent",
+      "source_derivee_comptee_comme_primaire"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "faits_repetitifs"
+    ],
+    "titre": "Canicule de juin 2026 : mortalité toutes causes en hausse de 29 %",
+    "n_sources": 3,
+    "n_mots": 820,
+    "titre_rss": "Point de situation sur la mortalité toutes causes confondues  sur la période du 22 au 28 juin 2026",
+    "matiere_faits_distincts": 928,
+    "matiere_redondance": 0.01,
+    "matiere_donnees_chiffrees": 3,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "veille_heures_visible": 221.3,
+    "veille_passages": 74,
+    "veille_age_h": 2208.9,
+    "veille_n_flux_grappe": 1,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "medicaments-glp1-achat-internet-dangers-pharmacologues-alerte",
+    "statut": "rejete_qualite",
+    "date": "2026-11-24T11:16:01",
+    "tentative": 1,
+    "angle_insuffisant": true,
+    "raison": "Aucune phrase des faits ne contient à la fois un événement précis daté (annonce, publication, décision récente) et une donnée chiffrée ou nommée qui lui est propre. L'article décrit un phénomène général (détournement des GLP-1, alerte ANSM) sans identifier l'actualité déclenchante : quelle alerte, quand, par qui, avec quels chiffres nouveaux. Les sources listées incluent deux entrées (Le Monde, Vie Publique) sans rapport avec le sujet (désinformation en santé, observatoire 2026) et une seule source pertinente (L'Express) non datée dans l'extrait. L'angle_réponse promet d'évaluer les risques réels de l'achat en ligne, mais l'article ne quantifie ni ne précise ces risques au-delà de généralités déjà connues (effets indésirables graves, contrefaçon).",
+    "article_type": "actu",
+    "titre": "Médicaments GLP-1 : les pharmacologues alertent sur les dangers de l'achat en ligne",
+    "n_sources": 3,
+    "n_mots": 578,
+    "titre_rss": "L’alerte des pharmacologues sur les médicaments anti-obésité GLP-1 détournés : \"Il est extrêmement imprudent d’en acheter sur Internet\"",
+    "matiere_faits_distincts": 745,
+    "matiere_redondance": 0.01,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "ali-refugie-palestinien-detenu-france-onu-demande-explications",
+    "statut": "rejete_sensible",
+    "date": "2026-11-24T11:23:43",
+    "sujet_sensible": true,
+    "raison": "L'article porte sur une affaire judiciaire en cours visant une personne nommée (Ali O., mis en examen et détenu provisoirement pour terrorisme), non définitivement jugée.",
+    "article_type": "actu",
+    "titre": "Ali O., réfugié palestinien détenu en France : l'ONU demande des explications à Paris",
+    "n_sources": 5,
+    "n_mots": 670,
+    "titre_rss": "Ali, réfugié palestinien détenu en France: l’ONU s’inquiète, la justice s’entête",
+    "matiere_faits_distincts": 925,
+    "matiere_redondance": 0.05,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "sebastien-lecornu-compromis-parlementaire-budget-2026-deficit",
+    "statut": "rejete_sensible",
+    "date": "2026-11-24T11:28:54",
+    "problemes_initiaux": 7,
+    "tentative": 2,
+    "bloc5": true,
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "faits_repetitifs",
+      "prise_de_position"
+    ],
+    "titre": "Sébastien Lecornu cherche un compromis parlementaire sur le budget 2026",
+    "n_sources": 7,
+    "n_mots": 507,
+    "titre_rss": "Sébastien Lecornu tend la main aux parlementaires pour un compromis sur le budget, sans toucher au déficit",
+    "matiere_faits_distincts": 646,
+    "matiere_redondance": 0.01,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "canicules-marines-2026-biodiversite-menacee-contentieux-requins",
+    "statut": "rejete_qualite",
+    "date": "2026-11-24T11:37:56",
+    "problemes_initiaux": 19,
+    "tentatives": 3,
+    "problemes_restants": 10,
+    "bloquants_restants": 5,
+    "bloquants_types": [
+      "chiffre_errone",
+      "annonce_perimee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "Le titre mentionne un 'contentieux sur les requins' en 2026, mais la source [2] indique que la décision du Conseil d'État date du 25 mars 2025, soit un an avant l'été 2026 qui est le sujet principal de l'article.",
+        "phrase": "Canicules marines record en 2026 : biodiversité menacée, contentieux sur les requins"
+      },
+      {
+        "bloc": 1,
+        "type": "annonce_perimee",
+        "description": "Le résumé présente l'examen par le Conseil d'État comme en cours ('examine'), alors que la source [2] montre que la décision a déjà été rendue le 25 mars 2025.",
+        "phrase": "Le Conseil d'État examine une demande de protection élargie pour une quinzaine d'espèces de requins et raies, rejetée implicitement par le ministère de la Transition écologique."
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "La source [1] (CNRS, vidéo du 13.11.2026) porte sur la biodiversité face aux canicules marines en général et ne documente pas spécifiquement les records de température de l'été 2026 'dans le monde entier, y compris en Mé",
+        "phrase": "L'été 2026 a été marqué par une succession de vagues de chaleur qui ont propulsé les températures des eaux à des niveaux records dans le monde entier, y compris en Méditerranée [1]."
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "La source [4] (Le Monde, 06.09.2026) documente les effets sur la faune sauvage en France, pas 'dans le monde entier' ni 'des milieux marins jusqu'aux écosystèmes terrestres' de manière générale comme l'affirme l'article.",
+        "phrase": "Cette situation a durement affecté la faune sauvage, perturbant l'ensemble de la chaîne alimentaire, des milieux marins jusqu'aux écosystèmes terrestres [4]."
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "Bien que la source [1] existe, l'article lui attribue un contenu spécifique ('interroge explicitement la capacité...') qui n'est pas vérifiable depuis l'URL fournie sans visionner la vidéo ; l'extrait fourni ne confirme ",
+        "phrase": "La vidéo du CNRS publiée le 13 novembre 2026 interroge explicitement la capacité de la biodiversité à s'adapter aux canicules marines répétées [1]."
+      }
+    ],
+    "types_restants": [
+      "chronologie_confuse",
+      "chiffre_errone",
+      "annonce_perimee",
+      "fait_tranche_arbitrairement",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "redondance",
+      "redondance",
+      "contexte_hors_sujet"
+    ],
+    "article_type": "actu",
+    "titre": "Canicules marines record en 2026 : biodiversité menacée, contentieux sur les requins",
+    "n_sources": 5,
+    "n_mots": 548,
+    "titre_rss": "La biodiversité face aux canicules marines",
+    "matiere_faits_distincts": 558,
+    "matiere_redondance": 0.2,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "ebola-bundibugyo-essai-obeldesivir-prophylaxie-post-exposition-rdc",
+    "statut": "corrige_automatiquement",
+    "date": "2026-11-24T11:43:49",
+    "problemes_initiaux": 8,
+    "tentatives": 2,
+    "problemes_residuels_style": 21,
+    "rapport_initial": {
+      "conforme": false,
+      "sujet_sensible": false,
+      "sujet_sensible_raison": "",
+      "angle_insuffisant": false,
+      "angle_insuffisant_raison": "",
+      "nature_contenu": "etude_scientifique",
+      "problemes": [
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "chiffre_errone",
+          "phrase_exacte": "Début octobre 2026, plus de 8 000 cas confirmés et plus de 4 000 décès étaient rapportés [1].",
+          "explication": "La source BBC (publiée le 3 juillet 2026) ne peut pas contenir des données d'octobre 2026 ; la source Le Monde (27 août 2026) cite 1 406 cas confirmés et 438 décès au 30 juin 2026, contredisant les chiffres de l'article."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "chiffre_errone",
+          "phrase_exacte": "Au 30 juin 2026, la RDC comptait 1 406 cas confirmés, 301 suspects et 438 décès selon l'OMS [1].",
+          "explication": "La source BBC (publiée le 3 juillet 2026) ne mentionne pas ces chiffres précis pour le 30 juin 2026 ; ils proviennent de la source Le Monde [2], donc la référence [1] est erronée."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "L'essai Tumaini évalue des vaccins candidats dont deux — ChAdOx1 (Oxford/Serum Institute of India) et mRNA-1469 (Moderna) — ciblent spécifiquement le virus Bundibugyo, sur recommandation du groupe consultatif technique de l'OMS du 4 novembre 2026 [2].",
+          "explication": "La source Le Monde [2] est datée du 27 août 2026 et ne peut pas mentionner une recommandation du 4 novembre 2026 (date future). L'information n'est pas dans les extraits fournis."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "L'essai thérapeutique PARTNERS, lancé en juillet, teste quant à lui l'anticorps monoclonal MBP134, le remdésivir et leur association chez les patients malades confirmés [2].",
+          "explication": "La source Le Monde [2] ne mentionne pas l'essai PARTNERS, ni MBP134, ni le remdésivir dans les extraits fournis. L'information est inventée par rapport à la source citée."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "Le concept de prophylaxie post-exposition contre Ebola est né lors de l'épidémie de 2018 en RDC, lorsque l'utilisation préventive des traitements nouvellement validés contre Ebola Zaïre a été envisagée [1].",
+          "explication": "La source BBC [1] ne mentionne pas l'épidémie de 2018 ni l'origine du concept de prophylaxie post-exposition dans les extraits fournis."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "Plusieurs années ont été nécessaires pour monter le projet EBO-PEP, qui s'inscrit dans la continuité de l'approche en anneau validée en Guinée en 2015 pour le vaccin Ervebo contre Ebola Zaïre [2].",
+          "explication": "La source Le Monde [2] ne mentionne pas l'approche en anneau de 2015, ni le vaccin Ervebo, ni la genèse du projet EBO-PEP dans les extraits fournis."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "L'épidémie 2026 touche la RDC, l'Ouganda, le Nigeria et le Kenya [1].",
+          "explication": "La source BBC [1] ne mentionne pas l'Ouganda, le Nigeria et le Kenya comme pays touchés par l'épidémie 2026 dans les extraits fournis."
+        },
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "compteur_incoherent",
+          "phrase_exacte": "\"nb_sources\": 3",
+          "explication": "Le tableau sources ne liste que 2 sources (BBC et Le Monde), mais le champ nb_sources indique 3."
+        }
+      ]
+    },
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "titre_de_mauvaise_qualite",
+      "prise_de_position"
+    ],
+    "titre": "Ebola Bundibugyo : essai EBO-PEP sur l'obeldesivir en prévention chez les contacts à haut risque en RDC",
+    "n_sources": 2,
+    "n_mots": 579,
+    "titre_rss": "Contre le virus Ebola, un essai évalue l’efficacité de médicaments pour empêcher la contamination chez les personnes contacts à haut risque",
+    "matiere_faits_distincts": 714,
+    "matiere_redondance": 0.01,
+    "matiere_donnees_chiffrees": 2,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "etude_scientifique"
+  },
+  {
+    "slug": "ue-enquete-anticoncurrentielle-coca-cola-europacific-partners",
+    "statut": "rejete_qualite",
+    "date": "2026-11-24T11:49:24",
+    "problemes_initiaux": 7,
+    "tentatives": 3,
+    "problemes_restants": 10,
+    "bloquants_restants": 3,
+    "bloquants_types": [
+      "source_inventee",
+      "source_inventee",
+      "source_inventee"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "Le renvoi [1] attribue à la source Le Monde des détails (date 2016, noms des trois entités) que l'extrait de cette source ne contient pas ; le fait n'est pas confirmé par la source citée.",
+        "phrase": "Le groupe, né de la fusion en 2016 entre Coca-Cola Enterprises, Coca-Cola Iberian Partners et Coca-Cola Erfrischungsgetränke, est le principal embouteilleur européen de la marque [1]."
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "Le renvoi [4] (EUR-Lex) ne confirme pas cet engagement spécifique dans les extraits fournis ; l'article invente une attribution à une source qui ne la supporte pas.",
+        "phrase": "Coca-Cola Hellenic Bottling Company a notamment fait l'objet d'engagements contraignants pour lever des obstacles aux ventes transfrontalières [4]."
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "Le renvoi [1] ne documente pas l'affaire Coca-Cola Hellenic ni son issue négociée ; l'article attribue à la source un fait qu'elle ne contient pas.",
+        "phrase": "Une telle issue avait été retenue dans l'affaire Coca-Cola Hellenic [1]."
+      }
+    ],
+    "types_restants": [
+      "fait_tranche_arbitrairement",
+      "fait_tranche_arbitrairement",
+      "fait_tranche_arbitrairement",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "contexte_hors_sujet",
+      "redondance",
+      "section_gonflee",
+      "compteur_incoherent"
+    ],
+    "article_type": "actu",
+    "titre": "L'UE ouvre une enquête approfondie sur Coca-Cola Europacific Partners pour abus de position dominante",
+    "n_sources": 4,
+    "n_mots": 566,
+    "titre_rss": "Le principal producteur européen de Coca-Cola visé par une enquête approfondie de l’UE pour des soupçons de pratiques anticoncurrentielles",
+    "matiere_faits_distincts": 259,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "melanome-vaccin-arn-messager-personnalise-reduit-recidives-42-pourcent",
+    "statut": "rejete_sensible",
+    "date": "2026-11-24T11:56:23",
+    "problemes_initiaux": 15,
+    "tentative": 3,
+    "bloc5": true,
+    "article_type": "actu",
+    "titre": "Mélanome : vaccin à ARN personnalisé réduit de 42 % le risque de récidive",
+    "n_sources": 5,
+    "n_mots": 486,
+    "titre_rss": "Mélanome : des résultats positifs pour un vaccin anticancer sur mesure",
+    "matiere_faits_distincts": 978,
+    "matiere_redondance": 0.01,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "etude_scientifique"
+  },
+  {
+    "slug": "natran-dirigeables-hydrogene-surveillance-methane-reseau-gaz",
+    "statut": "rejete_sensible",
+    "date": "2026-11-24T12:01:27",
+    "problemes_initiaux": 6,
+    "tentative": 1,
+    "bloc5": true,
+    "article_type": "actu",
+    "titre": "NaTran teste des dirigeables à hydrogène pour surveiller 32 600 km de gazoducs",
+    "n_sources": 6,
+    "n_mots": 487,
+    "titre_rss": "Des dirigeables pour décarboner la surveillance environnementale des réseaux de gaz",
+    "matiere_faits_distincts": 406,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "marina-cavazzana-grand-prix-inserm-2026-therapie-genique",
+    "statut": "rejete_qualite",
+    "date": "2026-11-24T12:11:26",
+    "problemes_initiaux": 9,
+    "tentatives": 3,
+    "problemes_restants": 11,
+    "bloquants_restants": 5,
+    "bloquants_types": [
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "source_inventee"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "Le titre indique 2025 alors que la source [1] (Inserm, datée du 24/11/2026) annonce le Grand Prix Inserm 2026 ; le corps de l'article reprend aussi 2025, créant une incohérence factuelle sur l'année du prix.",
+        "phrase": "Marina Cavazzana, lauréate du Grand Prix Inserm 2025 pour deux premières mondiales en thérapie génique"
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [1] indique explicitement le Grand Prix Inserm 2026 (page datée du 24/11/2026) ; l'article écrit 2025, ce qui contredit la source citée.",
+        "phrase": "L'Inserm a décerné son Grand Prix 2025 à Marina Cavazzana"
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "Le résumé répète l'année erronée 2025 au lieu de 2026, conformément à la source [1].",
+        "phrase": "La pédiatre et chercheuse Marina Cavazzana reçoit le Grand Prix Inserm 2025"
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "Le slug contient 2026 alors que le titre, le résumé et les faits indiquent 2025 ; l'incohérence interne montre une confusion sur l'année réelle du prix.",
+        "phrase": "marina-cavazzana-grand-prix-inserm-2026-therapie-genique"
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "La source [3] (Le Monde, 22/11/2012) n'est pas fournie en extrait ; le fait n'est pas vérifiable avec les seules sources autorisées et l'article l'attribue via un renvoi [3] qui ne correspond à aucune source confirmant c",
+        "phrase": "Le prix Irène-Joliot-Curie distingue Marina Cavazzana-Calvo en 2012 dans la catégorie « femme scientifique de l'année » [3]"
+      }
+    ],
+    "types_restants": [
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "fait_tranche_arbitrairement",
+      "source_inventee",
+      "contexte_hors_sujet",
+      "source_non_editoriale",
+      "section_gonflee",
+      "extrapolation",
+      "source_inventee"
+    ],
+    "article_type": "actu",
+    "titre": "Marina Cavazzana, lauréate du Grand Prix Inserm 2026 pour deux premières mondiales en thérapie génique",
+    "n_sources": 4,
+    "n_mots": 623,
+    "titre_rss": "Marina Cavazzana : Transformer les gènes en médicament",
+    "matiere_faits_distincts": 370,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "chasse-alouettes-pantes-reautorisation-2026-declin-espece",
+    "statut": "rejete_qualite",
+    "date": "2026-11-24T12:46:15",
+    "tentative": 3,
+    "perte_substance": true,
+    "section": "faits",
+    "mots_avant": 171,
+    "mots_apres": 70,
+    "article_type": "actu",
+    "titre": "Chasse aux alouettes : capture aux filets réautorisée pour 2026 malgré le déclin",
+    "n_sources": 3,
+    "n_mots": 515,
+    "titre_rss": "Au Pays basque, le crépuscule de la chasse traditionnelle aux alouettes des champs, une espèce en déclin",
+    "matiere_faits_distincts": 762,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "bepicolombo-orbite-mercure-mysteres-planete-interieure",
+    "statut": "rejete_qualite",
+    "date": "2026-11-24T12:50:08",
+    "angle_insuffisant": true,
+    "raison": "Aucune phrase des faits ne contient à la fois un événement précis daté (insertion orbitale fin 2025) et une donnée chiffrée ou nommée qui lui est propre ; l'article décrit le contexte et les survols passés sans dire ce qui vient de se passer concrètement lors de l'insertion orbitale.",
+    "article_type": "actu",
+    "titre": "BepiColombo en orbite autour de Mercure après huit ans de transit",
+    "n_sources": 2,
+    "n_mots": 572,
+    "titre_rss": "Les mystères de Mercure, l’étrange planète du Système solaire, que la mission BepiColombo devrait lever",
+    "matiere_faits_distincts": 808,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 2,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "cop31-echec-signal-positif-johan-rockstrom",
+    "statut": "rejete_qualite",
+    "date": "2026-11-24T12:55:46",
+    "tentative": 3,
+    "perte_substance": true,
+    "section": "nuances",
+    "mots_avant": 116,
+    "mots_apres": 52,
+    "article_type": "actu",
+    "titre": "COP31 : l'échec d'Antalya vu comme un signal positif par Johan Rockström",
+    "n_sources": 5,
+    "n_mots": 513,
+    "titre_rss": "« L’échec de la COP31 envoie un signal positif : le monde prend les risques et la science au sérieux », estime le scientifique suédois Johan Rockström",
+    "matiere_faits_distincts": 203,
+    "matiere_redondance": 0.43,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "fossiles-quercy-climat-cause-extinction-grande-coupure-34-millions-annees",
+    "statut": "rejete_qualite",
+    "date": "2026-11-24T13:01:55",
+    "tentative": 1,
+    "angle_insuffisant": true,
+    "raison": "Aucune phrase des faits ne contient un événement précis daté ou datable (publication, décision, résultat récent) accompagné d'une donnée chiffrée ou nommée qui lui est propre. L'article se borne à décrire la mise en ligne d'un documentaire et d'une galerie d'images sans révéler de découverte scientifique nouvelle, de résultat d'étude ou de fait déclencheur daté justifiant une publication maintenant. Il répond à \"qu'est-ce que les fossiles du Quercy ?\" plutôt qu'à \"pourquoi en parle-t-on aujourd'hui ?\".",
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "titre_de_mauvaise_qualite",
+      "article_sans_date"
+    ],
+    "titre": "Fossiles du Quercy : le climat cause de l'extinction massive il y a 34 millions d'années",
+    "n_sources": 3,
+    "n_mots": 562,
+    "titre_rss": "Quercy : des fossiles témoins d’un bouleversement climatique",
+    "matiere_faits_distincts": 766,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 2,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "etude_scientifique"
+  },
+  {
+    "slug": "cicatrisation-femmes-plus-vite-oestrogenes-cellules-souches-cutanees",
+    "statut": "rejete_qualite",
+    "date": "2026-11-24T13:08:58",
+    "angle_insuffisant": true,
+    "raison": "Aucune phrase des faits ne contient un événement précis daté ou datable (publication de l'étude, annonce de résultats) avec une donnée chiffrée ou nommée qui lui est propre. L'article explique un mécanisme biologique général sans indiquer ce qui vient de se passer (date de l'étude, revue, équipe, modèle expérimental, résultats quantifiés). C'est une fiche pédagogique, pas une actualité.",
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "titre_de_mauvaise_qualite",
+      "article_sans_date"
+    ],
+    "titre": "Sciences et Avenir : les œstrogènes coordonnent le renouvellement des cellules souches cutanées chez les femmes",
+    "n_sources": 5,
+    "n_mots": 471,
+    "titre_rss": "Pourquoi les femmes cicatrisent plus vite",
+    "matiere_faits_distincts": 1291,
+    "matiere_redondance": 0.01,
+    "matiere_donnees_chiffrees": 3,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "etude_scientifique"
+  },
+  {
+    "slug": "data-centers-contestation-internationale-ressources-energie",
+    "statut": "rejete_sensible",
+    "date": "2026-11-24T13:22:59",
+    "problemes_initiaux": 14,
+    "tentative": 2,
+    "bloc5": true,
+    "article_type": "actu",
+    "titre": "Data centers : la contestation s'internationalise, de l'Inde au Chili",
+    "n_sources": 9,
+    "n_mots": 597,
+    "titre_rss": "La défiance contre les data centers devient mondiale, de l’Inde au Chili en passant par l’Irlande ou le Japon",
+    "matiere_faits_distincts": 905,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
   }
 ]
