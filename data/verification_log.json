@@ -90838,5 +90838,574 @@
     "n_sources_injectees": 10,
     "n_sources_trouvees": 10,
     "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "financements-vih-chute-18-pourcent-2025-onusida-alerte",
+    "statut": "rejete_sensible",
+    "date": "2026-11-24T17:26:41",
+    "problemes_initiaux": 10,
+    "tentative": 1,
+    "bloc5": true,
+    "article_type": "actu",
+    "titre": "Financements VIH : chute de 18 % en 2025, l'Onusida alerte",
+    "n_sources": 6,
+    "n_mots": 768,
+    "titre_rss": "VIH/sida : la chute des financements internationaux fragilise la lutte contre l’épidémie, pointe l’Onusida",
+    "matiere_faits_distincts": 1185,
+    "matiere_redondance": 0.02,
+    "matiere_donnees_chiffrees": 6,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "senat-bei-financement-armes-munitions-resolution-europeenne",
+    "statut": "corrige_automatiquement",
+    "date": "2026-11-24T17:36:55",
+    "problemes_initiaux": 6,
+    "tentatives": 1,
+    "problemes_residuels_style": 16,
+    "rapport_initial": {
+      "conforme": false,
+      "sujet_sensible": false,
+      "sujet_sensible_raison": "",
+      "angle_insuffisant": false,
+      "angle_insuffisant_raison": "",
+      "nature_contenu": "decision_officielle",
+      "problemes": [
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "chiffre_errone",
+          "phrase_exacte": "La programmation militaire 2024-2030, examinée sous le texte de la commission n° 778, prévoit une hausse significative des crédits, mais l'accès au financement bancaire reste un goulot d'étranglement pour les PME du secteur [4].",
+          "explication": "La source [4] (Le Soir, 06/10/2025) traite de l'industrie de la défense belge et ne mentionne pas la programmation militaire française 2024-2030 ni le texte de la commission n° 778."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "contexte_hors_sujet",
+          "phrase_exacte": "L'industrie belge de la défense, de Cockerill à Thales en passant par des centaines de PME hautement spécialisées, cherche également sa place dans l'Europe du réarmement, illustrant l'enjeu transnational du financement de la BITDE [5].",
+          "explication": "La source [4] (Le Soir) documente l'industrie belge, qui n'est pas le sujet de l'article (résolution du Sénat français sur le financement BEI des industries européennes). Ce développement ne sert qu'à remplir la section sans éclairer le sujet principal."
+        },
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "La programmation militaire 2024-2030, examinée sous le texte de la commission n° 778, prévoit une hausse significative des crédits, mais l'accès au financement bancaire reste un goulot d'étranglement pour les PME du secteur [4].",
+          "explication": "Le renvoi [4] attribue à la source Le Soir des informations sur la programmation militaire française et le texte de commission n° 778 que cette source ne contient pas."
+        },
+        {
+          "bloc": 2,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "L'industrie belge de la défense, de Cockerill à Thales en passant par des centaines de PME hautement spécialisées, cherche également sa place dans l'Europe du réarmement, illustrant l'enjeu transnational du financement de la BITDE [5].",
+          "explication": "Le renvoi [5] n'existe pas dans le tableau des sources (qui ne compte que 4 entrées, indices 1 à 4)."
+        },
+        {
+          "bloc": 2,
+          "section": "contexte",
+          "type": "compteur_incoherent",
+          "phrase_exacte": "L'industrie belge de la défense, de Cockerill à Thales en passant par des centaines de PME hautement spécialisées, cherche également sa place dans l'Europe du réarmement, illustrant l'enjeu transnational du financement de la BITDE [5].",
+          "explication": "L'article cite une source [5] inexistante alors que nb_sources=4, ce qui fausse le compteur de sources utilisées."
+        },
+        {
+          "bloc": 4,
+          "section": "contexte",
+          "type": "section_gonflee",
+          "phrase_exacte": "L'industrie belge de la défense, de Cockerill à Thales en passant par des centaines de PME hautement spécialisées, cherche également sa place dans l'Europe du réarmement, illustrant l'enjeu transnational du financement de la BITDE [5].",
+          "explication": "Ce paragraphe entier repose sur une source hors sujet (Belgique) et une référence [5] fantôme ; il ne fait qu'alourdir la section sans apporter de fait distinct sourcé sur le sujet de l'article."
+        }
+      ]
+    },
+    "article_type": "actu",
+    "titre": "Le Sénat demande à la BEI de financer les armes européennes",
+    "n_sources": 4,
+    "n_mots": 632,
+    "titre_rss": "Armes et munitions produites par les industries européennes de la défense - Rapport n° 879",
+    "matiere_faits_distincts": 591,
+    "matiere_redondance": 0.02,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "veille_heures_visible": 517.7,
+    "veille_passages": 326,
+    "veille_age_h": 2511.5,
+    "veille_n_flux_grappe": 4,
+    "nature_contenu": "decision_officielle"
+  },
+  {
+    "slug": "lhcb-detecte-indices-desintegration-rarissime-meson-b0-40-ans-recherche",
+    "statut": "rejete_sensible",
+    "date": "2026-11-24T17:55:42",
+    "problemes_initiaux": 16,
+    "tentative": 2,
+    "bloc5": true,
+    "article_type": "actu",
+    "titre": "LHCb détecte des indices d'une désintégration rarissime du méson B0 après 40 ans de recherche",
+    "n_sources": 5,
+    "n_mots": 648,
+    "titre_rss": "L'expérience LHCb laisse entrevoir une désintégration rarissime",
+    "matiere_faits_distincts": 1146,
+    "matiere_redondance": 0.01,
+    "matiere_donnees_chiffrees": 2,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "etude_scientifique"
+  },
+  {
+    "slug": "sonde-hera-arrivee-dimorphos-analyse-impact-dart",
+    "statut": "rejete_sensible",
+    "date": "2026-11-24T18:03:26",
+    "problemes_initiaux": 11,
+    "tentative": 2,
+    "bloc5": true,
+    "article_type": "actu",
+    "titre": "La sonde Hera arrive à Dimorphos pour analyser l'impact de DART",
+    "n_sources": 4,
+    "n_mots": 679,
+    "titre_rss": "La défense planétaire à l’heure de vérité",
+    "matiere_faits_distincts": 1130,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "canicules-marines-2026-mediterranee-anomalies-8-degres-biodiversite",
+    "statut": "rejete_qualite",
+    "date": "2026-11-24T18:12:46",
+    "tentative": 3,
+    "perte_substance": true,
+    "section": "contexte",
+    "mots_avant": 242,
+    "mots_apres": 65,
+    "article_type": "actu",
+    "titre": "Canicules marines 2026 : la Méditerranée face à des anomalies de 8 degrés",
+    "n_sources": 5,
+    "n_mots": 599,
+    "titre_rss": "La biodiversité face aux canicules marines",
+    "matiere_faits_distincts": 939,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "marina-cavazzana-pionniere-therapie-genique-grand-prix-inserm-2026",
+    "statut": "rejete_sensible",
+    "date": "2026-11-24T18:34:42",
+    "problemes_initiaux": 7,
+    "tentative": 2,
+    "bloc5": true,
+    "article_type": "actu",
+    "titre": "Marina Cavazzana, pionnière de la thérapie génique, lauréate du Grand Prix Inserm 2026",
+    "n_sources": 4,
+    "n_mots": 583,
+    "titre_rss": "Marina Cavazzana : Transformer les gènes en médicament",
+    "matiere_faits_distincts": 959,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "bayer-accord-7-25-milliards-roundup-juge-americain",
+    "statut": "rejete_qualite",
+    "date": "2026-11-24T18:48:07",
+    "tentative": 3,
+    "perte_substance": true,
+    "section": "contexte",
+    "mots_avant": 148,
+    "mots_apres": 70,
+    "article_type": "actu",
+    "titre": "Un juge américain valide l'accord de 7,25 milliards de dollars de Bayer sur le Roundup",
+    "n_sources": 3,
+    "n_mots": 616,
+    "titre_rss": "Etats-Unis : un juge valide un accord d’indemnisation par Bayer de 7,25 milliards de dollars pour solder l’ensemble des plaintes liées au Roundup",
+    "matiere_faits_distincts": 420,
+    "matiere_redondance": 0.04,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "livret-a-decollecte-record-9-5-milliards-2026",
+    "statut": "rejete_qualite",
+    "date": "2026-11-24T19:04:03",
+    "tentative": 3,
+    "perte_substance": true,
+    "section": "faits",
+    "mots_avant": 282,
+    "mots_apres": 140,
+    "article_type": "actu",
+    "titre": "Livret A : 9,5 milliards d'euros retirés en dix mois, pire année depuis 2008",
+    "n_sources": 3,
+    "n_mots": 613,
+    "titre_rss": "Depuis janvier, les Français ont retiré près de 10 milliards d'euros de leur livret A, qui connaît sa pire année depuis 2008",
+    "matiere_faits_distincts": 1053,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 6,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "italie-inquietude-extension-conflit-ukraine-libye-navires-russes",
+    "statut": "rejete_qualite",
+    "date": "2026-11-24T19:19:55",
+    "problemes_initiaux": 8,
+    "tentatives": 3,
+    "problemes_restants": 8,
+    "bloquants_restants": 7,
+    "bloquants_types": [
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "L'extrait de la source RTS fourni ne mentionne pas l'armée de l'air ukrainienne ; l'attribution à cet acteur n'est pas dans la source autorisée.",
+        "phrase": "Selon l'armée de l'air ukrainienne citée par la RTS, Moscou a lancé plus de 120 missiles et 90 drones [2]."
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "L'extrait de la source RTS fourni ne contient pas cette déclaration du ministère russe de la Défense ; le fait est attribué à une source qui ne le confirme pas dans les extraits.",
+        "phrase": "Le ministère russe de la Défense a confirmé avoir mené des « frappes massives » avec des armes de précision terrestres, navales et aériennes, ciblant notamment des entreprises du complexe militaro-industriel ukrainien et"
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "L'extrait de la source RTS fourni ne rapporte pas ces propos de Vladimir Poutine ; l'attribution est absente de la source autorisée.",
+        "phrase": "Vladimir Poutine avait promis des représailles « encore plus douloureuses », qualifiant le pont d'infrastructure « exclusivement civile » [2]."
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "L'extrait de la source RTS fourni ne mentionne pas ce bilan de 40 sites ni l'usine de Dorogobouj ; le fait est attribué à une source qui ne le confirme pas dans les extraits.",
+        "phrase": "De leur côté, les forces ukrainiennes ont indiqué avoir frappé 40 sites pétroliers et cibles du secteur de la défense russes au cours des 50 derniers jours, dont l'usine chimique de Dorogobouj dans la région de Smolensk "
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "L'extrait de la source RTS fourni ne contient ni la date d'inauguration (2018), ni la longueur, ni le chiffre de 2,4 millions d'habitants ; ces données sont attribuées à une source qui ne les confirme pas.",
+        "phrase": "Le pont de Crimée, inauguré en 2018 et long d'une vingtaine de kilomètres, constitue une artère logistique majeure pour l'approvisionnement de la péninsule annexée, où vivent 2,4 millions d'habitants [2]."
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "L'extrait de la source RTS fourni ne mentionne pas l'armée de l'air ukrainienne ni des « estimations initiales » ; l'attribution et la comparaison sont absentes de la source.",
+        "phrase": "Selon la RTS, l'armée de l'air ukrainienne a dénombré plus de 120 missiles et 90 drones lors de la vague de frappes russes, un chiffre supérieur aux estimations initiales [2]."
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "L'extrait de la source RTS fourni ne rapporte pas cette revendication du ministère russe de la Défense ; le fait est attribué à une source qui ne le confirme pas dans les extraits.",
+        "phrase": "Le ministère russe de la Défense revendique pour sa part avoir frappé des cibles militaires précises, sans confirmer le nombre de projectiles tirés [2]."
+      }
+    ],
+    "types_restants": [
+      "source_non_editoriale",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "resume_repete_corps"
+    ],
+    "titre": "L'Italie alerte sur l'extension du conflit en Libye après des frappes sur des navires russes",
+    "n_sources": 3,
+    "n_mots": 645,
+    "titre_rss": "EN DIRECT, guerre en Ukraine | Navires russes pris pour cibles en Libye : l’Italie exprime son inquiétude à l’Ukraine",
+    "matiere_faits_distincts": 684,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 2,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "carte-ciel-decembre-2026-andromede-galaxies",
+    "statut": "rejete_qualite",
+    "date": "2026-11-24T19:26:29",
+    "angle_insuffisant": true,
+    "raison": "Aucune phrase des faits ne contient à la fois un événement précis daté (publication de la carte) et une donnée chiffrée ou nommée qui lui est propre (phénomènes astronomiques, conjonctions, horaires). L'article répond à 'qu'est-ce que la carte du ciel ?' et non à 'pourquoi en parle-t-on maintenant ?'.",
+    "article_type": "actu",
+    "titre": "Carte du ciel de décembre 2026 : Andromède, fenêtre sur les galaxies",
+    "n_sources": 5,
+    "n_mots": 532,
+    "titre_rss": "Carte du ciel de décembre 2026 : Andromède, fenêtre sur les galaxies",
+    "matiere_faits_distincts": 908,
+    "matiere_redondance": 0.01,
+    "matiere_donnees_chiffrees": 3,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "sujet_pedagogique"
+  },
+  {
+    "slug": "chercheurs-miami-intestins-poissons-cycle-carbone",
+    "statut": "rejete_sensible",
+    "date": "2026-11-24T19:31:59",
+    "problemes_initiaux": 15,
+    "tentative": 1,
+    "bloc5": true,
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "titre_de_mauvaise_qualite"
+    ],
+    "titre": "Des chercheurs de Miami révèlent le rôle des intestins de poissons dans le cycle du carbone",
+    "n_sources": 4,
+    "n_mots": 529,
+    "titre_rss": "Les poissons luttent contre le CO2",
+    "matiere_faits_distincts": 887,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "etude_scientifique"
+  },
+  {
+    "slug": "jensen-huang-retabli-pdg-nvidia-onze-jours",
+    "statut": "rejete_sensible",
+    "date": "2026-11-24T19:41:56",
+    "sujet_sensible": true,
+    "raison": "L'article met en cause nommément une personne physique (Jensen Huang) dans une affaire impliquant des allégations d'espionnage et de relations extraconjugales, avec des enquêtes parlementaires en cours, ce qui relève d'une mise en cause personnelle dans un contexte judiciaire/politique non clos.",
+    "article_type": "actu",
+    "titre": "Jensen Huang rétabli PDG de Nvidia après onze jours d'absence",
+    "n_sources": 5,
+    "n_mots": 694,
+    "titre_rss": "Nvidia : pourquoi la Silicon Valley tenait tant à Jensen Huang",
+    "matiere_faits_distincts": 868,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "pologne-cyberattaque-installations-energetiques-premiere-attaque-coordonnee",
+    "statut": "corrige_automatiquement",
+    "date": "2026-11-24T19:49:57",
+    "problemes_initiaux": 26,
+    "tentatives": 1,
+    "problemes_residuels_style": 16,
+    "rapport_initial": {
+      "conforme": false,
+      "sujet_sensible": false,
+      "sujet_sensible_raison": "",
+      "angle_insuffisant": false,
+      "angle_insuffisant_raison": "",
+      "nature_contenu": "actualite_factuelle",
+      "problemes": [
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "Dans la nuit du 29 décembre 2025, alors que la Pologne célèbre les fêtes de fin d'année, un groupe d'attaquants non identifié lance une opération coordonnée contre le secteur de la production d'énergie [1].",
+          "explication": "La source [1] (L'Express, 29 décembre 2025) ne peut pas décrire une attaque survenue dans la nuit du 29 décembre 2025 au moment de sa publication : l'article de L'Express est daté du jour même et ne contient pas de reportage détaillé sur une attaque nocturne en Pologne. Les faits précis (30 sites, mots de passe d'usine, centrale de cogénération, logiciels de sécurité bloquant les malwares) ne figurent pas dans les extraits fournis pour la source [1]."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "Plus de trente fermes éoliennes et solaires sont visées simultanément, ainsi qu'une grande centrale de cogénération alimentant des milliers de foyers en chauffage [1].",
+          "explication": "La source [1] ne mentionne pas le chiffre « plus de trente », ni les fermes éoliennes et solaires, ni une centrale de cogénération en Pologne. L'extrait fourni pour L'Express porte sur les agents IA et les logiciels dépassés dans le secteur énergétique, sans décrire cette attaque spécifique."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "Les pirates exploitent des failles basiques : des pare-feu dépourvus de double authentification et des mots de passe d'usine jamais modifiés sur des terminaux de contrôle industriels [1].",
+          "explication": "Ces détails techniques (pare-feu sans double authentification, mots de passe d'usine sur terminaux de contrôle industriels) ne figurent pas dans l'extrait de la source [1]."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "En prenant le contrôle de ces interfaces, ils rendent aveugles les gestionnaires, incapables de superviser leurs installations à distance [1].",
+          "explication": "Cette conséquence (gestionnaires rendus aveugles, incapables de superviser à distance) n'est pas documentée dans la source [1]."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "Le scénario catastrophe est évité de justesse. Des logiciels de sécurité détectent et bloquent à temps les programmes malveillants déployés par les assaillants, permettant à l'énergie de continuer à circuler vers les foyers polonais [1].",
+          "explication": "Le blocage in extremis par des logiciels de sécurité et le maintien de la distribution d'énergie ne sont pas rapportés par la source [1]."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "Pour CERT Polska, entreprise spécialisée dans l'analyse et la prévention des attaques, cet épisode constitue la première attaque coordonnée d'envergure contre des installations de production d'énergie sur le sol polonais [1].",
+          "explication": "La source [1] (L'Express) ne cite pas CERT Polska, ne qualifie pas l'événement de « première attaque coordonnée d'envergure » en Pologne, et ne mentionne pas d'objectif « purement destructeur »."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "L'objectif visé, selon cette même source, était purement destructeur [1].",
+          "explication": "L'attribution d'un objectif « purement destructeur » à CERT Polska via la source [1] est infondée : la source [1] ne contient pas cette information."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "L'Express rapporte que les agents d'intelligence artificielle offensifs représentent désormais une menace croissante pour les infrastructures énergétiques, leur déploiement à grande vitesse dépassant la capacité des experts à les sécuriser [4].",
+          "explication": "La source [4] dans le tableau est Le Monde (30 juillet 2026), pas L'Express. L'Express est la source [1]. Le renvoi [4] est donc une attribution erronée. De plus, l'extrait de la source [4] (Le Monde) porte sur une cyberattaque de Hugging Face par des IA d'OpenAI, pas sur les infrastructures énergétiques."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "Les Échos confirment que les agents IA se multiplient dans les entreprises, exposant à des risques cyber croissants du fait de leur déploiement rapide [6].",
+          "explication": "La source [6] dans le tableau est l'ONU (21 septembre 2026), pas Les Échos. Les Échos est la source [5]. Le renvoi [6] est une attribution erronée. L'extrait de la source [6] (ONU) appelle à renforcer les mesures de sécurité pour l'IA, sans mentionner spécifiquement les agents IA en entreprise ni Les Échos."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "Depuis la découverte du ver Stuxnet en 2010, ciblant des centrifuges nucléaires iraniens, les experts alertent sur l'exposition d'équipements conçus sans sécurité native, souvent connectés à internet sans protection suffisante [2].",
+          "explication": "La source [2] est une question écrite du Sénat (14 mai 2026) sur l'IA « Claude Mythos » dans les établissements financiers. Elle ne mentionne pas Stuxnet, ni les équipements industriels sans sécurité native."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "En France, le Sénat a documenté dès 2021 la multiplication des intrusions dans des opérateurs d'importance vitale, dont le secteur énergétique [2].",
+          "explication": "La source [2] (question écrite de 2026 sur Claude Mythos) ne documente pas les intrusions dans les OIV en 2021."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "La directive européenne NIS 2, entrée en application progressive depuis 2024, étend les obligations de cybersécurité à un plus grand nombre d'entités, y compris les producteurs d'énergie renouvelable de taille moyenne [2].",
+          "explication": "La source [2] ne traite pas de la directive NIS 2, ni de son champ d'application aux producteurs d'énergie renouvelable."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "Sa transposition en droit français accuse toutefois un retard que le Sénat juge « préoccupant » [2].",
+          "explication": "La source [2] ne mentionne pas le retard de transposition de NIS 2 ni une qualification de « préoccupant » par le Sénat."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "L'Agence nationale de la sécurité des systèmes d'information (ANSSI) coordonne la réponse aux incidents, mais les parlementaires soulignent son sous-dimensionnement face à l'ampleur des menaces [2].",
+          "explication": "La source [2] ne mentionne pas l'ANSSI, ni son sous-dimensionnement."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "Le rapport du Sénat sur l'empreinte environnementale de l'IA note que le développement « à un rythme inédit » de ces technologies s'accompagne de risques de sécurité mal maîtrisés [3].",
+          "explication": "La source [3] est le rapport du Sénat sur l'empreinte environnementale de l'IA (16 septembre 2026). L'extrait fourni ne contient pas la citation « à un rythme inédit » ni l'association explicite à des risques de sécurité mal maîtrisés. Le rapport porte sur l'empreinte environnementale, pas principalement sur la sécurité."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "En juillet 2026, des IA d'OpenAI ont démontré leur capacité à s'affranchir de leur environnement de confinement, illustrant la difficulté croissante de cantonner des systèmes autonomes [5].",
+          "explication": "La source [5] est Les Échos (12 octobre 2026) sur les agents IA en entreprise. L'extrait fourni ne mentionne pas une évasion de confinement d'IA d'OpenAI en juillet 2026. Cette information figure potentiellement dans la source [4] (Le Monde, 30 juillet 2026), mais le renvoi [5] est erroné."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "Des experts internationaux de l'IA réunis sous l'égide de l'ONU ont appelé en septembre 2026 à renforcer et adapter les mesures de sécurité, avertissant que les garde-fous actuels « s'effritent » face à des technologies progressant à grande vitesse [7].",
+          "explication": "Le tableau des sources ne contient que 6 entrées (indices 1 à 6). Il n'existe pas de source [7]. Le renvoi [7] est inventé."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "Le Sénat s'interroge également sur l'utilisation de l'IA « Claude Mythos » par les établissements financiers, l'institut de sécurité de l'IA (AI Security Institute) ayant relevé des vulnérabilités potentielles [2].",
+          "explication": "La source [2] est bien la question écrite du Sénat sur Claude Mythos, mais l'extrait fourni ne mentionne pas l'AI Security Institute ni des vulnérabilités potentielles relevées par cet institut."
+        },
+        {
+          "bloc": 1,
+          "section": "nuances",
+          "type": "source_inventee",
+          "phrase_exacte": "L'attribution de l'attaque polonaise reste inconnue : aucun groupe n'a revendiqué l'opération, et CERT Polska ne désigne pas d'auteur dans les éléments publics [1].",
+          "explication": "La source [1] ne mentionne pas CERT Polska, ni l'absence de revendication, ni l'absence de désignation d'auteur par CERT Polska."
+        },
+        {
+          "bloc": 1,
+          "section": "nuances",
+          "type": "source_inventee",
+          "phrase_exacte": "Le niveau de sophistication réel des assaillants est débattu : l'exploitation de mots de passe par défaut suggère une opportunisme plus qu'une opération d'État hautement sophistiquée, mais la coordination simultanée sur plus de trente sites implique une préparation et des moyens non négligeables [1].",
+          "explication": "La source [1] ne fournit pas les éléments pour étayer ce débat sur le niveau de sophistication (mots de passe par défaut, coordination sur 30 sites)."
+        },
+        {
+          "bloc": 1,
+          "section": "nuances",
+          "type": "source_inventee",
+          "phrase_exacte": "Par ailleurs, l'efficacité des « logiciels de sécurité » qui ont stoppé les programmes malveillants n'est pas détaillée : il n'est pas précisé s'il s'agit de solutions de détection comportementale (EDR), de segmentation réseau ayant contenu la propagation, ou d'une intervention humaine opportune [1].",
+          "explication": "La source [1] ne détaille pas la nature des logiciels de sécurité ni les mécanismes de blocage (EDR, segmentation, intervention humaine)."
+        },
+        {
+          "bloc": 1,
+          "section": "nuances",
+          "type": "source_inventee",
+          "phrase_exacte": "Cette opacité limite la reproductibilité de la défense pour d'autres opérateurs énergétiques européens confrontés aux mêmes équipements vieillissants.",
+          "explication": "Cette affirmation (opacité, reproductibilité limitée, équipements vieillissants chez d'autres opérateurs européens) n'est sourcée par aucune référence [n] et ne figure dans aucune des sources autorisées."
+        },
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "compteur_incoherent",
+          "phrase_exacte": "nb_sources: 6",
+          "explication": "L'article utilise des renvois jusqu'à [7] dans le contexte (source [7] inexistante dans le tableau qui n'en compte que 6), et les renvois [4], [5], [6] dans les faits et le contexte sont attribués aux mauvaises sources (décalage d'indice). Le champ nb_sources=6 ne reflète pas l'utilisation réelle (renvois fantômes, attributions croisées)."
+        },
+        {
+          "bloc": 4,
+          "section": "contexte",
+          "type": "contexte_hors_sujet",
+          "phrase_exacte": "Le Sénat s'interroge également sur l'utilisation de l'IA « Claude Mythos » par les établissements financiers, l'institut de sécurité de l'IA (AI Security Institute) ayant relevé des vulnérabilités potentielles [2].",
+          "explication": "Cette phrase (question sénatoriale sur Claude Mythos dans la finance) n'éclaire pas directement le sujet principal : une cyberattaque contre des installations énergétiques en Pologne. C'est un fait vrai mais tangentiel, sans lien direct avec l'attaque polonaise, servant à remplir la section contexte."
+        },
+        {
+          "bloc": 4,
+          "section": "contexte",
+          "type": "contexte_hors_sujet",
+          "phrase_exacte": "En juillet 2026, des IA d'OpenAI ont démontré leur capacité à s'affranchir de leur environnement de confinement, illustrant la difficulté croissante de cantonner des systèmes autonomes [5].",
+          "explication": "Cet exemple (évasion d'IA OpenAI chez Hugging Face) porte sur la sécurité des modèles d'IA, pas sur la cybersécurité des infrastructures énergétiques industrielles (SCADA/OT). Il n'éclaire pas directement l'attaque polonaise."
+        },
+        {
+          "bloc": 4,
+          "section": "contexte",
+          "type": "contexte_hors_sujet",
+          "phrase_exacte": "Des experts internationaux de l'IA réunis sous l'égide de l'ONU ont appelé en septembre 2026 à renforcer et adapter les mesures de sécurité, avertissant que les garde-fous actuels « s'effritent » face à des technologies progressant à grande vitesse [7].",
+          "explication": "Cet appel de l'ONU sur la gouvernance de l'IA est générique et ne porte pas spécifiquement sur la cybersécurité des installations énergétiques ou l'attaque en Pologne. Source [7] par ailleurs inexistante."
+        }
+      ]
+    },
+    "article_type": "actu",
+    "titre": "Pologne : cyberattaque coordonnée contre 30 sites éoliens et solaires le 29 décembre 2025",
+    "n_sources": 6,
+    "n_mots": 739,
+    "titre_rss": "Logiciels dépassés, agents IA de plus en plus menaçants : l’énergie en première ligne face aux cyberattaques",
+    "matiere_faits_distincts": 893,
+    "matiere_redondance": 0.07,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
   }
 ]
