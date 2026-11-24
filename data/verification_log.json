@@ -89427,5 +89427,841 @@
     "n_sources_injectees": 10,
     "n_sources_trouvees": 10,
     "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "soupcons-propos-racistes-salut-nazi-ecole-police-cannes-ecluse",
+    "statut": "rejete_sensible",
+    "date": "2026-11-24T00:51:35",
+    "sujet_sensible": true,
+    "raison": "L'article porte sur une affaire judiciaire en cours (saisine du parquet pour provocation à la haine et apologie de crimes contre l'humanité) visant des personnes identifiées (élèves officiers nommés dans les sources), non définitivement jugée.",
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "resume_repete_corps"
+    ],
+    "titre": "Propos racistes et salut nazi à l'école de police de Cannes-Écluse : justice saisie",
+    "n_sources": 4,
+    "n_mots": 512,
+    "titre_rss": "Salut nazi, propos racistes… Ce que l’on sait des soupçons qui pèsent sur des élèves officiers de l’école de police",
+    "matiere_faits_distincts": 892,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "commission-europeenne-enquete-coca-cola-europacific-partners-pratiques-anticoncurrentielles",
+    "statut": "rejete_qualite",
+    "date": "2026-11-24T00:57:29",
+    "problemes_initiaux": 8,
+    "tentatives": 3,
+    "problemes_restants": 15,
+    "bloquants_restants": 12,
+    "bloquants_types": [
+      "incoherence_inter_sections",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "incoherence_inter_sections",
+        "description": "Le résumé (chapeau) parle de 'clauses qui verrouilleraient l'approvisionnement des grandes surfaces' alors que les faits mentionnent des 'restrictions d'approvisionnement transfrontalier qui empêchent ou dissuadent les g",
+        "phrase": "L'institution soupçonne l'entreprise d'abuser de sa position dominante sur le marché des boissons gazeuses en imposant des conditions contractuelles qui restreignent la concurrence entre distributeurs [1]."
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "Le renvoi [1] désigne la première source (Le Monde FR) mais les extraits fournis pour cette source sont vides — impossible de vérifier que cette source confirme l'annonce, l'identité de CCEP comme 'principal embouteilleu",
+        "phrase": "La Commission européenne a annoncé l'ouverture d'une enquête approfondie visant Coca-Cola Europacific Partners (CCEP), le principal embouteilleur et distributeur des produits Coca-Cola en Europe [1]."
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "Même renvoi [1] vers une source dont les extraits sont vides — le fait précis sur les 'restrictions d'approvisionnement transfrontalier' et les 'tarifs de gros plus avantageux' ne peut être vérifié contre la source citée",
+        "phrase": "Selon le communiqué de la Commission, les pratiques visées concernent notamment des restrictions d'approvisionnement transfrontalier qui empêchent ou dissuadent les grands détaillants de s'approvisionner dans d'autres Ét"
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "Renvoi [1] vers source aux extraits vides — l'allégation sur l'effet de prix ne peut être confirmée.",
+        "phrase": "Ces mécanismes auraient pour effet de maintenir des prix de revente plus élevés dans plusieurs pays européens, au détriment des consommateurs [1]."
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "Renvoi [1] vers source aux extraits vides — la portée géographique de l'enquête ne peut être vérifiée.",
+        "phrase": "L'enquête porte sur des accords conclus entre CCEP et ses clients distributeurs dans plusieurs pays de l'Union [1]."
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "Renvoi [2] vers la fiche du Parlement européen (Europa) dont les extraits fournis sont vides — impossible de vérifier la référence au traité de Rome et à l'article 102 TFUE.",
+        "phrase": "Le droit européen de la concurrence interdit l'abus de position dominante depuis le traité de Rome de 1957, aujourd'hui codifié à l'article 102 du TFUE [2]."
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "Renvoi [2] vers source aux extraits vides — le contenu précis attribué à la fiche ne peut être vérifié.",
+        "phrase": "La fiche du Parlement européen rappelle que l'article 102 TFUE prohibe notamment la limitation de la production, des débouchés ou du développement technique au préjudice des consommateurs, ainsi que l'application de cond"
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "Renvoi [2] vers source aux extraits vides — cette contextualisation sur une 'série d'actions' et le ciblage 'régulier' des restrictions transfrontalières n'est pas vérifiable.",
+        "phrase": "L'enquête s'inscrit dans une série d'actions de la Commission contre les entraves au marché unique, où les restrictions d'approvisionnement transfrontalier sont régulièrement ciblées pour leur effet de cloisonnement des "
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "Renvoi [1] vers source aux extraits vides — l'exigence de démonstration de l'absence de justification par gains d'efficience n'est pas confirmée par la source citée.",
+        "phrase": "La Commission devra établir l'existence d'un abus au sens strict de l'article 102 TFUE, ce qui suppose de démontrer que les clauses litigieuses ne sont pas objectivement justifiées par des gains d'efficience [1]."
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "Renvoi [1] vers source aux extraits vides — la discussion sur la définition du marché pertinent (cola vs boissons non alcoolisées) n'est pas vérifiable.",
+        "phrase": "La définition du marché pertinent — boissons gazeuses au cola uniquement ou ensemble des boissons non alcoolisées — influencera considérablement l'appréciation de la position dominante [1]."
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "Renvoi [1] vers source aux extraits vides — les droits procéduraux de CCEP ne sont pas confirmés par la source citée.",
+        "phrase": "CCEP dispose du droit de présenter ses observations écrites et de demander une audience orale avant toute décision finale [1]."
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "Renvoi [1] vers source aux extraits vides — la durée potentielle de l'enquête et l'absence de calendrier communiqué ne sont pas vérifiables.",
+        "phrase": "L'enquête approfondie peut s'étendre sur plusieurs années selon la complexité du dossier, et la Commission n'a pas communiqué de calendrier prévisionnel pour sa clôture [1]."
+      }
+    ],
+    "types_restants": [
+      "incoherence_inter_sections",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "compteur_incoherent",
+      "source_derivee_comptee_comme_primaire",
+      "redondance"
+    ],
+    "article_type": "actu",
+    "titre": "La Commission européenne enquête sur Coca-Cola Europacific Partners pour pratiques anticoncurrentielles",
+    "n_sources": 4,
+    "n_mots": 533,
+    "titre_rss": "Le principal producteur européen de Coca-Cola visé par une enquête approfondie de l’UE pour des soupçons de pratiques anticoncurrentielles",
+    "matiere_faits_distincts": 531,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "medicaments-glp1-mesusage-penuries-contrefacon-alerte-france",
+    "statut": "corrige_automatiquement",
+    "date": "2026-11-24T01:12:30",
+    "problemes_initiaux": 8,
+    "tentatives": 3,
+    "problemes_residuels_style": 15,
+    "rapport_initial": {
+      "conforme": false,
+      "sujet_sensible": false,
+      "sujet_sensible_raison": "",
+      "angle_insuffisant": false,
+      "angle_insuffisant_raison": "",
+      "nature_contenu": "actualite_factuelle",
+      "problemes": [
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "chiffre_errone",
+          "phrase_exacte": "En 2026, le mésusage de l'Ozempic (sémaglutide) atteint 2,4 % chez les femmes de moins de quarante ans, selon une question écrite au gouvernement [1].",
+          "explication": "La source [1] (question écrite n° 17571) indique que le mésusage concerne 2,4 % des femmes de 18 à 39 ans (et non 'moins de quarante ans', qui inclut 40 ans), et ce chiffre provient d'une étude de l'Assurance maladie citée dans la question, pas de la question elle-même."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "annonce_perimee",
+          "phrase_exacte": "L'arrêt programmé de la commercialisation du Victoza fin 2026, décidé par son fabricant pour des motifs financiers, risque d'aggraver les tensions [1].",
+          "explication": "La source [1] (question écrite n° 17571, datée du 4 août 2026) mentionne cet arrêt comme programmé, mais la source [3] (BBC, 10 novembre 2026) est postérieure à cette échéance ; l'article présente l'arrêt comme futur alors qu'une source plus récente existe, sans clarifier si l'arrêt a eu lieu ou non."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "niveau_preuve_insuffisant",
+          "phrase_exacte": "Une étude sur 17 000 patients a trouvé un risque multiplié par quatre, mais ses auteurs qualifient les résultats de « significatifs mais préliminaires » [3].",
+          "explication": "L'article rapporte un résultat d'étude (risque multiplié par 4) sans préciser le type d'étude (observationnelle ? randomisée ?), la population exacte, le comparateur, ni la durée de suivi, alors que la source [3] (BBC) ne donne pas ces détails non plus ; le niveau de preuve n'est pas contextualisé."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "chiffre_errone",
+          "phrase_exacte": "Dans de nombreuses régions, les patients attendent plus d'un an, parfois un an et demi, pour obtenir un rendez-vous ouvrant droit au remboursement [2][6].",
+          "explication": "La source [2] (question écrite n° 16739) mentionne des délais 'pouvant aller jusqu'à plus d'un an', la source [6] (question écrite n° 15097) évoque 'plus d'un an, parfois un an et demi' ; l'article généralise 'dans de nombreuses régions' sans que les sources ne précisent cette étendue géographique."
+        },
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "L'AFP confirme que de nombreux peptides non autorisés sont vendus sur internet avec des promesses de perte de poids, la plupart de ces molécules étant illégales [4].",
+          "explication": "La source [4] (AFP, 14 août 2026) traite de peptides non autorisés vendus sur internet, mais l'article attribue à l'AFP une confirmation générale ('L'AFP confirme que...') qui dépasse le contenu factuel de la dépêche ; le renvoi [4] est utilisé pour valider une affirmation large non explicitement détaillée dans l'extrait fourni."
+        },
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "Des sites se présentant comme des pharmacies proposent également l'achat en ligne de médicaments soumis à ordonnance, une pratique interdite mais en plein essor [5].",
+          "explication": "La source [5] (AFP, 20 janvier 2025) date de plus d'un an et demi avant l'article ; l'article l'utilise pour décrire une situation actuelle ('en plein essor') sans source récente confirmant cette tendance, et l'extrait fourni ne permet pas de vérifier l'ampleur actuelle du phénomène."
+        },
+        {
+          "bloc": 4,
+          "section": "contexte",
+          "type": "redondance",
+          "phrase_exacte": "L'Ozempic dispose d'une autorisation de mise sur le marché limitée au traitement du diabète de type 2 insuffisamment contrôlé [1].",
+          "explication": "Cette information (AMM limitée au diabète type 2) est déjà implicite dans les faits (mésusage = usage hors AMM) et n'apporte pas de fait distinct sourcé ; elle remplit la section contexte sans valeur ajoutée."
+        },
+        {
+          "bloc": 4,
+          "section": "nuances",
+          "type": "redondance",
+          "phrase_exacte": "L'évaluation du rapport bénéfice-risque pour les patients diabétiques et obèses sous suivi médical n'est pas remise en cause par les alertes sur le mésusage.",
+          "explication": "Cette phrase répète l'idée déjà présente dans les faits (double menace : santé des consommateurs hors suivi + approvisionnement des diabétiques) sans apporter de nuance nouvelle ni source distincte."
+        }
+      ]
+    },
+    "article_type": "actu",
+    "titre": "Médicaments GLP-1 : alerte sur le mésusage, les pénuries et les risques de contrefaçon",
+    "n_sources": 6,
+    "n_mots": 770,
+    "titre_rss": "L’alerte des pharmacologues sur les médicaments anti-obésité GLP-1 détournés : \"Il est extrêmement imprudent d’en acheter sur Internet\"",
+    "matiere_faits_distincts": 1138,
+    "matiere_redondance": 0.04,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "essai-ebo-pep-obeldesivir-ebola-bundibugyo-rdc",
+    "statut": "rejete_qualite",
+    "date": "2026-11-24T01:22:20",
+    "problemes_initiaux": 13,
+    "tentatives": 3,
+    "problemes_restants": 5,
+    "bloquants_restants": 5,
+    "bloquants_types": [
+      "chiffre_errone",
+      "incoherence_inter_sections",
+      "niveau_preuve_insuffisant",
+      "niveau_preuve_insuffisant",
+      "source_inventee"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source AP News [2] indique 'More than 250 participants have been enrolled in a trial for a drug that could stop them from contracting Ebola in Congo' et précise qu'il s'agit de l'obeldesivir (GS-5245) dans le protocol",
+        "phrase": "L'agence AP News rapporte que plus de 250 participants ont été recrutés dans un essai évaluant un médicament préventif contre Ebola en République démocratique du Congo, sans préciser s'il s'agit du protocole EBO-PEP ni d"
+      },
+      {
+        "bloc": 1,
+        "type": "incoherence_inter_sections",
+        "description": "Le résumé (chapeau) et les faits présentent l'essai EBO-PEP comme l'essai évaluant l'obeldesivir, mais la phrase citée crée une incohérence en suggérant que la source AP News [2] ne permet pas de lier les 250 participant",
+        "phrase": "L'agence AP News rapporte que plus de 250 participants ont été recrutés dans un essai évaluant un médicament préventif contre Ebola en République démocratique du Congo, sans préciser s'il s'agit du protocole EBO-PEP ni d"
+      },
+      {
+        "bloc": 1,
+        "type": "niveau_preuve_insuffisant",
+        "description": "L'article ne précise pas le stade/phase de l'essai clinique (phase 1/2/3, préclinique, observationnelle) alors que la source BBC [1] mentionne 'clinical trial' sans détail de phase, et la source WHO [3] parle d'évaluatio",
+        "phrase": "Un essai clinique évalue l'antiviral oral obeldesivir en prophylaxie post-exposition (PEP) chez les contacts à haut risque du virus Ebola Bundibugyo en République démocratique du Congo [1]."
+      },
+      {
+        "bloc": 1,
+        "type": "niveau_preuve_insuffisant",
+        "description": "L'article présente la justification biologique (incubation 6-8 jours vs vaccin 10 jours) comme un fait établi pour l'obeldesivir, mais les sources ne fournissent pas de données d'efficacité préventive de l'obeldesivir ch",
+        "phrase": "L'objectif de la PEP est d'administrer l'antiviral le plus tôt possible, avant l'invasion virale [1]."
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "Le renvoi [2] attribue à la source AP News une absence de précision ('sans préciser s'il s'agit du protocole EBO-PEP ni du médicament testé') que la source ne confirme pas : l'article AP News identifie explicitement l'ob",
+        "phrase": "L'agence AP News rapporte que plus de 250 participants ont été recrutés dans un essai évaluant un médicament préventif contre Ebola en République démocratique du Congo, sans préciser s'il s'agit du protocole EBO-PEP ni d"
+      }
+    ],
+    "types_restants": [
+      "chiffre_errone",
+      "incoherence_inter_sections",
+      "niveau_preuve_insuffisant",
+      "niveau_preuve_insuffisant",
+      "source_inventee"
+    ],
+    "article_type": "actu",
+    "titre": "Essai EBO-PEP en RDC : tester l'obeldesivir contre Ebola Bundibugyo",
+    "n_sources": 4,
+    "n_mots": 753,
+    "titre_rss": "Contre le virus Ebola, un essai évalue l’efficacité de médicaments pour empêcher la contamination chez les personnes contacts à haut risque",
+    "matiere_faits_distincts": 916,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 2,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "etude_scientifique"
+  },
+  {
+    "slug": "nicolas-salerno-crise-ecoles-commerce-surproduction-elites",
+    "statut": "rejete_sensible",
+    "date": "2026-11-24T01:31:08",
+    "problemes_initiaux": 13,
+    "bloc5": [
+      "compteur_incoherent"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "resume_repete_corps"
+    ],
+    "titre": "Nicolas Salerno lie la crise des écoles de commerce à la surproduction d'élites",
+    "n_sources": 4,
+    "n_mots": 496,
+    "titre_rss": "\"Les écoles de commerce se sont multipliées, mais la croissance ne suit plus\" : la crise française expliquée par le chercheur Nicolas Salerno",
+    "matiere_faits_distincts": 1092,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "interview"
+  },
+  {
+    "slug": "pfas-etude-inédite-surexposition-travailleurs-sites-chimiques-arkema-daikin-solvay",
+    "statut": "rejete_sensible",
+    "date": "2026-11-24T01:37:46",
+    "problemes_initiaux": 9,
+    "bloc5": [
+      "diffamation_potentielle"
+    ],
+    "article_type": "actu",
+    "titre": "Étude inédite : travailleurs d'Arkema, Daikin et Solvay contaminés aux PFAS",
+    "n_sources": 4,
+    "n_mots": 480,
+    "titre_rss": "« On nous a empoisonnés » : dans l’industrie de la chimie, des travailleurs surexposés aux PFAS",
+    "matiere_faits_distincts": 610,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "etude_scientifique"
+  },
+  {
+    "slug": "etats-unis-juge-valide-accord-bayer-7-25-milliards-roundup",
+    "statut": "corrige_automatiquement",
+    "date": "2026-11-24T01:41:51",
+    "problemes_initiaux": 4,
+    "tentatives": 2,
+    "problemes_residuels_style": 0,
+    "rapport_initial": {
+      "conforme": false,
+      "sujet_sensible": false,
+      "sujet_sensible_raison": "",
+      "angle_insuffisant": false,
+      "angle_insuffisant_raison": "",
+      "nature_contenu": "actualite_factuelle",
+      "problemes": [
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "chiffre_errone",
+          "phrase_exacte": "Le montant total de 7,25 milliards de dollars s'ajoute aux quelque 10 milliards déjà versés par Bayer depuis 2020 pour régler les premiers contentieux, portant l'enveloppe globale à plus de 17 milliards de dollars [2].",
+          "explication": "7,25 + 10 = 17,25 milliards, pas 'plus de 17 milliards' ; la formulation arrondit à la baisse un total qui dépasse 17 milliards."
+        },
+        {
+          "bloc": 1,
+          "section": "nuances",
+          "type": "acteur_mis_en_cause_sans_reponse",
+          "phrase_exacte": "La réaction de Bayer à cette validation n'était pas disponible dans les sources consultées à la date de publication.",
+          "explication": "Bayer est l'acteur principal mis en cause (accord de 7,25 milliards) et l'article indique explicitement ne pas avoir sa réaction, ce qui est requis par la charte."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "chronologie_confuse",
+          "phrase_exacte": "En juin 2024, la Cour suprême des États-Unis a statué en faveur de Bayer dans une affaire clé, jugeant à 7 voix contre 2 que la réglementation fédérale sur les pesticides ne permet pas de poursuivre l'entreprise devant les tribunaux d'État pour défaut d'avertissement sur l'étiquette [2].",
+          "explication": "L'article est daté de novembre 2026 (sources des 20-21/11/2026) mais cite un arrêt de la Cour suprême de juin 2024 sans expliciter le lien temporel ni préciser qu'il s'agit d'un événement antérieur de plus de deux ans, créant une confusion chronologique."
+        },
+        {
+          "bloc": 4,
+          "section": "nuances",
+          "type": "redondance",
+          "phrase_exacte": "Le montant total de 7,25 milliards de dollars s'ajoute aux quelque 10 milliards déjà versés par Bayer depuis 2020 pour régler les premiers contentieux, portant l'enveloppe globale à plus de 17 milliards de dollars [2].",
+          "explication": "Cette phrase répète l'information déjà donnée dans les faits (versements de ~10 milliards pour la première vague + 7,25 milliards pour le nouveau règlement) sans apporter de nuance nouvelle."
+        }
+      ]
+    },
+    "article_type": "actu",
+    "titre": "Un juge américain valide l'accord de 7,25 milliards de dollars de Bayer pour le Roundup",
+    "n_sources": 3,
+    "n_mots": 525,
+    "titre_rss": "Etats-Unis : un juge valide un accord d’indemnisation par Bayer de 7,25 milliards de dollars pour solder l’ensemble des plaintes liées au Roundup",
+    "matiere_faits_distincts": 869,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "ird-six-projets-appel-anr-flash-covid-19",
+    "statut": "rejete_qualite",
+    "date": "2026-11-24T01:48:30",
+    "problemes_initiaux": 10,
+    "tentatives": 3,
+    "problemes_restants": 11,
+    "bloquants_restants": 3,
+    "bloquants_types": [
+      "chiffre_errone",
+      "chiffre_errone",
+      "incoherence_inter_sections"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "Le résumé affirme que six projets IRD ont été sélectionnés comme lauréats principaux, alors que la source [1] indique cinq projets portés par l'IRD parmi les lauréats principaux, plus des contributions à trois projets ex",
+        "phrase": "L'Institut de recherche pour le développement (IRD) a vu six de ses projets sélectionnés le 13 avril 2020 dans l'appel Flash de l'Agence nationale de la recherche dédié au Covid-19."
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [1] liste cinq projets portés par l'IRD (COCONEL, COMESCOV, DigEpi, HospICOVID, TRACTRUST) et cite des contributions à trois projets externes (DisCoVer, ZooCov, COVEHPAD), mais ne mentionne que deux projets en ",
+        "phrase": "Cinq projets portés par des chercheurs IRD figurent parmi les lauréats principaux, auxquels s'ajoutent des contributions à trois projets pilotés par d'autres établissements, et deux projets en liste complémentaire [1]."
+      },
+      {
+        "bloc": 1,
+        "type": "incoherence_inter_sections",
+        "description": "Le résumé mélange l'appel Flash ANR d'avril 2020 (sujet de l'article) avec des dispositifs européens postérieurs (CARE en août 2020, EU4Health en mars 2021) sans lien direct avec les six projets IRD, créant une confusion",
+        "phrase": "L'Inserm coordonne dès août 2020 le consortium européen CARE doté de 77,7 millions d'euros, tandis que le programme EU4Health est adopté en mars 2021 avec 5,3 milliards d'euros pour 2021-2027."
+      }
+    ],
+    "types_restants": [
+      "chiffre_errone",
+      "chiffre_errone",
+      "incoherence_inter_sections",
+      "contexte_hors_sujet",
+      "contexte_hors_sujet",
+      "source_inventee",
+      "source_inventee",
+      "source_derivee_comptee_comme_primaire",
+      "compteur_incoherent",
+      "section_gonflee",
+      "redondance"
+    ],
+    "article_type": "actu",
+    "titre": "L'IRD obtient six projets dans l'appel ANR Flash Covid-19",
+    "n_sources": 4,
+    "n_mots": 685,
+    "titre_rss": "Covid-19 – les projets IRD de l’appel ANR-Flash",
+    "matiere_faits_distincts": 991,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 4,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "veille_heures_visible": 517.7,
+    "veille_passages": 326,
+    "veille_age_h": 2495.2,
+    "veille_n_flux_grappe": 1,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "afrique-intelligence-artificielle-donnees-entrainement-deficit",
+    "statut": "rejete_qualite",
+    "date": "2026-11-24T01:58:10",
+    "angle_insuffisant": true,
+    "raison": "Aucune phrase dans 'faits' ne combine un événement précis daté (annonce, publication, décision récente) et une donnée chiffrée ou nommée qui lui est propre. L'article explique un phénomène structurel général sans fait déclencheur daté justifiant la publication maintenant.",
+    "article_type": "actu",
+    "titre": "L'Afrique : 20 % de la population, moins de 1 % des données d'IA",
+    "n_sources": 6,
+    "n_mots": 500,
+    "titre_rss": "Plaidoyer pour une IA 100% africaine",
+    "matiere_faits_distincts": 1078,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "sujet_pedagogique"
+  },
+  {
+    "slug": "binge-drinking-etudiants-risques-etude-inserm-juin-2026",
+    "statut": "rejete_sensible",
+    "date": "2026-11-24T02:03:18",
+    "problemes_initiaux": 7,
+    "tentative": 1,
+    "bloc5": true,
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "titre_de_mauvaise_qualite"
+    ],
+    "titre": "Binge drinking : 36,5 % des étudiants occasionnels à risque selon une étude Inserm",
+    "n_sources": 4,
+    "n_mots": 698,
+    "titre_rss": "Les risques potentiels du binge drinking sur la santé des jeunes étudiants",
+    "matiere_faits_distincts": 988,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 2,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "veille_heures_visible": 517.7,
+    "veille_passages": 311,
+    "veille_age_h": 2495.2,
+    "veille_n_flux_grappe": 7,
+    "nature_contenu": "etude_scientifique"
+  },
+  {
+    "slug": "cop31-echec-accord-final-divisions-energies-fossiles",
+    "statut": "rejete_qualite",
+    "date": "2026-11-24T02:09:27",
+    "tentative": 3,
+    "perte_substance": true,
+    "section": "nuances",
+    "mots_avant": 148,
+    "mots_apres": 71,
+    "article_type": "actu",
+    "titre": "La COP31 s'achève sans accord final après des divisions sur les énergies fossiles",
+    "n_sources": 7,
+    "n_mots": 705,
+    "titre_rss": "« L’échec de la COP31 envoie un signal positif : le monde prend les risques et la science au sérieux », estime le scientifique suédois Johan Rockström",
+    "matiere_faits_distincts": 708,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "feuille-matiere-noire-andromede-voie-lactee-mouvement",
+    "statut": "rejete_qualite",
+    "date": "2026-11-24T02:18:11",
+    "problemes_initiaux": 6,
+    "tentatives": 3,
+    "problemes_restants": 6,
+    "bloquants_restants": 1,
+    "bloquants_types": [
+      "source_inventee"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "La source [2] (communiqué CNRS) ne mentionne pas l'Institut d'astrophysique de Paris ni une équipe européenne ; cette affiliation est absente des extraits fournis.",
+        "phrase": "Une équipe européenne, incluant des chercheurs de l'Institut d'astrophysique de Paris, aurait résolu cette énigme en révélant via simulation une distribution de masse en forme de « feuille » s'étirant bien au‑delà de not"
+      }
+    ],
+    "types_restants": [
+      "source_inventee",
+      "redondance",
+      "contexte_hors_sujet",
+      "contexte_hors_sujet",
+      "contexte_hors_sujet",
+      "compteur_incoherent"
+    ],
+    "article_type": "actu",
+    "titre": "Une feuille de matière noire explique le mouvement d'Andromède vers la Voie lactée",
+    "n_sources": 4,
+    "n_mots": 512,
+    "titre_rss": "Carte du ciel de décembre 2026 : Andromède, fenêtre sur les galaxies",
+    "matiere_faits_distincts": 1024,
+    "matiere_redondance": 0.01,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "etude_scientifique"
+  },
+  {
+    "slug": "inondations-saturation-sols-facteur-determinant-crues",
+    "statut": "rejete_qualite",
+    "date": "2026-11-24T02:22:13",
+    "angle_insuffisant": true,
+    "raison": "Aucune phrase des faits ne contient un événement précis daté ou datable (publication, décision, résultat récent) accompagné d'une donnée chiffrée ou nommée qui lui est propre. L'article se contente d'expliquer un mécanisme hydrologique général (saturation des sols) à partir d'un article Futura Sciences non daté et de sources institutionnelles de contexte, sans fait déclencheur d'actualité identifiable.",
+    "article_type": "actu",
+    "titre": "Futura Sciences : la saturation des sols prime sur la pluie pour déclencher les crues",
+    "n_sources": 4,
+    "n_mots": 513,
+    "titre_rss": "La plupart des inondations sont déclenchées par quelque chose d'autre que la pluie",
+    "matiere_faits_distincts": 1167,
+    "matiere_redondance": 0.05,
+    "matiere_donnees_chiffrees": 3,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "sujet_pedagogique"
+  },
+  {
+    "slug": "fossiles-quercy-grande-coupure-climat-34-millions-annees",
+    "statut": "rejete_sensible",
+    "date": "2026-11-24T02:27:53",
+    "problemes_initiaux": 11,
+    "bloc5": [
+      "compteur_incoherent"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "article_sans_date"
+    ],
+    "titre": "Fossiles du Quercy : le climat cause de la Grande Coupure",
+    "n_sources": 3,
+    "n_mots": 533,
+    "titre_rss": "Quercy : des fossiles témoins d’un bouleversement climatique",
+    "matiere_faits_distincts": 931,
+    "matiere_redondance": 0.03,
+    "matiere_donnees_chiffrees": 2,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "etude_scientifique"
+  },
+  {
+    "slug": "pologne-cyberattaque-coordonnee-30-fermes-eoliennes-solaires-29-decembre-2025",
+    "statut": "rejete_sensible",
+    "date": "2026-11-24T02:37:21",
+    "problemes_initiaux": 14,
+    "tentative": 1,
+    "bloc5": true,
+    "article_type": "actu",
+    "titre": "Pologne : cyberattaque coordonnée contre 30 fermes éoliennes et solaires le 29 décembre 2025",
+    "n_sources": 7,
+    "n_mots": 542,
+    "titre_rss": "Logiciels dépassés, agents IA de plus en plus menaçants : l’énergie en première ligne face aux cyberattaques",
+    "matiere_faits_distincts": 1029,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "cop31-antalya-echec-accord-energies-fossiles-2026",
+    "statut": "rejete_qualite",
+    "date": "2026-11-24T02:45:39",
+    "tentative": 3,
+    "perte_substance": true,
+    "section": "nuances",
+    "mots_avant": 131,
+    "mots_apres": 60,
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "faits_repetitifs"
+    ],
+    "titre": "La COP31 s'achève sans accord à Antalya face aux divisions sur les énergies fossiles",
+    "n_sources": 4,
+    "n_mots": 611,
+    "titre_rss": "«Les COP sont devenues un terrain de manipulation pour les puissances fossiles»",
+    "matiere_faits_distincts": 761,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 2,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "hypothese-riemann-resolue-ia-claude-anthropic",
+    "statut": "rejete_sensible",
+    "date": "2026-11-24T02:49:33",
+    "problemes_initiaux": 10,
+    "bloc5": [
+      "diffamation_potentielle"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "resume_repete_corps"
+    ],
+    "titre": "Un chercheur d'Anthropic affirme avoir résolu l'hypothèse de Riemann avec l'IA Claude",
+    "n_sources": 4,
+    "n_mots": 467,
+    "titre_rss": "Mathématiques : une IA aurait contribué à résoudre un problème vieux de 167 ans",
+    "matiere_faits_distincts": 1015,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "declaration"
+  },
+  {
+    "slug": "soudan-frappe-drone-batiment-onu-armee-accuse-fsr-ethiopie",
+    "statut": "corrige_automatiquement",
+    "date": "2026-11-24T02:57:44",
+    "problemes_initiaux": 9,
+    "tentatives": 1,
+    "problemes_residuels_style": 11,
+    "rapport_initial": {
+      "conforme": false,
+      "sujet_sensible": false,
+      "sujet_sensible_raison": "",
+      "angle_insuffisant": false,
+      "angle_insuffisant_raison": "",
+      "nature_contenu": "actualite_factuelle",
+      "problemes": [
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "chiffre_errone",
+          "phrase_exacte": "Dans un hôpital près de Khartoum, une coupure d'électricité provoquée par ces frappes a interrompu les séances de dialyse de 25 patients, l'établissement ne disposant d'aucun générateur ni panneau solaire de secours [5].",
+          "explication": "La source [5] (UN News, 4 novembre 2026) indique que 25 patients ont été affectés par l'interruption de dialyse dans un hôpital de Port-Soudan, et non « près de Khartoum » comme l'écrit l'article. La localisation est erronée par rapport à la source citée."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "chiffre_errone",
+          "phrase_exacte": "La France a honoré ses promesses de dons humanitaires, portant son aide à plus de 150 millions d'euros depuis le début du conflit [6].",
+          "explication": "La source [6] correspond à la source [2] (Assemblée nationale, 11 novembre 2025) qui mentionne une aide française de 120 millions d'euros, et non « plus de 150 millions d'euros ». Le chiffre est inexact par rapport à la source citée."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "chiffre_errone",
+          "phrase_exacte": "Toutefois, le budget saoudien 2026 prévoit un déficit de 38 milliards d'euros [3].",
+          "explication": "La source [3] (The Conversation, 20 mai 2026) mentionne un déficit budgétaire saoudien prévu de 27 milliards de dollars (environ 25 milliards d'euros au taux de change courant), et non 38 milliards d'euros. Le chiffre et la devise sont erronés."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "chiffre_errone",
+          "phrase_exacte": "où transite 12 % du commerce mondial [3].",
+          "explication": "La source [3] indique que 12 % du commerce mondial transite par la mer Rouge, mais l'article l'attribue spécifiquement aux routes maritimes où le Soudan serait « clé pour la sécurisation ». La source ne lie pas ce chiffre au rôle spécifique du Soudan dans la sécurisation de ces routes."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "contrairement aux sanctions américaines de janvier 2025 qui les ciblent directement [2].",
+          "explication": "La source [2] (Assemblée nationale, 11 novembre 2025) ne mentionne pas de sanctions américaines de janvier 2025 ciblant directement al-Burhan et Hemedti. Cette information n'est pas présente dans la source citée."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "accusation_presentee_comme_fait",
+          "phrase_exacte": "L'armée soudanaise a accusé les Forces de soutien rapide (FSR) d'avoir mené une frappe de drone contre un bâtiment des Nations unies, affirmant que l'engin avait décollé depuis le territoire éthiopien [1].",
+          "explication": "L'article présente l'accusation de l'armée soudanaise comme un fait établi (« a accusé... affirmant que ») sans utiliser de forme conditionnelle ou d'attribution plus prudente pour l'origine éthiopienne du drone, qui n'est pas confirmée indépendamment selon les nuances elles-mêmes."
+        },
+        {
+          "bloc": 2,
+          "section": "contexte",
+          "type": "source_derivee_comptee_comme_primaire",
+          "phrase_exacte": "Des enquêtes ont révélé l'utilisation par les FSR de véhicules blindés émiratis Nimr Ajban équipés de systèmes d'autoprotection Galix conçus par KNDS France et Lacroix, soulevant la question du respect de l'embargo européen [2].",
+          "explication": "La source [2] (question écrite à l'Assemblée nationale) rapporte probablement des informations issues d'enquêtes journalistiques ou de rapports d'ONG (sources dérivées), mais l'article les présente comme des faits établis directement par cette source parlementaire, qui n'est pas une source primaire d'enquête terrain."
+        },
+        {
+          "bloc": 4,
+          "section": "contexte",
+          "type": "redondance",
+          "phrase_exacte": "Depuis avril 2023, la guerre a fait plus de 150 000 morts, contraint près de 13 millions de personnes à l'exil et plongé plus de la moitié de la population dans la famine [2][6].",
+          "explication": "Ces chiffres globaux du conflit sont déjà implicites dans le cadre de l'article et répètent l'ampleur humanitaire décrite dans les faits (paralysie des secours, dialyses interrompues, camions immobilisés) sans apporter d'information nouvelle distincte pour ce contexte spécifique."
+        },
+        {
+          "bloc": 4,
+          "section": "nuances",
+          "type": "redondance",
+          "phrase_exacte": "L'origine exacte de la frappe contre le bâtiment onusien n'est pas établie de manière indépendante : seule l'accusation de l'armée soudanaise est rapportée, sans confirmation de l'ONU ni de l'Éthiopie [1].",
+          "explication": "Cette réserve est déjà explicitement formulée dans les faits (« Cette allégation, si elle est confirmée... ») et dans le titre des nuances. La répéter intégralement dans le corps des nuances viole la règle « une idée = une seule apparition »."
+        }
+      ]
+    },
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "titre_de_mauvaise_qualite"
+    ],
+    "titre": "Soudan : frappe de drone contre un bâtiment de l'ONU, l'armée accuse les FSR",
+    "n_sources": 5,
+    "n_mots": 734,
+    "titre_rss": "Au Soudan, tensions internationales accrues après une frappe de drone contre un bâtiment de l’ONU",
+    "matiere_faits_distincts": 1182,
+    "matiere_redondance": 0.01,
+    "matiere_donnees_chiffrees": 2,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "bouygues-telecom-rachete-sfr-entreprises-marche-b2b",
+    "statut": "rejete_qualite",
+    "date": "2026-11-24T03:04:04",
+    "problemes_initiaux": 11,
+    "tentatives": 3,
+    "problemes_restants": 10,
+    "bloquants_restants": 5,
+    "bloquants_types": [
+      "chiffre_errone",
+      "annonce_perimee",
+      "chiffre_errone",
+      "incoherence_inter_sections",
+      "source_inventee"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "Le titre affirme que Bouygues Telecom rachète SFR Entreprises (passé composé = fait accompli), alors que les sources décrivent une offre de consortium (Iliad, Bouygues Telecom, Orange) en cours d'examen par l'Autorité de",
+        "phrase": "Bouygues Telecom rachète SFR Entreprises et vise la première place face à Orange"
+      },
+      {
+        "bloc": 1,
+        "type": "annonce_perimee",
+        "description": "Le résumé présente le rachat comme annoncé et en cours ('annonce le rachat', 'doit lui permettre'), alors que la source [4] (Autorité de la concurrence, 15 juillet 2026) indique que l'opération fait l'objet d'une pré-not",
+        "phrase": "Bouygues Telecom annonce le rachat de l'intégralité du pôle entreprises de SFR, une opération qui doit lui permettre de devenir le principal concurrent d'Orange sur le marché des télécoms B2B."
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "Le chiffre de 17 milliards d'euros est attribué à la source [1] (Le Monde, 23 nov 2026), mais cet article traite de la 'recomposition du marché des télécoms pour les entreprises' et non nécessairement du montant global d",
+        "phrase": "Selon Le Monde, l'offre globale portée par le consortium Iliad, Bouygues Telecom et Orange pour acquérir les actifs d'Altice France s'élève à 17 milliards d'euros [1]."
+      },
+      {
+        "bloc": 1,
+        "type": "incoherence_inter_sections",
+        "description": "Le corps des faits mentionne des dates précises (30 juin 2026, 15 juillet 2026) pour des échanges de pré-notification et un renvoi par la Commission européenne, attribués à la source [4]. Or la source [4] est un communiq",
+        "phrase": "Orange et Bouygues Telecom ont déjà engagé des échanges avec l'Autorité de la concurrence depuis le 30 juin 2026 avec l'envoi d'éléments de pré-notification [4]. Iliad a, de son côté, obtenu le renvoi de son opération pa"
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "Les faits précis (date du 30 juin 2026 pour la pré-notification d'Orange/Bouygues, renvoi par la Commission européenne pour Iliad le 15 juillet 2026) sont attribués à la source [4] (communiqué de l'Autorité du 15 juillet",
+        "phrase": "Orange et Bouygues Telecom ont déjà engagé des échanges avec l'Autorité de la concurrence depuis le 30 juin 2026 avec l'envoi d'éléments de pré-notification [4]. Iliad a, de son côté, obtenu le renvoi de son opération pa"
+      }
+    ],
+    "types_restants": [
+      "chiffre_errone",
+      "annonce_perimee",
+      "fait_tranche_arbitrairement",
+      "chiffre_errone",
+      "incoherence_inter_sections",
+      "source_inventee",
+      "acteur_mis_en_cause_sans_reponse",
+      "contexte_hors_sujet",
+      "section_gonflee",
+      "compteur_incoherent"
+    ],
+    "article_type": "actu",
+    "titre": "Bouygues Telecom rachète SFR Entreprises et vise la première place face à Orange",
+    "n_sources": 7,
+    "n_mots": 495,
+    "titre_rss": "La recomposition du marché des télécoms pour les entreprises, l’autre enjeu du rachat de SFR",
+    "matiere_faits_distincts": 965,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 2,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
   }
 ]
