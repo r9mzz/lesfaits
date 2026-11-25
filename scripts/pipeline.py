@@ -4687,6 +4687,136 @@ def _mise_en_forme_vitrine(art: dict) -> list[str]:
     return faites
 
 
+# ── ANCRAGE STRICT (25/11) ───────────────────────────────────────────────────
+# Sept articles publiés en novembre, sept retirés : chaque fois des phrases que
+# les sources ne contenaient pas (« plainte de 2017 », « coprésidence
+# tournante », espèces attribuées à une page du CNRS qui n'en parle pas…). Le
+# fact-check par LLM ne les voyait pas. Ce contrôle est DÉTERMINISTE : chaque
+# phrase est confrontée au texte même des extraits fournis au rédacteur.
+#   - phrase citant [n] → comparée au seul extrait de la source n ;
+#   - phrase sans appel → comparée à l'ensemble des extraits ;
+#   - tout nombre (année, chiffre, pourcentage) doit figurer dans la référence ;
+#   - tout nom propre doit y figurer ;
+#   - au moins la moitié des mots porteurs de sens doivent y figurer.
+# Une phrase non ancrée est SUPPRIMÉE ; au-delà de 25 % du texte supprimé,
+# l'article est rejeté. Opt-in : ANCRAGE_STRICT=1.
+ANCRAGE_STRICT = (os.getenv("ANCRAGE_STRICT", "") or "").strip() == "1"
+_ANCRAGE_SEUIL_MOTS = 0.5
+_ANCRAGE_REJET_PART = 0.25
+_MOTS_VIDES = set("""
+alors aucun aussi autre autres avant avec avoir bien cela celle celles celui ceux
+cette chez comme comment dans depuis donc dont elle elles encore entre etre faire
+fait leur leurs lors mais meme moins notamment notre nous plus pour pourrait
+quand quel quelle quelles quels sans selon sera seront ses sont sous tous tout
+toute toutes tres une unes vers votre vous ainsi apres egalement deja dont
+selon toutefois pourtant parmi plusieurs certains certaines chaque autant
+""".split())
+
+
+def _ancrage_norm(texte: str) -> str:
+    import unicodedata as _ud
+    t = _ud.normalize("NFD", str(texte or "").lower())
+    t = "".join(c for c in t if _ud.category(c) != "Mn")
+    t = t.replace("’", "'").replace(" ", " ").replace("\xa0", " ")
+    return t
+
+
+def _ancrage_url(u: str) -> str:
+    u = str(u or "").strip().lower().split("#", 1)[0].split("?", 1)[0]
+    u = re.sub(r"^https?://(www\.)?", "", u)
+    return u.rstrip("/")
+
+
+def _ancrage_nombres(phrase: str) -> list[str]:
+    t = re.sub(r"(?<=\d)[  \xa0.](?=\d{3}\b)", "", phrase)
+    return [n.replace(",", ".") for n in re.findall(r"\d+(?:[.,]\d+)?", t)]
+
+
+def _ancrage_noms(phrase: str) -> list[str]:
+    mots = re.findall(r"[A-ZÀ-ÖØ-Ý][\wÀ-ÖØ-öø-ÿ'’-]{2,}", phrase)
+    debut = re.match(r"\W*([\wÀ-ÖØ-öø-ÿ'’-]+)", phrase)
+    premier = debut.group(1) if debut else ""
+    return [m for m in mots if m != premier and len(m) >= 4]
+
+
+def _ancrage_mots(phrase: str) -> list[str]:
+    mots = re.findall(r"[a-z]{5,}", _ancrage_norm(phrase))
+    return [m[:6] for m in mots if m not in _MOTS_VIDES]
+
+
+def _phrase_ancree(phrase: str, reference: str) -> tuple[bool, str]:
+    ref = _ancrage_norm(reference)
+    if len(ref) < 200:
+        return False, "source sans texte vérifiable"
+    ref_nombres = re.sub(r"(?<=\d)[  \xa0.](?=\d{3}\b)", "", ref).replace(",", ".")
+    for n in _ancrage_nombres(phrase):
+        if not re.search(r"(?<![\d.])" + re.escape(n) + r"(?![\d])", ref_nombres):
+            return False, f"nombre absent de la source : {n}"
+    for nom in _ancrage_noms(phrase):
+        if _ancrage_norm(nom)[:6] not in ref:
+            return False, f"nom absent de la source : {nom}"
+    mots = _ancrage_mots(phrase)
+    if mots:
+        couverts = sum(1 for m in mots if m in ref)
+        if couverts / len(mots) < _ANCRAGE_SEUIL_MOTS:
+            return False, f"contenu non retrouvé ({couverts}/{len(mots)} mots)"
+    return True, ""
+
+
+def ancrer_article(art: dict, sources_fournies: list) -> tuple[bool, list[str]]:
+    """Supprime les phrases non ancrées dans les extraits ; False si trop."""
+    journal: list[str] = []
+    par_url = {}
+    for src in sources_fournies or []:
+        if isinstance(src, dict):
+            par_url[_ancrage_url(src.get("url"))] = str(src.get("snippet") or "")
+    tout = " ".join(par_url.values())
+    refs = {}
+    for i, src in enumerate(art.get("sources") or [], 1):
+        if isinstance(src, dict):
+            refs[i] = par_url.get(_ancrage_url(src.get("url")), "")
+
+    mots_total = mots_retires = 0
+
+    def _filtrer(texte: str, lieu: str) -> str:
+        nonlocal mots_total, mots_retires
+        garder = []
+        for ligne in str(texte or "").split("\n"):
+            phrases = [p for p in re.split(r"(?<=[.!?»])\s+(?=[«\"A-ZÀ-ÖØ-Ý0-9])", ligne) if p.strip()]
+            gardees = []
+            for ph in phrases:
+                n_mots = len(ph.split())
+                mots_total += n_mots
+                appels = [int(x) for x in re.findall(r"\[(\d+)\]", ph)]
+                sans_appels = re.sub(r"\s*\[\d+\]", "", ph)
+                if appels:
+                    reference = " ".join(refs.get(a, "") for a in appels)
+                else:
+                    reference = tout
+                ok, motif = _phrase_ancree(sans_appels, reference)
+                if ok:
+                    gardees.append(ph)
+                else:
+                    mots_retires += n_mots
+                    journal.append(f"{lieu} : {motif} — « {sans_appels[:90]}… »")
+            if gardees:
+                garder.append(" ".join(gardees))
+        return "\n".join(garder)
+
+    corps = art.get("corps") if isinstance(art.get("corps"), dict) else {}
+    for cle in ("faits", "contexte", "nuances"):
+        if corps.get(cle):
+            corps[cle] = _filtrer(corps[cle], cle)
+    resume = art.get("resume")
+    if isinstance(resume, list):
+        art["resume"] = [x for x in (_filtrer(r, "chapeau") for r in resume) if x.strip()]
+    elif isinstance(resume, str) and resume:
+        art["resume"] = _filtrer(resume, "chapeau")
+
+    part = (mots_retires / mots_total) if mots_total else 0.0
+    return part <= _ANCRAGE_REJET_PART, journal
+
+
 def _extra_corps(modele: str) -> dict:
     """`extra_body` du SDK pour couper la réflexion d'un modèle raisonneur (NVIDIA)."""
     from modele_fournisseur import corps_sans_reflexion
@@ -8969,7 +9099,7 @@ def generer_article(item: dict, dry_run: bool, published: set, new_pub: set, dat
     # sous 6 injectées ferait échouer des sujets valides sur ce contrôle-là.
     if article_type == "breve":
         MIN_SOURCES_INJ, MAX_SOURCES_INJ = 6, 8
-    if ETOFFER_AU_LIEU_DE_CONVERTIR and article_type != "breve":
+    if (ETOFFER_AU_LIEU_DE_CONVERTIR or ANCRAGE_STRICT) and article_type != "breve":
         extra = _equilibrer_hierarchie_sources(extra)
     _retenues, _budget = [], 0
     for _s in extra:
@@ -9335,7 +9465,8 @@ def generer_article(item: dict, dry_run: bool, published: set, new_pub: set, dat
             # Fournisseur gratuit (ETOFFER_AU_LIEU_DE_CONVERTIR) : jusqu'à 3 tours,
             # chacun ciblé sur des faits précis NON encore exploités. Les jetons ne
             # coûtent rien ; les seuils, eux, ne bougent pas. Sinon : un seul tour.
-            _tours = 3 if (ETOFFER_AU_LIEU_DE_CONVERTIR and article_type != "breve") else 1
+            _tours = 3 if (ETOFFER_AU_LIEU_DE_CONVERTIR and not ANCRAGE_STRICT
+                          and article_type != "breve") else 1
             for _tour in range(_tours):
                 if _tour > 0:
                     print(f"     [GARDE] Étoffement : tour {_tour + 1}/{_tours} "
@@ -9375,7 +9506,22 @@ def generer_article(item: dict, dry_run: bool, published: set, new_pub: set, dat
         # vérification, avec la liste exacte des défauts, au plus 2 fois. La grille
         # (`showcase_quality`) n'est PAS modifiée : seul le rédacteur reçoit une
         # chance de corriger ce qu'elle refuse. Désactivé hors fournisseur gratuit.
-        if ETOFFER_AU_LIEU_DE_CONVERTIR and article_type == "actu" and isinstance(art, dict):
+        if ANCRAGE_STRICT and isinstance(art, dict):
+            _ok_a, _journal_a = ancrer_article(art, extra)
+            for _ligne_a in _journal_a:
+                print(f"     [ANCRAGE] phrase retirée — {_ligne_a}")
+            if not _ok_a:
+                print(f"     [REJET ANCRAGE] {len(_journal_a)} phrase(s) absentes des sources : "
+                      "trop de texte non étayé pour publier")
+                return False
+            for _fait_a in _mise_en_forme_vitrine(art):
+                print(f"     [MISE EN FORME] {_fait_a}")
+            _plancher_a = _seuils(article_type)["plancher"]
+            if _mots_totaux(art) < _plancher_a:
+                print(f"     [REJET ANCRAGE] {_mots_totaux(art)} mots étayés, plancher {_plancher_a}")
+                return False
+        if (ETOFFER_AU_LIEU_DE_CONVERTIR and not ANCRAGE_STRICT
+                and article_type == "actu" and isinstance(art, dict)):
             try:
                 from showcase_quality import validate_generated_article as _vitrine_pre
             except Exception:
