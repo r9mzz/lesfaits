@@ -331,8 +331,24 @@ jobs:
           retention-days: 14
 
       # ── 5. Commit dans le repo privé (sans déployer sur le site) ─────────
+      # ── PUBLICATION SUSPENDUE (25/11) ─────────────────────────────────────
+      # Variable de dépôt PUBLICATION_SUSPENDUE=1 : le run génère normalement,
+      # mais RIEN n'est enregistré sur main (donc rien n'est déployé ni envoyé
+      # dans la newsletter). Les articles produits sont conservés en artefact
+      # pour relecture. Retirer la variable pour reprendre la publication.
+      - name: Conserver les brouillons (publication suspendue)
+        if: steps.garde.outputs.passer != 'true' && vars.PUBLICATION_SUSPENDUE == '1'
+        uses: actions/upload-artifact@v4
+        with:
+          name: brouillons-${{ github.run_id }}
+          path: |
+            articles/
+            data/articles.json
+          if-no-files-found: ignore
+          retention-days: 30
+
       - name: Sauvegarder les articles générés
-        if: steps.garde.outputs.passer != 'true'
+        if: steps.garde.outputs.passer != 'true' && vars.PUBLICATION_SUSPENDUE != '1'
         env:
           TZ: Europe/Paris
         run: |
