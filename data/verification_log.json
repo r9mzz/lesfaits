@@ -92394,5 +92394,372 @@
     "n_sources_injectees": 10,
     "n_sources_trouvees": 10,
     "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "secheresse-37-departements-crise-pluies-automnales",
+    "statut": "rejete_qualite",
+    "date": "2026-11-25T10:14:19",
+    "problemes_initiaux": 5,
+    "tentatives": 3,
+    "problemes_restants": 5,
+    "bloquants_restants": 2,
+    "bloquants_types": [
+      "incoherence_inter_sections",
+      "chiffre_errone"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "incoherence_inter_sections",
+        "description": "Le chapeau (résumé) et le titre annoncent 37 départements en crise, mais le dernier paragraphe des faits cite 20 Minutes [4] pour affirmer que \"Vingt départements sont toujours en état de crise sécheresse\", créant une in",
+        "phrase": "Malgré le retour des perturbations atlantiques à la mi-novembre, 37 départements demeurent en situation de crise concernant l'accès à l'eau potable, le niveau d'alerte le plus élevé, et 28 autres sont en alerte renforcée"
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [4] (20 Minutes) traite de la Bretagne et de la question des barrages, elle ne fournit pas un décompte national de 20 départements en crise ; ce chiffre contredit par ailleurs le chiffre de 37 départements donn",
+        "phrase": "Vingt départements sont toujours en état de crise sécheresse à l'approche de l'hiver, faisant planer la crainte d'une rupture d'approvisionnement, selon 20 Minutes [4]."
+      }
+    ],
+    "types_restants": [
+      "incoherence_inter_sections",
+      "chiffre_errone",
+      "source_inventee",
+      "source_inventee",
+      "compteur_incoherent"
+    ],
+    "article_type": "actu",
+    "titre": "Sécheresse : 37 départements en crise malgré le retour des pluies",
+    "n_sources": 4,
+    "n_mots": 467,
+    "titre_rss": "Sécheresse : malgré le retour de la pluie, 37 départements toujours en situation de crise",
+    "matiere_faits_distincts": 1094,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "canicules-marines-records-temperature-biodiversite-2026",
+    "statut": "rejete_qualite",
+    "date": "2026-11-25T10:24:34",
+    "tentative": 3,
+    "perte_substance": true,
+    "section": "faits",
+    "mots_avant": 156,
+    "mots_apres": 67,
+    "article_type": "actu",
+    "titre": "Canicules marines : records de température et impacts sur la biodiversité en 2026",
+    "n_sources": 4,
+    "n_mots": 521,
+    "titre_rss": "La biodiversité face aux canicules marines",
+    "matiere_faits_distincts": 832,
+    "matiere_redondance": 0.01,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "lhcb-desintegration-rare-meson-b0-muons-preuve",
+    "statut": "rejete_qualite",
+    "date": "2026-11-25T10:46:51",
+    "problemes_initiaux": 11,
+    "tentatives": 3,
+    "problemes_restants": 9,
+    "bloquants_restants": 2,
+    "bloquants_types": [
+      "chiffre_errone",
+      "incoherence_inter_sections"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [5] indique un taux de branchement de 1,3 sur 100 milliards (branching ratio de 1,3e-10), pas 1,3 sur 10 milliards (1,3e-9). Le chiffre est erroné d'un facteur 10.",
+        "phrase": "Ce canal, prévu par le Modèle standard, n'apparaît que 1,3 fois sur 10 milliards de désintégrations [5]."
+      },
+      {
+        "bloc": 1,
+        "type": "incoherence_inter_sections",
+        "description": "Le résumé (chapeau) répète le même chiffre erroné : « une fréquence de 1,3 sur 10 milliards ». L'incohérence est interne entre le corps et le résumé, tous deux contredisant la source [5] qui donne 1,3 sur 100 milliards.",
+        "phrase": "Ce canal, prévu par le Modèle standard, n'apparaît que 1,3 fois sur 10 milliards de désintégrations [5]."
+      }
+    ],
+    "types_restants": [
+      "chiffre_errone",
+      "incoherence_inter_sections",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "compteur_incoherent",
+      "section_gonflee"
+    ],
+    "article_type": "actu",
+    "titre": "LHCb détecte une désintégration ultra-rare du méson B⁰ après 40 ans de recherche",
+    "n_sources": 5,
+    "n_mots": 513,
+    "titre_rss": "L'expérience LHCb laisse entrevoir une désintégration rarissime",
+    "matiere_faits_distincts": 1269,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "etude_scientifique"
+  },
+  {
+    "slug": "etats-unis-juge-valide-accord-bayer-7-25-milliards-roundup",
+    "statut": "rejete_qualite",
+    "date": "2026-11-25T10:59:07",
+    "problemes_initiaux": 14,
+    "tentatives": 3,
+    "problemes_restants": 15,
+    "bloquants_restants": 8,
+    "bloquants_types": [
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [1] (Le Monde) indique « plus de 167 000 plaignants », l'article écrit « plus de 100 000 » — le chiffre est inférieur à la source citée.",
+        "phrase": "Selon Le Monde, plus de 100 000 plaignants sont engagés dans des procédures devant des juridictions fédérales ou d'États américains [1]."
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [2] (Le Temps) ne contient aucune information sur un accord de juin 2020, ni sur 125 000 plaintes, ni sur 2 milliards pour futures réclamations — ces chiffres ne figurent pas dans l'extrait fourni.",
+        "phrase": "En juin 2020, un premier accord à 10 milliards de dollars avait été signé pour solder environ 75 % des quelque 125 000 plaintes alors recensées, avec 2 milliards supplémentaires prévus pour les futures réclamations [2]."
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [1] (Le Monde) indique une provision de 5,5 milliards de dollars, l'article écrit 6,5 milliards.",
+        "phrase": "Le groupe avait déjà provisionné 6,5 milliards de dollars pour faire face aux nouvelles procédures [1]."
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [1] (Le Monde) indique « plus de 11 milliards de dollars », l'article écrit « plus de 10 milliards » — le chiffre est inférieur à la source citée.",
+        "phrase": "Les litiges lui ont coûté plus de 10 milliards de dollars au total depuis 2018 [1]."
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [1] (Le Monde) indique un verdict de 2,25 milliards réduit à 400 millions de dollars en appel ; l'article omet la réduction et présente le montant initial comme un jugement définitif.",
+        "phrase": "Les indemnisations maximales évoquées (198 000 dollars) restent inférieures à plusieurs verdicts de jurys, dont un jugement de 2,25 milliards de dollars en 2022 [1]."
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "Le renvoi [2] attribue ces faits à la source Le Temps, mais l'extrait de cette source ne contient aucune de ces informations — le fait est inventé par rapport à la source citée.",
+        "phrase": "En juin 2020, un premier accord à 10 milliards de dollars avait été signé pour solder environ 75 % des quelque 125 000 plaintes alors recensées, avec 2 milliards supplémentaires prévus pour les futures réclamations [2]."
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "Le renvoi [2] attribue cette décision récente sur la préemption FIFRA à la source Le Temps, mais l'extrait ne mentionne ni préemption FIFRA, ni appel récent, ni cet effet sur les plaintes — le fait est inventé par rappor",
+        "phrase": "Plus récemment, la Cour suprême a refusé d'entendre l'appel de Bayer sur un point de droit fédéral (préemption FIFRA), ce qui constitue un coup dur pour le groupe et ne rend pas caduques les plaintes fondées sur un défau"
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "Le renvoi [2] attribue cette décision de cour d'appel californienne à la source Le Temps, mais l'extrait ne mentionne ni cour d'appel californienne, ni EPA, ni réexamen — le fait est inventé par rapport à la source citée",
+        "phrase": "Parallèlement, une cour d'appel californienne a ordonné à l'EPA de réexaminer sa conclusion selon laquelle le glyphosate ne présente pas de danger cancérigène [2]."
+      }
+    ],
+    "types_restants": [
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "chronologie_confuse",
+      "chronologie_confuse",
+      "chiffre_errone",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_non_editoriale",
+      "cadrage_emprunte",
+      "faux_debat",
+      "redondance",
+      "redondance"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "resume_repete_corps"
+    ],
+    "titre": "Un juge américain valide l'accord Bayer de 7,25 milliards pour les plaintes Roundup",
+    "n_sources": 4,
+    "n_mots": 623,
+    "titre_rss": "Etats-Unis : un juge valide un accord d’indemnisation par Bayer de 7,25 milliards de dollars pour solder l’ensemble des plaintes liées au Roundup",
+    "matiere_faits_distincts": 1191,
+    "matiere_redondance": 0.01,
+    "matiere_donnees_chiffrees": 8,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "artemis-II-perce-ionosphere-trois-fois-risque-gps",
+    "statut": "rejete_sensible",
+    "date": "2026-11-25T11:08:20",
+    "problemes_initiaux": 13,
+    "tentative": 2,
+    "bloc5": true,
+    "article_type": "actu",
+    "titre": "Artemis II a percé l'ionosphère trois fois, créant un risque pour le GPS",
+    "n_sources": 4,
+    "n_mots": 631,
+    "titre_rss": "Une mission vers la Lune perturbe l’ionosphère autant qu’une éruption volcanique majeure",
+    "matiere_faits_distincts": 1107,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 2,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "etude_scientifique"
+  },
+  {
+    "slug": "guadeloupe-chu-cyberattaque-plan-blanc-deprogrammation",
+    "statut": "corrige_automatiquement",
+    "date": "2026-11-25T11:13:41",
+    "problemes_initiaux": 12,
+    "tentatives": 2,
+    "problemes_residuels_style": 2,
+    "rapport_initial": {
+      "conforme": false,
+      "sujet_sensible": false,
+      "sujet_sensible_raison": "",
+      "angle_insuffisant": false,
+      "angle_insuffisant_raison": "",
+      "nature_contenu": "actualite_factuelle",
+      "problemes": [
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "Le centre hospitalier universitaire (CHU) de Guadeloupe a été victime d'une cyberattaque qualifiée de « grande ampleur » par son directeur, Éric Guyader.",
+          "explication": "La source [1] (Le Monde, 2026-11-22) ne mentionne pas le nom du directeur Éric Guyader dans l'extrait fourni ; l'attribution de cette citation à ce nom propre n'est pas vérifiable par la source citée."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "Le système d'information et la téléphonie de l'établissement sont « très affectés », selon les termes employés par la direction [1].",
+          "explication": "L'extrait de la source [1] ne contient pas l'expression « très affectés » ni une citation de la direction utilisant ces termes ; le fait n'est pas confirmé par la source référencée."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "L'activité programmée — consultations, chirurgies non urgentes, examens — est déprogrammée pour « la semaine qui vient » afin de concentrer les ressources sur « la prise en charge des patients déjà présents et des cas les plus urgents » [1].",
+          "explication": "Les guillemets « la semaine qui vient » et « la prise en charge des patients déjà présents et des cas les plus urgents » ne figurent pas dans l'extrait de la source [1] ; l'article attribue à la source des citations qu'elle ne contient pas."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "En août 2022, le centre hospitalier de Corbeil-Essonnes (Essonne) a subi une attaque par rançongiciel avec une demande de 10 millions de dollars, ensuite réduite à 1 ou 2 millions selon les sources [6].",
+          "explication": "La source [6] n'existe pas dans la liste des sources autorisées (seules 4 sources sont listées, indices 1 à 4) ; le renvoi [6] est une invention."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "D'autres entités ont été touchées dans les mois suivants : la ville de Caen fin septembre, le département de Seine-Maritime en octobre, puis celui de Seine-et-Marne en novembre 2022 [6].",
+          "explication": "Même problème : le renvoi [6] ne correspond à aucune source autorisée ; les faits cités (Caen, Seine-Maritime, Seine-et-Marne) ne sont documentés par aucune des quatre sources fournies."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "La région Guadeloupe elle-même a porté plainte le 21 novembre 2022 pour une cyberattaque distincte ayant visé ses propres réseaux administratifs, interrompant tous ses systèmes d'information par mesure de sécurité [2][3][4][5].",
+          "explication": "Les renvois [5] n'existe pas (seules 4 sources) ; de plus, les sources [2], [3], [4] (La Croix, 20 Minutes, Cnews du 2022-11-22) portent sur la région Guadeloupe, pas sur le CHU, et leur date (2022) ne correspond pas à l'événement principal de l'article (CHU, 2026)."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "Ces attaques mobilisent systématiquement l'Agence nationale de la sécurité des systèmes d'information (ANSSI), la police nationale et la gendarmerie, ainsi que la CNIL pour les notifications de violation de données [4][5].",
+          "explication": "Renvoi [5] inexistant ; l'affirmation sur la mobilisation systématique de l'ANSSI, police, gendarmerie, CNIL n'est pas présente dans les extraits des sources [4] (Cnews 2022) ni d'aucune autre source fournie."
+        },
+        {
+          "bloc": 1,
+          "section": "nuances",
+          "type": "source_inventee",
+          "phrase_exacte": "L'expérience d'autres établissements touchés en 2022, comme la ville de Caen dont certains services n'étaient pas pleinement restaurés deux mois après l'attaque, suggère que la remise en état peut durer plusieurs mois [5].",
+          "explication": "Renvoi [5] inexistant ; l'information sur la ville de Caen et le délai de deux mois ne figure dans aucune des quatre sources autorisées."
+        },
+        {
+          "bloc": 2,
+          "section": "contexte",
+          "type": "compteur_incoherent",
+          "phrase_exacte": "\"nb_sources\": 4",
+          "explication": "Le champ nb_sources indique 4, mais le texte utilise des renvois jusqu'à [6] et [5] qui n'existent pas dans la liste ; le compteur ne reflète pas les sources réellement citées (fantômes) ni les sources listées mais non utilisées ([2],[3],[4] ne servent que pour le contexte 2022, sans lien direct avec l'événement 2026)."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "chronologie_confuse",
+          "phrase_exacte": "Cette cyberattaque contre le CHU de Guadeloupe s'inscrit dans une série d'attaques contre des établissements de santé et des collectivités françaises depuis l'été 2022.",
+          "explication": "L'article mélange implicitement l'attaque du CHU (novembre 2026 selon la source [1]) avec des attaques de 2022 (Corbeil-Essonnes, Caen, Seine-Maritime, Seine-et-Marne, région Guadeloupe) sans expliciter qu'il s'agit d'époques différentes (4 ans d'écart) et sans lien direct établi par les sources entre ces événements et celui du CHU en 2026."
+        },
+        {
+          "bloc": 4,
+          "section": "contexte",
+          "type": "contexte_hors_sujet",
+          "phrase_exacte": "En août 2022, le centre hospitalier de Corbeil-Essonnes (Essonne) a subi une attaque par rançongiciel avec une demande de 10 millions de dollars, ensuite réduite à 1 ou 2 millions selon les sources [6].",
+          "explication": "Ce fait (Corbeil-Essonnes, août 2022) ne porte pas sur le CHU de Guadeloupe ni sur l'événement principal (novembre 2026) ; il sert de remplissage générique sans éclairer la cyberattaque actuelle, et la source [6] est inventée."
+        },
+        {
+          "bloc": 4,
+          "section": "contexte",
+          "type": "contexte_hors_sujet",
+          "phrase_exacte": "La région Guadeloupe elle-même a porté plainte le 21 novembre 2022 pour une cyberattaque distincte ayant visé ses propres réseaux administratifs, interrompant tous ses systèmes d'information par mesure de sécurité [2][3][4][5].",
+          "explication": "Cet événement concerne la région Guadeloupe (collectivité territoriale), pas le CHU (établissement de santé), et date de 2022 ; les sources [2][3][4] le documentent mais n'ont pas de lien direct avec l'attaque du CHU en 2026, ce qui en fait un contexte hors sujet."
+        }
+      ]
+    },
+    "article_type": "actu",
+    "titre": "Guadeloupe : le CHU paralysé par une cyberattaque, plan blanc déclenché et activité déprogrammée",
+    "n_sources": 4,
+    "n_mots": 473,
+    "titre_rss": "Guadeloupe : le CHU victime d’une « cyberattaque de grande ampleur », le plan blanc déclenché",
+    "matiere_faits_distincts": 1145,
+    "matiere_redondance": 0.09,
+    "matiere_donnees_chiffrees": 2,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "bepicolombo-arrive-mercure-huit-ans-mysteres-planete-fer",
+    "statut": "rejete_sensible",
+    "date": "2026-11-25T11:33:05",
+    "problemes_initiaux": 11,
+    "bloc5": [
+      "affaire_en_cours_presentee_comme_fait"
+    ],
+    "article_type": "actu",
+    "titre": "BepiColombo arrive à Mercure après huit ans de voyage",
+    "n_sources": 7,
+    "n_mots": 706,
+    "titre_rss": "Les mystères de Mercure, l’étrange planète du Système solaire, que la mission BepiColombo devrait lever",
+    "matiere_faits_distincts": 1067,
+    "matiere_redondance": 0.01,
+    "matiere_donnees_chiffrees": 2,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
   }
 ]
