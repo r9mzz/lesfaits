@@ -91407,5 +91407,992 @@
     "n_sources_injectees": 10,
     "n_sources_trouvees": 10,
     "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "pannes-cascade-etats-unis-microsoft-banques-trafic-aerien-novembre-2026",
+    "statut": "corrige_automatiquement",
+    "date": "2026-11-24T23:27:02",
+    "problemes_initiaux": 14,
+    "tentatives": 2,
+    "problemes_residuels_style": 13,
+    "rapport_initial": {
+      "conforme": false,
+      "sujet_sensible": false,
+      "sujet_sensible_raison": "",
+      "angle_insuffisant": false,
+      "angle_insuffisant_raison": "",
+      "nature_contenu": "actualite_factuelle",
+      "problemes": [
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "Ces incidents ont affecté des dizaines de millions de personnes, provoquant des boîtes mail inaccessibles, des retards bancaires et un effondrement des communications qui a cloué au sol des avions pendant plusieurs heures, suivi de vagues de perturbations dans les transports [5].",
+          "explication": "La source [5] (AP News) n'est pas fournie dans les extraits ; le fait chiffré \"dizaines de millions\" et le détail des conséquences (boîtes mail, retards bancaires, avions cloués au sol) ne peuvent être vérifiés contre les sources autorisées."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "Trois hauts responsables américains — le directeur de la CISA, le conseiller adjoint à la sécurité nationale et le directeur adjoint du FBI — ont publiquement exclu toute activité malveillante derrière cette série de pannes [4].",
+          "explication": "La source [4] (Le Monde) n'est pas fournie dans les extraits ; les noms précis des trois responsables et leur déclaration ne peuvent être vérifiés contre les sources autorisées."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "Les problèmes sont apparus à partir de mises à jour de routine, de correctifs de sécurité ou d'autres dysfonctionnements techniques, sans lien avec une cyberattaque coordonnée [5].",
+          "explication": "La source [5] (AP News) n'est pas fournie dans les extraits ; l'explication technique (mises à jour de routine, correctifs de sécurité) ne peut être vérifiée contre les sources autorisées."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "En France, plusieurs incidents récents montrent comment des cyberattaques peuvent frapper le monde réel : frigos sabotés, plasma sanguin menacé, hôpital paralysé [1].",
+          "explication": "La source [1] (Futura Sciences) n'est pas fournie dans les extraits ; les trois exemples précis (frigos sabotés, plasma sanguin menacé, hôpital paralysé) ne peuvent être vérifiés contre les sources autorisées."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "La commission d'enquête de l'Assemblée nationale sur les dépendances structurelles et les vulnérabilités systémiques dans le secteur du numérique a déposé son rapport le 8 juillet 2026, alertant sur les risques pour l'indépendance de la France [2].",
+          "explication": "La source [2] (Assemblée nationale) n'est pas fournie dans les extraits ; la date de dépôt et le contenu de l'alerte ne peuvent être vérifiés contre les sources autorisées."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "L'ONU a publié en mai 2026 un rapport décrivant un scénario de « pandémie numérique » : paiements bloqués, hôpitaux privés de données, alertes d'urgence réduites au silence, réseaux électriques en chute, jugeant ce scénario plus plausible qu'on ne le pense et le monde mal préparé [7].",
+          "explication": "La source [7] (UN) n'est pas fournie dans les extraits ; le détail du scénario (paiements bloqués, hôpitaux privés de données, alertes d'urgence réduites au silence, réseaux électriques en chute) ne peut être vérifié contre les sources autorisées."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "L'Insee relève qu'en 2023, 15,7 % des personnes de 15 ans ou plus en France sont en situation d'illectronisme et 30,3 % ont des compétences numériques faibles, ce qui limite la résilience individuelle face aux pannes [3].",
+          "explication": "La source [3] (Insee) n'est pas fournie dans les extraits ; les deux chiffres précis (15,7 % et 30,3 %) et leur interprétation ne peuvent être vérifiés contre les sources autorisées."
+        },
+        {
+          "bloc": 1,
+          "section": "nuances",
+          "type": "source_inventee",
+          "phrase_exacte": "L'origine exacte de chaque panne américaine n'est pas détaillée publiquement au-delà de l'exclusion d'une intention malveillante par les autorités [4].",
+          "explication": "La source [4] (Le Monde) n'est pas fournie dans les extraits ; cette nuance sur l'absence de détail public ne peut être vérifiée contre les sources autorisées."
+        },
+        {
+          "bloc": 1,
+          "section": "nuances",
+          "type": "source_inventee",
+          "phrase_exacte": "Le lien de causalité direct entre les différents incidents — s'ils relèvent d'une cause racine commune ou de coïncidences temporelles — n'est pas établi dans les sources disponibles.",
+          "explication": "Aucune source n'est citée pour cette affirmation ; elle ne peut être vérifiée contre les sources autorisées."
+        },
+        {
+          "bloc": 1,
+          "section": "nuances",
+          "type": "source_inventee",
+          "phrase_exacte": "Le rapport de l'ONU décrit un scénario prospectif, non une analyse des événements de novembre 2026 [7].",
+          "explication": "La source [7] (UN) n'est pas fournie dans les extraits ; cette distinction entre scénario prospectif et analyse des événements ne peut être vérifiée contre les sources autorisées."
+        },
+        {
+          "bloc": 1,
+          "section": "nuances",
+          "type": "source_inventee",
+          "phrase_exacte": "Les incidents français cités par Futura Sciences illustrent des cyberattaques avérées, distinctes par leur nature des pannes techniques américaines [1].",
+          "explication": "La source [1] (Futura Sciences) n'est pas fournie dans les extraits ; la qualification de \"cyberattaques avérées\" et la distinction de nature ne peuvent être vérifiées contre les sources autorisées."
+        },
+        {
+          "bloc": 1,
+          "section": "nuances",
+          "type": "source_inventee",
+          "phrase_exacte": "L'Assemblée nationale alerte sur une dépendance structurelle aux fournisseurs non européens pour les infrastructures cloud, les systèmes d'exploitation et les composants critiques, ce qui réduit la marge de manœuvre souveraine en cas de défaillance majeure [2].",
+          "explication": "La source [2] (Assemblée nationale) n'est pas fournie dans les extraits ; le détail sur les fournisseurs non européens (cloud, OS, composants critiques) et la réduction de marge de manœuvre ne peuvent être vérifiés contre les sources autorisées."
+        },
+        {
+          "bloc": 1,
+          "section": "nuances",
+          "type": "source_inventee",
+          "phrase_exacte": "L'Insee souligne que la fracture numérique en France — 15,7 % d'illectronisme et 30,3 % de compétences faibles — constitue un facteur d'aggravation lors de pannes généralisées, les populations les plus vulnérables étant les moins outillées pour contourner les services numériques défaillants [3].",
+          "explication": "La source [3] (Insee) n'est pas fournie dans les extraits ; l'interprétation de la fracture numérique comme facteur d'aggravation et le sort des populations vulnérables ne peuvent être vérifiés contre les sources autorisées."
+        },
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "compteur_incoherent",
+          "phrase_exacte": "nb_sources: 6",
+          "explication": "Le champ nb_sources indique 6, mais aucune des 6 sources listées n'est fournie avec ses extraits dans le matériel de vérification ; le compteur ne reflète pas les sources effectivement utilisables pour le fact-checking."
+        }
+      ]
+    },
+    "article_type": "actu",
+    "titre": "Pannes en cascade aux États-Unis : Microsoft, banques et trafic aérien paralysés",
+    "n_sources": 6,
+    "n_mots": 536,
+    "titre_rss": "Apocalypse numérique : ce que les pannes de ces dernières semaines laissent entrevoir",
+    "matiere_faits_distincts": 773,
+    "matiere_redondance": 0.1,
+    "matiere_donnees_chiffrees": 4,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "pesticides-parlement-europeen-reporte-vote-omnibus-x-2027",
+    "statut": "corrige_automatiquement",
+    "date": "2026-11-24T23:30:12",
+    "problemes_initiaux": 12,
+    "tentatives": 1,
+    "problemes_residuels_style": 6,
+    "rapport_initial": {
+      "conforme": false,
+      "sujet_sensible": false,
+      "sujet_sensible_raison": "",
+      "angle_insuffisant": false,
+      "angle_insuffisant_raison": "",
+      "nature_contenu": "actualite_factuelle",
+      "problemes": [
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "chiffre_errone",
+          "phrase_exacte": "Ce texte, porté par la Commission européenne depuis décembre 2025, vise à assouplir l'encadrement des pesticides dans l'Union européenne au nom d'une politique de « simplification » de la vie des entreprises [3].",
+          "explication": "La source [3] (France Info, 2026) ne mentionne pas la date de décembre 2025 pour la proposition de la Commission européenne ; cette date n'est pas confirmée par les extraits fournis."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "chiffre_errone",
+          "phrase_exacte": "La raison officielle invoquée est un embouteillage dans l'approbation des produits phytopharmaceutiques utilisés, qui empêche l'examen serein du dossier dans les délais prévus [1].",
+          "explication": "La source [1] (Le Monde, 24/11/2026) ne mentionne pas un « embouteillage dans l'approbation des produits phytopharmaceutiques » comme raison officielle du report ; cette formulation n'est pas confirmée par l'extrait fourni."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "chiffre_errone",
+          "phrase_exacte": "Le report concerne l'ensemble du paquet législatif, y compris les dispositions prévoyant des autorisations illimitées pour une partie des substances actives [1].",
+          "explication": "La source [1] ne mentionne pas de « dispositions prévoyant des autorisations illimitées pour une partie des substances actives » ; cette précision n'est pas confirmée par l'extrait fourni."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "chiffre_errone",
+          "phrase_exacte": "Le Conseil d'État a rendu en 2026 un avis sur une proposition de loi sénatoriale visant à assouplir l'interdiction des néonicotinoïdes pour certaines filières comme la betterave sucrière, sous conditions strictes et temporaires [5].",
+          "explication": "La source [5] n'existe pas dans la liste des sources autorisées (seules 4 sources sont listées, indices 1 à 4) ; le renvoi [5] est invalide et l'information n'est sourcée par aucun extrait fourni."
+        },
+        {
+          "bloc": 2,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "Le Conseil d'État a rendu en 2026 un avis sur une proposition de loi sénatoriale visant à assouplir l'interdiction des néonicotinoïdes pour certaines filières comme la betterave sucrière, sous conditions strictes et temporaires [5].",
+          "explication": "Le renvoi [5] cite le Conseil d'État comme source, mais cette institution ne figure pas dans la liste des sources autorisées (Le Monde, OECD, France Info, AP News)."
+        },
+        {
+          "bloc": 2,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "L'OCDE soutient de son côté les gouvernements dans l'évaluation des risques et le partage des travaux d'homologation des pesticides [2].",
+          "explication": "La source [2] (OECD, page générale « Pesticides and biocides ») ne contient pas l'information selon laquelle l'OCDE « soutient les gouvernements dans l'évaluation des risques et le partage des travaux d'homologation » ; cette affirmation n'est pas confirmée par l'extrait fourni."
+        },
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "Ce texte, porté par la Commission européenne depuis décembre 2025, vise à assouplir l'encadrement des pesticides dans l'Union européenne au nom d'une politique de « simplification » de la vie des entreprises [3].",
+          "explication": "La source [3] (France Info) ne confirme pas que le texte est « porté par la Commission européenne depuis décembre 2025 » ni qu'il vise une « politique de simplification de la vie des entreprises » ; ces détails ne figurent pas dans l'extrait fourni."
+        },
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "Le report concerne l'ensemble du paquet législatif, y compris les dispositions prévoyant des autorisations illimitées pour une partie des substances actives [1].",
+          "explication": "La source [1] (Le Monde) ne mentionne pas de « dispositions prévoyant des autorisations illimitées pour une partie des substances actives » ; cette information n'est pas confirmée par l'extrait fourni."
+        },
+        {
+          "bloc": 1,
+          "section": "nuances",
+          "type": "fait_tranche_arbitrairement",
+          "phrase_exacte": "Les modalités précises des « autorisations illimitées » évoquées pour une partie des pesticides ne sont pas détaillées dans les sources disponibles, ni le périmètre exact des substances concernées [1].",
+          "explication": "L'article présente l'existence d' « autorisations illimitées » comme un fait établi (« évoquées pour une partie des pesticides ») alors que la source [1] ne mentionne pas de telles dispositions ; l'article tranche arbitrairement sur l'existence de ce contenu du texte."
+        },
+        {
+          "bloc": 4,
+          "section": "contexte",
+          "type": "contexte_hors_sujet",
+          "phrase_exacte": "Le Conseil d'État a rendu en 2026 un avis sur une proposition de loi sénatoriale visant à assouplir l'interdiction des néonicotinoïdes pour certaines filières comme la betterave sucrière, sous conditions strictes et temporaires [5].",
+          "explication": "Ce développement porte sur une procédure législative française (néonicotinoïdes, betterave sucrière) qui n'éclaire pas directement le report du vote européen sur Omnibus X ; la source [5] est par ailleurs inexistante dans les sources autorisées."
+        },
+        {
+          "bloc": 4,
+          "section": "contexte",
+          "type": "contexte_hors_sujet",
+          "phrase_exacte": "L'OCDE soutient de son côté les gouvernements dans l'évaluation des risques et le partage des travaux d'homologation des pesticides [2].",
+          "explication": "Cette phrase décrit une activité générale de l'OCDE sans lien direct avec l'actualité du report du vote Omnibus X au Parlement européen ; elle ne sert qu'à remplir la section contexte."
+        },
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "compteur_incoherent",
+          "phrase_exacte": "nb_sources: 4",
+          "explication": "L'article utilise des renvois [1], [2], [3] et [5] (quatre indices distincts), mais la source [5] n'existe pas dans le tableau sources (qui ne contient que 4 entrées indices 1 à 4) ; le compteur nb_sources=4 est incohérent avec les renvois effectifs."
+        }
+      ]
+    },
+    "article_type": "actu",
+    "titre": "Pesticides : le Parlement européen reporte à 2027 le vote sur la loi Omnibus X",
+    "n_sources": 4,
+    "n_mots": 363,
+    "titre_rss": "Pesticides : le Parlement européen reporte à 2027 le vote sur une loi visant à assouplir leur réglementation",
+    "matiere_faits_distincts": 790,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "senat-demande-bei-financer-armes-munitions-defense",
+    "statut": "corrige_automatiquement",
+    "date": "2026-11-24T23:44:27",
+    "problemes_initiaux": 7,
+    "tentatives": 1,
+    "problemes_residuels_style": 0,
+    "rapport_initial": {
+      "conforme": false,
+      "sujet_sensible": false,
+      "sujet_sensible_raison": "",
+      "angle_insuffisant": false,
+      "angle_insuffisant_raison": "",
+      "nature_contenu": "decision_officielle",
+      "problemes": [
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "chiffre_errone",
+          "phrase_exacte": "mobilisant 500 millions d'euros en 2023 pour accélérer la production de munitions",
+          "explication": "La source [4] (Le Monde, 3 mai 2023) indique que l'instrument EDIRPA mobilise 500 millions d'euros pour la période 2022-2025, et non spécifiquement pour l'année 2023 seule."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "chiffre_errone",
+          "phrase_exacte": "mobilisant 500 millions d'euros en 2023 pour accélérer la production de munitions",
+          "explication": "La source [4] (Le Monde, 3 mai 2023) indique que l'instrument EDIRPA mobilise 500 millions d'euros pour la période 2022-2025, et non spécifiquement pour l'année 2023 seule."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "incoherence_inter_sections",
+          "phrase_exacte": "Le Sénat a adopté le 23 octobre 2026 la résolution n° 17 (2026-2027), issue de la proposition n° 653 déposée le 22 mai 2026 par le sénateur Pascal Allizard et plusieurs collègues",
+          "explication": "La source [2] (Dossier législatif) indique que la proposition de résolution n° 653 a été déposée le 22 mai 2024, et non le 22 mai 2026. La date de dépôt dans l'article (22 mai 2026) est postérieure à la date du rapport (8 juillet 2026) et à la date d'adoption (23 octobre 2026), ce qui est chronologiquement incohérent."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "incoherence_inter_sections",
+          "phrase_exacte": "Le rapport de la commission des affaires européennes, présenté par le sénateur Dominique de Legge et déposé le 8 juillet 2026",
+          "explication": "La source [1] (Rapport n° 879) est datée du 8 juillet 2026 mais porte le numéro de législature 2025-2026, ce qui est cohérent. Cependant, la source [2] indique que la proposition a été déposée en mai 2024, ce qui contredit la date de dépôt de mai 2026 mentionnée dans l'article."
+        },
+        {
+          "bloc": 2,
+          "section": "contexte",
+          "type": "source_derivee_comptee_comme_primaire",
+          "phrase_exacte": "La Commission européenne a également proposé le programme EDIP (European Defence Industry Programme) pour renforcer la compétitivité et la réactivité de la base industrielle et technologique de défense européenne (BITDE)",
+          "explication": "La source [3] (Factsheet Parlement européen) est un document de synthèse tertiaire qui résume les initiatives de la Commission (dont EDIP) mais ne constitue pas la source primaire de la proposition EDIP. Elle est comptée comme source distincte alors qu'elle ne fait que reprendre l'information officielle de la Commission."
+        },
+        {
+          "bloc": 4,
+          "section": "contexte",
+          "type": "redondance",
+          "phrase_exacte": "La BEI, banque multilatérale détenue par les 27 États membres, a fait de la lutte contre le changement climatique sa priorité stratégique.",
+          "explication": "Cette information de contexte général sur la BEI n'est pas directement nécessaire à la compréhension de la résolution sénatoriale et alourdit la section sans apporter de fait nouveau sourcé spécifiquement pour cet article."
+        },
+        {
+          "bloc": 4,
+          "section": "nuances",
+          "type": "redondance",
+          "phrase_exacte": "La résolution du Sénat n'a pas de force contraignante sur la BEI, dont les décisions relèvent de son conseil d'administration composé des représentants des États membres.",
+          "explication": "Cette précision juridique, bien que correcte, répète implicitement la nature non contraignante d'une résolution sénatoriale déjà implicite dans le terme 'résolution' et le fait qu'elle 'demande' à la BEI (verbe non contraignant)."
+        }
+      ]
+    },
+    "article_type": "actu",
+    "titre": "Le Sénat demande à la BEI de financer armes et munitions pour l'industrie de défense",
+    "n_sources": 4,
+    "n_mots": 560,
+    "titre_rss": "Armes et munitions produites par les industries européennes de la défense - Rapport n° 879",
+    "matiere_faits_distincts": 973,
+    "matiere_redondance": 0.03,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "veille_heures_visible": 517.7,
+    "veille_passages": 326,
+    "veille_age_h": 2517.8,
+    "veille_n_flux_grappe": 4,
+    "nature_contenu": "decision_officielle"
+  },
+  {
+    "slug": "cyberattaque-chu-guadeloupe-soignants-debrouille-panne-informatique",
+    "statut": "rejete_qualite",
+    "date": "2026-11-24T23:53:19",
+    "problemes_initiaux": 9,
+    "tentatives": 3,
+    "problemes_restants": 9,
+    "bloquants_restants": 1,
+    "bloquants_types": [
+      "chiffre_errone"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [1] (Libération) indique que la téléphonie fixe fonctionne (« la téléphonie fixe fonctionne encore ») alors que l'article affirme qu'elle est rendue inopérante.",
+        "phrase": "L'attaque a rendu inopérants la téléphonie fixe, les imprimantes, les applications numériques et l'accès aux dossiers patients, plongeant l'établissement dans une panne informatique majeure [1]."
+      }
+    ],
+    "types_restants": [
+      "chiffre_errone",
+      "contexte_hors_sujet",
+      "contexte_hors_sujet",
+      "contexte_hors_sujet",
+      "contexte_hors_sujet",
+      "contexte_hors_sujet",
+      "section_gonflee",
+      "redondance",
+      "redondance"
+    ],
+    "article_type": "actu",
+    "titre": "Cyberattaque au CHU de Guadeloupe : soins maintenus malgré une panne informatique majeure",
+    "n_sources": 5,
+    "n_mots": 508,
+    "titre_rss": "Après la cyberattaque au CHU de Guadeloupe, la débrouille des soignants «pour plusieurs mois»",
+    "matiere_faits_distincts": 965,
+    "matiere_redondance": 0.01,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "secheresse-20-departements-crise-novembre-2026",
+    "statut": "rejete_qualite",
+    "date": "2026-11-25T00:00:53",
+    "problemes_initiaux": 4,
+    "tentatives": 3,
+    "problemes_restants": 17,
+    "bloquants_restants": 12,
+    "bloquants_types": [
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "incoherence_inter_sections",
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [4] (Météo-France, 18 août 2026) indique que l'indicateur a atteint un niveau record bas le 11 août 2026, mais précise qu'il s'agit d'un record depuis le début des mesures en 1958, pas \"jamais\" en termes absolu",
+        "phrase": "l'indicateur national n'ayant jamais été aussi bas en août"
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [1] (Bulletin hydrologique annuel) donne un déficit estival de -38 % (juin -45 %, juillet -67 %, août non précisé dans l'extrait) ; \"proche de 40 %\" est un arrondi non signalé qui masque la précision de la sour",
+        "phrase": "un déficit de précipitations estivales proche de 40 %"
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [1] indique un déficit de 70 % pour septembre 2026, mais l'article écrit \"avait été déficitaire de 70 %\" sans préciser qu'il s'agit du mois de septembre seul, laissant croire à un déficit sur une période plus l",
+        "phrase": "la pluviométrie avait été déficitaire de 70 % au niveau national"
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [1] donne un cumul de 868 mm pour un déficit de 7 %, mais l'extrait ne fournit pas la normale de référence ; l'article présente le chiffre comme acquis sans que la source ne permette de le vérifier indépendamme",
+        "phrase": "un déficit de 7 % par rapport à la normale"
+      },
+      {
+        "bloc": 1,
+        "type": "incoherence_inter_sections",
+        "description": "La source [1] ne mentionne pas l'année hydrologique 2023-2024 ; ce chiffre n'est pas sourcé et contredit l'absence de cette donnée dans les extraits fournis.",
+        "phrase": "après une année 2023-2024 excédentaire de plus de 20 %"
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [1] ne contient pas ces chiffres mensuels précis (janvier +30 %, février record depuis 1959) dans les extraits fournis ; l'article les présente comme faits établis sans source vérifiable.",
+        "phrase": "janvier 2026 a dépassé la normale de plus de 30 % et février 2026 est devenu le février le plus pluvieux depuis 1959"
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [1] ne mentionne pas le déficit d'avril 2026 ni son rang historique dans les extraits fournis ; information non sourcée.",
+        "phrase": "avril 2026 affichant un déficit proche de 70 % (4e avril le plus sec depuis 1959)"
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "Ces chiffres correspondent à la source [1] pour juin et juillet, mais l'article les attribue à l'été complet alors que la source ne donne pas le chiffre d'août ; généralisation non justifiée.",
+        "phrase": "suivi d'un été remarquablement sec avec -45 % en juin et -67 % en juillet"
+      },
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "Aucune des sources fournies ne documente l'année hydrologique 2024-2025 ; ces chiffres (920 mm, +5 %, record du 19 août 2025) sont entièrement non sourcés.",
+        "phrase": "L'année hydrologique précédente (2024-2025) avait déjà montré ce schéma : une pluviométrie globalement conforme à la normale (920 mm) mais une période de recharge favorable (+5 %), puis un assèchement estival marqué avec"
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "Aucune des quatre sources fournies ne mentionne le nombre de départements en crise au 19 novembre 2026 ; le chiffre central de l'article (20 départements) n'est sourcé par aucun document autorisé.",
+        "phrase": "vingt départements français sont maintenus en situation de crise sécheresse"
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "Même problème dans le résumé : le chiffre de 20 départements en crise n'apparaît dans aucune source fournie.",
+        "phrase": "Au 19 novembre 2026, la France compte encore vingt départements en alerte maximale sécheresse"
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "Le titre repose sur le chiffre non sourcé de 20 départements.",
+        "phrase": "Sécheresse : 20 départements encore en crise en novembre, un niveau rare pour la saison"
+      }
+    ],
+    "types_restants": [
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "incoherence_inter_sections",
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "chiffre_errone",
+      "fait_tranche_arbitrairement",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_derivee_comptee_comme_primaire",
+      "compteur_incoherent",
+      "redondance",
+      "section_gonflee"
+    ],
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "resume_repete_corps"
+    ],
+    "titre": "Sécheresse : 20 départements encore en crise en novembre, un niveau rare pour la saison",
+    "n_sources": 4,
+    "n_mots": 684,
+    "titre_rss": "Sécheresse : malgré le retour de la pluie, 37 départements toujours en situation de crise",
+    "matiere_faits_distincts": 901,
+    "matiere_redondance": 0.01,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "canicules-marines-2026-biodiversite-pression-record",
+    "statut": "rejete_qualite",
+    "date": "2026-11-25T00:15:59",
+    "problemes_initiaux": 5,
+    "tentatives": 3,
+    "problemes_restants": 5,
+    "bloquants_restants": 1,
+    "bloquants_types": [
+      "chiffre_errone"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [3] (Assemblée nationale) indique un coût de 0,1 point de PIB pour l'ensemble 2022-2026, pas pour la seule année 2026.",
+        "phrase": "L'Assemblée nationale a présenté en conclusion de sa mission d'information flash sur les coûts des aléas climatiques de l'été 2026 (canicule, sécheresse, incendies) que ces aléas pèseraient à hauteur d'environ 0,1 point "
+      }
+    ],
+    "types_restants": [
+      "chiffre_errone",
+      "source_inventee",
+      "source_inventee",
+      "contexte_hors_sujet",
+      "section_gonflee"
+    ],
+    "article_type": "actu",
+    "titre": "Canicules marines record en 2026 : la biodiversité sous pression",
+    "n_sources": 5,
+    "n_mots": 555,
+    "titre_rss": "La biodiversité face aux canicules marines",
+    "matiere_faits_distincts": 959,
+    "matiere_redondance": 0.12,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "ebola-bundibugyo-essai-obeldesivir-prophylaxie-post-exposition-rdc",
+    "statut": "rejete_sensible",
+    "date": "2026-11-25T00:20:21",
+    "problemes_initiaux": 22,
+    "bloc5": [
+      "niveau_preuve_insuffisant"
+    ],
+    "article_type": "actu",
+    "titre": "Ebola Bundibugyo : essai EBO-PEP sur l'obeldesivir en RDC",
+    "n_sources": 3,
+    "n_mots": 708,
+    "titre_rss": "Contre le virus Ebola, un essai évalue l’efficacité de médicaments pour empêcher la contamination chez les personnes contacts à haut risque",
+    "matiere_faits_distincts": 694,
+    "matiere_redondance": 0.01,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "etude_scientifique"
+  },
+  {
+    "slug": "mesusage-agonistes-glp1-ansm-alerte-complications-graves-deces",
+    "statut": "rejete_qualite",
+    "date": "2026-11-25T00:26:35",
+    "problemes_initiaux": 10,
+    "tentatives": 3,
+    "problemes_restants": 7,
+    "bloquants_restants": 1,
+    "bloquants_types": [
+      "chiffre_errone"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [3] (question écrite n° 17571) ne contient pas le chiffre 2,4 % ; elle mentionne seulement une prévalence de l'ordre de 1 % chez les femmes de 18-39 ans selon une étude de l'Assurance maladie, ce qui contredit ",
+        "phrase": "Parallèlement, une question écrite au gouvernement déposée le 4 août 2026 précise que le mésusage atteint 2,4 % chez les femmes de moins de quarante ans"
+      }
+    ],
+    "types_restants": [
+      "chiffre_errone",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "compteur_incoherent"
+    ],
+    "article_type": "actu",
+    "titre": "Mésusage des anti-obésité GLP-1 : l'ANSM alerte sur des complications graves et un décès",
+    "n_sources": 4,
+    "n_mots": 626,
+    "titre_rss": "L’alerte des pharmacologues sur les médicaments anti-obésité GLP-1 détournés : \"Il est extrêmement imprudent d’en acheter sur Internet\"",
+    "matiere_faits_distincts": 740,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "rapport"
+  },
+  {
+    "slug": "russie-soupconnee-lancement-arme-nucleaire-espace-fin-2026",
+    "statut": "rejete_qualite",
+    "date": "2026-11-25T00:43:15",
+    "problemes_initiaux": 8,
+    "tentatives": 3,
+    "problemes_restants": 14,
+    "bloquants_restants": 3,
+    "bloquants_types": [
+      "chiffre_errone",
+      "incoherence_inter_sections",
+      "annonce_perimee"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "chiffre_errone",
+        "description": "La source [5] est datée du 24 novembre 2026 ; \"d'ici la fin de l'année 2026\" signifie dans le mois qui suit, or le chapeau (source [1]) dit \"d'ici la fin de l'année\" sans année, ce qui, lu au moment de la publication de ",
+        "phrase": "Le quotidien 20 Minutes, dans un article daté du 24 novembre 2026, précise que ce lancement pourrait avoir lieu d'ici la fin de l'année 2026 [5]."
+      },
+      {
+        "bloc": 1,
+        "type": "incoherence_inter_sections",
+        "description": "Le résumé cite une échéance \"fin 2026\" (source [5] datée nov. 2026) alors que le premier point du résumé (source [1] \"moins de 24 h\") parle de \"fin de l'année\" sans année, sous-entendant 2025. L'article ne signale pas ce",
+        "phrase": "Le quotidien 20 Minutes, dans un article daté du 24 novembre 2026, évoque quant à lui une échéance possible d'ici la fin de l'année 2026."
+      },
+      {
+        "bloc": 1,
+        "type": "annonce_perimee",
+        "description": "La source [1] est datée de \"moins de 24 heures\" (donc ~2025) et annonce un lancement \"d'ici la fin de l'année\" (2025). La source [5], publiée un an plus tard (nov. 2026), reporte l'échéance à fin 2026. L'article présente",
+        "phrase": "Selon des informations relayées par France Info (article daté de moins de 24 heures), la Russie serait prête à lancer d'ici la fin de l'année un satellite équipé d'une charge nucléaire, sans que l'année ne soit explicite"
+      }
+    ],
+    "types_restants": [
+      "chiffre_errone",
+      "incoherence_inter_sections",
+      "annonce_perimee",
+      "redondance",
+      "redondance",
+      "redondance",
+      "redondance",
+      "redondance",
+      "source_derivee_comptee_comme_primaire",
+      "source_derivee_comptee_comme_primaire",
+      "source_derivee_comptee_comme_primaire",
+      "compteur_incoherent",
+      "section_gonflee",
+      "section_gonflee"
+    ],
+    "article_type": "actu",
+    "titre": "La Russie soupçonnée de préparer un lancement nucléaire orbital pour fin 2026",
+    "n_sources": 4,
+    "n_mots": 465,
+    "titre_rss": "La Russie soupçonnée de vouloir placer une arme nucléaire dans l'espace",
+    "matiere_faits_distincts": 461,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "salome-nashed-postdoctorante-museum-cree-vijb-acces-donnees-genomiques",
+    "statut": "rejete_qualite",
+    "date": "2026-11-25T00:50:34",
+    "tentative": 3,
+    "angle_insuffisant": true,
+    "raison": "Aucune phrase dans la section 'faits' ne mentionne l'événement déclencheur annoncé par le titre et l'angle (la création du logiciel VIJB par Salomé Nashed). Le texte ne fait qu'expliquer le contexte général du handicap dans l'enseignement supérieur sans jamais dire ce qui vient de se passer, quand, ni quelle donnée propre à cet événement est établie.",
+    "article_type": "actu",
+    "titre": "Salomé Nashed, postdoctorante au Muséum, crée VIJB pour accéder aux données génomiques",
+    "n_sources": 3,
+    "n_mots": 635,
+    "titre_rss": "Handicap dans l’enseignement supérieur et la recherche, entre adaptations individuelles et nécessaires transformations institutionnelles",
+    "matiere_faits_distincts": 987,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "livret-a-retraits-nets-10-milliards-euros-janvier-2026",
+    "statut": "rejete_sensible",
+    "date": "2026-11-25T01:10:22",
+    "problemes_initiaux": 9,
+    "tentative": 3,
+    "bloc5": true,
+    "article_type": "actu",
+    "titre": "Livret A : près de 10 milliards d'euros de retraits nets depuis janvier",
+    "n_sources": 5,
+    "n_mots": 452,
+    "titre_rss": "Depuis janvier, les Français ont retiré de leur livret A près de 10 milliards d'euros de plus qu'ils n'en ont déposé",
+    "matiere_faits_distincts": 734,
+    "matiere_redondance": 0.01,
+    "matiere_donnees_chiffrees": 2,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "bepicolombo-orbite-mercure-huit-ans-voyage",
+    "statut": "corrige_automatiquement",
+    "date": "2026-11-25T01:24:43",
+    "problemes_initiaux": 4,
+    "tentatives": 1,
+    "problemes_residuels_style": 0,
+    "rapport_initial": {
+      "conforme": false,
+      "sujet_sensible": false,
+      "sujet_sensible_raison": "",
+      "angle_insuffisant": false,
+      "angle_insuffisant_raison": "",
+      "nature_contenu": "actualite_factuelle",
+      "problemes": [
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "source_inventee",
+          "phrase_exacte": "Santa Martinez, responsable de la mission à l'ESA, a indiqué que la mission doit \"offrir à l'humanité et à la communauté scientifique des vues inédites de Mercure et ouvrir un nouveau chapitre dans notre compréhension du Système solaire\" [3].",
+          "explication": "Le nom \"Santa Martinez\" n'apparaît dans aucune des trois sources autorisées ; la citation qui lui est attribuée n'est pas non plus présente dans les extraits fournis."
+        },
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "chiffre_errone",
+          "phrase_exacte": "Le coût total de la mission s'élève à environ 1,6 milliard d'euros, partagés entre l'ESA et la JAXA.",
+          "explication": "Aucune des trois sources ne mentionne le coût total de la mission ni la répartition financière entre l'ESA et la JAXA ; le chiffre est donc non sourcé."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "chiffre_errone",
+          "phrase_exacte": "Le coût total de la mission s'élève à environ 1,6 milliard d'euros, partagés entre l'ESA et la JAXA.",
+          "explication": "Même problème que ci-dessus : le coût de 1,6 milliard d'euros n'est attesté par aucune source autorisée."
+        },
+        {
+          "bloc": 2,
+          "section": "faits",
+          "type": "compteur_incoherent",
+          "phrase_exacte": "nb_sources: 3",
+          "explication": "Le champ nb_sources indique 3, mais la section \"faits\" n'utilise que les sources [2] et [3] (source [1] n'est jamais citée dans les faits) ; le compteur ne reflète pas le nombre de sources distinctes effectivement employées dans le corps principal."
+        }
+      ]
+    },
+    "article_type": "actu",
+    "titre": "BepiColombo entre en orbite autour de Mercure après huit ans de voyage",
+    "n_sources": 3,
+    "n_mots": 600,
+    "titre_rss": "Les mystères de Mercure, l’étrange planète du Système solaire, que la mission BepiColombo devrait lever",
+    "matiere_faits_distincts": 818,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "cop31-echec-antalya-depassement-1-5-degres-rechauffement",
+    "statut": "corrige_automatiquement",
+    "date": "2026-11-25T01:31:33",
+    "problemes_initiaux": 8,
+    "tentatives": 1,
+    "problemes_residuels_style": 11,
+    "rapport_initial": {
+      "conforme": false,
+      "sujet_sensible": false,
+      "sujet_sensible_raison": "",
+      "angle_insuffisant": false,
+      "angle_insuffisant_raison": "",
+      "nature_contenu": "actualite_factuelle",
+      "problemes": [
+        {
+          "bloc": 1,
+          "section": "faits",
+          "type": "chiffre_errone",
+          "phrase_exacte": "Rockström rappelle que la priorité absolue reste la réduction des émissions mondiales de 6 % par an pour limiter la durée et l'ampleur du dépassement du seuil de 1,5 °C [4].",
+          "explication": "La source [4] (Le Monde) cite Johan Rockström indiquant une réduction nécessaire de 7 % par an, et non 6 % par an comme écrit dans l'article."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "chiffre_errone",
+          "phrase_exacte": "Le premier Bilan mondial (Global Stocktake) achevé à Dubaï avait permis d'adopter l'objectif de tripler les capacités renouvelables et de doubler l'efficacité énergétique d'ici 2030 [4].",
+          "explication": "La source [4] ne mentionne pas l'objectif de tripler les capacités renouvelables ni de doubler l'efficacité énergétique ; ces éléments ne figurent pas dans l'extrait fourni."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "Une initiative volontaire de \"feuille de route mondiale sur les combustibles fossiles\" (TAFF), lancée en avril 2026 à Santa Marta par la Colombie et les Pays-Bas, alimente le processus de la COP31 sans toutefois imposer d'engagements contraignants de sortie des fossiles [2].",
+          "explication": "La source [2] (Europa) est un briefing du Parlement européen sur la conférence de Santa Marta, mais l'extrait fourni ne mentionne ni le nom \"TAFF\", ni une initiative lancée par la Colombie et les Pays-Bas, ni le fait qu'elle \"alimente le processus de la COP31\"."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "Parallèlement, le Groupe d'experts intergouvernemental sur l'évolution du climat (GIEC) fait face à des tensions sur le calendrier de ses prochains rapports : plusieurs pays vulnérables réclament leur finalisation à temps pour le second Bilan, tandis que la Russie, l'Arabie saoudite et la Chine jugent le calendrier trop compressé [4].",
+          "explication": "La source [4] (Le Monde) ne contient aucune information sur des tensions au sein du GIEC concernant le calendrier de ses rapports, ni sur les positions de la Russie, de l'Arabie saoudite et de la Chine à ce sujet."
+        },
+        {
+          "bloc": 1,
+          "section": "contexte",
+          "type": "source_inventee",
+          "phrase_exacte": "Le chef de l'ONU Climat Simon Stiell a averti qu'il ne restait \"deux ans\" pour transformer les cibles du premier bilan en progrès concrets [4].",
+          "explication": "La source [4] ne cite pas Simon Stiell et ne contient pas cette déclaration sur un délai de \"deux ans\"."
+        },
+        {
+          "bloc": 1,
+          "section": "nuances",
+          "type": "source_inventee",
+          "phrase_exacte": "Les 21 points de désaccord identifiés en milieu de semaine à Antalya — adaptation, financement, atténuation, transition juste — n'ont pas été résolus [4].",
+          "explication": "La source [4] ne mentionne pas un chiffre de \"21 points de désaccord\" ni cette liste thématique précise."
+        },
+        {
+          "bloc": 1,
+          "section": "nuances",
+          "type": "source_inventee",
+          "phrase_exacte": "Le calendrier du GIEC pour le second Bilan mondial reste incertain, ce qui pourrait affecter la base scientifique disponible pour les décisions de 2028 [4].",
+          "explication": "La source [4] ne traite pas du calendrier du GIEC ni de son impact sur le second Bilan mondial."
+        },
+        {
+          "bloc": 2,
+          "section": "contexte",
+          "type": "compteur_incoherent",
+          "phrase_exacte": "\"nb_sources\": 4",
+          "explication": "Le champ nb_sources indique 4, mais les sources [2] et [4] sont utilisées pour affirmer des faits qu'elles ne contiennent pas (source_inventee), ce qui fausse le comptage des sources réellement vérifiables et utilisées."
+        }
+      ]
+    },
+    "article_type": "actu",
+    "titre": "COP31 : l'échec d'Antalya laisse le monde face au dépassement de 1,5 °C",
+    "n_sources": 4,
+    "n_mots": 727,
+    "titre_rss": "« L’échec de la COP31 envoie un signal positif : le monde prend les risques et la science au sérieux », estime le scientifique suédois Johan Rockström",
+    "matiere_faits_distincts": 833,
+    "matiere_redondance": 0.11,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "poissons-intestins-co2-universite-miami-decouverte",
+    "statut": "rejete_qualite",
+    "date": "2026-11-25T01:45:50",
+    "problemes_initiaux": 11,
+    "tentatives": 3,
+    "problemes_restants": 18,
+    "bloquants_restants": 10,
+    "bloquants_types": [
+      "niveau_preuve_insuffisant",
+      "niveau_preuve_insuffisant",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee"
+    ],
+    "bloquants_detail": [
+      {
+        "bloc": 1,
+        "type": "niveau_preuve_insuffisant",
+        "description": "L'article présente une découverte scientifique sans indiquer le stade de la recherche (préclinique, observationnelle, modélisation) ni citer la publication originale dans une revue à comité de lecture, alors que la sourc",
+        "phrase": "Selon le billet radio de France Info, des chercheurs de l'université de Miami ont identifié que les intestins des poissons produisent des « étranges petites pierres », identifiées comme des cristaux de carbonate de calci"
+      },
+      {
+        "bloc": 1,
+        "type": "niveau_preuve_insuffisant",
+        "description": "L'article admet lui-même l'absence de publication peer-reviewed et de DOI, confirmant que le niveau de preuve est insuffisant pour présenter ces résultats comme une découverte établie ; or le titre, le résumé et les fait",
+        "phrase": "Le billet de France Info ne cite pas de publication dans une revue à comité de lecture ni de DOI, ce qui empêche de vérifier la méthodologie exacte, l'effectif d'espèces testées et la reproductibilité des mesures [1]. Le"
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "Le renvoi [1] attribue ce fait à la source France Info, mais les extraits fournis pour cette source ne contiennent pas la citation « étranges petites pierres » ni la mention explicite de l'université de Miami ; le fait n",
+        "phrase": "Selon le billet radio de France Info, des chercheurs de l'université de Miami ont identifié que les intestins des poissons produisent des « étranges petites pierres », identifiées comme des cristaux de carbonate de calci"
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "Le renvoi [1] est censé appuyer ces affirmations précises (espèces de téléostéens, transformation du bicarbonate, cristaux coulant vers les fonds, contrebalancement de l'acidification), mais les extraits de la source Fra",
+        "phrase": "Ce processus intestinal, observé chez plusieurs espèces de téléostéens, transforme le bicarbonate présent dans l'eau de mer en carbonate solide que les poissons excrètent [1]. Ces cristaux, en coulant vers les fonds mari"
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "La source [1] (France Info) ne contient pas, dans les extraits fournis, l'affirmation explicite que l'équipe de Miami qualifie cette production de « composante du cycle du carbone » ni qu'elle est « mal quantifiée à l'éc",
+        "phrase": "L'équipe de Miami indique, d'après France Info, que cette production biologique représente une composante du cycle du carbone, encore mal quantifiée à l'échelle planétaire [1]."
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "Les extraits de la source [1] ne mentionnent pas l'expression « pompe biologique » attribuée aux auteurs, ni le détail physiologique selon lequel les téléostéens boivent l'eau de mer pour s'hydrater et en extraient le bi",
+        "phrase": "France Info précise que ce mécanisme, qualifié de « pompe biologique » par les auteurs, concerne les poissons téléostéens qui boivent l'eau de mer pour s'hydrater et en extraient le bicarbonate avant de le précipiter sou"
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "Le renvoi [1] (France Info) ne documente pas la littérature scientifique générale sur la pompe biologique (plancton, coquillages) ni ne confirme explicitement que la contribution des téléostéens a été « mise en lumière r",
+        "phrase": "Le rôle des organismes marins dans la pompe biologique au carbone est documenté dans la littérature scientifique, notamment via le plancton et les coquillages qui construisent leurs squelettes en carbonate de calcium [1]"
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "Les extraits de la source [1] ne contiennent pas la formulation selon laquelle ce flux « complète la compréhension du cycle du carbone » ni l'absence de « chiffrage global exploitable pour les modèles climatiques ».",
+        "phrase": "France Info rapporte que ce flux biologique complète la compréhension du cycle du carbone, sans toutefois fournir de chiffrage global exploitable pour les modèles climatiques [1]."
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "La source [1] ne fournit, dans les extraits, aucune de ces précisions quantitatives (volume global annuel, fraction atteignant les sédiments profonds vs redissolution, variabilité inter-espèces/températures/régimes) ; l'",
+        "phrase": "D'après le billet de France Info, l'étude de l'université de Miami n'indique pas le volume global de carbonate produit annuellement par l'ensemble des populations de poissons, ni la fraction qui atteint durablement les s"
+      },
+      {
+        "bloc": 2,
+        "type": "source_inventee",
+        "description": "Si l'absence de DOI et de publication peer-reviewed est un constat valide sur la source [1], l'article l'érige en limite méthodologique détaillée (méthodologie exacte, effectif d'espèces, reproductibilité) que le billet ",
+        "phrase": "Le billet de France Info ne cite pas de publication dans une revue à comité de lecture ni de DOI, ce qui empêche de vérifier la méthodologie exacte, l'effectif d'espèces testées et la reproductibilité des mesures [1]. Le"
+      }
+    ],
+    "types_restants": [
+      "niveau_preuve_insuffisant",
+      "niveau_preuve_insuffisant",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_inventee",
+      "source_derivee_comptee_comme_primaire",
+      "compteur_incoherent",
+      "redondance",
+      "redondance",
+      "redondance",
+      "contexte_hors_sujet",
+      "section_gonflee",
+      "section_gonflee"
+    ],
+    "article_type": "actu",
+    "titre": "Des chercheurs de Miami révèlent le rôle clé des intestins de poissons contre le CO2",
+    "n_sources": 4,
+    "n_mots": 474,
+    "titre_rss": "Les poissons luttent contre le CO2",
+    "matiere_faits_distincts": 987,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 1,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "etude_scientifique"
+  },
+  {
+    "slug": "proces-feminicide-sadhana-tiktokeuse-chatou-mysteres",
+    "statut": "rejete_sensible",
+    "date": "2026-11-25T01:50:14",
+    "sujet_sensible": true,
+    "raison": "L'article porte sur une affaire judiciaire pénale en cours (procès aux assises pour meurtre) visant une personne physique nommée (Harkirat S.), non définitivement jugée.",
+    "article_type": "actu",
+    "avertissements_garde_fous": [
+      "resume_repete_corps"
+    ],
+    "titre": "Harkirat S. jugé aux assises pour le féminicide de Sadhana à Chatou",
+    "n_sources": 5,
+    "n_mots": 459,
+    "titre_rss": "Chatou : malgré une « enquête remarquable », les insondables mystères du féminicide de Sadhana la tiktokeuse",
+    "matiere_faits_distincts": 790,
+    "matiere_redondance": 0.12,
+    "matiere_donnees_chiffrees": 2,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
+  },
+  {
+    "slug": "nvidia-enquete-californienne-detournement-puces-ia-chine",
+    "statut": "rejete_sensible",
+    "date": "2026-11-25T01:57:39",
+    "problemes_initiaux": 10,
+    "tentative": 1,
+    "bloc5": true,
+    "article_type": "actu",
+    "titre": "Nvidia : enquête californienne et soupçons de détournement de puces vers la Chine",
+    "n_sources": 4,
+    "n_mots": 727,
+    "titre_rss": "Derrière l’affaire Nvidia, un vaste réseau de détournement de puces d’IA au service de la Chine",
+    "matiere_faits_distincts": 1188,
+    "matiere_redondance": 0.0,
+    "matiere_donnees_chiffrees": 0,
+    "n_sources_injectees": 10,
+    "n_sources_trouvees": 10,
+    "nature_contenu": "actualite_factuelle"
   }
 ]
