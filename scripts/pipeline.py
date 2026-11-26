@@ -4771,10 +4771,40 @@ def ancrer_article(art: dict, sources_fournies: list) -> tuple[bool, list[str]]:
         if isinstance(src, dict):
             par_url[_ancrage_url(src.get("url"))] = str(src.get("snippet") or "")
     tout = " ".join(par_url.values())
+    def _domaine(u: str) -> str:
+        return u.split("/", 1)[0]
+
+    def _extrait_pour(url_art: str) -> str:
+        """Extrait de la source citée. 26/11 : sur le premier run, 94 phrases
+        étaient comparées à un texte VIDE parce que le rédacteur réécrit
+        l'adresse (paramètres, chemin raccourci, http/https). On cherche donc :
+        adresse exacte, puis l'une contenue dans l'autre, puis seule source du
+        même domaine. Une source citée qu'on ne retrouve pas du tout reste vide,
+        et ses phrases sont retirées : c'est une source que le rédacteur n'avait
+        pas reçue."""
+        u = _ancrage_url(url_art)
+        if not u:
+            return ""
+        if u in par_url:
+            return par_url[u]
+        proches = [k for k in par_url if k and (k.startswith(u) or u.startswith(k))]
+        if len(proches) == 1:
+            return par_url[proches[0]]
+        meme_domaine = [k for k in par_url if _domaine(k) == _domaine(u)]
+        if len(meme_domaine) == 1:
+            return par_url[meme_domaine[0]]
+        if meme_domaine:
+            return " ".join(par_url[k] for k in meme_domaine)
+        return ""
+
     refs = {}
     for i, src in enumerate(art.get("sources") or [], 1):
         if isinstance(src, dict):
-            refs[i] = par_url.get(_ancrage_url(src.get("url")), "")
+            refs[i] = _extrait_pour(src.get("url"))
+    _vides = [i for i, r in refs.items() if len(r) < 200]
+    if _vides:
+        journal.append(f"diagnostic : {len(_vides)}/{len(refs)} source(s) citée(s) sans extrait "
+                       f"exploitable (n° {_vides})")
 
     mots_total = mots_retires = 0
 

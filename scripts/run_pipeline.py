@@ -223,10 +223,14 @@ def _apply_showcase_format_policy(source: str) -> str:
     5 actus. Le quota d'articles longs reste inchangé : la brève n'est qu'un
     filet, pas le format par défaut.
     """
+    # 26/11 — BREVES_UNIQUEMENT=1 : le journal se concentre sur les brèves
+    # (chapeau d'une phrase + faits). Format court, donc rédigé à partir de ce
+    # que les sources disent réellement, sans matière à combler.
+    quota = "0" if os.getenv("BREVES_UNIQUEMENT", "").strip() == "1" else "max(30, nb_max)"
     source = _replace_once(
         source,
         "QUOTA_ARTICLES_LONGS = 30",
-        "QUOTA_ARTICLES_LONGS = max(30, nb_max)",
+        f"QUOTA_ARTICLES_LONGS = {quota}",
         "budget formats vitrine",
     )
     return source

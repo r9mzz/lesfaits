@@ -63,6 +63,21 @@ def test_trop_de_texte_invente_rejette_l_article():
     assert not ok and len(journal) == 2
 
 
+def test_adresse_reecrite_par_le_redacteur_retrouvee():
+    art = _art("Le procès d'Apple s'ouvrira le 17 juin 2027 [2].")
+    art["sources"][1]["url"] = "http://lemonde.fr/apple/"
+    ok, journal = ancrer_article(art, FOURNIES)
+    assert ok and "17 juin 2027" in art["corps"]["faits"]
+    assert not [j for j in journal if j.startswith("diagnostic")]
+
+
+def test_source_jamais_fournie_signalee_et_phrase_retiree():
+    art = _art("Le procès d'Apple s'ouvrira le 17 juin 2027 [2].")
+    art["sources"][1]["url"] = "https://exemple-inconnu.org/article"
+    ancrer_article(art, FOURNIES)
+    assert "2027" not in art["corps"]["faits"]
+
+
 if __name__ == "__main__":
     n = 0
     for nom, fn in sorted(globals().items()):

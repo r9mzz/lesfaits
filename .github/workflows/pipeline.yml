@@ -267,6 +267,7 @@ jobs:
           # longueur. Remplacé par l'ancrage strict : la longueur suit la matière.
           ETOFFER_AU_LIEU_DE_CONVERTIR: ''
           ANCRAGE_STRICT: ${{ contains(inputs.base_url || vars.LLM_BASE_URL, 'nvidia') && '1' || '' }}
+          BREVES_UNIQUEMENT: ${{ vars.BREVES_UNIQUEMENT }}
           PYTHONIOENCODING: utf-8
           TZ: Europe/Paris
         run: |
