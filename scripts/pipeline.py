@@ -479,6 +479,22 @@ def _extraire_texte_pdf(contenu: bytes) -> str:
         return ""
 
 
+_CONTENU_ORIGINE: dict[str, str] = {}
+
+
+def _contenu_source_origine(url: str) -> str:
+    """Contenu de la source d'origine du sujet, mis en cache : `generate` est
+    appele plusieurs fois par sujet (relances), on ne rescrape pas a chaque
+    tour. Vide pour la presse protegee par droits voisins."""
+    if url not in _CONTENU_ORIGINE:
+        texte = fetch_full_content(url)
+        _CONTENU_ORIGINE[url] = texte[:8000] if len(texte) > 500 else ""
+        if not _CONTENU_ORIGINE[url]:
+            print("     [SOURCE ORIGINE] sans contenu exploitable — retiree de "
+                  "la liste citable (elle ne pourrait pas etre ancree)")
+    return _CONTENU_ORIGINE[url]
+
+
 def fetch_full_content(url: str) -> str:
     """Scrape le contenu complet d'un article depuis son URL.
     Refuse les éditeurs de presse protégés (droits voisins)."""
@@ -5148,7 +5164,17 @@ def generate(content: str, category_hint: str, extra_sources: list[dict] | None 
     # Construire la liste des URLs réelles disponibles (DuckDuckGo + flux RSS)
     real_sources: list[dict] = []
     if rss_url:
-        real_sources.append({"title": "Source RSS originale", "url": rss_url, "snippet": ""})
+        # 27/11 : la source d'origine etait offerte au redacteur AVEC UN EXTRAIT
+        # VIDE (« pas de contenu disponible »). Il la citait — c'est la source
+        # du sujet — et l'ancrage retirait ensuite chacune de ces phrases, faute
+        # de texte a confronter. Sur le run du 27/11, la source n° 1 etait en
+        # cause dans 9 des 11 diagnostics. On recupere donc son contenu comme
+        # pour les autres ; sans contenu exploitable, elle quitte la liste
+        # citable au lieu d'y rester comme un piege.
+        _snip_rss = _contenu_source_origine(rss_url)
+        if _snip_rss:
+            real_sources.append({"title": "Source RSS originale", "url": rss_url,
+                                 "snippet": _snip_rss})
     if extra_sources:
         real_sources.extend(extra_sources)
 
