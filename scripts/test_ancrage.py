@@ -5,7 +5,7 @@ import sys
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 os.environ.setdefault("GROQ_API_KEY", "x")
-from pipeline import ancrer_article  # noqa: E402
+from pipeline import ancrer_article, _apparier_source_fournie, SEUILS_FORMAT  # noqa: E402
 
 CNRS = ("Les phosphatières du Quercy, dans le Lot, forment un ensemble d'environ 200 gouffres "
         "qui livrent depuis 60 ans des fossiles de milliers d'animaux disparus. La conservation "
@@ -105,6 +105,30 @@ def test_chiffre_faux_reste_bloque_hors_reference():
     art = _art("La plainte de HOP visait 450 pièces détachées [2].")
     ancrer_article(art, FOURNIES)
     assert "450" not in art["corps"]["faits"]
+
+
+def test_url_reecrite_par_le_redacteur_est_appariee():
+    """Run du 27/11 : des breves annoncees a « 0 source(s) citee(s) » alors que
+    8 sources reelles avaient ete injectees. L'URL renvoyee devait etre
+    IDENTIQUE a celle fournie ; le redacteur retire les parametres de suivi."""
+    fournies = {"https://www.lemonde.fr/apple?xtor=RSS",
+                "https://images.cnrs.fr/actualites/quercy"}
+    assert _apparier_source_fournie("http://lemonde.fr/apple",
+                                    fournies) == "https://www.lemonde.fr/apple?xtor=RSS"
+    assert _apparier_source_fournie("https://images.cnrs.fr/actualites/quercy/",
+                                    fournies) == "https://images.cnrs.fr/actualites/quercy"
+
+
+def test_url_d_une_source_jamais_fournie_n_est_pas_appariee():
+    fournies = {"https://www.lemonde.fr/apple?xtor=RSS"}
+    assert _apparier_source_fournie("https://exemple-inconnu.org/article", fournies) == ""
+    assert _apparier_source_fournie("", fournies) == ""
+
+
+def test_une_breve_exige_deux_sources_citees():
+    """Decision du 27/11 : 2, jamais 1 — une seule source, c'est reprendre le
+    cadrage d'un media sans contrepoint."""
+    assert SEUILS_FORMAT["breve"]["sources"] == 2
 
 
 if __name__ == "__main__":

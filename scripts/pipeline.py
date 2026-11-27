@@ -2734,14 +2734,14 @@ Format obligatoire :
     {"institution": "Nom exact institution", "titre": "Titre exact publication ou rapport", "date": "Date précise", "url": "URL FOURNIE DANS LES SOURCES DISPONIBLES UNIQUEMENT — sinon null"}
   ],
   "categorie": "science|economie|societe|tech|environnement|sante",
-  "nb_sources": 3,
+  "nb_sources": 2,
   "positions": {"verifie": false, "label_gauche": "", "label_droite": "", "acteurs": []}
 }
 
 RÈGLES ABSOLUES — toute violation = brève rejetée :
 1. "contexte" et "nuances" DOIVENT être des chaînes VIDES (""). N'écris rien dedans, sous aucun prétexte. Si tu as de la matière historique ou des limites méthodologiques à exposer, c'est que le sujet méritait un article complet — ce n'est pas le format demandé ici, ignore cette matière.
 2. "positions" est TOUJOURS {"verifie": false, ...} avec "acteurs": []. Une brève ne met jamais en scène un débat.
-3. MINIMUM 3 sources distinctes et citables, toutes issues de SOURCES DISPONIBLES. Si tu ne peux pas atteindre 3 sources réelles : réponds uniquement HORS_PERIMETRE
+3. MINIMUM 2 sources distinctes et citables, toutes issues de SOURCES DISPONIBLES — deux au moins, parce qu'un fait rapporté par un seul média, c'est son cadrage que tu reprends. Si tu ne peux pas atteindre 2 sources réelles : réponds uniquement HORS_PERIMETRE. Au-delà de 2, cite toutes celles qui apportent un fait.
 4. Chaque donnée chiffrée doit PROVENIR d'une source listée et être COUVERTE par une attribution — celle de tête suffit (règle 6), il n'est pas demandé d'en remettre une à chaque phrase. Aucun chiffre qui ne figure pas dans les extraits fournis. JAMAIS d'URL dans le corps.
 5. RÈGLE D'ATTRIBUTION : n'écris "Selon [Institution]" que si le fait attribué figure LITTÉRALEMENT dans l'extrait CONTENU fourni pour cette institution. Ne jamais citer une institution absente de SOURCES DISPONIBLES, même si tu la connais.
 6. ATTRIBUTION GROUPÉE EN TÊTE — règle de forme la plus importante de ce format. Une brève cite 3 à 10 sources en 150 mots : si tu attribues phrase par phrase, le lecteur lit une liste de médias au lieu de lire les faits. Procède donc ainsi, dans cet ordre :
@@ -3264,7 +3264,13 @@ SEUILS_FORMAT = {
     # ⚠ Ce n'est PAS le correctif de fond : même finançables, les articles
     # échouent sur le sujet et la matière, pas sur la longueur.
     "article": {"cible": 600, "plancher": 350, "sources": 3},
-    "breve":   {"cible": 130, "plancher": 100, "sources": 3},
+    # 27/11 — sources: 3 -> 2. Sur 36 breves generees, 11 faisaient 100 a 173
+    # mots et n'etaient rejetees que sur ce compte. Exiger 3 attributions dans
+    # 130 mots forcait a repartir un fait unique entre trois sources, c'est-a-
+    # dire le remplissage qu'on veut supprimer. 2 reste le minimum : avec une
+    # seule source, le journal reprend le cadrage de ce media sans aucun
+    # contrepoint, ce qui n'est pas neutre meme quand chaque phrase est exacte.
+    "breve":   {"cible": 130, "plancher": 100, "sources": 2},
 }
 
 
@@ -4749,6 +4755,33 @@ def _ancrage_url(u: str) -> str:
     return u.rstrip("/")
 
 
+def _apparier_source_fournie(url: str, urls_fournies) -> str:
+    """Retrouve l'adresse FOURNIE que designe `url`, reecrite par le redacteur.
+
+    Meme regle que l'ancrage : adresse normalisee identique, puis l'une
+    contenue dans l'autre, puis seule adresse du meme domaine. Retourne
+    l'adresse canonique, ou "" si elle ne correspond a aucune source fournie —
+    auquel cas la source doit rester ecartee."""
+    if not url:
+        return ""
+    cible = _ancrage_url(url)
+    if not cible:
+        return ""
+    index = {}
+    for u in urls_fournies or []:
+        index.setdefault(_ancrage_url(u), u)
+    if cible in index:
+        return index[cible]
+    proches = [k for k in index if k and (k.startswith(cible) or cible.startswith(k))]
+    if len(proches) == 1:
+        return index[proches[0]]
+    dom = cible.split("/", 1)[0]
+    meme_domaine = [k for k in index if k.split("/", 1)[0] == dom]
+    if len(meme_domaine) == 1:
+        return index[meme_domaine[0]]
+    return ""
+
+
 def _ancrage_nombres(phrase: str) -> list[str]:
     t = re.sub(r"(?<=\d)[  \xa0.](?=\d{3}\b)", "", phrase)
     # 27/11 : on ecarte les nombres colles a des lettres ou pris dans une
@@ -5930,6 +5963,19 @@ def generate(content: str, category_hint: str, extra_sources: list[dict] | None 
             path = urlparse(url).path.rstrip("/") if url else ""
             if not _est_source_citables(url):
                 continue  # marchand/social — jamais une source, quel que soit le chemin d'entrée
+            # 27/11 : l'URL renvoyee par le redacteur devait etre IDENTIQUE a
+            # celle fournie, or il la reecrit (parametres de suivi retires,
+            # http/https, chemin raccourci). Toute source non reconnue etait
+            # silencieusement retiree de la liste : d'ou les breves annoncees a
+            # « 0 source(s) citee(s) » ou « 1 source » alors que 8 sources
+            # reelles avaient ete injectees. Meme appariement tolerant que
+            # l'ancrage, et on retablit l'adresse canonique.
+            _canon = _apparier_source_fournie(url, real_urls)
+            if _canon and _canon != url:
+                url = _canon
+                src = dict(src)
+                src["url"] = _canon
+                path = urlparse(url).path.rstrip("/")
             if url in real_urls and len(path) > 3 and urlparse(url).scheme in ("http", "https"):
                 src = dict(src)
                 src["institution"] = real_title_by_url.get(url, src.get("institution", ""))
