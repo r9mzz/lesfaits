@@ -78,6 +78,35 @@ def test_source_jamais_fournie_signalee_et_phrase_retiree():
     assert "2027" not in art["corps"]["faits"]
 
 
+def test_nom_du_media_cite_ne_fait_pas_retirer_la_phrase():
+    """Run du 26/11 : « Selon Le Monde, … » retiree pour « nom absent de la
+    source : Monde ». Le prompt EXIGE cette attribution, et un journal ne se
+    nomme pas dans son propre article : le controle punissait notre regle."""
+    art = _art("Selon Le Monde, le procès d'Apple s'ouvrira le 17 juin 2027 [2].")
+    ok, journal = ancrer_article(art, FOURNIES)
+    assert ok and not journal, journal
+    assert "Le Monde" in art["corps"]["faits"]
+
+
+def test_le_nom_du_media_exempte_ne_couvre_pas_les_autres_noms():
+    art = _art("Selon Le Monde, le procès d'Apple s'ouvrira à Bordeaux le 17 juin 2027 [2].")
+    ancrer_article(art, FOURNIES)
+    assert "Bordeaux" not in art["corps"]["faits"]
+
+
+def test_numero_de_dossier_n_est_pas_un_chiffre_a_verifier():
+    """« T-340/16 » etait lu comme le nombre 340, declare absent de la source."""
+    art = _art("Le procès s'ouvrira le 17 juin 2027 dans la procédure T-340/16 [2].")
+    ok, journal = ancrer_article(art, FOURNIES)
+    assert ok and not journal, journal
+
+
+def test_chiffre_faux_reste_bloque_hors_reference():
+    art = _art("La plainte de HOP visait 450 pièces détachées [2].")
+    ancrer_article(art, FOURNIES)
+    assert "450" not in art["corps"]["faits"]
+
+
 if __name__ == "__main__":
     n = 0
     for nom, fn in sorted(globals().items()):

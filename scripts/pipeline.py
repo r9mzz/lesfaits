@@ -4701,6 +4701,12 @@ def _mise_en_forme_vitrine(art: dict) -> list[str]:
 # Une phrase non ancrée est SUPPRIMÉE ; au-delà de 25 % du texte supprimé,
 # l'article est rejeté. Opt-in : ANCRAGE_STRICT=1.
 ANCRAGE_STRICT = (os.getenv("ANCRAGE_STRICT", "") or "").strip() == "1"
+# Journal en breves uniquement : une breve trop courte est REJETEE, jamais
+# etoffee. Le run du 26/11 montrait l'inverse a l'oeuvre — « 86 mots au lieu de
+# 130 minimum — relance d'etoffement… », puis « 148 mots », puis 7 phrases
+# retirees par l'ancrage : le plancher forcait exactement le remplissage qu'on
+# voulait supprimer.
+BREVES_UNIQUEMENT = (os.getenv("BREVES_UNIQUEMENT", "") or "").strip() == "1"
 _ANCRAGE_SEUIL_MOTS = 0.5
 _ANCRAGE_REJET_PART = 0.25
 _MOTS_VIDES = set("""
@@ -4729,14 +4735,30 @@ def _ancrage_url(u: str) -> str:
 
 def _ancrage_nombres(phrase: str) -> list[str]:
     t = re.sub(r"(?<=\d)[  \xa0.](?=\d{3}\b)", "", phrase)
-    return [n.replace(",", ".") for n in re.findall(r"\d+(?:[.,]\d+)?", t)]
+    # 27/11 : on ecarte les nombres colles a des lettres ou pris dans une
+    # reference (« T-340/16 » lu comme 340, « COVID-19 », « 1er », « 2028-2034 »).
+    # Ce sont des identifiants, pas des donnees chiffrees : le run du 26/11
+    # rejetait des phrases exactes pour eux.
+    bord = re.compile(r"[A-Za-zÀ-ÖØ-öø-ÿ/\-]")
+    sortie = []
+    for m in re.finditer(r"\d+(?:[.,]\d+)?", t):
+        avant = t[m.start() - 1] if m.start() else " "
+        apres = t[m.end()] if m.end() < len(t) else " "
+        if bord.match(avant) or bord.match(apres):
+            continue
+        sortie.append(m.group(0).replace(",", "."))
+    return sortie
 
 
 def _ancrage_noms(phrase: str) -> list[str]:
     mots = re.findall(r"[A-ZÀ-ÖØ-Ý][\wÀ-ÖØ-öø-ÿ'’-]{2,}", phrase)
     debut = re.match(r"\W*([\wÀ-ÖØ-öø-ÿ'’-]+)", phrase)
     premier = debut.group(1) if debut else ""
-    return [m for m in mots if m != premier and len(m) >= 4]
+    # 27/11 : un jeton qui contient un chiffre est un identifiant (« T-340/16 »,
+    # « COVID-19 », « A86 »), pas un nom propre. Il etait traite comme un nom et
+    # faisait retirer des phrases exactes.
+    return [m for m in mots
+            if m != premier and len(m) >= 4 and not any(c.isdigit() for c in m)]
 
 
 def _ancrage_mots(phrase: str) -> list[str]:
@@ -4744,7 +4766,8 @@ def _ancrage_mots(phrase: str) -> list[str]:
     return [m[:6] for m in mots if m not in _MOTS_VIDES]
 
 
-def _phrase_ancree(phrase: str, reference: str) -> tuple[bool, str]:
+def _phrase_ancree(phrase: str, reference: str,
+                   noms_sources: frozenset = frozenset()) -> tuple[bool, str]:
     ref = _ancrage_norm(reference)
     if len(ref) < 200:
         return False, "source sans texte vérifiable"
@@ -4753,6 +4776,13 @@ def _phrase_ancree(phrase: str, reference: str) -> tuple[bool, str]:
         if not re.search(r"(?<![\d.])" + re.escape(n) + r"(?![\d])", ref_nombres):
             return False, f"nombre absent de la source : {n}"
     for nom in _ancrage_noms(phrase):
+        # 27/11 : le nom du media cite est exempte. Le prompt EXIGE « Selon X »
+        # avec X = nom de la source ; or un journal ne se nomme presque jamais
+        # dans le corps de son propre article. Le run du 26/11 retirait pour ce
+        # seul motif des phrases exactes (Le Monde, La Croix, Le Figaro,
+        # L'Express, Sciences et Avenir, WHO) : c'etait punir notre regle.
+        if _ancrage_norm(nom)[:6] in noms_sources:
+            continue
         if _ancrage_norm(nom)[:6] not in ref:
             return False, f"nom absent de la source : {nom}"
     mots = _ancrage_mots(phrase)
@@ -4764,8 +4794,14 @@ def _phrase_ancree(phrase: str, reference: str) -> tuple[bool, str]:
 
 
 def ancrer_article(art: dict, sources_fournies: list) -> tuple[bool, list[str]]:
-    """Supprime les phrases non ancrées dans les extraits ; False si trop."""
+    """Supprime les phrases non ancrées dans les extraits ; False si trop.
+
+    Retourne (publiable, journal). Le journal ne contient QUE des retraits de
+    phrases : les lignes d'information vont dans `diagnostics`, imprimees a
+    part — le 26/11 elles etaient comptees comme des retraits et gonflaient le
+    motif de rejet."""
     journal: list[str] = []
+    diagnostics: list[str] = []
     par_url = {}
     for src in sources_fournies or []:
         if isinstance(src, dict):
@@ -4797,14 +4833,29 @@ def ancrer_article(art: dict, sources_fournies: list) -> tuple[bool, list[str]]:
             return " ".join(par_url[k] for k in meme_domaine)
         return ""
 
+    # Noms de medias exemptes du controle des noms propres : ceux des sources
+    # fournies ET ceux cites par l'article (meme liste fermee cote prompt).
+    _noms_src = set()
+    for src in list(sources_fournies or []) + list(art.get("sources") or []):
+        if not isinstance(src, dict):
+            continue
+        nom = _media_name_from_url(src.get("url") or "", src.get("title") or "")
+        for mot in re.findall(r"[\wÀ-ÖØ-öø-ÿ'’-]{3,}", nom or ""):
+            _noms_src.add(_ancrage_norm(mot)[:6])
+        hote = _ancrage_url(src.get("url") or "").split("/", 1)[0]
+        for mot in re.split(r"[.\-]", hote):
+            if len(mot) >= 3:
+                _noms_src.add(_ancrage_norm(mot)[:6])
+    noms_sources = frozenset(_noms_src)
+
     refs = {}
     for i, src in enumerate(art.get("sources") or [], 1):
         if isinstance(src, dict):
             refs[i] = _extrait_pour(src.get("url"))
     _vides = [i for i, r in refs.items() if len(r) < 200]
     if _vides:
-        journal.append(f"diagnostic : {len(_vides)}/{len(refs)} source(s) citée(s) sans extrait "
-                       f"exploitable (n° {_vides})")
+        diagnostics.append(f"{len(_vides)}/{len(refs)} source(s) citée(s) sans extrait "
+                           f"exploitable (n° {_vides})")
 
     mots_total = mots_retires = 0
 
@@ -4823,7 +4874,7 @@ def ancrer_article(art: dict, sources_fournies: list) -> tuple[bool, list[str]]:
                     reference = " ".join(refs.get(a, "") for a in appels)
                 else:
                     reference = tout
-                ok, motif = _phrase_ancree(sans_appels, reference)
+                ok, motif = _phrase_ancree(sans_appels, reference, noms_sources)
                 if ok:
                     gardees.append(ph)
                 else:
@@ -4844,6 +4895,8 @@ def ancrer_article(art: dict, sources_fournies: list) -> tuple[bool, list[str]]:
         art["resume"] = _filtrer(resume, "chapeau")
 
     part = (mots_retires / mots_total) if mots_total else 0.0
+    for d in diagnostics:
+        print(f"     [ANCRAGE] diagnostic : {d}")
     return part <= _ANCRAGE_REJET_PART, journal
 
 
@@ -9278,7 +9331,12 @@ def generer_article(item: dict, dry_run: bool, published: set, new_pub: set, dat
             _mots_avant = _mots_totaux(art)
             _seuil = _seuils(article_type)
             _expand_combine = None
-            if _mots_avant < _seuil["plancher"]:
+            # 27/11 : en mode breves, la relance corrective ne demande plus
+            # d'allonger. Le run du 26/11 : « trop court (91 mots) — etoffement
+            # joint », puis 148 mots, puis 7 phrases retirees par l'ancrage.
+            # On corrige les defauts, on ne fait pas combler.
+            if (_mots_avant < _seuil["plancher"]
+                    and not (BREVES_UNIQUEMENT and article_type == "breve")):
                 _perimetre = ("chapeau + faits" if article_type == "breve"
                               else "chapeau + faits + contexte + nuances")
                 _expand_combine = (
@@ -9469,6 +9527,15 @@ def generer_article(item: dict, dry_run: bool, published: set, new_pub: set, dat
         # reste 350 mots et 3 sources, exactement comme avant. Seul change le
         # moment où l'on dépense un aller-retour Groq.
         SEUIL_RELANCE_MOTS = MIN_MOTS_CORPS - TOLERANCE_MOTS  # 350
+        if (BREVES_UNIQUEMENT and article_type == "breve"
+                and (mots < SEUIL_RELANCE_MOTS or nb_src < MIN_SOURCES)):
+            # Pas d'etoffement en mode breves : la longueur suit la matiere.
+            # Sous le plancher, la matiere manque — on rejette au lieu de faire
+            # combler, puisque c'est en comblant que le redacteur inventait.
+            print(f"     [REJET MATIÈRE] Brève de {mots} mots, {nb_src} source(s) citée(s) "
+                  f"(plancher {SEUIL_RELANCE_MOTS} mots, {MIN_SOURCES} sources) — "
+                  "les sources ne donnent pas la matière, aucun étoffement")
+            return False
         if mots < SEUIL_RELANCE_MOTS or nb_src < MIN_SOURCES:
             manque_mots = max(0, MIN_MOTS_CORPS - mots)
             manque_src = max(0, MIN_SOURCES - nb_src)
