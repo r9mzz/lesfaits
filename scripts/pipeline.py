@@ -4842,7 +4842,8 @@ def _phrase_ancree(phrase: str, reference: str,
     return True, ""
 
 
-def ancrer_article(art: dict, sources_fournies: list) -> tuple[bool, list[str]]:
+def ancrer_article(art: dict, sources_fournies: list,
+                   contenu_origine: str = "", url_origine: str = "") -> tuple[bool, list[str]]:
     """Supprime les phrases non ancrées dans les extraits ; False si trop.
 
     Retourne (publiable, journal). Le journal ne contient QUE des retraits de
@@ -4855,6 +4856,20 @@ def ancrer_article(art: dict, sources_fournies: list) -> tuple[bool, list[str]]:
     for src in sources_fournies or []:
         if isinstance(src, dict):
             par_url[_ancrage_url(src.get("url"))] = str(src.get("snippet") or "")
+    # 28/11 : l'article d'origine du sujet est injecte dans le prompt comme
+    # CONTENU principal, meme quand la presse protegee interdit de le scraper
+    # pour en faire une source citable. Le redacteur ecrit donc legitimement a
+    # partir de lui — il faut le confronter a ce texte-la aussi, sinon chaque
+    # fait de l'evenement lui-meme devient « absent des sources ». L'ancrage
+    # doit porter sur TOUT ce que le redacteur a recu, pas seulement sur ce
+    # qu'il avait le droit de citer.
+    _org = str(contenu_origine or "")
+    if len(_org) >= 200:
+        _cle_org = _ancrage_url(url_origine)
+        if _cle_org and _cle_org not in par_url:
+            par_url[_cle_org] = _org
+        elif not _cle_org:
+            par_url["__origine__"] = _org
     tout = " ".join(par_url.values())
     def _domaine(u: str) -> str:
         return u.split("/", 1)[0]
@@ -5956,12 +5971,20 @@ def generate(content: str, category_hint: str, extra_sources: list[dict] | None 
     }
     if "sources" in art:
         verified = []
+        # 28/11 — MESURE, pas un reglage : les breves sortent a « 1 source
+        # citee » alors que 8 sources reelles sont injectees, et on ne sait pas
+        # si le redacteur n'en renvoie qu'une ou si ce filtre ecarte les autres.
+        # On journalise donc ce qui entre, ce qui sort et POURQUOI, avant de
+        # toucher a quoi que ce soit.
+        _ecartees: list[str] = []
         for src in art["sources"]:
             if not isinstance(src, dict):
+                _ecartees.append("entree non exploitable")
                 continue
             url = src.get("url") or ""
             path = urlparse(url).path.rstrip("/") if url else ""
             if not _est_source_citables(url):
+                _ecartees.append(f"domaine non citable ({url[:60]})")
                 continue  # marchand/social — jamais une source, quel que soit le chemin d'entrée
             # 27/11 : l'URL renvoyee par le redacteur devait etre IDENTIQUE a
             # celle fournie, or il la reecrit (parametres de suivi retires,
@@ -5985,6 +6008,14 @@ def generate(content: str, category_hint: str, extra_sources: list[dict] | None 
                     if headline and headline.lower() != (src.get("institution") or "").lower():
                         src["titre"] = headline
                 verified.append(src)
+            elif url not in real_urls:
+                _ecartees.append(f"adresse jamais fournie ({url[:60]})")
+            else:
+                _ecartees.append(f"adresse sans chemin exploitable ({url[:60]})")
+        print(f"     [SOURCES] le redacteur en a renvoye {len(art['sources'])}, "
+              f"{len(verified)} retenue(s) sur {len(real_urls)} fournie(s)")
+        for _motif in _ecartees:
+            print(f"     [SOURCES] ecartee — {_motif}")
         art["sources"] = verified
         art["nb_sources"] = len(verified)
 
@@ -9676,7 +9707,8 @@ def generer_article(item: dict, dry_run: bool, published: set, new_pub: set, dat
         # (`showcase_quality`) n'est PAS modifiée : seul le rédacteur reçoit une
         # chance de corriger ce qu'elle refuse. Désactivé hors fournisseur gratuit.
         if ANCRAGE_STRICT and isinstance(art, dict):
-            _ok_a, _journal_a = ancrer_article(art, extra)
+            _ok_a, _journal_a = ancrer_article(art, extra, contenu_origine=content,
+                                               url_origine=item.get("url") or "")
             for _ligne_a in _journal_a:
                 print(f"     [ANCRAGE] phrase retirée — {_ligne_a}")
             if not _ok_a:

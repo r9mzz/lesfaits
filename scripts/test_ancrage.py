@@ -131,6 +131,27 @@ def test_une_breve_exige_deux_sources_citees():
     assert SEUILS_FORMAT["breve"]["sources"] == 2
 
 
+def test_le_contenu_de_la_source_d_origine_ancre_aussi():
+    """28/11 : l'article d'origine est injecte dans le prompt comme CONTENU,
+    meme quand la presse protegee interdit d'en faire une source citable. Sans
+    lui, chaque fait de l'evenement devenait « absent des sources »."""
+    art = _art("Le confinement a été levé en fin de matinée à Gandrange.")
+    ok, journal = ancrer_article(
+        art, FOURNIES,
+        contenu_origine=("Un incendie s'est déclaré dans un entrepôt classé Seveso à "
+                         "Gandrange. Le confinement des habitants a été levé en fin de "
+                         "matinée, selon la préfecture de Moselle. ") * 3,
+        url_origine="https://www.republicain-lorrain.fr/incendie")
+    assert ok and not journal, journal
+    assert "Gandrange" in art["corps"]["faits"]
+
+
+def test_sans_contenu_d_origine_la_phrase_reste_retiree():
+    art = _art("Le confinement a été levé en fin de matinée à Gandrange.")
+    ancrer_article(art, FOURNIES)
+    assert "Gandrange" not in art["corps"]["faits"]
+
+
 if __name__ == "__main__":
     n = 0
     for nom, fn in sorted(globals().items()):
